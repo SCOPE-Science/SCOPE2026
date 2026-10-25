@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For \\(i\\ne j\\) the two special intermediary choices share the entry \\(b_{ij}\\) and jointly fail with probability \\(s_p\\); all other intermediates independently contribute \\(q_p\\). For \\(i=j\\), the loop contributes \\(1-p\\). Every joint defect event is bounded by \\(s_p^{n-4}\\) if source or target coincides, otherwise by \\(q_p^{2n-8}\\). The respective \\(O(n^3)\\) and \\(O(n^4)\\) pairs sum to \\(o(n^2q_p^n)\\), giving the sharp Bonferroni estimate. Diagonal and multiple-defect tails are lower order; the nonsmooth probability \\(2n(1-p)^n\\) is negligible because \\(1-p<q_p\\). Independently computed Boolean squares confirm exact finite expectations and counts for \\(1\\le n\\le4\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moon and Moser, Almost all (0,1)-matrices are primitive (1966) is the historically closest same-model paper, with its reported exponent-two consequence.",
+        "O'Neil, Asymptotics in random (0,1)-matrices (1970) accessible abstract specifies permanents and does not supply this law.",
+        "Shitov 2024 uses asymptotically universal independent Boolean products but analyzes prime elements and generators."
+      ],
+      "reasoning": "General random primitive-matrix results may dominate the qualitative assertion; available descriptions do not document the leading error constant or singleton-offdiagonal shape. The original Moon–Moser paper was not inspected: potential decisive quantitative coverage remains a genuine historical risk.",
+      "searches": [
+        "\"Moon\" \"Moser\" \"primitive\" \"(0,1)\" 1966 square exponent",
+        "\"Boolean matrices\" \"exponent equal to 2\" \"almost all\" rate",
+        "\"O'Neil\" \"Asymptotics in random\" \"(0,1)-matrices\" primitive exponent"
+      ]
+    },
+    "checked_sources": [
+      "Carvalho–Martin, arXiv:2103.06012, HTML primary full text",
+      "Shitov, Almost all Boolean matrices are prime (2024), accessible HTML full text and Theorem 13",
+      "Brualdi–Ryser (1991) Section 3.5 reported exponent-two consequence of Moon–Moser (1966), secondary excerpt",
+      "O'Neil (1970) abstract, targeted background",
+      "Semantic searches of published mathematical findings for correlated Boolean-square law, multipermutations, primitive exponent 2 and random directed two-step walks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carvalho–Martin 2021, arXiv:2103.06012, defines \\(M_n\\) as all 0–1 matrices with nonempty rows/columns and studies structural Green-theoretic properties.",
+        "Shitov 2024, Theorem 13: almost all independent pairs A,B satisfy \\(AB=J\\); neither this nor the Moon–Moser qualitative theorem specifies asymptotic probability that \\(A^2\\) differs from J.",
+        "The proof explicitly isolates the same-edge dependence at intermediates i and j through \\(s_p=1-2p^2+p^3\\), which independent-product models do not capture."
+      ],
+      "reasoning": "The claimed sharp asymptotic is a stronger quantitative refinement of qualitative exponent two, and its factor \\(s_p\\) reflects correlated self-multiplication. The prior implications are sufficient for the limiting yes/no statement but do not give the leading constant or conditional obstruction law.",
+      "searches": [
+        "arxiv:2103.06012 Section 4 multipermutations Boolean matrices",
+        "Shitov Almost all Boolean matrices are prime Theorem 13",
+        "random directed graph all ordered pairs length two walks exactly dense digraph common neighbors",
+        "multipermutations random products stabilization to universal relation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brualdi–Ryser (1991) Section 3.5 reports almost all random 0–1 matrices have primitive exponent 2 (qualitative equivalent to \\(A^2\\)=J at fixed uniform density).",
+        "Shitov (2024), Theorem 13, discusses \\(AB=J\\) for independent matrices A,B, not the correlated self-product \\(A^2\\).",
+        "The theorem here fixes a leading constant and a unique-defect conditional distribution, neither following by implication from a probability tending to one."
+      ],
+      "reasoning": "The classical exponent-two theorem covers the weak convergence of the square-to-universal probability to 1. This claim is consciously narrowed to its first nonvanishing exponential correction and defect structure, with no priority claim for exponent two itself.",
+      "searches": [
+        "\"almost all\" Boolean matrices \"square\" \"all ones\" random",
+        "\"primitive matrices\" \"exponent 2\" \"probability\" \"(3/4)\"",
+        "asymptotic probability Boolean self-square is universal all-ones relation random dense 0-1 matrix unique off-diagonal zero exceptional entries exponent two primitive multipermutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carvalho–Martin (2021) Section 4 treats Green relations, regularity and generating sets rather than a Boolean-square probability table.",
+        "Published mathematical findings nearest the long exact-object search concern Boolean ordered-product tuple orbits and Bernoulli singleton identifiability; neither tabulates the self-square defect law.",
+        "Direct small-n checker counts (3 of 7 at n=2, 73 of 265 at n=3, 6003 of 41503 at n=4) are independently computed, not claimed as new table data."
+      ],
+      "reasoning": "No exact tables or earlier sequence covering the proposed sharp asymptotic were located in examined sources; a database search is not a mathematical proof of uniqueness.",
+      "searches": [
+        "\"random binary matrix\" \"square\" \"all ones\" probability",
+        "random multipermutation monoid Boolean relation square equals universal relation probability leading asymptotic",
+        "random Boolean matrix Boolean square all ones exponent two absorbing zero asymptotic n squared (3/4)^n"
+      ]
+    },
+    "rationale": "The assessed claim is the explicit fixed-density leading failure equivalent, its \\(10/9\\) constant for uniform multipermutations, and the unique off-diagonal missing-pair law. Carvalho–Martin investigates the same monoid but different invariants; Moon–Moser established the qualitative almost-sure exponent-two property, which is credited and deliberately not claimed; Shitov recounts the distinct two-independent-factor product theorem. No matching sharp self-square rate or defect classification occurred in examined primary text and targeted published-finding searches. Absence of the 1966 full text remains an explicit material priority risk.",
+    "residual_risks": [
+      "Moon–Moser (1966) original paper, whose precise quantitative estimates are unverified, could have priority for the 10/9 correction or singleton-defect limit.",
+      "Related random digraph exponent/diameter literature could give a logically equivalent sharp asymptotic without using Boolean-matrix language.",
+      "Database and web search non-hits do not prove novelty; the present originality assessment is best knowledge, not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING assessed quantitative claim; establishes same monoid and structural background.",
+        "evidence": [
+          "Definition M_n as nonempty-row-and-column Boolean matrix submonoid, Section 4 opening.",
+          "Sections 4.1–4.4 concern Green relations, regular elements, generators, blurred permutations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.06012",
+        "material_read": "Complete accessible arXiv HTML text; introduction and Section 4 including definitions, Green relations, regularity and generators.",
+        "method": "Read primary full-text semantic statements and compare their conclusions with the sharp random self-square law.",
+        "title": "The lattice and semigroup structure of multipermutations",
+        "trigger": "Exact algebraic monoid and date eligibility"
+      },
+      {
+        "assessment": "NOT_COVERING sharp correlated self-square law; cites older qualitative/pairwise results.",
+        "evidence": [
+          "Theorem 13 states almost all independent random pairs have universal Boolean product.",
+          "The final corollary addresses asymptotic generator cardinality for the entire Boolean matrix semigroup."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime",
+        "material_read": "Accessible full-text HTML rendering including introduction, Theorem 13, proof structure, and final generator-count corollary.",
+        "method": "Compared independent-pair Boolean product, prime factorization, and generators against single-matrix Boolean squaring with precise failure probability.",
+        "title": "Almost all Boolean matrices are prime",
+        "trigger": "Plausible stronger random Boolean-matrix semigroup result"
+      },
+      {
+        "assessment": "PRIORITY_RISK; known qualitative overlap, quantitative overlap unverified.",
+        "evidence": [
+          "Brualdi–Ryser reports almost all 0–1 matrices primitive with exponent equal to two.",
+          "Original Moon–Moser text not examined; no quantitative exclusion certified."
+        ],
+        "identifier_or_url": "Moon–Moser, Studia Sci. Math. Hungar. 1 (1966), 153–156",
+        "material_read": "Bibliographic record and secondary description in Brualdi–Ryser (1991), Section 3.5; original full text inaccessible in bounded attempts.",
+        "method": "Compared known reported qualitative exponent-two implication with new leading-order error law; explicitly withheld any full-text NOT_COVERING judgment.",
+        "title": "Almost all (0,1)-matrices are primitive",
+        "trigger": "Same random Boolean-square operation potentially covered by primitive exponent-two statement"
+      },
+      {
+        "assessment": "LESS_RELEVANT; full text not assessed.",
+        "evidence": [
+          "Abstract specifies first/second moments of permanent for fixed numbers of ones, rather than Boolean square products."
+        ],
+        "identifier_or_url": "Patrick Eugene O'Neil, 1970, https://scispace.com/pdf/asymptotics-in-random-0-1-matrices-19x33kwbss.pdf",
+        "material_read": "Search-indexed first-page abstract and bibliographic information only.",
+        "method": "Read the stated central objective from abstract, which concerns permanent moments; no full-text coverage claim made.",
+        "title": "Asymptotics in random (0,1)-matrices",
+        "trigger": "Possible general asymptotics in finite 0–1 matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "142a528d-d218-4978-a2ea-acbd404c7bf1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The monoid \\(M_n\\) of full-domain/full-range relations has a canonical absorbing universal element \\(J_n\\). The result quantifies first two-step absorption to a sharp exponential equivalent, identifies a unique off-diagonal exceptional relation with asymptotic conditional probability one, and explains why self-product dependence differs from two independent Boolean matrices. This is a natural asymptotic invariant and structural boundary for a complete algebra family, beyond the classical qualitative primitive exponent-two observation.",
+    "status": "PASS"
+  }
+}
