@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The self-contained `verify.py` program uses Python standard-library `fractions.Fraction`. It checks the strict two-saddle hypothesis at the rational example; exact itinerary coordinates and return of all three points; strict Jury inequalities; and formula consistency at admissible finite rational test parameters. It prints `EXACT_PERIOD3_CYCLE_AND_SCHUR_CHECKS_OK` when successful. Run `python verify.py` from the folder containing the extracted script.
+## correctness
 
-Analytically established: the universal strict admissibility and Schur-stability criterion for \(LLR\); the algebraic impossibility of a Schur-stable strict \(LRR\) orbit in the two-saddle parameter region; exclusion of homogeneous Schur-attracting primitive period-three words; and persistence of the rational witness on an open set. These are proved in `RESULT.md`, not inferred from the finite checks.
+PASS
 
-Not established: behavior at switching or eigenvalue-modulus-one boundaries; global attractor classification; existence of chaos at the rational example; publication uniqueness across all possible sources. Independent mathematical audit has not been performed.
+PASS. Independently checked three-step affine composition, explicit orbit coordinate signs, 2D Jury–Schur inequalities including critical eigenvalue boundaries, strict positive LRR obstruction numerator and saddle exclusion of same-branch cycles. Exact rational example confirms nonemptiness and open persistence, not all-parameter proof by computation.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Earlier Ghosh–McLachlan–Simpson defines same two-saddle region and examines chaos and stable other periods; Fatoyinbo–Simpson already exhibits an LLR sink outside Φ and analyzes LRR under different offset. Such existence examples are not new. No inspected result implies a necessary/sufficient all-Φ strict three-cycle criterion and LRR impossibility, but the highly relevant 2022/23 full text could not be accessed independently; documented overlap risk remains.
+
+## value
+
+PASS
+
+PASS. Sharp characterization of a locally attracting three-cycle in a natural two-saddle robust-chaos region, together with a complete primitive symbolic itinerary obstruction, is a meaningful bifurcation boundary. It does not overclaim global coexistence or an exhaustive attractor phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
