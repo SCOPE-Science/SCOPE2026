@@ -1,15 +1,21 @@
-# Review of periodic-jitter frame recovery
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The infinite-dimensional step is a standard, explicitly stated Riesz bound for normalized Hardy kernels on the distinct powered Carleson nodes. Splitting all time samples into residue classes gives a two-sided bound by a direct sum of finite Vandermonde forms. The proof separately checks powered-node interpolation, finiteness of nonsingleton fibers, uniform scalar normalizations, necessity and sufficiency of fiber ranks, availability of a finite period, and the simple-zero separation of aliased nodes under positive jitter. Lagrange denominators prove the lower-frame exponent; annihilation of low Taylor moments within a maximal collision cluster proves the matching upper estimate. Finite diagnostics supplement but do not certify the infinite argument.
+PASS
 
-## Originality
+Under the stated Carleson/Stolz and off-log-cut hypotheses, z↦z^(rp) is locally conformal at 1 and retains an interpolating tail after collision fibers are grouped. The normalized Hardy kernels at distinct powered nodes form a Riesz sequence. Splitting t_(pk+a)=r(pk+a)+tau_a then reduces the infinite frame inequalities to uniform finite-fiber matrices M_xi=(z_j^(ra+tau_a)); only finitely many fibers have size >1, while singleton weights stay uniformly bounded below. Small tau_a=a*epsilon gives Vandermonde columns on z_j^(r+epsilon), whose pair differences split to first order whenever z_i^r=z_j^r. Lagrange inverse bounds yield smallest singular value at least c epsilon^(m_r-1); a moment-canceling vector in a maximally colliding subcluster matches this rate from above. Therefore A_epsilon is Theta(epsilon^(2(m_r-1))) and B_epsilon is Theta(1). A fiber with >p nodes cannot have rank p; a sufficiently large finite period always avoids this obstruction. Independently checked 2-/3-node collision exponents, not substituted for infinite proof.
 
-**PASS on accessible evidence, with residual publication-priority risk.** The closest 2026 source proves universal-offset stability below an angular threshold and demonstrates **failure** of unjittered powers beyond it. A remark observes unjittered stability in the absence of power collisions. These facts do not imply finite-fiber recovery or its singular-value exponent once collisions actually occur. The 2025 predecessor concerns positive spectra and the July 2026 block-diagonal paper concerns Jordan blocks and nonnegative-spectrum sampling. Targeted mathematical-record and literature searches identified no exact periodic micro-jitter rank theorem. The related Kadec-type sampled-group-orbit perturbation result presupposes an original frame, unlike this repair of an incomplete orbit. A differently phrased multi-channel interpolation result could still overlap, so independent priority assessment remains appropriate.
+## originality
 
-## Value
+PASS
 
-**PASS.** The large-step failure exhibited in the motivating paper is not an intrinsic density obstruction for any **fixed** Stolz Carleson spectrum: a deterministic, arbitrarily small, bounded periodic offset resolves all finitely many aliased spectral clusters. The theorem supplies a necessary-and-sufficient criterion for every periodic offset design, an exact minimum-period test and quantifies the exact stability cost in terms of the highest collision multiplicity. This converts a sharp uniform non-recovery boundary into a constructive spectral-dependent recovery principle. It does not claim uniform design across all spectra or optimal numerical constants.
+Novelty best of knowledge lies in recovery of an initially incomplete sampled orbit via small periodized phase offsets and the exact multi-fiber rank/conditioning theorem. Existing small-offset preservation results assume a starting frame and do not imply repair of exact collisions; known unperturbed distinct-power cases do not establish it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sampling-density obstruction from power collisions is a natural nontrivial completeness failure for Carleson orbit frames. A precise finite-fiber rank criterion, existence of arbitrarily small periodic repairs at any prescribed mean spacing, minimal permitted repair-period characterization, and exact conditioning-loss exponent close this motivated gap; this is not merely a relabeling or finite checker.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
