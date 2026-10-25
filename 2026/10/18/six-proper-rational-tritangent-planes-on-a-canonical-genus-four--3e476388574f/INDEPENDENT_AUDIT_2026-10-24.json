@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T07:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix F2 and the singular quadric Q:XZ+Y²=0. A canonical smooth genus-4 section is Q intersect a homogeneous cubic in X,Y,Z,W, considered modulo multiples of Q. With nonzero W³ coefficient normalize to one, giving exactly 2^15=32768 coefficient masks; all smooth sections avoid the cone vertex. Smoothness can be checked geometrically on two affine charts by eliminating partial derivatives of w³+a(t)w²+b(t)w+c(t) and requiring gcd(D=ab+c,E=(a'b+c')²+b(b')²)=1; this detects geometric singular points, not merely F2-rational ones. Proper rational planes are all 15 F2-planes except the four vertex planes whose Q-sections split into geometric ruling lines; the remaining eleven comprise three rational tangent-to-Q planes and eight transverse planes. Ruling-tangent restriction gives a cubic; contact divisor 2D with reduced D iff cubic squarefree, discriminant AD+BC=1. A transverse plane restricts to degree-six binary form; it must be the square of a squarefree cubic, tested by vanishing odd coefficients and AD+BC=1. My independent bit-polynomial implementation scanned all 32768 masks and reproduced precisely 12288 smooth, counts (0:448,1:2392,2:4536,3:3512,4:1016,5:240,6:144). Independently rebuilt the 48 linear automorphisms of Q (6 PGL2(F2) transformations x8 W-translations) and substituted polynomials in the 16-dimensional cubic quotient; the action yields 752 total and 274 smooth orbits and precisely three size-48 orbits attaining six proper rational planes. This proves the stated maximum within this exact binary quadric-cone family, not a claim about all genus-four curves or the full algebraic-closure theta-characteristic count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General classification of genus-four curves or complex tritangents does not determine rational contact divisors restricted to 15 F2 planes and their distribution on 274 cone-model isomorphism classes."
+        ],
+        "reasoning": "Broader geometric results constrain possible tritangents but cannot imply exact q=2 orbit frequencies without local-field/explicit contact computations.",
+        "searches": [
+          "singular quadric canonical genus four theta characteristic tritangent counting",
+          "Kulkarni et al Section 1 and Section 2",
+          "Xarles 2007.07822"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.06274v2 (2018), real/complex tritangent definitions",
+        "arXiv:2007.07822, genus four F2 classification",
+        "Resultary targeted search on F2 tritangent quadric cone",
+        "Pinned cone_results.json and independently recomputed all cone orbits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: canonical genus-four smooth curves are Q intersect cubic, singular Q permits infinitely many geometric tangencies. New: for the explicitly defined finite set of proper rational planes over F2 the exact maximum is six and all maximizing orbits are classified."
+        ],
+        "reasoning": "The new statement does not assert a bound on all algebraic tritangents; restricted rational contact counting is not implied by earlier existence/census results.",
+        "searches": [
+          "Kulkarni real space sextics singular quadric tritangent 120",
+          "Xarles finite field genus four curve models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xarles enumerates low-field genus-4 curves but does not supply rational proper-plane counts. Kulkarni et al distinguish singular quadric tangency infinity and complex 120 theta convention."
+        ],
+        "reasoning": "The precise F2 proper rational-plane count has a different definition from complex 120 theta tritangents, and was verified as a new finite-field refinement.",
+        "searches": [
+          "genus four canonical curve F2 quadric cone rational tritangent planes 6 contact spectrum 274",
+          "\"genus 4\" \"tritangent\" \"quadric cone\" F2",
+          "Xarles arXiv:2007.07822 genus four F2",
+          "Kulkarni et al arXiv:1712.06274 singular quadric tritangent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published curve-count tables omit the exact proper rational tritangent distribution 448,2392,4536,3512,1016,240,144, and do not give three extremal 48-member orbits."
+        ],
+        "reasoning": "The input curve census is not the output rational-contact table; independently derived correct gcd and squarefree conditions are needed.",
+        "searches": [
+          "Xarles genus four F2 census isomorphism list",
+          "genus four canonical curve F2 quadric cone rational tritangent planes 6 contact spectrum 274"
+        ]
+      },
+      "rationale": "A rational finite-field sextic-on-singular-quadric plane-counting problem, distinct from the 120 odd-theta tritangents convention on a smooth quadric. Kulkarni–Ren–Sayyary Namin–Sturmfels arXiv:1712.06274 explicitly explain that singular quadrics possess infinitely many geometric tangent planes and adopt a different convention for the finite 120 odd-theta set; this claim instead explicitly defines proper rational F2 planes and counts them, so conflating definitions would be incorrect. Xarles arXiv:2007.07822 gives genus-four F2 curve census, not this rational plane spectrum. No exact six/274/three-extremal-orbit table appeared in these inspected primary texts. The original source-defined plane convention must remain explicit for meaningful originality.",
+      "residual_risks": [
+        "The phrase proper tritangent requires the exact plane-intersection convention; it is not a bound for all complex theta tritangents or all F2 genus-four curves.",
+        "All smooth cubic-section representatives were checked through the 16-dimensional quotient and two-chart geometric smoothness conditions; the classification is conditional on the standard canonical cone model, not an arbitrary genus-four classification theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_FIELD_AND_DEFINITION",
+          "evidence": "For singular Q geometrically infinitely many tangent planes; paper restricts to complex theta-characteristic tritangents over real field, not the finite set of proper F2 rational contact planes.",
+          "identifier_or_url": "arXiv:1712.06274v2 https://arxiv.org/pdf/1712.06274",
+          "material_read": "Primary PDF eight pages, introduction and mathematical tritangent convention, sections treating singular quadrics; first page visually inspected",
+          "method": "Read primary theorem and definition, compare field and counted invariant",
+          "title": "Real Space Sextics and their Tritangents",
+          "trigger": "Exact terminology, singular-quadric tangency and possible stronger result"
+        },
+        {
+          "assessment": "BROADER_CURVE_CENSUS_NOT_CONTACT_SPECTRUM",
+          "evidence": "No six-proper-tritangent theorem or 274 smooth quadric-cone orbit contact table in inspected paper.",
+          "identifier_or_url": "arXiv:2007.07822 https://arxiv.org/pdf/2007.07822",
+          "material_read": "Primary PDF eleven pages, classification and complete enumerative scope; page screenshot in source inspection; searched full text for tritangent",
+          "method": "Read primary statements and compare output invariant",
+          "title": "Genus four curves over the field with two elements",
+          "trigger": "Same genus-four finite field census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact tritangent contact spectrum, sharp six-plane bound, and complete optimizer-orbit classification are natural projective invariants of canonical genus-four curves over the smallest field. The calculation resolves every smooth model on a fixed canonical quadric-cone stratum, with a mathematical gcd smoothness certificate, rather than reporting an arbitrary handful of examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

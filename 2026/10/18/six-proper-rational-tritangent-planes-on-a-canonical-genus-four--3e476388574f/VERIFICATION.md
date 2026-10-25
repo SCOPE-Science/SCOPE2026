@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The main program `cone_census.py` enumerates the entire 32,768-element parameter domain (cubic sections modulo the cone equation with nonzero vertex coefficient). It tests geometric smoothness by two exact univariate gcds, contact by restriction to all fifteen rational planes, and projective equivalence by explicit automorphisms. Its expected output is `cone_results.json` with 12,288 smooth sections, 274 smooth orbits, and maximum six proper contact planes in three 48-element orbits.
+## correctness
 
-The independently coded `verify_extension.cpp` avoids the univariate gcd smoothness test: it evaluates the two-chart affine Jacobian equations over explicit finite fields of degrees one through six. The degree bound follows from the polynomial \(D\) in `RESULT.md`. A degree-at-most-six nonzero \(D\) captures every singular chart parameter; if \(D\) is zero, the factorization in the proof reduces the singular parameter candidates to factors of degree at most four. It checks plane contacts by explicit binary-form multiplication, not by the first program's bitwise sextic formula. It reproduces the full stratification recorded in `verification_counts.txt`.
+PASS
 
-The optional `verify_groebner.py` recomputes the geometric smoothness of one representative from every one of the 752 total coefficient-space orbits using Gröbner bases of the full affine Jacobian ideals over \(\mathbf F_2\). It agrees for all 752 representatives, identifying 274 smooth orbit classes. The comparison result is summarized in `groebner_agreement.txt`. This optional check requires SymPy; the first two programs require only Python 3 and a C++17 compiler.
+Fix F2 and the singular quadric Q:XZ+Y²=0. A canonical smooth genus-4 section is Q intersect a homogeneous cubic in X,Y,Z,W, considered modulo multiples of Q. With nonzero W³ coefficient normalize to one, giving exactly 2^15=32768 coefficient masks; all smooth sections avoid the cone vertex. Smoothness can be checked geometrically on two affine charts by eliminating partial derivatives of w³+a(t)w²+b(t)w+c(t) and requiring gcd(D=ab+c,E=(a'b+c')²+b(b')²)=1; this detects geometric singular points, not merely F2-rational ones. Proper rational planes are all 15 F2-planes except the four vertex planes whose Q-sections split into geometric ruling lines; the remaining eleven comprise three rational tangent-to-Q planes and eight transverse planes. Ruling-tangent restriction gives a cubic; contact divisor 2D with reduced D iff cubic squarefree, discriminant AD+BC=1. A transverse plane restricts to degree-six binary form; it must be the square of a squarefree cubic, tested by vanishing odd coefficients and AD+BC=1. My independent bit-polynomial implementation scanned all 32768 masks and reproduced precisely 12288 smooth, counts (0:448,1:2392,2:4536,3:3512,4:1016,5:240,6:144). Independently rebuilt the 48 linear automorphisms of Q (6 PGL2(F2) transformations x8 W-translations) and substituted polynomials in the 16-dimensional cubic quotient; the action yields 752 total and 274 smooth orbits and precisely three size-48 orbits attaining six proper rational planes. This proves the stated maximum within this exact binary quadric-cone family, not a claim about all genus-four curves or the full algebraic-closure theta-characteristic count.
 
-Run from the directory containing all files:
+## originality
 
-```
-python3 cone_census.py cone_results.json
-g++ -O3 -std=c++17 verify_extension.cpp -o verify_extension
-./verify_extension
-python3 verify_groebner.py
-```
+PASS
 
-These are reproducible, deterministic exact finite computations. No independent mathematical audit or external certification has been conducted. The searches of primary literature cannot establish absolute publication priority.
+A rational finite-field sextic-on-singular-quadric plane-counting problem, distinct from the 120 odd-theta tritangents convention on a smooth quadric. Kulkarni–Ren–Sayyary Namin–Sturmfels arXiv:1712.06274 explicitly explain that singular quadrics possess infinitely many geometric tangent planes and adopt a different convention for the finite 120 odd-theta set; this claim instead explicitly defines proper rational F2 planes and counts them, so conflating definitions would be incorrect. Xarles arXiv:2007.07822 gives genus-four F2 curve census, not this rational plane spectrum. No exact six/274/three-extremal-orbit table appeared in these inspected primary texts. The original source-defined plane convention must remain explicit for meaningful originality.
+
+## value
+
+PASS
+
+The exact tritangent contact spectrum, sharp six-plane bound, and complete optimizer-orbit classification are natural projective invariants of canonical genus-four curves over the smallest field. The calculation resolves every smooth model on a fixed canonical quadric-cone stratum, with a mathematical gcd smoothness certificate, rather than reporting an arbitrary handful of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
