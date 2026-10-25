@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory as the other files. Only the Python standard library is required. The output terminates with `VERIFY_OK`.
+## correctness
 
-The program independently constructs the stable-set vertices and all proposed facets of \(\operatorname{STAB}(K_{p,q})\) for the part sizes \((2,2),(2,3),(3,3),(2,4),(3,4)\). It exhausts their face intersections; for each face, it computes the exact rational rank of the primitive active normals and compares it to the face codimension. It verifies the inclusion-maximal singular faces are precisely those predicted by the three families. It also checks the bounded-degree Segre semigroup generators and the square relation of the conifold.
+PASS
 
-Sample census of (vertices, faces, singular faces, maximal singular faces): \((2,2)\to(7,51,11,5)\), \((2,3)\to(11,151,31,8)\), \((3,3)\to(15,463,87,15)\), \((2,4)\to(19,459,103,12)\), \((3,4)\to(23,1447,315,25)\).
+For STAB(K_p,q), p,q≥2, primitive facet normals are -e_i,-f_j,e_i+f_j. Their signed reduced graph incidence matrix is totally unimodular: active cone smooth iff its facet graph is a forest. Cycles avoiding the root force an upper-equality 4-cycle T_{I,J}; root cycles force one of A_i={x_i=1} or B_j={y_j=1}; converse nonsimplicial cone ranks show all are minimal component families. Facet counts are p+q+C(p,2)C(q,2). The dual saturated semigroup at A_i has degree-a Hilbert function (a+1)^q, cone over (P1)^q with Hilbert–Samuel multiplicity q!, and analogously p! at B_j; T_{I,J} has 4 primitive rays rank 3 and conifold uv−wz, multiplicity 2. Independent vertex-mask exact face and rank enumeration confirmed all predicted maximal singular strata for (2,2),(2,3),(3,3),(2,4).
 
-Finite experiments are not a proof for all parameters. The all-parameter argument rests on the graphic-incidence forest criterion, classification of cyclic active graphs, and explicit dual semigroup computations in RESULT.md. No external independent audit is represented or implied.
+## originality
+
+PASS
+
+After checking the very relevant Wagner and Friedl general projective Hibi work and Lakshmibai–Mukherjee affine results, the source’s explicit complete all-parameter minimal-stratum count and two distinct generic Segre/conifold models remain nontrivially specialized. General Wagner smoothness criterion is credited, not claimed as new; inaccessible primary detail is retained as substantial risk.
+
+## value
+
+PASS
+
+The order polytope of an ordinal sum of two antichains is a canonical all-p,q projective Hibi family. Its closed formula for all irreducible singular components and complete generic Segre versus node local models constitute a structural specialisation of general tree criteria; factorial multiplicities and the unique equidimensional boundary are reusable invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
