@@ -1,9 +1,21 @@
-# Scientific review: prime-Fibonacci seed thresholds
+# Independent mathematical audit
 
-**Correctness — PASS.** The recurrence, two-step maximum descent, and precise stopping convention are explicit. The exact census includes all 429680 ordered pairs of distinct odd primes at most 4919, with two independently implemented transition algorithms (trial division versus sieve-factor recurrence). Both yield the claimed complete 22-entry threshold prefix and exactly one length-\(23\) seed at the final ceiling. The extracted package checker is executable without external dependencies. This is a finite exact certificate, not a claim of exhaustive search over larger thresholds.
+## correctness
 
-**Originality — PASS, with residual risk.** Alm and Herald (2015, arXiv:1507.04807) established termination and arbitrarily long trajectories, but do not supply sharp initial seed-ceiling thresholds or classify the 23-term extremizers. Guy, Khovanova, and Salazar (arXiv:1207.5099) study a different subprime recurrence. Searches for optimal seeds, stopping depths, equivalent smallest-odd-divisor formulations, and the specific \((4007,4919)\) witness yielded no dominating published theorem; a privately computed or poorly indexed identical table remains possible.
+PASS
 
-**Value — PASS.** The optimal initial maximum prime for a specified survival depth is a natural quantitative invariant of this previously qualitative terminating recurrence. A complete initial sequence of sharp thresholds, including a uniquely attained 23-term extremum, supplies exact comparison targets for future bounds and algorithms and is more informative than isolated long examples. The result is finite and does not purport to give an all-length growth law.
+The recurrence starts at ordered distinct odd primes (p,q), stops when their sum is a power of two, otherwise appends its least odd prime factor. Each newly appended odd prime r divides p+q with r<= (p+q)/2 < max(p,q), so max of the ordered pair decreases after at most two transitions and trajectories terminate. Independently enumerated all 656 odd primes <=4919 and all 656*655=429680 distinct ordered seeds, using a separate prime sieve, smallest-odd-prime-factor transition and memoized depth, and reproduced 22 optimal ceiling entries M(l) for 2<=l<=23, unique depth-23 pair (4007,4919), and upper bound 22 for every preceding ceiling. This IS exhaustive for the finite seed ceiling, since any seed ceiling lower than a witnessed minimum lies within the enumerated set. It does not claim any value M(l) for l>=24 or all-prime asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.
+
+## value
+
+PASS
+
+The first exact 22 values of the natural minimal-seed ceiling needed to achieve trajectory depth l quantify prime-Fibonacci length-resource growth beyond the foundational existence/termination theorem; uniqueness of a length-23 extremal seed is a useful precise finite cutoff on a motivated recurrence, rather than arbitrary small sample statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

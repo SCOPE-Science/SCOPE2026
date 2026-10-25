@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:21:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence starts at ordered distinct odd primes (p,q), stops when their sum is a power of two, otherwise appends its least odd prime factor. Each newly appended odd prime r divides p+q with r<= (p+q)/2 < max(p,q), so max of the ordered pair decreases after at most two transitions and trajectories terminate. Independently enumerated all 656 odd primes <=4919 and all 656*655=429680 distinct ordered seeds, using a separate prime sieve, smallest-odd-prime-factor transition and memoized depth, and reproduced 22 optimal ceiling entries M(l) for 2<=l<=23, unique depth-23 pair (4007,4919), and upper bound 22 for every preceding ceiling. This IS exhaustive for the finite seed ceiling, since any seed ceiling lower than a witnessed minimum lies within the enumerated set. It does not claim any value M(l) for l>=24 or all-prime asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior existence of arbitrarily long prime trajectories is non-quantitative for seed ceiling.",
+          "Resultary result concerns Conway subprime closure of different recurrence."
+        ],
+        "reasoning": "Neither appears to imply the exact finite M(l) table through l=23.",
+        "searches": [
+          "Original Alm-Herald 2015 arXiv:1507.04807",
+          "Resultary Conway subprime closure prefix record 2026/10/4/SCOPE-the-first-prime-prefix-gap-in-conway-s-subprime-closure-occurs-a--342e7f9a7e8e"
+        ]
+      },
+      "checked_sources": [
+        "Actual Git tree afbb5db367cc337b6e6c2da80cc6bf74be8c50cc; RESULT.md 9e0e9943df1bccf2b8fb03040927f62268000003; verify.py a6e3edc2e608ab8bb858935d860ee08cb1a91174",
+        "Alm Herald arXiv:1507.04807",
+        "Guy Khovanova Salazar arXiv:1207.5099"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Termination theorem and arbitrary lengths do not exclude long trajectories at much smaller seeds.",
+          "Independent exhaustive seed enumeration supplies missing minimality."
+        ],
+        "reasoning": "The table sharpness and uniqueness do not follow without finite exhaustive classification or other bound.",
+        "searches": [
+          "Alm Herald A Note on Prime Fibonacci Sequences termination and backward extension",
+          "Guy Khovanova Salazar Conway recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alm-Herald prove termination and arbitrarily long sequences via backward construction but not sharp minimal seed ceiling for each depth.",
+          "Conway subprime Fibonacci divides a composite sum by least prime factor; prime-Fibonacci appends least odd prime factor or stops on a power of two."
+        ],
+        "reasoning": "The two recurrences and their extremal invariants are not interchangeable. Qualitative unboundedness does not determine the least maximum initial prime for depth 23.",
+        "searches": [
+          "Resultary semantic: prime Fibonacci trajectories minimum seed ceiling length 23 4919",
+          "Alm Herald A Note on Prime Fibonacci Sequences 2015",
+          "Guy Khovanova Salazar Conways Subprime Fibonacci Sequences 2012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual enumeration returns thresholds including M(23)=4919, with unique witness (4007,4919).",
+          "No matching exact ceiling table was found in checked primary paper or Resultary records."
+        ],
+        "reasoning": "The exact finite census is not claimed novel solely for being a computation; its specific global minimal-seed invariant is not in inspected prior tables. Unindexed hobbyist enumerations are residual risk.",
+        "searches": [
+          "Resultary prime-Fibonacci seed ceiling semantic search",
+          "Alm Herald 2015 examples and original recurrence description"
+        ]
+      },
+      "rationale": "No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.",
+      "residual_risks": [
+        "A prior informal OEIS/database or unpublished computation could contain the same initial seed ceilings.",
+        "The all-ordered-seed exhaustive result is strictly limited to max seed 4919 and length<=23."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SEED_CEILINGS",
+          "evidence": "Termination for distinct primes and arbitrary long trajectories were established; no threshold function M(l) or depth-23 minimality was presented.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.04807",
+          "material_read": "Full available author text for recurrence, termination, and backward-extension results; compared theorem claims and examples",
+          "method": "Read full author-posted text and referenced arXiv abstract",
+          "title": "A Note on Prime Fibonacci Sequences",
+          "trigger": "Defines exact same least-odd-factor recurrence"
+        },
+        {
+          "assessment": "INAPPLICABLE_RECURRENCE",
+          "evidence": "Next term divides composite sum by its smallest prime factor, not appending its least odd prime divisor.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.5099",
+          "material_read": "Abstract and main recurrence definition",
+          "method": "Read primary source description for rule comparison",
+          "title": "Conway’s Subprime Fibonacci Sequences",
+          "trigger": "Plausible similarly named recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first exact 22 values of the natural minimal-seed ceiling needed to achieve trajectory depth l quantify prime-Fibonacci length-resource growth beyond the foundational existence/termination theorem; uniqueness of a length-23 extremal seed is a useful precise finite cutoff on a motivated recurrence, rather than arbitrary small sample statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git tree afbb5db367cc337b6e6c2da80cc6bf74be8c50cc; RESULT.md 9e0e9943df1bccf2b8fb03040927f62268000003; verify.py a6e3edc2e608ab8bb858935d860ee08cb1a91174",
+    "Alm Herald arXiv:1507.04807",
+    "Guy Khovanova Salazar arXiv:1207.5099"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A prior informal OEIS/database or unpublished computation could contain the same initial seed ceilings.",
+    "The all-ordered-seed exhaustive result is strictly limited to max seed 4919 and length<=23.",
+    "Scientific axes passed on final existing RESULT.md claim; no corrective scientific file edits proposed or staged. Publication is not ready due operational privacy."
+  ],
+  "residual_risks": [
+    "A prior informal OEIS/database or unpublished computation could contain the same initial seed ceilings.",
+    "The all-ordered-seed exhaustive result is strictly limited to max seed 4919 and length<=23."
+  ],
+  "schema_version": 1
+}
