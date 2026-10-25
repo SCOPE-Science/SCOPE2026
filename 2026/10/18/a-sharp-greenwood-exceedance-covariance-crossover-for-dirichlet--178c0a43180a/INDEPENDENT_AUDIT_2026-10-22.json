@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T04:49:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X_i~Beta(a,b) under positive Dirichlet parameters, conditional Dirichlet decomposition gives E[G|X_i=x]=x²+c(1-x)² with c=Σ_{j!=i} α_j(α_j+1)/[b(b+1)]. Integrating the identities [x(1-x)f]′=(a-(a+b)x)f and [x²(1-x)f]′=((a+1)x-(a+b+1)x²)f yields Cov(1{X_i>t},G)=((1+c)/(s+1))t(1-t)f_{a,b}(t)(t-τ), τ=[2c(s+1)-(1+c)(a+1)]/[s(1+c)]. Since 0<c<=1 and s(1+c)(τ-1)=c(b+1)-(s+a+1)<0, τ<1 and the law has at most one interior sign switch (possibly none if τ<=0). For symmetric Dirichlet the root simplifies to (α+1)/(mα+2), and for α=1 it is 2/(m+2), with the stated Greenwood factor. For joint CLT represent X_j=Y_j/ΣY for iid Gamma(α,rate α), expand the moving threshold y*mean Y by empirical-CDF equicontinuity; iid influence functions A=1{Y>y}-p-yf(Y-1), B=Y²-μ2-2μ2(Y-1). Their covariance yields Σ11=p(1-p)-y²f²/α, Σ22=2(α+1)/α³ and Σ12=(y f/α)(y-(α+1)/α). Positive marginal variances follow nondegenerate gamma support and nonlinearity. Thus only limiting Gaussian independence is claimed at y=(α+1)/α. Independent rational beta-integral tests for 36 choices m∈{2,3,4}, α∈{1,2,3}, t∈{1/5,2/5,3/5,4/5} passed; CLT rests on analytic influence-function argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen concerns marginal distribution of G and its quantiles, not joint Dirichlet threshold-count/G mixed moment.",
+          "Generic spacing process CLTs may give asymptotic Gaussian behavior; they do not directly imply exact all-m Dirichlet mixed moments and roots."
+        ],
+        "reasoning": "Marginal formulas, tables and abstract empirical-process convergence do not dominate exact labeled covariance and finite-m crossover constants; full historical survey literature remains a residual risk.",
+        "searches": [
+          "Royen, Distribution of the square sum of Dirichlet random variables and table with quantiles of Greenwood statistic, arXiv:1008.4059",
+          "Pyke Spacings (1965), DOI 10.1111/j.2517-6161.1965.tb00602.x",
+          "Ghosh–Jammalamadaka 1998 DOI 10.1016/S0378-3758(97)00164-X"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.4059",
+        "https://doi.org/10.1016/S0378-3758(97)00164-X",
+        "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Univariate G distribution does not determine its joint law with N_m(t).",
+          "Closest Resultary occupancy richness/frequency crossover is multinomial occupancy, not constrained continuous Dirichlet spacings."
+        ],
+        "reasoning": "No inspected source logically forces the all-positive-shape Dirichlet labeled formula; Gaussian CLT alone cannot derive the finite-m zero t_m=(α+1)/(mα+2).",
+        "searches": [
+          "Royen arXiv:1008.4059 original full PDF",
+          "Ghosh–Jammalamadaka 1998 original description of spacing approximations",
+          "Resultary similarity hits on occupancy covariance sign switches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target G is Simpson/Greenwood quadratic concentration; labeled beta tail identity has affine factor t-τ, unlike previously published marginal Greenwood CDF tables.",
+          "Royen full PDF sections on marginal G distribution and tables did not show the mixed indicator covariance."
+        ],
+        "reasoning": "Changing label Greenwood to Simpson index or squared coefficient does not yield an identified earlier covariance sign theorem; this search is statement-based rather than title-based.",
+        "searches": [
+          "Resultary semantic query: Dirichlet squared Simpson concentration Greenwood covariance with exceedance counts and crossover",
+          "Royen 2010 square sum of Dirichlet variables arXiv:1008.4059",
+          "Ghosh–Jammalamadaka 1998 small sample spacing statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen quantile tables concern univariate G law, not Cov(N_m(t),G).",
+          "No indexed table with the exact mixed moment or threshold expression found."
+        ],
+        "reasoning": "Quantile databases cannot determine mixed covariance with an independently thresholded count; an exact conditional-beta identity is needed.",
+        "searches": [
+          "Royen 2010 Greenwood quantile tables",
+          "Resultary lookup Greenwood exceedance covariance/Simpson concentration thresholds"
+        ]
+      },
+      "rationale": "Royen 2010 explicitly studies the marginal distribution and quantiles of quadratic Dirichlet Greenwood statistics, and Ghosh–Jammalamadaka 1998 treats marginal spacing statistics; they do not in the material read give exact covariance of an exceedance indicator/count with G. The classical Pyke spacings survey and empirical-process CLTs can give background or parts of the asymptotic analysis; originality is assigned to the exact all-parameter labeled mixed-covariance identity and complete finite-m sign classification, not mere existence of a Gaussian limit. Resultary comparisons found no equivalent exact sign formula, with material risk of older spacing identities.",
+      "residual_risks": [
+        "Pyke and old spacings literature were not fully read; another equivalent Greenwood-exceedance beta-tail identity may be buried in historic moment theory.",
+        "At τ=0 there is no interior zero; symmetric limiting Gaussian zero covariance is not finite-m independence; general nonexchangeable total count is not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal G law/table does not provide the joint exceedance mixed covariance in inspected material",
+          "evidence": [
+            "arXiv:1008.4059 PDF, marginal Dirichlet quadratic sum and Greenwood quantiles"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4059",
+          "material_read": "Accessible primary PDF; abstract, introduction and marginal distribution/quantile sections inspected; searched full PDF for mixed exceedance/Cov terminology",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood statistic",
+          "trigger": "Same quadratic concentration G, symmetric and asymmetric Dirichlet"
+        },
+        {
+          "assessment": "Marginal approximations and cumulants are not direct evidence for the exact thresholded-count covariance, but incomplete material leaves residual risk",
+          "evidence": [
+            "Ghosh–Jammalamadaka 1998 metadata/abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0378-3758(97)00164-X",
+          "material_read": "Bibliography, source abstract and cited description read; not a complete fresh full-text inspection",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "Small sample approximations for spacing statistics",
+          "trigger": "Relevant older spacing-statistic moment/quantile literature"
+        },
+        {
+          "assessment": "Do not claim survey is noncovering; possible priority risk explicitly retained",
+          "evidence": [
+            "Pyke, JRSS B 27 (1965), 395–436; bibliographic record"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "Bibliographic entry/summary only; full original not inspected",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "Spacings",
+          "trigger": "Plausible classical primary survey for exact spacing joint moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both Greenwood quadratic concentration and threshold exceedance counts are natural classic statistics of random spacings and Dirichlet compositional concentration. Knowing that their covariance changes from negative to positive at exactly twice the mean spacing for uniform gaps is a meaningful sharp dependence feature; the nonexchangeable coordinate criterion and joint fluctuation covariance expand it beyond a toy instance without claiming testing optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1008.4059",
+    "https://doi.org/10.1016/S0378-3758(97)00164-X",
+    "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Labeled formula requires positive Dirichlet α_i; symmetric N_m CLT fixes α and y>0 and lets m→infinity, no finite-sample independence or test power guarantee."
+  ],
+  "residual_risks": [
+    "Pyke and old spacings literature were not fully read; another equivalent Greenwood-exceedance beta-tail identity may be buried in historic moment theory.",
+    "At τ=0 there is no interior zero; symmetric limiting Gaussian zero covariance is not finite-m independence; general nonexchangeable total count is not classified."
+  ],
+  "schema_version": 1
+}

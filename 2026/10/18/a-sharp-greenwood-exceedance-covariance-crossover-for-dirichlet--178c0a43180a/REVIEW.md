@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every strictly positive Dirichlet vector, conditional Dirichlet second moments reduce the labeled quadratic mixed moment to two beta-tail covariances. Two derivative/integration identities give the exact affine threshold factor. Since the beta density and other factors are positive and the root is below one, this yields the claimed complete sign classification. The symmetric count identity follows by exchangeability, and the joint limit follows via independent-gamma normalization, a moving-threshold empirical-cdf expansion, and a two-dimensional iid central limit theorem. Gamma tail and moment identities yield the displayed limiting covariance matrix. An exact-rational checker matched 114 integer-parameter cases; high-precision quadrature matched 30 noninteger cases and six limiting covariance-matrix comparisons. These checks do not replace the proof for the continuum of parameter choices.
+PASS
 
-## Originality — PASS, with residual literature risk
+For X_i~Beta(a,b) under positive Dirichlet parameters, conditional Dirichlet decomposition gives E[G|X_i=x]=x²+c(1-x)² with c=Σ_{j!=i} α_j(α_j+1)/[b(b+1)]. Integrating the identities [x(1-x)f]′=(a-(a+b)x)f and [x²(1-x)f]′=((a+1)x-(a+b+1)x²)f yields Cov(1{X_i>t},G)=((1+c)/(s+1))t(1-t)f_{a,b}(t)(t-τ), τ=[2c(s+1)-(1+c)(a+1)]/[s(1+c)]. Since 0<c<=1 and s(1+c)(τ-1)=c(b+1)-(s+a+1)<0, τ<1 and the law has at most one interior sign switch (possibly none if τ<=0). For symmetric Dirichlet the root simplifies to (α+1)/(mα+2), and for α=1 it is 2/(m+2), with the stated Greenwood factor. For joint CLT represent X_j=Y_j/ΣY for iid Gamma(α,rate α), expand the moving threshold y*mean Y by empirical-CDF equicontinuity; iid influence functions A=1{Y>y}-p-yf(Y-1), B=Y²-μ2-2μ2(Y-1). Their covariance yields Σ11=p(1-p)-y²f²/α, Σ22=2(α+1)/α³ and Σ12=(y f/α)(y-(α+1)/α). Positive marginal variances follow nondegenerate gamma support and nonlinearity. Thus only limiting Gaussian independence is claimed at y=(α+1)/α. Independent rational beta-integral tests for 36 choices m∈{2,3,4}, α∈{1,2,3}, t∈{1/5,2/5,3/5,4/5} passed; CLT rests on analytic influence-function argument.
 
-The compared 2010 paper of Royen gives exact *marginal* quadratic Dirichlet distributions and tables of Greenwood quantiles; its inspected full text does not state a quadratic/exceedance mixed covariance or classify its sign. Ghosh–Jammalamadaka (1998) studies marginal spacing-statistic approximations and cumulants, not this exact mixed-moment phase diagram. Generic CLTs for spacing sums may imply aspects of the Gaussian statement, which is not claimed as a stand-alone priority result. The older full-length Pyke survey was accessible only through its bibliographic summary, leaving some risk of an equivalent earlier formula. The marginal maximum–Greenwood covariance for uniform spacings is a different functional and does not imply the pointwise threshold covariance. Searches of the research database for aliases, quadratic concentration/Simpson names and threshold exceedances yielded no matching theorem; search absence alone does not establish novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Greenwood's quadratic statistic and thresholded spacing counts are complementary, standard descriptors of sample-spacing irregularity. Their dependence is not fixed in sign: an exact null-model cutoff at twice the mean gap in the uniform case switches negative into positive covariance, and the theorem identifies the unique zero in every symmetric Dirichlet family. For nonexchangeable Dirichlet compositions it determines which individual coordinates have a sign reversal at all, including regimes of strict positivity at every threshold. The joint Gaussian covariance matrix proves that the cutoff survives under an explicit nondegenerate fluctuation limit. This sharp structural classification can inform the interpretation of combined diagnostics, without alleging their optimality.
+Royen 2010 explicitly studies the marginal distribution and quantiles of quadratic Dirichlet Greenwood statistics, and Ghosh–Jammalamadaka 1998 treats marginal spacing statistics; they do not in the material read give exact covariance of an exceedance indicator/count with G. The classical Pyke spacings survey and empirical-process CLTs can give background or parts of the asymptotic analysis; originality is assigned to the exact all-parameter labeled mixed-covariance identity and complete finite-m sign classification, not mere existence of a Gaussian limit. Resultary comparisons found no equivalent exact sign formula, with material risk of older spacing identities.
 
-## Closest literature and limitations
+## value
 
-- Royen (2010), arXiv:1008.4059v1: full-text comparison for marginal quadratic Dirichlet law and asymmetric parameters.
-- Ghosh and Jammalamadaka (1998), DOI:10.1016/S0378-3758(97)00164-X: inspected original PDF for spacing-statistic approximations, marginal moments and tables.
-- Pyke (1965), DOI:10.1111/j.2517-6161.1965.tb00602.x: bibliographic/summary access only; equivalent historical coverage remains possible.
+PASS
 
-The theorem has not been validated independently, and no finite-sample independence or testing-power theorem is claimed.
+Both Greenwood quadratic concentration and threshold exceedance counts are natural classic statistics of random spacings and Dirichlet compositional concentration. Knowing that their covariance changes from negative to positive at exactly twice the mean spacing for uniform gaps is a meaningful sharp dependence feature; the nonexchangeable coordinate criterion and joint fluctuation covariance expand it beyond a toy instance without claiming testing optimality.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
