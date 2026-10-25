@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Prescribed disjoint/overlapping chord joint probabilities, cyclic class degrees, the ordered pair-overlap counts, covariance calculations, and the orthogonal eigenspace decomposition establish the complete formula for every integer \(n\ge2\). A fresh exact verifier enumerates all matchings through seven chords and checks all moments. The proof, not enumeration, supplies the infinite family.
+## correctness
 
-**Originality (O): PASS on inspected evidence, with risk.** Acan's 2015 preprint Theorem 4.2 is an asymptotic statement for a fixed finite set of length counts. Paguyo's 2021 Theorems 1.1–1.2 give quantitative one-dimensional laws for crossing counts and simple chords. Neither inspected statement supplies an exact \(n\)-dimensional covariance matrix, its eigenvalues, or a uniform sharp variance isometry. A prior elementary second-moment or generating-function identity might nonetheless cover the computation implicitly; historical priority is not independently certified.
+PASS
 
-**Value (V): PASS.** The all-length histogram is a natural joint random-matching statistic; a fixed-number Poisson limit cannot resolve the simultaneous \(n\)-class dependencies. The theorem identifies exactly every negative cross-class covariance, a deterministic rank defect, two sharp spectral scales, and an exact nonzero condition number uniformly below two. These give optimal finite-sample variance controls for *every* linear chord-length statistic, not an arbitrary numerical slice.
+For 2n cyclic vertices, each non-diameter candidate length class is 2-regular with 2n chords; the diameter class is a 1-regular perfect matching with n chords. A prescribed edge occurs with p=1/(2n-1); disjoint edge pair with q=1/[(2n-1)(2n-3)]; overlapping edges cannot co-occur. Counting ordered shared-endpoint pairs (4n within a short class, 8n between shorts, 4n short-diameter, zero diameter-diameter) gives covariance A=4n(n-1)/(2n-1)², B=-8n(n-1)/[(2n-3)(2n-1)²], C=-4n(n-1)/same denominator, D=4n(n-1)²/same denominator. Since sum L_j=n, constant eigenvector eigenvalue0; short-class sum-zero vectors eigenvalue A-B=4n(n-1)/[(2n-3)(2n-1)] multiplicity n-2; diameter contrast eigenvalue D-C=4n²(n-1)/[(2n-3)(2n-1)²]. Weighted-variance isometry follows by orthogonal projection. Independent exact full matching enumerations n=2,..,6 verified all entries and null row sums; n=2 empty short-difference eigenspace handled. Formula for arbitrary n is proved combinatorially.
 
-**Closest literature and limits.** Acan, arXiv:1501.01489, §§3–4; Paguyo, arXiv:2104.01134, Theorems 1.1–1.2 and Lemma 2.1. The independent historical-priority check and higher-order joint laws are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acan has the same length notion and formula for mean and variance of prefix sums Z_k; this supplies partial 2nd-moment data and is credited as substantial overlap. Acan and Paguyo do not give the individual full covariance block matrix, diameter contrast, two positive eigenvalues or all-weight variance identity in inspected results.
+
+## value
+
+PASS
+
+A complete exact covariance operator for the natural entire length histogram, including diameters, with strict negative off-diagonal entries and an all-weight sharp variance isometry, is a reusable finite-sample statistical invariant; even if derived from elementary indicators, it captures more than a one-length mean or a routine scalar substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

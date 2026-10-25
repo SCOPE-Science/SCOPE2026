@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T05:55:02.769660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-mode-covariance-spectrum-of-circular-chord-length-hist--6e004b32ef71/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-mode-covariance-spectrum-of-circular-chord-length-hist--6e004b32ef71/verify.py",
+        "/mnt/data/scope_worker03_independent_checks.json"
+      ],
+      "rationale": "For 2n cyclic vertices, each non-diameter candidate length class is 2-regular with 2n chords; the diameter class is a 1-regular perfect matching with n chords. A prescribed edge occurs with p=1/(2n-1); disjoint edge pair with q=1/[(2n-1)(2n-3)]; overlapping edges cannot co-occur. Counting ordered shared-endpoint pairs (4n within a short class, 8n between shorts, 4n short-diameter, zero diameter-diameter) gives covariance A=4n(n-1)/(2n-1)², B=-8n(n-1)/[(2n-3)(2n-1)²], C=-4n(n-1)/same denominator, D=4n(n-1)²/same denominator. Since sum L_j=n, constant eigenvector eigenvalue0; short-class sum-zero vectors eigenvalue A-B=4n(n-1)/[(2n-3)(2n-1)] multiplicity n-2; diameter contrast eigenvalue D-C=4n²(n-1)/[(2n-3)(2n-1)²]. Weighted-variance isometry follows by orthogonal projection. Independent exact full matching enumerations n=2,..,6 verified all entries and null row sums; n=2 empty short-difference eigenspace handled. Formula for arbitrary n is proved combinatorially.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan Thm 4.2 fixed k independent Poisson limits, Lemma 4.4 exact prefix moment. Paguyo Thms 1.1–1.2 bound normal approximation for crossings and Poisson for L0."
+        ],
+        "reasoning": "Neither limit theorem implies exact all-n, all-length joint covariances; the prefix identity is partially covering and must be explicitly credited.",
+        "searches": [
+          "uniform random chord diagram circular chord length histogram exact covariance eigenvalues diameter",
+          "arxiv:1501.01489",
+          "arxiv:2104.01134"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-mode-covariance-spectrum-of-circular-chord-length-hist--6e004b32ef71/RESULT.md",
+        "https://arxiv.org/pdf/1501.01489",
+        "https://arxiv.org/pdf/2104.01134",
+        "uniform random chord diagram circular chord length histogram exact covariance eigenvalues diameter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching-indicator probability Lemma 2.1 in Paguyo and Acan moment counting contain key ingredients, but not the four classwise overlap counts or two-mode eigenspaces."
+        ],
+        "reasoning": "An additional exact all-class edge-degree decomposition is required to derive covariance and eigenprofile; acknowledge the deduction is elementary once these ingredients are known, without claiming novelty for the ingredient itself.",
+        "searches": [
+          "uniform random chord diagram circular chord length histogram exact covariance eigenvalues diameter",
+          "arxiv:1501.01489",
+          "arxiv:2104.01134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan Lemma 4.4: E[Z_k(Z_k-1)]=2nk(2nk-4k+1)/[(2n-1)(2n-3)] for Z_k=sum_{j<k}L_j. Its prefix variance does not individually identify short-short and diameter cross terms without further symmetry/swap arguments."
+        ],
+        "reasoning": "A prefix-sum statistic gives a related projection but is not identical to the complete n-by-n covariance matrix or its spectral decomposition.",
+        "searches": [
+          "uniform random chord diagram circular chord length histogram exact covariance eigenvalues diameter",
+          "arxiv:1501.01489",
+          "arxiv:2104.01134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact chord matching enumeration can be tabulated for each fixed n, but Acan supplies an analytic prefix formula, not a published table enumerating the eigenvalues for all n."
+        ],
+        "reasoning": "This is an all-n algebraic covariance theorem, not a finite database recomputation. Bounded enumerations are only consistency checks.",
+        "searches": [
+          "uniform random chord diagram circular chord length histogram exact covariance eigenvalues diameter",
+          "Acan 2015 chord diagram length E Zk variance formula"
+        ]
+      },
+      "rationale": "Acan has the same length notion and formula for mean and variance of prefix sums Z_k; this supplies partial 2nd-moment data and is credited as substantial overlap. Acan and Paguyo do not give the individual full covariance block matrix, diameter contrast, two positive eigenvalues or all-weight variance identity in inspected results.",
+      "residual_risks": [
+        "The covariance entries may be mechanically derivable from known indicator lemmas and published prefix variance once symmetry is supplied, narrowing conceptual originality.",
+        "A prior multivariate chord-diagram probability generating function could encode the all-length covariance spectrum implicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already establishes exact aggregate short-chord factorial second moment, but not the submitted complete covariance spectrum",
+          "evidence": [
+            "Lemma 4.4 E[Z_k(Z_k-1)]=2nk(2nk-4k+1)/((2n-1)(2n-3)); Theorem 4.2 fixed small lengths independent Poisson asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "Accessible 27-page original PDF: chord-length definition, Section 4 Theorem 4.2, Lemma 4.4 including pp.10–12 proof and Eq. (4.9), plus abstract and context",
+          "method": "open-access full PDF text and relevant page images",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Exact same chord lengths; fixed-length limits and prefix second moments"
+        },
+        {
+          "assessment": "Simple-chord Poisson approximation and crossing CLT; not all-length finite covariance law",
+          "evidence": [
+            "Thm1.2 simple chords Poisson TV O(1/n), Lemma2.1 prescribed disjoint chord probability 1/[(2n-1)...(2n-2k+1)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "Accessible 12-page original PDF: introduction, Theorems 1.1–1.3, Lemma 2.1 inspected",
+          "method": "OA full-text PDF relevant sections",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Exact matching-indicator formula and simple-chord marginal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-mode-covariance-spectrum-of-circular-chord-length-hist--6e004b32ef71/RESULT.md",
+        "https://arxiv.org/pdf/1501.01489"
+      ],
+      "rationale": "A complete exact covariance operator for the natural entire length histogram, including diameters, with strict negative off-diagonal entries and an all-weight sharp variance isometry, is a reusable finite-sample statistical invariant; even if derived from elementary indicators, it captures more than a one-length mean or a routine scalar substitution.",
+      "residual_risks": [
+        "Does not prove joint Gaussian/Poisson laws or higher cumulants, only exact finite second moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The covariance entries may be mechanically derivable from known indicator lemmas and published prefix variance once symmetry is supplied, narrowing conceptual originality.",
+    "A prior multivariate chord-diagram probability generating function could encode the all-length covariance spectrum implicitly.",
+    "Does not prove joint Gaussian/Poisson laws or higher cumulants, only exact finite second moments.",
+    "No writes or publication; five public source packages contain operational metadata requiring sanitization."
+  ],
+  "schema_version": 1
+}
