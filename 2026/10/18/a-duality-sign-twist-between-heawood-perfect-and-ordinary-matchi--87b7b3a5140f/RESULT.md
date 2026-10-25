@@ -70,7 +70,7 @@ Bayer, Jelić Milutinović and Vega introduced and classified perfect-matching c
 In the notation of the preceding ordinary-complex module decomposition \(\mathbf1\oplus T\oplus W\), the theorem equivalently identifies perfect-matching homology with \(\varepsilon\oplus(\varepsilon\otimes T)\oplus(\varepsilon\otimes W)\). This is a rational statement only.
 
 ## Limitations
-The result is specific to the Heawood graph, and the exact class counts are established by a finite executable certificate rather than a short closed-form character calculation. It does not assert that a topologically natural map realizes the rational module isomorphism or that the integral representation lattices are isomorphic. Indexed searches and comparisons cannot prove universal historical novelty; unindexed equivalent work remains possible. The scientific verification is same-model only, with no independent mathematical audit.
+The result is specific to the Heawood graph, and the exact class counts are established by a finite executable certificate rather than a short closed-form character calculation. It does not assert that a topologically natural map realizes the rational module isomorphism or that the integral representation lattices are isomorphic. Indexed searches and comparisons cannot prove universal historical novelty; unindexed equivalent work remains possible. The scientific verification is self-review only, with no independent mathematical audit.
 
 ## References
 1. M. Bayer, M. Jelić Milutinović, J. Vega, *Perfect Matching Complexes of Honeycomb Graphs*, arXiv:2209.02803v1, first public 2022-09-06, especially Definition 1 and the honeycomb classification; *Electron. J. Combin.* 30(2) (2023), #P2.45.

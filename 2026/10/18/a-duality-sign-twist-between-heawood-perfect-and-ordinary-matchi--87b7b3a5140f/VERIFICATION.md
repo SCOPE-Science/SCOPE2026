@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone Python 3 checker `verify_heawood_equivariant.py` was executed from its actual supplied path with no third-party dependencies, and the resulting JSON output was saved as `heawood_equivariant_check.json`.
+# Independent mathematical audit
 
-The checker reconstructs the seven-point Fano incidence graph, all \(24\) perfect matchings, \(2201\) nonempty perfect-matching faces and \(3461\) nonempty ordinary matching faces. It replays independent edge-toggle discrete-Morse matchings with \(1092\) and \(1722\) pairs, respectively, and exhaustively topologically sorts the directed Hasse graphs with \(8736\) and \(14574\) incidences. The resulting critical cells are one vertex plus \(16\) two-cells, and one vertex plus \(16\) four-cells, proving the sphere-wedge premises.
+## correctness
 
-It generates all \(336\) graph automorphisms from invertible binary three-dimensional matrices and point-line polarity. For every automorphism and for both complexes, two independently coded exact integer Lefschetz trace formulas (signed fixed faces and admissible unions of edge permutation cycles) agree. All eight character-type rows, including the sign-twist identity, were verified.
+PASS
 
-These are complete finite verifications for the stated complexes. The result does not classify other incidence graphs or establish an integral lattice isomorphism, and independent mathematical auditing has not been performed.
+The Heawood graph is the incidence graph of nonzero F_2^3 point/line labels with zero dot product, 21 edges, automorphism group GL3(F2) extended by polarity of order 336. Perfect-matchable edge subsets form 2201 faces from 24 perfect matchings; ordinary matching complex has 3461 faces. Inspected exhaustive pivot-toggle acyclic discrete Morse checker: full directed Hasse graph 8736/14574 incidences and critical cell pattern one zero-cell plus 16 cells of degree 2/4. Independently recomputed all 24 matchings, the face counts and signed Lefschetz traces for every one of 336 group elements, exactly eight rows; on bipartition-preserving elements both traces agree, on side-exchange elements traces differ by sign, including polarity (-4,4). Since both homologies sit in even degree and are 16-dimensional, exact character equality and Maschke imply the rational sign-twist module isomorphism, not an integral lattice or homotopy equivalence.
+
+## originality
+
+PASS
+
+Published perfect Heawood Morse reduction establishes only wedge^16 S^2, while published ordinary Heawood automorphism-module work computes only H4(M), without computing action on perfect-matching subcomplex. Bayer–Jelić Milutinović–Vega classify honeycomb perfect-matching complexes, not the Fano incidence symmetry character. Exact new comparison of 336 character values establishes the polarity sign twist; knowing neither the degree-two perfect action nor its character from the preceding results prevents prior logical implication. Exact Resultary named-record searches establish relevance but not priority certification.
+
+## value
+
+PASS
+
+The full rational Aut(H)-representation of the perfect-matching complex and an unexpected bipartition-sign relation to ordinary matching homology refine two distinct known sphere-wedge homotopy types. The polarity-odd invariant line and full-group fixed-space dichotomy are precise topology/symmetry phenomena for a standard highly symmetric graph; complete finite data with auditable certificates is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

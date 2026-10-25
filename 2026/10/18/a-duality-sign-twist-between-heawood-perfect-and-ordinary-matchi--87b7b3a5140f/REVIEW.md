@@ -1,15 +1,21 @@
-# Scientific review: Heawood perfect-matching symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and both complexes are defined as finite, explicitly generated incidence and matching structures. A standalone executable proof reconstructs all \(24\) perfect matchings and both complete face posets. Two explicit edge-toggle matchings pass full directed-Hasse acyclicity checks and leave exactly one vertex with \(16\) critical two-cells or four-cells. Forman's theorem establishes the required concentrated integral homology; it is not inferred from a finite sample of a parameter family. The trace theorem then uses the simplicial Lefschetz formula and computes all \(336\) group elements, with independent signed-face and edge-cycle calculations agreeing exactly. The complete character table proves the rational sign-twist isomorphism by character theory. A risk is that the finite exhaustive proof relies on verification of executable code; the exact inputs, operations and expected output are supplied for inspection.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest *perfect*-complex result, public research record `0994476b8c0d`, determines \(\mathcal P(H)\simeq\bigvee^{16}S^2\), but gives no automorphism representation. The different *ordinary*-complex result `d7a042784870` calculates \(\widetilde H_4(\mathcal M(H);\mathbb Q)\) under the full automorphism group, but does not determine how automorphisms act on the perfect-matching subcomplex. Neither a coincident rank nor the ordinary-complex character entails the new bipartition sign twist. Bayer–Jelić Milutinović–Vega (arXiv:2209.02803v1) classify selected honeycomb perfect-matching complexes, not the Fano incidence graph. Li (arXiv:2202.08828) addresses matching permutation modules, not homology. Direct scholarly and semantic-index searches did not locate the new relation. Unindexed work using Fano polarity, Heawood Levi, or alternate perfect matching terminology remains a genuine residual risk; negative search results alone are not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The problem distinguishes two natural complexes on the same \(21\) graph edges with equal homology multiplicity \(16\) but different degrees. Their known nonequivariant homotopy types do not identify how the highly symmetric Heawood graph acts. The full \(336\)-element character reveals a nontrivial relationship: the side-preserving modules agree, while every side-reversing trace changes sign. The sole side-preserving invariant in the perfect-matching complex is duality-odd, so it disappears under the full symmetry group, unlike the ordinary-matching invariant. This is a natural structural representation-theoretic distinction, not a recomputation of a known Betti number.
+The Heawood graph is the incidence graph of nonzero F_2^3 point/line labels with zero dot product, 21 edges, automorphism group GL3(F2) extended by polarity of order 336. Perfect-matchable edge subsets form 2201 faces from 24 perfect matchings; ordinary matching complex has 3461 faces. Inspected exhaustive pivot-toggle acyclic discrete Morse checker: full directed Hasse graph 8736/14574 incidences and critical cell pattern one zero-cell plus 16 cells of degree 2/4. Independently recomputed all 24 matchings, the face counts and signed Lefschetz traces for every one of 336 group elements, exactly eight rows; on bipartition-preserving elements both traces agree, on side-exchange elements traces differ by sign, including polarity (-4,4). Since both homologies sit in even degree and are 16-dimensional, exact character equality and Maschke imply the rational sign-twist module isomorphism, not an integral lattice or homotopy equivalence.
 
-## Scope and validation limits
-The conclusion is a rational \(G\)-module isomorphism for one specific graph. It neither identifies a canonical homology map nor proves integral lattice equivalence or equivariant homotopy equivalence. Its finite proof is reproducible but has not undergone independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published perfect Heawood Morse reduction establishes only wedge^16 S^2, while published ordinary Heawood automorphism-module work computes only H4(M), without computing action on perfect-matching subcomplex. Bayer–Jelić Milutinović–Vega classify honeycomb perfect-matching complexes, not the Fano incidence symmetry character. Exact new comparison of 336 character values establishes the polarity sign twist; knowing neither the degree-two perfect action nor its character from the preceding results prevents prior logical implication. Exact Resultary named-record searches establish relevance but not priority certification.
+
+## value
+
+PASS
+
+The full rational Aut(H)-representation of the perfect-matching complex and an unexpected bipartition-sign relation to ordinary matching homology refine two distinct known sphere-wedge homotopy types. The polarity-odd invariant line and full-group fixed-space dichotomy are precise topology/symmetry phenomena for a standard highly symmetric graph; complete finite data with auditable certificates is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
