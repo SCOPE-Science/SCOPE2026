@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The away-step bounds are inactive near the interior minimizer, giving explicit smooth projected Jacobian factors. A recurrence for coordinates before their elimination yields both necessity and sufficiency of the polynomial eigen-equation and simple-root count; all nontrivial roots are inside the unit disk. A locally uniform binomial-to-exponential limit, Rouché/Hurwitz arguments and an explicit ordering of Lambert branches give the exact dimension limit. Symbolic characteristic polynomials n=3..8 and 70 finite-difference Jacobian checks reproduced from the embedded verifier. Limits: local and exact arithmetic only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun and Ye 2016, cyclic-coordinate and Kaczmarz complexity results.",
+        "Tight Convergence Bounds for the Classical Kaczmarz Method, arXiv:2609.32034, general triangular-Gram iteration representation and bounds."
+      ],
+      "reasoning": "Generic cyclic Kaczmarz representations cover the mechanism but do not evaluate the characteristic polynomial for these equiangular normals, classify all its eigenvalues or derive the limiting sharp rate in inspected material. The source claims were compared for implication, not just terminology.",
+      "searches": [
+        "equiangular cyclic Kaczmarz projections regular simplex eigenvalue complex conjugate local spectral rate",
+        "Gauss-Seidel rank deficient constant off diagonal -1/(n-1) eigenvalues Lambert W",
+        "Gauss-Seidel equicorrelation characteristic polynomial"
+      ]
+    },
+    "checked_sources": [
+      "Mazumder and Wang (2023), arxiv:2303.07642, Algorithm 2 and Theorem 3.2",
+      "Sun and Ye (2016), arxiv:1604.07130, equivalence and complexity results",
+      "Tight Convergence Bounds for the Classical Kaczmarz Method (2026), arxiv:2609.32034, section 2",
+      "Published two-row Kaczmarz and two-coordinate Gauss--Seidel numerical findings, searched by claims and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mazumder--Wang 2023, Theorem 3.2, gives global non-asymptotic linear convergence under strong convexity.",
+        "The new proof derives the full Jacobian spectrum and limiting constant from the actual exact-line-search update."
+      ],
+      "reasoning": "A general linear-convergence inequality is not the precise sharp local spectrum nor the high-dimensional limit. The original method definition permits computing the new specialized rate but does not logically supply its nontrivial evaluated closed form without additional spectral analysis.",
+      "searches": [
+        "PolyCD exact line search regular simplex quadratic barycenter local linear convergence cyclic projections rate spectral radius",
+        "PolyCDwA away-step cyclic vertex projections simplex barycenter exact spectral radius Lambert W limiting 0.123830 Kaczmarz 2023",
+        "PolyCDwA spectral rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mazumder--Wang 2023, Algorithm 2, specifies away-step cyclic vertex update; local linearization is a cyclic product of orthogonal hyperplane projections.",
+        "Sun--Ye 2016, introduction and cyclic CD/Kaczmarz equivalence discussion, addresses generic equivalence and complexity rather than this evaluated projection spectrum."
+      ],
+      "reasoning": "Equivalent forms are cyclic orthogonal projection, hyperplane Kaczmarz, and normalized Gauss--Seidel on the simplex tangent Gram matrix. The generic equivalence does not itself state the closed characteristic polynomial, its root classification or its asymptotic Lambert-W constant; no inspected source makes that implication explicit.",
+      "searches": [
+        "cyclic Frank Wolfe vertex line search simplex isotropic quadratic convergence spectral geometry",
+        "away-step polyhedral coordinate descent simplex barycenter isotropic least squares linearization all dimension eigenvalues Lambert W rate",
+        "cyclic projections regular simplex hyperplanes characteristic polynomial Lambert W convergence rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding: Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation (2026), pertains to a two-row cyclic method, not all-dimensional PolyCDwA.",
+        "Published finding: Sharp minimax Euclidean transient bound for two-coordinate Gauss--Seidel ordering (2026), concerns 2-by-2 SPD systems and one-sweep Euclidean norm."
+      ],
+      "reasoning": "Searched exact constants, spectral equations, algorithm aliases and limiting parameter; closest published records use different numerical methods, dimensions and assertions. Neither supplies an exact table or stronger theorem implying the submitted spectrum or Lambert-W limit.",
+      "searches": [
+        "PolyCD cyclic coordinate descent polytope simplex away-step Frank-Wolfe exact cycles finite identification sharp face transition 2023",
+        "PolyCDwA regular simplex stationary Gauss Seidel projection exact local spectrum",
+        "exact characteristic polynomial (1+(n-1)lambda)^n - n^n lambda^(n-1) cyclic product orthogonal projections regular simplex PolyCDwA",
+        "PolyCDwA away-step cyclic vertex projections simplex barycenter exact spectral radius Lambert W limiting 0.123830 Kaczmarz 2023"
+      ]
+    },
+    "rationale": "Inspected Algorithm 2 and global convergence theorem of Mazumder--Wang (2023), Sun--Ye (2016) cyclic projection/coordinate equivalences, later Kaczmarz general bounds, and searched published mathematical findings by algorithm, aliases, spectral polynomial, and Lambert constant. None of the inspected claims implies or presents the evaluated full-dimensional spectrum and its Lambert-W limit. This is a best-knowledge comparison; classical specialized equiangular projection identities are a residual risk.",
+    "residual_risks": [
+      "An earlier specialized equiangular cyclic-projection or relaxation result may encode an equivalent characteristic polynomial under different notation; no global uniqueness is claimed.",
+      "The later general Kaczmarz paper was inspected in the relevant theorem/representation sections, not comprehensively in every appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the algorithm and generic convergence, not a stated complete simplex sweep spectrum or Lambert-W rate.",
+        "evidence": [
+          "Algorithm 2 (3.1)--(3.4), Theorem 3.2 (3.9)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.07642",
+        "material_read": "Full paper accessed; closely inspected pp. 1--3, Algorithm 2 on PDF page 7, exact line search (3.4), and Theorem 3.2 on PDF page 8; checked relevant statements and spectral terms.",
+        "method": "Read PDF text and visually inspected Algorithm 2; compared equations, objectives, conclusions.",
+        "title": "A Cyclic Coordinate Descent Method for Convex Optimization on Polytopes",
+        "trigger": "Exact original update and closest possible coverage"
+      },
+      {
+        "assessment": "Generic equivalence and worst-case complexity; the inspected portions do not state the evaluated PolyCDwA simplex characteristic polynomial.",
+        "evidence": [
+          "Introduction and discussion of cyclic-coordinate/Kaczmarz equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.07130",
+        "material_read": "PDF introduction and section 1.1 on cyclic-coordinate/Kaczmarz equivalence and principal theorem scope.",
+        "method": "Inspected relevant PDF pages, comparison of objects and parameter dependences.",
+        "title": "Worst-case Complexity of Cyclic Coordinate Descent: O(n^2) Gap with Randomized Version",
+        "trigger": "Generic cyclic coordinate-descent and Kaczmarz reduction"
+      },
+      {
+        "assessment": "General representation can be specialized, but inspected theorem statements do not give the new all-dimensional characteristic polynomial, real-to-complex switch or Lambert-W limit.",
+        "evidence": [
+          "Section 2, triangular-Gram iteration matrix representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.32034",
+        "material_read": "Open-access HTML section 2, general iteration matrix lemma, principal convergence-bound claims and source text search for simplex and equiangular settings.",
+        "method": "Read original HTML in the relevant sections and compared the representation with the specialized projection product.",
+        "title": "Tight Convergence Bounds for the Classical Kaczmarz Method",
+        "trigger": "Later stronger-looking bounds for cyclic orthogonal projections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13ec52d4-8a2a-456d-9e82-5105c3e23c9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Vertex-cyclic away-step descent is a motivated algorithm with published global linear bounds. On the canonical isotropic simplex, the exact all-dimensional local iteration spectrum specifies precise decay and oscillatory modes, and the nonzero limiting rate 0.123830... is an algorithmic dimension-scaling benchmark absent from coarse generic bounds. The change to conjugate eigenmodes already at four vertices is structural, not a routine one-dimensional test.",
+    "status": "PASS"
+  }
+}
