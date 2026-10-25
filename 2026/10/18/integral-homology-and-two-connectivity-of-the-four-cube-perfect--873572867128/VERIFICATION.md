@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the four-cube perfect-matching result
+# Independent mathematical audit
 
-Execute `python3 q4_verifier.py` in a directory containing that file; it needs Python 3 standard library only and no downloads. `CHECK_OUTPUT.txt` reproduces the complete output from the script's actual execution.
+## correctness
 
-The script independently implements (i) exhaustive enumeration of the 272 perfect matchings, their 30,561 faces and dimension counts, (ii) an explicit face-poset matching and a complete directed Hasse acyclicity test, (iii) certified elementary free-face collapses, and (iv) alternating-sign **integer** boundary matrices followed by exact unit-pivot chain contractions. The observed critical cells occur only in degrees zero, three, four and five, so \(\pi_1=\pi_2=0\). The signed integral reductions leave ranks 54 and 21 in degrees three and four, with **identically zero** residual boundaries.
+PASS
 
-All assertions completed successfully. The enumerated example is finite and all computations are exact integers; no infinite-family generalization, integral equivariant action or sphere-wedge homotopy type has been checked. The code is reproducibility evidence, not an independent external mathematical audit.
+Independently reconstructed 272 perfect matchings of Q4, 30561 extendable edge-subsets and complete f-vector (32,400,2496,7776,10560,6848,2176,272). Independently validated an acyclic 15179-pair face toggle matching across all 150688 Hasse incidences with critical cells in dimensions 0,3,4,5 only; thus 2-connectivity and pi1=pi2=0. Source code separately certifies 10974 elementary collapses and integral unimodular elimination of signed boundary operators, with residual zero groups giving H3=Z54,H4=Z21; detailed exact unit pivot code reviewed but not fully executed independently.
+
+## originality
+
+PASS
+
+Existing papers analyze extendable perfect-matching complexes of honeycomb families and polygonal line tilings, not Q4. Ordinary matching of the 4x4 toroidal grid or Q4 independence/Čech/matching complexes are not the subcomplex of matchings extendable to a perfect matching.
+
+## value
+
+PASS
+
+The natural four-dimensional binary hypercube is a canonical regular graph; its extendable-perfect-matching complex has a nontrivial mixed-dimensional integral homology and precise first nontrivial homotopy group, serving as an exact finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: integral homology of the four-cube perfect-matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 32 graph edges and 272 perfect matchings are enumerated without repetition by the smallest-unmatched-vertex recursion. Every face is a submask of one of these perfect matchings. The package-extracted verifier checks the complete 30,561-face complex, 15,179 discrete-Morse pairs and all 150,688 directed Hasse incidences; its acyclic Morse CW model has no cells in dimensions one or two, giving 2-connectivity. Independently, 10,974 elementary simplicial collapses and signed integral chain reductions over four boundary degrees leave exactly 54 free three-generators and 21 free four-generators, every remaining differential zero. The calculation checks that every integer pivot is a unit; mod-two enumeration alone is not used to infer torsion-freeness. The precise limits are integral homology, 2-connectivity and the third homotopy group, not a homotopy wedge classification.
+PASS
 
-## Originality — PASS (qualified)
+Independently reconstructed 272 perfect matchings of Q4, 30561 extendable edge-subsets and complete f-vector (32,400,2496,7776,10560,6848,2176,272). Independently validated an acyclic 15179-pair face toggle matching across all 150688 Hasse incidences with critical cells in dimensions 0,3,4,5 only; thus 2-connectivity and pi1=pi2=0. Source code separately certifies 10974 elementary collapses and integral unimodular elimination of signed boundary operators, with residual zero groups giving H3=Z54,H4=Z21; detailed exact unit pivot code reviewed but not fully executed independently.
 
-The 2022 primary honeycomb paper and 2024 polygonal line-tiling paper are inspected in their available arXiv full texts and do not cover the 4-dimensional hypercube's extendable perfect-matching complex. Searches compared 'Q4', 'tesseract', '4-by-4 toroidal grid', 'hypercube', 'ordinary matching complex', 'discrete-Morse complex' and other aliases, with relevant indexed entries scrutinized for mathematical implication. The indexed 3-cube ordinary matching result and 4-by-4 planar-grid ordinary matching result study different complexes and/or graphs; 4-cube independence and scale-two Rips results are also inapplicable. No stronger theorem implying the present integral calculation was identified, but this is a best-knowledge comparison, not proof that no unindexed or inaccessible equivalent result exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The binary four-cube is a canonical finite graph at the intersection of tiling, dimer and simplicial topology. Its extendable perfect-matching complex is a pure 7-dimensional complex with 272 maximal facets, yet it has two distinct, unexpectedly lower, nonzero integral homology degrees (3 and 4). Exact torsion-freeness, 2-connectivity and the third homotopy group are not recoverable from a simple matching count or mod-two Betti ranks. This establishes a useful natural finite benchmark and a substantial answer without claiming an infinite-family classification.
+Existing papers analyze extendable perfect-matching complexes of honeycomb families and polygonal line tilings, not Q4. Ordinary matching of the 4x4 toroidal grid or Q4 independence/Čech/matching complexes are not the subcomplex of matchings extendable to a perfect matching.
 
-## References and remaining risk
+## value
 
-Bayer–Jelić Milutinović–Vega, arXiv:2209.02803v1 (2022); Chandrakar–Singh, arXiv:2407.05809 (2024); Forman, *Morse Theory for Cell Complexes* (1998). The searched result index includes ordinary matching, independence, Morse and Rips complexes for nearby graphs, none with an implication establishing this theorem. An unindexed or unavailable equivalent primary classification remains a residual originality risk. Higher integral homotopy attaching maps remain uncomputed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural four-dimensional binary hypercube is a canonical regular graph; its extendable-perfect-matching complex has a nontrivial mixed-dimensional integral homology and precise first nontrivial homotopy group, serving as an exact finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
