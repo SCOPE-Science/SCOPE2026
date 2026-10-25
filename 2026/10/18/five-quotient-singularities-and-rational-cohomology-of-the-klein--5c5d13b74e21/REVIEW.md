@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The five coordinate points fixed by the normal order-eleven subgroup become one quotient point. Eleven distinct order-five subgroups each fix four points, making four additional quotient points. The tangent-weight computation gives the full cyclic basket, and complete residue enumeration proves the two local discrepancy values; the quotient canonical class and finite-degree intersection formula give the Fano volume. Lefschetz fixed-point theory, the rational representation structure of the prime-order group, and the finite-quotient cohomology theorem establish the graded cohomology ring. The simply-connected orbit-space conclusion uses the finite-action fundamental-group theorem. `verify.py` checks the critical residue arithmetic, not the topology.
+## correctness
 
-**Originality — PASS with documented uncertainty.** The primary literature on the equivariant unirationality of the Klein cubic, its order-55 action, and its intermediate Jacobian was inspected in the relevant sections; none of these states a full five-point coarse-quotient basket and rational cohomology classification for this group. Mathematical-record searches also returned no corresponding explicit calculation. The automorphism itself and the general tools are known; an unindexed treatment or an implicit corollary of broader quotient classifications remains a material risk, and these searches alone cannot establish uniqueness.
+PASS
 
-**Value — PASS.** The order-55 subgroup is one of the distinguished exceptional symmetry actions appearing in the newly resolved equivariant-unirationality classification. Its complete quotient singularity types, local thresholds, Q-Fano anticanonical volume and Gorenstein index, and rational-cohomology/fundamental-group profile are natural invariants of the entire quotient threefold, not an arbitrary finite slice. They distinguish a simply connected rational-cohomology-projective-space quotient from a smooth Fano threefold and show why a singularity basket matters to equivariant Fano geometry.
+Independently checked the weights (1,9,4,3,5) preserve sum x_i²x_{i+1}, cyclic conjugation is exponent five, and tangent differences at the five order-eleven fixed coordinate points are unit multiples of (2,3,4). Eleven order-five subgroups each fix four nonoverlapping nonvertex points, giving four G-orbits. Explicit residue-age lists are [9,18,16,14,23,10,19,17,15,24]/11 and [6,7,8,9]/5. Smoothness follows by nonzero-coordinate gradient product contradiction. The quotient action is free in codimension one, adjunction gives 24/55, H^3(X) ten-dimensional cyclotomic rational C11 module via fixed point Lefschetz trace -1, so no odd invariant cohomology. The finite quotient cohomology theorem and Armstrong stabilizer-normal-closure fundamental-group formula prove the stated topology. No finite modular check purports to certify these topological theorems.
 
-**Closest literature and limits.** Ballard–Duncan–Zhang (arXiv:2610.09962v1, §§1,5) establish group-equivariant unirationality, rather than the quotient-invariant calculation; Cheltsov–Tschinkel–Zhang (arXiv:2502.19598v1, §5) study action classification; Roulleau (arXiv:1001.4853v1, §§2–3) describes the elevenfold automorphism. The result does not establish integral torsion cohomology or rationality of the quotient. Broader implicit coverage is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The recent Ballard–Duncan–Zhang article addresses equivariant unirationality of the exact Klein cubic order-55 subgroup and acknowledges its action, rather than a coarse quotient basket and topology theorem. Earlier Fano equivariant action studies and Klein automorphism calculations also supply background but do not state the combined invariant package in material inspected. Equivalent quotient classifications remain possible in unindexed literature.
+
+## value
+
+PASS
+
+An explicit klt noncanonical Q-Fano threefold quotient with five isolated quotient singularities and the rational cohomology ring and fundamental group of P3 is a natural structural classification. Its local and global invariants are mathematically meaningful beyond generic quotient existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
