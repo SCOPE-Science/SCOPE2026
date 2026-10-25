@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six explicitly listed carry/split identities (plus the \(a=3\) base case) preserve each integer and involve at most three atoms. The lexicographic potential (number of positive Fibonacci offsets, negative squared-size sum) strictly decreases along oriented moves, proving termination. Every terminal factorization is the unique Zeckendorf expansion of its residue modulo \(F_a\), with uniquely determined copies of \(F_a\); this proves global connectivity. The element \(3F_a\) has exactly two disjoint-support factorizations with distance three. All quantifiers and small cases are explicit. The independent executable finite cross-check is supporting evidence, not the infinite proof.
+## correctness
 
-**Originality — PASS within the inspected corpus.** The primary 2022/2023 paper explicitly gives minimal generators, Apéry sets, Frobenius number and genus, not the catenary degree. The 2025 follow-up gives pseudo-Frobenius numbers and type under a reindexing, not a distance-three factorization theorem. Targeted searches for shifted Fibonacci semigroups, catenary degree, bounded-degree presentations, and Zeckendorf moves in the literature and mathematical records returned no equivalent claim. In particular, published catenary-degree work on three-generator/telescopic numerical semigroups does not cover this unbounded-embedding-dimension family. Residual risk: an unindexed result or an implicit consequence of a general bounded-degree presentation theorem could cover it.
+PASS
 
-**Mathematical value — PASS.** Exact catenary degree is a natural factorization-theoretic invariant not addressed by the Frobenius/genus/type results. The constant value for unbounded embedding dimension is structurally notable; the proof supplies a uniform constructive normal-form algorithm and a sharp witness, rather than a small or arbitrary parameter calculation.
+For S(a)=<F_a,F_a+F_2,...,F_a+F_(a-1)> (minimality known from cited source), the six displayed Fibonacci relations, including top-generator 2g_(a-1)=2g_0+g_max(2,a-3), preserve represented integer and have factorization distance<=3. Under left-to-right orientations, number K of positive offsets decreases or, for fixed K, the sum of squared offsets strictly increases while bounded; termination follows. Terminal offsets have neither duplicates nor consecutive Fibonacci indices, hence form the unique Zeckendorf expansion of residue N mod F_a, with remaining g0 determined. All factorizations therefore join with <=3 steps. At 3F_a exactly two disjoint-support factorizations (3g0 and g_(a-2)+g_(a-1), a3 2g2) force distance three. Independent enumeration for a=3..9 verified all factorization graphs connect by distance <=3 and 3F_a witnesses, not replacing all-a proof.
 
-**Limitations and source proximity.** First public arXiv posting was 2022-10-03. The source's generator and Zeckendorf descriptions are credited rather than claimed new. The 2025 follow-up is a strong nearby source; the conclusion concerns only classical Fibonacci shifts. No independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Robles-Pérez/Rosales 2023 establishes the minimal generators, Apéry set and Frobenius/genus; López-Medel et al. 2025 establishes pseudo-Frobenius numbers and type. Inspected technical sections of both do not furnish the all-a catenary-degree computation; these other numerical-semigroup invariants do not directly imply uniform distance-three connectivity. Best-of-knowledge PASS, some implicit relation-system coverage risk.
+
+## value
+
+PASS
+
+An exact bounded catenary degree despite unbounded embedding dimension for a natural Fibonacci-shifted numerical semigroup family gives a meaningful factorization-theoretic invariant, with a constructive uniformly bounded rewrite normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
