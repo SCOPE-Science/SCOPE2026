@@ -1,0 +1,11 @@
+# Scientific review: rhombic triacontahedron illumination
+
+**Correctness: PASS.** The exact algebraic certificate reconstructs the complete polar facet graph and confirms every reflection generator preserves the original icosahedral vertex set. The connected chamber-adjacency argument gives the all-generic-directions assertion; the strict-inequality perturbation argument controls nongeneric directions. One reference direction has illumination incidence \((3,7)\). Each direction illuminates at most three of twelve five-valent vertices, giving ordinary and fractional lower bounds of four. Four listed generic directions jointly illuminate all thirty-two vertices, giving the matching upper bounds. Exact arithmetic confirms the crucial equalities, not a floating-point approximation.
+
+**Originality: PASS under inspected evidence.** Naszódi's foundational paper and Gorodzha's recent theorem supply general fractional illumination bounds but no Catalan-solid value. The complete 2012 Kiss–de Wet paper addresses norm-weighted source costs for Platonic/Archimedean solids, not this Catalan dual. Inspected exact papers on the icosahedron, dodecahedron, type-\(D\) polar bodies, and cube–octahedron intersections concern different objects or invariants and do not imply the all-direction two-orbit spectrum here. Searches included the polar icosidodecahedron, rhombic-triacontahedron and \(H_3\) terminology. An unindexed historical result on the ordinary numerical value remains a priority risk.
+
+**Mathematical value: PASS.** The complete natural polyhedral invariant and its nontrivial two-orbit directional rigidity make this more than a single witness: a uniform combinatorial-geometric mechanism yields both exact illumination numbers and a sharp covering certificate. A general lower bound is attained by explicit geometry rather than only numerical optimization.
+
+**Scope and limitations.** Statements hold for the specified regular realization and invertible linear images, not arbitrary combinatorially equivalent solids. The checker proves all its finite subclaims exactly; the chamber argument establishes the infinite-direction assertion. No historical exhaustiveness or independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
