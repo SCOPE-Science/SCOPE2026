@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "An exact binomial-neighborhood decomposition gives each joint weight and an adjacent-weight ratio verified against complete finite enumeration. The ratio lemma locates the conditional saddle and proves convergence; Chernoff/lower-bound arguments handle the extremely rare zone, and Laplace/Stirling analysis proves the critical LDP and probability phase boundaries. All assumptions, boundary values, and quantifiers appear in RESULT.md; finite experiments are supporting checks only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson and Rucinski, arXiv:0905.0972, section 3, theorem 3.1, example 3.5: rooted *upper* tails and concentration estimates for subgraph counts, not conditional zero-count root degree.",
+        "Stark and Wormald, arXiv:1608.05193, theorem 1.1 and 1.2: graph-wide absence probability for a fixed balanced unrooted graph, not simultaneous rooted K3/C4 avoidance.",
+        "Accessible own earlier rooted-triangle finding 34c4060c-637a-4edc-94f1-6e603f0b4f39 gives weights without the per-outside-vertex condition B_d^(n-1-d); its triangle-only transition is at alpha=1/2 and does not imply the square-sensitive alpha=2/3 transition."
+      ],
+      "reasoning": "Graph-wide subgraph absence is a different conditioning (many forbidden roots); rooted upper tails concern the opposite deviation. Prior single-root triangle exclusion has no constraint on common neighbors and cannot imply this exact law without a genuinely additional argument.",
+      "searches": [
+        "Random graph G(n,p) conditioned fixed root vertex is contained in no cycle of length three or four, radius two tree, conditional degree suppression Lambert W phase transition",
+        "Poisson rare event rooted 4-cycles conditional degree distribution neighborhood locally tree-like threshold alpha 2/3",
+        "arxiv:1608.05193 theorem 1.1",
+        "arxiv:0905.0972 theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0905.0972",
+      "arxiv:1608.05193",
+      "published-finding corpus semantic searches of rooted cycle avoidance, collision-free neighborhood, conditional degree",
+      "Earlier related finding 34c4060c-637a-4edc-94f1-6e603f0b4f39"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson and Rucinski, arXiv:0905.0972, section 3, theorem 3.1, example 3.5: rooted *upper* tails and concentration estimates for subgraph counts, not conditional zero-count root degree.",
+        "Stark and Wormald, arXiv:1608.05193, theorem 1.1 and 1.2: graph-wide absence probability for a fixed balanced unrooted graph, not simultaneous rooted K3/C4 avoidance.",
+        "Earlier rooted-triangle record 34c4060c-637a-4edc-94f1-6e603f0b4f39 gives weights without the per-outside-vertex condition B_d^(n-1-d); its triangle-only transition is at alpha=1/2 and does not imply the square-sensitive alpha=2/3 transition.",
+        "The new exact factor B_d(p)^(n-1-d) forces the alpha=2/3 suppression threshold that does not arise in the triangle-only weighting."
+      ],
+      "reasoning": "Comparing implications rather than wording: the earlier rooted upper-tail bounds give neither exact zero-count probabilities nor conditional degree; the graph-wide absence formula does not condition one specified vertex; triangle-only exact weights do not specify edges joining its neighbors to nonneighbors. A broad prior theorem might in principle imply the asymptotics after further derivation, which remains the principal risk.",
+      "searches": [
+        "Condition random graph G(n,p) fixed vertex has no triangles or four-cycles, probability and degree phase transition Lambert W",
+        "Random graph G(n,p) conditioned fixed root vertex is contained in no cycle of length three or four, radius two tree, conditional degree suppression Lambert W phase transition",
+        "arxiv:1608.05193 introduction theorems 1.1-1.3",
+        "arxiv:0905.0972 section 3 examples 3.3-3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson and Rucinski, arXiv:0905.0972, section 3, theorem 3.1, example 3.5: rooted *upper* tails and concentration estimates for subgraph counts, not conditional zero-count root degree.",
+        "Stark and Wormald, arXiv:1608.05193, theorem 1.1 and 1.2: graph-wide absence probability for a fixed balanced unrooted graph, not simultaneous rooted K3/C4 avoidance."
+      ],
+      "reasoning": "Checked aliases short-cycle-free root, locally tree-like radius-two exploration, rooted C3/C4 exclusion, and a collision-free neighbor fan. No inspected statement identifies the same conditioned degree law or its critical rate function.",
+      "searches": [
+        "Condition random graph G(n,p) fixed vertex has no triangles or four-cycles, probability and degree phase transition Lambert W",
+        "Random graph local girth at a distinguished vertex under conditioning no 3 or 4 cycles asymptotic",
+        "random graph rooted local tree neighborhood girth conditional degree",
+        "arxiv:0905.0972 section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus component-triangle covariance record measures component count under percolation, not a conditioned distinguished degree.",
+        "The published-finding corpus graph-like neighborhood complex record 2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d concerns deterministic simplicial topology, not random conditional degrees."
+      ],
+      "reasoning": "Nearest returned records have a different random variable or object; no exact tabulation of the root event probability or conditioned degree profile appeared in the actual searches. Absence from a database alone is not a novelty proof.",
+      "searches": [
+        "Condition random graph G(n,p) fixed vertex has no triangles or four-cycles, probability and degree phase transition Lambert W",
+        "Poisson rare event rooted 4-cycles conditional degree distribution neighborhood locally tree-like threshold alpha 2/3",
+        "Random graph local girth at a distinguished vertex under conditioning no 3 or 4 cycles asymptotic",
+        "published-finding corpus 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ]
+    },
+    "rationale": "Actual primary text from Janson-Rucinski 2009 and Stark-Wormald 2016 concerns rooted upper tails or graph-wide subgraph absence respectively. A previously recorded root triangle-only formula is mathematically weaker and leaves unconditioned the outside-neighbor collisions, so its results do not imply the current three-threshold classification. Actual published-finding corpus and literature searches found no covering theorem; implicit classical derivability remains possible.",
+    "residual_risks": [
+      "Implicit classical evaluation of rooted subgraph-avoidance may exist under a different formulation.",
+      "The relevant inspected sections of a 44-page source, rather than an exhaustive line-by-line review, delimit priority confidence.",
+      "Independent historical priority and proof audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact root-conditioned zero short-cycle degree profile in inspected relevant sections",
+        "evidence": [
+          "Janson and Rucinski, arXiv:0905.0972, section 3, theorem 3.1, example 3.5: rooted *upper* tails and concentration estimates for subgraph counts, not conditional zero-count root degree.",
+          "Theorem 3.1 bounds P(X >= t E X); remark 3.6 mentions lower-tail trivial degree isolation as a bound, with no conditional degree limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0905.0972",
+        "material_read": "Abstract, introduction, complete theorem 3.1 statement and explanatory discussion, examples 3.3-3.5, and remarks concerning lower tails",
+        "method": "Primary public full-text PDF read, pages 1,6-9,13-15",
+        "title": "Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs",
+        "trigger": "Rooted random graph short-cycle counting and possible upper/lower-tail implication"
+      },
+      {
+        "assessment": "NOT_COVERING the present rooted conditional degree theorem in inspected theorem/introductory material",
+        "evidence": [
+          "Stark and Wormald, arXiv:1608.05193, theorem 1.1 and 1.2: graph-wide absence probability for a fixed balanced unrooted graph, not simultaneous rooted K3/C4 avoidance.",
+          "Theorems focus on P(no G0 anywhere) for one chosen G0, not root-conditional joint C3/C4 avoidance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.05193",
+        "material_read": "Abstract, introduction, main theorem 1.1 and explicit triangle example theorem 1.2, definitions and conditions on global counts",
+        "method": "Primary full-text public PDF, pages 1-3 and theorem statements",
+        "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph",
+        "trigger": "Possible general avoidance theorem for prescribed C3 and C4"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34a433ca-bd80-40e2-abb4-b6b8e7d25ee9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Local girth at one root is a standard motivating criterion for tree-like exploration in G(n,p). Distinct n-dependent mechanisms cause a degree-one collapse, a Lambert saddle, a macroscopic critical suppression, and asymptotically ordinary degree; the further alpha=3/4 rarity boundary is structurally natural. Exact finite weights and a good conditional LDP are reusable, non-arbitrary probabilistic conclusions, not mere checker output.",
+    "status": "PASS"
+  }
+}

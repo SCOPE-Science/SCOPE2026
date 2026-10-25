@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact probability expression follows from independent edge families after fixing the distinguished vertex's neighbors. Its adjacent-weight ratio is obtained by exact cancellation, and direct enumeration checks all graphs on up to six vertices. The ratio bounds prove concentration on the Lambert scale; separate binomial-deviation and Laplace arguments prove the rarity regimes and critical large-deviation principle. The extrapolation to arbitrary \(n\) rests on these analytic arguments, not on enumeration.
+
+**Originality: PASS (provisional historical priority).** Janson–Ruciński, arXiv:0905.0972, Theorem 3.1 and Example 3.5, bound upper tails of rooted subgraph counts; they do not yield the simultaneous zero-triangle/zero-four-cycle conditioned degree law as stated. Stark–Wormald, arXiv:1608.05193, Theorems 1.1–1.3, treat absence of a prescribed subgraph throughout the graph, not an event confined to one root. A previously recorded single-root triangle-avoidance calculation does not contain the independent per-outside-vertex factor needed here; notably its suppression threshold differs. Exact public-source comparisons and searches detected no direct coverage. A general earlier enumeration or large-deviation theorem might specialize to the result, so priority requires independent review.
+
+**Value: PASS.** Rooted short-cycle exclusion is a natural local tree-likeness condition in random graph exploration. The three degree/rarity boundaries distinguish degree collapse, saddle suppression, typical-degree behavior, and Poisson-scale rarity. The exact finite distribution and critical rate function identify the mechanisms, rather than merely giving an elementary expectation. The assertion is restricted to one distinguished root in a homogeneous independent-edge graph.
+
+**Scientific limitations and residual risks.** Historical priority is uncertain; the exact formula may be implicitly available in older rooted graph enumeration. No central limit theorem or finite-sample error rates are supplied. The probability below \(\alpha=2/3\) is only logarithmically asymptotic. Full independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
