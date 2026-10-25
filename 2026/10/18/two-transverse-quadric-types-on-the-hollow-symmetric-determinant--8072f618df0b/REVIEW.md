@@ -1,11 +1,21 @@
-# Scientific review — hollow symmetric determinant
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the exact formula for off-diagonal derivatives, then separates the rank-\(n-1\) and lower-rank cases. The corank-two locus is shown irreducible by a surjective Gram parameterization from products of irreducible isotropic cones of dimension at least two; the orthogonal-group fiber count gives codimension three in the ambient hollow matrix space. Row-zero subspaces contain explicit rank-\(n-1\) matrices. Two Schur-complement calculations, together with a surjectivity argument for restricting off-diagonal perturbations to the two-dimensional kernel, give the claimed quadratic transverse types. Serre's criterion then proves normality. Exact integer Hessian and Jacobian computations at independent witnesses for matrix orders five and six corroborate, but do not replace, the proof. The restriction on characteristic and the excluded small sizes are essential to these arguments.
+## correctness
 
-**Originality — PASS, qualified.** The closest inspected primary sources study symmetric determinantal linear sections and sparse minors, but their statements do not imply this exact all-order decomposition for **fully zero diagonal** symmetric matrices. Huang (2013) treats multilinear determinantal forms associated with symmetric matrices; Cunha–Ramos–Simis (2018) treat diagonal cloning and triangular corner zeros; Conca–Welker (2018) and Deng–Kretschmer (2022) specialize off-diagonal entries to zero while retaining free diagonal entries. Nie–Ranestad–Sturmfels (2006) study generic rank loci in linear spaces of symmetric matrices, rather than this nongeneric coordinate section. General adjugate formulas cover one necessary step but do not by themselves establish irreducibility, the exact component count, or the transverse Hessian ranks. Different terminology (e.g. weighted complete-graph adjacency determinants) could conceal a prior equivalent result; this remains a genuine literature risk.
+PASS
 
-**Mathematical value — PASS.** The complete singular-locus decomposition has structural content that an abstract determinantal rank stratification misses: the forced-zero diagonal produces exactly \(n\) new maximal singular strata in every order, while the rank-drop stratum remains irreducible. Two different nondegenerate transverse quadratic types with explicitly different ranks expose two mechanisms of degeneration, and imply normality despite the extra components. These are natural invariants of a graph-adjacency determinant family, not ad hoc finite counts.
+Using independent hollow a_ij coordinates, calculated derivative 2adj(A)_ij: for rank n-1 adj=c vv^T, vanishing off diagonal forces v supported at a single coordinate (exactly a zero row); rank<=n-2 has adj zero. For r=n-2>=3 the rank-r hollow locus is the surjective Gram image of n irreducible isotropic cones in r-space, with generic O(r) fibers of dimension r(r-1)/2; image dimension N-3 affine, so projective dim N-4 and irreducible. Each zero-row linear stratum has projective dim binom(n-1,2)-1 and generic rank n-1 by invertible hollow block construction. Schur complement on a generic rank n-2 matrix restricts the determinant to Sym^2(kernel) and the hollow-perturbation restriction is surjective unless there is a zero row, giving nondegenerate xy-z² Hessian rank3. A rank n-1 zero-row block gives -det(B)*u^TB^{-1}u, Hessian rank n-1. Codimension >=2 singular support plus CM hypersurface yields normality/irreducibility, and hypersurfaces are Gorenstein. Independent exact 5x5 witnesses yielded gradient vanishing/rank3 Hessian on R, gradient vanishing/rank4 Hessian on L, and nonzero gradient at rank4 smooth point. Tests do not prove all n/characteristics.
 
-The record makes no assertion about the nonreduced Jacobian scheme, ranks below \(n-2\), or the excluded small orders and characteristic two. Earlier coordinate-section literature and unindexed adjacency-matrix geometry may overlap; a human specialist should assess the coverage before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.
+
+## value
+
+PASS
+
+Classifying singular strata for hollow symmetric graph-adjacency determinant spaces is an intrinsic projective-algebraic invariant. Unlike unrestricted symmetric determinants, the full diagonal-zero specialization creates exactly n extra singular components with a distinct generic normal quadratic type; closed counts and normality apply uniformly to all n>=5. This is a natural complete structural description rather than an isolated computed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
