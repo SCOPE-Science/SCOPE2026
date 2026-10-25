@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "From M(s)=exp(-ds)/cos(pi s/2), the bilateral Laplace transform of positive-index occupation is M/[s(1-M)]. Its only pole near the imaginary axis is the double origin pole with residues L/d+EX^2/(2d^2)-1, and an analytic contour shift yields exponential remainder. First passage has variance v/d^3, and the expected number of later below-threshold visits is bounded by M(s)/(1-M(s)). Direct finite inversion corroborates coefficients. Every step is justified in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Daley, Ann. Probab. 8 (1980), 615–621, abstract and explicit nonvanishing envelope",
+        "Feller Volume II classic renewal theory background"
+      ],
+      "reasoning": "A universal nonlattice second-order renewal or first-passage CLT could recover leading pieces. Daley gives uniform bounds but does not state the exponential remainder. The specialized joint statement with analytic rate and Gaussian nonmonotone occupation-count fluctuations was not located; residual subsumption risk is acknowledged.",
+      "searches": [
+        "random walk renewal function second order asymptotic expectation occupation count signed increments exponential moments Stone renewal constant",
+        "random walk positive drift renewal function negative increments exponential renewal theorem second order constant",
+        "negative drift random walk expected number visits above negative logarithmic barrier renewal potential second order constant variance over drift"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21136v1 full HTML",
+      "doi:10.1214/aop/1176994732 abstract",
+      "Semantic mathematical research-record searches for MHCP threshold asymptotics, random-walk renewal count and half-Cauchy factor count"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.21136v1 Theorem 2 addresses centered log eta_h as h grows",
+        "Daley (1980) absolute-error inequality for U(y), not a vanishing rate"
+      ],
+      "reasoning": "Theorem 2 of source concerns one coordinate and does not by itself imply a central limit theorem for all exceedances, which include rebounds. The renewal bound does not imply exponentially vanishing remainder, while its center matches the second moment already known abstractly. The new package proves quantitative specializing claims independently.",
+      "searches": [
+        "multiplicative half Cauchy prior effective dimension as threshold epsilon tends zero logarithmic first order second order constant renewal occupation",
+        "negative drift random walk expected number visits above negative logarithmic barrier renewal potential second order constant variance over drift",
+        "half Cauchy multiplicative shrinkage expected number active factors small threshold variance correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.21136v1 Eq. (19) exact expectation series",
+        "Daley (1980) renewal function U(y) counts all n with S_n<=y"
+      ],
+      "reasoning": "The MHCP threshold count is exactly a signed-increment random-walk renewal occupation function. This equivalence is used in the proof and compared directly; the source has the series without its second-order exponential expansion.",
+      "searches": [
+        "multiplicative half Cauchy prior effective dimension as threshold epsilon tends zero logarithmic first order second order constant renewal occupation",
+        "negative drift random walk expected number visits above negative logarithmic barrier renewal potential second order constant variance over drift",
+        "half Cauchy multiplicative shrinkage expected number active factors small threshold variance correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2610.21136v1 Table 1 finite thresholds, Eq. (19) finite-exceedance expectation series"
+      ],
+      "reasoning": "Source numerical table and exact series determine finite-level expectations but do not tabulate or prove small-threshold correction constant or fluctuation coefficient. No matching exact asymptotic database/table was located.",
+      "searches": [
+        "multiplicative half Cauchy prior effective dimension as threshold epsilon tends zero logarithmic first order second order constant renewal occupation",
+        "half Cauchy multiplicative shrinkage expected number active factors small threshold variance correction"
+      ]
+    },
+    "rationale": "The motivating full manuscript Eq. (19) is an exact series and Section 3 proves a coordinate CLT, not a total-count CLT or exponential threshold expansion. Daley (1980) bounds a general random-walk renewal function by a nonvanishing constant, rather than deriving the stated exponential remainder. Searches found no direct MHCP threshold-asymptotic finding. Generic renewal theory may imply some elements and remains a residual priority risk.",
+    "residual_risks": [
+      "Older general analytic renewal theorems may already imply the exponential occupation-mean expansion after specialization.",
+      "The Daley 1980 full paper was not available for line-by-line comparison; only its abstract and explicit inequality were inspected.",
+      "Independent scientific priority and correctness audit remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp threshold-asymptotic mean or full-count CLT; underlying transform, fixed-coordinate CLT and exact expectation sum are expressly prior.",
+        "evidence": [
+          "Section 4 Eq. (19) supplies unexpanded infinite series; Section 3 Theorem 2 is indexed by fixed coordinate h."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.21136",
+        "material_read": "Full arXiv HTML, Sections 1–6, propositions, Theorems 1–2, Eq. (19), Table 1 and references",
+        "method": "Read full accessible HTML and compared statement versus candidate formula, limit order, and count definition",
+        "title": "Pathwise Shrinkage and Probabilistic Calibration of the Multiplicative Half-Cauchy Process",
+        "trigger": "Exact same multiplicative process and effective-dimension quantity"
+      },
+      {
+        "assessment": "Abstract only: generic bound is not a vanishing remainder, but full-text priority comparison remains a risk.",
+        "evidence": [
+          "Annals of Probability 8(3), 615–621 (1980); inequality centered at E X^2/(2(EX)^2) with nonzero uniform bound."
+        ],
+        "identifier_or_url": "doi:10.1214/aop/1176994732",
+        "material_read": "Detailed publisher/indexed abstract with explicit theorem inequality and references; full article not accessed",
+        "method": "Compared the displayed upper/lower inequality to the signed-increment asymptotic and exponential remainder",
+        "title": "Tight Bounds for the Renewal Function of a Random Walk",
+        "trigger": "Strongest named general random-walk renewal-function comparison with identical second-moment center"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40cd29b4-2f86-455b-8b36-06a0cb3c1996",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantitative effective factor dimension calibration has an exact, nonzero bias constant plus a model-specific Gaussian uncertainty scale, with rebounds accounted for. The exponentiated remainder makes the second-order approximation substantive for a fixed prior hyperparameter; value does not rely solely on correctness or code.",
+    "status": "PASS"
+  }
+}
