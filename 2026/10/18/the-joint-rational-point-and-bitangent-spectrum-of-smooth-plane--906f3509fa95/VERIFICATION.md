@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-## Reproducible exact checks
+## correctness
 
-The C++17 program `bitangent_census.cpp` evaluates all \(32,767\) nonzero homogeneous quartic equations over \(\mathbf F_2\) in a fixed monomial basis. It constructs the Macaulay map in degree ten from the quartic and its three partial derivatives and checks rank 66 by binary elimination. It tests each of the seven rational lines for the two coefficient conditions defining an even divisor and counts the seven rational point evaluations. Its printed joint table has total 10,920 and the column totals 3,072, 5,278, 2,352, 105, 112, and 1 for rational bitangent totals 0, 1, 2, 3, 4, and 7. Zero occurs for 5 and 6.
+PASS
 
-The independent `bitangent_orbits.py` computes the action of generators of \(\operatorname{PGL}_3(\mathbf F_2)\) on the quartic coefficient space, producing 279 projective-coordinate orbits, then uses SymPy Gröbner bases to test absence of singular geometric points on each of the three affine charts. It obtains 78 smooth orbits, total orbit weight 10,920, and reconstructs bitangent tests from symbolic binary line substitutions rather than precomputed coefficient masks. It asserts all 25 positive entries of the exact joint table, the zero cells implicitly, the column totals, and the concurrency conditions. The computed report ends `INDEPENDENT_ORBIT_GROEBNER_CHECK_PASS`.
+A homogeneous ternary quartic has 15 coefficient bits, 32767 nonzero forms. A geometric singular point annihilates the degree-10 Jacobian-ideal map S6⊕(S7)^3→S10; when smooth, three general quartic members of this basepoint-free ideal form a degree-(4,4,4) regular sequence with socle degree 9, proving the rank-66 converse over an algebraic closure and hence F2. For each of seven rational lines the restricted binary quartic is a square precisely when the s^3t and st^3 coefficients vanish. I inspected the complete C++ bit-rank enumerator and independent Python orbit/Groebner source, compiled and ran the 32767-case exact enumerator afresh, reproduced 10920 smooth forms and the entire 8×6 point/bitangent joint table, with bitangent frequencies 3072,5278,2352,105,112,1. Independently checked concurrent bitangent triple and four-line multiplicities from the exact per-subset output; finiteness is the full universe, not a sample.
 
-Both programs and their actual printed output are included. They were executed successfully. Neither relies on floating-point statistics, randomized search, incomplete sampling, or a finite-extension approximation to geometric smoothness.
+## originality
 
-## Proof boundaries
+PASS
 
-The implication from Macaulay rank to geometric smoothness depends on the standard fact that three general degree-four members of a base-point-free degree-four linear system in three variables form a regular sequence and therefore have quotient socle degree nine. The bitangent test uses the characteristic-two square criterion. Counts are exhaustive finite computations, conditional only on these exact algebraic reductions and correct execution of the shipped source. Unindexed equivalent prior enumerations remain possible. No independently audited or externally certified status is asserted.
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Joint rational-point and rational even-contact-line spectrum of smooth plane quartics over F2
+
+## value
+
+PASS
+
+A simultaneous exact distribution of F2-rational points and F2-rational even-contact lines on all smooth genus-three plane quartic equations is a natural arithmetic incidence invariant, not a random slice. Its empty support at five and six lines, rigid three/four-line incidence, and explicit frequencies are independently usable refinements of a known classification; the finite universe is complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

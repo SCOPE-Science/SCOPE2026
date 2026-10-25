@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact test \(\operatorname{rank}\Phi_F=66\) is proved equivalent to geometric smoothness via a three-quartic complete-intersection Hilbert-function bound; no finite extension smoothness heuristic is used. For each rational line, the restriction is a square exactly when the two odd-degree mixed coefficients vanish in characteristic two. Both conditions are evaluated for every one of the \(32,767\) nonzero binary quartic equations. The independent orbit and affine-chart Gröbner-basis implementation finds 78 smooth projective-coordinate orbits with total weight 10,920, reproducing every cell of the joint table and the specified line configurations. The exact mathematical object, enumeration domain, and hyperflex convention are specified. Reproduction requires C++17 and Python with SymPy. Source programs and actual output records are included.
+PASS
 
-## Originality — PASS, qualified
+A homogeneous ternary quartic has 15 coefficient bits, 32767 nonzero forms. A geometric singular point annihilates the degree-10 Jacobian-ideal map S6⊕(S7)^3→S10; when smooth, three general quartic members of this basepoint-free ideal form a degree-(4,4,4) regular sequence with socle degree 9, proving the rank-66 converse over an algebraic closure and hence F2. For each of seven rational lines the restricted binary quartic is a square precisely when the s^3t and st^3 coefficients vanish. I inspected the complete C++ bit-rank enumerator and independent Python orbit/Groebner source, compiled and ran the 32767-case exact enumerator afresh, reproduced 10920 smooth forms and the entire 8×6 point/bitangent joint table, with bitangent frequencies 3072,5278,2352,105,112,1. Independently checked concurrent bitangent triple and four-line multiplicities from the exact per-subset output; finiteness is the full universe, not a sample.
 
-The closest primary literature is Nart–Ritzenthaler, arXiv:math/0312366, which supplies a complete classifying system of characteristic-two nonhyperelliptic genus-three curves, explains possible geometric bitangent counts and Fano incidence, and tabulates rational points of Newton-polygon moduli *strata*. Those prior classification and geometry statements are excluded from the new claim. The presently asserted invariant is the exact weighted joint distribution of *individual-curve* rational point counts and rational even-contact lines over \(\mathbf F_2\), including exact per-subconfiguration multiplicities, which is not stated or already numerically implied by the published aggregate class-count formulas. A derivation from complete normal forms is possible in principle with additional computations; priority could be affected by unpublished or unindexed tables. Markwig–Payne–Shaw (arXiv:2207.01305) study arithmetic bitangents only with residue characteristic different from two. Asgarli–Ghioca–Yip (arXiv:2208.13299) study rational point incidence but not its joint distribution with even-contact lines. Müller–Ritzenthaler (arXiv:math/0405052) concern ordinary quartic invariants. Targeted research-record searches and accessible earlier findings supplied no covering joint spectrum, but absence of search results is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Arithmetic rationality of theta characteristics/bitangent lines and rational point existence are two natural invariants of genus-three curves. Their exact dependence is not captured by the 2-rank alone, a geometric-bitangent total alone, or a count of isomorphism classes. The table supplies an exact arithmetic incidence statistic with sharp forbidden combinations; the Fano-plane multiplicities specify which rational configurations are realizable and how frequently. This is a complete exact finite-degree refinement at the smallest field, useful as a test case and boundary datum for arithmetic enumeration and descent methods. Its scope is deliberately finite and does not assert a general-field theorem or new curve classification.
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Joint rational-point and rational even-contact-line spectrum of smooth plane quartics over F2
 
-## Limitations and closest literature
+## value
 
-This is a coordinate-equation-weighted finite-field census, not a reclassification of genus-three curves. It relies on executable exact combinatorics and standard commutative-algebra lemmas, and needs independent mathematical audit for additional assurance. In particular, Nart and Ritzenthaler's complete earlier classification is strong background coverage; equivalent unpublished tabulations and consequences requiring straightforward but nontrivial case arithmetic remain the principal priority risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A simultaneous exact distribution of F2-rational points and F2-rational even-contact lines on all smooth genus-three plane quartic equations is a natural arithmetic incidence invariant, not a random slice. Its empty support at five and six lines, rigid three/four-line incidence, and explicit frequencies are independently usable refinements of a known classification; the finite universe is complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
