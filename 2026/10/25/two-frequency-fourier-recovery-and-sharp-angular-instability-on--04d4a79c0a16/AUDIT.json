@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact normalized Funk-Hecke formula gives a two-column matrix in every spherical-harmonic degree. For 0<u<v<j_{nu,1}/b all matrix entries are positive. DLMF product and ordered zeros give a strictly positive log derivative of the ratio of the two columns, making the determinant negative. L1 harmonic completeness establishes injectivity; one trace has a nontrivial harmonic nullspace. Bessel power-series expansion through its first 1/(ell+nu+1) correction gives the sharp negative determinant, and singular-value product and dominant entry give both asymptotics. Actual independent numerical tests verify constants and normalization but are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2020 Theorem 13 deals with the measurement set being a union of spheres, while the *source* is still a single sphere; the mathematical role of unions differs.",
+        "2011 paper establishes only a single source sphere against a single observation sphere."
+      ],
+      "reasoning": "A stronger one-source uniqueness theorem, even for arbitrarily many observation surfaces, does not cover the independent two-source inverse; the same 2x2 matrix contains two previously absent columns. It also lacks singular-value conditioning.",
+      "searches": [
+        "\"finite union of spheres\" \"Heisenberg uniqueness pairs\"",
+        "\"two concentric spheres\" \"Fourier transform\" \"injective\"",
+        "Chattopadhyay Ghosh Giri Srivastava 2020 Heisenberg uniqueness pairs sphere union two or more spheres Theorem 13"
+      ]
+    },
+    "checked_sources": [
+      "González Vieli, doi:10.1017/S0004972711002942 (full primary PDF; 2011 online)",
+      "Chattopadhyay et al., doi:10.5802/crmath.48 (full primary PDF; 2020)",
+      "DLMF §10.21 (standard Bessel formulas)",
+      "Nir Lev, doi:10.1016/j.bulsci.2010.12.002 (abstract and metadata only)",
+      "Per Sjölin, doi:10.1016/j.bulsci.2010.12.004 (abstract and metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The sharp condition number \\(4(\\ell+\nu+1)(bv/au)^\\ell/\\Delta\\) follows from cancellation of leading Bessel terms across both source and measurement radii.",
+        "Available Lev and Sjölin abstracts describe a *single* unit circle source, while the claim explicitly requires two independent shell densities."
+      ],
+      "reasoning": "The 2011 and 2020 HUP claims are strictly different: neither offers two-source injectivity or factorial 2-by-2 spectral conditioning. The conclusion is not a special case of those published statements. The classical formulas make a proof possible and leave priority uncertainty, not known coverage.",
+      "searches": [
+        "\"two concentric spheres\" \"Fourier\" \"uniqueness\" Bessel",
+        "\"union of two concentric spheres\" \"Fourier\" \"uniqueness\" Bessel",
+        "Bessel cross-product J_nu(a x) J_nu(b y) - J_nu(a y) J_nu(b x) asymptotic large order inverse problem",
+        "Nir Lev uniqueness theorems for Fourier transforms circle 2011",
+        "Sjölin Heisenberg uniqueness pairs circle radius 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "González Vieli (2011), Proposition 1.2, DOI 10.1017/S0004972711002942: one source sphere, one observation sphere.",
+        "Chattopadhyay et al. (2020), Theorem 13, DOI 10.5802/crmath.48: one source sphere, a union of observation spheres."
+      ],
+      "reasoning": "An equivalence under harmonic decomposition would require an invertible pair of radial multipliers for two independent source fields, rather than nonvanishing of one multiplier for one field. Neither inspected theorem states that determinant criterion or its high-order magnitude.",
+      "searches": [
+        "\"union of two concentric spheres\" \"Fourier\" \"uniqueness\" Bessel",
+        "\"two circles\" \"two circles\" Heisenberg uniqueness pairs Bessel",
+        "Two concentric spherical surface measures Fourier transform restriction to two concentric observation spheres Bessel cross product determinant injectivity uniqueness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF 10.21.15 explicitly gives the J-Bessel canonical product; 10.21.2 gives the positive-zero order interlacing.",
+        "The checked Bessel identities do not encode the present two-shell measurement singular values or exact high-degree prefactors."
+      ],
+      "reasoning": "The classical product and order monotonicity are needed in the new deduction and are not claimed as novel. A table of Bessel roots or single-function asymptotics does not itself give the pair-of-shells inverse singular-value law.",
+      "searches": [
+        "\"Bessel\" \"two concentric spheres\" \"Fourier\" uniqueness",
+        "\"Bessel\" \"two concentric spheres\" \"Fourier\" singular values",
+        "https://dlmf.nist.gov/10.21 (Sections 10.21.i, 10.21.iii, 10.21.iv)"
+      ]
+    },
+    "rationale": "A 2011 full-text theorem and 2020 full-text generalization each have only one independent source sphere. The proposed Fourier recovery uses two independent source densities, a sign-definite 2-by-2 Bessel minor across two measurement radii, and sharp large-degree singular-value asymptotics. Standard Bessel identities are credited as ingredients; a full covering theorem was not found in the actual comparisons. Older literature is a recorded publication-priority risk.",
+    "residual_risks": [
+      "Historical inverse-source and Bessel-tomography results not indexed by searched phrases could imply the two-shell theorem or high-degree asymptotics.",
+      "Lev and Sjölin primary full texts were not read; descriptions suggest single-source, but an appendix may contain a stronger related statement.",
+      "A known analytic total-positivity theorem might directly imply the determinant sign; the stated novel contribution is the two-source measurement theorem combined with exact singular-value conditioning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "does not cover two independent source radii or sharp 2x2 high-order singular values",
+        "evidence": [
+          "Proposition 1.2: a unit-source-sphere measure restricted to one frequency sphere is unique iff all Bessel multipliers are nonzero.",
+          "Page 81 contains the exact spherical-harmonic plane-wave identity used here."
+        ],
+        "identifier_or_url": "doi:10.1017/S0004972711002942",
+        "material_read": "full five-page article including Proposition 1.2 and harmonic-mode proof",
+        "method": "opened primary publisher PDF; read proposition, proof and boundary assumptions; visually inspected opening and proof page",
+        "title": "A uniqueness result for the Fourier transform of measures on the sphere",
+        "trigger": "closest original one-sphere Bessel uniqueness criterion"
+      },
+      {
+        "assessment": "Theorem 13 allows several measurement spheres but holds a single source sphere fixed; it does not supply two-source 2x2 recovery/conditioning",
+        "evidence": [
+          "Theorem 13 states conditions for \\((S^{d-1},\\Lambda)\\), with source a single unit sphere and \\(\\Lambda\\) a union of observation spheres."
+        ],
+        "identifier_or_url": "doi:10.5802/crmath.48",
+        "material_read": "full 14-page open-access PDF, especially Section 2.2 and Theorem 13",
+        "method": "read primary full text and visually checked Theorem 13 page",
+        "title": "Heisenberg uniqueness pairs on the Euclidean spaces and the motion group",
+        "trigger": "plausible broader coverage by multiple observation spheres"
+      },
+      {
+        "assessment": "standard analytic ingredients, no inverse-source theorem",
+        "evidence": [
+          "10.21.2 interlaces Bessel zeros of successive orders.",
+          "10.21.15 is the exact product for \\(J_\nu\\)."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/10.21",
+        "material_read": "10.21.2, 10.21.15 and surrounding definitions/monotonicity",
+        "method": "read primary mathematical reference formulas",
+        "title": "DLMF §10.21 Zeros",
+        "trigger": "proof of first-zero ordering and strict multiplier ratio"
+      },
+      {
+        "assessment": "abstract concerns one unit-circle source and an additional measurement set; unresolved full-text priority risk",
+        "evidence": [
+          "2011 volume 135, pages 134–140; one source circle in abstract."
+        ],
+        "identifier_or_url": "doi:10.1016/j.bulsci.2010.12.002",
+        "material_read": "title, bibliographic abstract only; full text not accessed",
+        "method": "publisher metadata and institutional abstract",
+        "title": "Uniqueness theorems for Fourier transforms",
+        "trigger": "earlier unit-circle Heisenberg uniqueness possible general implication"
+      },
+      {
+        "assessment": "available description states a single unit circle source; possible inaccessible-detail risk",
+        "evidence": [
+          "2011 volume 135, pages 125–133; cases include one circle and a union of two lines."
+        ],
+        "identifier_or_url": "doi:10.1016/j.bulsci.2010.12.004",
+        "material_read": "title, bibliographic abstract only; full text not accessed",
+        "method": "journal metadata and accessible abstract",
+        "title": "Heisenberg uniqueness pairs and a theorem of Beurling and Malliavin",
+        "trigger": "earlier planar-circle harmonic uniqueness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04d4a79c-0a16-4d58-b4bf-f2d6def18127",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural two-shell inverse-source problem requires determining the exact number of complete frequency traces and whether recovery is numerically stable. The result supplies the sharp minimum of two, an explicit all-dimensional frequency region, a strict mode-by-mode sign invariant, and a sharp factorial high-angular-degree small-singular-value law. This quantitative instability is necessary information for assessing any regularization and is not a routine isolated parameter evaluation.",
+    "status": "PASS"
+  }
+}
