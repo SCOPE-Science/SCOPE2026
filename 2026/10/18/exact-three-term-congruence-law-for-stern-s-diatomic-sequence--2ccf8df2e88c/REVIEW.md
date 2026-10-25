@@ -1,12 +1,21 @@
-# Scientific review: three-term Stern congruence law
+# Independent mathematical audit
 
-## Correctness — PASS
-For each modulus \(m\ge2\), the terminal binary run identity relates the third Stern term to the first two and \(\nu_2(n+1)\). The binary-digit maps act as permutations on primitive pairs. Irreducibility, aperiodicity, and double stochasticity yield uniform mixing from each prefix. Conditioning on a terminal \(0\,1^t\) suffix and using a bounded tail gives the geometric joint law; dyadic interval decomposition converts the law to ordinary natural density. Finally, the linear congruence \(2bt\equiv a+c-b\pmod m\) gives the exact solution class and geometric series. The proof addresses nonprime and even moduli and the case \(q=1\). The supplied checker ran successfully over all stated finite checks. No computational observation is used to prove the infinite law.
+## correctness
 
-## Originality — PASS, with explicit limitations
-The closest work is Reznick (2006/2008), which gives uniform residue-pair distribution and binary transition graphs. Northshield (2022) derives other one- and two-variable modular distributions by the same Markov method. Neither inspected treatment states an all-modulus three-consecutive-value distribution or the terminal-run geometric weighting. Stanley (2020, Chapter 6, p. 63) asks for congruence conditions on \(k\) consecutive Stern terms, supplying a direct published mathematical motivation for this first non-pair case. The new argument deliberately reuses the known pair-mixing theorem, but the triple coordinate is not a function of the pair alone: \(\nu_2(n+1)\) must be coupled and then eliminated by an exact geometric sum. Search coverage cannot rule out unindexed or less obviously titled equivalent results. A highly general finite-transducer theorem might imply the statement without printing this formula.
+PASS
 
-## Value — PASS
-The result completely determines every attainable residue triple and its natural density for every modulus, not merely some sampled patterns, one coordinate, or a fixed prime. The conditional law is generally nonuniform, with sharp explicit rational weights and a modulus-dependent support size. It answers the \(k=3\) natural fixed-length case of Stanley's stated extension problem, and gives a concrete foundation for investigating longer windows. It does not claim to solve \(k\ge4\).
+Strong induction on n shows s(n+2)=(2 nu_2(n+1)+1)s(n+1)-s(n) exactly. L(x,y)=(x,x+y), R(x,y)=(x+y,y) act by invertible permutations of all J_2(m) primitive consecutive-pair residues. Strong connectivity from coprime positive Stern/Calkin–Wilf enumeration plus finite permutation reversibility and a self-loop yields irreducible aperiodic Markov mixing to uniform primitive pair. A terminal binary suffix 0 1^t has density 2^(-(t+1)), independent asymptotically of the pair state after freely varying earlier digits; dyadic aligned intervals extend to ordinary natural density. Solving 2bt ≡ a+c-b (mod m) gives q=m/gcd(2b,m), and a single residue class t=r mod q with geometric mass [1/J_2(m)]2^(-(r+1))/(1-2^-q), with q=1 and m composite included. Independently checked exact normalized modular triple mass tables for m=2..12, partial empirical n<65536 distributions and Stern identity; no claim of uniform-in-m mixing rate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge scientific statement-and-implication comparison: known components properly credited; no inspected accessible stronger result decisively contains the precise final claim. Residual access and priority risks explicitly retained; lack of full access was not treated as independent proof of novelty.
+
+## value
+
+PASS
+
+The three-consecutive-value distribution is a natural next question after the established uniform consecutive-pair law; the third term reveals geometric terminal-run dependence and a nonuniform explicit conditional distribution, an exact all-moduli arithmetic statistic. The answer resolves a mathematically motivated first unclassified window length, not a reparameterization of the known pair frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
