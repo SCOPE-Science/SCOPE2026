@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The primitive Pythagorean parity lemma forces a separation of at least two between \(2\)-adic valuations of adjacent vertices. This proves the graph bipartition for every \(N\le4\); the explicitly factored triangle establishes nonbipartiteness for all \(N\ge5\). The finite exact values require no optimization oracle: a listed independent set gives each lower bound, a family of pairwise vertex-disjoint edges gives the matching upper bound, and the provided standard-library verifier exhausts every box vertex pair for \(N=3,4\). The certificates and script were executed together successfully. The proof does not infer an infinite theorem from finite samples.
+PASS
 
-## Originality
+Primitive Pythagorean leg parity forces |v_2(u)-v_2(v)|>=2 for every edge. Thus for boxes N<=4, 2-adic layers {0,1} and {2,3} are a bipartition; N=1,2 edgeless. I regenerated all N^N box vertices, exhaustively checked every unordered pair by integer-square test, found 10 and 408 edges at N=3,4, and independently computed maximum bipartite matchings of sizes 6 and 112, so alpha=27-6=21 and 256-112=144 by König's theorem. Original certificates.json lists explicit independent sets and disjoint-edge matchings, read in pinned tree; finite certificates are exhaustive within the finite domains. Values 240,252,275 lie in Phi_5 and give exact hypotenuses 348,365,373, so form a triangle; inclusion Phi_5 subset Phi_N proves nonbipartite for all N>=5. Boundaries all N>=1 and no claim f(N>=5).
 
-**PASS, subject to literature-indexing risk.** Xiao's full preprint was materially inspected at its definition, principal asymptotic theorem, proof outline and final bound, with searches for exact small-box tables or bipartite graph statements. Neither those passages nor the Frantzikinakis–Klurman–Moreira finite-coloring and multiplicative-density theorems specify these extremal numbers or the sharp first odd-cycle parameter. Dedicated searches for matching formulations, prior prime-box tables, and other published-result overlap did not identify coverage. The Euler brick itself is old, and no novelty is attributed to its three side lengths. Undiscovered older finite computations remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The invariant is exactly the natural finite extremal function introduced in an October 2026 asymptotic study. The values \(f(3)=21\) and \(f(4)=144\) are nontrivial first calibrations, much stronger than its generic odd-vertex lower bound \(N^{N-1}\). The precise transition at \(N=5\) identifies when the entire family loses its bipartite matching structure; it explains why the exact small-case method cannot be extrapolated mechanically. No claim is made for \(f(5)\) or for a new large-\(N\) bound.
+Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Gives first exact benchmark independence numbers in the precisely defined high-dimensional prime-power boxes of Xiao, and a sharp structural bipartite/nonbipartite threshold. The step N=5 is supported by a classical Euler brick but its first membership in this natural family and the exact finite extrema are motivated invariants; no general asymptotic strength is falsely claimed.
 
-## Residual scientific limits
+## value
 
-The pre-existing Euler brick witnesses only a graph obstruction; it is not a new Diophantine construction. The finite enumeration is exact but bounded to the stated box sizes. Originality remains subject to any uncatalogued prior computation of the same prime-box invariant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives first exact benchmark independence numbers in the precisely defined high-dimensional prime-power boxes of Xiao, and a sharp structural bipartite/nonbipartite threshold. The step N=5 is supported by a classical Euler brick but its first membership in this natural family and the exact finite extrema are motivated invariants; no general asymptotic strength is falsely claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

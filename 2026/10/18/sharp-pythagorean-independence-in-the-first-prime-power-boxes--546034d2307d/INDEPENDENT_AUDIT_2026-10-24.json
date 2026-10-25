@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T06:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Primitive Pythagorean leg parity forces |v_2(u)-v_2(v)|>=2 for every edge. Thus for boxes N<=4, 2-adic layers {0,1} and {2,3} are a bipartition; N=1,2 edgeless. I regenerated all N^N box vertices, exhaustively checked every unordered pair by integer-square test, found 10 and 408 edges at N=3,4, and independently computed maximum bipartite matchings of sizes 6 and 112, so alpha=27-6=21 and 256-112=144 by König's theorem. Original certificates.json lists explicit independent sets and disjoint-edge matchings, read in pinned tree; finite certificates are exhaustive within the finite domains. Values 240,252,275 lie in Phi_5 and give exact hypotenuses 348,365,373, so form a triangle; inclusion Phi_5 subset Phi_N proves nonbipartite for all N>=5. Boundaries all N>=1 and no claim f(N>=5).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Xiao estimates: f(N)<<N^N(log log N)^(-1/1296) and later f(N)>>N^(N-1)log log log N, asymptotic with implicit thresholds."
+        ],
+        "reasoning": "Those bounds do not determine exact f(1..4) or the graph-theoretic threshold. Frantzikinakis–Klurman–Moreira partition-regularity addresses multiplicative density/colouring, not this finite graph parameter.",
+        "searches": [
+          "Pythagorean pairs boxes prime powers Xiao independence exact f N bipartite",
+          "arXiv:2610.11965 Theorem 1.1",
+          "arXiv:2610.20311 quantitative lower bound"
+        ]
+      },
+      "checked_sources": [
+        "R. Xiao, arXiv:2610.11965v2",
+        "R. Xiao, arXiv:2610.20311v1",
+        "MathWorld Euler Brick",
+        "Frantzikinakis–Klurman–Moreira, arXiv:2309.10636"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact alpha(3)=21 alpha(4)=144 require finite maximal matching and independent sets."
+        ],
+        "reasoning": "Even with a known triangle, proving absence of odd cycles for every N<=4 requires the valuation obstruction, and exact alpha does not follow from asymptotic results.",
+        "searches": [
+          "Pythagorean pairs boxes prime powers Xiao independence exact f N bipartite",
+          "arXiv:2610.11965 asymptotic bound",
+          "Euler brick reference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xiao f(N) is exactly alpha(G_N), with edges between two integer right-triangle legs, regardless of hypotenuse membership."
+        ],
+        "reasoning": "Exact same object; rephrasing as independence number changes nothing. The finite values and bipartite threshold are additional results rather than an alternate statement of Xiao asymptotic estimates.",
+        "searches": [
+          "Pythagorean pairs boxes prime powers Xiao independence exact f N bipartite",
+          "arXiv:2610.11965v2 definition Phi_N and f(N)",
+          "arXiv:2610.20311"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Euler-brick side lengths (240,252,275) are classical and not claimed original; original source certificates enumerate G_3 and G_4 matchings and independent sets, and independent recomputation agrees."
+        ],
+        "reasoning": "Classical Euler brick supplies one known witness, not the first-box bipartite cutoff by itself; no inspected prior exact prime-box f(N) table found.",
+        "searches": [
+          "Pythagorean pairs boxes prime powers Xiao independence exact f N bipartite",
+          "Euler Brick 240 252 275 MathWorld",
+          "arXiv:2610.11965 full text"
+        ]
+      },
+      "rationale": "Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Gives first exact benchmark independence numbers in the precisely defined high-dimensional prime-power boxes of Xiao, and a sharp structural bipartite/nonbipartite threshold. The step N=5 is supported by a classical Euler brick but its first membership in this natural family and the exact finite extrema are motivated invariants; no general asymptotic strength is falsely claimed.",
+      "residual_risks": [
+        "An unindexed computation may already list the first prime-box independence values.",
+        "The N=5 triangle is an already known Euler brick and not a new Pythagorean triple."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact first-box independence numbers or sharp bipartiteness classification in inspected statements",
+          "evidence": "Its theorem is asymptotic O(N^N(log log N)^(-1/1296)), not alpha(G_4)=144 or a structural first triangle.",
+          "identifier_or_url": "arXiv:2610.11965 https://arxiv.org/abs/2610.11965",
+          "material_read": "Primary full-text rendering: definition, main asymptotic theorem, parameter setup and relevant finite-parameter discussion, with abstract and updated v2 metadata crosschecked",
+          "method": "Full-text rendering sections and mathematical comparisons; source PDF unavailable at arxiv endpoint",
+          "title": "Pythagorean pairs in boxes of prime powers",
+          "trigger": "Defines same Phi_N and f(N)"
+        },
+        {
+          "assessment": "Gives asymptotic lower bound rather than finite exact small-N extrema",
+          "evidence": "f(N)>>N^(N-1)log log log N not an exact N=1..4 table.",
+          "identifier_or_url": "arXiv:2610.20311v1 https://arxiv.org/abs/2610.20311",
+          "material_read": "Primary mathematical abstract, introductory definitions and Theorem 1.1 examined from accessible full-text rendering",
+          "method": "Direct theorem/parameter comparison",
+          "title": "Quantitative lower bound for Pythagorean pairs in boxes of prime powers",
+          "trigger": "Later same-object stronger coverage"
+        },
+        {
+          "assessment": "Triangle side lengths predate result; novelty restricted to first admissible prime-power box.",
+          "evidence": "240^2+252^2=348^2; 240^2+275^2=365^2; 252^2+275^2=373^2.",
+          "identifier_or_url": "https://mathworld.wolfram.com/EulerBrick.html",
+          "material_read": "Known Euler-brick triple identified, crosschecked exact squares algebraically",
+          "method": "Independent integer arithmetic and named source comparison",
+          "title": "Euler Brick",
+          "trigger": "Check novelty of triangle witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives first exact benchmark independence numbers in the precisely defined high-dimensional prime-power boxes of Xiao, and a sharp structural bipartite/nonbipartite threshold. The step N=5 is supported by a classical Euler brick but its first membership in this natural family and the exact finite extrema are motivated invariants; no general asymptotic strength is falsely claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
