@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The complete derivation spaces for the two parity cases are reconstructed from \(D(t)\) and the defining relation; the characteristic-two identity that \(D^2\) is again a derivation reduces the problem to \(D^2(t)=0\). Both parities yield the same pair equations \(ab=b^2=0\) in \(k[s]/(s^m)\). Valuation strata prove the irreducible-component list, dimensions, intersections, point counts, and the rank/acyclic criterion. Exhaustive independent matrix tests ran over \(\mathbb F_2\) and \(\mathbb F_4\), sixteen truncation configurations. The proof, not finite extrapolation, covers all characteristic-two fields and all lengths.
+
+**Originality — PASS with residual risk.** Premet (arXiv:1405.2426, 2014) studies regular derivations and invariant fibres under characteristic \(p>2\), not the characteristic-two restricted square-zero cone. The inspected 2020 theory of \(p\)-DG modules supplies context but not this truncated-derivation component arrangement. Targeted searches for equivalent p-nilpotent cone, characteristic-two derivations, finite-field counts, and generic square-zero differentials did not identify a dominating statement. Hidden equivalent literature is an unresolved publication-priority risk; absence of a search hit is not proof of uniqueness.
+
+**Value — PASS.** Restricted nilpotence is intrinsic to modular derivation Lie algebras. A uniform classification of an infinite sequence of reduced nullcones, including their growing linear-component arrangement, exceptional parity-preserving isomorphism, exact finite-field counts and acyclic locus, resolves a motivated geometric/arithmetic question rather than a routine isolated computation.
+
+**Closest sources and limitations.** Premet, *Regular derivations of truncated polynomial rings* (2014, arXiv:1405.2426); *Free (Z/p)^n-complexes and p-DG modules* (2020, DOI 10.1016/j.jalgebra.2020.07.028). The theorem concerns characteristic two, reductions of schemes, and labelled derivations. It does not give scheme multiplicities or automorphism-conjugacy classes. Independent mathematical assessment and comprehensive priority verification remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
