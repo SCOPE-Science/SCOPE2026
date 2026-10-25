@@ -1,19 +1,21 @@
-# Review of the critical periodic-multiplier crossover
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The expanding-map conjugacy is obtained by a norm-contracting fixed-point equation and has a uniform cubic parameter remainder. The first-order observable is the single cosine frequency; the continuous second-order observable has Haar mean \(\pi^2/b^2\). The periodic-point ensemble is within exponentially vanishing total variation of uniform cyclic digital words. A finite-window approximation, separated-block central limit argument, and law of large numbers establish the critical triangular-array limit. All required normalizations and the degenerate \(\tau=0\) case are explicit. Discrete Fourier character orthogonality proves the exact finite-period derivatives. The standalone finite diagnostics include direct continuation of actual perturbed periodic points. Finite checks are not used as an infinite proof.
+PASS
 
-## Originality
+For fixed b>=2 and epsilon=tau/sqrt(n), the small C^0 conjugacy H_epsilon to the linear degree-b map is obtained by a contraction of the inverse-expanding cohomological equation and expanded uniformly to third order in epsilon. Along its periodic points the log-derivative sum has epsilon S_n g+epsilon² S_n h+O_b(n|epsilon|³), with g=(2pi/b)cos(2pi x), Haar mean h=pi²/b², and g’s long-run variance 2pi²/b². Sampling fixed points is within O(b^-n) total variation of uniform cyclic base-b words; digit-block truncation and Lindeberg prove S_n g/sqrt(n) Gaussian, while LLN gives S_n h/n -> pi²/b². Thus the triangular array tends to N(pi²tau²/b²,2pi²tau²/b²), tau=0 degenerate. Finite-period discrete Fourier orthogonality for n>=3 gives exact zero first derivative, variance 2npi²/b², curvature (2npi²/b²)(b^n+1)/(b^n-1). Independent root-of-unity calculations verified Fourier covariance for b=2..6, n=3..8 and curvature for b=2..5, n=3..7; those are not a CLT proof.
 
-**PASS under inspected evidence, with priority risk.** Drach--Fu--Kaloshin--Li--Liverani (arXiv:2511.15662) proves fixed-map periodic-point Gaussian limits for nonlinearly conjugated expanding circle maps, with constants that may degenerate as the map becomes linear. It does not state a joint scaling regime at the linear boundary, the shifted limiting law, or the finite-period curvature. De la Llave--Shub--Simó (DCDS-B 2008) treats the identical sinusoidal map family but computes metric entropy and absolutely continuous invariant-density responses rather than periodic Lyapunov distribution under the maximal-entropy ensemble. Earlier periodic-point linear-response theory establishes general derivative tools; it does not by itself state these exact coefficients and the uncentered joint law. Searches of mathematical records and comparisons with accessible existing claims found no covering statement; this is evidence for, not a proof of, priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The zero-perturbation map has a deterministic multiplier for every orbit, so the usual fixed-map nondegenerate Gaussian normalization becomes singular. The critical perturbation scale resolves both a nontrivial deterministic drift and fluctuations of order one, with exact coefficients for every integer expansion degree. The finite-period curvature identities quantify the transition and provide independent reproducibility tests. This addresses a natural boundary left unquantified by the fixed-map limit theorem rather than an arbitrary specialized slice.
+Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.
 
-## Limits and source risk
+## value
 
-The theorem covers fixed \(b\ge2\), a single sine forcing, fixed \(\tau\), and uniform all-fixed-point sampling; convergence rates, broader forcings, and simultaneous degree growth are unproved. The historical priority comparison is not exhaustive, especially for thermodynamic formalism and triangular-array perturbation limits. The formula does not claim that the existing fixed-map CLT or general perturbation theory is new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the singular linear-map boundary the usual positive-variance fixed-map periodic-orbit CLT degenerates, making epsilon proportional to n^{-1/2} a mathematically distinguished crossover scale. The explicit mean shift, variance coupling and exact finite-period response illuminate a natural triangular-array transition rather than simply restate fixed-parameter CLT or general smooth dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
