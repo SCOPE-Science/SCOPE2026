@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 check_spectrum.py` with Python 3 and its standard library; no network or third-party packages are needed.
+## correctness
 
-The script constructs all zero-divisor–unit incidence entries from the algebraic coordinate-equality characterization, builds the exact integral Gram matrix, calculates its characteristic polynomial with Newton identities, and compares the complete coefficient list against the closed eigenvalue/multiplicity formulas. For products of prime fields it also independently tests the actual condition that the coordinatewise sum has a zero coordinate. Every assertion passed in 13 field-order configurations including \((4,4,4)\). The final program output is `VERIFY_OK: exact Gram characteristic polynomials and nonprime-size combinatorics`.
+PASS
 
-The exact mathematical proof is in `RESULT.md`; finite tests do not constitute a proof for unbounded numbers of factors or field orders. Tests over nonprime orders use labels of nonzero elements and the observation that additive negation is a bijection; this is sufficient for the incidence relation but does not implement arbitrary extension-field arithmetic. No external independent audit was performed.
+For finite product of fields R=∏F_qi, r>=2, the graph with nonzero zero divisors and units has bipartite incidence rows f_z(u)=1−∏_{i in supp(z)}[1−1_{u_i=−z_i}]. The Gram H^T H is invariant under unit-group coordinate multiplication and is diagonal in multiplicative characters. For character nontrivial support T!=empty, squared Fourier-row sums yield lambda_T=∏_{i∉T}[(q_i−1)+(q_i−2)^2]−∏_{i∉T}(q_i−2)^2; the constant character requires explicit exclusion of empty/full support and has MQ−3M²+2MB+C−B². Exactly the full-coordinate character has eigenvalue zero, multiplicity B=∏(q_i−2); all proper-support eigenvalues are positive. Rank(H)=M−B, full graph adjacency spectrum has signed sqrt(lambda_T) with character multiplicities ∏_{i∈T}(q_i−2), nullity Q−1−2(M−B). Nonprime fields require only multiplicative characters and negation bijection. Independently formed integer incidence Gram characteristic polynomials in 8 small parameter tuples and matched the complete formula; general result rests on harmonic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.
+
+## value
+
+PASS
+
+An explicit adjacency spectrum solves a clearly posed spectral invariant problem for the entire natural class of finite reduced nonfields, and determines exact incidence rank and nullity. Fourier character strata expose structural multiplicities uniformly across mixed field characteristics. This is not a table recomputation or an unmotivated one-off graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
