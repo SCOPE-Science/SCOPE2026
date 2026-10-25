@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of the mathematical checks
+# Independent mathematical audit
 
-Place `RESULT.md` and `verify.py` in the same directory and execute `python3 verify.py` using the Python standard library. The program computes exact characteristic polynomials of the two five-patch adjacency matrices; verifies rational isolations for their critical eigenvalues; checks the resulting growth and damping inequalities; and enumerates every simple labeled graph of orders two, three and four, selecting connected nonbipartite graphs and verifying the polynomial classification for every available single-edge addition. The script reports the number of eligible labeled graphs and additions actually checked.
+## correctness
 
-The proof of the full parameter interval is the pair of positive coefficient bounds in `RESULT.md`, not an interpolation from numerical samples. The all-orders claim here is **only** the exclusion of graphs with fewer than five vertices; no enumeration of larger graphs is used to infer optimality or uniqueness. The damping ratio describes asymptotic relative spectral decay, not a universal trajectory-dependent convergence time. No independent external mathematical audit has been performed.
+PASS
+
+For graphs G with edges 12,13,23,15,34 and H adding 45, exact adjacency characteristic polynomials are t(t^2-t-3)(t^2+t-1) and t(t+2)(t^3-2t^2-2t+2). The largest roots alpha and beta and negative competing modes give damping ratios (alpha+q)/(phi-q) and (beta+q)/(2-q). Their cross-multiplied difference has strictly positive intercept and q slope from certified rational bounds, for every q in [0,1/2]; beta>alpha yields a nonempty fecundity rescue interval. The connected nonbipartite <=4-vertex cases reduce to triangle, paw, diamond, complete, whose exact root bounds and affine endpoint checks exclude reversal. Independent matrix polynomials and four q samples corroborate exact analysis; samples are not the interval proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncovering after explicit comparison to the strongest identified literature and indexed records, with residual priority risks retained.
+
+## value
+
+PASS
+
+The smallest already-cycling network exhibiting spectral growth rescue together with slower asymptotic relative equilibration is a motivated structural boundary for ecological networks. Physical column substochastic normalization and a genuine open parameter interval make it more than an arbitrary spectral numerical example; interpretation is limited to linear dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

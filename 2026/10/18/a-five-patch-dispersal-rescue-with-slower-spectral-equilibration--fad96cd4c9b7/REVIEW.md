@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The population matrix is a positive scalar multiple of \(qI+A\), so the characteristic-polynomial factorizations determine both Perron growth and the subdominant eigenvalue modulus without approximation. Three disjoint rational root intervals locate all cubic roots of the five-patch example. The cross-multiplied damping comparison is affine in \(q\) with two strictly positive coefficients. An independent characterization of every connected nonbipartite graph on three or four vertices reduces minimality to paw, diamond and complete graphs; rational polynomial-root intervals prove the required comparisons throughout the parameter interval. The exact-arithmetic program replays matrix identities, signs and the exhaustive small-graph classification.
+## correctness
 
-## Originality
-PASS, with stated residual risk. Artzy-Randrup and Stone (2010) give spectral-radius persistence criteria and discuss cyclic components, but the inspected full text does not present a theorem about damping-ratio reduction under the explicit link or the sharp five-patch cutoff. Stott et al. (2011) define damping ratios and caution against equating them with every finite-time convergence time; that general framework does not imply this particular pair or minimality without the new spectral comparison. Existing graph-synchronization edge paradoxes use Laplacian eigenvalues and thus cannot be substituted for this adjacency-based population statement. The Shima–Noonburg–Phillips (2010) paper directly motivates damping-ratio connectivity, but its full text remained inaccessible, leaving a material risk of an overlooked equivalent claim. Searches of research records, mathematical terminology and accessible prior local claims did not identify such a claim; nonmatches are not uniqueness proofs.
+PASS
 
-## Mathematical value
-PASS. This gives an exact structural boundary for a natural ecological planning tradeoff, rather than an isolated rounded-eigenvalue example: every self-recruitment ratio in a nontrivial interval exhibits improved long-run invasion prospects but diminished relative spectral equilibration, and a whole open range of local fecundities crosses the invasion threshold. It proves that five is the smallest already-cycling network where this opposition can occur, distinguishing it from a trivial transition in which a first cycle is created. The model is simplified and does not justify intervention decisions in stochastic or heterogeneous landscapes.
+For graphs G with edges 12,13,23,15,34 and H adding 45, exact adjacency characteristic polynomials are t(t^2-t-3)(t^2+t-1) and t(t+2)(t^3-2t^2-2t+2). The largest roots alpha and beta and negative competing modes give damping ratios (alpha+q)/(phi-q) and (beta+q)/(2-q). Their cross-multiplied difference has strictly positive intercept and q slope from certified rational bounds, for every q in [0,1/2]; beta>alpha yields a nonempty fecundity rescue interval. The connected nonbipartite <=4-vertex cases reduce to triangle, paw, diamond, complete, whose exact root bounds and affine endpoint checks exclude reversal. Independent matrix polynomials and four q samples corroborate exact analysis; samples are not the interval proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge noncovering after explicit comparison to the strongest identified literature and indexed records, with residual priority risks retained.
+
+## value
+
+PASS
+
+The smallest already-cycling network exhibiting spectral growth rescue together with slower asymptotic relative equilibration is a motivated structural boundary for ecological networks. Physical column substochastic normalization and a genuine open parameter interval make it more than an arbitrary spectral numerical example; interpretation is limited to linear dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
