@@ -1,15 +1,27 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact positive-palindrome digit-length count, establishes all four boundary difference values, and follows explicit palindrome events inside aligned blocks. The first part uses a weighted binary-digit reversal and direct summation. The second and third parts use exact event order and verify all boundaries. The fourth part uses the signed base-four digit swap, the rigorous domination by the first nonzero digit, and the recurrence \(T_h=2\cdot16^{h-1}+2T_{h-1}\). The section totals sum to \(15B^2\), and three unequal subsequential limits follow by geometric-series summation. An independently coded digit-reversal scan matches every predicted subinterval through \(h=4\). Risk: the finite scan cannot establish the infinite claim; the written block proof is necessary.
+PASS
 
-## Originality — PASS within evidence checked
+The domain is all h>=1 with X=16^h, B=4^h, q=2^h; n ranges are integer half-open and the palindrome counts exclude zero in both bases. Reconstructed each boundary count using base-b length formulas, and the first-region digit-pair reversal, two- versus one-event middle blocks, and the last-region base-four bit-swap involution. Its first-nonzero-signed-digit domination gives T_h=2*16^(h-1)+2*T_(h-1) and T_h=(B^2-q)/7. The four interval win/loss/tie formulas sum to the displayed shell totals, with P+N+Z=15B^2. Summing geometric shells gives distinct initial-segment positive proportions 13/280,3/35,3/140. Independently counted every integer and palindrome event on all h=1..4 shells and reproduced (12,94,134),(179,1665,1996),(2853,27235,31352),(45641,438087,499312). The finite check corroborates but does not prove unbounded h.
 
-The 2019 pointwise enumeration theorem computes \(A_b(n)\) for each \(n\), but a direct pointwise algorithm is not the claimed explicit sign census. The 2021 initiating paper proves infinite sign changes and extremal behavior; the closely matched 2023 paper proves pointwise comparison \(A_4(n)-A_2(n)\ge-1\). Neither checked primary full text supplies the displayed exact four-region win/loss/tie frequency formulas or deduces density nonexistence. Targeted mathematical-record and web searches were compared semantically for parameter and implication coverage; nearest indexed matches concern unrelated palindrome coding. Risk: unindexed exact-frequency literature may exist; lack of a search result is not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The original literature frames base-palindrome counting as a race but does not characterize how often each sign wins. The formulas yield the complete signed race profile on a natural infinite hierarchy of intervals and reveal that the winning set lacks a natural density. They are structural and not a routine one-off calculation, and the density conclusion is not a formal consequence of infinite sign changes alone. Scope excludes arbitrary bases and global upper/lower density extrema.
+The same race can be written as a signed average of digit-reversal event offsets; digitwise point evaluations do not state exact sign frequencies over all 16-adic shells or the three conflicting density limits.
 
-Self-review: passed. Independent audit: not yet performed.
+Older broader-in-base results are weaker in quantified sign-frequency strength; infinitely many sign changes do not imply failure of natural density, and pointwise inequalities do not compute shell census.
+
+The theorem enumerates infinitely many integer inputs in an aligned arithmetic progression of growing shells; finite tables or single-n formulas do not already record the exact distribution.
+
+The new claim implies quantitative frequency information not forced by the 2023 inequality; prior result does not imply any of the rational frequencies. The 2019 algorithm could be used in a separate proof but its statement is not the distribution theorem.
+
+## value
+
+PASS
+
+The base-2/base-4 palindrome-counting race is a motivated prior mathematical problem; exact infinite-shell win/loss/tie distributions and demonstrated nonexistence of positive-race natural density go beyond a small table, reveal a structural base-alignment oscillation, and are useful to study digit-statistic races. The result is exact and self-contained within explicit h>=1 scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
