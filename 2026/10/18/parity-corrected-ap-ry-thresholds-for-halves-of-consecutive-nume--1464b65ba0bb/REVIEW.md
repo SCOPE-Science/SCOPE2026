@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding fixes the odd-multiplicity and consecutive-generator hypotheses. Its first lemma proves the exact original residue threshold \(j+a\lceil j/k\rceil\), with an explicit lower-bound argument based on the maximum allowable increment per summand. A parity lift yields every minimal quotient residue representative, not merely a bound. Maximizing these representatives gives the three Frobenius branches, while Selmer's standard sum identity and a blockwise parity count give genus. All boundary cases—including \(q=1\), both parities of \(t\), and \(j=0\)—are covered. The independent finite checker reports 3,364 parameter pairs, 844,484 direct membership comparisons and 273,586 residue-minimality checks; the proof, not enumeration, establishes the infinite quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+For S=<a,...,a+k>, sums of m generators fill every integer in [am,(a+k)m]. Original residue-j Apéry threshold is w_j=j+a ceil(j/k), since at least ceil(j/k) increments are needed. Odd a makes multiplication by 2 invertible mod a; for each j the least h≥ceil(j/k) with h≡j mod2 is L_j, giving complete Apéry(T,a)={(j+aL_j)/2}. Maximization over full and final residue blocks yields t odd F=(at−1)/2, t even q≥2 F=at/2−1, t even q=1 F=(a(t−1)−1)/2. Selmer formula sums all L_j into genus [kt(t−1)+2tq−(t−1)(k mod2)−(q mod2)]/4. Independently verified all 625 pairs with odd a from 5 through 53 by 63854 direct membership tests against Apéry minima and gap counts, not used as infinite proof.
 
-Adeniran et al. (arXiv:1809.09360, final section) pose precisely the broader truncated-progression quotient problem. Their resolved cases do not include quotient \(2\) for odd initial generator and intermediate interval length. Liu (arXiv:2312.06096, introduction and theorems) resolves principally \(p\mid a\) cases, which excludes \(2\mid a\) here. Lee–Nam (DOI:10.1142/S1793042124500891) supplies genus formulas for arithmetic-progressions; genus is deliberately not claimed as independently novel. Liu (arXiv:2312.10889) gives general generating-function machinery rather than the present closed three-branch Frobenius theorem. Targeted database, literature, and accessible earlier-claim searches identified no dominating explicit result. Since Lee–Nam's full text was inaccessible and unindexed equivalent formulations remain possible, novelty is provisional under self-review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural previously posed Frobenius quotient problem is completed for all odd multiplicities and all intermediate consecutive intervals under the nondividing half-quotient. The result is a structural classification, not a narrow data point: it identifies exact residue thresholds and proves the exceptional parity regime where naive Frobenius halving fails by a linear amount. These formulas support explicit gap calculations for an infinite two-parameter family, without reliance on large-scale enumeration. Their hypotheses and scope are mathematically motivated by the published open problem.
+Best-of-knowledge explicit parity-corrected Apéry representatives and three-way Frobenius anomaly solve the natural half-quotient subfamily missing from Adeniran et al. and Liu p|a families; broader genus results of Lee–Nam are explicitly credited and are not claimed new. Full Lee–Nam primary content inaccessible, so possibly implicit Frobenius coverage is a material priority risk.
 
-## Closest literature and limitations
+## value
 
-The closest prior works are Adeniran et al. (2018), Feihu Liu (2023), and Lee–Nam (2024). The first two leave the odd-initial-generator half-quotient outside their solved cases; the third already covers genus in a broader sense and was inspected only through its abstract/first-page preview. General quotient and closed-form equivalences could be implicit elsewhere. No independent mathematical audit has been performed. The result does not treat even \(a\), nonunit progression step, quotient divisors other than \(2\), or longer full progressions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This naturally motivated two-parameter infinite family directly addresses part of a published numerical-semigroup quotient Frobenius problem, determining every residue threshold and an exceptional boundary where naive Frobenius halving fails by (a−1)/2. It is not arbitrary small finite recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

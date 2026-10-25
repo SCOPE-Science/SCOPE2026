@@ -91,7 +91,7 @@ Adeniran, Butler, Defant, Gao, Harris, Hettle, Liang, Nam and Volk (2018), espec
 
 ## Limitations
 
-The scope is an explicit subfamily, not the full arbitrary-step or arbitrary-divisor open problem. The same-model analysis and finite checker do not constitute independent audit or formal certification. The full 2024 Lee–Nam paper was not accessible in the available literature pathway; only its abstract and publisher first-page preview were inspected. An implicit Frobenius deduction there or in other unindexed literature remains a residual originality risk. No optimality claim beyond the exact mathematical equalities is made.
+The scope is an explicit subfamily, not the full arbitrary-step or arbitrary-divisor open problem. The self-review analysis and finite checker do not constitute independent audit or formal certification. The full 2024 Lee–Nam paper was not accessible in the available literature pathway; only its abstract and publisher first-page preview were inspected. An implicit Frobenius deduction there or in other unindexed literature remains a residual originality risk. No optimality claim beyond the exact mathematical equalities is made.
 
 ## References
 
