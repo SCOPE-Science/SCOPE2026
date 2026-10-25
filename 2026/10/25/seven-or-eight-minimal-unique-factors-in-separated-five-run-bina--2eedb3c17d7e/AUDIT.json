@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The separated five-run classification is proved by an exhaustive run-count analysis: two monochromatic maxima, two minimal exits per two-transition orientation, a three-run shorter-one-center pattern, an optional central-zero three-run pattern, and exclusion of four-or-more-run minimal factors by unique proper factors. Separation is explicit in all uses. The product generating function counts ordered separated compositions, symmetry yields exact 2:1 seven/eight proportions, and exceptional tuples have O(n^3) count among Theta(n^4) compositions. verify.py independently enumerates factor occurrence multisets for 1,800 separated small tuples and exact generating coefficients through length 32; finite tests corroborate rather than prove infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nishimoto–Tabei arXiv:2004.01493, §4 Theorem 4.1 and Appendix B enumerate arbitrary MUSs by compressed BWT methods, without closed factor lists for fixed run patterns.",
+        "Kimura–I arXiv:2511.11057, §§1 and 3 gives general MUS bound 2r for BWT run count r, not exact value for separated binary five-run words and not a distributional theorem."
+      ],
+      "reasoning": "General enumeration algorithms can calculate finite instances, but their existential input-output generality does not yield the explicit infinite list or two-point law without specialized structural analysis. The general 2r inequality does not fix the exact 7/8 count or the central-run inequality. Residual risk is an unindexed family specialization.",
+      "searches": [
+        "\"minimal unique substrings\" \"number of runs\" exact",
+        "\"minimal unique substrings\" \"run-length encoded\" 2020 arxiv",
+        "arxiv:2004.01493 Theorem 4.1 Appendix B",
+        "arxiv:2511.11057 MUS 2r bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.12854",
+      "https://arxiv.org/abs/1909.02804",
+      "https://arxiv.org/abs/2004.01493",
+      "https://link.springer.com/article/10.1007/s00453-021-00864-1",
+      "https://arxiv.org/abs/2511.11057"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem of this work: seven specified factors, optional eighth iff c<min(a,e), rational exact family GFs and the O(1/n) two-point law.",
+        "Mieno et al.: nonnesting and data structures; Mieno et al. (2019): changes under window slides; Nishimoto–Tabei: compressed-space enumeration; Kimura–I: BWT-run general cardinality bound."
+      ],
+      "reasoning": "The previous results operate at the general algorithmic/upper-bound level, and none of the inspected conclusions implies that a particular five-run family has exactly these minimal unique factors or that uniform run-length compositions have a 2/3–1/3 law. Their algorithms could be specialized and further analyzed, but that additional infinite analysis is the present contribution.",
+      "searches": [
+        "arxiv:1905.12854 MUS nonnested Lemma 1",
+        "arxiv:1909.02804 sliding MUS window theorem 3.1 3.2",
+        "arxiv:2004.01493 characteristic substrings MUS theorem 4.1",
+        "arxiv:2511.11057 MUS 2r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mieno et al. arXiv:1905.12854, §2.2 defines the same factor-occurrence notion, proves general nonnesting and describes space-efficient data structures; no five-run run-length identity is stated.",
+        "Mieno et al. arXiv:1909.02804, §§3–4 gives sliding-window change and algorithm theorems, not the displayed seven/eight family and probability law."
+      ],
+      "reasoning": "Compared MUS, minimum unique substring, shortest unique substring, maximal repeat and contiguous unique factor formulations. The result counts minimal unique factors, not shortest unique factors per position, minimal absent words or string attractors. No inspected equivalent equality was found; name-level similarity does not establish equivalence.",
+      "searches": [
+        "\"minimal unique substrings\" \"five runs\" binary",
+        "\"minimal unique substrings\" random run lengths alternating binary",
+        "minimal unique substring set five-run binary composition exact 7 8",
+        "arxiv:1905.12854 §2.2 (MUS formulation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches retrieved general MUS algorithm papers rather than exact five-run tables or classification.",
+        "The relevant arXiv full-text treatments arXiv:1905.12854, 1909.02804, and 2004.01493 do not tabulate the seven/eight five-run patterns."
+      ],
+      "reasoning": "No exact table or precomputed answer covering separated five-run words was identified. A negative search cannot certify uniqueness and is not substituted for examining the mathematical content of the closest primary sources.",
+      "searches": [
+        "\"minimal unique substring\" \"7\" \"8\" runs",
+        "\"five runs\" \"minimal unique substrings\" binary",
+        "minimal unique substring limit law random compositions fixed five alternating binary runs"
+      ]
+    },
+    "rationale": "Direct comparison to source-verified general MUS results, sliding-window work, RLBWT enumeration, later BWT-run MUS bounds, relevant public research records and accessible prior claim identifiers identified no statement or implication that yields the seven/eight factor set and 2/3–1/3 finite conditional/asymptotic laws. Novelty remains provisional against unindexed derivations.",
+    "residual_risks": [
+      "An equivalent five-run specialization may exist in unindexed full text or in general MUS algorithm examples.",
+      "The work does not assert an exact classification for exceptional length-equality or adjacent-difference cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on material examined: establishes general algorithms, nonnesting and encoding, not fixed-five-run exact spectrum",
+        "evidence": [
+          "§2.2 MUS occurrence definition and nonnesting Lemma 1; §1 data structure problem and general contributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.12854",
+        "material_read": "Full accessible HTML presentation: abstract, Introduction/Contribution, §2.2 MUSs and SUSs (including Lemma 1), and theorem summaries",
+        "method": "Read author-hosted arXiv HTML text with navigable full sections",
+        "title": "Space-Efficient Algorithms for Computing Minimal/Shortest Unique Substrings",
+        "trigger": "Same core invariant and earlier first-public source"
+      },
+      {
+        "assessment": "NOT_COVERING on full-text topic scan and inspected results: gives update bounds/algorithms for sliding windows, no fixed-run seven/eight result",
+        "evidence": [
+          "§3 change lemmas, §4 algorithms, appendices proofs; no enumerated five-run composition formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1909.02804v2",
+        "material_read": "Full accessible HTML: introductory claim, §§2–4, §3 combinatorial sliding-window changes, appendix MUS change proofs",
+        "method": "Read rendered arXiv full-text HTML sections and appendices",
+        "title": "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window",
+        "trigger": "Plausible closest MUS combinatorial characterizations"
+      },
+      {
+        "assessment": "NOT_COVERING on inspected theorem and appendix: general MUS output algorithm, not structural closed lists or run-composition distributions",
+        "evidence": [
+          "Theorem 4.1 MUS enumeration using RLBWT, Appendix B criterion for cPc-prime factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.01493",
+        "material_read": "ArXiv accessible full-text rendering: introduction, §4 Theorem 4.1, and Appendix B MUS enumeration proof",
+        "method": "Read arXiv full-text HTML-style rendering including algorithm theorem and proof details",
+        "title": "R-enum: Enumeration of Characteristic Substrings in BWT-runs Bounded Space",
+        "trigger": "Closest efficient enumeration method for MUSs in compressed words"
+      },
+      {
+        "assessment": "NOT_COVERING on these results: update algorithm for fixed-width windows rather than five-run composition enumeration",
+        "evidence": [
+          "§2.2 factor-frequency MUS definition; §1.3 sliding-window results and §4 algorithm."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-021-00864-1",
+        "material_read": "Full open-access article sections §1 introduction, §2 MUS definition and §3–§4 contribution descriptions",
+        "method": "Read full open-access HTML article and its main theorem descriptions",
+        "title": "Computing Minimal Unique Substrings for a Sliding Window",
+        "trigger": "Full journal version of related combinatorial MUS work"
+      },
+      {
+        "assessment": "GENERAL_STRONGER_BOUND_NOT_COVERING: 2r global upper bound does not imply exact fixed-run formula or probability law",
+        "evidence": [
+          "§1 establishes MUS <2r in BWT-run complexity terms via net occurrences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.11057",
+        "material_read": "Accessible full-text arXiv rendering, §1 Introduction and main bound relation between net occurrences and MUSs",
+        "method": "Read full-text abstract, introduction and cited theorem context",
+        "title": "R-enum Revisited: Speedup and Extension for Context-Sensitive Repeats and Net Frequencies",
+        "trigger": "Possible stronger global MUS bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2eedb3c1-7d7e-4169-a457-216eff610238",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal unique substrings are a motivated string-indexing and marker invariant. The first odd five-run configuration has three zero runs and two one-run transitions; central zero length relative to both outer zero lengths governs a genuinely new optional unique factor. The theorem gives a complete infinite-domain factor list, exact rational finite-length composition counts and a nondegenerate 2/3–1/3 limit with O(1/n) rate. These are substantive structural and probabilistic statements, not a routine numerical lookup.",
+    "status": "PASS"
+  }
+}
