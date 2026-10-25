@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian-normalized support representation is exact. A uniform rank permutation makes the collision event combinatorial. For k proportional to sqrt(N), rare row/column-conflicting rank pairs form a marked Poisson process: factorial moments for disjoint pairs supply intensity 2c^2 du dv and overlap components of at least three ranks have vanishing total contribution O(k^3/N^2). On the high-probability disjoint-pair event, omitted weaker scores give a lower bound; replacing them with the next tight number of ranked cells gives an upper bound whose Gaussian-quantile scaled discrepancy vanishes. The weak-rank mark v has density 2v, so its loss -log v is exponential of rate two. Upper and lower ranked coordinate lists couple to independent samples with error O(k^2/N^2); projected-Gaussian norm concentration handles intrinsic sphere. The atom at zero is proved separately from collision counts, not incorrectly inferred by continuity. A replayable optimizer checker supplies 225 exact small comparisons and 1211 conditional sandwich checks; simulations are not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coppersmith–Sorkin 1999 abstract: minimum exponential random-assignment costs and expected values, with partial assignments.",
+        "Alm–Sorkin 2002 abstract: exponential minimum assignment Laplace transforms for low ranks and some full assignments.",
+        "Gill–Linusson 2009, section 2: polynomial-time optimization of arbitrary linear objectives, without distribution of the gap to a coordinate hypersimplex."
+      ],
+      "reasoning": "Optimization solvability and explicit expected exponential minima do not imply the Gaussian critical-rank distribution of the *relative support defect*. The older broad matching theorems cover the definition and algorithms, not this angular probability law. Full text of Alm–Sorkin was not inspected, so a remote specialized treatment remains a residual risk.",
+      "searches": [
+        "matching polytope stochastic linear optimization random Gaussian objective extreme-value order statistic compound Poisson",
+        "\"compound Poisson\" \"matching\" \"Gaussian\" \"top\" entries",
+        "\"k assignment\" \"Gaussian\" \"largest\" \"entries\" matching asymptotic",
+        "\"partial matching\" \"compound Poisson\" rank optimization Gaussian",
+        "Coppersmith Sorkin 1999 Constructive Bounds Exact Expectations Random Assignment Problem k assignments PDF"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.11910",
+      "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2418%28199909%2915%3A2%3C113%3A%3AAID-RSA1%3E3.0.CO%3B2-S",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/exact-expectations-and-distributions-for-the-random-assignment-problem/9D846C840A833AEDA38A969A2E4D295C",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Torres Theorem 3.1 provides the linear matching polytope model and the main normality result; both are compatible with many different spherical width-loss distributions.",
+        "Gill–Linusson Theorem 3 determines the inequality model and later the polytope graph diameter; neither gives Gaussian ranked-collision loss distributions.",
+        "Classical exponential-minimum assignment expectations have another tail orientation and density at their extrema.",
+        "The closest indexed ellipsoid and degree records have no random objectives, while the closest owned local source for assignment polytopes concerns enclosing ellipsoids rather than width loss."
+      ],
+      "reasoning": "The new implication requires separate stochastic lemmas: marked pair-collision Poisson convergence plus a score-quantile sandwich. Those are not consequences of normality, face counts, optimal ellipsoids, or known assignment expectation formulas alone.",
+      "searches": [
+        "Gaussian random directional support width deficit hypersimplex k-assignment bipartite matching square rank sqrt n compound Poisson exponential",
+        "matching polytope stochastic linear optimization random Gaussian objective extreme-value order statistic compound Poisson",
+        "Normality of k-Matching Polytopes of Bipartite Graphs arxiv full text",
+        "The k-assignment polytope Gill Linusson 2009 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Torres, arXiv:2306.11910v1: Section 2 names k-matching matrices; Sections 3-4 are H-description and normality.",
+        "Gill–Linusson, The k-assignment polytope, pp. 2-5: graph, face, and optimization descriptions.",
+        "Searches for random Gaussian matching, top-ranked cell collision, and angular width defect did not identify an equivalent published statement."
+      ],
+      "reasoning": "The equivalence to a random Gaussian maximum partial assignment was searched, as were the largest-k-entry occupancy and normal-fan coincidence formulations. A classical occupancy event would recover only the exact zero probability; neither that event alone nor the older polytope descriptions yield the positive compound-Poisson *loss size* distribution.",
+      "searches": [
+        "Gaussian random directional support width deficit hypersimplex k-assignment bipartite matching square rank sqrt n compound Poisson exponential",
+        "largest k matrix entries matching no row or column collisions normal fan spherical angle Poisson threshold",
+        "\"largest\" \"k\" entries \"distinct\" \"rows\" \"columns\" matching random matrix probability",
+        "\"rare collisions\" \"matching\" \"extreme\" random matrix assignment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published record on the John ellipsoid of square fixed-cardinality assignment polytopes: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633",
+        "Indexed record on full incenter locus of partial assignment polytopes: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12",
+        "Indexed record on rank-stratified vertex degrees of rectangular matching polytopes: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5"
+      ],
+      "reasoning": "The closest identified finite tables and exact quantities concern radii, contacts, or vertex degrees. They do not tabulate a Gaussian spherical support-function disagreement measure or its compound-Poisson limit. Searches are insufficient to prove total absence from nonindexed tables.",
+      "searches": [
+        "Gaussian random directional support width deficit hypersimplex k-assignment bipartite matching square rank sqrt n compound Poisson exponential",
+        "largest k matrix entries matching no row or column collisions normal fan spherical angle Poisson threshold",
+        "k-matching polytope versus hypersimplex equality of support functions Gaussian random direction probability top k entries collision birthday threshold"
+      ]
+    },
+    "rationale": "Relevant primary work gives facet, optimization, diameter, and normality properties of the polytope, not a Gaussian intrinsic spherical width-loss law compared with a hypersimplex. Earlier partial random assignment literature concerns minimum exponential costs, with different distributional and scaling questions. Indexed geometry findings for related fixed-cardinality matching polytopes concern John or Lowner ellipsoids, incenters, and one-skeleton degrees. None of the inspected statements or indexed summaries implies the proposed critical-rank compound-Poisson law; this is qualified originality, not a proof of uniqueness.",
+    "residual_risks": [
+      "Unindexed probabilistic matching papers could express the same critical-rank compound-Poisson law in a nongraphical formulation.",
+      "Complete full-text comparison of the two older random-assignment articles was not available; their abstracted distributional questions are different but cannot exclude every subsidiary lemma.",
+      "The claim concerns an exact Gaussian model: alternative score-tail distributions may require a different scaling and were not treated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitions and integrality/normality; no random directional width law or Gaussian rank-threshold statistic established in the inspected content",
+        "evidence": "arXiv:2306.11910v1, first submitted June 20, 2023; Definition 2.7 and Theorem 3.1.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.11910",
+        "material_read": "arXiv HTML full-text sections 1 through 4, including Definitions 2.7-2.8, Theorem 3.1, and stated results on normality",
+        "method": "Direct HTML reading and in-document term checks",
+        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+        "trigger": "2023 source describing the exact k-matching polytope and its linear model"
+      },
+      {
+        "assessment": "Structure, graph diameter, and linear optimization are treated; no spherical Gaussian width-defect law was identified. This paper predates the selected 2023 source and is correctly credited as supporting prior work.",
+        "evidence": "Gill–Linusson 2009, pages 2-5, theorem 3; DOI 10.1016/j.disopt.2008.10.003.",
+        "identifier_or_url": "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "material_read": "Postprint introduction, dimensions/facets and Theorem 3 (pp. 2-5), face-poset and graph-diameter sections, later structural overview and references; full document text was searchable. Page image of Theorem 3 inspected.",
+        "method": "Direct text reading, page-image inspection, section comparisons and searches for Gaussian and normal cone",
+        "title": "The k-assignment polytope",
+        "trigger": "Exact earlier polytope geometry and random-assignment motivation"
+      },
+      {
+        "assessment": "Concentrates on minimum exponential perfect/partial assignment expectations, rather than Gaussian maximum critical-rank defect relative to unrestricted top scores; cannot claim comprehensive NOT_COVERING from abstract alone.",
+        "evidence": "Coppersmith and Sorkin 1999, Random Structures & Algorithms 15, 113–144.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2418%28199909%2915%3A2%3C113%3A%3AAID-RSA1%3E3.0.CO%3B2-S",
+        "material_read": "Public publisher abstract and enumerated claims; complete body not inspected",
+        "method": "Publisher abstract and bibliographic comparison",
+        "title": "Constructive bounds and exact expectations for the random assignment problem",
+        "trigger": "Historical high-relevance probabilistic assignment results"
+      },
+      {
+        "assessment": "Exponential minimum-cost assignment distribution for small ranks and full assignment, not explicitly the Gaussian upper-extreme critical-rank defect; full-text overlap remains a residual risk.",
+        "evidence": "Alm and Sorkin 2002, Combinatorics, Probability and Computing 11, 217–248.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/exact-expectations-and-distributions-for-the-random-assignment-problem/9D846C840A833AEDA38A969A2E4D295C",
+        "material_read": "Public publisher abstract and result synopsis; full text not accessed",
+        "method": "Publisher abstract comparison and web searches for lawful copies",
+        "title": "Exact expectations and distributions for the random assignment problem",
+        "trigger": "Possibly stronger known random assignment distribution results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60f307a6-4ebb-4fab-a6d9-1d5ac71240bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The gap is intrinsic to nested natural polytopes: how a matching constraint alters a random support plane and the associated width of the containing cardinality hypersimplex. The first nontrivial regime is a square-root-rank threshold, and the theorem gives not just collision probability but the full non-Gaussian loss-size law with a characteristic Poisson count and exponential correction. This quantified boundary is relevant to the geometry of normal-fan agreement and to random linear optimization, and it is not a mere reparameterization of the earlier known ellipsoid or matching-face formulas.",
+    "status": "PASS"
+  }
+}
