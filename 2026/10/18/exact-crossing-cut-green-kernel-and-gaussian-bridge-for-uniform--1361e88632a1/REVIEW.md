@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact cut process is reconstructed from uniform pairings; the transition probability of closing an exposed chord is \(h/(M-k)\). For two nested prefix cuts, the stated covariance follows from probabilities of one specified pair and two disjoint specified pairs. The positive innovation variances give the precision quadratic form and determinant. The limiting predictable quadratic variation is \(2t^2/(1-t)^2\); bounded jumps and endpoint reversal supply the full functional convergence. The limit's covariance and aggregate-span variance are obtained by Brownian time-change and integration. A standalone, exhaustive exact-arithmetic verifier passed 450 assertions up to twelve sites. This finite computation does not prove the infinite-sample limit.
+PASS
 
-## Originality
+Uniform ordered perfect matching: each prescribed edge probability 1/(M-1), pair of disjoint edges probability 1/((M-1)(M-3)); X_k internal edges gives H_k=k-2X_k. For u=min(k,l), v=max(k,l), exact covariance 2u(u-1)(M-v)(M-v-1)/((M-3)(M-1)^2). The scan transition P(close|H_k=h)=h/(M-k) yields Y_{k+1}=((M-k-2)/(M-k))Y_k+innovation, and uncorrelated innovation variances produce positive determinant and tridiagonal inverse at all even M>=4. Martingale rescaling by (M-k)(M-k-1) has predictable variance 2t^2/(1-t)^2 and bounded jumps on compact subintervals; reversal plus Doob near endpoints yields the C[0,1] Gaussian bridge. The Brownian Green kernel double integral is 1/45. Independently enumerated all (M-1)!! matchings at M=4,6,8,10,12 and verified all exact means, covariances, tridiagonal inverses and determinants with Fraction arithmetic. Finite enumeration verifies only these sizes, not the martingale FCLT.
 
-PASS with residual priority risk. Acan (arXiv:1501.01489v1, Sections 2 and 6) analyzes random-chord *degree* and separately whole-chord growth; it does not explicitly evaluate the joint prefix-cut covariance, its inverse and determinant, or the Gaussian limit. Berkooz, Narayan, and Simón (JHEP 2018, Section 3.1) develop open-chord transfer recursions for a different weighted problem. The history mechanism itself is not new, and this comparison assesses specifically the evaluated unweighted second-order kernel and functional limit. Search comparisons of alternative names (open chords, active arcs, pairing boundary process, height process, prefix cut) identified no direct encompassing claim in the consulted results. General recurrence machinery may implicitly encode the finite covariance, and a separate literature search could still uncover an earlier Gaussian profile theorem.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The open-chord height profile is an intrinsic observable of matching diagrams; its complete covariance controls every weighted linear scan statistic. The exactly sparse precision matrix gives a finite-size second-order local structure despite long-range covariance, and the limit identifies a non-Brownian pinned Gaussian Markov process with a simple explicit time-change. This adds whole-process fluctuation information not supplied by the published fixed-chord degree distribution. The aggregate-span normal law illustrates a natural global statistic, rather than an arbitrary parameter specialization.
+Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.
 
-## Closest sources and scientific limitations
+## value
 
-Acan (2015), Sections 2 and 6, supplies the most closely related direct probabilistic analysis; Berkooz–Narayan–Simón (2018), Section 3.1, supplies a general transfer formulation for open-chord histories. The proofs and formulas here concern uniform unweighted matchings and do not extend automatically to crossing-weighted ensembles, nonuniform pairings, or stronger tail probabilities. The structural transition mechanism is classical; historical priority attaches only to the evaluated profile statements and their proof, and remains open to independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact nonscalar finite covariance inverse and determinant for a natural matching scan, plus its nontrivial continuous Gaussian-bridge limit and exact integrated span variance, give reusable stochastic-process invariants; these are not a renaming of a one-chord degree statistic. Conditional independence is not asserted for the discrete non-Gaussian profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
