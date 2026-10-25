@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T14:02:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Proof 1–5 (blob 8ab5e0a235eaa1e1e9a51ff48ebb3451556a950f)",
+        "verify.py independent visited-state equations (blob de6e6a37de6d101c18e006cccdf62c501f0e2c37)",
+        "Ohwa–Shirai 2008 cover time inclusion–exclusion provides prior general context"
+      ],
+      "rationale": "PASS. Alternating bipartite visits are independent iid uniform streams of B and A labels. Since the starting A vertex is already observed, the A completion count equals C_a-1 in law and B count equals C_b, so the terminal side is B iff C_b>=C_a (including tie because B is visited at odd times). Inclusion–exclusion for missing coupons combined with the product geometric-stage PGF proves the exact rational sum for a,b>=1. Monotone geometric-stage coupling proves p>1/2 iff b>=a, with strict inequalities due to positive tie mass (a=1 boundary yields 1). Standard coupon collector centering m log m and Gumbel convergence yield logistic difference and n/log n imbalance window for b/n->1. Fourier inversion of the lattice tie probability, the characteristic-function bound from the slowest geometric stage and Plancherel for g(x)=exp(-x-exp(-x)) rigorously imply n Pr(C_n=C_n') -> integral g^2=1/4. Thus p_n=1/2+1/(8n)+o(1/n), and TV from uniform over 2n-1 unvisited vertices is |p_n-n/(2n-1)|~1/(8n), with n=2 exactly uniform. Inspected verify.py compares two independent exact recursions on a,b<=10, 314 rational assertions, not substitutes for limits.",
+      "residual_risks": [
+        "Asymptotic relies on b/n tending to one; it does not cover wildly imbalanced or weighted walks.",
+        "Lattice Fourier tie constant uses dominated convergence, not an extrapolation of finite occupancy data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buchanan–Horn–Rombach arXiv:2209.08079 characterizes when last new vertex is uniform for every starting site in directed graphs",
+          "Ohwa–Shirai 2008 derives all finite-chain last-visited joint laws",
+          "Classical coupon collector Gumbel limit and logistic difference of two iid Gumbels"
+        ],
+        "reasoning": "These broader structures cover uniformity characterizations or representation of finite probabilities, not the complete bipartite strict majority and sharp near-balance total-variation coefficient. General Markov formula specialization is explicitly acknowledged as prior.",
+        "searches": [
+          "last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+          "Lovasz Winkler last new vertex random walk classification Buchanan Horn Rombach"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+        "Ohwa–Shirai 2008 full J-STAGE PDF",
+        "Buchanan–Horn–Rombach arXiv:2209.08079 full PDF",
+        "Lovász–Winkler DOI 10.1002/jgt.3190170505 metadata",
+        "Coupon-collector Gumbel limit and classical geometric-stage decomposition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ohwa–Shirai Theorem 1 covers finite Markov chains but does not in its inspected examples state K_{a,b} logistic window",
+          "Buchanan–Horn–Rombach finite uniformity classification is qualitative",
+          "Fourier–Plancherel computes n Pr(C_n=C_n')→1/4, not just weak Gumbel convergence"
+        ],
+        "reasoning": "Gumbel convergence alone yields logistic windows but cannot by itself produce point-mass tie probabilities of order 1/n; the dominated local Fourier calculation supplies a distinct sharp local limit. Thus the full claim is not an immediate restatement of prior qualitative theory.",
+        "searches": [
+          "last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+          "Gumbel coupon collector difference logistic complete bipartite cover time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_a-1 vs C_b independent collectors encode alternating walk exactly",
+          "Ohwa & Shirai, Joint Distribution of Cover Time and the Last Visited Point of Finite Markov Chains, Kyushu J. Math. 62 (2008), Theorem 1"
+        ],
+        "reasoning": "Translated terminal-site probability to independent collector inequality and to finite Markov-chain cover-time inclusion–exclusion. The broad finite formula makes exact probabilities in principle derivable; the strict all-size boundary and asymptotic constants are additional comparative assertions.",
+        "searches": [
+          "last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+          "last new vertex K_{a,b} cover time and coupon collector comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source exact finite Markov recursion and coupon formula reproduce bivariate grid values 1<=a,b<=10",
+          "Resultary top hits relate to bipartite discounted hitting domination and reset coupon collection, not last-discovery probability"
+        ],
+        "reasoning": "A finite table of p_{a,b} values or a general finite-state formula does not establish a logistic scaling law or asymptotic 1/(8n). No exact matching all-size table or theorem appeared in returned indexed findings.",
+        "searches": [
+          "last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+          "coupon collector tie probability C_n equals C_n prime asymptotic 1/4 n complete bipartite"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise complete-bipartite quantitative boundary, logistic transition and balanced tie/TV constants. Generic Markov-chain joint cover-time formulas can yield finite law by specialization, and Gumbel comparison is classical; the submitted sharp finite majority dichotomy plus scaled transition and 1/8 TV invariant are assessed jointly, not claimed as unprecedented general coupon-collector facts.",
+      "residual_risks": [
+        "Full Lovász–Winkler 1993 text not obtained; quantitative coverage is not completely eliminated.",
+        "A previous sharp coupon-collector tie local limit could imply the balanced 1/(8n) coefficient even without graph-language terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic probability formula is prior and may produce the finite p_{a,b} identity by computation; no logistic boundary or exact balanced TV coefficient located in read sections",
+          "evidence": "Ohwa–Shirai (2008), Theorem 1 and examples",
+          "identifier_or_url": "https://doi.org/10.2206/kyushujm.62.281",
+          "material_read": "Full accessible 2008 primary PDF, Theorem 1 inclusion–exclusion and representative graph examples for last site and time",
+          "method": "Full J-STAGE PDF read by section",
+          "title": "Joint Distribution of the Cover Time and the Last Visited Point of Finite Markov Chains",
+          "trigger": "Exact general Markov-chain probability may dominate finite specialization"
+        },
+        {
+          "assessment": "Qualitative uniform last-vertex classification, not bipartite logistic scaling or tie local limit",
+          "evidence": "Buchanan–Horn–Rombach, arXiv:2209.08079",
+          "identifier_or_url": "https://arxiv.org/abs/2209.08079",
+          "material_read": "Full short arXiv paper main theorem and directed-graph uniformity classification",
+          "method": "Four-page arXiv primary PDF read",
+          "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+          "trigger": "Last-visited-site uniformity in graph families"
+        },
+        {
+          "assessment": "Priority risk: contents beyond accessible abstract were not checked; not asserted NOT_COVERING as a whole",
+          "evidence": "Lovász–Winkler, J. Graph Theory 17 (1993)",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190170505",
+          "material_read": "Publisher bibliographic metadata and accessible abstract only; full four-page paper not obtained",
+          "method": "Publisher metadata/abstract",
+          "title": "A Note on the Last New Vertex Visited by a Random Walk",
+          "trigger": "Potential original last-vertex graph classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search last new vertex random walk complete bipartite graph coupon collector logistic balance window",
+        "Ohwa–Shirai 2008 full J-STAGE PDF",
+        "RESULT.md §§Proof 1–5 (blob 8ab5e0a235eaa1e1e9a51ff48ebb3451556a950f)"
+      ],
+      "rationale": "PASS. Last discovered vertex is a natural graph cover-time statistic; part asymmetry, a surprising strict tie advantage in balanced graphs, a size-ratio transition at n/log n and sharp total-variation decay are motivated quantitative questions for exact random-walk coverage. Distinguishing an explicit finite formula from nontrivial all-size and asymptotic sharp laws gives more than mechanical application of generic inclusion–exclusion.",
+      "residual_risks": [
+        "The exact finite formula can be derived from general Markov-chain theory and is not independently novel; value rests in the complete sharp comparative classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic relies on b/n tending to one; it does not cover wildly imbalanced or weighted walks.",
+    "Lattice Fourier tie constant uses dominated convergence, not an extrapolation of finite occupancy data.",
+    "Full Lovász–Winkler 1993 text not obtained; quantitative coverage is not completely eliminated.",
+    "A previous sharp coupon-collector tie local limit could imply the balanced 1/(8n) coefficient even without graph-language terminology.",
+    "The exact finite formula can be derived from general Markov-chain theory and is not independently novel; value rests in the complete sharp comparative classification."
+  ],
+  "schema_version": 1
+}
