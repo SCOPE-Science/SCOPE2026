@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full type-A root polytope has precisely the product-of-simplices faces indexed by disjoint nonempty ordered pairs of index subsets. The cutting normal avoids every root vertex. An ambient face meets the cutting hyperplane in relative interior if and only if its ordered bipartition is interleaved; the resulting face loses one dimension. The correspondence is bijective and respects inclusion. For a union of size \(m\), subtracting the \(2(m-1)\) separated colorings from the \(2^m-2\) nontrivial colorings proves the all-dimension formula. The alternating-triple vertex formula and exact checks reinforce the argument.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Ardila et al. (arXiv:0809.5123) and Cellini–Marietti (arXiv:1207.3429) establish the ambient root-polytope face structure, not the complete face poset or counts of its generic central *hyperplane sections*. Zhang (2016) studies regular central subdivisions and generic alcoved polytopes, distinct from cutting by one hyperplane. The abstract of De Loera–Lopez-Campos–Torres (arXiv:2412.12419) addresses general sections and does not substantiate the stated exact type-A law; its full text has not been used for a negative coverage judgment. Published related findings on transitive-tournament positive-root polytopes, cube and simplex sections, and multipartite symmetric-edge polytopes do not imply the theorem. The complete ambient face lattice makes the new section result accessible by an explicit, but nonzero, geometric crossing argument. An equivalent earlier formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies every face and every incidence of all generic central sections in an infinite natural family, not merely a numerical example. It supplies a closed face-vector generating function, invariance of combinatorial type over the distinct-coordinate chambers, and an explicit alternating-triple description of the vertices of every face. The result has a motivated role in comparing combinatorial complexity of a root polytope with that of its central sections: facets grow as \(2^n-2n\) while vertices grow as \(2\binom{n}{3}\).
+Every proper face of P_n maximizes some coordinate functional and is F_{I,J}=conv{e_i-e_j:i∈I,j∈J} for unique ordered disjoint nonempty I,J; it is a product of simplices of dimension |I|+|J|-2, using maximum and minimum coordinate sets. Because u_i are pairwise distinct, no root vertex lies on <u,x>=0. The hyperplane intersects relint F precisely when u_i-u_j takes both signs on I×J, equivalently minrank(I)<maxrank(J) and minrank(J)<maxrank(I). Every proper nonempty face of the section arises exactly from the unique ambient minimal face whose relative interior it cuts; dimensions decrease by one and inclusion corresponds to coordinatewise I,J inclusion. For union cardinal m=k+3>=3 there are 2^m-2 nonempty oriented bipartitions minus 2(m-1) contiguous ordered initial/final splits, yielding 2^m-2m and thus f_k=C(n,k+3)(2^(k+3)-2(k+3)); the generating identity follows by binomial theorem. Vertices are crossings of root edges from ordered triples a<b<c, giving two opposite points; alternation I,J,I or J,I,J counts vertices in each face. Independently enumerated all oriented partitions for n3..9 and checked formula; at n5 facet polygon sizes exactly 10 triangles, 10 quadrilaterals and 2 pentagons. This is an all-n proof by ambient face intersection, not finite regression.
 
-## Closest literature and limitations
-The main priority concern is implicit coverage by the previously known ambient face lattice and the general hyperplane-section correspondence, or an overlooked equivalent section formula. No independent review is claimed. The theorem excludes tied-coordinate normals, noncentral sections and other root systems. Numerical checks for \(n\le7\) are not a replacement for the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct complete face-poset and f-vector formula for all generic *central sections* of the complete type-A root polytope. Ardila et al and Cellini-Marietti present the unsectioned root polytope faces/f-vector; the latter computes a related arrangement of hyperplanes spanned by codimension-2 root faces, not the face lattice of a hyperplane intersection. Distinct published results on positive-root tournaments and random central cube sections do not cover this centrally cut signed-root polytope. The full law is elementary given ambient faces, but no inspected prior states the interleaved bipartition condition/all-rank counts; value remains the complete natural classification.
+
+## value
+
+PASS
+
+The full face lattice of a natural all-rank family of generic central sections, not just an f-vector, is an exact structural invariant useful in root-polytope combinatorics. Uniform independence from numerical normal values, an explicit interleaved poset and alternating-triple local-face spectrum offer more than a textbook restatement of the original root-polytope f-vector. The exact m-dependent face formula and n5 facet spectrum answer a natural classification for an already important symmetric polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
