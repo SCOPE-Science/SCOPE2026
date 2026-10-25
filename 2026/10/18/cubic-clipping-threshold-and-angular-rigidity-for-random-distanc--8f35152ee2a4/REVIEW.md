@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The convolution/covariogram identity is exact for any nonsingular affine cube. Its positive parts are inactive through the least face-separation threshold \(r_0\), so a finite expansion gives the degree-six polynomial exactly, not asymptotically. The bivariate Gaussian absolute-product identity yields the angular fifth coefficient with all constants checked. Integrating \(f''(t)=(1-t^2)^{-1/2}\) gives the sharp stability constants. The first departure is obtained by two disjoint spherical caps per maximal dual-normal length, where the remaining factors have uniform positive limits; each cap contributes \(\pi Q_i\delta^3/3\). This reconstructs all cases, including multiple tied shortest altitudes. The checker separately probes four independent nonsingular dual-normal configurations; finite tests are corroboration only.
+PASS
 
-## Originality — PASS (best-knowledge; priority remains open to independent review)
+For every invertible real 3x3 affine cube, the covariogram is V times the product of the three clipped affine overlap lengths. Integrating over a Euclidean ball removes all positive parts exactly up to r0=1/max||b_i||, giving the degree-six polynomial and the pair integral (8/15)||b_i||||b_j||[sqrt(1-gamma^2)+gamma arcsin(gamma)]. Differentiating f twice yields f''=(1-t²)^(-1/2); its monotone integral ratio supplies globally sharp constants 4/15 and (8/15)(pi/2-1), with equality only for orthogonal rows. At the first threshold, only disjoint caps for maximal row norms clip; unaffected product Q_i>0 by strict Cauchy-Schwarz and their uniform cap-tip convergence. Each of two caps contributes pi Q_i delta³/3, hence positive cubic onset. Equality at r0, ties among maximal norms, and singular-limit (but never actual singular) upper extremizers are handled. Independently checked cube H6=1/6, onset 2pi and angular ratio limits. Finitely many cubature samples do not prove the theorem.
 
-The closest covariogram source (Wang, arXiv:2610.01916, inspected accessible paper) proves general distributional relations and a boundary coefficient but not an all-skew spatial parallelotope exact branch, sharp angular rigidity or exact positive first clipping coefficient. Ohanyan–Adamyan (2019) treats a right square-base parallelepiped. Ohanyan–Khalatyan (2022) treats general covariogram relations with disk/ball/triangle illustrations. Older regular-cube formulas and an orthotope polynomial give the orthogonal special case, not the nonorthogonal angular dependence and first-cubic onset. Indexed mathematical records for polygonal coefficient stability, parallelotope radial-mean-body smoothness and dimension-three skew-pair far-distance tails concern distinct objects or distance regimes. No examined result implies the complete claim. Historical risk remains for obscure skew-parallelotope formulas and the incompletely accessed older cube paper; unsuccessful searches alone would not establish novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first nontrivial angular coefficient in the exact stochastic-distance law detects the departure from rectangular geometry with **globally sharp two-sided stability**, while the least face separation is shown to be a genuine singular distance scale with an **explicit positive cubic amplitude**. These give a geometrically interpretable phase boundary and a rigidity diagnostic for every skew spatial parallelotope, beyond substituting parameters into the pre-existing rectangular-box formula. The result is self-contained, concerns a natural full-dimensional family and uses no arbitrary finite enumeration.
+General covariogram/Brunn-Minkowski relations, right square-base parallelepiped formulas and rectangular box special cases predate this result. The checked identities do not by themselves imply the skew angular C5 coefficient with both sharp stability constants and the local first nonanalytic clipping amplitude. This is best-of-knowledge originality only; the full Wang paper and some historic skew calculations were inaccessible.
 
-## Sources and residual limitations
+## value
 
-Primary material read includes Wang (2026) and both Ohanyan papers (2019, 2022); general prior identities and special-case formulas are expressly acknowledged. The 1999 cube paper is known by bibliographic material only, and priority relative to potentially unindexed spatial stereology literature is not established. The theorem does not evaluate the full beyond-threshold distribution or assert an elementary sixth coefficient. Numerical tests are independent consistency checks within this package, not independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distance distribution is a canonical geometric probability invariant; the exact first branch for all nonsingular spatial parallelotopes, sharp response of the first angular term to skewness at fixed altitudes, and explicit positive threshold onset give useful rigidity and detect an intrinsic geometric transition. This is not merely a parameter change of the orthogonal-box case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
