@@ -1,0 +1,111 @@
+{
+  "claim": "For finite complete deterministic automata \\(A=(Q,\\{0,1\\},\\delta)\\) whose transition graph is strongly connected, deciding whether a given subset \\(S\\subseteq Q\\) can be synchronized—whether there exists \\(w\\in\\{0,1\\}^*\\) with \\(|\\delta(S,w)|=1\\)—is PSPACE-complete under polynomial-time many-one reductions.",
+  "correctness": {
+    "rationale": "The input semantics are explicit. Membership follows from reachability in the at-most-\\(2^n\\) subset graph using polynomial space. Hardness follows from two polynomial transformations in Vorel: a swap-congruence construction enforcing strong connectivity, then a product-state alphabet encoding enforcing a binary alphabet. Both preserve existence of a subset-synchronizing word.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vorel states the unrestricted subset-synchronizability problem is PSPACE-complete and cites Natarajan (1986) and Sandberg (2005).",
+        "Vorel's Theorem 4 separately proves PSPACE-completeness when the DFA is both binary and strongly connected."
+      ],
+      "reasoning": "The unrestricted result is broader in its input class but does not imply hardness for the restricted class. The two reductions are needed to establish the conjunction of constraints.",
+      "searches": [
+        "Natarajan 1986 automated design of parts orienters subset synchronizability PSPACE",
+        "Sandberg 2005 Homing and synchronizing sequences subset synchronizability PSPACE",
+        "Vorel arXiv:1403.3972 Lemma 4 Lemma 6 Theorem 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.3972v1 (first public version dated 2014-03-16; full text inspected)",
+      "DOI:10.1142/S0129054116500167 (journal record; MSC 68Q45)",
+      "Natarajan, FOCS 1986, pp. 132-142 (cited by Vorel for the unrestricted problem)",
+      "Sandberg, LNCS 3472 (2005), pp. 5-33 (cited by Vorel for the unrestricted problem)",
+      "DOI:10.1016/j.tcs.2018.12.026 (later corroborating statement; relevant excerpt inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier sources establish the general hardness foundation cited by Vorel.",
+        "Vorel's Lemma 4 adds strong connectivity through a paired-state construction and swap congruence.",
+        "Vorel's Lemma 6 reduces the alphabet to two letters with a product-state encoding while preserving strong connectivity."
+      ],
+      "reasoning": "General PSPACE-hardness does not automatically survive arbitrary restrictions. The two explicit polynomial reductions are the critical implication establishing hardness under both restrictions; membership supplies the matching upper complexity class.",
+      "searches": [
+        "Kozen 1977 common word problem finite acceptors PSPACE-complete",
+        "Natarajan 1986 subset synchronizability PSPACE-complete",
+        "Sandberg 2005 subset synchronizability PSPACE-complete",
+        "Vorel arXiv:1403.3972, Lemma 4, Lemma 6, Theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vorel defines the same decision problem as subset synchronization and subset reset-word existence (arXiv:1403.3972, Sections 2.3 and 6.1).",
+        "The later Sync Set literature states the same restricted problem as PSPACE-complete (DOI:10.1016/j.tcs.2018.12.026)."
+      ],
+      "reasoning": "The aliases refer to the same predicate: there exists a word whose image of the supplied state subset is a singleton. No distinct normalization or stronger earlier formulation was found that makes the two restrictions redundant.",
+      "searches": [
+        "\"Subset synchronizability restricted to binary strongly connected DFA\" PSPACE-complete",
+        "\"subset synchronization\" \"strongly connected\" \"binary\" PSPACE-complete",
+        "\"Subset synchronizability\" PSPACE-complete Vorel",
+        "\"subset reset word\" \"binary strongly connected\" decision problem",
+        "arXiv:1403.3972v1, Sections 2.3 and 6.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The focused record search surfaced related automata synchronization and other PSPACE-completeness results, but no matching pre-2014 result with this exact pair of restrictions.",
+        "The primary source explicitly labels the restricted decision problem PSPACE-complete in Theorem 4 (arXiv:1403.3972)."
+      ],
+      "reasoning": "This is a complexity classification rather than a finite parameter-table entry, so no numeric table is applicable. The exact-phrase and alias searches are bounded evidence, not a proof of global novelty; the positive basis is the dated primary theorem.",
+      "searches": [
+        "\"Subset synchronizability restricted to binary strongly connected DFA\" PSPACE-complete",
+        "\"PSPACE-completeness of subset synchronization for binary strongly connected DFA Vorel Theorem 4 2014\"",
+        "\"subset synchronizability polynomial reduction strongly connected binary automata swap congruences\"",
+        "\"subset reset word decision PSPACE complete finite automata binary strongly connected\""
+      ]
+    },
+    "rationale": "The unrestricted PSPACE-completeness result predates the claim but does not imply hardness for the intersection of binary alphabet and strong connectivity. The primary 2014 source explicitly proves that restricted case. The later restatement found in the literature postdates the earliest public source.",
+    "residual_risks": [
+      "The foundational unrestricted PSPACE-completeness is cited through Natarajan and Sandberg in the primary paper; those two full texts were not independently inspected in this run.",
+      "The later 2018 article was not read in full and is used only as corroboration, not as evidence of pre-2014 coverage.",
+      "A bounded search cannot exclude every unindexed or unpublished earlier formulation; the primary paper's explicit theorem and reduction are the positive evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct primary source. The theorem and proof support the claim; the first arXiv submission date is 2014-03-16 and the journal record lists MSC 68Q45.",
+        "evidence": [
+          "arXiv:1403.3972, Sections 2.3, 4.2, 4.4, 6.1",
+          "DOI:10.1142/S0129054116500167, bibliographic record"
+        ],
+        "identifier_or_url": "arXiv:1403.3972v1; DOI:10.1142/S0129054116500167",
+        "material_read": "Full-text arXiv PDF; definitions of subset synchronization, the strong-connectivity reduction, the alphabet-reduction lemma, the computational-complexity section, and the references.",
+        "method": "Reconstructed the membership argument and both polynomial reductions, then compared the exact input restrictions and decision predicate.",
+        "title": "Subset Synchronization and Careful Synchronization of Binary Finite Automata",
+        "trigger": "The source states a PSPACE-completeness theorem for subset synchronization under binary-alphabet and strong-connectivity restrictions."
+      },
+      {
+        "assessment": "Later corroboration: it explicitly reports PSPACE-completeness for binary strongly connected automata and postdates the 2014 primary source.",
+        "evidence": [
+          "DOI:10.1016/j.tcs.2018.12.026, theorem discussion surfaced by literature search"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.tcs.2018.12.026",
+        "material_read": "The relevant search-result theorem discussion and cited statement; the full paper was not read.",
+        "method": "Checked whether it restates the same problem, but did not use it to infer absence of earlier coverage.",
+        "title": "Synchronization Problems in Automata without Non-trivial Cycles",
+        "trigger": "A search for later statements of the Sync Set decision problem under the same restrictions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f552d39-0e5e-4f29-aaa6-9d0cad1a7b1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result settles a meaningful worst-case complexity boundary for finite-state systems: the decision problem remains PSPACE-complete even with only two input symbols and a strongly connected transition graph. These constraints commonly matter in finite-state modeling and testing, and the result sharply distinguishes subset synchronization from synchronizing the entire state set.",
+    "status": "PASS"
+  }
+}
