@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each real midpoint eigenvalue mu in (-1,1), the complete two-index AR(1) covariance convolution is absolutely summable and equals q(1+mu*rho)/[(1-mu^2)(1-mu*rho)]. Differentiation gives a strictly positive sum of curvature terms, hence the unique optimum/boundary criterion. The mixed-sign two-mode stationary root and its exact radicals have been reconstructed, and the left/right noise gains are exactly I versus (I+hA/2)^-1. The finite-horizon O(h^2) RMS bound follows from the AR(1) Toeplitz norm and h^(5/2) scale. The standalone standard-library verifier passed 1,080 supporting checks on the actual newly written code; finite checks supplement rather than certify the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altmann and Moradi (arXiv:2406.07220; doi:10.1007/s11222-024-10543-0), complete accessible HTML sections 2.3, 3 and 4.2 read: their perturbations are independent in time; (2.5) places noise after the flow and the midpoint saddle-point formula places it in the right-hand side.",
+        "Conrad et al. (2017), doi:10.1007/s11222-016-9671-0, full HTML method assumptions and scalar variance example read: independent Gaussian step perturbations and convergence order, not a correlated-source optimizer.",
+        "Honeycutt (1992), doi:10.1103/PhysRevA.45.604, abstract discusses stochastic Runge–Kutta methods for physically colored noise and bistable first passage, not the present constrained midpoint artificial-uncertainty optimizer."
+      ],
+      "reasoning": "Classical stationary linear-filter theory is broader as an analytic framework and would allow deriving the variance summand, but the specific sharp convex mean-square color law and reversal for state-versus-equation perturbation do not appear in the inspected applicable primary materials. A whole-paper noncoverage claim is made only for the two papers whose relevant text was actually inspected, not for abstracts.",
+      "searches": [
+        "Web: probabilistic time integration semi explicit PDAEs Altmann Moradi pdf section midpoint",
+        "Web: Stochastic Runge Kutta algorithms II Colored noise Honeycutt 1992 stationary covariance abstract",
+        "Web: Monte Carlo randomize numerical integrator temporally correlated errors autoregressive innovation stability optimization",
+        "published-finding corpus: numerical time stepping linear dissipative system AR1 colored stochastic perturbations error second moment spectral filter optimal autocorrelation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2406.07220 (full accessible Springer HTML sections 2.3/3/4.2)",
+      "doi:10.1007/s11222-016-9671-0 (full accessible HTML method and scalar variance example)",
+      "doi:10.1137/0321024 (abstract only)",
+      "doi:10.1103/PhysRevA.45.604 (abstract only)",
+      "published-finding corpus semantic record searches enumerated in four named checks",
+      "Prior mathematical statements on randomized Runge–Kutta stage-law optimization and two-node stochastic heat splitting, compared for nonimplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously considered technical claims c9979934-2f01-476e-913a-af8497d76d26 and 8f70f549-cfbd-496c-b969-9a5ab68d5898 concern, respectively, optimizing a within-step randomized implicit Runge–Kutta stage law and analyzing stochastic heat splitting stability. Neither establishes the lag-one temporal noise-correlation optimizer or compares midpoint perturbation insertion sides.",
+        "published-finding corpus hit 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285 optimizes a fraction of midpoint noise for Langevin configurational covariance rather than lag-one AR(1) coloring in a constrained deterministic time integrator.",
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73 treats a STORM gradient-estimator memory mode on scalar optimization, not the constrained midpoint spectral filter.",
+        "published-finding corpus hit 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906 concerns observation-lag correlations in a stochastic dynamical system rather than choosing correlated integrator perturbations."
+      ],
+      "reasoning": "The closest claims differ in the controlled variable, algorithmic map, and mathematical conclusion. In particular, a within-stage probability optimization, a Langevin covariance-bias cancellation, and a stationary STORM variance formula do not imply a two-injection sign reversal for the same constrained midpoint operator. Overlap checking does not establish uniqueness outside the consulted records.",
+      "searches": [
+        "published-finding corpus: time-correlated noise calibration randomized implicit midpoint numerical integrator variance optimizer stiffness sign flip",
+        "published-finding corpus: probabilistic time integration semi-explicit PDAE correlated perturbations stationary variance optimum AR(1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arnold and Wihstutz (1983), doi:10.1137/0321024, describe stationary outputs of linear systems driven by general stationary noise (abstract inspected).",
+        "The exact filter covariance follows from the classical stationary spectral transfer law; the contribution assessed is the strict-convexity optimizer and opposite-sided injection example, not the classical filter identity alone."
+      ],
+      "reasoning": "The standard transfer-spectrum and AR(1) covariance representations are equivalent to the unoptimized stationary-risk summand after diagonalization. Their general validity does not, by itself, supply the correlation-optimality criterion across signed midpoint modes or the example proving opposite unique optimal signs under the two explicitly distinct injection conventions. A specialized restatement of the optimized problem could still exist.",
+      "searches": [
+        "published-finding corpus: implicit midpoint probabilistic integrator colored-noise correlation choice sharp convex stationary Euclidean risk modes +1/3 and -2/3",
+        "Web: optimal AR(1) autocorrelation minimizing stationary variance linear multivariate autoregressive stable filter mixed positive negative eigenvalues",
+        "Web: linear stable system AR1 input noise variance stationary formula (1+a rho)/(1-a rho) optimize correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus searches returned other stationary-covariance and noise-sensitivity items but no matching colored constrained-midpoint correlation table or either explicit optimizer.",
+        "Exact example constants and derivatives were independently reconstructed as rational functions and checked by an extracted verifier."
+      ],
+      "reasoning": "No indexed table with both optimized correlation values or the injection-side sign reversal was observed. This negative search is not a uniqueness guarantee, and an unindexed optimizer may exist.",
+      "searches": [
+        "published-finding corpus: constrained implicit midpoint linear DAE additive AR1 time-correlated Gaussian uncertainty injected in state versus saddle-point residual optimal correlation reverses with stiffness eigenvalues 1 10",
+        "published-finding corpus: AR(1) temporally correlated Gaussian perturbations probabilistic Crank Nicolson method two dissipative eigenmodes opposite-sign amplification optimal noise correlation stationary mean square variance",
+        "Web: probabilistic Crank Nicolson correlated random perturbations stochastic integrator stationary covariance optimal"
+      ]
+    },
+    "rationale": "The inspected original midpoint paper treats independent Gaussian time-step perturbations, and the older foundational analysis likewise does not compare choices of AR(1) correlation. The classical stationary-filter covariance identity alone is not claimed to be original. The additional sharp strictly convex color optimizer, complete spectral boundary criterion, and a concrete sign reversal between state-increment and equation-residual injection did not follow as stated consequences of the inspected closest papers or the recovered own ledger claims. Publication-priority uncertainty remains for specialized filter/control literature.",
+    "residual_risks": [
+      "General linear-filter spectral input-output results are classical; a specialized published optimization may subsume the result even without matching wording.",
+      "The full papers of Arnold–Wihstutz (1983) and Honeycutt (1992) were not materially inspected beyond their abstracts; publication priority is not independently verified.",
+      "Long-horizon variance minimization at equal step marginals is not equivalent to accurate statistical calibration of probabilistic numerical uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independent Gaussian perturbations and second-order convergence are present. The analyzed source does not optimize AR(1) temporal correlation or prove the injection-side sign change.",
+        "evidence": "Sections 2.3, 3, 4.2; equations (2.5) and (4.3); source first posted June 11, 2024 as arXiv:2406.07220.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-024-10543-0",
+        "material_read": "Complete accessible HTML: background, 2.3 randomized kernel rule (2.5), Assumption 2.8, Theorem 3.2, 4.2 midpoint (4.3) and right-hand-side noise, and conclusion.",
+        "method": "Direct full-text reading and explicit equation comparison.",
+        "title": "Probabilistic time integration for semi-explicit PDAEs",
+        "trigger": "Original literature-led constrained probabilistic midpoint construction, source of the dated methodology."
+      },
+      {
+        "assessment": "The source supplies independent perturbations and convergence-order results; its scalar example does not cover the fixed-marginal AR(1) covariance-color optimization or constrained midpoint injection reversal.",
+        "evidence": "Assumption 1, Theorem 2.2 and Example 3.1.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-016-9671-0",
+        "material_read": "Accessible full HTML: method construction, assumption on i.i.d. Gaussian perturbations, Theorem 2.2, Example 3.1 scalar variance and conclusions.",
+        "method": "Direct full-text method and example comparison.",
+        "title": "Statistical analysis of differential equations: introducing probability measures on numerical solutions",
+        "trigger": "Foundational randomized numerical-flow perturbation theory and a plausible dominating convergence theorem."
+      },
+      {
+        "assessment": "Broad stationary covariance/spectral transfer is classical and is not claimed as new. Full text could contain a stronger specialized optimization statement and remains a residual priority risk.",
+        "evidence": "Abstract discusses arbitrary stationary spectral measure and linear input-output transfer.",
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/0321024",
+        "material_read": "Publisher abstract and bibliographic information; full text was not accessible in the inspection.",
+        "method": "Abstract inspection and implication comparison with the specific optimization problem.",
+        "title": "Wide Sense Stationary Solutions of Linear Systems with Additive Noise",
+        "trigger": "Potential broader stationary spectral transfer principle that could imply the basic covariance identity."
+      },
+      {
+        "assessment": "Physical colored-noise SDE integration differs from design of artificial numerical error correlations for a constrained linear ODE; full text was not checked and priority uncertainty remains.",
+        "evidence": "DOI 10.1103/PhysRevA.45.604, OpenAlex W2074555216.",
+        "identifier_or_url": "https://openalex.org/W2074555216",
+        "material_read": "Bibliographic abstract only; describes second- and fourth-order schemes for colored-noise equations and bistable first-passage tests.",
+        "method": "Read abstract and scientific-object comparison.",
+        "title": "Stochastic Runge–Kutta algorithms. II. Colored noise",
+        "trigger": "Most directly titled colored-noise Runge–Kutta literature, potentially covering correlated stages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e401eb6-7d48-4a30-8375-be6ec16144d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "When choosing temporal dependence in probabilistic midpoint perturbations, the optimizer is a well-motivated fixed-marginal numerical error-floor problem. The result supplies a dimension-general strictly convex spectral decision rule, a sharp two-mode phase interval, and an exact nontrivial-constrained example where the optimal temporal correlation changes sign solely by moving noise from the completed numerical state to the equation right-hand side. This rejects the tempting universal recommendation that one sign of time correlation always reduces artificial numerical spread, while preserving second-order finite-horizon accuracy. The benefit is a precise mathematical noise-design boundary, not a claim of calibrated uncertainty quantification.",
+    "status": "PASS"
+  }
+}
