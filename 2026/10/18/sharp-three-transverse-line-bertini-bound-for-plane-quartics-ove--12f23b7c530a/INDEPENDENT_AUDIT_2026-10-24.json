@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:57:24.604813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem counts 13 F3-rational lines on each geometrically smooth plane quartic, and a line is transverse precisely when its homogeneous restricted binary quartic has four distinct roots over the algebraic closure, equivalently nonzero and projectively squarefree via the derivative gcd and infinity-root check. Normalizing the first nonzero ternary coefficient to one leaves (3^15-1)/2=7,174,453 forms. I independently implemented the 13 restriction matrices by exact SymPy ternary polynomial substitution, a length-243 squarefree table, and three 5-trit base-243 block lookups. Fresh C++ exhaustively enumerated all 7,174,453 normalized forms and reproduced the complete transverse-line histogram t=0..13: [5395,15795,50544,172146,413829,565110,938808,921726,1161108,1220427,1123200,470340,116025,0]. Independently generating the two coordinate swaps, scaling, and two shears from substitution in homogeneous quartic monomials, I computed projective orbits of every t<=3 equation; the counts were exactly t=0:14, t=1:8, t=2:21, t=3:49, hence 92 orbits. A separate SymPy Gröbner unit-ideal test on all three affine charts of each of these 92 representatives found exactly two smooth representatives, coefficient codes 78805 and 80265, both with t=3 and orbit size312. All forms with t<3 are geometrically singular, so the lower bound for every smooth plane quartic is a *complete finite proof*, not unbounded extrapolation. Their 624 normalized equations split into exactly two orbits; independent source direct-line substitution gives exactly Y=0,X+Y=0,X+2Y=0, rational point counts 1 and 10, separating curve isomorphism classes. The code was written afresh rather than merely trusting source output; exact original source C++ and SymPy supporting scripts were also inspected and their SHA recorded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Bertini theorem gives a qualitative guaranteed transverse rational line when its hypotheses hold; the present complete finite classification is quantitatively sharper at a fixed boundary."
+        ],
+        "reasoning": "The source general theorem may cover some of the objects but not dominate the stronger exact minimum and equality-class numerical data.",
+        "searches": [
+          "Asgarli 2018 Sections1–4 full arXiv text",
+          "Asgarli–Freidin 2020 full arXiv HTML introduction and main theorem",
+          "Finite-field quartic smoothness geometry"
+        ]
+      },
+      "checked_sources": [
+        "Asgarli arXiv:1804.01569 full arXiv text key theorems",
+        "Asgarli–Freidin arXiv:2009.13421 primary full text main theorem",
+        "Resultary semantic query for F3 degree-four transverse-line cardinalities",
+        "Pinned quartic source code and output logs, independent full normalized 7,174,453-form enumeration and all 92 orbit smoothness checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A qualitative existence theorem guarantees t>=1 in the reflexive range; it does not force t>=3 and cannot distinguish the two extremal classes with point counts1 and10."
+        ],
+        "reasoning": "The prior implications are strictly weaker on this common domain; the characteristic-three boundary cases are verified directly, avoiding unsupported transfer of reflexive-only statements to all curves.",
+        "searches": [
+          "Asgarli Theorem1.2 and examples",
+          "Asgarli–Freidin asymptotic proportions",
+          "Source quartic exact equation corpus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli gives existence of one transverse line (under reflexivity assumptions), not >=3 for every smooth F3 quartic.",
+          "Asgarli–Freidin studies asymptotic transverse-free proportions at high degree."
+        ],
+        "reasoning": "Cardinality >=3, equality exactly two F3-isomorphism classes and 624 projective equations are not equivalent to or corollaries with matching conclusions from prior one-line guarantees.",
+        "searches": [
+          "Resultary query: plane quartic over F3 minimum number transverse rational lines three exact equality classes",
+          "Asgarli arXiv:1804.01569 Theorem1.2/1.4",
+          "Asgarli–Freidin arXiv:2009.13421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No preexisting exact F3 quartic minimum-three or two-class table found in the indexed literature consulted.",
+          "The submitted qhist and smoothness tables were reproduced in entirety by independent code."
+        ],
+        "reasoning": "The submission is an exact table theorem with mathematical reduction to an exhaustive finite parameter space; nonidentification in search does not certify historical priority.",
+        "searches": [
+          "Resultary search for quartic F3 transverse line census",
+          "Asgarli finite-field examples in Section2",
+          "Independent source out/qhist.txt and out/qorbit_smooth.txt"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp cardinality and equality-class census at the natural small-field Bertini threshold (degree q+1=4 over F3). Asgarli (2018) establishes at least one Fq rational transverse line for smooth reflexive degree<=q+1 and handles certain nonreflexive degrees; his theorem does not give a sharp minimum of three or the two extremal F3 plane-quartic orbits. Asgarli–Freidin (2020) gives an asymptotic incidence-probability result for transverse-free curves as degree grows, not an exact fixed q=3,d=4 extremal orbit classification.",
+      "residual_risks": [
+        "A different finite-geometry enumeration of 2026 F3 quartics could contain this exact table under polar/tangent-line rather than transverse-line terminology.",
+        "Independent enumeration uses shared mathematical restriction-squarefreeness criterion, although code and orbit machinery are newly implemented.",
+        "Scientific proof only covers F3 quartics, not a uniform lower bound for arbitrary q."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "WEAKER_ONE_LINE_GUARANTEE",
+          "evidence": "Theorem1.2 establishes >=1 transverse Fq line for smooth reflexive degree<=q+1, not the bound3 plus two equality orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.01569",
+          "material_read": "Full primary arXiv HTML Sections1–4, Theorems1.2 and1.4 and smoothness/reflexivity hypotheses",
+          "method": "read the relevant theorem and assumptions and proof approach",
+          "title": "Sharp Bertini theorem for plane curves over finite fields",
+          "trigger": "Direct prior guarantee for q=3,d=4 and potential full bound"
+        },
+        {
+          "assessment": "ASYMPTOTIC_NOT_EXACT_SMALL_FIELD",
+          "evidence": "Analyzes asymptotic probability of zero transverse lines, not the complete quartic F3 13-line histogram or extremal classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.13421",
+          "material_read": "Full arXiv HTML introduction, definitions, main asymptotic statements",
+          "method": "read full-text main theorem setup, fixed-q/increasing-degree limits",
+          "title": "On the proportion of transverse-free plane curves",
+          "trigger": "Potential stronger coverage of finite-field transverse-line cardinality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the exact natural Bertini degree boundary d=q+1, the optimal *number* of transverse F3-rational lines is a nontrivial strengthening of the classic qualitative existence theorem. The complete small-field classification and two inequivalent extremal canonical genus-three curves, distinguished by F3-point counts, are meaningful exact algebraic/finite-geometric invariants. A finite exhaustive result is mathematically complete here: all coefficients and all potential bad low-transversality orbits were exhausted with algebraic-closure smoothness tests, not a partial census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A different finite-geometry enumeration of 2026 F3 quartics could contain this exact table under polar/tangent-line rather than transverse-line terminology.",
+    "Independent enumeration uses shared mathematical restriction-squarefreeness criterion, although code and orbit machinery are newly implemented.",
+    "Scientific proof only covers F3 quartics, not a uniform lower bound for arbitrary q.",
+    "The sharp t>=3 assertion is restricted to F3 smooth quartics; generic q or higher degree not covered.",
+    "External formal or human verification not claimed; the separate complete symbolic finite code is recorded as a reproducible independent audit check.",
+    "All five root Git tree SHA-1 values were reconstructed from the actual Git directory entry listing, with source root blob SHAs matched; deeper nested tree bytes (where applicable) and each file payload hash not independently recomputed.",
+    "Scientific PASS is a best-of-knowledge analytical and finite-check assessment, not an independent human expert, Lean certification, or guarantee of publication priority.",
+    "Scientific acceptance does not license public exposure of source operational metadata; publication is intentionally not_ready."
+  ],
+  "schema_version": 1
+}

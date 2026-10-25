@@ -1,19 +1,21 @@
-# Scientific review: sharp three-transverse-line Bertini bound
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The enumeration treats every scalar-normalized ternary quartic and every rational line. Restricting to the line and checking the binary quartic's squarefreeness (including the point at infinity) is equivalent to geometric transversality. The five generators span the full linear group, so the listed 92 orbits exhaust the \(t\le3\) locus. Exact Jacobian-ideal Gröbner tests on all three charts isolate exactly two smooth orbits, each of size 312, and their defining equations and rational-point counts are checked by a second symbolic implementation. Table generation was replayed from source and compared entry-by-entry with the C++ constants. Critical proofs are finite exhaustive algebraic tests with complete included programs; finite tests are not confused with an infinite-field conclusion.
+PASS
 
-## Originality (PASS, with residual uncertainty)
+The theorem counts 13 F3-rational lines on each geometrically smooth plane quartic, and a line is transverse precisely when its homogeneous restricted binary quartic has four distinct roots over the algebraic closure, equivalently nonzero and projectively squarefree via the derivative gcd and infinity-root check. Normalizing the first nonzero ternary coefficient to one leaves (3^15-1)/2=7,174,453 forms. I independently implemented the 13 restriction matrices by exact SymPy ternary polynomial substitution, a length-243 squarefree table, and three 5-trit base-243 block lookups. Fresh C++ exhaustively enumerated all 7,174,453 normalized forms and reproduced the complete transverse-line histogram t=0..13: [5395,15795,50544,172146,413829,565110,938808,921726,1161108,1220427,1123200,470340,116025,0]. Independently generating the two coordinate swaps, scaling, and two shears from substitution in homogeneous quartic monomials, I computed projective orbits of every t<=3 equation; the counts were exactly t=0:14, t=1:8, t=2:21, t=3:49, hence 92 orbits. A separate SymPy Gröbner unit-ideal test on all three affine charts of each of these 92 representatives found exactly two smooth representatives, coefficient codes 78805 and 80265, both with t=3 and orbit size312. All forms with t<3 are geometrically singular, so the lower bound for every smooth plane quartic is a *complete finite proof*, not unbounded extrapolation. Their 624 normalized equations split into exactly two orbits; independent source direct-line substitution gives exactly Y=0,X+Y=0,X+2Y=0, rational point counts 1 and 10, separating curve isomorphism classes. The code was written afresh rather than merely trusting source output; exact original source C++ and SymPy supporting scripts were also inspected and their SHA recorded.
 
-The closest primary source, Asgarli's 2018 sharp Bertini paper (Theorem 1.2, Corollary 2.2), proves existence of at least one transverse line at degree four over \(\mathbf F_3\), not the lower bound three or extremal classification. Asgarli–Freidin 2020 provides asymptotic proportions rather than exact fixed-degree extrema. The incidence-probability work of Makhul–Schicho–Gallet concerns limiting extension fields. Relevant finite-field rational-flex, bitangent, and binary-quartic transversality records have distinct hypotheses or conclusions and do not imply this ternary exact classification. Targeted published-record searches returned no covering theorem; negative results cannot prove global novelty. Unindexed finite computations and incomplete coverage of inaccessible literature remain risks.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The sharp quantitative minimum at the natural finite-field Bertini threshold \(d=q+1\) is geometrically motivated by the dual-plane discriminant: thirteen rational lines are available, and at least three avoid it for every smooth quartic. Equality is rigid enough to force exactly two arithmetic isomorphism classes, yet those extremizers sit at radically different rational-point counts (one and ten). This is a complete structural finite cutoff, not merely a new example or an arbitrary refinement. It differs substantially from the binary-field zero-transverse-line phenomenon.
+Best-of-knowledge original sharp cardinality and equality-class census at the natural small-field Bertini threshold (degree q+1=4 over F3). Asgarli (2018) establishes at least one Fq rational transverse line for smooth reflexive degree<=q+1 and handles certain nonreflexive degrees; his theorem does not give a sharp minimum of three or the two extremal F3 plane-quartic orbits. Asgarli–Freidin (2020) gives an asymptotic incidence-probability result for transverse-free curves as degree grows, not an exact fixed q=3,d=4 extremal orbit classification.
 
-## Scientific limits
+## value
 
-Only the base field with three elements, degree four, and the defined rational-line invariant are classified. The exhaustive scheme does not claim formal verification or certify publication priority. The diagrams and code are original finite calculations; no journal or unrelated theorem is claimed as proved. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the exact natural Bertini degree boundary d=q+1, the optimal *number* of transverse F3-rational lines is a nontrivial strengthening of the classic qualitative existence theorem. The complete small-field classification and two inequivalent extremal canonical genus-three curves, distinguished by F3-point counts, are meaningful exact algebraic/finite-geometric invariants. A finite exhaustive result is mathematically complete here: all coefficients and all potential bad low-transversality orbits were exhausted with algebraic-closure smoothness tests, not a partial census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
