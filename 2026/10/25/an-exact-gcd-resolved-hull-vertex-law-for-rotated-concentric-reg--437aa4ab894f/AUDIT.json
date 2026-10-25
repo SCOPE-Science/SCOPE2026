@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every n>=m>=3 and 0<rho<1, outer vertices are strictly exposed by radial supports; an inner vertex is exposed iff its angular distance from the nearest outer facet normal is <arccos(cos(pi/n)/rho). Necessity uses the regular outer halfplane description, sufficiency uses n>=m to make that point the unique inner support maximizer. Reducing m inner phases modulo the n-gon facet-normal period yields k=m/gcd(n,m) equally spaced phases each repeated g times; arc occupancy is floor(kq) or ceil(kq) with exact fractional probabilities, proving full law and variance. Solving zero variance yields all deterministic radii. Taylor expansion and weak continuity yield the arithmetic critical-window limit, including integer transitions. The bundled independent hull-checker executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Har-Peled (2011) establishes average bounds for iid uniform points sampled in convex shapes.",
+        "Kiss–Vidnyánszky §§1–4 prove perimeter-to-area statements about unions of congruent polygons."
+      ],
+      "reasoning": "Independent point sampling and deterministic polygon-union area estimates do not cover the single shared random rotation of two orders, exact extreme-vertex two-atom laws, rigidity radii, or arithmetic subsequential limit. They have a different object/statistic or different dependence structure.",
+      "searches": [
+        "arxiv:1111.5340v1",
+        "arxiv:1402.5452v1",
+        "published-finding corpus: sharp radii threshold polygonal convex hull union of concentric rotated regular polygons random orientation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.5340v1 (2011-11-22 abstract)",
+      "arxiv:1402.5452v1 and full v2 text (2014-02-21 original)",
+      "mathoverflow:221120 (2015-10-17 full thread)",
+      "2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28 (full RESULT.md)",
+      "2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053 (full RESULT.md)",
+      "2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 (indexed summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Congruent-polygon union area/radial coverage does not determine convex-hull extreme-vertex statistics with different polygon orders and nested radii.",
+        "MO equal-circumradius intersection law observes a gcd dependence, but it is a different radial and probabilistic parameter space.",
+        "Expected area of intersections of multiple randomly rotated tangential polygons does not calculate convex hull vertex count of two concentric regular polygons."
+      ],
+      "reasoning": "Known lattice-in-arc counting explains a proof ingredient and the published gcd observation motivates testing arithmetic effects; neither source establishes the exact mixed-order radius thresholds, nondegenerate two-point probabilities, or critical-window subsequential fluctuation distinction. No stronger inspected source entails the final complete theorem.",
+      "searches": [
+        "arxiv:1402.5452v2 sections 1-4",
+        "MathOverflow:221120 full question and answer",
+        "2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28/RESULT.md",
+        "2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O'Rourke–Zaimi (2015) counts sides of intersections of equal-circumradius regular polygons. Polarity transforms a hull into an intersection of polar polygons, but the polar pair in this theorem has different circumradii.",
+        "The direct angular normal criterion gives a varying radius q and its associated Bernoulli law."
+      ],
+      "reasoning": "Polarity of conv(P_n,rho P_m) is P_n^circ intersect (rho P_m)^circ. For an outer circumradius-one n-gon and inner circumradius rho m-gon, the polar circumradii equal sec(pi/n) and sec(pi/m)/rho; they are equal only if rho=cos(pi/n)/cos(pi/m)>=1 when n>=m, outside the strict rho<1 scope (except boundary). The equal-circumradius intersection classification therefore does not imply the new unequal-radius convex-hull distribution.",
+      "searches": [
+        "published-finding corpus: two concentric regular polygons n vertices m vertices different radii uniformly rotated hull vertex count has two point distribution gcd(n,m)",
+        "published-finding corpus: convex hull vertices of superimposed regular polygons different radii rotational phase diagram",
+        "MathOverflow:221120"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record 2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28 addresses radial union coverage of same-order congruent polygons, not extreme vertices of a two-radius convex hull.",
+        "Record 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 addresses iid sampled polygon-boundary points and a Gumbel limit."
+      ],
+      "reasoning": "No exact table or record for the ordered pair (n,m), radius rho, and two-point hull-vertex distribution was returned by the actual indexed searches. Absence from a partition/database does not establish absolute novelty.",
+      "searches": [
+        "published-finding corpus: arithmetic two point law number exposed vertices nested regular polygons random rotation angular thresholds",
+        "published-finding corpus: random relative rotation of two concentric regular n-gons different radii probability convex hull contains all 2n vertices",
+        "published-finding corpus: two concentric regular polygons n vertices m vertices different radii uniformly rotated hull vertex count has two point distribution gcd(n,m)"
+      ]
+    },
+    "rationale": "Materially read primary work on rotating congruent polygon unions and equal-radius polygon intersections, compared implications including polar duality, and checked indexed records for exact vertex laws under mixed orders/unequal radii. None inspected implies the full two-point gcd/radius classification and arithmetic critical scaling. Classic lattice floor/ceiling and intersection gcd observations are not asserted to be original. Residual historical-priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "Har-Peled's older technical report was not materially inspected; accessible description addresses independent sampling.",
+      "Prior unindexed studies of hulls of two concentric regular polygons could contain an equivalent special or general law.",
+      "Floor/ceiling occupancy and gcd behavior of regular angular lattices are classical; novelty concerns the proved joint geometric application, all rigidity radii and arithmetic scaling, not those ingredients alone.",
+      "No independent scientific validation or exhaustive historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independent uniform sampling is inapplicable to a common uniform rotation of two rigid regular vertex sets; no exact two-layer law stated in accessible material.",
+        "evidence": "arxiv:1111.5340v1 abstract explicitly says n points chosen uniformly and independently from convex shape.",
+        "identifier_or_url": "https://arxiv.org/abs/1111.5340",
+        "material_read": "Full arXiv abstract and bibliographic/public date; early technical report full text not available",
+        "method": "Read arXiv abstract page and linked author summary",
+        "title": "On the Expected Complexity of Random Convex Hulls",
+        "trigger": "General random hull complexity benchmark and original publication date"
+      },
+      {
+        "assessment": "Studies unions and perimeter/area of congruent regular polygons, not two unequal-radius orders or vertex counts of their convex hull.",
+        "evidence": "Kiss–Vidnyánszky 2014 sections on basic congruent n-gon arrangements.",
+        "identifier_or_url": "https://arxiv.org/html/1402.5452v2",
+        "material_read": "Full primary text: introduction, definitions, basic arrangements, Lemma 2.5 and proofs in §§2–4",
+        "method": "Read arXiv HTML full article",
+        "title": "Unions of regular polygons with large perimeter-to-area ratio",
+        "trigger": "Nearest classic concentric regular polygon rotation geometry"
+      },
+      {
+        "assessment": "Intersection of equal-circumradius polygons does not imply unequal-polar-radius hull law by polarity; its gcd ingredient is acknowledged.",
+        "evidence": "O'Rourke–Zaimi MathOverflow 2015-10-17, side-count alternatives in equal-circumradius intersection.",
+        "identifier_or_url": "https://mathoverflow.net/questions/221120/intersection-of-rotating-regular-polygons",
+        "material_read": "Entire visible question and answer including gcd side-count statement and equal-circumradius hypotheses",
+        "method": "Read primary mathematical discussion",
+        "title": "Intersection of rotating regular polygons",
+        "trigger": "Direct gcd-related result for two regular polygons at relative rotation"
+      },
+      {
+        "assessment": "Congruent n-gon nonconvex union and weighted radial coverage; no mixed-order unequal-radius convex-hull combinatorial distribution.",
+        "evidence": "Published 2026-10-11 RESULT.md provides gap-weighted coverage formula and area extrema.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28",
+        "material_read": "Complete published RESULT.md, all theorem, proof, relationships and limitations sections",
+        "method": "Read repository result text",
+        "title": "Universal radial coverage by concentric regular-polygon unions",
+        "trigger": "Closest indexed mathematical statement on rotated concentric polygons"
+      },
+      {
+        "assessment": "Random intersection-area expectations for congruent circumscribed n-gons, not the mixed inner-outer convex hull and its extreme vertex distribution.",
+        "evidence": "Published 2026-10-11 RESULT.md uses independent rotations of m congruent copies and smallest tangent-normal gaps.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053",
+        "material_read": "Complete published RESULT.md, theorem, proof, prior-work and limits",
+        "method": "Read repository result text",
+        "title": "Sharp random-rotation area order and exponential shape memory for tangential polygons",
+        "trigger": "Published indexed random-rotation geometry law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "437aa4ab-894f-405d-b3fb-6ec4cf424574",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The convex-hull vertex count of two concentric polygonal point lattices is a natural complexity statistic; the complete probability law and all orientation-independent radius profiles give an infinite two-parameter exact classification. Its near-coincident-circle limit exposes persistent arithmetic variance versus deterministic count across gcd subsequences, a substantive structural behavior that random iid convex-hull asymptotics do not characterize. No downstream theorem or exhaustive unindexed-literature claim is assumed.",
+    "status": "PASS"
+  }
+}
