@@ -1,0 +1,11 @@
+# Review of the conditional-descent regression
+
+**Correctness (C): PASS.** For an arbitrary fixed-point-free rank pattern, the marked endpoint set is uniform, the residual matching is uniform, and the gap composition is exchangeable. The proof exhausts adjacent positions according to both endpoints marked, neither marked, or exactly one marked. The mixed-neighbor computation explicitly removes the current endpoint before dividing by the \(r-1\) available partners, including its boundary case. Exact enumeration verifies every \(n\le5\) and all marked patterns. The proof, not this enumeration, supplies the unrestricted quantifiers.
+
+**Originality (O): PASS, subject to historical-priority risk.** Kim's descent moments for fixed-point-free involutions provide unconditioned background. Kasraoui–Zeng's crossing/nesting/alignment distribution does not state the proposed conditional descent regression in inspected accessible material; Paguyo's chord-diagram limit theory supplies different marginal/asymptotic questions. The nearest indexed records concern ordinary permutations and unrelated covariance structures rather than a uniform involution conditioned on an arbitrary marked matching. The exact conditional pattern-sufficiency statement and signed pair-type covariances are not implied by the compared published statements; some related full text was not inspected and equivalent prior art remains possible.
+
+**Value (V): PASS.** Conditioning on a sampled chord motif is a natural probe of dependence between local permutation order and global chord topology. The all-size, all-marked-pattern regression eliminates the complete combinatorial complexity of the marked pattern from a nontrivial observable's conditional mean, reducing it to one statistic. Its crossing, nesting, and alignment corollaries reveal negative, positive, and exactly zero association, respectively, with explicit finite-size magnitudes.
+
+Limits: uniform even-sized matchings, linear descents, and edge-uniform marking only; no conditional-distribution or nonuniform-model claim. Exhaustive computation is finite, the literature search is not exhaustive, and independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
