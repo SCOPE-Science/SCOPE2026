@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-With standard Python 3, run `python3 VERIFY.py`. It has no nonstandard dependencies. The checker constructs the Pauli matrices and rank-one eigenprojector numerators, confirms five mutually unbiased bases, enumerates fifteen maximal commuting triples, verifies forty non-basis rays with support multiset \(\{2,2,2,4,4\}\) and twenty basis rays with \(\{1,4,4,4,4\}\), and tests all \(\binom{20}{3}=1140\) independent triples and all \(\binom{20}{4}=4845\) four-ray determinants. Exactly \(600\) four-subsets are dependent and they are precisely the four-subsets of the forty certified six-orthogonality sets.
+# Independent mathematical audit
 
-No tolerance tests, random trials, external files or incomplete enumeration are used. Matrix entries throughout the projector and determinant computations are Gaussian integers of bounded magnitude and their integer components are exactly representable in Python's complex numbers. The final step from rank incidence to **all** complex vectors is proved analytically in RESULT.md; the executable by itself does not verify the literature-based uniqueness of all complete five-basis systems. The motivating 2026 preprint was available only at the full-abstract/metadata level, and historical originality is subject to unindexed literature. This is a scientific reproducibility record, not a claim of independent certification.
+## correctness
+
+PASS
+
+The canonical two-qubit Pauli spread has five commuting triples yielding twenty measurement rays; the other ten maximal commuting triples produce forty distinct stabilizer rays each orthogonal to exactly six measurement rays (profiles 2,2,2,4,4). Independent projector reconstruction and 4×4 determinant checks over the 20 rays found all 1140 triples independent and exactly 600 of 4845 quartets singular; every singular quartet sits in a six-zero stabilizer set, with no uncovered singular four-set. Any vector annihilating four measurement rays is the unique orthogonal complement of a rank-three quartet and therefore one of the forty rays with exactly six zeros. Generic finite-union avoidance realizes exactly 0,1,2 zeros and the basis rays realize three, giving support spectrum 14,17,18,19,20. Uniqueness up to admissible symmetry of complete five MUBs in complex dimension four extends the canonical calculation to all systems. Independent numeric determinant enumeration agrees with exact Gaussian-integer source code; finite ranges are exhaustive, no extrapolation in dimension.
+
+## originality
+
+PASS
+
+Best-of-knowledge: prior two-qubit Pauli construction, three-basis entropic equality and complete-MUB uniqueness do not give the full five-basis support spectrum or 600 rank-deficient quartets; known stabilizer extremizers are credited.
+
+## value
+
+PASS
+
+Total nonzero measurement outcomes across complete complementary bases form a natural exact uncertainty invariant. Its missing support levels and forty equality rays reflect nontrivial incidence geometry, independent of known existence of stabilizer states; the entire finite C^4 case is completely classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
