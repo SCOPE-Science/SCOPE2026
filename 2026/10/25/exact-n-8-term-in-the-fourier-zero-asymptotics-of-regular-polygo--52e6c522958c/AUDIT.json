@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact area identity cancels the linear and quadratic radial terms. The uniform expansion of the radial function gives the cubic and quartic moments with exact rational coefficients; the Bessel derivative identities yield the quartic Taylor coefficient. The cited nearest-zero direction theorem and derivative estimate then transfer the transform expansion to the first zero, with the derivative error contributing \\(O(n^{-10})\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary regular-polygon theorem supplies only the leading \\(n^{-6}\\) correction with an \\(O(n^{-8})\\) remainder.",
+        "Related public work on elongated bipyramids concerns a different family and leading linear behavior.",
+        "Related work on area-preserving affine images treats one fixed dodecagon and a deformation threshold, not the n-to-infinity polygon sequence."
+      ],
+      "reasoning": "Neither the broader shape families nor the fixed-dodecagon affine result dominates the present asymptotic coefficient, because their domains and parameters differ.",
+      "searches": [
+        "all regular polygon Fourier zero asymptotic coefficient beyond n^-6",
+        "Fourier-zero distance asymptotics for centrally symmetric convex bodies regular polygons",
+        "higher-dimensional Fourier-zero distance asymptotics for bipyramids",
+        "area-preserving affine deformations of the regular dodecagon Fourier-zero problem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10517v1, primary full text and appendix",
+      "NIST DLMF §10.6, Bessel recurrence and derivative formulas",
+      "arXiv:0801.1617v3, foundational Fourier-zero functional and disk-perturbation results",
+      "Targeted indexed literature searches for equivalent regular-polygon asymptotic formulas and related Fourier-zero families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.6 only bounds the difference from the \\(n^{-6}\\) approximation by \\(O(n^{-8})\\).",
+        "The exact coefficient \\(j_{1,1}^3\\pi^8/806400\\) and the \\(O(n^{-10})\\) remainder require the additional quartic Bessel term and next-order radial moment integrals.",
+        "The older Benguria-Levitin-Parnovski paper establishes the general Fourier-zero functional and disk-perturbation results, not this explicit regular-polygon coefficient in the inspected sections."
+      ],
+      "reasoning": "The new formula is not a restatement of the prior error bound or the finite numerical table. It is a derived next asymptotic term, with the source's root localization and derivative estimates used as inputs.",
+      "searches": [
+        "arXiv:2609.10517v1, Theorem 4.6, Proposition 4.10, Lemma 4.11, Remark 4.12",
+        "arXiv:0801.1617v3, Introduction, Conjectures 2.2-2.3, Theorem 2.7",
+        "NIST DLMF Section 10.6 Bessel recurrence relations",
+        "exact n^-8 coefficient for kappa(P2n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 4.6 of arXiv:2609.10517v1 states the leading coefficient \\(j_{1,1}^3\\pi^6/181440\\) and an \\(O(n^{-8})\\) error.",
+        "Remark 4.12 in the same paper notes a numerical scaled residual near \\(0.67\\) but does not state an exact \\(n^{-8}\\) coefficient.",
+        "The exact coefficient follows from the paper's radial representation after retaining the quartic Bessel Taylor term and the next term of the cubic radial moment."
+      ],
+      "reasoning": "The same objects and parameter are treated in the primary paper, but its stated theorem stops one order earlier. No exact equivalent formulation of the \\(n^{-8}\\) coefficient was located in the targeted searches.",
+      "searches": [
+        "kappa(P2n) n^-8 regular polygon Fourier zero",
+        "j1,1 cubed pi to the eighth over 806400 regular polygon",
+        "second asymptotic coefficient Fourier transform zero regular polygon area pi Bessel J1",
+        "arXiv:2609.10517v1, Sections 3.1 and 4.2-4.5, Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 in arXiv:2609.10517v1 gives finite-\\(n\\) certified enclosures, while Theorem 4.6 gives a bound on the residual after the \\(n^{-6}\\) term; neither supplies an exact \\(n^{-8}\\) coefficient."
+      ],
+      "reasoning": "No exact external table of asymptotic coefficients applies. The rational moment integrals are derived directly and checked by the included standard-library script, rather than copied from a table.",
+      "searches": [
+        "arXiv:2609.10517v1, Table 1 and Theorem 4.6",
+        "exact n^-8 asymptotic coefficient regular polygon first Fourier zero",
+        "regular 2n-gon Fourier-zero distance exact asymptotic table"
+      ]
+    },
+    "rationale": "The primary paper gives the \\(n^{-6}\\) correction with an \\(O(n^{-8})\\) remainder and remarks that numerical data suggest a genuine \\(n^{-8}\\) term, but it does not state the exact coefficient \\(j_{1,1}^3\\pi^8/806400\\). The new calculation derives that coefficient and improves the remainder to \\(O(n^{-10})\\).",
+    "residual_risks": [
+      "An unindexed source or a later version may already state the exact \\(n^{-8}\\) coefficient.",
+      "The \\(O(n^{-10})\\) remainder is proved asymptotically but no explicit numerical error constant is supplied.",
+      "The result does not settle the global maximization problem over all centrally symmetric planar convex bodies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes the leading \\(n^{-6}\\) coefficient and notes numerical evidence for a next term, but does not state the exact \\(n^{-8}\\) coefficient derived here.",
+        "evidence": [
+          "Theorem 4.6 gives the \\(n^{-6}\\) term with \\(O(n^{-8})\\) error.",
+          "Remark 4.12 describes the scaled residual as numerically consistent with a genuine \\(n^{-8}\\) term."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.10517",
+        "material_read": "Full primary PDF sections covering the nearest-zero direction theorem, radial representation, Theorem 4.6, Proposition 4.10, Lemma 4.11, Remark 4.12, and Appendix B Bessel identities.",
+        "method": "Expanded the radial function uniformly through \\(n^{-4}\\), integrated the cubic and quartic radial moments exactly, expanded the Bessel radial integral through \\(h^4\\), and used the source's factorial harmonic-tail and derivative bounds.",
+        "title": "An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies",
+        "trigger": "Same shape sequence, same Fourier-zero invariant, and the prior \\(n^{-6}\\) asymptotic with an \\(O(n^{-8})\\) remainder."
+      },
+      {
+        "assessment": "Supports the Bessel Taylor expansion; it does not address the polygonal asymptotic coefficient.",
+        "evidence": [
+          "The identities \\(J_0'=-J_1\\) and \\(J_1'=J_0-J_1/z\\) give the derivative values used in the proof."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/10.6",
+        "material_read": "Section 10.6(i)-(ii), including equations 10.6.1-10.6.7.",
+        "method": "Applied the derivative and recurrence identities at the simple zero \\(j=j_{1,1}\\) to compute derivatives through order four.",
+        "title": "Recurrence Relations and Derivatives, NIST Digital Library of Mathematical Functions §10.6",
+        "trigger": "The Taylor coefficients of r J_1(jr)/j require Bessel derivative and recurrence identities."
+      },
+      {
+        "assessment": "Provides background on the invariant and disk perturbations; the inspected statements do not give this regular-polygon asymptotic coefficient.",
+        "evidence": [
+          "The paper's abstract and Theorem 2.7 concern general Fourier-zero inequalities and small star-shaped perturbations of a disk."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0801.1617",
+        "material_read": "Abstract, Introduction, the principal Fourier-zero conjectures, and the disk-perturbation theorem and surrounding discussion.",
+        "method": "Compared the stated objects and theorem scope with the fixed-area regular-polygon sequence and its \\(n^{-8}\\) coefficient.",
+        "title": "Fourier transform, null variety, and Laplacian's eigenvalues",
+        "trigger": "Foundational paper for the Fourier-zero distance invariant and perturbations of the disk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52e6c522-958c-47f6-b7b0-541899009631",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper explicitly motivates the \\(n^{-8}\\) scale by numerical data. An exact coefficient and an \\(O(n^{-10})\\) remainder convert that observation into a precise asymptotic law, improving the quantitative description of the first Fourier zero for regular polygons and providing a sharper baseline for further extremal analysis.",
+    "status": "PASS"
+  }
+}
