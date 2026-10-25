@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:16:32.640542Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the complete actual frozen RESULT.md, verification program, slogan and metadata/audit/review files. Equality of integral cycle evaluations is equivalent to exactness of (a_X-a_Y)/2, so spanning-tree integration defines integer h unique modulo constants, with h(u)-h(v)∈{0,1} along every X-arc. A fully X-directed cycle saturates its signature and so every cycle edge is fixed in Y, giving equal cyclic-vertex sets and h constant on each directed cycle. A flex can never occur at a cyclic vertex, forcing all h-values there to equal one common gauge. Conversely choose that common anchor as zero (or a median when acyclic); for positive maximal h-level U, no X-arc enters U and U contains no directed cycle because all cyclic h-levels are zero; its induced DAG has a source that is a full source, whose flex decreases its h-value by one. The negative minimal level gives a full sink and increases h by one. This terminates after sum|h| legal moves at Y. Since every vertex move changes exactly one h-coordinate ±1, every path requires at least min_k sum|h-k| flips, with gauge fixed to the frozen anchor when cyclic: the construction meets that lower bound. Boundary cases: nonempty connected simple graph with at least one edge, identical X/Y distance zero, orientation pairs with unequal signatures disconnected, multiple cyclic SCCs anchor obstruction, acyclic case unrestricted gauge. Independent Kosaraju-SCC/BFS/relative-potential program (not copied from verify_flex.py) checked all 620,468 ordered orientation pairs on 62 separately generated connected graphs with 2–6 vertices and at most 8 edges, matching exact BFS distances and reachability for every pair; 584,208 were unreachable. This corroborates, not replaces, the all-finite-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Propp Theorem 1 permits pushing down a maximal accessibility class, possibly an entire directed cycle; Propp p23 explicitly acknowledges the necessity of a whole-cycle push.",
+          "Aichholzer et al §2.6 contracts directed cycles before acyclic vertex-flip Theorem 10; Knauer p3 changes vertex-cut flips to strong-component-cut flips for arbitrary digraphs."
+        ],
+        "reasoning": "A classical theorem encompassing more c-orientations does not dominate a theorem for a narrower legal MOVE if its connectivity or shortest path relies on forbidden SCC pushes. The acyclic/fixed-root part is prior and no novelty is claimed there alone. The new result determines precisely when SCC moves can be replaced by legal individual-vertex flexes, with optimal count.",
+        "searches": [
+          "Resultary: Kozlov flex complexes of graphs connected components cycle anchors potential classification",
+          "web: Aichholzer Cardinal Huynh Knauer Mütze Steiner Vogtenhuber Flip Distances Between Graph Orientations cyclic directed cycles theorem 6 10 2021",
+          "web: James Propp lattice structure for orientations of graphs directed cycles source sink flip equivalence theorem circulation 2002 pdf",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/",
+          "https://www.ub.edu/comb/koljaknauer/Knauer.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+        "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/",
+        "https://www.ub.edu/comb/koljaknauer/Knauer.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p197",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-complete-cycle-anchor-invariant-and-geodesic-formula-for-graph--adc90e8a9935",
+        "https://arxiv.org/abs/math/0209005",
+        "https://arxiv.org/abs/1902.06103"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kozlov Prop. 7.2 gives only necessity of equal signature and Fig.18 shows non-sufficiency; Question 2 asks what extra algebraic information distinguishes components.",
+          "Propp §2 permits whole-SCC pushdowns, Knauer explicitly modifies legal operation for cyclic input, and Aichholzer assumes acyclicity after contraction.",
+          "The current proof shows level h constant on entire union of directed-cycle vertices is both necessary and sufficient and gives d=sum|h-anchor|; for C empty median minimization recovers older lattice behavior."
+        ],
+        "reasoning": "None of the inspected prior statements directly imply equal h-values across DIFFERENT frozen SCCs are necessary/sufficient under vertex-only flips or provide their exact original-graph shortest-path metric. Their stronger-sounding coverage is of a different move relation; prior acyclic statements and fixed-signature necessary conditions are strictly weaker.",
+        "searches": [
+          "web: Kozlov Flex complexes of graphs 2026 Question 2 invariant connected components source sink flex orientations",
+          "web: Aichholzer Cardinal Huynh Knauer Mütze Steiner Vogtenhuber Flip Distances Between Graph Orientations cyclic directed cycles theorem 6 10 2021",
+          "web: James Propp lattice structure for orientations of graphs directed cycles source sink flip equivalence theorem circulation 2002 pdf",
+          "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+          "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/",
+          "https://www.ub.edu/comb/koljaknauer/Knauer.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle signature is exactly fixed circulation or c-orientation data; directed SCCs correspond to accessibility classes, invariant across c-orientations (Propp pp.8–9).",
+          "Macauley–Mortveit Coxeter click equivalence restricts to acyclic orientations; Knauer Theorem 1.2 acyclic plus modified SCC-flip extension."
+        ],
+        "reasoning": "The nearest equivalences are acyclic click classes, rooted c-orientation distributive lattices, and flips of entire strong accessibility classes. All differ from original Flex(G) on arbitrary cyclic digraphs: vertices on directed cycles cannot be flexed; h-values may differ among separate SCC anchors. The displayed if-and-only-if relative-anchor criterion is not a mere renaming of those move systems.",
+        "searches": [
+          "Resultary: cycle signature source sink vertex flip graph orientations shortest path geodesic frozen directed cycles integer potentials",
+          "Resultary: flip distances graph orientations cyclic strongly connected source sink invariant",
+          "web: graph orientations source sink flip equivalence cycles strong connected components invariant sequence shortest distance potential",
+          "web: Oliver Pretzel 1986 circulations orientations pushing down strong components source sink vertex pushes cycles equivalence",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p197",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits include the SAME studied record (not independent corroboration), a cross-polytope monotone path flip enumerator, and unrelated graph/homology classifications.",
+          "Kozlov §8 has enumerated graph-family flex-component counts but §9 Question 2 still asks a complete algebraic invariant."
+        ],
+        "reasoning": "A universal pairwise connectivity condition plus distance is not determined by finite tables of component counts for selected graphs; no earlier indexed exact pairwise catalog or general table formula for all connected simple graphs was found. Same-record Resultary hit is not evidence of originality.",
+        "searches": [
+          "Resultary: cycle signature source sink vertex flip graph orientations shortest path geodesic frozen directed cycles integer potentials",
+          "Resultary: Kozlov flex complexes of graphs connected components cycle anchors potential classification",
+          "Resultary: flip distances graph orientations cyclic strongly connected source sink invariant",
+          "Resultary corpus top 25 for each query",
+          "https://link.springer.com/article/10.1007/s41468-026-00235-1"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison supports originality of the exact reachability and geodesic theorem on ALL orientations of arbitrary finite connected simple graphs, specifically multiple mutually frozen directed-cycle SCCs. Classical fixed-circulation lattice/height theories were materially read, including Propp’s full original PDF and Knauer’s SCC-cut theorem, and credited for acyclic components and supervertex pushes. Kozlov explicitly supplies a same-signature disconnected example and leaves full algebraic classification as Question 2. The new constraint is not implied without changing to strictly broader strong-component flips. No prior exact original-graph cycle-anchor plus median/anchor geodesic formula was identified; historical unindexed equivalence remains a genuine risk.",
+      "residual_risks": [
+        "Propp/Pretzel height-function proofs and cyclic accessibility-class theory are close: a historically unindexed statement may derive the original-graph anchor restriction and geodesic as an implicit corollary; this is not categorically ruled out.",
+        "Macauley–Mortveit toric-poset/click papers were read only at abstract level, but explicitly target acyclic orientations.",
+        "Resultary nearest hit is the studied record itself; absence of a different high-score record cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves source/sink flex preserves cycle signature, shows equal signatures need not connect, explicitly asks for a completion; does not supply the anchor-potential if-and-only-if criterion or geodesic formula.",
+          "evidence": [
+            "§7 Proposition 7.2: cochain coboundary preserves cycle evaluations; Fig.18 counterexample; §9 Question 2 asks augmentation.",
+            "https://link.springer.com/article/10.1007/s41468-026-00235-1"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+          "material_read": "Full open-access publisher HTML: §1 flex definition; §7 Def. 7.1, Prop. 7.2 and Fig. 18; §9 Question 2; §8 component census and introductory summaries.",
+          "method": "Read full-page article sections and adjacent proofs and the open question, compared the exact quantifiers and invariant.",
+          "title": "Flex complexes of graphs",
+          "trigger": "Exact originating operation and its explicit open Question 2; potential prior complete component invariant"
+        },
+        {
+          "assessment": "Original fixed-root acyclic vertex flip shortest sequences and polytime methods are prior art; reduction of cyclic SCCs permits supervertex cut moves not legal as individual original graph flexes. Does not assert the frozen multicycle anchor condition or exact unrestricted original-graph median/anchor distance.",
+          "evidence": [
+            "§2.6 lines 255–264: contract directed cycles before acyclic theorem; Theorem 10 explicitly acyclic; original fixed-root vertex flips.",
+            "https://link.springer.com/article/10.1007/s00453-020-00751-1"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+          "material_read": "Full published open-access HTML §2.5–2.8 and §5, especially §2.6 cyclic contraction, Theorems 4/6/10 and their move definitions/monotone sequence proofs.",
+          "method": "Inspected theorem hypotheses, allowed vertex moves, cycle contraction, and mathematical implications for original cyclic source/sink flexes.",
+          "title": "Flip Distances Between Graph Orientations",
+          "trigger": "Closest published shortest flip path and fixed-circulation orientation theorem"
+        },
+        {
+          "assessment": "Propp 2025 (original preprint 2002/1993) treats arbitrary circulation via maximal accessibility-class pushes, potentially whole directed-cycle SCCs; explicit example says whole cycle rather than one vertex must be pushed. That is a STRICTLY broader move relation than Flex(G) individual vertex source/sink flips. Strong background on height potentials, but not this constrained original-graph exact distance.",
+          "evidence": [
+            "Theorem 1 PDF p4: push down maximal ACCESSIBILITY CLASS other than root, not merely vertex; p23: must push down an entire cycle, not just one vertex; p9–12: height functions and frozen SCCs.",
+            "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/"
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p26/pdf/",
+          "material_read": "Open-access 41-page PDF, pp. 1–4, 8–13 and relevant theorem/height-function passages: Theorem 1, Propositions 4, 6–8, 13–15, discussion of nontrivial accessibility classes and boundary restrictions.",
+          "method": "Read full statement and construction, inspected PDF screenshots pp.3–4, compared accessibility-class pushing with single-vertex flex and potential differences.",
+          "title": "Lattice Structure for Orientations of Graphs",
+          "trigger": "Possible dominating circulation/height-function lattice theorem for arbitrary cyclic orientations"
+        },
+        {
+          "assessment": "Theorem 1.2 is for connected acyclic digraphs; the noted extension to arbitrary digraphs flips cuts induced by whole strong components, not original vertex-only flexes; hence no immediate implication of the anchor restriction and shortest distance.",
+          "evidence": [
+            "p3 explicitly: \"Just flip cuts induced by strong components instead of vertex cuts\" for arbitrary digraphs.",
+            "https://www.ub.edu/comb/koljaknauer/Knauer.pdf"
+          ],
+          "identifier_or_url": "https://www.ub.edu/comb/koljaknauer/Knauer.pdf",
+          "material_read": "Full 13-page primary PDF §§1–2, especially Theorems 1.1/1.2 and paragraph after theorem 1.2; screenshot p3.",
+          "method": "Compared explicitly restricted acyclic theorem and SCC-cut extension against allowed original vertex flips.",
+          "title": "Distributive Lattices on Graph Orientations",
+          "trigger": "Related fixed-root flip-flop poset and extension to arbitrary digraphs"
+        },
+        {
+          "assessment": "Equivalence of ACYCLIC orientations under source-to-sink conversion; does not cover original cyclic orientation strata. No whole-paper negative claim made.",
+          "evidence": [
+            "Publisher abstract specifies the set of acyclic orientations and source-to-sink moves.",
+            "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p197"
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p197",
+          "material_read": "Full publisher abstract and bibliographic theorem context, not full article.",
+          "method": "Checked domain and operation named in original abstract.",
+          "title": "Posets from Admissible Coxeter Sequences",
+          "trigger": "Acyclic click-equivalence as possible identical invariant under another name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kozlov’s explicit 2026 Question 2 asks for an algebraic invariant completing the cycle signature after demonstrating equal-signature disconnected orientations. The proposed frozen cyclic-anchor relative potential answers that motivated all-graph structural question, yields an effective finite if-and-only-if component test, and constructs geodesics with a closed ℓ1 median/anchor length. The distinction between individual legal flexes and cyclic SCC supervertex pushes is substantive and potentially useful for orientation reconfiguration and flex complex 1-skeleta. The acyclic special case and SCC-lattice machinery are prior work; value derives from the cyclic obstruction and exact metric, not merely an accessible proof of a textbook special case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C proves exactly the stated connected finite simple graph case with at least one edge; no disconnected-graph/global cell/homotopy classification.",
+    "All-graph theorem rests on the read analytic finite-graph proof; the 620,468 orientation-pair computation spans 62 examples only and cannot certify infinitely many graphs.",
+    "Originality is best of knowledge; older Pretzel and c-orientation sources may hide an equivalent theorem or implicit derivation. Propp full 41-page published PDF was materially inspected.",
+    "Export preparation was incomplete in the original submission; this administrative limitation does not change the scientific assessment."
+  ],
+  "schema_version": 1
+}
