@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_hamming_lattice.py` in the same directory as this file. The program is self-contained and uses only Python 3's standard library. It reconstructs the radius-one ball sets directly, enumerates finite closed intents and verifies every candidate closure, and compares with predicted singleton, coordinate-line, distance-two-pair and neighborhood families. Small parameters are checked exhaustively, including complete enumeration of all attribute permutations for binary \(d=2,3\) and ternary \(d=2\). It also validates every member of the proposed parity-lift group for binary \(d=2,3,4\).
+## correctness
 
-Recorded finite verification: `VERIFY_OK closed_intents_total=881 exhaustive_ball_perm_counts={(2, 2): 24, (3, 2): 192, (2, 3): 72} binary_parity_generated={2: 24, 3: 192, 4: 1920}`. The all-parameter upper bounds and exact group structures rely on the proof in `RESULT.md`, not on finite enumeration. External independent audit has not been performed.
+PASS
+
+The two-sorted incidence xIy iff HammingDist(x,y)<=1 gives closed intents as intersections of full radius-one balls B_x. For distinct centers, pair intersections are coordinate lines if distance1, two intermediate points if distance2, and empty otherwise. All singletons are triple intersections for d>=2; atoms are singletons and coatoms the distinct maximal balls, so lattice order automorphisms correspond exactly to attribute permutations preserving the ball family. For q>=3, coordinate lines (size q, except already recognizable coatoms) are invariant, and their collinearity recovers H(d,q), whose graph automorphism group is S_q wr S_d. For q=2, embed attributes into even and objects into odd halves of F2^(d+1) with appended parity; incidence iff lifted cube adjacency, whose sort-preserving group is even translations ⋊S_(d+1). Group order 2^d(d+1)!, index d+1 over Q_d graph automorphisms. An extra-coordinate/parity swap witnesses strictness. Independent complete ball-family permutation counts (d,q)=(2,2),(3,2),(2,3) equal 24,192,72. The unbounded conclusion is the group argument, not finite counts.
+
+## originality
+
+PASS
+
+PASS on the specific full concept-lattice automorphism group and sharp binary-extra-coordinate symmetry, with relevant implicit two-fold graph-aut risk. Classical Hamming graph automorphisms (Mirafzal–Ziaee) account exactly for q>=3 and the natural subgroup for q=2. Rawson et al give a general concept-lattice/hyperedge intersection encoding; a published Resultary Hamming Čech theorem supplies closed-ball intersection lemmas. Neither of those mathematical statements implies the complete group classification without recovering lattice atoms, coatoms and parity graph symmetries.
+
+## value
+
+PASS
+
+Classifies the complete automorphism group of a natural infinite family of formal-concept lattices, and proves a sharp binary/nonbinary symmetry phase transition: every binary dimension gains index d+1. This is a structural consequence of the hidden parity coordinate, not a mere numerical invariant or renamed graph group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

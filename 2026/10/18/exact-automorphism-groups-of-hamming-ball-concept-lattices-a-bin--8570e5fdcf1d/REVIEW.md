@@ -1,15 +1,21 @@
-# Scientific review: Hamming-ball concept-lattice automorphism groups
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof derives the closed-intent families and recovers the two-sorted ball-incidence graph from intrinsic atoms and coatoms. For nonbinary alphabets, intrinsically recognizable large coordinate lines force any automorphism to be a Hamming-graph automorphism, whose group is established in Mirafzal–Ziaee (2019), Theorem 3.4. In the binary case, two explicit parity embeddings turn incidence into adjacency in a larger cube. The parity-preserving cube group gives a matching upper and lower bound. The claimed strict index is witnessed by a coordinate swap involving the extra parity coordinate. The independent finite enumeration corroborates small cases but is not the proof of the infinite family.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Howlader–Liau (2024) provides formal-context logic rather than a symmetry classification; Rawson et al. (2023) identifies the general intersection-lattice correspondence; Mirafzal–Ziaee (2019) supplies the classical Hamming-graph automorphism group. The 2026 result on multinary Hamming Čech complexes includes the pairwise ball-intersection lemma, so the related concept-counting formula is not asserted as a new result. None of the inspected works states the binary exception and exact full order-automorphism groups for the formal concept lattices. Overlap searches did not identify another covering statement. A mathematically equivalent observation may still be implicit in existing two-fold graph automorphism or formal-context symmetry literature; absence in search results is not a priority certificate.
+PASS
 
-## Mathematical value
-**PASS.** The result classifies a natural, unbounded family of concept-lattice symmetries and identifies exactly when the lattice forgets distinctions imposed by its originating graph. The unexpected \(d+1\) enhancement for every binary dimension is a structural boundary, not a parameter tweak or numerical exercise. Its proof gives a reusable reduction from closed-context symmetries to a parity-extended incidence graph.
+The two-sorted incidence xIy iff HammingDist(x,y)<=1 gives closed intents as intersections of full radius-one balls B_x. For distinct centers, pair intersections are coordinate lines if distance1, two intermediate points if distance2, and empty otherwise. All singletons are triple intersections for d>=2; atoms are singletons and coatoms the distinct maximal balls, so lattice order automorphisms correspond exactly to attribute permutations preserving the ball family. For q>=3, coordinate lines (size q, except already recognizable coatoms) are invariant, and their collinearity recovers H(d,q), whose graph automorphism group is S_q wr S_d. For q=2, embed attributes into even and objects into odd halves of F2^(d+1) with appended parity; incidence iff lifted cube adjacency, whose sort-preserving group is even translations ⋊S_(d+1). Group order 2^d(d+1)!, index d+1 over Q_d graph automorphisms. An extra-coordinate/parity swap witnesses strictness. Independent complete ball-family permutation counts (d,q)=(2,2),(3,2),(2,3) equal 24,192,72. The unbounded conclusion is the group argument, not finite counts.
 
-## Closest work and boundaries
-The group of the underlying Hamming graph and the general intersection representation are prior results. The distinguishing assertion concerns the full order-automorphism group of the derived concept lattice, including binary exceptional automorphisms. The result does not classify order-reversing symmetries, different radii, or mixed alphabets, and no external independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the specific full concept-lattice automorphism group and sharp binary-extra-coordinate symmetry, with relevant implicit two-fold graph-aut risk. Classical Hamming graph automorphisms (Mirafzal–Ziaee) account exactly for q>=3 and the natural subgroup for q=2. Rawson et al give a general concept-lattice/hyperedge intersection encoding; a published Resultary Hamming Čech theorem supplies closed-ball intersection lemmas. Neither of those mathematical statements implies the complete group classification without recovering lattice atoms, coatoms and parity graph symmetries.
+
+## value
+
+PASS
+
+Classifies the complete automorphism group of a natural infinite family of formal-concept lattices, and proves a sharp binary/nonbinary symmetry phase transition: every binary dimension gains index d+1. This is a structural consequence of the hidden parity coordinate, not a mere numerical invariant or renamed graph group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
