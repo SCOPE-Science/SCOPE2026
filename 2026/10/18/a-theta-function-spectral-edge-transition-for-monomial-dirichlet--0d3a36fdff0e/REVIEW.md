@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Normalized Dirichlet monomials give an exact orthogonal singular-value representation for the stated weighted composition–differentiation map. Strict log-concavity yields the unique moving spectral maximum and its explicit offset. The curvature is \(-h^2/k+O(h^3)\); a uniform Gaussian truncation controls the critical lattice sum, and a scaled Riemann-sum argument controls the diffuse packet. Explicit solutions of the saddle equation realize integer and half-integer phases, while Poisson summation proves their theta values differ. The checker passes 38 numerical diagnostics; its finite tests do not stand in for the analytic proof.
+PASS
 
-## Originality — PASS, with remaining priority risk
+On the normalized monomial basis the operator is an orthogonal weighted shift with singular weights (j!/(j-k)!) exp(-h(j-k)) ((j-k+m+1)/(j+1))^beta, j>=k; infinite sum of their p powers is exact by T*T diagonalization. Direct derivative bounds show strict concavity of continuous logarithmic weight, maximizer x_h=k/h+(k-1)/2+beta(k-m)/k+O(h), and curvature -h²/k+O(h³). For p h²->tau>0, uniform Gaussian tail and dominated lattice-sum passage give theta sum indexed by fractional part x_h. Choosing h from g_h prime(N+theta)=0 gives integer/half-integer phase subsequences; Poisson theta formula gives strictly distinct limits. For p->infty, p h²->0, scaled Gaussian Riemann sums give sqrt(2pi k/(p h²)). Independently evaluated exact spectral weights numerically for k=3,m=2,alpha=0.4,tau=8 and two phases: observed 1.536834 vs theta 1.536862 (integer), 1.533098 vs 1.533118 (half-integer). These are checks, not the asymptotic proof.
 
-Barik–Sen–Paul, arXiv:2605.00213, studies the motivating Dirichlet composition–differentiation class, including boundedness and compactness, Hilbert–Schmidt and norm problems, but its inspected text does not give varying Schatten exponents on the double scale \(p_hh^2\to\tau\), the discrete theta profile, or its fractional lattice phase. Allen–Heller–Pons, arXiv:2207.09015, concerns first-order Dirichlet composition–differentiation, with norm/spectrum calculations for selected symbols rather than the present spectral-edge limit. General classical discrete Laplace methods could potentially make the result accessible, and priority within the wider literature requires specialist checking. No novelty is claimed for Jacobi's Gaussian transformation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The formula identifies the exact crossover scale separating a diffuse, many-singular-value Gaussian packet from an arithmetic, phase-sensitive edge in a natural operator family. Its failure of convergence is not numerical noise: two explicit subsequences have strictly separated analytic theta limits. The Dirichlet geometry and multiplier influence the center offset while leaving the leading Gaussian curvature universal. This quantifies a natural spectral transition not determined by the underlying boundedness, compactness or fixed-order Schatten membership statements.
+The singular spectrum itself is not original: both the source family and particularly Sun–Liu 2026 Theorem 9.2 already give explicit monomial-weight Schatten sums. The narrower final finding is the joint h->0, p~h^-2 Jacobi-theta crossover, moving lattice phase and nonconvergent normalized spectral-edge mass, not supplied as a theorem in inspected spectra. Distinct asymptotic analysis is mathematically required.
 
-## Scope and risks
+## value
 
-Fixed \(\alpha,k,m\), strict radial dilations and the specified power-sum normalization only; no general inducing maps, varying symbols, or \(p_hh^2\to\infty\) formula. The original source has later revisions; eligibility uses its verified first public date. A specialist may identify a general theorem subsuming the particular arithmetic transition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The p~h^-2 threshold separates a diffuse packet from a phase-sensitive discrete spectral edge; the exact theta profile and nonconvergence encode a real lattice effect invisible to fixed-p Schatten descriptions. This exact asymptotic invariant can matter when deriving high-Schatten spectral regularity near the identity, beyond merely evaluating a known singular sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

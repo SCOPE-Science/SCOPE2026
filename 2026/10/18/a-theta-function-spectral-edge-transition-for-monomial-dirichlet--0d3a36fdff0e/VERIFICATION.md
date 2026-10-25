@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the stated spectral-edge law
+# Independent mathematical audit
 
-Analytic verification begins with \(T_h e_j=w_{j,h}e_{j-k+m}\), giving the complete nonzero singular spectrum because the output monomials are orthogonal. The Hessian at the unique smooth maximum is \(-h^2/k+O(h^3)\). Bounded-offset Taylor expansions combined with uniform concavity and geometric tail bounds prove the theta sum; on the expanding window of width \(1/(h\sqrt{p_h})\), dominated Riemann sums prove the Gaussian mass. Explicit parameter sequences enforce the two saddle phases, and the positive odd-index terms of the Poisson series separate their limiting values.
+## correctness
 
-Reproduce the supplemental diagnostics using standard Python 3: `python checker.py`. The checker computes directly from the factorial-ratio singular weights and compares with the predicted theta/normal approximations at multiple parameter combinations; it prints `PASS 38 finite numerical diagnostics; theorem proved separately`. These computations are finite approximations, not exhaustive proof or independent validation. All statements are limited to fixed structural parameters, the specified radial operators, and the two stated high-Schatten regimes.
+PASS
+
+On the normalized monomial basis the operator is an orthogonal weighted shift with singular weights (j!/(j-k)!) exp(-h(j-k)) ((j-k+m+1)/(j+1))^beta, j>=k; infinite sum of their p powers is exact by T*T diagonalization. Direct derivative bounds show strict concavity of continuous logarithmic weight, maximizer x_h=k/h+(k-1)/2+beta(k-m)/k+O(h), and curvature -h²/k+O(h³). For p h²->tau>0, uniform Gaussian tail and dominated lattice-sum passage give theta sum indexed by fractional part x_h. Choosing h from g_h prime(N+theta)=0 gives integer/half-integer phase subsequences; Poisson theta formula gives strictly distinct limits. For p->infty, p h²->0, scaled Gaussian Riemann sums give sqrt(2pi k/(p h²)). Independently evaluated exact spectral weights numerically for k=3,m=2,alpha=0.4,tau=8 and two phases: observed 1.536834 vs theta 1.536862 (integer), 1.533098 vs 1.533118 (half-integer). These are checks, not the asymptotic proof.
+
+## originality
+
+PASS
+
+The singular spectrum itself is not original: both the source family and particularly Sun–Liu 2026 Theorem 9.2 already give explicit monomial-weight Schatten sums. The narrower final finding is the joint h->0, p~h^-2 Jacobi-theta crossover, moving lattice phase and nonconvergent normalized spectral-edge mass, not supplied as a theorem in inspected spectra. Distinct asymptotic analysis is mathematically required.
+
+## value
+
+PASS
+
+The p~h^-2 threshold separates a diffuse packet from a phase-sensitive discrete spectral edge; the exact theta profile and nonconvergence encode a real lattice effect invisible to fixed-p Schatten descriptions. This exact asymptotic invariant can matter when deriving high-Schatten spectral regularity near the identity, beyond merely evaluating a known singular sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

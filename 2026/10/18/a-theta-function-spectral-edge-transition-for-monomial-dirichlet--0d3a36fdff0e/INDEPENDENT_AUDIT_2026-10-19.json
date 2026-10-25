@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T00:57:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the normalized monomial basis the operator is an orthogonal weighted shift with singular weights (j!/(j-k)!) exp(-h(j-k)) ((j-k+m+1)/(j+1))^beta, j>=k; infinite sum of their p powers is exact by T*T diagonalization. Direct derivative bounds show strict concavity of continuous logarithmic weight, maximizer x_h=k/h+(k-1)/2+beta(k-m)/k+O(h), and curvature -h²/k+O(h³). For p h²->tau>0, uniform Gaussian tail and dominated lattice-sum passage give theta sum indexed by fractional part x_h. Choosing h from g_h prime(N+theta)=0 gives integer/half-integer phase subsequences; Poisson theta formula gives strictly distinct limits. For p->infty, p h²->0, scaled Gaussian Riemann sums give sqrt(2pi k/(p h²)). Independently evaluated exact spectral weights numerically for k=3,m=2,alpha=0.4,tau=8 and two phases: observed 1.536834 vs theta 1.536862 (integer), 1.533098 vs 1.533118 (half-integer). These are checks, not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Liu describes all-p singular-value sums in this monomial class (stronger fixed-parameter spectral information) but not their joint critical asymptotic.",
+          "Barik–Sen–Paul covers boundedness/compactness, Hilbert–Schmidt/norm properties but no critical high-p spectral edge."
+        ],
+        "reasoning": "Potential broader exact spectrum clearly dominates Step 1 of the submitted proof; it does not already calculate the p h² phase transition or the diffuse-edge constant in this parameter limit.",
+        "searches": [
+          "monomial Dirichlet operator variable Schatten index critical spectral edge theta transition",
+          "arXiv:2610.19658 Section 9 theorem 9.2",
+          "arXiv:2605.00213 weighted composition differentiation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.19658, Theorem 9.2 and equation (9.9)",
+        "arXiv:2605.00213v2, weighted Dirichlet composition differentiation",
+        "arXiv:2207.09015, first-order classical Dirichlet comparison",
+        "DLMF 20.7.viii",
+        "SCOPE source RESULT.md frozen blob 44ecee3b8c80d9e32c72e36cc92d55986bd4475e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same weighted basis and monomial coefficients appear in Sun–Liu, so the final theorem follows from their exact spectrum plus an independent, nontrivial uniform two-parameter asymptotic Laplace analysis.",
+          "DLMF classical Jacobi transformation distinguishes theta(0) and theta(1/2) after the asymptotic lattice center has been established."
+        ],
+        "reasoning": "A formula defining all singular values does not itself state the variable-order double-scaling limit; the new sharp asymptotic packet and phase transition are not merely restating that formula. Existing general discrete Laplace theory could make derivation standard and remains a residual risk.",
+        "searches": [
+          "Sun–Liu arXiv:2610.19658 Theorem 9.2 equation 9.9",
+          "NIST DLMF 20.7.viii Poisson–Jacobi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Liu Theorem 9.2, expression (9.9), is essentially the exact singular-weight sum, so this ingredient is covered.",
+          "The same article’s section 9 does not give the scaling p h²->tau, fractional phase theta or phase-dependent nonconvergence."
+        ],
+        "reasoning": "The classical theta identity is only a final evaluation tool. Exact singular-value formula alone is different from the specified singular double limit, though it is a strong predecessor and an easy starting point.",
+        "searches": [
+          "Sun Liu arXiv:2610.19658 Theorem 9.2 Schatten monomial Dirichlet",
+          "Barik Sen Paul arXiv:2605.00213v2 spectral properties",
+          "Jacobi theta discrete Gaussian Laplace moving maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest identified shifts/Fock decompositions and a different finite Cesàro logarithmic spectral edge, no same theta law in indexed summaries.",
+          "Sun–Liu gives an exact spectrum formula, but not a table of the lattice-phase crossover constants."
+        ],
+        "reasoning": "No exact phase edge table was located; the component singular-value table exists in prior art and is explicitly not passed as new.",
+        "searches": [
+          "Resultary: monomial composition differentiation weighted Dirichlet Schatten singular values Gaussian theta lattice spectral edge",
+          "arXiv:2610.19658 equation 9.9"
+        ]
+      },
+      "rationale": "The singular spectrum itself is not original: both the source family and particularly Sun–Liu 2026 Theorem 9.2 already give explicit monomial-weight Schatten sums. The narrower final finding is the joint h->0, p~h^-2 Jacobi-theta crossover, moving lattice phase and nonconvergent normalized spectral-edge mass, not supplied as a theorem in inspected spectra. Distinct asymptotic analysis is mathematically required.",
+      "residual_risks": [
+        "Sun–Liu (2026) already has the exact weights and all-p Schatten sum; only the double-scaling asymptotics and phase effects survive originality review.",
+        "A generalized published discrete Laplace saddle-point theorem may imply the theta crossover directly, even without a tailored monomial statement.",
+        "Uniformity only for fixed k,m,alpha, not global variable operator families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of exact singular spectrum, no explicit h/p coupled theta edge or fractional-phase nonconvergence established in inspected theorem",
+          "evidence": "Theorem 9.2 supplies exact monomial-weight Schatten series; compare source Result Step1, then distinguish Steps3–5 variable-order asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19658",
+          "material_read": "Complete 65-page public primary preprint inspected, with Section 9 Theorem 9.2 and equation (9.9) read closely, including adjacent results and references",
+          "method": "arXiv full-text PDF and screenshots of pp. 60–62",
+          "title": "Composition-differentiation operators: Schatten membership for weighted Dirichlet monomial symbols",
+          "trigger": "Highly relevant same operators and parameters; possible dominating result"
+        },
+        {
+          "assessment": "Operator family, compactness and related boundedness already prior; no variable-order theta transition",
+          "evidence": "Their criteria concern fixed Schatten powers/Hilbert-Schmidt and operator norm, not p~h^-2 theta packets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00213",
+          "material_read": "29-page lawful arXiv primary PDF read in relevant operator definitions, compactness and norm/Schatten sections",
+          "method": "Full PDF text and inspected pages",
+          "title": "Generalized weighted composition differentiation operators on weighted Dirichlet spaces",
+          "trigger": "Same operator class"
+        },
+        {
+          "assessment": "Classical transformation tool not an originality claim",
+          "evidence": "Gaussian Poisson sum yields nonzero odd Fourier coefficients in theta(0)-theta(1/2).",
+          "identifier_or_url": "https://dlmf.nist.gov/20.7.viii",
+          "material_read": "Theta modular identity references inspected, not full handbook",
+          "method": "DLMF online formula",
+          "title": "NIST DLMF Chapter 20 theta functions",
+          "trigger": "Classical Poisson summation identity needed for phase distinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The p~h^-2 threshold separates a diffuse packet from a phase-sensitive discrete spectral edge; the exact theta profile and nonconvergence encode a real lattice effect invisible to fixed-p Schatten descriptions. This exact asymptotic invariant can matter when deriving high-Schatten spectral regularity near the identity, beyond merely evaluating a known singular sum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed k>=2,m>=0,0<alpha<1 and strict radial contraction; excludes p h²->infinity.",
+    "Initial singular spectrum was published previously; novelty is only coupled asymptotic lattice law."
+  ],
+  "schema_version": 1
+}
