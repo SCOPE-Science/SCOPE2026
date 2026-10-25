@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Every legal bipartite residual colouring corresponds to a closed walk of a verified 41-state automaton, with exact deleted-vertex weight. A 41-entry integral reduced-cost potential certifies a universal n/2 lower bound. The only cyclic equality component has verified mod-four advance, excluding equality at n=2 modulo 4. Cyclic concatenations of explicit witness words of lengths 4–8 meet every lower bound. Direct independent brute-force checks confirm n=5–12; finite tests are not substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei–Li address decycling: destroying all cycles rather than odd cycles; this gives an upper bound on odd-cycle transversal but not equality.",
+        "Fox–Gera–Stănică determine maximum independent sets for generalized Petersen graphs; an induced bipartite subgraph is a union of two disjoint independent classes.",
+        "Zhu (2009), Theorem 1.4: all eligible triangle-free 2-connected subcubic graphs have induced-bipartite ratio at least 5/7, except Petersen and dodecahedron; this is only a global lower bound, not the claimed exact 3/4-asymptotic periodic value.",
+        "Krnc–Pisanski give the condition for the whole graph to be bipartite with no deletions."
+      ],
+      "reasoning": "The larger graph families studied in these sources come with different optimization constraints. Neither their known statements nor the evaluated implications fix the minimum number of vertices whose removal eliminates odd cycles in GP(n,2).",
+      "searches": [
+        "minimum odd-cycle transversal GP(10,2) dodecahedral and extension to GP(n,2) cubic Petersen graphs",
+        "\"maximum induced bipartite subgraph generalized Petersen graph GP(n,2) formula\"",
+        "doi:10.12386/A2013sxxb0022",
+        "Fox–Gera–Stănică generalized Petersen independence number"
+      ]
+    },
+    "checked_sources": [
+      "Wei–Li (2013), DOI 10.12386/A2013sxxb0022 (abstract and references)",
+      "Fox–Gera–Stănică (2012), full text",
+      "Ewell (2011), bibliographic thesis record (not full text)",
+      "Krnc–Pisanski, full-text structural article",
+      "Jin–Wang, minimum vertex cover, publisher abstract",
+      "Zhu (2009), relevant Theorem 1.4 indexed full-text excerpt; complete author PDF inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Feedback-vertex deletion eliminates all cycles, so the decycling number is an upper bound on odd-cycle-transversal number but cannot force its sharp lower bound.",
+        "Independence number counts one independent set, while odd-cycle transversal complements maximize the union of two vertex-disjoint independent sets.",
+        "Edge deletion versus vertex deletion are different optimization models.",
+        "Undeleted graph nonbipartiteness is a yes/no criterion, not the deletion optimum."
+      ],
+      "reasoning": "Explicit reduction and implication tests prevent claiming the known decycling and independence formulas as new. Their logical direction is insufficient to yield the periodic bipartization number, and no searched source covers the full claim.",
+      "searches": [
+        "10.12386/A2013sxxb0022 (publisher abstract; 2013-03-15)",
+        "Fox, Gera, Stănică, The Independence Number for the Generalized Petersen Graphs (full PDF)",
+        "Ewell, Bipartite Density of Generalized Petersen Graphs (bibliographic page)",
+        "Krnc–Pisanski, Generalized Petersen Graphs and Kronecker Covers (full PDF)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An odd-cycle transversal is equivalently a bipartite vertex-deletion set or the complement of a maximum induced bipartite vertex set.",
+        "The separately known GP(10,2) minimum of six is a special case, not a formula for all n."
+      ],
+      "reasoning": "The same statement was sought through three invariant names, and the exceptional residue class was included. Neither the retrieved research-record summaries nor inspected primary sources supplied the all-parameter formula.",
+      "searches": [
+        "\"odd cycle transversal generalized Petersen graphs GP(n,2) bipartization number\"",
+        "\"maximum induced bipartite subgraph generalized Petersen graph GP(n,2) formula\"",
+        "\"odd cycle transversal number generalized Petersen graph G(n,2) vertex deletion bipartite all n\"",
+        "\"bipartite vertex deletion generalized Petersen P(n,2)\"",
+        "odd cycle transversal (bipartite vertex deletion) number of all generalized Petersen graphs GP(n,2) exactly ceil(n/2)+1 when n 2 modulo 4, induced bipartite number",
+        "generalized Petersen P(n,2) bipartization, maximum induced bipartite graphs, odd cycle hitting vertex sets periodic formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved exact figures for the dodecahedral special case are six minimum deletions; the new all-n formula reduces to that at n=10.",
+        "No inspected table provided the infinite step-two parity-periodic invariant."
+      ],
+      "reasoning": "Parameter n=10 is covered previously and is explicitly not presented as new. Exact other-parameter cases could occur in unindexed tables; current searches did not uncover a dominating table or theorem.",
+      "searches": [
+        "\"odd cycle transversal generalized Petersen graphs GP(n,2) bipartization number\"",
+        "\"maximum induced bipartite subgraph generalized Petersen graph GP(n,2) formula\"",
+        "\"odd cycle transversal number generalized Petersen graph G(n,2) vertex deletion bipartite all n\"",
+        "\"bipartite vertex deletion generalized Petersen P(n,2)\"",
+        "\"generalized Petersen P(n,2) maximum induced bipartite subgraph order 3n/2\"",
+        "\"Bipartite subgraphs of triangle-free subcubic graphs\" \"generalized Petersen\" induced theorem",
+        "minimum odd-cycle transversal GP(10,2) dodecahedral and extension to GP(n,2) cubic Petersen graphs"
+      ]
+    },
+    "rationale": "Actual comparisons found decycling theorems, independence-number formulas, and edge-bipartization studies but no established implication to the exact odd-cycle vertex transversal for every GP(n,2). The previously recorded GP(10,2) scalar case is subsumed, not an independent new fact. Equivalent-name and stronger-coverage searches did not find a covering all-n theorem; inaccessible relevant works and unindexed results remain risks.",
+    "residual_risks": [
+      "A prior all-parameter result under bipartite vertex deletion, maximum induced bipartite subgraph, or odd-cycle-transversal nomenclature may be unindexed.",
+      "The complete text of Wei–Li and the Ewell thesis was not accessible and was not asserted to lack the claim.",
+      "Zhu (2009) author-hosted PDF repeatedly timed out: relevant indexed section and Theorem 1.4 were inspected, but no whole-document noncoverage was asserted.",
+      "The computational certificate is independently replayable but has not received external mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The abstract describes feedback vertex deletion of all cycles; it does not provide a statement about minimum bipartite vertex deletion. Full-text noncoverage is not claimed.",
+        "evidence": [
+          "Wei & Li, Acta Math. Sin. Chinese Ser. 56 (2013), 211-216; publication 2013-03-15, DOI 10.12386/A2013sxxb0022."
+        ],
+        "identifier_or_url": "https://actamath.cjoe.ac.cn/Jwk_sxxb_cn/EN/10.12386/A2013sxxb0022",
+        "material_read": "Publisher bibliographic record, abstract, full displayed references; full PDF unavailable.",
+        "method": "Read the published abstract and compare the definitions, quantified claims and deduction directions.",
+        "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+        "trigger": "Same graph family, potentially stronger deletion problem"
+      },
+      {
+        "assessment": "Independence value does not imply induced-bipartite order or the asserted modular exception.",
+        "evidence": [
+          "Fox, Gera & Stănică, Ars Combinatoria 103 (2012), 439–451; 05C15,05C69."
+        ],
+        "identifier_or_url": "https://faculty.nps.edu/pstanica/research/GenPetersen.pdf",
+        "material_read": "Accessible full-text PDF, introduction, theorem statements for step two and concluding comparisons.",
+        "method": "Read relevant theorem statements and proof scope; compare independence with maximum union of two independent sets.",
+        "title": "The Independence Number for the Generalized Petersen Graphs",
+        "trigger": "Same graph family and step-two extremal vertex-subset result"
+      },
+      {
+        "assessment": "Cannot exclude hidden vertex-deletion discussion without full text; retained as residual access risk.",
+        "evidence": [
+          "Ewell, University of Mississippi thesis (2011); public thesis record."
+        ],
+        "identifier_or_url": "https://egrove.olemiss.edu/etd/1324/",
+        "material_read": "Bibliographic and accessible abstract information; linked full PDF access unsuccessful.",
+        "method": "Distinguished deletion of edges from deletion of vertices.",
+        "title": "Bipartite Density of Generalized Petersen Graphs",
+        "trigger": "Same bipartiteness objective, possibly relevant equivalence"
+      },
+      {
+        "assessment": "The graph-level bipartiteness criterion does not entail the minimum positive deletion count.",
+        "evidence": [
+          "Krnc & Pisanski, Generalized Petersen Graphs and Kronecker Covers, DMTCS."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/articles/5891/download",
+        "material_read": "Accessible full-text PDF and its bipartite-family statement.",
+        "method": "Compared zero-deletion property against exact deletion-number question.",
+        "title": "Generalized Petersen Graphs and Kronecker Covers",
+        "trigger": "General structural criterion for bipartiteness of generalized Petersen graphs"
+      },
+      {
+        "assessment": "General 5/7 lower bound for induced-bipartite ratio is weaker than the claimed exact asymptotic 3/4 and gives no mod-four equality formula; residual full-text risk is retained.",
+        "evidence": [
+          "X. Zhu, J. Combin. Theory Ser. B 99 (2009), 62–83; Theorem 1.4 in indexed author PDF."
+        ],
+        "identifier_or_url": "https://www.math.nsysu.edu.tw/~zhu/papers/sparse/cubic2008-4-17-erratum-implemented.pdf",
+        "material_read": "Author-hosted indexed PDF text covering its invariant definitions and Theorem 1.4; whole original PDF retrieval attempted twice but timed out.",
+        "method": "Compared published universal 5/7 induced-bipartite ratio bound and its exceptions with precise step-two periodic cardinality.",
+        "title": "Bipartite subgraphs of triangle-free subcubic graphs",
+        "trigger": "Directly studies induced bipartite vertex subsets of subcubic graphs, including named generalized Petersen exceptions"
+      },
+      {
+        "assessment": "No implication supplying the sharp odd-cycle-transversal optimum.",
+        "evidence": [
+          "Jin & Wang, Discrete Applied Mathematics (2019), DOI 10.1016/j.dam.2018.12.011."
+        ],
+        "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0166218X18306512",
+        "material_read": "Available publisher abstract and relevant theorem snippets.",
+        "method": "Contrasted vertex cover (destroy every edge) with odd-cycle transversal.",
+        "title": "On the Minimum Vertex Cover of Generalized Petersen Graphs",
+        "trigger": "Vertex-deletion optimization in same family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39be5975-1b8c-472e-9540-757d9087f7b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact vertex bipartization for the canonical infinite family GP(n,2) has natural graph optimization meaning and distinguishes odd-cycle elimination from feedback vertex sets. The previously unexplained congruence-2 mod 4 surcharge is structurally explained by a four-layer tight automaton, with an explicit witness for every admissible n; this is neither a parameter rebranding nor an isolated arbitrary calculation.",
+    "status": "PASS"
+  }
+}
