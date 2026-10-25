@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The adjoint coefficient calculation yields a disjoint-column partial weighted permutation, so each candidate weight is a singular value. Summing their squares proves an exact finite-parameter Hilbert--Schmidt expression. A weighted Weyl/Cesàro-to-Haar argument handles periodic and irrational phases with exponential tail domination; no finite experiment is used as an infinite proof. The noncompactness witnesses and the resonant one-variable maximization justify all operator-topology claims. A standalone script executed 1520 finite assertions.
+## correctness
 
-**Originality — PASS with residual priority risk.** The full text of Clifford--Dabkowski--Wiggins (2021, DOI 10.1515/conop-2020-0108) already establishes the basic gcd monomial action and is not superseded or relabeled as a new result. Their numerical-range analysis of the individual products does not state the sharp trace mass of the commutator, the cyclic-group phase discontinuity, or the resonant topology defect. Jiang (arXiv:1410.1168) restricts the corresponding mixed commutators to automorphisms, unlike the present power maps. A 2017 weighted-Hardy monomial paper remained available in preview only, leaving historical equivalence possible. Published record and primary literature searches are evidence, not a complete originality certification.
+PASS
 
-**Value — PASS.** The explicit trace-norm residue answers how quickly regularizations approach a boundary commutator in Schatten mass, while phase order and arithmetic irrationality determine sharp different constants. Strong zero convergence coexisting with a nonzero norm-defect limit is a substantive stability boundary. These results distinguish information not supplied by individual product numerical ranges or boundedness alone.
+On H^2 the monomial actions send an input e_{p*l} into the unique output e_{q*l}, giving disjoint singular columns. For d=gcd(m,n), d∤l gives weight r^((p+q)l), and l=dh gives the exact difference r^(Lh)*(b^m conjugate(a)^n)^h-r^(2h)*(b conjugate(a))^h. Summing absolute weights yields the stated geometric component plus the e^(-2u) Haar-phase Riemann integral. The orbit xi^h is periodic or equidistributed, with exponentially summable tails; strictly greater averages for any nontrivial phase group give R(xi)>R(1). Squaring and summing gives the three-term Hilbert–Schmidt identity and the resonance-only leading cross term. Basiswise strong convergence follows by uniform boundedness; compactness of each r<1 approximant excludes operator-norm convergence to noncompact K_1, and d=1,xi=1 has a positive max e^(-2u)-e^(-Lu) defect. Hypotheses m,n>=2, fixed unit phases and common r are used. The finite check.py constructs matrix columns and bounded sums, not infinite-limit certificates.
 
-**Limitations.** The radial factor and unimodular phases are fixed; arbitrary composition symbols and phase-varying asymptotics are excluded. The known coefficient action is not original. Equivalent historical priority is not independently ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the combined asymptotic commutator theorem, explicitly excluding priority for the known gcd monomial action or basic equidistribution. Clifford–Dabkowski–Wiggins compute individual mixed composition products/numerical ranges, not their norm-difference phase residues; automorphic composition commutator literature uses different symbols.
+
+## value
+
+PASS
+
+The exact phase-sensitive Haar trace-mass classification, isolated Hilbert–Schmidt resonance, and strong/norm topology separation are a motivated structural boundary for compact radial approximations to composition commutators; the phase discontinuity is nontrivial and not a routine identity for a single operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
