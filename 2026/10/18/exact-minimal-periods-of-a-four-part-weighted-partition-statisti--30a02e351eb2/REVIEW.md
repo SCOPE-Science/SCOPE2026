@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An explicit bijection with four independent nonnegative slack variables yields the weighted generating function. Clearing its denominators gives an exact integral identity with degree-16 numerator and degree-22 cyclotomic denominator, independently recomputed by `verify.py`. The numerator residues \(864\), \(32\), \(6\), and \(-12\) against the four cyclotomic factors establish coprimality modulo all primes at least five. A binomial expansion proves the candidate periods for every prime power; reduction modulo primes and evaluation at the sixth-order neighborhood of one prove that every period contains the full candidate factor. CRT proves the arbitrary-modulus claim. Brute-force partition enumeration through 74 and ten modular sample checks agree. This is an infinite algebraic proof, not an inference from those checks.
+PASS
 
-## Originality — PASS within inspected literature
+Every exactly-four-part partition has unique y1..y4≥0 with λ_j=1+Σ_{i=j}^4 y_i and size n=4+Σi*y_i. Expanding e2 and geometric sums yields the claimed integral F(q)=q^4P(q)/D(q) with D=(q−1)^6(q+1)^4(q²+1)^3(q²+q+1)^3. Independent symbolic polynomial manipulation verified the identity, P=[6,15,34,57,95,121,146,126,106,72,50,25,11], and constant residues 864,32,6,−12 against Φ1,Φ2,Φ3,Φ4, respectively. Each residue is invertible for p≥5, so numerator and denominator are coprime modulo p. Since D| (1−q^12)^6, binomial valuations give D|(1−q^(12 p^r)) mod p^r for p≥7 and D|(1−q^(12·5^(r+1))) mod 5^r. The quotient-degree argument proves pure periodicity from n=0, not just eventual. Conversely any pure period T implies D|1−q^T mod p and the primitive third/fourth roots force 12|T; at q=1+t modulo t^6, N(1)=864 is a unit, forcing p^r|binom(T,j), 1≤j≤5. In particular p^r|T, and for p=5 valuation binom(T,5)=v5(T)−1 forces 5^(r+1)|T. CRT yields the minimal general m formula. Verification code inspected; bounded tests are supplemental.
 
-Ballantine–Beck–Merca (arXiv:2408.13346v1, §1 and §3, published open-access article 2025) explicitly list the same statistic's minimal periods as conjectural except for their proved moduli two, three, and four. Their table records the anticipated values for five, seven, eleven, thirteen, and other primes; it does not give the all-prime-power formula or a numerator-coprimality minimality proof. Nijenhuis–Wilf and Kwong are cited there for unweighted partition counts, a different generating numerator. Targeted searches for aliases of the weighted statistic, periods, cyclotomic denominators, and prime powers did not locate a dominating statement in consulted records. A specialized result in unindexed literature or an unexamined corollary of a general rational-series period theorem remains possible; independent priority has not been certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The subject is an explicit conjectural table in a published investigation. The formula resolves an infinite modulus family rather than extending the table by a few entries, distinguishes a genuine five-adic exceptional regime, and settles all powers of every prime at least five. The period is proved *minimal* from the initial coefficient, not merely a valid eventual period. The result is a natural and reusable sharp arithmetic invariant.
+The closest primary authors explicitly list the same exact weighted four-part function period values as conjectural, while their proven results cover moduli 2,3,4 only. This proof resolves every prime power p≥5 and all coprime-to-six composite moduli, including the five-adic extra factor.
 
-## Limits
+## value
 
-Moduli divisible by two or three are outside scope. Independent historical priority assessment remains open; the algebraic certificate is separately reproducible without any private archive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Directly resolves an explicit conjectural exact-minimal-period table for an established natural elementary-symmetric weighted partition statistic, with a complete infinite prime-power and CRT classification. The extra factor of five is mathematically explained by a sharp fifth binomial-coefficient valuation, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

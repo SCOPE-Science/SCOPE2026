@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/AUDIT.json",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/METADATA.json",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/RESULT.md",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/REVIEW.md",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/SLOGAN.txt",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/VERIFICATION.md",
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/verify.py"
+      ],
+      "rationale": "Every exactly-four-part partition has unique y1..y4≥0 with λ_j=1+Σ_{i=j}^4 y_i and size n=4+Σi*y_i. Expanding e2 and geometric sums yields the claimed integral F(q)=q^4P(q)/D(q) with D=(q−1)^6(q+1)^4(q²+1)^3(q²+q+1)^3. Independent symbolic polynomial manipulation verified the identity, P=[6,15,34,57,95,121,146,126,106,72,50,25,11], and constant residues 864,32,6,−12 against Φ1,Φ2,Φ3,Φ4, respectively. Each residue is invertible for p≥5, so numerator and denominator are coprime modulo p. Since D| (1−q^12)^6, binomial valuations give D|(1−q^(12 p^r)) mod p^r for p≥7 and D|(1−q^(12·5^(r+1))) mod 5^r. The quotient-degree argument proves pure periodicity from n=0, not just eventual. Conversely any pure period T implies D|1−q^T mod p and the primitive third/fourth roots force 12|T; at q=1+t modulo t^6, N(1)=864 is a unit, forcing p^r|binom(T,j), 1≤j≤5. In particular p^r|T, and for p=5 valuation binom(T,5)=v5(T)−1 forces 5^(r+1)|T. CRT yields the minimal general m formula. Verification code inspected; bounded tests are supplemental.",
+      "residual_risks": [
+        "Only m≥2 with gcd(m,6)=1; moduli divisible by two or three remain outside claim.",
+        "The proof establishes pure periodicity at n=0 because the quotient polynomial degree is <T, a stronger conclusion than eventual periodicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper proves periodicity/congruences for moduli 2,3,4 but leaves its e2 four-part period table conjectural.",
+          "Classical Nijenhuis–Wilf/Kwong theorems on unweighted restricted partition functions do not immediately determine this quadratic weighted numerator or noncancellation."
+        ],
+        "reasoning": "Generic rational generating-function periodicity estimates can supply upper bounds; a precise all-prime-power lower-bound valuation and odd five-adic exponent require the special numerator and exact local analysis.",
+        "searches": [
+          "doi:10.1007/s11139-024-01001-6 full article",
+          "Nijenhuis Wilf 1987 periodicities partition functions",
+          "Kwong 1989 minimum periods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.13346",
+        "doi:10.1007/s11139-024-01001-6",
+        "Nijenhuis and Wilf (1987)",
+        "Kwong (1989)",
+        "Resultary: four-part partition weighted elementary symmetric e2 generating function minimum period modulo m 12m 60m for m coprime 6 Ballantine Beck Merca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observed period values and conjectures logically do not imply a least pure period for all n or prime powers.",
+          "The requisite numerator is coprime to all p≥5 factors, including p=5, and the t^6 local binomial condition is not contained in the cited experimental table."
+        ],
+        "reasoning": "Existing weighted experiments cannot certify a universal minimal period. The exact algebraic proof fills the explicitly identified conjectural gap.",
+        "searches": [
+          "Ballantine Beck Merca full article §1, §3",
+          "arXiv:2408.13346",
+          "Resultary semantic query: four-part partition weighted elementary symmetric e2 generating function minimum period modulo m 12m 60m for m coprime 6 Ballantine Beck Merca"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is exactly the sum over partitions into four positive parts of elementary symmetric polynomial e2(λ).",
+          "The published paper calls the same n-indexed weight statistic e2 p4(n), with conjectural modular periods."
+        ],
+        "reasoning": "Same sequence is identified across conventions; it is not novel merely due to relabeling. The new content is the full proved minimal-period classification for gcd(m,6)=1.",
+        "searches": [
+          "Resultary semantic query: four-part partition weighted elementary symmetric e2 generating function minimum period modulo m 12m 60m for m coprime 6 Ballantine Beck Merca",
+          "arXiv:2408.13346 Table 1 / Theorem 2",
+          "doi:10.1007/s11139-024-01001-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published experimental table predicts T(5)=300, T(7)=84 and analogous values.",
+          "Their Theorem 2 proves mod 2,3,4 congruences, not the entire coprime-to-six table as a theorem."
+        ],
+        "reasoning": "The exact numerical instances were known conjecturally; the mathematically novel part is their proof for infinitely many moduli, not rediscovering those entries.",
+        "searches": [
+          "arXiv:2408.13346v1 conjectural minimal-period table",
+          "doi:10.1007/s11139-024-01001-6",
+          "Resultary semantic query: four-part partition weighted elementary symmetric e2 generating function minimum period modulo m 12m 60m for m coprime 6 Ballantine Beck Merca"
+        ]
+      },
+      "rationale": "The closest primary authors explicitly list the same exact weighted four-part function period values as conjectural, while their proven results cover moduli 2,3,4 only. This proof resolves every prime power p≥5 and all coprime-to-six composite moduli, including the five-adic extra factor.",
+      "residual_risks": [
+        "Classical unweighted minimum-period theorems might imply some upper bounds under additional weighted generating-function manipulations; exact lower bounds still need proof.",
+        "An unindexed independent proof of the conjectural period table may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_CONJECTURE_NOT_PROOF",
+          "evidence": "Table predicts exact least periods for selected moduli, while proved congruences shown for 2,3,4; arbitrary gcd(m,6)=1 theorem not established there.",
+          "identifier_or_url": "https://doi.org/10.1007/s11139-024-01001-6",
+          "material_read": "Full available journal article HTML read; §1 definitions/table, congruence Theorem 2 and subsequent discussion; compared conjectural table entries and proved scope.",
+          "method": "Read full lawfully accessible primary article text.",
+          "title": "Partitions and elementary symmetric polynomials—an experimental approach",
+          "trigger": "The exact same four-part e2 statistic and a conjectural period table."
+        },
+        {
+          "assessment": "DIFFERENT_WEIGHT_AND_RESIDUAL_RISK",
+          "evidence": "Prior work deals with restricted unweighted partitions, not directly an e2-weighted rational numerator.",
+          "identifier_or_url": "Nijenhuis–Wilf (1987), Journal of Number Theory",
+          "material_read": "Mention and statement of unweighted application in Ballantine–Beck–Merca citations; full original article not independently inspected.",
+          "method": "Secondary mathematical comparison only; no full-paper noncoverage claim.",
+          "title": "Periodicities of partition functions and Stirling numbers modulo p",
+          "trigger": "Potential general theorem on modular partition periods."
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_MACHINERY",
+          "evidence": "Classical periods of ordinary restricted partition functions; a hidden adaptable theorem remains priority risk.",
+          "identifier_or_url": "Kwong (1989), Utilitas Mathematica 35, 3–8",
+          "material_read": "Bibliography and contextual theorem references in the full relevant 2025 article; direct full-text reading not established.",
+          "method": "Secondary citation and logical-scope comparison only.",
+          "title": "Minimum periods of partition functions modulo M",
+          "trigger": "Potential stronger minimum-period theorem for rational partition functions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2/RESULT.md",
+        "arXiv:2408.13346",
+        "doi:10.1007/s11139-024-01001-6",
+        "Nijenhuis and Wilf (1987)",
+        "Kwong (1989)",
+        "Resultary: four-part partition weighted elementary symmetric e2 generating function minimum period modulo m 12m 60m for m coprime 6 Ballantine Beck Merca"
+      ],
+      "rationale": "Directly resolves an explicit conjectural exact-minimal-period table for an established natural elementary-symmetric weighted partition statistic, with a complete infinite prime-power and CRT classification. The extra factor of five is mathematically explained by a sharp fifth binomial-coefficient valuation, not an arbitrary slice.",
+      "residual_risks": [
+        "Mathematical usefulness is limited to the specified natural family and invariant; no downstream theorem or exhaustive priority certificate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only m≥2 with gcd(m,6)=1; moduli divisible by two or three remain outside claim.",
+    "The proof establishes pure periodicity at n=0 because the quotient polynomial degree is <T, a stronger conclusion than eventual periodicity.",
+    "Classical unweighted minimum-period theorems might imply some upper bounds under additional weighted generating-function manipulations; exact lower bounds still need proof.",
+    "An unindexed independent proof of the conjectural period table may exist.",
+    "No source edits or publication made. Finite checks corroborate, not establish infinite theorems."
+  ],
+  "schema_version": 1
+}
