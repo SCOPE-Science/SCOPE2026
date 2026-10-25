@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:21:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For weighted observations ±a, likelihood strict concavity in the two fitted kernel means gives uniqueness when the dual equality support is ≤2. Reconstructed sensitivity D_delta(z+t)=exp(-t²/2)[q exp(-2a(1-q)t)+(1-q)exp(2aqt)] with z=a(1-2q); published Schlemm sharp Kearns–Saul Bernoulli moment inequality, including its nonzero equality case, yields singleton iff a≤a_c(q). The derivative-stationarity equation for a positive Gaussian mixture has at most two local maxima, bounding any optimum support by two; linear independence of the two fitted kernel vectors proves unique measure. For unequal q, critical second dual contact at -z and negative curvature up to a_loc justify discontinuous-support onset with vanishing mass; q=1/2 contacts coalesce. Exact Gamma normalization gives Q~Beta(α,α), and a_c monotonic in |1−2q| yields 1−2I_{(1−x_a)/2}(α,α), with artanh(x_a)=a²x_a; x_a~sqrt(3(a²−1)). Independent numerical sensitivity and Beta checks confirm sample values but do not replace the global Kearns–Saul proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang, arXiv:2610.01088v1: random Gamma reweighting and growing-n polylogarithmic support bound",
+          "General NPMLE uniqueness/duality"
+        ],
+        "reasoning": "Jiang provides a probabilistic upper bound under large-sample conditions; it does not imply a sharp two-point threshold or explicit Beta support probability. Explicit known general tools were credited rather than claimed new.",
+        "searches": [
+          "two observation Gaussian location mixture NPMLE two support points Kearns Saul Bernoulli reweighting threshold",
+          "Jiang 2026 polylogarithmic sparsity randomly reweighted Gaussian mixture NPMLE"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py snapshot",
+        "Schlemm arXiv:1405.4496 primary theorem in PDF",
+        "Jiang arXiv:2610.01088 abstract and Polyanskiy–Sellke 2025 duality proposition",
+        "Resultary semantic search of exact support transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General KKT D_G(θ)≤1 is necessary/sufficient; singleton candidate θ=z",
+          "Sharp Kearns–Saul parameter 1-2q over log((1-q)/q)"
+        ],
+        "reasoning": "Generic KKT or known sharp MGF provides a critical comparison but not by itself the unique two-atom classification, nonlocal onset, or integrated Beta random-reweighting law; exact implications reconstructed and distinguished.",
+        "searches": [
+          "two observation Gaussian location mixture NPMLE two support points Kearns Saul Bernoulli reweighting threshold",
+          "Polyanskiy Sellke NPMLE dual certificate two observation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schlemm, arXiv:1405.4496 Theorem 1.1, sharp Bernoulli MGF bound",
+          "Polyanskiy–Sellke Gaussian NPMLE support-KKT condition"
+        ],
+        "reasoning": "The sharp inequality and general dual criterion are pre-existing ingredients. Their combined specialization gives the proposed q-dependent NPMLE threshold, but neither cited general statement asserts its support-count phase/weight-law conclusion.",
+        "searches": [
+          "two observation Gaussian location mixture NPMLE two support points Kearns Saul Bernoulli reweighting threshold",
+          "two sample normal mixture NPMLE supporting hyperplane Kearns Saul exact threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic queries on this support transition returned no direct same-claim match; nonmatching related two-observation works concern other likelihoods",
+          "Schlemm Theorem 1.1 equality point at nonzero s"
+        ],
+        "reasoning": "No same-parameter source with these exact support probabilities identified; failed search alone cannot prove priority, especially given classical finite-sample Gaussian-mixture literature.",
+        "searches": [
+          "two observation Gaussian location mixture NPMLE two support points Kearns Saul Bernoulli reweighting threshold",
+          "Gauss location mixture two observations 1 atom 2 atoms Kearns Saul beta"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.",
+      "residual_risks": [
+        "Unindexed or unpublished predecessors can remain despite database searches; source-result comparisons are based on stated mathematics, not absence of keyword hits.",
+        "Exact two-observation Gaussian mixture case might appear in unindexed classical literature; Jiang full primary text not retrieved independently.",
+        "The deterministic classification hinges on correct application of the published sharp Kearns–Saul equality characterization, rather than finite numerical tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_INGREDIENT_NOT_RESULT",
+          "evidence": "Theorem 1.1 gives sharp Bernoulli exponential moment inequality; no NPMLE in statement",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.4496",
+          "material_read": "Primary PDF first page including Theorem 1.1 and unique nonzero maximizing argument, plus referenced mathematical proof context",
+          "method": "Full PDF rendered page inspection and theorem comparison",
+          "title": "The Kearns–Saul Inequality for Bernoulli and Poisson-binomial Distributions",
+          "trigger": "Central nonstandard inequality and equality locations"
+        },
+        {
+          "assessment": "LIKELY_DIFFERENT_ASYMPTOTIC_REGIME_FULL_TEXT_NOT_READ",
+          "evidence": "Growing-n sparsity bound, no retrieved exact n=2 law",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01088",
+          "material_read": "Primary arXiv abstract and indexed theorem summary; full paper not retrieved in this run",
+          "method": "OA arXiv abstract comparison, NOT whole-document exclusion",
+          "title": "Polylogarithmic Sparsity of Randomly Reweighted NPMLEs for Gaussian Mixtures",
+          "trigger": "Identical Gamma-weight model"
+        },
+        {
+          "assessment": "GENERAL_DUALITY_PRIOR",
+          "evidence": "Known KKT condition, no shown support-size n=2 phase",
+          "identifier_or_url": "https://people.lids.mit.edu/yp/homepage/data/2025_npmle_support.pdf",
+          "material_read": "Referenced Proposition 1.1 statement and bibliographic context; full text not independently read this run",
+          "method": "Public proposition comparison",
+          "title": "Nonparametric MLE for Gaussian Location Mixtures: Certified Computation and Generic Behavior",
+          "trigger": "General sensitivity criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed-form support-count threshold, local-vs-global transition separation, and exact finite-sample random-reweighting probability for a natural Gaussian-mixture estimator provide a motivated small-sample structural classification not supplied by general high-probability sparsity bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py snapshot",
+    "Schlemm arXiv:1405.4496 primary theorem in PDF",
+    "Jiang arXiv:2610.01088 abstract and Polyanskiy–Sellke 2025 duality proposition",
+    "Resultary semantic search of exact support transition"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely two observations; common known Gaussian variance; positive reweighting; supercritical atom positions implicit; possible older finite-n treatment."
+  ],
+  "residual_risks": [
+    "Unindexed or unpublished predecessors can remain despite database searches; source-result comparisons are based on stated mathematics, not absence of keyword hits.",
+    "Exact two-observation Gaussian mixture case might appear in unindexed classical literature; Jiang full primary text not retrieved independently.",
+    "The deterministic classification hinges on correct application of the published sharp Kearns–Saul equality characterization, rather than finite numerical tests."
+  ],
+  "schema_version": 1
+}
