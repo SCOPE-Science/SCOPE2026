@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T22:01:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on N=n gives r_k=p_k H_k with H_k=w_1+w_2(S_k+S_{k+1})+R_k where survival S_k=P(X>=k), p_k=S_k-S_{k+1}. For S_k<=1/2, every n>=3 remainder contribution obeys n S_k^{n-1}<=3 S_k^2, uniformly over all N laws even E[N]=infinite. Poisson tail S_k/p_k→1, S_{k+1}/p_k→0, and p_k/p_{k-1}→0 imply H_{k-1}H_{k+1}-H_k² = w_1w_2 p_{k-1}(1+o(1)). Exact Poisson three-term ratio is k/(k+1), yielding stated positive curvature. N=1 is Poisson ULC equality; N=2 factor (S_k+S_{k+1}) is log-concave by convolution of two log-concave sequences, giving deterministic ULC. Positive mixtures excluded by asymptotic. Independent finite mpmath evaluations at lambda=2.1/w1=.57 show normalized tail/asymptotic ratios approach 1 (e.g. k=12: 0.972, k=30:0.995). Numerics only corroborate analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known result preserves ULC under each fixed sample size. Watt concerns expectation curvature as sample size varies, not ULC of a random-size minimum mass."
+        ],
+        "reasoning": "No inspected stronger theorem covered random sample-size min mixtures. The inaccessible original article remains a priority risk and no whole-document noncoverage claim is made.",
+        "searches": [
+          "DOI:10.1016/j.spl.2023.109900 Theorem 2",
+          "Watt arxiv:2111.04702",
+          "RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail"
+        ]
+      },
+      "checked_sources": [
+        "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023) 109900, DOI:10.1016/j.spl.2023.109900, full text inaccessible",
+        "Watt, Concavity and Convexity of Order Statistics in Sample Size, arxiv:2111.04702",
+        "Resultary RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail",
+        "Frozen source RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known deterministic endpoint property establishes positive inputs to a mixture, not any closure result for their convex combination."
+        ],
+        "reasoning": "The asymptotic w_2 p_{k-1}/w_1 curvature follows from a new survival-mixture expansion, not logically from deterministic ULC alone.",
+        "searches": [
+          "Badiella del Castillo Puig 2023 fixed-sample theorem",
+          "RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-sample ULC theorem applies to the min for each deterministic N, while ULC is not preserved under convex mixtures."
+        ],
+        "reasoning": "A random size is not equivalent to one fixed order statistic. The tail mixture curvature is additional quantitative information.",
+        "searches": [
+          "DOI:10.1016/j.spl.2023.109900",
+          "random sample-size Poisson minimum ULC mixture",
+          "RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "12 closest Resultary hits concern other Poisson-binomial, discrete concavity and order-statistic phenomena, none an exact indexed far-tail ULC defect for this model."
+        ],
+        "reasoning": "An indexed database formula not identified; search absence is not proof of novelty.",
+        "searches": [
+          "RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail",
+          "Resultary: Poisson mixtures ultra log concavity shape order statistic minimum"
+        ]
+      },
+      "rationale": "Badiella–del Castillo–Puig fixed-N discrete-order-statistic ULC preservation does not imply closure under mixing over N; the claim shows the opposite, with an explicit universal far-tail asymptotic even for unbounded N. The complete original paper could not be materially read due OA gateway denial and authorized Oxford VPN disconnected; this is an explicit coverage risk rather than automatic O failure.",
+      "residual_risks": [
+        "Complete initiating fixed-sample paper could not be read (OA gateway denial; authorized Oxford VPN disconnected). An example or remark about random sample-size ULC there might already cover the claim.",
+        "Does not imply failure of ordinary log-concavity or any universal finite-k threshold over varying parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed sample-size preservation is verified from available context; cannot rule out any uninspected remark/example in the full paper.",
+          "evidence": "Published Theorem 2 fixed-N ULC; authorized retrieval status vpn_disconnected, no bypass.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2023.109900; OA PDF https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+          "material_read": "Publisher search-indexed abstract/theorem context and OA gateway metadata; complete PDF inaccessible through OA access denial and separately authorized Oxford access reporting VPN disconnected.",
+          "method": "targeted indexed passages, OA attempt and authorized institutional request, not full-text reading",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Direct fixed-sample theorem on the same Poisson minima"
+        },
+        {
+          "assessment": "Expectation versus sample size does not address random-N mixture mass curvature.",
+          "evidence": "Subject and quantity differ: E[order-statistic] versus discrete pmf shape.",
+          "identifier_or_url": "arxiv:2111.04702",
+          "material_read": "Title, abstract and relevant described results on expectation curvature, not full 2024 revision.",
+          "method": "accessible index/abstract comparison",
+          "title": "Concavity and Convexity of Order Statistics in Sample Size",
+          "trigger": "Potentially stronger statement varying N"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp and robust non-closure theorem for an established discrete shape constraint: any positive mixing of just sample sizes one and two eventually reverses ULC despite each fixed-size minimum retaining it. The leading defect uses only the first two size masses even when higher-size mass has infinite mean.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023) 109900, DOI:10.1016/j.spl.2023.109900, full text inaccessible",
+    "Watt, Concavity and Convexity of Order Statistics in Sample Size, arxiv:2111.04702",
+    "Resultary RESULTARY:Poisson minimum random sample size ultra log concavity Poisson order statistic mixture mass tail",
+    "Frozen source RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete initiating fixed-sample paper could not be read (OA gateway denial; authorized Oxford VPN disconnected). An example or remark about random sample-size ULC there might already cover the claim.",
+    "Does not imply failure of ordinary log-concavity or any universal finite-k threshold over varying parameters.",
+    "The source Git-tree ancestry was not independently traversed; source content and frozen commit SHA were checked via file blob fetches.",
+    "The original metadata contains operational provenance; no publication or Git write occurred. Scientific acceptance and publication readiness are separate."
+  ],
+  "residual_risks": [
+    "Complete initiating fixed-sample paper could not be read (OA gateway denial; authorized Oxford VPN disconnected). An example or remark about random sample-size ULC there might already cover the claim.",
+    "Does not imply failure of ordinary log-concavity or any universal finite-k threshold over varying parameters."
+  ],
+  "schema_version": 1
+}

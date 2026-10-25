@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py`. The script checks the exact finite conditional minimum identity using rational arithmetic and reproduces numerical ULC-defect signs and asymptotic normalization for several Poisson intensities and positive sample-size masses, including positive mass at a larger sample size. It prints `verification: PASS` on successful completion.
+## correctness
 
-Analytic proof obligations are independent of the finite checks: (i) the survival factorization for every positive integer sample size, (ii) the uniform higher-size remainder estimate for small Poisson tails, (iii) the Poisson tail asymptotic, (iv) the resulting positive normalized curvature, and (v) fixed-size endpoint preservation. The proof in `RESULT.md` establishes them for all specified parameters and indices (eventually for the strict inequality). No computer result is used to infer an untested infinite range.
+PASS
+
+Conditioning on N=n gives r_k=p_k H_k with H_k=w_1+w_2(S_k+S_{k+1})+R_k where survival S_k=P(X>=k), p_k=S_k-S_{k+1}. For S_k<=1/2, every n>=3 remainder contribution obeys n S_k^{n-1}<=3 S_k^2, uniformly over all N laws even E[N]=infinite. Poisson tail S_k/p_k→1, S_{k+1}/p_k→0, and p_k/p_{k-1}→0 imply H_{k-1}H_{k+1}-H_k² = w_1w_2 p_{k-1}(1+o(1)). Exact Poisson three-term ratio is k/(k+1), yielding stated positive curvature. N=1 is Poisson ULC equality; N=2 factor (S_k+S_{k+1}) is log-concave by convolution of two log-concave sequences, giving deterministic ULC. Positive mixtures excluded by asymptotic. Independent finite mpmath evaluations at lambda=2.1/w1=.57 show normalized tail/asymptotic ratios approach 1 (e.g. k=12: 0.972, k=30:0.995). Numerics only corroborate analytic proof.
+
+## originality
+
+PASS
+
+Badiella–del Castillo–Puig fixed-N discrete-order-statistic ULC preservation does not imply closure under mixing over N; the claim shows the opposite, with an explicit universal far-tail asymptotic even for unbounded N. The complete original paper could not be materially read due OA gateway denial and authorized Oxford VPN disconnected; this is an explicit coverage risk rather than automatic O failure.
+
+## value
+
+PASS
+
+A sharp and robust non-closure theorem for an established discrete shape constraint: any positive mixing of just sample sizes one and two eventually reverses ULC despite each fixed-size minimum retaining it. The leading defect uses only the first two size masses even when higher-size mass has infinite mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
