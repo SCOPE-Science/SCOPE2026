@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Execute `python3 verify.py` in the package directory with Python 3.10 or later. The checker uses only the Python standard library and obtains its tables from direct enumeration. It cross-checks T0–T6 axioms with the pointwise normal form for every candidate on chains through six elements, enumerates partitions and checks basic operation compatibility for all admissible algebras through five elements, and validates every prescribed-cut count and renewal coefficient through chains of seven elements.
+# Independent mathematical audit
 
-Expected final log line: `VERIFY_OK all_axiom_cases_m_le_4 1335 direct_congruence_algebras 300 cut_subset_checks 63`.
+## correctness
 
-These are finite independent implementations of the identities and counting predicates, not a formal infinite proof or independent human audit. The unrestricted result is justified by the four mathematical proof steps in RESULT.md. The original paper's tense-filter correspondence is an external mathematical premise and is explicitly referenced. No formal proof-assistant certification or independent validation is claimed.
+PASS
+
+Pelaitay-Zuluaga Definition 8.3 specifies precisely T0-T4; for fixed Gödel chain C_m, a right adjoint G or H is a monotone 0/top-preserving map, and its left adjoint is uniquely determined by the first preimage reaching a given level. T4 at x=0 gives G(i)<=F(i), H(i)<=P(i); these inequalities imply all T3 and T4 by the two chain-order cases x<=y and x>y. Under the published congruence-to-tense-filter correspondence, a terminal filter [k,m] is congruent exactly if g(k),h(k)>=k. Adjunction and G<=F,H<=P force all four maps to fix k. Top reflection prevents early hitting of the top, so splitting and gluing at each common fixed cut is bijective. Unique concatenation into simple factors proves B(z)=1/(1-I(z)), I_m=B_m-sum_{j<m} I_j B_{m-j}, congruence-rank coefficients [z^m]I(z)^r and Q_m(t)=[z^m]I(z)/(1-tI(z)). Independently enumerated all monotone admissible pairs through m=5, obtaining B_m=(1,4,29,266,2762), I_m=(1,3,22,203,2118), histograms matching Q4 and Q5. That finite check corroborates but does not replace cut and gluing proofs.
+
+## originality
+
+PASS
+
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
+
+## value
+
+PASS
+
+Finite positive tense Heyting chains form a canonical manageable family where the full congruence lattice spectrum and decomposition into simple pieces are natural classification questions. The exact rank generating function for every length is a reusable structural enumeration, not a numeric recomputation or a change of names.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

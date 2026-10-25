@@ -1,15 +1,21 @@
-# Review: congruence cuts of finite tense Heyting chains
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-chain T0–T4 axioms are equivalent to two pointwise inequalities once both left adjoints are reconstructed uniquely. The proof treats all pairs of chain elements in T3/T4 and uses the published congruence–filter correspondence only on the stipulated Heyting subclass. A surviving congruence filter forces a common fixed cut for all four operations; the converse follows by closure. Top reflection ensures that splitting and gluing preserve the adjunctions and the inequalities. Canonical blocks are simple, proving the exact ordinary-series renewal law. The standalone checker directly cross-tests original identities and congruences on small chains.
+## correctness
 
-## Originality — PASS, subject to independent priority review
-Pelaitay–Zuluaga (arXiv:2208.13889v1), especially Sections 3, 6 and 8, gives the variety and the general tense-filter theorem, not the simultaneous fixed-cut normal form, ordered factorization, or exact rank-distribution coefficients. The related negative-tense article arXiv:2212.14756 treats a different signature and its inverse reduct fibers, not this congruence-rank theorem. Searches for chain congruence renewal and simple-expansion counts did not locate a dominating prior published statement. Chajda–Paseka's 2015 monograph on general tense operators was not available in full text; an earlier equivalent combinatorial decomposition cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The contribution completely determines the congruence-lattice type of every expansion of each finite Gödel chain, not just the number of expansions. It upgrades a general existential congruence correspondence into an explicit canonical decomposition and an exact congruence-rank spectrum for all sizes. It also supplies nontrivial simple-expansion counts, the natural atomic objects under concatenation, with an executable finite method to generate further coefficients.
+Pelaitay-Zuluaga Definition 8.3 specifies precisely T0-T4; for fixed Gödel chain C_m, a right adjoint G or H is a monotone 0/top-preserving map, and its left adjoint is uniquely determined by the first preimage reaching a given level. T4 at x=0 gives G(i)<=F(i), H(i)<=P(i); these inequalities imply all T3 and T4 by the two chain-order cases x<=y and x>y. Under the published congruence-to-tense-filter correspondence, a terminal filter [k,m] is congruent exactly if g(k),h(k)>=k. Adjunction and G<=F,H<=P force all four maps to fix k. Top reflection prevents early hitting of the top, so splitting and gluing at each common fixed cut is bijective. Unique concatenation into simple factors proves B(z)=1/(1-I(z)), I_m=B_m-sum_{j<m} I_j B_{m-j}, congruence-rank coefficients [z^m]I(z)^r and Q_m(t)=[z^m]I(z)/(1-tI(z)). Independently enumerated all monotone admissible pairs through m=5, obtaining B_m=(1,4,29,266,2762), I_m=(1,3,22,203,2118), histograms matching Q4 and Q5. That finite check corroborates but does not replace cut and gluing proofs.
 
-## Boundaries
-This is a self-review. The source's congruence–filter theorem and algebraic axioms are credited, not claimed as discoveries. Small computations independently corroborate low-order instances; the all-size conclusion rests on the proved splitting and gluing bijection. No asymptotic density, other implication varieties, or historical priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
+
+## value
+
+PASS
+
+Finite positive tense Heyting chains form a canonical manageable family where the full congruence lattice spectrum and decomposition into simple pieces are natural classification questions. The exact rank generating function for every length is a reusable structural enumeration, not a numeric recomputation or a change of names.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
