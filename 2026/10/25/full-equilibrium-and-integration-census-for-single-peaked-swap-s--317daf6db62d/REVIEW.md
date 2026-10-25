@@ -1,0 +1,11 @@
+# Mathematical review: cycle swap-equilibrium integration census
+
+**Correctness — PASS.** The two-valued utility on the degree-two closed neighborhood makes a strict profitable swap possible exactly when segregated vertices of both colors exist. Equivalently, both colors have a run of length at least three. The proof double-counts pairs of alternating positive run compositions and a distinguished blue run, with the factor \(n/k\), then applies inclusion-exclusion to obtain exact nonnegative coefficient counts. The interval construction proves both extremes and every intermediate integration value, including boundary cases. The included independent direct-swap checker tested 55 population splits and 35,103 colorings through 15 vertices. These tests corroborate, rather than replace, the universal argument.
+
+**Originality — PASS, subject to residual bibliographic risk.** Bilò, Bilò, Lenzner, and Molitor (2022), arXiv:2204.12599, Theorem 8 supplies a ring construction with asymptotic price of anarchy near two; Theorem 12 supplies price of stability one. Neither states the complete exact integration generating polynomial or the count of all equilibria for each split, as checked in the author-posted full text. An analogous earlier one-vacancy *jump* model is not a covering statement about mutual swaps on fully occupied cycles. Relevant published result records on binary run transitions, degree-two colorability and fixed-composition reconstruction have distinct conclusions. Classical run-composition enumeration is acknowledged as a tool, not claimed novel. Unindexed equivalent formulas remain a risk.
+
+**Mathematical value — PASS.** This is a complete classification of the equilibrium integration distribution on an infinite and natural graph family, with explicit coefficients, multiplicities, and all attainable welfare levels, sharpening existing cycle welfare bounds. The structural restriction is intrinsic to the game's incentives rather than an arbitrary enumerative slice.
+
+**Limits.** Two colors, fully occupied simple cycles, symmetric peak at one-half, strictly mutually improving swaps, static equilibria only. No claim of external certification or independent validation. Computational tests are finite; global conclusions follow from proof.
+
+Self-review: passed. Independent audit: not yet performed.

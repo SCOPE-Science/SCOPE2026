@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Checked domain n>=3, 1<=b<=r, actual closed-neighborhood payoff. Strict mutual improvement iff both agents lie in monochromatic triples, yielding exact run criterion. Proved n/k via distinguished-blue-run double counting and the run polynomial via inclusion-exclusion. Proved endpoints and no holes of integration support via the k-run intervals, covering b=1, b=r, and n=3 boundary cases. Maximum integration min(n,3b) is attained by blue-short placements. A standalone exact-rational script directly tests opposite-color swaps, not merely the run criterion, for all 35,103 colorings in 55 (n,b) cases n<=15 and reproduces exact polynomial coefficients, total counts and support. Enumeration alone is not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bilò et al., 2022, arXiv:2204.12599, Theorem 8, constructs a ring equilibrium with integration roughly half of optimum and gives asymptotic inefficiency lower bound, but no full integrated-count polynomial.",
+        "Bilò et al., Theorem 12, establishes price of stability one for almost-regular maximum degree at most three, which already subsumes the fact that an optimum cycle placement is equilibrium.",
+        "The 2023 jump-game manuscript (arXiv:2302.12107) concerns unilateral moves to vacancies rather than mutually profitable swaps on completely occupied cycles."
+      ],
+      "reasoning": "Existing stronger/general theorems cover the price-of-stability statement and some asymptotic price-of-anarchy bounds; these are acknowledged rather than treated as new. Neither implies the exact number of profiles at each integration level in the different swap problem.",
+      "searches": [
+        "Bilò Bilò Lenzner Molitor 2022 Theorem 8 ring Price of Anarchy",
+        "Bilò Bilò Lenzner Molitor 2022 Theorem 12 Price of Stability",
+        "Single-Peaked Jump Schelling Games arXiv 2302.12107",
+        "\"single-peaked swap Schelling\" \"cycle\" \"count\" equilibrium",
+        "Swap Schelling games with single peaked utility, on cycle graphs, equilibrium and integration enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.12599, author full text including Theorems 8 and 12",
+      "arXiv:2302.12107",
+      "2022 topological influence / locality swap Schelling article",
+      "2023 computational hardness and robustness Schelling article",
+      "Exact dependence phases of fixed-composition run transitions (2026)",
+      "Exact prescribed color-class sizes for graphs of maximum degree two (2026)",
+      "Exact binary r=2 length-limited composition reconstruction (2026)",
+      "Majority C-colorings of complete multipartite graphs (2026)",
+      "Exact three-agent cycle law for top trading cycles (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8 in arXiv:2204.12599 is an existence construction for near-2 PoA, not a full classification of every cycle placement. Theorem 12 is a universal PoS-one theorem, which is only mentioned as a known corollary.",
+        "Own prior item 0085870c-3c7a-4b61-9379-d9e6a31159c7 derives integration extrema in one-vacancy jump Schelling games; the zero-vacancy strict two-agent swap dynamics have different equilibrium conditions.",
+        "General binary-run counting identity is classical, but it does not by itself identify which run constraints exactly characterize equilibria."
+      ],
+      "reasoning": "The new implication is complete equilibrium characterization plus integration-polynomial coefficient formula in the specified swap game. Existing bounds and analogous jump results do not determine the coefficient array. Implication comparisons distinguish already-known general extrema from newly enumerated profiles.",
+      "searches": [
+        "Single-peaked swap Schelling games on cycles: exact equilibrium count and run-length characterization for peak one-half, agents swap only if both improve",
+        "For single-peaked swap Schelling games on a cycle with peak 1/2, equilibrium iff one color has no run length three, exact binomial sum counting stable 2-colorings",
+        "arXiv:2204.12599 Sections 2, 4 and 5",
+        "arXiv:2302.12107",
+        "accessible own claims, most similar item 0085870c-3c7a-4b61-9379-d9e6a31159c7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two same-color neighbors characterize a segregated site on the cycle; strict improvement requires two such sites of opposite colors. This gives a union of restricted cyclic binary-run languages.",
+        "Published research record Exact dependence phases of fixed-composition run transitions (2026) concerns run-transition indicator covariance, not run-length constraints of swap equilibria."
+      ],
+      "reasoning": "Searched aliases include binary cyclic run enumerations and generating polynomials, in addition to game terminology. No equivalent run-restricted Schelling swap enumeration was identified; generic restricted-composition tools make future rediscovery possible.",
+      "searches": [
+        "Single-peaked swap Schelling games on cycles: exact equilibrium count and run-length characterization for peak one-half, agents swap only if both improve",
+        "Swap Schelling games with single peaked utility, on cycle graphs, equilibrium and integration enumeration",
+        "Schelling swaps with tolerance at 1/2 and Nash stable circular colorings",
+        "For single-peaked swap Schelling games on a cycle with peak 1/2, equilibrium iff one color has no run length three, exact binomial sum counting stable 2-colorings",
+        "Exact Nash equilibrium integration generating polynomial single peaked Schelling swaps cycles count colorings using restricted compositions",
+        "\"Schelling\" \"no three consecutive\" \"swap\" equilibrium",
+        "\"single-peaked\" \"Schelling\" \"counting\" \"equilibria\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering tabulation was identified in inspected full-text primary literature or published-result summaries.",
+        "A coefficient formula for all n and b goes beyond finite parameter tables."
+      ],
+      "reasoning": "The finite checker is not used to claim originality. An independent existing database of binary cyclic runs might encode an equivalent counting sequence without game interpretation; a matching sequence alone would not necessarily imply this refined integration distribution, but is a residual risk.",
+      "searches": [
+        "Exact Nash equilibrium integration generating polynomial single peaked Schelling swaps cycles count colorings using restricted compositions",
+        "For cyclic binary run arrangements with b minority vertices and r majority vertices, count arrangements avoiding BBB or RRR",
+        "\"swap Schelling\" \"stable configurations\" cycles counting number",
+        "\"number of swap equilibria\" Schelling cycle"
+      ]
+    },
+    "rationale": "The full manuscript of Bilò et al. (2022) proves general existence and efficiency bounds and supplies a cycle price-of-anarchy witness, without stating an exact coefficient-by-integration equilibrium count. This finding proves a structural if-and-only-if for all vertex colorings, its exact three-term run generating polynomial, and full support. These jointly resolve strictly more information than extrema alone. The previously documented result for vacancy-based unilateral jump equilibria has the same extremal ratio, but a different move rule and does not imply swap equilibrium counts. Searches in published research records, primary manuscripts, and relevant combinatorial terms revealed no stronger covering census; this is evidence of noncoverage in inspected sources rather than proof of global priority.",
+    "residual_risks": [
+      "Previously unindexed or unpublished cyclic-word counts may implicitly encode the same coefficients; search is not proof of global novelty.",
+      "The original 2022 existence arguments could have unstated elementary corollaries; this work distinguishes full polynomial and support from those already-known qualitative conclusions.",
+      "No independent audit or external mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses exact swap model and contains near-tight general bounds and a cycle witness, but no full equilibrium integration distribution was located in inspected manuscript. Qualitative extrema credited.",
+        "evidence": [
+          "https://www.researchgate.net/publication/360234915_Tolerance_is_Necessary_for_Stability_Single-Peaked_Swap_Schelling_Games",
+          "arXiv:2204.12599, model, Theorem 8 and Theorem 12"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.12599",
+        "material_read": "Author-uploaded full manuscript via ResearchGate text (model definitions, general results, Theorem 8 and Theorem 12 and their proofs); arXiv source abstract and public dates",
+        "method": "Read indexed full-text segments and theorem statements/proofs; compared objects, move rule, quantifiers, and nature of bound",
+        "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+        "trigger": "Exact motivating game, cycle welfare bound and equilibrium literature"
+      },
+      {
+        "assessment": "Different move model; its integration extrema cannot imply per-integration equilibrium multiplicities for swaps.",
+        "evidence": [
+          "arXiv:2302.12107"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+        "material_read": "Available arXiv manuscript and statement portions defining jump moves, equilibrium and efficiency",
+        "method": "Compared allowed moves (vacant-vertex unilateral jump vs pair swap), vacancy assumption, and quantified claim",
+        "title": "Single-Peaked Jump Schelling Games",
+        "trigger": "Same preference peak and degree-of-integration language, potential dominating analog"
+      },
+      {
+        "assessment": "Different preference scheme, not a covering refined run-count formula.",
+        "evidence": [
+          "Open-access Springer article, 2022"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "material_read": "Accessible full scientific article relevant to different monotone utility and topology",
+        "method": "Compared payoff convention and best-response target; assessed applicability of structure to symmetric single-peaked utilities",
+        "title": "Topological influence and locality in swap Schelling games",
+        "trigger": "Swap game, local graph dependence, possible cycle classification"
+      },
+      {
+        "assessment": "Studies complexity and robustness for the standard monotone utility game, not a covering classification under symmetric single-peaked preference.",
+        "evidence": [
+          "Autonomous Agents and Multi-Agent Systems, doi:10.1007/s10458-023-09632-7"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-023-09632-7",
+        "material_read": "Accessible published abstract and concluding section; not treated as a full-text check",
+        "method": "Compared monotone-utility equilibrium and robustness questions against the two-valued single-peaked integration census",
+        "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+        "trigger": "Related swap equilibria literature with robustness conditions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "317daf6d-b62d-42db-8a90-4a7c6c0802d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full profile-count distribution by integration gives strictly more information than general efficiency bounds for a central canonical spatial network. Exact numbers E(n,b), attainable support, and the integration polynomial allow quantitative analysis of equilibrium multiplicity and welfare at each population imbalance. The result closes a natural family-level census and explains the key structural role of short runs; not a single arbitrary instance, a renamed known bound, or a finite table recheck. The exact price-of-anarchy ratio is a derived byproduct, not used by itself to claim novelty.",
+    "status": "PASS"
+  }
+}
