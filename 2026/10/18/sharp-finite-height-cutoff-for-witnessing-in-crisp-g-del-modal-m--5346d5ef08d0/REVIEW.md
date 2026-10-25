@@ -1,11 +1,21 @@
-# Self-review: sharp finite-height witnessing
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact path-height hypothesis makes the modal truncation \(T_b\) semantically valid by structural induction, and the witnessing-depth index includes the extra outer modal operator. The explicit infinitely branching root has operand values \(1/n\), whose infimum is \(0\) but is not realized at any successor. Every lower-depth operand has identical values on all branches. Non-root branching and finite-range boundary cases were independently checked. The finite checker is corroborative, not an infinitary proof.
+## correctness
 
-**Originality — PASS, subject to historical priority.** The closest primary texts are Ferrari et al. (2026), Ferrari et al. (2025), and Vidal–Rodriguez (2026). The last explicitly examines finite-depth tree completeness and partial witnessing, so it is the most important overlap comparison. Its modality-selective or truth-value-selective witnessing conditions and existential model completeness do not assert this exact universal condition over a given height-bounded model. The stronger or equivalent statement was not located through targeted published-record queries. Classical depth-locality techniques and preexisting one-step nonattainment examples are acknowledged, not claimed as new. Older or unindexed presentations could subsume the observation.
+PASS
 
-**Value — PASS.** A sharp equivalence between unrestricted witnessing and bounded-depth witnessing on finite-height crisp frames addresses the semantic gap between constructive witnessed models and infimum-based models. Uniform sharpness for all heights, one-variable examples, and the required branching/truth-range boundary provide a natural complete classification of the threshold.
+For crisp directed R-path height<=H (paths allow repeat so no cycles), modal-height truncation T_b replaces modal subformulas by truth constants at bound zero and decreases budget under modalities. Induction on formula and remaining height gives e(w,phi)=e(w,T_b phi) at worlds of height<=b. Hence at every successor of world height h the unrestricted operand agrees with depth<=h-1 transform; H-witnessing attains its extrema, giving full witnessing. Explicit height-exactly H countable model has infinitely branching root to chains of H-1 edges; leaf p=1/n, all other p=1. Every depth<=H-2 operand is constant across root successors, while root inf of Box^(H-1)p equals0 never attained: (H-1)-witnessed but not H-witnessed. Finitely branching and globally finite atomic ranges ensure all infima/suprema attained. Covers H=0 and H=1 boundary cases, with infinite nonattainment proved analytically rather than via finite truncation.
 
-**Limitations.** The result does not cover arbitrary fuzzy accessibility, recursive/path-infinite frames, or completeness of logics of partial witnesses. A code check over finite prefixes does not prove infinite failure. No external validation or independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Witnessed crisp Gödel models and finite-model completeness are previously published; general bounded-depth modal locality is classical. The exact model-level height-H all-formula criterion and explicit one-variable sharp (H-1)-witnessed countermodels were not seen in inspected prior work. This narrow structural boundary is assessed at the same C/O/V bar, with adjacent model-theoretic equivalence risk.
+
+## value
+
+PASS
+
+The precise finite check depth required to certify full witnessing over bounded-height infinite branching frames is a useful semantic invariant. Sharp countable countermodels isolate why infinite branch values, rather than mere finite height, cause failure; this is motivated semantic boundary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

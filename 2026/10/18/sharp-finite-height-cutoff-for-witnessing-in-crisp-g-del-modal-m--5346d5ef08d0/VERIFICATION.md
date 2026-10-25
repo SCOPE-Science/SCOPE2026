@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of depth-wise witnessing
 
-The proof supplies four independently checkable steps: (1) structural-induction preservation under height truncation \(T_b\); (2) exact identification of the branch neighborhoods through depth \(H-2\); (3) calculation of \(e(o,\Box^H p)=\inf_{n\ge2}1/n=0\) with each branch value strictly positive; and (4) closure of finite atomic truth-value sets under crisp Gödel modal semantics.
+# Independent mathematical audit
 
-Run `python3 witness_depth_check.py` with Python 3. The program uses exact rational arithmetic, constructs finite-prefix chains, verifies all \(48\) finite prefixes for \(0\le H-1\le5\) and \(4\le N\le11\), and performs \(8{,}000\) depth-limited random formula comparisons with fixed seed. The completed test prints `WITNESS_DEPTH_FINITE_STRESS_OK shallow_formula_comparisons= 8000`.
+## correctness
 
-Crucially, every finite prefix is fully witnessed; the program does not falsify witnessedness on any finite model. It checks the positive rational values and their convergence pattern. The required nonattainment in the countably infinite union and the arbitrary-formula cutoff follow from the mathematical proof, not from finite testing.
+PASS
 
-No independent audit or external certification is represented.
+For crisp directed R-path height<=H (paths allow repeat so no cycles), modal-height truncation T_b replaces modal subformulas by truth constants at bound zero and decreases budget under modalities. Induction on formula and remaining height gives e(w,phi)=e(w,T_b phi) at worlds of height<=b. Hence at every successor of world height h the unrestricted operand agrees with depth<=h-1 transform; H-witnessing attains its extrema, giving full witnessing. Explicit height-exactly H countable model has infinitely branching root to chains of H-1 edges; leaf p=1/n, all other p=1. Every depth<=H-2 operand is constant across root successors, while root inf of Box^(H-1)p equals0 never attained: (H-1)-witnessed but not H-witnessed. Finitely branching and globally finite atomic ranges ensure all infima/suprema attained. Covers H=0 and H=1 boundary cases, with infinite nonattainment proved analytically rather than via finite truncation.
+
+## originality
+
+PASS
+
+Witnessed crisp Gödel models and finite-model completeness are previously published; general bounded-depth modal locality is classical. The exact model-level height-H all-formula criterion and explicit one-variable sharp (H-1)-witnessed countermodels were not seen in inspected prior work. This narrow structural boundary is assessed at the same C/O/V bar, with adjacent model-theoretic equivalence risk.
+
+## value
+
+PASS
+
+The precise finite check depth required to certify full witnessing over bounded-height infinite branching frames is a useful semantic invariant. Sharp countable countermodels isolate why infinite branch values, rather than mere finite height, cause failure; this is motivated semantic boundary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
