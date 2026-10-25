@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "R_3(z)=7/12+(5/12)L_3(1+2z/5)=1+z+z²/2+z³/15 follows by Legendre expansion. Exact Q² and Q³ give all entries; Legendre extrema show 1/6≤r(h)≤1 for 0≤h≤5. The factors h(1-h+h²/5) and h²(15-4h)/30 intersect in exactly the two stated closed windows; negative (1,3) excludes every h>15/4. For s=2, diagonals satisfy (1+(1+hq_ii)²)/2>0 and each offdiagonal is h times a linear function with nonnegative value at zero; their intersection is an initial interval for any finite Markov Q. For s=3 and n=2, Q²=-(a+b)Q; all offdiagonals remain nonnegative because 1-r(z)>0 for z>0, the diagonals are positive through z=5, and r strictly decreases thereafter, so recovery is impossible. Strict inequalities at h=3,3.7,4 prove perturbation robustness. The exact-rational checker reports 54,712 regression assertions, not an infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dawes (2021), doi:10.1016/j.compfluid.2020.104762, abstract: nonmonotonicity from Dirichlet boundary closures; full text unavailable.",
+        "Tan–Aslam–Bertozzi, arXiv:2507.17062, full paper monotonicity theorem on constant-coefficient heat equation on infinite/periodic domains.",
+        "Faleichik–Moisa, arXiv:2504.00323, abstract: a different Chebyshev-family stability-polynomial monotonicity requirement, not stochastic matrix-entry constraints.",
+        "Accessible earlier exact finite-Dirichlet-path RKL3 positivity claim specifies symmetric tridiagonal Dirichlet matrices, not directed conservative Markov chains."
+      ],
+      "reasoning": "Structural positivity theorems for symmetric heat paths or scalar monotone stability functions do not transfer to the nonsymmetric nilpotent-coupled Markov witness. A broader all-generator RKL3 theorem would cover the claim if found; searches found none. Because the Dawes full paper was not obtained, priority uncertainty remains explicitly recorded rather than represented as a negative full-text comparison.",
+      "searches": [
+        "three stage explicit stabilized RK polynomial reentrant Markov positivity window minimal stage dimension",
+        "Runge Kutta Legendre RKL2 super time stepping polynomial positivity preservation sharp interval continuous-time Markov chains and discrete heat equation",
+        "\"Runge Kutta Legendre\" \"reentrant\" positivity",
+        "\"positivity\" \"Runge-Kutta-Legendre\" \"boundary\" three stages 2021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.14508v1 (full available HTML)",
+      "arxiv:2507.17062 (full available PDF)",
+      "arxiv:2309.00540 (full available PDF)",
+      "doi:10.1016/j.compfluid.2020.104762 (abstract only)",
+      "arxiv:2504.00323 (abstract only)",
+      "doi:10.1093/mnras/stx2176 (RKL numerical diffusion context, public metadata)",
+      "published-finding corpus:2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 (summary)",
+      "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (summary)",
+      "Finite Dirichlet path RKL3 positivity statement id:1bd41f96-58af-45a0-b4b6-49b77fabff59 (recoverable claim only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.14508v1 Sections 2.3, 5 and 6: RKL experiments on diffusion discretizations, adaptivity and eigenvalue estimation, not pure-birth Markov positivity.",
+        "arXiv:2507.17062 Section 3 Legendre polynomial and Section 5 heat monotonicity: same RKL polynomial, different symmetric/translation-invariant spatial operators.",
+        "Earlier finite-Dirichlet-path classification explicitly restricts the generator to a one-dimensional symmetric Dirichlet Laplacian and yields an initial cutoff, not a recovery window or universal lower bound.",
+        "arXiv:2309.00540 discusses instabilities in Heston discretizations; no directed conservative three-state exact endpoint-positive classification was identified in the inspected text."
+      ],
+      "reasoning": "The Legendre polynomial formula and general observation that unstable RKL steps may be nonpositive are prior art. The final statement is not a corollary of those facts: it additionally proves an exact disconnected positivity set, its persistence for unequal birth rates, the all-dimension two-stage no-return theorem, and the all-two-state three-stage no-return theorem. The plausible Dawes full text remains unavailable and is not deemed NOT_COVERING merely from its abstract.",
+      "searches": [
+        "Runge Kutta Legendre three-stage stability polynomial pure birth chain positivity lost and recovered positive steps 1.381966 3.618034 3.75",
+        "Runge Kutta Legendre RKL2 super time stepping polynomial positivity preservation sharp interval continuous-time Markov chains and discrete heat equation",
+        "\"reentrant positivity\" \"Runge-Kutta\" Markov",
+        "\"positivity\" \"Runge-Kutta-Legendre\" \"boundary\" three stages 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a conservative generator, nonnegativity of every entry of R_3(hQ) is equivalent to invariance of the probability simplex under row-vector multiplication.",
+        "The arXiv:2601.14508v1 RKL end-step formalism treats eigenvalue-controlled linear stability and adaptivity rather than disconnected simplex-invariance time sets.",
+        "The arXiv:2507.17062 heat-equation monotonicity results require constant-coefficient infinite/periodic spatial structures absent from the pure-birth chain."
+      ],
+      "reasoning": "The equivalent stochastic-kernel/positive-semigroup statements were considered, not only exact title or numerical thresholds. The new claim requires two detached step intervals for the three-state *directed* generator and impossibility below either stage or state count; the source heat proofs do not imply it.",
+      "searches": [
+        "Runge Kutta Legendre three-stage stability polynomial pure birth chain positivity lost and recovered positive steps 1.381966 3.618034 3.75",
+        "three-stage Runge Kutta Legendre RKL2 positivity reentrant window on 3 state pure birth continuous time Markov chain polynomial 1+z+z²/2+z³/15",
+        "\"RKL2\" \"three-state\" Markov positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus finding 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 concerns the rational SSP-SDIRK2(2) method and a single h=4 positivity cutoff.",
+        "Published published-finding corpus finding 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns the rational [2/2] Padé map and an eight-state generator.",
+        "Published published-finding corpus finding 2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e concerns a Chebyshev semi-iterate on Stieltjes linear systems."
+      ],
+      "reasoning": "The closest published index records were compared for mathematical implication. Rational SSP-SDIRK and Padé stability functions and the Chebyshev linear-system iterator are not the polynomial RKL2 map; none supplies either the present exact 3-state intervals or the two stage/state lower bounds. Searches are evidence of bounded comparison, not a proof of novelty.",
+      "searches": [
+        "reentrant stochastic positivity Markov generator stability polynomial three stages Legendre 15/4 (5+sqrt5)/2",
+        "sharp lower bound states and stages disconnected nonnegativity step-size intervals RKL2 super time stepping",
+        "\"RKL2\" \"15/4\" positivity",
+        "\"RKL2\" \"three-state\" Markov positivity"
+      ]
+    },
+    "rationale": "Comparisons by statement and implication did not identify prior coverage of both the RKL2 three-state disconnected positivity windows and universal 2-stage/2-state impossibility. The stability polynomial and Dirichlet boundary positivity limitations are acknowledged as prior art; the 2021 Dawes full text remains a disclosed priority risk.",
+    "residual_risks": [
+      "Dawes (2021) full text not accessible; only its boundary-focused abstract was examined, so exact historical priority versus its appendices remains uncertain.",
+      "Related complete full texts for published published-finding corpus summaries could not be opened; their scientific summaries describe different rational integrators.",
+      "A separate Markov-stability polynomial literature may contain an equivalent example not retrieved by the bounded searches; neither negative search results nor slot separation proves uniqueness.",
+      "The motivating diffusion papers largely concern symmetric spatial discretizations; the present directed conservative Markov chain is a deliberate extension of the integration polynomial, not claimed as one of their test cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the conservative three-state Markov exact endpoint positivity and minimality classification.",
+        "evidence": "Section 2.3 presents RKL methods; Sections 5.2 and 6 concern stability, error, adaptivity and dominant eigenvalue estimates for finite differences/DG diffusion; no exact positive-matrix step sets for a directed generator.",
+        "identifier_or_url": "arxiv:2601.14508v1; https://arxiv.org/abs/2601.14508",
+        "material_read": "Full accessible arXiv HTML, particularly Sections 2.3, 5.2, 6 and method assumptions.",
+        "method": "Reviewed definition of STS steps and checked stated results and test regimes.",
+        "title": "Super Time Stepping Methods for Diffusion using Discontinuous-Galerkin Spatial Discretizations",
+        "trigger": "Current treatment of RKL adaptive diffusion integration and practical spectral-stability motivation."
+      },
+      {
+        "assessment": "COVERS the method polynomial but NOT_COVERING the exact disjoint Markov positivity intervals or all-generator stage/state minimality.",
+        "evidence": "Stated monotonicity guarantee concerns the constant-coefficient heat equation on an infinite/periodic spatial grid, not arbitrary Metzler generators.",
+        "identifier_or_url": "arxiv:2507.17062; https://arxiv.org/abs/2507.17062",
+        "material_read": "Full arXiv PDF, Sections 3 and 5 with the RKL polynomial and the heat-equation monotonicity statements.",
+        "method": "Compared coefficient normalization and spatial hypotheses to the directed Markov witness.",
+        "title": "Explicit Monotone Stable Super-Time-Stepping Methods for Finite Time Singularities",
+        "trigger": "Contains the third Legendre polynomial form and positivity/monotonicity guarantees directly closest to RKL2 claim."
+      },
+      {
+        "assessment": "INCOMPLETE_FULL_TEXT; the abstract discusses Dirichlet boundary nonmonotonicity, but no full-text exclusion can be made.",
+        "evidence": "The abstract reports positivity for Neumann/periodic and failure near Dirichlet boundaries; it makes no explicit statement about conservative pure-birth generators or simultaneous minimality.",
+        "identifier_or_url": "doi:10.1016/j.compfluid.2020.104762; https://www.researchgate.net/publication/346191967_Some_properties_of_the_Runge-Kutta-Legendre_super-time-stepping_explicit_methods",
+        "material_read": "Abstract and bibliographic record only; a request for publisher-authorized full text was unsuccessful.",
+        "method": "Searched for open-access and preprint versions and attempted authorized institutional retrieval; compared only the abstract claims.",
+        "title": "Some properties of the Runge-Kutta-Legendre super-time-stepping explicit methods",
+        "trigger": "Potentially overlapping positivity and boundary-closure analysis for RKL stages."
+      },
+      {
+        "assessment": "NOT_COVERING the present exact intervals and minimal-stage/minimal-state theorem.",
+        "evidence": "Heston discretization and computed instabilities are not the three-state pure-birth conservative generator or its algebraic positivity phase diagram.",
+        "identifier_or_url": "arxiv:2309.00540; https://arxiv.org/abs/2309.00540",
+        "material_read": "Accessible full arXiv preprint, introduction and instability results with model/discretization descriptions.",
+        "method": "Compared numerical instability statements to exact stepwise Markov kernel nonnegativity.",
+        "title": "Instabilities of Super-Time-Stepping Methods on the Heston Stochastic Volatility Model",
+        "trigger": "Heterogeneous/nonsymmetric discretization RKL instability as stronger potential prior coverage."
+      },
+      {
+        "assessment": "NON_EQUIVALENT based on abstract; Chebyshev stability polynomial nondecreasing on negative real axis rather than RKL2 matrix entrywise nonnegativity.",
+        "evidence": "Abstract explicitly concerns a new Chebyshev-type family with monotonic stability polynomial on a negative-real interval.",
+        "identifier_or_url": "arxiv:2504.00323; https://arxiv.org/abs/2504.00323",
+        "material_read": "Public arXiv abstract; complete text not needed for a different polynomial family and scalar objective.",
+        "method": "Compared method family and stated positivity object.",
+        "title": "Explicit Runge-Kutta-Chebyshev methods of second order with monotonic stability polynomial",
+        "trigger": "Scalar stability-polynomial positivity/monotonicity is an alias that could appear stronger."
+      },
+      {
+        "assessment": "DISTINCT_METHOD; different implicit rational stability function; not a complete full-text inspection.",
+        "evidence": "Summary states SSP-SDIRK2(2), a 3-state pure-birth cutoff at h=4, and 2-state unconditional endpoint positivity, not RKL2 detached windows.",
+        "identifier_or_url": "published-finding corpus:2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "material_read": "Published mathematical summary and associated ID; full linked body was unavailable.",
+        "method": "Compared exact method stability function and positivity-set structure from summary.",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "Same low-state Markov method of investigating positivity, potentially dominating stage/state results."
+      },
+      {
+        "assessment": "DISTINCT_METHOD, no mathematical implication of this exact classification.",
+        "evidence": "Summary gives Padé [2/2] and eight-state pure-birth chain; no 3-stage RKL2 polynomial appears.",
+        "identifier_or_url": "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Published mathematical summary and associated ID; full linked body was unavailable.",
+        "method": "Compared rational [2/2] Padé method and dimension-eight witness to polynomial degree-three RKL2.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Other reported nonconnected Markov positivity times."
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE_IDENTIFIED within inspected material; no assertion about uninspected appendices.",
+        "evidence": "Describes anisotropic heat conduction and numerical stability benchmarks. No displayed theorem on a three-state pure-birth Markov chain in inspected portions.",
+        "identifier_or_url": "arxiv:1702.05487; doi:10.1093/mnras/stx2176",
+        "material_read": "Public arXiv abstract and publisher HTML introduction/overview available in search results; full publisher text not fully retrieved.",
+        "method": "Compared diffusion/heat-conduction tests and scalar stabilized integration aim to directed conservative Markov generator.",
+        "title": "Scalable explicit implementation of anisotropic diffusion with Runge–Kutta–Legendre super time stepping",
+        "trigger": "Historical application and standard three-stage RKL2 coefficients; multi-dimensional monotonicity discussion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3730497a-7f20-4549-92e4-0d81a0184c77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "RKL2 is used to extend stability-limited diffusion steps, making probability/simplex preservation for conservative generators a natural structural concern. A sign-loss window inside the usual scalar stability interval that later returns to positivity is a nontrivial caution against monotone cutoff heuristics. Proving jointly minimal stages and state dimension and persistence under open rate perturbations makes the exact thresholds more than an arbitrary isolated finite computation. It supports design of positivity-aware step selectors on directed transport/master-equation semidiscretizations. It does not claim stagewise nonlinear SSP, any acceleration benefit, or generalization to higher-dimensional DG schemes.",
+    "status": "PASS"
+  }
+}
