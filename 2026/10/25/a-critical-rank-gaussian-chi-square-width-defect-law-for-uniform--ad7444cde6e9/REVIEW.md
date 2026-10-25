@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The claimed support identity follows by selecting at most the rank many positive Gaussian coordinates in each of the two opposite directions. Small half-normal order statistics have a uniform quadratic trimmed-sum law for \(O(\sqrt n)\) smallest terms, as proved with exponential spacings. Binomial sign-count fluctuations, Gaussian radial normalization, and a delta-method cube width expansion establish the joint weak limit. The cube-width variance is \(1-3/\pi\); exact independence of Gaussian signs and magnitudes gives the limiting independence. At the balanced rank the loss is a scaled \(\chi^2_1\), and the zero atom arises only on the supercentral side. The finite support checker completed 1,400 exact comparisons; it is not substituted for the analytic proof.
+
+## Originality — PASS (bibliographic qualification)
+Ferroni–McGinnis (arXiv:2202.11808v1) and Ferroni (arXiv:2012.04711v1) identify the same independence-polytope family and study lattice/Ehrhart invariants. Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479v3, Theorem 3.6) already prove the cube-width marginal CLT, which is acknowledged and not claimed as an original discovery. Accessible published same-body radius and John-ellipsoid results determine deterministic metric extremizers but do not imply the distribution of a vanishing directional support loss. Cube width distributions and fixed-cardinality hypersimplex width fluctuations likewise do not imply the capped-cube comparison or its binomial equality probability. Relevant indexed records and the identified full texts were compared by implications rather than titles. Unlocated equivalent treatments of Gaussian rank-trimming remain a residual originality risk; a search nonmatch alone does not certify novelty.
+
+## Mathematical value — PASS
+The critical rank window resolves an intrinsic probabilistic geometry question: when does a hyperplane cap change the one-dimensional projection of a high-dimensional cube? The exact finite combinatorial equality probability and the two-scale non-Gaussian loss distinguish a natural family already important in matroid-polytope and Ehrhart geometry. The atom transition and asymptotic independence from classical width fluctuations give a structural infinite-dimensional refinement rather than a routine invariant recomputation. No general-matroid or universal non-Gaussian-direction theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
