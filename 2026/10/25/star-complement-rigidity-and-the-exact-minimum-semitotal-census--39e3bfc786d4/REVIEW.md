@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The quantitative bound is driven by the complete rectangular block of subdividers forced whenever both endpoint originals are omitted. Every optimizer below the all-originals bound must omit exactly one original on one side, and the semitotal witness condition excludes exactly the one-neighbor and all-neighbor endpoints. The two surviving disjoint families give the trivariate polynomial, and the exceptional eight-cycle is counted through all admissible cyclic gap types. A separate direct graph-definition verifier checks nine finite parameter pairs. All quantifiers, original/subdivider distinctions, labeled counting, and the eight-cycle exception are stated; the finite check is only corroboration.
+
+**Originality — PASS with a priority limitation.** The strongest directly relevant paper, Cabrera-Martínez et al. (2026), already states the general exact semitotal *number* for any full subdivision. It is credited and excluded from the novelty claim. Alikhani–Zaherifar (2021) count semitotal sets on unmodified graph families, including unsubdivided bicliques, not the subdivided-biclique minimum-optimizer classes. Relevant published mathematical records about other domination variants or subdivisions do not imply this precise all-minimum census. No identified inspected source derives the disjoint star-complement classification, exponential count or eight-cycle 30-optimum exception. Searches are not a guarantee of novelty; unindexed equivalents are possible.
+
+**Value — PASS.** For a natural and widely studied graph operator/graph family pair, the classification answers which vertex subsets actually attain the known sharp number, not just whether one extremal construction exists. The exponential cardinality census, three-variable occupancy profile, universal independence of *all* optimizers away from a sharp exceptional corner, and count of nonindependent corner minima are substantive structural information not supplied by knowing the minimum cardinality.
+
+Limitations: The proof concerns only minima, not arbitrary size distributions or other base-graph classes. The residual priority risk is unindexed or otherwise uninspected equivalent enumeration. No independent scientific review has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
