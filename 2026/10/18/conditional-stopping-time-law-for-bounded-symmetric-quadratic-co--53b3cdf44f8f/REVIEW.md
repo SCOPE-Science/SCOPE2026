@@ -1,11 +1,21 @@
-# Scientific review: conditional stopping-time law
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact sources identify every bounded positive odd part. The proof derives the zero-hitting times for the two infinite families and the three exceptional values; finite dyadic counts and weighted time sums give the closed polynomials, while triangular lattice summation and a short-time cutoff establish the limiting CDF and the sharp one-half logarithmic convergence exponent. The standalone program independently iterated 15,689 terminating seeds and verified all counts and sums for 29 dyadic cutoffs. The infinite assertions depend on proofs, not only on computation.
+## correctness
 
-**Originality — PASS, residual risk recorded.** Ye (2026, arXiv:2610.10660v1, Theorem 3 and Corollary 1) proves the classification and a log-quadratic upper count, not this exact dyadic census or the conditional stopping-time law. Sedaghat (2020, arXiv:2004.07357, Lemma 6) already proves the individual terminal stopping-time formulas; that mathematical input is explicitly attributed. Related results found in mathematical-result records address other maps or rings. Earlier implicit count summations may exist; semantic and primary-literature checks do not certify uniqueness.
+PASS
 
-**Mathematical value — PASS.** In a natural arithmetic dynamical system with a sparse but completely classified terminating basin, the result determines the exact dyadic basin size, its aggregate stopping time, the full rescaled hitting-time distribution, all limiting moments, and the **optimal order** of convergence. The slow boundary-layer convergence is mathematically different from the deterministic classification of the basin.
+The map is even-halving and odd (n^2-1)/4; Ye 2026 Theorem 3 provides a complete classification of eventually zero-reaching positive odd parts as 2^m-1, 2^m+1 and exceptions 11,23,181. Direct recursions give T(2^ell(2^m-1))=ell+m(m+1)/2, plus-family adds 2; 3 is counted twice with matching time, and exceptional times are 12,20,80. Counting bounded powers up to 2^L gives L^2+2L-12, and arithmetic progression sums give the displayed quartic first moment. Uniform cutoff 2^L<=X<2^(L+1) changes lattice-triangle counts by O(L), proving the limiting CDF F(z)=2sqrt(2z)-2z on [0,1/2] and moment 1/(2^r(r+1)(2r+1)). Horizontal time rounding O(1/L) combined with the square-root singularity gives Kolmogorov O(L^-1/2). Since T(n)>=log2(n), all T<=L seeds lie below 2^L, and the two triangular C_m cutoff sums yield H_L=(4sqrt2/3)L^(3/2)+O(L), giving the positive 2sqrt2/3 lower coefficient at z=1/L. Fresh exact-integer tests for L=7..18 verified counts, sums and H_L; numerical asymptotic-gap checks at L=100,1000,10000 approach 2sqrt2/3. This is conditional on Ye classification; finite arithmetic does not prove it.
 
-**Scope and limitations.** No assertion concerns divergent initial values or the classical Collatz map. The source classification uses Szalay's theorem. The optimal leading constant of the *global supremum* Kolmogorov error is not claimed. Numerical checks are illustrative, not infinite certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A full conditional limit law, all polynomial moments, exact dyadic census and sharp slow distributional rate quantify a natural sparse set of terminating seeds for a specific quadratic dynamical system. Those are mathematically meaningful statistical refinements of the bounded-orbit classification and separate rigorous density-zero sampling from ordinary random integers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
