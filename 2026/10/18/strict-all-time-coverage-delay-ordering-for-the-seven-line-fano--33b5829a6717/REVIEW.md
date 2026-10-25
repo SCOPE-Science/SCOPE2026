@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact inclusion-exclusion is applied to the event that every point has appeared in the first \(t\) independent draws. The complete list of nonzero signed avoidance factors is derived from Fano incidence and from the binomial counting formula for unrestricted triples. Their difference yields the stated closed-form tail gap. Algebraically, \((4^t-1)/5^t\) equals \(3/5\) for \(t=1,2\) and decreases strictly thereafter, proving the inequality for every integer \(t\geq3\). A standard-library rational checker separately verifies the block incidences, \(128\)-subset inclusion-exclusion, \(128\)-state forward dynamics for \(0\leq t\leq12\), and the exact expectation gap. Those finite tests corroborate but do not substitute for the infinite-time proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual risk.** Barak-Pelleg–Berend, arXiv:2606.28216v1, Theorem 2.1 and Section 3, give only an expectation-level Fano/full ordering, not the entire survival law comparison or an all-time sign proof. The relevant distributional implication is strictly stronger than a mean inequality; the known Fano Markov stages alone do not compare it with the full model. Grunbaum–Yaakobi, arXiv:2510.25305v1, concern expectation bounds and structural conjectures, and Berend–Sher, arXiv:2509.17201v1, concern different distributional choices and expectations. Semantic searches for the exact Fano full-model survival comparison and synonymous stochastic dominance returned no covering result. The residual risk is an unindexed earlier derivation or an unrecognized general theorem implying the specific comparison; search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** The seven-line design is the first explicit counterexample to the conjecture that the unrestricted fair group-draw mechanism maximizes expected coverage delay. Showing that its advantage holds **at every completion horizon** makes the counterexample decisively distributional: every completion quantile and every monotone cost of coverage time respects the same ordering (when expectations exist). The derived finite exact formula isolates cancellation between the pair and triple avoidance strata, a structurally meaningful explanation of why equal one-point and two-point incidence does not prevent a strict tail gap. This is a natural, complete stochastic-order resolution for the canonical small design, not a recomputation of its already-known mean.
+Reconstructed inclusion-exclusion over every absent set of the 7 points: signed nonzero factors for Fano are (1,1),(4/7,-7),(2/7,21),(1/7,-21); for 35 triples they are (1,1),(4/7,-7),(2/7,21),(4/35,-35),(1/35,35). Algebra gives the claimed exact gap. The ratio a_t=(4^t-1)/5^t is constant 3/5 at t=1,2 and strictly decreasing for t>=2 because a_t-a_(t+1)=(4^t-4)/5^(t+1). Hence the all-horizon strict order follows analytically. Independent 128-set enumeration and exact tails t=1..11 matched; not an infinite certificate.
 
-**Closest literature and limits.** The Fano source's expected-time result is explicitly credited. No larger-order projective-plane ordering, arbitrary fair mechanism comparison, or original-process coupling is claimed. The all-time result follows from analytic monotonicity rather than finite numerical extrapolation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barak-Pelleg--Berend establish an expectation counterexample (Fano slower on average); their stage Markov probabilities could be used to derive the entire law but the full all-horizon tail comparison and uniform positivity were not shown in the inspected complete preprint. These additional stochastic-order implications go beyond equality of means. Searched Resultary for Fano sampling/stochastic domination, no stronger matching result in returned findings; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A strict first-order stochastic dominance upgrade is a meaningful, distribution-wide answer to a natural fair-multicoupon mechanism comparison and directly rules out horizon-specific reversal; seven-point Fano is the minimal finite-geometry example motivating the original counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
