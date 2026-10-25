@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every nontrivial hypersimplex, coordinate-fixing classifies all faces. Joint block symmetrization and one-violation mass inequality give exact squared distance n/[n(a+b)-(a-b)^2] for every nonvertex face, with an explicit uniform vertex-mixture attaining the relaxation. Vertex distances are n/[k(n-k)] and strictly larger for the stated ranks. A monotone-in-b and concave-in-a integer optimization proves the two formula branches and the complete parity-dependent optimizing face types. Exact rational checks cover 465 rank pairs and 50,840 face-orbits; independent small-dimensional direct convex quadratic minimizations support the proof but are not used as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.32440v1 Theorem 1.1 bounds Φ(P)/diam(P) universally and characterizes equality for regular simplices.",
+        "arXiv:2608.28971 Theorem 4.1 and Example 6.7 give general facet-exposing lower bounds for simplex-like 0/1 polytopes, not matching two-sided exact hypersimplex values."
+      ],
+      "reasoning": "Universal bounds cannot imply an exact two-parameter value or identify all faces realizing it without sharp family-specific equalities. The prior simplex case is explicitly excluded from the new claim. Product calculus does not directly apply since nontrivial hypersimplices are cube sections rather than Cartesian products.",
+      "searches": [
+        "\"Calculus of the Facial Distance\" Peña Wirth simplex-like",
+        "\"Facial distance and diameter\" Deza Martínez-Rubio Peña Wirth",
+        "\"pyramidal width\" \"matroid base polytope\" uniform"
+      ]
+    },
+    "checked_sources": [
+      "Deza et al., Facial distance and diameter, arXiv:2609.32440v1, 2026-09-26: universal ratio, simplex equality, Birkhoff application.",
+      "Peña and Wirth, Calculus of the Facial Distance, arXiv:2608.28971v1, 2026-08-29: general bound/calculus, simplex-like examples.",
+      "Ferroni and Schröter, Face enumeration for split matroid polytopes, arXiv:2310.05487v1, 2023-10-09: hypersimplex face enumeration.",
+      "Iommazzo et al., Linear Convergence of the Frank-Wolfe Algorithm over Product Polytopes, arXiv:2505.11259, 2025: product-focused abstract and available excerpt; not full-text clearance."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact claim determines Φ(Δ(k,n)) and all minimizing nonvertex faces for 2≤k≤n−2; the cited universal 2026 theorem proves only a sharp upper ratio across all polytopes.",
+        "The calculus paper provides an optimization framework and inequalities, but no same-object sharp classification in the accessed full HTML.",
+        "Hypersimplex face enumeration does not entail a metric extremal value without the new sharp symmetrization and balancing analysis."
+      ],
+      "reasoning": "The new statement is strictly finer than the inspected general upper/lower estimates and the combinatorial enumeration: each would need additional, nontrivial exact-distance and optimization arguments to imply the piecewise formula. No stronger same-object theorem was identified in inspected material.",
+      "searches": [
+        "arxiv:2609.32440 facial distance and diameter theorem 1.1 Birkhoff",
+        "arxiv:2608.28971 Calculus of the Facial Distance theorem 4.1 example 6.7",
+        "arxiv:2310.05487 hypersimplex faces Example 2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.28971, Sections 2 and 6, defines facial distance and identifies it with pyramidal width; no intermediate-rank hypersimplex evaluation in the inspected examples.",
+        "arXiv:2609.32440v1, introduction, gives the same invariant and new universal comparison."
+      ],
+      "reasoning": "Translation between facial distance and pyramidal width is exact, so comparison used both terms. A hypersimplex also appears as the uniform-matroid base polytope and slice of a cube. Neither inspected paper computes the exact rank-dependent minimum over all coordinate faces.",
+      "searches": [
+        "\"hypersimplex\" \"pyramidal width\" exact",
+        "\"hypersimplex\" \"facial distance\" polytope",
+        "\"uniform matroid\" \"pyramidal width\" \"facial distance\"",
+        "facial distance pyramidal width uniform matroid base polytope hypersimplex Δ(k,n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2310.05487v2 Example 2.1 provides face counts and the coordinate contraction/deletion construction, not metric distances between each face and the complement vertex hull.",
+        "Directly computed orbit-distance fractions and numeric vertex convex programs are independently reproducible in verify.py, without using a pre-existing lookup table."
+      ],
+      "reasoning": "A face-count table/f-vector is insufficient to recover Euclidean distances to convex hulls of excluded vertices. No exact facial-distance table matching all ranks was encountered in targeted searches; this is evidence of a gap, not proof of priority.",
+      "searches": [
+        "\"hypersimplex\" \"distance\" \"complement\" faces vertices",
+        "\"hypersimplex\" \"facial distance\"",
+        "\"Face enumeration for split matroid polytopes\" hypersimplex face formula"
+      ]
+    },
+    "rationale": "The exact hypersimplex pyramidal-width classification, including its phase change in minimizing face dimensions, was compared by mathematical implication with published facial-distance results and standard hypersimplex face enumeration. The 2026 universal bound of Deza et al. and the calculus/lower bounds of Peña--Wirth do not determine the exact intermediate-rank value or minimizing faces. Ferroni--Schröter enumerates faces, not their separation distances. Targeted terminology and semantic-record searches found no covering result, but lack of a hit is not a novelty proof and residual priority risk is disclosed.",
+    "residual_risks": [
+      "The later Birkhoff-focused pages and appendices of arXiv:2609.32440 were not fully accessible in the current reader; no claim of whole-document negative coverage is made.",
+      "Older Frank-Wolfe condition-number and uniform-matroid literature might use an equivalent normalization or another name; exhaustive historical priority is not certified.",
+      "The 2025 product-polytope paper was not fully inspected; its published abstract and excerpt are not a whole-document novelty clearance. Nontrivial hypersimplices are not products, reducing direct-overlap plausibility."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The explicit sharp universal inequality and simplex equality do not imply the exact hypersimplex face-orbit minimum; later parts remain a bounded residual source-access risk.",
+        "evidence": [
+          "arXiv:2609.32440v1, first public 2026-09-26, Theorem 1.1; sections 1-2 accessed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.32440",
+        "material_read": "Full-text HTML introduction, definition, Theorem 1.1 and the accessible beginning of its proof, plus author abstract describing Birkhoff-polytope computation; remaining end sections unavailable in the browser view.",
+        "method": "Read accessible arXiv HTML exposition and checked theorem statement against candidate formula.",
+        "title": "Facial distance and diameter",
+        "trigger": "Primary recent geometric invariant source and potential general theorem covering the exact value"
+      },
+      {
+        "assessment": "Identifies facial distance with pyramidal width and gives general estimates; no rank-dependent sharp hypersimplex value or optimizing-face transition in inspected source.",
+        "evidence": [
+          "arXiv:2608.28971v1, sections 3-6 and Example 6.7."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.28971",
+        "material_read": "Accessible full HTML through sections 2-7, especially product identity, facet-exposing direction theorem, and Examples 6.1-6.7.",
+        "method": "Read extended HTML primary text and searched within the article for hypersimplex/matroid and relevant general classes.",
+        "title": "Calculus of the Facial Distance",
+        "trigger": "Closest terminology-equivalent theorem and general simplex-like polytope bounds"
+      },
+      {
+        "assessment": "Counts faces but does not determine distances from faces to convex hulls of all other vertices.",
+        "evidence": [
+          "arXiv:2310.05487v1 submitted 2023-10-09; v2 Example 2.1 and sections 1-2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.05487v2",
+        "material_read": "Full-text HTML introduction, theorem and section 2 Example 2.1, where hypersimplex faces are enumerated by coordinate contractions/deletions.",
+        "method": "Read primary HTML material including hypersimplex f-polynomial and its structural explanation.",
+        "title": "Face enumeration for split matroid polytopes",
+        "trigger": "Same hypersimplex objects and explicit face classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86c58a07-7574-4b3a-90e5-5413795df117",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Facial distance/pyramidal width is a natural quantitative polytope condition measure appearing in linear-convergence guarantees for Frank--Wolfe variants. Hypersimplices are the canonical uniform-matroid base polytopes and standard non-product 0/1 polytopes. A complete sharp value and classification of minimizing faces for every intermediate rank, including a structural edge-to-higher-dimensional phase transition, goes beyond general estimates and has plausible direct value in optimization geometry.",
+    "status": "PASS"
+  }
+}
