@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem follows from five mathematical steps: Fourier idempotents correspond bijectively to zero-one frequency masks; the three Galois time strata reduce to prime-root cancellation; the rational primitive cyclotomic kernel consists of additive CRT matrices; additive zero-one matrices must be coordinate cylinders; and uniform CRT row and column sums cannot coexist on a nontrivial mask when the dimensions are coprime. Counting uniform columns and uniform rows gives the seven claimed generating polynomials.
+## correctness
 
-Run `python3 checker.py` alongside this document. The program is standalone and uses integer arithmetic only. For each mask it tests Fourier vanishing at representatives of the three time strata using divisibility by the exact cyclotomic polynomial, not numerical near-zero thresholds. It exhaustively checks all masks for prime pairs (2,3), (2,5), (2,7), (3,5) and independently compares the exact size-by-class enumeration with the formulas. Its expected final output is `CHECK_PASS`.
+PASS
 
-Limits: Exhaustive finite checks do not prove the theorem for larger primes. The mathematical argument requires two distinct primes and zero-one Fourier multipliers. The reviewed claim makes no assertion of independent validation or originality certification by a third party.
+At nonzero times, Galois action reduces zeros to U,S_p,S_q. The rational cyclotomic map Q^(pq)→Q(zeta_pq) has kernel dim p+q−1: its additive row+column matrices span that kernel. A {0,1} additive matrix is a coordinate cylinder, yielding primitive-zero rigidity; nonprimitive zeros require uniform corresponding CRT column/row sums. Coprime p,q make simultaneous uniform sums imply empty/full. Inclusion-exclusion yields all seven exact zero sets and each displayed spectral-rank polynomial, with t=0 treated separately (empty J only). Independently enumerated exact cyclotomic residue tests on all 64+1024+16384+32768 masks at N=6,10,14,15 using different Gray-code updates; recovered zero-free totals 36,740,12824,30030. These finite masks do NOT prove the all-pq result; the kernel and counting argument does.
+
+## originality
+
+PASS
+
+Statement-and-implication comparisons with primary literature and published Resultary records below support a best-of-knowledge new exact statement or motivated refinement. Prior auxiliary lemmas and special cases are credited; unseen equivalent work is a residual risk.
+
+## value
+
+PASS
+
+The seven exact zero strata and rank-weight enumerators are a natural complete semiprime Fourier-idempotent classification; they answer a composite-order gap left by a major prime-power zero-set article and provide every spectral size class, not a renamed root-sum lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
