@@ -1,0 +1,11 @@
+# Scientific review: canonical signohedron isotropic constant
+
+**Correctness (PASS).** The chamber-to-simplex map has the explicit Jacobian \(1/(d+1)!\), and the complete collection of sign and ordering chambers has size \(2^d d!\). The Dirichlet second-moment formula proves the covariance without sampling. An exact telescoping harmonic identity, the rational comparisons for precisely the finite dimensions \(2\le d\le18\), and an analytic logarithmic comparison for every \(d\ge19\) prove strictness. The asymptotic expansion is taken after checking its dimension-dependent remainder. `verify.py` independently checks rational moment identities, the finite inequalities, the large-dimension base case, and a planar shoelace benchmark. The exact symbolic argument, not finite tests, supports the all-dimensional claim.
+
+**Originality (PASS, qualified).** The founding Black–De Loera article and Kipp's isotropic-constant article were inspected as accessible full HTML. Two closely related published results were read in their complete result files. The first computes radii and vertex shells of the same realization, not volume-uniform integrals. The second supplies sharp isotropic-constant bounds restricted to Hanner polytopes and does not cover this non-Hanner body. Searches for gauge equivalences, harmonic-number moments and the asymptotic comparison did not reveal a stronger covering result. Unindexed normed-space calculations remain possible and are not ruled out by the finite search.
+
+**Value (PASS).** The isotropic constant is a standard affine-invariant metric of high-dimensional convex bodies, and the canonical signohedron is a natural type-B family. The exact covariance and strict comparison distinguish it from its cross-polytope constituent; the positive deficit has a nontrivial sharp \((\log d)^2/d\) decay rather than a mere finite table. This is a structured geometric statement about an infinite family, not an arbitrary subcase.
+
+The result is restricted to a canonical geometric representative for coordinate-moment formulas. An independent mathematical audit and comprehensive bibliographic review have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
