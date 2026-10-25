@@ -1,12 +1,21 @@
-# Review of the root-cluster and leaf-count covariance theorem
+# Independent mathematical audit
 
-## Correctness
-The conditional variables for one attachment give the exact recurrences for the root component, the original-tree leaf count, and their overlap. A two-term mixed-moment recurrence telescopes to the stated finite covariance. The independent, explicit second-moment recurrences produce the asymptotic correlation constant; strict positivity of its variance denominator follows from monotonicity of the digamma function. Exact enumeration for every recursive tree through seven vertices and five rational retention probabilities agrees. This does not constitute independent proof review or certification.
+## correctness
 
-## Originality
-The closest complete accessible paper is Desmarais–Holmgren–Wagner (arXiv:2110.15050), which treats root-component and coloured-leaf distributions separately. Kürsten (arXiv:1512.05275) derives root-component marginal moments. Recent broadcasting work by Althaus–Hartung–Steiner treats majority reconstruction. A prior recorded root-degree/leaf covariance follows as a small-retention derivative, rather than determining the entire nonlinear finite-retention formula. A broader undiscovered joint generating function remains a real historical-priority risk.
+PASS
 
-## Value
-Root connectivity after percolation and leaf prevalence before percolation are natural global versus local statistics of recursive trees. Their mixed finite-size covariance is strictly positive, grows at a retention-dependent power, and nevertheless has a retention-independent correlation decay exponent. This gives a useful quantitative boundary between covariance size and statistical correlation. Extension to other attachment kernels or full positive association is not proved.
+With X indicator of a retained attachment to the root cluster, Y of attachment to an original leaf, and K original leaves also in root cluster, the actual conditional moments E[X|F]=rR/n, E[Y|F]=L/n, E[XY|F]=rK/n yield three first-moment recurrences and a mixed covariance recursion. E K=r A_n/(1+r) for n>=2; setting D_n=C_n/A_n telescopes D_(n+1)=(n+r-1)D_n/(n+r)+r(1-r)/[2(1+r)(n+r)] to the exact formula. Independent exact full enumeration of every recursive tree and all edge-retention patterns for n=2..6 at r=1/2 confirmed C_3=1/16, C_4=5/48, C_5=35/256, C_6=21/128. Factorial-moment identity gives Var(R)=2 Γ(n+2r)/[Γ(1+2r)Γ(n)]-A_n-A_n², leaf variance n/12 for n>=3; gamma convexity makes v(r)>0 for interior r and yields the stated universal correlation exponent. Finite tests corroborate and do not replace recurrence and asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier recursive-tree percolation literature separately gives root-cluster marginals and color-based leaf distributions; the new statistic couples cluster size to ORIGINAL tree leaves. A Resultary exact root-degree/leaf covariance equals the r=0 derivative but does not imply the entire nonlinear r dependence or correlation law. Originality remains best-of-knowledge with possibility of buried mixed PGFs.
+
+## value
+
+PASS
+
+Finite-n dependence between tree shape (original leaves) and percolation connectivity (root cluster) is a natural statistic not recoverable from marginals. The exact sign, scale n^r and universal 1/sqrt(n) decorrelation exponent are informative, including nontrivial divergence of covariance with vanishing correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

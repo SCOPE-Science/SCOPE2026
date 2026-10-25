@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T10:57:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md ff09b242388d30a072dabf53e0296abe4b813066",
+        "Independent exhaustive recursive parent/percolation enumeration n<=6",
+        "Gamma asymptotics and exact covariance recurrence"
+      ],
+      "rationale": "With X indicator of a retained attachment to the root cluster, Y of attachment to an original leaf, and K original leaves also in root cluster, the actual conditional moments E[X|F]=rR/n, E[Y|F]=L/n, E[XY|F]=rK/n yield three first-moment recurrences and a mixed covariance recursion. E K=r A_n/(1+r) for n>=2; setting D_n=C_n/A_n telescopes D_(n+1)=(n+r-1)D_n/(n+r)+r(1-r)/[2(1+r)(n+r)] to the exact formula. Independent exact full enumeration of every recursive tree and all edge-retention patterns for n=2..6 at r=1/2 confirmed C_3=1/16, C_4=5/48, C_5=35/256, C_6=21/128. Factorial-moment identity gives Var(R)=2 Γ(n+2r)/[Γ(1+2r)Γ(n)]-A_n-A_n², leaf variance n/12 for n>=3; gamma convexity makes v(r)>0 for interior r and yields the stated universal correlation exponent. Finite tests corroborate and do not replace recurrence and asymptotic proof.",
+      "residual_risks": [
+        "Only fixed interior retention r; no uniform bounds as r tends to 0 or 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desmarais–Holmgren–Wagner root-cluster and leaf sections include broader attachment families but distinct marginal target",
+          "Kürsten arXiv:1512.05275 exact cluster marginals"
+        ],
+        "reasoning": "Broader family parameters do not supply the specific cross-covariance of root cluster and original-tree leaves in the inspected theorem statements. The original tree versus retained forest distinction prevents a facile identification.",
+        "searches": [
+          "Resultary: Percolated recursive tree retained root component covariance original unpercolated leaf count asymptotic decorrelation",
+          "web: random recursive tree bond percolation root cluster leaf covariance"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/rsa.21142 OA HTML source",
+        "arXiv:2110.15050",
+        "arXiv:1512.05275 marginal background",
+        "Resultary 2026/10/4/...-ab0acf44833f",
+        "Resultary 2026/10/4/...-3b3e0426b1ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Desmarais–Holmgren–Wagner study cluster and coloured leaves in separate sections",
+          "Root-cluster marginal second moment alone is insufficient to get E[R L]",
+          "The proof explicitly introduces K, a mixed state absent from marginal moment recurrences"
+        ],
+        "reasoning": "No inspected prior theorem already implies the exact mixed recurrence with K. It requires conditioning on parent belonging to both the root cluster and original leaf set; conditional marginal laws cannot recover this joint event.",
+        "searches": [
+          "Resultary: Percolated recursive tree retained root component covariance original unpercolated leaf count asymptotic decorrelation",
+          "arXiv:2110.15050",
+          "arXiv:1512.05275"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Desmarais–Holmgren–Wagner arXiv:2110.15050 deals with colored leaves and root-cluster marginals",
+          "Resultary hit ab0acf44833f concerns unpercolated root degree vs leaves"
+        ],
+        "reasoning": "Coloured leaves in broadcast forest are not original unpercolated leaf count L. Root cluster marginal size and original leaf marginal count cannot determine their covariance. The r-derivative of C_n at 0 is different information from fixed-r formula.",
+        "searches": [
+          "Resultary: Percolated recursive tree retained root component covariance original unpercolated leaf count asymptotic decorrelation",
+          "web: recursive tree Bernoulli broadcasting root cluster original leaf mixed moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary id 2026/10/4/...-ab0acf44833f reports Cov(root degree, original leaves)=(n-2)/(2(n-1)); the candidate C_n derivative at r=0 matches",
+          "No Resultary hit supplies the finite-r mixed quantity"
+        ],
+        "reasoning": "The endpoint derivative does not determine the continuum r-profile or v(r) covariance-normalized asymptotic. No exact same mixed table appeared; this alone is not novelty proof.",
+        "searches": [
+          "Resultary: Percolated recursive tree retained root component covariance original unpercolated leaf count asymptotic decorrelation",
+          "Resultary: root degree leaves recursive tree"
+        ]
+      },
+      "rationale": "Earlier recursive-tree percolation literature separately gives root-cluster marginals and color-based leaf distributions; the new statistic couples cluster size to ORIGINAL tree leaves. A Resultary exact root-degree/leaf covariance equals the r=0 derivative but does not imply the entire nonlinear r dependence or correlation law. Originality remains best-of-knowledge with possibility of buried mixed PGFs.",
+      "residual_risks": [
+        "A more general mixed fringe-variable generating function in older literature could imply the covariance as a specialization.",
+        "Only relevant parts of the accessible Wiley full HTML were read carefully.",
+        "No uniform-in-r asymptotic near endpoints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_MARGINAL_STATISTICS",
+          "evidence": "Original-root-component distribution and coloured leaves studied, but inspected results do not state Cov(root component, original uncoloured leaf count).",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21142",
+          "material_read": "Complete openly available Wiley HTML accessed, sections on global properties, root clusters, coloured leaves and relevant proof sections examined",
+          "method": "Read original HTML definitions and theorem statements, searched joint mixed leaf/cluster occurrences",
+          "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+          "trigger": "Same recursive tree/percolation model, potentially dominating joint result"
+        },
+        {
+          "assessment": "MARGINAL_PRIOR_ART",
+          "evidence": "Root cluster moments explain variance ingredients but not its mixed covariance with original tree leaves.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+          "material_read": "Abstract and cited marginal formulas compared; complete full manuscript not independently reread this execution",
+          "method": "Distinguished marginal and mixed joint laws",
+          "title": "Random Recursive Trees and the Elephant Random Walk",
+          "trigger": "Prior exact root cluster moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact mixed-state recurrence",
+        "Known root cluster and leaves marginal theories"
+      ],
+      "rationale": "Finite-n dependence between tree shape (original leaves) and percolation connectivity (root cluster) is a natural statistic not recoverable from marginals. The exact sign, scale n^r and universal 1/sqrt(n) decorrelation exponent are informative, including nontrivial divergence of covariance with vanishing correlation.",
+      "residual_risks": [
+        "Applies to uniform recursive attachment only; not arbitrary preferential attachment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n=2 deterministic leaves, strict positive covariance n>=3 and 0<r<1; leaf definition original, not percolated.",
+    "Best-of-knowledge originality; named gaps and literature-access caveats preserved.",
+    "Publication not ready; no repository change or independent external attestation inferred."
+  ],
+  "schema_version": 1
+}
