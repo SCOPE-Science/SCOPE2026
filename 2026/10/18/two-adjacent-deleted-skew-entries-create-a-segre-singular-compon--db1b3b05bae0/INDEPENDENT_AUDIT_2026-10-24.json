@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:18:53.873412Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even n>=6 with only a12=a13=0, the allowed partials of the full Pfaffian are complementary Pfaffians. At rank n-2 the full gradient is the decomposable bivector of ker(A), so allowed partials vanish iff that 2-plane contains e1 and another vector in span(e2,e3), which is equivalent to the displayed linear equations and rank-one minors defining Z_n. At rank <=n-4 all Pfaffian partials vanish, giving the reduced union Y_n U Z_n. Z_n is a prime projective cone over Segre P1xP^{n-4}, with free vertex, codimension 2n-6 and degree n-3. Gr(4,n) kernel incidence and proper projection make Y_n irreducible of ambient codimension 6 for n>=8; at n=6 the Plucker intersection splits into Gr(2,5) degree 5 and a Schubert component degree 9. Separate Z_6 degree 3 gives three six-dimensional components, total degree 17; n>=8 two components have distinct dimensions. The Gauss primitive expansion and Serre R1,S2 establish integral normality, and Schur complements give generic transverse quadratic rank 6 and 2n-6. Independently enumerated all 8,191 nonzero F2 points of the 13-coordinate six-vertex slice, calculating each Pfaffian gradient directly from matchings and matrix rank independently, obtaining zero union discrepancies and 351 singular points (rank2:267, rank4:84). This F2 identity check is not a characteristic-zero or arbitrary-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ladder Pfaffian ideals are prime and ACM under stated hypotheses but generated from minors wholly within ladders.",
+          "Goryunov studies local vanishing cycles of general matrix degeneracy hypersurface pullbacks, not this global explicitly sliced singular-support decomposition in its accessible abstract."
+        ],
+        "reasoning": "General Pfaffian geometry does not directly subsume the adjacent two-coordinate section theorem without separate incidence analysis.",
+        "searches": [
+          "De Negri–Gorla arXiv:0809.3417 Proposition 1.9 Theorem 2.3",
+          "Goryunov 2021 Vanishing cycles of matrix singularities DOI 10.1112/jlms.12398"
+        ]
+      },
+      "checked_sources": [
+        "De Negri–Gorla, arXiv:0809.3417v1, Sections 1-2",
+        "Goryunov, DOI 10.1112/jlms.12398",
+        "Git frozen RESULT.md sha f28a51e3fb2b680da4baf68d1a81513732d3eb92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Jacobian formula identifies corank singularities in unrestricted matrix space.",
+          "The ladder paper does not prove the rank-one kernel condition when exactly two adjacent partial derivatives are missing, or the exceptional n6 Schubert split."
+        ],
+        "reasoning": "The new split follows from a nontrivial specialization and Grassmann-incidence analysis, not from a routine substitution into a published ladder theorem.",
+        "searches": [
+          "De Negri–Gorla 2008 Definition 1.1 Proposition 1.9 and Theorem 2.3",
+          "standard Pfaffian adjugate complementary-pfaffian Jacobian identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two missing variables correspond to two incident graph edges, unlike a pairwise-disjoint matching.",
+          "At rank n-2 the kernel bivector condition is equivalent to the Segre rank-one 2-by-(n-3) equations."
+        ],
+        "reasoning": "No exact adjacency-deletion component classification was identified under equivalent sparse alternating-matrix terminology.",
+        "searches": [
+          "Resultary: Pfaffian skew matrix zero adjacent entries two missing edges singular locus Segre component rank n-4",
+          "web: singularities pfaffian hypersurface two zero entries adjacent missing edge singular locus Segre cone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source was found tabulating dimensions/degree of exactly Y6 components 5,9 and Z6 degree 3.",
+          "The individual Grassmannian/Schubert degrees are classical; their appearance together after this exact coordinate specialization is the assessed result."
+        ],
+        "reasoning": "Cannot rule out unindexed sparse Pfaffian singular tables; negative search is not proof of absolute novelty.",
+        "searches": [
+          "Resultary: Pfaffian skew matrix zero adjacent entries singular locus Segre cone Schubert n6",
+          "web: two adjacent zero entries Pfaffian singular locus Segre cone rank locus six Schubert"
+        ]
+      },
+      "rationale": "The full Pfaffian corank singular locus and ladder Pfaffian ideal primeness are classical; the novel claimed invariant is the change caused by two adjacent deleted entries, including exceptional Segre locus and sharp n=6 rank-locus split. De Negri–Gorla treats ideals generated by Pfaffians supported in ladders, not the different operation of specializing two entries of a single full Pfaffian; neither that theorem nor general alternating-rank identities states these component dimensions and degrees. Best-of-knowledge pending other sparse Pfaffian classification.",
+      "residual_risks": [
+        "A sparse-Pfaffian specialization theorem could implicitly include the adjacent-missing-edge case.",
+        "The exhaustive 8191-point binary computation checks identities at n=6 over F2, not geometric completeness or higher-n characteristic-zero assertions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ladder Pfaffian ideal and liaison properties, not the same adjacent two-zero full-Pfaffian specialization",
+          "evidence": "Definition 1.1 describes a ladder; the generators are Pfaffians entirely within the ladder, different from evaluating the full Pfaffian after setting a12=a13=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.3417",
+          "material_read": "Primary 15-page PDF abstract, Introduction, Section 1 Definition 1.1 and Proposition 1.9 context, Section 2 overview; not every section inspected in depth",
+          "method": "Read primary text and visually checked PDF page 2",
+          "title": "G-biliaison of ladder Pfaffian varieties",
+          "trigger": "Closely related skew-symmetric sparse-coordinate prime and singularity literature"
+        },
+        {
+          "assessment": "General local vanishing topology might inform transverse germs, not shown to cover the explicit global component census",
+          "evidence": "Abstract concerns preimages of degenerate matrix hypersurfaces and complex links.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12398",
+          "material_read": "Bibliographic abstract and open-access description only; technical text not inspected",
+          "method": "Partial-source comparison, explicitly limited",
+          "title": "Vanishing cycles of matrix singularities",
+          "trigger": "Possibly broad local matrix singularity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting a pair of incident edges is the smallest nonmatching perturbation of a sparse Pfaffian. The sharp six-vertex splitting, degree-17 pure-dimensional singular support, and two unequal-dimensional components at n>=8 are substantial structural geometric boundaries with natural Segre, Grassmannian and Schubert interpretations, rather than arbitrary computations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "De Negri–Gorla, arXiv:0809.3417v1, Sections 1-2",
+    "Goryunov, DOI 10.1112/jlms.12398",
+    "Git frozen RESULT.md sha f28a51e3fb2b680da4baf68d1a81513732d3eb92"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A sparse-Pfaffian specialization theorem could implicitly include the adjacent-missing-edge case.",
+    "The exhaustive 8191-point binary computation checks identities at n=6 over F2, not geometric completeness or higher-n characteristic-zero assertions.",
+    "Publication is withheld pending complete public-metadata confidentiality sanitization; scientific decision is distinct from transport status."
+  ],
+  "schema_version": 1
+}
