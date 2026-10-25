@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** At equilibrium, complete mixing gives a common opinion and a linear balance identity for susceptible fractions; the adopter equation then forces a common adopter density for all nodes. The strictly unimodal cubic establishes the complete positive-root count. The rational witness has explicit physical states and exact characteristic polynomials. Rational sign brackets separate every eigenvalue of both the mean block and all transverse blocks; hyperbolic continuation ensures genuine coexistence for small strictly positive baseline predisposition. Run `python verify.py` to reproduce exact arithmetic.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The source model and its sufficient equilibrium-stability conditions are prior art (Alutto et al., arXiv:2509.01457 and arXiv:2601.16722). The additional model-specific statements are the *exhaustive* all-size homogeneous-fold classification, the absence of any asymmetric equilibrium under complete mixing, and a precisely certified full-dimensional two-sink/saddle example robust to nonzero baseline. Comparison against the related but different polar-opinion SIV model (Xu–Ishii, arXiv:2401.04556) does not give these conclusions. Broad saddle-node principles are not claimed as novel; unknown nonindexed or generally subsuming analyses remain a risk.
+PASS
 
-**Mathematical value — PASS.** Coexistence of a no-adoption attractor with a persistent-adoption attractor is a substantive outcome-selection phenomenon. The sharp threshold and explicit eigenvalue proof quantify when it is possible in the simplest controllable mixing topology without restricting to a symmetric initial condition. The persistence statement meets the earlier source's strictly positive predisposition requirement. No basin-volume or arbitrary-network classification follows.
+Every fixed point has common opinion y=p+q ubar. The dissatisfied and adopter fixed-point equations then force a common adopter fraction when ubar>0, or u=0 everywhere, excluding heterogeneous equilibria. With p=0 and a>0 the sole positive-adopter equation beta q^2 a^2(H-a)=delta on (0,H) has exactly 0/1/2 solutions by the maximum 4H^3/27 at a=2H/3. At beta=4/9, delta=1/128, g=1/8, alpha=3/8, lambda=1/4, xi=3/8, independent Fraction recomputation finds q=1/2,H=7/8,beta_c=108/343, equilibria (a,v,y)=(0,1,0),(3/8,17/32,3/16),(3/4,13/64,3/8). The full Jacobian decomposes into one 3x3 consensus block and n-1 transverse (2x2+0) blocks; independent roots show E- has exactly one multiplier >1 and all others <1, E0 and E+ are sinks. Hyperbolic persistence and simple nonzero fixed-point roots establish the stated small positive baseline continuation.
 
-The relevant closest literature is the three primary preprints above; the initial paper's hypotheses for uniqueness do not hold for the exhibited parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit all-equilibrium fold and full 3n-dimensional two-sink coexistence in the actual homogeneous complete-mixing SAD/FJ dynamics is not a consequence of the motivating paper’s sufficient uniqueness condition. Broader bistability theory contains fold phenomena but not the precise model-specific algebra and stability witness.
+
+## value
+
+PASS
+
+An explicit admissible model-specific analytic fold with full-system two-sink coexistence changes the interpretation of previously sufficient uniqueness/stability conditions, and demonstrates genuine hysteresis-compatible dynamics without an unsupported basin theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

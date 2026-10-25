@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact arithmetic verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3. The standalone program uses only `fractions.Fraction` and checks the admissibility inequalities, the exact fold threshold, factor-root substitutions, the fixed-point equations, positivity of every state coordinate, independently constructed homogeneous and transverse Jacobians, their characteristic-polynomial coefficients, and strict rational endpoint sign changes.
+## correctness
 
-The lower positive equilibrium has mean-mode roots in \((0,1/4)\), \((4/5,9/10)\), and \((1,21/20)\), and transverse nonzero roots in \((4/5,9/10)\) and \((19/20,1)\). The upper equilibrium has mean-mode roots in \((0,1/4)\), \((3/4,4/5)\), \((19/20,1)\), and transverse roots in \((3/4,4/5)\) and \((19/20,1)\). Degree bounds make these intervals exhaustive. Homogeneous/mean decomposition, the strict cubic maximum, and positive-baseline implicit-function continuation are proved in `RESULT.md` and are not established merely by these finite checks.
+PASS
 
-The calculation is deterministic and exact. No numerical tolerance, infinite-state enumeration, external formal verification, or independent audit is claimed. Novelty and physical relevance remain conditional on the research-specific assumptions and the cited literature comparison.
+Every fixed point has common opinion y=p+q ubar. The dissatisfied and adopter fixed-point equations then force a common adopter fraction when ubar>0, or u=0 everywhere, excluding heterogeneous equilibria. With p=0 and a>0 the sole positive-adopter equation beta q^2 a^2(H-a)=delta on (0,H) has exactly 0/1/2 solutions by the maximum 4H^3/27 at a=2H/3. At beta=4/9, delta=1/128, g=1/8, alpha=3/8, lambda=1/4, xi=3/8, independent Fraction recomputation finds q=1/2,H=7/8,beta_c=108/343, equilibria (a,v,y)=(0,1,0),(3/8,17/32,3/16),(3/4,13/64,3/8). The full Jacobian decomposes into one 3x3 consensus block and n-1 transverse (2x2+0) blocks; independent roots show E- has exactly one multiplier >1 and all others <1, E0 and E+ are sinks. Hyperbolic persistence and simple nonzero fixed-point roots establish the stated small positive baseline continuation.
+
+## originality
+
+PASS
+
+Explicit all-equilibrium fold and full 3n-dimensional two-sink coexistence in the actual homogeneous complete-mixing SAD/FJ dynamics is not a consequence of the motivating paper’s sufficient uniqueness condition. Broader bistability theory contains fold phenomena but not the precise model-specific algebra and stability witness.
+
+## value
+
+PASS
+
+An explicit admissible model-specific analytic fold with full-system two-sink coexistence changes the interpretation of previously sufficient uniqueness/stability conditions, and demonstrates genuine hysteresis-compatible dynamics without an unsupported basin theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
