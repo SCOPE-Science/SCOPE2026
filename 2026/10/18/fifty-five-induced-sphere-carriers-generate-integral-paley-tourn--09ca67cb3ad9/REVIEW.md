@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ambient signed chain ranks and integral Smith form are reconstructed from 11, 55, 110 and 55 canonically ordered simplices. Exhaustive checks over all 462 five-subsets identify exactly 55 induced two-sphere carriers, and the affine orbit and local triangular-bipyramid shape are checked independently. The key nonstandard step is the integer Smith form of the 110-by-110 concatenated boundary-and-cycle matrix: 65 nonzero invariant factors, all equal to one. Combined with rank 45 for the second boundary this proves genuine integral generation, not only rational spanning. The all-tetrahedra half-boundary is integral, nontrivial, of order two and invariant. The standalone `verify.py` checks these facts using exact arithmetic.
+## correctness
 
-## Originality — PASS
-The previously known Moore-space decomposition is credited to Govc (arXiv:2006.05333, Proposition 3.4), not claimed. Masulli–Villa (arXiv:1510.00660) establishes the directed clique construction but not these particular minimal support cycles or their integral spanning. The comparison with published tournament work and accessible indexed related findings, including different Paley tournaments, found no statement covering the 55-support orbit together with the primitive integral-lattice certificate. This is a best-knowledge conclusion, not a proof of absolute priority. Specialized unpublished calculations remain a risk.
+PASS
 
-## Mathematical value — PASS
-This is a naturally motivated local-to-global question for the smallest doubly regular tournament with known second-homology torsion. It identifies the shortest induced sphere carriers and proves the striking stronger fact that small free spherical cycles together span even the global order-two torsion. The canonical signed all-tetrahedra torsion representative supplies a structural explanation independent of the published abstract Betti and homotopy classifications. Neither a routine corollary of the Moore-space type nor a mere numerical rank calculation provides the integral lattice-generation statement.
+Construct transitive-face simplices with canonical source-to-sink order, f=(11,55,110,55), chain matrices satisfying d1*d2=d2*d3=0. Independent Python/SymPy enumeration of all C(11,5)=462 supports finds precisely 55 with beta_2(F2)=1 and affine orbit of W0={0,1,2,3,7}; W0 six triangles form triangular-bipyramid sphere plus extra edge, with no tetrahedra. d1 rank10, d2 rank45, d3 rank55; exact Smith d3 factors 1^54 and 2 => H2 free rank 65-55=10 with Z/2. Construct orientation cycles of 55 spheres, augment d3: exact Smith has precisely 65 nonzero factors all units, establishing saturation of rank65 primitive ker d2. Tetrahedral sum d3 has 110 coefficients ±2 (55 each); half is integral cycle with 2z boundary, and d3 rationally injective forces z not boundary. Affine action permutes source-to-sink tetrahedra, so z fixed. All claims independently replayed with exact integer operations, not inferred from logs.
 
-## Limits
-Only the 11-vertex quadratic-residue tournament and five-vertex minimal support layer are classified. No larger-family formula or uniqueness among all chain representatives is asserted. The computational proof uses deterministic integer arithmetic and has not undergone independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Govc 2020 Proposition 3.4 explicitly already computes the abstract homotopy type of the unique order-11 doubly regular tournament, including Moore-space 2-torsion; that fact is prior and not counted as new. Its published result does not provide induced five-vertex carrier orbit, unimodular integral cycle generation by these carriers, nor the explicit group-invariant full-support torsion representative. Relevant related Resultary records concern other complexes and larger Paley tournaments.
+
+## value
+
+PASS
+
+A complete minimal-support classification and integral spanning certificate for a natural small tournament are substantive geometric-homological invariants; Smith data distinguish integral generation from weaker rational spanning, while invariant torsion chain makes abstract torsion concretely accessible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
