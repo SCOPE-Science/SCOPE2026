@@ -2,8 +2,11 @@
 
 ## Finding
 
-Let \(G=H(3,3)=K_3\mathbin{\square}K_3\mathbin{\square}K_3\) be the graph on the 27 ternary triples, joining two distinct triples exactly when they differ in one coordinate. Let \(\mathcal N(G)\) be the **open** Lovász neighborhood complex: a nonempty vertex set is a simplex when all its vertices are adjacent to some common vertex of \(G\). Then \(\mathcal N(G)\) has an **optimal discrete-Morse matching on its original simplicial face poset**: its entire five-dimensional triangulation has exactly 672 matched face pairs and critical-cell vector \((1,3,56,0,0,0)\) in dimensions zero through five. This vector meets every weak Morse inequality with equality, over every field, so the matching is perfect. Its exact consequences are that \(\mathcal N(G)\) is connected and
-
+Let \(G=H(3,3)=K_3\mathbin{\square}K_3\mathbin{\square}K_3\) be the graph on the 27 ternary triples, where distinct triples are adjacent precisely when they differ in one coordinate. Let \(\mathcal N(G)\) be its **open** Lovász neighborhood complex: a nonempty set is a simplex if its vertices have a common adjacent vertex in \(G\). The original five-dimensional simplicial face poset of \(\mathcal N(G)\) admits an explicit acyclic matching with 672 matched pairs and critical-cell vector
+\[
+(c_0,c_1,c_2,c_3,c_4,c_5)=(1,3,56,0,0,0).
+\]
+This matching is perfect: every \(c_i\) equals the corresponding Betti number over every field. In particular, it gives a two-dimensional CW model with one vertex, three edges and 56 two-cells, and
 \[
 \pi_1(\mathcal N(G))\cong\mathbb Z^3,\qquad
 H_i(\mathcal N(G);\mathbb Z)\cong
@@ -14,63 +17,68 @@ H_i(\mathcal N(G);\mathbb Z)\cong
 0,&i\ge3.
 \end{cases}
 \]
+The substantive result is the **optimal matching on the original face poset**, not an independent claim to have discovered the free-abelian graph-walk group or the existence of some abstract two-dimensional deformation retract.
 
-Moreover, this matching constructs a CW model with exactly one \(0\)-cell, three \(1\)-cells, 56 \(2\)-cells, and no higher cells, attaining the smallest possible number of critical cells in **each dimension** for any matching of this triangulation. In particular, all integral homology is torsion-free. The existence of this perfect matching on the original complex is the principal contribution; the homology and fundamental-group formulas are consequences and are not presented as separately novel results.
+## Definitions, normalization and exact scope
 
-## Assumptions and scope
+Label each triple \((a,b,c)\in\{0,1,2\}^3\) by \(9a+3b+c\), and orient each simplex edge from the lower to the higher label. For every vertex \(v\), its six open neighbors form a maximal face of the construction. Enumerate all nonempty subsets of all these open neighborhoods and deduplicate. The resulting simplicial complex is neither the closed-neighborhood complex, nor the clique/Rips complex of the graph. All matching incidences are **codimension-one face incidences**; the empty simplex is not part of the matching. The theorem concerns only \(H(3,3)\), without extrapolation to other Hamming graphs.
 
-Use vertex IDs \(9a+3b+c\), for \(a,b,c\in\{0,1,2\}\), and orient every edge from the smaller to the larger ID. A simplex is a nonempty subset of the six-element open neighborhood of a vertex. This is not a Vietoris–Rips complex, a closed-neighborhood complex, or the original graph regarded as a one-dimensional CW complex. All homology groups have integral coefficients unless otherwise indicated. The statement concerns this single explicitly specified graph; no claim is made for arbitrary Hamming parameters.
+## Proof and explicit finite certificate
 
-## Proof
-
-**Exact face structure.** Enumerating, for each of the 27 vertices, all nonempty subsets of its six neighbors and deduplicating yields 1,404 nonempty simplices. Their face vector, in dimensions zero through five, is
-
+**Faces and Euler characteristic.** The 27 open neighborhoods yield exactly 1,404 nonempty simplices, with face vector
 \[
 (f_0,f_1,f_2,f_3,f_4,f_5)=(27,243,540,405,162,27).
 \]
+Thus \(\chi=27-243+540-405+162-27=54\). These counts are directly enumerable using subsets of the six-element open neighborhoods.
 
-Thus the Euler characteristic is \(27-243+540-405+162-27=54\).
-
-**A two-dimensional Morse model.** Apply a sequential vertex-toggle matching to all nonempty simplices. At a stage labeled by vertex \(v\), pair each as-yet-unmatched face \(\sigma\) that omits \(v\) with \(\sigma\cup\{v\}\), provided the latter is also still unmatched. Use the vertex order
+**Matching and acyclicity.** On the initially unmatched face set, process vertices successively in the exact order
 
 `21,11,26,18,13,1,6,20,5,10,8,24,17,14,16,25,22,0,19,2,4,15,12,23,3,9,7`.
 
-This gives 672 disjoint matched pairs, and leaves exactly one critical vertex, three critical edges and 56 critical triangles. For a complete acyclicity certificate, direct every codimension-one face incidence from upper to lower except along a matched pair, where the arrow is reversed. A topological sort processes all 1,404 simplices and all 4,698 such directed incidences. Since no directed cycle remains, Forman's discrete Morse theorem produces a CW complex of the stated cell counts and dimension. Independent exact mod-two boundary ranks establish Betti vector \((1,3,56,0,0,0)\), equal term-by-term to the critical-cell vector. By the weak Morse inequalities, no discrete-Morse matching on this complex can have fewer critical cells in any of these dimensions; this one is perfect over every field. Unlike a mere dimension-reduction existence theorem, the matching is an explicit optimal acyclic matching on the original triangulation.
+At the stage for vertex \(v\), pair an as-yet-unmatched face \(\sigma\) not containing \(v\) with \(\sigma\cup\{v\}\) if both faces are still unmatched. Processing candidate faces in increasing bit-mask order gives 672 disjoint pairs, leaving exactly one unpaired vertex, three edges, and 56 triangles. Orient every face-poset cover relation downward, except reverse each paired incidence. There are exactly 4,698 such oriented incidences; a topological sort visits **all 1,404 faces**, so the directed graph is acyclic. By Forman's discrete-Morse theorem this is a valid acyclic matching, giving a CW model with the indicated cells and no cells above dimension two.
 
-**Fundamental group.** The 26 vertex-edge matching pairs yield a spanning tree: its edges are distinct, contain no cycle, and connect all 27 vertices. Killing these tree edges in the usual edge-path presentation leaves 217 edge generators with 540 triangular relators. Every matched edge-triangle pair gives a triangular relation that can be solved for its matched edge. The recursive elimination of all 214 such edge generators is well-founded, as checked from the explicit matching, leaving three generators \(g_1,g_2,g_3\), corresponding to the oriented edges with endpoint IDs \((11,13)\), \((1,18)\), and \((11,20)\).
-
-For a triangle \(a<b<c\), the defining edge-path relation is \(e_{ab}e_{bc}e_{ac}^{-1}=1\). After the 214 substitutions and free/cyclic reduction, the 540 relations comprise 485 empty words and 55 nonempty words: 30 of length four, 21 of length six, and four of length eight. Every resulting relator has exponent sum zero in each of the three generators; hence all lie in the commutator subgroup of the free group. Three of the explicit relators are
-
+For an independent homological check, enumerate the simplicial boundary matrices over \(\mathbb F_2\). Their ranks in degrees one through five are
 \[
-g_3^{-1}g_1^{-1}g_3g_1=1,\quad
-g_2^{-1}g_3^{-1}g_2g_3=1,\quad
-g_2^{-1}g_3g_1^{-1}g_3^{-1}g_2g_1=1.
+(26,214,270,135,27),
 \]
+so the Betti numbers over \(\mathbb F_2\) are \((1,3,56,0,0,0)\). The integral argument below separately proves that these ranks are the Betti numbers over every field. The weak Morse inequalities then show that **no** acyclic matching of this face poset can use fewer critical cells in **any** degree.
 
-For example, they occur at triangles with vertex IDs \((1,2,6)\), \((2,7,10)\), and \((0,11,12)\), respectively. The first two say that \(g_3\) commutes with \(g_1\) and \(g_2\); then the third says that \(g_1\) commutes with \(g_2\). Thus these relations kill the entire commutator subgroup, while all other relations already lie in that subgroup. The presented group is exactly \(\mathbb Z^3\), not merely a group with this abelianization.
+**Fundamental group.** The 26 matched vertex-edge incidences form a spanning tree of the 27 vertices (the corresponding edges are distinct, cycle-free and connected). In the usual edge-path presentation, kill those tree edges. The remaining 217 oriented edges are generators subject to 540 triangle boundary relators: for each \(a<b<c\),
+\[
+e_{ab}e_{bc}e_{ac}^{-1}=1.
+\]
+Each of the 214 matched edge-triangle incidences expresses its matched edge uniquely in terms of the other two sides of that triangle. The recursion for these substitutions is well-founded, leaving exactly three generators \(g_1,g_2,g_3\), indexed by the surviving oriented edges \((11,13),(1,18),(11,20)\).
 
-**Integral homology.** The connected two-dimensional Morse CW model has one zero-cell, three one-cells and 56 two-cells. Its first cellular differential is zero, and its first homology is the abelianization \(\mathbb Z^3\) just obtained. Hence its second cellular differential into \(\mathbb Z^3\) is also zero, and its second cellular homology is \(\mathbb Z^{56}\). There are no cells in higher degrees. Homotopy invariance transfers these groups to \(\mathcal N(G)\).
+Performing the substitutions and free/cyclic reductions for **all 540** original triangle relators yields 485 empty words and 55 nonempty words: 30 of length four, 21 of length six and four of length eight. Every resulting word has exponent sum zero in each of the three generators. Three specific nonempty relations are
+\[
+\begin{aligned}
+g_3^{-1}g_1^{-1}g_3g_1&=1 &&\text{from triangle }(0,7,8),\\
+g_2^{-1}g_3^{-1}g_2g_3&=1 &&\text{from triangle }(0,4,7),\\
+g_2^{-1}g_3g_1^{-1}g_3^{-1}g_2g_1&=1 &&\text{from triangle }(4,8,23).
+\end{aligned}
+\]
+These are exact ordered, cyclically reduced relators using the stated vertex labels, edge orientations, matching order and generator order. The first two relations make \(g_3\) commute with \(g_1\) and \(g_2\). Under those two relations the third reduces to \(g_2^{-1}g_1^{-1}g_2g_1=1\), making \(g_1\) and \(g_2\) commute. Therefore the three relations kill the entire commutator subgroup of the free group on \(g_1,g_2,g_3\). Conversely, **all** 540 reduced relations lie within that commutator subgroup, because all are exponent-balanced. Consequently the quotient group is exactly \(\mathbb Z^3\), not merely a group with abelianization \(\mathbb Z^3\).
 
-## Verification
+**Integral homology.** The one-vertex, three-edge, 56-face Morse CW model has zero first cellular differential. Since its fundamental group is \(\mathbb Z^3\), its first integral homology is \(\mathbb Z^3\). The second cellular differential maps \(\mathbb Z^{56}\) into \(\mathbb Z^3\) with quotient \(H_1\cong\mathbb Z^3\); it therefore vanishes. Thus \(H_2\cong\mathbb Z^{56}\), with no torsion, and all higher integral homology groups vanish. This integral statement is **not** deduced from modular boundary ranks alone. The CW equivalence transfers it to the original neighborhood complex.
 
-The standalone Python 3 program `verify.py` reconstructs the graph from ternary coordinates and independently enumerates every simplex. It checks the face vector, matching pairs, critical cells, all codimension-one incidences, and global acyclicity via directed-graph topological sorting. It verifies that the 26 matched vertex-edge incidences form a spanning tree, recursively eliminates all 214 matched edge-triangle variables, reconstructs **all 540** original triangular relations, checks the three explicit commutator witnesses and exponent-balance of every residual relation, and computes all boundary ranks over \(\mathbb F_2\). Reproduce with `python3 verify.py` from the directory containing the file.
+## Reproducibility and certificate boundaries
 
-The mod-two boundary ranks in degrees one through five are \((26,214,270,135,27)\); they provide an independent finite check of Betti numbers \((1,3,56,0,0,0)\) but are not used to infer integral torsion-freeness. The integral assertion follows instead from the group presentation and the two-dimensional Morse model.
+The included Python 3 program `verify.py` constructs the graph from its coordinates rather than loading an external graph or matching certificate. It enumerates faces, reconstructs the stated matching, verifies that the 4,698 oriented cover incidences form a directed acyclic graph, checks the matched tree and all 214 edge-triangle substitutions, and examines all 540 original triangular relators. It verifies that the three displayed commutator *words* occur among the relators and that every residual relator is exponent-balanced, and recomputes the mod-two boundary ranks. The three **triangle-to-word assignments** displayed above were additionally checked by a separate direct reconstruction of the substitutions; the standalone script tests membership of the displayed words without asserting their triangle locations. Run the provided script as `python3 verify.py` from the record directory. This finite exhaustive algorithm proves only the explicitly stated finite case.
 
-## Relationship to prior work
+## Relationship to established results
 
-Kozlov proves that the open-neighborhood complex of a graph and its graph-homomorphism complex \(\operatorname{Hom}(K_2,G)\) have the same simple homotopy type. This motivates studying exact examples but does not compute this 27-vertex case. Matsushita identifies the fundamental group of an open-neighborhood complex with an even graph-walk fundamental group. Behal and Chih subsequently determine a closely related graph-walk fundamental group for Hamming graphs, obtaining a free abelian group in the ternary case. Consequently, the rank-three fundamental-group statement is **not claimed as independently novel**; the explicit integral second-homology calculation and two-dimensional Morse construction supply the specific additional information.
+Kozlov proved that \(\mathcal N(G)\) and \(\operatorname{Hom}(K_2,G)\) have the same simple homotopy type for any graph; this does not give an optimal original-face-poset matching for the particular Cartesian product here. Matsushita related the fundamental group of neighborhood complexes to graph-walk groups, and Behal–Chih computed free-abelian graph-walk groups of ternary Hamming graphs. The group conclusion is consequently overlapping, not presented as a separate novelty claim.
 
-Kahle studies neighborhood complexes of random graphs and proves a **general dimension bound**: if a graph contains no \(K_{a,b}\), its neighborhood complex deformation-retracts to dimension at most \(a+b-3\). In \(H(3,3)\), distinct vertices have at most two common neighbors, so the \(K_{2,3}\)-free condition applies and the existence of some two-dimensional deformation model is **already covered** by Kahle. That theorem, however, neither constructs the stated matching on the original face poset nor proves its cell-by-cell optimality. Shukla's classification treats graphs of maximum degree at most three and four-regular circulant graphs, not the six-regular Hamming graph considered here. Targeted searches did not identify a published optimal matching with critical vector \((1,3,56,0,0,0)\) for this particular simplicial complex. The numerical homology should not be isolated from the known general results and portrayed as the main novelty.
+Kahle's \(K_{a,b}\)-free lemma applies with \((a,b)=(2,3)\): any two vertices of \(H(3,3)\) have at most two common neighbors, so \(\mathcal N(G)\) already admits *some* deformation retract of dimension at most two. Such a dimension bound does not construct an optimal acyclic matching on the **unsubdivided original face poset** or determine its critical-cell vector. Shukla's neighborhood-complex classifications cover maximum degree at most three and specified four-regular circulants, not the six-regular graph considered here. The distinguishing result is thus the explicit 672-pair matching satisfying all Morse lower bounds simultaneously, not the abstract dimension bound or easy Euler arithmetic.
 
 ## Limitations
 
-A minimal or canonical attaching-map description of the 56 two-cells is not established. The existence of a two-dimensional homotopy model already follows from Kahle's \(K_{2,3}\)-free theorem; the stronger point here is that the specific face-poset Morse matching reaches all optimal critical-cell counts simultaneously. The calculation does **not** determine the full homotopy type beyond the described CW model, nor the higher homotopy groups. The existence of an unindexed equivalent calculation cannot be excluded. The reduction relies on an exhaustive finite acyclicity certificate, reproduced by the accompanying program; this is an exact finite proof for this graph, not a statement about other Hamming graphs.
+No classification for general \(H(d,q)\), canonical attaching maps for the 56 two-cells, exact higher homotopy groups, or general graph-complex decomposition is asserted. An unindexed equivalent optimal matching may have been published under another description. The minimal number of critical cells is asserted *degree by degree for acyclic matchings of this original triangulation*, not an absolute minimal number of cells among arbitrary CW models outside that category.
 
 ## References
 
-1. D. N. Kozlov, *Simple homotopy types of Hom-complexes, neighborhood complexes, Lovász complexes, and atom crosscut complexes*, arXiv:math/0503613, first submitted 2005-03-28; primary MSC 57Q10. https://arxiv.org/abs/math/0503613
-2. T. Matsushita, *Fundamental groups of neighborhood complexes*, arXiv:1210.2803, first submitted 2012-10-10. https://arxiv.org/abs/1210.2803
-3. K. Behal and T. Chih, *Fundamental Groups of Hamming Graphs*, arXiv:2308.02938, first submitted 2023-08-05. https://arxiv.org/abs/2308.02938
-4. M. Kahle, *The neighborhood complex of a random graph*, arXiv:math/0512077, first submitted 2005-12-04. https://arxiv.org/abs/math/0512077
-5. S. Shukla, *Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs*, arXiv:1802.04526, first submitted 2018-02-13. https://arxiv.org/abs/1802.04526
+1. D. N. Kozlov, *Simple homotopy types of Hom-complexes, neighborhood complexes, Lovász complexes, and atom crosscut complexes*, arXiv:math/0503613, https://arxiv.org/abs/math/0503613.
+2. T. Matsushita, *Fundamental groups of neighborhood complexes*, arXiv:1210.2803, https://arxiv.org/abs/1210.2803.
+3. K. Behal and T. Chih, *Fundamental Groups of Hamming Graphs*, arXiv:2308.02938, https://arxiv.org/abs/2308.02938.
+4. M. Kahle, *The neighborhood complex of a random graph*, arXiv:math/0512077, https://arxiv.org/abs/math/0512077.
+5. S. Shukla, *Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs*, arXiv:1802.04526, https://arxiv.org/abs/1802.04526.

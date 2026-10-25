@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T05:48:27.930613Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Original Git tree verified 203a55012242cbfbf1d041874070d7d5dc58b0e2 from the seven actual blob identities.",
+        "Source RESULT.md: source blob 8b900eead56af8cd5c032e713ccb49bfae00ec85 (10,278 bytes), explicit matching and proof.",
+        "Source verify.py: blob 3375ca406cddc26add3e113a21cb02344d079972, 8,370 bytes; independent rather than opaque verifier execution was conducted.",
+        "Local independent exact check /mnt/data/independent_h333_check.py reconstructed all faces/incidences, boundary ranks, group substitutions and corrected triangle-to-word locations.",
+        "Complete corrected RESULT.md staged: UTF-8 byte length 9557, SHA-256 db2b6d4e1b4d5cd22af3fe4c497e7874b4b7317e84aa0a04d1139b912eef6042."
+      ],
+      "rationale": "The original RESULT.md gave incorrect *triangle identifiers* for three valid commutator words. A fresh independent reconstruction found that the originally named triangles (1,2,6), (2,7,10), (0,11,12) each reduce to the empty relator. The three words actually occur at triangles (0,7,8), (0,4,7), (4,8,23), respectively. The staged complete replacement RESULT.md corrects those factual locations while preserving and fully re-proving the one final theorem. Independent graph/face enumeration gives 1,404 faces (27,243,540,405,162,27); stage-toggle matching in the exact order gives 672 pairs and 60 critical cells (1,3,56), 4,698 oriented cover incidences, and an acyclic directed Hasse diagram. F2 boundary ranks (26,214,270,135,27) yield Betti vector (1,3,56,0,0,0). Tree/presentation elimination leaves generators on edges (11,13),(1,18),(11,20), 214 eliminated edges, 540 relators with histogram 485 empty, 30 length4, 21 length6, 4 length8. All are exponent-balanced; three corrected nontrivial commutator words force Z^3. The 2D Morse CW model then implies integral H1=Z^3, H2=Z^56 and no higher homology. The zero integral second differential follows from abelianization, not mod-two rank alone.",
+      "residual_risks": [
+        "The finite certificate pertains only to this 27-vertex graph; no general H(d,q) statement or higher homotopy type is established.",
+        "The original three illustrative triangle identifiers were wrong; acceptance is of the corrected final document only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahle Lemma 2.3: K_{2,3}-free implies some dimension-two deformation retract; independently checked common-neighbor maximum=2.",
+          "Behal–Chih Theorem 4.14 gives a free abelian graph ×-homotopy group for H(d,3); Matsushita relates different graph-walk groups to topological pi1.",
+          "Kozlov Theorem 7.2 supplies generic Hom(K2,G) simple-homotopy equivalence."
+        ],
+        "reasoning": "The dimensional bound and graph-walk results materially cover the general shape of the consequences. Neither asserts or implies that the original 1,404-simplex poset admits an acyclic matching whose critical cells hit all field-homology bounds exactly in each degree. The exact original-face matching is a stronger, distinct certificate.",
+        "searches": [
+          "Kahle arXiv:math/0512077v4 Lemma 2.3",
+          "Matsushita arXiv:1210.2803v4 Theorem 1.1",
+          "Behal–Chih arXiv:2308.02938v3 Theorem 4.14",
+          "Web query: discrete Morse neighborhood complexes Cartesian products of complete graphs perfect matching"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503613v3 Theorem 7.2 (primary PDF)",
+        "arXiv:math/0512077v4 Lemma 2.3 (primary PDF)",
+        "arXiv:1210.2803v4 Theorem 1.1/section 4 (primary HTML)",
+        "arXiv:2308.02938v3 Theorem 4.14 (primary PDF)",
+        "arXiv:1802.04526v2 Theorems 2.1–2.5 (primary HTML)",
+        "Resultary published-search hits: exact same audited record; H(3,3) Rips/Čech variants; H(2,4) rook neighborhood complex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2D deformation retract of Kahle is derived via common-neighbor closure on a face-poset order complex, not the 672-pair original-face matching.",
+          "Kozlov general simple-homotopy equivalence is also not a perfect original-poset matching.",
+          "Shukla does not apply by graph degree; the Hamming graph-walk group result overlaps only a consequence."
+        ],
+        "reasoning": "A 2D model plus rank-three pi1 and Euler characteristic yields much of the homology information, but *does not logically entail* a perfect acyclic matching on the original five-dimensional triangulation. The latter is explicitly certified by the corrected proof and independent full face-poset reconstruction.",
+        "searches": [
+          "Kahle Theorem 2.2 and Lemma 2.3 proof",
+          "Kozlov Theorem 7.2 and section 7",
+          "Behal–Chih Theorem 4.14",
+          "Shukla arXiv:1802.04526v2 Theorems 2.1–2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozlov Theorem 7.2 identifies N(G) and Hom(K2,G) by simple homotopy; the original graph is the Cartesian product K3□K3□K3, not a categorical graph product.",
+          "Resultary results on the same ternary Hamming vertex set include Rips and intrinsic Čech functors, which define different faces."
+        ],
+        "reasoning": "Equivalent Hom(K2,G) formulations inherit homotopy type but not automatically an exact optimal acyclic matching of the original face poset. Replacing the open neighborhood complex by closed-neighborhood, clique/Rips, Čech or an ordinary discrete-Morse complex changes the object; results for these are not covering.",
+        "searches": [
+          "Resultary query: Lovasz neighborhood complex cartesian product three triangles Hom(K2,K3 box K3 box K3) Morse critical cells",
+          "Web query: Hom K2 Cartesian product three copies K3 Morse matching 1 3 56",
+          "Kozlov arXiv:math/0503613v3, Theorem 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns one exact matching entry, id 2026/10/11/SCOPE-a-perfect-discrete-morse-matching-for-the-ternary-three-cube-nei--ae99e924c723, which is the same item under audit rather than independent earlier priority.",
+          "Nearby published Resultary entries about ternary-cube Vietoris–Rips persistence and Čech complexes concern different simplicial functors; a rook-graph neighborhood-complex entry concerns H(2,4), not H(3,3)."
+        ],
+        "reasoning": "No independent earlier exact table or certificate for the *open* N(H(3,3)) matching was located in the checked sources. The exact Resultary copy is not an independent dominating prior result. The search cannot exclude an unindexed equivalent.",
+        "searches": [
+          "Resultary: perfect acyclic discrete Morse matching neighborhood complex Hamming graph H(3,3) ternary cube Betti 56",
+          "Resultary: optimal discrete Morse matching K3 Cartesian cube neighborhood complex combinatorial topology",
+          "Web: Hamming graph H(3,3) neighborhood complex discrete Morse matching critical cells 1 3 56",
+          "Web: neighborhood complex Hamming graph three ternary cube homotopy Betti 56"
+        ]
+      },
+      "rationale": "The surviving contribution is the fully specified 672-pair perfect acyclic matching of the *original* open-neighborhood face poset of H(3,3), attaining (1,3,56,0,0,0). Existing broad homotopy-equivalence, dimension-reduction and Hamming graph-walk results cover or overlap the group, homology and existence of an abstract low-dimensional deformation model; those are not the novelty basis. No inspected primary theorem or separate indexed exact entry implies the stronger optimal-original-triangulation matching. This is a best-of-knowledge PASS with a concrete unindexed-equivalence risk, not a claim that a failed search proves priority.",
+      "residual_risks": [
+        "Equivalent perfect matchings under alternate graph-complex or combinatorial-collapse terminology may occur in unindexed literature.",
+        "Broad graph-walk fundamental group and Kahle 2D-retraction theorems mean group, Euler and basic homology statements cannot be marketed as independently new.",
+        "The present result does not determine canonical attaching maps, an abstract minimal CW-cell number outside discrete Morse matching, or family-wide H(d,q) behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 7.2 establishes simple-homotopy equivalence with Hom(K2,G) in general, not the existence of a perfect matching on the unsubdivided H(3,3) face poset.",
+          "evidence": [
+            "Theorem 7.2, PDF printed page 10, states N(G) and Hom(K2,G) have the same simple homotopy type; its proof works through collapses involving subdivisions."
+          ],
+          "identifier_or_url": "D. N. Kozlov, arXiv:math/0503613v3; https://arxiv.org/pdf/math/0503613",
+          "material_read": "Primary PDF, introduction, graph-complex definitions, section 7 and Theorem 7.2 with proof, including page 10 visually inspected.",
+          "method": "Read arXiv full-text PDF text and checked relevant page rendering.",
+          "title": "Simple homotopy types of Hom-complexes, neighborhood complexes, Lovász complexes, and atom crosscut complexes",
+          "trigger": "The Hom(K2,G) equivalence is a direct alternative description of open-neighborhood complexes."
+        },
+        {
+          "assessment": "Lemma 2.3 applies to the K_{2,3}-free H(3,3) and supplies a dimension-two deformation retract; its barycentric/closure construction does not entail a perfect original-poset matching with critical vector (1,3,56,0,0,0).",
+          "evidence": [
+            "Lemma 2.3, PDF printed pages 2–4, dimension at most a+b−3 when there is no K_{a,b}.",
+            "Independent adjacency enumeration: every pair of distinct vertices of H(3,3) shares at most two neighbors."
+          ],
+          "identifier_or_url": "M. Kahle, arXiv:math/0512077v4; https://arxiv.org/pdf/math/0512077",
+          "material_read": "Primary PDF, abstract, Theorems 2.1–2.2, Lemma 2.3 and its detailed closure-operator proof in section 3, visually checked printed pages 2–3.",
+          "method": "Read full-text arXiv PDF mathematical statement and proof, checked displayed formulas with PDF screenshots.",
+          "title": "The neighborhood complex of a random graph",
+          "trigger": "K_{a,b}-free dimension reduction may already cover the asserted 2-dimensional model."
+        },
+        {
+          "assessment": "Theorem 1.1 identifies pi1(N_r(G)) with the even part of pi1^{2r}(G), not a perfect discrete-Morse certificate for a concrete original 1404-face triangulation.",
+          "evidence": [
+            "Theorem 1.1 explicitly identifies pi1(N_r(G)) with pi1^{2r}(G)_ev for a nonisolated basepoint."
+          ],
+          "identifier_or_url": "T. Matsushita, arXiv:1210.2803v4; https://arxiv.org/html/1210.2803v4",
+          "material_read": "Primary full-text HTML, abstract, Theorem 1.1, section 3 r-fundamental groups and section 4 description of the edge-path map and theorem proof.",
+          "method": "Read arXiv full-text HTML theorem and mathematical construction.",
+          "title": "Fundamental groups of neighborhood complexes",
+          "trigger": "An existing graph-walk equivalence may cover the fundamental-group part of the new result."
+        },
+        {
+          "assessment": "Theorem 4.14 gives graph ×-homotopy group Pi(H(d,3)) ≅ Z^d. This substantially overlaps the group consequence but is not an acyclic face-poset matching and should not automatically be identified with the exact topological pi1 without checking the comparison maps.",
+          "evidence": [
+            "Theorem 4.14, PDF printed page 15, Pi(H(d,3)) ≅ Z^d, using commuting coordinate ground walks."
+          ],
+          "identifier_or_url": "K. Behal and T. Chih, arXiv:2308.02938v3; https://arxiv.org/pdf/2308.02938",
+          "material_read": "Primary PDF, Hamming graph definition, section 4 graph-walk generators/commutation and Theorem 4.14 with proof on printed page 15, visually verified.",
+          "method": "Read arXiv PDF sections 2 and 4 and screenshot of Theorem 4.14.",
+          "title": "Fundamental Groups of Hamming Graphs",
+          "trigger": "Same Hamming graph family and likely stronger existing graph-fundamental-group computation."
+        },
+        {
+          "assessment": "Hypotheses treat degree≤3 or specified 4-regular circulants; H(3,3) is six-regular, so the theorems do not cover its perfect Morse matching.",
+          "evidence": [
+            "Theorem 2.1 bounds maximum degree by 3; Theorems 2.2–2.5 address C_n(s,t), 4-regular circulants."
+          ],
+          "identifier_or_url": "S. Shukla, arXiv:1802.04526v2; https://arxiv.org/html/1802.04526v2",
+          "material_read": "Primary full-text HTML, introduction, graph definitions and Theorems 2.1–2.5 with their degree and circulant assumptions.",
+          "method": "Read arXiv full-text HTML scope and main statements.",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Graph-neighborhood homotopy classification potentially includes some symmetric regular graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "H(3,3) is an intrinsic Cartesian product of three K3 factors, with a natural open-neighborhood simplicial construction.",
+        "Kahle gives only an abstract dimension-two bound; exact optimal original-poset matching is a strictly stronger finite extremal certificate.",
+        "Independent exact reconstruction confirms each c_i equals the integral Betti rank, giving a degreewise optimal witness."
+      ],
+      "rationale": "The natural object is the open-neighborhood complex of the canonical six-regular ternary three-cube. Despite being a 5D 1,404-face triangulation with an abstract 2D deformation retract already known from Kahle, a matching of the *original* face poset attaining all Morse lower bounds is not automatic. Its exact minimal critical vector (1,3,56,0,0,0), fully explicit optimal acyclic matching and group calculation give an independently useful topological benchmark and practical finite Morse model. It is not a renaming, trivial small-instance normalization check, or merely a recomputation of the known graph-walk group. The value is limited to a motivated natural exact case and does not require a paper-sized family theorem.",
+      "residual_risks": [
+        "The work is a single finite case and does not settle matching optimality for larger Hamming graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0503613v3 Theorem 7.2 (primary PDF)",
+    "arXiv:math/0512077v4 Lemma 2.3 (primary PDF)",
+    "arXiv:1210.2803v4 Theorem 1.1/section 4 (primary HTML)",
+    "arXiv:2308.02938v3 Theorem 4.14 (primary PDF)",
+    "arXiv:1802.04526v2 Theorems 2.1–2.5 (primary HTML)",
+    "Resultary published-search hits: exact same audited record; H(3,3) Rips/Čech variants; H(2,4) rook neighborhood complex"
+  ],
+  "disposition": "repaired",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The old RESULT.md displayed three wrong triangle-to-relator example correspondences; the staged complete replacement fixes them without changing the substantive final finding.",
+    "The result is a single exact finite graph case; no arbitrary-Hamming-family theorem, higher homotopy classification or arbitrary CW-model minimum is claimed.",
+    "No search can certify the nonexistence of obscure equivalent optimal matchings; best-of-knowledge originality is explicit."
+  ]
+}
