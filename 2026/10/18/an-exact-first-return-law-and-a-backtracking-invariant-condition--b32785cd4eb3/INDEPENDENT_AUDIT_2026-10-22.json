@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the directed-edge memory walk d>=3 and positive alpha,gamma, q=alpha/(alpha+(d−1)gamma), r=gamma/(alpha+(d−1)gamma) with q+(d−1)r=1, the outward first-return PGF H and inward state B obey H=zq+z(1−q)HB and B=zr+z(1−r)HB. Elimination gives z(1−r)H²−[1+(q−r)z²]H+qz=0 and unique analytic origin branch H~qz. At z=1 the physical root is q/(1−r)<1; implicit differentiation gives H’/H=(1+r−q)/(1−r−q), hence E[T|return]=2(d−1)/(d−2), independent of alpha/gamma though return probability alpha/(alpha+(d−2)gamma) varies. Discriminant factors (1−lambda²z²)(1−eta²z²) and transfer from unique positive square-root singularity give the exact m^-3/2 prefactor and lambda^(2m) tail. Independently enumerated first-hit radial probabilities for d=3,q=r=1/3: 1/3,2/27,8/243,40/2187,224/19683; return probability1/2 and conditional mean4. Endpoints alpha=0/gamma=0 excluded; d=2 excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-graph backtrack-weighted walk-generating matrices could represent hitting series but the inspected node2vec theorem does not produce this infinite-tree defective PGF or conditional-expectation identity.",
+          "General nonbacktracking Ihara generating functions count walks; first-return probabilistic conditioning is an additional object."
+        ],
+        "reasoning": "The existence of general weighted resolvent identities is not by itself a displayed all-parameter return-conditioned moment theorem. A hidden specialization is the principal residual risk, not suppressed.",
+        "searches": [
+          "arxiv:2604.13681v1",
+          "arxiv:2307.14200",
+          "doi:10.1137/20M1384725"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen directed-edge walk RESULT.md/VERIFY.py/METADATA.json, tree 478afb71237815ba922fe83cfb73252f800b972c",
+        "arxiv:2604.13681v1",
+        "arxiv:2106.10449",
+        "arxiv:2307.14200",
+        "doi:10.1137/20M1384725"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recurrence/transience only yields P(T<∞)<1 and not derivatives H’(1)/H(1).",
+          "The simple-random-walk point alpha=gamma does not imply constancy for all alpha,gamma."
+        ],
+        "reasoning": "Even if a broader generating function could be specialized after calculation, the parameter cancellation and complete tail were not stated in inspected results. The novel statement depends on solving and differentiating the particular two-state system.",
+        "searches": [
+          "arxiv:2604.13681v1",
+          "arxiv:2106.10449",
+          "arxiv:2307.14200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 Avena et al. recurrence criterion answers certainty of return on regular graphs, not a full return-time PGF or a weight-independent conditional mean.",
+          "Tishby–Biham–Katzav analyze ordinary random walks, recovered at alpha=gamma, not all alpha>0."
+        ],
+        "reasoning": "Simple-walk first-return formulas are a one-parameter diagonal specialization and cannot establish backtracking invariance as alpha/gamma varies. Node2vec recurrence is about return probability 1 vs<1, not conditional moments.",
+        "searches": [
+          "node2vec first return probability generating function regular tree backtracking conditional return time",
+          "arxiv:2604.13681v1",
+          "arxiv:2106.10449"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search yielded related tree combinatorics but no identical PGF, conditional mean 2(d−1)/(d−2), and explicit lambda tail in a weighted tree walk.",
+          "Simple-walk return tables apply only alpha=gamma."
+        ],
+        "reasoning": "No matching exact distribution table for positive backtracking and forward weights identified; search nonmatch is not novelty proof.",
+        "searches": [
+          "node2vec first return probability generating function regular tree backtracking conditional return time",
+          "Resultary node2vec / regular tree search",
+          "arxiv:2106.10449"
+        ]
+      },
+      "rationale": "The two-state first-return law and universal *conditional* mean across all positive backtracking preferences are not stated by the 2026 node2vec recurrence result or the ordinary-simple-walk first-return distribution. General weighted nonbacktracking resolvents may algebraically specialize to this formula and are a documented priority risk; the exact conditional-mean cancellation is a distinct statement.",
+      "residual_risks": [
+        "A general weighted first-return Green-function identity from earlier nonbacktracking literature may directly imply the special tree PGF; not all such representations were read in full.",
+        "Boundary singular cases alpha=0 and gamma=0 are excluded and conditional mean cannot be extended naively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Very close model; addresses regular-graph recurrence and stationary properties without the explicit infinite-tree first-return PGF/constant conditional mean in inspected statements",
+          "evidence": "Its recurrence theorem is qualitative about return, whereas the present H(z) gives exact defective distribution and moments.",
+          "identifier_or_url": "https://arxiv.org/html/2604.13681v1",
+          "material_read": "ArXiv full HTML model definitions and relevant regular-graph recurrence sections including Section 6; not every appendix claimed",
+          "method": "Full-text lawful arXiv section reading",
+          "title": "node2vec or triangle-biased random walks: stationarity, regularity & recurrence",
+          "trigger": "Same walk/memory weights and regular infinite-graph recurrence"
+        },
+        {
+          "assessment": "Covers ordinary simple RW tree limit, the alpha=gamma special case, not a positive-backtracking parameter sweep",
+          "evidence": "Model is simple random walk rather than second-order node2vec weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.10449",
+          "material_read": "Accessible abstract and model/result description; complete paper not asserted read",
+          "method": "ArXiv abstract/result comparison",
+          "title": "Analytical results for the distribution of first return times of random walks on random regular graphs",
+          "trigger": "Could already contain the infinite regular-tree limit distribution"
+        },
+        {
+          "assessment": "General nonbacktracking weighted enumeration is a plausible algebraic precursor, but conditional first-return mean and explicit regular-tree law were not confirmed there",
+          "evidence": "Weighted walk counts and first-hit conditional expectations are different outputs; equivalence through resolvents remains a risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.14200",
+          "material_read": "Abstract/theorem-scope and cited generating-function summary; not full article",
+          "method": "ArXiv text search and scope comparison",
+          "title": "Generating functions of non-backtracking walks on weighted digraphs: radius of convergence and Ihara’s theorem",
+          "trigger": "Potentially stronger weighted-walk resolvent identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First-return distributions and conditional excursion durations are natural random-walk invariants used to distinguish transient trajectory behavior. The exact invariance of E[T|return] across an entire backtracking family, alongside varying return probability and tail rate, is a nontrivial structural cancellation with a clear motivated comparison, not an arbitrary parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual frozen directed-edge walk RESULT.md/VERIFY.py/METADATA.json, tree 478afb71237815ba922fe83cfb73252f800b972c",
+    "arxiv:2604.13681v1",
+    "arxiv:2106.10449",
+    "arxiv:2307.14200",
+    "doi:10.1137/20M1384725"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The asymptotic tail and all-positive-weight conditional mean rely on analytic PGF, not finite Markov iterations.",
+    "d>=3, alpha,gamma strictly positive and infinite regular tree only."
+  ],
+  "residual_risks": [
+    "A general weighted first-return Green-function identity from earlier nonbacktracking literature may directly imply the special tree PGF; not all such representations were read in full.",
+    "Boundary singular cases alpha=0 and gamma=0 are excluded and conditional mean cannot be extended naively."
+  ],
+  "schema_version": 1
+}
