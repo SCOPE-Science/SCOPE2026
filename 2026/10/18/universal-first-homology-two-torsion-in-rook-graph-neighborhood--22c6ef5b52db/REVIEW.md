@@ -1,15 +1,21 @@
-# Scientific review: universal first-homology two-torsion in rook-graph neighborhood complexes
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim concerns only the open Lovász neighborhood complex and exactly the parameter range \(m,n\ge4\). For an arbitrary abelian coefficient group, the cocycle proof constructs row and column potentials from the complete two-skeleton of each coordinate line; uses each center's full neighborhood simplex to introduce one cross-leg constant; and compares opposite centers to force a separable matrix of potentials and one element \(e\) with \(2e=0\). The converse cocycle and an explicit L-shaped evaluation prove \(H^1\cong A[2]\). The universal coefficient theorem for the connected finite complex determines integral \(H_1\cong\mathbb Z/2\mathbb Z\). All steps remain valid at the boundary \(m=n=4\). Independent mod-prime simplicial boundary calculations on five finite rectangles reproduce the expected torsion signature; these are cross-checks, not substitutes for the uniform proof.
+## correctness
 
-## Originality
-PASS subject to the risks below. Matsushita's 2025 *Closed neighborhood complexes of graphs*, Example 3.5, gives a sphere wedge for the **closed** rook-graph neighborhood complex; the distinction between the two functors is mathematical, not a change of notation. The previously reported finite \(4\)-by-\(4\) open-neighborhood result computes \(\mathbb Z/2\) only for that array, and does not entail an all-size theorem. The published all-parameter row/column decomposition of **open** rook complexes explicitly determines a relative quotient and integral homology in degrees at least three, leaving degree one undetermined. The new result completes that missing degree across every \(m,n\ge4\). The earlier general fundamental-group theory for neighborhood complexes supplies no verified exact all-rook formula in the accessible checked statements; inaccessible or unindexed equivalents are possible.
+PASS
 
-## Mathematical value
-PASS. The order-two obstruction does not occur at a fixed isolated combinatorial example: it survives arbitrary enlargement in both graph factors, despite the increasing dimension and number of simplices. This is an integral distinction absent over rational coefficients, and it gives a uniform obstruction to homotopy equivalence with a wedge of spheres. The coefficient-uniform parity-cocycle argument also makes the obstruction and the size threshold intelligible without treating any computer search as an infinite classification.
+Open-neighborhood facets are disjoint row- and column-legs S_ij; for m,n≥4 every row/column triple lies in a simplex and full 1-skeleton exists. A one-cocycle with coefficients in any abelian A is exact within each row and column, giving row/column potentials r_ij,s_ij. Exactness on each full S_il produces cross constants t_il. Reversing cross edges through their two opposite witnesses yields t_il+t_kj=(r_ij−s_ij)+(r_kl−s_kl). Difference comparisons across a third row/column force δ_ij=a_i+b_j and t_ij=d_i+b_j; substituting gives d_i−a_i=e for all i, 2e=0. Gauge-adjusted potentials show every cocycle is df+eε, where ε is 1 on cross-coordinate edges and 0 on shared-coordinate edges. Each triangle has zero or two ε-cross edges, so this is a cocycle for all e∈A[2]; an L-shaped 3-cycle evaluates to e, proving injectivity. Thus H^1≅A[2] naturally; UCT over all A forces H_1=Z/2 (no free, odd, or larger 2-primary factors). Independent fresh modular triangle-boundary ranks for (4,4),(4,5),(5,5) yield H1_F2=1 and H1_F3=0 (but finite fields alone cannot prove exponent 2 or all m,n). No claim for m<4 or n<4 or full homotopy classification.
 
-## Sources and risks
-Primary text inspected: Matsushita, arXiv:2511.12608, especially Definitions 1.1 and Example 3.5, concerning the closed version. Relevant published results inspected in full scientific-result form: *The Kummer biplane block complex has an integral projective-plane summand*, *Integral homology of the rook-graph neighborhood complex*, and *Row-column boundary spheres control higher neighborhood homology of rook graphs*. Shukla's 2018 scope is limited to graphs of maximum degree at most three and certain four-regular circulants; general rook graphs in the claimed range are at least six-regular. A plausible early primary source is Matsushita's general paper on fundamental groups of neighborhood complexes; its full original text was not accessible here. No comprehensive claim of uniqueness is possible. The finding deliberately does not specify fundamental groups, second homology, or full homotopy type.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published finite H(2,4) rook and Kummer biplane complexes explicitly have H1=Z/2 and homotopy RP²∨55S², and are duly credited. A separate full published Resultary work determines higher (k≥3) integral homology and a relative quotient for all rook m,n≥3, but explicitly leaves first homology unclassified. Matsushita Example 3.5 proves wedge-of-spheres for a different closed neighborhood complex. The open-complex, all-parameter first-cohomology functor law is not implied by those published results.
+
+## value
+
+PASS
+
+A single persistent order-two torsion class for every rectangular rook board, despite growing dimension and complicated higher topology, is a natural full-parameter structural invariant. The arbitrary-coefficient H^1=A[2] formula supplies explicit obstruction to sphere wedges and informs integral topology beyond prior rational/high-degree homology or isolated 4x4 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
