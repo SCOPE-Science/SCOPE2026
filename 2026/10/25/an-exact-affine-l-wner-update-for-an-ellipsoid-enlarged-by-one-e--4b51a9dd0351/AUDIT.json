@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The positive quadratic root obeys 0<r<1/d; explicit square factorization certifies ball containment, and apex equality certifies the full cap body. Uniform ring plus apex is isotropic after affine normalization, giving trace and AM-GM determinant global minimality with strict uniqueness. Affine transformation proves the exact matrix update. Asymptotic series derived from quadratic identity. The finite 18700-check verifier is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yıldırım (2006): hull of finitely many full-dimensional ellipsoids, outer-approximation algorithms",
+        "Güler–Gürtuna (2007), Section 8: truncated cones/cylinders with prescribed cross sections"
+      ],
+      "reasoning": "A general numerical procedure for hulls of ellipsoids does not provide the closed semiaxes and exact contact orbits, and one point is a degenerate input relative to the studied full-dimensional family. General existence and contact characterizations are weaker than the proposed explicit parametric formula.",
+      "searches": [
+        "minimum volume ellipsoid enclosing convex hull unit Euclidean ball external point ice cream cone explicit semiaxes Löwner",
+        "Löwner ellipsoid convex hull of ball and point tangent cone exact formula",
+        "minimum volume enclosing ellipsoid ball and point cone convex hull formula",
+        "doi:10.1137/050622560",
+        "arxiv:0709.0707"
+      ]
+    },
+    "checked_sources": [
+      "Todd (1982), doi:10.1287/moor.7.2.253",
+      "Güler and Gürtuna (2007), arxiv:0709.0707",
+      "Yıldırım (2006), doi:10.1137/050622560",
+      "Bezdek, Ivanov and Strachan (2022), arxiv:2204.04561",
+      "Sun and Freund (2004), doi:10.1287/opre.1040.0115 — abstract only; finite point-cloud MVEE algorithms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Todd 1982 Theorem 2 gives the best ellipsoid containing a cut of an ellipsoid, not its one-point enlargement",
+        "Güler–Gürtuna 2007 Theorem 2.7 characterizes MVEE with contact moments but does not calculate this external-point cap family",
+        "Yıldırım 2006 gives algorithms for multi-ellipsoid hulls, not exact single-point update"
+      ],
+      "reasoning": "None of the inspected statements directly implies the complete proposed formula without a new specialized derivation: this proof supplies the explicit quadratic root, nonnegative containment square, full ring/apex contacts and asymptotics. Stronger coverage remains a bibliographic risk.",
+      "searches": [
+        "Ball with external point convex hull, smallest enclosing ellipsoid, support vertex + tangent ring, volume ratio tends to H for dimension d",
+        "exact minimum volume ellipsoid containing Euclidean ball and outside point closed form",
+        "exact ellipsoidal update containing ball and exterior point smallest",
+        "doi:10.1287/moor.7.2.253",
+        "arxiv:0709.0707"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Todd (1982): cut ellipsoids, not added points",
+        "Güler–Gürtuna (2007): isotropic contact theorem with no matching sphere-plus-point specialization"
+      ],
+      "reasoning": "The affine-normalized cap body is exactly conv(B_2^d ∪ {H e_1}); its dual is a sphere cut by a halfspace but that duality does not transport an outer MVEE into an inner MVIE without controlling offcenter polar ellipsoid volumes. Identical terminology or the general optimality criterion alone does not imply the closed-form update.",
+      "searches": [
+        "Exact Löwner minimum-volume circumscribed ellipsoid of one-spike cap body K=conv(B_2^d ∪ {H e_1}), all H>1, contact orbit latitude -1/d, closed-form semiaxes",
+        "Ball with external point convex hull, smallest enclosing ellipsoid, support vertex + tangent ring, volume ratio tends to H for dimension d",
+        "optimal ellipsoid of ball with single cap spike, affine sphere plus one point, design measure isotropic ring",
+        "minimum volume ellipsoid containing ball and one outlier rank one update",
+        "optimal experimental design uniform sphere with one external point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching listed cap-body outer ellipsoid in the retrieved published record summaries; nearby published spiky cap body result concerns illumination only",
+        "Bezdek–Ivanov–Strachan (2022) full text treats cap body illumination"
+      ],
+      "reasoning": "The searched archived record summaries, identifiers and relevant geometric literature did not present a table of the MVEE for a one-spike ball cap. This database search is non-exhaustive and not an independent priority proof.",
+      "searches": [
+        "Exact Löwner minimum-volume circumscribed ellipsoid of one-spike cap body K=conv(B_2^d ∪ {H e_1}), all H>1, contact orbit latitude -1/d, closed-form semiaxes",
+        "minimum volume enclosing ellipsoid spherical cone vertex ball offset",
+        "Löwner ellipsoid cap body convex hull sphere point"
+      ]
+    },
+    "rationale": "The exact affine rank-one single-exterior-point update, complete apex/ring contact set and two volume asymptotics were not identified in the compared published mathematical records or relevant inspected full-text primary sources. General optimality theorems are acknowledged; strongest adjacent examples cut ellipsoids, truncated cones and multi-ellipsoid approximation have different assumptions and do not state this exact result. A historical equivalent in geometric design remains possible.",
+    "residual_risks": [
+      "A classical exact update may have been expressed in optimal experimental design or outlier-robust ellipsoidal approximation using different notation.",
+      "Published cap-body geometry may include the same exact formula in an uninspected historical source.",
+      "Search/index ranking and open-access restrictions prevent exhaustive novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The body is an intersection of a given ellipsoid with one or two halfspaces; it does not directly supply the MVEE for the convex hull of a full ellipsoid with an external point. Polarity does not automatically transfer an outer MVEE to an inner John ellipsoid of a non-centered polar.",
+        "evidence": [
+          "Todd (1982), introductory problem definition and Section 3, Theorem 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/moor.7.2.253",
+        "material_read": "Author-uploaded available full-text introduction and Section 3, including Theorem 2 and its cut-ellipsoid formulation",
+        "method": "Full-text HTML analysis of stated domain and theorems",
+        "title": "On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid",
+        "trigger": "Potential full general formula via cut-ellipsoid duality"
+      },
+      {
+        "assessment": "General isotropic contact theorem supports optimality proof, but the studied cone/cylinder bodies are defined by truncated sections, not a complete Euclidean ball adjoined to an external vertex. No matching cap-body semiaxes were located in relevant sections.",
+        "evidence": [
+          "arXiv:0709.0707, Theorem 2.7 and Section 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+        "material_read": "Full-text PDF abstract/introduction, Theorem 2.7, Section 8 special-case body definitions, formulas, and boundaries",
+        "method": "Read open PDF text and inspected screenshots of pages 2, 8 and 31",
+        "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+        "trigger": "Broad exact ellipsoid characterization and rotationally symmetric special cases"
+      },
+      {
+        "assessment": "Studies numerical outer ellipsoids of hulls of full-dimensional ellipsoids; supplies neither the exact one-point rank-one formula nor an explicit limiting contact characterization.",
+        "evidence": [
+          "Yıldırım 2006, DOI 10.1137/050622560, Introduction and Sections 4 and 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050622560",
+        "material_read": "Open author repository full PDF, introduction, sections 4 and 6; first-public dated cover",
+        "method": "Full-text inspection of algorithmic scope and examples",
+        "title": "On the Minimum Volume Covering Ellipsoid of Ellipsoids",
+        "trigger": "Possible stronger covering of convex hull of ellipsoids including a point limit"
+      },
+      {
+        "assessment": "Defines cap bodies and their spike geometry but addresses illumination numbers, not minimal-volume enclosing ellipsoids.",
+        "evidence": [
+          "arXiv:2204.04561, introduction and main illumination statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.04561",
+        "material_read": "Open preprint full text, introduction and cap-body definitions; searched for ellipsoid and Löwner",
+        "method": "Full-text PDF inspection and term searches",
+        "title": "Illuminating Spiky Balls and Cap Bodies",
+        "trigger": "Exactly the same underlying convex hull geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b51a9dd-0351-482f-b6b9-9c645fd6fa77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a complete natural body family—convex hull of any ellipsoid with one exterior point—by explicit affine rank-one Löwner update; specifies unique global optimum, whole contact orbit with exact isotropic weights, scale-invariant contact latitude, and nontrivial dimension and distance asymptotics. These address motivated geometric optimization and sensitivity to an external point rather than arbitrary slices or routine numerical gain.",
+    "status": "PASS"
+  }
+}
