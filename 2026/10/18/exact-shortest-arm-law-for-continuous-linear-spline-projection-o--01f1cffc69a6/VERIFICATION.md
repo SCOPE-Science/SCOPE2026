@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying standard-library-only `verify.py` computes the continuous linear finite-element mass matrix on a metric star from the elementary integrals of nodal hats, obtains its matrix inverse through exact rational Gauss–Jordan elimination, and integrates absolute reproducing-kernel rows using the exact affine zero-crossing formula. It does not substitute the symbolic inverse formula during the independent inversion.
+## correctness
 
-Run `python3 verify.py` in the directory containing the script. A successful execution prints `PASS 1982 exact rational star systems; matrix inverse, integrated absolute kernel and sharp norm`.
+PASS
 
-The deterministic test set includes 180 random positive rational length vectors for every arm count from two to twelve (1,980 samples) and two targeted symmetric/threshold cases. For each sample, it verifies the full inverse matrix, all nodal absolute-integral norms, the shortest-arm maximizing norm, and strict dominance over the center. The random seed is fixed in the script, so the output is reproducible.
+The hat-function Gram matrix has M00=S/3, M0j=ell_j/6, Mjj=ell_j/3, with positive Schur complement S/4 and inverse B00=4/S,B0j=-2/S,Bij=3 delta_ij/ell_i+1/S. Integrating |K(x,y)| on each arm gives center 5/3 and leaf i (7S+3ell_i)/(3(S+ell_i)); strict triangle inequality for interior points makes vertices the only maximizers. The function decreases strictly in ell_i; h<=S/m gives exact attainable range, h<S/3 gives >2, and P1=1 implies negative excursion half the signed kernel deficit. An independently written exact-Fraction Gram inverse and kernel integral recomputed four nontrivial length vectors, including the equilateral and unequal cases; finite tests corroborate the derived general proof.
 
-The mathematical proof is independent of randomized testing. It proves, for arbitrary positive real lengths and every integer arm count at least three, the inverse block formula, operator norm, extremal locations, sharp range and nonattainment. No verification program here can establish novelty or independence of external review. The numerical/sample tests do not claim exhaustive coverage of continuous parameters.
+## originality
+
+PASS
+
+Exact one-element-per-arm continuous graph-spline norm is not directly implied by the local affine simplex-projector result, nor by Oswald spline estimates on intervals/triangulations, nor Passenbrunner-Shadrin inverse Gram decay on intervals. Their different function spaces/domains do not supply the exact shortest-arm law. The plausible full 2013 Oswald spline-bound survey remained inaccessible through authorized institutional access (VPN disconnected), making hidden coverage a residual risk, not an automatic rejection.
+
+## value
+
+PASS
+
+The explicit geometry-dependent Lebesgue/stability constant for the natural globally coupled graph finite element space, its sharp geometry range and positivity defect provide an intrinsic norm invariant relevant to stability and overshoot; this is more informative than a generic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
