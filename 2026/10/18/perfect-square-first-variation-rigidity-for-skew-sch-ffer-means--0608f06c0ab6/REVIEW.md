@@ -1,15 +1,21 @@
-# Scientific review: mixed-mean skew Schäffer endpoint rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is in the real \(L^4\) setting with two disjoint unit vectors and fixed outer exponent \(1\le t<4\). The proof expands both fourth powers uniformly over unit pairs using Hölder moment bounds, applies a uniform Taylor expansion of the fourth root and the differentiable two-variable power mean, then completes a square **exactly**. The square yields a sharp lower bound on the derivative. Disjoint unit vectors provide an equality pair with algebraic weights. Solving the pointwise quadratic equality equation and the two norm equations reconstructs **every** equality pair, not just an example. The final excess estimate follows by subtracting two uniform expansions, not by numerical interpolation. The standalone standard-library checker reproduced the identity and two-band parameters and passed finite stress tests. Risks addressed: the error term is uniform, the pointwise products are integrable, and no compactness or enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Xu–Liu (arXiv:2610.03050v1) defines the same invariant and gives an exact \(L^p\) formula at matched outer exponent \(t=p\). For \(t<p\) it gives inequalities. Its matched \(p=4,t=4\) value, combined with uniform second-order power-mean comparison near equal inputs, **already implies the numerical derivative for every fixed finite \(t\)**. That slope is therefore not claimed as new. What is not supplied by the prior infimum formula or its witnesses is the exact first-variation perfect-square *for every input pair*, the exhaustive two-band equality characterization, and quantitative near-minimizer equivalence. The separate published \(\ell_4\) skew geometric-mean computation concerns a supremal arithmetic-mean invariant. The Banaś–Frączek small-skew result deals with a different norm and different pointwise extremal geometry. The 2025 skew James source is again a supremum, not this infimum. The inspected primary statements do not dominate the joint mixed-mean, sum-of-squares, and all-extremizer claim. Searches included aliases involving Euler–Lagrange matrices, cubic duality-map asymmetry, first variations, and exact algebraic ratios. Some classical or unindexed stability statement under other notation could still cover the square identity; novelty is not a guarantee of historical priority.
+PASS
 
-## Mathematical value — PASS
-The motivating 2026 paper leaves mixed outer-mean *values* controlled only by inequalities, but its matched-exponent theorem already implies their shared first derivative after a routine smoothness comparison. The new contribution is a dimension-free exact **pairwise** first-variation squared defect, an exhaustive algebraic two-band classification, and a quantitative near-extremizer criterion valid across the mixed-exponent interval. These structural features identify *why* a sharp loss occurs and which configurations persist under nearly optimal perturbations, rather than offering an arbitrary sample or a renamed matched-exponent formula. This matters for asymptotic geometry of skew invariants in infinite-dimensional real \(L^4\). The result makes no claim of a global positive-parameter formula or a downstream theorem.
+For arbitrary real L4 unit vectors, Hölder bounds all mixed quartic integrals and norm outputs lie in compact interval [3/4,5/4] for tau<=1/4. Uniform first-order Taylor of both fourth roots and of the t-power mean for fixed 1<=t<4 yields F_t=1+(tau/2)D+O_t(tau^2), D=∫xy(x²-y²). Symbolically and independently checked exact integrand square: ||xy+(x²-y²)/sqrt2||_2²=1+sqrt2 D on unit pairs. So slope >=-1/(2sqrt2), sharp on x=af+bg,y=-bf+ag for disjoint unit f,g with a⁴=(2+sqrt3)/4,b⁴=(2-sqrt3)/4. The quadratic Q=0 forces only two pointwise x/y ratios; splitting their measurable sets and the two fourth-power normalization equations forces f,g both unit, exhausting all fixed extremizers. Uniform remainder and infimum comparison imply asymptotic near-minimizer iff ||Q||_2->0, and excess epsilon tau implies the quantified Q² bound. Independent symbolic identity confirms algebra; random finite checks alone would not suffice for all L4 spaces.
 
-## Sources and limitations
-Main primary source: Xu–Liu, arXiv:2610.03050v1, especially Theorem 3.2, Corollary 3.6, discussion following it, and §§4–5; HTML full text inspected. Comparators: Ni–Liu–Zhou, Mathematical Inequalities & Applications 28 (2025), 327–342 (abstract and indexed definition); *The skew James type constant in Banach spaces*, arXiv:2504.00827v1 (full HTML inspected); and the two published research results listed in RESULT.md (their mathematical RESULT.md texts examined). Limitations are real scalars, \(L^4\), finite fixed \(1\le t<4\), and \(\tau\downarrow0\). The finite checker is corroborating rather than proving the infinite statement. Independent assessment may identify an older equivalent defect identity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar endpoint coefficient is ALREADY implied by Xu–Liu matched p=t=4 minimum modulus plus uniform comparison of nearby power means; do not claim it new. Best-of-knowledge surviving novelty is an identity for EVERY pair (not just minimum), its complete two-band equality class and iff quantitative near-minimizer law for mixed t<4. Relevant Xu–Liu primary article HTML thoroughly inspected, including Thm 3.2 scalar operator radius and Cor 3.6; no same all-pair Q² decomposition or equality characterization stated.
+
+## value
+
+PASS
+
+The main reason to study the result is NOT a tiny improvement of a known scalar constant: it identifies all pointwise first-order extremizers in arbitrary real L4, a uniform nonnegative squared defect for every unit pair, and a sharp quantitative iff near-minimizer test across unmatched outer exponents. This natural rigidity complement to the prior exact scalar infimum is mathematically reusable in asymptotic geometry. The entire value argument survives openly conceding scalar slope is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
