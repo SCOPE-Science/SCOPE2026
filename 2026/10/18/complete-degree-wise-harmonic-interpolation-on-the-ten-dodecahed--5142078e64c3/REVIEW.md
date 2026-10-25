@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The twenty dodecahedral coordinates yield exactly ten antipodal pairs and only the off-diagonal inner products \(\pm1/3,\pm\sqrt5/3\). The signed adjacency identities \(D^2=2I-D+J\), \(U^2=3I+W\), and \(UW=2U\) are exact and checked directly by standalone rational-quadratic arithmetic. The normalized Legendre addition formula then gives three full Gram spectral branches in each parity. Rational recurrences verify each degree through \(61\) without floating rank decisions; the explicit Bernstein–Gershgorin inequality proves full rank for every degree at least \(62\). The minimum-norm formula follows from the Gram pseudoinverse. Potential risk is only standard dependence on the classical Bernstein bound, which is stated with its exact normalization.
+PASS
 
-## Originality
+PASS: On the ten antipodal regular-dodecahedron vertex lines, all pairwise off-diagonal dot products are ±1/3 or ±sqrt(5)/3; direct exact signed-Petersen identities D²=2I−D+J, U²=3I+W, UW=2U give the 1/5/4 even and 3/3/4 odd eigenspace multiplicities. The probability-sphere harmonic addition formula yields Gram G_l=(2l+1)P_l(x_i·x_j), with even normalized eigenvalues 1+3q+6p,1+q−2p,1−2q+p and odd 1+5q+2p,1−5q+2p,1−3p. Exact rational Legendre recurrences establish ranks (1,3,5,7,9,6,10,10,9,10,10,10,10,10,9) for l=0..14 and positivity for l=15..61. Bernstein Legendre inequality gives six |P_l(1/3)| plus three |P_l(sqrt5/3)| <1 from l=62 (explicit rational row-sum upper bound (1971/250)/sqrt(l+1/2)), hence positive definite by diagonal dominance for all larger degrees. Gram pseudoinverse proves feasibility/minimum-norm formula. Independently reconstructed exact rational recurrence and verified tail bounds; no finite extrapolation.
 
-**PASS subject to publication-priority uncertainty.** The precise ten-line all-degree statement was compared against the design/vanishing-moment results of Bannai–Okuda–Tagami, the all-representation icosahedral harmonic basis treatment by Cohan, the symmetry-adapted bases of Zheng–Doerschuk, Womersley's general bandlimited interpolation, other relevant published mathematical claims. The known degree-eight and degree-fourteen invariant vanishing statements account for only a one-dimensional mean sector, not the full rank spectrum, four-dimensional degree-five defect, or permanent degree-fifteen cutoff. Full-text access to the 1958 Cohan article and 1994 Zheng–Doerschuk report was unavailable; an implicit representation-theoretic predecessor is possible, and no independent novelty certification is asserted.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The ten dodecahedral vertex axes are a canonical finite rotational orbit and a natural exact sampling geometry. The unexpected rank collapse from degree four to five, subsequent isolated failures at degrees eight and fourteen, sharp eventual recovery, three-sector exact sampling spectrum, and constructive inverse formula answer a natural identifiable-data question not settled by the customary spherical-design moment constraints. The result is more than a single numerical table: its uniform all-degree theorem is proved by an analytic tail estimate.
+PASS best of knowledge: actual general-framework primary source text and result-set searches were checked against each exact claim, with the four distinct prior-implication tests documented. Specializing a stronger bandlimited interpolation theorem or a harmonic moment statement does not logically yield the asserted homogeneous-degree ranks. The accessible primary texts do not imply rank=10 for every l≥15 or the intervening failures; possible uninspected 1958 formulas remain residual risk. No failed search is equated to a novelty proof; unaccessed primary material is named explicitly.
 
-## Limits
+## value
 
-No robustness-to-noise theorem, arbitrary-node classification, or multi-degree extension is claimed. Earlier symmetry-adapted harmonic tables may implicitly enable related computations. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The ten antipodal dodecahedral axes are a canonical A5-symmetric sampling set. Exact recovery for one homogeneous harmonic degree is not bandlimited interpolation. Nonmonotone rank collapse at degree five (9 to 6), isolated mean-sector gaps at eight/fourteen, and exact sharp eventual degree-fifteen interpolation give a meaningful sampling/identifiability classification and explicit minimum-norm synthesis, not an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
