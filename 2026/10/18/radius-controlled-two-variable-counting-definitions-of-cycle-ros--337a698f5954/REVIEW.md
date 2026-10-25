@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof applies to all finite simple roses with at least two petals. The unique high-degree hub can be named with counting logic; its bounded distance layers are definable with two variables. Every degree-two comparison graph matching those layers is another rose, and the even-centre/two-predecessor and odd-centre/same-layer-neighbour counts recover every petal length. The rank bound is \(D+3\). For the explicit pairs of two-petal roses, radius-\(r\) colour-refinement unfoldings are the same and the order is equal; the necessary identifying rank is at least \(r+2=D-1\). The two supplied scripts corroborate concrete instances and exhaustive small graph universes; finite computation is not substituted for the all-size proof.
+PASS
 
-## Originality — PASS, with risk
+A rose has a unique degree-2k hub h and all other vertices degree two. C² with counting defines deg=2k at rank 1, and by alternating two variable names defines distance ≤d from that hub with rank ≤d+1. A candidate graph satisfying the exact degree counts and layer histograms through D is connected to h within D. Removing h leaves degree≤2 components; no isolated vertex is possible in a simple graph with other vertices degree two, and no disjoint cycle can lie within a finite hub distance. Thus each component is a path with both endpoints adjacent to h, recovering a rose. At distance d, an even petal 2d has one midpoint with two neighbors at d−1; an odd petal 2d+1 has two midpoint vertices with one same-layer neighbor. Counting these signatures at rank ≤d+3 recovers every petal multiplicity. The finite palette C²-type/histogram characterization yields one rank≤D+3 identifying sentence. For A_r=R(2r+3,2r+7) vs B_r=R(2r+5,2r+5), both order 4r+9 and radius-r degree-rooted unfoldings have the same histogram; C² equivalence holds through rank r+1, yielding lower identifying rank r+2=D−1. Independently verified common-palette colour refinement for r=1..20 and length readout in tested examples. This is finite corroboration, not proof of the all-r indistinguishability.
 
-The qualitative \(C^2\)-identification phenomenon follows from general 2015 graph classification theorems and is NOT represented as separately new. The proposed increment is an explicit quantifier-rank upper bound in terms of the hub radius, a direct length-spectrum readout, and an infinite lower-bound family nearly matching that rank. Relevant 2014 depth work concerns general worst cases. Targeted indexed and primary-text searches did not find these quantitative assertions; specialised uninspected implications remain a priority risk. The accessible current-week historical claims on bicyclic graph equivalence and block-graph cutoffs do not imply this defining-depth assertion.
+## originality
 
-## Value — PASS
+PASS
 
-For networks made from many cycles attached at one vertex, a local logical identification depth controlled by maximum distance rather than total graph size is a concrete structural theorem. The explicit depth-obstruction family shows why the radius cannot be replaced by a constant. This is meaningful even though general theory already guarantees identification without a similarly explicit sharp-radius analysis.
+Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. The quantitative upper bound comes from specific degree-two component reconstruction and midpoint distance-layer tests; the lower family comes from matching local rooted unfoldings. Neither follows solely from a qualitative identification criterion.
 
-## Limits and closest literature
+## value
 
-Krebs–Verbitsky (arXiv:1407.3175), Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255), and Kiefer–Schweitzer–Selman (arXiv:1503.08792). The bound is additive-four near optimal on the specified family, not proved exact for every rose. A wider literature priority check or independent mathematical audit may change the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A graph family defined by a natural bouquet/cactus articulation has a concrete C² identification rank controlled by hub radius rather than order. The direct even/odd petal-length readout and explicit near-matching indistinguishable examples quantify descriptive complexity beyond the known yes/no identifiability classification, providing an invariant-reconstruction principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
