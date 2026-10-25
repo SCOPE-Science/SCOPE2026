@@ -1,15 +1,21 @@
-# Review: Height-bounded counting-logic identification of finite forest orders
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-size proof is a two-stage reconstruction: (i) within strict posets, round-two predecessor-depth counts force each principal strict ideal to be a chain; (ii) rooted descendant-tree types are determined by round \(r\) colours at subtree height at most \(r\), leading to identification after \(\max\{1,h\}\) rounds. The next round records the sequence of ancestor subtree types, so colour classes are exactly automorphism orbits. This gives the stated \(C^2\) characteristic-rank bound. The six-vertex DAG witness is verified by an explicit stable three-class equitable partition. The first-failure size is certified by exhaustive topological DAG enumeration through six vertices. The height-two rank lower witness is given explicitly with a rank-three distinguishing formula. Both standalone programs were executed from their final source files; outputs are retained in `verification_output.txt`. Finite runs corroborate but do not prove the unbounded assertion.
+## correctness
 
-## Originality — PASS with residual priority risk
-Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255, 2015) treat undirected adjacency and identify ordinary forests by colour refinement; the full strict ancestor-order relation is not the Hasse cover relation. Kiefer–Schweitzer–Selman (arXiv:1503.08792, 2015) classify structures identified among **all** finite binary relational structures; the present six-vertex pair establishes that such global identification fails for a target of the current natural class, whereas the relative-to-posets result holds. Targeted published-record and literature searches did not locate the relative height bound, orbit reconstruction and sharp DAG/poset distinction together. The general classification is stronger on its global domain, but does not directly entail identification relative to the non-\(C^2\)-axiomatised poset class. Earlier specialised work might nevertheless cover some or all of the present results.
+PASS
 
-## Value — PASS
-Forest orders are a natural model of ancestral hierarchies whose language names *all* comparisons rather than only immediate parent edges. Height-sensitive counting-logic identification is independent of unrestricted branching or universe size, and the exact orbit result gives a canonical structural invariant. The six-element acyclic counterexample makes the semantic promise mathematically necessary, while the seven-element height-two witness shows that the rank question is not simply a degree-count exercise. The result supplies a motivated structural and logical boundary, not merely a computation or renaming.
+For finite strict posets, c1 directed refinement records predecessor and successor counts. For a target forest order each predecessor count equals depth; agreement of c2 color histograms forces every depth-d element of any comparator poset to have unique predecessors at each depth 0..d-1. Transitivity then chains these predecessors, recovering the forest property. Inductively c_r(x) determines the entire successor rooted tree if its remaining height <=r: immediate children among successors are exactly those with predecessor count one larger and their c_(r-1) types recursively determine subtrees. At t=max(1,h), histogram of root colors determines all components among strict posets, so C2 rank<=t+1 identifies the target; c_(t+1) additionally encodes ancestor subtree-type paths and thus orbit partition. Explicit height-two seven-vertex forest pair has same rank-one global colors but distinct root/descendant patterns, requiring rank3. Independently checked the six-vertex C2 indistinguishable pair (two three-chains vs arcs 0->3,0->5,1->2,1->4,2->5,3->4), with two vertices in each of three stable classes and a missing transitive arc. Independently enumerated ALL upper-triangular acyclic digraphs of n<=5 (1,2,8,64,1024), partitioned by cross-graph stable directed refinement and compared rooted component isomorphism type for every forest order: no obstruction below six. Topological labeling covers every acyclic graph up to isomorphism; this is an actual finite exhaustive cutoff, not a random experiment.
 
-## Scientific limits
-Comparison with general published classifications is by explicit implication analysis, not a claim of worldwide uniqueness. The minimal DAG bound relies on exhaustive, reproducible finite computation. No claim is made that the height bound is optimal at heights other than two or that finite experiments establish infinite assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Arvind--Kobler--Rattan--Verbitsky’s tree amenability/color-refinement results concern undirected tree cover graphs, whereas the audited binary relation is the entire strict ancestor order; extraction of cover edges needs a third variable. Kiefer--Schweitzer--Selman’s general C2 identification classification concerns unconditional global identification among relational structures; here forest order identification is only relative to strict posets, with an explicit nontransitive C2-equivalent digraph at six points. Thus neither general theorem directly implies the height-specific relative rank bound plus sharp acyclic cutoff. Alternative tree order terminology still presents a literature risk.
+
+## value
+
+PASS
+
+Transitive closure can radically change what two-variable counting logic sees, so treating strict forest orders as binary order relations rather than as undirected cover graphs is mathematically substantive. Exact rank t+1 identification, orbit stabilization and the smallest acyclic nontransitive counterexample locate a sharp logical boundary for a natural hereditary poset class. The six-point obstruction is motivated by the necessity of a transitivity promise, not an arbitrary tiny negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
