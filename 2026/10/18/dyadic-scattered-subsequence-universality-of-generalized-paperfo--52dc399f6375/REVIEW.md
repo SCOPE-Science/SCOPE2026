@@ -1,16 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two paperfolding definitions are equivalent by the standard folding recursion. For every eight-symbol block, the explicit three-state arch transition identities can be checked for all bits and reachable states. In the case \(d_0\ne d_1\), each block creates exactly three complete arches. In the case \(d_0=d_1\), successive contributions telescope to \(3\cdot2^{k-3}-\mathbf1_{\{d_k\ne d_0\}}\). The greedy-arch principle identifies this count with the largest universally present scattered-subsequence length. A separate counting argument gives the \(1/4\) exceptional fraction. The all-length claim follows from this finite-state proof, not numerical extrapolation.
+## correctness
 
-The bundled `verify.py` executes independent valuation and recursion generators, all instruction choices for \(3\le k\le10\), selected larger samples, all local input-state transitions, and direct subsequence-set checks for small lengths. It returned `VERIFY_OK` in the reported execution. The tests cannot certify infinitely many inputs on their own.
+PASS
 
-## Originality — PASS, qualified
-Holub (arXiv:1207.3585) treats contiguous abelian powers in generalized paperfolding words, not this invariant. Barker et al. (arXiv:2003.04629) and Schnoebelen–Veron (arXiv:2304.11932) develop generic arch/universality methods and were examined in full accessible text; the new instruction-specific all-scale identity is not stated there. Shallit's run-classification manuscript (arXiv:2412.17930) was also inspected in full; its run results do not directly imply the asserted formula. The closest published-finding corpus records concern all-word universality distributions, absent-subsequence extrema, and different paperfolding invariants; the accessible own ledger contained no equivalent claim.
+The binary 2-adic valuation definition p_{t−1}=d_e⊕(j mod2) for t=2^e(2j+1) gives the exact eight-letter decomposition B_j=[a,b,1−a,x_j,a,1−b,1−a,y_j] of every dyadic prefix W_k, k≥3, with 2^{k−3} blocks and last bit y=d_k. Greedy binary arch factorization counts the largest h such that every binary scattered subsequence length h occurs: each completed arch contains both letters, and the sequence of last arch letters followed by a final missing letter witnesses failure at h+1. The eight-letter transition table holds for all x_j,y_j and reachable pending-letter states: a≠b yields exactly 3 arches per block; a=b yields contribution 3−I_j on an empty state or 4−I_j on pending 1−a, and next state I_j(1−a). The corrections telescope over blocks to 3*2^{k−3}−1_{d0=d1≠d_k}. Independent code exhaustively enumerated all 8-block parameter/state transitions and every 2^{k+1} instruction prefix for k=3..8, and independently constructed the valuation bits and greedy arches. The one-quarter defect follows by counting triples (d0,d1,dk), and 3/8 normalized limit by dividing by 2^k. The all-instructions all-k theorem is proved by transitions and telescoping, not finite prefixes.
 
-The 2015 paper *A New Approach to the Paperfolding Sequences* could be read only at abstract level, not as complete text. An equivalent result there, in inaccessible sources, or in unindexed work remains a residual risk; database absence is not a novelty proof. 
+## originality
 
-## Mathematical value — PASS
-The new theorem supplies a precise natural combinatorial invariant for an entire uncountable classical automatic-word family, with a sharp instruction-dependent endpoint defect and a shared asymptotic density. The telescoping block transducer is explanatory, not simply a routine finite table or a general-purpose algorithm's output. The result is limited to binary dyadic prefixes, not arbitrary cutoffs or full shortest-absent-subsequence distributions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Barker et al. (2020) formally define scattered-subsequence universality and greedy arches for arbitrary words; Schnoebelen–Veron (2023) give arch-jumping algorithms and universality signatures. Those general procedures can in principle compute any supplied finite prefix but do not yield the exact dyadic closed expression uniformly for every infinite binary paperfolding instruction stream, including its first-two-versus-depth-k defect. Holub (2012/2013) proves abelian powers of paperfolding words, a different contiguous Parikh-block invariant. Shallit (2024/2025) classifies runs and synchronized statistics, also distinct. The Goč–Mousavi–Schaeffer–Shallit CiE 2015 paper on generalized paperfolding factors is a plausible overlap source, but lawful OA and publisher retrieval did not yield full text; this is a stated residual risk rather than a fabricated NOT_COVERING assertion.
+
+## value
+
+PASS
+
+The largest h for which a word contains every binary scattered subsequence is a standard natural invariant; an exact formula for all instruction streams over a self-similar family is stronger than a routine one-prefix computation or unmotivated subsequence count. The universal 3/8 density, sharp one-unit boundary defect, and precise dependence on d0,d1,dk are structural and explain the mechanism; no general theory of all nondyadic prefixes or all shortest absent subsequences is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
