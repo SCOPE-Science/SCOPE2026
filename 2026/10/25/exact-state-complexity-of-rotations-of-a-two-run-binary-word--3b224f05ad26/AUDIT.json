@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The mixed-factor uniqueness lemma holds because each 0-to-1 and 1-to-0 boundary occurs exactly once on the primitive two-run circle. Inclusion–exclusion counts mixed/mixed rotations, and pure-prefix and pure-suffix residuals are disjoint except for explicitly subtracted boundary cases. The derived q_d is exact and summation yields \\(2ab+3\\). The standalone checker exhausts 576 independent positive parameter pairs and their full residual sets, as finite corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.numdam.org/article/ITA_2008__42_2_335_0.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i1p35/pdf/"
+      ],
+      "reasoning": "The general worst-case state-complexity results for arbitrary DFA languages and the results on greedy universal cycles do not give the full Myhill–Nerode profile for the singleton cyclic closure; a nontrivial specialization with right-language proof is required.",
+      "searches": [
+        "state complexity of cyclic shift binary regular languages",
+        "\"rotations\" \"state complexity\" \"two runs\" minimal automaton",
+        "minimal automata recognizing conjugates of a word binary runs"
+      ]
+    },
+    "checked_sources": [
+      "https://www.numdam.org/article/ITA_2008__42_2_335_0.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i1p35/pdf/",
+      "https://oeis.org/A306990/internal",
+      "published-finding corpus semantic searches: cyclic rotation language of binary block word 0^a1^b minimal DFA exactly \\(2ab+3\\) states; cyclic shift singleton language two runs deterministic state complexity n^2/2 2ab; minimal automata recognizing conjugates of a word binary runs",
+      "web searches: \"\\(2ab+3\\)\" cyclic shift automaton; \"cyclic shift\" \"0^a\" \"1^b\" \"states\"; \"rotations\" \"state complexity\" \"two runs\" minimal automaton"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.numdam.org/article/ITA_2008__42_2_335_0.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i1p35/pdf/"
+      ],
+      "reasoning": "Jirásková–Okhotin proves large-operation complexity phenomena for DFAs and NFAs; it does not assert \\(2ab+3\\) or distinguish the n-1 internal depth layers for all a,b. DiMuro proves greedy universal-cycle criteria based on symbolic increases, with no automaton-minimization theorem. Neither implication yields the present exact formula without the new mixed/pure-factor count.",
+      "searches": [
+        "cyclic rotation language of binary block word 0^a1^b minimal DFA exactly \\(2ab+3\\) states",
+        "cyclic shift singleton language two runs deterministic state complexity n^2/2 2ab",
+        "State complexity of cyclic shift Jirásková Okhotin 2008",
+        "Classifying Rotationally-Closed Languages Having Greedy Universal Cycles 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent statement was present in the returned published mathematical texts. Jirásková–Okhotin analyzes the operation but not the two-run quotient profile; searches in the PDF for singleton return no match."
+      ],
+      "reasoning": "The same claim can be phrased as quotient complexity of the conjugacy class of a binary one-necklace word or as the number of distinct right languages of its cyclic rotations. These formulations were explicitly considered. Matching the phrase cyclic shift alone is insufficient for equivalence; the exact parameter formula and profile are absent from inspected material.",
+      "searches": [
+        "cyclic rotation language of binary block word 0^a1^b minimal DFA exactly \\(2ab+3\\) states",
+        "cyclic shift singleton language two runs deterministic state complexity n^2/2 2ab",
+        "minimal automata recognizing conjugates of a word binary runs",
+        "\"\\(2ab+3\\)\" cyclic shift automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2008 paper, section 5: computation of worst-case operation state complexity for input DFAs of up to five states, not a two-parameter table for singleton words.",
+        "published-finding corpus closest hit published rank-compression result (distinct problem) concerns rank compression in a synchronizing automaton, not cyclic rotations."
+      ],
+      "reasoning": "The exact count and per-depth profile were not found as database entries or examples in inspected sources. OEIS A306990 is about worst-case shift state complexity of binary input languages, not this two-run singleton family.",
+      "searches": [
+        "\"\\(2ab+3\\)\" cyclic shift automaton",
+        "\"\\(2ab+3\\)\" cyclic shift automaton",
+        "cyclic rotation language of binary block word 0^a1^b minimal DFA exactly \\(2ab+3\\) states"
+      ]
+    },
+    "rationale": "The exact Myhill–Nerode quotient profile and \\(2ab+3\\) formula are not consequences of the inspected general cyclic-shift upper/lower bounds or the 2019 universal-cycle classification. The primary 2008 paper develops construction and worst-case bounds, not this two-run singleton exact formula. Direct searches for numerical identity and equivalent rotations/conjugates found no stronger covering claim. Literature-relative only; risk of unindexed special-case result remains.",
+    "residual_risks": [
+      "Elementary special cases of cyclic shift may exist in teaching notes or unindexed papers.",
+      "Abstracts and text searches cannot conclusively establish universal uniqueness.",
+      "published-finding corpus semantic retrieval returns ranked nearby results and is not an exhaustive mathematical completeness oracle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General operation bounds and constructions; no exact singleton two-run right-quotient profile identified. Search and limited section inspection do not certify absence from every sentence.",
+        "evidence": [
+          "2008 paper abstract and introduction pp.335–337; construction pp.337–339; section 5 announced on p.337; no singleton text match."
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/ITA_2008__42_2_335_0.pdf",
+        "material_read": "Abstract and introduction, section 2 construction, representative lower-bound and NFA discussions, section 5 overview; PDF full-text searched for singleton and two-run specializations.",
+        "method": "Lawful public PDF text and first-page visual inspection",
+        "title": "State Complexity of Cyclic Shift",
+        "trigger": "Direct earlier theorem on same cyclic-shift language operation and binary state complexity"
+      },
+      {
+        "assessment": "Main theorem concerns greedy universal-cycle generation and increasability, not minimization of a DFA recognizing the rotationally closed set.",
+        "evidence": [
+          "DiMuro (2019), pp.1–3, Theorem 1, published 2019-03-08."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i1p35/pdf/",
+        "material_read": "PDF abstract, introduction, the main theorem and characterization in section 2, and subject/classification information.",
+        "method": "Lawful public PDF text and first-page visual inspection",
+        "title": "Classifying Rotationally-Closed Languages Having Greedy Universal Cycles",
+        "trigger": "Directly treats fixed-length rotationally closed word sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b224f05-ad26-4b44-9f4b-0f839c45a436",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cyclic recognition of one fixed binary necklace is a canonical rotation-closure task; restricting to two runs gives a natural complete family with a nontrivial quadratic state blowup from n+2 for the singleton. The result determines every quotient at every depth and the unique maximizer proportions for fixed input size, which permits exact sizing of DFA-based circular pattern recognizers. This is not merely a small census or arbitrary parameter substitution.",
+    "status": "PASS"
+  }
+}

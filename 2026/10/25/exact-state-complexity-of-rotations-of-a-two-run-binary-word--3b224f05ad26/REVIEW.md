@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** Mixed circular factors identify a unique starting position because the two boundaries have opposite orientations. The proof counts mixed-prefix/mixed-suffix rotations by inclusion–exclusion and handles pure prefixes and suffixes, including the boundary overlap, to obtain exactly \(2\min\{a,b,d,a+b-d\}\) quotients at each internal depth. It sums the profile and explicitly accounts for the dead quotient. Direct residual-language enumeration for 576 parameter pairs supplies independent finite checking of the formulas. Risk: experimental checks do not replace the general proof.
+
+**Originality — PASS (literature-relative).** The most relevant primary work, Jirásková–Okhotin's cyclic-shift study (DOI 10.1051/ita:2007038), establishes general upper/lower bounds and automaton constructions, but the inspected text does not contain or logically entail the exact two-run singleton profile. DiMuro's 2019 paper (DOI 10.37236/7932) studies greedy universal cycles for rotationally closed languages, not Myhill–Nerode quotients. Targeted published-finding corpus and web searches for the exact formula, rotations, block words, and automaton state counts found no equivalent. Risk: unindexed elementary specializations may exist; absence of search hits is not proof of novelty.
+
+**Value — PASS.** A two-run necklace is the simplest nonconstant cyclic word family. Its recognition cost is exactly quadratic in the two block sizes despite its singleton precursor having only linear state complexity. The result classifies *all* nonempty residuals by depth and settles precisely which compositions maximize the cost; these are natural parameters for cyclic-pattern recognition and testing descriptions of shift-closed finite languages. It is a complete structural classification, not a single small computation.
+
+Self-review: passed. Independent audit: not yet performed.
