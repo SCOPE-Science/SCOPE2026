@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Let \(Q\) have prescribed unit-circle roots. The proof explicitly verifies the strict bound \(|h_2|<h_0\), so one of the two positive angular weights has nonzero first Fourier coefficient. Its positive complement has a zero-free outer Fejér–Riesz polynomial factor of exact degree \(N+1\). The logarithmic boundary coefficient expansion guarantees \(p'(0)\ne0\) for sufficiently large complement level. For the regular polygon, \(N\) double-contact points saturate the trigonometric-polynomial degree, forcing a binomial outer factor with zero first derivative. All quantifiers and endpoint cases \(N=2\), \(|z|=1\), and strictly positive spectral factors are covered. Numerical tests are supplementary.
+
+**Originality: PASS, qualified.** The closest primary 2026 work exhibits regular-polygon exceptional circles with entire functions; it does not prove arbitrary angular interpolation with sharp polynomial degree. The full published 2021/2022 polynomial paper instead prescribes features at distinct radii; the 2026 interpolation theorem requires pairwise distinct moduli. Classical Fejér–Riesz factorization is used openly as a known lemma, not claimed as new. None of the inspected claims implies both the universal sharp degree and regular-polygon obstruction in the zero-free, first-order class. The accessible evidence does not settle all historical priority, notably the extract-only 2025 note on unit-circle maximum modulus.
+
+**Value: PASS.** Exceptional-radius multiplicity is a motivated boundary phenomenon for the first Taylor-gap bound in complex function theory. The theorem controls exactly which angular configurations can realize any fixed exceptional multiplicity, with a uniform optimal polynomial degree and a nonzero linear coefficient. The regular-polygon obstruction shows that the degree increment is not merely an artifact of the construction. This is a sharp geometric interpolation classification, rather than an isolated finite calculation.
+
+**Scientific limitations.** No claim is made about off-circle geometry, pointwise minimum degrees for all configurations, or independent validation. The spectral-factor numerical checker tests only four finite instances.
+
+Self-review: passed. Independent audit: not yet performed.
