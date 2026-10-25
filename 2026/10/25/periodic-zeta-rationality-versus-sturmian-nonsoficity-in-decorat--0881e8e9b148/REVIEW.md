@@ -1,0 +1,15 @@
+# Scientific review: periodic zeta rationality in Sturmian-decorated gap shifts
+
+## Correctness
+PASS. The marker is recognizable. Marker-free configurations form exactly the aperiodic Sturmian subsystem, so every periodic configuration has a marker. The code-length series is \(F_S(z)=\sum_{s\in S}(s+1)z^{s+1}\) and marking one of the \(k\) markers gives the finite exact identity \(P_m=\sum_{k=1}^m (m/k)[z^m]F_S(z)^k\). Its formal logarithm yields the zeta formula for every period, including nonprimitive ones. Rationality follows in one direction by geometric-series derivatives and in the other from Skolem–Mahler–Lech applied to the coefficient-zero set; nonrationality and integral coefficients at radius one permit Pólya–Carlson. The argument distinguishing initial Taylor radius from the meromorphic unit-disk continuation is essential. Nonsoficity follows from intersection with the marker-free Sturmian subshift. Forty short-period brute-force comparisons pass; they are not extrapolated into an infinite proof.
+
+## Originality
+PASS under the sources examined, with historical priority not independently certified. Ramirez–Somers (arXiv:2501.08438v2, full Sections 4–5) derive entropy and dynamical mixing properties for the same decorated-gap construction, but not periodic-point counts, rational zeta classification, or a unit-circle natural boundary. Ahmadi Dastjerdi–Jangjoo (arXiv:1108.3414v5, Theorem 2.3) treat standard binary \(S\)-gap shifts, whose marker-free periodic contribution differs from the Sturmian system. Dillon (arXiv:2010.06031v3, Theorem 1.3 and Section 8) derives zeta functions for finite-vertex \(\mathcal S\)-graph presentations, not arbitrary Sturmian languages. Hong (DOI:10.1017/S0143385710000015) concerns finitely generated renewal systems; only its abstract was accessible, and priority under broader coding terminology remains a risk. Related published mathematical records on geometric-gap entropy, finite-cutoff zeta, and negative-doubling survivors give no identified implication covering this exact family.
+
+## Value
+PASS. The result gives a complete, all-allowed-gap-set analytic and periodic-point classification for an intrinsically nonsofic family recently motivated by decorated gap-shift entropy theory. Rational dynamical zeta functions coexist with nonsoficity; outside eventual periodicity they face a full unit-circle natural boundary. This distinguishes periodic-orbit enumerability from finite-state representability. It is not a recomputation of the classical binary \(S\)-gap case or a numerical finite cutoff.
+
+## Limits and outstanding risks
+The Pólya–Carlson and Skolem–Mahler–Lech inputs are classical theorems, not newly proved here. The theorem is restricted to Sturmian two-letter decoration and infinite allowed-gap sets. The 2011 finite-code renewal article could not be inspected in full, so a more general coding identity might precede the formulation. No independent audit of scientific priority has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
