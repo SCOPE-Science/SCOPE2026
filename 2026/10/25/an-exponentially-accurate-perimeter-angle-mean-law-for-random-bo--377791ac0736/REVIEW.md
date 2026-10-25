@@ -1,0 +1,19 @@
+# Scientific review of the perimeter–angle boundary-hull area law
+
+## Correctness — PASS
+
+On the event that each edge receives at least one sample, the convex hull follows the sampled portions of every supporting edge and the complement is the union of the triangular corner cuts. The exact area is one half of each interior-angle sine times the two adjacent endpoint gaps. The probability of an empty edge is exponentially small; the discrepancy from that geometric identity is uniformly bounded. Integrating the exact two-interval void probability produces the finite denominator \((N+1)(N+2)\) and exponential corrections without assuming independent gaps. Simultaneous shrinking boundary intervals yield independent unit exponential endpoint limits. Binomial void tails give uniform moment bounds; the resulting corner products have explicit mean, variance and Laplace transform. The bundled independent hull checker ran successfully after its finite-size analytic correction terms were accounted for. Limits and the law do not depend on the checker.
+
+## Originality — PASS relative to checked sources
+
+The relevant fixed-polygon Hausdorff results establish joint Poisson corner-process convergence, which already implies the area-product limit once the area-cap identity is inserted; that underlying limit mechanism is therefore not counted as independent novelty. The new claim is the stronger exponentially accurate finite-sample mean profile. The 2023 boundary-polytope paper proves a general expected-volume order with a geometry-dependent unspecified constant, not the exact rational finite-sample profile plus exponential error, nor the complete non-Gaussian planar limit. The classical interior-sampling central limit theorem uses a different probability measure. The public regular-polygon Gumbel result also treats Hausdorff error, not area loss. The new assertion supplies an exact exponentially accurate finite-\(N\) mean law, including all inverse-power coefficients and an explicit geometric constant. The accompanying moment-complete limit is an interpretive corollary using an acknowledged older point-process limit. Neither the older corner Poisson convergence nor its direct consequences are claimed independently novel.
+
+## Value — PASS
+
+Boundary-sampled random polygons are a natural model for stochastic approximation of polyhedral bodies, and the law determines an observable not described by an unspecified expected-deficit order. The exponentially accurate rational expectation shows that individual edge lengths do not affect any inverse-power correction, while the non-Gaussian weighted-product law gives an explicit variance and full Laplace transform. The dependence solely on angles and perimeter supplies a reproducible geometric-probability benchmark across noncongruent polygons and distinguishes boundary sampling from interior-polygon Gaussian limits.
+
+## Literature comparisons and residual limitations
+
+Pardon (arXiv:1003.4209, 2010) treats interior points. Schütt–Werner (2000, doi:10.1016/S0764-4442(00)01685-2) study a smooth-boundary setting; only their bibliographic abstract was inspected, leaving possible historical overlap beyond the stated smoothness hypotheses as a residual risk. Reitzner–Schütt–Werner (arXiv:1911.05917, accessible complete journal text read at the theorem and area-proof sections) derive generic expected-volume asymptotics. Prochno–Schütt–Sonnleitner–Werner (arXiv:2404.02870, accessible HTML full paper read at theorem, point-process convergence and main proof) derive Hausdorff-error asymptotics and a general joint corner Poisson limit. The public result `3fe000dbc9a1` (full mathematical result read) is about a regular-polygon Gumbel Hausdorff limit. No universal historical-priority certification is asserted. The geometry is planar, side count fixed, and sampling arclength-uniform. No independent validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
