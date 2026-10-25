@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:48:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For each deleted edge the surviving lambda2 is minimum Rayleigh quotient on 1-perp and is concave in edge conductances; min over outages remains concave. Automorphism averaging gives a global symmetric optimum and preserves the single fixed hub-edge weight across every unrestricted optimum. For uniform spoke a and b/a=r, spoke deletion is strictly more damaging than deleting AB; the spoke-deleted quotient block characteristic zP_m(z,r) has unique simple positive eigenvalue f_m(r)<2. Direct independent exact determinant reconstruction plus 45 full Laplacian spectra gave error ≤4.6e-15. Rank-one perturbation yields f_m'(r)>0 and f_m''(r)<0 since Fiedler vector has unequal hub entries and d is not an eigenvector. The derivative of B0 f/(2m+t r) crosses at most once, giving t_c(m)=2m f_m'(0)/f_m(0), retention iff t<t_c. For m=2 symbolic simplification yields 3+2sqrt(2), and cubic asymptotic gives m*t_c→2. Intact gap is 2a, so bridge nominally optimally absent. The proof does not claim all asymmetric spoke weights unique.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al formulate a general spectral-gap semidefinite optimization without min over edge outages.",
+          "Boyd et al supply graph-symmetry reduction for different nominal or discrete-time models; symmetry alone does not give f_m(r) or price cutoff."
+        ],
+        "reasoning": "The general variational/SDP methods do not automatically imply the claimed book-graph price law or universal fixed-edge weight.",
+        "searches": [
+          "Resultary: worst one-edge deletion algebraic connectivity budget weighted book graph hub edge conductance critical price fault-tolerant diffusion",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "https://arxiv.org/abs/0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://arxiv.org/abs/0709.0955",
+        "https://doi.org/10.1016/j.amc.2012.11.002",
+        "Resultary book graph edge outage semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nominal book graph has optimum b=0 for all price t>0; the new robust criterion instead has b>0 iff t<t_c(m).",
+          "Rewiring selected edges is a combinatorial decision, not independent conductance pricing under adversarial single deletion."
+        ],
+        "reasoning": "The opposite bridge behavior demonstrates that nominal optimality theorems cannot be substituted for the asserted robust theorem.",
+        "searches": [
+          "Resultary: worst one-edge deletion algebraic connectivity budget weighted book graph hub edge conductance critical price fault-tolerant diffusion",
+          "https://doi.org/10.1137/S0036144504443821",
+          "https://arxiv.org/abs/0709.0955",
+          "https://doi.org/10.1016/j.amc.2012.11.002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nominal continuous-time spectral-gap maximization uses lambda2(L(w)); reviewed claim optimizes min_e lambda2(L(w)-w_e d_e d_e^T).",
+          "Retained fixed backup edge can alter the min-outage optimum even when the nominal optimum excludes it."
+        ],
+        "reasoning": "Checked algebraic connectivity, worst-edge failure, robust consensus mixing and symmetry-reduced fastest mixing terminology, comparing objective functions rather than graph titles.",
+        "searches": [
+          "Resultary: worst one-edge deletion algebraic connectivity budget weighted book graph hub edge conductance critical price fault-tolerant diffusion",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "https://arxiv.org/abs/0709.0955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is all m≥2 and continuous positive prices; not an existing table of finite Laplacian eigenvalues.",
+          "Direct computed cubic determinant and m2 exact price serve as algebraic checks, not database lookups."
+        ],
+        "reasoning": "No exact table supplied as input; published-result search returned different graph invariants and outages without the bridge-weight threshold.",
+        "searches": [
+          "Resultary: worst one-edge deletion algebraic connectivity budget weighted book graph hub edge conductance critical price fault-tolerant diffusion",
+          "Resultary: worst one-edge deletion algebraic connectivity book graph hub edge critical price fault-tolerant diffusion"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Sun/Boyd/Xiao/Diaconis nominal continuous-time weighted gap has no one-edge-outage adversarial objective, Boyd/Diaconis/Parrilo/Xiao symmetry reduction treats fastest-mixing and intact graphs, Sydney/Scoglio/Gruenbacher edge rewiring optimizes nominal connectivity with a discrete modification set. Nothing inspected implies this exact worst-outage book-graph threshold and universal hub-weight necessity. Unindexed robust spectral design could cover the instance as a corollary; retained as a risk.",
+      "residual_risks": [
+        "A prior robust SDP-design paper might imply the special graph threshold without name match; abstract-only Sydney paper is not whole-document cleared.",
+        "m≥2 only; one outage only; strict concavity proof requires simple Fiedler root and no other eigen-crossing, reconstructed from quotient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The studied objective is intact-network algebraic connectivity, no all-single-edge-outages minimum in checked work",
+          "evidence": "Formula is maximizing lambda2 of unfailed weighted Laplacian; audited risk minimizes after every possible removed edge.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Full accessible primary PDF (19 pages) inspected, objective formulation and related examples",
+          "method": "Stanford author-hosted PDF; PDF page visually inspected",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Closest weighted continuous-time spectral-gap budget optimization"
+        },
+        {
+          "assessment": "Symmetry reduction known, but no exact robust book price implied",
+          "evidence": "Known symmetry reduction and intact bipartite examples do not contain adversarial failed-edge minimax objective.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Original arXiv metadata and accessible manuscript methodology/statement inspected",
+          "method": "ArXiv and OA author source inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Likely broader graph-symmetry theorem"
+        },
+        {
+          "assessment": "Cannot assert full-document NOT_COVERING; abstract addresses intact rewiring",
+          "evidence": "Discrete edge rewiring to improve intact lambda2 differs from fixed-conductance edge-deletion robust gap.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2012.11.002",
+          "material_read": "Primary bibliographic record and abstract only; full article inaccessible here",
+          "method": "Publisher abstract/metadata",
+          "title": "Optimizing Algebraic Connectivity by Edge Rewiring",
+          "trigger": "Closest edge modification comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp, mathematically natural fault-tolerant design theorem exhibits an optional backup hub edge that is useless in nominal connectivity but compulsory at every optimum below a nontrivial price. The uniform edge-price threshold across infinitely many book sizes and its universal all-optimizer conclusion are independently useful network-design facts, not arbitrary one-off computations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+    "https://arxiv.org/abs/0709.0955",
+    "https://doi.org/10.1016/j.amc.2012.11.002",
+    "Resultary book graph edge outage semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical eigenvalue tests cover only finite m and finite ratios.",
+    "Arbitrary asymmetric spoke optimizers intentionally not uniquely classified."
+  ],
+  "residual_risks": [
+    "A prior robust SDP-design paper might imply the special graph threshold without name match; abstract-only Sydney paper is not whole-document cleared.",
+    "m≥2 only; one outage only; strict concavity proof requires simple Fiedler root and no other eigen-crossing, reconstructed from quotient."
+  ],
+  "schema_version": 1
+}

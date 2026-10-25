@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python verify_bridge.py` in a Python environment with NumPy, SciPy and SymPy. The script was executed successfully against these exact source bytes. It checked the symbolic characteristic polynomial, its boundary evaluations and differentiation, the exact four-vertex price, direct full-Laplacian eigenvalues for multiple graph sizes and bridge ratios, worst outages, the derivative-defined optimum across price regimes, and independent asymmetric feasible assignments. The executed script reported `ALL CHECKS PASS 1295`, in addition to six symbolic assertions.
+# Independent mathematical audit
 
-Every claim for unbounded graph size or continuous parameters is justified in the mathematical proof, not by the sample count. No external solver certificate or independent audit has been supplied. The paper records analytic uniqueness only for the symmetry-invariant allocation and for the hub-edge conductance across arbitrary global optimizers, not for all individual spoke weights.
+## correctness
+
+PASS
+
+PASS: For each deleted edge the surviving lambda2 is minimum Rayleigh quotient on 1-perp and is concave in edge conductances; min over outages remains concave. Automorphism averaging gives a global symmetric optimum and preserves the single fixed hub-edge weight across every unrestricted optimum. For uniform spoke a and b/a=r, spoke deletion is strictly more damaging than deleting AB; the spoke-deleted quotient block characteristic zP_m(z,r) has unique simple positive eigenvalue f_m(r)<2. Direct independent exact determinant reconstruction plus 45 full Laplacian spectra gave error ≤4.6e-15. Rank-one perturbation yields f_m'(r)>0 and f_m''(r)<0 since Fiedler vector has unequal hub entries and d is not an eigenvector. The derivative of B0 f/(2m+t r) crosses at most once, giving t_c(m)=2m f_m'(0)/f_m(0), retention iff t<t_c. For m=2 symbolic simplification yields 3+2sqrt(2), and cubic asymptotic gives m*t_c→2. Intact gap is 2a, so bridge nominally optimally absent. The proof does not claim all asymmetric spoke weights unique.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Sun/Boyd/Xiao/Diaconis nominal continuous-time weighted gap has no one-edge-outage adversarial objective, Boyd/Diaconis/Parrilo/Xiao symmetry reduction treats fastest-mixing and intact graphs, Sydney/Scoglio/Gruenbacher edge rewiring optimizes nominal connectivity with a discrete modification set. Nothing inspected implies this exact worst-outage book-graph threshold and universal hub-weight necessity. Unindexed robust spectral design could cover the instance as a corollary; retained as a risk.
+
+## value
+
+PASS
+
+PASS: A sharp, mathematically natural fault-tolerant design theorem exhibits an optional backup hub edge that is useless in nominal connectivity but compulsory at every optimum below a nontrivial price. The uniform edge-price threshold across infinitely many book sizes and its universal all-optimizer conclusion are independently useful network-design facts, not arbitrary one-off computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
