@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete claim is for the full two-connective WHB axiom system on fixed bounded finite chains. The published frame duality gives precisely nondecreasing suffix-threshold rows, and the published WHB congruence duality gives relationally doubly closed subsets. Their application is reconstructed in the proof, including the bottom/top cases and the \(n=1\) exception. Every nonempty threshold relation has one positive-degree connected component plus \(\max(0,t_0-a)\) isolated vertices; summation over active-row counts proves the exact Boolean-rank spectrum. Independent direct finite checks verify the original WH, WD and interaction axioms, relation components, congruence compatibility and a complete three-element-chain binary-table census. Remaining dependence: [1]'s established general duality, whose relevant sections were read.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The most relevant source, Celani–Nagy–Zuluaga Botero [1], proves the broad duality and congruence characterization but not the chain-specific enumeration or refined spectrum. Alizadeh–Joharizadeh [2] addresses single-operation weak-Heyting enumeration and gives an algorithm, which does not by its abstract settle the paired WHB completeness/simplicity distribution. Classical central binomial counts are known independently [3]; no novelty is asserted for that numerical sequence itself. A prior result under finite monotone relations or Galois adjoints is possible, and [2] could not be checked in full.
+PASS
 
-## Mathematical value — PASS
-The structure of an entire two-connective algebra is recovered from one modal unary reduct, sharply contrasting with generally nonfaithful unary reducts. The theorem determines every congruence-rank multiplicity of all expansions and proves exponentially strong generic simplicity, answering a natural finite-algebra reconstruction and classification problem. The significance resides in the complete logical congruence spectrum, not merely in the familiar central binomial sequence.
+The original full two-connective WHB identities and their duality reduce all n-point dual-chain frames to one weakly increasing suffix-threshold sequence 0≤t0≤⋯≤t_(n−1)≤n. Explicit upset calculations reconstruct a→b=top and a←b=bottom for a≤b, otherwise Box b and Diamond a with Diamond the unique left adjoint of monotone top-preserving Box. Counting threshold sequences gives binom(2n,n) named expansions. Each nonempty relation joins all vertices in the initial active rows and final active columns into one component with g=max(0,t0−a) isolates; the empty relation has n components. The fixed-gap summation ∑_{a=1}^{n−g−1}binom(n−g−2,a−1)=2^{n−g−2} yields rank r multiplicity 2^{n−r−1} for 2≤r≤n−1, one at rank n, and binom(2n,n)−2^{n−2} simple for n≥2; n=1 separately has two simple expansions. Our independent direct threshold graph census reproduces n=1..5 rank histograms (2), (5,1), (18,1,1), (66,2,1,1), (244,4,2,1,1). These bounded checks do not prove the all-n duality or formulas; the proof uses the cited general theorems.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified: the pair of WHB operations recovered from one right adjoint and the exact closed rank multiplicities go beyond the published general duality and the classic central-binomial total. The 2015 single-connective finite-lattice counting algorithm is plausible but its accessible abstract does not resolve this paired rank theorem; lack of full text is a recorded risk rather than automatic rejection.
+
+## value
+
+PASS
+
+Recovering the full two-connective operation from one unary necessity and all congruence-rank frequencies gives structural information on an entire natural finite-algebra family. These ranks determine simplicity and subdirect decomposition behavior, and the exponentially close-to-one simple proportion is an exact asymptotic consequence, not an unmotivated small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
