@@ -1,11 +1,21 @@
-# Scientific review: inverse-distance braid-wall law
+# Independent mathematical audit
 
-**Correctness — PASS.** For a strictly ordered objective, each connected-set simplex contributes its highest-ranked coordinate basis vector. Swapping adjacent labels \(u,v\) changes a summand exactly if its connected vertex set contains both labels and avoids the earlier prefix, and all changed summands move in the same direction with positive weight. In a tree, this is possible exactly when every internal vertex on the unique \(u\)-to-\(v\) path follows the adjacent two-label block. Contraction of the adjacent pair makes that block the earliest among \(d\) distinguished objects with probability exactly \(1/d\), where \(d\) is graph distance. There are \((n-1)!\) undirected permutation edges exchanging the given pair. Thus the proof establishes the exact count, all quantifiers, weight-independence, metric reconstruction and both asymptotics. The standalone direct-exposure checker passed all 151 enumerated trees. Computation supplements the proof and is not claimed to cover arbitrary dimension.
+## correctness
 
-**Originality — PASS, qualified.** Barnard–McConville establish the permutation-to-maximal-tubing projection, Pilaud–Santos–Ziegler present the connected-simplex Minkowski model, Cardinal–Merino–Mütze treat elimination-tree generation, and Albertin–Pilaud–Ritter discuss braid-wall quotient fans. The inspected relevant parts do not state the pair-labelled \((n-1)!/d\) wall-survival law, its simultaneous validity for all positive weights, or reconstruction of the whole labelled tree metric. The closest mathematical-record hits concerned the permutation permutohedron's homology and the eccentricity of one graph associahedron, neither of which implies the quantitative wall-label table. Searches do not establish uniqueness, and equivalent results under alternate combinatorial terminology remain possible.
+PASS
 
-**Mathematical value — PASS.** The result exposes an exact geometric reconstruction invariant: a complete table of binary decisions about whether neighboring braid chambers fuse recovers every graph distance and hence the tree itself. Its sum identifies the classical Harary index with a natural fan-coarsening statistic. The path/star asymptotic separation quantifies a large difference in sensitivity on a fundamental polytope family. The claim is structural and valid for all labelled trees and all positive tube weights, not a one-off value or a restatement of the Harary index alone.
+For each generic objective-order permutation the exposed Minkowski-sum vertex is the sum of positive tube coefficients times their first coordinates. Swapping adjacent labels u,v only changes tubes containing both and disjoint from the prefix A; positivity makes the signed change a positive multiple of e_u−e_v, eliminating cancellation. In a tree every such tube contains the unique path R(u,v), and R itself is a tube. Hence survival iff all d−1 internal path vertices follow the contracted u-v adjacent block. Of the (n−1)! undirected u-v edges exactly 1/d satisfy this ordering, proving N=(n−1)!/d, valid all finite labelled trees n≥2 and all strictly positive real tube weights. Harary total and path/star asymptotics follow by pair-distance summation. Independently enumerated exposed vertices (not just an assumed path criterion) for small path/star trees and compared pair counts. Distinct surviving braid edges need not be distinct quotient polytope edges.
 
-**Boundaries and bibliographic risk.** No inverse-distance claim is made for graphs with cycles, zero simplex weights, unlabelled fans, or distinct quotient-polytope edge counts. The source comparison is strongest for the arXiv full texts inspected and the accessible mathematical record; equivalent statements hidden in other treatments of congruences or random elimination orders remain possible. Independent mathematical validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
+
+## value
+
+PASS
+
+This is not simply recovering the known tubing fan or an unlabeled face total: an exact pair-labelled local wall-sensitivity observable recovers every entry of the tree metric and therefore all tree edges, and its sum equals the natural Harary distance-inverse invariant. The contrast between paths and stars gives geometric relevance for families of graph associahedra. A researcher studying fan coarsening or adjacency statistics can use the exact distance-to-wall law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
