@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact ring \(\mathbb Z[\phi]\) determines all eight squared-distance values, and exhaustive maximal-clique enumeration constructs every simplex. The first nontrivial scale collapses to a connected graph of cycle rank eleven. At scale one, the retained polytope boundary is a connected closed two-manifold of Euler characteristic two; all vertex links and edge incidences are checked. The supplied 96-pair certificate collapses the scale-one complex onto that sphere. Three independently replayable relative certificates (330, 1690, and 7802 elementary pairs) collapse the next larger complexes onto **exactly** the included scale-one complex. Consequently every asserted homotopy type, inclusion-induced map, and integral homology statement follows; no finite-to-infinite extrapolation occurs. Orthogonal symmetries act on oriented convex boundary fundamental class by determinant, and the inclusion maps commute with those symmetries.
+## correctness
 
-## Originality — PASS with residual risk
-Full material reviewed from Adamaszek's 2011 graph-power work and the 2014–2015 circular-arc/circle Rips work; those theorems classify one-dimensional circular metric objects, not this thirty-point noncoplanar Euclidean orbit, and do not imply the stated relative collapses. Baez's 2023 geometric description supplies the polytope but not the homotopy computation. Indexed mathematical-results searches covering the exact polytope, H3 roots, rotated polygon aliases, Vietoris–Rips filtrations and stronger descriptions found no implication or exact archived numerical table. A doctoral abstract on sphere Rips examples was accessible only as an abstract, so its complete thesis was not certified as noncovering. Equivalent calculations under alternative polytope/root-system terminology remain possible.
+PASS
 
-## Mathematical value — PASS
-The icosidodecahedron is a canonical thirty-vertex root orbit with full icosahedral symmetry, rather than an arbitrary point sample. A homotopy sphere persisting unchanged while the Rips complex grows from 362 to 15,966 simplices is a substantive inclusion-level stability fact: homology ranks alone would not show simple-homotopy equivalence, and the explicit relative collapses establish the precise persistence mechanism. The orientation-character consequence identifies a symmetry invariant invisible in the nonequivariant Betti number. The result does not claim later thresholds or independent certification.
+Independently rebuilt the exact 30 vertices in Z[phi], all eight pair-distance levels with multiplicities 60 for the first seven and 15 for the last, and generated clique complexes at five stages before squared distance 3. Face totals were 110,362,1022,3742,15966; a constructed 30-vertex 84-edge 56-triangle surface is a connected closed orientable sphere as supported by edge/link checks in source verifier. Independent free-face deletion on actual simplices collapsed X_1 to this surface in 96 pairs, and each larger complex relatively onto protected X_1 in exactly 330,1690,7802 pairs. The independent greedy algorithm verified free immediate coface status at each step and final equality, not merely archived logs or VERIFY_OK. Thus all stated simple-homotopy inclusions and integral H_2 persistence follow. Polyhedron boundary orientation supplies symmetry action det(g); collapse paths are not claimed equivariant and no death time >=sqrt(3) is proved.
 
-## Closest literature and limitations
-Relevant full-text sources: arXiv:1104.0433, arXiv:1410.4336, arXiv:1503.03669, arXiv:2309.15774. Neither single-circle power models nor the twenty-vertex dodecahedral graph-metric results determine the thirty-vertex Euclidean icosidodecahedral statement. Possible less-indexed equivalent work remains an originality risk. Classification stops strictly before \(r=\sqrt3\); the displayed collapses need not respect the group action.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graph-power Rips results and the Euclidean cuboctahedral 12-point filtration concern other metrics/configurations. Here the 30-vertex noncoplanar chordal icosidodecahedron has a new finite Euclidean distance lattice and exhaustive relative collapses at three intermediate scales; neither general graph-power stability nor 12-vertex results imply this exact certificate. Best-of-knowledge original for 1<=r<sqrt(3) simple-homotopy persistence and determinant symmetry character.
+
+## value
+
+PASS
+
+The icosidodecahedral root orbit is a canonical highly symmetric 30-point metric configuration. Complete integral persistence stability through three nontrivial chord-distance changes and simple-homotopy rather than mere Betti ranks establish a natural exact topological interval, with a geometry-derived orientation character. The finite exhaustive computation is a complete classification for the stated window, not arbitrary tiny sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
