@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Dürer graph and its edge ordering are defined without external graph data. The flag-complex link induction proves that eight is a universal minimum for a nonzero third-homology class, and equality forces an induced octahedron. Four disjoint two-edge paths are exactly such induced octahedra in this matching complex. The standalone exhaustive verifier builds all \(1037\) nonempty faces and \(93\) octahedral supports, verifies all signed cycle boundaries, and certifies the complete acyclic discrete-Morse matching leaving one vertex and \(22\) three-cells. Integral unit cancellations, a determinant-one \(22\)-column submatrix, and exact Hermite/Smith computations establish all generation and orbit-index claims; finite-field ranks are not substituted for integer proofs.
+## correctness
 
-## Originality — PASS, qualified
-The full statement, not just its title, was compared with accessible published matching-complex work. Shareshian–Wachs and Jonsson treat complete-graph or chessboard matching complexes; Engström gives connectivity results for claw-free independence complexes; Bayer–Goeckner–Jelić Milutinović treat homology-manifold matching complexes; Bayer–Jelić Milutinović–Vega prove an outerplanar theorem inapplicable to the Dürer graph; Zhao computes a different forcing polynomial for the generalized Petersen family. Published computations for the truncated tetrahedron and the dodecahedron concern different graphs and do not imply the Dürer classification. No covering equivalence, stronger result, or exact table was found in the accessible results examined, although limited indexing and inability to inspect every potentially relevant document remain residual risks. Absence from search results is not asserted as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete minimum-support classification for a natural planar cubic graph and explains how those shortest geometric homology generators interact integrally with symmetry. A concrete obstruction of quotient \((\mathbb Z/2)\oplus(\mathbb Z/2)\) when rational homology already spans has mathematical content not determined by Betti numbers, homotopy-wedge multiplicity, or generic octahedral cycle constructions. This is not an arbitrary numerical slice: the minimum support threshold, complete orbit set, and minimal number of spanning orbits are canonical structural questions.
+The graph GP(6,2) has twelve vertices, eighteen explicitly ordered outer-cycle/spoke/inner-triangle edges. The ordinary matching complex on those edges has f-vector (18,117,334,402,156,10), independently reconstructed. Its flag property gives an eight-vertex minimum support for nonzero H3 and forces equality supports to be octahedral (S0)^{*4}; these are exactly four disjoint two-edge paths spanning all twelve vertices. Independent full enumeration found precisely 93 carriers from 36 local incident-edge pairs. The provided complete 1037-face deterministic vertex-toggle discrete Morse matching has 507 pairs and critical faces one vertex plus 22 tetrahedral faces. Independently constructed every Hasse incidence and verified the matching is acyclic, so the Morse CW complex proves the wedge of 22 copies S3 (not merely rational homology). The inspected exact integer cancellation projects all 93 oriented 16-facet join cycles onto a 22-dimensional integral Morse lattice; each coordinate vector is primitive, a chosen 22 have signed determinant +1, establishing integral generation. Under the 12-element D6 action, carriers split into eleven orbits of lengths (6,12,6,3,12,12,12,12,6,6,6), with individual ranks (5,8,6,3,12,12,9,8,6,6,6) from exact normal forms. Among 165 3-orbit combinations, source integer Hermite/Smith reduction gives exactly 26 rational full-rank, of which 23 index1 and 3 index4, exceptional triples (2,4,10),(2,5,7),(2,5,10), each quotient (Z/2)^2; no two-orbit combination spans. An independent modular recomputation matched boundary ranks at primes 2,3,5,101, rank22 spanning by all carriers, 26 full-rank triples mod101 and exactly 23 mod2 with precisely these three parity exceptions. Integral group type (2,2) depends on source integer Smith reduction, not on modular checks alone.
 
-## Remaining limits
-The classification is confined to \(GP(6,2)\), and the bibliographic comparison cannot exclude all unpublished, inaccessible or unindexed equivalent results. The mathematical proof is self-reviewed and independently replayable, but no independent expert audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer–Jelić Milutinović–Vega prove a wedge for outerplanar underlying graphs, but GP(6,2) is nonouterplanar (independently checked), and an abstract wedge alone cannot entail shortest carriers or integral orbit cokernels. Zhao studies perfect-matching forcing-polynomial counts on GP(n,2), not matching-complex homology. The closest indexed index-four parity calculation for a Möbius ladder uses a different inclusion map and graph. Here the exact 93-carrier D6-orbit lattice, especially three noncyclic index-four obstructions, is not a trivial corollary of known wedge/homology results.
+
+## value
+
+PASS
+
+The Dürer graph is a canonical small generalized Petersen graph with nontrivial symmetry. Its complete finite induced-shortest-sphere census and the distinction between rational spanning and integral saturation of symmetry-orbit classes give a precise topological-arithmetic obstruction; the three (Z/2)^2 parity failures are meaningful information that ordinary ranks miss. This is a motivated natural finite classification, not an arbitrary parametric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
