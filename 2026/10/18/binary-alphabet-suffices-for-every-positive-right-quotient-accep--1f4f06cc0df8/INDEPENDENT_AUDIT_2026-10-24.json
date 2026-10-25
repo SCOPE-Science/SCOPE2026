@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:16:06.104085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m,n>=1 and target alpha>=m, let k=alpha+1,d=n+1. Two letter permutations on B=[k]xZ_d are a=(sigma,1), b=(tau,0) with sigma k-cycle and tau transposition. The first-coordinate permutation of ab is a (k−1)-cycle fixing one vertex, so a^k and (ab)^(k−1) yield pure counter shifts k and k−1; gcd 1 generates all Z_d for arbitrary d and hence full S_k x Z_d. Reachability and pairwise state-distinguishability show inputs have exactly m,n finals in their minimal DFAs; accepted B suffix projections equal Stab(k), whose preimage union of F_A is [k−1], yielding quotient asc=alpha and minimality. Low alpha<m follows published unary positive range [1,mn] using duplicate binary letter; empty cases are zero and nonemptiness excludes zero for m,n>0. Independent group closures for (k,d)=(2,2),(3,3),(4,3),(5,2) reproduced k!d and stabilizer sizes. Infinite claim follows coprime shifts, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2605.10852v1 Sections 2–3 and Appendix 0.A",
+          "https://arxiv.org/pdf/2208.14731 Section 3.7 Corollary 32"
+        ],
+        "reasoning": "German proves all positive quotient complexities with no fixed-alphabet bound, and explicitly constructs three-letter witnesses for high targets. Existence over some finite alphabet does not imply over exactly two. Rauch–Holzer proves positive unary range only up to mn.",
+        "searches": [
+          "https://arxiv.org/html/2605.10852v1 Theorem 3.1 and Appendix 0.A",
+          "https://arxiv.org/pdf/2208.14731 Corollary 32"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.10852v1",
+        "https://arxiv.org/pdf/2208.14731",
+        "https://arxiv.org/abs/2605.13385",
+        "Resultary: right quotient accepting state complexity permutation automata binary alphabet all positive values"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2605.10852v1",
+          "https://arxiv.org/pdf/2208.14731"
+        ],
+        "reasoning": "The fixed-binary theorem implies the previously established unbounded unrestricted spectrum but not conversely. The novelty is replacing separate counter generator c by coupling it to a k-cycle and extracting pure increments k and k−1. Unary existence supplies only low values and the optimality obstruction, not new binary high-range witnesses.",
+        "searches": [
+          "German 2026 arxiv:2605.10852v1 explicit three letter generators",
+          "Rauch Holzer arxiv:2208.14731 Corollary 32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2605.10852v1",
+          "https://arxiv.org/pdf/2208.14731"
+        ],
+        "reasoning": "Equivalent descriptions involve alphabet rank of group automata, two-generator product actions and fixed-binary right quotient spectra. German gives the unrestricted spectrum with a third generator; the high-range two-generator realization is additional.",
+        "searches": [
+          "binary alphabet accepting-state complexity right quotient permutation group languages all positive values",
+          "Resultary: right quotient accepting state complexity permutation automata binary alphabet all positive values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2208.14731",
+          "https://arxiv.org/html/2605.10852v1"
+        ],
+        "reasoning": "The precise unary spectrum [1,mn] was already tabulated and is cited, but no examined existing binary table/construction yields all positive integers for every pair. No assumption that nonhits prove global novelty.",
+        "searches": [
+          "right quotient permutation accepting state complexity binary spectrum table minimal alphabet 2",
+          "Resultary: right quotient accepting state complexity permutation automata binary alphabet all positive values"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing exact mathematical implications, not titles. The fixed-binary theorem implies the previously established unbounded unrestricted spectrum but not conversely. The novelty is replacing separate counter generator c by coupling it to a k-cycle and extracting pure increments k and k−1. Unary existence supplies only low values and the optimality obstruction, not new binary high-range witnesses.",
+      "residual_risks": [
+        "An older binary-alphabet two-generator witness not indexed under accepting-state quotient terminology might exist.",
+        "Witness automata not claimed minimal in total number of states among all possible realizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_UNRESTRICTED_NOT_BINARY",
+          "evidence": "The 2026 proof obtains high values with a,b,c generating independent S_k action and counter. No two-letter action of the claimed form is shown.",
+          "identifier_or_url": "https://arxiv.org/html/2605.10852v1",
+          "material_read": "Complete accessible HTML theorem/proof construction in Sections 2–3, high-range three-letter automata and Appendix 0.A",
+          "method": "Read original full primary arXiv HTML",
+          "title": "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata",
+          "trigger": "Same exact operation and complexity invariant"
+        },
+        {
+          "assessment": "PRIOR_UNARY_COVERAGE",
+          "evidence": "Corollary 32 establishes unary positive right quotient range [1,mn], directly used; no unbounded binary conclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14731",
+          "material_read": "Primary 13-page PDF, Section 3.7 and Corollary 32, PDF first page image inspected",
+          "method": "Read relevant paper section and screenshot of PDF",
+          "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+          "trigger": "Foundational unary bound and exact low-range witnesses"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATION_PARTIAL",
+          "evidence": "Reversal is a different language operation and cannot imply the right quotient final-set construction solely from its abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.13385",
+          "material_read": "Abstract/bibliography only",
+          "method": "arXiv abstract and search",
+          "title": "Exact Accepting-State Spectrum for Reversal of Permutation Automata",
+          "trigger": "Potential matching binary constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the exact minimum alphabet size at which every positive quotient accepting-state target can occur, sharpening the previously established unrestricted 3-letter high-range realization. An explicit two-generator group embedding is a meaningful state-complexity construction, not mere parameter relabeling; unary upper bound proves sharpness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.10852v1",
+    "https://arxiv.org/pdf/2208.14731",
+    "https://arxiv.org/abs/2605.13385",
+    "Resultary: right quotient accepting state complexity permutation automata binary alphabet all positive values"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only complete deterministic permutation automata, quotient accepting-state count and an alphabet of exactly two letters; not quotient total-state complexity or minimal construction size.",
+    "An older binary-alphabet two-generator witness not indexed under accepting-state quotient terminology might exist.",
+    "Witness automata not claimed minimal in total number of states among all possible realizations."
+  ],
+  "schema_version": 1
+}
