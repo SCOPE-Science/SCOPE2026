@@ -1,117 +1,143 @@
 {
   "correctness": {
-    "rationale": "Let z=e^t and h^2=z-1/4. Equal scaling of the two subedges of every original side forces the three old-vertex factors in the barycentric subdivision to coincide. The midpoint factors are therefore t-c,t-c,-c. Comparing the centroid-to-m12 and centroid-to-m23 equations requires t=2 log(R12/R23). Exact coordinates give (R12/R23)^2=(z+2)/(4z-1), so equality is equivalent to (2z+1)(z-1)=0. In the nondegenerate range z>1/4, only z=1 is possible. The converse at t=0 is immediate.",
+    "rationale": "For any t>−log 4, set z=e^t>1/4 and embed the scaled isosceles triangle with base endpoints (±1/2,0) and height h=sqrt(z−1/4). Its original side lengths are (e^(t/2), e^(t/2), 1), so it lies on the stated one-vertex discrete-conformal ray. Equal ratios on both halves of each original side force U_1=U_2=U_3=c and midpoint factors t−c,t−c,−c. For edges from the centroid to m12 and m23, the squared old distances agree at z=1; the new squared distances are 1/16+h²/36 and h²/9. Thus a necessary scaling equation is z=(z+2)/(4z−1), or (2z+1)(z−1)=0. In z>1/4 only z=1 remains, i.e. t=0; at t=0 all subdivided lengths coincide and zero new vertex factors suffice. Exact symbolic reconstruction confirmed this factorization and admissible boundary. No finite test is used as an infinite proof; no assertion is made about alternative subdivision metrics.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The 2015 problem is broader in asking for existence of some preserving subdivision scheme, but it states a question rather than a theorem covering barycentric subdivision.",
-        "Modern search results on discrete conformal maps concern vertex scaling, flips, convergence, or alternative subdivision notions; none returned a theorem that standard Euclidean barycentric subdivision preserves or fails to preserve the equivalence in general."
+        "Bauer Problem 6 (2015) poses the general existence question, not a theorem classifying the standard barycentric candidate.",
+        "Vaxman–Müller–Weber (2018) Section 4 treats Möbius-invariant canonical subdivisions and Section 7.2 explicitly leaves conformal-equivalence-preserving simultaneous subdivision as future work.",
+        "Rorberg–Vaxman–Ben-Chen (2023) treats continuous Möbius interpolation of a fixed vertex map; this is a distinct operation, not a metric subdivision preservation assertion."
       ],
-      "reasoning": "A solution of the general existence problem could dominate the motivation but would not by itself imply this exact failure theorem unless it analyzed the standard Euclidean barycentric scheme. No such broader covering theorem was found.",
+      "reasoning": "The broader preserving-scheme question could motivate the counterexample, but asking it or giving other interpolation operators cannot imply this exact negative result. The full barycentric construction is specified by Euclidean midpoints and centroid; none of the inspected broader results supplies a theorem that forces the displayed rigidity on the same metric. A different Möbius-invariant subdivision does not dominate this negative statement.",
       "searches": [
-        "metric subdivision scheme conformal equivalence triangulated surface",
-        "subdivision scheme conformal equivalence triangulated surface metric",
-        "barycentric subdivision vertex scaling triangulation conformal"
+        "Resultary: subdivision of discrete conformal structures barycentric metric triangles preserve vertex scaling Bobenko Bauer",
+        "Resultary: canonical Möbius subdivision discrete conformal equivalence barycentric counterexample",
+        "Web: Ulrich Bauer Subdivision of discrete conformal structures Problem 6 2015 barycentric PDF",
+        "Web: Canonical Möbius subdivision conformal equivalence geometric refinement",
+        "Web: barycentric Luo vertex scaling subdivision"
       ]
     },
     "checked_sources": [
-      "Bobenko–Pinkall–Springborn, arXiv:1005.2698, DOI 10.2140/gt.2015.19.2155.",
-      "Bauer Problem 6 in Oberwolfach Report 13/2015, DOI 10.4171/OWR/2015/13.",
-      "Literature-index searches under barycentric subdivision, midpoint subdivision, metric subdivision, vertex scaling, and discrete conformal equivalence.",
-      "Targeted web exact-form searches for barycentric subdivision with discrete conformal equivalence and vertex scaling.",
-      "Search-indexed conclusion excerpt of Canonical Möbius Subdivision, retained only as a residual-risk source."
+      "Ulrich Bauer, Problem 6, Open Problems in Discrete Differential Geometry (2015), https://page.mi.fu-berlin.de/rote/Kram/OWR-DDG15-problems.pdf",
+      "Bobenko–Pinkall–Springborn, Discrete conformal maps and ideal hyperbolic polyhedra (2015), arXiv:1005.2698v3, https://arxiv.org/pdf/1005.2698",
+      "Vaxman–Müller–Weber, Canonical Möbius Subdivision (ACM TOG 2018), https://www.researchgate.net/publication/329275368_Canonical_Mobius_subdivision",
+      "Rorberg–Vaxman–Ben-Chen, BPM: Blended Piecewise Möbius Maps (CGF 2023), https://onlinelibrary.wiley.com/doi/full/10.1111/cgf.14914",
+      "Springborn–Schröder–Pinkall, Conformal equivalence of triangle meshes (2008), DOI 10.1145/1360612.1360676, https://authors.library.caltech.edu/records/3jr66-h6j47",
+      "Resultary semantic searches (three queries); self-match excluded",
+      "Targeted published-web searches for Euclidean barycentric subdivision, midpoint/centroid vertex scaling, and preserving subdivision schemes"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Bobenko–Pinkall–Springborn provide the vertex-scaling definition and theory, not a subdivision theorem.",
-        "Bauer's Problem 6 asks for a preserving subdivision scheme and only identifies barycentric subdivision as an example of a metric subdivision scheme.",
-        "The new proof derives a contradiction for every nonzero t in the full admissible one-vertex ray."
+        "BPS Definition 2.1.1, equation (2–1), provides the nonlinear edge-length relation, which is used as a hypothesis and is not the negative subdivision conclusion.",
+        "Bauer Problem 6 (2015) asks for some preserving scheme; even a positive answer to that question would not contradict or imply a failure of one fixed Euclidean candidate.",
+        "Vaxman–Müller–Weber Section 7.2 and BPM Section 5 use different operator constructions and explicitly differ in the preserved property.",
+        "The submitted new midpoint-factor and centroid-distance equality implies (z+2)/(4z-1)=z for z>1/4, which has only z=1."
       ],
-      "reasoning": "The prior sources establish the definitions and motivation but do not imply either failure or preservation of standard Euclidean barycentric subdivision. The new midpoint-factor and centroid-distance equations are the missing implication.",
+      "reasoning": "No inspected earlier assertion, combined with routine parameter substitution, provides the concrete incompatibility unless one additionally performs the specific barycentric length computation. The foundational scaling equations alone are not the result. The one-triangle negative theorem is strictly weaker in scope than the general existence question and does not settle it.",
       "searches": [
-        "arXiv:1005.2698 full text discrete conformal equivalence subdivision",
-        "DOI 10.4171/OWR/2015/13 Problem 6 subdivision discrete conformal structures",
-        "barycentric subdivision discrete conformal equivalence vertex scaling triangle",
-        "metric subdivision scheme conformal equivalence triangulated surface"
+        "Resultary: barycentric subdivision Euclidean vertex scaling discrete conformal equivalence triangle centroid midpoint obstruction",
+        "Resultary: subdivision of discrete conformal structures barycentric metric triangles preserve vertex scaling Bobenko Bauer",
+        "Web: Ulrich Bauer Subdivision of discrete conformal structures Problem 6 2015 barycentric PDF",
+        "Web: Canonical Möbius subdivision conformal equivalence geometric refinement",
+        "Web: Springborn Schroder Pinkall 2008 conformal equivalence of triangle meshes barycentric subdivision"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "No indexed research record states that standard Euclidean barycentric subdivision fails on a single triangle or gives the iff t=0 classification.",
-        "The 2015 Oberwolfach problem asks whether a preserving metric subdivision scheme exists and names barycentric subdivision as a particular example.",
-        "The Bobenko–Pinkall–Springborn full text defines vertex-scaling discrete conformality and contains no occurrence of subdivision terminology."
+        "Resultary top hits on three searches contained a publication of the same finding; that self-match is not independent priority evidence. Other leading hits concerned different subdivision/Lipschitz/geometric questions.",
+        "Bobenko–Pinkall–Springborn (2015) equation (2–1) is an equivalent vertex-scaling formulation, but it does not formulate this centroid-to-midpoint compatibility obstruction.",
+        "Bauer (2015) Problem 6 names barycentric subdivision without resolving this particular standard Euclidean metric construction."
       ],
-      "reasoning": "Searches covered the exact combinatorial construction, midpoint/centroid aliases, the vertex-scaling formulation, and the general metric-subdivision wording. The found literature supplies the framework and open question but no implication of the stated rigidity theorem.",
+      "reasoning": "Aliases barycentric/centroid subdivision, midpoint refinement, vertex-scaling discrete conformality, and metric-subdivision scheme were compared by mathematical assertion, not title. No distinct prior publication found forces all nonzero t along the one-vertex equilateral ray to fail the subdivided vertex-scaling equations. A listing of the same publication gives no separate priority credit.",
       "searches": [
-        "barycentric subdivision discrete conformal equivalence vertex scaling triangle",
-        "midpoint subdivision preserves discrete conformal equivalence",
-        "Ulrich Bauer subdivision discrete conformal structures barycentric counterexample",
-        "metric subdivision scheme conformal equivalence triangulated surface",
-        "Web: \"barycentric subdivision\" \"discrete conformal\" metric",
-        "Web: \"metric subdivision\" \"discrete conformal\" barycentric",
-        "Web: \"subdivision\" \"discretely conformally equivalent\" barycentric"
+        "Resultary: barycentric subdivision Euclidean vertex scaling discrete conformal equivalence triangle centroid midpoint obstruction",
+        "Resultary: subdivision of discrete conformal structures barycentric metric triangles preserve vertex scaling Bobenko Bauer",
+        "Resultary: canonical Möbius subdivision discrete conformal equivalence barycentric counterexample",
+        "Web: barycentric subdivision vertex scaling discretely conformally equivalent triangles counterexample",
+        "Web: midpoint subdivision preserves discrete conformal equivalence",
+        "Web: barycentric subdivision conformally equivalent triangle mesh vertex factors"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The literature index returned no exact or near-exact record for this claim.",
-        "Web exact-form searches returned the 2015 open-problem statement and general discrete-conformal literature, not the one-parameter iff classification."
+        "Three Resultary queries: only close mathematical-record match was the same published result; no independent exact obstruction parameter classification appeared.",
+        "Web formula and alias searches found primary definition/problem papers, and distinct interpolation schemes, not a table or source with the polynomial (2z+1)(z-1) from this barycentric compatibility test."
       ],
-      "reasoning": "The result is a structural theorem rather than a table value. Exact-form and alias searches produced no prior database entry or published formula matching the obstruction equation.",
+      "reasoning": "This is a structural one-parameter iff theorem, not the lookup of a tabulated invariant. Exact-form, parameter, and construction searches did not find independent prior enumeration or formula; this is bounded negative evidence, not proof of novelty.",
       "searches": [
-        "barycentric subdivision discrete conformal equivalence vertex scaling triangle",
-        "midpoint subdivision preserves discrete conformal equivalence",
-        "Ulrich Bauer subdivision discrete conformal structures barycentric counterexample",
-        "Web exact phrase combinations of barycentric subdivision, discrete conformal equivalence, vertex scaling, and metric subdivision"
+        "Resultary: barycentric subdivision Euclidean vertex scaling discrete conformal equivalence triangle centroid midpoint obstruction",
+        "Resultary: subdivision of discrete conformal structures barycentric metric triangles preserve vertex scaling Bobenko Bauer",
+        "Resultary: canonical Möbius subdivision discrete conformal equivalence barycentric counterexample",
+        "Web: midpoint subdivision preserves discrete conformal equivalence",
+        "Web: barycentric subdivision conformally equivalent triangle mesh vertex factors"
       ]
     },
-    "rationale": "The defining literature and the 2015 open-problem statement were materially inspected, and targeted literature-index and web searches found no statement implying the exact one-triangle iff classification. The closest literature formulates the broader subdivision-preservation question rather than answering it for the standard barycentric metric.",
+    "rationale": "Best-of-knowledge PASS. Material inspection of the directly motivating 2015 Bauer problem and foundational BPS 2015 metric scaling shows no prior version of this one-parameter barycentric incompatibility. The 2018 canonical Möbius subdivision paper treats a distinct construction and specifically calls preservation of conformal equivalence future work; 2023 BPM interpolates pre-existing conformal meshes rather than proving that barycentric Euclidean metrics stay vertex-scaled. Three Resultary searches located the same published finding as a self-match only; this is not independent coverage or independent priority evidence. The exact 2008 foundation paper was abstract-only due public PDF size, an explicit residual risk. Absence of search results alone is not a novelty proof.",
     "residual_risks": [
-      "The obstruction is elementary and may have appeared in an unindexed note, lecture, or informal discussion under different terminology.",
-      "A current large subdivision paper could not be materially inspected in full; the accessible excerpt does not settle this exact claim but leaves a comparison risk.",
-      "The theorem addresses only the standard Euclidean barycentric metric rule and must not be read as a negative solution of the general subdivision-scheme existence problem."
+      "An unindexed note or elementary calculation could have already observed the obstruction, and failed searches do not establish absolute novelty.",
+      "The older 2008 Springborn–Schröder–Pinkall full article was not materially read; its abstract does not settle a possible implicit implication.",
+      "A single triangle is a triangulated surface with boundary; if an application insists on closed surfaces, the theorem is stated for the one-triangle disk, not a proved general classification of all closed complexes. The same local pattern can be embedded in a tetrahedral sphere, but this corollary was not part of the assigned RESULT.",
+      "The conclusion applies only to the induced Euclidean midpoint-and-centroid metric; other metrics on the barycentric combinatorics and other subdivision schemes remain open."
     ],
     "source_inspections": [
       {
-        "assessment": "FOUNDATIONAL; DOES NOT COVER SUBDIVISION CLAIM",
-        "evidence": "The paper defines discrete conformal equivalence by vertex-associated edge scale factors, lists primary MSC 52C26, and has no occurrence of subdivision terminology in the inspected full text.",
-        "identifier_or_url": "arXiv:1005.2698 / DOI:10.2140/gt.2015.19.2155",
-        "material_read": "Abstract, introduction, definition setup, classification, and a full-text search for subdivision terminology; title page was visually inspected.",
-        "method": "Lawful arXiv full text and indexed bibliographic record.",
-        "title": "Discrete conformal maps and ideal hyperbolic polyhedra",
-        "trigger": "Foundational source for the exact vertex-scaling definition and MSC ownership."
-      },
-      {
-        "assessment": "MOTIVATES CLAIM; DOES NOT STATE THE OBSTRUCTION",
-        "evidence": "The problem asks for existence of a preserving scheme and does not state whether standard Euclidean barycentric subdivision succeeds or fails.",
-        "identifier_or_url": "DOI:10.4171/OWR/2015/13",
-        "material_read": "Problem 6 statement and surrounding definition in the full Oberwolfach report; the relevant printed page was visually inspected.",
-        "method": "EMS/MFO full PDF and parsed text.",
+        "assessment": "Motivates the partial answer; question asks whether some metric subdivision scheme preserves equivalence and gives barycentric subdivision as an example; it does not prove failure of the standard Euclidean barycentric metric on a triangle.",
+        "evidence": "Problem 6: original edge metrics satisfy vertex scaling; asks for a preserving subdivision and identifies barycentric subdivision as a particular example (PDF lines 104–124, pages 3–4).",
+        "identifier_or_url": "https://page.mi.fu-berlin.de/rote/Kram/OWR-DDG15-problems.pdf",
+        "material_read": "Entire five-page question collection scanned for Problem 6, especially printed pages 3–4; pages 3 and 4 visually inspected.",
+        "method": "Full lawful OA PDF, parsed text and page screenshots; no access restrictions.",
         "title": "Open Problems in Discrete Differential Geometry — Problem 6: Subdivision of discrete conformal structures",
-        "trigger": "Directly asks whether a metric subdivision scheme preserves discrete conformal equivalence and names barycentric subdivision as a particular example."
+        "trigger": "Exact named subdivision-preservation question and barycentric candidate motivating the result."
       },
       {
-        "assessment": "RESIDUAL RISK ONLY",
-        "evidence": "The surfaced excerpt treats preservation of conformal equivalence under subdivision as an interesting future direction; because the complete document was not materially read, it is not used to assert noncoverage.",
-        "identifier_or_url": "https://www.geometrie.tuwien.ac.at/geom/ig/publications/moebiussubdivision/moebiussubdivision.pdf",
-        "material_read": "Search-indexed conclusion excerpt only; the full PDF fetch was blocked by its large size.",
-        "method": "Search-indexed excerpt; no claim of whole-document inspection.",
+        "assessment": "Definition 2.1.1 is exactly the edge scaling used; article does not state an induced Euclidean barycentric-subdivision compatibility theorem. Its known criterion is a framework, not the specific obstruction calculation.",
+        "evidence": "Definition 2.1.1, equation (2–1): tilde l_ij = exp((u_i+u_j)/2) l_ij (PDF page 7, lines 167–180); no subdivision text was found by full-text search.",
+        "identifier_or_url": "https://arxiv.org/pdf/1005.2698 (v3, 2015)",
+        "material_read": "Original abstract/introduction, full Section 2.1 defining vertex scaling, basic cross-ratio discussion, and full-text search for subdivision; PDF page 5 visually inspected. Not claiming every paragraph of the 62 pages was read.",
+        "method": "Full arXiv PDF accessible; relevant passages read and terminology searched.",
+        "title": "Discrete conformal maps and ideal hyperbolic polyhedra",
+        "trigger": "Foundational primary definition; possible general graph/triangulation equivalence implying the claim."
+      },
+      {
+        "assessment": "Defines a different Möbius-invariant subdivision construction, not the standard Euclidean-midpoint/centroid barycentric metric; specifically leaves conformal-equivalence-preserving simultaneous subdivision as future work. Not mathematically covering the claim.",
+        "evidence": "Section 4 constructs canonical vertex-star Möbius operations; Section 7.2 considers simultaneous subdivision preserving conformal equivalence as future work (full-text lines 6107–6114).",
+        "identifier_or_url": "https://www.researchgate.net/publication/329275368_Canonical_Mobius_subdivision (DOI:10.1145/3272127.3275007)",
+        "material_read": "Public author-posted article full-text HTML accessible; introduction, Sections 3–4 on Möbius-invariant canonical vertex-star operations, and Section 7.2 future-work statement materially read.",
+        "method": "Lawful public full-text HTML rendition, not truncated PDF snippet.",
         "title": "Canonical Möbius Subdivision",
-        "trigger": "Current search result explicitly mentions simultaneous subdivision of conformally equivalent meshes as future work."
+        "trigger": "Title and last-section text concern simultaneous subdivision of conformally equivalent meshes."
+      },
+      {
+        "assessment": "Interprets a given vertex-to-vertex map through Möbius interpolation and approximate quasi-conformal distortion; its numerical refinement is not preservation of the vertex-scaling metric relation under standard Euclidean barycentric subdivision.",
+        "evidence": "Intro and Section 5.1: blended piecewise Möbius interpolation of pre-existing corresponding vertices, with numerical refinement to estimate distortion; not a theorem of barycentric preservation.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/cgf.14914",
+        "material_read": "OA full-text Sections 1 and 2.3 and 5.1, including discussion of refining for numerical distortion tests.",
+        "method": "Publisher full-text HTML available lawfully.",
+        "title": "BPM: Blended Piecewise Möbius Maps",
+        "trigger": "Current OA paper working with discrete conformal maps and geometric interpolation/refinement."
+      },
+      {
+        "assessment": "Access-limited comparison; abstract describes convex-energy conformal mesh parameterization, not a subdivision theorem, but the unread full paper is retained as a low-to-moderate priority risk.",
+        "evidence": "Author abstract discusses conformal parameterization and convex energy, without a stated subdivision theorem; cannot assert whole-document noncoverage.",
+        "identifier_or_url": "https://authors.library.caltech.edu/records/3jr66-h6j47 ; DOI:10.1145/1360612.1360676",
+        "material_read": "Author repository abstract and paper metadata only; complete author-hosted paper was not materially examined.",
+        "method": "Public abstract and bibliographic record examined; full primary text not assessed.",
+        "title": "Conformal equivalence of triangle meshes",
+        "trigger": "Early defining 2008 paper on the same vertex-scaling metric notion; possible earlier generic implications."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_review_status": "passed",
+  "review_type": "scientific_assessment",
   "schema_version": 1,
-  "scope_run_id": "42a85f48-1da1-431b-b079-292cb5fd0109",
   "value": {
-    "rationale": "The 2015 open problem explicitly names barycentric subdivision as its canonical concrete example. The theorem gives a complete exact failure classification along the simplest nontrivial vertex-scaling ray on the smallest two-dimensional complex, so it removes the standard Euclidean barycentric construction as a universal solution and identifies the precise centroid-edge obstruction.",
+    "rationale": "Bauer 2015 explicitly singles out barycentric subdivision as a natural metric-subdivision example while asking if any scheme can preserve vertex-scaling equivalence. The construction shows that the canonical Euclidean midpoint/centroid realization fails already on the smallest two-dimensional simplicial domain and gives a complete iff classification along a naturally motivated one-vertex ray. It is a substantive structural obstruction to that candidate, not an arbitrary slice; its utility is to rule out using that elementary construction as a universally preserving scheme. It is not claimed to solve the broader existence question or other subdivision metric assignments.",
     "status": "PASS"
   }
 }
