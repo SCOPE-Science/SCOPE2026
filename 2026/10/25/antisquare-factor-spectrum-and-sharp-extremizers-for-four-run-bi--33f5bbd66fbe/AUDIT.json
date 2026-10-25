@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md §§ Finding–Proof: four factor types, interval count, equality cases, simplex integral.",
+      "verify.py: enumerated factor sets and finite extrema; VERIFY_OK for 4096 quadruples and n=4..80.",
+      "Baranwal et al., arXiv:2209.09223, Lemma 14 and Theorem 11 give the prior run-form constraint."
+    ],
+    "rationale": "The exhaustive antisquare run-form classification is checked against the prior run-parity lemma. The four disjoint types are counted by independent interval cardinalities. Two exhaustive charge branches prove the length-minus-one bound and solve equality in both orientations; the explicit families meet the bound. The leading mean is computed using an Exp(1) simplex representation, with the rate-one exponential combination divided by mean total 4. Direct factor-set enumeration matches the formula for all 4096 positive quadruples of sizes 1..8 and all length 80 fixed-length maxima; those finite computations are not used as infinite proof.",
+    "residual_risks": [
+      "The O(1) Riemann-sum remainder relies on the standard Lipschitz simplex-grid estimate, explicitly explained in the proof."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ng et al., arXiv:1904.09157, Section 2 studies upper bounds on host length subject to fixed small allowed numbers of square and antisquare types.",
+        "Baranwal et al., arXiv:2209.09223, Sections 5–7 treat avoidance thresholds, minimal antisquares and good infinite words."
+      ],
+      "reasoning": "Neither source offers a universal host-dependent count on all four-run binary words or a stronger theorem from which the sharp n-1 classification and uniform-composition mean follow directly. The two papers study different quantifiers: avoiding a bounded repertoire versus counting all antisquares in a prescribed host.",
+      "searches": [
+        "\"antisquare\" \"number of distinct\" \"runs\" binary",
+        "\"antisquares\" \"4 runs\" maximum distinct",
+        "arxiv:1904.09157 §§1–2",
+        "arxiv:2209.09223 §§1,5,6,7"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.09223, first public 2022-09-19",
+      "arxiv:1904.09157, first public 2019-04-19"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published lemma supplies the possible antisquare run forms but has no imposed four-run host parameters.",
+        "The host-length avoidance table covers finite thresholds and does not yield all-positive-quadruple counts."
+      ],
+      "reasoning": "The local shape restriction, although essential, leaves four distinct boundary/center counting families whose cardinalities vary with a,b,c,d. Their exact maxima, equality cases and 7/16 mean require further calculations not stated by prior sources.",
+      "searches": [
+        "\"antisquare\" \"four-run\" factors sharp formula",
+        "arxiv:2209.09223 Lemma 14 / Theorem 11",
+        "arxiv:1904.09157 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baranwal et al., arXiv:2209.09223, Lemma 14 classifies permissible run-count residues and the proof of Theorem 11 names two- and three-run antisquares but does not count them across four-run hosts."
+      ],
+      "reasoning": "Equivalence would require the complete four-parameter count, and not merely the allowable local shape. The prior shape restriction is a lemma used in the new calculation, not an equivalent enumeration or extremal statement.",
+      "searches": [
+        "\"antisquare\" \"run lengths\" count distinct factors",
+        "\"four-run\" \"antisquare\" enumeration distinct factors",
+        "arxiv:2209.09223 §§6–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible primary 2019 paper has a finite avoidance-length table by prescribed small numbers of squares and antisquares; it does not tabulate the four-run factor count or mean.",
+        "The 2022 primary paper has a table of minimal antisquare representatives rather than counts by four-run host composition."
+      ],
+      "reasoning": "Neither inspected table evaluates the exact four-run statistic at arbitrary parameters. A numerical table of words with few antisquares does not imply the all-parameter formula or equality families.",
+      "searches": [
+        "\"antisquare complexity\" \"binary words\" runs",
+        "\"antisquare\" \"four runs\" count factors",
+        "\"antisquares\" \"n-1\" distinct"
+      ]
+    },
+    "rationale": "The 2022 published run-parity constraint and two-/three-run antisquare shapes are acknowledged prior work; the new precise host-count formula, equality families, fixed-length extremum, and mean are not stated or implied by the inspected avoidance/minimality theorems. The 2019 work limits allowed pattern counts instead of optimizing over all four-run host words. Exact-claim web/database searches did not return a dominating theorem. An unindexed equivalent enumeration remains possible.",
+    "residual_risks": [
+      "An earlier unindexed specialization of the run-type lemma may contain an equivalent exact enumeration.",
+      "Only relevant primary passages were materially inspected, rather than all citations and derivative monographs; database search is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Run-shape lemma and forms are prior; no complete four-run host-dependent number, equality cases or expectation identified in inspected relevant sections",
+        "evidence": [
+          "arXiv:2209.09223, §1 and §§5–7; especially Lemma 14 and proof of Theorem 11",
+          "https://arxiv.org/pdf/2209.09223"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.09223",
+        "material_read": "Full accessible introduction and section structure; detailed Sections 5 and 6, especially Lemma 14, Lemma 15 and proof of Theorem 11, and Section 7 scope",
+        "method": "Open-access arXiv full text, source PDF and page-image inspection",
+        "title": "Antisquares and Critical Exponents",
+        "trigger": "Exact same antisquare object and published run classification"
+      },
+      {
+        "assessment": "Targets extremal avoidance under bounded numbers of square/antisquare types rather than fixed-run host spectrum; no implication to the new formula",
+        "evidence": [
+          "arXiv:1904.09157, §1–2",
+          "https://arxiv.org/pdf/1904.09157"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.09157",
+        "material_read": "Accessible introduction, Section 2, classification of finite host lengths under small allowed antisquare counts and table context",
+        "method": "Open-access arXiv full text, source PDF and page-image inspection",
+        "title": "New Results on Pseudosquare Avoidance",
+        "trigger": "Earlier same-object quantitative paper with a distinct-count table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33f5bbd6-6fbe-42fc-b7ad-2223e10fc901",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Baranwal et al. arXiv:2209.09223 motivates counting distinct antisquare factors through avoidance thresholds.",
+      "RESULT.md §§2–4 establishes full count, sharp equality classification and mean."
+    ],
+    "rationale": "Four alternating runs form the first family with both opposite-orientation three-run antisquares supported at two distinct interior centers. This natural first competing-center host family admits an exact count for arbitrary run lengths, a sharp universal length-minus-one ceiling with all maximizers, and the typical density seven-sixteenths. These together determine structural, extremal and average behavior of a classical factor invariant, not an isolated small-size census or a mere restatement of the published run-parity lemma.",
+    "residual_risks": [
+      "The paper is deliberately restricted to four runs; significance is an exact natural restricted classification, not a claim about arbitrary binary words."
+    ],
+    "status": "PASS"
+  }
+}
