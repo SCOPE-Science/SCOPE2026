@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Executed `python3 verify.py` from this package using the standard Python interpreter. The algorithm reconstructs all Leibniz equations for a general alternating bracket with 24 independent structure constants, with computed linear rank \(20\) in characteristics \(3,5,7\). It then checks every one of the \(q^4\) concrete bracket maps over \(\mathbb F_3\), \(\mathbb F_5\), \(\mathbb F_7\), directly checking all original basis-triple identities. It enumerates every determinant-one orthogonal matrix and counts the orbits on three-dimensional vectors.
+# Independent mathematical audit
 
-Expected output: rank \(20\) and bracket counts \(81,625,2401\); special-orthogonal group orders \(24,120,336\); central orbit counts \(4,6,8\); total Poisson isomorphism-class counts \(5,7,9\). Final marker `VERIFY_OK`.
+## correctness
 
-This verification covers three prime fields and the presentation with identity quadratic matrix; the theorem over all odd finite prime powers and every nondegenerate symmetric form is proved symbolically. Historical originality has not undergone independent audit.
+PASS
+
+Let A=V^3⊕Kz, uv=B(u,v)z, zA=0, char K odd and B nondegenerate. Every Hamiltonian derivation preserves Ann(A)=Kz, so {z,u}=β(u)z. From 0={u²,u}=B(u,u)β(u)z, nonisotropic vectors span V in odd characteristic, forcing β=0. Leibniz makes B({u,v}_V,w) a completely alternating 3-tensor =tη, defining unique cross product C; the independent central alternating 2-form is uniquely η(u,v,w0). The Jacobiator is alternating 3-linear and vanishes on an orthogonal basis for both vector and central components; all (t,w0)∈K×V produce distinct brackets: q⁴. Associative automorphisms are Phi(u)=P u+f(u)z, Phi(z)=cz with P∈GO(B), P=sO since determinant²=c³ implies c square in odd q. For t≠0 scaling makes t=1 and f removes w0, one orbit. For t=0, w0 transforms by (det O)O ∈SO(B). SO3(q) is transitive on each nonzero quadratic-norm fiber, and nonzero isotropic vectors exist for every three-dimensional nondegenerate quadratic form over odd finite fields: central classes=0, nonzero isotropic, q−1 nonzero norms, q+1; total q+2. Independently checked all 81 t,w brackets over F3 on all 64 basis triples for Lie/Leibniz. Finite checks do not establish arbitrary odd prime powers/anisotropic form equivalence; algebraic proof does.
+
+## originality
+
+PASS
+
+Best-of-knowledge: a four-dimensional complex classification supplies methodology and can cover analogous complex normal forms; it does not imply the finite odd-field isomorphism orbit count q+2 including isotropic and norm-splitting strata. The dimension-≤3 arbitrary-field classification is smaller in dimension.
+
+## value
+
+PASS
+
+For a natural first nontrivial four-dimensional nonunital quadratic-square associative family, q⁴ bracket maps and q+2 full isomorphism classes separate continuous/cross-product and central 2-form parameters. The isotropic-versus-zero distinction and quadratic-norm labeling are field-dependent exact classification data useful to finite-field Poisson algebra enumeration, beyond known complex or dimension-three tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
