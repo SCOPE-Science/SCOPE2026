@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The theorem has precise n->infinity quantifiers and conditioning. The finite PMF is checked against the primary published formula and independently enumerated exactly to n=5 for five p values. The normalization is exact, the tree-count Stirling estimate gives compact bulk convergence and integrable endpoint bounds, and the finite-mass split controls singular corners; the final trigonometric integral and outer matching are explicit. Finite diagnostics are not substituted for asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harris, Ribeiro and Yin 2025 extend to m<=n and prove order bounds with new fractional-occupancy asymptotics; their fixed m/n<1 regime does not imply the critical m=n window.",
+        "Bellin 2021 Theorem 1 bounds classical parking-coordinate TV at O(1/sqrt(n)) and does not yield a p-dependent crossover."
+      ],
+      "reasoning": "The later paper allows m=n but its relevant theorems are finite inequalities; no strong asymptotic uniform in p near 1/2, nor sharp limiting norm, is identified. The older classical results cover p=1 at a nonsharp order.",
+      "searches": [
+        "arXiv:2502.00269v1 sections 2.2, 3",
+        "arXiv:2108.08661v1 Theorem 1, section 3",
+        "\"last car\" \"parking\" \"total variation\" \"constant\" 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.00536v1",
+      "arXiv:2111.12850v1",
+      "arXiv:2108.08661v1",
+      "arXiv:2502.00269v1",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i3p18/pdf/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Durmić et al. use triangle inequalities and one-atom lower bounds to establish orders, insufficient to resolve the proposed n-scaled crossover constant.",
+        "The kernel estimate and endpoint measure split plus exact sinusoid integral supply additional nontrivial steps not contained in the stated inequalities."
+      ],
+      "reasoning": "An order statement does not imply a leading constant, and the fixed-bias results do not control parameter sequences with deviation O(n^-1/2). The later general inequalities do not fix the continuum crossover either.",
+      "searches": [
+        "arXiv:2211.00536v1 section 2.4 proofs Theorems 5 and 6",
+        "arXiv:2502.00269v1 Theorem 3.3 Proposition 3.4",
+        "arXiv:2108.08661v1 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Durmić et al., Theorem 5/6: TV is Theta(1/n) at p=1/2, Theta(n^-1/2) when p is fixed non-half; no numerical limiting coefficient or varying-p window.",
+        "No mathematical-results query returned a match for the displayed crossover law; closest parking-function matches concerned polytopes, not conditional last preferences."
+      ],
+      "reasoning": "The exact finite pmf is equivalent to an Abel tree-count kernel but not to the claimed asymptotic TV norm; its first-order cancellation has two singular boundary masses. The square-root interpolation and scaling are not mere restatements of fixed-parameter rate orders.",
+      "searches": [
+        "probabilistic parking functions last preference critical window p=1/2+c/sqrt(n) total variation exact crossover constant",
+        "forward-backward coin parking preference distribution sharp total variation n times limit 1 Borel boundary layer",
+        "\"probabilistic parking functions\" \"critical window\" total variation",
+        "arXiv:2211.00536v1 eqs. (2.35),(2.38),(2.43)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tian and Treviño 2021 count successful parking outcomes; no tabulation of the last-preference TV asymptotic.",
+        "The explicit finite tree-count sum is from Durmić et al.; its numerical coefficients are not presented as new."
+      ],
+      "reasoning": "The claim is an infinite asymptotic statement depending on a continuum window parameter, not a recomputed small-n table. No exact-table lookup with the full stated norm limit was found.",
+      "searches": [
+        "parking function last car preference near symmetric p=1/2 asymptotic double scaling total variation 1+sqrt(1+32c^2/pi)",
+        "\"probabilistic parking functions\" \"double scaling\" \"Borel\"",
+        "arXiv:2111.12850v1 section 2"
+      ]
+    },
+    "rationale": "The 2021 original random-direction model and the 2022 conditional preference formula are explicitly credited. The inspected 2022/2023 paper establishes only Theta rates for fixed bias; Bellin gives classical single/multiple-coordinate bounds, and the 2025 extension gives rates for m/n strictly below one. The new asymptotic crossover function, sharp endpoint constant and matched off-critical constant were not stated or implied by an inspected theorem. Search-based priority is not absolute; residual risk is documented.",
+    "residual_risks": [
+      "A sharp variation-norm limit might be derivable from an uncited stronger theorem or unindexed manuscript not returned by available searches.",
+      "Historical priority cannot be definitively established by negative search results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides input finite law and Theta bounds; no sharp crossover statement",
+        "evidence": [
+          "Theorem 3 equation (2.20) decomposes preferred spot against final vacancy.",
+          "Equation (2.35) gives the unbiased law; Theorems 5 and 6 give Theta rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.00536",
+        "material_read": "Full official journal PDF introduction and Theorems 1-6, detailed formulas/proof sections 2.3 and 2.4 (pages 12-18)",
+        "method": "Read PDF text and inspected rendered pages 3, 16, 17",
+        "title": "Probabilistic Parking Functions",
+        "trigger": "Exact same conditional preference distribution and fixed-parameter TV rates"
+      },
+      {
+        "assessment": "Introduces protocol and overall success count but no conditional final-preference crossover",
+        "evidence": [
+          "Section 2 Theorem 4 shows expected successful count (n+1)^(n-1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.12850",
+        "material_read": "Introduction and complete section 2 random direction parking",
+        "method": "Read arXiv HTML and author-hosted PDF text; inspected a rendered PDF page",
+        "title": "Generalizing Parking Functions with Randomness",
+        "trigger": "Earlier public source for identical randomized direction protocol"
+      },
+      {
+        "assessment": "Bounds single-coordinate classical TV by order n^-1/2; not the sharp critical parameter window",
+        "evidence": [
+          "Theorem 1(i) is an O(k/sqrt(n)) bound for uniform classical parking functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.08661",
+        "material_read": "Introduction Theorem 1 and section 3 TV proof, including Theorem 1 proof and Proposition 10 bounds",
+        "method": "Read full-text arXiv HTML relevant statements and proofs",
+        "title": "Asymptotic behaviour of the first positions of uniform parking functions",
+        "trigger": "Possible stronger one-coordinate TV law for classical parameter p=1"
+      },
+      {
+        "assessment": "General finite inequalities and fractional-occupancy asymptotics, not the m=n varying-p sharp crossover",
+        "evidence": [
+          "Proposition 3.4 treats m=cn with fixed 0<c<1.",
+          "Theorem 3.3 contains bounds, not an exact asymptotic crossover norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.00269",
+        "material_read": "Introduction, section 2 main formulas and section 3 Theorem 3.3, Proposition 3.4, proof",
+        "method": "Read full-text arXiv HTML statements and relevant proofs",
+        "title": "Probabilistic (m,n)-Parking Functions",
+        "trigger": "Direct later extension potentially subsuming TV results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24669551-b33f-40a1-819f-70b1e6d3c40b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source distinguishes two rates at p=1/2 and fixed non-half p but leaves their transition as p depends on n unresolved. The exact continuum crossover function identifies the natural width n^-1/2, unifies two competing scales, derives a sharp TV limit at symmetry and an outer leading coefficient, and explains a new endpoint/bulk mechanism. It answers a distributional question for the model central to the source, rather than a trivial numerical variant.",
+    "status": "PASS"
+  }
+}
