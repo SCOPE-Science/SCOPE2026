@@ -1,15 +1,21 @@
-# Scientific review: Paley-19 out-neighborhood complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the quadratic-residue arc orientation, defines all blocks and faces explicitly, and gives complete quantifiers (the single prime \(19\), all \(171\) affine maps). The recovered face vector is independently re-enumerated. A directly replayable finite certificate checks \(3508\) legal elementary simplicial collapses and \(404\) signed integral unit pivots with zero residual boundary matrix. The complete two-skeleton gives simple connectivity; the integral Smith decomposition and two-skeletal Hurewicz/Whitehead argument justify the full wedge type. A separate full-chain \(\mathbb F_2\) calculation agrees with all homology ranks. Signed fixed-face Lefschetz calculations check all affine characters, not just a sampled element. Remaining risk: ordinary implementation error in a finite certificate; the two distinct enumerations and checkers reduce this risk, but they are not an independent external audit.
+## correctness
 
-## Originality — PASS
-Actual semantic searches for Paley-19 out-neighborhood homotopy, affine quotient homology, equivalences to directed flag complexes, and general doubly regular tournament classifications were compared with previously indexed mathematical claims and published primary work. Dochtermann–Singh [1] studies the same *construction* and its generalities, not this named complex's integer decomposition or symmetry character. Govc [2] and the closest published Paley-19 record calculate the *directed flag complex*, whose faces are different; neither implies the neighborhood-complex statement. Existing low-order tournament neighborhood censuses do not cover \(19\) vertices. Exact or unindexed equivalent calculations remain possible, and not every external repository full text was accessible.
+PASS
 
-## Mathematical value — PASS
-This named doubly regular tournament is a canonical highly symmetric example of the construction in [1]. Its nontrivial, mixed-dimensional integral homotopy \(S^2\vee\bigvee^{78}S^3\) is not determined by the small-tournament and directed-flag classifications. The complete affine rational character adds information beyond Betti numbers and determines the rational homology surviving the natural symmetry quotient. These are exact topological invariants with a motivated link to the published tournament-neighborhood problem, not arbitrary table slices.
+For p=19 quadratic residues R (9 elements), X is the union of nineteen out-neighborhood 8-simplices, not a directed-flag complex. Independent combinatorial generation gives 8246 nonempty faces with f-vector (19,171,969,2223,2394,1596,684,171,19) and mod-2 reduced β2=1 β3=78. Crucially, direct independent JavaScript replay of the actual package certificate.json Git blob 3859cec9512ea14ee14351b74642a3a96ecbfdc4 checked ALL 3508 free-face collapses, terminal (f2,f3)=(558,482), ALL 404 signed unit pivots and zero 154×78 residual integer matrix. Complete 2-skeleton gives π1=0; ∂2 rank153, primitive ∂3 image means H2=Z and H3=Z^78, and degree vectors of 3-cell attachments on wedge of S2 yield the claimed S2∨78S3. Independently enumerated all 171 affine signed simplex Lefschetz traces: H3 counts (identity78:1, translations2:18, order3 -3:38, order9 0:114). Odd group order forces H2 sign character trivial; averaging gives quotient β2=1 β3=0. No integral quotient claim.
 
-## Relationship to literature and limitations
-The result does not generalize to every prime or imply torsion-freeness of all tournament neighborhood complexes. The finite exact certificate is a proof aid; no independent human or external mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after new searches and claim-vs-prior comparisons, subject to explicitly listed source access and priority risks. The complete Paley-19 neighborhood character and integral homotopy are not implied by directed flag or general Hom results.
+
+## value
+
+PASS
+
+The smallest nineteen-vertex Paley tournament with a nontrivial affine symmetry supplies a concrete exact mixed-dimensional directed neighborhood homotopy and complete character; separating neighborhood topology from known directed-flag results is a meaningful finite invariant and could serve as a benchmark for directed Hom and quotient questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

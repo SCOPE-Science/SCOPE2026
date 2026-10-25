@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Run `python3 make_certificate.py` in this directory to regenerate the complete integer certificate, then `python3 verify_certificate.py` and `python3 independent_mod2.py` to check it. They require Python 3.10+ only. `CHECKS.txt` records the exact expected console output. All paths refer to files in this package.
+## correctness
 
-`make_certificate.py` enumerates every face of nineteen nine-point quadratic-residue blocks, records exactly 3508 elementary simplicial face/coface collapses, reconstructs the final signed integer boundary from tetrahedra to triangles, and records 404 unit pivots. `verify_certificate.py` uses a different face enumeration and replays every recorded collapse against the *current* face/coface structure and every integer pivot against the *current* sparse matrix. It also checks all 171 affine automorphisms and orientation-sensitive Lefschetz traces.
+PASS
 
-`independent_mod2.py` never uses the collapsed complex or certificate: it independently computes the original unreduced simplicial boundary ranks over the two-element field, confirming the predicted Betti dimensions. This finite-field calculation is not used to infer integral torsion-freeness. Instead, the integer unit-pivot certificate establishes that all nonzero Smith factors of the signed boundary are units. Simple connectivity is established separately from the complete initial two-skeleton; the wedge homotopy conclusion uses Hurewicz and the homotopy classification of three-cell attachments to a simply connected two-complex.
+For p=19 quadratic residues R (9 elements), X is the union of nineteen out-neighborhood 8-simplices, not a directed-flag complex. Independent combinatorial generation gives 8246 nonempty faces with f-vector (19,171,969,2223,2394,1596,684,171,19) and mod-2 reduced β2=1 β3=78. Crucially, direct independent JavaScript replay of the actual package certificate.json Git blob 3859cec9512ea14ee14351b74642a3a96ecbfdc4 checked ALL 3508 free-face collapses, terminal (f2,f3)=(558,482), ALL 404 signed unit pivots and zero 154×78 residual integer matrix. Complete 2-skeleton gives π1=0; ∂2 rank153, primitive ∂3 image means H2=Z and H3=Z^78, and degree vectors of 3-cell attachments on wedge of S2 yield the claimed S2∨78S3. Independently enumerated all 171 affine signed simplex Lefschetz traces: H3 counts (identity78:1, translations2:18, order3 -3:38, order9 0:114). Odd group order forces H2 sign character trivial; averaging gives quotient β2=1 β3=0. No integral quotient claim.
 
-Scope: a single finite 19-vertex tournament, its out-neighborhood complex, and the specified odd-order affine group. No statement about all primes, unknown higher-dimensional families, or integral orbit-space torsion has been verified. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after new searches and claim-vs-prior comparisons, subject to explicitly listed source access and priority risks. The complete Paley-19 neighborhood character and integral homotopy are not implied by directed flag or general Hom results.
+
+## value
+
+PASS
+
+The smallest nineteen-vertex Paley tournament with a nontrivial affine symmetry supplies a concrete exact mixed-dimensional directed neighborhood homotopy and complete character; separating neighborhood topology from known directed-flag results is a meaningful finite invariant and could serve as a benchmark for directed Hom and quotient questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
