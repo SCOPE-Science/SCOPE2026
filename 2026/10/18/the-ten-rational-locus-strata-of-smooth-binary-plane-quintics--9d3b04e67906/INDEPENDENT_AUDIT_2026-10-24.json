@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:17:34.430281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is about homogeneous degree-five nonzero equations over F2, not abstract genus-six isomorphism types. Interpolation evaluation V_5 -> F2^7 is surjective, with each rational-zero pattern supported by 2^14 coefficient vectors. The Fano-plane action has ten subset orbits with multiplicities (1,7,21,7,28,7,28,21,7,1). Independent integer arithmetic gives sum multiplicity*per-subset smooth counts 688128 and blocking sum 242326, reducing to 17309/49152; 64 of 128 subsets are blocking. Correct geometric smoothness test: in characteristic two, Euler degree five gives F=sum X_i d_iF; the three degree-four derivatives form a homogeneous regular sequence iff their quotient has no projective support; regularity gives socle degree 9, so surjectivity (rank 66) of S6^3 -> S10 characterizes smoothness. Inspected both actual C++17 sources at the frozen Git tree: direct 2^21 enumeration using binary Gaussian elimination and independent GL3(2)-orbit enumeration using a different ordering/pivot method. The exhaustive 2^21 runs were NOT independently repeated in this execution; the supplied exact algorithms and their coverage, not merely saved output logs, were inspected. The 1516/2688 projective-orbit refinement requires those exhaustive runs and is consistent with established aggregate 4204. Finite domain is exhaustive by construction when programs terminate successfully; no claim for degrees/fields other than (5,F2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.5 provides asymptotic independence as q grows under degree assumptions.",
+          "The census enumerates genus-six isomorphism classes with a plane-quintic stratum, not the joint 10-subset incidence table."
+        ],
+        "reasoning": "Neither asymptotics in q nor aggregate genus-six classification mathematically yields the ten conditional coefficient counts without new evaluation.",
+        "searches": [
+          "Asgarli Ghioca Yip 2024 Most plane curves over finite fields are not blocking, Theorem 1.5",
+          "Huang Kedlaya Lau 2024 A census of genus 6 curves over F2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2211.08523",
+        "https://arxiv.org/abs/2402.00716",
+        "https://github.com/junbolau/genus-6/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 blocking paper covers one-half of all binary degree>=3 coefficient vectors, not the proportion 242326/688128 among smooth forms.",
+          "The 2024 census counts 4204 isomorphism types, lacking stratification by the specified embedded rational-locus subset."
+        ],
+        "reasoning": "Neither cited published theorem implies these exact ten fiber counts without additional finite arithmetic.",
+        "searches": [
+          "arXiv:2211.08523 Example 7.1 binary unconditioned fraction",
+          "arXiv:2402.00716 Section 3.3 genus 6 plane quintic",
+          "Resultary smooth Fano-plane blocking quintic exact counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blocking is Fano-plane hitting of all seven rational lines; every rational zero-set is one of ten PGL3(2)-orbits.",
+          "Earlier published probability 1/2 is unconditioned, whereas this result conditions on geometric smoothness of embedded quintics."
+        ],
+        "reasoning": "Same Fano incidence underlies the statement; unconditioned blocking and geometric smoothness form a joint statistic, not the same invariant.",
+        "searches": [
+          "Resultary: geometrically smooth plane quintics over F2 Fano rational points exact blocking ten configurations genus six census",
+          "Asgarli Ghioca Yip arXiv:2211.08523 Example 7.1",
+          "Huang Kedlaya Lau arXiv:2402.00716 Section 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published plane-quintic aggregate 4204 and stack-weighted 4096 match 1516+2688 and 688128/168, respectively.",
+          "Their full equation database is available for postprocessing and creates a specific priority risk; no identical tabulation located in inspected text."
+        ],
+        "reasoning": "Aggregate database equality is a consistency check, not priority for this finer table; full machine-readable records could nonetheless already encode it.",
+        "searches": [
+          "Huang Kedlaya Lau arXiv:2402.00716 plane quintic 4204 database",
+          "junbolau/genus-6 GitHub Census/plane_quintic",
+          "Resultary exact joint smooth binary plane quintic blocking table"
+        ]
+      },
+      "rationale": "The precise ten rational-point-subset Fano-orbit smoothness distribution and smooth-conditioned blocking fraction are not given by the inspected published general blocking results or by the aggregate genus-six census. Best-of-knowledge, not a claim that older equation data cannot compute the same table.",
+      "residual_risks": [
+        "An unindexed output or appendix of the older complete genus-six census might already contain this same ten-by-smoothness table.",
+        "The full 2^21 coefficient enumeration was inspected through exact source, not independently rerun in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers aggregate plane-quintic curve isomorphism counts; no inspected ten-Fano-stratum or blocking-conditioned table",
+          "evidence": "4204 isomorphism classes; weighted count 4096; published complete equation data remain a significant latent-coverage risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.00716",
+          "material_read": "Primary paper Section 3.3 and overall census tables, plus repository README describing Census/plane_quintic",
+          "method": "Read available primary full text on its original OA source; inspect relevant theorem/sections and compare exact statements.",
+          "title": "A census of genus 6 curves over F2",
+          "trigger": "Same field, genus, and explicit plane-quintic database"
+        },
+        {
+          "assessment": "Reports unconditioned binary one-half and asymptotic smooth-blocking independence, not specified q=2,d=5 joint counts",
+          "evidence": "Its main results have different quantifiers and do not imply the ten smooth fiber counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.08523",
+          "material_read": "Published abstract and source discussion of Theorem 1.5, Example 7.1, and line-incidence counting",
+          "method": "Read available primary full text on its original OA source; inspect relevant theorem/sections and compare exact statements.",
+          "title": "Most plane curves over finite fields are not blocking",
+          "trigger": "Exact same incidence property and q=2 specialization"
+        },
+        {
+          "assessment": "Confirms complete pre-existing equation data. The specific Fano-incidence refinement was not extracted from every database record in this run.",
+          "evidence": "Risk of earlier unindexed derivability rather than proof of novelty.",
+          "identifier_or_url": "https://github.com/junbolau/genus-6/",
+          "material_read": "Repository README, location of Census/plane_quintic and representative list structure",
+          "method": "Read available primary full text on its original OA source; inspect relevant theorem/sections and compare exact statements.",
+          "title": "A census of genus 6 curves over F2, equation data",
+          "trigger": "Possible exact database or table already covering case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated finite complete classification: rational point loci of smooth genus-six plane quintics over the smallest finite field are governed by the Fano plane, and blocking is a natural incidence phenomenon. The exact dependence of geometric smoothness on ten Fano configurations and its difference from unconditioned half-probability are not merely abstract renaming, generic asymptotics, or recovery of aggregate 4204; precise counts are independently useful for finite-field curve databases and testing arithmetic heuristics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2211.08523",
+    "https://arxiv.org/abs/2402.00716",
+    "https://github.com/junbolau/genus-6/",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/the-ten-rational-locus-strata-of-smooth-binary-plane-quintics--9d3b04e67906/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact scope: geometrically smooth, nonzero homogeneous plane quintic equations over F2, with the given embedding.",
+    "Full independent rerun of 2^21 forms not performed; evidence rests on inspected exhaustive source plus consistency checks.",
+    "An unindexed output or appendix of the older complete genus-six census might already contain this same ten-by-smoothness table.",
+    "The full 2^21 coefficient enumeration was inspected through exact source, not independently rerun in this execution."
+  ],
+  "schema_version": 1
+}

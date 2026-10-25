@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a ternary quintic in characteristic two, Euler's identity puts the equation in the ideal of its three quartic partial derivatives. The three partials have no common projective zero if and only if they form a regular sequence. Their complete-intersection socle degree is nine, so the degree-ten Macaulay multiplication map has full rank \(66\) exactly when the curve is geometrically smooth. This proves the decisive exact rank criterion with both directions, over the algebraic closure, independent of any finite-field sampling. Evaluation on the seven rational projective points is a surjective map from the \(21\)-dimensional equation space, so the ten fixed-pattern fibers can be exhausted with \(2^{14}\) binary equations per pattern. Independent, separately indexed row-elimination and projective-orbit/column-elimination programs reproduce the ten counts, the sum \(688128\), and the blocking subset \(242326\). The orbit total \(4204\) and weighted aggregate \(4096\) agree with the published genus-six census.
+PASS
 
-## Originality — PASS, with residual priority risk
+The final claim is about homogeneous degree-five nonzero equations over F2, not abstract genus-six isomorphism types. Interpolation evaluation V_5 -> F2^7 is surjective, with each rational-zero pattern supported by 2^14 coefficient vectors. The Fano-plane action has ten subset orbits with multiplicities (1,7,21,7,28,7,28,21,7,1). Independent integer arithmetic gives sum multiplicity*per-subset smooth counts 688128 and blocking sum 242326, reducing to 17309/49152; 64 of 128 subsets are blocking. Correct geometric smoothness test: in characteristic two, Euler degree five gives F=sum X_i d_iF; the three degree-four derivatives form a homogeneous regular sequence iff their quotient has no projective support; regularity gives socle degree 9, so surjectivity (rank 66) of S6^3 -> S10 characterizes smoothness. Inspected both actual C++17 sources at the frozen Git tree: direct 2^21 enumeration using binary Gaussian elimination and independent GL3(2)-orbit enumeration using a different ordering/pivot method. The exhaustive 2^21 runs were NOT independently repeated in this execution; the supplied exact algorithms and their coverage, not merely saved output logs, were inspected. The 1516/2688 projective-orbit refinement requires those exhaustive runs and is consistent with established aggregate 4204. Finite domain is exhaustive by construction when programs terminate successfully; no claim for degrees/fields other than (5,F2).
 
-The complete ten-stratum conditional distribution and exact smooth-blocking ratio are distinct from the previously published one-half *unconditional* blocking probability and the large-field asymptotic independence theorem of Asgarli–Ghioca–Yip (arXiv:2211.08523, Theorem 1.5, Section 7). The complete genus-six curve census by Huang–Kedlaya–Lau (arXiv:2402.00716, Sections 3.3 and 4, Table 1) reports the plane-quintic aggregate \(4204\) classes and \(4096\) stack count, already accounted for in the present theorem. It does not state the blocking-conditioned ten rational-locus fiber counts. Earlier work on explicitly blocking curves and the seven-point plane-filling locus covers particular examples and one stratum, not the joint distribution. Searches for equal counts, smoothness/blocking conditional probabilities, genus-six incidence fibers, rational-point subset orbits and related equivalents yielded no matching published theorem. The large census makes an equivalent unpublished or unindexed postprocessing calculation plausible, and this is explicitly preserved as a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The published arithmetic-statistics question asks how smoothness and blocking interact. The exact genus-six plane-quintic calculation identifies a sizable conditional bias: only \(17309/49152\) of smooth equations are blocking, compared with the near-half unconditioned binary-quintic baseline. Its ten rational-locus fiber counts discriminate collinear from noncollinear three-point sets and quadrangles from four-point configurations containing a line; hence the answer cannot be obtained solely from a curve's number of rational points or the prior unweighted genus-six count. This is a complete natural first small-field joint-incidence classification, not a single arbitrary example. No general asymptotic formula or publication-level novelty guarantee is asserted.
+The precise ten rational-point-subset Fano-orbit smoothness distribution and smooth-conditioned blocking fraction are not given by the inspected published general blocking results or by the aggregate genus-six census. Best-of-knowledge, not a claim that older equation data cannot compute the same table.
 
-## Scientific limitations and sources
+## value
 
-The complete weighted genus-six census provides the correct aggregate and a possible route to reproduce the incidence table. The result applies only to degree-five plane equations over \(\mathbf F_2\). The code supplies exact finite exhaustiveness but the smoothness equivalence requires the accompanying regular-sequence argument. Primary materials reviewed: Asgarli–Ghioca–Yip, arXiv:2208.13299, introductory results and smooth blocking discussion; Asgarli–Ghioca–Yip, arXiv:2211.08523, Theorems 1.2 and 1.5, Sections 5–7 and Example 7.1; Huang–Kedlaya–Lau, arXiv:2402.00716, Sections 1, 3.3, 3.7 and 4 including Table 1. Independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated finite complete classification: rational point loci of smooth genus-six plane quintics over the smallest finite field are governed by the Fano plane, and blocking is a natural incidence phenomenon. The exact dependence of geometric smoothness on ten Fano configurations and its difference from unconditioned half-probability are not merely abstract renaming, generic asymptotics, or recovery of aggregate 4204; precise counts are independently useful for finite-field curve databases and testing arithmetic heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
