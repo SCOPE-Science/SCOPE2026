@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification and logical boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter in the directory containing this file and `verify.py`. The program uses only the Python standard library and prints `VERIFY_OK` on success. It recomputes the nine-divisor signed-sum distribution from scratch, checks the complete set of zero-block solutions and the total \(12\), checks the fourteen subset-sum inequalities, constructs the two-level interval, and verifies full odd-imbalance coverage by exact subset-sum bitsets for \(a=1,2\).
+## correctness
 
-Only the nine-weight finite enumeration and the finite initial inequalities enter the proof as computer-checkable certificates; they are also spelled out in the proof. Full finite searches for \(a=1,2\) provide corroboration but cannot establish the theorem for all \(a\). The unbounded multiplicity factor is proved by a disjoint-level injection, not inferred from numerical output. Exact overall counts and the optimal growth constant remain unknown here.
+PASS
+
+For B=225, independently regenerated the 512 signed combinations of divisors {1,3,5,9,15,25,45,75,225}. Exactly eight nonzero coefficient-pair matches s+7t=0 occur at s=±329,±343,±371,±385 with multiplicities 1,2,1,2 per sign, totaling 12 distinct 18-divisor zero assignments. The two-level coin multiset D(B)∪7D(B) has sum 3224; direct subset sums cover 3..3221, hence every even signed total in [-3218,3218]. Recursing adjacent two-level blocks of powers 7^(2h) gives complete even intervals [-L_a,L_a], and ±47*49^a from top level overlap to cover every odd |k|<=K_a. For any a>=b, a seed realization uses levels 0..2b, and for each h=b..a-1 one of 12 distinct zero assignments on levels 2h+1,2h+2 independently, establishing R_{n_a}(k)>=12^(a-b) injectively. For odd numbers with <=2 distinct primes, sigma(n)/n<3/2*5/4=15/8 yields |signed imbalance|>=2n-sigma(n)>n/8, so fixed k cannot recur infinitely. Checks are exact on the finite two-level seed; induction proves all a.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the quantitative 12^(a-b) lower bound for every prescribed fixed odd target on the explicit minimal three-prime ray. Known almost-practical coverage/existence, Zumkeller equal-sum counts and k-IGMO odd infinitude are carefully credited; no novelty asserted for bare existence.
+
+## value
+
+PASS
+
+This is a motivated strengthening of existence to polynomial-in-n many distinct divisor partitions with a fixed odd imbalance, using the minimum possible number of prime factors. The exact 12 zero-block transfer supplies a replicable combinatorial growth mechanism relevant to additive divisor partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

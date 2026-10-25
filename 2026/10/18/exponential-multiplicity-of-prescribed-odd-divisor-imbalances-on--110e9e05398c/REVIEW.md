@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The divisor levels are disjoint and exhaust the divisors of \(225\cdot49^a\). A finite, nine-weight recurrence exhaustively verifies the 12 zero-sum adjacent-layer sign choices. Elementary subset-sum interval inequalities supply an explicit seed for every odd difference up to \(K_a\), and independent zero blocks give an injective multiplicity amplification. The support lower bound follows from \(\sigma(n)/n<15/8\) for odd integers with at most two distinct prime factors. The included checker establishes the finite base facts and examines two full levels of the infinite construction; the induction proves the unbounded statement.
+## correctness
 
-## Originality
-**PASS, with residual risks.** The 2026 generalization of Zumkeller numbers classified MSC 11A25 studies exponential-divisor products and even-divisor variants. Li's 2026 signed-difference generalization proves infinitude, not an explicit counting lower bound in its accessible abstract. Stewart's almost-practical theorem and a published three-prime classification already cover the mere-existence claim, which is not presented as novel here. Published two-prime Zumkeller enumeration concerns a zero-difference family with a different prime support. The non-implied contribution is 12 independent zero-sum extensions yielding \(12^{a-b}\) partitions for **each** prescribed odd difference on the minimal three-prime support ray. The full Li preprint could not be inspected, so an implicit earlier multiplicity derivation remains possible; so does older unindexed literature.
+PASS
 
-## Mathematical value
-**PASS.** The recent fixed-difference divisor-partition literature chiefly establishes existence. The theorem supplies quantitative proliferation, a structural exact two-layer multiplicity, and a minimal-prime-support limitation, simultaneously for all fixed odd differences. These address the natural question of how many distinct partitions realize a prescribed difference, rather than merely whether one exists. The result does not claim optimal growth or an exact overall representation count.
+For B=225, independently regenerated the 512 signed combinations of divisors {1,3,5,9,15,25,45,75,225}. Exactly eight nonzero coefficient-pair matches s+7t=0 occur at s=±329,±343,±371,±385 with multiplicities 1,2,1,2 per sign, totaling 12 distinct 18-divisor zero assignments. The two-level coin multiset D(B)∪7D(B) has sum 3224; direct subset sums cover 3..3221, hence every even signed total in [-3218,3218]. Recursing adjacent two-level blocks of powers 7^(2h) gives complete even intervals [-L_a,L_a], and ±47*49^a from top level overlap to cover every odd |k|<=K_a. For any a>=b, a seed realization uses levels 0..2b, and for each h=b..a-1 one of 12 distinct zero assignments on levels 2h+1,2h+2 independently, establishing R_{n_a}(k)>=12^(a-b) injectively. For odd numbers with <=2 distinct primes, sigma(n)/n<3/2*5/4=15/8 yields |signed imbalance|>=2n-sigma(n)>n/8, so fixed k cannot recur infinitely. Checks are exact on the finite two-level seed; induction proves all a.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the quantitative 12^(a-b) lower bound for every prescribed fixed odd target on the explicit minimal three-prime ray. Known almost-practical coverage/existence, Zumkeller equal-sum counts and k-IGMO odd infinitude are carefully credited; no novelty asserted for bare existence.
+
+## value
+
+PASS
+
+This is a motivated strengthening of existence to polynomial-in-n many distinct divisor partitions with a fixed odd imbalance, using the minimum possible number of prime factors. The exact 12 zero-block transfer supplies a replicable combinatorial growth mechanism relevant to additive divisor partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
