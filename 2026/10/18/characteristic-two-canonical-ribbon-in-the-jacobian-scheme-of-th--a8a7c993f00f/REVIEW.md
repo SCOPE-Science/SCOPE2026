@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full derivative calculation gives exactly three nonzero characteristic-two equations; the cubic belongs to their ideal by the degree-three Euler relation. The two affine-chart presentations are exact, cover the entire projective scheme, and exhibit a locally free square-zero nilradical. The overlap transition identifies \(\mathcal O_{\mathbb P^1}(-6)\) and a nontrivial extension class. Height three makes the Jacobian quadrics a regular sequence, and adjunction and the Hilbert series give degree eight, arithmetic genus five, and canonical sheaf \(\mathcal O(1)\). For every odd characteristic, with the cubic itself included when the characteristic is three, the Jacobian charts reduce to the rational normal quartic. The included symbolic checker passes, although its finite-field census is only corroborative.
+PASS
 
-## Originality — PASS (qualified, close prior implication)
+Independently differentiated integral Hankel determinant with SymPy, obtaining five expected quadrics. In char2 Euler gives F in derivative ideal; charts a=1 and e=1 reduce to k[t,u]/(u²). Overlap q=t^-1+ut^-4, v=ut^-6 gives O(-6) nilradical and nonzero ribbon class in H¹(O(-4)). Three quadrics height3 form regular sequence, Hilbert series (1+z)^3/(1-z)^2, independently checking 8m-4 for m=3..11, omega=O(1). Char!=2 local elimination yields reduced Veronese; char3 requires retaining F in Jacobian ideal, as source does.
 
-Allcock–Carlson–Toledo give the chordal cubic determinant and its reduced rational normal quartic in characteristic zero. Deopurkar–Fedorchuk–Swinarski's **known** genus-five balanced-ribbon equations specialize to precisely the three characteristic-two Jacobian quadrics. Accordingly, no originality is claimed for the abstract ribbon, its equations, or basic adjunction; the new statement is the identification with the chordal cubic's intrinsic singular scheme and the complete modular Hilbert-polynomial jump. These are obtained by linking published constructions using an explicit derivative and chart computation. No direct prior assertion of this Jacobian/ribbon identification was found, but because the sources provide nearly all its ingredients, a published implicit corollary is a particularly serious residual originality risk. Bayesian absence of a search hit is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The natural chordal degeneration of cubic threefolds changes scheme-theoretically under reduction modulo two: its singular curve acquires a *non-split* canonical ribbon structure, rather than merely an increase of multiplicity in a point count. Exact conormal, degree, genus, and nonflatness data explain the arithmetic anomaly and connect cubic degenerations to the geometry of balanced canonical ribbons. This is a motivated structural geometric identification even though the abstract ribbon equations are already published.
+Balanced canonical ribbon three quadrics and gluing are explicitly ALREADY in Deopurkar–Fedorchuk–Swinarski Theorem4.4/Cor4.8; ordinary chordal-cubic rational quartic locus is classical. Only new asserted identification is intrinsic char2 Jacobian scheme with that ribbon, plus fiber Hilbert polynomial jump. That is a close elementary combination but not expressly covered in inspected primary portions; exact historical priority remains sensitive.
 
-## Closest literature and limitations
+## value
 
-The source comparison includes the full text of Allcock–Carlson–Toledo, chapter 2; Bayer–Eisenbud's ribbon theory; and Deopurkar–Fedorchuk–Swinarski's Definition 4.1, Theorem 4.4 and Corollary 4.8. The last source almost covers the claim by implication, but does not itself identify the chordal cubic Jacobian scheme or prove the odd-versus-two nonflatness comparison. Characteristic-three Euler subtleties are resolved by retaining the cubic equation in the singular ideal. The relative arithmetic primary decomposition is not claimed. An equivalent statement may exist elsewhere.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nonreduced canonical ribbon appearing intrinsically as a characteristic-two Jacobian singular scheme of a canonical cubic threefold is a useful geometric degeneration and reveals a flatness obstruction; not claiming ribbon quadrics abstractly new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

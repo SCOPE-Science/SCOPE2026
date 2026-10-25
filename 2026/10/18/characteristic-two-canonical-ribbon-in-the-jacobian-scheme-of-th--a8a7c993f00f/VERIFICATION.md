@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof computes the five partial derivatives over the integers, then works in characteristic two to obtain an exact three-quadric Jacobian ideal. Affine chart elimination shows that the singular scheme is locally \(k[t,u]/(u^2)\); the chart transition determines the conormal \(\mathcal O_{\mathbb P^1}(-6)\), and complete-intersection adjunction supplies the degree, arithmetic genus, and canonical embedding. In odd characteristic (including three), the intrinsic ideal includes the cubic equation and its two principal charts are reduced parameter lines.
+# Independent mathematical audit
 
-`python verify.py` uses SymPy and checks derivative identities, reduction modulo two, nilpotent chart substitutions, the gluing transition, published balanced-ribbon quadrics, and the complete-intersection Hilbert polynomial for degrees \(2\) through \(10\). It also exhaustively enumerates projective prime-field points for \(p\in\{2,3,5,7\}\); it reports `VERIFY_OK` if all checks pass.
+## correctness
 
-The enumeration does not establish any infinite statement or nonreduced scheme structure. The symbolic chart analysis is the proof. Existing work independently supplies the ribbon's abstract equations; the assessed contribution is specifically their occurrence as the intrinsic singular scheme of the chordal cubic, with a nonflat modular jump. No independent audit has been carried out.
+PASS
+
+Independently differentiated integral Hankel determinant with SymPy, obtaining five expected quadrics. In char2 Euler gives F in derivative ideal; charts a=1 and e=1 reduce to k[t,u]/(u²). Overlap q=t^-1+ut^-4, v=ut^-6 gives O(-6) nilradical and nonzero ribbon class in H¹(O(-4)). Three quadrics height3 form regular sequence, Hilbert series (1+z)^3/(1-z)^2, independently checking 8m-4 for m=3..11, omega=O(1). Char!=2 local elimination yields reduced Veronese; char3 requires retaining F in Jacobian ideal, as source does.
+
+## originality
+
+PASS
+
+Balanced canonical ribbon three quadrics and gluing are explicitly ALREADY in Deopurkar–Fedorchuk–Swinarski Theorem4.4/Cor4.8; ordinary chordal-cubic rational quartic locus is classical. Only new asserted identification is intrinsic char2 Jacobian scheme with that ribbon, plus fiber Hilbert polynomial jump. That is a close elementary combination but not expressly covered in inspected primary portions; exact historical priority remains sensitive.
+
+## value
+
+PASS
+
+A nonreduced canonical ribbon appearing intrinsically as a characteristic-two Jacobian singular scheme of a canonical cubic threefold is a useful geometric degeneration and reveals a flatness obstruction; not claiming ribbon quadrics abstractly new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
