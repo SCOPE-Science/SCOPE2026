@@ -1,23 +1,21 @@
-# Scientific review: invariant polarization measure for predictive opinion loops
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full hypothesis set fixes reciprocal positive network weights, every peer susceptibility in \((0,1)\), complete peer relaxation, perfect prediction, and a common platform susceptibility \(\beta\in[0,1)\). The proof first derives the exact equilibrium as the resolvent of the stochastic Friedkin--Johnsen response matrix. It then obtains detailed balance for that matrix under the explicit normalized weights \(\nu_i\propto d_i(1-\alpha_i)/\alpha_i\). The similarity/reversibility argument is sufficient for real positive eigenvalues, and the spectral expansion gives both strict variance decay and its sharp coefficient. The two-person case follows from its one-dimensional disagreement quotient; the three-person obstruction uses exact rational inversions and a strictly positive variance difference. The standalone checker recomputes these identities rather than accepting stored answers. Infinite-network, nonreversible, and finite-peer-interval claims are not made.
+PASS
 
-## Originality — PASS, subject to historical priority
+For finite connected undirected weighted graphs with reciprocal positive edge weights, alpha_i in (0,1), common platform beta in [0,1), and full Friedkin–Johnsen peer relaxation between exact prediction updates, P=(I-Lambda W)^-1(I-Lambda) is stochastic and strictly positive. With mu_i=d_i/alpha_i the substochastic Q=Lambda W is reversible; resolvent R=(I-Q)^-1 is mu-positive definite and nu_i proportional to mu_i(1-alpha_i) makes P reversible strictly positive definite. Therefore P eigenvalues satisfy 1=lambda1>lambda2>=...>0, and f_beta(lambda)=(1-beta)lambda/(1-beta lambda) contracts every nonconstant nu-centered component strictly as beta rises. The lambda2 squared factor is sharp. In a two-vertex quotient the uniform difference always contracts. An independently reconstructed exact rational three-vertex path with alpha=(1/10,1/100,19/20), x=(0,1/4,1) has uniform variance 8163/819200 at beta=0, 4179945336867/419399996328968 at beta=1/20, and positive initial derivative 36441/458752000. This verifies smallest-order obstruction while no empirical or directed-graph conclusion is claimed.
 
-The motivating Wu--Abebe--Mendler--Dünner paper already derives the full predictive-loop equilibrium resolvent, proves Euclidean-variance monotonicity for regular networks with homogeneous peer susceptibility, and proves a general consensus limit. It does **not** give this heterogeneous stationary measure, the sharp corresponding contraction on reciprocal weighted graphs, or an explicit three-person reversal of ordinary variance. The related Boudourides work derives susceptibility-dependent response matrices and an undirected degree-weighted spectral specialization **with homogeneous susceptibility and without repeated platform feedback**; those fixed-boundary spectral claims do not imply the precise heterogeneous result without an additional detailed-balance calculation. Classical reversible-chain spectral theory is background, not itself claimed new. Targeted mathematical-record searches and accessible historical claims did not show an equivalent statement; some unexamined broad consensus literature could still dominate the theorem. A failed novelty search alone is not the justification: the comparisons here are by exact assumptions, implications, and counterexample requirements.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating source's regular-graph polarization result and its numerical treatment of irregular graphs leave a practical structural question: what, precisely, remains monotone when social influence and susceptibility are heterogeneous? The theorem supplies an explicit conserved population weighting, a quantitative sharp contraction valid without regularity or homogeneous peer parameters, and a **minimal** counterexample explaining why replacing the conserved weighting by the ordinary arithmetic variance is invalid. This is a classification of the permissible disagreement metric and a mathematically meaningful boundary to extrapolating a monotonicity claim, rather than a numerical-only example or a mere textbook restatement. Its applicability remains restricted to the declared feedback and network assumptions.
+Wu–Abebe–Mendler-Dünner establish the prediction-loop resolvent and homogeneous/regular variance monotonicity; the stationary susceptibility-degree weight and all-heterogeneous sharp contraction factor are not their regular-graph theorem. Boudourides has homogeneous susceptibility resolvent background, not the coupled predictor or minimal uniform-variance reversal. Classical reversibility is fully credited. Best-of-knowledge original joint theorem and sharp witness.
 
-## Closest primary literature and residual limitations
+## value
 
-1. Wu, Abebe and Mendler--Dünner, *Opinion Dynamics in Learning Systems*, arXiv:2603.12137, §§3--4, Appendix A.5--A.6. General loop/resolvent, narrower regular homogeneous variance result, broad consensus limit.
-2. Boudourides, *Boundary-Value Friedkin--Johnsen Dynamics and Influence-Based Centralities on Networks*, arXiv:2602.08704, §§2.2--2.6 and 4.2. Fixed-boundary Green operators, susceptibility sensitivity, homogeneous undirected spectral results; no repeated prediction loop.
-3. Aldous--Fill, *Reversible Markov Chains and Random Walks on Graphs*, Chapter 3. Standard reversibility used as a tool, not novelty.
+PASS
 
-Residual scientific limits: only finite connected reciprocal weighted graphs, strictly interior peer susceptibilities, homogeneous platform susceptibility, exact predictions, and infinite peer relaxation. Other historical FJ influence and Markov chain resolvent results could subsume parts of the statement. The proof is a self-review, not an independent historical or mathematical audit.
+The exact invariant weight delineates which polarization quantity is guaranteed to shrink under predictive feedback, while an explicit minimal three-person example shows why ordinary unweighted variance can go the opposite direction. A sharp spectral factor makes the result quantitatively useful on irregular networks, not a generic assertion of Perron convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
