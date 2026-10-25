@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both sixteen-vertex graphs are given by complete Cayley generator sets. The defining face condition for \(\operatorname{Ind}_2\) is exactly induced maximum degree at most one. Two independently formulated membership tests agreed on all \(65536\) masks per graph, and the resulting full face vectors agree with the matching counts. Recomputing every face-poset incidence, the provided checker proved acyclicity of all \(639\) and \(543\) matched pairs, with no positive-dimensional critical cells outside degree three. The CW consequence is necessarily the stated integral sphere wedge. Independent mod-two boundary ranks agree. The checker and its actual output are part of the same embedded package.
+PASS
 
-## Originality — PASS, qualified
+The Shrikhande and 4x4 rook graphs have the same SRG parameters (16,6,2,2) but distinct neighborhoods. The vertex-subset k=2 higher-independence condition is induced maximum degree <=1. Exhaustive enumeration of all 65536 masks for each graph yields nonempty f-vectors (16,120,384,544,240,32) for Shrikhande and (16,120,384,528,144) for rook. The given pivot orders make respectively 639 and 543 disjoint matched face pairs. Independent recomputation of every Hasse incidence and Kahn acyclicity check leaves one critical vertex plus 57 or 105 critical dimension-three faces, no other cells. Discrete Morse thus gives integral homotopy wedges 57 S3 and 105 S3, not merely field homology. Boundary-rank checks separately corroborate. The finite universe is exhaustively examined, so finite proof is sufficient for these named graphs.
 
-The closest accessible primary literature (Deshpande–Singh, arXiv:2001.05448, PDF introduction, discrete-Morse preliminaries and graph-family theorem list; Abdelmalek et al., arXiv:2106.10863, PDF introduction and theorem statements) treats other graph families or imposes chordality/tree hypotheses. Both present graphs have induced four-cycles, so those classification theorems do not imply this result. Published records comparing ordinary independence, neighborhood, Čech, and two-matching complexes were also examined at the title/summary level; their *precise face definitions* and claimed homotopy groups are different. The published ordinary independence results concern threshold one, not threshold two. Checks of published records and all accessible relevant historical claims revealed no exact or stronger result covering this pair's second-independence types. Full text for a closest published comparison record was unavailable, so unindexed or hidden equivalent results remain a residual risk; no search is interpreted as a uniqueness theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-These are the only two strongly regular graphs with parameters \((16,6,2,2)\). The first nontrivial higher-independence level furnishes two nonisomorphic but comparable and independently natural complexes, both sphere wedges in degree three with **different exact integral ranks**. The contrast proves that strongly regular parameters cannot determine this higher-independence homotopy invariant; the proof is a complete, substantive homotopy computation, not a minor adjustment of a previously known rank. A pairing statement is meaningful because it controls a canonical cospectral test case and distinguishes these two familiar graphs in a new filtration.
+Best-of-knowledge PASS: published Shrikhande/rook *ordinary* independence stage differs (23 vs 15 S2), but that does not imply a second-independence wedge. Existing higher-independence theorems treat complete multipartite, trees, cycles, whiskered and chordal classes, not this nonchordal pair. A graph-edge two-matching or neighborhood complex is a different face predicate.
 
-## Risks and boundaries
+## value
 
-No general theorem is asserted for other graph sizes, parameter sets, or filtration indices. Main originality uncertainty is equivalent work outside the inspected records, notably inaccessible full text of the closest ordinary-independence comparison. An independent mathematical audit is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural co-spectral strongly regular twin pair is separated at the second higher-independence stage by the full integral homotopy type, measuring a graph topological invariant invisible to identical SRG parameters. The precise complete finite classification and integral sphere-wedge geometry are not just a routine graph label or a single unmotivated small coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

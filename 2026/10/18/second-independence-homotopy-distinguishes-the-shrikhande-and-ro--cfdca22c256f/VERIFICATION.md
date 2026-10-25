@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 shr_rook_pair_certificate.py` from a directory containing the extracted package files. The program needs only the Python standard library and no external data, certificates or packages. Expected terminal marker: `SHRIKHANDE_ROOK_SECOND_INDEPENDENCE_WEDGES_VERIFIED`.
+## correctness
 
-For each graph separately, the executable: builds the full adjacency relation; checks every vertex has six neighbors and each distinct pair has exactly two common neighbors; evaluates every one of the \(65536\) vertex subsets by both maximum-induced-degree and induced-component searches; checks every dimension's face count; builds all greedy element-matching pairs in the specified pivot sequence; verifies every codimension-one incidence, including a topological sort of the directed Hasse graph; and computes all boundary-matrix ranks over \(\mathbf F_2\) independently of Morse theory.
+PASS
 
-Numerical bounds checked in the actual run: \(1337\) and \(1193\) augmented faces; \(639\) and \(543\) match pairs; exactly one critical vertex plus \(57\) or \(105\) three-dimensional cells; \(4960\) and \(4224\) Hasse incidences; reduced mod-two homology concentrated in degree three with those multiplicities. The direct acyclic Morse construction supplies the integral homotopy result; mod-two checks alone would not.
+The Shrikhande and 4x4 rook graphs have the same SRG parameters (16,6,2,2) but distinct neighborhoods. The vertex-subset k=2 higher-independence condition is induced maximum degree <=1. Exhaustive enumeration of all 65536 masks for each graph yields nonempty f-vectors (16,120,384,544,240,32) for Shrikhande and (16,120,384,528,144) for rook. The given pivot orders make respectively 639 and 543 disjoint matched face pairs. Independent recomputation of every Hasse incidence and Kahn acyclicity check leaves one critical vertex plus 57 or 105 critical dimension-three faces, no other cells. Discrete Morse thus gives integral homotopy wedges 57 S3 and 105 S3, not merely field homology. Boundary-rank checks separately corroborate. The finite universe is exhaustively examined, so finite proof is sufficient for these named graphs.
 
-The finite enumeration is exhaustive because there are only sixteen vertices per graph; it makes no claim about larger graphs, equivariant structures, or external independent verification. Recorded output appears in `certificate_output.txt`.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: published Shrikhande/rook *ordinary* independence stage differs (23 vs 15 S2), but that does not imply a second-independence wedge. Existing higher-independence theorems treat complete multipartite, trees, cycles, whiskered and chordal classes, not this nonchordal pair. A graph-edge two-matching or neighborhood complex is a different face predicate.
+
+## value
+
+PASS
+
+A natural co-spectral strongly regular twin pair is separated at the second higher-independence stage by the full integral homotopy type, measuring a graph topological invariant invisible to identical SRG parameters. The precise complete finite classification and integral sphere-wedge geometry are not just a routine graph label or a single unmotivated small coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
