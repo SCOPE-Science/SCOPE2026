@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A mixed colour is confined to one paired block, and each bipartition side supports at most one pure colour. A pure colour cannot coexist with any mixed colour in a \(b\)-colouring. The remaining two configurations have all vertices as CDVs. These arguments establish completeness, the exact multiplicities, the sequence tests and the inverse construction for all positive block sizes with \(r\ge3\). Ten weighted instances passed independent exhaustive enumeration of all named colourings. The finite check is supportive rather than an infinite certificate.
+## correctness
 
-## Originality
-**PASS with residual risk.** Jakovac--Lang (arXiv:2609.08484v1) provides the definitions and general realizability results but not the full specified block-family classification. The published unweighted crown result for \((2,2,\ldots)\) is a genuine special case already known and is fully credited, not repackaged as new. Its stated result does not imply arbitrary twin-block multiplicity profiles or complete sequence tests. Earlier edge-deletion work addresses classical extremal \(b\)-chromatic number. The strongest residual risk is an uninspected broad theorem about false-twin blow-ups or a result hidden in inaccessible complete texts.
+PASS
 
-## Value
-**PASS.** The new sequence-\(b\) invariant poses the problem of which sequences a fixed graph realizes. This theorem gives a complete, natural family-wide answer, including **all** labelled \(b\)-colourings and exact colour-dominating multiplicities, not only an extremal colour number. It yields explicit connected examples with any prescribed heterogeneous high-colour multiplicities while retaining arbitrarily long colour-number gaps. The weighted profile information is not contained in the established unweighted two-point result.
+An independent set containing both bipartition sides lies in one matched block A_i∪B_i, so each mixed colour is contained in a single such block. Two side-only colours on the same side cannot both have a CDV. If both types of side-only colours are present, a mixed class cannot have a CDV; if exactly one side-only colour remains, each opposite-side block must carry a mixed colour and its same-index side-only vertices cannot see it, contradiction. Thus all b-colourings are exactly the two side classes or one mixed class per paired block. r>=3 ensures nonempty cross-neighbors, making every vertex a CDV in both patterns. This gives the exact profiles, counts and coordinatewise realization. Independent direct exhaustive proper-colouring enumeration checked examples r=3 sizes (1,1,1),(2,1,1) and r=4 equal unit sizes, recovering respective named counts 2/6 and 2/24 with correct profiles. Boundary r=2 disconnected excluded.
 
-## Sources and limits
-The motivating open-access full paper is arXiv:2609.08484v1, first submitted September 8, 2026. The closest published overlap is *Two-point sequence b-spectrum of crown graphs* (unweighted constant sequence). D. Gawel (2024) studies edge deletions from complete bipartite graphs; only its abstract and opening text were accessible. Searches under crown blow-up, co-biclique complement, false twins, CDV sequences and b-spectra found no broader covering classification. Full bibliographic priority and independent scientific validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published Resultary crown graph theorem already proves for the unweighted crown and constant S=(2,2,...) the spectrum {2,r}, uniqueness up to labels. A second Resultary complete-multipartite rigidity theorem concerns fully adjacent parts, so cannot dominate crown graphs missing r bipartite blocks. The submitted classification covers arbitrary positive block weights, every b-colouring, exact CDV multiplicities and arbitrary positive nonincreasing sequence S; neither narrower prior statement implies these. Jakovac–Lang introduces sequence b-colourings; its full text was not obtained on this run (authorized institutional retrieval vpn_disconnected), so priority remains best-of-knowledge with stated risk.
+
+## value
+
+PASS
+
+Weighted false-twin crown blow-ups form a natural connected bipartite class interpolating beyond the known unweighted example. Classifying all b-colourings and exact CDV-multiplicity profiles yields an explicit spectrum-realization theorem for every sequence, with arbitrary prescribed matched-block weights, a structural invariant of actual graph families rather than merely restating one S=(2,... ) result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
