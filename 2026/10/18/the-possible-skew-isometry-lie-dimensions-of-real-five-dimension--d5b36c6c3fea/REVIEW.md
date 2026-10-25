@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the real Lie algebra of one-parameter surjective linear isometries of a five-dimensional real Banach space. The group is compact and can be orthogonalized. The critical obstruction is that \(\mathfrak{so}(5)\) admits no three-dimensional commuting subalgebra, whereas every compact five-dimensional Lie algebra has one: a five-dimensional compact algebra is abelian or \(\mathfrak{su}(2)\oplus\mathbb R^2\), since nontrivial compact simple factors have dimensions three or at least eight. Rosenthal [1, Theorem 3] excludes Lie dimensions seven through nine. The extreme-point connected components of the explicit Euclidean \(\ell_1\)-sums ensure that no unaccounted continuous mixing enlarges the claimed witness dimensions.
+PASS
 
-## Originality — PASS (self-review)
+Finite-dimensional linear isometry group is compact; invariant inner-product averaging conjugates its Lie algebra to a compact subalgebra g⊆so(5), whose commuting skew operators admit at most two independent real rotation planes (maximal abelian dimension≤2). Any compact real Lie algebra of dimension exactly five is either abelian R5 or su2⊕R2, both containing abelian subalgebra dimension≥3; hence 5 cannot embed. Rosenthal 1986 Theorem 3(a) bounds any non-Euclidean five-dimensional space by dim≤(5−1)(5−2)/2=6, so 7,8,9 impossible while Euclidean dim=10. On X(d1,...,dm) real ℓ1-direct sum of Euclidean blocks, extreme-point components force connected isometries to preserve each block, giving product SO(dj) and Lie dimension ∑dj(dj−1)/2. Independently enumerated partitions 5 with corresponding exact values [0,1,2,3,4,6,10] and explicit witnesses.
 
-Rosenthal [1] establishes the general gap and classifies ambient dimension at most four; it does not supply the ambient-five list. Kadets, Martín and Payá [2, Problem 28] pose the five-dimensional dimension spectrum explicitly, and Martín [3, Problem 1.3.7] repeats it. Searches for the exact spectrum, equivalent formulations as infinitesimal isometries or skew-Hermitian operators, Lie-subgroup reductions, and all seven values found no exact published five-dimensional answer. General compact Lie theory supplies a necessary component but does not alone classify which dimensions are realized by full isometry groups of Banach norms. Residual risk: later or unindexed equivalent work could exist.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a natural and fully realized dimension spectrum for a published open classification question concerning continuous isometric symmetry of finite-dimensional real Banach spaces. It distinguishes the new exclusion of dimension five from the established upper gap and supplies transparent models for all allowed cases. Its contribution is the exact classification at ambient dimension five; neither numerical-index estimates nor a structural classification of all norms is asserted.
+Rosenthal identifies the >6 Euclidean jump and dimensions through ambient four, but not the exact five-dimensional set. Kadets–Martín–Payá Problem 28 asks precisely for the five-dimensional possible-dimension spectrum; Martín lecture notes restate it. The new 5 exclusion uses rank-two constraint and compact Lie algebra classification; ℓ1 sums realize all remaining values. Although elementary once recognized, the combined exact answer was not stated in the inspected original results or Resultary search.
 
-## Limitations and closest literature
+## value
 
-The proof uses the classical low-dimensional classification of compact Lie algebras and Rosenthal's general gap theorem. Independent priority checking and proof auditing remain outstanding. The nearest relevant sources are Rosenthal's 1986 *Functional Hilbertian Sums* [1] and the problem statements [2, 3]. Claims about other ambient dimensions, complex normed spaces, or isometry groups up to conjugacy are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural explicit open problem in finite-dimensional Banach space geometry is closed at the first dimension not already classified by Rosenthal. The exact attainable Lie-dimension spectrum has a meaningful structural exclusion at 5, rather than only small numerical data. Its proof is concise but the missing rank obstruction and realization classification are intrinsically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

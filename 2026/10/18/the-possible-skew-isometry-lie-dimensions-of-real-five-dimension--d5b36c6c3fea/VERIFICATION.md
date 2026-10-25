@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The checks summarized here are reproducible mathematical proof checks, not an external certification.
+## correctness
 
-The reduction of \(\mathcal Z(X)\) to an orthogonal Lie algebra uses compactness of the finite-dimensional isometry group and averaging. For every abelian subalgebra of \(\mathfrak{so}(5)\), the simultaneous two-plane normal form proves dimension at most two. The compact-Lie decomposition reduces a hypothetical five-dimensional algebra to precisely two cases, both admitting commuting dimension at least three. The general high-dimensional exclusion is the printed Theorem 3(a) of Rosenthal (1986), inspected in the original open-access paper.
+PASS
 
-For each Euclidean \(\ell_1\)-sum with block sizes totaling five, identify the unit-ball extreme points as single-block Euclidean unit vectors. Connected-component preservation under the identity isometry group gives an exact product of special-orthogonal groups, so its Lie dimension is the sum of the elementary dimensions \(d(d-1)/2\). Evaluating this formula at the seven witness compositions yields \(0,1,2,3,4,6,10\); no experimental enumeration is needed.
+Finite-dimensional linear isometry group is compact; invariant inner-product averaging conjugates its Lie algebra to a compact subalgebra g⊆so(5), whose commuting skew operators admit at most two independent real rotation planes (maximal abelian dimension≤2). Any compact real Lie algebra of dimension exactly five is either abelian R5 or su2⊕R2, both containing abelian subalgebra dimension≥3; hence 5 cannot embed. Rosenthal 1986 Theorem 3(a) bounds any non-Euclidean five-dimensional space by dim≤(5−1)(5−2)/2=6, so 7,8,9 impossible while Euclidean dim=10. On X(d1,...,dm) real ℓ1-direct sum of Euclidean blocks, extreme-point components force connected isometries to preserve each block, giving product SO(dj) and Lie dimension ∑dj(dj−1)/2. Independently enumerated partitions 5 with corresponding exact values [0,1,2,3,4,6,10] and explicit witnesses.
 
-The correctness, literature-comparison, and value assessments are same-model only. Independent mathematical or bibliographic validation has not been performed; a later unindexed prior solution remains a literature risk.
+## originality
+
+PASS
+
+Rosenthal identifies the >6 Euclidean jump and dimensions through ambient four, but not the exact five-dimensional set. Kadets–Martín–Payá Problem 28 asks precisely for the five-dimensional possible-dimension spectrum; Martín lecture notes restate it. The new 5 exclusion uses rank-two constraint and compact Lie algebra classification; ℓ1 sums realize all remaining values. Although elementary once recognized, the combined exact answer was not stated in the inspected original results or Resultary search.
+
+## value
+
+PASS
+
+A natural explicit open problem in finite-dimensional Banach space geometry is closed at the first dimension not already classified by Rosenthal. The exact attainable Lie-dimension spectrum has a meaningful structural exclusion at 5, rather than only small numerical data. Its proof is concise but the missing rank obstruction and realization classification are intrinsically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
