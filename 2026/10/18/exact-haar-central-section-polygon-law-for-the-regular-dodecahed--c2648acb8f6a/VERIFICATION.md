@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify_dodecahedron.py` using Python 3.9+ standard library. The executable checks every pair of the twenty regular-dodecahedron vertices, the complete set of thirty nearest-neighbor edges, every pair of the ten antipodal axes, and each of the ninety oriented great-circle intersections. Integer-pair arithmetic in \(\mathbb Z[\sqrt5]\) determines all signs exactly. Every local four-sector sign pattern is generated and verified, and all ninety-two spherical chambers are exhaustively classified into \((20,6,6)\), \((60,3,8)\), and \((12,5,10)\) by (number of chambers, corners per chamber, planar-section sides). All chamber-angle cosine multisets are checked exactly.
+## correctness
 
-## Analytical checks and limits
+PASS
 
-The exact chamber angles imply the three area expressions by the spherical excess formula. The weighted sum is exactly \(4\pi\), and the independent random-edge-crossing expectation yields \(30\arccos(\sqrt5/3)/\pi\), agreeing with the distribution's mean. Floating-point evaluations at the end of the checker confirm positivity and normalization only; no floating-point experiment is used to prove the sign classification. Verification is for generic central sections only, not offset or vertex-containing planes. This is not independent review.
+The dodecahedron has 20 explicit vertices, 30 equal edges and 10 antipodal axes. Ten great circles are pairwise transverse with no triple concurrence, so 90 intersection points and 92 hemispherical sign chambers; exact sign tests label all chambers, classify 20 hexagon normal cells (6 section sides), 60 triangles (8 sides), 12 pentagons (10 sides). Spherical excess with angles α=acos(1/3), β=acos(√5/3) yields all three positive areas, area sum 4π. Mean 30β/π independently follows from edge-crossing probability β/π. Independent written exact Q(√5) sign/corner enumeration reproduces the full census.
+
+## originality
+
+PASS
+
+The dodecahedral central-section section-vertex distribution (6,8,10) and exact spherical-angle probabilities are mathematically distinct from published central ICOSAHEDRON section distribution (10,12) and generic face count/mean section theorems. Older MathPages gives 92 normal chambers and 20/60/12 polygon chamber counts, hence those counts are not original; it lacks inspected mapping of those cells to dodecahedron planar section side counts and compatible exact area expressions. The separate assigned item 4 duplicates this classification; that redundant item is rejected rather than treating the repeated result as an independent contribution.
+
+## value
+
+PASS
+
+The exact three-point Haar side-count law for one of the five Platonic solids is a natural complete geometric invariant. The classwise mapping from a known 92-cell normal arrangement to six-, eight-, ten-sided planar cross sections and exact spherical areas supplies nontrivial data needed in random-polytope section geometry; neither prior chamber counts alone nor section support determines the probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
