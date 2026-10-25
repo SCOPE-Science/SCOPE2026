@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Run `python verify.py` using the standard Python library. The executable tests all \(845\) admissible ordered pairs of neighbourhood families on a three-outcome domain for two agents. Each constructed action table is checked against its prescribed exact action-outcome set, not just for inclusion. The program separately tests examples with large outcome-to-chromatic-number gaps, singleton-intersection cases, complete-intersection boundaries, and admissible three-agent asymmetric copy factors.
+## correctness
 
-Expected successful output lines are:
-```
-ALL_TWO_AGENT_THREE_OUTCOME_FRAMES_OK 845
-THREE_AGENT_ASYMMETRIC_SAMPLES_OK 4
-CHROMATIC_EFFECTIVITY_COMPRESSION_OK
-```
-The exact sample count is deterministic because the random generator is seeded. Exhaustive enumeration covers only its indicated finite domain. The deductive slice-surjectivity and proper-coloring argument in `RESULT.md` is the proof for arbitrary finite frames; nothing about all-size correctness is inferred from the tests.
+PASS
 
-The achieved product inequality is sufficient, not necessary for every input. No independent audit was performed.
+For every full tuple of agent neighborhoods, its nonempty intersection is a clique of the joint-outcome conflict graph, so a proper coloring is injective on that intersection. Pick p with largest b_p. The mixed residue tuple ((t_j-t_p) mod b_j) for j≠p reaches every signature in every fixed-agent-label slice because b_p≥b_i, and complement product at p >= chromatic number. Compose with a surjection onto colors and select uniquely the prescribed-color outcome if present, otherwise a fallback in the intersection. Every transition stays in each selected neighborhood; for each action and each u in its neighborhood, uniform range supplies other neighborhoods containing u and slice-surjectivity supplies its color, giving exact outcome-set equality. Independent asymmetric-slice tests agreed for five multiplicity vectors; all-size conclusion follows construction, not finite tests.
+
+## originality
+
+PASS
+
+Ciardelli Theorem 2.2 proves qualitative exact representation with outcome labels; the full published root-size theorem uses all |O_w| outcomes to bound copy factors in a worst case. The present proper-coloring construction needs to distinguish only outcomes simultaneously within one joint intersection; star-family χ=2 gives unbounded strict instance-specific compression. Closest chromatic relational properization represents bounded-morphic epistemic covers, not simultaneous-action output sets.
+
+## value
+
+PASS
+
+It identifies a structural parameter—the graph chromatic number of outcomes that can coexist in complete intersections—that controls resource cost of exact concurrent-game realizations. Sparse star neighborhoods with arbitrarily many outcomes need only two copies per neighborhood, a meaningful unbounded improvement on global outcome-count factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
