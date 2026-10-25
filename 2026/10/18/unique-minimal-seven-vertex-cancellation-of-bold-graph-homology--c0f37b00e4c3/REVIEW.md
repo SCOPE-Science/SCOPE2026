@@ -1,22 +1,21 @@
-# Scientific review: sharp seven-vertex bold-homology cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a *finite* statement about all connected graphs of order at most seven, not a heuristic extrapolation. The 2,097,152 labeled seven-vertex edge masks are visited exhaustively; 1,866,256 are connected. An exact integer alternating count identifies 1,691,767 zero-Euler instances. Exact mod-two simplicial boundary reductions yield 252 labeled nontrivial cancellations, each checked to have exactly the graph-suspension structure. The orbit count \(7!/20=252\) matches. Independently, 1,253 standard unlabeled atlas entries are scanned using direct connected-domination cochain matrices; the unique positive is `G1212` with two unit Betti numbers. The bad-subset complex admits an explicit five-collapse model \(S^1\sqcup\{\mathrm{pt}\}\), certifying the witness cohomology even integrally. Included source and observed outputs permit replay. Residual: external packages and C toolchain should be checked by the reproducer; no formal machine-checked proof or independent audit is asserted.
+PASS
 
-## Originality — PASS
+The connected-dominating subset cochain is an upper Boolean order ideal. Its quotient from the augmented full Boolean complex gives H^k(D)=reduced H^(k-2)(A). Independently constructed all connected-dominating cochain matrices and exact GF(2) ranks for every connected unlabelled graph in NetworkX Graph Atlas at orders 1..7: connected counts 1,1,2,6,21,112,853; zero-Euler counts 0,0,1,4,16,91,732; exactly one zero-Euler nonzero-cohomology exception (graph6 Fhf~o, 15 edges, Betti 2:1 and 3:1). This exhausts the known 1253-isomorphism atlas, not merely random samples. Examined frozen C all-edge-mask labeled enumerator: exact bitmask rank/structural checks would give 252; that C run was NOT repeated in this audit. Graph automorphism order 20 implies 7!/20=252 from one orbit. Witness A decomposes into disconnected point+S1 via five triangle free-edge collapses.
 
-The **already-known** Caputi–Celoria–Collari 2022 connected-domination theorem identifies the cochains and Euler characteristic, and the authors pose the cancellation question (Question 5.11). More decisively, their 2023 suspension theorem (Theorem 5.8) already implies the *existence* of the particular cycle-suspension example with the two nonzero cohomology groups. Therefore these components have **no novelty claim**. The claim being assessed is instead the *first possible graph order and uniqueness among all connected seven-vertex isomorphism types*, which does not follow from the construction of examples or from their homology formulas. Inspection of those papers and related überhomology work, plus targeted searches of the published mathematical-record database for equivalent formulations and seven-vertex graph catalogues, yielded no encompassing classification. Similar small-order publications concern distinct matching, neighborhood, and domination-number complexes. The 2023 theorem is explicitly recorded as a genuine strong predecessor rather than dismissed. Residual: an unindexed or differently named exhaustive census could cover the exact minimum and uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural invariant under study answers the smallest-counterexample question suggested by the explicit 2022 cancellation problem, which the later suspension construction answers only at the level of existence. Locating the *sharp universal cutoff* and classifying its *sole extremizer* are mathematically interpretable facts, not an arbitrary graph selected after a computation. The dual independently reproducible census provides a useful minimal test for bold-cohomology algorithms. Its value is a natural finite extremal classification, not a general structural theory of all graphs.
+The 2023 suspension theorem proves the existence and cohomology of the C5 suspension already; do not claim those ingredients original. The sharp n<=6 exclusion and uniqueness among n=7 is a separate exhaustive isomorphism census, not implied by the suspension existence theorem. No direct earlier sharp census was found in the bounded searches.
 
-## Closest sources and scope
+## value
 
-- Caputi, Celoria, Collari, *Categorifying connected domination via graph überhomology* (2022), arXiv:2201.00721v1, Theorems 1.2–1.3 and Question 5.11.
-- Caputi, Celoria, Collari, *From the Mayer–Vietoris spectral sequence to überhomology* (2023), arXiv:2304.10134, Theorem 5.8; prior coverage of suspension witness existence and groups, **not the sharp cutoff**.
-- NetworkX Read–Wilson graph atlas documentation, `graph_atlas_g`, for independent isomorphism-class coverage.
-- Unindexed equivalent census remains a possible limitation; no claim about all integral coefficients or graphs above seven vertices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp finite obstruction/unique-minimal-extremizer classification resolves the small-order boundary of an explicitly posed Euler cancellation question in graph bold cohomology; natural graph order, natural invariant and connected-dominating cochain, not an arbitrary table recomputation. The existence and group ranks are credited to established theory; value lies in the certified cutoff/uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

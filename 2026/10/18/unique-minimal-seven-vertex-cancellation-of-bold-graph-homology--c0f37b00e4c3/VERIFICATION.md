@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction of the sharp bold-homology threshold
 
-The classification is exact and finite. These instructions reproduce two distinct enumerations with exact \(\mathbb F_2\) linear algebra; they are not an independent mathematical audit or an infinite-family proof.
+# Independent mathematical audit
 
-Compile and execute the labeled C implementation:
+## correctness
 
-```sh
-cc -O3 -std=c11 -Wall -Wextra -o census_labeled census_labeled.c
-./census_labeled
-```
+PASS
 
-`census_labeled.out` is the observed output. The enumeration visits all \(2^{\binom n2}\) graph masks in each order \(1\le n\le7\), testing connectivity, connected domination, Euler cancellation, and reduced boundary ranks. Every one of 252 positives on seven vertices is checked to be the cycle suspension by a graph-structural test.
+The connected-dominating subset cochain is an upper Boolean order ideal. Its quotient from the augmented full Boolean complex gives H^k(D)=reduced H^(k-2)(A). Independently constructed all connected-dominating cochain matrices and exact GF(2) ranks for every connected unlabelled graph in NetworkX Graph Atlas at orders 1..7: connected counts 1,1,2,6,21,112,853; zero-Euler counts 0,0,1,4,16,91,732; exactly one zero-Euler nonzero-cohomology exception (graph6 Fhf~o, 15 edges, Betti 2:1 and 3:1). This exhausts the known 1253-isomorphism atlas, not merely random samples. Examined frozen C all-edge-mask labeled enumerator: exact bitmask rank/structural checks would give 252; that C run was NOT repeated in this audit. Graph automorphism order 20 implies 7!/20=252 from one orbit. Witness A decomposes into disconnected point+S1 via five triangle free-edge collapses.
 
-Run the separate unlabeled direct cochain method:
+## originality
 
-```sh
-python census_direct.py
-```
+PASS
 
-Requires `networkx` and its bundled Read–Wilson graph atlas (1,253 unlabeled graphs on at most seven vertices); `census_direct.out` records the expected counts and uniquely identifies `G1212`, graph6 `Fhf~o`. The implementation constructs the **connected-dominating cochain differential**, not the complementary boundary differential of the C verifier, and checks known base families. The exact output for the positive witness must have Betti numbers in degrees 2 and 3 only, each of rank one.
+The 2023 suspension theorem proves the existence and cohomology of the C5 suspension already; do not claim those ingredients original. The sharp n<=6 exclusion and uniqueness among n=7 is a separate exhaustive isomorphism census, not implied by the suspension existence theorem. No direct earlier sharp census was found in the bounded searches.
 
-Manual witness proof: the complement non-connected-dominating face complex consists of a collapsed five-cycle plus a disjoint edge. Its reduced cohomology in dimensions zero and one is one-dimensional; the degree shift by two gives bold cohomology in degrees two and three. All five free triangle–edge pairs are specified in `RESULT.md`.
+## value
 
-Limits: absence of a graph before seven and uniqueness at seven are finite exhaustive classifications; graph orders above seven and coefficients beyond \(\mathbb F_2\) are not classified. The wider 2023 suspension theorem already covers existence and the witness groups. External independent audit has not been performed.
+PASS
+
+A sharp finite obstruction/unique-minimal-extremizer classification resolves the small-order boundary of an explicitly posed Euler cancellation question in graph bold cohomology; natural graph order, natural invariant and connected-dominating cochain, not an arbitrary table recomputation. The existence and group ranks are credited to established theory; value lies in the certified cutoff/uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

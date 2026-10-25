@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T07:05:47.340971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The connected-dominating subset cochain is an upper Boolean order ideal. Its quotient from the augmented full Boolean complex gives H^k(D)=reduced H^(k-2)(A). Independently constructed all connected-dominating cochain matrices and exact GF(2) ranks for every connected unlabelled graph in NetworkX Graph Atlas at orders 1..7: connected counts 1,1,2,6,21,112,853; zero-Euler counts 0,0,1,4,16,91,732; exactly one zero-Euler nonzero-cohomology exception (graph6 Fhf~o, 15 edges, Betti 2:1 and 3:1). This exhausts the known 1253-isomorphism atlas, not merely random samples. Examined frozen C all-edge-mask labeled enumerator: exact bitmask rank/structural checks would give 252; that C run was NOT repeated in this audit. Graph automorphism order 20 implies 7!/20=252 from one orbit. Witness A decomposes into disconnected point+S1 via five triangle free-edge collapses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.8 has a general suspension bold-homology formula encompassing the exact cohomology of C5 suspension."
+        ],
+        "reasoning": "Strong prior coverage removes existence and homology of the witness from novelty. It does not quantify over all connected graphs on <=7 vertices or assert minimal uniqueness.",
+        "searches": [
+          "RESULTARY query: bold graph cohomology connected dominating Euler characteristic zero nonzero seven vertices C5 suspension unique minimal seven-vertex graph",
+          "Caputi–Celoria–Collari arXiv:2304.10134 Theorem 5.8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.00721",
+        "https://arxiv.org/pdf/2304.10134",
+        "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 primary work asks whether χ=0 can cancel nontrivial bold cohomology; 2023 theorem yields a suspension witness; neither supplies a small-order exclusion proof."
+        ],
+        "reasoning": "Prior implication yields at least one witness, but not uniqueness/minimality. Those latter clauses alone are the final assessed contribution.",
+        "searches": [
+          "arXiv:2201.00721 Question 5.11",
+          "arXiv:2304.10134 Theorem 5.8",
+          "RESULTARY query: bold graph cohomology connected dominating Euler characteristic zero nonzero seven vertices C5 suspension unique minimal seven-vertex graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Euler cancellation for connected domination polynomial D_c(G;-1) equals the alternating bold-cochain Euler characteristic; G=C5*two independent apices is the graph suspension."
+        ],
+        "reasoning": "Compared the equivalent connected-domination polynomial and reduced non-connected-dominating complex formulations, not only paper titles.",
+        "searches": [
+          "RESULTARY query: bold graph cohomology connected dominating Euler characteristic zero nonzero seven vertices C5 suspension unique minimal seven-vertex graph",
+          "Caputi–Celoria–Collari arXiv:2201.00721 Question 5.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh complete atlas enumeration of connected unlabeled graphs counts 1,1,2,6,21,112,853 and unique G1212/Fhf~o exceptional; source includes an independent all-labeled-mask C census."
+        ],
+        "reasoning": "Graph Atlas contains graphs, not a previously indexed table of bold-homology cancellation types. The submitted result is a derived sharp classification; the historical possibility of an unindexed equivalent atlas computation remains a risk.",
+        "searches": [
+          "NetworkX graph_atlas_g; Read–Wilson unlabeled graphs <=7",
+          "RESULTARY query: bold graph cohomology connected dominating Euler characteristic zero nonzero seven vertices C5 suspension unique minimal seven-vertex graph"
+        ]
+      },
+      "rationale": "The 2023 suspension theorem proves the existence and cohomology of the C5 suspension already; do not claim those ingredients original. The sharp n<=6 exclusion and uniqueness among n=7 is a separate exhaustive isomorphism census, not implied by the suspension existence theorem. No direct earlier sharp census was found in the bounded searches.",
+      "residual_risks": [
+        "Historical unindexed seven-vertex cancellation census could predate this finding.",
+        "All-labeled 2^21 masks original C verifier inspected but not independently executed; full unlabeled Atlas exhaustive audit and orbit factor 252 provide separate support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the Euler identity and motivating question; no seven-vertex unique minimal census identified in inspected material",
+          "evidence": [
+            "Question 5.11; Theorems 1.2–1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00721",
+          "material_read": "Full 2022 PDF, model/cochain definitions, Theorems 1.2–1.3, and Question 5.11 near page 18",
+          "method": "Lawful open arXiv primary PDF text/pages",
+          "title": "Categorifying connected domination via graph überhomology",
+          "trigger": "Same cochain object and Euler cancellation problem"
+        },
+        {
+          "assessment": "Gives covered suspension witness and its groups; not the exhaustive minimality and uniqueness result",
+          "evidence": [
+            "Theorem 5.8, suspension formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10134",
+          "material_read": "Full open arXiv PDF, suspension Theorem 5.8, page 14",
+          "method": "Open PDF reading and theorem/page image",
+          "title": "From the Mayer–Vietoris spectral sequence to überhomology",
+          "trigger": "Strongest known covering theorem for graph suspensions"
+        },
+        {
+          "assessment": "Exact finite input covering all <=7 unlabelled simple graphs; no pre-existing cancellation classification claimed",
+          "evidence": [
+            "Atlas connected class counts; independent graph6 Fhf~o exceptional"
+          ],
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Graph Atlas coverage and independently enumerated all included graphs and direct cochain ranks",
+          "method": "Local graph_atlas_g database with independent code and GF(2) elimination",
+          "title": "Read–Wilson Graph Atlas / graph_atlas_g",
+          "trigger": "Potential complete exact table for all unlabeled graphs order <=7"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp finite obstruction/unique-minimal-extremizer classification resolves the small-order boundary of an explicitly posed Euler cancellation question in graph bold cohomology; natural graph order, natural invariant and connected-dominating cochain, not an arbitrary table recomputation. The existence and group ranks are credited to established theory; value lies in the certified cutoff/uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2201.00721",
+    "https://arxiv.org/pdf/2304.10134",
+    "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html"
+  ],
+  "disposition": "passed",
+  "limitations": "Only connected finite simple graphs <=7 and mod-two bold cohomology are classified; no infinite family, other fields or integral census claimed. Prior suspension cohomology is not new.",
+  "residual_risks": [
+    "Historical unindexed seven-vertex cancellation census could predate this finding.",
+    "All-labeled 2^21 masks original C verifier inspected but not independently executed; full unlabeled Atlas exhaustive audit and orbit factor 252 provide separate support."
+  ],
+  "schema_version": 1
+}
