@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single assessed claim is that area weights on a four-site path at elasticity \(3/4\) have a strictly better asymmetric allocation than every reflection-invariant allocation, whereas paths of up to three sites admit uniquely symmetric area optimizers. The proof reduces the allocation maximum exactly to the \(8/7\)-spectral graph radius; derives a sharp one-variable bound for reflection-invariant vectors; and compares rational fourth powers against the explicit positive witness. The included standalone program independently replays the decisive arithmetic. A connected-graph boundary perturbation proves existence of a positive global maximizing allocation. It is a linear-invasion threshold, not stochastic survival.
+## correctness
 
-## Originality — PASS, with residual risk
-The p-spectral graph quantity is an established object of Kang and Nikiforov (2014), and the ecology Perron threshold goes back at least to Hanski and Ovaskainen (2000). Those contributions are not claimed as original. published-finding corpus, accessible previous findings, and primary literature were searched for equivalence or stronger coverage. The inspected spectral work gives graph-family inequalities; the inspected ecological full text studies landscape networks and does not supply the precise four-corridor optimizer asymmetry. The exact strict certificate and minimal network size are the limited original claim. The original 2000 ecology paper and a general 2013 spectral optimization paper were only accessible as abstracts, so a stronger missed specialization remains possible.
+PASS
 
-## Mathematical value — PASS
-Even a reflection-invariant connected corridor need not have a reflection-invariant optimal conservation allocation. The four-patch threshold is sharp among paths and directly limits symmetry-restricted landscape design optimizers. The result is motivated by a spectral invasion objective and does not pretend to optimize empirical landscapes.
+At area elasticity alpha=3/4, Holder gives the exact variational identity max_a rho(W(a)) = max_{z>=0, sum z_i^(8/7)=1} 2 sum_{edges P4} z_i z_j. The converse uses a_i=z_i^(8/7), x_i=z_i^(4/7). Since p=8/7>1 and graph connected, a zero coordinate in a maximizing z can be perturbed by epsilon with objective gain O(epsilon) exceeding O(epsilon^p) renormalization loss; hence a positive global maximizer exists. Reflection-symmetric points reduce to F(t)=2^(-3/4)(1+2t^7)/(1+t^8)^(7/4) with unique maximum t0+t0^8=1. Direct rational checks bound 8116/10000 < t0 < 8117/10000 and F(t0)<161/250. For explicit positive r=(5,10,11,10), S=sum r_i^8=414749506, Q=2 sum (r_i r_(i+1))^7=781049340000000, an independent exact-integer comparison gives Q^4>(161/250)^4 S^7, proving asymmetric rho>161/250. Symmetry then forces every actual global optimum to be asymmetric and reflected in distinct pairs. For path P2, AM-GM gives the unique equal split; for P3, strict concavity of exponent 3/4 and a2(1-a2) uniquely optimize a1=a3 and a2=1/2, so P4 is minimal among paths. These assert only the linear mean-field invasion threshold tau_c=1/rho, not stochastic survival, unique P4 optimizer or other elasticities.
 
-## Scientific limitations
-Only homogeneous undirected four-patch paths with area exponent \(3/4\), total area one, and linearized mean-field occupancy are considered. The proof does not classify exact global optimizer coordinates or stochastic extinction. Public prior-work comparison must not be mistaken for independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual Resultary search, source-specific mathematical implication comparisons, primary-source reading of accessible material and explicit residual risks. Known general frameworks and special cases are credited; unsuccessful searches are not proof of historical novelty.
+
+## value
+
+PASS
+
+An explicitly certified sharp four-site failure of symmetry-restricted optimization in a natural area-weighted Perron metapopulation-capacity model is a meaningful boundary for network design. It proves a strict analytic improvement and minimal path size using integer certificates, not a numerical optimizer or a generic repackaging of p-spectral radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
