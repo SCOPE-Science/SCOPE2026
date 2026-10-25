@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each group term reduces to an integer linear combination; its full equality pattern is the kernel of a map from \((\mathbb Z/p^2\mathbb Z)^k\). The five possible quotient isomorphism types are exhaustively enumerated by epimorphism counts divided by target automorphisms; the matrix computation of automorphisms of \(C_{p^2}\oplus C_p\) and its upper-triangular action on \(p\)-torsion give the exact embedding-orbit multiplicities \(1,2,1,p+1,1\). The minimum order-eight unary witness follows by exhaustive classification of smaller finite abelian groups. An independent brute-force checker verified 1,340 tuples across five finite parameter cases. Critical assumptions: pure parameter-free group language, ordered tuples, all primes and positive arities.
+## correctness
 
-**Originality — PASS, qualified.** The 2023 primary study treats quantifier-free definability algorithms and examples with finite abelian groups, but its examined main statements and worked examples do not provide this exact paired, all-arity spectrum or first nonhomocyclic unary obstruction. Mader (2012) proves general automorphism structure; the present orbit-count conclusion requires additional kernel/embedding analysis. Existing Gaussian-subspace formulas alone do not give the comparison of the two spectra. Residual risk: an earlier algebraic-homogeneity or subgroup-embedding classification could encode the result equivalently without mentioning quantifier-free formulas; no universal novelty certification is claimed.
+PASS
 
-**Mathematical value — PASS.** It gives an exact cardinality benchmark for a natural family already encountered in definability-algorithm research, identifies precisely how local isomorphisms fail to extend globally, isolates the sharp smallest unary counterexample, and quantifies an exponentially widening all-arity expressivity gap. These features cannot be recovered just by renaming the established semantic criterion.
+Every group term in pure parameter-free group language is an integer linear combination. A tuple type is exactly the kernel of R^k->C_(p²)⊕C_p, R=Z/p². The possible quotients are 1,C_p,C_(p²),C_p²,A_p; epimorphisms divided by subgroup automorphisms give kernel counts 1,u_k,p^(k-1)u_k,v_k,w_k. The embedded quotient may split into 1,2,1,p+1,1 global automorphism orbits due to characteristic pA_p⊂A_p[p], giving O=T+u+pv. Unary pA_p distinguishes automorphism invariant versus quantifier-free; all abelian groups order<8 are cyclic or C2². Independently constructed full linear-equation truth vectors and all global automorphism orbits for 1340 tuples at (2,1),(2,2),(2,3),(3,1),(3,2); reproduced (T,O)=(3,4),(14,19),(85,106),(3,4),(22,29). Finite checks support, but do not replace, all-p/all-k counting proof.
 
-The theorem is restricted to a specified finite mixed-exponent family, and computational checking does not prove statements for infinitely many primes and arities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing quantifier-free definability theorems give semantic preservation algorithms, and existing finite-abelian-p-group automorphism descriptions give matrix groups. The assessed combination produces explicit all-prime/all-arity counts of kernels vs global embedding orbits and the least unary obstruction. The routine Nakayama and Gaussian coefficients are credited as tools, not standalone novelty.
+
+## value
+
+PASS
+
+Quantifier-free versus automorphism-invariant relations is a substantive finite-model-theoretic distinction. The mixed-exponent rank-two p-group is the first natural abelian obstruction, and explicit all-k orbit spectra and exact size-eight unary threshold quantify that gap, useful for definability tests and algebraic orbit enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
