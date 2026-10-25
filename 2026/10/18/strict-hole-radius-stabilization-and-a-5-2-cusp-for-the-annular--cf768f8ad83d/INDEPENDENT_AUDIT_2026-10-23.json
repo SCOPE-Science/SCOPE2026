@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:02:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 268eff0cf44e726dec07349a6fa89a688dddc6d3 kernel, cap, monotonicity and tangency proof",
+        "checker.py blob 2f7e29eaa1246b1abb3eb2e3e0cc6324240acd6a reviewed and separate cap/series consistency checks"
+      ],
+      "rationale": "Normalized concentric annulus has covariance (1+r²)I/4, so affine projection kernel K_r(x,y)=1+x·y/b, b=(1+r²)/4. Along a fixed direction the Lebesgue integral of |1+c·y| is even convex in evaluation radius, so its essential supremum is at the outer circle. Kernel symmetry/duality equates endpoint norms. Negative kernel cap gives Λ=1+2[H(1,b)−H(r,b)]/[πb(1−r²)], H(R,b)=2∫_b^R(z−b)√(R²−z²)dz; the claimed antiderivative is exact. In s=r² and uniform radial area parameter u, Λ=1+(2/π)∫G(c_s(u))du; ∂_s c_s has exactly one sign change and G′ is increasing, yielding strict negative weighted integral since ∫c_s strictly decreases. Tangency r=b occurs at 2−√3; elementary cap substitution yields a positive (r−r*)_+^(5/2) coefficient, analytic remainder and precisely C²/non-C³ cusp. Boundary r=1 is a limiting measure, not area normalization. Independent quadrature/series checks support but do not prove universal assertions.",
+      "residual_risks": [
+        "Numerical monotonicity grids do not prove strictness; proof relies on analytic one-sign-change inequality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saff–Stahl–Stylianopoulos–Totik 2014 arXiv:1403.6456 asymptotic area-orthogonal polynomials",
+          "Hangelbroek–Narcowich–Sun–Ward 2010 arXiv:1005.2424 general manifold projector stability"
+        ],
+        "reasoning": "The broad hypotheses allow holes or general kernels, but published theorems cited concern asymptotic polynomial behavior or uniform bounds, not sharp finite-degree equality and the radius-dependent cusp.",
+        "searches": [
+          "annulus affine linear L2 orthogonal projection Lebesgue constant L infinity norm inner radius hole cusp 5/2 monotonicity",
+          "Bergman polynomials lakes L infinity kernel projector annulus"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1403.6456",
+        "https://arxiv.org/abs/1005.2424",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "annulus affine linear L2 orthogonal projection Lebesgue constant L infinity norm inner radius hole cusp 5/2 monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1403.6456 studies Bergman asymptotics and inverse shape recovery",
+          "arXiv:1005.2424 bounds L∞ norms for manifold kernel approximation"
+        ],
+        "reasoning": "Neither available theorem implies an exact formula for affine projection on normalized concentric planar annuli with sharp third-derivative failure at r=2−√3. Inaccessible deeper sections/terminology remain risk.",
+        "searches": [
+          "annulus affine linear L2 orthogonal projection Lebesgue constant L infinity norm inner radius hole cusp 5/2 monotonicity",
+          "\"Orthogonal polynomials for area-type measures and image recovery\" lakes 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact annulus formula from inspected proof; disk and circle endpoint norms are classical",
+          "Resultary 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 treats simplex affine projection"
+        ],
+        "reasoning": "Equivalent descriptions are the sharp Lebesgue function / L∞ norm of affine L² orthogonal projection and expected negative part of the reproducing kernel on an annular probability domain. A simplex projector is not the annular radial family.",
+        "searches": [
+          "annulus affine linear L2 orthogonal projection Lebesgue constant L infinity norm inner radius hole cusp 5/2 monotonicity",
+          "annular affine least squares projector negative kernel cap Lebesgue function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact positivity defect and max norm of affine least-squares projector on a simplex, 2026/10/4 record 99c2b9dd9b34",
+          "Source RESULT.md disk/circle endpoint explicit values"
+        ],
+        "reasoning": "Known endpoint disk/circle values or other shape tables do not determine an interior nonanalytic threshold. No indexed annular degree-one exact function found in the actual search.",
+        "searches": [
+          "annulus affine linear L2 orthogonal projection Lebesgue constant L infinity norm inner radius hole cusp 5/2 monotonicity",
+          "annulus degree one Lebesgue constant radius table 2-sqrt3"
+        ]
+      },
+      "rationale": "Available original work treats high-degree Bergman asymptotics on holed domains and manifold kernel approximation estimates, respectively. Neither inspected accessible statement yields the exact normalized degree-one annular kernel negative-cap formula, strict monotonicity in inner radius or 5/2 tangency cusp. Related exact affine projector on a simplex has a different measure/domain. Originality remains qualified by older unindexed Lebesgue-function formula risk.",
+      "residual_risks": [
+        "Full text of both broad projector and holed-domain sources was not exhaustively inspected in this execution; unindexed precise annular formulas remain a bibliographic risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The available statements involve Bergman asymptotics rather than an exact affine-projector annular norm; complete-article implication not fully ruled out",
+          "evidence": [
+            "arXiv:1403.6456 title/abstract and available statements"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.6456",
+          "material_read": "Accessible arXiv abstract, article description and specifically cited sections on polynomial asymptotics and recovery; full PDF not exhaustively verified in this execution",
+          "method": "Reviewed available primary information, used section descriptions without claiming unread whole-paper noncoverage",
+          "title": "Orthogonal polynomials for area-type measures and image recovery",
+          "trigger": "Annular/holed area-orthogonal polynomial approximation"
+        },
+        {
+          "assessment": "General stability bounds, not the exact planar-annulus radius profile in the available material",
+          "evidence": [
+            "arXiv:1005.2424 abstract and stated L∞ bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Accessible arXiv abstract and main bound descriptions; full PDF not exhaustively checked in this execution",
+          "method": "Compared abstract and primary theorem-level descriptions without extrapolating beyond read material",
+          "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L2-projector",
+          "trigger": "General results for L∞ norms of L2 projectors"
+        },
+        {
+          "assessment": "Natural comparison; simplex domain is not annular and has no moving hole contact",
+          "evidence": [
+            "2026/10/4 finding 99c2b9dd9b34"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Actual Resultary finding title and summary: explicit dimension-dependent simplex norm",
+          "method": "Read published Resultary mathematical summary; did not infer absent details",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Same degree-one orthogonal projection but different convex domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Saff–Stahl–Stylianopoulos–Totik arXiv:1403.6456 studies area-type measures and lakes",
+        "Hangelbroek et al arXiv:1005.2424 studies L∞ stability of L2 projection operators"
+      ],
+      "rationale": "Sharp L∞/L1 norm of a low-degree orthogonal projector is a natural approximation-stability invariant. A concentric circular hole is a motivated controlled domain perturbation; the exact monotone profile plus 5/2 contact-induced loss of smoothness is mathematically structural and not a gratuitous special numeric instance.",
+      "residual_risks": [
+        "Motivation and originality are bounded best-of-knowledge judgments; unknown stronger historical results could change priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of both broad projector and holed-domain sources was not exhaustively inspected in this execution; unindexed precise annular formulas remain a bibliographic risk.",
+    "Numerical monotonicity grids do not prove strictness; proof relies on analytic one-sign-change inequality.",
+    "The signed dispatcher checkpoint is a sequence cursor only, not science attestation.",
+    "The public-facing source operational identifiers prevent ready publication despite scientifically complete C/O/V judgment."
+  ],
+  "schema_version": 1
+}
