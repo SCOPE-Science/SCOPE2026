@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The finite statement is precise: sixteen vertices identified with the ordered pairs modulo four, an explicit Shrikhande generating set with correlated diagonal signs, and the forbidden induced triangle condition. Both face predicates independently enumerate all 65,536 subsets. Graph parameters, 32 triangles, complete face counts, paired-face disjointness, and every Hasse incidence are checked. The explicit perfect acyclic matchings reduce the nonempty complexes to one zero-cell plus nine six-cells or fifteen five-cells; Forman's theorem establishes the claimed integral homotopy types. Full mod-two chain-boundary ranks provide independent corroboration. See `verify.py`, `verify_output.txt`, and `RESULT.md` for the actual algorithms, numbers and mathematical deduction.
+
+## Originality — PASS with qualified residual risk
+Taylan's full available text (arXiv:1501.06754) defines precisely this kind of forbidden-pattern complex and treats other graph families; its statements do not cover the Shrikhande case. Jojić–Vrećica–Živaljević (arXiv:1412.0386) explicitly define the two-rook-per-row-and-column generalized chessboard object. A published published-finding corpus result `915eed6b65e5` already gives the full rook homotopy type, which is expressly not counted as new. The closest Shrikhande results available through the indexed search concern its ordinary independence or Čech/neighborhood complexes, which do not imply the triangle-avoidance homotopy type. Targeted searches for triangle hypergraph, induced \(K_3\)-free vertex subsets, alternative chessboard formulations, and precise sphere decompositions found no covering result for Shrikhande. Indexing gaps remain possible; the earlier rook result is a known, explicitly acknowledged component of the comparison.
+
+## Value — PASS
+The Shrikhande graph provides the second canonical strongly regular realization of \((16,6,2,2)\). Its 32 triangles form the faces of a toroidal triangulation, making a triangle-avoidance complex natural rather than an arbitrary induced subcomplex. Showing that its complex is a bouquet of nine six-spheres gives a full integral topological invariant and, relative to the already known rook complex, a clear separation in the *degree* of homology despite matching strongly regular parameters and triangle counts. Neither numerical Betti calculation nor absence of novelty coverage alone is offered as value; the canonical comparison and exact homotopy dimension give the specific mathematical motivation.
+
+## Closest literature and limitations
+The foundational sources are arXiv:1501.06754 (2015-01-27) and arXiv:1412.0386 (2014-12-01), both read in accessible HTML/text, including definitions and application statements. The direct prior record for the rook case was available as a searchable title and summary, not full source. Other finite topology records concern different complexes. This result proves no family-wide theorem, and indexing gaps cannot exclude unobserved equivalent results. Its computer certificate has not been independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
