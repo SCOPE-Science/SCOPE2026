@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` with Python 3 and no third-party dependencies. It enumerates every radius-two simplex using the shortest-path metric, and independently generates the \(n+5n+5n\) proposed facet families for each integer \(7\le n\le14\). It checks equality of all face sets, the original face vector, each of the \(40n\) claimed elementary free-face incidences against current cofaces, the exact surviving complex, and its face vector. For \(7\le n\le10\), it computes mod-two boundary ranks and Betti vectors \((1,1,n,0,0)\). Expected final output contains `VERIFY_OK`.
+## correctness
 
-The explicit uniform proof in `RESULT.md` supplies the necessary argument for every integer \(n\ge7\), independent of the finite experiment. The checker is a finite cross-check and cannot establish unbounded correctness or integral homology by itself. The integral homotopy and homology statements come from the proved collapses and the subsequent CW argument. Independent external assessment has not been performed.
+PASS
+
+For n>=7, the graph-metric radius-two clique is wholly in a column A_j, one of 5n middle-column distance-two facets B_ij with endpoints (i,j-1),(i,j+1) and three middle rows, or a unit-square tetrahedron C_ij. The unique middle column when n>=7 prevents additional mixed facets. Six explicitly ordered free codimension-one pairs in each B, then two free pairs in each C, give exactly 30n+10n=40n elementary collapses. The remainder is a 5-by-n square-triangulated torus with each of n full meridian four-simplices attached along its five-edge meridian. Replacing each contractible four-simplex attachment by a meridian disk up to homotopy and killing one primitive generator in the torus presentation yields S1 wedge n S2. Counting Z faces (5n,20n,20n,5n,n) and reversing 40n pairs yields original (5n,30n,55n,35n,6n). The argument is uniformly combinatorial, not extrapolated from n=7.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Adams et al study square C_m square C_m and C5 square C5, not the rectangular C5 square Cn for n>=7; already published width-four torus has n copies of S3 rather than n S2. Neither implication supplies the claimed uniform collapse or dimension shift.
+
+## value
+
+PASS
+
+A complete all-n>=7 homotopy classification and elementary collapse for the natural previously untreated width-five graph-metric rectangular torus at the first nontrivial radius; explicit f-vectors and n-dependent free H2 rank enable comparison across torus widths and persistence. The difference from width four (S3 spheres) and large square tori (torus) is substantive topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
