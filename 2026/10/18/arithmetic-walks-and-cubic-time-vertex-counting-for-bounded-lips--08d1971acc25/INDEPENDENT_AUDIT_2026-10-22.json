@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T00:55:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@875480c798577c14e05ef382db7e0f43fa956786/2026/10/18/arithmetic-walks-and-cubic-time-vertex-counting-for-bounded-lips--08d1971acc25/RESULT.md",
+        "Actual package code and verification file; independent stated finite spot checks"
+      ],
+      "rationale": "For real unit-spaced finite path, N(f)=sup|f|+max adjacent difference. At nonconstant boundary let a,b>0 sum to 1. Tight adjacency edges partition vertices into runs; each must meet a mark |f_i|=a or translating an unmarked component yields a midpoint decomposition. If none of the runs has marks of both signs, a and b can be varied oppositely to give a midpoint; conversely a mixed-sign run fixes 2a=db for an integer 1<=d<=n-1 and, with every tight run marked, all saturated equalities force each vertex uniquely, proving extremality. Shared lattice f_i=-a+(2/(d+2))h_i and every nontight edge must have zero integer step, yielding the exact height walk with steps -1,0,1 and boundary-hit run conditions. Distinct d are recovered by 2a/b. A DP with height j, current mask of level {0,d} hits, and mixed-run Boolean counts all eligible paths; O(n^3) integer additions across 1<=d<n and O(n) reusable storage. Independent direct enumeration of height words gave V_n=4,10,26,64,162,404,998 for n=2..8, matching predicted series. No finite enumeration substitutes for extremality and DP proof.",
+      "residual_risks": [
+        "Finite real unit-spaced paths only; no irregular spacing",
+        "All-n recurrence counts vertices but not general signed-measure dual optimum",
+        "Direct enumeration checks limited to n<=8 here"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hille–Theewis arXiv:2305.08500 Section 6 Lemma 6.1 is a necessary tight-partner criterion, and Example 6.2 shows proposed stronger local condition is not sufficient in general finite metric spaces.",
+          "Hille–Theewis arXiv:2206.12234 Section 6 provides finite half-space LP representation (Lemma 6.1, Formula 39), potentially general computational enumeration, but no polynomial-time all-n path vertex-count recurrence."
+        ],
+        "reasoning": "A general inequality/LP description permits brute-force vertex enumeration but does not mathematically imply the closed combinatorial walk bijection or cubic-time exact count. Specific path lattice rigidity adds nontrivial structure.",
+        "searches": [
+          "bounded Lipschitz norm additive maximum sup plus Lipschitz extreme points unit spaced path walk vertex counts recurrence",
+          "Dudley bounded Lipschitz finite line n-point path unit ball vertices extreme enumeration cubic time"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.08500 Section 6",
+        "arXiv:2206.12234 Section 6",
+        "Resultary semantic search on additive BL path ball vertex enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hille–Theewis 2023 full Section 6 gives necessary tight-edge partner condition and explicitly warns against naive sufficiency.",
+          "Hille–Theewis 2022 Section 6 general dual BL LP uses a half-space body but no path-specific canonical height lattice.",
+          "Resultary prior published free-space facet enumerations count dual/other metric balls, not same additive BL unit-ball vertices."
+        ],
+        "reasoning": "The published statements do not logically include the bound d<=n-1, canonical walk conditions, or exact O(n^3) all-n census. The overlapping qualitative tight-edge idea is acknowledged; novelty is precise integer-grid/algorithmic consequence.",
+        "searches": [
+          "bounded Lipschitz norm additive maximum sup plus Lipschitz extreme points unit spaced path walk vertex counts recurrence",
+          "Dudley bounded Lipschitz finite line n-point path unit ball vertices extreme enumeration cubic time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille–Theewis 2023 arXiv:2305.08500 defines same additive BL norm in Introduction (Equation 1), and Section 6 concerns finite BL extreme points.",
+          "Prior general finite-metric tight-edge component criterion can recognize some individual vertices but does not provide the integer-height walk language and O(n^3) count."
+        ],
+        "reasoning": "The geometric object is exactly an additive BL unit ball, not a max Fortet–Mourier norm ball or Lipschitz-free dual facets. Prior extremality conditions cover a qualitative portion but not the enumerative strengthening.",
+        "searches": [
+          "bounded Lipschitz norm additive maximum sup plus Lipschitz extreme points unit spaced path walk vertex counts recurrence",
+          "Dudley bounded Lipschitz finite line n-point path unit ball vertices extreme enumeration cubic time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh direct arithmetic-walk enumeration n=2..8 gives 4,10,26,64,162,404,998.",
+          "Resultary semantic search found metric Lipschitz-free facet counts on other graphs and finite Dudley norm works, no exact additive BL path ball table."
+        ],
+        "reasoning": "Even if short prefix had appeared as integer sequence, the theorem classifies all n and proves a cubic-time counting recurrence, which is stronger than a known finite table.",
+        "searches": [
+          "bounded Lipschitz norm additive maximum sup plus Lipschitz extreme points unit spaced path walk vertex counts recurrence",
+          "Dudley bounded Lipschitz finite line n-point path unit ball vertices extreme enumeration cubic time"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison identifies no prior theorem implying the final claim at its actual hypotheses; known overlap and residual bibliographic risks are recorded, not erased.",
+      "residual_risks": [
+        "An unindexed equivalent integer-walk enumeration or known vertex-count sequence may exist.",
+        "The necessary/extremality tight-component principle itself is not new.",
+        "Arithmetic complexity is in integer additions, not bit-cost of arbitrary precision, and fast dual optimization is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides finite necessary conditions; not a unit-path height-walk O(n^3) census",
+          "evidence": [
+            "Equation 1 is sup norm plus Lipschitz seminorm; Section 6 Lemma 6.1 gives tight partner necessity; Example 6.2 invalidates a proposed blanket sufficiency test."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+          "material_read": "Full open primary paper rendered via arXiv abstract URL: Introduction, general extremality constructions, Section 6 Lemma 6.1, Examples 6.1/6.2 and conclusion",
+          "method": "Read arXiv rendered full text with section and lemma navigation",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Exactly same additive BL norm and finite extreme point object"
+        },
+        {
+          "assessment": "General finite linear program, no explicit unit-path vertex count or fast recurrence",
+          "evidence": [
+            "Section 6 formulates dual BL optimization as a finite half-space LP; a generic LP does not supply the symbolic vertex count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.12234",
+          "material_read": "Full primary open rendered text Introduction and Section 6 including Lemma 6.1 and LP formula (39)",
+          "method": "Read arXiv scholarly text and inequality construction",
+          "title": "Explicit expressions and computational methods for the Fortet-Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Potential general computational domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2305.08500 Section 6",
+        "arXiv:2206.12234 Section 6",
+        "Resultary semantic search on additive BL path ball vertex enumeration"
+      ],
+      "rationale": "The additive bounded-Lipschitz unit balls of equally spaced finite paths form a natural exact-polytope family. Complete integer-grid rigidity and canonical vertex walks yield an O(n^3) exact census for every n instead of generic exponentially large active-set/polytope enumeration. The count is a useful exact geometric invariant even without a general fast dual norm optimizer.",
+      "residual_risks": [
+        "Value is claimed for the exact restricted mathematical invariant, not for a general theorem outside stated assumptions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite real unit-spaced paths only; no irregular spacing",
+    "All-n recurrence counts vertices but not general signed-measure dual optimum",
+    "Direct enumeration checks limited to n<=8 here",
+    "An unindexed equivalent integer-walk enumeration or known vertex-count sequence may exist.",
+    "The necessary/extremality tight-component principle itself is not new.",
+    "Arithmetic complexity is in integer additions, not bit-cost of arbitrary precision, and fast dual optimization is not claimed."
+  ],
+  "schema_version": 1
+}
