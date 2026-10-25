@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:05:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 947aa1da39139e3f1a45c0e47ee161c6b3398f20",
+        "Pinned verify.py blob 6c32549d3d8a68440cb1f71d537516031703897f",
+        "Independent explicit Hamming incidence and contranominal subset checks in independent_checks.py, geometry_arithmetic_checks.py"
+      ],
+      "rationale": "For Hamming words of length d>=2 over alphabet q>=3, two distinct radius-one balls intersect in a full coordinate line of q words if their centers differ in one coordinate, exactly two common words at distance two, and none at distance >=3. Any hypothetical five-scale has every pair of distinct attribute balls contain at least three common objects, forcing those attribute centers to lie on a line and then all five objects on a line, impossible because a radius-one ball meets a line in either all q members or at most one. In four-scale, fixing an attribute and its three incident objects, the cases one object=attribute, three different changed coordinates, and two shared changed coordinates exhaust possibilities: respectively a rectangle, parity tetrahedron in a binary three-face, or two rows of two points each in a two-coordinate face. The attributes are uniquely forced in all cases. Inclusion-exclusion for two-line row vs column presentation subtracts q-grid rectangles: for c=C(q,2), 2c^3-c^2=c²(2c-1). Parity count is 2C(d,3)q^(d-3)c³, yielding the claimed N_{d,q}=C(d,2)q^(d-2)c²(2c-1)+2C(d,3)q^(d-3)c³. Independent direct incidence enumeration counted four-scales in (q,d)=(2,2):1,(2,3):8,(3,2):45,(3,3):459,(4,2):396, with unique witnesses and expected geometry; a complete search over C(27,5)=80730 five-object subsets found none at (q,d)=(3,3). These finite instances support but do not prove the full parameter theorem.",
+      "residual_risks": [
+        "Domain q>=3,d>=2, Hamming distance <=1, objects and attributes the same full q-ary product; no result for radius>1 or arbitrary formal contexts.",
+        "The binary q=2 cases checked are consistency checks outside the stated novelty domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General FCA Boolean-substructure theorems and induced-matching search methods apply to this context abstractly.",
+          "No geometric theorem in the inspected primary manuscripts bounds the maximal scale by four for all q,d or gives the two q-ary families."
+        ],
+        "reasoning": "A broad algorithm is not a stronger explicit classification; one must still prove the Hamming ball intersection lemma and exhaustive case split to obtain the formula.",
+        "searches": [
+          "arXiv:2104.07159, Koyda and Stumme, Boolean Substructures in Formal Concept Analysis (2021)",
+          "arXiv:2106.10978, Duerrschnabel Koyda Stumme, Attribute Selection using Contranominal Scales (2021)",
+          "Resultary semantic search: four point contranominal scale Hamming distance <=1 formal context q-ary two-line parity tetrahedron enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2104.07159",
+        "https://arxiv.org/pdf/2106.10978"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boolean suborder correspondence gives significance of large scales, not their maximum size in this Hamming context.",
+          "The graph induced-matching algorithm detects configurations but does not state the q,d-invariant upper bound four or exact counting polynomial."
+        ],
+        "reasoning": "The new Hamming-specific intersection geometry and classification are essential to convert a generic detection framework to a sharp all-parameter theorem.",
+        "searches": [
+          "arXiv:2104.07159, Koyda and Stumme, Boolean Substructures in Formal Concept Analysis (2021)",
+          "arXiv:2106.10978, Duerrschnabel Koyda Stumme, Attribute Selection using Contranominal Scales (2021)",
+          "Resultary semantic search: four point contranominal scale Hamming distance <=1 formal context q-ary two-line parity tetrahedron enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2104.07159, Koyda and Stumme, Boolean Substructures in Formal Concept Analysis (2021) proves relationship between contranominal scales and Boolean suborders, a translation not a specialized Hamming geometric classification.",
+          "arXiv:2106.10978, Duerrschnabel Koyda Stumme, Attribute Selection using Contranominal Scales (2021) studies contranominal scale/induced matching detection, an algorithmic alias."
+        ],
+        "reasoning": "The equivalent graph formulation is an induced matching in the bipartite nonincidence relation on two q-ary cubes; this has been considered. The new theorem additionally gives all exact maximal induced-matching configurations for radius-one incidence and their symbolic number.",
+        "searches": [
+          "Resultary semantic search: four point contranominal scale Hamming distance <=1 formal context q-ary two-line parity tetrahedron enumeration",
+          "arXiv:2104.07159, Koyda and Stumme, Boolean Substructures in Formal Concept Analysis (2021)",
+          "arXiv:2106.10978, Duerrschnabel Koyda Stumme, Attribute Selection using Contranominal Scales (2021)",
+          "induced matching contranominal q-ary Hamming ball concept lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact nonbinary radius-one q-ary Hamming four-scale counting table was found in primary articles or Resultary results.",
+          "The formula matched complete finite direct counts and includes an overlap subtraction absent from naive row/column addition."
+        ],
+        "reasoning": "Earlier generic enumerators can produce small-instance tables but without an exhibited direct identical closed-form statement do not immediately cover the infinite family. Negative search is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: four point contranominal scale Hamming distance <=1 formal context q-ary two-line parity tetrahedron enumeration",
+          "C(q,2)^2(2C(q,2)-1) Hamming contranominal",
+          "arXiv:2104.07159, Koyda and Stumme, Boolean Substructures in Formal Concept Analysis (2021)",
+          "arXiv:2106.10978, Duerrschnabel Koyda Stumme, Attribute Selection using Contranominal Scales (2021)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for sharp dimension cap, full geometry and exact q,d formula. Published formal-concept work connects contranominal contexts with Boolean lattice suborders and develops generic scale/induced-matching algorithms, but no inspected result specializes to closed Hamming radius-one incidence and states this two-line/parity classification or counting polynomial. Published generic algorithms could enumerate instances but do not by themselves imply the all-parameter closed formula.",
+      "residual_risks": [
+        "A q-ary coding-theory or FCA classification indexed by induced-matchings or Hamming ball intersections may exist outside searched primary papers.",
+        "Only dimension four maximal scales are classified; smaller scales are not enumerated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad Boolean-substructure connection; does not itself give two-line/parity Hamming special-case geometry",
+          "evidence": [
+            "Contranominal scales are tied to Boolean suborders of formal concept lattices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.07159",
+          "material_read": "Available full lawful primary paper, including main substructure correspondence and definitions",
+          "method": "Open-access PDF extracted text and inspected PDF page",
+          "title": "Boolean Substructures in Formal Concept Analysis",
+          "trigger": "Same contranominal objects, possible equivalent Boolean suborder theorem"
+        },
+        {
+          "assessment": "General scale detection/attribute selection, no inspected closed form for Hamming radius-one q-ary cube",
+          "evidence": [
+            "Induced-matching based algorithms can find contranominal scales in an arbitrary context."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.10978",
+          "material_read": "Available full lawful primary text, including algorithmic detection results",
+          "method": "Open-access PDF extracted text and inspected PDF page",
+          "title": "Attribute Selection using Contranominal Scales",
+          "trigger": "General induced matching/algorithmic scale enumeration may dominate specialized count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 947aa1da39139e3f1a45c0e47ee161c6b3398f20",
+        "Pinned verify.py blob 6c32549d3d8a68440cb1f71d537516031703897f",
+        "Independent explicit Hamming incidence and contranominal subset checks in independent_checks.py, geometry_arithmetic_checks.py"
+      ],
+      "rationale": "Maximal contranominal scales determine the size of Boolean suborder patterns in concept lattices; Hamming radius-one incidence is a natural symmetric q-ary test bed. Sharp constant extremal size independent of growing parameters plus a complete two-family geometry, unique matching and exact polynomial count is a reusable structural theorem, not an arbitrary tiny-instance enumeration.",
+      "residual_risks": [
+        "A q-ary coding-theory or FCA classification indexed by induced-matchings or Hamming ball intersections may exist outside searched primary papers.",
+        "Only dimension four maximal scales are classified; smaller scales are not enumerated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
