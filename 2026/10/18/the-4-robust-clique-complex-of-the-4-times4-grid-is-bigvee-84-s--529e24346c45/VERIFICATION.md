@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and bounds
+# Independent mathematical audit
 
-The verifier `verify_morse.py` fixes the graph \(P_4\square P_4\) on vertex bits \(0\) through \(15\), enumerates all \(65536\) vertex subsets, and compares the independence-number recursion to membership determined from exactly \(405\) independent four-subsets. It enumerates the face vector \((16,120,560,1415,1788,912)\), the empty face, \(2364\) distinct staged matching pairs and \(84\) unmatched five-faces. It explicitly orients all \(22008\) Hasse incidences and topologically sorts the entire \(4812\)-vertex directed graph. Every assertion must complete for `VERIFY_OK` to appear.
+## correctness
 
-`verify_mod2.py` independently enumerates faces by forbidden four-subsets and reduces each boundary matrix over \(\mathbb F_2\), giving ranks \((0,15,105,455,960,828,0)\) in dimensions \(0\) through \(6\), reduced Betti vector \((0,0,0,0,0,84)\), and Euler characteristic \(-83\).
+PASS
 
-Both checks require only Python 3's standard library; run `python3 verify_morse.py` and `python3 verify_mod2.py` from the extracted package. The discrete-Morse acyclicity check, together with Forman's theorem, proves the integral homotopy type. The mod-two computation is independent corroboration. The result is restricted to this specified finite graph; no induction over graph dimensions is certified.
+Use all 65536 masks on sixteen row-major grid vertices; alpha(S)=max(alpha(S\{v}),1+alpha(S\N[v])) gives exact induced independence number and excludes precisely those containing any of the 405 independent 4-sets. Independent re-enumeration gives the complete augmented f vector (1,16,120,560,1415,1788,912), sum 4812. The stated deterministic greedy vertex-toggle matching (v=0,...,15) makes 2364 matched pairs; remaining exactly 84 six-vertex faces. On the FULL augmented Hasse diagram, orient all matched incidences up and all other incidences down and exhaustively topologically sort all 4812 nodes and 22008 directed edges, confirming no directed cycle. Deleting the matched empty-simplex pair leaves an ordinary matching with one critical vertex and eighty-four critical 5-faces, so Forman's theorem gives a CW realization with one 0-cell and 84 5-cells; all attaching maps to a point are constant and the result is wedge 84 S5. Independent regeneration reproduced the face vector, matches, critical faces, Hasse edge count and complete sort; the additional mod2 verifier only corroborates integral homotopy. Precisely one 4x4,k=4 instance; not a proof of all-k rectangular-grid conjectures.
+
+## originality
+
+PASS
+
+Filakovsky's current full text proves k=2 and k=3 all grids and arbitrary k only edge-glued square sequences, a narrower hypothesis than a 4x4 grid (nine faces on 16 vertices require more than edge-only gluing). The concrete 4x4,k=4 wedge84 is not a mechanically implied instance, but a natural next-case test of the conjectured wedge pattern. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
+
+## value
+
+PASS
+
+The 4x4 square grid at robustness 4 is the first natural width-four instance just outside published k=2,3 and edge-only gluing theorems; its explicit sphere wedge supplies a meaningful complete finite test and exact homotopy invariant for an open parameter regime, without claiming the whole conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

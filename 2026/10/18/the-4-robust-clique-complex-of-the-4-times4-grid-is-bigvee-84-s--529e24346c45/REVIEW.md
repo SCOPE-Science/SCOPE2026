@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, simplex condition, matching rule, and quantifiers are fixed for a single \(16\)-vertex graph. A complete vertex-deletion recurrence constructs all \(4812\) augmented faces; a separate forbidden-four-subset enumeration tests membership for every one of the \(65536\) masks. The matching has \(2364\) pairs and exactly \(84\) critical dimension-five faces in the augmented setting. A complete topological sort of the directed Hasse graph (\(22008\) incidences, all \(4812\) vertices removed) is an exact acyclicity certificate. Removing the empty-face pair gives precisely one critical zero-cell and \(84\) critical five-cells, proving the wedge by discrete Morse theory. The separate mod-two chain calculation finds reduced Betti numbers \((0,0,0,0,0,84)\); it is a corroboration, not a substitute for the homotopy argument. The two executable verification files reproduce the certificate from graph definitions, not from stored ranks alone.
+PASS
 
-## Originality — PASS (qualified)
+Use all 65536 masks on sixteen row-major grid vertices; alpha(S)=max(alpha(S\{v}),1+alpha(S\N[v])) gives exact induced independence number and excludes precisely those containing any of the 405 independent 4-sets. Independent re-enumeration gives the complete augmented f vector (1,16,120,560,1415,1788,912), sum 4812. The stated deterministic greedy vertex-toggle matching (v=0,...,15) makes 2364 matched pairs; remaining exactly 84 six-vertex faces. On the FULL augmented Hasse diagram, orient all matched incidences up and all other incidences down and exhaustively topologically sort all 4812 nodes and 22008 directed edges, confirming no directed cycle. Deleting the matched empty-simplex pair leaves an ordinary matching with one critical vertex and eighty-four critical 5-faces, so Forman's theorem gives a CW realization with one 0-cell and 84 5-cells; all attaching maps to a point are constant and the result is wedge 84 S5. Independent regeneration reproduced the face vector, matches, critical faces, Hasse edge count and complete sort; the additional mod2 verifier only corroborates integral homotopy. Precisely one 4x4,k=4 instance; not a proof of all-k rectangular-grid conjectures.
 
-The 2026 Filakovský paper proves the rectangular-grid result for \(k=2,3\) but poses the higher-robustness generalization as a conjecture. Its all-\(k\) edge-gluing formula does not apply to the nine-square, sixteen-vertex grid, because an all-edge-glued nine-square construction would have twenty vertices. The full primary articles by Chandrakar–Hazra–Rout–Singh and Carnero Bravo cover total-cut parameter ranges \(2\times n\), \(3\times n\) at \(k=3\), or total \(2\)-cuts; none yields this \(4\times4\), \(k=4\) case. Searches under robust-clique, bounded-independence, Alexander-dual, and total-cut terminology did not identify an equivalent exact homotopy statement. A published finding on \(4\times4\) grid \(10\)-cut shellability concerns a different cut parameter and different simplicial complex. Search absence is not a uniqueness proof; an unindexed or unpublished coincident computation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete exact homotopy test of the conjectured higher-robustness sphere-wedge pattern for the smallest equal-sided width-four grid, outside the established low-parameter and edge-only theorems. The multiplicity \(84=\binom{9}{3}\) is precisely the expected polynomial value at nine elementary squares, yet existing published results do not imply the asserted homotopy equivalence for this case. An explicit finite acyclic matching establishes more than an Euler characteristic or mod-two Betti table, and makes the case reproducible as a benchmark for attempted higher-\(k\) generalizations. It is not an all-grid theorem, and the significance does not rely on pretending it is.
+Filakovsky's current full text proves k=2 and k=3 all grids and arbitrary k only edge-glued square sequences, a narrower hypothesis than a 4x4 grid (nine faces on 16 vertices require more than edge-only gluing). The concrete 4x4,k=4 wedge84 is not a mechanically implied instance, but a natural next-case test of the conjectured wedge pattern. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
 
-## Limits and closest literature
+## value
 
-Primary comparisons: Filakovský, arXiv:2602.11365 (main conjecture, edge-gluing corollary, and parameter limits); Chandrakar–Hazra–Rout–Singh, arXiv:2408.07646 (theorems for \(2\times n\) and \(3\times n\)); Carnero Bravo, arXiv:2602.21427 (Cartesian products only at total cut parameter \(2\)). Remaining risk is unindexed equivalent finite computation under an alternate name. Both the full face enumeration and the acyclicity test are finite, exhaustive computations with independently reconstructible inputs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 4x4 square grid at robustness 4 is the first natural width-four instance just outside published k=2,3 and edge-only gluing theorems; its explicit sphere wedge supplies a meaningful complete finite test and exact homotopy invariant for an open parameter regime, without claiming the whole conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
