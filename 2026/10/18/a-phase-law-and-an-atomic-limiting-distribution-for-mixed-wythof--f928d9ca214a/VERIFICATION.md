@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-The companion `verify.py` executes with Python 3.10+ and only the standard library. It builds exact lower-Wythoff membership indicators using integer square roots, computes their exact convolution with the complementary upper-Wythoff indicators for all integers through \(8192\), and independently enumerates the literal lower-plus-upper Beatty pairs through \(2048\). The two independent counting procedures agree at every checked input. The program checks the first eleven values of OEIS A259598, calculates phase residuals, and compares the finite sample mean with the derived limiting first moment.
+## correctness
 
-Run command: `python verify.py`
+PASS
 
-Observed output from the included source:
+Complementary Beatty partition gives exact ordered positive-index convolution for r(n). Its indicator is a fractional rotation interval whose length is piecewise beta-theta, theta-beta, beta for theta in the three stated ranges. Golden-ratio bounded continued-fraction denominators imply uniform O(1) discrepancy per Fibonacci-length block; Zeckendorf decomposition into O(log n) blocks proves uniform error even for n-dependent intervals. Equidistribution of the irrational rotation pushes Lebesgue measure onto density two on (0,beta) plus atom 1-2beta at beta, giving liminf, limsup, mean. Independently compared literal lower+upper representations with convolution for n<=1500 and max finite phase error 1.451; not used as the infinite theorem.
 
-```
-VERIFY_OK exact_convolution_to=8192 pair_enumeration_to=2048 min_phase_error=-1.850303 max_phase_error=1.715518 finite_mean=0.235794222 limit_mean=0.236067977
-```
+## originality
 
-All computations are finite and supportive only. The uniform \(O(\log(n+1))\) error is proved by irrational-rotation interval discrepancy via continued fractions, not by enumeration. The limiting distribution and atom are derived using equidistribution and pushforward of Lebesgue measure, not numerical fitting. The same source `verify.py` is embedded alongside this document. Independent review remains unperformed.
+PASS
+
+Best-of-knowledge noncovering after explicit comparison to the strongest identified literature and indexed records, with residual priority risks retained.
+
+## value
+
+PASS
+
+The representation multiplicity of the complementary lower and upper Wythoff sequences is a natural additive statistic. The uniform phase theorem and explicit atomic weak limit reveal asymptotic behavior not present in known exact enumeration algorithms; the atom mass is an independently interpretable exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: mixed Wythoff phase law and limiting distribution
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The representation count is exactly a convolution of the complementary Beatty indicator words. For each fixed integer, the indicator product is the interval indicator of a single explicitly identified phase-dependent arc; the three lengths yield the claimed function. Fibonacci-denominator rational approximations establish a uniformly bounded interval-count error on each convergent-denominator block, and Zeckendorf decomposition uses only logarithmically many blocks. This proves the claimed uniform error for every integer, independent of the varying interval. Irrational rotation equidistribution then establishes weak convergence and its atom and mean. The proof also handles endpoint conventions and the positive-index domain. The `verify.py` artifact independently enumerates literal representation pairs and exact integer-indicator convolutions over finite ranges.
+PASS
 
-## Originality — PASS, with stated uncertainty
+Complementary Beatty partition gives exact ordered positive-index convolution for r(n). Its indicator is a fractional rotation interval whose length is piecewise beta-theta, theta-beta, beta for theta in the three stated ranges. Golden-ratio bounded continued-fraction denominators imply uniform O(1) discrepancy per Fibonacci-length block; Zeckendorf decomposition into O(log n) blocks proves uniform error even for n-dependent intervals. Equidistribution of the irrational rotation pushes Lebesgue measure onto density two on (0,beta) plus atom 1-2beta at beta, giving liminf, limsup, mean. Independently compared literal lower+upper representations with convolution for n<=1500 and max finite phase error 1.451; not used as the infinite theorem.
 
-Ashburn's 2026-10-04 full manuscript (arXiv:2610.04842v1, Theorem 1) treats exactly the same count but characterizes only multiplicities zero, one and two; it does not determine the normalized limiting law. Shallit's 2020 full manuscript (arXiv:2006.04177, Section 11.2) already gives an exact rank-19 automata/linear-representation method for **all** multiplicities. That is important coverage of pointwise computability, not an explicit logarithmic-error rotation phase formula or an identified atom in an empirical measure. OEIS A259598 records the generating-function convolution but not the asserted limiting law. The accessible abstracts of related 2021 and 2022 sumset papers emphasize support and additive-basis questions. Searches for Wythoff representation-count distributions and general Beatty convolution asymptotics, together with mathematical-result similarity searches, found no covering distribution theorem. The 2021 article and the 2022 Phunphayap–Pongsriiam–Shallit article were not read in full, so an implicit precursor cannot be excluded. Exact source-inspection coverage and scientific comparisons are in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem arises from a natural named representation function whose low multiplicities were resolved in recent research. Rather than recomputing known sequence values, the theorem supplies the full macroscopic behavior for every input up to a provable uniform error, and a nondegenerate limiting distribution with a **positive atomic component** at the maximal normalized multiplicity. The theorem both explains the coexistence of sparse exceptional small counts and typical linear-sized counts and determines a natural limiting arithmetic invariant; the explicit law is not supplied by the known exact enumeration algorithm without additional analysis.
+Best-of-knowledge noncovering after explicit comparison to the strongest identified literature and indexed records, with residual priority risks retained.
 
-## Boundaries and risks
+## value
 
-No optimality assertion is made for the logarithmic discrepancy. Finite verification cannot certify the infinite limiting law, which instead has a complete analytic proof. The historical pointwise exact algorithm is credited rather than relabeled as new. Accessible summaries of some older primary papers do not establish their complete contents, and hidden equivalent formulations remain possible. No independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The representation multiplicity of the complementary lower and upper Wythoff sequences is a natural additive statistic. The uniform phase theorem and explicit atomic weak limit reveal asymptotic behavior not present in known exact enumeration algorithms; the atom mass is an independently interpretable exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
