@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact neighborhood union under one-vertex gluing, its intersection as two disjoint faces, and the homotopy-pushout reduction to one extra circle were reconstructed from the definitions. The leaf attachment is an elementary collapse; the block–cut tree permits induction. Inclusions of oriented clique boundaries furnish the asserted integral higher-homology basis and yield the automorphism signs. Finite verification exhaustively checked 4,792 small labeled block graphs and additional larger, gluing, branch-degree, and automorphism examples. The numerical checks are supportive rather than a substitute for induction.
+## correctness
 
-**Originality — PASS.** The closest primary comparison by Kozlov relates neighborhood and Hom complexes in simple homotopy; it does not classify the neighborhood complexes of clique trees. Matsushita concerns fundamental groups, Braun–Vega concern Hajós constructions and distant identifications, and Shukla treats low-degree and specific circulant graphs. Statement-level and implication-level comparisons do not show an all-block-size formula with canonical higher-homology symmetry modules. Principal residual risk: a non-indexed or differently phrased cut-vertex-gluing theorem could imply the wedge formula; such a source would need direct evaluation.
+PASS
 
-**Value — PASS.** The result is a natural, complete, all-parameter classification for block graphs (including line graphs of trees), detects mixed-dimensional spheres invisible to graph cycle rank, and shows that attachment geometry does not affect the homotopy type once block sizes are known. Canonical oriented generators further determine the full high-dimensional integral homology action of graph symmetries. This is not a single low-order count, routine numerical table, or change of notation.
+The frozen RESULT.md proof is sound: in K_r (r≥3) all proper vertex subsets and no full vertex set admit a common neighbor, hence ∂Δ_C embeds for each maximal clique block. For a cut-vertex union G∪_v H of connected odd-cycle graphs, the exact neighborhood complex is N(G)∪N(H)∪Δ_{A∪D}, with N(G)∩N(H)={v} and attachment intersection Δ_A ⊔ Δ_D; the homotopy pushout adds one 1-cell connecting points in a path-connected complex, hence one S1 and no new higher homology. Pendant K2 blocks collapse via a simplex attached along a nonempty face. Inducting over the block-cut tree yields exactly b−1 extra S1 plus ∂Δ_C≃S^(|C|−2), tree case S0, and the line graph of a tree branch-degree corollary. Relative homology of the disjoint face attachment supports inclusion-induced integral higher Hk basis, and automorphisms give permutation signs on oriented simplex boundaries. Independent finite checks of Betti patterns, gluing face-set identities and an oriented symmetry example passed; these do not prove the infinite result.
 
-**Boundaries.** Ordinary homotopy, not a specified simple-homotopy collapse to the wedge, is proved. No formula is claimed for general chordal graphs with large clique intersections, and the extra first-homology circle classes are not claimed to split equivariantly. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds no inspected theorem covering every block graph (arbitrary clique sizes and block-cut attachment shapes) together with canonical oriented clique-boundary high-degree signed action. Crucially, published clique-join formula ALREADY covers star unions of n equal-sized clique blocks, and this partial coverage is explicitly acknowledged rather than misrepresented as novel. A potentially close one-point-union thesis concerns D-neighborhood complexes containing 0 and does not apply to the open-neighborhood D={1}. Kozlov, Matsushita, Braun–Vega and Shukla do not dominate the general claim. Residual risk is a differently named old articulation-vertex decomposition theorem; search failure is not novelty proof.
+
+## value
+
+PASS
+
+This is a natural complete homotopy classification for the infinite family of finite connected block graphs. The clique sizes alone determine mixed sphere dimensions and multiplicities despite the varied attachment shapes; line graphs of trees furnish a canonical branch-degree application. The oriented clique-boundary classes give usable integral higher homology and the automorphism action, beyond rank counts. This is a motivated all-parameter topological invariant rather than a recomputation of a small table. Strict clique-star subfamily previously covered, but arbitrary block-cut trees and unequal clique dimensions are the remaining motivating scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

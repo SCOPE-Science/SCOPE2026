@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the script. The code uses the Python standard library only and constructs each open-neighborhood complex by enumerating all nonempty subsets of the open neighborhood of each graph vertex; it obtains homology dimensions by direct binary Gaussian elimination on simplicial boundary matrices.
+## correctness
 
-The completed run returned:
+PASS
 
-```
-VERIFY_OK exhaustive_labeled_block_graphs_n2_to6=4792 random_block_graphs=150 gluing_identities=99 branch_tree_line_graphs=100 signed_automorphisms=72 random_orders=[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29]
-```
+The frozen RESULT.md proof is sound: in K_r (r≥3) all proper vertex subsets and no full vertex set admit a common neighbor, hence ∂Δ_C embeds for each maximal clique block. For a cut-vertex union G∪_v H of connected odd-cycle graphs, the exact neighborhood complex is N(G)∪N(H)∪Δ_{A∪D}, with N(G)∩N(H)={v} and attachment intersection Δ_A ⊔ Δ_D; the homotopy pushout adds one 1-cell connecting points in a path-connected complex, hence one S1 and no new higher homology. Pendant K2 blocks collapse via a simplex attached along a nonempty face. Inducting over the block-cut tree yields exactly b−1 extra S1 plus ∂Δ_C≃S^(|C|−2), tree case S0, and the line graph of a tree branch-degree corollary. Relative homology of the disjoint face attachment supports inclusion-induced integral higher Hk basis, and automorphisms give permutation signs on oriented simplex boundaries. Independent finite checks of Betti patterns, gluing face-set identities and an oriented symmetry example passed; these do not prove the infinite result.
 
-In the small exhaustive loop, all connected labeled graphs with two to six vertices are considered and precisely those for which every biconnected block is complete are subjected to the theorem's predicted Betti-number comparison. Larger test graphs are produced by recursively gluing random complete blocks along individual vertices. The 99 gluing checks compare literal face sets, not merely homology. The tree tests construct a line graph from an independently generated tree and compare homology with the **original tree's branch degrees**, independently of the block counter. The symmetry test exhausts the 72 graph automorphisms of two four-cliques meeting in one vertex and tests the oriented boundary-chain transformation, including signs.
+## originality
 
-**Limit of computation:** these finite mod-two ranks neither certify integral torsion-freeness nor establish homotopy types for every order. Those claims rely on the full elementary block-gluing proof in `RESULT.md`. In particular, a collection of Betti numbers alone does not certify a wedge of spheres, and no such inference was used.
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds no inspected theorem covering every block graph (arbitrary clique sizes and block-cut attachment shapes) together with canonical oriented clique-boundary high-degree signed action. Crucially, published clique-join formula ALREADY covers star unions of n equal-sized clique blocks, and this partial coverage is explicitly acknowledged rather than misrepresented as novel. A potentially close one-point-union thesis concerns D-neighborhood complexes containing 0 and does not apply to the open-neighborhood D={1}. Kozlov, Matsushita, Braun–Vega and Shukla do not dominate the general claim. Residual risk is a differently named old articulation-vertex decomposition theorem; search failure is not novelty proof.
+
+## value
+
+PASS
+
+This is a natural complete homotopy classification for the infinite family of finite connected block graphs. The clique sizes alone determine mixed sphere dimensions and multiplicities despite the varied attachment shapes; line graphs of trees furnish a canonical branch-degree application. The oriented clique-boundary classes give usable integral higher homology and the automorphism action, beyond rank counts. This is a motivated all-parameter topological invariant rather than a recomputation of a small table. Strict clique-star subfamily previously covered, but arbitrary block-cut trees and unequal clique dimensions are the remaining motivating scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
