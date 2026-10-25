@@ -1,19 +1,21 @@
-# Scientific review: dual Platonic central-section coupling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed theorem concerns generic shared Haar-distributed central cutting planes of the precisely aligned regular icosahedron and dodecahedron. Exact sign arithmetic in the quadratic golden-ratio ring recovers all 30 edges of each body, 92 dodecahedral chambers, 32 icosahedral chambers, and 152 chambers in their common 16-circle refinement. Explicit sign counts give the four types (6,10), (6,12), (8,10), (10,10) with multiplicities 60, 20, 60, 12 and exclude all remaining generic pairs. Independently derived Euler counts certify exhaustive cells, while the exact exterior-turn cosine multiplicities and Gauss–Bonnet certify the stated probability masses. The 16-circle union introduces no new vertices. The `verify.py` checker executes using only the Python standard library; numerical output is not the basis of the infinite-direction theorem.
+PASS
 
-## Originality — PASS under inspected evidence
+For generic common central normal u, a section polygon vertex corresponds exactly to a polyhedral edge with endpoints of opposite u-sign; its counts are constant on open great-circle sign chambers. For the aligned exact golden-ratio coordinates the 10 dodecahedral axes and 6 icosahedral axes have sphere arrangement Euler triples (V,E,F)=(90,180,92),(30,60,32), combined (90,240,152). The given exact Z[φ] sign certificate enumerates all 152 joint cells and edge-cut pairs with multiplicities (6,10):60,(6,12):20,(8,10):60,(10,10):12. The six new circles split just the 20 dodecahedral hexagonal cells into 4 triangles, one I12 and three I10; they create no new vertices. Spherical Gauss–Bonnet with verified turning cosines gives individual area formulas Ω_D6=2π−3(α+β), Ω_D8=2β+α−π, Ω_D10=2π−5β, Ω_I12=3θ−π, so the joint probabilities are 15(π−α−β−θ)/π,5(3θ−π)/π,15(2β+α−π)/π,3(2π−5β)/π. Independently rebuilt both 30-edge polyhedral graphs from the coordinates, sampled 250000 independent uniformly isotropic normals and directly classified paired edge-crossing counts; observed proportions .35243,.28582,.23944,.12232 match claimed .352163,.286246,.238989,.122602. Finite simulation checks geometry but cannot establish zero forbidden pairs; exact sign-chamber enumeration is the finite exhaustive certificate.
 
-The dodecahedral ten-circle chamber counts and their spherical area fractions are published in *N Points On Sphere all in One Hemisphere* (MathPages). The icosahedral six-circle section law is already published as *Exact Haar polygon-type law for central icosahedron sections* in published-finding corpus. These complete single-body marginals do not entail the paired law. Public references on the 31 icosahedral great circles, polygon-section complexity (Padrol–Pfeifle, 2014) and icosahedron cross-section vertex gaps (De Loera–Lopez-Campos–Torres, 2024) were compared. The candidate addition is only the exact paired incidence and rigid chamber subdivision; the historical Fuller/Popko great-circle diagrams could encode equivalent incidence and remain a genuine priority risk. No definitive originality certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The same-plane joint statistic for a naturally dual pair of Platonic solids is not recovered from known separate one-body distributions. The result computes its full correlated law, demonstrates impossible joint section sizes, and supplies an exact 152-chamber combinatorial explanation. This is a natural complete geometric probability invariant rather than an arbitrary selected cell or a recomputation of the known 10- and 6-circle marginal tables.
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
 
-## Literature and limitations
+## value
 
-See `RESULT.md` references and `AUDIT.json` comparison objects and material-inspection records. The proof assumes the given exact common orientation, regularity and central plane. It excludes vertex-incident measure-zero normals, noncentral sections and independent rotations. Priority may require specialist historical study; no independent mathematical validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The proposed refinement resolves an intrinsically joint question for dual aligned Platonic bodies: the known marginals cannot imply deterministic exclusion (I12 forces D6), the 20×4 chamber subdivision, or the four-state correlated law. The incidence itself is a natural exact geometric invariant of a classical 16-circle spherical arrangement, not an arbitrary slice or numerical tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

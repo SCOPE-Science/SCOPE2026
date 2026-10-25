@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library; expect `EXACT_DUAL_CHAMBER_ENUMERATION_OK`, the exact `(V,E,F)` triples `(90,180,92)`, `(30,60,32)`, `(90,240,152)`, and joint count dictionary `((6,10):60), ((6,12):20), ((8,10):60), ((10,10):12)`. The executable is included alongside this document; it does not require a network or third-party mathematical package.
+## correctness
 
-The checker verifies: regular vertex sets and both 30-edge graphs by exact squared lengths; zero-cross comparisons and exact incidence tests in integer pairs representing the golden-ratio ring; strict sign realizability of each spherical chamber mask and independent Euler cell totals; cut-edge section counts for all 152 chambers and each individual marginal; and every D/I single-chamber exterior turning-angle algebraic cosine multiset from all weakly feasible circle-pair intersections. The final four probabilities are evaluated numerically as an additional normalization test, while their exact evaluation follows algebraically from Gauss–Bonnet and the certified angle multisets.
+PASS
 
-Finite exhaustive sign enumeration is valid because every full-dimensional sign chamber contains sectors adjacent to arrangement vertices and unique feasible sign vectors define disjoint convex chambers; Euler's independent equality establishes none omitted. The continuum of random orientations is handled by spherical area, not sampled directions. No independent audit, external theorem verification, or definitive historical-priority certification has been performed.
+For generic common central normal u, a section polygon vertex corresponds exactly to a polyhedral edge with endpoints of opposite u-sign; its counts are constant on open great-circle sign chambers. For the aligned exact golden-ratio coordinates the 10 dodecahedral axes and 6 icosahedral axes have sphere arrangement Euler triples (V,E,F)=(90,180,92),(30,60,32), combined (90,240,152). The given exact Z[φ] sign certificate enumerates all 152 joint cells and edge-cut pairs with multiplicities (6,10):60,(6,12):20,(8,10):60,(10,10):12. The six new circles split just the 20 dodecahedral hexagonal cells into 4 triangles, one I12 and three I10; they create no new vertices. Spherical Gauss–Bonnet with verified turning cosines gives individual area formulas Ω_D6=2π−3(α+β), Ω_D8=2β+α−π, Ω_D10=2π−5β, Ω_I12=3θ−π, so the joint probabilities are 15(π−α−β−θ)/π,5(3θ−π)/π,15(2β+α−π)/π,3(2π−5β)/π. Independently rebuilt both 30-edge polyhedral graphs from the coordinates, sampled 250000 independent uniformly isotropic normals and directly classified paired edge-crossing counts; observed proportions .35243,.28582,.23944,.12232 match claimed .352163,.286246,.238989,.122602. Finite simulation checks geometry but cannot establish zero forbidden pairs; exact sign-chamber enumeration is the finite exhaustive certificate.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
+
+## value
+
+PASS
+
+The proposed refinement resolves an intrinsically joint question for dual aligned Platonic bodies: the known marginals cannot imply deterministic exclusion (I12 forces D6), the 20×4 chamber subdivision, or the four-state correlated law. The incidence itself is a natural exact geometric invariant of a classical 16-circle spherical arrangement, not an arbitrary slice or numerical tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
