@@ -1,11 +1,21 @@
-# Scientific review: sharp one-defect Mahler extremizers
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem defines the metric, real Lipschitz-free norm, duality and coordinate normalization explicitly. Its key exact steps are a direct orthant proof of the equilateral reference volume, an integer-tight-spanning-tree classification of the only two facets affected by the removed edge, their determinant-one cross-polytope pyramid volumes, and an elementary beta integral for the polar. The derivative is reduced to a strictly decreasing scalar function with opposite endpoint signs, and Stirling's central-binomial estimate rigorously determines both asymptotic conclusions. The rational checker separately integrates both polytopes for 16 configurations. Finite evidence is supplementary, and no broader global extremality is claimed.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Aliaga (2021) establishes the molecule extreme-point framework but not volume products. Alexander et al. (2019) analyze finite-metric Mahler products and the equilateral reference but do not state the all-dimensional one-long-edge volume formulas or their optimizer. Gordon--Petrov (2016) treats generic Lipschitz polytope combinatorics. Alanazi (2024) contains discrete graph-metric examples with at most five vertices, without the varying-distance all-dimensional optimization. The closest known one-short-edge result has a disjoint deformation interval; a two-exceptional-edge four-point volume-product calculation has different constraints. Neither entails the present one-long-edge formula. An equivalent unindexed computation remains a concrete residual risk.
+PASS
 
-**Mathematical value — PASS.** The Mahler product is a natural affine-invariant descriptor of a finite-dimensional Banach space. This one-parameter deformation isolates the smallest failure of metric equilateral symmetry and produces exact primal and polar formulas, a dimension-dependent transition between boundary and interior optima, uniqueness for every dimension, and a nontrivial limiting optimizer. It gives a reusable model for local perturbations of symmetric Lipschitz-free polytopes and does not merely recompute a known table.
+The finite metric is admissible on 1<=t<=2, with the changed pair distance at most two through any other point. In anchored molecule coordinates, equilateral transportation balls decompose by signs into two simplices in each orthant; Vandermonde gives vol P_{d,1}=choose(2d,d)/d!. Removing the marked edge leaves two opposite exposed facets, because every integer tight spanning-tree Lipschitz potential has |f_a-f_b|<=2 and equality only at the positive/negative distinguished potential. Each exposed facet is a determinant-one (d-1)-crosspolytope, and moving the two molecule apices from +/-v to +/-v/t changes total volume by 2^d(1-1/t)/d!. For the polar, fix core-vertex potentials with range R; the endpoints share an interval of length 2-R, restricted to |f_a-f_b|<=t, yielding area (2-R)^2-((2-R)-t)_+^2; integrate using the exact range distribution of d-1 anchored core values to get d+1+(2/d)(1-(2-t)^d). Differentiating gives F_d(t) with derivative strictly negative on [1,2) for d>=3, and opposite endpoint signs, hence a unique maximum. At d=2 the product is (t+2)(4-t) and decreases beyond 1. C(2d,d)~4^d/sqrt(pi d) gives (2-t_d)^(d-1)=Theta(d^(3/2)2^(-d)), so t_d->3/2 and the relative gain is 1+2/[d(d+1)]+o(d^-2). Independently verified exact planar identity and strict derivative grid in d=3..30 (rational arithmetic), plus stationary tests, not an exhaustive proof.
 
-**Remaining limits.** The uniqueness is only within the stated metric family, finite experiments cover dimensions at most five, and the originality comparison cannot eliminate inaccessible or unindexed equivalents. Independent expert verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equilateral volume product (d+1)choose(2d,d)/d! is explicitly published by Alexander et al and not new. That source’s global maximizer structural theorems do not calculate the one-long-edge deformation; the new continuous primal/polar formulas, strict in-family maximum and t_d asymptotics remain after removing covered ingredients. Aliaga gives molecule/extreme-point framework, while Gordon–Petrov generic combinatorics lacks this degenerate one-edge profile.
+
+## value
+
+PASS
+
+The Mahler product is an affine-invariant quantity naturally associated with Lipschitz-free Banach balls, and a single variable metric-edge deformation isolates geometric transition mechanisms not visible in combinatorial counts. Exact primal and polar volume formulas, the change from boundary optimum at d=2 to unique interior optimum for every d>=3, and a universal t_d->3/2 limit give a complete motivated continuous extremal classification. The asymptotic gain of order d^-2 is small but the structural optimizer and phase change are substantive and not merely a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

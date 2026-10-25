@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:13:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob ac8017f56dababed7ce7eb7204732397f3fa9305",
+        "pinned verify_single_long_edge.py blob 134f36690a03e24cbb6b50bdcdf50e1ac9a79ba9",
+        "Alexander et al arxiv:1911.10642 equilateral Claim 5 and Theorem 5.6",
+        "independent_checks.py R5"
+      ],
+      "rationale": "The finite metric is admissible on 1<=t<=2, with the changed pair distance at most two through any other point. In anchored molecule coordinates, equilateral transportation balls decompose by signs into two simplices in each orthant; Vandermonde gives vol P_{d,1}=choose(2d,d)/d!. Removing the marked edge leaves two opposite exposed facets, because every integer tight spanning-tree Lipschitz potential has |f_a-f_b|<=2 and equality only at the positive/negative distinguished potential. Each exposed facet is a determinant-one (d-1)-crosspolytope, and moving the two molecule apices from +/-v to +/-v/t changes total volume by 2^d(1-1/t)/d!. For the polar, fix core-vertex potentials with range R; the endpoints share an interval of length 2-R, restricted to |f_a-f_b|<=t, yielding area (2-R)^2-((2-R)-t)_+^2; integrate using the exact range distribution of d-1 anchored core values to get d+1+(2/d)(1-(2-t)^d). Differentiating gives F_d(t) with derivative strictly negative on [1,2) for d>=3, and opposite endpoint signs, hence a unique maximum. At d=2 the product is (t+2)(4-t) and decreases beyond 1. C(2d,d)~4^d/sqrt(pi d) gives (2-t_d)^(d-1)=Theta(d^(3/2)2^(-d)), so t_d->3/2 and the relative gain is 1+2/[d(d+1)]+o(d^-2). Independently verified exact planar identity and strict derivative grid in d=3..30 (rational arithmetic), plus stationary tests, not an exhaustive proof.",
+      "residual_risks": [
+        "The two-facet combinatorial classification uses that all other distances equal one; no extension to multiple defect edges is proved.",
+        "The family maximum is not a global optimum over all metrics; the gain is small for high d but mathematically exact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.6 says a global maximizing finite metric has strict triangle inequalities; Theorem 5.8 says its ball is simplicial. Neither supplies the exact t-profile or location of a constrained maximum."
+        ],
+        "reasoning": "The long-edge family contains strict metrics for 1<t<2, compatible with general structural restrictions but not solved by them. Non-generic single-edge facets require separate exact volume integration.",
+        "searches": [
+          "Alexander et al arxiv 1911.10642 Theorems 5.6 and 5.8",
+          "Gordon Petrov arxiv:1608.06848 Lipschitz polytope combinatorics",
+          "Aliaga arxiv:2102.01219 extreme molecule criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1911.10642",
+        "https://arxiv.org/abs/2102.01219",
+        "https://arxiv.org/abs/1608.06848",
+        "Resultary mathematical research records (targeted semantic search)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict triangle inequality necessity for global optima is consistent with 1<t_d<2 but does not imply its existence or uniqueness. The known equilateral Claim 5 is exactly the baseline only."
+        ],
+        "reasoning": "Existing general geometry controls possible global maximizers, not a quantitative one-parameter Mahler deformation; the independent primal/polar expressions and derivative argument are distinct.",
+        "searches": [
+          "Alexander et al primary PDF Section 5",
+          "published equilateral volume product",
+          "Resultary one-short-edge and two-exception variants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexander et al Claim 5 in Section 5.2 states exactly equilateral volume product (d+1)choose(2d,d)/d!, recovered at t=1 here."
+        ],
+        "reasoning": "The baseline is a known specialization. Varying a single exceptional distance and deriving a unique interior maximizer is not algebraically entailed by a value at t=1.",
+        "searches": [
+          "Resultary: Lipschitz-free space volume product Mahler regular simplex metric one exceptional edge distance t maximizing convex volume",
+          "arxiv:1911.10642 equilateral complete graph one exceptional edge",
+          "one long edge Lipschitz-free volume product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed volume-product records cover equilateral complete graphs, weighted graph families, and a two-defect or short-edge variant; no checked table gives this continuous one-long-edge all-d family."
+        ],
+        "reasoning": "Finite graph metric tables cannot establish the all-real t-in-[1,2] unique optimizer or high-dimensional t_d limit; bibliographic absence is not proof of absolute priority.",
+        "searches": [
+          "Resultary one-defect Lipschitz-free Mahler maximizer t 3/2",
+          "Alexander et al Section 5.2 equilateral Claim 5",
+          "Alanazi 2024 thesis finite graph metric volumes"
+        ]
+      },
+      "rationale": "The equilateral volume product (d+1)choose(2d,d)/d! is explicitly published by Alexander et al and not new. That source’s global maximizer structural theorems do not calculate the one-long-edge deformation; the new continuous primal/polar formulas, strict in-family maximum and t_d asymptotics remain after removing covered ingredients. Aliaga gives molecule/extreme-point framework, while Gordon–Petrov generic combinatorics lacks this degenerate one-edge profile.",
+      "residual_risks": [
+        "Some full combinatorial literature and finite metric volume-product theses were not read; unindexed equivalent one-edge formula remains possible.",
+        "The equilateral part is already published and must not be counted toward novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EQUILATERAL_ONLY",
+          "evidence": "Claim 5 exact equilateral product; Theorems 5.6/5.8 impose qualitative global extremum restrictions, no continuous one-edge formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10642",
+          "material_read": "Full available primary 21-page PDF; relevant Sections 5.1-5.2 and Claim 5, Theorems 5.6, 5.8 on pages 15-17",
+          "method": "Open arXiv PDF, text and screenshot",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Same object, Mahler product and equilateral metric"
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY_NOT_FULLY_INSPECTED",
+          "evidence": "Theorem concerns extreme molecules; lack of full-source reading is reported and not treated as a whole-paper non-coverage proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.01219",
+          "material_read": "Public primary abstract and known theorem statement, not full paper read",
+          "method": "Public arXiv bibliographic search",
+          "title": "Extreme points in Lipschitz-free spaces over compact metric spaces",
+          "trigger": "Underlying extreme molecule geometry"
+        },
+        {
+          "assessment": "UNCERTAIN_BROADER_RELATION",
+          "evidence": "Generic Lipschitz polytope combinatorics might simplify facet calculations; no exact one-edge value was verified from this source.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.06848",
+          "material_read": "Abstract/indexed theorem description only; full PDF not inspected in this run",
+          "method": "Primary bibliographic index and targeted searches",
+          "title": "Combinatorics of the Lipschitz polytope",
+          "trigger": "Possible general triangulation/volume domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alexander et al Mahler product program and equilateral baseline",
+        "complete pinned long-edge proof"
+      ],
+      "rationale": "The Mahler product is an affine-invariant quantity naturally associated with Lipschitz-free Banach balls, and a single variable metric-edge deformation isolates geometric transition mechanisms not visible in combinatorial counts. Exact primal and polar volume formulas, the change from boundary optimum at d=2 to unique interior optimum for every d>=3, and a universal t_d->3/2 limit give a complete motivated continuous extremal classification. The asymptotic gain of order d^-2 is small but the structural optimizer and phase change are substantive and not merely a tiny numerical improvement.",
+      "residual_risks": [
+        "Constrained one-edge extremality does not settle all-metric Mahler optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V rests on independently reconstructed analytical arguments, not solely on scripts or self-review.",
+    "Originality is a best-of-knowledge primary-source comparison, not worldwide priority certification.",
+    "No public replacement bytes staged; publication is withheld pending verified sanitization."
+  ],
+  "schema_version": 1
+}
