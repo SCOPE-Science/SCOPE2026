@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Every triangle uses exactly two distinct outgoing edge labels at its latest vertex; a parallel-pair indicator sharing precisely those labels is incompatible with the triangle, contributing covariance \\(-(k-1)^{-3}\\). All other birth-time or label overlaps have zero covariance by direct independent uniform sampling. Multiplicities and all finite sums are explicitly accounted for, yielding the full-domain formula. Independent exact rational enumeration of 30,377 complete small graph states in verify.py agrees in ten cases; enumeration is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Björklund et al., arXiv:2311.04184v1, Theorem 3.3 gives joint approximation by independent Poisson cycle counts for fixed outdegree, not exact finite mixed covariance.",
+        "Björklund et al., Theorem 3.5 gives logarithmic order of variance and Section 7 gives bounded overlap-control estimates."
+      ],
+      "reasoning": "First-order multivariate approximation and overlap bounds cover broader collections of cycles, but do not imply the finite signed covariance or its nonzero limiting constant: total-variation convergence alone does not determine an unbounded product moment.",
+      "searches": [
+        "random recursive DAG joint covariance counts 2-cycles 3-cycles between double edges and triangles",
+        "Random DAG m independent uniform parents at each arrival: covariance short cycles of distinct lengths",
+        "\"uniform attachment model\" \"covariance\" \"cycles\" Björklund Holmgren Janson Lo"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.04184v1, https://arxiv.org/pdf/2311.04184",
+      "doi:10.1017/S0963548324000294, https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/approximation-of-subgraph-counts-in-the-uniform-attachment-model/BDFB2B1AE2914E86E0BDD6CA981952A7",
+      "Published mathematical finding search results on cycle covariance in bond percolation, permutation inversions, and random recursive trees; none concern the same mixed uniform-attachment multigraph statistic."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary article Theorem 3.3: asymptotically independent-Poisson approximation for distinct cycle lengths.",
+        "Primary article Theorem 3.5: individual variance order; Section 7: overlap-probability estimates rather than the exact signed mixed value.",
+        "Present finite indicator calculation isolates one incompatible pair of labels and sums its covariance."
+      ],
+      "reasoning": "The stated theorem does not follow merely by specializing previous marginal mean, variance, or total-variation bounds: the conclusion determines an exact negative second mixed cumulant of finite nonzero limit, whereas prior stated results neither fix its sign nor its constant.",
+      "searches": [
+        "\"uniform attachment model\" \"covariance\" \"cycles\" Björklund Holmgren Janson Lo",
+        "subgraph cycle counts uniform attachment multigraph 2 3 negative correlation second-order constant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.04184v1, Example 2.1 explicitly defines an unordered pair of parallel labelled edges as a two-cycle; Example 3.4 gives its marginal mean and the three-cycle marginal mean.",
+        "Exact statement comparison: both the signed mixed moment and the finite zeta-sum are absent from the inspected primary article."
+      ],
+      "reasoning": "Same object under aliases parallel-edge pair/2-cycle/multiple edge and triangle/3-cycle was compared in the defining primary model and searched explicitly. A shared model does not make the marginal moments equivalent to its mixed covariance.",
+      "searches": [
+        "uniform attachment random directed acyclic multigraph exact negative covariance number of parallel edge pairs 2-cycles and triangles 3-cycles harmonic sum zeta(2)-zeta(3)",
+        "\"uniform attachment\" \"2-cycles\" \"3-cycles\" \"covariance\"",
+        "Exact finite-n covariance between the number of parallel edge pairs and the number of 3-cycles in uniform attachment directed multigraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary preprint Example 3.4 lists marginal mean formulae for both cycle lengths, not a mixed covariance table.",
+        "Targeted published-finding searches returned component-triangle covariance in independent percolation and permutation inversion/cycle covariances; these are different probability spaces and statistics."
+      ],
+      "reasoning": "No exact joint-moment table matching the same edge-labelled uniform attachment model and two lengths was identified in searched sources. No exhaustive database coverage or uniqueness certification is claimed.",
+      "searches": [
+        "\"Approximation of subgraph counts in the uniform attachment model\" Björklund Holmgren Janson Lo 2311.04184 two-cycle triangle covariance",
+        "\"uniform attachment\" \"2-cycles\" \"3-cycles\" \"covariance\"",
+        "random recursive multigraph covariance parallel edges triangles uniform attachment"
+      ]
+    },
+    "rationale": "Full text of Björklund–Holmgren–Janson–Lo arXiv:2311.04184v1 and its online article identifies separate cycle-count means, asymptotic joint independent-Poisson approximation, and logarithmic variance orders, but no exact mixed finite covariance or zeta-limit. Source-level implication comparison confirms that joint Poisson total-variation approximation with means increasing in n does not determine a mixed unbounded moment. Multiple public literature and published-finding searches returned no covering exact signed formula; this is evidence-limited originality, with an explicit residual unindexed-priority risk.",
+    "residual_risks": [
+      "A predecessor not indexed in the searched research record or literature, or an earlier implicit covariance formula, may establish priority before this calculation.",
+      "Existing general moment expansions may be adaptable to yield the same identity even if they do not state it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical counting convention, proves first-order Poisson approximation and marginal moment bounds; inspected material does not state or imply the exact mixed covariance formula.",
+        "evidence": [
+          "arXiv:2311.04184v1, Examples 2.1 and 3.4, Theorems 3.3 and 3.5, Sections 5 and 7."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.04184",
+        "material_read": "Model description, Examples 2.1 and 3.4, Theorems 3.3 and 3.5, cycle-indicator proof and Section 7 cycle-overlap estimates, final conclusions.",
+        "method": "Full-text examination of lawful open preprint, including definitions, theorem statements, proof sections, and terminal discussion.",
+        "title": "Approximation of Subgraph Counts in the Uniform Attachment Model",
+        "trigger": "Same multigraph and same two cycle lengths; most plausible dominating primary source."
+      },
+      {
+        "assessment": "Journal version of the same work, not an independent contribution covering the exact mixed covariance.",
+        "evidence": [
+          "Cambridge Core, first published online 10 October 2024; main results Section 3; MSC 60C05."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548324000294",
+        "material_read": "Published article model summary, main cycle results, publication metadata and primary classification.",
+        "method": "Open publisher article text checked for title, authors, same definitions, cycle theorems, and classification.",
+        "title": "Approximation of subgraph counts in the uniform attachment model",
+        "trigger": "Published version of closest preprint and independently confirms primary probability MSC code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b5f2161-f223-4ac6-97cb-104fb54f5693",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mixed covariance of the two shortest cycle counts is the natural second-order quantity for testing the meaning and limits of the source article’s asymptotic independence. Its exact strictly negative all-size sign and nonzero limiting constant supply information inaccessible from individual means/variances or first-order joint Poisson approximation. The derivation holds for every finite outdegree, and yields a fixed-outdegree negative correlation of order 1/log n using established marginal orders.",
+    "status": "PASS"
+  }
+}

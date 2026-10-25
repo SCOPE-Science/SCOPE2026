@@ -1,0 +1,11 @@
+# Review of the short-cycle covariance identity
+
+**Correctness: PASS.** The model specifies independent, with-replacement endpoint choices and retains edge labels. In the mixed second moment, the only nonzero local term comes from matching the pair of outgoing labels in a two-cycle to the pair of distinct-target outgoing labels in a triangle; it contributes exactly \(-(k-1)^{-3}\), and the remaining factors and summation ranges produce the displayed formula. The finite exact-state verifier separately reproduces ten cases using edge multiplicities, not the indicator expansion. The proof, rather than enumeration, covers all integers \(n\ge2\), \(m\ge2\).
+
+**Originality: PASS on examined evidence.** The closest full-text source is Björklund et al., arXiv:2311.04184v1 and its journal version (Theorems 3.3 and 3.5, Examples 2.1 and 3.4, cycle-overlap proof). It proves a joint Poisson approximation for distinct cycle lengths and variance-order bounds, not this exact signed mixed covariance or its nonzero limit. A targeted search did not identify an equivalent statement. Broader stochastic-dependence theorems or earlier unindexed moment calculations remain potential historical-priority risks; a failed search alone is not proof of uniqueness.
+
+**Value: PASS.** The mixed covariance between the two shortest cycle statistics is a canonical test of the scope of published asymptotic independence results. Its exact strictly negative finite law, finite nonzero limit, and uniform validity for arbitrary outdegree expose a second-order phenomenon that independent Poisson approximations and marginal means do not quantify. The known variance-order results furthermore yield a negative correlation of exact order \(1/\log n\) for fixed outdegree. This is a specific mathematically motivated joint-moment refinement, not a general theorem about all short-cycle families.
+
+**Scientific limitations.** Different graph models, collapsed parallel edges, or nonuniform attachment probabilities are outside scope. The mixed law is analytical; finite enumeration is an independent check only. The claimed originality remains qualified by the inspected source set, and the independent audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
