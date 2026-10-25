@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "A refresh of the observed vertex creates a fair bit; refreshing its full closed neighborhood in the next round prevents any later dependence. Equal fresh opinions at times t-d and t+d make the only two count summands involving the bit sum to twice a fair indicator. Sparse selected times 2d+2 apart yield additive independent conditional variances, exactly one per successful time. Each success has probability at least epsilon^(degree+4)/2, giving the finite-T and limiting estimates. An independently executable exact-rational finite-state script passes 150 assertions. External variance-limit and CLT theorems inspected in arXiv:2207.01224 are explicitly attributed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2207.01224 Theorem 2.7 explicitly assumes a nondegeneracy condition for the original statistic and proves normality unconditionally for a modified thinned statistic.",
+        "Pymar and Rivera arXiv:2112.01478 concerns different update dynamics/observables."
+      ],
+      "reasoning": "General finite-state Markov CLTs do not imply the full claim on arbitrary infinite locally finite graphs; a stronger universal local-innovation theorem would need matching model hypotheses and a consequence at least as strong as nonzero variance. None was identified.",
+      "searches": [
+        "positive linear variance lagged equality observations noisy voter model any connected graph",
+        "single-site noisy voter model observations local refresh martingale nondegenerate CLT",
+        "arXiv:2207.01224 Theorem 2.7",
+        "arXiv:2112.01478 noisy voter stationary distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.01224v1, abstract and full mathematical text Sections 1-2.3",
+      "arXiv:2112.01478, introductory mathematical model and primary claims",
+      "Three focused searches in the published mathematical-records index on temporal repetitions, variance nondegeneracy and local-refresh CLT, with relevant scientific comparisons in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Lemma 2.3 retains O(log T) as one possible variance-growth regime.",
+        "Original Theorem 2.7 has an explicit condition and otherwise switches to a thinned observable."
+      ],
+      "reasoning": "The original dichotomy alone cannot imply strict linear growth; the original conditional CLT alone cannot establish its own nondegeneracy premise. The local refresh-barrier lower bound is therefore not a corollary of the cited two claims, but it makes the published theorem applicable with nonzero variance.",
+      "searches": [
+        "Variance of temporal repetition indicators in discrete-time noisy voter model on graph; is variance sublinear logarithmic?",
+        "positive linear variance lagged equality observations noisy voter model any connected graph",
+        "arXiv:2207.01224 Lemma 2.3",
+        "arXiv:2207.01224 Theorem 2.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Benjamini et al. arXiv:2207.01224 Section 2.2 expressly asks whether the count variance is sublinear and says the answer is unknown.",
+        "arXiv:2207.01224 Lemma 2.3 establishes a logarithmic-versus-linear dichotomy."
+      ],
+      "reasoning": "An exact equivalent could use variance nondegeneracy, absence of temporal coboundaries, or unconditional CLT instead of a degree-local bound. The inspected source does not prove any of those for the unthinned count; the conditional-variance barrier newly rules out its logarithmic branch.",
+      "searches": [
+        "Variance of temporal repetition indicators in discrete-time noisy voter model on graph; is variance sublinear logarithmic?",
+        "positive linear variance lagged equality observations noisy voter model any connected graph",
+        "arXiv:2207.01224 Section 2.2 repetitions variance",
+        "arXiv:2207.01224 Lemma 2.3 logarithmic alternative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records included a result on two autocorrelations in reversible Markov chains and a result on exact symbol-corruption counts, which concern other stochastic structures.",
+        "The exact matching model is addressed by arXiv:2207.01224, not tabulated with a positive variance coefficient."
+      ],
+      "reasoning": "No graph-by-graph database or exhaustive finite-state table can dominate an arbitrary infinite locally finite graph inequality. Relevant retrieved exact results describe different observables and do not imply the statement.",
+      "searches": [
+        "Variance of temporal repetition indicators in discrete-time noisy voter model on graph; is variance sublinear logarithmic?",
+        "positive linear variance lagged equality observations noisy voter model any connected graph",
+        "single-site noisy voter model observations local refresh martingale nondegenerate CLT",
+        "arXiv:2207.01224 Section 2.2"
+      ]
+    },
+    "rationale": "The motivating primary paper explicitly leaves open whether this very repetition-count variance can be sublinear, proving only a linear/logarithmic dichotomy; the present local refresh-barrier supplies a graph-uniform quantitative lower bound, including infinite locally finite graphs, and removes the CLT condition. No equivalent or stronger implication was found in the cited full-text sections or focused records; a broadly formulated previous innovation result may still imply the theorem, so historical priority is not guaranteed.",
+    "residual_risks": [
+      "A general noise-influence or non-coboundary variance theorem, using different terminology, might implicitly imply the result; exhaustive historical priority not established.",
+      "The exact bibliographic model parameters must match synchronous fair binary independent-site refresh; results for other noisy-voter dynamics do not transfer automatically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source states sublinear variance unresolved, establishes the dichotomy and conditional original CLT but does not give the new local-degree lower bound.",
+        "evidence": [
+          "Original Section 2.2 sublinear-variance question and Lemma 2.3; Section 2.3 Theorem 2.7.",
+          "arXiv first public date 2022-07-04."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.01224",
+        "material_read": "Full introductory model definition and Sections 2.1-2.3, including variance bound, Lemma 2.3, and Theorem 2.7; additional full document search for variance and relevant later discussion.",
+        "method": "Read open-access full-text arXiv HTML and PDF representations",
+        "title": "Global information from local observations of the noisy voter model on a graph",
+        "trigger": "Identical statistic, source paper explicitly poses variance-growth question"
+      },
+      {
+        "assessment": "Different update mechanism and aggregate observables; no matching single-vertex temporal lag-repetition variance lower bound.",
+        "evidence": [
+          "Model and observable comparison with primary noisy-voter dynamics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+        "material_read": "Open-access abstract and introduction/model-definition and main-result discussion",
+        "method": "Read arXiv full-text accessible introductory and theorem sections",
+        "title": "Asymptotic behaviour of the noisy voter model density process",
+        "trigger": "Related noisy-voter stochastic fluctuation/steady-state models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fff3678-9a8d-4e50-b61f-322b2a099d60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem settles the 2022 primary source's explicit uncertainty about sublinear fluctuations for the unthinned local repetition count, uniformly for any finite or infinite locally finite graph. It supplies a nonasymptotic degree-local lower bound and implies nondegenerate normal limits using the original source theorems. This changes the usable scope of a graph-inference statistic rather than adding a routine finite numerical special case.",
+    "status": "PASS"
+  }
+}
