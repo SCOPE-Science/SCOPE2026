@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The piecewise affine activation has active derivative \(W/(2\rho)\) on a nonempty near-zero cell and a finite rank-nonincreasing affine branch decomposition globally, giving exact one-step image dimension. The positive rank-one factorization proves global Perron-ray collapse, and the converse follows from the near-zero derivative columns. Gaivão–Pires's full scalar semiconjugacy identifies the branch indicator with the rotation carry, giving the explicit coboundary and the improved oscillation bound. No periodic points follows from irrational rotation; unique invariant probability follows from the semiconjugacy's countably many non-singleton fibers. All quantifiers and the discontinuity convention are stated. The exact-rational script tests 275 finite branch steps without claiming to prove infinite dynamics.
+## correctness
 
-**Originality — PASS, with limited priority certainty.** Pires proves *invariance* of the Perron ray and a Cantor subsystem, not the if-and-only-if global image-rank criterion or finite-time population-sum bound. Gaivão–Pires already proves the underlying scalar rotation semiconjugacy and common scalar omega-limit, which are openly used rather than claimed anew. The published-result searches and the closest known contracted-rotation phase-window finding do not cover the combined network classification and quantitative cohomology. A different formulation in neural-network or rotation-coboundary literature remains a residual risk.
+PASS
 
-**Value — PASS.** Matrix rank gives a natural and complete geometric characterization of whether a positive all-to-all network loses every transverse degree of freedom in one step. The bounded activity-sum law then shows unusually strong statistical regularity despite sensitive aperiodic Cantor dynamics: deterministic averaging error is uniformly \(O(N^{-1})\) for every initial state. The property is not a numerical parameter-slice observation and holds for all eligible rank-one couplings and all neuron counts.
+The scalar activation is finitely piecewise affine, hence each image cell has linear part DW/(2rho), rank at most rank W; a small open input cell near zero activates all slopes, giving matching lower image dimension. If F(X) is on the Perron ray, differentiating at zero along every input coordinate forces each column W e_j into span v, so rank W=1. Conversely rank-one positive W= rho v q^T/(q^T v) gives F(x)=v ~tilde g(q^T x/(q^T v)), and on the ray F(tv)=v g(t). Original Gaivao--Pires Lemma 6 gives monotone semiconjugacy h with irrational rotation T and singleton discontinuity preimage; the branch indicator agrees pointwise. Subtract g(t)=t/2+delta-I(t), h(g(t))=h(t)+alpha-I(t) to obtain t-2(delta-alpha)=H(t)-H(g(t)), H=2(t-h(t)), osc H<=2 by monotonicity. All rank-one network sums telescope. Irrationality excludes periodic points; a.e.-one-to-one monotone semiconjugacy plus uniquely ergodic rotation gives one invariant probability. Analytic checks do not depend on finite checker.
 
-**Closest literature and limitations.** The source interval map, semiconjugacy, and common Cantor set are existing results, and monotone circle rotation carries supply the essential prior mechanism. The new component is its network rank criterion, exact cohomology, and finite-time uniform population estimate. Sharp discrepancy constants and robustness to rank perturbations are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pires proves persistence of a Cantor set on an invariant Perron ray for arbitrary positive W, not a criterion for universal one-step collapse or equality of image dimension and rank; Gaivao--Pires supplies the scalar semiconjugacy. These results are incorporated explicitly, not rebranded. The exact network-wide rank criterion and uniform all-initial-data population discrepancy combine the old scalar dynamics with a nontrivial global coupling classification.
+
+## value
+
+PASS
+
+The rank-vs-image dimension and exact synchronization threshold classify how much of the full n-dimensional state survives the first network step, a structural question not settled by invariant-ray existence. The global bounded total-activation discrepancy at rank one supplies a sharp strong quantitative trajectory consequence. Though the scalar coboundary identity is short once the semiconjugacy is known, the complete network-level boundary has independent interpretive use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
