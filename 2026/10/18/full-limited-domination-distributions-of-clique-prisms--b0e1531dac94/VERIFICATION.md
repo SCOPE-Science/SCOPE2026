@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` next to this file. The standalone program computes the complete \(k\)-limited domination polynomial in two independent ways: direct examination of all labelled vertex subsets using literal graph neighbourhoods, and the theorem's multinomial column-type sum. It also checks both the minimum size and the coefficient of the lowest-degree term.
+## correctness
 
-The completed execution returned `VERIFY_OK exhaustive_graph_parameter_pairs=42 feasible_sets_total=286117 n_range=2..8; analytic_min_cases=9..35`. The forty-two exhaustive parameter pairs cover every integer capacity from zero to the graph degree for each order two through eight. Additional analytic-formula-versus-minimizer comparisons are made at capacities zero, one, near half the order, just below the order, and at the order for twenty-seven further graph orders. All comparisons passed.
+PASS
 
-Proof obligations remain mathematical rather than computational: the essential all-set equivalence is shown explicitly in Steps 1 and 2 of `RESULT.md`; the counting uses unique type assignments, and the minimum classification uses a tight two-layer omission bound and equality rigidity. Finite checks cannot prove these universal implications. Neither source priority nor independent validation is established by the program.
+Every dominating set meeting only one K_n layer is exactly that entire layer, valid for k>=1. A set meeting both layers has uniquely determined four column counts (c,x,y,d), and outside-neighbor bounds c+x+1_{y>0}<=k and c+y+1_{x>0}<=k. The multinomial sum therefore counts every labelled set. For 1<=k<n, at least 2(n-k) vertices are selected in a mixed-layer set, with equality exactly for k omitted entire columns; comparing the two pure layers yields the stated tie and binomial minima. k=0 and k=n boundary proofs are correct. Fresh independent literal-neighborhood enumeration checked full coefficient vectors for all n=2..6 and k=0..n (25 cases), separately from the repository verifier; it proves only these finite checks, not universality.
+
+## originality
+
+PASS
+
+No dominating equivalent or stronger complete statement identified in the targeted primary-source and Resultary searches; assessment is best-of-knowledge, not exhaustive priority certification. The graph aliases yield the identical model. Roman domination, ordinary domination, and multipartite domination use different admissibility conditions and do not automatically yield this polynomial. Scalar minima and product bounds do not imply the four-column generating function. The unexamined revised preprint is a concrete coverage risk. Search did not surface an all-coefficient table; absence from this limited index is not proof of nonexistence. Recovering the new polynomial would require an additional all-feasible-set classification not contained in the inspected extremal statements.
+
+## value
+
+PASS
+
+The all-size generating polynomial for the natural two-layer rook graph is a meaningful structural refinement of the previously known minimum-size invariant: it gives labelled feasible-set counts and reveals a sharp tie/multiplicity transition that an extremal value cannot determine. This is a motivated full parameter classification, not an arbitrary isolated numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
