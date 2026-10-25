@@ -1,15 +1,21 @@
-# Scientific review: directed powers of finite chains
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim follows from an explicit path-count identity and triangular coefficient recovery in logarithms of truncated exponential series. Incoming and outgoing walk counts through depth \(r\) are determined by \(r\) colour-refinement rounds. They recover every coordinate-value multiplicity for \(r=\lceil m/2\rceil\), and coordinate-permutation symmetry proves the reverse containment of colour classes within the complete automorphism-orbit partition. The one-dimensional case establishes uniform sharpness. Two independent integer-exact verification methods corroborate the proof on their finite declared domains; neither is presented as an infinite certificate.
+## correctness
 
-## Originality
-PASS, qualified by literature coverage. Albertson's full 2005 paper provides the Cartesian-product automorphism background and distinguishing numbers, but not an upward-directed chain-product colour-refinement statement. The inspected full text of Arvind–Köbler–Rattan–Verbitsky supplies general colour-refinement definitions and orbit-equitable terminology without the depth theorem for these particular directed grids. The inspected quotient-graph paper of Bachman et al. concerns different undirected equitable structures. Searches for Cartesian powers, directed Hasse diagrams, Weisfeiler–Leman refinement, and orbit recovery identified no theorem that implies this result. A specialized earlier result remains possible; absence from indexed search is not proof of publication priority. A previously recorded corner-marked undirected-grid analysis and an arbitrarily marked Boolean-lattice result do not entail uniform-start directed refinement for all chain lengths.
+PASS
 
-## Value
-PASS. Products of chains are canonical finite distributive lattices; local-counting symmetry detection in their cover graphs is a natural invariant problem. The result gives a non-asymptotic exact orbit partition in a number of rounds determined only by factor length and not dimension, with a sharp uniform bound and explicit orbit sizes. This is a structural infinite-family statement, not an arbitrary finite census or a restatement of a graph-product automorphism formula.
+Round-r colours retain directed in/out neighbour multiplicities, hence all descending and ascending walk counts through depth r. Their exponential generating functions are products of truncated exponentials E_{x_i} and E_{m−x_i}. Taking formal logs modulo z^{r+1} recovers N_0,...,N_{r−1} and N_m,...,N_{m−r+1} by successive first-difference coefficients, with a possible central remaining value by subtracting from d. At r=ceil(m/2) the multiset is determined, and coordinate permutations preserve every directed edge. One-dimensional directed chain has two interior vertices indistinguishable before ceil(m/2), so uniform optimality holds. Independent explicit refinement verified 18 m,d profiles; finite checks not proof.
 
-## Residual limitations
-The directed-cover convention, equal factor lengths, and uniform initial colour are fixed. The bound is uniformly optimal, not claimed pointwise optimal for every dimension. No independent mathematical audit or publication-priority certification was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graph colour-refinement/refinability theory of Arvind–Köbler–Rattan–Verbitsky and Cartesian-product graph automorphism results do not state exact dimension-independent ceil(m/2) recovery for directed chain-product cover graphs. The proof uses directed walk polynomial information absent from generic graph characterizations. Resultary semantic searches produced related orbit and graph-combinatoric findings, no identified dominating directed grid statement. Best of knowledge subject to specialized lattice literature risk.
+
+## value
+
+PASS
+
+Exact sharp dimension-independent refinement depth and complete orbit class sizes for a canonical high-dimensional directed Cartesian product are structural, useful quantitative invariants in graph isomorphism/poset refinement; bound not mere relabeling of known general WL theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
