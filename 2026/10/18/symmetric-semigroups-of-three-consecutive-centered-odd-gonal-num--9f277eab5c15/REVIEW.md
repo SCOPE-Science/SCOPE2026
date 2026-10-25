@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All odd side counts \(m\ge3\) and indices \(n\ge2\) are quantified. The gcd identities account for the two adjacent gcd-two branches (often missed by assuming coprimality), the three-generator minimality argument rules out hidden redundancies, and the gluing criterion reduces symmetry to explicit two-generator membership. The nonadjacent branch is completely excluded for \(s>1\) by the inequalities \(A>n\) and \(C>n+1\); the adjacent branches give exactly three extra cases after identifying an overlapping fourth. A residue decomposition proves both Frobenius formulas. The standalone checker uses separate-method Apéry enumeration for finite confirmation, not as an infinite proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2014 paper supplies structural semigroup tools, not the odd-centered-polygonal arithmetic classification. The directly comparable 2024 generalized-star triple paper covers parameters \(a\in\mathbb Z\), \(a\ge4\) in \(1+a n(n-1)\), equivalently even polygonal side counts at least eight; its Frobenius/genus results cannot be applied by a permitted integer parameter substitution to the present odd side counts. The centered-pentagonal OEIS record lists figurate-number values without a three-generator semigroup classification. Existing centered-square work addresses even side count four and is not claimed here. Risks: implicit coverage through general gluing methods or an unlocated odd-sided specialization remains possible; priority is not independently certified.
+PASS
 
-**Value — PASS.** The result is a complete two-parameter classification for a natural family of figurate-number semigroups, with explicit genus/Frobenius formulas in the symmetric cases and an exact divisor-function census for each side count. The exceptional centered-triangle, pentagon and heptagon cases are forced by genuine parity structure absent from even-sided generalized-star triples. The theorem is not a mere substitution of an existing even-sided formula: it resolves both adjacent-gcd branches and their sharp boundary cases.
+For odd m>=3 and n>=2, centered m-gonal triple a,b,c has differences mn,m(n+1),m(2n+1), and gcd(a,c)=gcd(2n+1,3m+8); only adjacent gcd-two pairs occur at n=2 mod4 and n=1 mod4. All three generators are minimal in the claimed range. The standard three-generator symmetry/gluing criterion reduces symmetry to one noncoprime pair with the remaining generator in the quotient-pair semigroup. For nonadjacent (a,c), splitting gcd d with s=(2n+1)/d shows s>1 impossible by coefficient/size inequalities and divisibility; s=1 gives explicit b=(n+1)a/t+n c/t. The adjacent pairs are excluded except at n=2, m=3,5,7, while m=9,n=2 already satisfies t|K. The gluing Frobenius law is ac/t-a-c+(t-1)b, with the exceptional formula (3m²+8m-1)/2; symmetry gives g=(F+1)/2. Divisor counting counts all t>1 dividing K=3m+8 and adds exceptions. Independently recomputed Apéry shortest-path F and genus for 238 odd-m pairs (3<=m<=35 odd, 2<=n<=15), all agreeing with the exact classification. The source script also includes a wider 198,602-case gluing check and 624 Apéry checks; its claimed output alone was not used as proof.
 
-**Closest literature and limitations.** Ciolan–García-Sánchez–Moree (arXiv:1409.5614v1, 2014), Section 3.1, Example 4 supplies the gluing characterization and Section 1, Lemma 5 supplies the dimension-three cyclotomic equivalence. Yin–Mu–Komatsu (2024, doi:10.20944/preprints202407.2280.v1), Sections 2, 6–7, studies even-sided generalized-star triples, including genus. OEIS A005891 records centered pentagonal numbers but not this semigroup invariant. The proof is limited to odd side counts and makes no exact nonsymmetric Frobenius claim. Independent audit and exhaustive priority determination remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual Resultary search, source-specific mathematical implication comparisons, primary-source reading of accessible material and explicit residual risks. Known general frameworks and special cases are credited; unsuccessful searches are not proof of historical novelty.
+
+## value
+
+PASS
+
+Natural two-parameter centered polygonal numerical-semigroup family with complete symmetry/complete-intersection/cyclotomic classification and exact indexed count; parity-induced gcd-two branches and three low-index exceptions are not routine substitution from previously studied even-sided generalized star triples. Symmetric-case F/g formulas add independently reusable exact data; no nonsymmetric Frobenius formula is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
