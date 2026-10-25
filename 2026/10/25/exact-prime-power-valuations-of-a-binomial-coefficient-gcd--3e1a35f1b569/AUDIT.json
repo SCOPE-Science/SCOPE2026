@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Kummer carry counts at j<=a and j=a+t give a-c uniformly; exact factor comparison for the witness q=1+p^a t shows valuation a-v_p(binomial(b-1,t)), and Lucas selects t with valuation c. Pure prime powers and zero-exponent cases are separately covered. Guo et al. Lemmas 4,9 justify prime support and zero valuations. Executed 139 direct gcd cases and 4453 exhaustive finite multiplier valuation cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo et al., arXiv:2606.22997, Lemmas 4 and 9, and main gcd-one criterion.",
+        "No located theorem supplies the complete exponent from the stated gcd-one condition."
+      ],
+      "reasoning": "A stronger theorem giving exact gcd valuations would dominate this finding. The inspected strongest matching primary manuscript proves only prime support and a threshold for divisibility, leaving the exact valuation open within that text.",
+      "searches": [
+        "A080170 full gcd prime power valuations exact formula not just gcd one criterion",
+        "GCD of selected binomial coefficients all qk,k for q=2 to k+1 always prime power and exact exponent",
+        "greatest common divisor of binomial coefficients qk k all multipliers prime powers"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A080170 (the index set where the binomial gcd equals one)",
+      "Guo and collaborators, arXiv:2606.22997 (prime support, nonzero criterion, complete manuscript)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. prove that p|D(k) iff (k+1)/p^a <=p^a for exact prime-power components p^a||(k+1); they do not give nu_p(D(k)).",
+        "Kummer-carry lower bounds and a Lucas-based sharpness witness derive the previously undetermined positive exponent."
+      ],
+      "reasoning": "The prior yes/no threshold can show the gcd is nontrivial, but cannot logically determine if the exponent is 1, 2, or larger. The formula refines rather than merely rephrases the published implication.",
+      "searches": [
+        "gcd of binomial coefficients choose(qk,k) for 2<=q<=k+1 exact prime power valuations D(k)",
+        "A080170 full gcd prime power valuations exact formula not just gcd one criterion",
+        "arXiv:2606.22997 Lemma 4 Lemma 9 and statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original OEIS A080170 records gcd-one indices rather than exact positive gcds.",
+        "The complete arXiv:2606.22997 manuscript provides divisibility, but no matching nonzero valuation formula."
+      ],
+      "reasoning": "Reformulations as p-adic minima and as exact prime-power gcd values were compared, not only matching titles. Both cited sources give a zero-versus-positive test; the nonzero exponent requires new computations.",
+      "searches": [
+        "gcd of binomial coefficients choose(qk,k) for 2<=q<=k+1 exact prime power valuations D(k)",
+        "For n=k+1 with p^a||n and b=n/p^a, exact gcd of binomial(qk,k), q from 2 to n, equals p^(a-floor(log_p(b-1))) when b<=p^a",
+        "\"A080170\" \"gcd\" prime powers exact value",
+        "\"gcd binom(qk,k) valuation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 (B. Cloitre, January 31, 2003) indexes k for which the gcd equals 1; it is not an exact-gcd-value table."
+      ],
+      "reasoning": "A list of indices with D(k)=1 does not encode the values of D(k)>1. Direct finite examples include D(11)=2, D(23)=4 and D(255)=256.",
+      "searches": [
+        "OEIS A080170 binomial greatest common divisor exact gcd p-adic valuation",
+        "OEIS A080170",
+        "OEIS gcd binomial qk k prime power exponent"
+      ]
+    },
+    "rationale": "The original 2003 gcd-one sequence and the 2026 full-text criterion distinguish whether the gcd is 1, but do not state the valuation of its nontrivial prime factor. The new prime-adic formula and sharp coefficient are not an implication of a binary criterion without the new carry argument; searches by equality, valuations, and aliases found no coverage. Residual risk: unlocated equivalent identities.",
+    "residual_risks": [
+      "Older general binomial-gcd valuation theorems under different notation might imply the formula without being returned by searches.",
+      "The cited 2026 manuscript is a modern comparison and a source for two premises; the archived 2003 sequence is the eligible motivating primary record."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVIDES_INPUTS_NOT_EXACT_VALUATION",
+        "evidence": [
+          "Lemma 4 restricts prime support to k+1.",
+          "Lemma 9 decides if each such prime divides the gcd.",
+          "The main result characterizes gcd equal to one, but has no formula for positive p-adic exponents."
+        ],
+        "identifier_or_url": "arXiv:2606.22997",
+        "material_read": "Complete publicly available PDF, including lemmas and main theorem, with inspected pages showing Lemma 4 and Lemma 9",
+        "method": "Full-text reading, statement comparison and PDF-page inspection",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Strongest direct matching literature on the exact binomial-gcd family"
+      },
+      {
+        "assessment": "DEFINES_ZERO_ONE_SUBSET_NOT_COMPLETE_GCD",
+        "evidence": [
+          "It asks which k have gcd of binom(qk,k), 2<=q<=k+1, equal to 1.",
+          "B. Cloitre record dated January 31, 2003."
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Entry description, listed sequence and dated authorship",
+        "method": "Public entry reading and exact object comparison",
+        "title": "OEIS A080170",
+        "trigger": "Original historical object and earliest verified public source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e1a35f1-b569-42ce-bfeb-f2308c6f7d67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact value, including all nontrivial prime exponents, for the original 2003 binomial-gcd problem; a natural previously unprovided arithmetic invariant with constructive extremal multipliers. The result materially sharpens an all-index gcd-one classification instead of computing an arbitrary slice.",
+    "status": "PASS"
+  }
+}
