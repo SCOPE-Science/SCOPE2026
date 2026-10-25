@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:53:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob 5bb88cde48b98ceb31cc9e37b5e9779e59af4d41",
+        "Git tree 72985b743031f04fd0e1a495f20b2095e71b5cf9",
+        "arXiv:1211.4056v1",
+        "Independent deletion shadow enumeration n≤45 and exact graph maxima n≤8"
+      ],
+      "rationale": "For a weight-two support (a,b), deleting one of its two ones yields weight-one output positions a and b-1: adjacent words consume one distinct weight-one descendant, separated words consume two. For any code with t adjacent and s separated supports, t+2s≤n-1. Adjacent starts cannot be consecutive because then their zero-deletion weight-two shadows collide, hence t≤floor(n/2). Thus |C|≤floor((n-1+floor(n/2))/2)=floor((3n-2)/4). The proposed even-start adjacent and mod-four spaced pairs consume disjoint weight-one descendants; their zero-deletion output pair distances and first-coordinate residue blocks prevent all weight-two collisions. The construction attains the bound for all n, including short boundary n=2,3. Independent exhaustive single-deletion shadow simulation validates n=2..45; independently computed exact compatibility-graph independence numbers for n=2..8 match the formula. Infinite conclusion comes from analytic shadow argument, not finite tests. The modified-VT color size ceil(n/2) for n≥4 is a separate residue pairing count; compare same Hamming layer.",
+      "residual_risks": [
+        "Exactly one deletion and Hamming weight exactly two; distinct outputs considered as sets, not multiplicities; does not classify every maximizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 modified-VT theorem establishes chi=max(k,n-k)+1, explicitly not maximum independent-set size.",
+          "General deletion packing results are not tight weight-two equalities in the inspected text."
+        ],
+        "reasoning": "Even an optimal coloring need not contain maximum independent sets; the new code grows as ~3n/4 while the particular coloring largest class grows ~n/2. A thesis with same broad scope remains unread and might cover this exact invariant.",
+        "searches": [
+          "arXiv:1211.4056v1",
+          "arXiv:1211.3128v1",
+          "David Cullina, Constant composition deletion correcting codes (2015), UIUC IDEALS item 73103"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.4056v1",
+        "arXiv:1211.3128v1",
+        "David Cullina, Constant composition deletion correcting codes (2015), UIUC IDEALS item 73103",
+        "Resultary semantic query: binary weight two constant weight deletion correcting code maximum independent set alpha confusability graph two ones"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 implies a coloring with max weight-two class ceil(n/2) but cannot upper-bound alpha by that class.",
+          "New descendant accounting supplies a strict upper bound that construction meets for all n."
+        ],
+        "reasoning": "The prior coloring and general packing bounds do not logically imply the asserted sharp independent-set formula. The proof supplies new all-n upper and lower matching arguments.",
+        "searches": [
+          "arXiv:1211.4056v1",
+          "arXiv:1211.3128v1",
+          "arXiv:1211.4056 Theorem 5 alpha chi distinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A zero-error code is an independent set in the one-deletion confusability graph.",
+          "Cullina et al Theorem 5 determines chi, not alpha."
+        ],
+        "reasoning": "Pairwise-disjoint deletion shadows are equivalent to independent sets; the exact M2(n) addresses alpha(L_1,n,2), a distinct invariant not interchangeable with chi or maximum VT color size.",
+        "searches": [
+          "Resultary semantic query: binary weight two constant weight deletion correcting code maximum independent set alpha confusability graph two ones",
+          "arXiv:1211.4056v1",
+          "constant-weight-one-deletion graph alpha(L_1,n,2)",
+          "weight-two deletion correcting codes exact maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked published corpus exact-code table contained the all-length expression.",
+          "The independent exact maxima n≤8 are recalculated rather than imported from a database."
+        ],
+        "reasoning": "The claimed invariant is a complete formula, not a tiny list of table entries; exact match searches were negative but do not prove novelty.",
+        "searches": [
+          "Resultary semantic query: binary weight two constant weight deletion correcting code maximum independent set alpha confusability graph two ones",
+          "\"floor((3n-2)/4)\" deletion code",
+          "\"weight two\" \"single deletion\" maximum independent"
+        ]
+      },
+      "rationale": "Published constant-weight modified-VT optimal coloring is a different graph invariant from the all-n maximum independent set; the exact weight-two alpha and larger explicit construction were not located in inspected primary sources, with a concrete thesis-overlap risk.",
+      "residual_risks": [
+        "David Cullina 2015 constant-composition deletion codes thesis full text unavailable; may establish same weight-two exact alpha.",
+        "Earlier unindexed code tables or different deletion-shadow terminology may predate the all-n formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 proves chromatic number max(k,n-k)+1 and optimal coloring, not alpha(G). Paper explicitly states that optimal coloring does not determine max independent set.",
+          "evidence": [
+            "Theorem 5: chi(L_{1,n,k})=omega(L_{1,n,k})=max(k,n-k)+1.",
+            "Section II-C explains alpha not determined by optimal coloring and later Theorem 7 distinguishes the parameters."
+          ],
+          "identifier_or_url": "arXiv:1211.4056v1",
+          "material_read": "Full lawful ar5iv HTML primary text, Sections II-IV, Theorem 5 and Section V on chromatic vs independence numbers.",
+          "method": "Complete accessible primary HTML with line-level theorem inspection",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Exactly one-deletion constant-weight confusability graph and modified VT coloring"
+        },
+        {
+          "assessment": "General packing bounds do not provide the exact stated weight-two alpha with matching explicit construction.",
+          "evidence": [
+            "General deletion packing inequalities and asymptotic scope differ from exact weight-two layer."
+          ],
+          "identifier_or_url": "arXiv:1211.3128v1",
+          "material_read": "Full ar5iv HTML relevant theorem and constrained-source/finite code sections, not every appendix.",
+          "method": "Primary HTML inspection",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Potential stronger general packing bound"
+        },
+        {
+          "assessment": "Potential exact overlap cannot be excluded, a material bibliographic originality risk.",
+          "evidence": [
+            "Title and abstract establish strong topical overlap; full text is not represented as read."
+          ],
+          "identifier_or_url": "David Cullina, Constant composition deletion correcting codes (2015), UIUC IDEALS item 73103",
+          "material_read": "Institutional repository title and abstract indexed; reliable complete PDF could not be retrieved.",
+          "method": "University repository abstract/search only; no full thesis inspection",
+          "title": "Constant composition deletion correcting codes",
+          "trigger": "Potential unpublished or thesis-level exact weight-two overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1211.4056v1",
+        "arXiv:1211.3128v1",
+        "All-n descendant packing bound and explicit construction"
+      ],
+      "rationale": "Maximum cardinality in a fixed-weight zero-error deletion channel is a natural coding-theoretic invariant. The complete exact all-blocklength formula and explicit optimal code separate optimal colorings from maximum independent sets with an asymptotically 3/2 gain over a standard construction; substantive despite the specialization to weight two.",
+      "residual_risks": [
+        "Improvement is over largest class of a particular standard coloring, not the full unrestricted code optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Weight two only, single deletion, binary; no uniqueness/decoding complexity.",
+    "2015 thesis full text not independently read; priority risk."
+  ],
+  "schema_version": 1
+}

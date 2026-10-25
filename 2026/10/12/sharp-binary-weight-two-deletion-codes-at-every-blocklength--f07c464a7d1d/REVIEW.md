@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof counts distinct weight-one deletion descendants: each adjacent-one word consumes one, each separated-one word consumes two. Mutual exclusion of consecutive starts among adjacent-one words yields the sharp all-length upper bound. The periodic construction satisfies the matching size, and its weight-one and weight-two deletion descendants are proved disjoint by explicit support-coordinate cases. Boundary lengths, singleton descendant normalization, and deletion of zero versus one were checked. `verify.py` independently exercises the deletion definition through length 64 and searches the entire finite compatibility graph through length 9. Finite checks are auxiliary to the all-length argument.
+## correctness
 
-## Originality — PASS, qualified by bibliographic uncertainty
-The closest primary paper is Cullina--Kulkarni--Kiyavash (arXiv:1211.4056v1), Section IV: its exact result is the chromatic number of each constant-weight deletion graph, not the weight-two independence number, and it warns that color classes need not be maximum independent sets. The second primary paper (Kulkarni--Kiyavash, arXiv:1211.3128v1) gives more general packing bounds without this closed constant-weight exact optimum. Searches for weight-two, fixed-weight, sparse binary deletion codes, graph independence, checksum classes, and equivalent formulas did not reveal an implication to the claim. The 2015 Cullina thesis is a plausible source whose full text remained inaccessible, so earlier coverage there or in other unindexed work cannot be ruled out.
+PASS
 
-## Value — PASS
-The number \(M_2(n)\) is a natural exact invariant of a classical constrained deletion channel, resolved for all lengths by an explicit linear-time construction and a sharp combinatorial obstruction. The result has substantive design content: a maximum code can be about 50 percent larger than the largest class in the known optimal coloring, emphasizing that chromatic optimality does not optimize a single codebook. The result is a complete infinite parameter family, not a single unmotivated numerical increment.
+For a weight-two support (a,b), deleting one of its two ones yields weight-one output positions a and b-1: adjacent words consume one distinct weight-one descendant, separated words consume two. For any code with t adjacent and s separated supports, t+2s≤n-1. Adjacent starts cannot be consecutive because then their zero-deletion weight-two shadows collide, hence t≤floor(n/2). Thus |C|≤floor((n-1+floor(n/2))/2)=floor((3n-2)/4). The proposed even-start adjacent and mod-four spaced pairs consume disjoint weight-one descendants; their zero-deletion output pair distances and first-coordinate residue blocks prevent all weight-two collisions. The construction attains the bound for all n, including short boundary n=2,3. Independent exhaustive single-deletion shadow simulation validates n=2..45; independently computed exact compatibility-graph independence numbers for n=2..8 match the formula. Infinite conclusion comes from analytic shadow argument, not finite tests. The modified-VT color size ceil(n/2) for n≥4 is a separate residue pairing count; compare same Hamming layer.
 
-## Limits
-No all-optima census, other-weight result, or independent validation is claimed. The all-length proof is human-readable and computation only corroborates finite cases. Priority has residual bibliographic uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published constant-weight modified-VT optimal coloring is a different graph invariant from the all-n maximum independent set; the exact weight-two alpha and larger explicit construction were not located in inspected primary sources, with a concrete thesis-overlap risk.
+
+## value
+
+PASS
+
+Maximum cardinality in a fixed-weight zero-error deletion channel is a natural coding-theoretic invariant. The complete exact all-blocklength formula and explicit optimal code separate optimal colorings from maximum independent sets with an asymptotically 3/2 gain over a standard construction; substantive despite the specialization to weight two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
