@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes the Taft coproduct convention, the root of unity, and the essential monomial-orthonormal Hermitian metric. The quantum-binomial block formula follows directly from multiplication in the tensor Hopf algebra. A unitary Fourier–Hankel factorization gives every singular value with its multiplicity, without reliance on numerical extrapolation. In the first nontrivial layer, orthogonal two-column pairings prove the even-order result, and a weighted cyclic shift of unit monodromy proves the odd-order result. The standalone `verify.py` program independently reconstructs coproducts and tests the critical identities for specified finite ranges. The exact all-order theorem rests on these symbolic arguments, not the tests.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Taft [1] supplies the Hopf algebras; Kashina–Montgomery–Ng [2, Section 3] treats their antipode traces and higher indicators, not singular spectra of their Hopf-square operators. Aguiar–Lauve [3, Sections 1–2 and Appendix B] determines characteristic polynomials in connected graded settings, whose connectedness hypothesis excludes Taft algebras; its eigenvalue information also does not imply the stated metric-specific singular spectra. Available mathematical research records were compared for equivalent Hopf-power, quantum-binomial, Hankel, and Fourier descriptions. No inspected primary source supplied the all-degree Taft singular formula and the parity-condition-number classification. A hidden equivalent computation in more specialized literature remains possible; absence of a search hit is not a uniqueness theorem.
+PASS
 
-**Value — PASS.** Sweedler powers are canonical Hopf-algebra endomorphism-space operations, and Taft algebras are benchmark nonsemisimple examples. The reduction gives a finite, explicit formula for all \(n^2\) singular values and a rank test using only ordinary cyclic Fourier transforms. The first nilpotent layer exhibits a sharp structural parity transition: even orders are exactly isometric up to scaling, while odd orders become linearly ill-conditioned as \(n\) grows. These operator-stability data are invisible to scalar trace indicators and are mathematically motivated independently of software validation.
+The theorem explicitly fixes complex Taft T_n, n>=2, ζ=exp(2πi/n), Δx=x⊗1+g⊗x and PBW basis x^r g^b as ORTHONORMAL (singular values depend on this choice). Quantum binomial expansion gives Ψ2(x^r g^b)=∑_{j=0}^r c_{r,j} ζ^{j(j+b)} x^r g^{2b+j} for c recurrence c_{r,j}=c_{r−1,j}+ζ^{r−j}c_{r−1,j−1}. Its r-block matrix is unitary-conjugate via Fourier and two quadratic diagonal unitary factors to a scaled cyclic Hankel matrix K_r(a+b), K_r(c)=ζ^{c²}∑_j c_{r,j}ζ^{j(j+c)}. Fourier basis vectors are permuted with weights Λ_r,k, proving complete SV multiset |Λ_r,k|/sqrt n including zero multiplicities. For r0, the doubling map yields odd n unitary or even sqrt2/zero each n/2. For r1, even n orthogonal two-supported columns yield sqrt2 everywhere; odd n weighted cyclic shift yields |1+ζ^k| and condition csc(π/(2n)). Independently built EVERY PBW block using the claimed coproduct and quantum recurrence for n=2..10, and used direct numpy singular-value decompositions compared to independent DFT of K_r; max discrepancy below 4e-14 over every r, including odd/even first layers. Finite matrices corroborate the all-n algebraic factorization, not replace it.
 
-**Limitations and risks.** Singular values depend on the specified Hermitian basis normalization, and no gauge-invariance is asserted. The result addresses the second Sweedler power only and does not classify cancellations in higher Fourier modes by a simpler uniform closed formula. Relevant primary works [1]–[3] were checked, but the broader literature cannot be exhaustively excluded. No independent mathematical audit was conducted.
+## originality
 
-**References.** [1] Taft, *The Order of the Antipode of Finite-dimensional Hopf Algebra*, 1971, DOI:10.1073/pnas.68.11.2631. [2] Kashina, Montgomery, Ng, *On the trace of the antipode and higher indicators*, arXiv:0910.1628. [3] Aguiar, Lauve, *The characteristic polynomial of the Adams operators on graded connected Hopf algebras*, arXiv:1403.7584.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.
+
+## value
+
+PASS
+
+On a canonical finite-dimensional nonsemisimple Hopf family, metric-dependent singular values of a natural Sweedler power quantify rank and conditioning rather than only trace or eigenvalue. One all-dimension Fourier–Hankel reduction and a sharp even/odd first-radical-layer conditioning dichotomy with asymptotic n growth give a substantive exact structural invariant in the explicitly declared PBW metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

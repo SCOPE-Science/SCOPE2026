@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility of the Taft Hopf-square spectral formula
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with NumPy installed. The successful execution prints exactly:
+## correctness
 
-```
-VERIFY_OK: n=2,3,4,5,6,7,8,9,10,11,12; all degrees; direct coproduct through n=8
-```
+PASS
 
-The test first independently implements Taft multiplication \(x^rg^b x^tg^u=\zeta^{bt}x^{r+t}g^{b+u}\) when \(r+t<n\), and zero otherwise. It then expands \(\Delta(x^rg^b)\) by repeated multiplication of the two noncommuting summands of \(\Delta(x)\) in the tensor-product algebra, independently of the quantum-binomial formula. For every \(2\leq n\leq8\), all coefficients of the complete map are matched against the claimed block formula. For every \(2\leq n\leq12\), all homogeneous blocks are checked against the exact Fourier–Hankel factorization and the proposed singular spectrum computed by numerical SVD. The first-layer odd/even predictions are separately tested; in even cases its Gram matrix is checked against exactly twice the identity to floating-point tolerance.
+The theorem explicitly fixes complex Taft T_n, n>=2, ζ=exp(2πi/n), Δx=x⊗1+g⊗x and PBW basis x^r g^b as ORTHONORMAL (singular values depend on this choice). Quantum binomial expansion gives Ψ2(x^r g^b)=∑_{j=0}^r c_{r,j} ζ^{j(j+b)} x^r g^{2b+j} for c recurrence c_{r,j}=c_{r−1,j}+ζ^{r−j}c_{r−1,j−1}. Its r-block matrix is unitary-conjugate via Fourier and two quadratic diagonal unitary factors to a scaled cyclic Hankel matrix K_r(a+b), K_r(c)=ζ^{c²}∑_j c_{r,j}ζ^{j(j+c)}. Fourier basis vectors are permuted with weights Λ_r,k, proving complete SV multiset |Λ_r,k|/sqrt n including zero multiplicities. For r0, the doubling map yields odd n unitary or even sqrt2/zero each n/2. For r1, even n orthogonal two-supported columns yield sqrt2 everywhere; odd n weighted cyclic shift yields |1+ζ^k| and condition csc(π/(2n)). Independently built EVERY PBW block using the claimed coproduct and quantum recurrence for n=2..10, and used direct numpy singular-value decompositions compared to independent DFT of K_r; max discrepancy below 4e-14 over every r, including odd/even first layers. Finite matrices corroborate the all-n algebraic factorization, not replace it.
 
-Arithmetic involving roots of unity is numerical in this program. Its comparisons use tolerances specified in the source. The finite computations are reproducibility evidence and are not a substitute for the algebraic proof for every \(n\ge2\). No independent audit has been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.
+
+## value
+
+PASS
+
+On a canonical finite-dimensional nonsemisimple Hopf family, metric-dependent singular values of a natural Sweedler power quantify rank and conditioning rather than only trace or eigenvalue. One all-dimension Fourier–Hankel reduction and a sharp even/odd first-radical-layer conditioning dichotomy with asymptotic n growth give a substantive exact structural invariant in the explicitly declared PBW metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

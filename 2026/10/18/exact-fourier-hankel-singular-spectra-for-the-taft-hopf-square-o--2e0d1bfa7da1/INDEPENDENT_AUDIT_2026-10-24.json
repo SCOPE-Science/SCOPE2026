@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:59:22.043619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem explicitly fixes complex Taft T_n, n>=2, ζ=exp(2πi/n), Δx=x⊗1+g⊗x and PBW basis x^r g^b as ORTHONORMAL (singular values depend on this choice). Quantum binomial expansion gives Ψ2(x^r g^b)=∑_{j=0}^r c_{r,j} ζ^{j(j+b)} x^r g^{2b+j} for c recurrence c_{r,j}=c_{r−1,j}+ζ^{r−j}c_{r−1,j−1}. Its r-block matrix is unitary-conjugate via Fourier and two quadratic diagonal unitary factors to a scaled cyclic Hankel matrix K_r(a+b), K_r(c)=ζ^{c²}∑_j c_{r,j}ζ^{j(j+c)}. Fourier basis vectors are permuted with weights Λ_r,k, proving complete SV multiset |Λ_r,k|/sqrt n including zero multiplicities. For r0, the doubling map yields odd n unitary or even sqrt2/zero each n/2. For r1, even n orthogonal two-supported columns yield sqrt2 everywhere; odd n weighted cyclic shift yields |1+ζ^k| and condition csc(π/(2n)). Independently built EVERY PBW block using the claimed coproduct and quantum recurrence for n=2..10, and used direct numpy singular-value decompositions compared to independent DFT of K_r; max discrepancy below 4e-14 over every r, including odd/even first layers. Finite matrices corroborate the all-n algebraic factorization, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Characteristic-polynomial theorem assumes a graded connected Hopf algebra, whereas Taft has nontrivial group-like elements.",
+          "Higher-indicator theory treats trace of antipode composed with Sweedler maps, not their full singular spectra."
+        ],
+        "reasoning": "Neither known broader-looking theorem has the right hypotheses plus metric conclusion; inapplicability is substantive and not a title mismatch.",
+        "searches": [
+          "arXiv:1403.7584 Theorem 3 and Appendix B",
+          "arXiv:0910.1628 Section 3",
+          "Resultary semantic search above"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md verify.py",
+        "independent all-r Taft SVD/DFT for 2<=n<=10",
+        "arXiv:0910.1628 Section 3",
+        "arXiv:1403.7584",
+        "Taft PNAS 1971",
+        "Resultary semantic Taft Hopf-square spectral query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taft indicators aggregate traces and do not reconstruct matrix singular values.",
+          "The Aguiar–Lauve result does not apply to coalgebraically nonconnected Taft, and a characteristic polynomial does not determine SV even if it did."
+        ],
+        "reasoning": "The proposed complete SV formula requires explicit Taft coproduct block, Fourier–Hankel factorization, and PBW metric, not a trivial substitution into either cited result.",
+        "searches": [
+          "arXiv:0910.1628 Sections 2–3",
+          "arXiv:1403.7584 main hypotheses and characteristic operator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kashina–Montgomery–Ng define P_n=m∘Δ and compute scalar indicators/antipode traces for Taft, not SV of P_2.",
+          "Aguiar–Lauve establish characteristic polynomials for graded connected Hopf algebras, not this nonconnected Taft or metric SV."
+        ],
+        "reasoning": "Sweedler/Hopf-square/Adams convolution names denote the same operator type, so direct comparison is appropriate. Eigenvalues and trace do not specify Hilbert-basis singular values.",
+        "searches": [
+          "Resultary: Taft algebra second Sweedler power singular values spectrum Fourier Hankel quantum binomial",
+          "arXiv:0910.1628 Section 3",
+          "arXiv:1403.7584"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published examples for dimension 4 and 9 are indicator sequences/traces, not first-layer SV or all-n Hankel spectra.",
+          "No exact table for the PBW-orthonormal Ψ2 singular values surfaced in Resultary search."
+        ],
+        "reasoning": "A general Fourier algorithm does not automatically provide this exact all-block algebra and parity law; no matching tabulation established from accessible searches.",
+        "searches": [
+          "Taft n-dimensional Hopf square singular value parity spectrum Fourier",
+          "Resultary semantic query above",
+          "arXiv:0910.1628 examples dimensions 4 and 9"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.",
+      "residual_risks": [
+        "An unindexed specialist Hopf-operator paper may already give the same Taft PBW metric Fourier factorization or the first-layer parity law.",
+        "The original Taft 1971 full text was blocked by a browser challenge; only the bibliographic and contextual content was available.",
+        "Singular values depend on the expressly chosen PBW basis; no gauge/category-invariant claim may be inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source studies gauges, traces, small-degree indicators; does not state the claimed orthonormal-PBW singular-spectrum formula in inspected Taft section",
+          "evidence": "arXiv:0910.1628v2 Def 2.1, §3 indicators of Taft algebras",
+          "identifier_or_url": "arXiv:0910.1628v2; https://arxiv.org/html/0910.1628v2",
+          "material_read": "Full open HTML abstract, Introduction, §2 definition and theorem, §3 Taft-indicator headings/results, related scope",
+          "method": "Read definition P_n and actual stated invariants; contrasted scalar trace/indicator with operator SV",
+          "title": "On the trace of the antipode and higher indicators",
+          "trigger": "Same finite-dimensional Taft algebra and Sweedler maps"
+        },
+        {
+          "assessment": "Graded-connected hypothesis excludes Taft; statement computes eigenvalue characteristic polynomial, not PBW-metric singular spectra",
+          "evidence": "arXiv:1403.7584 Theorem 3 and graded-connected condition",
+          "identifier_or_url": "arXiv:1403.7584; https://arxiv.org/abs/1403.7584",
+          "material_read": "Accessible arXiv full-text HTML, Introduction, main theorem and assumptions, Sections 1–2, Appendix-B description",
+          "method": "Matched coalgebra connectedness and spectral observable (eigenvalues vs singular values)",
+          "title": "The characteristic polynomial of the Adams operators on graded connected Hopf algebras",
+          "trigger": "Potentially broader all-Adams-operator spectrum"
+        },
+        {
+          "assessment": "Same algebra historically antecedent; whole paper not inspected and noncoverage not asserted",
+          "evidence": "Taft 1971 PNAS citation and access limitation",
+          "identifier_or_url": "DOI:10.1073/pnas.68.11.2631; https://pmc.ncbi.nlm.nih.gov/articles/PMC389488/",
+          "material_read": "Primary abstract/bibliographic details and associated source description; full PMC text access returned recaptcha, not read",
+          "method": "Compared historical algebra introduction to operator metric/SV claim",
+          "title": "The Order of the Antipode of Finite-dimensional Hopf Algebra",
+          "trigger": "Original Taft algebra definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical finite-dimensional nonsemisimple Hopf family, metric-dependent singular values of a natural Sweedler power quantify rank and conditioning rather than only trace or eigenvalue. One all-dimension Fourier–Hankel reduction and a sharp even/odd first-radical-layer conditioning dichotomy with asymptotic n growth give a substantive exact structural invariant in the explicitly declared PBW metric.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed specialist Hopf-operator paper may already give the same Taft PBW metric Fourier factorization or the first-layer parity law.",
+    "The original Taft 1971 full text was blocked by a browser challenge; only the bibliographic and contextual content was available.",
+    "Singular values depend on the expressly chosen PBW basis; no gauge/category-invariant claim may be inferred.",
+    "All passes are best-of-knowledge scientific assessments, not independent external attestation of worldwide priority.",
+    "Operational publication not_ready does not reverse the separate PASS C/O/V finding."
+  ],
+  "schema_version": 1
+}
