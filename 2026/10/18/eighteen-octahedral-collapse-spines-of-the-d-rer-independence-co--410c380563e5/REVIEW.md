@@ -1,11 +1,21 @@
-# Scientific review of the Dürer octahedral spines
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph definition has eighteen edges. A fresh enumerator produces the face vector \((12,48,74,36)\) and exhausts all 924 six-vertex subsets, finding exactly eighteen induced disjoint triples of graph edges. All 1,296 certificate pairs are checked in sequence for a unique remaining strict coface, and the final complex agrees face-for-face with the designated octahedral boundary. The standard elementary-collapse theorem proves integral homotopy equivalence. A separate signed Lefschetz computation covers all twelve verified dihedral automorphisms and yields the stated integral orientation character. The Cohen–Macaulay obstruction follows from purity of dimension three and nonzero second homology.
+## correctness
 
-**Originality — PASS, with remaining bibliographic risk.** The closest structural precursor is Campbell–Ellingham–Royle's classification of well-covered cubic graphs; it concerns graph structure, not the independence-complex collapse targets. Ehrenborg–Hetyei and Marietti–Testa supply methods and forest/unicyclic cases, but no matching universal conclusion for this seven-cycle-rank graph. The known graph-metric Rips filtration on the same graph is a different simplicial construction. Search comparisons under Dürer/Durer, \(GP(6,2)\), independent sets, matching-spine and crosspolytope terminology did not locate the eighteen-target theorem, but incomplete indexing leaves a nonzero risk of earlier equivalent specialized work. The asserted originality is the all-cores collapse and full dihedral structure, not the known definition or well-coveredness of the graph.
+PASS
 
-**Mathematical value — PASS.** This is a canonical planar, cubic, well-covered graph whose pure three-dimensional independence complex has lower-dimensional sphere homotopy. The theorem exposes the complete family of *smallest possible flag two-sphere spines*, each giving an inclusion-preserving simple-homotopy reduction, together with their exact symmetry orbits and orientation action. It also supplies a concrete non-Cohen–Macaulay boundary example within a distinguished graph class, rather than an isolated homology rank or a routine parameter substitution.
+Rebuilt GP(6,2) with 18 graph edges from package definitions and enumerated all 4095 nonempty 12-vertex masks: exactly 170 independent faces, f=(12,48,74,36); 36 maximal independent sets all have size four. Exhausting all 924 six-sets found precisely 18 inducing three disjoint edges, each giving the octahedron S0*S0*S0. Independently retrieved complete octahedral_spines.json by verified Git blob fc08941ad6920caf397fd5d4a851018cb94be705 and reimplemented certificate checking: for every one of 18 cores, all 72 ordered lower/upper pairs are contained in the current K, lower has exactly one strict remaining coface upper, both are outside the target K[W], and after 72 collapses only the 26 included target nonempty faces remain. All 1,296 free-face pairs passed. Since ordinary elementary collapses preserve homotopy, K collapses to S² and has reduced H2=Z; orbit-size 6/12 follows from D6 graph automorphisms (outer hexagon and spokes distinguish full group), and the signed augmented simplicial Lefschetz trace of r^a s^b is (-1)^(a+b), compatible with the source verifier and homology one-dimensionality. Purity dim3 with nonzero H2 rules out Cohen-Macaulayness in every field and pure shellability. The independent certificate check proves exactly the asserted finite collapses, not a general family classification.
 
-**Limitations.** Only \(GP(6,2)\) is classified. Larger sphere subcomplexes, a symmetric collapse, or a full generalized-Petersen-family result are not asserted. The literature comparison does not rule out all unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after fresh published findings search and mathematical comparison of alias objects, stronger coverage, exact tables, and prior-result implications. Known general tools are credited, rather than claimed anew; risk remains documented: Unindexed computed independence-complex catalogues might include S2 or some core counts; direct complete induced-core/relative collapse and character match was not identified.
+
+## value
+
+PASS
+
+An exact classification of every minimum-vertex induced octahedral sphere that is actually an ordinary simplicial collapse spine is a meaningful topological structure theorem for the distinguished well-covered Dürer graph, supplemented by full dihedral orientation representation and failure of CM despite purity. The 18 explicit face-by-face retractions are nontrivial reproducible witnesses, not an arbitrary isolated Betti count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
