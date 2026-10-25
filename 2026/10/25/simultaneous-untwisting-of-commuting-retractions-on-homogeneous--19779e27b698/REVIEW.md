@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Each step of the theorem has a direct group-theoretic calculation. Commuting idempotents have an idempotent common product \(P\). Its own labels give a diagonal conjugator sending \(P\) to an unlabeled base retraction. The identities \(PE_j=E_jP=P\) then force every conjugated constituent label to be the identity. The diagonal-unit stabilizer is exactly the group of functions constant on each common-product fiber, of cardinality \(|W|^c\); orbit-stabilizer gives the asserted \(|W|^{n-c}\). The corresponding semilattice and maximality statements follow by untwisting complete finite commuting families. The homogeneous \(G\)-set application uses the exact equivariant automorphism group \(N_G(H)/H\). Direct enumerations for nonabelian \(S_3\), cyclic groups, and Klein four agree with every small-case rank profile; these do not establish the general theorem independently.
+
+## Originality — PASS against inspected evidence
+Al-Aadhami's 2017 thesis Chapter 4.3.1 gives exact individual-idempotent counts, with idempotence criterion and multiplication law; it does not treat simultaneous gauge conjugation of arbitrarily many commuting idempotents or maximal semilattices. Castillo-Ramirez and Ruiz-Medina analyze relative rank of equivariant endomorphism monoids, not commuting-idempotent tuple lifting. Dandan–Dolinka–Gould study free idempotent generated semigroups in the same ambient monoid, without an inspected result asserting the present simultaneous untwisting. Earlier ordered-pair rank enumerations cover that lower-arity consequence, so no pair count is claimed as new. The genuinely compared statement is the arbitrary-family normal form, its single transitive orbit of lifts for each base tuple, and the semilattice consequence. General wreath-conjugacy literature remains a residual priority risk; an accessible abstract of Petersen's 2008 thesis discusses conjugacy of individual transformations, but the full text was not assessed.
+
+## Value — PASS
+Semilattice subsemigroups encode systems of mutually compatible retractions, a natural object in transformation semigroup theory and equivariant algebra. The theorem removes all possible nonabelian twisting simultaneously, not merely element by element. It thereby gives a complete structural reduction of all finite compatible retraction families to ordinary transformation monoids and determines exactly how counts vary with the group order and rank of their common image. This is a motivated group-label rigidity statement for every finite arity, not an arbitrary numerical slice.
+
+## Limits and closest sources
+The main comparison sources are Al-Aadhami's 2017 thesis (accessible Section 4.3.1), Castillo-Ramirez–Ruiz-Medina, arXiv:2203.12158v1, and Dandan–Dolinka–Gould, arXiv:1402.4042. The proof does not enumerate arbitrary base semilattices, treat non-group label monoids, or rule out equivalents in uninspected specialized conjugacy literature. No independent external audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
