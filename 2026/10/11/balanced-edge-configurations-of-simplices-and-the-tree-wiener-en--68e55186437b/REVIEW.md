@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coordinate sum required for any balanced configuration is \((n-1)/n\) at each simplex vertex. A selected vertex would oversupply that coordinate. The support multigraph must be connected: for a proper component of size \(k\), the number of selected edge points equals \(k(n-1)/n\), contradicting coprimality. Exactly \(n-1\) edges therefore form a spanning tree with no repeats. Summing barycentric coordinates across either component of any tree-edge cut uniquely gives the displayed weights; conversely, at each vertex these weights sum to \((n-1)/n\). Cayley's formula supplies the cardinality. The regular-simplex Gram realization and the cut formula for the Wiener index imply the exact squared-distance energy. Sharp star/path extremizers follow from self-contained tree-distance bounds, including equality. The standalone exact-rational checker exhaustively reconstructed trees through order six and independently checked larger samples. No finite test is used as the infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Dobbins's 2013 primary paper was inspected at its main theorem, simplex discussion, proof, and bibliography. It establishes existence of balancing edge points on arbitrary polytopes, not uniqueness/count for the simplex centroid or the tree-energy identity. The subsequent Barba et al. and Dobbins–Frick full texts were compared for the same edge/skeleton and simplex objects, respectively. They discuss existence and dimensional/weight restrictions rather than the finite configurations here. Published database searches and semantic research-record searches under barycenter/centroid, simplex one-skeleton, labeled spanning trees, component-size weights, graphical zonotopes, and Wiener energy located no implication-equivalent assertion. Classical Cayley/Wiener results are recognized as ingredients rather than newly claimed. Historical graphical-zonotope and differently indexed geometry results remain a genuine residual risk.
+PASS
 
-## Value — PASS
-Dobbins's result identifies a natural balancing problem motivated by counterweight placement and the structure of polytope skeleta. For its canonical simplex and vertex-centroid specialization, the new result changes mere existence into a complete all-dimensional classification and constructive algorithm. The surprising Cayley count is affine-invariant, and the exact Wiener identity turns the geometry of equal-weight masses into a tree metric extremal problem, including unique graph-shaped equality classes. This is a complete natural classification, not a small numerical table or a routine reparameterization of an already explicit theorem.
+Every selected point has barycentric mass with sum (n-1)/n at each vertex; no simplex vertex can occur. If the n-vertex support multigraph (n-1 chosen edge points) were disconnected, a component of k between 1 and n-1 vertices would contain k(n-1)/n edges, impossible by integrality and gcd(n,n-1)=1. Hence it is a simple spanning tree. A cut isolates k-1 other edge points; their barycentric mass forces the unique fractions (n-k)/n and k/n. The converse holds because the branches of each vertex partition the remaining n-1 vertices. Distinct edge supports yield distinct sets and Cayley gives n^(n-2). For a regular simplex, centered Gram coordinates give squared radial displacement; sum of k(n-k) across tree cuts is the Wiener index, and the zero-mean pairwise polarization identity yields the stated energy. Elementary sharp Wiener bounds with equality give paths at the energy minimum and stars at the maximum (n=3 overlap). Independent exact-rational reconstruction tested all 1440 labeled trees at n=3,4,5,6, confirming each cut weight, centroid, Wiener sum, direct pairwise energy, extrema and multiplicities; finite checks corroborate but cannot prove the universal result.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Independent statements-and-implications comparisons found the general existence theorems but no already published theorem giving the complete centroidal tree-indexed solution fiber and its exact energy/Wiener correspondence. Resultary returns the focal result as the only direct match and related zonotope/matroid results concern distinct objects or metrics. The classical tree count and Wiener bounds are not credited as new. Historical flow-zonotope alias coverage remains a genuine residual risk.
+
+## value
+
+PASS
+
+Balancing equal point masses on a polytope one-skeleton is a published geometric problem. Its canonical simplex-centroid instance admits a complete all-dimensional classification of every solution, explicit tree-cut barycentric positions and exactly n^(n-2) distinct sets. Summed squared pairwise separation is a natural regular-simplex configuration statistic; identifying it exactly with the tree Wiener index transfers substantive path/star rigidity to Euclidean geometry. This motivated exact family result is not merely an isolated table, renaming of Cayley or a minor gain; it is useful without requiring an additional downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
