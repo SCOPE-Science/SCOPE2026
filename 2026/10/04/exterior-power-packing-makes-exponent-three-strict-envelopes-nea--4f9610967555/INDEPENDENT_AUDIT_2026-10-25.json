@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:44:55Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Numerical checker verifies only the elementary inverse-binomial arithmetic; it cannot certify all class-three group embeddings.",
+        "No Lean or external expert proof attestation was performed; these are distinct from an independent mathematical reading."
+      ],
+      "proof_scope": "The result does not assert optimality of B(n), any improvement without existential closedness, or extension to other exponents; q₂ and q₃ are inverse-binomial minima and N=n+q₂(n).",
+      "rationale": "All assumptions are explicit: n≥1, nontrivial finite C with d(C)≤n inside an existentially closed exponent-three group; class at most three and finite local freeness. The first defect rank r₂=dim((C∩γ₂(G))/γ₂(C))≤dim gr₁(C)≤n, so q₂(n) fresh rank supplies r₂ independent degree-two wedges. In the PRIMARY source Lemma 4.7 proof, Claim B uses only independence to force all degree-two relation coefficients to zero, and Claim C uses the direct-sum V_G⊗Λ²V_F component and independence to force all old-side commutator coefficients to zero; overlap of pairs within the fresh basis does not affect either argument. Lemma 4.8 then obtains degree-two strictness. With N=n+q₂(n), the second defect r₃≤dim gr₂(D₁)≤binom(N,2). Independent triple-wedge basis classes in F_{q₃(N)} ensure central relations give G∩L=1 by the exact argument of primary Lemma 4.9. The intersection computations in Lemma 4.10 need only that each central defect is represented by a degree-three generator; a shared fresh factor suffices. Primary Lemma 4.6 adds exactly two generators, and finite exponent-three groups are locally finite, allowing e.c. transfer into M. Theorems 3.3 and Proposition 4.13 then give B(s(m)). Independent reimplementation computed q₂,q₃,B for n=1,2,3,4,5,10,100,1000,10000,100000 and s(m),B(s(m)) for m=1,2,3,5,10,20,40,100; no numerical contradiction. The universal bound rests on the symbolic proof, not a finite sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Proposition 2.29 identifies gr_i(F_q) with Λ^i(F3^q), i=1,2,3.",
+          "Lemma 4.7 proves injectivity for disjoint commutator pairs; its Claims B,C use only linear independence of their degree-two classes.",
+          "Lemma 4.9 proves central identification by independence of degree-three classes; Lemma 4.10 uses at most binom(N,2) defects.",
+          "Remark 4.11 explicitly gives four triple commutators on four free generators and announces extension to Lemma 4.8; Proposition 4.13 still claims only 15n²."
+        ],
+        "reasoning": "The existing source has the algebraic ingredients and explicit packing hint, but the claimed stronger bound is not an already-stated theorem with at least as strong quantitative coverage. Replacing distinct fresh factors by q2(n), q3(N) shared factors is a verification of generalized injectivity/intersection, not a mere special-case substitution of Proposition 4.13. Strong implicit-coverage risk remains.",
+        "searches": [
+          "https://arxiv.org/html/2609.30061v1#S4",
+          "Ishida–Mizuno–Takeuchi Proposition 2.29; Lemmas 4.7–4.10; Remark 4.11; Proposition 4.13",
+          "web query: groups exponent 3 model companion lemma 4.7 4.8 4.9 4.10 strict envelope improved",
+          "Resultary query: model companion groups exponent 3 decidability bounded amalgamation strict finite obstruction 15n^2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.30061v1 full HTML (Proposition 2.29; Lemmas 4.7–4.10; Remark 4.11; Proposition 4.13; Theorem 3.3)",
+        "Resultary exact same-record entry 2026/10/4/SCOPE-exterior-power-packing-makes-exponent-three-strict-envelopes-nea--4f9610967555",
+        "Resultary separately indexed decidability result 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+        "Classical exponent-three Burnside normal form credited to Levi–van der Waerden (1933) through the primary paper (not independently re-read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Printed prior bound for strict envelopes is 15n²; with s(m)=(3m+4)t(m)+1 of order m⁴ this gives printed-proof O(m⁸) witnesses.",
+          "The generalized degree-two/three repairs cost q2(n) and q3(n+q2(n)), yielding B(n)=n+O(n^(2/3)); inserting B(s(m)) gives O(m⁴).",
+          "Remark 4.11 expressly foreshadows the shared-factor mechanism but does not state the new all-n consequence.",
+          "The decidability finding is qualitative/effective and does not force B(n)."
+        ],
+        "reasoning": "The output is not a special case of the printed 15n² statement. It is a source-suggested but still separately checked quantitative strengthening based on the stronger linear-independence generalization implicit in the proofs. Relative to the source remark, originality is thin and may be classified as an implicit corollary under stricter priority interpretations; documented rather than disguised.",
+        "searches": [
+          "Primary Proposition 2.29 and Lemmas 4.7–4.10",
+          "Primary Remark 4.11 and Proposition 4.13",
+          "Primary Theorem 3.3 and its proof around the expression (3m+4)t(m)+1",
+          "Resultary 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct same-record Resultary hit is identical to this assigned finding and is treated as an index/self-match, not independent historical priority evidence.",
+          "The arXiv primary HTML prints independent w_i in degree 3 only in a 4-defect example, and says the method works for Lemma 4.8; it does not formulate q2,q3 or B(n).",
+          "The direct literature searches returned the same paper and broad model-companion background, but no independently authored quantitative equivalent."
+        ],
+        "reasoning": "Aliases checked include exponent-three Burnside groups, lower-central strict finite envelopes, independent wedge/commutator packing, and the equivalent improved finite-obstruction generator function. A self-index hit was excluded from independent prior-coverage counts; absence of hits is not novelty proof.",
+        "searches": [
+          "Resultary query: groups exponent 3 existentially closed model companion strict envelope packing commutator n O(n^(2/3)) graded exterior power Ishida Mizuno Takeuchi",
+          "Resultary query: groups of exponent three Lemma 4.7 4.8 4.9 4.10 packing independent triple commutators strict lower central upper central",
+          "web query: \"Remark 4.11\" \"free\" \"commutators\" Ishida Mizuno Takeuchi",
+          "web query: Existence of a Model Companion for Groups of Exponent 3 full text pdf",
+          "https://arxiv.org/html/2609.30061v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact self-entry reproduces B(n), so it cannot establish independent preexisting coverage of itself.",
+          "The closest separately indexed related result establishes decidability using effective obstruction bounds, without a quantitative bound sharpening.",
+          "Proposition 4.13 states the explicit 15n² bound; Remark 4.11 does not tabulate all-n inverse-binomial values."
+        ],
+        "reasoning": "This is an analytic infinite-family bound, not a known finite table. The exact-match Resultary hit is the object under audit; independent quantitative coverage was not identified in the specific queried results.",
+        "searches": [
+          "Resultary search: groups exponent 3 existentially closed model companion strict envelope packing commutator n O(n^(2/3))",
+          "Resultary search: model companion groups exponent 3 decidability bounded amalgamation strict finite obstruction 15n^2",
+          "Resultary entry 2026/10/4/SCOPE-exterior-power-packing-makes-exponent-three-strict-envelopes-nea--4f9610967555",
+          "Resultary entry 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+          "https://arxiv.org/html/2609.30061v1 Proposition 4.13"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives, narrowly: the source paper explicitly supplies the general exterior-power structure and a 4-defect packing example, and even states the trick works for the first repair, but its printed quantified strict-envelope theorem remains 15n^2. No inspected independent prior work states or already provides the full all-n inverse-binomial envelope B(n) and propagated O(m^4) bound. The novelty is executing the hinted packing simultaneously and deriving explicit all-n quantitative consequences, NOT discovering the packing idea. The closeness to Remark 4.11 is a substantive residual priority/value risk.",
+      "residual_risks": [
+        "Remark 4.11 already spells out multi-defect packing in degree three and says the trick works for Lemma 4.8; some priority standards could regard B(n) as an immediate but unstated corollary of the published proof.",
+        "The searches do not rule out an unindexed note proving the same all-n quantitative refinement.",
+        "The near-linear upper bound is not sharp and q2/q3 independent-stage allocation may be improved; no optimality is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_OF_MECHANISM_WITH_EXPLICIT_HINT; NO_STATED_ALL_N_IMPROVED_BOUND",
+          "evidence": "Source Claims B,C of Lemma 4.7 separate coefficients with independent x_i∧y_i. Lemma 4.9 identifies central triple commutators; Lemma 4.10 bounds degree-3 defects by binom(n,2). Remark 4.11 provides a 4-for-4 packing example and explicitly says it works for Lemma 4.8. Proposition 4.13 nevertheless gives 15n² and Theorem 3.3 invokes f0(s(m)).",
+          "identifier_or_url": "arXiv:2609.30061v1; https://arxiv.org/html/2609.30061v1",
+          "material_read": "Accessible full-text HTML, specifically Facts 2.15 and 2.27; Proposition 2.29; Lemmas 4.3, 4.6–4.10 and the full proofs of Lemmas 4.7, 4.8, 4.9, 4.10; Remark 4.11; Theorem 3.3 proof; Proposition 4.13 and boundary discussion in Section 5.",
+          "method": "Direct HTML line-by-line comparison of source lemma hypotheses/independence arguments with the generalized bound; read primary mathematical proof text, not abstract/snippets only.",
+          "title": "Existence of a Model Companion for Groups of Exponent 3",
+          "trigger": "Exact foundational primary paper and the closest possible full-coverage source."
+        },
+        {
+          "assessment": "NO_DIRECT_QUANTITATIVE_COVERAGE_IN_READ_SUMMARY; FULL_RECORD_NOT_INSPECTED",
+          "evidence": "The summary derives effective axiomatizability and decidability from existing finite obstruction bounds but expressly makes no efficiency claim.",
+          "identifier_or_url": "Resultary 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+          "material_read": "Resultary published finding title and scientific summary (not an inspected full research package).",
+          "method": "Statement/implication comparison, conservatively limited to the retrieved summary.",
+          "title": "The exponent-three group model companion is decidable",
+          "trigger": "Closest independent indexed publication using the same primary model-companion theorem."
+        },
+        {
+          "assessment": "SELF_MATCH_EXCLUDED_AS_INDEPENDENT_PRIOR_ART",
+          "evidence": "Same title, date/suffix and exact B(n) formula as the assigned record.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exterior-power-packing-makes-exponent-three-strict-envelopes-nea--4f9610967555",
+          "material_read": "Title and complete indexed scientific summary, not a separate article.",
+          "method": "Identity/scope comparison.",
+          "title": "Exterior-power packing makes exponent-three strict envelopes near-linear",
+          "trigger": "Exact Resultary search self-hit against the assigned record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the natural strict finite envelope of a finite subgroup of an existentially closed exponent-three group, a central quantitative input in the primary model-companion proof. Existing constructions use distinct commutator blocks and a quadratic generator bound; the independently motivated invariant is the number of new generators required to cure first- and second-layer defects. Packing through Λ² and Λ³ systematically improves the asymptotic generator bound from 15n² to n+O(n^(2/3)), and the concrete downstream finite-amalgamation obstruction witness from O(m⁸) to O(m⁴). The improvement is structural and asymptotic, not a renaming or tiny-table computation. The source itself explicitly highlights nonoptimality, but does not present this uniform propagation. No optimality or complexity lower bound is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.30061v1 full HTML (Proposition 2.29; Lemmas 4.7–4.10; Remark 4.11; Proposition 4.13; Theorem 3.3)",
+    "Resultary exact same-record entry 2026/10/4/SCOPE-exterior-power-packing-makes-exponent-three-strict-envelopes-nea--4f9610967555",
+    "Resultary separately indexed decidability result 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+    "Classical exponent-three Burnside normal form credited to Levi–van der Waerden (1933) through the primary paper (not independently re-read)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strong source-suggested prior-art overlap at Remark 4.11 is explicitly documented rather than treated as independent discovery.",
+    "The result asserts a strict-envelope upper bound and a propagated obstruction upper bound, not sharpness.",
+    "No unrestricted group enumeration or formal proof assistant check was performed.",
+    "The public source snapshot contains confidential operational fields; scientific PASS does not mean publication ready."
+  ],
+  "residual_risks": [
+    "Remark 4.11 already spells out multi-defect packing in degree three and says the trick works for Lemma 4.8; some priority standards could regard B(n) as an immediate but unstated corollary of the published proof.",
+    "The searches do not rule out an unindexed note proving the same all-n quantitative refinement.",
+    "The near-linear upper bound is not sharp and q2/q3 independent-stage allocation may be improved; no optimality is claimed.",
+    "If final public metadata leaks process identifiers after server postprocessing, publication must remain withheld."
+  ],
+  "schema_version": 1
+}
