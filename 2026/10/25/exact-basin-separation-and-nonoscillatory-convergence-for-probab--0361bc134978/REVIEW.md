@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The invariant-interval and equilibrium-barrier lemmas are explicit and cover every admissible coefficient vector, all fixed points, and both boundary initial states. The sign of the drift in an invariant gap makes each trajectory monotone and forces convergence to an endpoint by continuity. No numerical experiment is substituted for the all-orders argument. The exact radical example, nonmonotonicity, and the outside-assumption two-cycle were verified symbolically.
+
+**Originality — PASS (best-knowledge, priority uncertainty).** The primary 2024 hypergraph SIS preprint develops general network stability and computable *sufficient* basin estimates; its interval-preserving Assumption 3a is weaker than its small-step Assumption 3b. Its studied general-network conditions do not directly state complete equilibrium-barrier and all-orbit convergence for the homogeneous arbitrary-order restriction at every Assumption-3a coefficient choice. The earlier Schreiber et al. discrete SIS map uses exponential pairwise incidence and has a unique endemic equilibrium, while Azizan Ruhi et al. prove pairwise-network results with a unique endemic equilibrium. Published-record searches found no exact equivalent; this is not proof of exhaustive priority, and a more general iteration theorem could cover the result without the same epidemiological formulation.
+
+**Value — PASS.** Higher-order contact models permit multiple endemic states, so identifying the *entire* basin partition is substantively different from local stability. The theorem rules out spurious period doubling even when a one-step update is nonmonotone under the largest separate probability-valid bounds, distinguishing real multistability from discretization artifacts. The exact bistable example lies outside the simpler combined small-step bound.
+
+**Closest literature and limits.** Liang–Cui–Liu (arXiv:2408.08602v1), Schreiber–Huang–Jiang–Wang (arXiv:2005.08312v1), Azizan Ruhi–Ahn–Hassibi (arXiv:1609.09565v1). Heterogeneous network convergence, stochastic extinction and the priority of equivalent general iteration theorems are unproved here.
+
+Self-review: passed. Independent audit: not yet performed.
