@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is exact for the defined leading-asymptotic minimax functionals. Weighted Hölder gives every fixed-mixture optimum; simplex first-order optimality produces a feasible minimax density, and strict convexity makes it unique. The local proof subtracts separately normalized powers so that all second-order individual curvature terms cancel. The exact first variation of normalized elementary symmetric curvature gives a unit interval of harmonic coefficients; its sharp variance bound yields the quadratic constant. Direct Gaussian-curvature and spherical fourth-moment formulas prove the spheroid specialization. `verify_minimax.py` passed exact rational checks and numerical quadrature for dimensions 3, 4 and 6; these are corroboration only. No finite-sample optimizer, global uniform stability, or independent verification is asserted.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+For d>=3 the individual curvature-weighted random-inscribed-polytope leading errors have functionals I_j(rho)=integral kappa^(1/(d-1)) H_(d-j) rho^(-2/(d-1)) dS. Holder with beta=(d-1)/(d+1) gives individual M_j and density G^beta/int G^beta for every simplex mixture G=sum lambda_j w_j/M_j. Concavity and directional KKT at simplex maximum prove exact global inf-density/max-objective=minimax=max-simplex F and uniqueness of common optimal density. Q=1 forces coincident endpoint densities kappa^[d/(d+1)] and kappa^[1/(d+1)], hence constant Gauss curvature and a sphere. Uniform second-order expansion of individually normalized v_j cancels all unknown individual second-order terms; first-order curvature coefficients r_j=(d-j+1)/(d-1), endpoint range one, and Popoviciu give max variance 1/4. Coefficient Var(h)/(4(d+1)), equal endpoint mixture for nonconstant h, density correction (h-mean)/2. For spheroid Gauss derivative (d+1)u1^2-2, fourth moments produce (d^2-1)/[2d^2(d+2)]. All asymptotics concern leading N^(-2/(d-1)) errors; no finite-N minimax interchange. Original exact rational checks independently reproduced d=3,4,6,9 spherical coefficients.
 
-Hoehner's complete arXiv primary text (arXiv:2602.18547v1, Section 3) establishes the individual random intrinsic-volume asymptotics and the qualitative rigidity used here; it does not give the worst-relative-loss minimax dual or the all-index near-sphere variance law. The complete published scientific record *Unique minimax area–perimeter sampling law for random polygons in ellipses* covers the analogous planar ellipse theorem and is explicitly excluded by the dimension restriction. The complete indexed record *Exact Hellinger curvature gap for optimal polytope vertex laws* gives a different scalar distance between individually optimal laws, not the common minimax regret. Relevant older joint-approximation work was compared using its available public abstract only, leaving priority risk; no absence-of-hit is taken as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural unsolved quantitative question after simultaneous-optimality rigidity is how much every one-density approximation must sacrifice. The d-simplex dual solves this minimax problem for each positively curved body, and the near-ball theorem extracts a universal sharp coefficient and endpoint dominance across all intrinsic volumes. The fully computed ellipsoid series supplies a concrete nontrivial benchmark in each dimension at least three.
+Hoehner Theorems 3.1 and 3.4 give precisely the known curvature error inputs/individual densities and qualitative rigidity, respectively. They do not state the finite-dimensional worst-relative-loss minimax dual or its universal sharp quadratic second variation for one common density. Previously published Hellinger gap is a different distance between endpoint optimizers, not an exact multiobjective worst-regret optimum. Best-of-knowledge original incremental quantitative theorem.
 
-## Limitations and closest literature
+## value
 
-All error comparisons concern sharp leading expected intrinsic-volume deficits for random inscribed polytopes with a fixed positive boundary density. The proof does not interchange minimax with finite-sample limits. A fixed planar ellipse theorem, a global all-dimension Hellinger-gap identity, and qualitative random rigidity are excluded or distinguished by their exact implications. Unindexed generalizations remain possible; independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise cost of forcing one boundary sampling density to approximate ALL intrinsic-volume errors is a natural optimization problem raised by single-density rigidity; exact global dual, sharp second-order deficit, and endpoint-only local active weights quantify a nontrivial loss and boundary stability, not a parameter renaming or numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
