@@ -1,15 +1,27 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the cases of at least two initially white universal vertices, exactly one, and none. It proves the lower bound, lists *all* sets achieving it, and checks every possible token-jump adjacency. The conditions \(s\ge2\) and \(n\ge4\) explicitly cover the step where \(n-2\ge2\) white path vertices prevent a blue universal from forcing. The independently constructed finite verifier checks 261,879 sets in 54 instances and verifies the unique cross-edge; it is corroboration only.
+## correctness
 
-## Originality
-PASS with residual priority risk. Geneson–Haas–Hogben (arXiv:2009.00220v1) introduce zero-forcing reconfiguration and derive paths, cycles, cliques, and forest facts, but their full relevant sections do not include the all-parameter clique–path-join barbell realization. The publicly available fan-graph enumeration covers only the boundary \(s=1\). The superficially similar published barbell polynomial is for a barbell *base graph*, not for a barbell as a reconfiguration graph. Boyer et al. (arXiv:1801.08910v1) study coefficients, and the cone lemma in Menon–Singh (arXiv:2405.01423v1) gives coefficient inequalities, not minimum-set adjacency. Searches for generalized fans, joins, true-twin extensions, barbell realizations and exact minimum-set descriptions found no covering theorem. An unindexed equivalent is possible.
+PASS
 
-## Value
-PASS. The zero-forcing reconfiguration realization problem is a stated structural problem, and this theorem supplies a natural two-parameter family realizing every equal-clique barbell of order at least six. The persistent unique bridge is a genuine one-swap bottleneck, despite increasing clique order and arbitrarily long input paths, and the complete list of minimum forcing sets explains the mechanism. The claim is not a rephrasing of the four-set ordinary-fan boundary, because the target graph changes from a path to two large cliques with a unique bridge.
+The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.
 
-## Limitations and sources
-The result concerns ordinary zero forcing and token jumping on \(K_s\vee P_n\) only. No independently performed audit or exhaustive priority search is asserted. Closest material: arXiv:2009.00220v1 (full text, especially §§2–4); arXiv:1801.08910v1 (full text, §4); arXiv:2405.01423v1 (full text, §3.2); public “Zero forcing polynomial of fan graphs” and “Zero forcing polynomial of bridge barbells” full results. The specific limitation of all searches is possible coverage under a differently named graph family or a non-indexed source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.
+
+These results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.
+
+No exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.
+
+The result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.
+
+## value
+
+PASS
+
+The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

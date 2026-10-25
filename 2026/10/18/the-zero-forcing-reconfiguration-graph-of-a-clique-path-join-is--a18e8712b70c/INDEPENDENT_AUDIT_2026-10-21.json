@@ -1,0 +1,301 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:56:36Z",
+  "axes": {
+    "C": {
+      "rationale": "The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.",
+      "reason": "The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.",
+      "risks": [
+        "Finite tests only corroborate the unrestricted proof."
+      ],
+      "sources": [
+        "RESULT.md blob 3a3b5d2499b673edc4781443d834cd7e09c07276",
+        "check.cpp blob af2759da1a6736db4040f85bee6ee03a6dd4d785",
+        "Git tree 105d75602a88ef0aa9efb51881b080ad5be57769"
+      ],
+      "status": "PASS"
+    },
+    "O": {
+      "checked_sources": [
+        "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+        "https://arxiv.org/abs/2009.00220",
+        "https://arxiv.org/abs/1801.08910",
+        "https://arxiv.org/html/2405.01423v1",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs (boundary s=1; searched record title)"
+      ],
+      "checks": {
+        "broader_coverage": {
+          "evidence": [
+            "Menon–Singh analyze counts of zero-forcing sets under graph operations; the Resultary bridge-barbell theorem classifies zero-forcing sets of the barbell as the base graph. The fan-graph polynomial result treats s=1, where the reconfiguration graph is a path, not the s≥2 barbell."
+          ],
+          "reasoning": "These results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.",
+          "searches": [
+            "arXiv:2009.00220v1 full PDF §§2–4",
+            "arXiv:2405.01423v1 §3.2",
+            "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+          ]
+        },
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The proof establishes Z(K_s∨P_n)=s+1, classifies every minimum set, and computes all token-jump adjacencies. Prior work supplies the reconfiguration model and adjacent counting problems, but not this family’s minimum-set classification or unique bridge."
+          ],
+          "reasoning": "The result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.",
+          "searches": [
+            "arXiv:2009.00220v1 full PDF §§1–4",
+            "arXiv:1801.08910v1 abstract",
+            "arXiv:2405.01423v1 §3.2",
+            "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Geneson–Haas–Hogben define the token-jumping zero-forcing graph and treat paths, cycles, cliques, disconnected examples and forests. Boyer et al. define the zero-forcing polynomial counting all forcing sets. Neither is the same invariant as the reconfiguration graph of minimum forcing sets for K_s∨P_n."
+          ],
+          "reasoning": "The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.",
+          "searches": [
+            "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge",
+            "arXiv:2009.00220v1 §§1–4",
+            "arXiv:1801.08910v1"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "A local C++17 reimplementation enumerated all initial sets of size at most s+1 for 54 graph cases (1≤s≤6, 4≤n≤12), checked 261,879 sets, found 486 minimum sets and checked 1,062 reconfiguration edges. It recovered the predicted sets and unique bridge."
+          ],
+          "reasoning": "No exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.",
+          "searches": [
+            "Actual Git tree 105d75602a88ef0aa9efb51881b080ad5be57769: check.cpp",
+            "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge"
+          ]
+        }
+      },
+      "residual_risks": [
+        "A differently named generalized-fan or clique-join reconfiguration result may exist; targeted searches and inspected primary sources did not find a covering theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related framework but not covering: no K_s∨P_n family or two-clique barbell classification in inspected sections",
+          "evidence": "PDF lines 49–63 define the configuration graph; §§2–4 discuss paths, cycles, cliques and disconnected examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Full 21-page PDF, §§1–4",
+          "method": "Compared exact reconfiguration rule and families treated",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Primary definition and known reconfiguration families"
+        },
+        {
+          "assessment": "Different invariant: counts forcing sets, not adjacencies among minimum sets",
+          "evidence": "Abstract defines Z(G;x) by counts z(G;i).",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Abstract and bibliographic record",
+          "method": "Compared counted object and claimed coefficient invariant",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Counting zero-forcing-set literature"
+        },
+        {
+          "assessment": "No token-jumping reconfiguration theorem for the target family",
+          "evidence": "Full HTML lines 41–52 and §3.2 concern counts z(G;i).",
+          "identifier_or_url": "https://arxiv.org/html/2405.01423v1",
+          "material_read": "Full HTML introduction and §3.2",
+          "method": "Compared set-count and operation statements",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Graph-operation results on zero forcing sets"
+        },
+        {
+          "assessment": "Not covering: its base graph is two cliques joined by a bridge, but it counts zero-forcing sets of that base graph; this claim concerns the reconfiguration graph of minimum sets of K_s∨P_n",
+          "evidence": "The inspected finding gives a polynomial for B_{a,b} and its minimum-set count, not the reconfiguration graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "material_read": "Full RESULT.md fetched from the published record",
+          "method": "Compared base graph, counted objects and formula",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Closest published SCOPE finding with “barbell” in the title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "V": {
+      "rationale": "The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.",
+      "reason": "The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.",
+      "risks": [
+        "No classification of all base graphs realizing the same barbell is claimed."
+      ],
+      "sources": [
+        "RESULT.md, Finding/Proof/Limitations",
+        "Geneson–Haas–Hogben, arXiv:2009.00220",
+        "Boyer et al., arXiv:1801.08910"
+      ],
+      "status": "PASS"
+    },
+    "correctness": {
+      "rationale": "The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.",
+      "reason": "The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.",
+      "risks": [
+        "Finite tests only corroborate the unrestricted proof."
+      ],
+      "sources": [
+        "RESULT.md blob 3a3b5d2499b673edc4781443d834cd7e09c07276",
+        "check.cpp blob af2759da1a6736db4040f85bee6ee03a6dd4d785",
+        "Git tree 105d75602a88ef0aa9efb51881b080ad5be57769"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Menon–Singh analyze counts of zero-forcing sets under graph operations; the Resultary bridge-barbell theorem classifies zero-forcing sets of the barbell as the base graph. The fan-graph polynomial result treats s=1, where the reconfiguration graph is a path, not the s≥2 barbell."
+        ],
+        "reasoning": "These results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.",
+        "searches": [
+          "arXiv:2009.00220v1 full PDF §§2–4",
+          "arXiv:2405.01423v1 §3.2",
+          "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+        "https://arxiv.org/abs/2009.00220",
+        "https://arxiv.org/abs/1801.08910",
+        "https://arxiv.org/html/2405.01423v1",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs (boundary s=1; searched record title)"
+      ],
+      "checks": {
+        "broader_coverage": {
+          "evidence": [
+            "Menon–Singh analyze counts of zero-forcing sets under graph operations; the Resultary bridge-barbell theorem classifies zero-forcing sets of the barbell as the base graph. The fan-graph polynomial result treats s=1, where the reconfiguration graph is a path, not the s≥2 barbell."
+          ],
+          "reasoning": "These results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.",
+          "searches": [
+            "arXiv:2009.00220v1 full PDF §§2–4",
+            "arXiv:2405.01423v1 §3.2",
+            "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+          ]
+        },
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The proof establishes Z(K_s∨P_n)=s+1, classifies every minimum set, and computes all token-jump adjacencies. Prior work supplies the reconfiguration model and adjacent counting problems, but not this family’s minimum-set classification or unique bridge."
+          ],
+          "reasoning": "The result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.",
+          "searches": [
+            "arXiv:2009.00220v1 full PDF §§1–4",
+            "arXiv:1801.08910v1 abstract",
+            "arXiv:2405.01423v1 §3.2",
+            "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Geneson–Haas–Hogben define the token-jumping zero-forcing graph and treat paths, cycles, cliques, disconnected examples and forests. Boyer et al. define the zero-forcing polynomial counting all forcing sets. Neither is the same invariant as the reconfiguration graph of minimum forcing sets for K_s∨P_n."
+          ],
+          "reasoning": "The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.",
+          "searches": [
+            "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge",
+            "arXiv:2009.00220v1 §§1–4",
+            "arXiv:1801.08910v1"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "A local C++17 reimplementation enumerated all initial sets of size at most s+1 for 54 graph cases (1≤s≤6, 4≤n≤12), checked 261,879 sets, found 486 minimum sets and checked 1,062 reconfiguration edges. It recovered the predicted sets and unique bridge."
+          ],
+          "reasoning": "No exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.",
+          "searches": [
+            "Actual Git tree 105d75602a88ef0aa9efb51881b080ad5be57769: check.cpp",
+            "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge"
+          ]
+        }
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof establishes Z(K_s∨P_n)=s+1, classifies every minimum set, and computes all token-jump adjacencies. Prior work supplies the reconfiguration model and adjacent counting problems, but not this family’s minimum-set classification or unique bridge."
+        ],
+        "reasoning": "The result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.",
+        "searches": [
+          "arXiv:2009.00220v1 full PDF §§1–4",
+          "arXiv:1801.08910v1 abstract",
+          "arXiv:2405.01423v1 §3.2",
+          "Resultary published record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson–Haas–Hogben define the token-jumping zero-forcing graph and treat paths, cycles, cliques, disconnected examples and forests. Boyer et al. define the zero-forcing polynomial counting all forcing sets. Neither is the same invariant as the reconfiguration graph of minimum forcing sets for K_s∨P_n."
+        ],
+        "reasoning": "The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.",
+        "searches": [
+          "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge",
+          "arXiv:2009.00220v1 §§1–4",
+          "arXiv:1801.08910v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A local C++17 reimplementation enumerated all initial sets of size at most s+1 for 54 graph cases (1≤s≤6, 4≤n≤12), checked 261,879 sets, found 486 minimum sets and checked 1,062 reconfiguration edges. It recovered the predicted sets and unique bridge."
+        ],
+        "reasoning": "No exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.",
+        "searches": [
+          "Actual Git tree 105d75602a88ef0aa9efb51881b080ad5be57769: check.cpp",
+          "Resultary query: zero forcing reconfiguration graph clique join path minimum sets two cliques bridge"
+        ]
+      },
+      "rationale": "The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.\n\nThese results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.\n\nNo exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.\n\nThe result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.",
+      "residual_risks": [
+        "A differently named generalized-fan or clique-join reconfiguration result may exist; targeted searches and inspected primary sources did not find a covering theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related framework but not covering: no K_s∨P_n family or two-clique barbell classification in inspected sections",
+          "evidence": "PDF lines 49–63 define the configuration graph; §§2–4 discuss paths, cycles, cliques and disconnected examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Full 21-page PDF, §§1–4",
+          "method": "Compared exact reconfiguration rule and families treated",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Primary definition and known reconfiguration families"
+        },
+        {
+          "assessment": "Different invariant: counts forcing sets, not adjacencies among minimum sets",
+          "evidence": "Abstract defines Z(G;x) by counts z(G;i).",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Abstract and bibliographic record",
+          "method": "Compared counted object and claimed coefficient invariant",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Counting zero-forcing-set literature"
+        },
+        {
+          "assessment": "No token-jumping reconfiguration theorem for the target family",
+          "evidence": "Full HTML lines 41–52 and §3.2 concern counts z(G;i).",
+          "identifier_or_url": "https://arxiv.org/html/2405.01423v1",
+          "material_read": "Full HTML introduction and §3.2",
+          "method": "Compared set-count and operation statements",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Graph-operation results on zero forcing sets"
+        },
+        {
+          "assessment": "Not covering: its base graph is two cliques joined by a bridge, but it counts zero-forcing sets of that base graph; this claim concerns the reconfiguration graph of minimum sets of K_s∨P_n",
+          "evidence": "The inspected finding gives a polynomial for B_{a,b} and its minimum-set count, not the reconfiguration graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "material_read": "Full RESULT.md fetched from the published record",
+          "method": "Compared base graph, counted objects and formula",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Closest published SCOPE finding with “barbell” in the title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.",
+      "reason": "The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.",
+      "risks": [
+        "No classification of all base graphs realizing the same barbell is claimed."
+      ],
+      "sources": [
+        "RESULT.md, Finding/Proof/Limitations",
+        "Geneson–Haas–Hogben, arXiv:2009.00220",
+        "Boyer et al., arXiv:1801.08910"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

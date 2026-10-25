@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,30 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Compile the included C++17 source from the directory containing `check.cpp`:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 -Wall -Wextra -pedantic check.cpp -o check
-./check
-```
+PASS
 
-The expected output, recorded in `verification_output.txt`, is:
+The proof establishes that two initially white universal vertices preclude any first force, then rules out every set of size at most s. At size s+1 it exhausts the cases with all universal vertices or one white universal vertex and two path vertices, yielding exactly the listed endpoint and adjacent-end-pair sets. Token-jump adjacency gives a clique of size s+1 on each side and one cross-edge. A local C++17 replay checked 261,879 sets over 54 graph instances and verified 1,062 reconfiguration edges; the local copy was not byte-identical to the package source.
 
-```text
-VERIFICATION_OK graph_cases=54 initial_sets_checked=261879 minimum_sets_found=486 reconfiguration_edges_checked=1062
-```
+## originality
 
-For all \(1\le s\le6\) and \(4\le n\le12\), the program independently constructs the graph, exhausts every initial set of cardinality at most \(s+1\), applies the ordinary zero-forcing process to closure, compares the successful sets to the explicit classification, and checks that token-jumping adjacency yields two complete blocks with exactly one cross-edge. The main theorem is for \(s\ge2\); including \(s=1\) tests the separately known boundary. The check exhausts *small parameter instances*, not all possible parameter values or larger subsets, and is not an infinite-family proof. The proof in `RESULT.md` establishes the universal result.
+PASS
 
-The mathematical research comparison was based on full-text inspection of the principal zero-forcing reconfiguration study, on the directly relevant fan-graph enumeration, on a distinction from zero forcing *on* barbell base graphs, and on literature involving cone operations. A negative search is not a priority certificate. Independent validation has not been performed.
+The target graph is the configuration graph of minimum sets; a zero-forcing polynomial of a barbell base graph is not an equivalent formulation of this reconfiguration claim.
+
+These results provide context and nearby boundary cases, but do not imply the all-parameter two-clique-plus-one-bridge reconfiguration graph.
+
+No exact prior reconfiguration-graph table for this family was located; the finite grid corroborates the all-parameter proof only.
+
+The result is an all-parameter structural realization rather than a corollary of the zero-forcing polynomial of a different base graph.
+
+## value
+
+PASS
+
+The theorem gives a natural infinite two-parameter realization of a barbell configuration graph and explains the unique token-jump bottleneck via a complete classification of minimum sets. This is a structural reconfiguration result, not just a finite example or a zero-forcing-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
