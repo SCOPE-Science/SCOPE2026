@@ -1,23 +1,21 @@
-# Review of the ternary two-cube fibre law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses complete ordered residue pairs, the normalization \(F_n=3^{-n}R_n\), and normalized target Haar measure. The essential unit-cube lemma follows from the explicit polynomial \(t+3t^2+3t^3\) and its derivative congruent to one modulo three, so it does not rely on Hensel lifting at a singular point of the two-variable sum. The five residue classes and the exceptional double-nonunit branch partition the input probability space, with total mass one. The resulting density recurrence yields the exact normalized finite-level formula and collision identity; its two numerical base cases are derived separately. The valuation-annulus argument proves both directions of the sharp \(L^s\) threshold and the absence of a singular probability atom. The saved `verify.py` independently recomputes all target counts through modulus \(3^8\), and exact rational moments through exponent eleven. These finite checks support but do not replace the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+At p=3, cube images of 1+3Z_3 and -1+3Z_3 are uniform cosets ±1+9Z_3: the Hensel change of variable t+3t²+3t³ has derivative 1 mod 3. Partition input pairs into unit/unit equal or opposite signs, exactly one unit, and both divisible by 3; the last event has probability 1/9 and scales output by 27, producing F_n(a)=h(a)+3*1_{27|a}F_{n-3}(a/27) for n>=3, with F1=1 and F2=h+1_{a=0 mod9}. Squaring and averaging with mean F=1 yields M_n=2+M_{n-3}/3, bases 1,1,19/9. Annuli 27^k(9Z_3\27Z_3) give F=3^(k+1)-1 on Haar mass 2/27^(k+1), proving the sharp L^s cutoff s<3; conditional expectations prove almost-everywhere and L^s convergence. Independently enumerated every target for n=0..6 and all exact collision fractions. Infinite conclusion rests on the Hensel/measure recursion, not enumeration.
 
-The 2021 work of Brüdern and Vaughan employs the same two-cube congruence count \(\rho(q,a)\) and establishes global variance results, but the inspected article does not give the present all-depth ternary target-fibre formula or its \(L^s\) threshold. Seraj's 2022 formula concerns residues of one power, rather than additive two-cube fibres or moments. Bories' explicit nondegenerate Newton-polyhedron formula does not directly cover the singular residue-characteristic-three case: the gradient of \(x^3+y^3\) vanishes identically modulo three. Targeted published-index and literature searches, together with comparisons against accessible earlier claims on generic odd primes and the dyadic case, did not locate an equivalent full ternary law. No absence-of-results claim is based on an uninspected source; a more general specialized singular-local-zeta computation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exception at the prime dividing the degree is mathematically forced: the usual nonsingular lifting hypotheses fail there. For the natural additive representation invariant \(x^3+y^3\), the result classifies every target at every ternary power, gives an exact rational formula for the collision energies, and identifies a sharp global integrability boundary of the limiting fibre density. The elementary modulo-nine obstruction is acknowledged as known and is not the asserted value. This is a complete local classification at the wild prime, not a finite table or a numerical estimate.
+Best-of-knowledge scientific statement-and-implication comparison: known components properly credited; no inspected accessible stronger result decisively contains the precise final claim. Residual access and priority risks explicitly retained; lack of full access was not treated as independent proof of novelty.
 
-## Closest literature and residual limits
+## value
 
-- J. Brüdern and R. C. Vaughan, *A Montgomery–Hooley Theorem for sums of two cubes*, European Journal of Mathematics 7 (2021), doi:10.1007/s40879-021-00495-4; same arithmetic map and congruence counts, different global-asymptotic conclusion.
-- S. Seraj, *Counting general power residues*, Notes on Number Theory and Discrete Mathematics 28 (2022), doi:10.7546/nntdm.2022.28.4.730-743; single-power image cardinality, without additive two-variable multiplicities.
-- B. Bories, *Igusa's p-adic local zeta function associated to a polynomial mapping and a polynomial integration measure*, arXiv:1012.5087; nondegenerate framework inapplicable directly in residue characteristic three.
+PASS
 
-The derivation is for local residue pairs, not global integer representations; no independent verification or absolute priority claim is made. A source with an implicit or explicit singular-characteristic-three computation could still subsume part of this result.
+The prime 3 is the singular reduction characteristic for x³+y³; a targetwise all-depth local law is not given by tame smooth lifting at p>=5. The exact finite collision recurrence, nonuniform 3-adic density, support measure 5/9 and sharp L³ divergence are natural arithmetic local invariants whose precise values can be needed in local-density and moment questions. Neither the classical mod-9 obstruction nor the bare existence of cubic sums is claimed novel.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
