@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Invoke `python3 verify.py` with Python 3 and no additional third-party packages. Its expected final line is `VERIFY_OK_HEISENBERG_SQUARE_ZERO_DERIVATION_RANKS`.
+## correctness
 
-The program builds all matrices in the symplectic Lie algebra for \((m,q)=(1,2),(1,3),(1,4),(1,5),(2,2),(2,3)\). For each square-zero matrix it enumerates all central linear functionals satisfying the required annihilation equation, constructs the full Lie derivation, multiplies its matrix by itself, computes its rank by row reduction, and checks every coefficient against the claimed formula. The field \(\mathbb F_4\) uses polynomial arithmetic modulo an irreducible binary quadratic; the other tested fields are prime fields.
+PASS
 
-It also enumerates all symmetric matrices of dimensions \(1,2,3\) over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5\) and compares nonsingular totals against the relevant congruence-form formulas.
+The Heisenberg derivation blocks D(v)=Av+f(v)z, Dz=lambda z obey A^T J+JA=lambda J. D²=0 gives lambda=0, A²=0,fA=0 in every characteristic. For symplectic skew-adjoint square-zero A, U=im A is isotropic, ker A=U^perp, r=dim U≤m; nondegenerate symmetric U*→U maps classify the A at fixed U, including characteristic two. Isotropic Grassmann count I_mr and nonsingular symmetric-form count S_r yield #A. For each A rank r, f vanishing on U has q^{2m−r} choices, of which q^r vanish on ker A and keep total D rank r; others increase rank by 1, except r=m where q^{2m−r}=q^r. This proves displayed polynomial, ranks 0..m, and dominant rank m by leading q-degree. Independently evaluated coefficients at (m,q)=(1,2),(2,2),(2,3),(3,2),(2,5), agreeing with RESULT; inspected direct finite matrix enumeration code but did not execute all exhaustive cases. Full characteristic-two congruence/stabilizer structure is a substantial input.
 
-Observed successful checks include \(1+45T+330T^2\) for \((m,q)=(2,2)\), \(1+320T+8400T^2\) for \((m,q)=(2,3)\), and the separate formula evaluation \(1+189T+6930T^2+45360T^3\) for \((m,q)=(3,2)\).
+## originality
 
-These checks do not exhaust all dimensions or field orders and do not constitute an independent scientific audit. The all-parameter theorem depends on the written proof and the classical form-classification inputs.
+PASS
+
+Best-of-knowledge PASS. Prior finite symplectic nilpotent enumeration includes all nilpotent endomorphisms without square-zero/Heisenberg central extension stratification; known characteristic-two nonsingular-form classifications are used as inputs. The exact joint rank polynomial on full derivation space is not implied by a mere total count. Older nilpotent-orbit rank formulas could yield intermediate A counts; this remains a priority risk.
+
+## value
+
+PASS
+
+A complete all-characteristic finite-field rank distribution for a canonical nilpotent Lie algebra ties symplectic isotropic subspaces to central derivation freedom and yields exact attainable ranks and asymptotics; suitable as a natural structural invariant beyond known total nilpotent counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
