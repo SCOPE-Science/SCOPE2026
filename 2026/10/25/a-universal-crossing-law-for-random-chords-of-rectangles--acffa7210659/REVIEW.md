@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem identifies the exact probability law for two independent perimeter-uniform boundary endpoints, including the same-side atom. Explicit conditional integrations cover opposite and adjacent sides with exact normalization. The identity \(h'''(t)<0\), the endpoint limits, and the monotonicity argument establish one interior crossing and rule out further crossings. The atom-to-aspect-ratio inversion is an exact quadratic solution. The standalone verifier directly samples the geometric experiment and passed, but finite numerical agreement is not used to justify universal quantifiers.
+
+**Originality — PASS with bibliographic risk.** The materially inspected full papers of Bäsel and Harutyunyan–Ohanyan sample invariant lines rather than independently sampling perimeter endpoints. The two closest published endpoint- or polygon-chord mathematical records were inspected in full: one studies endpoint-distance fourth moments, the other angular lines constrained through the polygon center; neither statement implies the penetration CDF, the rectangle aspect-ratio inversion, or a universal crossing. Keyword and conceptual equivalence searches did not find a stronger covering theorem. An inaccessible or unindexed equivalent historical solution remains possible; this is a best-knowledge, not priority-certificate, assessment.
+
+**Mathematical value — PASS.** The statistic measures exact probabilities of crossing every concentric homothetic core under a natural endpoint-induced random-chord model, and it determines the rectangle aspect ratio from an observable atom. The non-obvious, unique aspect-independent crossing yields a qualitative reversal of geometric hit-probability order, a structural result not reduced to merely another special-case integral. The complete law is relevant to geometric-probability benchmarks and sampling-scheme comparisons.
+
+Closest work and limits: Bäsel (2012) and Harutyunyan–Ohanyan (2009) use invariant-line sampling; the related perimeter-pair fourth-moment comparison does not describe penetration. The result is confined to rectangles and homothetic central targets with Euclidean perimeter-uniform endpoints. Finite tests do not establish priority or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
