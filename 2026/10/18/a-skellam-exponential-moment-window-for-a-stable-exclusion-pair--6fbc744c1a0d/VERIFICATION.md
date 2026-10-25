@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The proof uses the exact transition generator, a strictly positive exponential eigenfunction, and a Doob transform whose gap is an M/M/1 process. The decisive uniform-integrability step requires both \(\beta_\theta<\delta\) and \(B_\theta<\delta\). The tilted ergodic theorem and a martingale strong law justify the local large-deviation lower bound; an exponential Markov bound gives the matching upper exponent.
+# Independent mathematical audit
 
-Execute `python verify.py` with the requirements listed in `requirements.txt`. In the checked environment the program returned `PASS: 72 independent finite-dimensional tilt-consistency comparisons; plus 1265 exact rational tilted-generator identities`. Its finite-state matrix truncation concerns a consistency identity and cannot establish the infinite-state or infinite-time theorem. All claimed limiting results have a separate analytical argument. Independent audit and external validation have not been performed.
+## correctness
+
+PASS
+
+For positive rates with beta=a1+b2<delta=b1+a2, first-principles transition marking yields exponential eigenfunction exp(theta x+u h), u=log((b1 e^theta+a2)/delta). At h=0 and h>0 its generator eigenvalue is lambda=(b1b2/delta)(e^theta-1)+(a1a2/delta)(e^-theta-1), since tilted death intensity is delta. Uniform Poisson jump domination makes the exponential martingale true. Under the tilted law, gap is M/M/1 with birth beta_theta=BC/delta, death delta; in I, stationary geometric tail integrates e^-u h when B<delta, giving prefactor exp(u h0)(delta-beta_theta)/(delta-B). An exponential Lyapunov bound supplies uniform integrability for u<0. Tilted ergodic theorem and bounded-jump martingale strong law supply local speed lambda prime(theta), and inverse-density bounds give the local LD exponent for x in lambda prime(I). Independently checked tilt eigenidentities in exact rational z=e^theta for three stable parameter choices at three z each; inspected verify.py and explicitly separated finite comparisons from infinite-time proof.
+
+## originality
+
+PASS
+
+Published stable two-particle LLN and CLT are acknowledged as prior. The mathematically stronger exponential eigenfunction/prefactor and local non-Gaussian rare-event identity are not asserted by inspected cloud theorems; standard Burke queueing ideas present possible broader implications, recorded as risk.
+
+## value
+
+PASS
+
+The extension beyond known mean and CLT to a nontrivial exact exponential-moment window, positive initial-condition prefactor and local non-Gaussian rare-event cost gives actionable distributional information for a natural simplest interacting exclusion pair. An explicit boundary of the spectral branch is scientifically meaningful; no global LDP is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
