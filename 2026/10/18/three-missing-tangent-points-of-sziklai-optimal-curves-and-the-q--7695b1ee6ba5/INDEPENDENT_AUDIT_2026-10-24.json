@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:55:03.426773Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, Ferreira–Speziali Theorem 4.4 page 16 of arxiv PDF",
+        "verify.py, verify_prime_fields.py, both stored .txt outputs"
+      ],
+      "rationale": "Using Ferreira–Speziali Theorem 4.4, all q>=5 Sziklai-optimal degree-(q-1) curves with no rational line component are projectively diagonal with three nonzero coefficients summing to zero. Their rational points are exactly (q-1)^2 torus points. Differentiating gives the Gauss bijection to every dual-torus rational line; counting solutions of Ax+By+z=0 with coefficients nonzero yields multiplicities 0×3,(q−2)×(q−1)^2,(q−1)×3(q−1). In F5, coefficient-support cases of the restriction of X4+Y4+3Z4 to a line exhaust 16 ordinary bitangents and 12 hyperflexes; root conditions u4=1,v4=3 and s4=4 or 2 yield exact Frobenius permutation 2^2 4^6. The quartic is smooth because its coordinate derivatives cannot vanish projectively. Source verify.py constructs F_625 and exact Frobenius actions and verify_prime_fields.py checks p=5,7,11,13; logs corroborate but do not prove the q-general implication.",
+      "residual_risks": [
+        "Requires classification theorem for maximal point count, assumes no Fq-line component and q>=5; quartic Frobenius is specific to q5. Classical even-contact calculations may be derived by alternate formulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferreira–Speziali Theorem 4.4 covers all extremal degree q−1 curves up to projectivity, and is cited as an indispensable premise. It does not itself assert dual-torus tangent incidence counts. Asgarli–Ghioca covers tangent-filling curves of degree q−1 and a different three-point missing example."
+        ],
+        "reasoning": "The prior classification dominates curve models, not the submitted rational-tangent incidence law or F5 bitangent arithmetic. An equal number of uncovered points in an unrelated configuration is insufficient coverage.",
+        "searches": [
+          "arxiv:2211.14288 Theorem 4.4 classification",
+          "arxiv:2302.13420 Sections 1,3",
+          "Sziklai maximal plane curves degree q minus one rational tangents three missing points Fermat quartic F5 bitangent Frobenius cycles 2^2 4^6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2211.14288",
+        "arxiv:2105.04784",
+        "arxiv:2302.13420v2",
+        "arxiv:2410.09242v1",
+        "Resultary semantic search for Sziklai Gauss incidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal classification supplies Fq rational points but needs an additional Gauss inversion and line-incidence count to show exactly three missed vertices. Complex automorphism orbit classifications alone cannot imply arithmetic descent without determining the reduction and twist."
+        ],
+        "reasoning": "The novelty assessment is restricted to joint tangent-incidence and arithmetic Frobenius statements, not proof of classification or geometric existence of 28 bitangents.",
+        "searches": [
+          "arxiv:2211.14288 diagonal optimal curve classification",
+          "arxiv:2302.13420 tangent-filling conditions",
+          "Sziklai maximal plane curves degree q minus one rational tangents three missing points Fermat quartic F5 bitangent Frobenius cycles 2^2 4^6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sziklai extremality fixes point count; tangent-filling asks union of rational tangents to cover every rational plane point. Three missing points is a new coverage implication, not just another statement of the Sziklai bound. Arithmetic F5 Frobenius cycle lengths differ from complex automorphism-group orbit lengths."
+        ],
+        "reasoning": "Mathematically equivalent Gauss-dual-torus formulation and the rational line-coverage profile were explicitly compared to matching terminologies.",
+        "searches": [
+          "Sziklai maximal plane curves degree q minus one rational tangents three missing points Fermat quartic F5 bitangent Frobenius cycles 2^2 4^6",
+          "arxiv:2302.13420 tangent filling extremal Sziklai optimal curves",
+          "arxiv:2410.09242 Fermat quartic bitangents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bethea–Brazelton list equivariant automorphism orbits of complex symmetric quartics, not arithmetic Frobenius on the F5 twist. The explicit 28-line geometric list may be classical, so numerical 28 is not called novel."
+        ],
+        "reasoning": "Searched for finite-field bitangent incidence/Frobenius databases and exact cycle table; no identified table with this arithmetic type, but unindexed classical formulas remain plausible.",
+        "searches": [
+          "Fermat quartic F5 Frobenius bitangent orbit 2^2 4^6",
+          "arxiv:2410.09242 Sections 3 and 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.",
+      "residual_risks": [
+        "An earlier Fermat/quartic bitangent formula might imply the displayed finite-field Frobenius cycle after arithmetic specialization; noncoverage of every historical table is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classification accepted as known premise; theorem is not a direct rational tangent incidence statement.",
+          "evidence": "Theorem 4.4: q>=5 optimal curves projectively diagonal",
+          "identifier_or_url": "arxiv:2211.14288",
+          "material_read": "Complete PDF opened, Theorem 4.4 on printed page 16 and statements of q5 examples/propositions and diagonal model.",
+          "method": "Open-access arXiv PDF textual sections and screenshot page 16",
+          "title": "Optimal plane curves of degree q−1 over a finite field",
+          "trigger": "Same degree, point extremum, exact classification on which proof depends"
+        },
+        {
+          "assessment": "Different constructed tangent-filling curves; no blanket three-missing-points theorem for all diagonal optimal curves found.",
+          "evidence": "Definitions and Theorems 1.1–1.3, construction sections",
+          "identifier_or_url": "arxiv:2302.13420v2",
+          "material_read": "Full lawfully accessible HTML article, main theorems, context, construction and missing-point discussion.",
+          "method": "arXiv HTML full text at ",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Same tangent covering object and degree q−1"
+        },
+        {
+          "assessment": "Complex symmetry orbits are not Frobenius cycles on F5; classical special calculations may be transferable.",
+          "evidence": "Sections 3–4 and orbit tables",
+          "identifier_or_url": "arxiv:2410.09242v1",
+          "material_read": "Full accessible arXiv HTML, symmetry orbit classification and tables, finite-field arithmetic comparison.",
+          "method": "arXiv HTML full text at ",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Likely same geometric quartic automorphism/bitangent enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tangent-filling literature",
+        "Sziklai extremal-point theorem",
+        "Arithmetic Frobenius action on 28 theta characteristics"
+      ],
+      "rationale": "The two independent natural extrema—maximal Fq rational points at degree q−1 and maximal tangent-line coverage—have a sharp structural incompatibility at every q>=5 with an exact pointwise incidence law. The arithmetic Frobenius cycle is the standard odd-theta Galois invariant of a smooth quartic and determines its bitangent splitting field. Thus both the general incidence obstruction and the special arithmetic distribution answer precise motivated questions, without claiming a new curve classification.",
+      "residual_risks": [
+        "The quartic Frobenius calculation is one specialized twist and some components may be classically computable; universal incidence is conditional on a published classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires classification theorem for maximal point count, assumes no Fq-line component and q>=5; quartic Frobenius is specific to q5. Classical even-contact calculations may be derived by alternate formulas.",
+    "An earlier Fermat/quartic bitangent formula might imply the displayed finite-field Frobenius cycle after arithmetic specialization; noncoverage of every historical table is not established.",
+    "The quartic Frobenius calculation is one specialized twist and some components may be classically computable; universal incidence is conditional on a published classification."
+  ],
+  "schema_version": 1
+}
