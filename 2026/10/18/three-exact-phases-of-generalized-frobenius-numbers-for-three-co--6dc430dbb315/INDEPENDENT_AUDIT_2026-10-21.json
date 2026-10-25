@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T03:50:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed ordered nonnegative representation count using n=aq+r, s=x+y+z=q-t, and u=r+at=y+2z. At fixed t the exact count is floor(u/2)-max(0,u-(q-t))+1 for 0<=u<=2(q-t); zero otherwise. The injection (x,y,z)->(x+1,y,z) implies d(n+a)>=d(n), so checking the displayed candidate g_p has exactly p representations and each of its a immediate successors >p proves the infinite bound. Algebraic residue subcases in RESULT.md establish this in three regimes 0<=p<=floor(a/2), floor(a/2)+1<=p<=a+1, a+2<=p<=2a for all a>=3. An independent coin-change DP independently checked g_p and all larger values within the computed range for all 4,347 pairs (a,p), 3<=a<=65.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Subwattanachai formula requires a pair-divisibility hypothesis after gcd reduction, not a uniform implication for consecutive triples a,a+1,a+2."
+        ],
+        "reasoning": "A stronger three-denomination method may exist for different parameter families; inspected divisibility case does not dominate the all-a extended p<=2a result.",
+        "searches": [
+          "Subwattanachai arXiv:2309.09149 Theorem 1",
+          "Resultary: Generalized Frobenius number g_p three consecutive integers a a+1 a+2 exact formula p up to 2a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052",
+        "arXiv:2309.09149",
+        "Resultary: Generalized Frobenius number g_p three consecutive integers a a+1 a+2 exact formula p up to 2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 of Komatsu–Ying implies first, not second/third, regime; Subwattanachai needs additional divisibility."
+        ],
+        "reasoning": "The asserted extension concerns p>floor(a/2), while earlier stated theorems do not imply it under their stated parameters.",
+        "searches": [
+          "arXiv:2206.13052 Theorem 1 and Section 7",
+          "arXiv:2309.09149 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem uses arithmetic-progression triple but p<=floor(a/2); published Section 7 asks for formulas past this restriction."
+        ],
+        "reasoning": "Normalized same ordered-representation function d_a and g_p, with first regime exactly identical; subsequent two regimes extend p range, not a renaming.",
+        "searches": [
+          "Resultary: Generalized Frobenius number g_p three consecutive integers a a+1 a+2 exact formula p up to 2a",
+          "Komatsu–Ying arXiv:2206.13052 Theorem 1/Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4,347 independently checked (a,p) values are verification rather than a prior published all-a table. No indexed table of the claimed later two regimes identified in actual queries."
+        ],
+        "reasoning": "No exact published table of the second and third phases found in performed searches; absence of hits is not proof of priority.",
+        "searches": [
+          "Resultary: Generalized Frobenius number g_p three consecutive integers a a+1 a+2 exact formula p up to 2a",
+          "published first-phase Komatsu–Ying table/equations"
+        ]
+      },
+      "rationale": "The first regime was published by Komatsu–Ying; the exact uniform next two regimes through p=2a are the assessed extension. Primary full-text Theorem 1 restricts its p-range, whereas other cited triple formula imposes a nonapplicable divisibility condition as a uniform theorem. Best-of-knowledge, not exhaustive historical priority.",
+      "residual_risks": [
+        "Unindexed arithmetic-progression formulas may still imply the later phases",
+        "Partial finite checks do not independently prove infinite formula; that relies on all successor inequalities"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First regime covered; later regimes are specifically outside theorem hypothesis and future-problem section",
+          "evidence": [
+            "Theorem 1 p<=floor(a/2)",
+            "Section 7 continuation question"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+          "material_read": "Full 24-page preprint including Theorem 1 and Section 7 on higher p",
+          "method": "lawful arXiv PDF plus accessible HTML transcription",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Same coin-count and ordered p-Frobenius invariant"
+        },
+        {
+          "assessment": "Not a uniform coverage of (a,a+1,a+2) extended phases",
+          "evidence": [
+            "Theorem 1 divisibility condition",
+            "scope of normalization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.09149",
+          "material_read": "Full 2026 arXiv primary text, especially Theorem 1 and divisibility hypotheses",
+          "method": "lawful arXiv PDF",
+          "title": "Generalized Frobenius Number of Three Variables",
+          "trigger": "Potential stronger triple-denomination coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extension determines precise linear-to-alternating phase transitions in a natural numerical semigroup invariant beyond an explicit range left open by the original theorem. Uniform all-a formulas are more informative than an arbitrary finite table, with transparent application to generalized Frobenius questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a>=3, 0<=p<=2a, three consecutive denominations and ordered representations.",
+    "No extrapolation from finite DP to all a; algebraic proof supplies quantifiers."
+  ],
+  "schema_version": 1
+}
