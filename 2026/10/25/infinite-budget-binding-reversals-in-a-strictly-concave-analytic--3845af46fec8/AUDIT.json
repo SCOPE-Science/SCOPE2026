@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation gives u_prime=(1+sin t/4)e^{-t}>0 and u_doubleprime=e^{-2t}(-1+(cos t-sin t)/4)<0. Competitive equilibrium is unique by opposed demand/supply monotonicity, and θ(t)=lambda/min(exp(t)-1,1/lambda) decreases bijectively from infinity to zero. The binding condition rearranges exactly to sin t>4/(exp(t)-1). On each late positive-sine half-period h=sin t-4/(exp(t)-1) is strictly concave, has negative endpoints and positive midpoint, hence two and only two simple roots. Root distances from k pi are asymptotic to 4 exp(-k pi), and the exact clearing θ at equality is (exp(t)-1)^(-2); hence ratio exp(-2 pi). All boundary and strictness cases are handled. A standalone checker independently probes 75 finite equalities and inequalities; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perkins and Zhang, Resource Allocation in Electricity Markets with Budget Constrained Customers, arXiv:2603.20277v1, §§ III, IV.A–C (full accessible HTML https://arxiv.org/html/2603.20277v1).",
+        "Its Theorem 1 establishes equilibrium uniqueness, and Theorem 2 derives modified utility from a crossover formula; § IV.C studies one and two crossover points."
+      ],
+      "reasoning": "The general clipped-demand formula logically allows arbitrary crossings but does not establish that analytic strictly concave increasing utilities can realize infinitely many distinct equilibrium switches with quadratic supplier cost; its finite examples do not cover the specific construction or geometric asymptotic law.",
+      "searches": [
+        "arXiv:2603.20277v1 accessible full-text §III.B Theorem 1, §IV.A Eqs (7)-(9), §IV.C examples",
+        "\"multiple\" \"crossover points\" \"budget\" \"logarithm\" utility concave"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.20277v1 (full accessible primary HTML, §§II-IV, 2026-03-17)",
+      "published-finding corpus mathematical-record searches of budget switches, oscillatory demand and log-periodic spending (actual query texts in named checks)",
+      "Web literature searches of concave utility, infinite binding regions, and multiple crossover points (actual query texts in named checks)",
+      "Accessible prior private research ledger claims for overlap only; no equivalent electricity-budget theorem identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Perkins and Zhang, Resource Allocation in Electricity Markets with Budget Constrained Customers, arXiv:2603.20277v1, §§ III, IV.A–C (full accessible HTML https://arxiv.org/html/2603.20277v1).",
+        "Main source’s two explicit cases satisfy at most two crossing equations and have no parameter accumulation.",
+        "The new model uses a globally positive decreasing derivative with log-periodic modulation, producing two roots per late positive-sine half-period and θ_m ~ exp(-2 m pi)."
+      ],
+      "reasoning": "General demand uniqueness in the source is retained, not disputed or claimed as new. The new infinite-crossing conclusion is not implied by knowing only strict concavity and a demand-clipping formula: it requires construction and analysis of x u_prime(x), and the geometric threshold relation uses the endogenous supplier price equation.",
+      "searches": [
+        "arXiv:2603.20277v1 accessible full-text §III.B, §IV.A–C",
+        "\"multiple\" \"crossover points\" \"budget\" \"logarithm\" utility concave",
+        "analytic concave utility logarithmic sinusoid makes infinitely many budget binding regions as quadratic generation cost changes; equilibrium switch thresholds geometric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Perkins and Zhang, Resource Allocation in Electricity Markets with Budget Constrained Customers, arXiv:2603.20277v1, §§ III, IV.A–C (full accessible HTML https://arxiv.org/html/2603.20277v1).",
+        "The crossovers are solutions of x u_prime(x)=b; in the new example this is sin(log(1+x))=4/x, and the cost parameter θ is monotone along unconstrained-demand coordinates.",
+        "published-finding corpus nearest match: 2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab studies weighted-shift allocation rather than consumer demand."
+      ],
+      "reasoning": "Literature and mathematical-record searches were made using reentrant binding, oscillatory inverse demand, log-periodic marginal utility, and budget-expenditure crossover terms. The fixed-budget single-buyer result is equivalent to infinitely many intersections of a concave utility marginal with hyperbolic budget marginal; no checked record demonstrates the infinite log-periodic roots or their cost-scale ratio.",
+      "searches": [
+        "infinitely many budget constraint binding and slack switches with strictly concave analytic utility quadratic cost equilibrium",
+        "oscillatory inverse demand repeated budget binding unbinding price variation market",
+        "reentrant budget constraint expenditure elasticity log periodic utility multiple switch regions",
+        "\"budget\" \"binding\" \"infinitely many\" \"concave\" utility demand",
+        "\"multiple\" \"crossover points\" \"budget\" \"logarithm\" utility concave"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finding is an analytic infinite-parameter existence theorem and asymptotic law, not an exact entry of a finite database or lookup table.",
+        "Relevant mathematical-record searches surfaced no market-crossing table; unrelated allocation table 2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab does not address this market."
+      ],
+      "reasoning": "No tabular finite enumeration could imply infinitely many analytic binding windows or the proved asymptotic parameter ratio. This check is structurally inapplicable beyond searching for equivalent analytic classifications.",
+      "searches": [
+        "infinitely many budget constraint binding and slack switches with strictly concave analytic utility quadratic cost equilibrium"
+      ]
+    },
+    "rationale": "The full accessible motivating article gives clipped demand and two-crossover quadratic/one-crossover square-root examples but no analytic strictly concave single-buyer construction with infinitely alternating endogenous equilibrium binding regions, nor the exponential spacing e^{-2 pi}. Searches of mathematically comparable external literature and mathematical research records under equivalent demand, spending and switching terminology revealed no implication-equivalent theorem. The model-specific construction and accumulation law are not direct restatements of the published uniqueness result; historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Earlier economic demand examples may construct log-periodic or oscillatory expenditure under alternative terminology and may not be indexed.",
+      "Only one highly relevant primary paper had matching budget/market scope; negative search results are not a guarantee of global novelty.",
+      "The example is deliberately oscillatory and establishes a mathematical boundary, not empirical prevalence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general budget-constrained demand and equilibrium uniqueness, does NOT STATE or IMPLY an explicit analytic infinitely reentrant example or a geometric parameter accumulation law.",
+        "evidence": "arXiv:2603.20277v1, §III.B Theorem 1, §IV.A Eqs. (7)-(9), §IV.C and Figures 1-2.",
+        "identifier_or_url": "https://arxiv.org/html/2603.20277v1",
+        "material_read": "Complete accessible HTML main text, including model assumptions in §II, equilibrium demand and uniqueness in §III, modified-utility construction (Eq. 7–9), Theorem 2 and quadratic/square-root §IV.C examples.",
+        "method": "Full accessible primary HTML read and implication comparison of crossover equation and binding conditions.",
+        "title": "Resource Allocation in Electricity Markets with Budget Constrained Customers",
+        "trigger": "Identical consumer budget / endogenous price / convex supplier model, and explicit one- and two-crossover examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3845af46-fec8-4587-9dc7-f861136ffedb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result establishes genuinely unbounded budget active-set complexity within the exact positive-price, one-consumer market model under strict concavity, analytic utility and convex quadratic supply. The geometric threshold accumulation quantifies the difficulty near low production costs. It establishes a useful sharp limitation of finite-crossover simplifications beyond what correctness of the demand formula or ordinary convex optimization implies; no unsupported downstream applied guarantee is claimed.",
+    "status": "PASS"
+  }
+}
