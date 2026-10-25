@@ -1,19 +1,21 @@
-# Scientific review: weighted-book Hilbert distortion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an exact all-dimensional and all-real-parameter norm-equivalence problem, not an experimental extrapolation. The coordinate transformation from Lipschitz functions modulo constants to \((h,z)\) is invertible, and the leaf–leaf constraints are redundant for the stated metric. Signed-coordinate permutation symmetry averages **every** admissible positive quadratic form while preserving both distortion inequalities, so the diagonal reduction is global. Both exact radii are obtained from all boundary strata, including \(|h|=H\); their switching values are \(H^{-2}-1\) and \(m(2-H)/H\). The sign analysis of the resulting piecewise one-variable ratio has no open parameter regimes left unchecked. The unique metric crossover follows from derivatives of the two explicit formulas. At \(m=2,t=1\) the theorem recovers the previously recorded \(7/3\) squared distortion; at \(t=2\) it recovers dimension-maximal squared distortion \(m+1\). A reproducible exact-rational program passed 63 parameter configurations, 25,200 shape comparisons, and a direct enumeration of 286 vertices. The finite checks corroborate the analytic proof, rather than establishing its infinite quantifiers.
+PASS
 
-## Originality — PASS, with residual risks
+The actual Lipschitz dual ball of the weighted m-leaf/two-hub graph is N_H=max(|h|/H,|h|+max_i|z_i|), H=t/2. All triangle inequalities hold exactly for 0<t≤2; leaf differences are implied by spoke distances. Independently changing coordinate signs and permuting leaves preserves this norm, so averaging arbitrary positive quadratic forms at fixed sandwich constants cannot worsen their ratio and restricts the global Banach–Mazur optimization to q_r=rh²+Σz_i². Direct extremization gives outer radius max{m,rH²+m(1−H)²} and inner radius min{rH²,r/(r+1)}, with the spoke minimizer feasible exactly when it beats the hub facet. The piecewise ratio decreases up to r=max(H^−2−1,m(2−H)/H), then increases; comparison yields τ_m=2/(m+sqrt(m²−m+1)) and stated two branches, both uniquely minimized in t at τ_m. The dual-to-primal Hilbert distance identity is standard. Exact rational reconstructed minimax checked 25 dimension/parameter cases against 299 rational positive shapes each; finite sampling is not a proof of the all-real optimization, which was verified analytically. Nonmetric t=0 is correctly excluded.
 
-Mathematical record searches used the weighted-book, two-hub, truncated-cubical-ball, and Hilbertian-distortion aliases and explicitly compared parameter ranges and implications. The closest published book-graph calculation determines the Löwner **outer** ellipsoid of the unit \(t=1\) transportation polytope, not the best ratio of simultaneous outer and inner Euclidean radii for varying \(t\). The published four-point one-edge result already implies the special case \(m=2,t=1\), which is acknowledged and not claimed as a new isolated fact. The literature on finite free spaces, extreme molecules, and complete-bipartite cases provides structural background, but its inspected theorems do not yield the complete \(m,t\) formula or the unique \(t\asymp1/m\) minimum. Previously obtained book-graph volume and covariance formulas concern uniform interior moments rather than optimized Banach–Mazur distortion. No dominating theorem or table was found in the actual sources inspected. Differently indexed results for unconditional capped cubes are a residual bibliographic risk; no absolute uniqueness claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Euclidean Banach–Mazur distance is an intrinsic standard invariant of the finite-dimensional free Banach space. The result evaluates it **exactly** on the full weighted-book deformation for every \(m\ge2\), finds an unexpected nonmonotone dependence on the hub edge, and classifies a unique dimension-dependent optimal metric with sharp \(1/m\) scaling. This is not a routine graph-volume substitution, numerical list, or restatement of the fixed-edge Löwner ellipsoid. The dimension-wide crossover distinguishes metric shortening from dimensional collapse at \(t=0\), and supplies an exact norm-comparison benchmark not previously covered by the identified literature.
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. None of the compared theorems implies both branches and the optimal τ_m=Θ(1/m); reducing to exact quadratic radii and optimizing is a separate nontrivial argument.
 
-## Sources and limitations
+## value
 
-Primary sources inspected: Dilworth–Kutzarova–Ostrovskii, arXiv:1807.03814; Aliaga, arXiv:2102.01219. Closest public mathematical records inspected in full: *A sharp Löwner ellipsoid edge-invisibility threshold for book-graph symmetric edge polytopes*, and *Exact Hilbert distortion along a one-edge deformation of the four-point equilateral metric*. The proof is real-linear, for equal unit spokes and \(0<t\le2\); it does not treat the collapsed pseudometric at \(t=0\), arbitrary spoke weights, or uniqueness of every possible nonsymmetric optimal ellipsoid. Source comparison is not an independent bibliographic certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Banach–Mazur distortion to Hilbert space is a natural quantitative invariant of transportation/free spaces. The complete dimension-parameter formula includes a sharp crossover between two geometrically different active constraints and a unique optimal hub length shrinking as m^-1; this is not a routine substitution into a pre-existing graph-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

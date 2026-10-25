@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T02:49:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual Lipschitz dual ball of the weighted m-leaf/two-hub graph is N_H=max(|h|/H,|h|+max_i|z_i|), H=t/2. All triangle inequalities hold exactly for 0<t≤2; leaf differences are implied by spoke distances. Independently changing coordinate signs and permuting leaves preserves this norm, so averaging arbitrary positive quadratic forms at fixed sandwich constants cannot worsen their ratio and restricts the global Banach–Mazur optimization to q_r=rh²+Σz_i². Direct extremization gives outer radius max{m,rH²+m(1−H)²} and inner radius min{rH²,r/(r+1)}, with the spoke minimizer feasible exactly when it beats the hub facet. The piecewise ratio decreases up to r=max(H^−2−1,m(2−H)/H), then increases; comparison yields τ_m=2/(m+sqrt(m²−m+1)) and stated two branches, both uniquely minimized in t at τ_m. The dual-to-primal Hilbert distance identity is standard. Exact rational reconstructed minimax checked 25 dimension/parameter cases against 299 rational positive shapes each; finite sampling is not a proof of the all-real optimization, which was verified analytically. Nonmetric t=0 is correctly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published complete-bipartite maximal-distance theorem is for m,n≥3 with unit edges; our t=2 endpoint is a K_{2,m} metric excluded from that theorem, and variable hub length is not considered."
+        ],
+        "reasoning": "The broader-looking bipartite result does not dominate because its hypotheses exclude the 2-vertex part and hub weight deformation. General free-space ellipsoid inequalities do not supply the exact minimizer and crossover.",
+        "searches": [
+          "Lipschitz free Banach Mazur distance Hilbert two hubs m leaves weighted book graph metric",
+          "Resultary maximal Hilbert distortion K_{m,n} m,n>=3",
+          "arxiv:1807.03814"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 65f3dc568ba15d9e386b2677f68994742ee734ae and checker 4aa1ecfb5df15ebfa4b3edfa8fd14dac0f8f7a2c",
+        "Resultary full four-point and K_m,n RESULT.md",
+        "arxiv:1807.03814 and arxiv:2102.01219 statements",
+        "Independent rational minimax check across 25 parameter regimes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-point publication gives 7/3 at its t=2 endpoint and at another 4-point metric, and K_{m,n} results give different dimensions/parameter restrictions."
+        ],
+        "reasoning": "None of the compared theorems implies both branches and the optimal τ_m=Θ(1/m); reducing to exact quadratic radii and optimizing is a separate nontrivial argument.",
+        "searches": [
+          "Resultary exact four-point one-edge RESULT.md",
+          "Resultary K_m,n RESULT.md",
+          "arxiv:1807.03814"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-point one-edge metric published theorem has five unit edges, not the present weighted book with two unit spokes per leaf and leaf-leaf length 2; at m=2,t=1 both give 7/3 but different parameterized families."
+        ],
+        "reasoning": "The isolated m=2,t=1 benchmark and ordinary free/Lipschitz duality are antecedents. The exact present m-variable two-branch curve cannot be imported from the different four-point deformation whose optimal length is t=1, unlike τ_m<1.",
+        "searches": [
+          "Lipschitz free Banach Mazur distance Hilbert two hubs m leaves weighted book graph metric",
+          "Resultary four-point one-edge deformation",
+          "Resultary equilateral finite Lipschitz-free spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact equiradial-star, one-edge-cycle, four-point, and bipartite formulas involve different graphs or different edge deformations; no weighted m-leaf book entry found."
+        ],
+        "reasoning": "A full two-parameter continuous metric family is not a finite table, but known isolated edge data are credited. Negative search alone does not prove novelty.",
+        "searches": [
+          "Lipschitz free Banach Mazur distance Hilbert two hubs m leaves weighted book graph metric",
+          "Resultary/2026 four-point and weighted graph BM hits"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. None of the compared theorems implies both branches and the optimal τ_m=Θ(1/m); reducing to exact quadratic radii and optimizing is a separate nontrivial argument.",
+      "residual_risks": [
+        "A polytope ellipsoid-sandwich formula under other graph or norm names could cover some/all weighted books without matching title.",
+        "No assertion that all optimal nonsymmetric ellipsoids are unique; the averaging proves existence of a symmetric optimum only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different five-unit-edge four-point metric; m=2,t=1 isolated comparison known, no implication for our family.",
+          "evidence": "Their unique optimal edge length is 1 versus present τ_2=2/(2+√3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-hilbert-distortion-along-a-one-edge-deformation-of-the-fou--f6a1d49d869f/RESULT.md",
+          "material_read": "Full RESULT.md: metric definition, both analytic branches, optimality proof, limits",
+          "method": "Read full Git blob 29c514fb2142478dd4b223b4694d97fb3c8548e6",
+          "title": "Exact Hilbert distortion along a one-edge deformation of the four-point equilateral metric",
+          "trigger": "Directly matching m=2 benchmark and similar edge parameter"
+        },
+        {
+          "assessment": "Excludes two-hub class size 2, and considers no deformed hub length.",
+          "evidence": "Source formula sqrt(m+n−1) not directly applicable to K_{2,m}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810/RESULT.md",
+          "material_read": "Full RESULT.md hypotheses K_m,n with both classes ≥3 and symmetry-averaging proof",
+          "method": "Read full Git blob c14252d71021fc92fec9fd0784f44e5728f1f97c",
+          "title": "Maximal Hilbert distortion for complete-bipartite transportation spaces",
+          "trigger": "Nearest complete-bipartite endpoint t=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Banach–Mazur distortion to Hilbert space is a natural quantitative invariant of transportation/free spaces. The complete dimension-parameter formula includes a sharp crossover between two geometrically different active constraints and a unique optimal hub length shrinking as m^-1; this is not a routine substitution into a pre-existing graph-wide theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 65f3dc568ba15d9e386b2677f68994742ee734ae and checker 4aa1ecfb5df15ebfa4b3edfa8fd14dac0f8f7a2c",
+    "Resultary full four-point and K_m,n RESULT.md",
+    "arxiv:1807.03814 and arxiv:2102.01219 statements",
+    "Independent rational minimax check across 25 parameter regimes"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific originality is best of current inspected sources, not attestation of absolute priority. Finite independent tests corroborate but do not replace the analytical all-parameter proof. Publication is blocked by incomplete privacy-safe metadata sanitization.",
+  "residual_risks": [
+    "A polytope ellipsoid-sandwich formula under other graph or norm names could cover some/all weighted books without matching title.",
+    "No assertion that all optimal nonsymmetric ellipsoids are unique; the averaging proves existence of a symmetric optimum only."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The stand-alone script `verify_weighted_book_bm.py` uses only the Python 3 standard library and tests the new exact theorem. Execute from this directory with `python3 verify_weighted_book_bm.py`.
+# Independent mathematical audit
 
-In the completed run, it printed `EXACT_BOOK_BM_CHECKS_PASS 63 parameter cases, 25200 rational comparisons, 286 vertices`. It checks rational \(H\) values from \(1/12\) through \(1\) and integer \(m\) from \(2\) through \(8\). For selected small dimensions it independently solves the intersections of full polytope facet systems with exact rational row reduction to check the claimed outer quadratic maximum. It also checks that every one of 25,200 trial rational ellipsoidal shapes is no better than the proposed optimizer, and compares two known edge cases.
+## correctness
 
-Finite checks do not establish the all-dimensional, all-real-parameter claim. The general certificate is the explicit dual-ball transformation, symmetry-averaging inequality, exact inner/outer quadratic radii, and sign analysis of the one-variable derivatives in RESULT.md. No numerical optimizer or software-generated log is used as a substitute for the proof. Independent audit has not been performed.
+PASS
+
+The actual Lipschitz dual ball of the weighted m-leaf/two-hub graph is N_H=max(|h|/H,|h|+max_i|z_i|), H=t/2. All triangle inequalities hold exactly for 0<t≤2; leaf differences are implied by spoke distances. Independently changing coordinate signs and permuting leaves preserves this norm, so averaging arbitrary positive quadratic forms at fixed sandwich constants cannot worsen their ratio and restricts the global Banach–Mazur optimization to q_r=rh²+Σz_i². Direct extremization gives outer radius max{m,rH²+m(1−H)²} and inner radius min{rH²,r/(r+1)}, with the spoke minimizer feasible exactly when it beats the hub facet. The piecewise ratio decreases up to r=max(H^−2−1,m(2−H)/H), then increases; comparison yields τ_m=2/(m+sqrt(m²−m+1)) and stated two branches, both uniquely minimized in t at τ_m. The dual-to-primal Hilbert distance identity is standard. Exact rational reconstructed minimax checked 25 dimension/parameter cases against 299 rational positive shapes each; finite sampling is not a proof of the all-real optimization, which was verified analytically. Nonmetric t=0 is correctly excluded.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. None of the compared theorems implies both branches and the optimal τ_m=Θ(1/m); reducing to exact quadratic radii and optimizing is a separate nontrivial argument.
+
+## value
+
+PASS
+
+Banach–Mazur distortion to Hilbert space is a natural quantitative invariant of transportation/free spaces. The complete dimension-parameter formula includes a sharp crossover between two geometrically different active constraints and a unique optimal hub length shrinking as m^-1; this is not a routine substitution into a pre-existing graph-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
