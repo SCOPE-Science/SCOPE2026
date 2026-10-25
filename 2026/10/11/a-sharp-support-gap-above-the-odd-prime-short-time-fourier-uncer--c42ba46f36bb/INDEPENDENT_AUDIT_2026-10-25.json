@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T08:53:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, SLOGAN.txt, VERIFICATION.md and all package JSON/MD files at frozen 6c379935c2e469fc18959fc6c387e31328c64bcf",
+        "arXiv:math/0611493v1 prime cyclic Fourier row bound",
+        "Tao prime Fourier uncertainty input as cited by Krahmer–Pfander–Rashkov"
+      ],
+      "evidence": [
+        "Source RESULT.md at frozen Git blob e2f1307f03056e53b634a9ed332be8baee612fab, complete case split and equation (1), character cocycle equation (2).",
+        "Published prime cyclic Fourier uncertainty and Cauchy–Davenport ingredients in Krahmer–Pfander–Rashkov arXiv:math/0611493v1 Section 4.",
+        "Independent integer exact enumeration of each admissible (a,b) for p=3,5,...,101 confirmed s>=2p outside the two exceptions; this finite check corroborates rather than proves the universal case.",
+        "Independent exact cyclotomic Fourier support enumeration over restricted signal coefficients {0,1,omega,omega^2}: p=3, 63 nonzero signals, 3969 ordered pairs, no intermediate support; p=5, 1023 signals, 1046529 ordered pairs, no intermediate support, exact second supports 6 and 10.",
+        "Independent direct p=2 computation with f=(1,1/2),g=(1,2) produced unnormalized Fourier time-row vectors (2,0) and (5/2,3/2), exactly three nonzero coefficients.",
+        "Independent frequency-index arithmetic for p=3,5,7,11,13 verified 2u,u+v,2v distinct whenever u!=v; nonvanishing of root-of-unity middle term follows analytically for all odd prime p."
+      ],
+      "rationale": "Complete proof reconstruction from frozen RESULT.md with correct domain p odd prime >=5 and nonzero arbitrary complex f,g, counting-normalized STFT. Let a,b be signal/window support sizes. Cauchy–Davenport gives at least min(p,a+b−1) nonzero translation rows, prime Fourier uncertainty gives >=p+1−r frequencies for a nonzero row of time support r, and the sum of row supports equals ab, hence s>=(p+1)|K|−ab. For all pairs except (a,b)=(1,1) and (p,p), integer monotonicity (if a+b<=p) or ab<=p(p−1) (if a+b>p) yields s>=2p. A singleton pair has s=p. In the full/full case, if every row has >=2 frequencies then s>=2p. Otherwise select one character row and define the nonvanishing shifted window ratios r_j(n). A second character row at any nonzero d generates all shifts via cocycle and primeness, forcing s=p. With one unique character row, if no remaining row has >=3 frequencies then r_1 has exactly two; r_2=r_1(n)r_1(n−1) has three distinct modes 2u,u+v,2v, all nonzero since p is odd and -1 is no p-th root; thus s>=1+3+2(p−2)=2p. Point-mass constructions attain p and 2p. A p=2 rational counterexample shows parity essential. No magnitude or approximate-support bound is asserted.",
+      "residual_risks": [
+        "The restricted finite alphabet exhaustive checks do not exhaust arbitrary complex f,g; universal correctness rests on the proof.",
+        "No stability against small nonzero coefficients is implied by the exact zero-count theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krahmer–Pfander–Rashkov 2006/2008 Section 4 Proposition 4.4/4.3 gives s >= (p+1)|K|-ab and a=b=p yields s>=p.",
+          "Fernández–Galbis–Martínez 2014 Theorem 3 describes chirped extremizers when s=p, not the second minimum; their Theorem 1 is a different quantitative energy inequality.",
+          "Nicola 2022/2023 Theorem 1.2 treats equality of the universal s>=p bound; Theorems classifying minimal pairs cannot imply a support exclusion for arbitrary nonextremal pairs without a separate rigidity argument."
+        ],
+        "reasoning": "Compared implications and quantifiers. Known s>=p lower bounds, equality cases, and fixed generic-window inequalities are strictly weaker than the all-pairs gap p<s<2p is impossible. The only potentially dominating unidentified sources remain named as residual risks, not declared definitively absent.",
+        "searches": [
+          "uncertainty in time frequency representations finite abelian groups Krahmer Pfander Rashkov 2008 pdf",
+          "Localization Operators and An Uncertainty Principle for the Discrete Short Time Fourier Transform 2014 full text",
+          "Nicola The uncertainty principle for the short-time Fourier transform on finite cyclic groups cases of equality pdf",
+          "stability near equality STFT finite prime p gap no support between p and 2p",
+          "\"Support size conditions for time-frequency representations on finite Abelian groups\" pdf 42"
+        ]
+      },
+      "checked_sources": [
+        "Krahmer–Pfander–Rashkov arXiv:math/0611493v1 full 37-page PDF, Section 4 and diagrams",
+        "Nicola arXiv:2204.14176v1 full 12-page PDF, Theorem 1.2 and proof",
+        "Fernández–Galbis–Martínez 2014 DOI 10.1155/2014/131459 full six-page open CC-BY article transcription, especially Theorem 3 and Proposition 4",
+        "Krahmer–Pfander–Rashkov 2008 conference two-page author PDF",
+        "arXiv:2605.31507v1 relevant phase-retrieval results",
+        "Resultary semantic searches: exact audited record and 2026/10/4 two-sparse STFT and generic-window neighboring records",
+        "Constructor University repository 2007 support-size technical report metadata/abstract (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a=b=p the strongest inspected older rowwise bound is only s>=p; it cannot imply the forbidden 1..p-1 postminimum support counts.",
+          "Nicola exact-minimum classifications imply which pairs have s=p, not what s can be for all pairs that fail equality.",
+          "Resultary 2026/10/4 two-sparse input-pair trichotomy gives support at least 3p-1 for those pairs; two-sparse assumptions cannot dominate the unrestricted theorem, which crucially includes full/full.",
+          "2014 localization-operator proof explicitly conditions its main theorem on support exactly d, not on support less than 2d."
+        ],
+        "reasoning": "The submitted new 3-character Fourier multiplication lemma treats full-support full-support windows left open by earlier support-sum inequalities. Neither exact extremizer characterization nor generic-window theory yields the all-input gap via stated implications. Residual risk remains that an alternative theorem not located already implies it.",
+        "searches": [
+          "For odd prime p the short-time Fourier transform of two nonzero signals has support exactly p or at least 2p; second smallest achievable support gap Gabor matrix uncertainty",
+          "Finite cyclic Gabor transform near-minimum support spectrum no values p+1 through 2p-1 and full support windows character cocycle",
+          "Gabor transform finite prime support 2N gap second minimal nonzero coefficients theorem",
+          "finite Gabor matrix support exactly p or at least 2p rigidity odd prime Heisenberg"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The STFT coefficient array is the cross-Gabor/ambiguity coefficient matrix, so support cardinality is the number of nonzero time-frequency inner products.",
+          "Krahmer–Pfander–Rashkov Section 4 bounds the prime cyclic STFT from input supports but leaves a=b=p at the minimal p rather than excluding p+1,...,2p-1.",
+          "Nicola arXiv:2204.14176v1 Theorem 1.2 characterizes s=p exact minimizers; it lacks the next-level exclusion."
+        ],
+        "reasoning": "Searched under near-minimal Gabor sparsity, uncertainty-spectrum gap, Weyl rank-one support and character-cocycle aliases, not merely title matching. None of the inspected independently prior statements provides the full cross-STFT prime odd second-minimum exclusion.",
+        "searches": [
+          "finite short time Fourier transform support p or at least 2p odd prime gap nonzero coefficients",
+          "short-time Fourier transform support size second smallest nonextremal odd prime group p 2p",
+          "Finite cyclic Gabor transform near-minimum support spectrum no values p+1 through 2p-1 and full support windows character cocycle",
+          "finite Gabor matrix support exactly p or at least 2p rigidity odd prime Heisenberg",
+          "rank one matrix Weyl representation number of nonzero Pauli coefficients p 2p odd prime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Krahmer–Pfander–Rashkov finite diagrams already record p=3 support possibilities and include a finite p=5 chart; a fixed finite table is not a uniform odd-prime proof.",
+          "Published Resultary exact-hit 2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb is the SAME assigned finding and is not independent priority evidence.",
+          "Resultary nearest independently separate entries on 2026/10/4 treat two-sparse pairs (3p-1,3p,4p) or generic two-sparse windows, not arbitrary full-support pairs."
+        ],
+        "reasoning": "Credited known p=3 finite picture and did not infer novelty from a missing row in a database. Published SCOPE nearby records cover different input/window strata and do not imply the uniform result; the indexed copy of the audited record cannot count as prior independent discovery.",
+        "searches": [
+          "STFT finite cyclic Z3 support size 4 5 forbidden Krahmer",
+          "short-time Fourier transform support size second smallest nonextremal odd prime group p 2p",
+          "finite short time Fourier transform support p or at least 2p odd prime gap nonzero coefficients"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass. The exact second attainable cardinality for arbitrary nonzero signal/window pairs on every odd prime cyclic group p>=5 is not mathematically implied by the relevant inspected prior statements. Krahmer–Pfander–Rashkov input-support bounds leave the both-full case at s>=p; exact minimizer classifications specify s=p but do not isolate it by a growing exclusion interval. The new character-ratio cocycle and three-frequency noncancellation closes this previously unhandled class. The p=3 finite support case is expressly credited and is not a new isolated claim. Unindexed exact equivalents and inaccessible portions of separate technical reports remain risks.",
+      "residual_risks": [
+        "A differently named or unindexed near-minimum finite Heisenberg/Gabor uncertainty theorem might already imply the p-to-2p gap.",
+        "The institution-hosted 2007 Krahmer–Pfander–Rashkov technical report was unavailable in complete text; its abstract may cover material beyond the open 37-page arXiv version.",
+        "Small prime p=3 is explicitly documented in older finite support diagrams; no new isolated p=3 novelty is claimed.",
+        "No complete classification of the 2p pairs, approximate-support stability, or composite-order extension follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves s >= (p+1)|K|-ab for odd prime input supports; when both inputs have full support this gives only s>=p and does not exclude p<s<2p. Diagrams are finite small-prime evidence; generic-window statements have different quantifiers.",
+          "evidence": "Prime row Fourier uncertainty+Cauchy-Davenport bound in Section 4; full/full a=b=p leaves s>=p; finite Figure 6/7 and generic-window theorem differ from universal pair assertion.",
+          "identifier_or_url": "arXiv:math/0611493v1; https://arxiv.org/pdf/math/0611493; doi:10.1016/j.acha.2007.09.008",
+          "material_read": "Open 37-page primary preprint: STFT definitions, general sparse-support and prime-group bounds (Section 4, Proposition 4.4 in preprint), complete displayed lower-bound argument, finite diagrams Figure 6 for p=5 and Figure 7 for p=3 with their text, generic-window theorems, and conclusion. Inspected rendered PDF page image of the relevant proof/diagram.",
+          "method": "Full arXiv PDF textual inspection of relevant theorems, proofs and figures, supplemented by rendered PDF page.",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Direct antecedent containing support-sensitive STFT lower bounds and prime small-group support diagrams."
+        },
+        {
+          "assessment": "Characterizes |supp V_g f|=p by coset/chirp geometry; equality classification alone does not supply a positive quantitative gap between p and second minimum for all arbitrary pairs.",
+          "evidence": "Theorem 1.2 is an if-and-only-if criterion for exact equality p, with no quantified second attainable support threshold.",
+          "identifier_or_url": "arXiv:2204.14176v1; https://arxiv.org/pdf/2204.14176; doi:10.1016/j.jfa.2023.109924",
+          "material_read": "Open full 12-page arXiv PDF: abstract, definitions, Theorem 1.2, complete extremizer proof in Section 3, Section 4 lower bound, and references; theorem-statement page inspected visually.",
+          "method": "ArXiv full-paper text and targeted PDF-page-image reading.",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "Most relevant primary characterization of minimizers s=p for finite cyclic STFT."
+        },
+        {
+          "assessment": "Theorem 3 treats pairs attaining exactly minimal STFT support d under a+b>d, not the cardinality of the next attainable support. Proposition 4 characterizes period-induced support localization; it does not imply every non-minimal odd-prime support has >=2p.",
+          "evidence": "2014 article Theorem 3 and proof on displayed pages 3–4; Proposition 4 on displayed page 4; the introduction explicitly states its objective as characterizing minimum-support extremizers.",
+          "identifier_or_url": "doi:10.1155/2014/131459; https://www.researchgate.net/publication/266325972_Localization_Operators_and_an_Uncertainty_Principle_for_the_Discrete_Short_Time_Fourier_Transform",
+          "material_read": "ResearchGate-hosted transcription of six-page open-access publisher article: original introduction, all result statements in Section 2 (Theorem 1, Theorem 3, Propositions 4 and 6), detailed Theorem 3 proof and subsequent support-periodicity statements, and references. Publisher Wiley access was blocked; the CC-BY publisher article text was inspected via the hosted source.",
+          "method": "Read substantive complete primary article body as displayed in a ResearchGate hosted open-access text transcription, with original publisher DOI checked.",
+          "title": "Localization Operators and an Uncertainty Principle for the Discrete Short Time Fourier Transform",
+          "trigger": "Intervening primary work that might conceivably state near-extremal gap under arbitrary complex windows."
+        },
+        {
+          "assessment": "States generic-window support inequalities and input-support-dependent lower bounds; does not assert the universal exact p-to-2p gap at full support.",
+          "evidence": "Theorem 1.1 concerns generic g; Proposition 1.2 concerns support cardinalities of inputs and leaves full/full case outside the claimed sharp gap.",
+          "identifier_or_url": "https://www.mathematik.uni-marburg.de/~pfander/pubs/SupportSizeGamm.pdf",
+          "material_read": "Both pages of the accessible 2008 conference PDF, including the general support theorem and input-support proposition, with first rendered page inspected.",
+          "method": "Open full two-page author-hosted PDF and inspect theorem statements and page image.",
+          "title": "Support size restrictions on time-frequency representations of functions on finite abelian groups",
+          "trigger": "Contemporary condensed near-title variant of the Krahmer–Pfander–Rashkov support paper."
+        },
+        {
+          "assessment": "Quantifiers and objects concern ambiguity/phase-retrieval conditions and larger support configurations, not a sharp second minimum for arbitrary cross-STFT pairs.",
+          "evidence": "Theorem 2.6 and Section 4 in arXiv HTML identify different phase-retrieval support criteria.",
+          "identifier_or_url": "arXiv:2605.31507v1; https://arxiv.org/html/2605.31507v1",
+          "material_read": "Open arXiv HTML introduction, main uncertainty/phase-retrieval statements including Theorem 2.6 and Section 4 use.",
+          "method": "Primary preprint full HTML available, relevant sections read.",
+          "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+          "trigger": "Modern closely related uncertainty principle on Gabor/ambiguity coefficients."
+        },
+        {
+          "assessment": "Potentially duplicates the arXiv preprint but unavailable full report cannot be certified noncovering. Residual priority risk retained.",
+          "evidence": "Report metadata and abstract are in same STFT-support domain; primary arXiv preprint from same authors provides strong but not conclusive overlap.",
+          "identifier_or_url": "https://sopus.constructor.university/frontdoor/index/index/docId/673",
+          "material_read": "Repository metadata and abstract only; institutional full report text not accessible through tested open route.",
+          "method": "Institutional repository metadata/abstract inspection. No assertion of full-text inspection.",
+          "title": "Support size conditions for time-frequency representations on finite Abelian groups",
+          "trigger": "Highly relevant 2007 author-group technical report title likely overlapping the 2006 extended arXiv preprint."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krahmer–Pfander–Rashkov 2008 bounds",
+        "Nicola 2023 extremizer characterization",
+        "Assigned complete proof and counterexample at p=2"
+      ],
+      "evidence": [
+        "Natural STFT minimum p and exact minimizers established by Krahmer–Pfander–Rashkov and Nicola; the next-cardinality question is mathematically distinct.",
+        "Explicit delta pair attains p, delta with a two-site window attains 2p, proving exact sharpness.",
+        "Character-ratio cocycle and odd-prime noncancellation explain why full/full support pairs cannot create intermediate STFT sparsity."
+      ],
+      "rationale": "The second-smallest exact support cardinality of a short-time Fourier transform is a natural discrete time-frequency invariant. The result proves a sharp and increasing p−1-length forbidden band immediately above the p-coefficient uncertainty minimum uniformly over arbitrary complex signal/window pairs, resolves the structurally hard both-full-support case not handled by the standard row inequality, and provides explicit sharp endpoint witnesses. This is not merely a restatement of known minimum equality, nor a small unmotivated slice. It does not purport to control approximate/noisy support or determine all higher support levels.",
+      "residual_risks": [
+        "Exact coefficient sparsity can be unstable numerically under perturbation; no claims about coefficient amplitudes, practical robustness or all higher support cardinalities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Krahmer–Pfander–Rashkov arXiv:math/0611493v1 full 37-page PDF, Section 4 and diagrams",
+    "Nicola arXiv:2204.14176v1 full 12-page PDF, Theorem 1.2 and proof",
+    "Fernández–Galbis–Martínez 2014 DOI 10.1155/2014/131459 full six-page open CC-BY article transcription, especially Theorem 3 and Proposition 4",
+    "Krahmer–Pfander–Rashkov 2008 conference two-page author PDF",
+    "arXiv:2605.31507v1 relevant phase-retrieval results",
+    "Resultary semantic searches: exact audited record and 2026/10/4 two-sparse STFT and generic-window neighboring records",
+    "Constructor University repository 2007 support-size technical report metadata/abstract (full text inaccessible)"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only exact support cardinality on odd prime cyclic groups; no noisy or approximate stability.",
+    "No classification of all pairs attaining 2p, support levels above 2p, or composite-order groups.",
+    "p=3 was previously included in small-prime diagrams, only prime-uniform theorem for p>=5 is assessed as an original result.",
+    "Historical priority cannot be exhaustively certified; the 2007 technical report was inaccessible in complete text."
+  ]
+}

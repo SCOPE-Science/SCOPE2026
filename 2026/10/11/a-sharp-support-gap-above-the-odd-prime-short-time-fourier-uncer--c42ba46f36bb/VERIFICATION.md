@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact and self-contained modulo the classical Cauchy--Davenport inequality and the prime cyclic Fourier uncertainty inequality. Both cited inputs are used in Proposition 4.3 of the 2008 time-frequency paper, whose complete argument was read and independently reconstructed.
+# Independent mathematical audit
 
-For any nonzero time rows, their Fourier support sizes obey
-\[
-\left|\operatorname{supp}\widehat h_j\right|\ge p+1-|\operatorname{supp}h_j|.
-\]
-Since there are at least \(\min(p,a+b-1)\) such rows and their input support sizes sum to \(ab\), this yields
-\[
-s\ge(p+1)\min(p,a+b-1)-ab.
-\]
-For \(a+b>p\), all cases except \(a=b=p\) give \(s\ge2p\). For \(a+b\le p\), all cases except \(a=b=1\) give \(s\ge2p\). The singleton exception gives \(s=p\).
+## correctness
 
-For full-support inputs, if two Fourier rows are supported on characters, their ratio cocycle forces all time rows to have one frequency. In the case of a unique one-frequency row, a two-frequency adjacent ratio produces a three-frequency next row:
-\[
-\bigl(A\omega^{un}+B\omega^{vn}\bigr)
-\bigl(A\omega^{u(n-1)}+B\omega^{v(n-1)}\bigr).
-\]
-The three frequency indices \(2u\), \(u+v\), and \(2v\) are distinct for odd prime \(p\) and \(u\ne v\). Its middle coefficient is
-\[
-AB(\omega^{-u}+\omega^{-v})\ne0.
-\]
-Therefore at least one non-character row has three frequencies, which raises the lower bound from \(2p-1\) to \(2p\). Every stated boundary is covered.
+PASS
 
-Sharpness is checked directly: \(V_{\delta_0}\delta_0\) has exactly one nonzero time row of length \(p\), and \(V_{\delta_0+\delta_1}\delta_0\) has exactly two such rows. With \(p=2\), \(f=(1,1/2)\), and \(g=(1,2)\), the time rows have Fourier support cardinalities one and two, showing exactly three support positions; thus the odd-prime hypothesis cannot be omitted.
+Complete proof reconstruction from frozen RESULT.md with correct domain p odd prime >=5 and nonzero arbitrary complex f,g, counting-normalized STFT. Let a,b be signal/window support sizes. Cauchy–Davenport gives at least min(p,a+b−1) nonzero translation rows, prime Fourier uncertainty gives >=p+1−r frequencies for a nonzero row of time support r, and the sum of row supports equals ab, hence s>=(p+1)|K|−ab. For all pairs except (a,b)=(1,1) and (p,p), integer monotonicity (if a+b<=p) or ab<=p(p−1) (if a+b>p) yields s>=2p. A singleton pair has s=p. In the full/full case, if every row has >=2 frequencies then s>=2p. Otherwise select one character row and define the nonvanishing shifted window ratios r_j(n). A second character row at any nonzero d generates all shifts via cocycle and primeness, forcing s=p. With one unique character row, if no remaining row has >=3 frequencies then r_1 has exactly two; r_2=r_1(n)r_1(n−1) has three distinct modes 2u,u+v,2v, all nonzero since p is odd and -1 is no p-th root; thus s>=1+3+2(p−2)=2p. Point-mass constructions attain p and 2p. A p=2 rational counterexample shows parity essential. No magnitude or approximate-support bound is asserted.
 
-A supplemental finite sanity run sampled Gaussian-integer signal/window pairs, checking \(19{,}891\) pairs at \(p=3\), \(19{,}999\) at \(p=5\), and \(20{,}000\) at \(p=7\) with exact zero tests. This sanity run is not an exhaustive search over complex pairs and is not used to establish the universal claim. There are no external infinite-proof certificates or numerical estimates used in the argument.
+## originality
+
+PASS
+
+Best-of-knowledge pass. The exact second attainable cardinality for arbitrary nonzero signal/window pairs on every odd prime cyclic group p>=5 is not mathematically implied by the relevant inspected prior statements. Krahmer–Pfander–Rashkov input-support bounds leave the both-full case at s>=p; exact minimizer classifications specify s=p but do not isolate it by a growing exclusion interval. The new character-ratio cocycle and three-frequency noncancellation closes this previously unhandled class. The p=3 finite support case is expressly credited and is not a new isolated claim. Unindexed exact equivalents and inaccessible portions of separate technical reports remain risks.
+
+## value
+
+PASS
+
+The second-smallest exact support cardinality of a short-time Fourier transform is a natural discrete time-frequency invariant. The result proves a sharp and increasing p−1-length forbidden band immediately above the p-coefficient uncertainty minimum uniformly over arbitrary complex signal/window pairs, resolves the structurally hard both-full-support case not handled by the standard row inequality, and provides explicit sharp endpoint witnesses. This is not merely a restatement of known minimum equality, nor a small unmotivated slice. It does not purport to control approximate/noisy support or determine all higher support levels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

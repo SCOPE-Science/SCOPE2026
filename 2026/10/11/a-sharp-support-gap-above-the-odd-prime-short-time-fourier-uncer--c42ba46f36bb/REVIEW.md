@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The normalized STFT convention is fixed explicitly. For input support sizes other than both singletons and both full, Cauchy--Davenport and prime cyclic Fourier uncertainty establish a \(2p\)-coefficient lower bound. In the remaining full-support case, one character Fourier row is either accompanied by character rows everywhere (yielding exactly \(p\)), or one shifted ratio has at least three Fourier frequencies, forcing at least \(2p\) total coefficients. The three-term expansion has pairwise distinct frequencies and a nonzero middle coefficient for every odd prime. Point-mass constructions attain both levels, and a separate \(p=2\) example verifies the parity boundary. No finite test is treated as a proof.
+## correctness
 
-## Originality
-**PASS.** Nicola's Theorem 1.2 and the 2014 localization-operator theorem characterize the \(p\)-coefficient extremizers. The earlier Krahmer--Pfander--Rashkov Proposition 4.3 provides the row-support lower bound but leaves the full/full case at only \(p\), even though their finite diagram already includes the individual \(p=3\) case. The uniform exact second minimum for all odd primes \(p\ge5\) requires the additional ratio-cocycle argument. The closest indexed STFT results concern two-sparse input pairs or generic windows and do not dominate the claim. An unindexed equivalent remains possible.
+PASS
 
-## Value
-**PASS.** The support-count uncertainty theorem separates the smallest conceivable representation from the next one by a forbidden interval of \(p-1\) integers. This is a sharp, growing, window-independent rigidity phenomenon for prime cyclic time-frequency representations, rather than a relabelled numerical bound: any non-extremal exact STFT support necessarily costs at least twice the minimum. Its proof identifies a concrete obstruction in the full-support case that was not controlled by the standard input-support inequality. It does not imply noisy or approximate stability.
+Complete proof reconstruction from frozen RESULT.md with correct domain p odd prime >=5 and nonzero arbitrary complex f,g, counting-normalized STFT. Let a,b be signal/window support sizes. Cauchy–Davenport gives at least min(p,a+b−1) nonzero translation rows, prime Fourier uncertainty gives >=p+1−r frequencies for a nonzero row of time support r, and the sum of row supports equals ab, hence s>=(p+1)|K|−ab. For all pairs except (a,b)=(1,1) and (p,p), integer monotonicity (if a+b<=p) or ab<=p(p−1) (if a+b>p) yields s>=2p. A singleton pair has s=p. In the full/full case, if every row has >=2 frequencies then s>=2p. Otherwise select one character row and define the nonvanishing shifted window ratios r_j(n). A second character row at any nonzero d generates all shifts via cocycle and primeness, forcing s=p. With one unique character row, if no remaining row has >=3 frequencies then r_1 has exactly two; r_2=r_1(n)r_1(n−1) has three distinct modes 2u,u+v,2v, all nonzero since p is odd and -1 is no p-th root; thus s>=1+3+2(p−2)=2p. Point-mass constructions attain p and 2p. A p=2 rational counterexample shows parity essential. No magnitude or approximate-support bound is asserted.
 
-## Closest literature and limitations
-The closest primary sources are Krahmer--Pfander--Rashkov (2008), Fernández--Galbis--Martínez (2014), and Nicola (2022/2023). The claim is new in its uniform sharp support-gap quantifier, not in the lower bound \(p\), the classification of exact extremizers, or the individual finite \(p=3\) diagram. Possible unpublished or unindexed equivalences remain a risk. The parity counterexample at \(p=2\) and the lack of approximate-support estimates are explicit boundaries.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass. The exact second attainable cardinality for arbitrary nonzero signal/window pairs on every odd prime cyclic group p>=5 is not mathematically implied by the relevant inspected prior statements. Krahmer–Pfander–Rashkov input-support bounds leave the both-full case at s>=p; exact minimizer classifications specify s=p but do not isolate it by a growing exclusion interval. The new character-ratio cocycle and three-frequency noncancellation closes this previously unhandled class. The p=3 finite support case is expressly credited and is not a new isolated claim. Unindexed exact equivalents and inaccessible portions of separate technical reports remain risks.
+
+## value
+
+PASS
+
+The second-smallest exact support cardinality of a short-time Fourier transform is a natural discrete time-frequency invariant. The result proves a sharp and increasing p−1-length forbidden band immediately above the p-coefficient uncertainty minimum uniformly over arbitrary complex signal/window pairs, resolves the structurally hard both-full-support case not handled by the standard row inequality, and provides explicit sharp endpoint witnesses. This is not merely a restatement of known minimum equality, nor a small unmotivated slice. It does not purport to control approximate/noisy support or determine all higher support levels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
