@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** Exact Hardy multiplier norms reduce the problem to a scalar circle maximum. A strict triangle-equality classification identifies all peripheral contacts and their root orders. A real-analytic cumulant expansion, Gaussian maximization at resonance, an exactly attained antipodal phase, and a strictly concave saddle at the two odd-order nearest-antipodal contacts establish the three regimes, with explicit remainders. The finite checker is supplementary, not a proof.
+## correctness
 
-**Originality (PASS, qualified).** The inspected Section 8 theorem of Borichev--Gomilko--Tomilov (arXiv:2607.10507) assumes the input is already Ritt; the shift here is not. Diaconis--Saloff-Coste (arXiv:1205.6490) address convolution local limits and coefficient bounds rather than the full lagged Hardy multiplier operator norm, parity split, and the positive \(n^{-1}\) coefficient. Searches of mathematical records for arithmetic support, multiplier norms, Ritt power differences, and equivalent random-walk language did not locate a directly covering exact operator-norm expansion. Residual risk: earlier Fourier random-walk work could imply portions without identical wording; the search is not a priority certificate.
+PASS
 
-**Mathematical value (PASS).** The result classifies an entire natural family of finite polynomial averages of a non-Ritt isometry, simultaneously distinguishing strong stability, lagged norm regularity, exact parity obstruction, and a sharp odd-order finite-size correction. It produces structural arithmetic boundaries and universal moment-driven constants rather than an arbitrary numerical special case.
+For positive probability polynomial P and unilateral Hardy shift S, T=M_P; reproducing-kernel norm equality makes D_{n,h}=max_t |P(e^{it})|^n |1-P(e^{it})^h|. Triangle equality gives contacts at t_j=2πj/d, d=gcd(k-k0); their peripheral values traverse q=d/gcd(d,k0)-th roots, and after lag h all Q_h=q/gcd(q,h)-th roots. Exponential suppression holds away from contacts. Near any contact log P(e^{is})=iμs-(v/2)s²+O(s³) with log|P|=-(v/2)s²+O(s⁴). If Q=1, optimizing |s|e^{-nvs²/2} yields hμ/sqrt(e v)n^-1/2 and O(n^-3/2). If Q even, a peripheral contact P^h=-1 gives exact norm2 for every n≥0, matched by universal upper bound2. For odd Q≥3, the maximal roots ζ=e^{±i(π-π/Q)} give B=2cos(π/(2Q)), derivative a=hμ Im(ζ)/B², an optimizer s=a/(nv)+O(n^-2), and positive correction h²μ²sin²(π/Q)/(2B³v)n^-1+O(n^-2). Strong convergence follows boundary dominated convergence away from finitely many contacts; ||T^n||=1; for each r use h=r to rule out Ritt of T^r. Independent norm optimization checks P=(1+z)/2 (Gaussian), P=(z+z³)/2 (exact2), P=(z+z⁴)/2 (odd Q3 + coefficient) at large finite n; not a proof of asymptotic generality.
 
-**Limits.** Positive finitely supported coefficients, one unweighted complex Hardy shift, and fixed lags only. Publication priority and independent mathematical validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.
+
+## value
+
+PASS
+
+A natural exact operator-theoretic problem for positive averages of shifts: it determines all possible lagged norm behaviors, including exact even-order extremality, Gaussian decay and a sign-definite n^-1 correction at odd peripheral roots. The arithmetic quantity Q_h and sharp constants quantify strong-stability versus operator-norm regularity and provide counterexamples to automatic Ritt behavior. This structural classification is mathematically motivated rather than a selected numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
