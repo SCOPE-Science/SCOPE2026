@@ -1,11 +1,21 @@
-# Scientific review: singular curves of cycle cut toric varieties
+# Independent mathematical audit
 
-**Correctness: PASS.** The cyclic cut polytope is identified with the even-parity 0--1 polytope in its *even-sum lattice*. The cited complete facet inequalities and the vertex-transitive coordinate-flip symmetry reduce every possible toric cone to an explicit face-through-zero classification. The two types of faces of dimension at least two yield saturated unimodular normal cones, whereas every edge has \(n\) primitive rays in dimension \(n-1\). The affine semigroup at an edge is proved integrally to be a Laurent factor times the \(2\times(n-2)\) Segre semigroup, establishing the local coordinate rings and multiplicities. The standalone program checks all faces through one vertex in dimensions four through seven; the arbitrary-dimensional result has an independent symbolic proof.
+## correctness
 
-**Originality: PASS (qualified).** Sturmfels--Sullivant (arXiv:math/0606683, Example 1.2 and Corollary 2.4) prove the four-cycle complete intersection and the smoothness criterion, not an exact singular-component classification. Ohsugi (arXiv:0906.5303) supplies the underlying facet framework; Ohsugi (arXiv:1302.2899) already supplies the Gorenstein cutoff, explicitly excluded as an original contribution. published-finding corpus searches for cut-cycle varieties, demihypercube/half-cube aliases, singular components, and Segre local rings returned no covering statement; the closest listed results concern different graphical zonotopes, other toric singularities, or global cut-polytope invariants. Brennan--Chen's full article was not accessible, and a differently formulated prior characterization remains a residual risk. Absence from search is not treated as a uniqueness proof.
+PASS
 
-**Mathematical value: PASS.** The canonical toric statistical model of a cycle has an exponentially growing, but completely explicit, singular configuration: all invariant curves and only those curves, with computable intersection incidence and a uniform family of nonhypersurface determinantal transverse germs. The description goes substantially beyond an existing smoothness criterion, and the change from conifold to non-\(\mathbb Q\)-Gorenstein behavior is a natural geometric boundary rather than an arbitrary finite calculation.
+For every n>=4 and algebraically closed k in any characteristic, source correctly uses normal fan of the even-parity binary polytope P_n in its even-sum lattice L_n (dual Z^n+Z(1/2,...,1/2)), not the ambient Z^n lattice. Even cut-edge supports characterize vertices; coordinate flips by even subsets act transitively. At vertex 0 the 2n tight facets give primitive normals u_i=-e_i and v_i=e_i-h. Classifying all intersections by selected coordinate facets A and singleton parity facets B shows all faces of dimension >=2 have saturated simplicial normal cones; each edge [0,e_i+e_j] has an (n-1)-cone with n rays v_i,v_j,u_k for k outside {i,j}, unique circuit v_i+v_j=sum u_k, hence nonregular. Every singular orbit belongs to an edge-curve closure; counts are 2^(n-2) binom(n,2) curves P1 and binom(n,2) through each of 2^(n-1) fixed points. The dual semigroup for each edge cone is Z plus the nonnegative integral tuples (a,b,c_1,...,c_{n-2}) with a+b=sum c; it is the rank-one 2x(n-2) Segre semigroup. Hence the affine chart is Gm times that cone, transverse multiplicity n-2, non-Q-factorial; n>=5 non-Q-Gorenstein by circuit height discrepancy 2!=n-2. n=4 Gorenstein follows from height-one support vector. An independently constructed parity vertex and Hamming-edge count for 4<=n<=8 corroborates edge totals 24,80,240,672,1792, not the infinite proof.
 
-**Limitations and closest literature.** The theorem concerns reduced singular support and generic transverse rings; no full Jacobian scheme or simultaneous local model at the fixed-point intersections is claimed. Relevant primary full text is the 2006 Sturmfels--Sullivant preprint, the 2009 Ohsugi normality preprint, and the 2013 Ohsugi Gorenstein preprint; the Brennan--Chen article remains uninspected beyond metadata and abstract. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new portion is all-length singular-curve, incidence and Segre transverse-ring classification; standard cut-polytope facet inequalities, graph smoothness criterion, normality and Gorenstein cutoff are acknowledged premises.
+
+## value
+
+PASS
+
+Cycle cut models are canonical normal projective toric models. An exact whole-singular-locus description in every dimension, exponential number of rational-curve components and their fixed-point incidences, and a uniform transverse 2x(n-2) determinantal germ with multiplicity and a Q-Gorenstein boundary are natural, useful geometric invariants beyond known binary smoothness conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

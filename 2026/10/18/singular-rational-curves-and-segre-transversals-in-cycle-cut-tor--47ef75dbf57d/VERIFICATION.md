@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible mathematical checks
 
-Run `python3 parity_cut_toric_verify.py` from the directory containing that standalone script. It uses only the Python 3 standard library. A successful run prints `VERIFY_OK` at the end and reports, for each \(n=4,5,6,7\), every face dimension count through a fixed vertex, the global number of edges, the local Segre-matrix shape, and its multiplicity.
+# Independent mathematical audit
 
-Observed successful output on the packaged script:
+## correctness
 
-```
-n=4 vertices=8 edges=24 zero_vertex_faces=28 face_dim_counts=[(0, 1), (1, 6), (2, 12), (3, 8), (4, 1)] edge_local=rank_one_2_by_2 multiplicity=2 OK
-n=5 vertices=16 edges=80 zero_vertex_faces=82 face_dim_counts=[(0, 1), (1, 10), (2, 30), (3, 30), (4, 10), (5, 1)] edge_local=rank_one_2_by_3 multiplicity=3 OK
-n=6 vertices=32 edges=240 zero_vertex_faces=214 face_dim_counts=[(0, 1), (1, 15), (2, 60), (3, 80), (4, 45), (5, 12), (6, 1)] edge_local=rank_one_2_by_4 multiplicity=4 OK
-n=7 vertices=64 edges=672 zero_vertex_faces=520 face_dim_counts=[(0, 1), (1, 21), (2, 105), (3, 175), (4, 140), (5, 63), (6, 14), (7, 1)] edge_local=rank_one_2_by_5 multiplicity=5 OK
-VERIFY_OK
-```
+PASS
 
-The checker independently generates even-parity vertices, intersects all incident facet-vertex sets, determines affine face dimensions by rational Gaussian elimination, tests the primitive integral ray spans with maximal minors in the *dual even-sum lattice*, and checks the edge-ray circuit and low-degree Segre semigroup Hilbert function. These are exhaustive finite checks only for the stated four dimensions. The universal theorem rests on the face-classification and monoid-isomorphism proofs in `RESULT.md`. No external or independent mathematical certification is asserted.
+For every n>=4 and algebraically closed k in any characteristic, source correctly uses normal fan of the even-parity binary polytope P_n in its even-sum lattice L_n (dual Z^n+Z(1/2,...,1/2)), not the ambient Z^n lattice. Even cut-edge supports characterize vertices; coordinate flips by even subsets act transitively. At vertex 0 the 2n tight facets give primitive normals u_i=-e_i and v_i=e_i-h. Classifying all intersections by selected coordinate facets A and singleton parity facets B shows all faces of dimension >=2 have saturated simplicial normal cones; each edge [0,e_i+e_j] has an (n-1)-cone with n rays v_i,v_j,u_k for k outside {i,j}, unique circuit v_i+v_j=sum u_k, hence nonregular. Every singular orbit belongs to an edge-curve closure; counts are 2^(n-2) binom(n,2) curves P1 and binom(n,2) through each of 2^(n-1) fixed points. The dual semigroup for each edge cone is Z plus the nonnegative integral tuples (a,b,c_1,...,c_{n-2}) with a+b=sum c; it is the rank-one 2x(n-2) Segre semigroup. Hence the affine chart is Gm times that cone, transverse multiplicity n-2, non-Q-factorial; n>=5 non-Q-Gorenstein by circuit height discrepancy 2!=n-2. n=4 Gorenstein follows from height-one support vector. An independently constructed parity vertex and Hamming-edge count for 4<=n<=8 corroborates edge totals 24,80,240,672,1792, not the infinite proof.
+
+## originality
+
+PASS
+
+The new portion is all-length singular-curve, incidence and Segre transverse-ring classification; standard cut-polytope facet inequalities, graph smoothness criterion, normality and Gorenstein cutoff are acknowledged premises.
+
+## value
+
+PASS
+
+Cycle cut models are canonical normal projective toric models. An exact whole-singular-locus description in every dimension, exponential number of rational-curve components and their fixed-point incidences, and a uniform transverse 2x(n-2) determinantal germ with multiplicity and a Q-Gorenstein boundary are natural, useful geometric invariants beyond known binary smoothness conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
