@@ -1,0 +1,23 @@
+# Scientific review: grazing horizon limit in affine event-triggered control
+
+## Correctness — PASS
+
+The claimed domain is the continuous-time unweighted affine least-squares fit of one decaying model signal, scalar integrator plant, exact initial matching, and the first relative-error threshold contact with equality included. The unique least-squares coefficient is computed by the normal equation and shown to range bijectively through \((0,1)\). The plant-state and actuation-error polynomials yield explicit positive- and negative-contact quadratics. The critical negative-contact function has one positive interior maximum; the positive-contact function is strictly decreasing. The first-contact proof checks the competing boundary, the grazing equality, finite contact before \(s=2\), and the sign of the state. It proves the unattained strict supremum without an optimization heuristic. A pre-contact differential inequality gives the positive state contraction, and the homogeneous reset gives all-step inter-event equality. Small-threshold asymptotics come from the exact quadratic. Executed numerical checks independently reproduced the leading numerical example and 143100 finite-grid precontact inequalities. The latter do not replace the calculus proof.
+
+## Originality — PASS, conditional on currently inspected primary literature
+
+The method, fitting problem and trigger originate with Rajan and Tallapragada. The full accessible 2024 journal-author manuscript gives the unweighted fitting formula, relative trigger, general boundedness theorem and numerical trends in \(T\); it explicitly identifies an analytical optimal fitting-horizon method as a future direction. The February 2024 preprint has a different, discounted objective. Neither inspected version states the exact scalar-affine two-contact phase diagram, nongeneric tangency at \(k_\theta\), strict unattained inter-event supremum, or limiting formula \(S_\theta\). Earlier planar inter-event literature analyzes angular maps and scale-invariant event intervals, not the least-squares horizon map. Searches of published mathematical records for grazing, fitted affine control, optimal horizons and first-contact discontinuities did not identify stronger coverage. This is a best-knowledge originality conclusion, not an assertion that searches prove uniqueness.
+
+The strongest residual risk is the 2023 Rajan--Tallapragada predecessor for linear systems (IEEE CDC, DOI:10.1109/CDC49753.2023.10383836), whose full material was not obtainable through the checked lawful full-text retrieval routes. Its public abstract and indexed closing passages establish qualitative stability, inter-event lower bounds and empirical comparisons but do not resolve its complete list of examples and appendices; an equivalent specialized argument there cannot be excluded. The familiar general notion of event grazing is not counted as new. The unweighted-versus-discounted distinction is material and explicitly carried through the claim.
+
+## Value — PASS
+
+The result answers an analytically specified instance of a horizon-design question identified by the source authors as open for development. The dependence of the first event time on the fitting horizon is not merely non-monotone: it has a rigorously proved, finite, nonattained supremum caused by a closed-trigger grazing event. It supplies an exact design limit, a source-compatible numerical test case, a sharp distinction between first contact and later contact, and a baseline comparison with zero-order hold, while showing that geometric convergence is not lost. Those are concrete control-design consequences; the result does not purport to optimize higher-dimensional plants, discounted fits or resource-aware objectives.
+
+## Limitations and supporting literature
+
+The only analyzed plant is \(\dot x=u\) with \(\gamma(x)=-\lambda x\), a two-function affine basis and unweighted exact fitting. No noise, sampling delays, event-detection tolerance or actuator saturation is present. Results do not transfer automatically to the discounted objective of arXiv:2402.16337v1. The continuous first-hit rule is crucial; discrete checking could miss a grazing touch. The full 2023 predecessor remains a specifically identified uninspected risk. Independent specialist review has not occurred.
+
+Sources: Rajan--Tallapragada, IEEE Control Systems Letters 8 (2024), equation (4), (7), numerical section and final future-work paragraph (https://cps.iisc.ac.in/~pavant/files/papers/J20.pdf); arXiv:2402.16337v1 (https://arxiv.org/abs/2402.16337); Rajan--Tallapragada, CDC (2023), DOI:10.1109/CDC49753.2023.10383836; Rajan--Tallapragada, arXiv:2201.02090 (2022).
+
+Self-review: passed. Independent audit: not yet performed.
