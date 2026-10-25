@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 the implicit sweep matrix has a strictly lower-triangular part; determinant expansion exhausts ring matchings and two directed cycles with weights z or 1. The cycle-matching trace polynomial is monomial exactly for power-of-two n. A strictly sub-half-degree monomial excludes unbalanced ascents, and Cayley-Hamilton gives all-state extinction. Circular Eulerian counting is bijective. Independent subset-determinant checks pass for all 5910 orders n=3..7 and 399 larger samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1511.06966 Introduction and §§3–4 explicitly treats invertible ECA 150/105 rather than noninvertible ECA 90",
+        "arxiv:2004.07128 Abstract and §§1–2 lists the rules under study; Rule 90 is not among them",
+        "arxiv:2509.07797v2 Theorem 7 is contrary for Rule 90 rather than stronger covering"
+      ],
+      "reasoning": "General finite-linear dynamics via invariant factors does not provide schedule-dependent factors without a computation. Cycle-equivalence bounds and results for rules 60, 105 and 150 are not logically sufficient to derive the Rule-90 determinant or exact extinction schedule count.",
+      "searches": [
+        "sequential asynchronous elementary cellular automaton Rule 90 finite cyclic ring update order exact rank kernel period fixed points",
+        "\"rule 90\" \"power of two\" \"sequential\" nilpotent",
+        "arxiv:1511.06966 periodic points invertible asynchronous cellular automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0802.4412",
+      "arxiv:1208.2762",
+      "arxiv:1511.06966",
+      "arxiv:2004.07128",
+      "arxiv:2509.07797v2",
+      "Related Rule-60 and Rule-150 permutation-sweep results (distinct local rules)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2509.07797v2 pp. 16–18 (PDF), Theorem 7 asserts adjacent-one configurations cannot reach a fixed point under sequential Rule 90",
+        "For n=4, order (0,2,1,3) sends 0011 to 0101 to 0000, establishing nonimplication of the cited negative theorem",
+        "arxiv:0802.4412 establishes cycle-equivalence mechanisms without explicit Rule-90 spectral/extinction criteria"
+      ],
+      "reasoning": "A universal negative assertion cannot imply existence of 16 nilpotent schedules on the four-site ring. The explicit witness uses the same permutation-sweep conventions. The full claim further classifies all sizes by n being a power of two and balances of cyclic ascents, with Eulerian multiplicities.",
+      "searches": [
+        "On the Convergence of Elementary Cellular Automata under Sequential Update Modes Rule 90 Theorem 7",
+        "arxiv:0802.4412 cycle equivalence update order",
+        "\"rule 90\" \"nilpotent\" \"asynchronous\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2509.07797v2 §3.1.2 deals with Rule 90 and fixed-point convergence, not a matching-polynomial formula",
+        "arxiv:0802.4412 §§2–4 studies functional/cycle equivalence from acyclic orientations, without computing this spectral invariant"
+      ],
+      "reasoning": "Checked aliases include binary neighbor-XOR, ECA 90 and ECA 165 under bit complement, sequential dynamical systems and permutation-sweep parity automata. None of the inspected claims expresses this characteristic-polynomial formula or the dyadic nilpotency if-and-only-if criterion.",
+      "searches": [
+        "\"rule 90\" \"nilpotent\" \"asynchronous\"",
+        "\"rule 90\" \"sequential\" \"nilpotent\"",
+        "binary ECA rule 90 arbitrary permutation update order characteristic polynomial matching polynomial plus two orientation monomials, complete spectral classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1208.2762 includes finite-size Rule-90 entries about programmable reachability, not the presented exact all-size schedule count",
+        "The closest available comparison records describe Hamming-cube parity maps, Rule-60/150 sweeps, and general cycle-equivalence, not a Rule-90 nilpotency table"
+      ],
+      "reasoning": "The result is not a re-expression of a known exhaustive table: it determines, for arbitrary ring size and every order, a polynomial and a closed-form count of exactly the extinction-producing orders.",
+      "searches": [
+        "Rule 90 sequential update nilpotent if cycle size power of two and cyclic ascent count n/2, Eulerian count of nilpotent schedules",
+        "\"rule 90\" \"characteristic polynomial\" \"update order\"",
+        "arxiv:1208.2762 Rule 90 reachable configuration table"
+      ]
+    },
+    "rationale": "Statement-wise comparisons of exact Rule-90 spectra, nilpotent-sweep existence and Eulerian schedule counts were made against relevant primary full texts and research records. The closest 2025 preprint asserts the opposite for adjacent-one inputs, so cannot imply the finding; a four-site trajectory supplies a direct logically contrasting witness. Distinct Rule-60 and Rule-150 results concern other local rules. Residual unindexed priority risk remains.",
+    "residual_risks": [
+      "Unindexed or differently phrased sources could already derive the matching-polynomial formula.",
+      "The 2025/2026 preprint conflict is limited to the statement as printed and does not establish an external assessment of that paper as a whole.",
+      "Same characteristic polynomial need not imply same full periodic orbit census; no such inference is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General cycle-equivalence invariance; no Rule-90 characteristic polynomial or nilpotent schedule-count theorem located in inspected material",
+        "evidence": [
+          "arxiv:0802.4412, abstract and pp. 1–4"
+        ],
+        "identifier_or_url": "arxiv:0802.4412",
+        "material_read": "PDF abstract, Introduction, Sections 2–3 on update-order orientations, and stated Section 4 bounds",
+        "method": "Read searchable PDF text and inspected page 1 image",
+        "title": "Cycle Equivalence of Graph Dynamical Systems",
+        "trigger": "General permutation sequential graph dynamics could dominate an order-classification claim"
+      },
+      {
+        "assessment": "Programmability and reachability via varying temporal update sequences; does not state fixed permutation-sweep nilpotence or the matching polynomial in checked sections",
+        "evidence": [
+          "arxiv:1208.2762, 2012-08-14 posting",
+          "Vielhaber 2012 hosted full text, Introduction and Section 3 table around Rule 90"
+        ],
+        "identifier_or_url": "arxiv:1208.2762; DOI:10.4204/EPTCS.90.14",
+        "material_read": "Accessible hosted full-text HTML, Introduction and reachability classification with Rule-90 table entries",
+        "method": "Read hosted full-text HTML text and arXiv first-post metadata",
+        "title": "Computing by Temporal Order: Asynchronous Cellular Automata",
+        "trigger": "Older source explicitly studies all asynchronous elementary rules and includes Rule 90 in tables"
+      },
+      {
+        "assessment": "Addresses invertible ECA 150/105; Rule 90, which omits the self term, is noninvertible and no direct result for it is stated",
+        "evidence": [
+          "arxiv:1511.06966, pp. 1, 6–9"
+        ],
+        "identifier_or_url": "arxiv:1511.06966",
+        "material_read": "PDF Abstract, Introduction, Sections 3–4 on characteristic polynomials, linear maps and periodic points",
+        "method": "Read searchable PDF text and inspected PDF page 1 image",
+        "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+        "trigger": "Close published all-size algebraic treatment of cyclic permutation sweeps"
+      },
+      {
+        "assessment": "Studies a stated collection of 56 rules, excluding Rule 90; different invariant (schedule sensitivity rather than Rule-90 determinant)",
+        "evidence": [
+          "arxiv:2004.07128, pp. 1–3"
+        ],
+        "identifier_or_url": "arxiv:2004.07128",
+        "material_read": "PDF Abstract, Introduction and definition/targets in Section 2",
+        "method": "Read searchable PDF text and inspected scope list",
+        "title": "Non-maximal sensitivity to synchronism in periodic elementary cellular automata: exact asymptotic measures",
+        "trigger": "Strong update-order classification could subsume spectral simplification"
+      },
+      {
+        "assessment": "Its literal Rule-90 no-convergence claim is contradicted by a four-site nilpotent schedule; it does not present or imply the positive dyadic-and-Eulerian classification",
+        "evidence": [
+          "arxiv:2509.07797v2, pp. 16–18 and 36"
+        ],
+        "identifier_or_url": "arxiv:2509.07797v2",
+        "material_read": "PDF Introduction, Section 3.1.2 Theorem 7 and its argument, Corollary 1, Section 4 summary; pages 16–18 examined as images",
+        "method": "Read primary PDF text, inspected images of pages 16–18, and compared stated quantifiers with direct trajectory",
+        "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+        "trigger": "Direct same-rule fixed-schedule convergence and apparent contradictory claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b09cd75-d1f5-419b-b247-f714940497fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a sharp dimension-and-schedule if-and-only-if extinction classification, an exact Eulerian schedule census, and all-size spectral-class compression for a natural noninvertible sequential cellular automaton. The result highlights a substantive arithmetic dependence on update order, rather than a tiny isolated computation or a renamed known statement.",
+    "status": "PASS"
+  }
+}
