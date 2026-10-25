@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 and no external dependencies. The checker constructs the two families of \(351\) explicit lines, verifies that all line-spanning pairs have distinct row-reduced spans, and checks the restricted gradient cubics coefficient-by-coefficient on every line. It also enumerates all \(9841\) projective points of \(\mathbb P^8(\mathbb F_3)\) and finds exactly \(522\) singular points, matching the predicted line union. The eight two-value combinatorial derivative cases are separately recomputed. An optional second standalone checker, `gf9_stress.py`, verifies all 14,112 assignments of three distinct values and positive multiplicities totalling nine over the extension field \(\mathbb F_9\); it finds 336 satisfying the gradient equations and agrees with the two asserted multiplicity patterns. Run `python3 gf9_stress.py` for the additional finite-extension stress test.
+## correctness
 
-The exact proof of the theorem over an algebraic closure is in RESULT.md: the degree-three common-root equation, multiplicity congruences, exhaustive two-value table, and the geometric consequences. Finite point enumeration is corroboration, not an argument that no additional points exist over extensions of \(\mathbb F_3\). No claim about the nonreduced Jacobian scheme or complete intersection lattice is verified.
+PASS
+
+Over algebraically closed k of characteristic 3, ∂e4/∂x_i=e3−x_i e2+x_i² e1−x_i³ makes every critical coordinate a root of a common cubic, hence at most three distinct values. Coefficient comparison with three distinct roots forces all multiplicities ≡1 (mod 3), so for sum 9 the only patterns are (1,1,7) and (1,4,4), giving coordinate or singleton/4+4 balanced line families. The eight two-value derivative cases and constant vectors add no others. Independently generated exactly 36 coordinate plus 315 balanced distinct projective lines, checked identically vanishing cubic gradient coefficients on every line, and exhausted all 9841 P^8(F3) points: exactly 522 singular points equal the predicted line-point union. Finite F3 check corroborates, not proves completeness over alg closure; the exhaustive cubic-root/multiplicity argument does. Singular support pure dimension one implies squarefree irreducibility and Serre normality; degree 351 by reduced pure 1-dimensional component sum.
+
+## originality
+
+PASS
+
+Cafure–Matera–Privitelli bound coordinate-value diversity and dimension; Orzel supplies dimension bounds; Xie arXiv:2610.00259 supplies dimension and generic coordinate-component local rings but does not enumerate all balanced lines. Dimension one does not classify the 351 irreducible components. Xie's theorem implies correct singular-locus dimension for this parameter and describes certain coordinate loci, but cannot on its own exclude nor characterize the additional 315 balanced components; the gradient cubic residue-and-multiplicity argument is an additional proof. Orzel conjectural dimension criterion is not an exact line classification. Priority is best-of-knowledge; accessible primary material and finite indexed Resultary results cannot establish exhaustive noncoverage.
+
+## value
+
+PASS
+
+Determining the full reduced singular component arrangement for the natural nine-variable quartic in characteristic three fills the component-classification gap left after general dimension and coordinate-component results. The 315 noncoordinate balanced lines are a meaningful extra family, and normality/degree provide natural geometric consequences; the nonreduced Jacobian scheme is expressly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
