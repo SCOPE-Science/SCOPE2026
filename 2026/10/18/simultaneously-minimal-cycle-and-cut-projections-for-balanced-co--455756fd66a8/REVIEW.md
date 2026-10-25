@@ -1,19 +1,21 @@
-# Mathematical review: balanced multipartite cycle and cut projections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over integers \(r\ge3\), \(p\ge2\), and real \(1\le q\le\infty\). The stabilizer-fixed cycle lemma is justified by signed-edge antisymmetry and independent within-part and between-part permutations. It forces every equivariant cross-summand operator to vanish. Automorphism averaging then proves global minimality of both orthogonal projections in every \(\ell_q\). A directly verified Laplacian potential gives all transfer-current coefficients; their absolute column sums yield the two rational endpoint constants. Symmetry transfers them to \(\ell_\infty\), and direct subtraction proves the corrected monotonicity threshold \(p=8\). Finite exact-rational checks test representative parameters but are not used to infer the universal theorem.
+PASS
 
-## Originality — PASS, with residual literature risk
+Let B=im D^T and Z=ker D. A vertex stabilizer fixes only zero cycle flow: all edges among other parts change sign under swap, and remaining two orbits of flows are forced zero by divergences at the distinguished vertex and an external vertex (p>=2). Hence Hom_Gamma(B,Z)=Hom_Gamma(Z,B)=0, so averaging any projection onto either invariant subspace yields its Euclidean projector and cannot increase any ℓq norm. Exact transfer-current Q=D^T(DD^T)^+D has two-part potentials U=(rp−1)/(r(r−1)p²), V=1/((r−1)p²)−1/(rp²). Summing six edge-type multiplicities yields sharp endpoint cut constant 2+2/r−4(rp−1)/(r(r−1)p²), cycle constant 3+2/r−8(rp−1)/(r(r−1)p²); real symmetry gives ℓ∞. Direct rational graph Laplacian and projection-column checks for (r,p)=(3,2),(3,4),(4,3),(6,2) agree. Finite checks do not establish all (r,p,q), which follow from the averaging proof. Finite difference sign yields transitions at p=5,6,7.
 
-Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost*, arXiv:2305.12582v1, establishes the graph-invariant-projection framework and studies tori and Hamming graphs, but its inspected contents do not give the present two-parameter balanced-multipartite constants, simultaneous optimality, or the part-count transition. The earlier Laakso/diamond work (arXiv:2007.07949) concerns different families, including an excluded bipartite boundary. Cactus suppression projections, clustered finite-metric projections, and graph-polytope ellipsoid calculations address non-equivalent domains or invariants. Exact-title, parameter, and equivalent-formulation searches did not reveal coverage; unindexed equivalent work cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Relative projection constants of cycle and cut spaces are natural finite-dimensional Banach-space invariants with links to transportation-cost geometry. Two exact rational constants throughout the complete balanced multipartite family, a common simultaneously norm-minimal pair in every real \(\ell_q\), and a nonmonotone threshold at part size \(5\le p\le7\) are structural results not automatic from the qualitative averaging principle. The restriction to positive equal part sizes is motivated by symmetry, not an arbitrary finite enumeration.
+General group-averaging minimal-projection principle was known in Dilworth–Kutzarova–Ostrovskii (2023/2024), including Hamming graphs/tori, and Laakso graphs supply bipartite precedents. Inspected full text did not contain balanced complete r-partite family with r>=3,p>=2, exact cut AND cycle constants and r-transition. New stabilizer calculation and transfer-current formula are not merely renamings of a recorded Hamming projection constant.
 
-## Limits
+## value
 
-Only equal part sizes and unit edge lengths are addressed. The minimal \(\ell_q\) values for \(q\notin\{1,2,\infty\}\) are not evaluated. No unconditional uniqueness of norm minimizers is claimed. Independent external review has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural symmetric family (complete multipartite graphs) has simultaneous minimizers for complementary cycle/cut spaces across the entire Banach ℓq scale, explicit sharp endpoint projection constants and a genuine part-count monotonicity phase transition. This fills a motivated quantitative gap in transportation-cost and graph-flow projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

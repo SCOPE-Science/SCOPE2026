@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the basis for the theorem for all integer parameters and all real exponents. Its independently stated arithmetic subclaims are tested by the accompanying executable `verify.py`, using exact rational arithmetic and standard-library Python.
+## correctness
 
-Execute `python3 verify.py` in the directory containing both files. A successful run reports 20 tested parameter pairs, 2,970 projected edge columns, 5,353 exact idempotence-entry identities, and 780 exact finite-difference identities. Laplacian potentials and both claimed endpoint column norms are verified in those instances. The finite test range is \(3\le r\le7\) and \(2\le p\le5\); it does **not** certify the universal theorem, its representation-theoretic lemma, or the literature originality assessment.
+PASS
 
-The earliest public source for the motivating invariant-projection problem is arXiv:2305.12582v1, submitted 21 May 2023 UTC. Related earlier work is arXiv:2007.07949v1, submitted 15 July 2020 UTC.
+Let B=im D^T and Z=ker D. A vertex stabilizer fixes only zero cycle flow: all edges among other parts change sign under swap, and remaining two orbits of flows are forced zero by divergences at the distinguished vertex and an external vertex (p>=2). Hence Hom_Gamma(B,Z)=Hom_Gamma(Z,B)=0, so averaging any projection onto either invariant subspace yields its Euclidean projector and cannot increase any ℓq norm. Exact transfer-current Q=D^T(DD^T)^+D has two-part potentials U=(rp−1)/(r(r−1)p²), V=1/((r−1)p²)−1/(rp²). Summing six edge-type multiplicities yields sharp endpoint cut constant 2+2/r−4(rp−1)/(r(r−1)p²), cycle constant 3+2/r−8(rp−1)/(r(r−1)p²); real symmetry gives ℓ∞. Direct rational graph Laplacian and projection-column checks for (r,p)=(3,2),(3,4),(4,3),(6,2) agree. Finite checks do not establish all (r,p,q), which follow from the averaging proof. Finite difference sign yields transitions at p=5,6,7.
 
-Independent scientific audit: not performed.
+## originality
+
+PASS
+
+General group-averaging minimal-projection principle was known in Dilworth–Kutzarova–Ostrovskii (2023/2024), including Hamming graphs/tori, and Laakso graphs supply bipartite precedents. Inspected full text did not contain balanced complete r-partite family with r>=3,p>=2, exact cut AND cycle constants and r-transition. New stabilizer calculation and transfer-current formula are not merely renamings of a recorded Hamming projection constant.
+
+## value
+
+PASS
+
+A natural symmetric family (complete multipartite graphs) has simultaneous minimizers for complementary cycle/cut spaces across the entire Banach ℓq scale, explicit sharp endpoint projection constants and a genuine part-count monotonicity phase transition. This fills a motivated quantitative gap in transportation-cost and graph-flow projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
