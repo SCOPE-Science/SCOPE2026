@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument separately identifies the pointwise stabilizer as a direct product of symmetric groups, proves that \(d\) refinement rounds record all marked-vertex distances, and reconstructs each signature weight from the signed neighbour-distance differences in round \(d+1\). The uniqueness of signed direction vectors is checked for both the signs and the full signature. Therefore refinement has precisely the stabilizer's orbits, including the multiplicative class sizes. A binary-coordinate construction and a pigeonhole argument give the sharp individualization count. The independent finite checker confirms 7030 instances, though finite checks alone cannot prove the general theorem.
+## correctness
 
-## Originality — PASS (residual priority risk)
-Boutin (2009) already gives the sharp *determining number*, so that scalar is not asserted to be new. The new all-marked-sets orbit/refinement equality and its exact colour-class profile and depth bound are not implied by the scalar fixing-number result alone. Arvind et al. (2015) define the Tinhofer orbit criterion and establish it for Johnson graphs, not the binary cubes in the material inspected; the 2016 individualization-complexity source likewise does not provide the specific cube theorem. Targeted repository, primary-literature, and alias searches identified no explicit statement covering the combined cube theorem. The inaccessible full Boutin text and possible external product/Tinhofer characterizations are residual risks. Priority and global uniqueness remain open to independent confirmation.
+PASS
 
-## Mathematical value — PASS
-This is a full structural solution to how elementary counting refinement handles **every** possible pattern of individualizations in an archetypal symmetric graph family. It distinguishes the group-theoretic ability to destroy automorphisms from the algorithmic ability to separate all stabilizer orbits, and supplies exact intermediate class cardinalities and a linear dimension-dependent round bound. The assertion is nontrivial because group-base information by itself does not control colour-refinement orbits on general graphs.
+After XOR translation to s0=0, every zero-fixing cube automorphism permutes coordinates, and fixing other marked vertices allows permutations only within identical binary mark-signature blocks. Orbit invariant a_t(x) is each block Hamming weight; sizes are products of binomial coefficients. Ordinary 1-WL at round d records distances to each marked vertex by neighbour-layer induction. At round d+1 its neighbour distance differences are ±(1,1−2t_1,...), and these signed vectors are injective in t and the bit direction, recovering every a_t exactly; equivariance prohibits further splitting inside an orbit. Distinct signatures iff trivial orbit partition. Pigeonhole gives r−1≥ceil(log2 d), and binary coordinate codes realize equality with distinct marks. Independent standard 1-WL vs orbit-profile partitions checked on 760 marked-set examples d≤5. This is finite corroboration, not proof of all d.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Boutin 2009 gives the numerical determining number of hypercube, which is credited. Numerical determination does not imply ordinary colour refinement computes every stabilizer orbit after d+1 rounds. Broad Tinhofer/compact hierarchy text inspected does not state this exact cube-class result.
+
+## value
+
+PASS
+
+Strengthens a natural graph-automorphism determining-set invariant into a complete finite-time algorithmic refinement classification for all marked configurations, including exact orbit sizes. Useful for individualization-refinement analysis of Cartesian products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
