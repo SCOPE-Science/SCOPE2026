@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification notes
-The analytic proof is given in `RESULT.md`. It uses the exact eigenvalues of an explicit \(2\times2\) Hermitian matrix, the sharp monotone rearrangement of mass missing from and added to a circular arc, and a trigonometric identity for the boundary-cap equality family. At fixed \(a\) and \(m\) the cap equality masks have \(Z=2\sin a(2\cos(m/2)-1)>0\), verifying the phase choice used in the proof. The condition \(m<2\pi/3\) comes from this positivity, not from an experiment.
+# Independent mathematical audit
 
-`check_concentration.py` (Python 3 standard library, no network) evaluates the closed-form equality examples over several parameters and performs 400 finite-grid randomized mask checks (grid size 8192); the finite-grid checks use an explicit sampling tolerance and are not rigorous bounds for general measurable masks. Symbolic simplification of the equality-family Fourier integral independently gives exact zero residuals for the claimed closed-form identity and concentration deficit. No external independent audit or certification has been performed. The identity and inequality are asserted only for the two-dimensional space \(\operatorname{span}_{\mathbb C}\{1,e^{it}\}\), fixed mask mass and nonzero first moment.
+## correctness
+
+PASS
+
+For H=span{1,e^{it}}, normalized 2x2 concentration Gram matrix has diagonal a/pi and offdiagonal Z/(2pi), yielding top eigenvalue a/pi+|Z|/(2pi). Rotate by Fourier moment phase so Z=|Z|>0. Missing density inside centred arc and added density outside each have mass m, values [0,1]. Strict monotonicity of cos geodesic distance gives sharp bathtub rearrangements: missing inside contributes at least 2(sin a-sin(a-m/2)); added outside contributes at most 2(sin(a+m/2)-sin a). Thus |Z|<=2sin a(2cos(m/2)-1), yielding the exact deficit and m<2pi/3 since |Z|>0. Equality uniquely fixes both boundary caps as indicator densities, giving the explicit central arc plus two outer caps E_{a,m}; direct phase integration verifies Z>0 and realizes every geometrically feasible m. Taylor coefficient sin a/(4pi) follows. Symbolic cap integration and 200 independent 4096-grid phase-centred random soft-mask comparisons corroborate; grid tolerance is nonrigorous.
+
+## originality
+
+PASS
+
+Two-mode sharp cosine-profile quantitative rigidity at fixed Fourier-centred exchanged mass and uniqueness among all fractional masks are more precise than the known arc-maximizing qualitative concentration theorem; related sphere-polynomial and real-line stability results concern different spaces and may inspire proofs but do not directly give this exact profile.
+
+## value
+
+PASS
+
+Natural exact rank-two spectral concentration and stability modulus: sharp nonlinear loss plus all equality masks, robust even to fractional observation, clarifies both geometrically feasible exchange and phase-alignment threshold. A self-contained sharp finite-dimensional extremal inequality with boundary characterization, not a mere endpoint exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

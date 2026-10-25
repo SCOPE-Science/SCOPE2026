@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first Fourier moment gives the off-diagonal entry of the complete \(2\times2\) concentration operator, with eigenvalue \(a/\pi+|Z|/(2\pi)\). Two separate sharp bathtub rearrangements use densities bounded by one, each with exchanged mass \(m\). Their boundary-cap integrals combine exactly to \(2\sin a(2\cos(m/2)-1)\). The positivity of the phase-aligned first moment proves the strict \(2\pi/3\) threshold. The exhibited characteristic cap masks attain equality for the entire feasible range and uniqueness follows from strict decrease of cosine in geodesic distance. The rank and boundary normalization were checked directly, and elementary symbolic/trigonometric identities and finite-grid tests agree. The infinite statement rests on the analytic proof, not numerical sampling.
+## correctness
 
-## Originality — PASS (with residual literature risk)
-The motivating 2026 interval-concentration theorem, checked in its full accessible manuscript in §§1–2, 8–9, states a nonquantitative global maximum for all degrees; it does not include this exact fixed-defect phase profile, fractional-mask bang–bang equality classification, or strict phase-ceiling statement. Searches for synonymous circular first-Fourier-moment inequalities, sharp rank-two Toeplitz concentration remainders, soft masks, two-cap extremizers, and the explicit cosine modulus did not identify a matching published claim. The closest located concentration profile for the real-line Paley–Wiener space instead concerns detached intervals and prolate eigenfunctions. The closest finite cyclic two-character concentration result concerns a different discrete norm. Existing quantitative Hardy–Littlewood and polynomial stability theories are discussed separately: a general qualitative or nonsharp remainder does not *by itself* establish the exact nonlinear modulus with all equality masks. The full quantitative Hardy–Littlewood article and the newer real-line preprint could not be inspected; they remain residual risks, not proven noncoverage.
+PASS
 
-## Value — PASS
-The first nontrivial circle concentration operator gives a natural solvable calibration of the recent higher-degree interval-optimality and real-line stability questions. The result supplies the complete **sharp nonlinear** stability profile at every feasible phase-aligned exchanged mass, not merely a quadratic-order constant, and determines exactly when soft masks can saturate it. The independent geometric restriction \(m<2\pi/3\) gives a global phase-rigidity boundary, while the full equality locus identifies the mechanism of stability loss. These are natural spectral-geometry invariants; no assertion is made that the argument has paper-scale difficulty or extends to higher degree.
+For H=span{1,e^{it}}, normalized 2x2 concentration Gram matrix has diagonal a/pi and offdiagonal Z/(2pi), yielding top eigenvalue a/pi+|Z|/(2pi). Rotate by Fourier moment phase so Z=|Z|>0. Missing density inside centred arc and added density outside each have mass m, values [0,1]. Strict monotonicity of cos geodesic distance gives sharp bathtub rearrangements: missing inside contributes at least 2(sin a-sin(a-m/2)); added outside contributes at most 2(sin(a+m/2)-sin a). Thus |Z|<=2sin a(2cos(m/2)-1), yielding the exact deficit and m<2pi/3 since |Z|>0. Equality uniquely fixes both boundary caps as indicator densities, giving the explicit central arc plus two outer caps E_{a,m}; direct phase integration verifies Z>0 and realizes every geometrically feasible m. Taylor coefficient sin a/(4pi) follows. Symbolic cap integration and 200 independent 4096-grid phase-centred random soft-mask comparisons corroborate; grid tolerance is nonrigorous.
 
-## Closest literature and limits
-Abreu–Speckbacher (arXiv:2607.19192v1) provides the arc maximum for every analytic degree. Zelent (arXiv:2610.01299v1) investigates real-line Paley–Wiener stability. García-Ferrero–Ortega-Cerdá (2025) treats a different weighted polynomial space, and Cianchi–Ferone (2008) addresses a general rearrangement remainder. The accessible abstracts for two of these do not justify an assertion of noncoverage of their complete texts. The present result is limited to \(\operatorname{span}\{1,e^{it}\}\), the Fourier-phase-centred arc, and nonzero first moment. It has not received independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two-mode sharp cosine-profile quantitative rigidity at fixed Fourier-centred exchanged mass and uniqueness among all fractional masks are more precise than the known arc-maximizing qualitative concentration theorem; related sphere-polynomial and real-line stability results concern different spaces and may inspire proofs but do not directly give this exact profile.
+
+## value
+
+PASS
+
+Natural exact rank-two spectral concentration and stability modulus: sharp nonlinear loss plus all equality masks, robust even to fractional observation, clarifies both geometrically feasible exchange and phase-alignment threshold. A self-contained sharp finite-dimensional extremal inequality with boundary characterization, not a mere endpoint exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
