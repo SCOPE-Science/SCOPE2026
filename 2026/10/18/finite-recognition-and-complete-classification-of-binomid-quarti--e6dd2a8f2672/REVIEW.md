@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every nondecreasing quadruple of nonnegative integer shifts, the inequalities for the first generalized coefficient give a proved finite bound on every branch. The exhaustive exact sieve yields 83 first-test candidates, eight second-test candidates and five three-test candidates. A second exact solution of the last branch agrees; direct rational checks give the three excluded values at index pair \((4,2)\). Sufficiency for the five survivors follows from known binomidness of Pascal columns and closure under termwise products. The unrestricted claim is proved, not inferred from the 80-row numerical check.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Shapiro gives the binomid definition, product closure and positive Pascal-column cases, and explicitly stops his polynomial classification at degree two; these facts imply sufficiency but not the exhaustive exclusion. Caalim–Tanaka's binomid-index theory supplies general characterization principles but no explicit quartic integer-root classification or three-test recognition theorem. Searches for direct quartic equivalents, generalized-coefficient aliases and OEIS tabulations found no statement implying the complete five-case theorem. A lower-degree classification alone cannot exclude quartic alternatives. Literature outside inspected sources remains a risk.
+PASS
 
-**Value — PASS.** The result completes a natural unbounded four-parameter family inside a difficult published polynomial-binomid classification problem. Its finite three-coefficient recognition theorem distinguishes genuine binomid quartics from 78 first-test impostors and identifies a nontrivial repeated-factor case. It is more informative than merely constructing familiar Pascal-column products, and its exhaustive obstruction is reusable for closely related low-degree polynomial questions.
+The precise universe is nondecreasing (a,b,c,d) of nonnegative integers and monic positive f_n=product(n+a_i). Necessity of the three proposed tests follows at (n,k)=(2,1),(3,1),(4,2). For a sorted prefix j<4, R_j=product_{i<=j}(a_i+2)/(a_i+1)<R_4 and a prospective next t bounds every remaining factor by (t+2)/(t+1); integrality forces R_j((t+2)/(t+1))^(4-j)>=floor(R_j)+1. Strict decrease in t yields rigorous termination of the exact exhaustive rational sieve. Independent exact Fraction enumeration reproduced prefix counts 1,5,21,143,1867; 83 f2/f1-integer cases; eight also satisfying f1|f3; final five after the third test, with three exclusions 1440/7,500/3,98/3. Sufficiency is not merely 80 finite checks: each surviving f_n is a termwise product of powers of n and rising factorial columns, whose generalized coefficients are integral by Shapiro’s Pascal-column theorem and product closure. Nonnegative shifts, positivity and monic normalization are essential; no arbitrary quartic claim.
 
-**Limits.** Noninteger or positive-root polynomials, higher degree and arbitrary integer-valued quartics are outside the scope. The finite branch certificate uses exact arithmetic and a proved termination bound; external independent review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scientific originality after checking statement-level equivalence, stronger coverage, exact-table aliases, prior implications and accessible primary text. Direct mathematical priority risks remain documented.
+
+## value
+
+PASS
+
+Binomid integrality is a natural established arithmetic property. Classifying all nonnegative integer root-shifted quartics across an unbounded four-parameter family settles a concrete gap after degree-two results, and a three-index recognition criterion is a meaningful finite certificate for an otherwise infinite collection of divisibility conditions. The five positive cases alone would be known examples, but the proved global exclusion supplies the mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
