@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The end-face contact events are exactly the intersection, gap, and symmetric difference of two offset intervals of common length \(w\sqrt{1-c^2}\), displaced by \(2hc\). Integrating over \(c=|u_3|\in[0,1]\) gives the three displayed probabilities, with Cauchy’s perimeter identity fixing the denominator. Strict convexity of \(g_h(w)=(w/2)\arctan(w/(2h))\) proves the complete equality class. The small-height profile determines mean width; a convergent large-height series determines all even width moments, and compact moment determinacy gives the inverse theorem. Support functions \(1+\cos(j\phi)/30\), for \(j=2,4\), prove sharp nonidentifiability. These are analytic arguments for all allowed bodies, not inferences from numerical data. The standalone checker independently exercises the interval formulas, quadrature, weighted plane sampling, equality comparisons, and first moment coefficients.
+PASS
 
-## Originality — PASS relative to examined material
+For u=(sqrt(1-c²)eφ,c), top/bottom offset intervals length w sqrt(1-c²), displaced 2hc. Their overlap, gap and exclusive-union lengths are (ws-2hc)+,(2hc-ws)+,2min(ws,2hc). Uniform direction/offset measure conditioned on intersection weights total ws+2hc; c integration exactly gives G_h=E[(w/2)atan(w/(2h))], zero cap h-πμ/4+G_h and normalizer h+πμ/4. Strict g_h=8h³/(w²+4h²)²>0 proves sharp Jensen equality exactly continuous constant width. Small h yields μ from slope of 1-Pr(2); large h analytic odd inverse-height series yields every even moment of bounded positive W, fixing distribution by Hausdorff uniqueness. Support functions 1+cos(jφ)/30 for j=2,4 have curvature >0 and equimeasurable widths yet distinct areas 599π/600 and 119π/120. Independently integrated cap overlap for w=.6,2,4 and h=.75 and differentiated g_h symbolically; all formulas agree.
 
-Classical integral geometry and Cauchy's mean-width formula are acknowledged as prior principles. Readable primary full texts on cylinder stereological inference (McGarrity–Sietsma–Jongbloed, arXiv:1503.01305) and unlabeled section/projection laws (Kim–Yaskin–Zvavitch, arXiv:1512.07289) concern different observables and do not explicitly give the joint end-face count transform, its height-profile inversion, and constant-width equality classification. Prior random-cylinder shadow metrics concern projections, rather than which end faces a plane meets. However, the full texts of the earlier Oakeshott–Edwards cylinder-stereology paper and Kellerer's generalized-cylinder random-line work were unavailable; full historical priority is not established. An equivalent formula may appear under unfamiliar stereological terminology. No merely conventional geometric identities are claimed to be new individually.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete three-outcome probability law for a natural random-section experiment across every planar convex base, not a chosen discrete special case. It gives a sharp shape-independent contrast, a full natural perimeter-constrained extremizer class, and an exact inverse theorem with constructive width-distribution recovery and a rigorous nonidentifiability boundary. These are meaningful structural facts for stereology and geometric tomography, even though the body itself cannot be recovered.
+Classical Crofton/Cauchy plane sampling and perimeter formulas are inputs, not the inverted cap-contact distribution or the Jensen extremal classification. Prior cylinder stereology focuses on section profiles or line probes and projection-distribution works concern different observables. The inaccessible Oakeshott–Edwards full article is a named genuine priority risk.
 
-## Residual limitations
+## value
 
-The sampled planes must have invariant isotropic affine-plane measure and be conditioned on meeting the cylinder. General oblique cylinders, line sections, the complete section shape, and retrieval of directional width labels are outside scope. Historical priority remains evidence-limited. Finite tests supplement but do not replace the analytic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The measurable cap-contact frequencies form a natural stereological statistic, with a sharp constant-width extremal class and a height-profile transform that recovers exactly its unlabelled directional-width distribution while proving explicit non-identifiability of shape/area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
