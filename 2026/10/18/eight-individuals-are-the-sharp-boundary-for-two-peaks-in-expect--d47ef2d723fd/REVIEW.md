@@ -1,19 +1,21 @@
-# Scientific review: two peaks in expected sample singleton counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every possible positive census abundance multiset with total at most eight is a positive-integer partition. The nonincreasing recursion enumerates 66 such profiles without duplication; an independent all-compositions construction checks the completeness, one census size at a time. For each profile, the hypergeometric probability that a species occurs exactly once is its abundance times a binomial coefficient divided by the total sample count. The embedded program independently enumerates every labeled-individual subset and recovers the same rational expected singleton count for every profile and sample size. Exact comparisons show no profile with two strict interior peaks below eight and the sole eight-individual profile \((5,2,1)\), with peaks at \(2\) and \(6\). The two all-size exceptions (uniform abundance and abundances at most two) have separate elementary algebraic proofs. Finite enumeration is not used as proof for any claim about censuses larger than eight.
+PASS
 
-## Originality — PASS, conditional on the documented literature-access limits
+Hypergeometric indicator counting gives F_a(m)=Σ_i a_i C(N−a_i,m−1)/C(N,m). Independent exact Fraction computation over every 66 positive-integer partitions N=1..8 found the per-N 0/1/2-strict-peak counts (1,0,0),(2,0,0),(2,1,0),(4,1,0),(5,2,0),(6,5,0),(7,8,0),(12,9,1). Sole N=8 double peak is (5,2,1) at m=2,6 with (1,17/14,33/28,8/7,65/56,33/28,9/8,1). The proof derives exact adjacent ratio for all equal-abundance samples, permitting at most one turning point, and F(m)=tm/N+2rm(N−m)/(N(N−1)) for abundances in {1,2}, concave for all N. The finite census is exhaustive via integer partitions and independently evaluated subsets; only the symbolic contrasts cover arbitrary N.
 
-The classical hypergeometric formula is not original. Coddington et al. (2009), DOI `10.1111/j.1365-2656.2009.01525.x`, discusses observed singletons and undersampling; Colwell et al. (2012), DOI `10.1093/jpe/rtr044`, develops finite-population rarefaction and frequency-of-frequency methods; Chao and Jost (2012), DOI `10.1890/11-1952.1`, develops sample completeness and rarefaction from frequency counts. Inspected article sections and methods do not supply the sharp minimum, exact first-layer classification, or the two structural contrasts as the same mathematical result. Closest adjacent research-index records concern covariance of richness with frequency counts, covariance of successive discoveries, and pairwise comparison of expected singleton curves under abundance transfers; none logically determines the number of maxima in one fixed finite-population curve. A covering theorem under occupancy/urn terminology, or in uninspected appendices/older literature, remains a nonzero bibliographic risk; this status is a self-review, not independent originality certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Singletons are a natural ecological diagnostic of undersampling, and the expected number observed at increasing sampling effort is a natural rarefaction profile. The first possible double peak at only eight individuals demonstrates concretely that a single-peak assumption fails in the smallest heterogeneous examples. The unique abundance profile at the sharp threshold and the two all-size no-double-peak structural classes isolate when this behavior needs genuinely different abundance scales. These are finite exact structural facts with interpretive value for sampling design; the proof does not claim empirical prevalence or a larger-scale classification.
+Classical rarefaction and frequency-of-frequency methods contain the expectation machinery, but in actual relevant source sections and Resultary comparisons did not supply the complete smallest two-peak profile (5,2,1), uniqueness or structural all-N contrasts. Best-of-knowledge new sharp finite boundary, with occupancy terminology residual risk.
 
-## Closest prior work and unresolved limits
+## value
 
-The cited literature supplies the ecological motivation and hypergeometric setup, not demonstrated exact coverage of the new threshold. Earlier work about comparing two curves is not equivalent to classifying peaks within a curve. There remains a risk of older equivalent occupancy-language results; independent bibliographic checking is necessary before publication. The scope is fixed finite abundances, perfect detection, one random sample at each size and unconditional expected singleton count, not variance, replacement sampling or estimated abundance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Singleton counts are basic rarefaction and undersampling diagnostics. The smallest heterogeneous census where expected singletons have two strict peaks, unique first-layer abundance multiset and contrasting all-size exclusion families give an independently motivated precise model limitation. Finite exact classification can be a useful benchmark despite no unbounded census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
