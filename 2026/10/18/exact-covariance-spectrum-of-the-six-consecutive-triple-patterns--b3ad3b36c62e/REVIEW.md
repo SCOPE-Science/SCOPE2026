@@ -1,11 +1,21 @@
-# Scientific review: exact consecutive-triple covariance spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** For a uniform unrestricted permutation on at least four labels, disjoint local order patterns are independent. All off-diagonal covariances therefore arise from overlaps of sizes one or two. Enumerating order patterns on four and five coordinates produces the explicitly displayed rational covariance matrix, and its symbolic characteristic polynomial factors into four linear factors and a quadratic. The endpoint peak–valley telescoping identity verifies the exceptional bounded eigenmode independently. Positivity and the extremal eigenvalue ordering follow from elementary inequalities valid for every \(n\ge4\). The standalone program reproduces the symbolic identities and independently enumerates the finite models through size eight. Computation is a finite cross-check, not the reason the theorem holds in all dimensions.
+## correctness
 
-**Originality — PASS, with historical-priority limitations.** Borga and Penaguiao's cycle-polytope theorem (arXiv:1910.02233) provides asymptotic overlap-flow constraints, which explain why one nontrivial contrast can remain bounded; no finite covariance eigenvalues are given. Crane, DeSalvo and Elizalde's Theorem 8.1 (arXiv:1609.01370) already provides the exact diagonal variances and local dependence used in this proof, so those inputs are explicitly credited. It does not provide the six-pattern joint covariance spectrum, extremal eigendirections, or sharp conditioning. Borga's 2020 central-limit theorem (arXiv:2003.08426) concerns pattern-avoiding families, and Crane and DeSalvo (arXiv:1509.07941) concern pattern avoidance and Poisson approximation. Focused scientific-record and prior-claim searches found no mathematically equivalent full finite spectrum. That is affirmative but limited evidence, not a certification of novelty: multivariate generating-function work may imply the same exact result, and independent historical-priority review remains necessary.
+PASS
 
-**Value — PASS.** The six pattern counts form a natural simultaneous statistic in permutation local-limit and ranking analysis. A complete exact covariance spectrum distinguishes the deterministic conservation law, the lone finite-variance boundary-flow direction, and four extensive fluctuation directions. It gives an exact least-noisy nontrivial linear contrast, a maximal-variance direction, and a sharp finite-sample condition number diverging linearly with sample length, not merely a list of covariances. These resolve a motivated structural issue left by asymptotic cycle-polytope dimension statements. No multivariate normality or independence of spectral scores is asserted.
+Relative order patterns on disjoint position sets are independent under independent continuous ranks, so only overlaps at lags 0,1,2 contribute. Enumerating all 24 patterns of length four and all 120 of length five defines exact Q1,Q2; their weighted covariance matrix is M_n/360. An independently written symbolic SymPy check reconstructed the Q matrices and FACTORED the full characteristic polynomial identically for symbolic n; the fixed eigenmode v=(0,-1,1,-1,1,0) has eigenvalue 1/8. The peak-minus-valley indicator at each interior position telescopes to A_(n-1)-A_1, two independent fair Bernoullis for n>=4. This mode has variance 1/2, norm squared four. The other four eigenvalues are strictly >1/8 by the displayed radical comparison and have positive linear growth; the radical-plus root is largest. For n=4 two linear eigenvalues tie; the only zero is all-ones. All-size statement follows from fixed overlap enumeration and polynomial algebra, not numerical n<=300 examples.
 
-**Primary sources and limits.** Full mathematical content and relevant sections were inspected for arXiv:1910.02233, arXiv:2003.08426, arXiv:1609.01370, and arXiv:1509.07941. The decisive distinction is between known single-pattern variances and new off-diagonal *spectral* structure. Historical coverage outside the inspected corpus, especially implicit consequences of multivariate cluster generating functions, remains a risk. All reproducible files and exact-scope qualifications accompany the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published multivariate feasible-region cycle-polytope identities explain one approximate conservation structure but not a finite-n covariance diagonalization. The published Crane/DeSalvo/Elizalde weak-dissociation framework determines single-pattern variances (the diagonal of the current matrix), not this exact joint cross-covariance spectrum on accessible evidence. Boundary telescoping alone is elementary and not a novelty claim; eigenbasis, exact eigenvalues, and sharp condition number are the assessed remainder.
+
+## value
+
+PASS
+
+The complete joint finite-sample covariance spectrum of the six natural consecutive triple pattern counts is a nontrivial spectral invariant. It explicitly separates one boundary-fluctuation mode from four bulk-growing modes and quantitatively describes singularity/conditioning; future multivariate asymptotic analyses can use these exact numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

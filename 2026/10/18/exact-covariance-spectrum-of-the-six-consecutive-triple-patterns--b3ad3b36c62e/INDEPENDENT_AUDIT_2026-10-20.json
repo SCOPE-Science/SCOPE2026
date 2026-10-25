@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T00:03:45.963956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Relative order patterns on disjoint position sets are independent under independent continuous ranks, so only overlaps at lags 0,1,2 contribute. Enumerating all 24 patterns of length four and all 120 of length five defines exact Q1,Q2; their weighted covariance matrix is M_n/360. An independently written symbolic SymPy check reconstructed the Q matrices and FACTORED the full characteristic polynomial identically for symbolic n; the fixed eigenmode v=(0,-1,1,-1,1,0) has eigenvalue 1/8. The peak-minus-valley indicator at each interior position telescopes to A_(n-1)-A_1, two independent fair Bernoullis for n>=4. This mode has variance 1/2, norm squared four. The other four eigenvalues are strictly >1/8 by the displayed radical comparison and have positive linear growth; the radical-plus root is largest. For n=4 two linear eigenvalues tie; the only zero is all-ones. All-size statement follows from fixed overlap enumeration and polynomial algebra, not numerical n<=300 examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crane–DeSalvo–Elizalde Theorem 8.1 gives exact individual variances and dissociation framework; Borga handles generating-tree pattern-avoiding distributions rather than unrestricted uniform permutations."
+        ],
+        "reasoning": "Even if a general overlap formula can mechanically be applied, obtaining its full six-dimensional eigenvalues and sharp boundary condition number is not present in the inspected theorem statements; no stronger ready-made explicit spectrum located.",
+        "searches": [
+          "exact covariance matrix eigenvalues consecutive 3-pattern counts uniformly random permutations",
+          "Crane DeSalvo Elizalde arXiv:1609.01370 weak dissociation consecutive patterns",
+          "Borga 2003.08426"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.02233",
+        "https://arxiv.org/abs/1609.01370",
+        "https://arxiv.org/abs/2003.08426",
+        "https://arxiv.org/abs/1509.07941"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full primary Borga–Penaguiao paper has feasible cycle-polytope theorem in §3, not covariance/variance treatment; explicit Q1/Q2 count supplies cross-covariances here."
+        ],
+        "reasoning": "The independent overlap enumeration extends known first/second moment methods to full cross covariance; the matrix factorization and extremal mode are additional results not logically dictated by the feasible polytope dimension alone.",
+        "searches": [
+          "exact covariance matrix eigenvalues consecutive 3-pattern counts uniformly random permutations",
+          "Borga Penaguiao 1910.02233 Theorem 3.12",
+          "Crane DeSalvo Elizalde 1609.01370 Theorem 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every pattern-count covariance can be written through lagged overlap correlations of length-three windows. The limiting feasible-region cycle polytope imposes overlap linear constraints."
+        ],
+        "reasoning": "Flow equations explain one bounded boundary mode but do not fix the Euclidean finite-sample covariance eigenvalues; no same-spectrum theorem was identified.",
+        "searches": [
+          "exact covariance matrix eigenvalues consecutive 3-pattern counts uniformly random permutations",
+          "Borga Penaguiao consecutive patterns overlap flow cycle polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior formulas give diagonal entries of the 6x6 covariance, and Borga/Penaguiao tabulate overlap constraints."
+        ],
+        "reasoning": "One-dimensional pattern variance tables neither fix pairwise covariances nor determine spectral multiplicities and limiting condition number.",
+        "searches": [
+          "exact covariance matrix eigenvalues consecutive 3-pattern counts uniformly random permutations",
+          "Crane DeSalvo Elizalde 1609.01370 equations (33)–(34)"
+        ]
+      },
+      "rationale": "Published multivariate feasible-region cycle-polytope identities explain one approximate conservation structure but not a finite-n covariance diagonalization. The published Crane/DeSalvo/Elizalde weak-dissociation framework determines single-pattern variances (the diagonal of the current matrix), not this exact joint cross-covariance spectrum on accessible evidence. Boundary telescoping alone is elementary and not a novelty claim; eigenbasis, exact eigenvalues, and sharp condition number are the assessed remainder.",
+      "residual_risks": [
+        "A multivariate consecutive-pattern generating-function paper could implicitly specialize to these eigenvalues; not exhaustively ruled out.",
+        "The exact boundary mode is uncorrelated with the others, not claimed independent or asymptotically Gaussian."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies limiting feasible polytope/flows; does not establish finite-sample covariance spectrum on material read",
+          "evidence": "Theorem 3.12 cycle-polytope, no covariance/variance term found in the full text search.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.02233",
+          "material_read": "Full 24-page accessible primary article inspected, notably introduction, Theorem 1.6, Theorem 3.12 and overlap-flow construction; text searched for covariance and variance",
+          "method": "Downloaded lawful scholarly PDF and read selected sections plus whole-text term search and one page image",
+          "title": "The feasible region for consecutive patterns of permutations is a cycle polytope",
+          "trigger": "Same consecutive-pattern overlap counts, potential dimension-four domination"
+        },
+        {
+          "assessment": "Covers individual pattern variances; possible hidden joint covariance corollary remains source-priority risk",
+          "evidence": "arXiv:1609.01370 Theorem 8.1.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.01370",
+          "material_read": "Accessible bibliographic, abstract and cited theorem descriptions (Theorem 8.1, eqs. 33–34); full text unavailable in this run",
+          "method": "Primary abstract and secondary indexed theorem cross-check",
+          "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+          "trigger": "Uniform pattern-indicator second moments, exact variance formulas"
+        },
+        {
+          "assessment": "Pattern-avoiding combinatorial classes, not same uniform unrestricted covariance spectrum",
+          "evidence": "arXiv:2003.08426",
+          "identifier_or_url": "https://arxiv.org/abs/2003.08426",
+          "material_read": "Accessible abstract-level scope and references",
+          "method": "Primary bibliographic comparison",
+          "title": "Asymptotic normality of consecutive patterns in permutations encoded by generating trees",
+          "trigger": "Natural alias: consecutive-pattern normal laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete joint finite-sample covariance spectrum of the six natural consecutive triple pattern counts is a nontrivial spectral invariant. It explicitly separates one boundary-fluctuation mode from four bulk-growing modes and quantitatively describes singularity/conditioning; future multivariate asymptotic analyses can use these exact numbers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1910.02233",
+    "https://arxiv.org/abs/1609.01370",
+    "https://arxiv.org/abs/2003.08426",
+    "https://arxiv.org/abs/1509.07941"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A multivariate consecutive-pattern generating-function paper could implicitly specialize to these eigenvalues; not exhaustively ruled out.",
+    "The exact boundary mode is uncorrelated with the others, not claimed independent or asymptotically Gaussian.",
+    "The scientific C/O/V decision is best-of-knowledge, not Lean or external-expert certification; publication is not authorized."
+  ],
+  "residual_risks": [
+    "A multivariate consecutive-pattern generating-function paper could implicitly specialize to these eigenvalues; not exhaustively ruled out.",
+    "The exact boundary mode is uncorrelated with the others, not claimed independent or asymptotically Gaussian."
+  ],
+  "schema_version": 1
+}
