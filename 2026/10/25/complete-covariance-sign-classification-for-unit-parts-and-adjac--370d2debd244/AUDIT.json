@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The uniform law has exactly binomial(n-1,k-1) outcomes; zero-shifted stars and bars yields explicit ordinary generating functions for E[U], E[A], and E[UA]. An algebraically checked formal-series identity reduces the covariance to (2(k-1)/((n-1)D)) times ((k-3)h_(m-2)-h_(m-3)); all parameters, including k=1 and k=2 and parity boundaries, are handled. Nonnegative coefficient monotonicity proves strict signs for k>=5; explicit even-only expansions prove k=3 and k=4. The standalone independent verifier exhaustively enumerates n<=18 and checks exact moment identities through n<=140 (19,745 assertions). Enumeration is a check, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heubach–Mansour 2003 Theorem 2.1 marks length, rises, levels and drops; Section 3.1 derives the level-count first moment at fixed length but does not separately mark singleton parts.",
+        "Louchard–Prodinger 2002 explicitly studies Carlitz compositions, for which adjacent-equality count is zero.",
+        "Gafni 2009 studies longest equal-part runs, not mixed unit-part/level covariance."
+      ],
+      "reasoning": "The known first-moment generating function computes E[A] but not E[UA], so it does not directly entail the complete sign classification. General techniques could be specialized with an additional mark for unit parts, but that requires a separate mixed-statistic derivation. The 1998 paper is a genuine unresolved historical-priority source, described among the residual risks.",
+      "searches": [
+        "arxiv:math/0310197v1, Section 2 and Section 3.1, formula for levels at fixed part count",
+        "doi:10.46298/dmtcs.302, introduction and theorem overview",
+        "arxiv:0907.5553v1, Proposition 1, Theorems 1-2",
+        "published-finding corpus: Carlitz compositions exact mixed moments singleton parts and equal consecutive parts in ordinary compositions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0310197",
+      "https://dmtcs.episciences.org/en/articles/302/download",
+      "https://arxiv.org/pdf/0907.5553",
+      "https://www.finanz.math.tugraz.at/~prodinger/abs_136.htm",
+      "https://oeis.org/A106356",
+      "published-finding corpus closest IDs: 2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31; 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heubach–Mansour 2003 explicitly derives (k-1)x^k/((1+x)(1-x)^(k-1)) for total levels in all compositions at given k, which is not a covariance.",
+        "Knopfmacher–Prodinger 1998 is described in the 2002 introduction as studying the number of compositions with a prescribed number of equal adjacencies and their mean; the author abstract similarly lists that statistic.",
+        "The new sign theorem is determined by a mixed derivative or equivalently an exact cancellation producing a positive-coefficient series."
+      ],
+      "reasoning": "Neither E[A] alone nor the distribution of A implies Cov(U,A) without the joint law; distinct joint laws may share A marginal and U marginal. The proof computes E[UA] and factors its difference from E[U]E[A], then classifies signs. An uninspected 1998 full text could still contain an implicit or explicit derivation, so the originality conclusion has that named risk.",
+      "searches": [
+        "Heubach Mansour Counting rises levels and drops in compositions arxiv math/0310197 section 3.1",
+        "Knopfmacher Prodinger On Carlitz compositions 1998 equal adjacent parts summary",
+        "Louchard Prodinger Probabilistic Analysis of Carlitz Compositions 2002 complete primary paper introduction and theorem statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest composition-related published-finding corpus item 2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31 addresses part-count versus maximum, not the fixed-length joint unit/level count.",
+        "The binary run-transition item 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d has a different random object (fixed-count two-letter words)."
+      ],
+      "reasoning": "The claim is invariant under replacing each positive part by its excess over one: unit parts become zero coordinates and adjacent equalities become ties among adjacent excesses. Searches used both formulations, with no matching sign theorem identified. Matching a keyword like composition is insufficient; the two closest records concern different pairs of statistics.",
+      "searches": [
+        "published-finding corpus: uniform fixed-length positive integer compositions exact covariance of count parts equal to one with number of adjacent equal parts parity-dependent sign",
+        "published-finding corpus: random compositions singleton and adjacent equality correlation sharp sign transition parts number",
+        "Web: random compositions count ones and adjacent equal pairs covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A106356 enumerates compositions by the number of adjacent equal parts; it does not record singleton-count mixed moments.",
+        "Search results identified enumerations of levels, not a joint covariance or the parity sign diagram."
+      ],
+      "reasoning": "A table of a single level-count statistic cannot determine its covariance with unit-part count. Neither the exact list of covariance values nor an implied stronger result was found in the searched records.",
+      "searches": [
+        "OEIS A106356 number of compositions with k adjacent equal parts",
+        "Web: number of ones and levels compositions mixed covariance",
+        "published-finding corpus: covariance unit parts and adjacent equality exact parity threshold k=4"
+      ]
+    },
+    "rationale": "Searches of the published mathematical record and accessible previous findings did not locate the joint unit-part/adjacent-equality covariance sign theorem. Close work provides level-count enumeration, Carlitz (no-equality) laws, or longest equal-run laws. The new result is a complete finite all-parameter mixed covariance sign classification with nontrivial k=3/4 parity boundary. The 1998 predecessor was not readable in full and remains an explicit priority risk.",
+    "residual_risks": [
+      "Full text of Knopfmacher–Prodinger 1998 was inaccessible; its discussion of equal adjacent parts could implicitly cover part of this result.",
+      "Older general marked generating functions may allow an implicit specialization with a unit-part marker; no statement-level dominance was identified in inspected claims.",
+      "No independent historical-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit first moment of levels and unmarked part-size support, not unit-part/level mixed covariance or parity-sensitive sign classification.",
+        "evidence": [
+          "p.2 lists markers for rises, levels, drops and length, not number of ones.",
+          "§3.1 gives first moment of levels for fixed number of parts.",
+          "Conclusion mentions product statistics as further calculations, not this particular mixed sign law."
+        ],
+        "identifier_or_url": "arxiv:math/0310197v1 | https://arxiv.org/pdf/math/0310197",
+        "material_read": "Abstract/introduction, general Theorem 2.1 and definitions (pp.1–3), fixed-length levels formula in §3.1 (p.10), concluding remarks (p.21).",
+        "method": "Inspected primary full-text PDF and relevant mathematical formulas, including page images.",
+        "title": "Counting rises, levels, and drops in compositions",
+        "trigger": "General marked generating functions for adjacent equalities at prescribed composition length"
+      },
+      {
+        "assessment": "Object is Carlitz compositions requiring every pair of successive parts to differ; the new covariance concerns unrestricted positive compositions with fixed length.",
+        "evidence": [
+          "Introduction defines Carlitz compositions as those with unequal successive parts.",
+          "The theorem outline concerns numbers and sizes of Carlitz parts, Markov behavior and limits."
+        ],
+        "identifier_or_url": "doi:10.46298/dmtcs.302 | https://dmtcs.episciences.org/en/articles/302/download",
+        "material_read": "Primary PDF abstract, introduction and detailed theorem outline, notation and first distribution results (pp.1–4).",
+        "method": "Inspected primary PDF text and page image.",
+        "title": "Probabilistic Analysis of Carlitz Compositions",
+        "trigger": "Closest classical probabilistic treatment of compositions with equal adjacency restriction"
+      },
+      {
+        "assessment": "Provides distributional limits for longest identical-part runs; does not state covariance of number of unit parts with total adjacent equalities at fixed k.",
+        "evidence": [
+          "Defines longest equal-part run, derives its univariate generating functions and its asymptotic mean/variance."
+        ],
+        "identifier_or_url": "arxiv:0907.5553v1 | https://arxiv.org/pdf/0907.5553",
+        "material_read": "Primary PDF abstract and §1–2, Proposition 1, Theorem 2 and discussion of runs of unit parts, pages 1–3, 10, 14–15.",
+        "method": "Inspected primary PDF and page image.",
+        "title": "Longest Run of Equal Parts in a Random Integer Composition",
+        "trigger": "Potential broader equal-adjacency statistic in unrestricted compositions"
+      },
+      {
+        "assessment": "Plausible closer predecessor. Not claimed to be wholly not-covering; priority risk retained.",
+        "evidence": [
+          "Author abstract lists number of equal adjacent parts in ordinary compositions, but not the mixed singleton covariance.",
+          "2002 introduction reports counting a specified number of equal adjacencies and the mean, not this finite sign theorem."
+        ],
+        "identifier_or_url": "doi:10.1006/eujc.1998.0216 | https://www.finanz.math.tugraz.at/~prodinger/abs_136.htm",
+        "material_read": "Author-hosted abstract and contemporaneous 2002 paper’s description; complete 1998 source inaccessible.",
+        "method": "Located author abstract; OA text retrieval failed; institutional access unavailable for this source.",
+        "title": "On Carlitz compositions",
+        "trigger": "Original primary work explicitly mentioning counts of equal adjacent parts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "370d2deb-d244-489f-abd8-2c994cc5a4ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of unit parts and the number of adjacent ties are natural complementary local/global statistics of a uniformly random ordered integer composition. Their joint sign is not fixed by individual enumerations or by naive dependence intuition: it changes sharply from negative for two/three parts at even size to positive at four/five parts, with exact parity-zero boundaries. The complete classification covers all positive sizes and lengths, not a handpicked slice, and may inform analyses that combine part-frequency and local repetition statistics. It does not claim downstream theorems for other composition models.",
+    "status": "PASS"
+  }
+}
