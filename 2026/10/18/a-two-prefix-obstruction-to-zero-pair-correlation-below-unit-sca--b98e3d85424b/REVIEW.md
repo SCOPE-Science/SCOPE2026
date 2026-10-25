@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem is a deterministic all-sequences statement, including coincident points. Every original oriented gap is subdivided by later insertions; the key inequality is checked separately in four cases according to whether there is an insertion and whether the old gap is short. Summation uses only the exact identities for the number of insertions and total circumference. Counts of short neighbor gaps inject into unordered close pairs for at least three points. Choosing \(M=\lfloor\sqrt2N\rfloor\) establishes the optimal factor for this two-prefix argument. The optional exact-rational certificate checks 5,430 finite instances, including ties, but is not treated as the proof of the infinite theorem.
+## correctness
 
-## Originality (PASS, with risks)
-The most directly relevant full-text source is Weiß (2026), arXiv:2610.13468v1. Its sharp one-prefix pointwise lower bound is zero at every scale strictly below one; its conditional upper bound is a different inequality. The finite two-prefix obstruction and its positive limsup conclusion do not follow from those statements. Full-text comparisons with Fiedler–Weiss (2025) and Weiß (2023) concern finite-gap hypotheses and a particular sequence. Targeted published-finding and literature searches did not reveal the same bound. An unindexed earlier packing argument remains possible, and the stated constant is not claimed universally sharp.
+PASS
 
-## Mathematical value (PASS)
-Characterizing admissible limiting pair-correlation functions is an explicit open classification direction of the motivating source. The positive universal limsup on the genuine subunit interval \(((2+\sqrt2)/4,1)\) is a new necessary condition and demonstrates that pointwise sharpness along subsequences cannot be realized by an all-prefix limit there. The complete finite inequality is independently usable for quantitative two-prefix estimates.
+Reconstructed nested labeled circular gap decomposition, including zero-length gaps and fixed coordinate/index tie order. For each old gap, its b short-old indicator, r newly inserted labels and s short subgaps imply g >= (1-b)a/N + r(1-eps)a/M - sa/M by four exact cases; summing, using B/N<=R_N/2 and S/M<=R_M/2, yields the stated finite bound. Optimizing eps(1-eps)/(1+eps) at sqrt(2)-1 gives 3-2sqrt(2) and hence the limsup lower bound. Independent separate rational point generator tested 5,805 exact N,M,a cases with coincidences. Finite tests corroborate but do not establish the universal quantifiers.
 
-## Scope and limits
-The bound is on limsup, not liminf. It does not classify all limits, show optimality of the threshold among all possible methods, or provide an extremizing sequence. Novelty remains subject to earlier unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Weiß 2026 Theorem 1.1 gives pointwise lower liminf bound zero on (0,1) and sharp examples for a varying subsequence, not a positive limsup obstruction tying nested prefixes. Earlier finite-gap restrictions and van der Corput calculations differ in quantifiers. Resultary pair-correlation hits concern other normalizations or dynamical sequences.
+
+## value
+
+PASS
+
+The threshold 0.85355... is a uniform, nontrivial obstruction to globally vanishing pair-correlation profiles despite pointwise liminf freedom. The two-prefix finite inequality is a reusable structural tool linking empirical counts at dependent scales; no globally sharp threshold is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

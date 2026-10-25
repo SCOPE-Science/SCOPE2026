@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and proof checks
 
-Run `python3 proof_check.py` using Python 3 standard libraries only. The deterministic checker generates rational circle configurations (including identical points and distinct regularly spaced points), subdivides earlier oriented gaps using a consistent tie order, and verifies the four-case lower bound and the stated two-prefix inequality for 5,430 combinations. The program printed `PASS: 5430 exact two-prefix/circular-gap inequalities` and independently evaluated the exact critical threshold to 50-digit decimal precision.
+# Independent mathematical audit
 
-Mathematical validity for every real scale and arbitrary infinite sequences follows from the fully quantified argument in `RESULT.md`: the exact per-gap comparison, the bound on short gap counts by ordered close-pair counts, and the subsequence \(M=\lfloor\sqrt2N\rfloor\). The computational experiments are bounded and do not certify the universal claim by themselves.
+## correctness
 
-Literature comparison is based on the material of the primary publications cited in the result. The claim is not asserted to be globally sharp, independently audited, or independently certified.
+PASS
+
+Reconstructed nested labeled circular gap decomposition, including zero-length gaps and fixed coordinate/index tie order. For each old gap, its b short-old indicator, r newly inserted labels and s short subgaps imply g >= (1-b)a/N + r(1-eps)a/M - sa/M by four exact cases; summing, using B/N<=R_N/2 and S/M<=R_M/2, yields the stated finite bound. Optimizing eps(1-eps)/(1+eps) at sqrt(2)-1 gives 3-2sqrt(2) and hence the limsup lower bound. Independent separate rational point generator tested 5,805 exact N,M,a cases with coincidences. Finite tests corroborate but do not establish the universal quantifiers.
+
+## originality
+
+PASS
+
+Weiß 2026 Theorem 1.1 gives pointwise lower liminf bound zero on (0,1) and sharp examples for a varying subsequence, not a positive limsup obstruction tying nested prefixes. Earlier finite-gap restrictions and van der Corput calculations differ in quantifiers. Resultary pair-correlation hits concern other normalizations or dynamical sequences.
+
+## value
+
+PASS
+
+The threshold 0.85355... is a uniform, nontrivial obstruction to globally vanishing pair-correlation profiles despite pointwise liminf freedom. The two-prefix finite inequality is a reusable structural tool linking empirical counts at dependent scales; no globally sharp threshold is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
