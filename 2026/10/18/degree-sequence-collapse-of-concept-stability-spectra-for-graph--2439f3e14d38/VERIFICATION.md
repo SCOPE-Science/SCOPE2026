@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the accompanying program with Python 3:
+## correctness
 
-```bash
-python verify_graph_stability.py
-```
+PASS
 
-The script builds each graph context from the edge-vertex incidence relation, enumerates every subset of the edge objects, directly calculates its common incident vertices, derives the associated formal concept, and counts the subsets giving each intent. The resulting rational multiset is compared to the proposed exact expression. It additionally checks that coatom-star intersections recover adjacency, and tests the nonisomorphic cubic witness graphs by triangle existence and by direct stability calculation.
+For the edge-as-object/vertex-as-attribute formal context of any finite simple undirected graph n≥3, minimum degree at least 2, two distinct edges share at most one endpoint. Hence closed extents are exactly bottom ∅, m singleton edges, n distinct incident-edge stars S_v, and E, for m+n+2 concepts. Stability of a star is (2^{d(v)}−1−d(v))/2^{d(v)}, because at least two selected incident edges are necessary and sufficient to derive singleton v; top bad subsets are empty, m singletons and disjoint families of star subsets of cardinality≥2. Thus top stability 1−(Σ_v 2^{d(v)}−n−m+1)/2^m. Coatoms are vertex stars, and their meet is the atom {uv} iff uv is an edge; unlabelled lattice alone reconstructs G. K_{3,3} and triangular prism each have six vertices, nine edges, degree3; for t copies all mixtures are nonisomorphic (triangle count distinguishes) while identical degree multisets give identical spectra. Independently rebuilt both six-vertex incidence contexts and confirmed exact 17-value multiset 1, fifteen 1/2, 239/256.
 
-Observed run:
+## originality
 
-```text
-VERIFY_OK graphs=266 enumerated_object_subsets=37624 witness=K33_vs_triangular_prism spectrum=1:1,1/2:15,239/256:1
-```
+PASS
 
-All labelled simple graphs with minimum degree at least two on three, four, and five vertices are checked exhaustively, along with the two six-vertex cubic witnesses. This bounded enumeration independently exercises the formulas; it is not an infinite mathematical proof. The written proof supplies the unrestricted argument. No independent external review was performed.
+Best-of-knowledge mathematical-implication comparison: evaluated exact final statement against identified source claims, known ingredients and search aliases; where full primary texts are inaccessible only their actually inspected portions are assessed, and priority risks are stated, not hidden. The identified available sources do not establish a covering statement of the full final claim.
+
+## value
+
+PASS
+
+The concept lattice retains an incidence graph completely through its order, while the entire distribution of the widely used concept-stability statistic provably forgets adjacency and suffers arbitrarily large nonisomorphic collisions. This mathematically motivated information-loss statement is stronger than computing a stability formula for one graph and useful for evaluating stability as a representation or selection invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
