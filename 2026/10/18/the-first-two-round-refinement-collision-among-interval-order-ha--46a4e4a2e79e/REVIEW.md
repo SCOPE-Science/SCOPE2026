@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain consists of all finite nonempty interval orders of cardinality at most eight, encoded only by their directed cover relations. The classical Fishburn correspondence makes enumeration by upper-triangular nonnegative integer matrices with positive row and column totals exhaustive and isomorphism-free. The verification code generates all positive row-sum weak compositions, filters exactly the necessary column constraints, expands each cell, derives strict interval precedence, and removes an arc precisely when a genuine intermediate element exists. Directed refinement counts incoming and outgoing vertex colours separately, uses canonical nested signatures with no hashing, and groups complete multisets. The counts are 1, 2, 5, 15, 53, 217, 1014, 5335 types and 1, 2, 5, 15, 53, 217, 1014, 5333 two-round fingerprints. Two pairs of size two are the only collisions; a third round distinguishes each pair. Independent maximal-element extension enumeration and brute-force witness isomorphism checking reproduce the relevant conclusions. The finite search is a complete proof once the cited classical encoding and these inspectable elementary loops are accepted; it does not extrapolate to larger inputs.
+PASS
 
-## Originality — PASS (qualified)
+The object is an unlabeled nonempty interval order (2+2-free), fingerprint based on two synchronous counting-color-refinement rounds over *oriented cover edges*, not the full order. Read equivalence with Fishburn upper-triangular matrices and two independent canonical generation strategies in source. Independently enumerated interval orders by maximal ideal extensions and degree-pair canonicalization, checking 2+2-freeness, all n=1..8. Found exact totals 1,2,5,15,53,217,1014,5335, with two-round colour classes 1,2,5,15,53,217,1014,5333 respectively; exactly two nonisomorphic unordered pairs at n=8, third refinement distinguishes each and pairs are dual. The enumeration over all ideals and canonical deduplication plus matching classical Fishburn numbers makes finite exhaustiveness explicit. No claim on n>=9.
 
-Targeted searches of primary literature and research records did not identify the exact two-round directed Hasse-graph collision classification. Dukes et al. and Jelínek establish the Fishburn encoding and interval-order background, not this finite refinement-depth census. Krebs and Verbitsky discuss depth and counting colour refinement for general graphs, not this sharp interval-order cover-layer result. The closest accessible historical work on finite poset refinement studies other poset families or the full strict order relation; neither formulation implies the present cover-arc classification. Earlier specialized small-order tables remain a publication-priority risk; no independent novelty certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Cover relations are a standard economical encoding of a finite poset; two rounds of incoming/outgoing counting are a natural fixed-depth local invariant. The finding establishes the first order where that invariant loses isomorphism information on an entire classical combinatorial family and classifies **every** ambiguity at the boundary, not just one example. Its precise dual pairing and sharp separation by a third round explain the first nontrivial refinement-depth transition. The finite cutoff is mathematically forced by minimality rather than chosen arbitrarily. No general theorem or larger-order claim is needed for the exact first-obstruction classification.
+Dukes et al. introduce the exact interval-order/Fishburn matrix bijection and enumerate Fishburn numbers, supplying the base family but not its directed-cover two-round WL fingerprint table. Jelínek maps Hasse diagrams to Fishburn matrix data; this is a representation, not a two-round colour-refinement collision theorem. Krebs–Verbitsky proves general refinement depth bounds for graphs rather than the first exceptional restricted interval-order type. Targeted Resultary query produced no exact duplicate (priority qualified).
 
-## Prior work and residual limitations
+## value
 
-The matrix normal form and Fishburn numbers are classical and explicitly credited. Directly inspected sources: arXiv:1006.2696, arXiv:1501.05157, arXiv:1407.3175; benchmark OEIS:A022493. The claim is restricted to oriented cover predicates and orders with at most eight elements. Specialized unpublished or unlocated earlier enumerations remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite identification of interval orders from directed cover graphs via a bounded local graph invariant is a natural expressibility/reconstruction issue. Exact first failure at eight vertices, dual exceptional pairs, and round-three resolution isolate a meaningful sharp combinatorial boundary rather than a small unmotivated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

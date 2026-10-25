@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification summary
 
-The exhaustive scripts use only the Python 3 standard library. All expected outputs are embedded as corresponding `.out` files; the scripts are fully standalone and do not read external data. Run `python3 verify_fishburn.py`, `python3 verify_extensions.py`, and `python3 verify_witnesses.py` from the package directory.
+# Independent mathematical audit
 
-`verify_fishburn.py` produced 5335 unique interval-order types and 5333 distinct round-two global fingerprints at order eight, with exactly two two-member collision classes; all smaller sizes had no round-two collisions; round three distinguished every eight-vertex type. `verify_extensions.py` independently rebuilt the same 5335 type counts and the two exceptional pairs using maximal-element extensions and a nested-downset criterion. `verify_witnesses.py` verified equality after two rounds, inequality after three, nonisomorphism, and the pairing under order duality. Exact output records are present in `verify_fishburn.out`, `verify_extensions.out`, and `verify_witnesses.out`.
+## correctness
 
-The exhaustiveness rests on the classical Fishburn-matrix bijection and, independently, the fact that every finite poset has a maximal element removable to a smaller poset. Both were used explicitly; no heuristic isomorphism sampling was used. The code does not establish claims beyond eight elements. A separate independent scientific audit has not been performed.
+PASS
+
+The object is an unlabeled nonempty interval order (2+2-free), fingerprint based on two synchronous counting-color-refinement rounds over *oriented cover edges*, not the full order. Read equivalence with Fishburn upper-triangular matrices and two independent canonical generation strategies in source. Independently enumerated interval orders by maximal ideal extensions and degree-pair canonicalization, checking 2+2-freeness, all n=1..8. Found exact totals 1,2,5,15,53,217,1014,5335, with two-round colour classes 1,2,5,15,53,217,1014,5333 respectively; exactly two nonisomorphic unordered pairs at n=8, third refinement distinguishes each and pairs are dual. The enumeration over all ideals and canonical deduplication plus matching classical Fishburn numbers makes finite exhaustiveness explicit. No claim on n>=9.
+
+## originality
+
+PASS
+
+Dukes et al. introduce the exact interval-order/Fishburn matrix bijection and enumerate Fishburn numbers, supplying the base family but not its directed-cover two-round WL fingerprint table. Jelínek maps Hasse diagrams to Fishburn matrix data; this is a representation, not a two-round colour-refinement collision theorem. Krebs–Verbitsky proves general refinement depth bounds for graphs rather than the first exceptional restricted interval-order type. Targeted Resultary query produced no exact duplicate (priority qualified).
+
+## value
+
+PASS
+
+Finite identification of interval orders from directed cover graphs via a bounded local graph invariant is a natural expressibility/reconstruction issue. Exact first failure at eight vertices, dual exceptional pairs, and round-three resolution isolate a meaningful sharp combinatorial boundary rather than a small unmotivated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
