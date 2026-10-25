@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` has three critical checks: (1) the preimage under a contraction of a target face, intersected with the unit ball, is a face and contains the source minimal face; (2) a dimension-preserving isomorphism between exposing-kernel hyperplanes can send the source face-tangent span into the target face-tangent span exactly when the source dimension is at most the target dimension; (3) a sufficiently small common positive parameter controls all finitely many vertices, with the cases exposed-source, opposite-exposed-source, and strict interior of the exposing functional exhaustive. Invertibility is checked using the target exposing functional, not presumed from a numerical determinant.
+## correctness
 
-The reproducible example `check_faces.py` uses exact rational arithmetic and the twelve vertices of a hexagonal prism whose norm is \(\max\{|u|,|v|,|u-v|,|w|\}\). Run `python3 check_faces.py` with SymPy installed. The program checks six permitted face-dimension transitions using an explicit construction, verifies an invertible matrix and the prescribed image, and verifies the norm bound at all twelve vertices for each transition. Successful finite replay supports only those finite examples and does not replace the general proof.
+PASS
 
-Relevant prior statements were compared by implication rather than keyword alone: the 2022 flat-target result covers the facet target stratum but not intermediate ranks; the previously published coordinate classification concerns only cubes and cross-polytopes. Full-text access to the 2019 near-transitivity article was not obtained, leaving an explicitly stated originality risk. No third-party or external independent verification is asserted.
+Necessity: for invertible T with TB⊂B and Tx=y, preimage of the exposed target minimal face intersects B in a face containing F(x); injectivity preserves affine dimension, so d(x)≤d(y). For sufficiency, let supporting norm-one functionals f,g expose F(x),F(y), k≤l. Choose isomorphism U:ker f→ker g sending L_x=span(F(x)−x) into L_y=span(F(y)−y). Tεz=f(z)y+εU(z−f(z)x) fixes x→y and is injective since g(Tεz)=f(z), U invertible on ker f. Each source vertex with f=1 maps into F(y) for small ε because y relative interior and U(v−x)∈L_y; f=−1 by central symmetry; |f|<1 maps into interior by ε→0. Finite vertices give common ε, hence contraction and invertibility. This works for nonsimple faces, n=1; relative openness/density of {d≥k} follows finite face lattice. n≥2 not semitransitive.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
+
+## value
+
+PASS
+
+This resolves the natural invertible-contraction reachability preorder of every real finite-dimensional polyhedral Banach sphere by a single structural invariant. In dimensions ≥3, intermediate face classes go beyond planar or flat-target prior cases; it produces an all-polytope n-class chain independent of simplex/symmetry assumptions, a substantive classification not a trivial rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

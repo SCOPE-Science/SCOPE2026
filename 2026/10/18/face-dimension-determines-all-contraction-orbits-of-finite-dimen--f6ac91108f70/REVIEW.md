@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The necessity follows because the inverse image of a target face under a ball-preserving map intersects the ball in a face and must contain the source minimal face. For sufficiency, the exposed source and target faces have tangent subspaces of dimensions \(k\le l\); an isomorphism of supporting hyperplanes can embed the first tangent subspace in the second. The rank-one-plus-small-invertible map explicitly defined in `RESULT.md` preserves all source vertices: source-face vertices enter the target face, their negatives are handled by central symmetry, and all remaining vertices converge into the interior of the target ball. A common small parameter exists because the vertices are finite, and invertibility is certified by the recovering functional. This proves the full quantified result. The optional exact-rational checker tests a non-cubical three-dimensional model but is not used as an infinite proof.
+PASS
 
-## Originality
+Necessity: for invertible T with TB⊂B and Tx=y, preimage of the exposed target minimal face intersects B in a face containing F(x); injectivity preserves affine dimension, so d(x)≤d(y). For sufficiency, let supporting norm-one functionals f,g expose F(x),F(y), k≤l. Choose isomorphism U:ker f→ker g sending L_x=span(F(x)−x) into L_y=span(F(y)−y). Tεz=f(z)y+εU(z−f(z)x) fixes x→y and is injective since g(Tεz)=f(z), U invertible on ker f. Each source vertex with f=1 maps into F(y) for small ε because y relative interior and U(v−x)∈L_y; f=−1 by central symmetry; |f|<1 maps into interior by ε→0. Finite vertices give common ε, hence contraction and invertibility. This works for nonsimple faces, n=1; relative openness/density of {d≥k} follows finite face lattice. n≥2 not semitransitive.
 
-PASS under the checked-literature evidence, with the bibliographic risks stated below. Cabello Sánchez–Cabello Sánchez (2022) provide the semigroup setting, one special planar orbit classification, and the flat-target lemma. That lemma already implies that every polyhedral-sphere point has a dense orbit, so that consequence is not an originality claim. A published-finding corpus finding classifies real/complex coordinate cubes and cross-polytopes and explicitly declines a general polyhedral extension. Neither source implies the complete intermediate-face comparison for an arbitrary centrally symmetric polytope. The proof here supplies an all-polytope sufficiency construction; searching general face rank, facial dimensions, and equivalent semigroup terminology did not identify a covering statement. One 2019 article on large contractive automorphism semigroups was accessible only by abstract, so a hidden equivalent assertion there remains a genuine risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The natural classification problem asks which points of a finite-dimensional unit sphere can be connected by an invertible norm-one-or-less linear map, a central question in contractive-automorphism semigroup dynamics. This result resolves that question completely for all real polyhedral norms with exactly one integer invariant—the dimension of the minimal face—regardless of vertex simplicity, facets, or norm symmetry. In dimensions at least three it determines all intermediate edge-to-face and edge-to-edge reachability that neither the planar case nor the flat-target criterion resolves. The global \(n\)-class chain is a structural statement rather than a marginal numerical improvement. The short proof is nontrivial because the same operator must be invertible, contractive on *every* vertex, and map the designated source exactly onto the designated target.
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
 
-## Closest literature and limits
+## value
 
-The closest explicit prior classification is the coordinate \(\ell_1/\ell_\infty\) published-finding corpus finding identified in `RESULT.md`, which is strictly narrower. The directly read 2022 and 2021 semitransitivity texts do not state a universal arbitrary-polytope face-rank criterion. The 2019 full article was not accessible for detailed inspection; the available abstract emphasizes qualitative near-transitivity. The result is limited to real finite-dimensional polyhedral balls and does not estimate the inverse contraction norm. An equivalent unindexed theorem remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the natural invertible-contraction reachability preorder of every real finite-dimensional polyhedral Banach sphere by a single structural invariant. In dimensions ≥3, intermediate face classes go beyond planar or flat-target prior cases; it produces an all-polytope n-class chain independent of simplex/symmetry assumptions, a substantive classification not a trivial rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
