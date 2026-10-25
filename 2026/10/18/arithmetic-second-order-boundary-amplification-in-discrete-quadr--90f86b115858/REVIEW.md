@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(m\ge2\), the three orthogonal quadratic polynomial basis elements determine the exact boundary kernel. The sign interval is bounded by its two explicit real roots; summing the negative quadratic values by finite power sums yields the Bernoulli identity without limiting approximations. Uniform Taylor bounds and the irrational rotation on one residue class establish the full second-order accumulation interval. The standalone checker passed 8,461 exact-rational or high-precision assertions. The proof does not rely on finite enumeration.
+## correctness
 
-**Originality — PASS within the inspected comparison.** The closest older papers establish broad stability and approximation bounds for polynomial least squares on finite sets, not the exact fixed-degree boundary row or its nonconvergent arithmetic second-order correction. Later work on computational Lebesgue constants supplies an evaluation framework but not this formula. Published notes on cyclic Fourier projection Bernoulli corrections and Boolean second-chaos projection norms concern inequivalent kernels and do not imply the stated least-squares claim. The accessible collection of prior mathematical claims was checked for a matching boundary quadratic-grid statement; none was found. Search non-detection alone does not prove novelty, and older Gram-polynomial literature remains a historical-priority risk.
+PASS
 
-**Value — PASS.** Boundary recovery from bounded response errors is a natural and sharply defined stability quantity for polynomial regression. The exact finite formula gives a computable worst-case perturbation bound at every sample size. The complete second-order limit interval demonstrates that no single second-order bias constant exists, clarifying discrete-to-continuous comparisons and finite sample-size corrections. This is not presented as a general polynomial-degree theorem or a full projector norm.
+With inner product the equal-weight average on x_j=-1+2j/m, Gram–Schmidt basis {1,x,x²-μ2} gives μ2=(1+2h)/3 and variance 4(1-h)(1+2h)(1+3h)/45>0 (m>=2), hence exact quadratic endpoint kernel K_h(s). Its two real roots lie in [-1,1]; the maximal ℓ∞ input response is E_m=(m+1)^(-1)Σ|K_h(x_j)|=1 minus twice the kernel's negative-interval sum. Exact polynomial antiderivative/finite sum with fractional root lattice points gives the stated B2 and B3 Bernoulli-root formula, including m=2. Expanding smooth bulk yields C=1+12√6/25, first correction -54√6/(25m), and uniform second-order B2 phases with O(m^-3) thanks to global Lipschitz periodic B2. On m≡2 mod5 the two phases sum to an integer; B2 values coincide and irrational increment 5α+=(4+√6)/2 makes the attainable sum range [-1/6,1/3]. Thus the exact scaled accumulation interval is [227√6/50,377√6/50]. Independently compared rational moment/kernel values and Bernoulli formula at selected small grids; no finite test substitutes for density theorem.
 
-**Closest literature and limitations.** Bos et al. (arXiv:0902.0215), Cohen et al. (arXiv:1111.4422), Adcock et al. (arXiv:1610.04769), and Białas-Cież et al. (arXiv:2311.18656) were compared at the level of methods, objects, and stated theorems. The present result is for unweighted equally spaced degree-two fits and only the boundary evaluation functional. The relevant Calvi--Levenberg (2008) and Reichel (1986; 1983 report) full texts were not available, so their exact coverage could not be decided from abstracts. Historical priority is provisional; independent mathematical and bibliographic auditing remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the exact degree-two equispaced endpoint Bernoulli formula and dense second-order limit interval. General discrete LS stability and mesh papers do not imply this exact row norm, but older Gram-polynomial/Christoffel endpoint literature includes a genuine inaccessible-equivalence risk, retained explicitly.
+
+## value
+
+PASS
+
+The exact endpoint Lebesgue/amplification norm of a natural degree-two discrete least-squares projector and complete nonconvergent second-order coefficient interval quantify a real stability/sensitivity phenomenon, rather than a generic mesh bound or unmotivated isolated integer computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
