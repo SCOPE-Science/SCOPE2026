@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T10:01:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md; SLOGAN.txt; VERIFICATION.md; check_equilibria.py; requirements.txt at pinned commit",
+        "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf"
+      ],
+      "rationale": "For 0<z=lambda*V/r<1, the healthy plant balance gives S+I=K(1-z). The infected-plant and infected-vector balances reconstruct S=K(1-z)/(1+Az), I=AzS, V=rz/lambda, U=(aK/R)(1+Az)/(1-z), with A=r exp(-m tau1)/m and R=a K^2 beta lambda exp(-m tau1-mu tau2)/(m mu). All are strictly positive. The remaining vector equation is exactly Q(z)=0, Q=((1-z)^2-H)H-q h z(1-z)^3 and H=(1+Az)/R+h z(1-z), h=r/(aK lambda), q=mu exp(mu tau2)/b. Independent symbolic reconstruction confirms this elimination without spurious divisions. Q has degree <=4, Q(0)=(R-1)/R^2, Q(1)=-(1+A)^2/R^2. If R>1 the opposite endpoint signs prohibit 4 distinct interior roots of a quartic; if R<=1, U>aK while the positive vector balance forces U<U+V<a(S+I)<aK, contradiction. For the stated positive delays log(2) both survival factors are 1/2, (A,R,h,q)=(20,200,1/250,40), and 10^6 Q=155984 z^4-367168 z^3+262224 z^2-67040 z+4975. Four exact sign-change intervals (1/10,1/5),(3/10,2/5),(3/5,2/3),(1,3/2) imply exactly three distinct physical roots and one nonphysical root, all simple. The implicit-function theorem gives an open parameter-and-delay neighborhood. Symbolic residual verification and rational signs corroborate the proof; no stability or finite-experiment-to-infinity inference.",
+      "residual_risks": [
+        "Only equilibrium number and existence are proved; no claims about delay-system local stability, attracting branches or ecological calibration.",
+        "Critical coefficient/elimination identities were independently rederived; exact symbolic checks are not formal proof of all perturbation arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 (3.1) has ell_0>0 and ell_1>0 and a quartic, hence by its own cited Descartes rule has at most 3 positive scalar roots; this part of the submitted bound is a routine prior implication.",
+          "2023 Theorem 2 only asserts one positive root for certain coefficient signs, and its numerical Table 1 examples are described as unique branches; the paper does not provide the three-simple-positive-root parameter vector.",
+          "2016 Sec.3.1 explicitly mentions possible one, three or five positive algebraic roots but says uniqueness is not investigated."
+        ],
+        "reasoning": "The prior quartic covers the easy counting ceiling, but neither it nor the older roots-possible discussion logically yields attainability by THREE fully positive equilibria under two positive survival delays with nondegenerate local persistence.",
+        "searches": [
+          "Resultary: mosaic virus plant whitefly delayed Leslie-Gower equilibria three positive coexistence quartic sharp bound",
+          "Resultary: plant vector epidemic disease equilibrium multiplicity exact positive delays three coexistence equilibria",
+          "Web: Al Basir Blyuss Venturino 2023 mosaic disease Theorem 2 quartic multiple equilibria",
+          "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+          "Venturino, Roy, Al Basir & Datta (2016), Energy, Ecology and Environment 1, 360-369, DOI 10.1007/s40974-016-0033-8, eq. (2), Sec.3.1 p.362; https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf",
+          "Al Basir et al. (2020), Bull. Math. Biol. 82:94, DOI 10.1007/s11538-020-00767-2, Sec.2 model (1), author-uploaded full-text HTML https://www.researchgate.net/publication/342328828_Modelling_the_Effect_of_Incubation_and_Latent_Periods_on_the_Dynamics_of_Vector-Borne_Plant_Viral_Diseases"
+        ]
+      },
+      "checked_sources": [
+        "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+        "Venturino, Roy, Al Basir & Datta (2016), Energy, Ecology and Environment 1, 360-369, DOI 10.1007/s40974-016-0033-8, eq. (2), Sec.3.1 p.362; https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf",
+        "Al Basir et al. (2020), Bull. Math. Biol. 82:94, DOI 10.1007/s11538-020-00767-2, Sec.2 model (1), author-uploaded full-text HTML https://www.researchgate.net/publication/342328828_Modelling_the_Effect_of_Incubation_and_Latent_Periods_on_the_Dynamics_of_Vector-Borne_Plant_Viral_Diseases",
+        "Resultary published records: self-match 2026/10/11/SCOPE-a-sharp-three-coexistence-bound-and-an-exact-positive-delay-witn--7cd6499fa3e0; unrelated epidemic model findings returned for three queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The <=3 positive-root bound can be recovered directly by Descartes from the published 2023 quartic: it is prior mathematical coverage, irrespective of explicit wording.",
+          "The no-endemic state for R<=1 is a direct positivity inequality once the given R0 and equilibrium parameterization are used.",
+          "Neither 2023 Theorems 2-4 nor 2016 Sec.3.1 specifies three rationally isolated feasible equilibrium roots in a positive-delay parameter vector; the 2023 uniqueness criterion is restricted and does not imply such a witness."
+        ],
+        "reasoning": "Separate covered corollary/near-routine components from the genuine constructive sharpness result. A universal bound with no attainment would have weak novelty; the exact attainable example, all-positive reconstruction and open perturbation region are additional statements not logically implied by the cited earlier conclusions. No stability inference is made.",
+        "searches": [
+          "Resultary: mosaic virus plant whitefly delayed Leslie-Gower equilibria three positive coexistence quartic sharp bound",
+          "Resultary: multi delay mosaic disease Al Basir Blyuss Venturino 2023 quartic reproduction number",
+          "Web: Al Basir Blyuss Venturino 2023 mosaic disease Theorem 2 quartic multiple equilibria",
+          "Web: Venturino Roy Al Basir Datta 2016 Jatropha curcas equilibrium root multiplicity full text",
+          "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+          "Venturino, Roy, Al Basir & Datta (2016), Energy, Ecology and Environment 1, 360-369, DOI 10.1007/s40974-016-0033-8, eq. (2), Sec.3.1 p.362; https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2023 model (2.3) is exactly the assigned two-delay system; its quartic (3.1) in healthy-plant S is transformed into Q(z) by S=K(1-z)/(1+Az), a bijection on the physical interval.",
+          "2016 system (2) is the zero-delay ancestor with the same host-dependent vector carrying capacity; its Sec.3.1 uses a higher-degree eliminated polynomial and does not certify a feasible triple.",
+          "2020 model (1) has constant vector recruitment and linear removal, not Leslie-Gower carrying capacity."
+        ],
+        "reasoning": "Coordinate changes and zero-delay specialization are treated as genuine possible coverage, rather than rejected for title/parameter differences. A prior exact feasible triple for the same system would dominate this witness, but neither primary text supplies one.",
+        "searches": [
+          "Resultary: mosaic virus plant whitefly delayed Leslie-Gower equilibria three positive coexistence quartic sharp bound",
+          "Resultary: multi delay mosaic disease Al Basir Blyuss Venturino 2023 quartic reproduction number",
+          "Web: Venturino Roy Al Basir Datta 2016 Jatropha curcas equilibrium root multiplicity full text",
+          "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+          "Venturino, Roy, Al Basir & Datta (2016), Energy, Ecology and Environment 1, 360-369, DOI 10.1007/s40974-016-0033-8, eq. (2), Sec.3.1 p.362; https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary query top match is the same assigned published finding (self-match), not independent earlier priority.",
+          "2023 Table 1 gives conventional low-transmission numerical values and explicitly notes a unique feasible branch for those values; its figures are primarily stability/oscillation diagrams.",
+          "2016 explicitly declines uniqueness study and provides no exact certified three-root instance in the examined equilibrium section."
+        ],
+        "reasoning": "This is not recomputation of a known model table: the decisive exact vector (r,K,lambda,m,b,a,beta,mu,tau1,tau2)=(40,1,10000,1,1/20,1,2/25,1,log 2,log 2) and four simple root intervals are not supplied by checked tables. Alternative tables outside the inspected corpus remain a risk.",
+        "searches": [
+          "Resultary: mosaic virus plant whitefly delayed Leslie-Gower equilibria three positive coexistence quartic sharp bound",
+          "Resultary: plant vector epidemic disease equilibrium multiplicity exact positive delays three coexistence equilibria",
+          "2023 Table 1 and Figs. 1-3, §§4-5",
+          "2016 §3.1 eq. (3) and numerical context"
+        ]
+      },
+      "rationale": "Important partial prior coverage: the unconditional *upper bound* of three positive scalar roots already follows directly from the 2023 published quartic together with its displayed positive constant and linear coefficients by Descartes rule (or from its physical endpoint signs after a coordinate change). That upper bound alone is NOT original. The prior 2016 zero-delay paper anticipates possibly three/five algebraic candidate roots, which is also NOT novel. However, the inspected primary texts do not exhibit any exact, feasible THREE-coexistence parameter vector with both delays strictly positive, four disjoint rational root certificates, and persistence as a nonempty open full-parameter region. This substantive sharpness/attainment witness is the originality-bearing portion of the combined theorem. Related 2020 two-delay virus model replaces Leslie-Gower vector crowding by constant vector influx and does not imply it. Bounded Resultary and literature search found no stronger statement implying the exact feasible positive-delay witness; priority is best-of-knowledge.",
+      "residual_risks": [
+        "Earlier unpublished/unindexed explicit three-coexistence examples in this or equivalent models could reduce novelty; absence in search is not proof of historical priority.",
+        "The universal three-root ceiling is a routine corollary of already published quartic/positive coefficients and receives no independent novelty credit.",
+        "The exact example uses a very large transmission rate and is not biologically calibrated; mathematical feasibility is not ecological prevalence.",
+        "Small positive delays could also be produced perturbatively from a suitable prior nondegenerate zero-delay triple if such a triple exists; no such prior exact example was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound three is immediately recoverable from published quartic and ell0,ell1 positivity; no exact three-feasible-positive-delay witness or robust open triple-branch region in inspected model/figures.",
+          "evidence": [
+            "p.24551 ell_1>0, ell_0>0 and Theorem 2 conditional unique root; pp.24550-24551 quartic",
+            "p.24558-24559 Table 1 and note that given numerical parameters yield unique coexistence equilibrium",
+            "DOI 10.3934/math.20231252 PDF pp.24548,24551,24558,24563"
+          ],
+          "identifier_or_url": "doi:10.3934/math.20231252 | https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+          "material_read": "OA full-text PDF, 23 pages available; closely read pp.24548-24554 (model eq.2.3, quartic eq.3.1, Theorems 2-4 and R0), pp.24557-24563 (Table 1, uniqueness statement, simulations and conclusions), plus page images of model and Theorem 2.",
+          "method": "Opened searchable original publisher PDF, extracted theorem/model passages and inspected PDF page images.",
+          "title": "Stability and bifurcation analysis of a multi-delay model for mosaic disease transmission",
+          "trigger": "Identical parent model and published coexistence quartic, potential full priority overlap"
+        },
+        {
+          "assessment": "States that one, three or five positive algebraic roots could occur but explicitly declines to investigate uniqueness; no complete feasible triple witness, and no strictly positive delays in this model.",
+          "evidence": [
+            "p.362 §3.1 says possible one, three or five positive roots and that equilibrium uniqueness is not investigated",
+            "p.361 model (2) is exactly the zero-delay vector carrying-capacity system"
+          ],
+          "identifier_or_url": "doi:10.1007/s40974-016-0033-8 | https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf",
+          "material_read": "Open-access 10-page original PDF; closely inspected pp.361-363 including model (2), equilibrium formulas, §3.1 degree-five polynomial and root discussion, and page-image of p.362.",
+          "method": "Opened primary publisher PDF, extracted source model and examined page image.",
+          "title": "A model for the control of the mosaic virus disease in Jatropha curcas plantations",
+          "trigger": "Exact zero-delay model ancestor and potential preexisting multistationarity claim"
+        },
+        {
+          "assessment": "Vector equation dU/dt=constant recruitment - beta UI - dU differs from b(U+V)(1-(U+V)/(a(S+I)))-beta UI; its equilibrium multiplicity analysis does not cover the Leslie-Gower witness.",
+          "evidence": [
+            "2020 model (1), U equation as extracted in author-uploaded manuscript",
+            "DOI 10.1007/s11538-020-00767-2"
+          ],
+          "identifier_or_url": "doi:10.1007/s11538-020-00767-2 | https://www.researchgate.net/publication/342328828_Modelling_the_Effect_of_Incubation_and_Latent_Periods_on_the_Dynamics_of_Vector-Borne_Plant_Viral_Diseases",
+          "material_read": "Author-uploaded full-text HTML rendering, especially model (1) in Sec.2 and equilibrium discussion in Sec.3; not a fully inspected PDF.",
+          "method": "Read source equation text and compare vector demographic terms exactly.",
+          "title": "Modelling the Effect of Incubation and Latent Periods on the Dynamics of Vector-Borne Plant Viral Diseases",
+          "trigger": "Related two-delay plant/vector equations with overlapping authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Al Basir, Blyuss & Venturino (2023), AIMS Mathematics 8, 24545-24567, DOI 10.3934/math.20231252, eqs. (2.3),(3.1),(3.9), Theorems 2-4, Table 1, pp.24548-24559; https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1252.pdf",
+        "Venturino, Roy, Al Basir & Datta (2016), Energy, Ecology and Environment 1, 360-369, DOI 10.1007/s40974-016-0033-8, eq. (2), Sec.3.1 p.362; https://link.springer.com/content/pdf/10.1007%2Fs40974-016-0033-8.pdf",
+        "Independent exact symbolic/rational verification of four brackets, reconstructed states and open-branch criterion"
+      ],
+      "rationale": "The model is a specifically published delayed plant-vector system whose authors analyzed a unique-branch regime. Whether three fully positive coexistence states are simultaneously feasible, and whether the maximal multiplicity occurs in an open region with BOTH delays nonzero, are natural bifurcation-structure questions. The upper-bound inequality is cheap given prior quartic data, but the exact rational witness resolves the nontrivial feasibility/attainment issue and supplies three distinct simple full-state branches; this is more substantive than a random tiny parameter check. It is a meaningful constructive mathematical example, not a claim to a complete stability or biological phase diagram.",
+      "residual_risks": [
+        "No proof any branch is stable, an attractor or ecologically meaningful.",
+        "Does not classify precisely when there are 0,1,2,3 distinct physical roots for all parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No source/result/slogan scientific text edited; source exact corrected as-is.",
+    "No local bifurcation/stability or ecological calibration claims.",
+    "The prior 2023 quartic implies <=3 positive algebraic roots by Descartes; only the sharp delayed attainment constitutes a meaningful new component.",
+    "Prior coverage is best-of-knowledge from inspected sources and searches, not formal proof of novelty.",
+    "Publication deliberately withheld until existing private operational identifiers are sanitized in complete public-facing metadata/review files."
+  ],
+  "schema_version": 1
+}

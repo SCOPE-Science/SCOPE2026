@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The elimination defines \(z\in(0,1)\), reconstructs every strictly positive equilibrium bijectively, and reduces the only remaining equation to a degree-at-most-four polynomial. Opposite endpoint signs for \(\mathcal R_0>1\) exclude four distinct physical roots. For \(\mathcal R_0\le1\), the positive vector balance gives the opposite inequalities \(U>aK\) and \(U<aK\). For the positive-delay witness, four disjoint rational sign changes isolate the complete degree-four zero set; only three intervals lie in the physical range. Symbolic identities and rational signs replay with `check_equilibria.py` and do not substitute experimental finite sampling for the analytic bound. Limitation: no dynamical stability theorem is asserted.
+PASS
 
-## Originality: PASS
+For 0<z=lambda*V/r<1, the healthy plant balance gives S+I=K(1-z). The infected-plant and infected-vector balances reconstruct S=K(1-z)/(1+Az), I=AzS, V=rz/lambda, U=(aK/R)(1+Az)/(1-z), with A=r exp(-m tau1)/m and R=a K^2 beta lambda exp(-m tau1-mu tau2)/(m mu). All are strictly positive. The remaining vector equation is exactly Q(z)=0, Q=((1-z)^2-H)H-q h z(1-z)^3 and H=(1+Az)/R+h z(1-z), h=r/(aK lambda), q=mu exp(mu tau2)/b. Independent symbolic reconstruction confirms this elimination without spurious divisions. Q has degree <=4, Q(0)=(R-1)/R^2, Q(1)=-(1+A)^2/R^2. If R>1 the opposite endpoint signs prohibit 4 distinct interior roots of a quartic; if R<=1, U>aK while the positive vector balance forces U<U+V<a(S+I)<aK, contradiction. For the stated positive delays log(2) both survival factors are 1/2, (A,R,h,q)=(20,200,1/250,40), and 10^6 Q=155984 z^4-367168 z^3+262224 z^2-67040 z+4975. Four exact sign-change intervals (1/10,1/5),(3/10,2/5),(3/5,2/3),(1,3/2) imply exactly three distinct physical roots and one nonphysical root, all simple. The implicit-function theorem gives an open parameter-and-delay neighborhood. Symbolic residual verification and rational signs corroborate the proof; no stability or finite-experiment-to-infinity inference.
 
-The closest source is Al Basir–Blyuss–Venturino (2023), eqs. (2.3), (3.1), Theorem 2. Its quartic and restricted one-root criterion do not themselves give the global physical bound with realized maximal triple multiplicity under two strictly positive delays. Venturino–Roy–Al Basir–Datta (2016), §3.1, already discusses the **possibility** of three positive formal polynomial roots for the same zero-delay interactions, without showing an exact feasible three-equilibrium parameter vector or proving the sharp bound for the delayed system. Accordingly no priority is claimed for merely noticing that multiplicity is possible. The 2020 two-delay paper uses constant recruitment rather than vector carrying capacity proportional to total plant biomass; its equilibrium analysis is not stronger coverage. Focused literature and published-finding searches found no directly dominating result. Residual risks: indexed search cannot establish absolute priority, and a hidden source may cover the constructive feasible example.
+## originality
 
-## Value: PASS
+PASS
 
-Maximum feasible equilibrium multiplicity is a natural structural question for a model whose source gives only one-root sufficient conditions. The proof closes the algebraic-versus-biologically-positive gap and determines a sharp, attained cutoff for *all* delay lengths. An exact positive-delay witness with simple roots, rather than a numerical scan or a special zero-delay degeneration, shows that three physical branches occupy a nonempty open parameter region. Such branch multiplicity is a relevant prerequisite for a global bifurcation diagram, while stability and basin consequences remain unproved.
+Important partial prior coverage: the unconditional *upper bound* of three positive scalar roots already follows directly from the 2023 published quartic together with its displayed positive constant and linear coefficients by Descartes rule (or from its physical endpoint signs after a coordinate change). That upper bound alone is NOT original. The prior 2016 zero-delay paper anticipates possibly three/five algebraic candidate roots, which is also NOT novel. However, the inspected primary texts do not exhibit any exact, feasible THREE-coexistence parameter vector with both delays strictly positive, four disjoint rational root certificates, and persistence as a nonempty open full-parameter region. This substantive sharpness/attainment witness is the originality-bearing portion of the combined theorem. Related 2020 two-delay virus model replaces Leslie-Gower vector crowding by constant vector influx and does not imply it. Bounded Resultary and literature search found no stronger statement implying the exact feasible positive-delay witness; priority is best-of-knowledge.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model is a specifically published delayed plant-vector system whose authors analyzed a unique-branch regime. Whether three fully positive coexistence states are simultaneously feasible, and whether the maximal multiplicity occurs in an open region with BOTH delays nonzero, are natural bifurcation-structure questions. The upper-bound inequality is cheap given prior quartic data, but the exact rational witness resolves the nontrivial feasibility/attainment issue and supplies three distinct simple full-state branches; this is more substantive than a random tiny parameter check. It is a meaningful constructive mathematical example, not a claim to a complete stability or biological phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
