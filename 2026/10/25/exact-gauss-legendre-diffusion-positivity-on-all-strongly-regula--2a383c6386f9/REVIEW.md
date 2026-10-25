@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact projector identities for the three Laplacian eigenspaces give distinct-edge and distinct-nonedge rational transition entries with a strictly positive quartic denominator. The unique potential sign-changing term is an explicit concave quadratic. Diagonal positivity follows from strictly positive scalar Padé values on the nonnegative spectrum. These steps prove the complete all-step dichotomy and nonreentry. The exact-rational verification program independently checks 5,580 off-diagonal entries for 11 graph instances; finite tests corroborate rather than establish the universal assertion.
+
+**Originality — PASS (best-knowledge; risk remains).** The inspected foundational strong-stability-preserving/linear-operator literature does not give the parameter-only Gauss map classification. An inspected Padé positive-systems analysis gives general failures and conditional safeguards, not the strongly regular graph threshold. A published eight-state directed-Markov counterexample and earlier classifications for explicit RK4 or imprimitive complete multipartite graphs do not entail the primitive-graph dichotomy. Searches for the exact rational map, strongly regular parameters, equivalent rook/Hamming/Petersen families, and covering structural results found no dominating formula. Specialized or incompletely indexed sources could still contain an equivalent theorem.
+
+**Value — PASS.** This provides one exact algebraic yes/no condition and a sharp finite horizon for every connected strongly regular diffusion network without matrix-by-matrix positivity searches; it identifies the precise failing transition class and separates entrywise positivity from unconditional Euclidean spectral stability. The result includes primitive and imprimitive families and exposes a nontrivial threshold between rook graph orders three and four.
+
+The theorem addresses exact completed steps, not internal stages or floating-point computations. The cited primary texts were inspected at the sections relevant to implicit strong stability, Padé positivity and strongly regular spectral identities. No exhaustive claim about the literature is made.
+
+Self-review: passed. Independent audit: not yet performed.
