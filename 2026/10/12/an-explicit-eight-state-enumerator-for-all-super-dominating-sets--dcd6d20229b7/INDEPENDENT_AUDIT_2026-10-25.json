@@ -1,0 +1,203 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:55:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed each of the four (c,h,q) triples for either actual parent color. A pending white child must be served by its parent; a white parent cannot serve it, while a black parent serves it exactly when its white children plus its white external parent total one. A black child with q=1 has no white children and therefore witnesses its white parent. These exhaustive local cases induce the exact messages with no duplicated colorings. Root t=1 and h=0 excludes an imaginary witness; component products include empty forests and isolated vertices. Leaf initialization is 1 for white pending and x for black. Capping w at 2 and using booleans for r,s gives at most twelve intermediate states, eight messages, and O(n^3) integer arithmetic. An entirely separately written recurrence compared equal to direct subset enumeration for 2243 independent cases: every labeled tree through six vertices plus 800 seeded forest samples with orders through ten. This finite test supports but does not replace the unrestricted inductive proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courcelle–Makowsky–Rotics, Discrete Applied Mathematics 108 (2001), 23–52: bounded-treewidth counting/evaluation of MSO-definable vertex-set properties is polynomial-time; source reviewed via bibliographic and public abstract evidence.",
+          "Super domination is MSO-definable by forall white w exists black b adjacent w such that forall other white z adjacent b implies z=w; forests have treewidth one.",
+          "The exact family-specific recurrence has eight boundary messages and twelve intermediate aggregates with O(n^3) integer arithmetic."
+        ],
+        "reasoning": "The 2001 general theorem already subsumes polynomial-time computability in principle, including cardinality-weighted counting; generic tractability is not original. That theorem does not state or mathematically determine the particular concrete witness-state messages and explicit transitions. The surviving claim is about these exact combinatorial identities rather than existence of some polynomial-time algorithm.",
+        "searches": [
+          "Courcelle–Makowsky–Rotics (2001), DOI:10.1016/S0166-218X(00)00221-3",
+          "arXiv:2209.01795v3; https://arxiv.org/pdf/2209.01795",
+          "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+          "Resultary: super domination polynomial all forests rooted tree dynamic programming eight state every cardinality distribution",
+          "Web: \"super domination\" tree \"count\" \"dynamic programming\" polynomial"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.01795v3; https://arxiv.org/pdf/2209.01795",
+        "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+        "arXiv:1911.02203v1; https://arxiv.org/pdf/1911.02203",
+        "DOI:10.1007/978-3-031-73365-9_6; https://link.springer.com/chapter/10.1007/978-3-031-73365-9_6",
+        "Courcelle–Makowsky–Rotics (2001), DOI:10.1016/S0166-218X(00)00221-3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 arXiv paper Section 7(d), p.25: explicit open direction to count minimum-size super-dominating sets in trees.",
+          "2023 arXiv paper Theorem 3.1: gamma_sp(T)=|V(T)|-nu(T) and linear-time recovery of one optimum, without coefficient counts.",
+          "Kaidash 2024: the polynomial itself and some graph-family formulas predate this result, but complete text not reviewed; Oxford authorized access returned vpn_disconnected.",
+          "2001 MSO counting theorem provides an abstract existence result but not the small-state transition; published Resultary graphs are special families."
+        ],
+        "reasoning": "The minimum-degree identity and existence of polynomial-time enumeration follow from earlier work and are not claimed as new. Counting one known minimum or a restricted family does not imply the all-cardinality transition identities for every forest. Generic MSO counting implies some effective enumeration, not this exact eight-message construction. With the inaccessible plausible Kaidash chapter explicitly acknowledged, no inspected source decisively subsumes the precise final construction.",
+        "searches": [
+          "arXiv:2209.01795v3; https://arxiv.org/pdf/2209.01795",
+          "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+          "DOI:10.1007/978-3-031-73365-9_6; https://link.springer.com/chapter/10.1007/978-3-031-73365-9_6",
+          "Courcelle–Makowsky–Rotics (2001), DOI:10.1016/S0166-218X(00)00221-3",
+          "Resultary: super domination polynomial all forests rooted tree dynamic programming eight state every cardinality distribution",
+          "Web: \"super dominating sets\" \"rooted tree\" count recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás–Ghanbari–Klavžar arXiv:2302.08862 Lemma 2.4 characterizes super-domination of a fixed vertex set by a matching core, not a cardinality-distribution computation.",
+          "Zhuang arXiv:1911.02203 Secs. 1–2 use external private neighbors in rooted trees to study scalar ratios/subdivisions, not a full polynomial dynamic program.",
+          "The claimed recurrence retains a pending-white-child bit and a no-white-child black-witness bit, conditioned on parent color, to avoid counting witness choices."
+        ],
+        "reasoning": "Private-neighbor language, the matching-core characterization, and general tree-automaton methods are genuine aliases. The former characterizes feasibility or a minimum set but does not supply the displayed eight polynomial messages or all coefficients. The later two-bit transition is an explicit construction. No inspected full source supplies an equivalent all-forest eight-state recurrence, while differently named algorithms remain possible.",
+        "searches": [
+          "Resultary: super domination polynomial all forests rooted tree dynamic programming eight state every cardinality distribution",
+          "Resultary: number minimum super dominating sets trees exact dynamic program polynomial coefficients private-neighbor witness states",
+          "Resultary: super-domination polynomial of tree explicit recurrence enumeration finite state",
+          "Web: \"super domination polynomial\" tree recursive recurrence 2025 2026",
+          "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+          "arXiv:1911.02203v1; https://arxiv.org/pdf/1911.02203"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 2026/10/4 complete-multipartite theorem gives D_sp(K_{n_1,...,n_r};x) with three terms, covering stars and other specialized graph families, but not arbitrary branching trees.",
+          "Published Resultary 2026/10/4 one-leaf-corona theorem counts minimum super-dominating sets 2^{c(H)}; when H is a tree this covers a special infinite tree family, not the full distribution on all trees.",
+          "Ghanbari–Jäger–Lehtilä arXiv:2209.01795 Section 6 computes minimum-set counts for specific graph families; Section 7(d) asks for the tree count.",
+          "Kaidash 2024 abstract introduces D_sp and says formulas exist for some families; exact families are not disclosed in the abstract."
+        ],
+        "reasoning": "Known family-specific formulas and counts are covered parts of the new all-forest enumerator, not an algorithm for each forest. No inspected exact table or general forest polynomial recurrence matches the submitted formula. The 2024 chapter body is inaccessible, so its precise coverage cannot be claimed absent.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77",
+          "DOI:10.1007/978-3-031-73365-9_6; https://link.springer.com/chapter/10.1007/978-3-031-73365-9_6",
+          "Web: \"super domination polynomial\" tree recursive recurrence 2025 2026",
+          "Web: \"super domination polynomial\" \"forest\" exact"
+        ]
+      },
+      "rationale": "The explicit all-cardinality eight-message recurrence is distinguishable from prior scalar super-domination results, special-family enumerators and the general existence of bounded-treewidth counting algorithms. Its novelty is the concrete child transitions and witness-state invariant, not existence of a polynomial-time count. Highly relevant open texts and published SCOPE comparisons revealed no dominating explicit all-forest recurrence. The inaccessible 2024 Kaidash chapter is an acknowledged priority risk, not proof of coverage or noncoverage.",
+      "residual_risks": [
+        "Kaidash (2024), DOI:10.1007/978-3-031-73365-9_6, is an exact-polynomial plausible overlap. Only its abstract was accessible and authorized institutional VPN was disconnected; full text may include tree recurrences.",
+        "A differently phrased private-neighbor/matching-core dynamic program might yield mathematically equivalent small-state messages and was not identified; negative searches do not prove priority.",
+        "General counting MSO machinery already implies effective polynomial-time cardinality counting on forests; no independent originality credit accrues to mere tractability or the tree minimum-size scalar formula.",
+        "Finite checks cover n<=6 labeled trees and 800 additionally sampled forests through n=10, not all graphs; the unrestricted result relies on the structural induction.",
+        "The current public metadata and audit files include operational run identifiers; no public sanitization is staged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly requests number of minimum super-dominating sets in trees; earlier enumeration examples concern special classes, not an all-forest coefficient recurrence.",
+          "evidence": [
+            "Section 7(d): count the number of (minimum size) super dominating sets in trees.",
+            "Section 6: special-family minimum-set enumerations."
+          ],
+          "identifier_or_url": "arXiv:2209.01795v3; https://arxiv.org/pdf/2209.01795",
+          "material_read": "Open-access 26-page PDF: introduction/definition, enumeration scope of Section 6, and Section 7(d) on printed page 25; visually inspected page 25.",
+          "method": "Read arXiv PDF text and its page-25 image.",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Closest primary source posing the tree counting problem."
+        },
+        {
+          "assessment": "Matching-core criterion and minimum-cardinality equality are covered prior art, not all-cardinality counts.",
+          "evidence": [
+            "Lemma 2.4, core/matching criterion.",
+            "Theorem 3.1, gamma_sp(T)=n(T)-alpha-prime(T), linear-time one optimum."
+          ],
+          "identifier_or_url": "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+          "material_read": "23-page PDF introduction, Lemma 2.4 and its proof, Theorem 3.1 and its proof on printed pp.4–5; visually inspected printed page 5.",
+          "method": "Read arXiv PDF text and theorem/proof page image.",
+          "title": "Computational complexity aspects of super domination",
+          "trigger": "Possible stronger matching characterization for every tree."
+        },
+        {
+          "assessment": "Studies scalar ratios and subdivision numbers; relevant private-neighbor terminology but no full coefficient enumerator in inspected material.",
+          "evidence": [
+            "Abstract and Theorems 2.5–2.6 concern ratios, scalar structure, and subdivisions."
+          ],
+          "identifier_or_url": "arXiv:1911.02203v1; https://arxiv.org/pdf/1911.02203",
+          "material_read": "13-page arXiv PDF title and abstract, introduction, Section 2 private-neighbor constructions and tree parameter theorems; visually inspected printed p.5.",
+          "method": "Read arXiv PDF text and relevant image.",
+          "title": "Super domination in trees",
+          "trigger": "Plausible older tree-specific result and rooted-tree private-neighbor methods."
+        },
+        {
+          "assessment": "Prior introduction of polynomial and some family formulas is established. The chapter body cannot be deemed non-covering; explicit overlap risk remains.",
+          "evidence": [
+            "Springer chapter DOI and abstract: defines D_sp(G;x) and claims explicit formulas for some families; no complete family list shown."
+          ],
+          "identifier_or_url": "DOI:10.1007/978-3-031-73365-9_6; https://link.springer.com/chapter/10.1007/978-3-031-73365-9_6",
+          "material_read": "Springer chapter landing-page entire public abstract, bibliographic information and repository abstract only; complete 11-page chapter not accessible.",
+          "method": "Checked arXiv by author/title and lawful open-access sources; then authorized Oxford download returned vpn_disconnected, job 8e7d1698728fc36961ec058e5cc18441; no access bypass.",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "Exact invariant title, 2024 chapter with potentially dominating all-forest formula."
+        },
+        {
+          "assessment": "Already gives polynomial-time countability in principle for forests, not the specific eight boundary states or transition polynomial identities.",
+          "evidence": [
+            "Theorem description: MSO-definable counting/evaluation is polynomial-time on bounded-treewidth graphs."
+          ],
+          "identifier_or_url": "Courcelle–Makowsky–Rotics (2001), DOI:10.1016/S0166-218X(00)00221-3",
+          "material_read": "Bibliographic record and public abstract/review of stated bounded-treewidth counting theorem; complete original text not obtained.",
+          "method": "Read public bibliographic/abstract evidence and checked logical definability directly.",
+          "title": "On the fixed parameter complexity of graph enumeration problems definable in monadic second-order logic",
+          "trigger": "Broader counting metatheorem that might subsume all algorithmic content."
+        },
+        {
+          "assessment": "Gives three-term polynomial on complete multipartite graphs; contains stars but not generic forests.",
+          "evidence": [
+            "D_sp=x^N+Nx^{N-1}+E_2x^{N-2} for connected multipartite graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "material_read": "Entire published RESULT.md, finding, proof, verification, prior-work scope.",
+          "method": "Fetched and read frozen public GitHub mathematical file via connected GitHub read.",
+          "title": "All super dominating sets of complete multipartite graphs",
+          "trigger": "Closest published SCOPE complete cardinality enumerator."
+        },
+        {
+          "assessment": "Counts only minimum sets of one-leaf coronas, including some trees, not arbitrary-forest complete distributions.",
+          "evidence": [
+            "N_sp(H o K1)=2^{c(H)} at minimum cardinality; no full polynomial for every tree."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77",
+          "material_read": "Entire published RESULT.md finding, constructive bijection proof and scope.",
+          "method": "Fetched and read public GitHub mathematical file via connected GitHub read.",
+          "title": "Minimum super dominating sets of one-leaf coronas",
+          "trigger": "Published count for an infinite natural tree family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2022 primary paper poses counting minimum super-dominating sets of arbitrary trees, a natural unresolved enumerative quantity. A full all-cardinality polynomial on each forest is stronger, and the explicit local pending-witness states provide an implementable uniformly bounded combinatorial recurrence rather than only an abstract tractability metatheorem. The method handles arbitrary degree, disconnection, isolated vertices and empty forest; the first nonzero coefficient counts minimum sets using the previously known maximum-matching degree. Not a claim of minimal state count, general cyclic graphs or a generic new tractability theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2209.01795v3; https://arxiv.org/pdf/2209.01795",
+    "arXiv:2302.08862v1; https://arxiv.org/pdf/2302.08862",
+    "arXiv:1911.02203v1; https://arxiv.org/pdf/1911.02203",
+    "DOI:10.1007/978-3-031-73365-9_6; https://link.springer.com/chapter/10.1007/978-3-031-73365-9_6",
+    "Courcelle–Makowsky–Rotics (2001), DOI:10.1016/S0166-218X(00)00221-3",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only forests, no cycles; polynomial arithmetic O(n^3) ignores bit-operation factor, coefficients can have O(n) bits.",
+    "No proof of eight-state minimality and no novel generic algorithmic tractability claim.",
+    "Exact overlap with inaccessible 2024 super-domination polynomial chapter cannot be excluded; novelty is qualified.",
+    "No publication claimed. Privacy-sensitive pre-existing metadata requires verified replacement before intake."
+  ],
+  "residual_risks": [
+    "Kaidash (2024), DOI:10.1007/978-3-031-73365-9_6, is an exact-polynomial plausible overlap. Only its abstract was accessible and authorized institutional VPN was disconnected; full text may include tree recurrences.",
+    "A differently phrased private-neighbor/matching-core dynamic program might yield mathematically equivalent small-state messages and was not identified; negative searches do not prove priority.",
+    "General counting MSO machinery already implies effective polynomial-time cardinality counting on forests; no independent originality credit accrues to mere tractability or the tree minimum-size scalar formula.",
+    "Finite checks cover n<=6 labeled trees and 800 additionally sampled forests through n=10, not all graphs; the unrestricted result relies on the structural induction.",
+    "The current public metadata and audit files include operational run identifiers; no public sanitization is staged."
+  ],
+  "schema_version": 1
+}
