@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For each distance bound k=2 or 3, any qualifying set has coordinate spans at most k, and every grid geodesic is Manhattan-monotone within its endpoint box. Hence every nonempty set has a unique translated anchored bounding box of dimensions at most 4 by 4, preserving validity. Two distinct executable programs verified all 16-by-2 anchored size histograms exhaustively by iterating every nonempty bitmask and testing shortest routes with monotone BFS and separately enumerated path bitmasks. Each enumeration ran on the actual included files without errors. Each anchored pattern translates to exactly max(m-h+1,0)max(n-w+1,0) placements. Summing the certified histograms proves the boxed coefficients for all m,n>=2, not by extrapolation; no higher-k assertion is made. Explicit 3x3 and 4x4 polynomial checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cera López et al., arXiv:2408.03976, Sections 2, 4 and 6: grid question and non-grid exact families",
+        "Korže and Vesel, arXiv:2309.15201, Sections 1–4: unrestricted mutual visibility of cycle-containing Cartesian products",
+        "Cicerone et al., DOI 10.1002/net.70074, Definition 3.1: k internally disjoint routes"
+      ],
+      "reasoning": "The source Theorem 2.1 supplies a lower bound via isometric subgraphs and does not give all-set cardinality counts. Results on unrestricted visibility, strong products, coloring and fault tolerance are not stronger theorems implying this polynomial.",
+      "searches": [
+        "k-distance mutual visibility grid graphs Cartesian product of paths P_m P_n full polynomial",
+        "k-distance mutual visibility grid exact mu_2 mu_3 formula 2025 2026",
+        "distance mutual visibility Cartesian product of paths 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.03976 full open-access article",
+      "arXiv:2309.15201 full open-access article",
+      "arXiv:2510.10284 abstract and introductory metadata",
+      "DOI:10.1002/net.70074 open-access definitions and grid statements",
+      "Previously reported mathematical claim f5210152-7629-4ed9-9dc1-4425cb3c81b1",
+      "Accessible research-record semantic queries for face polynomial/size distribution and equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously reported k=3 grid result: μ_3=5 for 3x3, 6 otherwise, with optimizer counts",
+        "arXiv:2408.03976 Theorem 2.1 is a scalar lower bound; Section 6 explicitly asks for grid values",
+        "arXiv:2309.15201 Observation 1.1 describes grid intervals for unrestricted mutual visibility"
+      ],
+      "reasoning": "The prior top-degree theorem is a coefficient-level corollary of the present polynomial and is not claimed original. Conversely, knowing only maxima and maximal-set counts imposes no values on the numbers of smaller visibility sets; it cannot imply the z^2 through z^5 coefficients. The Manhattan interval observation supports the reduction but does not enumerate finite masks.",
+      "searches": [
+        "2024 Cera Garcia Vazquez Valenzuela Tripodoro Yero k-distance mutual visibility grid open problem 2 and 3",
+        "k-distance mutual visibility set grid graph no third selected vertex on length two shortest path induced P3 triples",
+        "2021 2023 mutual visibility Cartesian products grid geodesic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.03976 Definition in Introduction, full HTML",
+        "Previously reported claim f5210152-7629-4ed9-9dc1-4425cb3c81b1 (top-degree only)",
+        "arXiv:2510.10284 introduction states a coloring/partition invariant"
+      ],
+      "reasoning": "Equivalent face-polynomial and occupied-set formulations searched. A complete individual-set size distribution is not equivalent to the published maximum cardinality or to the number of optimal sets; coloring-partition counts do not determine single-class counts.",
+      "searches": [
+        "full counting polynomial enumerating all k-distance mutual-visibility subsets by cardinality of rectangular grids P_m square P_n for k=2 and 3",
+        "mutual visibility complexes face polynomial all bounded diameter k=3 sets of rectangular Cartesian grids",
+        "k-distance mutual visibility number grid graphs Cartesian product of paths P_r square P_t exact formula k equals 2 3 local geodesic visibility"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible research hits closest: Exact low-distance mutual visibility in hypercubes (different graph family)",
+        "Accessible research hits closest: Connected mutual-visibility in Cartesian products of high-girth graphs (different invariant)",
+        "Pre-existing exact grid maximum-set claim f5210152-7629-4ed9-9dc1-4425cb3c81b1 (only extremal layer)"
+      ],
+      "reasoning": "Searches for polynomial, complex, face vector, cardinality distribution, and low-distance synonyms yielded no directly covering all-size coefficient table. This is evidence of no located covering record, not proof of global uniqueness.",
+      "searches": [
+        "generating function size distribution k-distance mutual visibility grid graphs number of sets of each cardinality",
+        "complete cardinality generating polynomial of distance 2 distance 3 mutual visibility on rectangular grids",
+        "first low-distance mutual visibility cases on grid graphs P_m square P_n and unique six-vertex optimal hexagonal patterns"
+      ]
+    },
+    "rationale": "The complete size-distribution F_2 and F_3 for rectangular grids is not supplied by the inspected primary works or accessible closest research records. The previous grid-specific claim f5210152-7629-4ed9-9dc1-4425cb3c81b1 already gives the k=3 maximum and its count, so those top-degree corollaries are acknowledged as covered, not new. Its statement does not imply counts of smaller configurations, and the present result directly calculates all coefficients with a reproducible finite localization certificate. The 2024 foundational work explicitly raises grid analysis; the 2024 cycle/path paper handles unrestricted visibility, 2025 coloring optimizes partitions, and 2026 fault tolerance imposes different path redundancy. Residual priority risk from unindexed enumeration papers persists.",
+    "residual_risks": [
+      "Unindexed specialized literature on bounded-distance mutual-visibility complexes or full size-distribution tables may overlap.",
+      "An exhaustive manual, independent priority search of all print-only sources has not been carried out.",
+      "The small-box census is supplied as reproducible exhaustive code, not a line-by-line handwritten classification of every valid mask."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces parameter; no all-subset rectangular-grid polynomial. Open grid research problem is explicitly stated.",
+        "evidence": [
+          "First arXiv public date 2024-08-07",
+          "Theorem 2.1 gives scalar lower bound",
+          "Conclusion proposes studying P_r square P_t"
+        ],
+        "identifier_or_url": "arXiv:2408.03976; https://link.springer.com/article/10.1007/s40840-024-01811-3",
+        "material_read": "Open-access full-text HTML: definitions, introductory setup, Theorem 2.1, exact-family Section 4, bounds Section 5 and concluding Section 6",
+        "method": "Read relevant primary full-text statements, proof methods, and concluding open problem; compared implications, not merely titles",
+        "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+        "trigger": "Origin of the distance-limited parameter and explicit grid research question"
+      },
+      {
+        "assessment": "Provides grid interval fact and unrestricted visibility context, not bounded-distance all-set enumeration.",
+        "evidence": [
+          "Observation 1.1 Manhattan interval",
+          "Sections 2–3 treat cycle-containing products, and no k=2 or k=3 size polynomial"
+        ],
+        "identifier_or_url": "arXiv:2309.15201; https://link.springer.com/article/10.1007/s00025-024-02139-x",
+        "material_read": "Open-access HTML: definitions and intervals in Section 1; cycle/path and cycle/cycle results in Sections 2–3; conclusions",
+        "method": "Compared unrestricted geodesic condition, target graph families and extremal conclusions",
+        "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+        "trigger": "Very similar ambient grids and geodesic geometry"
+      },
+      {
+        "assessment": "Partitions the graph into visibility classes, rather than counts individual feasible vertex subsets; full document not read; abstract-level comparison only.",
+        "evidence": [
+          "Abstract defines chromatic minimum over partitions, with no indicated all-set polynomial"
+        ],
+        "identifier_or_url": "arXiv:2510.10284",
+        "material_read": "ArXiv abstract, introductory definition and stated results",
+        "method": "Compared optimized object and quantifiers",
+        "title": "Distance mutual-visibility coloring: relations with (total) domination, exact distance graphs and graph products",
+        "trigger": "Same k-distance predicate could cover the proposed enumerator"
+      },
+      {
+        "assessment": "Uses k+1 internally disjoint geodesics and no distance cap. No domination of this statement.",
+        "evidence": [
+          "Definition 3.1: internally disjoint paths; grid results address fμ^(k)"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/net.70074",
+        "material_read": "Open-access full-text HTML: definitions of k-fault-tolerance, main-results summary, grid-like results",
+        "method": "Compared required path redundancy and use of k against maximum permitted distance",
+        "title": "Fault-Tolerant Mutual-Visibility: Complexity and Solutions for Grid-Like Networks",
+        "trigger": "2026 work on grid-like networks and a k-indexed visibility invariant"
+      },
+      {
+        "assessment": "Covers k=3 top-degree and optimizer count; does not state lower-degree coefficients and does not imply the new full-size distributions.",
+        "evidence": [
+          "Previously reported μ_3 and six-point configurations coincide with z^6 coefficient"
+        ],
+        "identifier_or_url": "f5210152-7629-4ed9-9dc1-4425cb3c81b1",
+        "material_read": "Recoverable claim statement only, checked for implication overlap",
+        "method": "Statement-level comparison of previously established maximizers against full all-cardinality polynomials",
+        "title": "Previously reported three-distance grid maximum-set theorem",
+        "trigger": "Exact graph family and k=3 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "036ef53d-5845-42bf-94d8-e5d4259a0b69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 foundational article explicitly motivates distance-restricted mutual visibility on rectangular grids. The new theorem gives the entire face-size distribution of every feasible set for both k=2 and k=3, not a chosen small-grid number or routine upper bound. Its higher coefficients include a previously known maximum-set layer, but its lower coefficients supply independent new cardinality information that cannot be recovered from the optimum alone. Exact all-size counts are useful for enumerating placements under restricted geodesic reachability, random selection models, and studying the associated downward-closed visibility complex. The theorem applies to an infinite two-parameter family because the locality reduction is structural; the finite enumeration is complete and small. No general k>3 theorem or practical performance gain is asserted.",
+    "status": "PASS"
+  }
+}
