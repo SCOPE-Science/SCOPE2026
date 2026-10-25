@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted count complementarity is proved for every generic direction, not inferred from numerical sampling. Its critical lemma is that a regular hexagonal face has six neighboring facet normals with three positive and three negative dot products when crossing its face-normal great circle; this follows from antipodally paired outward edge normals. It implies directional count constancy across hexagon walls. The six original antipodal icosahedral vertex axes then give exactly thirty-two great-circle chambers. The packaged exact-arithmetic checker constructs the full truncation incidence graph, proves general position and thirty-two distinct chamber representatives, and evaluates shadow/section counts on every chamber. The original-polygon silhouette convention and excluded exceptional directions are explicit. Four thousand independent projected-hull experiments corroborate, but do not constitute, proof.
+PASS
 
-## Originality — PASS (relative to inspected sources)
+The original icosahedron has 12 vertices, 30 edges, 20 triangles; its regular one-third truncation has 60 vertices and 90 facet-adjacency edges. On a generic direction an edge is on the projection silhouette exactly if incident outward facet normals have opposite signs; central I section vertices count old edges with opposite endpoint signs. Each regular hexagonal facet has three opposite pairs of edges; on its facet-normal wall exactly three adjacent facet signs face each way, so crossing those additional walls leaves N_T unchanged. Original opposite vertex normals induce six great circles with no triple crossings: 32 regions. Inspected exact Z[sqrt5] program establishes one representative of each 32 sign masks: 12 give shadow/section (20,10), 20 give (18,12). Thus N_T+S_I=30 throughout all generic chambers, beyond random samples. Independently rebuilt actual 60 coordinates, projected in 600 pseudorandom directions and computed convex hulls and central edge crossings: all complementary; this is corroboration only. Previously known spherical chamber area 20(3θ−π) yields exact probabilities and mean.
 
-The key nearest published statement *Exact Haar polygon-type law for central icosahedron sections* already proves \(S_I\in\{10,12\}\), chamber counts, and exactly the same numerical angular fraction. That entire result is correctly treated as **prior art** and not as the present novelty. The most directly relevant earlier projection page (QFBox) lists one octadecagon and one icosagon projection and two exceptional types, but does not classify every generic view or relate them pointwise to the icosahedron's central sections. The fully inspected 2010 construction of the regular truncated icosahedron provides vertices/facets but no orientation distribution or cross-body complementarity. The present added theorem is the sign-chamber-preserving relation \(N_T(u)=30-S_I(u)\), valid on the entire generic viewing sphere, from which the shadow distribution follows. An equivalent unstated identity could still occur in older stereological/fullerenic literature; priority is not claimed definitive.
+## originality
 
-## Value — PASS
+PASS
 
-The truncated icosahedron is a canonical Archimedean solid and soccer-ball model. The two possible generic silhouette complexities, their complete orientation partition and their pointwise relation to sections of another classical body give a natural and useful closed classification. This is not a mere recomputation of the previously known spherical probability: the transfer from a plane-section invariant to a distinct polyhedron's silhouette invariant depends on an additional nontrivial sign-balancing property of centrally symmetric hexagonal facets and a complete chamber proof. The result explains why numerically different special-projection outlines collapse to exactly two possibilities away from degeneracies, and supplies a reproducible geometric mechanism for related truncation questions.
+Full prior section-probability RESULT.md supplies the central I law as a used input, not a silhouette law for T. QFBox lists special truncated-icosahedron projections including 18 and 20 vertices, but not all generic directions or their pointwise complementarity. Koca et al. construct T, not its shadow distribution. No identified prior implying the cross-polytope identity; fullerene stereology priority is a risk.
 
-## Closest literature and residual risks
+## value
 
-- 2010 Koca--Al Ajmi--Al-Shidhani: complete truncated-solid construction, no silhouette law in the inspected Section V.C and conclusion.
-- QFBox (2023): individual octadecagon/icosagon/exceptional projections, not a continuum theorem.
-- Published central-icosahedron section law (2026): already proves the exact angular probabilities and all triangular/pentagonal normal chambers, but not the soccer-ball relation.
-- MathPages and Frederick: already describe the six-great-circle arrangement and its areas, without the cross-body silhouette count proof.
-- Residual risk: an inaccessible or poorly indexed fullerene projection-geometry article may contain an equivalent full statement. No result of that kind was located in the performed searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The icosahedron/truncated-icosahedron pair are canonical dual-related polyhedra. An all-direction combinatorial identity linking two distinct geometric operations and exact Haar silhouette probabilities is an intrinsic, testable geometry fact not a mere re-report of previously known section areas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
