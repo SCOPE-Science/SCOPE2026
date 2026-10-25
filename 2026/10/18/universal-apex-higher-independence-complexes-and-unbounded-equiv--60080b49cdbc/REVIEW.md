@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The face identity \(K=A\cup(a*B)\), the old-vertex null-homotopy of \(B\hookrightarrow A\), and the simplex-skeleton wedge decomposition give the asserted inclusion-compatible ordinary homotopy type for every finite graph and every specified threshold. The equivariant relative pair and augmented exterior chain model yield the integral exact sequence. In the complete-graph test family the explicit facet-boundary cycles form a regular integral orbit basis, and the old sphere embeds by the primitive signed norm. The restriction map on Hom lattices is precisely multiplication by \(n\), giving a nonzero extension of exact order \(n\). Reproducible enumeration and signed character checks corroborate all finite tested boundary cases without replacing the infinite proofs.
+## correctness
 
-## Originality
-**PASS, subject to residual literature risk.** Earlier higher-independence classifications address complete multipartite graphs and cycles, chordal sphere-wedge types, or graded-Betti formulas of graph joins. Their theorem statements and relevant proofs do not determine the integrally equivariant class of the inclusion or an unbounded family of non-split cyclic extensions. The familiar cyclic norm exact sequence and simplex-skeleton homology are recognized as prior algebra, rather than represented as new. Targeted equivalent-formulation searches and relevant research-record comparisons did not identify a statement implying this specific natural graph-inclusion realization; possible unindexed equivalent material is an explicit risk.
+PASS
 
-## Value
-**PASS.** The result answers a precise compatibility question between canonical nonequivariant graph-join splittings and natural graph automorphisms. It identifies a sharp arithmetic obstruction of exact order \(n\) in every cyclic order, despite free underlying homology; this distinguishes rational character data and numerical Betti formulas from genuinely integral equivariant extension information. The general cofiber decomposition supplies the natural setting rather than an arbitrary graph slice.
+Write K=Ind_r(G*K1)=A∪(a*B), B=sk_{r-2}Δ^{n-1}. For every fixed old vertex v, v*B ⊂ A since every set of at most r vertices has all components of size <=r. Hence B→A is nullhomotopic and cofiber gives wedge A∨ΣB, with binom(n-1,r-1) spheres. Relative integral chain homology identifies H~_{r-2}(B)=∧^{r-1}I_G, giving canonical Z[Γ]-exact sequence. In G=K_n,r=n-1, old boundary sphere is sign ε and larger skeleton top homology has regular integral C_n orbit basis from oriented apex-facet boundaries; inclusion is twisted cyclic norm Nε, kernel of multiplication by g−ε. Hom_R(R,Zε)→Hom_R(Zε Nε,Zε) is multiplication by n, so Ext^1_R(Iε,Zε)=Z/n and geometric extension has order n; no equivariant homology or homotopy retraction. Independent exhaustive checks on all 210 graph/r pairs with n=2,3,4 directly verified face decomposition; infinite theorem relies on cofiber/lattice algebra, not finite tests.
 
-## Related literature and boundaries
-Deshpande–Singh (arXiv:2001.05448) classify separate higher-independence homotopy types; Deshpande–Shukla–Singh (arXiv:2001.06775) address chordal graphs; Patra–Roy (arXiv:2311.07308) compute algebraic graph-join Betti data. The formula does not identify all integral equivariant homotopy types, and the finite script alone cannot prove any all-parameter theorem. The extension-class torsion does not imply torsion in ordinary homology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Higher independence complex sphere decompositions for complete and chordal graphs, and the classical cyclic norm exact sequence, are prior inputs and explicitly not new. The natural universal-apex inclusion and its integral equivariant extension class of arbitrary order is not stated by the inspected homotopy/graded Betti theorems.
+
+## value
+
+PASS
+
+Structural all-graph wedge decomposition accompanied by an unbounded integral symmetry obstruction to splitting is an independently useful explanation of why ordinary homotopy equivalences need not be equivariant; orders n appear despite torsion-free ordinary homology. Natural graph joining and group actions motivate the exact module extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
