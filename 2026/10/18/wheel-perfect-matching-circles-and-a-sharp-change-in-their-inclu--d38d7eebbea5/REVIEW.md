@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. Each perfect matching has a unique spoke and the other edges are forced by the even rim path. The resulting perfect-matching facet nerve is exactly the cyclic-interval complex \(B(2r+1,r)\); the nonempty intersections are simplices. The endpoint-edge free-face argument gives a sequence of elementary collapses to a polygon, valid for every integer \(r\ge2\), independently of finite tests. The dihedral homology character follows by the natural nerve construction and the small-arc model. For the exceptional six-vertex wheel, the two complexes share every two-face and differ by exactly five one-faces; the attachment splits first homology. In larger wheels, Vega's full-matching-complex theorem makes the target simply connected, so inclusion of a circle is nullhomotopic. Finite replay independently checks matchings, nerve faces, collapses and all dihedral Lefschetz traces through \(r=8\).
+## correctness
 
-## Originality
-PASS on inspected literature, with a qualified residual risk. Vega's wheel theorem [1] covers ordinary (not perfect) matching complexes. The perfect-matching complex source [2] treats honeycomb graphs, while [3] already covers the topology and symmetry of the abstract circular-arc nerve but neither identifies it with wheel perfect matchings nor discusses the wheel inclusion threshold. The final claim combines the new matching-to-nerve identification, explicit wheel collapse and sharp inclusion behavior; it is not the already-known circular-arc statement. Relevant source sections were read, not inferred from abstracts. Further unindexed or unavailable equivalent work is possible.
+PASS
 
-## Mathematical value
-PASS. Perfect-matching complexes are natural topological subcomplexes of matching complexes. An infinite family of pure simplicial complexes of unbounded dimension retaining precisely one circular homology class, together with its full dihedral character and an abrupt change in the inclusion map at six vertices, gives a coherent structural classification. It supplies a family of non-shellable and non-Cohen--Macaulay pure complexes. The known general circular-arc theorem is a major proof ingredient, so the contribution is the wheel-specific structural identification and inclusion relation rather than a new classification of all cyclic nerves.
+Every perfect matching contains exactly one hub spoke s_i; deleting its incident rim vertex leaves an even path with a unique perfect matching, yielding N=2r+1 facets M_i. The rim-edge incidence sets S_j={j+2,j+4,...,j+2r} in facet index, and inverse-of-two relabeling identifies their nerve with the cyclic length-r interval complex B(N,r). All nonempty facet-simplex intersections are contractible. For each 3<=t<=r, cyclic length-t facet has free endpoint edge because 2(t-1)<N, and its upper Boolean interval removes in 2^(t-3) elementary pairs; different intervals are disjoint. Hence B(N,r) simplicially collapses to B(N,2)=C_N in N(2^(r-2)-1) pairs, giving P_r≃S1. Equivariant nerve (simplex intersections have fixed barycenters) and circular-arc model yield rotations degree +1, reflections -1 on integral H1, without asserting the collapse itself equivariant. At r=2, enumeration shows M2 is P2 plus exactly five edges and no new triangles, so M2≃wedge^6 S1 and inclusion primitive split; at r>=3 Vega Theorem 5.2 makes ordinary wheel matching complex a wedge of spheres in dimension ceil((2r-2)/3)>=2, thus simply connected and the map from S1 null. Purity of P_r dimension r and nonzero H1 precludes pure shellable/CM. Independently checked finite r=2..7 facet incidences, nerve equality and Euler 0; finite test alone cannot prove the uniform statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level originality is limited to the differentiated new result, with credited general tools, broader prior coverage, and recorded access risks. Known cyclic nerve circle and ordinary wheel matching targets do not themselves state the perfect-matching wheel correspondence and sharp inclusion map.
+
+## value
+
+PASS
+
+The distinction between an extendible-perfect-matching subcomplex and the ordinary matching complex is a natural topological graph invariant. The all-wheel identification, explicit collapses, dihedral character and sharp change in the inclusion map are structurally meaningful, not a relabeling of the published cyclic-arc nerve: the wheel-specific graph-to-nerve bridge and exceptional six-vertex cell attachment must be established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
