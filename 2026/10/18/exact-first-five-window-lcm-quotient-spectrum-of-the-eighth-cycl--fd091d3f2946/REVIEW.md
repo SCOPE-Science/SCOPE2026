@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard integral resultant identity limits every common prime factor of a pair separated by \(h\le5\) to one of five explicit nonzero resultants. The order-eight obstruction leaves precisely \(17,97,641\) among odd primes; their resultant exponents equal one, so no possible hidden higher joint valuations remain. Exhaustive roots modulo these three primes, and the direct two-adic valuation, prove a closed formula for **all** starts. Coprime prime-indicator recovery proves the least periods; the Chinese remainder theorem proves exact six-term frequencies. The standalone `CHECKER.py` deterministically re-derives the critical exact computations and returns `VERIFY_OK`. Infinite validity comes from the proof, not sampled starts.
+PASS
 
-## Originality — PASS, with explicitly bounded risk
+For F(t)=t^4+1, the integral resultant identity bounds common factors for shifts 1..5. Independent SymPy computations gave R_1=153=3^2*17, R_2=73728=2^13*3^2, R_3=46584153=3^4*7^2*11^2*97, R_4=4421910528=2^16*3^4*7^2*17, and R_5=154497425625=3^6*5^4*23^2*641. Every odd prime divisor of F(t) has order 8, hence p=1 mod 8 and only 17,97,641 remain; each is simple in its relevant resultant, excluding hidden common valuation >1. Independent root lists and modular gap pairs matched 17: (8,1),(15,4 with wrap); 97: (47,3); 641: (318,5). v2(F(t))=1 iff t odd. Thus exactly the indicator formula and least periods 17,34,1649,3298,1057009. Exhaustive CRT counting over 17*97*641=1057009 residue triples reproduced all eight values/multiplicities, and direct product/lcm checks for n=1..299 and k=1..5 matched. Computation checks finite arithmetic; universal proof uses resultants and modular root exhaustion.
 
-Farhi–Kane's exact-period problem and the linear, quadratic and cubic progression literature supply motivation and related tools, but their stated theorems do not deliver the exact \(\Phi_8\) five-window spectrum or complete six-term value-frequency census. General resultant/gcd frameworks do not itself list or imply the specific resultant prime collisions, minimal periods, or eight exact frequencies without additional computation. Exact-phrase and mathematical-record comparisons for the polynomial, exceptional prime, period tuple, and parameter aliases revealed no covering result. An unindexed computation, table, or general stronger theorem could still contain these facts.
+## originality
 
-## Value — PASS
+PASS
 
-Exact least periods are natural invariants in the established least-common-multiple quotient program. The eighth cyclotomic polynomial is a natural degree-four example, and its five shortest nontrivial windows exhibit a genuine arithmetic phase transition: the appearance of \(641\), a new prime dividing a gap-five polynomial resultant, exactly when the period loses its parity factor. The complete value spectrum, multiplicities, and prime-collision classification are useful for benchmarking and extending exact-period analysis beyond degree three. These are not merely larger numerical searches.
+PASS best of knowledge for the exact Phi_8 k<=5 quotient formula, least periods and complete k=5 frequency table, not for the general resultant technique. Bodin-Drouin treat gcd of two polynomial values through resultants and period patterns; Farhi-Kane and other progression papers address linear/quadratic/cubic or generic periods, but none inspected enumerates these four collision types or the eight exact frequencies. An unindexed Phi_8 table could cover the narrow result.
 
-## Closest prior literature and limitations
+## value
 
-See the sources and detailed scientific implications in `AUDIT.json` and `RESULT.md`. Only \(1\le k\le5\) is established; longer windows are not addressed. Unindexed coincident literature is a residual originality risk. The computational checks are finite certificates for numerical sublemmas, not independent proof of the quantified theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural cyclotomic quartic test case in the established consecutive-polynomial LCM quotient problem. The first exceptional gap-five collision at 641 and concomitant loss of parity in the least period are meaningful exact arithmetic boundaries; the full CRT spectrum is directly reusable as a nontrivial benchmark for degree-four extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:53:41.058132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F(t)=t^4+1, the integral resultant identity bounds common factors for shifts 1..5. Independent SymPy computations gave R_1=153=3^2*17, R_2=73728=2^13*3^2, R_3=46584153=3^4*7^2*11^2*97, R_4=4421910528=2^16*3^4*7^2*17, and R_5=154497425625=3^6*5^4*23^2*641. Every odd prime divisor of F(t) has order 8, hence p=1 mod 8 and only 17,97,641 remain; each is simple in its relevant resultant, excluding hidden common valuation >1. Independent root lists and modular gap pairs matched 17: (8,1),(15,4 with wrap); 97: (47,3); 641: (318,5). v2(F(t))=1 iff t odd. Thus exactly the indicator formula and least periods 17,34,1649,3298,1057009. Exhaustive CRT counting over 17*97*641=1057009 residue triples reproduced all eight values/multiplicities, and direct product/lcm checks for n=1..299 and k=1..5 matched. Computation checks finite arithmetic; universal proof uses resultants and modular root exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodin–Drouin §2 provides resultant/gcd methodology for two polynomials; polynomial progression research develops period techniques."
+        ],
+        "reasoning": "These general tools alone do not imply the numeric classification without calculating specialized Sylvester determinants and collision residues.",
+        "searches": [
+          "arXiv:2409.01224",
+          "arXiv:0808.1507",
+          "arXiv:0903.0530",
+          "arXiv:1208.5119"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.01224",
+        "Resultary semantic query: Resultary: cyclotomic polynomial t^4+1 Phi8 lcm of consecutive values quotient exact period 641 collisions 17 97"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise gcd resultant divisibility does not assert full multi-entry quotient valuation or minimal period for Phi_8."
+        ],
+        "reasoning": "The submitted proof derives new explicit collisions and period/divisor arguments from previously known machinery; prior work does not directly imply the displayed table.",
+        "searches": [
+          "Bodin-Drouin arXiv:2409.01224 §§2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Computed exact new collision list 17 gap 1/4, 97 gap 3, 641 gap 5; no corresponding Resultary title returned."
+        ],
+        "reasoning": "The equivalent prime-collision formulation contains explicit root-pair data absent from the checked records.",
+        "searches": [
+          "Resultary: cyclotomic polynomial t^4+1 Phi8 lcm of consecutive values quotient exact period 641 collisions 17 97",
+          "Web: Phi8 lcm 641 polynomial quotient cyclotomic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching stored table appeared in the returned semantic results or web queries; eight frequencies independently reconstructed."
+        ],
+        "reasoning": "Nonappearance is not a novelty proof; exact table remains a residual risk.",
+        "searches": [
+          "Resultary: Phi8 641 lcm exact period",
+          "Web: Phi8 lcm 641 polynomial quotient cyclotomic"
+        ]
+      },
+      "rationale": "PASS best of knowledge for the exact Phi_8 k<=5 quotient formula, least periods and complete k=5 frequency table, not for the general resultant technique. Bodin-Drouin treat gcd of two polynomial values through resultants and period patterns; Farhi-Kane and other progression papers address linear/quadratic/cubic or generic periods, but none inspected enumerates these four collision types or the eight exact frequencies. An unindexed Phi_8 table could cover the narrow result.",
+      "residual_risks": [
+        "Unindexed prime-collision/LCM table for Phi_8 may precompute the same five windows.",
+        "At k>5 new primes/higher shared valuations appear; proof has no such scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem is for pairwise polynomial gcd patterns, and does not tabulate Phi_8 windows or k=5 CRT frequencies.",
+          "evidence": "§2 Bézout resultant identity; §6 minimal resultant refinements.",
+          "identifier_or_url": "arXiv:2409.01224",
+          "material_read": "Full arXiv HTML §§2–6, integral resultant divisibility, prime patterns, period discussion",
+          "method": "https://arxiv.org/html/2409.01224v1",
+          "title": "Bodin and Drouin, Around the gcd of the values of two polynomials",
+          "trigger": "Same resultant/gcd construction used to control collisions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural cyclotomic quartic test case in the established consecutive-polynomial LCM quotient problem. The first exceptional gap-five collision at 641 and concomitant loss of parity in the least period are meaningful exact arithmetic boundaries; the full CRT spectrum is directly reusable as a nontrivial benchmark for degree-four extensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed prime-collision/LCM table for Phi_8 may precompute the same five windows.",
+    "At k>5 new primes/higher shared valuations appear; proof has no such scope.",
+    "Independent bounded checks supplement but do not replace the mathematical proofs; literature priority remains best of knowledge.",
+    "Lean and independent external expert attestation neither conducted nor asserted."
+  ],
+  "schema_version": 1
+}
