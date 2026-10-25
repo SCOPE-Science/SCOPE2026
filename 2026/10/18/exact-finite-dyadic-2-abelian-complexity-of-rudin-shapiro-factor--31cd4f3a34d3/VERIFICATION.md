@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` and confirm `VERIFY_OK`. The checker validates the eight-state-pair closure, reconstructs the coded Rudin–Shapiro prefix, enumerates all length-\(2^m\) windows from each exact two-tile image for \(4\le m\le16\), and asserts all thirteen claimed counts. The independent direct-index parity comparison is performed at the first seven specified scales. Canonical sorted-profile hashes can be compared with `certificates.json`. The exhaustive infinite-factor reduction is proved in `RESULT.md`; this verification checks finite cases only. No independent audit has been performed.
+## correctness
+
+PASS
+
+PASS: eight-pair closure and aligned supertile window lemma justify completeness for the infinite sequence at every tested dyadic length; fingerprint algebra is sufficient; independent full finite table reconstruction covers exactly m=4..16.
+
+## originality
+
+PASS
+
+The cited published 2-abelian analyses concern Thue–Morse and period-doubling rather than Rudin–Shapiro, while published ordinary abelian RS complexity loses adjacency and endpoints. A generic spectrum of all binary words is not the restricted automatic-word factor set; this is a specific exact dyadic census.
+
+## value
+
+PASS
+
+2-abelian complexity is the natural refinement of Parikh complexity recording adjacency and endpoints. Complete, provably infinite-language dyadic factor profile counts up to a large exact cutoff (2^16), with a striking parity-stratified formula, are useful independent finite invariants and calibration data toward automatic complexity classifications, despite no general m theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

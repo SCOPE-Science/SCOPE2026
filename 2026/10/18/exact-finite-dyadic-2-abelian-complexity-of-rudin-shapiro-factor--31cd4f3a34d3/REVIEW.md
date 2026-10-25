@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state morphism matches the defining binary-index recurrence; the eight adjacent-state pairs are both witnessed at depth four and substitution-closed. A length-\(2^m\) factor can meet at most two aligned tiles, so eight two-tile images exhaust the infinite factor language at that length. The fingerprint identity reconstructs all one- and two-symbol counts. The standalone implementation enumerates every finite window for each of the thirteen explicit exponents, checks the exact values and prints canonical profile checksums. A separately defined digit-parity prefix census matches the full profile sets for exponents four through ten. No extrapolation is asserted.
+## correctness
 
-## Originality — PASS on inspected evidence
-The 2015 Parreau–Rigo–Rowland–Vandomme article treats \(2\)-abelian complexity of Thue–Morse and period doubling, not Rudin–Shapiro. The 2016 Lü–Chen–Wen–Wu preprint treats ordinary abelian complexity of Rudin–Shapiro, not adjacent-pair equivalence. Searches for "Rudin-Shapiro 2-abelian complexity" and for dyadic profiles did not locate a matching census. A general exact enumeration of binary adjacent-pair multispectra across **all** binary words counts a much larger language and does not imply which profiles occur in the Rudin–Shapiro shift. Residual risk: an unindexed table or a corollary of older general automatic-sequence machinery may duplicate the data.
+PASS
 
-## Value — PASS
-The integer-valued invariant distinguishes local transition structure invisible to ordinary abelian complexity and is a canonical refinement in symbolic dynamics and word-combinatorics. Exact finite values through a 65,536-symbol window, together with a mathematically complete factor-cover algorithm and canonical profile hashes, form a substantive benchmark for proposed general regularity or renormalization laws. This is a finite exact determination, not a disguised unproved all-length theorem.
+PASS: eight-pair closure and aligned supertile window lemma justify completeness for the infinite sequence at every tested dyadic length; fingerprint algebra is sufficient; independent full finite table reconstruction covers exactly m=4..16.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The cited published 2-abelian analyses concern Thue–Morse and period-doubling rather than Rudin–Shapiro, while published ordinary abelian RS complexity loses adjacency and endpoints. A generic spectrum of all binary words is not the restricted automatic-word factor set; this is a specific exact dyadic census.
+
+## value
+
+PASS
+
+2-abelian complexity is the natural refinement of Parikh complexity recording adjacency and endpoints. Complete, provably infinite-language dyadic factor profile counts up to a large exact cutoff (2^16), with a striking parity-stratified formula, are useful independent finite invariants and calibration data toward automatic complexity classifications, despite no general m theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
