@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T02:40:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "K. Bezdek and M. A. Khan, On the covering index of convex bodies, arXiv:1503.03111v1 (2015), Proposition 4.2 and weak-index Definition/Table 2, DOI:10.1007/s00010-016-0409-z",
+        "K. Bezdek and M. A. Khan, The geometry of homothetic covering and illumination, arXiv:1602.06040v2 (2016), Section 4.2 and ordinary cylinder theorem"
+      ],
+      "rationale": "Let N_lambda(K) be the minimum number of translated lambda K covering K, 0<lambda<1. Both inequalities in coin_w(K)=inf_lambda N_lambda(K)/(1-lambda) follow from gamma_m(K)<=lambda when N_lambda=m and approximating gamma_m from above for the converse. For q=ceil(1/lambda), a line segment has exactly q-covering number: q translated lambda-intervals cover it, while q equally spaced witnesses j/(q-1) have mutual spacing >lambda, giving a q-point lower bound. An r-dimensional product witness grid has q^r fibers, each requiring N_lambda(K) translates of lambda K, and a product cover attains the bound. Thus N_lambda(K direct_sum C^r)=N_lambda(K)q^r, including any convex K. Since q>=2, the infimum implies coin_w(K direct_sum C^r)>=2^r coin_w(K). If the base infimum is attained at gamma_m(K)=lambda_* in [1/2,1), then choose lambda>lambda_* arbitrarily close; N_lambda(K)<=m and q=2, giving the opposite inequality by taking the limit. This avoids relying on finite-cover attainment exactly at gamma_m. For triangle and affine-regular hexagon, the published exact base coin_w=9, gamma_3=2/3 imply both the lower and upper bounds 9*2^r for every integer r>=1, in particular 18 at r=1. Cases lambda=1/2 (q=2), lambda approaching 1 or 0, and non-attained gamma_m are accounted for; equality for arbitrary K without the attainment hypothesis is not proved.",
+      "residual_risks": [
+        "The result uses the published exact product identity (not an independently new lemma).",
+        "No universal equality claim outside the stated attained-ratio hypothesis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek--Khan Proposition 4.2 gives exact N_lambda multiplication for tightly covered factors, a necessary general premise but not the advertised weak-index factor 2^r bound.",
+          "The 2016 author survey establishes an ordinary covering-index cylinder formula and says no suitable weak analogue is obtained.",
+          "Wu--Fan--He 2020 Proposition 7 addresses Gamma_m(K direct_sum L), not the weak index infimum cost."
+        ],
+        "reasoning": "Proposition 4.2 provides exactly the more informative per-scale covering number of every cube extension. Taking the definition-level infimum and applying ceil(1/lambda)>=2 proves the universal bound, while the attaining base ratios give equality. Under the rule that direct corollaries count as covered, this is prior mathematical coverage even without identical weak-index wording.",
+        "searches": [
+          "Resultary: covering index weak direct vector sums parallelotope N_lambda tightly covered 2^r lower bound generalized cylinder",
+          "Bezdek and Khan arXiv:1503.03111v1 Proposition 4.2 and Table 2",
+          "Bezdek and Khan arXiv:1602.06040v2 Section 4.2",
+          "Wu Fan He DOI:10.7153/mia-2020-23-88 Section 3 Proposition 7",
+          "Web: earlier and later geometric homothetic covering index cylinder theorem"
+        ]
+      },
+      "checked_sources": [
+        "K. Bezdek and M. A. Khan, On the covering index of convex bodies, arXiv:1503.03111v1 (2015), Proposition 4.2 and weak-index Definition/Table 2, DOI:10.1007/s00010-016-0409-z",
+        "K. Bezdek and M. A. Khan, The geometry of homothetic covering and illumination, arXiv:1602.06040v2 (2016), Section 4.2 and ordinary cylinder theorem",
+        "S. Wu, B. Fan, C. He, Covering functionals of Minkowski sums and direct sums of convex bodies, Math. Inequal. Appl. 23 (2020), Section 3 Proposition 7, DOI:10.7153/mia-2020-23-88",
+        "C. He, H. Martini, C. Wu, On covering functionals of convex bodies, J. Math. Anal. Appl. (2016), DOI:10.1016/j.jmaa.2016.01.055 (bibliographic/abstract only; complete paper inaccessible)",
+        "Resultary published findings, semantic queries for weak covering index, direct sums, segment/cube extensions, triangle and hexagon prisms; same target entry is not earlier independent literature",
+        "Resultary same target 2026/10/11/SCOPE-a-cube-extension-law-for-the-weak-covering-index--1ed6106b566e (not independent prior)",
+        "Public web searches listed in four named originality checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known N_lambda product law has factor ceil(1/lambda)^r, which varies with lambda; separately known coin_w base values are 9, while cylinder table only states <=18.",
+          "The submitted variational identity and infimum inequality yield the missing universal lower bound; equality at lambda>=1/2 gives converse by the same formula.",
+          "Source states that an ordinary covering-index cylinder corollary has no suitable weak counterpart, so the published weak theorem is not this exact conclusion."
+        ],
+        "reasoning": "The submitted entire claim (universal lower, conditional equality and both exact infinite families) is implied by the same published per-scale direct-sum Proposition 4.2 plus the definition of weak covering index and the same source table. The bridge is an elementary infimum interchange/monotonicity calculation; no extra mathematical hypothesis, construction, classification, or independent obstruction is required. Under explicit corollary-coverage rules O=FAIL regardless of the fact that earlier authors printed only upper estimates.",
+        "searches": [
+          "Bezdek and Khan arXiv:1503.03111v1 Proposition 4.2 and Table 2",
+          "Bezdek and Khan arXiv:1602.06040v2 Section 4.2",
+          "Wu Fan He DOI:10.7153/mia-2020-23-88 Section 3 Proposition 7",
+          "Resultary: weak covering index of convex bodies exact Cartesian product with segment cube cylinders coin_w factor two triangle hexagon prisms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target invariant coin_w is an infimum of N_lambda(K)/(1-lambda). Product, cylinder, weak covering, prism, segment doubling, and cube languages were all compared.",
+          "Resultary semantic search returned its own identical published target entry 2026/10/11/SCOPE-a-cube-extension-law-for-the-weak-covering-index--1ed6106b566e; other nearby indexed product-of-simplices result concerns ordinary/fractional illumination rather than coin_w."
+        ],
+        "reasoning": "Equivalent notation and affine Cartesian-product phrasing were checked; ordinary illumination and ordinary covering are different optimization problems, and an identical target index is not independent earlier publication.",
+        "searches": [
+          "Resultary: weak covering index of convex bodies exact Cartesian product with segment cube cylinders coin_w factor two triangle hexagon prisms",
+          "Resultary: covering index weak direct vector sums parallelotope N_lambda tightly covered 2^r lower bound generalized cylinder",
+          "Web: \"weak covering index\" \"triangle\" \"prism\" 18",
+          "Web: \"weak covering index\" \"direct sum\" segment 2 2^r",
+          "Web: coin_w K direct sum line segment",
+          "Web: weak covering index Cartesian product cube exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bezdek--Khan Table 2 gives both triangle+segment and affine-regular-hexagon+segment only <=18, not equality; base shapes are exactly 9 at m=3, lambda=2/3.",
+          "Resultary search returned an identical record for this submitted finding and no distinct weak-prism table supplement in the top relevant matches."
+        ],
+        "reasoning": "These are specific already-tabulated objects with an explicit unresolved lower-bound gap. Their r-fold cube extensions are not just numerically the same low-dimensional cases; the universal inequality supplies sharp lower bounds.",
+        "searches": [
+          "Web: \"weak covering index\" \"triangle\" \"prism\" 18",
+          "Bezdek and Khan arXiv:1503.03111v1 Proposition 4.2 and Table 2",
+          "Web: \"coin_w\" \"Delta^2\" \"18\"",
+          "Web: weak index triangle hexagon prism table exact"
+        ]
+      },
+      "rationale": "Originality FAIL by direct prior mathematical implication, not search failure. Bezdek--Khan Proposition 4.2 already gives the exact scale-by-scale theorem N_lambda(K direct_sum C^r)=N_lambda(K)ceil(1/lambda)^r; their own weak index definition coin_w(K)=inf_m m/(1-gamma_m(K)) is definitionally equal to inf_lambda N_lambda(K)/(1-lambda). Since ceil(1/lambda)>=2, the advertised universal lower bound follows by immediate monotonicity of the infimum; when a minimizing ratio >=1/2 exists, evaluating at that ratio gives the upper equality. Their same paper supplies base coin_w=9 at gamma_3=2/3 for the triangle and affine-regular hexagon. Thus the claimed exact prism numbers 18 and all 9*2^r cube extensions are elementary specializations of the existing source theorem and source table, although not printed explicitly and despite the authors noting the absence of a more general weak cylinder corollary. The mathematical coverage is decisive because it uses no additional nonstandard lemma beyond previously published Proposition 4.2 and the published definition/base values. The later survey and Wu--Fan--He are not needed to reach that implication; an inaccessible plausible paper is merely an additional residual risk, not the failure reason. Resultary returned the same target, not independent earlier evidence.",
+      "residual_risks": [
+        "The 2^r statement is a short variational corollary of published Proposition 4.2, so it might be seen as already implicit or stated in unindexed literature; no absolute priority claim is made.",
+        "He--Martini--Wu 2016 covering-functionals full text was inaccessible despite lawful source checks; its equivalently phrased covering consequences remain unread.",
+        "Later works may use a different normalization or terminology for the weak index; negative semantic search results do not establish novelty.",
+        "Full Git source tree SHA-1 recomputed, but every individual source blob was not separately rehashed from locally obtained complete raw bytes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PRODUCT_PREMISE_AND_EXACT_BASE_VALUES_ONLY: proves N_lambda product formula and coin_w bases 9 at gamma_3=2/3; quotes only <=18 for the triangular and hexagonal prisms and expressly lacks a suitable weak analogue of the ordinary cylinder corollary.",
+          "evidence": "Proposition 4.2 applies with all but one factors tightly covered; line-segment N_lambda=ceil(1/lambda). In the weak section, both H+segment and triangle+segment receive only <=18, although coin_w(H)=coin_w(triangle)=9. The new lower cost is not stated.",
+          "identifier_or_url": "arXiv:1503.03111v1; DOI:10.1007/s00010-016-0409-z; https://www.researchgate.net/publication/273435235_On_the_covering_index_of_convex_bodies",
+          "material_read": "Full author-uploaded public HTML text rendering: covering-number direct-sum statements and Proposition 4.2 with proof; weak-index definition; triangle and affine-regular hexagon values; weak cylinder discussion and upper-only prism entries in Table 2. Not an inspected PDF page image.",
+          "method": "Read complete relevant mathematical primary-text passages and neighboring statements/proof in publicly accessible author-uploaded full-text page; arXiv PDF direct retrieval was inaccessible.",
+          "title": "On the covering index of convex bodies",
+          "trigger": "Introducing paper for the exact weak covering index, tight-covering Proposition 4.2 and the particular two prism estimates."
+        },
+        {
+          "assessment": "DISTINGUISHES_ORDINARY_COVERING_FROM_WEAK: proves an exact ordinary cylinder theorem; explicitly does not furnish the claimed weak-index extension law.",
+          "evidence": "The ordinary covering index and its 1/2-scaled covering-number formula are mathematically different from coin_w; the latter is discussed separately without asserting factor 2^r weak-index equality.",
+          "identifier_or_url": "arXiv:1602.06040v2; https://www.researchgate.net/publication/296695836_The_geometry_of_homothetic_covering_and_illumination",
+          "material_read": "Public author-uploaded full-text rendering, Section 4.2 on ordinary and weak covering indices, including ordinary-cylinder theorem and caveat about weak cylinder analogues.",
+          "method": "Read full relevant primary text, theorem/corollary and directly adjacent limitations.",
+          "title": "The geometry of homothetic covering and illumination",
+          "trigger": "Later authors survey broad enough to report an already known weak cylinder equality if one existed."
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL_NOT_EQUIVALENT_COVERAGE: inequalities for finite-index Gamma_m covering functional but no weak-covering-index infimum cylinder inequality or exact prism lower bound.",
+          "evidence": "Proposition 7 compares direct-sum covering functionals at finite m and includes hypotheses on individual covering numbers. It does not supply a weak index price denominator 1-lambda or derive 9*2^r for the two prism families.",
+          "identifier_or_url": "DOI:10.7153/mia-2020-23-88; https://www.mia-journal.com/files/mia/23-88.pdf",
+          "material_read": "Entire ten-page lawful open PDF in parsed text, especially Section 3, Proposition 7 and its proof; relevant PDF page screenshot visually checked.",
+          "method": "Public publisher PDF text inspection, direct-sum proposition and rendered page.",
+          "title": "Covering functionals of Minkowski sums and direct sums of convex bodies",
+          "trigger": "Later primary full-text work on the same direct sums and associated covering functionals."
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_PRIORITY_RISK_NOT_DEFINITIVE_NONCOVERAGE",
+          "evidence": "The title and abstract establish relation to covering functionals; no assertion about its full theorem coverage can be drawn from unread text. Record as residual risk, not automatic failure.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2016.01.055",
+          "material_read": "Bibliographic information and accessible abstract/metadata only; complete article NOT read.",
+          "method": "Checked arXiv/preprint and lawful open-access availability first; both failed to yield full text. Authorized institutional retrieval returned vpn_disconnected; no authentication bypass.",
+          "title": "On covering functionals of convex bodies",
+          "trigger": "Older plausible broader treatment of covering functionals and reductions that could imply a weak covering index statement."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "K. Bezdek and M. A. Khan, On the covering index of convex bodies, arXiv:1503.03111v1 (2015), Proposition 4.2 and weak-index Definition/Table 2, DOI:10.1007/s00010-016-0409-z",
+        "K. Bezdek and M. A. Khan, The geometry of homothetic covering and illumination, arXiv:1602.06040v2 (2016), Section 4.2 and ordinary cylinder theorem",
+        "S. Wu, B. Fan, C. He, Covering functionals of Minkowski sums and direct sums of convex bodies, Math. Inequal. Appl. 23 (2020), Section 3 Proposition 7, DOI:10.7153/mia-2020-23-88"
+      ],
+      "rationale": "The weak covering index is an intrinsically motivated convex-geometric optimization invariant, and the authors introducing it explicitly left the weak cylinder calculation only as upper estimates. The universal lower law and a sharp attained-ratio condition give structural product behavior for any base convex body and exact higher-dimensional values for two nontrivial planar bases. The exact value 18 of two concrete one-codimensional prism families, and 9*2^r for all r, is information a covering-geometry researcher could use without a paper-sized downstream theorem. Value is modest, because the proof is short and depends critically on established product-covering machinery; the result does not claim a universal weak cylinder equality or solve broad dimension-wise extrema.",
+      "residual_risks": [
+        "The original paper already contains the covering machinery, so the gain is an exact weak-index optimization consequence rather than a new geometric covering construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "K. Bezdek and M. A. Khan, On the covering index of convex bodies, arXiv:1503.03111v1 (2015), Proposition 4.2 and weak-index Definition/Table 2, DOI:10.1007/s00010-016-0409-z",
+    "K. Bezdek and M. A. Khan, The geometry of homothetic covering and illumination, arXiv:1602.06040v2 (2016), Section 4.2 and ordinary cylinder theorem",
+    "S. Wu, B. Fan, C. He, Covering functionals of Minkowski sums and direct sums of convex bodies, Math. Inequal. Appl. 23 (2020), Section 3 Proposition 7, DOI:10.7153/mia-2020-23-88",
+    "C. He, H. Martini, C. Wu, On covering functionals of convex bodies, J. Math. Anal. Appl. (2016), DOI:10.1016/j.jmaa.2016.01.055 (bibliographic/abstract only; complete paper inaccessible)",
+    "Resultary published findings, semantic queries for weak covering index, direct sums, segment/cube extensions, triangle and hexagon prisms; same target entry is not earlier independent literature",
+    "Resultary same target 2026/10/11/SCOPE-a-cube-extension-law-for-the-weak-covering-index--1ed6106b566e (not independent prior)",
+    "Public web searches listed in four named originality checks"
+  ],
+  "disposition": "failed",
+  "final_claim": "For every convex body K and complementary r-dimensional parallelotope C^r, coin_w(K direct_sum C^r)>=2^r coin_w(K); equality if coin_w(K) is attained at gamma_m(K) in [1/2,1). Thus coin_w(triangle direct_sum C^r)=coin_w(affine-regular hexagon direct_sum C^r)=9*2^r for every r>=1.",
+  "limitations": [
+    "Equality for general K assumes an actual minimizing m and gamma_m ratio in [1/2,1). Otherwise only the general lower bound is proved.",
+    "Applies to direct sums with paralleotope factors, not arbitrary Minkowski sums in a shared subspace.",
+    "Theorem depends on the earlier exact covering-number product theorem and known two base values.",
+    "The principal full primary source was read from an author-uploaded text rendering, not a PDF page image.",
+    "The relevant earlier He--Martini--Wu source was not fully accessible through authorized routes; no claim of definitive noncoverage is made.",
+    "Source tree reconstructed independently; not all individual source blobs locally rehashed.",
+    "Public provenance sanitization not staged. Publication withheld despite completed scientific assessment."
+  ],
+  "residual_risks": [
+    "The 2^r statement is a short variational corollary of published Proposition 4.2, so it might be seen as already implicit or stated in unindexed literature; no absolute priority claim is made.",
+    "He--Martini--Wu 2016 covering-functionals full text was inaccessible despite lawful source checks; its equivalently phrased covering consequences remain unread.",
+    "Later works may use a different normalization or terminology for the weak index; negative semantic search results do not establish novelty.",
+    "Full Git source tree SHA-1 recomputed, but every individual source blob was not separately rehashed from locally obtained complete raw bytes."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_PRODUCT_PREMISE_AND_EXACT_BASE_VALUES_ONLY: proves N_lambda product formula and coin_w bases 9 at gamma_3=2/3; quotes only <=18 for the triangular and hexagonal prisms and expressly lacks a suitable weak analogue of the ordinary cylinder corollary.",
+      "evidence": "Proposition 4.2 applies with all but one factors tightly covered; line-segment N_lambda=ceil(1/lambda). In the weak section, both H+segment and triangle+segment receive only <=18, although coin_w(H)=coin_w(triangle)=9. The new lower cost is not stated.",
+      "identifier_or_url": "arXiv:1503.03111v1; DOI:10.1007/s00010-016-0409-z; https://www.researchgate.net/publication/273435235_On_the_covering_index_of_convex_bodies",
+      "material_read": "Full author-uploaded public HTML text rendering: covering-number direct-sum statements and Proposition 4.2 with proof; weak-index definition; triangle and affine-regular hexagon values; weak cylinder discussion and upper-only prism entries in Table 2. Not an inspected PDF page image.",
+      "method": "Read complete relevant mathematical primary-text passages and neighboring statements/proof in publicly accessible author-uploaded full-text page; arXiv PDF direct retrieval was inaccessible.",
+      "title": "On the covering index of convex bodies",
+      "trigger": "Introducing paper for the exact weak covering index, tight-covering Proposition 4.2 and the particular two prism estimates."
+    },
+    {
+      "assessment": "DISTINGUISHES_ORDINARY_COVERING_FROM_WEAK: proves an exact ordinary cylinder theorem; explicitly does not furnish the claimed weak-index extension law.",
+      "evidence": "The ordinary covering index and its 1/2-scaled covering-number formula are mathematically different from coin_w; the latter is discussed separately without asserting factor 2^r weak-index equality.",
+      "identifier_or_url": "arXiv:1602.06040v2; https://www.researchgate.net/publication/296695836_The_geometry_of_homothetic_covering_and_illumination",
+      "material_read": "Public author-uploaded full-text rendering, Section 4.2 on ordinary and weak covering indices, including ordinary-cylinder theorem and caveat about weak cylinder analogues.",
+      "method": "Read full relevant primary text, theorem/corollary and directly adjacent limitations.",
+      "title": "The geometry of homothetic covering and illumination",
+      "trigger": "Later authors survey broad enough to report an already known weak cylinder equality if one existed."
+    },
+    {
+      "assessment": "DIFFERENT_FUNCTIONAL_NOT_EQUIVALENT_COVERAGE: inequalities for finite-index Gamma_m covering functional but no weak-covering-index infimum cylinder inequality or exact prism lower bound.",
+      "evidence": "Proposition 7 compares direct-sum covering functionals at finite m and includes hypotheses on individual covering numbers. It does not supply a weak index price denominator 1-lambda or derive 9*2^r for the two prism families.",
+      "identifier_or_url": "DOI:10.7153/mia-2020-23-88; https://www.mia-journal.com/files/mia/23-88.pdf",
+      "material_read": "Entire ten-page lawful open PDF in parsed text, especially Section 3, Proposition 7 and its proof; relevant PDF page screenshot visually checked.",
+      "method": "Public publisher PDF text inspection, direct-sum proposition and rendered page.",
+      "title": "Covering functionals of Minkowski sums and direct sums of convex bodies",
+      "trigger": "Later primary full-text work on the same direct sums and associated covering functionals."
+    },
+    {
+      "assessment": "UNRESOLVED_ACCESS_PRIORITY_RISK_NOT_DEFINITIVE_NONCOVERAGE",
+      "evidence": "The title and abstract establish relation to covering functionals; no assertion about its full theorem coverage can be drawn from unread text. Record as residual risk, not automatic failure.",
+      "identifier_or_url": "DOI:10.1016/j.jmaa.2016.01.055",
+      "material_read": "Bibliographic information and accessible abstract/metadata only; complete article NOT read.",
+      "method": "Checked arXiv/preprint and lawful open-access availability first; both failed to yield full text. Authorized institutional retrieval returned vpn_disconnected; no authentication bypass.",
+      "title": "On covering functionals of convex bodies",
+      "trigger": "Older plausible broader treatment of covering functionals and reductions that could imply a weak covering index statement."
+    }
+  ]
+}
