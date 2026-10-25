@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For a fixed point with all nonzero digits equal to \(a\), the inequality \(b^k>(k+1)(b-1)^2\) excludes all leading positions \(k\ge3\). Exactly five remaining nontrivial digit patterns yield the five displayed Diophantine equalities; all converses follow by substitution with valid digit ranges. The three Pell descriptions and exponential bounds are proved, including a positive-coordinate descent for the generalized norm \(-3\) family. The main families overlap only on a negative-Pell sequence, giving the sharp base-counting asymptotic. A separate direct-digit finite computation checked bases \(2\) through \(1000\).
+
+**Originality — PASS within inspected sources.** The motivating Fox et al. paper's full accessible sections on periodic orbits, heights, and open questions do not give the all-base uniform-digit classification or the square-root asymptotic. Its small-base examples are credited. The OEIS fixed-point count table covers concrete bases but not the structural statement; square-triangular and Pell parameterizations are classical ingredients, not individually claimed as discoveries. Semantic mathematical-record searches found no equivalent implication. There remains risk from uncatalogued elementary observations.
+
+**Mathematical value — PASS.** This is a complete, natural classification of a digit-restricted family of fixed points for a recently introduced map, not an arbitrary numerical cutoff. It proves that only five patterns can occur across all bases, identifies three distinct Pell mechanisms, and determines the sharp asymptotic abundance of bases where sparse equal-digit attractors exist. It supplies explicit infinite families of even nonsquare bases obstructing the possibility that every positive integer is elated, a question in the motivating paper. No assertion about all cycles is made.
+
+**Closest prior literature and limitations.** Fox et al., *Elated Numbers*, arXiv:2409.09863; OEIS A377086/A377087; the classical square-triangular sequence OEIS A001108. The result is conditional on no unindexed equivalent derivation, is restricted to equal positive digits, and has not received independent expert validation.
+
+Self-review: passed. Independent audit: not yet performed.
