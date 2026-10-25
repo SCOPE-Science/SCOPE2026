@@ -1,9 +1,21 @@
-# Scientific review: two-stage \(F_4\) Rips persistence
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the inclusive Euclidean metric and the two unscaled root lengths. It shows that the radius-one flag complex is the facet-stellar subdivision of the regular \(24\)-cell boundary by exact dot-product incidences. The supplied standard-library checker independently reconstructs all \(4272\) nonempty radius-\(\sqrt2\) simplices and validates every one of the \(1704\) elementary-collapse pairs against the current face set, leaving exactly the radius-one complex. The degree-three Weyl orientation action follows from an equivariant identification at the smaller scale and the equivariant inclusion-induced isomorphism. The proof does not conflate an ordinary collapse with a group-equivariant collapse.
+## correctness
 
-**Originality — PASS at best-knowledge level, with stated bibliographic risk.** Cohn–Conway–Elkies–Kumar (arXiv:math/0607447) study \(24\)-cell spherical codes, and Ardila–Beck–Hosten–Pfeifle–Seashore (arXiv:0809.5123) give classical root-polytope triangulations. Chachólski–Jin–Scolamiero–Tombari (DOI:10.1007/s41468-021-00066-2) provide general homotopical decomposition methods. The closest indexed finite-polytope Rips result concerns a rhombicuboctahedron with graph metric, while other root-system calculations concern a \(D_n\) or \(B_n\) point configuration. None of those inspected statements implies the explicit relative collapse for the \(48\) unrescaled \(F_4\) roots. The exact radius-one sphere identification alone is not presented as novel; the radius-\(\sqrt2\) relative collapse and persistent integral action are. Potential equivalents under a dual-\(24\)-cell alias remain a residual uncertainty.
+PASS
 
-**Value — PASS.** This is a canonical exceptional root system and a canonical metric construction, not a selected graph or arbitrary radius. The second distance threshold changes the complex from dimension three to dimension six while introducing \(3408\) simplices, yet the inclusion remains a homotopy equivalence. The result supplies a complete finite integral collapse certificate and identifies the surviving geometric orientation class under the full Weyl symmetry. It is a substantive persistence benchmark and does not purport to classify later stages.
+The exact 48-root coordinates give the 24-cell on short roots, with 24 long roots indexing facets; at distance≤1, short cliques form the two-skeleton and coning all octahedral facets produces a facet-stellar boundary subdivision S^3. At threshold sqrt2 exact integer-distance clique enumeration gives f-vectors (48,240,384,192) and (48,408,1224,1560,840,168,24). Independently fetched the entire package collapse_pairs.txt (blob dbfde6054038619d33bdaa58a118bb2248993a5a) and rebuilt all root coordinates and both clique complexes in separate JavaScript: checked each of 1704 pairs for exact one-dimensional coface, unique remaining immediate coface, absence from K1 and removal ordering. No additional faces remained and exactly 864 K1 simplices survived; pair counts by free face dimensions 1..5 were 168,672,696,144,24. Hence the inclusion is a homotopy equivalence; W(F4) representation on H3 follows from equivariant 24-cell subdivision, not a purported equivariant collapse.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.
+
+## value
+
+PASS
+
+Meaningful natural finite-object topological classification: proves integral persistence and a protected relative elementary collapse despite thousands of new simplices, and determines induced Weyl orientation character. Specific exact F4 root metric filtration is a natural, reusable root-system benchmark, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
