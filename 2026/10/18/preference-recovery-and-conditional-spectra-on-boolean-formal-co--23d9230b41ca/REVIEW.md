@@ -1,19 +1,21 @@
-# Review: Preference recovery and conditional spectra on Boolean formal contexts
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct derivation in the contranominal context gives the identity closure on both sorts and the exact preferred consequence \(G\setminus\operatorname{Min}_P(X)\). Counting residual subsets containing a predecessor proves the polynomial coefficient by coefficient, while pairwise residuals reconstruct the strict order. An explicit pair of orders proves the lower arity threshold, and the five-vertex collision has matching comparable pairs and predecessor degrees but distinct Hasse-orientation invariants. The proof covers all finite partial orders for \(n\ge2\); all 4,473 labeled posets through size five were independently checked by direct incidence computation.
+PASS
 
-## Originality
+PASS: In the finite n-point contranominal context gIm iff g!=m, derivation is set complementation and all object extents are closed. Min_P(X) is an antichain; choosing X equal to an arbitrary antichain produces every antichain, so typical extents recover precisely the undirected comparability graph. For antecedent A=G\X, the nonclassical singleton consequents are X\Min_P(X). The contribution from x is the generating difference z((1+z)^(n-1)-(1+z)^(n-1-d_P(x))), yielding the displayed H_P and inversion by powers of 1+z. For X={x,y}, the premise G\{x,y} preferentially entails y exactly when x is strictly preferred to y, so n-2 premises recover P. For n>=3, make all z in nonempty Z below y, and optionally x below y; all X of size>=3 have identical minima, proving sharpness even for set-valued conclusions. Transitive closures of the explicit 5-point P and Q relations give identical labeled comparability graph, predecessor multiset {0,0,1,2,3}, and H=6z^2+14z^3+11z^4+3z^5 but nonisomorphic Hasse cover orientation. Independent direct subset enumeration confirmed the two 3-point forks and the two 5-point spectra, not used as all-n proof. Range n>=2 and all finite posets.
 
-PASS, qualified. The 2024 source supplies the semantics and an abstract meet-subsemilattice result, not this exact separation of the typical-family invariant, the strict-consequence polynomial, and the complete pairwise conditional table. The 2021 contranominal-scale source supplies Boolean concept-lattice foundations, not preference enumeration or recovery. Generic two-element-menu revealed preference is older work and is expressly credited rather than claimed as novel. Searches found no direct covering statement for the combined exact spectrum and five-element collision. Residual risk: the specialization or polynomial could be implicit in earlier choice-theoretic or preferential FCA literature.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The motivating preferential-FCA work explicitly raises the relation between typical concepts and defeasible conditionals. This theorem completely settles the information hierarchy in a canonical family and quantifies what is retained and lost. The positive sharp reconstruction boundary and negative nonisomorphic collision show that the difference is structural, not a renamed count or arbitrary parameter slice.
+PASS (qualified): Carr-Leisegang-Meyer-Rudolph arXiv:2410.04184 §§4-5 defines the preference minimisation, typical concepts and valid-order meet-subsemilattice, and includes no corresponding exact n-point contranominal spectral inversion/recovery hierarchy in inspected material. Contranominal-scale Boolean lattice facts are preexisting. Revealed preferences from two-element choice menus are classical and are explicitly excluded from novelty; the combined residual-conditional polynomial, its inverse and sharp premise cutoff with 5-point nonisomorphic collision are the assessed contribution. Equivalent FCA descriptions under another terminology remain possible.
 
-## Closest literature and limitations
+## value
 
-Carr et al. (2024), arXiv:2410.04184, Sections 4–7, is the direct semantic predecessor. Dürrschnabel et al. (2021), arXiv:2106.10978, Sections 2–5, establishes the contranominal setting. Classical rational choice gives a known analogue of the pairwise test. The theorem is restricted to finite Boolean contranominal contexts. No independent audit or exhaustive priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The motivating FCA literature examines what typical concepts capture compared with preferential attribute conditionals. This supplies a canonical complete information hierarchy rather than a renamed count: a typical-antichain family forgets orientations, H_P recovers just predecessor-count multiplicities, and n-2 premise conditional tables recover all strict comparisons, with explicit sharp counterexamples. These are exact information limitations useful for preferential knowledge representation even without generalising to arbitrary formal contexts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
