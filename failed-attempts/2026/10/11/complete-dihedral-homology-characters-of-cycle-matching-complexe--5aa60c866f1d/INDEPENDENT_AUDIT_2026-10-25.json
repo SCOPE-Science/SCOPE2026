@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T17:59:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, full proof and boundary n=3,4; actual frozen Git blob cfcb6d6c35a71a512a59fc5008c34eec6985a6ad",
+        "Donovan & Scoville, Star clusters in the matching, Morse, and generalized complex of discrete Morse functions, New York J. Math. 29 (2023), Proposition 5.4, https://nyjm.albany.edu/j/2023/29-54v.pdf",
+        "Adamaszek, Adams, Frick, Peterson & Previte-Johnson, Nerve complexes of circular arcs, arXiv:1410.4336v1 (2014), Definition 3.2, Propositions 6.1, 7.2, 7.3; https://arxiv.org/pdf/1410.4336",
+        "Björner & Tancer, Combinatorial Alexander Duality — A Short and Elementary Proof, arXiv:0710.1172v3 (2008), Theorem 1.1 and explicit chain-sign proof; https://arxiv.org/pdf/0710.1172"
+      ],
+      "evidence": [
+        "Exact signed chain identity and rotation/reflection conflict graph reductions read from assigned RESULT.md",
+        "Separate independently written enumeration /mnt/data/scope_worker07_independent_cycle_check.py: CHECK_PASS 266 exact signed character checks, independent Git tree SHA verified",
+        "Direct sign-twisted dual representation comparison for n=3..100: 10,098 exact trace equalities, including both reflection conjugacy classes"
+      ],
+      "rationale": "The augmented simplicial Lefschetz identity assigns each setwise fixed face, union of q vertex orbits, signed contribution (-1)^(q-1), including the empty face as -1; thus reduced L(g)=-I(B_g,-1). For r^k, h=gcd(n,k), its conflict graph is C_h, K2 (h=2), or empty (h=1), so I(B,-1)=2cos(pi h/3). For r^k s, reflection orbits produce P_{(n-1)/2}, P_{n/2+1}, or P_{n/2-2}, including n=3 and the n=4 empty case. The path recurrence a0=1,a1=0,a_t=a_(t-1)-a_(t-2) gives the second character. Homology concentration and ranks are known from Donovan–Scoville Proposition 5.4. Irreducibility for 3|n and D_n-invariant dimensions follow by finite group character algebra. Reconstructed all cases analytically and checked direct signed face traces independently for every dihedral element n=3..16 (266), plus group invariant averages; 2014 Alexander-dual formulas independently reproduce all 10,098 characters n=3..100. Finite checks corroborate but do not prove infinitely many cases.",
+      "residual_risks": [
+        "Finite verification is not an all-n proof; the supplied Lefschetz orbit argument and the old homology concentration yield the unbounded claim.",
+        "No integral representation or equivariant homotopy equivalence is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 work analyzes all 0≤k≤n−2 circular-arc nerves N(n,k); current dual is precise subfamily k=n−3.",
+          "Theorem 3.6 gives homology concentration and rank for all (n,k); Propositions 7.2 and 7.3 give complete dihedral representation as rotation and reflection matrices/characters."
+        ],
+        "reasoning": "The older theorem has a strictly broader cyclic-nerve parameter and determines complete representations; Alexander duality specializes it to the assigned K for every n≥3. The fact the original authors studied nerve rather than matching complexes is immaterial to mathematical implication.",
+        "searches": [
+          "Adamaszek Adams Frick Peterson Previte-Johnson Nerve complexes of circular arcs dihedral representation cycle powers clique",
+          "Nerve complexes of circular arcs section 7 induced dihedral homology representations",
+          "https://arxiv.org/pdf/1410.4336"
+        ]
+      },
+      "checked_sources": [
+        "Adamaszek, Adams, Frick, Peterson & Previte-Johnson, Nerve complexes of circular arcs, arXiv:1410.4336v1 (2014), Definition 3.2, Propositions 6.1, 7.2, 7.3; https://arxiv.org/pdf/1410.4336",
+        "Björner & Tancer, Combinatorial Alexander Duality — A Short and Elementary Proof, arXiv:0710.1172v3 (2008), Theorem 1.1 and explicit chain-sign proof; https://arxiv.org/pdf/0710.1172",
+        "Donovan & Scoville, Star clusters in the matching, Morse, and generalized complex of discrete Morse functions, New York J. Math. 29 (2023), Proposition 5.4, https://nyjm.albany.edu/j/2023/29-54v.pdf",
+        "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433, section 6, nonequivariant cycle-power complexes",
+        "Resultary/2026, Dihedral homology characters and quotient congruences for cycle matching complexes, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-homology-characters-and-quotient-congruences-for-cycle--6d9fbe47cba0; imported source Git commit 1b22df6edd410c06ca3bdde230a4540caf1cff57 2026-10-11T13:18:28Z, later than assigned source import at 2026-10-11T13:17:15Z."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2014 Definition 3.2 N(n,k) facets [i,i+k]; k=n−3 directly equals Alexander dual of Ind(C_n).",
+          "2014 Proposition 7.2: g α_i=α_{i+1} and ε α_i=(-1)^{l+1} α_{-i-1} in the 3|n regime l=n/3−1; α_0+α_1+α_2=0 by Proposition 6.1.",
+          "2014 Proposition 7.3: g=+1, ε=(-1)^{l+1} on rank-one nerve homology for 3∤n.",
+          "Björner–Tancer Theorem1.1: i-th homology ↔ (n-i-3)-th dual cohomology; complement orientation supplies tensor sign(g).",
+          "These old matrices reproduce current rotation generator order, every reflection trace, and full invariant criterion via sign twist; algebraic cross-check n=3..100."
+        ],
+        "reasoning": "Let K=Ind(C_n) on the same n cyclic labels. Its minimal nonfaces are the n adjacent pairs {i,i+1}. The maximal faces of its combinatorial Alexander dual K^vee are therefore their n complements, all n−2-consecutive-vertex cyclic intervals; by 2014 Definition 3.2, K^vee=N(n,n−3) exactly and D_n-equivariantly, not merely up to homotopy. Björner–Tancer combinatorial Alexander duality identifies H~_d(K;Q) with H~^{n−d−3}(N(n,n−3);Q). The complement shuffle signs make this identification equivariant after tensoring by the sign of the permutation of all n vertices. For n=3m, N(n,n−3) is in Proposition 7.2 with l=m−1 and carries the signed 3-point augmentation representation (rank 2); for n=3m+1 or 3m+2 it is in Proposition 7.3 with l=m−1 and carries a line with r=1 and s=(-1)^m. The sign twist yields EXACTLY the assigned rotation/reflection characters in all congruence cases, and hence the irreducibility and n≡1,11 mod 12 invariant criterion. No new equivariant equivalence is postulated; this is a direct dual identification and old full representation theorem. A separate independently produced all-n signed fixed-orbit proof does not make the covered claim original.",
+        "searches": [
+          "equivariant combinatorial Alexander duality sign representation simplicial complex group action",
+          "Alexander duality simplicial complex equivariant homology sign twist permutation representation",
+          "https://arxiv.org/pdf/1410.4336",
+          "https://arxiv.org/pdf/0710.1172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind(C_n) = matching complex of C_n, and (Ind(C_n))^vee has maximal faces complements of adjacency pairs = cyclic intervals [i,i+n-3]. 2014 Definition 3.2 states N(n,n-3) has those exact facets.",
+          "Björner–Tancer Theorem 1.1 supplies dual degree, and its explicit signed complement map gives the determinant twist under relabeling.",
+          "2014 Prop 7.2/7.3 computes D_n action on exactly these complexes."
+        ],
+        "reasoning": "Let K=Ind(C_n) on the same n cyclic labels. Its minimal nonfaces are the n adjacent pairs {i,i+1}. The maximal faces of its combinatorial Alexander dual K^vee are therefore their n complements, all n−2-consecutive-vertex cyclic intervals; by 2014 Definition 3.2, K^vee=N(n,n−3) exactly and D_n-equivariantly, not merely up to homotopy. Björner–Tancer combinatorial Alexander duality identifies H~_d(K;Q) with H~^{n−d−3}(N(n,n−3);Q). The complement shuffle signs make this identification equivariant after tensoring by the sign of the permutation of all n vertices. For n=3m, N(n,n−3) is in Proposition 7.2 with l=m−1 and carries the signed 3-point augmentation representation (rank 2); for n=3m+1 or 3m+2 it is in Proposition 7.3 with l=m−1 and carries a line with r=1 and s=(-1)^m. The sign twist yields EXACTLY the assigned rotation/reflection characters in all congruence cases, and hence the irreducibility and n≡1,11 mod 12 invariant criterion. No new equivariant equivalence is postulated; this is a direct dual identification and old full representation theorem. A separate independently produced all-n signed fixed-orbit proof does not make the covered claim original.",
+        "searches": [
+          "dihedral representation of reduced homology independence complexes of cycle graphs C_n, rotations reflections full rational characters and invariant subspaces",
+          "equivariant homotopy and Lefschetz character of matching complexes of cycles, cyclic symmetry action and dihedral reflection signs",
+          "2014 Definition 3.2 cyclic interval nerves; Alexander dual of independence complex cycle",
+          "https://arxiv.org/pdf/1410.4336",
+          "https://arxiv.org/pdf/0710.1172"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary searches located the assigned exact record and a different same-day Resultary record with IDENTICAL complete dihedral character and stronger quotient rational Betti congruences.",
+          "GitHub historical commit timestamps: assigned source import 2026-10-11T13:17:15Z; peer source import 2026-10-11T13:18:28Z (73 seconds later).",
+          "Neither same-day source import is necessary to establish prior coverage; the 2014 primary theorem is decisive."
+        ],
+        "reasoning": "No earlier exact table under the matching-complex label was necessary. The 2014 general equivariant result and 2008 duality mechanically supply every displayed value; the same-day peer is a later overlapping result, not an older priority claim.",
+        "searches": [
+          "dihedral representation of reduced homology independence complexes of cycle graphs C_n, rotations reflections full rational characters and invariant subspaces",
+          "equivariant homotopy and Lefschetz character of matching complexes of cycles, cyclic symmetry action and dihedral reflection signs",
+          "graph independence complexes cycles equivariant homology representation C_{3m} two sphere wedge",
+          "Resultary 2026/10/11 cycle matching dihedral quotient congruences",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-homology-characters-and-quotient-congruences-for-cycle--6d9fbe47cba0"
+        ]
+      },
+      "rationale": "Decisive earlier implication from 2014 N(n,k) dihedral homology theorem and classical equivariant combinatorial Alexander duality: Let K=Ind(C_n) on the same n cyclic labels. Its minimal nonfaces are the n adjacent pairs {i,i+1}. The maximal faces of its combinatorial Alexander dual K^vee are therefore their n complements, all n−2-consecutive-vertex cyclic intervals; by 2014 Definition 3.2, K^vee=N(n,n−3) exactly and D_n-equivariantly, not merely up to homotopy. Björner–Tancer combinatorial Alexander duality identifies H~_d(K;Q) with H~^{n−d−3}(N(n,n−3);Q). The complement shuffle signs make this identification equivariant after tensoring by the sign of the permutation of all n vertices. For n=3m, N(n,n−3) is in Proposition 7.2 with l=m−1 and carries the signed 3-point augmentation representation (rank 2); for n=3m+1 or 3m+2 it is in Proposition 7.3 with l=m−1 and carries a line with r=1 and s=(-1)^m. The sign twist yields EXACTLY the assigned rotation/reflection characters in all congruence cases, and hence the irreducibility and n≡1,11 mod 12 invariant criterion. No new equivariant equivalence is postulated; this is a direct dual identification and old full representation theorem. A separate independently produced all-n signed fixed-orbit proof does not make the covered claim original. Same-day exact peer result is also strongly overlapping but was imported 73 seconds AFTER the assigned source record, so it is NOT used as earlier priority evidence. Prior self-review PASS missed this Alexander-dual alias and does not override the current independent comparison.",
+      "residual_risks": [
+        "No priority ambiguity about 2014 published implication at level of mathematical statements: all required parameters are covered via exact duality.",
+        "The precise equivariant sign twist is a standard consequence of the oriented complement chain map; it was independently checked against all claimed character values n=3..100.",
+        "The same-day duplicate publication cannot be treated as prior to the target because its recorded Git import is later."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the complete target claim through exact Alexander duality and signed twist.",
+          "evidence": [
+            "Definition 3.2 gives N(n,k) generated by [i,i+k]; at k=n−3 these are complements of C_n edges.",
+            "Prop 7.2 rank-two generator action; Prop 7.3 one-dimensional g/ε action; Theorem 3.6 degrees/ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4336",
+          "material_read": "Full 17-page PDF, Definition 3.2 p4, Theorem 3.6 pp5-6, Proposition 6.1 pp9-10, entire Section 7 pp11-12 including Propositions 7.2/7.3 and proofs, Section 8 pp12-14 distinguishing clique complexes.",
+          "method": "Primary arXiv 2014 PDF text and page screenshots; inspected precise homology generators and action, not snippet inference.",
+          "title": "Nerve complexes of circular arcs",
+          "trigger": "2014 explicit dihedral character for an apparently different but Alexander-dual family; strongest prior dominance."
+        },
+        {
+          "assessment": "Establishes Alexander duality between Ind(C_n) homology and N(n,n-3) cohomology; the signed chain complement map transforms with the full-vertex permutation sign.",
+          "evidence": [
+            "Theorem 1.1 index relation H~_i(K)=H~^{n-i-3}(K^vee).",
+            "Explicit sign recipe permits direct permutation-equivariance calculation with determinant twist."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.1172",
+          "material_read": "Primary arXiv PDF: Theorem 1.1 pp1-2 and oriented basis/complement-shuffle sign formulas in pp2-5; remaining pages not relied upon.",
+          "method": "Primary OA PDF textual and page-image inspection; independent sign computation under cyclic/permutation action.",
+          "title": "Combinatorial Alexander Duality — A Short and Elementary Proof",
+          "trigger": "Justify rigorous prior implication through equivariant complement duality and parity sign."
+        },
+        {
+          "assessment": "Independent correctness premise only; this nonequivariant result alone does not determine D_n characters.",
+          "evidence": [
+            "Proposition 5.4 provides the n mod3 wedge-of-sphere homotopy types and ranks."
+          ],
+          "identifier_or_url": "https://nyjm.albany.edu/j/2023/29-54v.pdf",
+          "material_read": "Publisher open full PDF relevant cycle Proposition 5.4 and surrounding proof; introduction and matching-complex background.",
+          "method": "Original NYJM PDF full-text section and page screenshot inspection.",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Exact cycle matching-complex homology concentration used in submitted C proof."
+        },
+        {
+          "assessment": "Mathematically duplicates complete assigned character but this publication/import came 73s after assigned target; NOT an earlier-priority basis.",
+          "evidence": [
+            "Identical b_g and reflection path recurrence character, full invariant n≡1,11 mod12.",
+            "Target 2026-10-11T13:17:15Z precedes peer 2026-10-11T13:18:28Z."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-homology-characters-and-quotient-congruences-for-cycle--6d9fbe47cba0",
+          "material_read": "Full Resultary RESULT.md, METADATA.json and SOURCE.json, plus each SCOPE Git repository original-path commit timestamp.",
+          "method": "Read GitHub blob contents and commit metadata; compare exact formulas and timestamp order.",
+          "title": "Dihedral homology characters and quotient congruences for cycle matching complexes",
+          "trigger": "Exact duplicate statement plus broader cyclic/dihedral quotient classification returned by three semantic database queries."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Adamaszek, Adams, Frick, Peterson & Previte-Johnson, Nerve complexes of circular arcs, arXiv:1410.4336v1 (2014), Definition 3.2, Propositions 6.1, 7.2, 7.3; https://arxiv.org/pdf/1410.4336",
+        "Björner & Tancer, Combinatorial Alexander Duality — A Short and Elementary Proof, arXiv:0710.1172v3 (2008), Theorem 1.1 and explicit chain-sign proof; https://arxiv.org/pdf/0710.1172",
+        "Donovan & Scoville, Star clusters in the matching, Morse, and generalized complex of discrete Morse functions, New York J. Math. 29 (2023), Proposition 5.4, https://nyjm.albany.edu/j/2023/29-54v.pdf",
+        "Resultary/2026, Dihedral homology characters and quotient congruences for cycle matching complexes, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-homology-characters-and-quotient-congruences-for-cycle--6d9fbe47cba0; imported source Git commit 1b22df6edd410c06ca3bdde230a4540caf1cff57 2026-10-11T13:18:28Z, later than assigned source import at 2026-10-11T13:17:15Z."
+      ],
+      "evidence": [
+        "2014 Prop7.2/7.3 determines every D_n action under exact natural duality, not just matching sphere count.",
+        "The calculated invariant n≡1,11 mod12 and irreducibility are direct finite-group character consequences of 2014 modules.",
+        "Assigned signed orbit graph method is correct and pedagogically useful, but standard for induced simplicial permutation actions."
+      ],
+      "rationale": "Full D_n homology-character classification of cycle matching complexes is a natural, meaningful invariant, and the submitted direct signed-Lefschetz proof is correct. However the exact complete classification, irreducibility, and period-12 invariant criterion are all algebraic corollaries of a 2014 published broader equivariant-nerve theorem via classical combinatorial Alexander duality. The alternate orbit-conflict derivation is a short direct specialization of the standard signed simplicial Lefschetz and path/cycle independence-polynomial recurrences. It supplies no uncaptured new structural claim, motivated open classification, or additional independently unknown invariant, and cannot qualify as a surviving new mathematical contribution merely through another proof of already implied facts.",
+      "residual_risks": [
+        "The proof could serve as an expository alternative derivation, but no new claim or structural lemma with independent mathematical need is established.",
+        "No claim is made that classification of integral modules or equivariant homotopy types is covered; these are outside the submitted theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "C follows full proof and known nonequivariant homology input; finite enumerations only supplementary.",
+    "O definitively fails because 2014 N(n,n-3) D_n action and combinatorial Alexander duality cover the complete exact claim including periods, not merely titles.",
+    "V rejects additional independently unknown contribution; a correct alternative derivation may retain expository usefulness.",
+    "No integral module or equivariant homotopy theorem was submitted, inferred, or audited."
+  ]
+}
