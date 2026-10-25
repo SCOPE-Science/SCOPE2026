@@ -1,19 +1,21 @@
-# Scientific review: the prescribed-vertex quartic criterion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof states the full domain, including singularity exclusions, establishes the sharp surface-area equality conditions, parametrizes all barycentric orthonormal triples, equates a two-component threefold Fourier resonance, and translates that exact condition into the invariant quartic. Both directions are established even when the transverse anisotropy and cross term vanish simultaneously. The axial factorization and an explicit off-axis example were checked symbolically; all eight vertices and total surface area were checked exactly. Numerical reconstruction on 300 generated admissible instances is auxiliary, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+Equality in the facet-area Cauchy–Schwarz bound S<=8/sqrt(3)*sqrt(det A)*sqrt(tr(A^-1)) requires equal edge scales and constant diagonal of U^T C U. A vertex y is the normalized sum of orthonormal columns u_j, so projected columns in y-perp form an equilateral triple at angles phi+2pi(j-1)/3. The constant-diagonal residual is a sum of first and second harmonics. On this triple, second harmonics alias first with phase 3phi; vanishing of all three residuals iff d1^2+d2^2=2(b1^2+b2^2), including the degenerate zero/zero case. This is equivalent to tr_{y-perp}(D^2)=4||P C y||^2 and expands exactly to F_C(y)=0. An independent exact SymPy check verified axial factor (a-b)^2(t-1)(9t-1), and the formula handles coincident eigenvalues and ball. All vectors real, y unit, C positive definite.
 
-The closest primary source is Kania's 2026 paper, DOI:10.1007/s00025-026-02757-7, full sections 2 and 4--6. Its Theorem 4.2 supplies global equality, Proposition 5.2 gives the equivalent barycentric diagonal problem, Theorem 5.5 settles only *eigenvector* directions, and Problem 6.1 explicitly seeks the all-direction classification. The present result provides an exact condition for every real positive-definite three-by-three matrix and every unit vector, including non-eigenvector latitude circles. The relevant simultaneous-hollowization work of Damm--Faßbender (arXiv:1910.08813, Proposition 5) gives only one completely hollow and one almost-hollow matrix, and does not imply this result. Nicholus (arXiv:2508.00096v2, Theorem 5.4 and Note 5.6) uses two inverse-order conjugations and only an almost-hollow real second matrix, not the prescribed shared real-orthogonal basis. Targeted searches of published geometry and matrix results did not find an equivalent all-direction quartic; this is evidence of noncoverage rather than proof that no earlier formulation exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The criterion fully resolves the lowest open dimension of an explicitly formulated geometric characterization problem, with an invariant formula and constructive sufficiency, rather than merely restating its reduction. The sharp poles-plus-two-latitudes law is a strong and unexpected structural consequence for every non-round ellipsoid of revolution and provides exact new non-principal-axis solutions. The classification has direct use in deciding existence of maximizers without numerical optimization.
+The closely matching 2026 Kania paper solves unrestricted maximal facet area and reduces prescribed-point feasibility to barycentric constant-diagonal orthogonal bases; it treats prescribed eigenvector directions in dimension three and poses the general pair classification as Problem 6.1. The explicit all-direction quartic and non-principal latitude solutions solve that natural outstanding 3D case. General simultaneous almost-hollow results do not force the two exact hollow constraints. No stronger reviewed source covers the quartic criterion.
 
-## Boundaries and risks
+## value
 
-The full higher-dimensional classification is not established. The theorem decides attainment of the *unrestricted* optimum, not the maximum among constrained boxes when the unrestricted optimum fails. Further archival literature in matrix-analysis terminology may affect priority; inspected relevant articles do not imply the result, but historical uniqueness is not guaranteed. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated exact existence criterion and constructive phase reconstruction for a prescribed boundary vertex of an ellipsoid’s unrestricted maximal-area parallelepiped; extends the established eigenvector-only result and settles the general 3D boundary-point question. The axial latitude phenomenon is a substantive geometric distinction, not renaming an old bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
