@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The Heawood incidence graph and all graph cycles are enumerated exactly. The two-point Abrams complex has \(91\) vertices, \(252\) edges, and \(168\) squares. Its signed second-boundary matrix has rank at least \(154\) by exact elimination modulo \(3\); a unit \(14\)-minor among the forty-two torus cycles bounds its rank above by \(154\) and certifies integral saturation. The twenty-eight local relation columns have a determinant-\(2\) maximal minor and rank \(27\) modulo \(2\). Together these prove their index-two saturation gap. The half-sum is integral and fills the remaining coset. A standalone program reconstructs all the chain data and independently verifies the single orbit under \(336\) automorphisms. The proof is finite and does not extrapolate to other graphs.
+## correctness
 
-## Originality
-Earlier work establishes the topology and homology of graph configuration spaces; a prior calculation also supplies an integral basis of fourteen Heawood torus classes. That basis theorem is credited and is **not** the new result. The present claim is a full relations theorem for the canonically indexed forty-two product tori: twenty-eight local three-term relations span an index-two sublattice of the complete kernel, and one explicit half-sum fills it. The known Coxeter graph census gives forty-two incidence edges but no homology relation lattice. Barnett–Farber (2009), Farber–Hanbury (2010), and the full text of Barnett’s thesis were checked for potentially dominating ordered-two-particle intersection-form results; they do not state this unordered Heawood presentation. An–Knudsen (2020) discusses the mathematical need for degree-two relations and restricts its generation theorem to planar graphs. No covering theorem was found in the checked literature. Barnett’s 2010 Durham thesis was examined through its searchable full text, especially the graph-configuration preliminaries and complete/complete-bipartite case calculations; its relation formulas apply to different graphs, with no explicit Fano-incidence case located. Equivalent work under other terminology or in unindexed sources remains a risk, and absolute priority is not asserted.
+PASS
 
-## Mathematical value
-The result answers a natural question about the redundancy of geometric torus generators in graph-braid second homology, beyond knowing the Betti number or a selected integral basis. It exhibits a concrete parity obstruction to generating all relations locally, and identifies the exact additional global relation. The forty-two generators' single symmetry orbit makes their complete integral presentation useful without privileging an arbitrary fourteen-element basis. The calculation is graph-specific but is a motivated structural classification, not a new numerical Betti table.
+Use the standard Abrams cubical deformation-retract model for two unlabeled distinct points on the Heawood graph (girth 6, sufficient subdivision), with 91 zero-, 252 one-, and 168 two-cells and no higher cells. Independently enumerated all simple cycles: lengths 6:28,8:21,10:84,12:56,14:24, and all 42 unordered vertex-disjoint pairs, each (6,6). Constructed oriented cellular boundary B (252x168), torus cycles T (168x42) and 28 signed local 3-term relations R (42x28), checking B*T=T*R=0 by integer arrays. The stated 14x14 minor of T has exact determinant +1; rank B mod 3 is 154, so ker_Z(B) has rank14 and primitive T minor forces its 14 torus columns to generate the entire integral kernel. R has exact 28x28 minor det -2 and rank mod2 27: full rank28 over Q and exactly index2 in its saturated lattice. Every coordinate sum of its 28 relation columns is even, and r_*=(sum R columns)/2 has exactly eleven +1, eleven -1, twenty zero entries, lies in ker T but not integer span of independent R columns, completing saturated relation lattice ker_Z T. Geometry of the natural Fano automorphism group of order 336 and a single orbit of all 42 carriers is independently supported by explicit cycle enumeration and inspected exhaustive permutation code. Rank14 homology and existence of a torus basis already known; new fact is complete 42-generator kernel with indispensable index-two half-sum.
 
-## Scope and limits
-The result concerns ordinary integral second homology of unordered two-point configurations of the Fano incidence graph. It does not claim a general nonplanar-graph theorem, a presentation for ordered configurations, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncovered part: Integral relations among all paired-hexagon tori in the Heawood two-point configuration space. The 42 disjoint-hexagon tori are a canonical full symmetry orbit; discovering that 28 obvious local syzygies miss a global half-integral relation isolates a genuine index-two integral lattice phenomenon; Exact saturated kernel presentation is genuinely additional to known top Betti number or torus-basis existence.
+
+## value
+
+PASS
+
+The 42 disjoint-hexagon tori are a canonical full symmetry orbit; discovering that 28 obvious local syzygies miss a global half-integral relation isolates a genuine index-two integral lattice phenomenon. Complete presentation and an integral basis in H2 are precise structurally motivated facts not determined by familiar rank-only computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
