@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator cube identification is exact. Independent-sign barycenters give every norm-one rank-one operator. For each higher rank, the displayed adjacent sign matrices have ranks differing by one, while every strict edge interior has the larger rank; saturation forces a two-vertex convex decomposition and prevents equal-rank extreme representation. A self-contained rational checker gives 273 edge checks and 64 rank-one decompositions; the infinite statement is established by the algebraic proof, not by finite testing.
+## correctness
 
-**Originality — PASS (best-known comparison).** Relevant complete primary article sections and the accessible original paper were compared by statements and implications, not just titles. The 2022 arXiv paper identifies the same operator ball as a coordinate cube and counts its extremes, without a fixed-rank convex-hull classification. The rank-invariant Krein–Milman paper introduces the property, but its coordinate cube-to-cube counterexample has a different induced operator ball, and its positive rank-one theorems do not establish all higher-rank failures for the real rectangular class here. Targeted searches of scholarly literature and available published mathematical finding records disclosed no dominating equivalent claim. Residual risk: unindexed equivalent sign-matrix face theory or fixed-rank operator geometry.
+PASS
 
-**Value — PASS.** The theorem completely answers the natural rank-invariant Krein–Milman order question for an infinite two-parameter family explicitly appearing in the motivating literature. It gives a sharp transition at rank one, a constructive decomposition where possible, and an elementary local exposed-edge obstruction at every other order; the rank spectrum is not inferred from the extreme-point count alone.
+For real ℓ1^n→ℓ∞^m maps the induced norm is the maximum entry magnitude, so unit ball is [-1,1]^{mn} and extremes are exactly sign matrices. Every norm-one rank-one A=uvᵀ has a finite decomposition into rank-one sign matrices using independent Bernoulli signs with expectations u_i and v_j. For each r≥2, choose S with columns 1 and 1−2e_1,...,1−2e_{r−2} and S′ obtained by flipping row r−1, column r. Then ranks are r−1,r, every strict interior edge point has rank r, and every saturated coordinate forces any extreme decomposition to use both S and S′, hence a lower-rank vertex. All m,n≥r covered, including r=2, one-row/column cases have only rank1. Inspected exact-rational checker for ranks and independent-sign barycentres; finite tests are supplemental, not a universal argument.
 
-**Scope and limits.** Real finite dimensions only; bibliographic completeness is not guaranteed, and finite checks do not prove arbitrary dimensions. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted semantic published search, direct mathematical implication checks and primary full-text comparisons identify relevant component machinery or partial results but not a dominating exact statement, with the listed residual risks.
+
+## value
+
+PASS
+
+This is a complete sharp order-by-order classification of a named rank-constrained Krein–Milman property for a whole natural rectangular operator class. The adjacent-rank exposed cube edge is a structural obstruction useful for tensor/operator geometry, not a renamed extreme-point count or an isolated rank-two example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
