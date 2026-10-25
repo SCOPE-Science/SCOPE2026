@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The structural theorem is proved for arbitrary finite positive arity by the two implications in `RESULT.md`; no numerical computation is needed for the all-arity statements. The fixed-arity cardinality claim for three variables is supported by a separate exhaustive interval-poset test.
+## correctness
 
-Run `python3 verify.py`. The expected output includes `arity=1 term_functions=4 disagreement_sets=4`, `arity=2 term_functions=82 disagreement_sets=256`, and `KLEENE_DISAGREEMENT_VERIFY_OK`. This exhausts the term-function closure at arities one and two, tests all possible two-variable disagreement subsets, exercises an explicit converse constructor and tests the definable infectious conditional's complete truth table.
+PASS
 
-Compile and run `g++ -O3 -std=c++17 verify_convex3.cpp -o verify_convex3 && ./verify_convex3`. The expected output is `three_variable_convex_disagreement_sets=3886222` followed by `TERNARY_CONVEX_CENSUS_OK`. The checker visits all \(2^{26}\) subsets of the ternary three-cube that avoid the all-unknown tuple, and tests each candidate against every nontrivial order interval, so the count is exhaustive. By the proved classification, this is also the number of realizable disagreement sets in that arity; the C++ checker itself does not enumerate syntactic formulas.
+Every constant-free strong-Kleene term is monotone in the flat information order and sends all-u to u. If two term values disagree below and above an intermediate tuple, monotonicity precludes either agreeing at the intermediate tuple, hence disagreement loci are order convex and omit all-u. Conversely for convex D excluding all-u, the upsets U=up(D) and V=U\D permit disjunctions A,B of nonempty literal conjunctions (with B=A∧¬A when V is empty). The pair A∨¬A and B∨¬A disagrees precisely on D, by checking U\V, V and the complement of U. The infectious conditional is explicitly term-definable. Upsets of every cardinality among 3^k-1 noncentral valuations give the exact agreement probabilities j/3^k. A new full closure of two-variable terms gave 82 functions and all 256 punctured subsets; an independent bitmask interval exhaustive census of 2^26 three-variable candidates with 24 constraints gave precisely 3,886,222. Full-arity theorem is constructive, not inferred from finite tests.
 
-These programs check finite consequences and the construction but do not constitute a general proof or an independent formal verification. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge after direct statement/implication comparison with the cited primary mathematical works and targeted Resultary published-record semantic searches; general methods and known special cases are credited. Failure of a search is not proof of priority, and inaccessible plausible sources remain explicit residual risks.
+
+## value
+
+PASS
+
+The complete geometric/order-theoretic characterization of exact equation-disagreement loci for a natural non-Boolean finite logic resolves a precise equational-statistics question, determines every fixed-arity agreement probability, and locates the first structural obstruction at arity three. The concrete three-variable convex-locus census is a motivated finite invariant complementing an all-arity theorem, not a gratuitous microcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
