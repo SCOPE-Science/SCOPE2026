@@ -1,15 +1,21 @@
-# Review of the anisotropic Hardy diagonal trace theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The target kernel fixes the monomial normalization; source homogeneous degrees are orthogonal and give exactly one nonzero Gram eigenvalue per degree. Uniform Dirichlet–multinomial composition counts both prove singular-value ordering and provide a conditional empirical average. Rational generating-function pole extraction proves the strict Schatten threshold and critical logarithmic residue. Conditional Jensen and the explicit Dirichlet covariance give the signed finite-degree bound; uniform Taylor expansion of the conditional log-Laplace transform yields its strictly positive first correction. The included checker passes 7,936 finite diagnostics. Risk: no independent external proof validation; the finite checker does not verify infinite-dimensional asymptotics.
+## correctness
 
-## Originality
-PASS on the available comparative evidence, not an independent priority certification. The closest classical diagonal-map paper, Ren–Shi (2004), identifies mixed-norm image spaces and a right inverse, but its relevant full-text statements do not supply anisotropic singular sequences, boundary-contact Schatten cutoffs, or a degree-dependent simplex-Laplace correction. Bayart–Dorval (arXiv:2601.19308v1, 2026) studies polydisc composition mapping criteria with source/target polydisc rather than the exact singular spectrum of the one-dimensional anisotropic trace. Kumari–Muthukumar–Sarkar (arXiv:2509.14655) concerns norm bounds on Hardy-space composition operators. Related spectral decompositions for weighted lattice backward shifts, radial Bergman trace estimates, and quotient-module self-commutators concern different operators and do not imply this trace theorem. Risk: older weighted-diagonal coefficient literature could subsume the formula under other terminology; some identified research results were available only in indexed summaries, not complete articles.
+PASS
 
-## Mathematical value
-PASS. At fixed dimension, the number of unit coordinate radii gives a complete power-law/trace-ideal phase diagram with its sharp critical residue; subunit coordinates affect the leading constant but not the exponent. The scale \(1/N\) at the noncompact boundary has a full simplex-Laplace transition with a uniform signed error and exact first-order correction. This links operator approximation numbers, transverse boundary contacts, and Dirichlet interpolation rather than isolating an arbitrary numerical example.
+The degree-n monomial row of R_r:H2(D^d)->A_d sends z^nu to r^nu z^n, while ||z^n||^2=1/binom(n+d-1,d-1); orthogonal homogeneous blocks are rank-one, giving sigma_n^2=h_n(u)/N_n exactly. Dirichlet(1,...,1)-mixture of iid category draws makes composition counts uniform, so sigma_n^2=E prod u_j^A_{n,j} decreases with n. Factoring prod(1-u_j z)^-1 at the maximal poles gives k unit-radius polynomial asymptotic and k=0 exponential decay, hence contact-count Schatten cutoff and k=d coisometry. For scaling radii exp(-t_j/2N), conditional multinomial expectation of exp(-sample-average(t)) compared with exp(-Dirichlet mean) yields nonnegative Jensen gap <= E Var(t|P)/(2N)=sum(t_j-tbar)^2/(2N(d+1)). Uniform log-sum-exp expansion gives +(2N)^-1 E[e^-mu Var(t|P)] plus O(N^-2) on compact t sets. Checked exact rational h_n(u)/N_n for u=(1,1/4,0), degrees 1,2,3,15 independently. Finite checks do not establish asymptotics.
 
-## Limits and evidence
-Full analytic proof is in `RESULT.md`; executable finite checks are in `checker.py`. Principal inspected literature: Bayart–Dorval 2026 (introduction, primary theorems and relevant text), Ren–Shi 2004 (introduction, Theorem 1.1, Section 2), and Kumari–Muthukumar–Sarkar 2025 (introduction and primary composition-norm theorem). Priority risks are documented in the structured audit. All claims concern the Hilbert case and fixed finite dimension.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the full quantified final claim is not shown covered by the inspected primary statements, including aliases/stronger-theorem comparisons. The known unweighted diagonal map is the all-radius-one limiting case; determining all radii and the boundary layer requires new parametric spectral analysis. Neither gives this fully explicit anisotropic singular sequence or Dirichlet 1/N signed crossover. Similarity of spaces/parameters does not imply the degree-n row norm or sharp Schatten boundary; negative search cannot certify priority. The proposed theorem quantifies all singular values and their contact-count phase and critical scaling, not a corollary of range existence. Inaccessible relevant full text is explicitly a residual risk; absence from a database alone is not novelty proof.
+
+## value
+
+PASS
+
+This is a complete and natural approximation-number/compactness/Schatten phase diagram for a canonical trace from a polydisc Hardy space to its diagonal Bergman line. The sharp count of boundary-contact coordinates and the signed 1/N Dirichlet crossover quantify a nontrivial regime not supplied by mere boundedness or range results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
