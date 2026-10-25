@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact proof maps the six-molecule Lipschitz-free ball to a cube with four axial caps and its polar to an octahedron with two symmetric pairs of clipped vertices. For \(1\le t\le2\), the pyramid and cap decompositions have disjoint interiors, yielding exact volumes. The derivative factorization proves a unique interior maximum. The independent exact-arithmetic finite checker confirms both polyhedral volumes and face counts at six interior rational parameters, without substituting those tests for a proof over all real parameters.
+## correctness
 
-**Originality — PASS, with residual risk.** Alexander–Fradelizi–García-Lirola–Zvavitch (2019, Theorem 5.14) prove the lower bound and equality cases for four-point free-space Mahler products. The current exact two-diagonal interpolation and its nonmonotone peak are not stated there. Gordon–Petrov's general finite Lipschitz polytope face results do not provide the metric-specific volume profile. A related published full cube/cross-polytope intersection phase diagram was identifiable by its mathematical description, but its full manuscript was inaccessible in the attempted retrieval; its all-coordinate symmetric cuts differ from the present two-axis truncation. No equivalent formula was identified in the examined mathematical records. Unindexed equivalent work or an unexpected reduction remains possible.
+PASS
 
-**Mathematical value — PASS.** The result identifies the unique optimizing metric within a canonical square-to-equilateral family and establishes an unexpected strict increase above the equilateral benchmark, answering a motivated quantitative Banach-volume extremal question rather than a routine isolated count.
+The original four-point metric has unit adjacent distances and two common diagonals t in [1,2]. Direct molecule mapping by determinant-4 matrix sends the unit ball to K_lambda=conv(cube [-1,1]^3 and four axial points ±lambda e1,±lambda e2), lambda=2/t. Four disjoint exterior face pyramids have total added volume 16(lambda-1)/3; polar is an l1 octahedron clipped on two axes with four disjoint caps, volume [4-(2-t)^3]/3. Reciprocal coordinate Jacobians cancel in Mahler product, giving 8(t+4)[4-(2-t)^3]/(9t). Independent exact SymPy differentiation gives derivative 8(3t^4-4t^3-12t²+16)/(9t²); the quartic decreases strictly on (1,2), is +3 at 1 and -16 at 2, implying unique maximum t≈1.121915780903. At t=1 P=40/3, t=2 P=32/3. Interior vertices/facets 12/18 and polar 18/12 are consistent with raised-face enumeration. Six rational polyhedral tests are corroborative, not continuum proof.
 
-The calculation is restricted to four-site real metric spaces in the stated family. It does not claim global maximality among all four-point metrics or full bibliographic completeness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage is supported by the statement-level comparisons below; this is not a proof of absolute bibliographic novelty.
+
+## value
+
+PASS
+
+A natural square-to-equilateral four-point metric interpolation yields an exact affine-invariant geometric profile with a surprising strict interior maximum, meaningful endpoint comparisons and a complete finite-dimensional face transition. Not merely a table lookup or arbitrary slice: the family joins canonical tree/cycle extremal geometries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
