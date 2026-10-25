@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cover has exactly \(n\) simple geometric poles and is geometrically connected. Riemann–Hurwitz and Deuring–Shafarevich give genus and ordinarity. All rational fibres split; the point bound proves gonality three. Castelnuovo–Severi for genus above four makes the trigonal map unique. Pole-order comparison kills nonconstant Artin–Schreier coordinate changes; the infinity zero forces affine base changes. Freeness of affine orbits follows from the centralizer of a Frobenius \(n\)-cycle and the coprimality hypothesis. Exact degree-five and degree-seven programs passed. Limitation: no global geometric-automorphism assertion.
+## correctness
 
-**Originality — PASS, qualified.** Faber–Vermeulen's existence theorem for maximal-point abelian covers is considerably broader as to *existence* and already allows a single closed branch locus in an auxiliary cover, but it does not specify this ordinary trigonal normal form or classify its arithmetic isomorphism classes. Ho–Pries supply the general orbit/mass machinery but their explicit arithmetic mass evaluations stop at at most four geometric branch points; here \(n\ge5\). Tafazolian–Kazemifard give a broader minimal-geometric-automorphism existence theorem, but no twelve-point/single-Frobenius-orbit exact arithmetic class count. The claim is a narrow, explicit simultaneous refinement, not global novelty certification. Residual risk: the calculation may exist implicitly in unpublished or specialized finite-field cover literature.
+PASS
 
-**Value — PASS.** The denominator is the minimal natural way to realize a single unramified-from-rational-locus Frobenius branch orbit, while the numerator is the polynomial of rational base points. The exact free-orbit classification supplies a nontrivial arithmetic moduli census of ordinary, sharply point-optimal trigonal curves, simultaneously controlling ramification and rational automorphisms. It is not a perturbation of an arbitrary chosen finite slice.
+For Q monic irreducible of n≥5 coprime to 6 over F3, (x^3−x)/Q has n distinct simple geometric poles, no rational poles and a unique multiple zero at infinity of order n−3. The Artin–Schreier equation is geometrically connected because a rational coboundary cannot have pole order 1. Wild Riemann–Hurwitz with different exponent 4 per pole gives g=2n−2; Deuring–Shafarevich gives p-rank 2(n−1)=g. The function vanishes at all four rational points of P1(F3), each unramified fiber splitting into three points: exactly 12 points, and degree-three gonality is minimal by the 4d rational-fiber bound. For g>4 Castelnuovo–Severi forces the g1^3 unique modulo PGL2; pole-order comparison in y↦uy+h kills nonconstant h; multiplicity n−3 at infinity forces affine M(x)=ax+b, and Qprime(ax+b)=a^nQ(x) is necessary and sufficient since n odd implies a^{1−n}=1. An affine stabilizer of Q centralizes Frobenius n-cycle, so its order divides gcd(n,6)=1, giving free size-six orbits and precisely (6n)^{-1}∑_{d|n} μ(d)3^{n/d} classes; fixed Q has only three k-deck automorphisms. Independent Sympy irreducibility + affine action found 48 Q / 8 orbits at n=5 and 312 Q /52 orbits at n=7. These bounded checks corroborate, not establish, the all-n formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge after direct statement/implication comparison with the cited primary mathematical works and targeted Resultary published-record semantic searches; general methods and known special cases are credited. Failure of a search is not proof of priority, and inaccessible plausible sources remain explicit residual risks.
+
+## value
+
+PASS
+
+The explicitly parametrized family simultaneously attains the rational gonality point bound, has ordinary Jacobian and one Frobenius-transitive wild branch divisor, and admits an exact arithmetic isomorphism and automorphism count in every permitted degree. Such rigid concrete families and mass formulas are natural resources for finite-field curve arithmetic, not routine repetitions of the general genus or point-count formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
