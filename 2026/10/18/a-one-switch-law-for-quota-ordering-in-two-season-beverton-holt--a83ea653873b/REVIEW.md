@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fractional-linear transfer matrices give the exact fixed-point quadratics and the positive unique common-root obstruction. Since a common lower root must equal that obstruction and the fixed-point equation is affine in the high quota, the root ordering can reverse at most once on a connected physically admissible interval. The rational-arithmetic checker verifies the determinant, trace, and factorization identities and rigorously isolates the explicit two-sided reversal. It also checks the intermediate states; the theorem is not extrapolated from a finite experiment.
+## correctness
 
-**Originality — PASS, with a residual accessible-text limitation.** The 2010 primary paper explicitly poses the quota-permutation question after treating environmental capacity permutations. Its results and the 2009 fixed-capacity basins do not directly imply the sharp one-switch law when quota assignments change relative to fixed heterogeneous capacities. The 2020 map-permutation paper discusses the geometric mean of global attractors rather than the order of the repelling persistence thresholds; its inaccessible full text leaves a genuine risk of unrecognized specialization. Semantic research-record searches showed topical fishery and periodic-harvesting work, not a decisive equivalent statement. Originality is assessed as best-known, not certified.
+PASS
 
-**Mathematical value — PASS.** The result distinguishes a global two-step spectral trace criterion from a local initial-population persistence threshold, with the sharp first possible case of two seasons and an exact unique crossover. It is motivated by a specifically stated open quota-ordering problem in population harvesting, not an arbitrary slice or routine next-size enumeration.
+Möbius seasonal transfer T(K,h)=[[rK-(r-1)h,-Kh],[r-1,K]] has determinant rK²; multiplying exact matrices gives trace difference (H-L)(r-1)²(K1-K2), and fixed-point polynomial difference Q_HL-Q_LH=-(H-L)(r-1)R(x). Since R(0)=-K1K2<0 and its leading coefficient r-1>0, R has exactly one positive root xi; common smaller positive roots of both maps require x=xi, giving at most one possible H*=g_K2(g_K1(xi)-L)-xi. Continuity of simple physical lower roots excludes a second ordering reversal on each connected admissible interval. Two concave increasing Beverton-Holt steps with two positive roots have the smaller root as repelling basin boundary; both first-season states need positivity, explicitly checked in the example. Independent symbolic multiplication and exact-radical checks reproduce H*=(1345-159sqrt57)/293, the root ordering reversal between H=1/4 and 1/2, and positivity of two physical roots throughout. Numerical endpoint values corroborate, do not replace full algebraic interval proof.
 
-**Closest literature and limitations.** AlSharawi–Ben Haj Rhouma (2010), Sections 3–5 and Question 2, supplies the established model and open management question. Their 2009 fixed-environment treatment and Al-Ghassani–AlSharawi (2020) are nearby but do not decisively cover the combined claim on inspected evidence. Model assumptions, the two-cycle restriction, and the inaccessible full text are disclosed in the finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
+
+## value
+
+PASS
+
+The quota permutation question is a specific open direction in periodic Beverton-Holt literature; the proof isolates a unique candidate threshold while exhibiting an exact threshold inversion invisible to the fixed-sign transfer trace. It distinguishes persistence basin geometry from stability trace, a practical dynamical planning invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
