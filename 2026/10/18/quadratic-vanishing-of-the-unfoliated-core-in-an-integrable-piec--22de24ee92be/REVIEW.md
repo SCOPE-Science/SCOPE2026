@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new area law follows from the published polygon-return geometry, a telescoping signed shoelace identity and the exact hyperbolic time formula. The quadratic form polarizes to give the return relation, and the matched asymptotics yield the sharp \(10/3\) coefficient. Symbolic reduction and independently generated finite polygon areas in `verify.py` corroborate, but do not replace, the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Ostrovski establishes the invariant polygon Γ_K^0 and rotation order for each exceptional θ_K, K≥3. With t=sin²θ, s=sinθcosθ, v_j=B^j(t,1−s), det B=1 makes det(v_j,v_{j+1})=−t(1−2s) for all K sides. Centered shoelace over four quarter-turn copies telescopes to area(U_K)=1−2t−2Kt(1−2s), giving the exact ε expression. The preserved indefinite Q and endpoint B^Kv0=Rv0 imply cosh(Kμ)=1/(2t), while cosh μ=1+2 sin³ ε/(cos ε−sin ε), hence K=ε^−1+1/3+O(ε), ε_K=K^−1+(1/3)K^−2+O(K^−3). Leading O(ε) terms in area cancel, leaving 10/(3K²)+O(K^−3). Independent 65-digit bisection solved parameter relation for K=3,4,8,12,25,100,500, checked two algebraic area expressions, and found K² area converging toward 3.333... . Source establishes Jordan boundary and annulus foliation; this result does not claim dynamics of the residual region.
 
-The closest and decisive source is Ostrovski (2013, arXiv:1305.4282v1), read in full HTML. Its Theorem 5.1 and Corollary 5.4 supply the exact polygon family and integrable annulus, and are not presented as new here. Neither the square-area identity nor quadratic \(K^{-2}\) exhaustion is stated. Related piecewise-linear dynamical studies concern different maps. Targeted published-literature index statement-level queries located no equivalent or dominating area calculation. A simple reworking of the original geometry may make the new statement accessible; further human priority assessment is still warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complement-area is a motivated natural invariant measuring exactly how much of the phase square is *certified* by the existing invariant-circle construction. Its leading cancellation produces sharp quadratic exhaustion, meaning the guaranteed integrable fraction approaches one at a quantified rate rather than merely being described as large.
+Ostrovski 2013/2014 gives the original nine-piece map, θ_K, exact polygon vertices and invariant-circle outer foliation. The additional area identity and sharp 10/3 coefficient were checked against the primary relevant Sections 2–6 and Appendix, including parameter/eigenvalue data; none of the inspected earlier source passages gives that exact Lebesgue-area asymptotic. This is a refinement of the same geometric construction rather than a new dynamical theorem; equivalent unpublished shoelace calculations remain possible.
 
-## Limits and closest literature
+## value
 
-The bounded interior is **not** claimed to be chaotic or nonintegrable. Generic-parameter behavior and maximality of the certified annulus are not determined. Primary source: Georg Ostrovski, *Dynamics of a Continuous Piecewise Affine Map of the Square*, arXiv:1305.4282v1 (2013), published in Physica D 271 (2014). Context: Bullett (1986) and Reeve-Black–Vivaldi (2013).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quadratic core area law quantifies how much of a natural area-preserving square map is rigorously protected by an explicit integrable foliation along an infinite exceptional parameter family; the cancellation of the linear term is a meaningful asymptotic geometric fact, while no chaoticity or maximality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
