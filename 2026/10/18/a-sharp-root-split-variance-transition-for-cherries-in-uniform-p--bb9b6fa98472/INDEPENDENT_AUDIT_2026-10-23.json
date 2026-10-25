@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:12:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/a-sharp-root-split-variance-transition-for-cherries-in-uniform-p--bb9b6fa98472/RESULT.md",
+        "2026/10/18/a-sharp-root-split-variance-transition-for-cherries-in-uniform-p--bb9b6fa98472/SLOGAN.txt",
+        "2026/10/18/a-sharp-root-split-variance-transition-for-cherries-in-uniform-p--bb9b6fa98472/VERIFICATION.md",
+        "2026/10/18/a-sharp-root-split-variance-transition-for-cherries-in-uniform-p--bb9b6fa98472/verify.py",
+        "/mnt/data/scope_08_independent_crosschecks.py"
+      ],
+      "rationale": "Root subtrees conditional on either labeled partition (also after forgetting which side is first at a balanced split) are independent uniform PDA trees. Cherry counts add, so the conditional variance is v(k)+v(n-k). Contraction of one and two disjoint leaf pairs yields E C_m=binom(m,2)/(2m-3) and E(C_m(C_m-1))=binom(m,2)*binom(m-2,2)/[(2m-3)(2m-5)], hence v(m)=m(m-1)(m-2)(m-3)/[2(2m-3)^2(2m-5)] for m>=4 and zero for m<=3. The derivative certificates in RESULT.md give v''(x)<0 for x>=3, and v(m+1)>v(m), proving the unique min at k=3 and reduction of maxima to k=1 or k=floor(n/2). The even polynomial P(m)=16m^3-164m^2+393m-270 is negative for m=3..7 and has positive shifted coefficients at m>=8. The odd sixth-degree Q(m) is negative m=3..6 and has positive coefficients after shifting m=7, giving the strict n=15 transition. Independent exact Fraction/SymPy checks confirmed the two exact n14/n15 gaps and the strict extrema for every n=6..300. The analytic parity sign certificates, not this finite sweep, prove all n. Expansion v(x)=x/16-1/32-3/(32x)+O(x^-2) yields asymptotic gap 1/32.",
+      "residual_risks": [
+        "Independent bounded experiments are supplementary; no formal Lean theorem or external expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "could a general random tree variance theorem dominate the root split optimization",
+          "Choi–Thompson–Wu rooted/unrooted PDA and YHK; McKenzie–Steel 2000 cherry distributions"
+        ],
+        "reasoning": "Those works calculate unconditional cherry distributions; conditioning on a specified root split changes the problem and requires strict concavity and parity-polynomial signs.",
+        "searches": [
+          "Root split conditional variance of cherry count under uniform rooted labeled phylogenetic PDA tree maximizer balanced singleton phase transition",
+          "phylogenetic trees cherries root split size conditional variance PDA maximize balance n15",
+          "Choi Thompson Wu cherry pitchfork distributions rooted PDA arxiv 2002.12643",
+          "https://arxiv.org/abs/2002.12643",
+          "https://arxiv.org/abs/1508.03139",
+          "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2002.12643",
+        "https://arxiv.org/abs/1508.03139",
+        "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "does old moment formula directly imply every boundary without substantive work",
+          "Choi–Thompson–Wu exact v(m) and current parity P,Q sign identities"
+        ],
+        "reasoning": "A short formula V_n(k)=v(k)+v(n-k) follows routinely, but neither strict argmin k3, argmax switch n14→15, nor limit 1/32 is stated or automatic without the global comparison and sign proof.",
+        "searches": [
+          "Root split conditional variance of cherry count under uniform rooted labeled phylogenetic PDA tree maximizer balanced singleton phase transition",
+          "phylogenetic trees cherries root split size conditional variance PDA maximize balance n15",
+          "Choi Thompson Wu cherry pitchfork distributions rooted PDA arxiv 2002.12643",
+          "https://arxiv.org/abs/2002.12643",
+          "https://arxiv.org/abs/1508.03139",
+          "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "known marginal cherry variance versus conditioned root-split variance",
+          "Choi–Thompson–Wu arXiv:2002.12643 Table rooted PDA B*_n; Wu–Choi arXiv:1508.03139"
+        ],
+        "reasoning": "v(m) is prior published data; root-size conditional sum is a standard independence consequence, but maximizing over k and exact n15 crossover are separate statements.",
+        "searches": [
+          "Root split conditional variance of cherry count under uniform rooted labeled phylogenetic PDA tree maximizer balanced singleton phase transition",
+          "phylogenetic trees cherries root split size conditional variance PDA maximize balance n15",
+          "Choi Thompson Wu cherry pitchfork distributions rooted PDA arxiv 2002.12643",
+          "https://arxiv.org/abs/2002.12643",
+          "https://arxiv.org/abs/1508.03139",
+          "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "precomputed numerical table of conditional extrema",
+          "Resultary search root split cherry conditional variance PDA, balanced singleton n15"
+        ],
+        "reasoning": "The indexed hits concern root imbalance in random BST rather than conditioned PDA cherry-count variance, and no same extremum table located; not proof of novelty.",
+        "searches": [
+          "Root split conditional variance of cherry count under uniform rooted labeled phylogenetic PDA tree maximizer balanced singleton phase transition",
+          "phylogenetic trees cherries root split size conditional variance PDA maximize balance n15",
+          "Choi Thompson Wu cherry pitchfork distributions rooted PDA arxiv 2002.12643",
+          "https://arxiv.org/abs/2002.12643",
+          "https://arxiv.org/abs/1508.03139",
+          "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the precise final theorem and its stated parameter domain. The four named implication comparisons discriminate known mathematical inputs from the sharp new increment; an unindexed equivalence remains possible. A short formula V_n(k)=v(k)+v(n-k) follows routinely, but neither strict argmin k3, argmax switch n14→15, nor limit 1/32 is stated or automatic without the global comparison and sign proof.",
+      "residual_risks": [
+        "An earlier PDA branching/split-conditioned statistical treatment may implicitly optimize the known marginal variance formula; not found in searched primary sources.",
+        "Finite 6..300 split sweep cannot establish the all-n parity-polynomial certificates; those were checked analytically from the displayed shifted polynomials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known marginal variance v(m) agrees exactly; its tables and the examined distribution theorem do not classify variance conditioned on root split size or its n15 maximizer phase. The prior marginal is acknowledged.",
+          "evidence": [
+            "Choi–Thompson–Wu Table B*_n rooted PDA cherry variance equals m(m-1)(m-2)(m-3)/[2(2m-3)^2(2m-5)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.12643",
+          "material_read": "26-page accessible author preprint, Table of rooted PDA variances and sections deriving marginal moment formulas; page showing table rendered and checked",
+          "method": "PDF full-text search, relevant table and proof context inspected and screenshot checked",
+          "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+          "trigger": "Same rooted leaf-labeled PDA model and cherry variance"
+        },
+        {
+          "assessment": "Unconditional cherry/pitchfork joint laws do not supply a root-size-conditioned variance extremum or parity threshold without additional optimization.",
+          "evidence": [
+            "Wu–Choi 2015 rooted PDA and YHK joint cherry/pitchfork recurrences; no root-size minimax statement identified in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.03139",
+          "material_read": "Relevant primary full HTML/abstract and recurrences for unconditioned model counts",
+          "method": "Open-access preprint content and theorem summaries inspected",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Earlier joint distributions of cherries and pitchforks in PDA/YHK models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2002.12643",
+        "https://arxiv.org/abs/1508.03139",
+        "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/cherry.pdf",
+        "2026/10/18/a-sharp-root-split-variance-transition-for-cherries-in-uniform-p--bb9b6fa98472/RESULT.md"
+      ],
+      "rationale": "Cherry counts are a canonical local statistic in phylogenetic PDA trees, and root split size measures balance. Conditional fluctuation extremizers and the sharp n15 reversal answer a natural model question not resolved by the unconditional marginal moments alone. The 1/32 persistent asymptotic advantage adds qualitative meaning beyond a tiny finite curiosity.",
+      "residual_risks": [
+        "Mathematical applicability beyond the precise natural family remains open; not claimed as a downstream theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier PDA branching/split-conditioned statistical treatment may implicitly optimize the known marginal variance formula; not found in searched primary sources.",
+    "Finite 6..300 split sweep cannot establish the all-n parity-polynomial certificates; those were checked analytically from the displayed shifted polynomials.",
+    "Scientifically completed best-of-knowledge judgment does not imply import or publication; public metadata privacy check currently blocks change-set.",
+    "Finite computations alone do not prove infinite quantifiers."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The universal variance formula is obtained from exact cherry-indicator probabilities and the independent PDA subtree decomposition conditional on the root split. Real strict concavity for branch sizes at least three, exact positive first differences, and explicit parity-polynomial factorization prove all global extrema and their strictness. Complete positive-coefficient shifts and finite exceptional integer checks certify the size-15 threshold. An independent recurrence enumerates exact cherry-count distributions for all rooted labeled binary tree sizes through twenty, verifies each conditional variance, and checks the factorization through order two hundred. Finite computations are corroboration rather than a proof of the infinite statement.
+## correctness
 
-**Originality (O): PASS on inspected primary literature and available search evidence.** The single-tree cherry variance is previously known and explicitly credited to Choi, Thompson and Wu (2020), alongside the Wu and Choi (2015) PDA/YHK recurrences and McKenzie and Steel's earlier marginal work. Their inspected analyses concern marginal or cherry–pitchfork distributions, not the conditional root-split variance *extremum*. The global minimum at split size three, exact maximizer reversal at size fifteen, and nonzero asymptotic gap are not implications of marginal moments alone: conditional decomposition plus sign analysis is necessary. Targeted mathematical literature and existing-claim queries did not identify the same theorem. **Residual risk:** an earlier general Markov-branching or conditional-cherry identity may imply the extrema implicitly; this is not an assertion of worldwide uniqueness.
+PASS
 
-**Value (V): PASS.** Cherry counts are basic tree-shape statistics used in phylogenetic null-model comparison; root split balance is another biologically interpretable structural feature. Their conditional interaction is a natural question, and the all-size phase diagram and strict surprising cutoff distinguish high-fluctuation tree shapes precisely, while the positive limiting variance difference rules out an ephemeral small-sample effect. The result does not claim a new marginal moment formula or an applied diagnostic beyond the proved conditional variance theorem.
+Root subtrees conditional on either labeled partition (also after forgetting which side is first at a balanced split) are independent uniform PDA trees. Cherry counts add, so the conditional variance is v(k)+v(n-k). Contraction of one and two disjoint leaf pairs yields E C_m=binom(m,2)/(2m-3) and E(C_m(C_m-1))=binom(m,2)*binom(m-2,2)/[(2m-3)(2m-5)], hence v(m)=m(m-1)(m-2)(m-3)/[2(2m-3)^2(2m-5)] for m>=4 and zero for m<=3. The derivative certificates in RESULT.md give v''(x)<0 for x>=3, and v(m+1)>v(m), proving the unique min at k=3 and reduction of maxima to k=1 or k=floor(n/2). The even polynomial P(m)=16m^3-164m^2+393m-270 is negative for m=3..7 and has positive shifted coefficients at m>=8. The odd sixth-degree Q(m) is negative m=3..6 and has positive coefficients after shifting m=7, giving the strict n=15 transition. Independent exact Fraction/SymPy checks confirmed the two exact n14/n15 gaps and the strict extrema for every n=6..300. The analytic parity sign certificates, not this finite sweep, prove all n. Expansion v(x)=x/16-1/32-3/(32x)+O(x^-2) yields asymptotic gap 1/32.
 
-**Scope and limitations.** Uniform rooted binary PDA trees only; no assertion about YHK, unrooted models, or a full stochastic order. Independent mathematical audit and global historical-priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality for the precise final theorem and its stated parameter domain. The four named implication comparisons discriminate known mathematical inputs from the sharp new increment; an unindexed equivalence remains possible. A short formula V_n(k)=v(k)+v(n-k) follows routinely, but neither strict argmin k3, argmax switch n14→15, nor limit 1/32 is stated or automatic without the global comparison and sign proof.
+
+## value
+
+PASS
+
+Cherry counts are a canonical local statistic in phylogenetic PDA trees, and root split size measures balance. Conditional fluctuation extremizers and the sharp n15 reversal answer a natural model question not resolved by the unconditional marginal moments alone. The 1/32 persistent asymptotic advantage adds qualitative meaning beyond a tiny finite curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
