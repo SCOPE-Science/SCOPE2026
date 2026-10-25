@@ -1,11 +1,21 @@
-# Review of exact uniform-occupancy mixtures
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact inclusion-exclusion identity covers every labeled parent probability vector padded to the sample size. The displayed multinomial coefficient formula identifies every coefficient in the inverse uniform-occupancy transformation. The complete finite degree-four and degree-five coefficient lists are enumerated in rational arithmetic: 35 and 126 distinct exponent vectors, respectively, with no negative coefficients for any of the four or five mixture weights. This proves nonnegativity for all real ordered gaps, not merely at sampled inputs. Invertibility of the upper-triangular uniform matrix gives uniqueness; column normalization gives total mixture weight one. The standalone code independently checks the identities using enumerated labeled paths.
+## correctness
 
-**Originality (O): PASS on inspected evidence.** Zhu (2021 preprint; 2022 journal) proves the convex-hull assertion for three draws only and describes the general larger-sample assertion as Conjecture 2(ii). Sections 1–5 of its lawful arXiv preprint were inspected, as were the remaining discussion and complements; no theorem in that paper establishes the simultaneous four- or five-draw mixture for all probability vectors supported on at most four or five labels. A publicly indexed later result establishes exposedness of each uniform occupancy vector (Conjecture 2(i)); exposure is a statement about the generating vertices, not about inclusion of arbitrary nonuniform count laws. A sharp upper bound for the single statistic \(\Pr(K_4=3)\) does not imply the entire vector-level convex representation. Targeted literature and mathematical record searches found no equivalent or dominating statement; an unindexed classical representation remains possible. The publisher's full article was not accessible; the full lawful arXiv preprint was inspected instead.
+PASS
 
-**Value (V): PASS.** The matched sample/alphabet regime is a natural finite-population case of an explicit exchangeability conjecture, not an arbitrarily fixed parameter slice: every possible category can, in principle, appear during the sampling window. The result gives the full convex set of all count laws when categorical parent measures of that support size are mixed, with unique coefficients and an exact positivity mechanism. This is a simultaneous distributional classification for the first two larger sample sizes, rather than just a bound on one marginal probability. It does not claim the general conjecture or persistence across all sample sizes.
+For n=4,5 the q_k inclusion-exclusion polynomial is homogeneous of degree n in sorted probability gaps δ_r=p_r−p_(r+1)≥0. Reconstruct M_(k,j)=S(n,k)(j)_k/j^n; triangular invertibility yields unique w=M^-1 q. Independently computed every rational coefficient in all C(2n−1,n)=35/126 gap monomials: none negative; counts per j for n=4 are 26,27,24,14 positive and n=5 112,113,108,85,42. Therefore all real δ≥0 give w≥0; column normalization forces Σw=1. Uniform parents attain the simplex vertices. Padded zeros, degenerate parents and boundary gaps are covered; not asserted for n≥6 or >n labels. Verification script and displayed formulas mutually agree; finite search exhausts the polynomial coefficient set, not probability input grid.
 
-**Closest literature and risks.** Zhu's conjecture and its established \(n=3\) case are the primary comparator. The all-\(n\) exposed-vertex result is related but does not supply inclusion. The complete journal copy could not be reopened, and an equivalent unpublished or unindexed finite-alphabet mixing formula cannot be categorically excluded. The symbolic proof has only self-review, without an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
+
+## value
+
+PASS
+
+This is the first two higher sample sizes of a natural uniform-occupancy convex-hull conjecture in the mathematically motivated matched-support regime. Unique nonnegative weights give an exact whole-distribution classification rather than a one-marginal extremum. The restricted alphabet is material, not hidden; the finite n results do not answer the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
