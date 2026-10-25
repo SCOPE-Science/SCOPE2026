@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof is in RESULT.md. This record describes bounded executable checks only; no independent audit has been performed.
+## correctness
 
-Run `python3 verify.py` in a directory containing that file. It requires Python 3 and no external packages or network access. The checker evaluates the original box and diamond semantic clauses directly over upset truth sets, enumerates every local neighbourhood family for eleven finite posets, and compares the observed tables at every instance arity up to poset width against the two signatures. It tests **1,100 distinct local families for each of the two modalities**, covering all 256 on the three-point antichain and 512 on the disjoint union of two two-point chains. It also tests two-world box and diamond nonfaithfulness, and one-world zero-arity detection of an empty diamond neighbourhood through arity four.
+PASS
 
-All enumerated tests completed without assertion failure in this review. The final output line is `Two-world box and diamond equivalences, and one-world diamond emptiness detection: passed`. The cases checked do not exhaust all finite posets or all arities; universality and sharpness are justified by the explicit mathematical argument, not finite extrapolation.
+For any finite nonempty poset, an upset U intersects upset A precisely when maximal traces U∩Max(W) and A∩Max(W) intersect, via extension to a maximal point. Thus within a fixed maximal trace an inclusion-smaller box neighbourhood dominates support/hitting, giving minimal trace-class representatives; box necessity follows by supports U and singleton-maximal upset tests using ≤width(W) instances. For universal diamond, inclusion-LARGER same-trace neighbourhoods dominate counterexamples; the test with scope Max(W) minus the trace of U and instance complements of principal downsets of minimal generators of U recovers existence of same-trace supersets and so maximal signature; |Min(U)|≤width(W). Depth-one variable valuations and induction give the exact same-poset all-formula iff. An antichain gives faithful complete recovery, while nonmaximal points yield distinct constant persistent indistinguishable families; an antichain on w elements realizes sharp arity w. On a chain, choices of empty upset and one extremal nonempty upset yield 2(n+1) independent box and diamond signatures and 4(n+1)^2 classes of constant assignments. Independently brute-forced both semantic clauses for ALL neighbourhood families of chain3/chain4, fork3, antichain3 and all upsets arguments of arity≤width: equivalence classes agree exactly with signatures (8,10,24,256 signatures per modality respectively). Finite checks supplement general poset proof.
 
-The self-review checked the upset maximal-trace lemma, necessity of the box minimal-trace representative, diamond co-witness characterization using downset complements, the induction from one-step operators to full formula semantics, the persistent constant-family constructions and the chain count. An external independent audit is **not performed**.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, with prior partial/general coverage credited. Classical Boolean BAIO result establishes recovery of every raw neighbourhood family with sharp n-instance bound using singleton arbitrary subsets; those singleton probes cease to be admissible for nonmaximal elements of ordered posets, so the stronger classical reconstruction cannot transfer. Das–Khanra–Sardar define the exact two-sided positive semantics and duality agenda but do not give maximal-trace signatures or chain count in inspected text. Search failure alone is not proof of novelty, and explicit residual risks remain.
+
+## value
+
+PASS
+
+The exact observational quotient measures the intrinsic information lost when Boolean instantial modalities are interpreted only on the upsets of an ordered intuitionistic frame. It provides canonical fibrewise invariants, sharp optimal formula arity, nonfaithfulness criterion, and a nontrivial exact chain census relevant to completeness, finite model comparison, and duality problems; not a mere relabelling of standard neighbourhood minimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
