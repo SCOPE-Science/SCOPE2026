@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact Dirichlet covariance calculation gives S=4GCG for any d≥1. C is SPD with determinant 1/[m^(d+1)(m+1)^d]. SPD square-root uniqueness proves injectivity and explicit inversion; any SPD S yields an SPD Gram realized by Cholesky. Volume follows from det G=(d! Vol)^2. 56 random examples and independent 600000-sample Dirichlet tests passed; finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus cb0a2e3c75db recovers orthotope side lengths from random projection volumes",
+        "published-finding corpus b6ed3417ffcf analyzes radial moments of a distinct permutohedron vertex family"
+      ],
+      "reasoning": "These stronger-sounding moment recovery theorems concern different random measurements and geometric families; neither determines the covariance S for an arbitrary simplex or implies its inverse.",
+      "searches": [
+        "Gram matrix inversion Dirichlet barycentric covariance differences of squared distances reconstruct simplex",
+        "2026/10/11/SCOPE-sharp-finite-moment-tomography-of-orthotopes-in-every-dimension--cb0a2e3c75db",
+        "2026/10/11/SCOPE-exact-radial-second-moments-of-regular-nested-permutohedra--b6ed3417ffcf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0505618 (full arXiv text, sections on the regular simplex and proofs)",
+      "doi:10.1155/2016/8371750 (full openly available text, moments and worked triangular examples)",
+      "doi:10.1112/S0024610701002332 (bibliographic abstract only; relevant matrix shape-space risk)",
+      "published-finding corpus research records: 4609b4d88176, b6ed3417ffcf, cb0a2e3c75db, e834c8a44f9f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Meckes–Meckes regular-simplex analysis restricts shape and obtains projection distribution bounds",
+        "Li–Qiu single-vertex moments do not give off-diagonal covariances of differences",
+        "Gram/Cayley–Menger reconstruction assumes the edge metric as input"
+      ],
+      "reasoning": "The new theorem asserts injectivity, surjectivity and an explicit inverse for a covariance matrix from arbitrary labeled simplices. The closest inspected claims give neither those cross-covariances nor reconstruction, and do not logically imply them as stated.",
+      "searches": [
+        "distance-moment tomography recovery of simplex metric from vertex distance covariance",
+        "Meckes Meckes 2005 arxiv math/0505618 uniform simplex projection moments",
+        "Li Qiu 2016 triangle vertex distance moments covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meckes–Meckes 2005, arxiv:math/0505618, introduction and regular-simplex corollary 6",
+        "Li–Qiu 2016, doi:10.1155/2016/8371750, sections on moments from a single vertex"
+      ],
+      "reasoning": "An equivalent would infer the Gram matrix of an arbitrary labeled simplex from covariance of squared-distance differences. The inspected sources use regular-simplex projection CLTs or single-vertex distance moments, not this observed covariance inverse.",
+      "searches": [
+        "simplex reconstruction from covariance matrix of squared distances differences to the vertices of uniform interior random point",
+        "Gram matrix inversion Dirichlet barycentric covariance differences of squared distances reconstruct simplex",
+        "distance-moment tomography recovery of simplex metric from vertex distance covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 4609b4d88176 concerns beta bounds for random two-point difference-body distances in simplices",
+        "Relevant published findings compared by their claims and implications, without an exact covariance inverse match"
+      ],
+      "reasoning": "No matching matrix covariance-to-Gram table or exact theorem was identified in the checked indices; failure to find one is not, by itself, a proof of novelty.",
+      "searches": [
+        "simplex reconstruction from covariance matrix of squared distances differences to the vertices of uniform interior random point",
+        "2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176"
+      ]
+    },
+    "rationale": "No equivalent statement or dominating implication appeared in published-finding corpus, the accessible own records, or inspected primary source sections. Unlike regular-simplex projection central limit theory and single-vertex distance moments, this is a complete labeled metric inverse from joint centered squared-distance differences. Remaining unindexed or inaccessible equivalents are candidly identified.",
+    "residual_risks": [
+      "Unindexed covariance-based simplex metric reconstruction could exist.",
+      "Le–Barden shape-space full text was inaccessible, preventing a complete source comparison.",
+      "Measurement noise and near-singularity are not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Corollary 6 treats Gaussian approximation of linear projections in a regular simplex, rather than second moments of labeled squared vertex-distance differences for arbitrary shape.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0505618",
+        "material_read": "Full arXiv HTML, introduction, statements and regular-simplex Corollary 6 with proof in section 4",
+        "method": "open-access full-text inspection",
+        "title": "The central limit problem for random vectors with symmetries",
+        "trigger": "Uniform random points in a simplex; shared Dirichlet/moment setting"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article computes univariate distance-from-a-fixed-vertex moments within arbitrary triangles; no joint squared-distance-difference covariance matrix or general-d Gram inverse.",
+        "identifier_or_url": "https://doi.org/10.1155/2016/8371750",
+        "material_read": "Full open text including derivation of one-vertex radial moments and examples",
+        "method": "open-access article HTML inspection",
+        "title": "Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles",
+        "trigger": "Moments of random distances from simplex vertices"
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_TO_MODERATE_RISK",
+        "evidence": "The title and bibliographic summary concern general simplex shape spaces; inaccessible text prevents a whole-document noncoverage conclusion.",
+        "identifier_or_url": "https://doi.org/10.1112/S0024610701002332",
+        "material_read": "Bibliographic abstract and metadata; full text not available in this run",
+        "method": "bibliographic review only",
+        "title": "On Simplex Shape Spaces",
+        "trigger": "Potential broader matrix-based simplex shape parametrization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73de6671-ab49-42f5-9231-f0cbd5620f56",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete inverse problem with labeled Euclidean geometry as output and low-order random interior distance observables as input: it classifies the exact range (all SPD matrices), has constructive unique inverse and reconstructs all edge lengths and volume in every finite dimension. The result is more informative than a routine expectation or one-parameter specialization.",
+    "status": "PASS"
+  }
+}
