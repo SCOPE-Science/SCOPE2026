@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state Laplacian is the Kronecker sum of complete-graph Laplacians. Its four eigenspaces are explicitly reconstructed with dimensions and exact eigenvalues. The zero-row/zero-column interaction space is unobservable precisely when the unselected bipartite graph contains a cycle, by alternating circulation and forest leaf elimination. At resonance the two centered main-effect spaces merge, and vanishing on selected cells becomes a component-wise constant parameter system with exactly two sum constraints. Its two-by-component matrix is full column rank precisely under the stated component-count condition. The PBH implication and explicit optimal designs cover every \(p,q\ge2\) and \(a,b>0\). The exact program completed 11,378 assertions, supporting but not replacing the proof. Risk: implementation checks finite configurations only; infinite statement rests on the displayed algebraic and graph proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The relevant prior results on PBH, Cartesian eigenstructure, maximum eigenspace multiplicity, and bipartite incidence cycle spaces are not claimed as novel. Notarstefano–Parlangeli (arXiv:1203.0129) focus on path grids; Yuan et al. (arXiv:1310.5806) establish a general multiplicity rule; Anđelić–Brunetti–Stanić (DOI 10.1007/s00373-020-02212-6) explicitly analyze *one binary input* for graph products; Dai (DOI 10.1049/cth2.12385) treats separate self-similar graph families. None of the inspected primary texts states this exact if-and-only-if test for all independent terminal actuator sets, especially the component-ratio condition precisely at \(ap=bq\). Searches for rook graphs, Hamming squares, two-way ANOVA designs and bipartite sampling failed to locate equivalent full coverage. Risk: unindexed literature under a different design-theoretic formulation may cover it; Yuan's count baseline means the bare cardinality result alone is not a new principle.
+PASS
 
-## Value — PASS
-The result reduces a high-dimensional PBH test for any candidate sensor/actuator placement to a forest check and at most a two-component imbalance comparison. It identifies why a spectrally optimal-size rectangular placement fails on the resonance surface and provides a same-size replacement except on width-two networks, where one more actuator is necessary. At nonresonance all optimal placements are enumerated exactly by spanning trees. This is a natural complete classification and an operational design rule, not an arbitrary finite example.
+The Kronecker-sum Laplacian has eigenspaces 1⊗1, U_p⊗1, 1⊗U_q, U_p⊗U_q with eigenvalues 0, ap, bq, ap+bq. For terminal inputs, PBH requires restriction injective on each full eigenspace; U_p⊗U_q consists of zero-row/column-sum matrices, and the unselected-supported kernel is exactly the circulation space of the bipartite unselected graph H, which vanishes iff H is a forest (cycle alternation/leaf peeling). Nonresonance: no two entire unselected rows/columns when H is acyclic, so mean-zero single-coordinate vectors cannot hide; constant mode detected. Resonance ap=bq: middle modes Y_ij=f_i+g_j, and selected edges force component parameters t_c satisfying sums r_c t_c=s_c t_c=0, so t<=2 with rank-two imbalance for t=2. Forest maximum edges p+q-1 yields minimum (p-1)(q-1); resonant rank lower bound and explicit double-star/tree complements give special min max(p,q) if min(p,q)=2; matrix-tree theorem yields p^(q-1) q^(p-1) optimum nonresonant placements. Independent exact modular PBH rank compared with graph tests on ALL selections in 2x2,2x3,2x4,3x3,3x4, in both resonance regimes: minima [1,2],[2,3],[3,4],[4,4],[6,6]. Infinite p,q result is from the algebraic proof, not those masks.
 
-## Scientific limitations
-Only direction-constant positive weights, products of two complete graphs and independently controlled node coordinates are covered. There is no theorem for arbitrary edge weights, input energy, robustness, or higher-factor Cartesian products. Full-text absence is not asserted for unavailable unindexed material; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior PBH and product spectral facts are acknowledged; no inspected source derives the complete all-terminal-sets forest plus resonant selected-component rank classification, nor the optimal-placement count. Access/alias risk remains.
+
+## value
+
+PASS
+
+A natural exact actuator-placement classification for all weighted rectangular complete-graph Cartesian products, distinguishing a single eigenvalue-collision hypersurface, with an interpretable cycle-space obstruction, sharp actuator count and labeled optimal placement count; not a routine multiplicity inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

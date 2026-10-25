@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:53:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Kronecker-sum Laplacian has eigenspaces 1⊗1, U_p⊗1, 1⊗U_q, U_p⊗U_q with eigenvalues 0, ap, bq, ap+bq. For terminal inputs, PBH requires restriction injective on each full eigenspace; U_p⊗U_q consists of zero-row/column-sum matrices, and the unselected-supported kernel is exactly the circulation space of the bipartite unselected graph H, which vanishes iff H is a forest (cycle alternation/leaf peeling). Nonresonance: no two entire unselected rows/columns when H is acyclic, so mean-zero single-coordinate vectors cannot hide; constant mode detected. Resonance ap=bq: middle modes Y_ij=f_i+g_j, and selected edges force component parameters t_c satisfying sums r_c t_c=s_c t_c=0, so t<=2 with rank-two imbalance for t=2. Forest maximum edges p+q-1 yields minimum (p-1)(q-1); resonant rank lower bound and explicit double-star/tree complements give special min max(p,q) if min(p,q)=2; matrix-tree theorem yields p^(q-1) q^(p-1) optimum nonresonant placements. Independent exact modular PBH rank compared with graph tests on ALL selections in 2x2,2x3,2x4,3x3,3x4, in both resonance regimes: minima [1,2],[2,3],[3,4],[4,4],[6,6]. Infinite p,q result is from the algebraic proof, not those masks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maximum eigenspace multiplicity is a lower bound on driver count, not a classification of admissible supports.",
+          "Zero forcing strong structural controllability quantifies over a family of matrices, not the fixed positive direction weights with exact resonance."
+        ],
+        "reasoning": "Neither stronger-looking general theorem implies the exact placement criterion at fixed rook Laplacian with both resonant and nonresonant weights.",
+        "searches": [
+          "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets",
+          "Yuan et al arXiv:1310.5806",
+          "Monshizadeh et al arXiv:1403.4868"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 1b294e4910568da25e6b31d592991dc6dc0f3a23 and verify_rook.py 642618f25fffb3e80e24e82a8a6d67fb89edfc8e",
+        "Anđelić–Brunetti–Stanić, Graphs Combin. 36 (2020), 1593–1602, doi:10.1007/s00373-020-02212-6",
+        "Yuan et al arXiv:1310.5806",
+        "Notarstefano–Parlangeli arXiv:1203.0129",
+        "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper analyzes standard graph products and single-input Laplacian controllability.",
+          "The audited criterion needs a full restriction matrix on each eigenspace and distinguishes ap=bq."
+        ],
+        "reasoning": "The reported single-input product spectral criterion does not imply this many-independent-terminal all-selection theorem; PBH plus new incidence analysis is needed.",
+        "searches": [
+          "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets",
+          "Anđelić–Brunetti–Stanić 2020 full OA article, pp.1–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PBH controllability can be expressed as restriction rank of each eigenspace; for rook graph U_p⊗U_q is the K_pq incidence cycle space.",
+          "2020 product-controllability paper formulates one single binary input vector, rather than one independent input per selected terminal."
+        ],
+        "reasoning": "A single vector cannot observe a repeated eigenspace at positive dimension, whereas a selected-coordinate input matrix can; thus product eigenvalue facts do not supply the all-S forest/component iff characterization.",
+        "searches": [
+          "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets",
+          "Notarstefano–Parlangeli arXiv:1203.0129",
+          "Anđelić–Brunetti–Stanić DOI:10.1007/s00373-020-02212-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited Resultary record studies the K_pq spanning-tree polytope center, not vertex-input controllability.",
+          "Standard K_pq matrix-tree formula counts tree complements, but not their control admissibility at resonance."
+        ],
+        "reasoning": "No searched table covers the combined actuator support and exceptional component imbalance; the tree count itself is classical and not claimed original.",
+        "searches": [
+          "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets",
+          "Resultary:2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4"
+        ]
+      },
+      "rationale": "Prior PBH and product spectral facts are acknowledged; no inspected source derives the complete all-terminal-sets forest plus resonant selected-component rank classification, nor the optimal-placement count. Access/alias risk remains.",
+      "residual_risks": [
+        "Unindexed treatment of fixed-weight Cartesian products with a full multiple-terminal PBH criterion could restate the same rank test.",
+        "Numerical rank experiments over bounded p,q do not independently prove all dimensions, so the analytic cycle-space/centering argument is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": [
+            "Single binary input vector and eigenvalue product criterion; no independent terminal input matrix forest/component criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-020-02212-6",
+          "material_read": "Accessible ten-page open manuscript; abstract, product eigenvalue setup, single-input observability criterion and discussed applications",
+          "method": "Open full OA PDF, examine mathematical statements and proof sections; PDF page screenshot",
+          "title": "Laplacian controllability for graphs obtained by some standard products",
+          "trigger": "Direct same Kronecker graph-product operators"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTIFIER",
+          "evidence": [
+            "Strong structural family not exact fixed weights; fuller reading remains risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+          "material_read": "Title/abstract and cited structural-controllability formulation; not full primary text in this run",
+          "method": "ArXiv abstract/context comparison",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Potentially dominating structural criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact actuator-placement classification for all weighted rectangular complete-graph Cartesian products, distinguishing a single eigenvalue-collision hypersurface, with an interpretable cycle-space obstruction, sharp actuator count and labeled optimal placement count; not a routine multiplicity inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 1b294e4910568da25e6b31d592991dc6dc0f3a23 and verify_rook.py 642618f25fffb3e80e24e82a8a6d67fb89edfc8e",
+    "Anđelić–Brunetti–Stanić, Graphs Combin. 36 (2020), 1593–1602, doi:10.1007/s00373-020-02212-6",
+    "Yuan et al arXiv:1310.5806",
+    "Notarstefano–Parlangeli arXiv:1203.0129",
+    "Resultary query: controllability of weighted rook graphs K_p Cartesian K_q independent leader vertices forest condition resonance ap=bq component imbalance minimal sets"
+  ],
+  "disposition": "passed",
+  "final_claim": "Forest and component-imbalance controllability criterion for direction-weighted rook networks",
+  "limitations": [
+    "Two factors complete graphs only, p,q≥2, a,b>0, exact positive fixed weights, independent scalar inputs.",
+    "Excludes edge-varying weights, robust or strong-structural controllability and energy optimization.",
+    "Small-board checks all subsets but cannot establish the unbounded statement."
+  ],
+  "residual_risks": [
+    "Unindexed treatment of fixed-weight Cartesian products with a full multiple-terminal PBH criterion could restate the same rank test.",
+    "Numerical rank experiments over bounded p,q do not independently prove all dimensions, so the analytic cycle-space/centering argument is essential."
+  ],
+  "schema_version": 1
+}
