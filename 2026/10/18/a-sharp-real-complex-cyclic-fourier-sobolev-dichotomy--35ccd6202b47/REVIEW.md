@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact duality converts the real optimal coefficient into a maximum of the cycle Green quadratic form over sign vectors. The Green formula is verified by the discrete Laplacian identity. A continuous-circle unit-cell interpolation differs from that quadratic form only by a cardinality-dependent constant. The established circle Riesz rearrangement inequality therefore forces a consecutive maximizing subset; direct finite summation yields the parity formulas. Complex Fourier diagonalization gives the sharp complex coefficient and character optimizers. The norm-constant ratio and sole real–complex equality order follow from spectral eigenvector constraints. The checker tests the algebra but is not offered as infinite proof.
+## correctness
 
-**Originality — PASS, with historical uncertainty.** The fully inspected main finite-cycle 2026 sources concern logarithmic Sobolev inequalities, entropy and their cubic/quartic stability deficits, not the sharp real zero-mean \(\ell^1\)-energy inequality. A separate 2026 sharp discrete \(\ell^1\) result imposes zero exterior boundary conditions rather than cyclic mean zero and is not a covering result. Classical discrete Wirtinger theorems are \(\ell^2\)-to-energy results. A targeted published-mathematics record search and comparison of accessible mathematical statements found no equivalent, but older unindexed exact inequalities cannot be excluded without further historical scholarship. The circle rearrangement theorem itself is fully credited.
+PASS
 
-**Value — PASS.** The sharp quantity is the natural real operator norm of the cyclic discrete antiderivative from energy \(\ell^2\) to \(\ell^1\), alongside the complex-valued analogue. The dual extremizer undergoes a structural change from a consecutive block Green potential to a pure Fourier character. The parity law, exact order-four coincidence and persistent asymptotic scalar-field gap give a complete natural family rather than an arbitrary finite slice.
+PASS. Reconstructed exact Laplacian Green identity, dual support function, unit-cell integration correction by cardinality, application of a standard circle rearrangement theorem, closed form block energy, field-specific spectral equality conditions. Small complete enumerations independently corroborate all boundary parity cases; finite checks not substitutes for rearrangement.
 
-**Limitations.** One standard circle Riesz rearrangement theorem is used without re-proving its general form. Characterization of every real optimizer is not claimed. The verifier only checks finite cases. Unindexed historical priority remains a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Prior sharp finite-cycle logarithmic Sobolev, classical ℓ2 Wirtinger, infinite-lattice ℓ2→ℓ∞, and zero-extended discrete ℓ1 theorems concern different norms or boundary conditions; neither their displayed statements nor the published mathematical record matches the joint real/complex cycle constants. Recognize unindexed classical cyclic inequalities as material residual risk.
+
+## value
+
+PASS
+
+PASS. Computes the natural operator norm of the mean-zero cycle antiderivative from discrete energy to ℓ1 on a complete family; structural block Green versus complex Fourier extremizers, exact parity, unique N=4 field coincidence and nontrivial asymptotic gap are mathematically motivated rather than arbitrary finite calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python standard library. Its rational tests cover the cyclic inverse-Laplacian and unit-cell transfer identities for every cyclic order from \(3\) to \(60\), all contiguous-block energy formulas in that range, explicit exact real extremizers for all those orders, and an exhaustive sign-vector maximum for orders \(3\) through \(13\). It also compares the analytic complex and real constants numerically through order \(299\). The checker should print a single `VERIFY_OK` line. No external data are needed.
+## correctness
 
-# Analytic dependencies and limits
+PASS
 
-The exhaustive finite search is corroboration, **not** the infinite all-order argument. Universality comes from the proved Green identities, exact unit-cell transfer to the continuous circle, the established circle Riesz rearrangement inequality, and a symbolic block sum. Standard Fourier diagonalization proves the complex result. Independent audit has not been performed.
+PASS. Reconstructed exact Laplacian Green identity, dual support function, unit-cell integration correction by cardinality, application of a standard circle rearrangement theorem, closed form block energy, field-specific spectral equality conditions. Small complete enumerations independently corroborate all boundary parity cases; finite checks not substitutes for rearrangement.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Prior sharp finite-cycle logarithmic Sobolev, classical ℓ2 Wirtinger, infinite-lattice ℓ2→ℓ∞, and zero-extended discrete ℓ1 theorems concern different norms or boundary conditions; neither their displayed statements nor the published mathematical record matches the joint real/complex cycle constants. Recognize unindexed classical cyclic inequalities as material residual risk.
+
+## value
+
+PASS
+
+PASS. Computes the natural operator norm of the mean-zero cycle antiderivative from discrete energy to ℓ1 on a complete family; structural block Green versus complex Fourier extremizers, exact parity, unique N=4 field coincidence and nontrivial asymptotic gap are mathematically motivated rather than arbitrary finite calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
