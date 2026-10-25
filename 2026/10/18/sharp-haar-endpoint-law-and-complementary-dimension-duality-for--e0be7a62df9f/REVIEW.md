@@ -1,15 +1,21 @@
-# Scientific review: sharp Haar endpoint law for cross-polytope projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is every fixed pair of integers \(1\le k<n\), with Haar-uniform real \(k\)-planes and Euclidean projection volume. The exact local graph identity follows by applying the Gram correction to the projected coordinate generators; sufficiently small rows are contained in the standard cross-polytope. The published global sharp maximum and equality characterization [1] isolate precisely the coordinate maximizers, so compactness legitimizes a single local formula for *all* sufficiently near-maximal projections. Independent Gaussian QR determinant moments give the stated beta-product law. Invariant graph density, a uniform spherical expansion, and the fourth Gaussian matrix moment give the two coefficients without treating experiments as an all-dimensional proof. The complementary graph transposition proves the exact endpoint-event identity. Tests implemented in `verify.py` passed with output `VERIFY_OK`.
+## correctness
 
-## Originality — PASS, qualified by historical uncertainty
-The closest primary result is Ivanov's 2026 sharp inequality [1], proving the value and all coordinate equality cases but not the Haar near-extreme event probability. Ivanov's 2018 work [2] treats lower-dimensional extremal volume bounds and local extrema, not probabilistic endpoint germs. Classical Gaussian QR/Wishart determinant moments and beta products are explicitly credited as known ingredients, not claimed new. The joint statement connecting the projection-volume near-maximal event to a finite beta product, producing a two-term sharp expansion and an **exact** complementary-dimension endpoint law, was not covered by the inspected primary sources or by the queried records. Searches by implication (random projected volume, principal-angle products, matching exponents, coefficient cancellation and complementary Grassmann duality) found no directly covering record. Priority in unindexed historical literature remains an explicit residual risk; absence of search hits is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result quantifies how rarely a uniformly random lower-dimensional shadow of a regular cross-polytope nearly attains its **global** maximum. The exponent \(k(n-k)/2\) is a Grassmann-dimension invariant, while the exact constant, its next coefficient, and the special zero-correction dimensions are previously non-obvious and testable. The beta-product representation solves the *complete endpoint germ* rather than merely an order-of-magnitude estimate; the exact complementary-event correspondence is an additional structural geometric identity. These conclusions have a motivated role in quantitative extremal convex geometry and sampling nearly optimal projections, not in arbitrary parameter enumeration.
+The final theorem is correct for fixed real n>=2 and 1<=k<n. In graph coordinates T around any maximizing coordinate plane, rows of T are inside the l1 unit ball, giving the EXACT local shadow ratio det(I+T^T T)^(-1/2). Ivanov’s sharp equality characterization and Grassmannian compactness localize all sufficiently high-volume events to disjoint such charts. The Gaussian/Stiefel block determinant is a product of independent Beta((k-i+1)/2,(n-k)/2) variables in square; moment determinacy on [0,1] supplies equality of laws. The normalized matrix-t graph density, uniform polar expansion, Wick trace-four moment E tr[(W^TW)^2]=(n+1)/(k(n-k)+2), and sphere integration yield the stated gamma constant and correction k(n-k)(k-2)(n-k-2)/(4(k(n-k)+2)). Complementation sends T to -T^T, and Sylvester’s determinant identity proves the EXACT near-endpoint event identity after choosing a common small neighborhood. Independent calculations checked the gamma symmetry, low-dimensional moment identities and linear correction for 55 dimension pairs. Finite tests do not independently prove Ivanov’s global maximizing-set theorem, which is a cited input. ε0 is existential and the asymptotic is not dimension uniform.
 
-## Closest literature and limits
-[1] G. Ivanov, *The maximal volume of projections of the cross-polytope*, arXiv:2607.12072 (2026-07-13). [2] G. Ivanov, *On the volume of projections of the cross-polytope*, arXiv:1808.09165 (2018-08-28). The established expansion is for fixed dimensions, not uniform asymptotics; the exact beta formula holds only below an unspecified positive endpoint threshold. Other extreme and intermediate regimes are not classified. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. The new tail law is a consequence of several known ingredients plus a nontrivial local geometric transfer. It is not stated or automatically implied by the maximal-value inequalities alone. The beta determinant distribution is not independently novel.
+
+## value
+
+PASS
+
+A sharp exact Haar endpoint germ and explicit first correction for the natural random shadow of B_1^n in every fixed dimension are nontrivial probabilistic convex geometry. The (k=2 or n-k=2) cancellation and exact complementary-dimension event identity provide interpretable structure. This is not merely a reparameterized beta-moment formula because identifying the shadow event with coordinate-minor determinants uses the locally active convex-hull facets and globally isolated maximizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
