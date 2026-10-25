@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The product c_n=3^n prod_{h<n}(3h+1)/n! yields an exact prime-power valuation count. Digits of 1/3-1 alternate 0,1 in base 2, giving a fully finite carry sum for n<4^L; enumeration of all digit pairs yields the stated 2x2 matrix. Matrix inversion proves the generating function for all L. Exact differentiated recurrences prove moment identities, and spectral perturbation at the simple eigenvalue 4 (other eigenvalue 1) proves the characteristic-function CLT. Standard-library checks independently corroborated 21,845 individual coefficient valuations in 8 complete blocks, all distribution coefficients and rational moments; these finite tests alone do not imply the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Straub–Moll–Amdeberhan, arXiv:0811.2028v1, eqs. (2.2), (2.9), (3.11), (3.15), Cor. 3.4, Thm. 3.7, read in preprint pp. 1–8.",
+        "Related public finding 2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3 concerns Thue–Morse series, not 3-central binomial coefficients."
+      ],
+      "reasoning": "Theorem 3.7 gives a stronger general pointwise carry representation for every admissible p,k. However, it is not an explicit finite-block distribution theorem and does not by itself state the exact 3-central moments or spectral Gaussian law. The general carry theorem is expressly used as background rather than claimed anew. Searches of related valuation literature identified different coefficient families and no dominating distribution claim.",
+      "searches": [
+        "2-adic valuation distribution 3-central binomial coefficients c(n,3) Montgomery Shapiro integers 4^L exact generating polynomial transfer matrix",
+        "Exact valuation distribution of 3-central binomial coefficients c(n,3), sum n<4^L z^{nu_2(c(n,3))}; transfer matrix; central limit Gaussian",
+        "Montgomery Shapiro numbers (1-9x)^(-1/3) valuation statistics mean variance central limit theorem",
+        "2-adic carries periodic binary digits inverse 3 Kummer Theorem 3.7 Straub Moll Amdeberhan valuation distribution rational series",
+        "distribution valuations of k-central binomial coefficients p-adic carry automaton L generating function"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0811.2028v1 (primary PDF, relevant theorem and proof inspected)",
+      "doi:10.4064/aa140-1-2 (published bibliographic identity)",
+      "OEIS:A004987 (complete entry inspected)",
+      "2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3 (title/summary only)",
+      "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 (title/summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Straub–Moll–Amdeberhan, arXiv:0811.2028v1, eqs. (2.2), (2.9), (3.11), (3.15), Cor. 3.4, Thm. 3.7, read in preprint pp. 1–8.",
+        "Specific prior implication: Corollary 3.4 implies the coefficient [z^0]P_L(z)=2^L, matching the new matrix at z=0.",
+        "Theorem 3.7 determines v(n) for each n given n’s binary digits. The claimed matrix and Gaussian theorem aggregate across all n<4^L and do not occur in the inspected cited text."
+      ],
+      "reasoning": "The zero-valuation enumeration [z^0]P_L=2^L is an existing consequence and is not asserted as a novelty. Pointwise valuation computation could algorithmically enumerate a finite block, but does not explicitly provide the closed rational bivariate series for all L or a normal-limit theorem. The new mathematical contribution is a global exact distribution and its fluctuation behavior. Publication priority remains conditional on unindexed equivalences.",
+      "searches": [
+        "Exact valuation distribution of 3-central binomial coefficients c(n,3), sum n<4^L z^{nu_2(c(n,3))}; transfer matrix; central limit Gaussian",
+        "Montgomery Shapiro numbers (1-9x)^(-1/3) valuation statistics mean variance central limit theorem",
+        "c(n,3) valuation polynomial numerator 1+t z-2t z^2 denominator 1-t(2+z+2z^2)+4t^2 z^2",
+        "2-adic carries periodic binary digits inverse 3 Kummer Theorem 3.7 Straub Moll Amdeberhan valuation distribution rational series"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Straub–Moll–Amdeberhan, arXiv:0811.2028v1, eqs. (2.2), (2.9), (3.11), (3.15), Cor. 3.4, Thm. 3.7, read in preprint pp. 1–8.",
+        "OEIS A004987, coefficient sequence; inspected definition, formulas, full page and references; no block-valuation table or Gaussian claim displayed."
+      ],
+      "reasoning": "The binomial(-1/3,n), coefficient-of-(1-9x)^(-1/3), Montgomery–Shapiro numerator, and generalized c(n,3) notations are equivalent because the factor 9^n is odd. All were considered. The underlying digit/carry valuation rule appears in prior work, but the exact two-state generating function for ALL block valuation counts and Gaussian limit is not stated in the inspected originating work or coefficient-table entry.",
+      "searches": [
+        "\"k-central binomial coefficients\" valuations \"distribution\" carries matrix generating function normal",
+        "\"3-central binomial coefficients\" \"Gaussian\" valuations density",
+        "\"3-central binomial coefficients\" \"generating function\" \"valuation\" distribution",
+        "2-adic carries periodic binary digits inverse 3 Kummer Theorem 3.7 Straub Moll Amdeberhan valuation distribution rational series"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A004987, coefficient sequence; inspected definition, formulas, full page and references; no block-valuation table or Gaussian claim displayed.",
+        "OEIS A004987 lists first 200 coefficients and their ordinary recurrence, not exact distribution polynomials over all n<4^L."
+      ],
+      "reasoning": "A table of individual coefficients is not the infinite family of complete valuation histograms. Existing OEIS coefficient entries and associated references do not furnish the asserted rational two-variable enumerator, finite-length second moments, or limiting normal law in the inspected material.",
+      "searches": [
+        "c(n,3) valuation polynomial numerator 1+t z-2t z^2 denominator 1-t(2+z+2z^2)+4t^2 z^2",
+        "OEIS 3-central binomial c(n,3) odd values 3 18 126 945 7371",
+        "ternary central binomial sequence coefficient (1-9x)^(-1/3) valuations distribution",
+        "OEIS A004987"
+      ]
+    },
+    "rationale": "The 2008 source proves pointwise p-adic carry and the odd-index characterization; the full 3-central valuation enumerator and Gaussian limit with exact finite-length mean/variance are not stated in its inspected sections. OEIS A004987 tabulates the coefficient sequence without the distribution. Searches for equivalent forms, stronger distribution results, statistical limits, and the exact rational function found no covering claim. The prior pointwise result is recognized; unindexed work remains a priority risk.",
+    "residual_risks": [
+      "The pointwise digit theorem is very close: a prior published or unpublished transfer-matrix/statistical corollary may exist under another title, notation, or table.",
+      "Search absence alone does not prove publication priority; relevant unindexed works may exist.",
+      "The asymptotic is proved for full dyadic blocks, not arbitrary integer cutoffs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides integrality, parity, and pointwise carry count; does not state the weighted two-state valuation histogram across all dyadic blocks, rational bivariate series, exact moments, or Gaussian limit in the inspected relevant sections.",
+        "evidence": [
+          "Straub–Moll–Amdeberhan, arXiv:0811.2028v1, eqs. (2.2), (2.9), (3.11), (3.15), Cor. 3.4, Thm. 3.7, read in preprint pp. 1–8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.2028",
+        "material_read": "Preprint pages 1–8 including definitions and full calculations around eqs. (2.2), (2.9), (3.11), (3.15), Corollary 3.4 and Theorem 3.7; inspected the original page image containing Theorem 3.7. The later q-generalization was not used to make a noncoverage claim.",
+        "method": "Read parsed primary PDF and original screenshot, compare quantifiers and exact formulas",
+        "title": "The p-adic valuation of k-central binomial coefficients",
+        "trigger": "Originating arithmetic source with exactly the same c(n,3) and pointwise valuation theorem"
+      },
+      {
+        "assessment": "Exact underlying coefficient sequence is known; the proposed valuation distributions and limiting theorem are not listed.",
+        "evidence": [
+          "OEIS A004987, coefficient sequence; inspected definition, formulas, full page and references; no block-valuation table or Gaussian claim displayed."
+        ],
+        "identifier_or_url": "https://oeis.org/A004987",
+        "material_read": "Complete visible OEIS entry, including definition, comments, formulas, tables, and cross-references",
+        "method": "Read entry and check for block distribution, valuations, mean/variance, and normal law",
+        "title": "OEIS A004987 — 3-central binomial coefficients",
+        "trigger": "Exact object/database collision check for the coefficient sequence"
+      },
+      {
+        "assessment": "Reported object is Thue–Morse powers; different from c(n,3).",
+        "evidence": [
+          "Related public finding 2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3 concerns Thue–Morse series, not 3-central binomial coefficients."
+        ],
+        "identifier_or_url": "2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3",
+        "material_read": "Published title and summary only; no assertion about noncoverage of full text",
+        "method": "Compare reported objects and parameters in returned abstract-level summary",
+        "title": "Exact 2-adic valuations for the tenth power of the Thue--Morse generating function",
+        "trigger": "Closest public mathematical-record match to valuation formulas for generating-function coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e4a600f-3951-42db-9ba0-0cc12b77a226",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact distribution of the 2-adic valuation of the natural c(n,3) coefficient family answers a motivated arithmetic-statistical question beyond a known zero-valuation criterion, and distinguishes typical (order L) behavior from the sparse odd subfamily. The single rational bivariate function supplies EVERY valuation count for EVERY complete block, exact mean/variance, and a nontrivial universal normal law; not an arbitrary finite cutoff or textbook substitution.",
+    "status": "PASS"
+  }
+}
