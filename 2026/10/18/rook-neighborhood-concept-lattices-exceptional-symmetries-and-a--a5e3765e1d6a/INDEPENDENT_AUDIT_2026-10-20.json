@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T23:55:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For reflexive row-or-column incidence on W=[m]×[n], m,n>=2, the Galois closure of S is intersection of all row-column crosses C_(i,j) containing S (empty intersection=W). Pairwise distinct-cross intersections are entire rows, columns or diagonal two-point sets. Intersecting further yields only singleton or empty, giving exactly ∅,W,mn points,m+n full rows/columns,mn crosses and 2*C(m,2)*C(n,2) diagonal pairs; count 2+2mn+m+n+2*C(m,2)*C(n,2), including degeneracies for m=n=2. At m,n>=3 the join incidence among singleton atoms recovers rook adjacency; automorphisms therefore are independent coordinate permutations and a coordinate swap only for square boards. If one side has 2 rows, closure factorizes into product of two height-2 M_b lattices, allowing S_b wr S2; at 2×2 the product is Boolean on four atoms with group S4. For direct Horn width, every S admits subset T of <=4 points with c(T)=c(S); four corners of a 2×2 subboard need four premises to infer a cell outside their two rows and columns when m,n>=3. Iteratively, pair rules complete any occupied row/column and triple matching forces all W; saturated proper sets are exactly listed closed extents. A three-point transversal with closed pair subsets shows width >=3. Thus direct/iterative widths are (4,3) thick, (2,2) thin non-2×2, (0,0) 2×2. Independent enumeration computed 16,25,44,69 closed sets at 2×2,2×3,3×3,3×4 and matches formula. The finite tests are not used as universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rawson Theorem 3.1 is a general representation theorem for hypergraph formal concept lattices, without enumerating special rook incidences. Adaricheva–Ninesling studies general direct/binary-direct basis transformations, not an exact (3,4) arity gap for the rook context. Resultary rook-neighborhood simplicial homology is not Galois closure."
+        ],
+        "reasoning": "The general framework logically allows the calculation but does not imply its exact values or exceptional symmetry classification without new cross-intersection and Horn-witness arguments.",
+        "searches": [
+          "Rawson–Myers–Green–Robinson–Joslyn arXiv:2307.11681 Theorem 3.1",
+          "Adaricheva–Ninesling arXiv:1810.08684",
+          "Resultary rook graph neighborhood homology hits",
+          "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative"
+        ]
+      },
+      "checked_sources": [
+        "Rawson et al. arXiv:2307.11681 full PDF Theorem 3.1",
+        "Adaricheva and Ninesling arXiv:1810.08684 full PDF Section 4",
+        "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative",
+        "Resultary rook neighborhood simplicial complex records (distinct construction)",
+        "GitHub frozen RESULT.md and artifacts/verify.py, independent bitmask Galois closure checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Representation gives c(S) as cross intersections but does not classify those intersections. Direct-basis theory distinguishes single-pass from iterative closure but gives no specific rook-board four-corner obstruction."
+        ],
+        "reasoning": "The (3,4) width separation requires explicit constructive closure saturation and 4-corner/3-matching lower-bound witnesses. The thin product decomposition and S_b wr S2 jump also require the concrete incidence and are not mechanically supplied by the general papers.",
+        "searches": [
+          "Rawson et al. arXiv:2307.11681 Theorem 3.1",
+          "Adaricheva–Ninesling arXiv:1810.08684 §4",
+          "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galois extents under symmetric reflexive rook incidence equal intersections of crosses, hence a hypergraph intersection lattice in the Rawson generic representation. Repeated forward chaining differs from single-pass closure as defined in Adaricheva–Ninesling."
+        ],
+        "reasoning": "Those equivalences supply the framework but not the special board intersection normal form, automorphism groups or optimal (iterative,direct) antecedent widths. Results on rook open-neighborhood SIMPLICIAL complexes use a different closure/complex.",
+        "searches": [
+          "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative",
+          "Rawson et al. arXiv:2307.11681 Theorem 3.1",
+          "Adaricheva–Ninesling arXiv:1810.08684 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent bitmask closure counts were 16 for 2×2, 25 for 2×3, 44 for 3×3 and 69 for 3×4, consistent with 2+2mn+m+n+2*C(m,2)*C(n,2); no exact prior all-m,n formal rook closure lattice database identified."
+        ],
+        "reasoning": "Finite tables do not establish novelty or universal automorphisms and inference widths; exact source comparisons establish only what was inspected.",
+        "searches": [
+          "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative",
+          "GitHub assigned RESULT.md and artifacts/verify.py at frozen commit",
+          "Resultary rook neighborhood homology searches"
+        ]
+      },
+      "rationale": "Compared mathematical implications against primary literature, Resultary semantic findings, aliases and broader formulations. Best-of-knowledge priority only. The (3,4) width separation requires explicit constructive closure saturation and 4-corner/3-matching lower-bound witnesses. The thin product decomposition and S_b wr S2 jump also require the concrete incidence and are not mechanically supplied by the general papers.",
+      "residual_risks": [
+        "A different nomenclature (two equivalence relations, databases/implication dependencies) could hide a mathematically equivalent rook closure lattice and Horn-width calculation.",
+        "Exact group classification uses m,n>=3 and exceptional m=2 boundary; unrestricted proof, not finite checks, establishes full groups and widths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": "Theorem 3.1 explains incidence closure via hypergraph intersections, but not the rook specific extents, automorphism group or inference widths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.11681",
+          "material_read": "Accessible full open PDF, especially Theorem 3.1 and introductory definitions, inspected as complete material; compared general hypergraph representation and special rook context.",
+          "method": "Open-access arXiv PDF with page-image examination",
+          "title": "Formal Concept Lattice Representations and Algorithms for Hypergraphs",
+          "trigger": "Primary generic Galois closure/intersection-lattice representation"
+        },
+        {
+          "assessment": "DIFFERENT_GENERAL_PROBLEM",
+          "evidence": "Presents basis-updating theory but does not state board-specific sharp widths (iterative 3 vs direct 4) in inspected results.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.08684",
+          "material_read": "Accessible full PDF, read definitions, introductory formulation and Section 4 around direct versus ordered closure computation, with page images.",
+          "method": "Open-access arXiv PDF and screenshots",
+          "title": "Direct and Binary Direct Bases for One-set Updates of a Closure System",
+          "trigger": "Direct/iterative distinction might imply claimed Horn arity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical formal-context closure of rook incidence is a natural object joining FCA and graph symmetry. The theorem provides a complete all-parameter lattice classification, exceptional symmetry enlargement at thin boards, and a sharp quantitative distinction between one-shot and iterated Horn inference at thick boards. These structural invariants go beyond the generic observation that concept lattices are intersection closures.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rawson et al. arXiv:2307.11681 full PDF Theorem 3.1",
+    "Adaricheva and Ninesling arXiv:1810.08684 full PDF Section 4",
+    "Resultary: formal concept lattice rook graph closed neighborhoods row column Galois Horn implicational bases width direct iterative",
+    "Resultary rook neighborhood simplicial complex records (distinct construction)",
+    "GitHub frozen RESULT.md and artifacts/verify.py, independent bitmask Galois closure checks",
+    "Frozen Git blob SHA1 identifiers for RESULT.md,METADATA.json,AUDIT.json,SLOGAN.txt,verification source: ['d82a0d73da235fbe285fb555cd29c98e63e31ec3', '888f17428c68446b4bf3af83a62a172ba8fe4def', '4f63496ab875d1c423391b8e5ad010b6b255f6d6', '2ea491bcb75a7fbbecf6798040646af446b94486', '78144b0363ff8eb8c197ad4330d6f537049a0254']"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full package Git tree SHA is copied from the authoritative claim; specified individual Git blobs were read at the frozen commit, but a fresh independent full directory-tree hash comparison was not obtained. Publication is not_ready rather than pretending complete current tree guards.",
+    "Originality is best of knowledge and listed inaccessible/full-text limitations are material.",
+    "Independent finite examples corroborate, but do not prove, universal statements."
+  ],
+  "residual_risks": [
+    "A different nomenclature (two equivalence relations, databases/implication dependencies) could hide a mathematically equivalent rook closure lattice and Horn-width calculation.",
+    "Exact group classification uses m,n>=3 and exceptional m=2 boundary; unrestricted proof, not finite checks, establishes full groups and widths."
+  ],
+  "schema_version": 1
+}

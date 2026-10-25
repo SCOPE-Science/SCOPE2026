@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The all-parameter argument is in `RESULT.md`, with explicit cross-intersection normal forms, atom-based symmetry recovery, and sound Horn-rule saturation plus lower bounds. Independently executable finite corroboration is in `artifacts/verify.py` (standard Python 3, no nonstandard dependencies). Run:
+## correctness
 
-```sh
-python3 artifacts/verify.py
-```
+PASS
 
-The program constructs each Galois closure directly from the \(mn\) incidence crosses; compares all subset closures with the predicted finite closed-set family on boards \((2,2)\), \((2,3)\), \((2,4)\), \((3,3)\), \((3,4)\), and \((4,4)\); checks full forward-chaining saturation on all subsets in the first five cases; tests the four-corner and three-matching lower-bound witnesses for thick boards; and checks all independent permutations of two rows, and their interchange, when the long side has length three or four.
+For reflexive row-or-column incidence on W=[m]×[n], m,n>=2, the Galois closure of S is intersection of all row-column crosses C_(i,j) containing S (empty intersection=W). Pairwise distinct-cross intersections are entire rows, columns or diagonal two-point sets. Intersecting further yields only singleton or empty, giving exactly ∅,W,mn points,m+n full rows/columns,mn crosses and 2*C(m,2)*C(n,2) diagonal pairs; count 2+2mn+m+n+2*C(m,2)*C(n,2), including degeneracies for m=n=2. At m,n>=3 the join incidence among singleton atoms recovers rook adjacency; automorphisms therefore are independent coordinate permutations and a coordinate swap only for square boards. If one side has 2 rows, closure factorizes into product of two height-2 M_b lattices, allowing S_b wr S2; at 2×2 the product is Boolean on four atoms with group S4. For direct Horn width, every S admits subset T of <=4 points with c(T)=c(S); four corners of a 2×2 subboard need four premises to infer a cell outside their two rows and columns when m,n>=3. Iteratively, pair rules complete any occupied row/column and triple matching forces all W; saturated proper sets are exactly listed closed extents. A three-point transversal with closed pair subsets shows width >=3. Thus direct/iterative widths are (4,3) thick, (2,2) thin non-2×2, (0,0) 2×2. Independent enumeration computed 16,25,44,69 closed sets at 2×2,2×3,3×3,3×4 and matches formula. The finite tests are not used as universal proof.
 
-The completed run reported:
+## originality
 
-```text
-CASE 2 2 concepts 16 subsets 16 iterative 0 PASS
-CASE 2 3 concepts 25 subsets 64 iterative 2 PASS
-CASE 2 4 concepts 36 subsets 256 iterative 2 PASS
-CASE 3 3 concepts 44 subsets 512 iterative 3 PASS
-CASE 3 4 concepts 69 subsets 4096 iterative 3 PASS
-CASE 4 4 concepts 114 subsets 65536 iterative 3 PASS
-THIN_WREATH 3 elements 72 PASS
-THIN_WREATH 4 elements 1152 PASS
-VERIFY_OK closure_family=PASS concept_counts=PASS arity_bounds=PASS thin_symmetry=PASS
-```
+PASS
 
-The forward-chaining calculation was not exhaustively run on all subsets for the \((4,4)\) board; closure sets were. The program does not enumerate the entire generic automorphism groups: their upper bounds and realization are proved mathematically. No infinite theorem is inferred from finite observations, and independent external validation has not been performed.
+Compared mathematical implications against primary literature, Resultary semantic findings, aliases and broader formulations. Best-of-knowledge priority only. The (3,4) width separation requires explicit constructive closure saturation and 4-corner/3-matching lower-bound witnesses. The thin product decomposition and S_b wr S2 jump also require the concrete incidence and are not mechanically supplied by the general papers.
+
+## value
+
+PASS
+
+The canonical formal-context closure of rook incidence is a natural object joining FCA and graph symmetry. The theorem provides a complete all-parameter lattice classification, exceptional symmetry enlargement at thin boards, and a sharp quantitative distinction between one-shot and iterated Horn inference at thick boards. These structural invariants go beyond the generic observation that concept lattices are intersection closures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
