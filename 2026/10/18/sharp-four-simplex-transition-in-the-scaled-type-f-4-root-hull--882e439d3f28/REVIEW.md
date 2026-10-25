@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Both exact-arithmetic checkers reproduce the 178365 long-root-anchored five-point configurations. They obtain cardinalities 8855, 42504, 69828, 46552, 10626 for zero through four short roots, and sharp doubled-coordinate determinants 192 for all-long and \(128\sqrt2\) for mixed types. The maxima of the two middle mixed classes are only \(128+32\sqrt2\), smaller than \(128\sqrt2\). All 42504 pure-long five-subsets have been checked, with 48 maximal ones and no two sharing four vertices. An orthogonal block-Hadamard matrix maps pure-long to equal-length pure-short configurations; the latter split into signed-permutation orbit sizes 16,16,16. Convexity of the determinant in each vertex and four-face nonincidence exclude non-generator maximizers, while the two inclusion arguments transfer the critical maximum to all positive scales. The code is an exhaustive finite certificate, not a substitute for the geometric reduction.
+PASS
 
-## Originality
+The orthogonal block Hadamard Q maps L to sqrt2 S, so each pure 24-cell gives 48 maximal 4-simplices by the original exact finite classification. At t=sqrt2, transitivity of signed permutations on long roots reduces all mixed five-generator configurations to 178365 anchored combinations. Actual verify.py computes integer cofactors and compares all determinants exactly as pairs u+v sqrt2; independent verify.cpp uses distinct signed-permutation determinants. Read both source codes. Independently enumerated all 178365 anchored combinations by NumPy determinants and recovered k=0,1,2,3,4 cardinalities 8855,42504,69828,46552,10626 and maxima 1/2,sqrt2/3,(128+32sqrt2)/384,(128+32sqrt2)/384,sqrt2/3, corroborating the exact certificates. The complete certificate shows 10 anchored pure-long global maximizers, 24+6 anchored extremal mixed patterns and no two pure-max five-sets sharing four roots. Affinity of the signed simplex determinant in each vertex extends vertex maximality to any inscribed simplex, and no shared-four-face forces rigidity of all maximizers. Inclusions K_t⊂K_sqrt2 for t<sqrt2 and K_t⊂(t/sqrt2)K_sqrt2 above give exact M(t) and strict support arguments exclude the other type. Finite enumeration is exhaustive for the discrete 48-point configuration, not a proof of arbitrary convex geometry without separate affinity step.
 
-**PASS under inspected evidence, with historical-priority risk.** The closest published 24-cell result determines the pure-long simplex spectrum and its 48 maximizing simplices, which are explicitly attributed rather than claimed as new. The classical type-\(F_4\) sources construct the two root sets, not the mixed-simplex extremum. Existing sphere-constrained optimal-simplex results do not determine the root-set mixed determinant threshold, the 96-fold equality at equal length, or the scale transition. The critical strict mixed-root gap is the essential additional claim; none of the inspected full texts covers it. An unindexed root-system or disphenoidal-288-cell table remains a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The 48-root convex-hull deformation interpolates between two congruent but differently oriented regular 24-cells. The result gives a sharp continuous extremal law, complete equality and orbit classification, and a strict mixed-configuration barrier at the geometric equal-length transition. The phenomenon is an intrinsic discrete geometric optimization problem, rather than an arbitrary slice, a textbook deduction, or a recomputation of the known single-24-cell answer.
+The exact pure 24-cell largest-simplex volume and 48 optimizers are earlier published and credited; F4 and 288-cell root geometry are classical. The assessed novelty is the strict exact mixed-root determinant cap sqrt2/3 at equal radius and resulting all-real t transition with unrestricted optimizer rigidity and 288 secondary mixed-root maximizers. The inspected Dechant original constructs root/polytope geometry but does not assert that mixed-root volume classification. Results for any five points on S3 do not impose F4 discrete allowed vertices and thus do not prove the classified equality families. Unindexed 288-cell simplex tables may nevertheless cover secondary counts; explicit residual risk.
 
-## Reproducibility and limitations
+## value
 
-Execute `python3 verify.py` and compile/run `verify.cpp` with a C++17 compiler. Both independently implement exact determinant expansion; the supplied proof explains the reduction to the finite search and its implications. The statement is restricted to the specified root configuration, and an independent scientific audit has not been performed. Priority against inaccessible classical sources cannot be established definitively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp global optimization and exact symmetry-phase transition in a canonical two-orbit root-system family, with a nontrivial complete mixed configuration enumeration and rigidity of arbitrary continuous optimizers. It determines a natural exact volume invariant of the F4 radial interpolation beyond a recomputation of the known single 24-cell case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
