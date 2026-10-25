@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For each integer dimension at least three, the coarea identity fixes the Euclidean pyramid normalization, and convolution log-concavity makes the full offset objective strictly log-concave. This proves one and only one optimizer to the right of the center. The Fourier integral is expanded uniformly on compact offset ranges through terms of order \(n^{-2}\), with differentiated error \(O(n^{-3})\) after Gaussian splitting. Its stationary equation gives the sharp displacement and relative gain. Independently evaluated rational cardinal splines and inclusion-exclusion formulas agree in 440 cases, and the checker's dimension-four cubic and large-dimension predictions pass. Checks are corroborative: they do not substitute for the analytic theorem.
+
+## Originality — PASS under the inspected evidence
+Nikolov, arXiv:2610.14047v1, §§1–2, derives the diagonal volume formula and strict central derivative but not uniqueness of its noncentral optimizer or the two-term dimension-asymptotic offset and gain. The full inspected preprint by Brandenburg et al. (arXiv:2603.25643v1) studies slice/slab critical points, not the offset-maximized apex-weighted diagonal pyramid in growing dimension. Ambrus–Gárgyán (arXiv:2412.12835v1) study central Laplace–Pólya decay; Pournin (arXiv:2203.15054v2) fixes offset while varying normal directions. Multiple semantic research-record queries for diagonal pyramid offset, Irwin–Hall size-biased mode, and asymptotic corrections found no directly dominating statement. Historical priority remains uncertain for older or unindexed asymptotic statistics literature; the first central derivative and classical density formula are explicitly credited, not repackaged.
+
+## Mathematical value — PASS
+The sharp characterization and asymptotics address the natural, geometrically motivated noncentral construction used to prove strict improvement on optimal central pyramids. They give a quantitative all-dimensional explicit constructive lower benchmark for the unrestricted extremal problem, plus a complete exact dimension-four diagonal candidate and a universal displacement independent of dimension. The leading gap alone would be elementary from Nikolov's derivative; the unique all-dimension optimization and two corrected asymptotic terms supply the substantive extension. Global directional optimality is not established.
+
+Self-review: passed. Independent audit: not yet performed.
