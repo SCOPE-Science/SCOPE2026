@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For all m≥2 and p,c>0 with p+c<1, the exact binomial expansion of T^(n-1) gives an n^(m-1)p^n survival envelope. Uniform Riccati bounds Q B^N≤M≤C_+ B^N hold regardless of past covariance and imply the displayed two-sided tail. The tail-sum identity verifies moments, including the critical boundary; monotonic inversion yields the quantile order. Exact rational examples checked for six n values; finite checks are not treated as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mo–Sinopoli (2012), Section V and Remark 5, allows probabilistic extensions but proves the channel-specific stated decay exponent for a two-state Gilbert–Elliott model.",
+        "Wu et al. (arXiv:1501.05469v1), Section 2.2 specifies a finite maximum consecutive-loss length, unlike the unbounded bursts here.",
+        "Huang–Dey (2007), Sections 1–4 treats a two-state failure/success channel."
+      ],
+      "reasoning": "The broader Riccati bounds and general method do not state or logically yield the exact multiplicity-dependent logarithmic factor without analyzing the different run-survival law. The general phase-type calculation is known mathematics; the quantified coupling of its polynomial survival to full Kalman peak covariance and quantiles is the precise added statement.",
+      "searches": [
+        "Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value",
+        "Kalman Filtering with Markovian Packet Losses and Stability Criteria",
+        "\"reducible substochastic loss transition spectral Jordan multiplicity covariance peak distribution\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/CDC.2006.376710",
+      "doi:10.1016/j.automatica.2006.10.023",
+      "doi:10.1109/TAC.2011.2166309",
+      "arxiv:1501.05469v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huang–Dey (2006), p. 5624 derives a two-sided pure-power bound for a scalar two-state model.",
+        "Mo–Sinopoli (2012), Theorem 7 specifies the logarithmic decay exponent; its Remark 5 is a methodological extension, not a statement of this tail multiplier.",
+        "Wu et al. (2015), Section 2.2 assumes bounded packet-loss run lengths."
+      ],
+      "reasoning": "None of these displayed statements includes a Jordan chain with repeated loss eigenvalue and unbounded phase-type burst survival; the two-state hypotheses exclude this case and the bounded-loss theorem is inapplicable. Explicit calculation (2) plus uniform bounds (1) is required to deduce the stated logarithmic factor, critical moments, and quantile inflation. The claim is compatible with, not contradictory to, the previously known exponent.",
+      "searches": [
+        "\"peak covariance Jordan block logarithmic tail under Markovian observation dropout\"",
+        "\"Markov packet erasure multistate defective transition Jordan loss run length polynomial geometric covariance moments\"",
+        "Kalman covariance polynomial logarithmic corrections defective substochastic transition matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huang–Dey (2006), Section IV.C, derives the geometric two-state peak-covariance tail; the loss-run survival there has no polynomial prefactor.",
+        "Mo–Sinopoli (2012), Theorem 7 and Remark 5, reports a logarithmic decay exponent and suggests generalizable methods, not the two-sided staged logarithmic envelope."
+      ],
+      "reasoning": "Searched equivalent terms involving finite phase-type absorption, defective substochastic matrices, Jordan chains and Kalman peak covariance. A power-decay exponent alone cannot distinguish a tail multiplied by a diverging logarithmic factor. The exact staged claim is not an equivalent restatement of the cited two-state power tail.",
+      "searches": [
+        "\"Kalman\" \"Jordan\" \"logarithmic\" \"loss\" covariance peak tail",
+        "\"phase-type\" \"peak covariance\" \"log\" packet losses",
+        "Kalman filtering Markov packet dropout phase type distribution covariance heavy tail polynomial correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The invariant is a uniform asymptotic hierarchy over every integer number of loss stages rather than a finite database entry.",
+        "The exact finite-run survival expression follows from a nilpotent upper-bidiagonal matrix power, not a lookup table."
+      ],
+      "reasoning": "Targeted searches did not surface a table of the particular peak-covariance tail orders. No database exhaustiveness or uniqueness is inferred from absent search hits.",
+      "searches": [
+        "multi-stage upper-bidiagonal Markov loss chain peak Kalman covariance tail log powers m-1",
+        "packet loss burst phase type Erlang tail polynomial Kalman filter estimation"
+      ]
+    },
+    "rationale": "The cited 2006/2007 and 2012 analyses assume binary Gilbert–Elliott losses; their pure-power or logarithmic-decay-exponent claims do not imply the explicit multiplicity-dependent log envelope in the staged channel. The finite-state 2015 model bounds maximum burst length. Closest general methodological remark is acknowledged; the added evaluated phase-transition mechanism and exact asymptotic order are not stated therein.",
+    "residual_risks": [
+      "Phase-type absorption with Jordan polynomial factors is classical, and a broader general theorem may imply this application even though the inspected Kalman theorems do not state it explicitly.",
+      "A further specialized multistate packet-loss tail paper not located by the targeted searches might cover this model.",
+      "The precise first dissemination day of the 2006 conference contribution is inferred from the documented December 13–15, 2006 meeting dates, not an independently timestamped online posting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary channel; proves pure-power upper and lower bounds, does not treat staged defective loss matrices",
+        "evidence": "2006 conference pp. 5621–5624, Section IV.C.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/14463/1/kalman%20filtering.pdf",
+        "material_read": "Full-text PDF pages 2–5, including model, Section IV and Section IV.C on tail distribution",
+        "method": "Direct reading of the accessible PDF and inspection of displayed scalar inequalities",
+        "title": "Kalman Filtering with Markovian Packet Losses and Stability Criteria",
+        "trigger": "closest primary source on scalar peak-covariance tail bounds"
+      },
+      {
+        "assessment": "Two-state Gilbert–Elliott loss; scalar stability and moment thresholds without a staged-channel logarithmic-tail theorem",
+        "evidence": "Automatica 43 (2007), pages 598–599 and 603.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/14418/1/stability.pdf",
+        "material_read": "PDF pages 1–2 and 6, including the scalar moment criterion",
+        "method": "Read accessible publisher-layout PDF",
+        "title": "Stability of Kalman Filtering with Markovian Packet Losses",
+        "trigger": "journal follow-up with possible stronger scalar coverage"
+      },
+      {
+        "assessment": "Includes a general-method extension remark and a polynomial bound inside the logarithmic-rate proof; does not provide the exact staged-loss logarithmic tail envelope. This is the closest conceptual antecedent.",
+        "evidence": "IEEE TAC 57 (2012), introduction, Section V, Theorem 7, Remark 5.",
+        "identifier_or_url": "https://yilinmo.github.io/public/papers/journal2009kalman.pdf",
+        "material_read": "Full-text PDF pages 1–2 and 6–7, including statement of Theorem 7 and Remark 5 and the polynomial factor in proof",
+        "method": "Inspected primary author-hosted PDF; compared power-exponent formulation and hypotheses",
+        "title": "Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value",
+        "trigger": "plausibly dominating logarithmic decay law for intermittent observations"
+      },
+      {
+        "assessment": "Its finite-state Markov chain models bounded loss-run lengths; cannot yield the unbounded-burst tail claimed here",
+        "evidence": "arXiv:1501.05469v1, 2015-01-22, Sections 2.2, 2.3 and 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/1501.05469",
+        "material_read": "Primary PDF pages 1, 4–7 including the process definition and Theorem 1",
+        "method": "Direct open-access full-text inspection of model definition and main theorem",
+        "title": "An Improved Stability Condition for Kalman Filtering with Bounded Markovian Packet Losses",
+        "trigger": "multistate Markov loss wording overlaps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31bc5940-2dfa-4450-b8db-7ad764679303",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact infinite family of staged channel failure mechanisms shows that the widely quoted power-decay exponent alone can severely understate extreme estimator uncertainty: the tail has a diverging log^(m-1) multiplier and the high risk quantile acquires log^(m-1)/alpha inflation, while the moment threshold stays fixed. Stage multiplicity is a physically interpretable failure-depth parameter rather than an arbitrary finite slice; the consequence is quantitatively relevant to reliability and risk budgeting.",
+    "status": "PASS"
+  }
+}
