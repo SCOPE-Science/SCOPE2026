@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:53:41.058132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent set of G_{r,k}=K_r corona edgeless K_k contains no core vertex or exactly one; this yields I=(1+z)^{k(r−1)}((1+z)^k+r z), with −1 roots irrelevant for right-half-plane counts. At z=iy, y>0, argument of (1+iy)^k=−riy forces kθ=(4j+3)π/2 with θ=arctan y∈(0,π/2), and r=1/(sinθ cos^{k−1}θ); these are all axis crossing parameters. Derivative ∂_zQ=r(1−(k−1)z)/(1+z)≠0 on axis. Implicit derivative Re(dz/dr)=k y²/[r(1+(k−1)²y²)]>0, so each conjugate pair moves left to right. Since roots start at −1 as r→0 and degree stays fixed, full right-half-plane/root-on-axis counts follow without missed crossings. Independent NumPy root checks for k=1..12 and r=0.1,1,2,8,10,20,60,300 matched exact threshold counts; tested k=6,r=8 algebraic factor separately by SymPy. Limits: real r parameter for Q; graph only integer r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corona factorization and leaf-attachment expression apply to broader families; Brown–Cameron proves nonstability for other large multipartite families."
+        ],
+        "reasoning": "Neither source determines r=R_{k,j}, N_+(r,k) or N_0(r,k) for all k.",
+        "searches": [
+          "Brown–Cameron DOI:10.37236/7280",
+          "Hibi-Kara-Vien arXiv:2603.16695v1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.37236/7280; arXiv:1802.02478",
+        "arXiv:2603.16695v1",
+        "Resultary semantic query: Resultary independence polynomial corona complete graph r with k independent leaves right half-plane roots phase diagram stability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 already implies factorization, so factorization is not novel. Known qualitative stability and symmetry do not imply numbers of roots in each half-plane."
+        ],
+        "reasoning": "The new phase/crossing analysis is an independent additional deduction and supplies exact root-count thresholds.",
+        "searches": [
+          "Brown-Cameron 2018 Theorem 3.2, Proposition 3.1, §4",
+          "Hibi-Kara-Vien 2026 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent polynomial Q_{r,k} is independent polynomial of complete split K_{k,1,...,1}."
+        ],
+        "reasoning": "The standard split-graph formula provides the polynomial, not the right-half-plane crossing spectrum.",
+        "searches": [
+          "Resultary independence polynomial corona complete graph r with k independent leaves right half-plane roots phase diagram stability",
+          "Brown-Cameron 2018 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior complete root-count table found; independently reproduced R_4≈19.3137,R_5≈10.3554,R_6=8 and further thresholds up to k=12."
+        ],
+        "reasoning": "A stability database or unindexed Routh table might have some small degrees but would not automatically cover the all-k formula.",
+        "searches": [
+          "Resultary independence polynomial corona ... phase diagram",
+          "Web (1+z)^k + r z stability independence polynomial"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Brown–Cameron 2018 Theorem 3.2 credits the corona polynomial identity and Section 4 studies qualitative instability/other multipartite families; its Proposition 3.1 is the r=1 star, not arbitrary r. Hibi–Kara–Vien 2026 full HTML gives leaf-attachment coefficients, values at −1 and symmetry, not precise right-half-plane crossings. No inspected Resultary phase diagram matched Q_{r,k}.",
+      "residual_risks": [
+        "A specialized Hurwitz-stability paper might already analyze (1+z)^k+r z under different notation.",
+        "Malformed display control character in source RESULT.md complete-split-graph equality should be corrected before publication; does not affect separately unambiguous G and Q definition.",
+        "Graph application has integer r≥1; phase polynomial additionally allows positive real r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corona formula prior; star r=1 stable and different multi-partition examples, no exact arbitrary-r (1+z)^k+r z threshold spectrum.",
+          "evidence": "Theorem 3.2 and discussion of complete multipartite graphs in §4.",
+          "identifier_or_url": "DOI:10.37236/7280; arXiv:1802.02478",
+          "material_read": "Full lawful journal PDF, Theorem 3.2 p. 9; Proposition 3.1 p. 8; §4 pp.12–14; screenshots pp. 8,12,13",
+          "method": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v25i1p46/pdf/",
+          "title": "Brown and Cameron, On the Stability of Independence Polynomials",
+          "trigger": "Same corona identity and related complete multipartite stability"
+        },
+        {
+          "assessment": "More general coefficient identity, but investigated symmetry/−1 rather than half-plane root transitions.",
+          "evidence": "Introduction §3 statement and Theorem 3.2 on symmetry.",
+          "identifier_or_url": "arXiv:2603.16695v1",
+          "material_read": "Complete arXiv HTML, introduction and §3 whiskering, evaluation at −1, symmetry",
+          "method": "https://arxiv.org/html/2603.16695v1",
+          "title": "Hibi, Kara, Vien, Independence Polynomials of Graphs",
+          "trigger": "Recent more general leaf-attachment polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact two-parameter half-plane root counts and threshold boundary multiplicities are natural analytic invariants in independence-polynomial stability. A family with a well-known factorization still has nontrivial multiple crossings (at k=8), and the theorem gives a complete classification beyond numerical roots.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized Hurwitz-stability paper might already analyze (1+z)^k+r z under different notation.",
+    "Malformed display control character in source RESULT.md complete-split-graph equality should be corrected before publication; does not affect separately unambiguous G and Q definition.",
+    "Graph application has integer r≥1; phase polynomial additionally allows positive real r.",
+    "Independent bounded checks supplement but do not replace the mathematical proofs; literature priority remains best of knowledge.",
+    "Lean and independent external expert attestation neither conducted nor asserted."
+  ],
+  "schema_version": 1
+}
