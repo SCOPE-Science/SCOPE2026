@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T06:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT.md gives F_r(p^a)=(ceil(a/r)+1)/2 and exact positive convolution F_r=1*h_r, where h_r(p^a)=1/2 exactly for a=rj+1 (j>=1). Its Dirichlet product factors as K((r+1)s)J_r(s), K(t)=prod_p(1+1/(2p^t)), with J absolutely summable at theta-delta, theta=1/(r+1). Selberg–Delange exponent 1/2 gives N_r(x)~A_r x^theta/sqrt(log x). Positive discrepancy decomposition into a fractional part sum and h-tail, regular variation, and the fractional-part integral for analytic zeta then yield C_r x-S_r(x)~-zeta(theta) A_r x^theta/sqrt(log x); zeta(theta)<0. Constants converge absolutely; r fixed >=2, real x, n=1 included. Fresh independent exact rational check reproduced 7200 local convolution coefficients and 16 finite deficit identities; these finite checks do not prove the asymptotic, and the classical Selberg–Delange step is a cited theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouderbala Theorem 1.1 gives mean C_r x with O_r(x/log x) at k=2, and remark lists additional inverse-log terms.",
+          "Selberg–Delange for b(n)=mu(n)^2/2^{omega(n)} gives B(y)~G(1)y/sqrt(log y)."
+        ],
+        "reasoning": "An O(x/log x) bound does not imply the signed x^theta/sqrt(log x) asymptotic because theta<1; its finer coefficient is obtained through the new positive-convolution/fractional-part analysis. Standard Selberg–Delange underpins C but is not itself novelty.",
+        "searches": [
+          "weighted minimal power divisor mean sharp secondary term squarefree Selberg Delange Bouderbala F_r sum",
+          "Selberg-Delange half-power squarefree convolution generalized regular variation remainder"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.16027v4, Theorem 1.1 and Remark 3.2",
+        "Tenenbaum, Selberg–Delange theorem",
+        "Titchmarsh, fractional-part integral for zeta"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: S=Cx+O(x/log x). New: Cx-S~-zeta(1/(r+1))A x^{1/(r+1)}/sqrt(log x), A>0."
+        ],
+        "reasoning": "The prior error permits much larger deviations; neither an asymptotic equivalent nor its negative sign follows. Positivity and precise normalization use additional nontrivial arguments.",
+        "searches": [
+          "weighted minimal power divisor mean sharp secondary term squarefree Selberg Delange Bouderbala F_r sum",
+          "Bouderbala 2602.16027 Theorem 1.1 k=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_r(n)=d(M_r(n))/2^{omega(n)} is exactly Bouderbala D_2(M_r(n)); original theorem isolates signed fractional-power correction, not just its Dirichlet series pole at 1."
+        ],
+        "reasoning": "Same observable and normalization, but the claim concerns sharper remainder at the lower abscissa theta and is not a relabeling of the published mean.",
+        "searches": [
+          "weighted minimal power divisor mean sharp secondary term squarefree Selberg Delange Bouderbala F_r sum",
+          "Bouderbala arXiv:2602.16027 Theorem 1.1 Section 3 Remark 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier work has Euler-product leading mean, no cited table of exact signed secondary discrepancy; no finite table could imply this real-x asymptotic."
+        ],
+        "reasoning": "No exact numerical table controls the infinite asymptotic. The only exact prior formula relates to the leading constant; risk of unindexed general theorems retained.",
+        "searches": [
+          "weighted minimal power divisor mean sharp secondary term squarefree Selberg Delange Bouderbala F_r sum",
+          "arXiv:2602.16027 full theorem/proof/remarks"
+        ]
+      },
+      "rationale": "Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Determines a sharp signed, nonintegral power-log secondary term and explicit Euler-product constant for a natural weighted minimal-power divisor summatory function, distinguishing it sharply from the previous O(x/log x) error. The sign and exact scale control a discrepancy previously unresolved at this precision, not an arbitrary numerical slice or mere restatement of the known mean.",
+      "residual_risks": [
+        "A general, not indexed, Tauberian transfer theorem for such positive convolution kernels may independently imply the exact secondary term.",
+        "The self-contained proof imports the classical Selberg–Delange theorem but does not reprove its analytic conditions from first principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Leading x asymptotic with logarithmic error; does not assert sharp lower-abscissa power-log term",
+          "evidence": "Theorem 1.1 error O(x/log x) for k=2 is much larger than claimed discrepancy x^theta/sqrt(log x); source identifies same M_r normalization.",
+          "identifier_or_url": "arXiv:2602.16027v4 https://arxiv.org/pdf/2602.16027",
+          "material_read": "Primary PDF 8 pages: main statement Theorem 1.1 pp1-2, local Euler factors, Selberg–Delange proof and inverse-logarithm remark; page 2 visual inspected",
+          "method": "Full relevant primary theorem/proof examination and PDF screenshot, mathematical implication comparison",
+          "title": "On the Mean Value of a Weighted Composite Arithmetic Function",
+          "trigger": "Exact same weighted object k=2"
+        },
+        {
+          "assessment": "Supports principal positive kernel asymptotic as invoked; not prior claim to sharp discrepancy",
+          "evidence": "K(t)=zeta(t)^(1/2)G(t), G regular near t=1, B(y)~G(1)y/sqrt(pi log y).",
+          "identifier_or_url": "G. Tenenbaum, classical Selberg–Delange theorem",
+          "material_read": "Standard half-power Selberg–Delange theorem identified in source and applied to mu^2(n)/2^omega(n); no full book accessed",
+          "method": "Known theorem reconstruction using local Euler factors, not assertion of full book access",
+          "title": "Introduction to Analytic and Probabilistic Number Theory",
+          "trigger": "Critical analytic input to proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a sharp signed, nonintegral power-log secondary term and explicit Euler-product constant for a natural weighted minimal-power divisor summatory function, distinguishing it sharply from the previous O(x/log x) error. The sign and exact scale control a discrepancy previously unresolved at this precision, not an arbitrary numerical slice or mere restatement of the known mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
