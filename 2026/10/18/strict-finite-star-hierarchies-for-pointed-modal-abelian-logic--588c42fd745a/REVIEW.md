@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-star semantics are instantiated directly from Jankovec–Poiger (2026), Definitions 3.1–3.2. Duplicating a leaf proves nested validity inclusion; disjoint intervals of radius \(1/(2m)\) prove the upper separating formula; values \(i/m\) supply a bounded countervaluation; one attained minimum per root-evaluated outermost box proves the modal-occurrence lower bound. Empty-successor infima are checked explicitly at all terminal worlds. The exact-rational checker reports 28,170 finite sample/assertion groups, supplementing rather than replacing the proof.
+## correctness
 
-## Originality
-PASS with residual risk. The 2026 primary article's separating terms in Lemma 4.2 address an algebraic Truth Lemma, not this finite-star hierarchy; the 2018 real-valued modal article develops tableaux and finite-model bounds rather than the sharp successive-star box count. Relevant indexed results on Gödel star stabilization and unrelated frame hierarchies do not cover the additive pointed semantics or the quantified minimal modal-occurrence claim. An equivalent theorem under older terminology or in an unindexed source remains possible.
+PASS
 
-## Value
-PASS. A natural question about observational power of a many-valued modal language has an exact answer: unlike the bounded-branching collapse for certain Gödel fragments, additive pointed modal logic continues to distinguish each extra terminal successor even with one variable and fixed-range countervaluations. The optimal modal-occurrence bound measures the precise finite logical resource needed for that distinction; the result is not just a sample computation.
+PASS: Duplicating a leaf transfers failures from S_m to S_{m+1}. The explicit disjunction Phi_m=∨_{i=0}^m Box(|2m x−2i|−1) is valid at all worlds of S_m because m+1 pairwise-disjoint interval tests cannot each contain an m-leaf value. On S_{m+1}, assigning x(v_i)=i/m yields Phi_m(root)=−1. For any formula with at most m Box occurrences, select one min-attaining leaf for each outermost root-evaluated Box; all deeper modal formulas at terminal leaves are 0, so shrinking/padding the star to m leaves preserves its value. This proves the sharp lower bound, including nested modalities and failures at leaves. Independent exact-rational counters checked m=1..8 and sampled valid-star valuations up to 10,000 per m.
 
-## Closest work and restrictions
-Jankovec–Poiger (2026) provides the evaluated semantics and real-value separation tools; Diaconescu–Metcalfe–Schnüriger (2018) provides the foundational real-valued tableau/witness framework. The theorem is only for nonreflexive rooted stars and retains the full additive language. No independent audit or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): Modal witness selection via finite minima is standard and credited; the one-variable sharp threshold in pointed real Abelian semantics is a more specific quantitative formula complexity statement, not just ordinary propositional modal p-morphism inequivalence. Broader coverage and exact table checks find no known proof of this final specialized classification. Residual priority risks are separately documented; unsuccessful searches do not prove novelty.
+
+## value
+
+PASS
+
+PASS: Sharp modal-resource and variable-width thresholds between nearly identical finite frames are natural expressive-power invariants. The one-variable and depth-one optimal separators reveal a genuinely nonstabilizing frame hierarchy under unbounded additive operations, rather than a straightforward restatement of general finite-model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

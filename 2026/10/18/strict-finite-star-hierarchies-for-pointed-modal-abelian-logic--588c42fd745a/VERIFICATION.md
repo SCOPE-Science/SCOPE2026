@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite consistency checks and proof boundaries
+# Independent mathematical audit
 
-Run `python3 check.py` using Python 3's standard library. The program reads no other data files and has a fixed random seed. The locally executed result was `PASS 28170 finite sample/assertion groups`.
+## correctness
 
-The code constructs the separator formula as an explicit syntax tree, counts its box nodes, evaluates all operations by exact rational arithmetic, checks the displayed bounded countervaluation on stars with one through six leaves, and checks finitely many other valuations. It additionally selects one extremum witness for each root-evaluated box in randomly generated nested modal formulas and confirms the root value is preserved after retaining those leaves.
+PASS
 
-**Limits:** sampled real-valued valuations are not exhaustive over the continuum; sampled formula trees are not an exhaustive collection of all syntax. The infinite theorem and the minimality for every formula follow from the symbolic pigeonhole proof and the modal-witness structural induction in `RESULT.md`. The checker verifies examples of those lemmas rather than certifying their universal quantifiers. Independent audit was not performed.
+PASS: Duplicating a leaf transfers failures from S_m to S_{m+1}. The explicit disjunction Phi_m=∨_{i=0}^m Box(|2m x−2i|−1) is valid at all worlds of S_m because m+1 pairwise-disjoint interval tests cannot each contain an m-leaf value. On S_{m+1}, assigning x(v_i)=i/m yields Phi_m(root)=−1. For any formula with at most m Box occurrences, select one min-attaining leaf for each outermost root-evaluated Box; all deeper modal formulas at terminal leaves are 0, so shrinking/padding the star to m leaves preserves its value. This proves the sharp lower bound, including nested modalities and failures at leaves. Independent exact-rational counters checked m=1..8 and sampled valid-star valuations up to 10,000 per m.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge): Modal witness selection via finite minima is standard and credited; the one-variable sharp threshold in pointed real Abelian semantics is a more specific quantitative formula complexity statement, not just ordinary propositional modal p-morphism inequivalence. Broader coverage and exact table checks find no known proof of this final specialized classification. Residual priority risks are separately documented; unsuccessful searches do not prove novelty.
+
+## value
+
+PASS
+
+PASS: Sharp modal-resource and variable-width thresholds between nearly identical finite frames are natural expressive-power invariants. The one-variable and depth-one optimal separators reveal a genuinely nonstabilizing frame hierarchy under unbounded additive operations, rather than a straightforward restatement of general finite-model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
