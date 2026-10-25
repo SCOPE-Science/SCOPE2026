@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (PASS).** The exact-ring program independently evaluates each of the 35,960 determinants in two different expansions, orders them using integer-only signs, and proves the maximum \(6+8\varphi\) is attained by exactly twenty vertex quadruples. Multiaffinity transfers vertex optimality to arbitrary contained tetrahedra. The check that no two vertex maximizers share three corners excludes any nonvertex equality case. Source geometry supplies the independent containing volume \(20\). The finite count is exhaustive for the listed vertices, not a claim about infinitely many different polytopes.
+
+**Originality (PASS).** The closest explicitly inspected 2001 account establishes the rhombic triacontahedron construction and total volume, not maximal inscribed tetrahedra. MathWorld documents ten regular tetrahedra, but these have smaller volume than the mixed-orbit maximum. Related exact maximum-simplex results for the regular icosahedron, cube–octahedron intersections and the 24-cell do not imply a statement about this distinct 32-vertex body. Searches for shape names, simplex/tetrahedron aliases and golden-ratio determinant values found no matching or stronger covered result. The underlying full texts of some published-finding corpus hits were not obtained; an unindexed historical statement remains a bibliographic risk.
+
+**Value (PASS).** The maximum inscribed tetrahedron and its equality set are natural, shape-specific invariants for a famous nonvertex-transitive zonohedron. Their nontrivial orbit mixing and strict improvement over the regular-tetrahedron compound are meaningful boundary phenomena, beyond mere recomputation of a known volume formula. The result is a complete exact classification for this particular polyhedron, not a statement about generic zonohedra or all possible simplexes.
+
+**Scientific limits.** Independent rederivation of the exact code's finite proof is supported by the two determinant expansions. The orientation-averaging argument is used only after sign-sensitive treatment of determinant equality. An exhaustive literature novelty proof is not asserted.
+
+Self-review: passed. Independent audit: not yet performed.
