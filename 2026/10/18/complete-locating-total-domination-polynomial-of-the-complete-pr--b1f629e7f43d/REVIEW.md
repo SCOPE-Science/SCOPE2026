@@ -1,11 +1,21 @@
-# Scientific review: complete-prism locating-total domination
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof starts from the explicit matched-clique adjacency, checks every open-neighborhood signature and total-domination boundary for zero, one, or at least two selected vertices per layer, and derives an if-and-only-if characterization. That characterization gives the generating polynomial by represented-column counting, two provably disjoint correction families when \(n\ge4\), and exact small-order evaluations. The minimum size and multiplicities follow from a sharp one-empty-column argument. A standalone graph-based enumerator has checked \(349{,}520\) subsets for \(2\le n\le9\); no finite check is presented as an infinite proof.
+## correctness
 
-**Originality (PASS, with residual risk).** The 2012 founding study discusses locating-total domination and the triangular-prism special case; the 2022 source proves a general cobipartite upper bound rather than this exact labeled-set distribution. The 2019 graph-operations treatment does not give this matched-prism formula in the relevant accessible sections. A 2026 article's abstract claims a generating function for graph joins, while the complete prism is not a nontrivial join for \(n\ge3\). Its inaccessible full text is a named bibliographic risk. Closest mathematical records on the same graph concern Roman domination, mixed metric dimension, or the Morse complex; none establishes this locating-total polynomial. Searches and comparisons are evidence against known coverage, not absolute uniqueness guarantees.
+PASS
 
-**Value (PASS).** This is a natural exact enumerator for the line graph of \(K_{2,n}\), with a complete structural code classification, all cardinalities, a sharp minimum threshold at width five, and exact counts of optimal monitoring sets. The full distribution is not implied by the previously available half-order bound or by a single minimum-value calculation.
+Fresh proof reconstruction from RESULT.md: represent a selection by X,Y subsets of n matching columns and h absent columns. Distinct selected open neighborhoods within either clique iff h<=1; total domination iff p=0 forces q=n, q=0 forces p=n, p=1 forces X subset Y, q=1 forces Y subset X. Cross-clique signatures are distinct by the >=2-in-own-clique witness (or by direct p=q=1 boundary). Consequently the five conditions are necessary and sufficient. Weighted represented columns yield B(z)^n+nB(z)^(n-1); for n>=4 disjoint invalid low-occupancy corrections subtract 2n^2 z^(n-1)+2nz^n. Direct independent adjacency-bitmask brute checks all 4^n subsets n=2..7 and agrees with small-order and general polynomials. For n>=5 one empty column and two or more selected in each layer gives exact smallest count n(2^(n-1)-2n); n4 requires four selections and gives 56. Finite tests corroborate, while the structural proof is uniform.
 
-**Scientific limits.** The general Cartesian product of two complete graphs with both factors larger than two is not treated. The finite verifications do not certify the quantified proof, and equivalent inaccessible or unindexed publications cannot be ruled out. This is not independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.
+
+## value
+
+PASS
+
+K_2 square K_n is the natural complete two-row rook graph, equivalently line graph of K_{2,n}; locating-total domination is a standard code/monitoring invariant. The complete all-cardinality polynomial, structural iff characterization and sharp transition to n-1 optimal code size at n=5 provide exact information not supplied by a half-order existence bound or the triangular-prism example. This is a motivated infinite-family exact invariant, not a low-order table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
