@@ -1,0 +1,260 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:56:36Z",
+  "axes": {
+    "C": {
+      "rationale": "Reconstructed the 35-monomial degree-four space, rank-15 evaluation map, 20-dimensional kernel, four-dimensional G·linear subspace, and 16-dimensional quotient. Exhaustive Gray-code reimplementation recovered 288 classes nonsingular at all 15 rational points and 288 distinct tangent matchings; the group-action reimplementation recovered two orbits of size 144. The exact fetched `verify_geometric_smoothness.py` blob (SHA 8b549e111bf90fc9a6daf0b781bbb38620ab0b11) was run; all four chart ideals are unit for the smooth representative and non-unit for the singular representative. The two other local reimplementations were not byte-identical to their package blobs.",
+      "reason": "Reconstructed the 35-monomial degree-four space, rank-15 evaluation map, 20-dimensional kernel, four-dimensional G·linear subspace, and 16-dimensional quotient. Exhaustive Gray-code reimplementation recovered 288 classes nonsingular at all 15 rational points and 288 distinct tangent matchings; the group-action reimplementation recovered two orbits of size 144. The exact fetched `verify_geometric_smoothness.py` blob (SHA 8b549e111bf90fc9a6daf0b781bbb38620ab0b11) was run; all four chart ideals are unit for the smooth representative and non-unit for the singular representative. The two other local reimplementations were not byte-identical to their package blobs.",
+      "risks": [
+        "The group-orbit replay was reimplemented rather than executed byte-for-byte; source logic and output were inspected."
+      ],
+      "sources": [
+        "RESULT.md blob 909ec61a1c9f1b049835ea9f52c4acb1bcb883fb",
+        "verify_tangent_census.py blob ca8ae8284bec6bf2c4f3b1f342f9098452aee238",
+        "verify_group_orbits.py blob 9c64383df38e4f4eeae8b1cc90a8db521cc2b9fa",
+        "verify_geometric_smoothness.py blob 8b549e111bf90fc9a6daf0b781bbb38620ab0b11"
+      ],
+      "status": "PASS"
+    },
+    "O": {
+      "checked_sources": [
+        "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings",
+        "2026/10/4/SCOPE-pairing-profile-classification-and-prism-blocks-for-the-18-sixer--815a6195e439 (different line-configuration invariant)",
+        "https://arxiv.org/abs/2310.09293",
+        "https://arxiv.org/abs/2312.17032"
+      ],
+      "checks": {
+        "broader_coverage": {
+          "evidence": [
+            "The general space-filling-curve theorem gives existence and a degree bound; the F2 table gives one explicit quartic example. The Resultary sixer-orbit hit concerns line configurations on the Fermat cubic, not quartic sections through all 15 F2 points."
+          ],
+          "reasoning": "No broader inspected result dominates the exact finite section classification and geometric-smoothness orbit split.",
+          "searches": [
+            "arXiv:2310.09293 full text, Theorem 1.1, Corollary 3.5, Table 1",
+            "arXiv:2312.17032v2, Theorem 1.4",
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+          ]
+        },
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The prior space-filling paper gives an example but does not classify all quartics; the automorphism paper establishes a maximal cubic-surface model but not the section orbit census. The Resultary sixer classification is a different configuration invariant."
+          ],
+          "reasoning": "The full enumeration, distinction between rational and geometric smoothness, and orbit classification are not implied by the closest prior results.",
+          "searches": [
+            "arXiv:2310.09293v1 full text §§1,3–4",
+            "arXiv:2312.17032v2 Theorem 1.4",
+            "Resultary hit 2026/10/4/SCOPE-pairing-profile-classification-and-prism-blocks-for-the-18-sixer--815a6195e439"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Campbell et al. prove existence of minimum-degree smooth space-filling complete intersections in P3 for q≤7, including a q=2 example; they do not enumerate all quartic classes. Vikulova classifies the maximal automorphism-group cubic surface over F2, a closely related model, but her classification is of cubic surfaces, not their quartic sections."
+          ],
+          "reasoning": "The claim fixes a cubic and classifies its quartic sections modulo G·linear forms; existence/minimal-degree theorems and cubic-surface isomorphism classifications do not imply the 288 rationally smooth classes or the two section orbits.",
+          "searches": [
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings",
+            "arXiv:2310.09293 full text §§1,3–4",
+            "arXiv:2312.17032v2 Theorems 1.3–1.5"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "The quotient has dimension 16, hence 65,536 classes. The independent tangent census recovered 288 rationally nonsingular classes and 288 distinct matchings; the group-action replay recovered two orbits of 144. The exact source `verify_geometric_smoothness.py` blob SHA matched the fetched blob and its Groebner checks returned a unit ideal on all four charts for one representative and non-unit ideals for the other."
+          ],
+          "reasoning": "No exact published table of these quotient classes and orbits was found.",
+          "searches": [
+            "Actual Git tree 1b1206b658495dccf2f84ccc3913c1adf132b1d0: verify_tangent_census.py, verify_group_orbits.py, verify_geometric_smoothness.py",
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+          ]
+        }
+      },
+      "residual_risks": [
+        "A coordinate-equivalent prior section enumeration could be indexed under another cubic model; no such classification was found in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongly related but not covering: existence/minimum degree and an example, not all quartic quotient classes or Sp4-orbits",
+          "evidence": "Full HTML lines 46–56, 161–173, 190–222, 252–264.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.09293",
+          "material_read": "Full HTML: Theorem 1.1, Lemma 3.2, Corollary 3.5, smoothness criterion, Table 1 q=2",
+          "method": "Compared exact degree, ambient space, field, and result scope",
+          "title": "On algebraic space filling curves",
+          "trigger": "Same space-filling curve family and F2 example"
+        },
+        {
+          "assessment": "Relevant same-surface/isomorphism context, not covering: no quartic section census",
+          "evidence": "Full HTML lines 56–77 and 93–107 classify the cubic surface model and field-of-definition distinction.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17032",
+          "material_read": "Full HTML introduction, Theorems 1.3–1.5 and discussion of the F2 cubic model; not every later section",
+          "method": "Compared the fixed cubic-surface moduli question with quartic-section classification",
+          "title": "The most symmetric smooth cubic surface over a finite field of characteristic 2",
+          "trigger": "Same characteristic and closely related maximal-automorphism cubic model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "V": {
+      "rationale": "The exact finite classification separates rational-point nonsingularity from geometric smoothness and computes the orbit structure of a natural section space on a highly symmetric fixed surface. The object and invariant are motivated by minimum-degree space-filling curves and automorphism-group action; the claim is not merely one example or a recomputation of the cubic-surface automorphism group.",
+      "reason": "The exact finite classification separates rational-point nonsingularity from geometric smoothness and computes the orbit structure of a natural section space on a highly symmetric fixed surface. The object and invariant are motivated by minimum-degree space-filling curves and automorphism-group action; the claim is not merely one example or a recomputation of the cubic-surface automorphism group.",
+      "risks": [
+        "The theorem is for this fixed cubic model over F2 only."
+      ],
+      "sources": [
+        "RESULT.md, Finding/Proof/Limitations",
+        "Campbell et al., arXiv:2310.09293",
+        "Vikulova, arXiv:2312.17032"
+      ],
+      "status": "PASS"
+    },
+    "correctness": {
+      "rationale": "Reconstructed the 35-monomial degree-four space, rank-15 evaluation map, 20-dimensional kernel, four-dimensional G·linear subspace, and 16-dimensional quotient. Exhaustive Gray-code reimplementation recovered 288 classes nonsingular at all 15 rational points and 288 distinct tangent matchings; the group-action reimplementation recovered two orbits of size 144. The exact fetched `verify_geometric_smoothness.py` blob (SHA 8b549e111bf90fc9a6daf0b781bbb38620ab0b11) was run; all four chart ideals are unit for the smooth representative and non-unit for the singular representative. The two other local reimplementations were not byte-identical to their package blobs.",
+      "reason": "Reconstructed the 35-monomial degree-four space, rank-15 evaluation map, 20-dimensional kernel, four-dimensional G·linear subspace, and 16-dimensional quotient. Exhaustive Gray-code reimplementation recovered 288 classes nonsingular at all 15 rational points and 288 distinct tangent matchings; the group-action reimplementation recovered two orbits of size 144. The exact fetched `verify_geometric_smoothness.py` blob (SHA 8b549e111bf90fc9a6daf0b781bbb38620ab0b11) was run; all four chart ideals are unit for the smooth representative and non-unit for the singular representative. The two other local reimplementations were not byte-identical to their package blobs.",
+      "risks": [
+        "The group-orbit replay was reimplemented rather than executed byte-for-byte; source logic and output were inspected."
+      ],
+      "sources": [
+        "RESULT.md blob 909ec61a1c9f1b049835ea9f52c4acb1bcb883fb",
+        "verify_tangent_census.py blob ca8ae8284bec6bf2c4f3b1f342f9098452aee238",
+        "verify_group_orbits.py blob 9c64383df38e4f4eeae8b1cc90a8db521cc2b9fa",
+        "verify_geometric_smoothness.py blob 8b549e111bf90fc9a6daf0b781bbb38620ab0b11"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general space-filling-curve theorem gives existence and a degree bound; the F2 table gives one explicit quartic example. The Resultary sixer-orbit hit concerns line configurations on the Fermat cubic, not quartic sections through all 15 F2 points."
+        ],
+        "reasoning": "No broader inspected result dominates the exact finite section classification and geometric-smoothness orbit split.",
+        "searches": [
+          "arXiv:2310.09293 full text, Theorem 1.1, Corollary 3.5, Table 1",
+          "arXiv:2312.17032v2, Theorem 1.4",
+          "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings",
+        "2026/10/4/SCOPE-pairing-profile-classification-and-prism-blocks-for-the-18-sixer--815a6195e439 (different line-configuration invariant)",
+        "https://arxiv.org/abs/2310.09293",
+        "https://arxiv.org/abs/2312.17032"
+      ],
+      "checks": {
+        "broader_coverage": {
+          "evidence": [
+            "The general space-filling-curve theorem gives existence and a degree bound; the F2 table gives one explicit quartic example. The Resultary sixer-orbit hit concerns line configurations on the Fermat cubic, not quartic sections through all 15 F2 points."
+          ],
+          "reasoning": "No broader inspected result dominates the exact finite section classification and geometric-smoothness orbit split.",
+          "searches": [
+            "arXiv:2310.09293 full text, Theorem 1.1, Corollary 3.5, Table 1",
+            "arXiv:2312.17032v2, Theorem 1.4",
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+          ]
+        },
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The prior space-filling paper gives an example but does not classify all quartics; the automorphism paper establishes a maximal cubic-surface model but not the section orbit census. The Resultary sixer classification is a different configuration invariant."
+          ],
+          "reasoning": "The full enumeration, distinction between rational and geometric smoothness, and orbit classification are not implied by the closest prior results.",
+          "searches": [
+            "arXiv:2310.09293v1 full text §§1,3–4",
+            "arXiv:2312.17032v2 Theorem 1.4",
+            "Resultary hit 2026/10/4/SCOPE-pairing-profile-classification-and-prism-blocks-for-the-18-sixer--815a6195e439"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Campbell et al. prove existence of minimum-degree smooth space-filling complete intersections in P3 for q≤7, including a q=2 example; they do not enumerate all quartic classes. Vikulova classifies the maximal automorphism-group cubic surface over F2, a closely related model, but her classification is of cubic surfaces, not their quartic sections."
+          ],
+          "reasoning": "The claim fixes a cubic and classifies its quartic sections modulo G·linear forms; existence/minimal-degree theorems and cubic-surface isomorphism classifications do not imply the 288 rationally smooth classes or the two section orbits.",
+          "searches": [
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings",
+            "arXiv:2310.09293 full text §§1,3–4",
+            "arXiv:2312.17032v2 Theorems 1.3–1.5"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "The quotient has dimension 16, hence 65,536 classes. The independent tangent census recovered 288 rationally nonsingular classes and 288 distinct matchings; the group-action replay recovered two orbits of 144. The exact source `verify_geometric_smoothness.py` blob SHA matched the fetched blob and its Groebner checks returned a unit ideal on all four charts for one representative and non-unit ideals for the other."
+          ],
+          "reasoning": "No exact published table of these quotient classes and orbits was found.",
+          "searches": [
+            "Actual Git tree 1b1206b658495dccf2f84ccc3913c1adf132b1d0: verify_tangent_census.py, verify_group_orbits.py, verify_geometric_smoothness.py",
+            "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+          ]
+        }
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior space-filling paper gives an example but does not classify all quartics; the automorphism paper establishes a maximal cubic-surface model but not the section orbit census. The Resultary sixer classification is a different configuration invariant."
+        ],
+        "reasoning": "The full enumeration, distinction between rational and geometric smoothness, and orbit classification are not implied by the closest prior results.",
+        "searches": [
+          "arXiv:2310.09293v1 full text §§1,3–4",
+          "arXiv:2312.17032v2 Theorem 1.4",
+          "Resultary hit 2026/10/4/SCOPE-pairing-profile-classification-and-prism-blocks-for-the-18-sixer--815a6195e439"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell et al. prove existence of minimum-degree smooth space-filling complete intersections in P3 for q≤7, including a q=2 example; they do not enumerate all quartic classes. Vikulova classifies the maximal automorphism-group cubic surface over F2, a closely related model, but her classification is of cubic surfaces, not their quartic sections."
+        ],
+        "reasoning": "The claim fixes a cubic and classifies its quartic sections modulo G·linear forms; existence/minimal-degree theorems and cubic-surface isomorphism classifications do not imply the 288 rationally smooth classes or the two section orbits.",
+        "searches": [
+          "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings",
+          "arXiv:2310.09293 full text §§1,3–4",
+          "arXiv:2312.17032v2 Theorems 1.3–1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The quotient has dimension 16, hence 65,536 classes. The independent tangent census recovered 288 rationally nonsingular classes and 288 distinct matchings; the group-action replay recovered two orbits of 144. The exact source `verify_geometric_smoothness.py` blob SHA matched the fetched blob and its Groebner checks returned a unit ideal on all four charts for one representative and non-unit ideals for the other."
+        ],
+        "reasoning": "No exact published table of these quotient classes and orbits was found.",
+        "searches": [
+          "Actual Git tree 1b1206b658495dccf2f84ccc3913c1adf132b1d0: verify_tangent_census.py, verify_group_orbits.py, verify_geometric_smoothness.py",
+          "Resultary query: space-filling quartic sections fixed symplectic cubic surface over F2 tangent line matchings"
+        ]
+      },
+      "rationale": "The claim fixes a cubic and classifies its quartic sections modulo G·linear forms; existence/minimal-degree theorems and cubic-surface isomorphism classifications do not imply the 288 rationally smooth classes or the two section orbits.\n\nNo broader inspected result dominates the exact finite section classification and geometric-smoothness orbit split.\n\nNo exact published table of these quotient classes and orbits was found.\n\nThe full enumeration, distinction between rational and geometric smoothness, and orbit classification are not implied by the closest prior results.",
+      "residual_risks": [
+        "A coordinate-equivalent prior section enumeration could be indexed under another cubic model; no such classification was found in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongly related but not covering: existence/minimum degree and an example, not all quartic quotient classes or Sp4-orbits",
+          "evidence": "Full HTML lines 46–56, 161–173, 190–222, 252–264.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.09293",
+          "material_read": "Full HTML: Theorem 1.1, Lemma 3.2, Corollary 3.5, smoothness criterion, Table 1 q=2",
+          "method": "Compared exact degree, ambient space, field, and result scope",
+          "title": "On algebraic space filling curves",
+          "trigger": "Same space-filling curve family and F2 example"
+        },
+        {
+          "assessment": "Relevant same-surface/isomorphism context, not covering: no quartic section census",
+          "evidence": "Full HTML lines 56–77 and 93–107 classify the cubic surface model and field-of-definition distinction.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17032",
+          "material_read": "Full HTML introduction, Theorems 1.3–1.5 and discussion of the F2 cubic model; not every later section",
+          "method": "Compared the fixed cubic-surface moduli question with quartic-section classification",
+          "title": "The most symmetric smooth cubic surface over a finite field of characteristic 2",
+          "trigger": "Same characteristic and closely related maximal-automorphism cubic model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite classification separates rational-point nonsingularity from geometric smoothness and computes the orbit structure of a natural section space on a highly symmetric fixed surface. The object and invariant are motivated by minimum-degree space-filling curves and automorphism-group action; the claim is not merely one example or a recomputation of the cubic-surface automorphism group.",
+      "reason": "The exact finite classification separates rational-point nonsingularity from geometric smoothness and computes the orbit structure of a natural section space on a highly symmetric fixed surface. The object and invariant are motivated by minimum-degree space-filling curves and automorphism-group action; the claim is not merely one example or a recomputation of the cubic-surface automorphism group.",
+      "risks": [
+        "The theorem is for this fixed cubic model over F2 only."
+      ],
+      "sources": [
+        "RESULT.md, Finding/Proof/Limitations",
+        "Campbell et al., arXiv:2310.09293",
+        "Vikulova, arXiv:2312.17032"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

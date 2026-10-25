@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,30 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python verify_tangent_census.py`, then `python verify_group_orbits.py`, then `python verify_geometric_smoothness.py` in a directory containing all three scripts; the last requires SymPy.
+## correctness
 
-The enumeration checks all 65,536 independent quartic-section classes and their gradients at the fifteen rational points. The symmetry test exhausts orbit closures under fifteen symplectic transvections. Gröbner checks over the prime field test the common zeros of the two equations and the complete rank-deficiency ideal on each of four affine charts, including all algebraic extension points.
+PASS
 
-Verified expected values: quartic evaluation kernel dimension 20; quotient dimension 16; rationally smooth sections 288; unique tangent matchings 288; symmetry orbit sizes (144,144); Jacobian ideals for smooth representative are unit on all four charts and for the other representative non-unit.
+Reconstructed the 35-monomial degree-four space, rank-15 evaluation map, 20-dimensional kernel, four-dimensional G·linear subspace, and 16-dimensional quotient. Exhaustive Gray-code reimplementation recovered 288 classes nonsingular at all 15 rational points and 288 distinct tangent matchings; the group-action reimplementation recovered two orbits of size 144. The exact fetched `verify_geometric_smoothness.py` blob (SHA 8b549e111bf90fc9a6daf0b781bbb38620ab0b11) was run; all four chart ideals are unit for the smooth representative and non-unit for the singular representative. The two other local reimplementations were not byte-identical to their package blobs.
 
-No independent audit or independent external validation is asserted. No conclusions about curves on other cubic surfaces are drawn.
+## originality
+
+PASS
+
+The claim fixes a cubic and classifies its quartic sections modulo G·linear forms; existence/minimal-degree theorems and cubic-surface isomorphism classifications do not imply the 288 rationally smooth classes or the two section orbits.
+
+No broader inspected result dominates the exact finite section classification and geometric-smoothness orbit split.
+
+No exact published table of these quotient classes and orbits was found.
+
+The full enumeration, distinction between rational and geometric smoothness, and orbit classification are not implied by the closest prior results.
+
+## value
+
+PASS
+
+The exact finite classification separates rational-point nonsingularity from geometric smoothness and computes the orbit structure of a natural section space on a highly symmetric fixed surface. The object and invariant are motivated by minimum-degree space-filling curves and automorphism-group action; the claim is not merely one example or a recomputation of the cubic-surface automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
