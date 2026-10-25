@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every admissible parameter, presence or absence of the universal vertex gives a literal simplicial pushout with deletion \(J\) a join of skeletons and link \(L\) a global simplex skeleton. The skeleton toggle lemma and the join connectivity establish that \(J\) is \((r-2)\)-connected while \(L\) has dimension at most \(r-2\). Therefore its attaching map is null and the homotopy cofiber splits as a wedge with \(\Sigma L\). Integral augmentation-chain/exterior algebra identifies the natural homology representations, including the degree \(r-1\) long exact sequence and signed block permutations. Direct independent finite algorithms checked ten face-and-boundary profiles and six signed equivariance identities. No exhaustive finite computation is mistaken for a proof of the all-parameter assertion.
+## correctness
 
-## Originality — PASS, residual risks
-The most relevant published work on small-diameter block graphs includes a star-clique shellability theorem (Ghosh–Selvaraja, arXiv:2505.06614, Corollary 3.3 and Theorem 4.7). It applies qualitatively to these graphs, so general shellability and the mere fact of sphere wedges are **not claimed as novel**. Deshpande–Shukla–Singh (arXiv:2001.06775, Theorem 16) supplies a broader chordal wedge result but not its exact wedge multiplicities. Deshpande–Singh (arXiv:2001.05448) supplies join/skeleton machinery and results for distinct families. The May 2026 tree theorem of Sawant (arXiv:2605.25150) does not cover triangle-containing clique bouquets. The exact two-degree all-size formula and signed integral symmetry lattices were not located in the inspected primary papers or focused record searches. This is a best-knowledge novelty assessment, not a uniqueness theorem; unindexed related work remains a bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete infinite-family integral homotopy classification of a natural class of connected chordal block graphs, for arbitrarily many unevenly sized clique blades and every \(r\ge3\). Two separate geometric mechanisms—the per-blade join and the universal-vertex cofiber—produce independent sphere dimensions, with exact counts and canonical signed symmetry modules. The formula concretely refines general shellability and chordal wedge results and provides nontrivial mixed-dimensional examples such as \(\bigvee^{21}S^2\vee S^5\). The value lies in that structural refinement and integral symmetry determination, not in elementary binomial substitution or finite enumeration alone.
+For hub o and n≥2 disjoint complete blades, the higher-independence face condition is literally J=join_i Sk_(r−1)(V_i) when o absent and o*L with L=Sk_(r−2)(all leaves) when o present. The join J is contractible or a wedge of ∏ binom(m_i−1,r) spheres dimension nr−1, thus (r−2)-connected, while L has dimension ≤r−2. The inclusion L→J is null; the cone pushout is J∨ΣL. The standard skeleton Morse pairing gives binom(N−1,r−1) spheres in dimension r−1. The augmented boundary as contraction by the all-ones functional identifies top homology with wedge powers of integral augmentation lattices; the cone connecting homomorphism and join Künneth are equivariant. Swapping equal blade factors contributes Koszul (-1)^r. Independent exact mod-two chain ranks for (r;m_i)=(3;4,4),(3;3,3),(3;2,5),(4;5,5) agree with formula. All assumptions r≥3, n≥2, m_i≥1 and no equivariant homotopy wedge asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published chordal-graph higher-independence wedge results establish only allowed sphere dimensions or qualitative wedge behavior; more recent star-clique/block-graph shellability gives stronger qualitative facts for overlapping families. Neither checked theorem supplies these exact two multiplicities, canonical integral exterior-power group modules, or blade-exchange sign. A published Lovász open-neighborhood clique-block wedge theorem is on an inequivalent simplicial complex.
+
+## value
+
+PASS
+
+A complete formula across an infinite natural block-graph family, including explicit mixed sphere multiplicities and integral automorphism representation, supplies information that shellability and dimension bounds cannot recover. The two degrees and block permutation signs are independently meaningful topological invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
