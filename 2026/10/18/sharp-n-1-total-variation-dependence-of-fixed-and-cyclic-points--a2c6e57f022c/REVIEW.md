@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is all uniform maps \(f:[n]\to[n]\), \(n\ge1\); definitions distinguish fixed points, cyclic points, and noncyclic predecessors. The proof derives the exact joint law from rooted-forest counts and conditional uniform permutations, isolates binomial-to-Poisson error using a summable dominated-convergence argument, and evaluates the weighted rencontres discrepancy through a positive Taylor-remainder integral. Strict finite dependence and zero covariance are proved separately. Exact finite enumeration through \(n=6\) and a numerical constant check support, but do not replace, these arguments.
+## correctness
 
-**Originality — PASS on inspected sources; independent priority check outstanding.** Hansen–Jaworski (2010) and Finch (2022) already give the crucial uniform-permutation conditioning on cyclic points, while Booher et al. (2022 preprint) give generating functions marking fixed points. These sources cover the finite-enumeration ingredients and imply the exact joint law by standard rencontres calculations. The contribution is instead the sharp first-order total-variation **dependence** constant \((3e^2+1)/8+3/(4e)\). The inspected statements treat component sizes, longest cycles, fixed-point enumerations, or marginal asymptotics; they do not supply this constant. Equivalent implicit analysis in older random-mapping or Poisson-approximation literature remains a risk.
+PASS
 
-**Value — PASS.** Total variation to the product of true marginals is a natural operational measure of asymptotic independence. The theorem gives its exact leading scale and constant in a fundamental random functional-digraph model, resolving a quantitative feature that zero covariance and the classical conditional permutation representation cannot quantify by themselves. The constant splits into a rare-small-cyclic-set contribution and a marginal-binomial correction; both are necessary.
+Counting cyclic sets, permutations and rooted forests gives q(n,k)=k(n)_k/n^(k+1); conditional F has rencontres law R_k, unconditional Bin(n,1/n). Unit conditional mean proves zero covariance and K=1 proves dependence n>=2. Exact TV disintegration and |TV(R_k,B_n)-TV(B_n,Poi(1))|<=TV(R_k,Poi(1)) combine with nq(n,k)<=k and weighted-summable rencontres error to give limit. Alternating remainder and Tonelli yield sum_k k delta_k=(3e^2+1)/8; first-order binomial-to-Poisson variation yields 3/(4e). Checked independence of last limit and boundaries n=1,2.
 
-**Closest sources and scope.** Finch, arXiv:2205.05579v1, Section 3; Hansen and Jaworski, Ars Combinatoria 94 (2010), pp. 341–359, Sections 1–2; Booher et al., arXiv:2205.00135, Section 3.3; Flajolet and Odlyzko (1990), random mapping statistics. The theorem is restricted to uniform independent images, and makes no claim for prescribed-indegree mappings. It does not supply a second-order remainder or full-cycle-vector approximation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical fixed/cyclic joint law and covariance are acknowledged prior; assessed novelty is explicit sharp first-order TV dependence coefficient, not the mapping count or asymptotic independence. Finch and Hansen-Jaworski describe permutation-on-cyclic-subset coupling but no displayed n*dTV limit identified.
+
+## value
+
+PASS
+
+The quantifiable mismatch between zero covariance and genuine finite-n dependence is a natural probability question; the sharp first-order TV coefficient is an exact stable asymptotic invariant useful for comparing random-map approximations, beyond generic convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

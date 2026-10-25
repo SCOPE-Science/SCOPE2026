@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:53:22Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independent exact mapping enumeration for n=1..5 and direct joint/TV comparison: d_1=0,d_2=1/2,d_3=109/243,d_4=3235/8192,d_5=686076/1953125; numerical closed coefficient 3.1718056179775753. Actual verify.py inspected (blob 16b4592f), not executed as opaque source; independent bounded code /tmp/scope06_checks.py. Infinite limit verified from proof, not finite trials."
+      ],
+      "limitations": [
+        "Finite checker diagnostics do not substitute for analytic all-parameter proof."
+      ],
+      "rationale": "Counting cyclic sets, permutations and rooted forests gives q(n,k)=k(n)_k/n^(k+1); conditional F has rencontres law R_k, unconditional Bin(n,1/n). Unit conditional mean proves zero covariance and K=1 proves dependence n>=2. Exact TV disintegration and |TV(R_k,B_n)-TV(B_n,Poi(1))|<=TV(R_k,Poi(1)) combine with nq(n,k)<=k and weighted-summable rencontres error to give limit. Alternating remainder and Tonelli yield sum_k k delta_k=(3e^2+1)/8; first-order binomial-to-Poisson variation yields 3/(4e). Checked independence of last limit and boundaries n=1,2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Established random mapping enumeration and cyclic-count asymptotics include conditional structures used here."
+        ],
+        "reasoning": "General mapping enumeration/Poisson approximation might in principle imply a joint-TV expansion; inspected statements did not include the closed n^-1 dependence constant; absence from snippets alone is not decisive.",
+        "searches": [
+          "Hansen and Jaworski, Random Mappings with a Given Number of Cyclical Points (2010)",
+          "Flajolet and Odlyzko, Random Mapping Statistics (1990)"
+        ]
+      },
+      "checked_sources": [
+        "Finch arXiv:2205.05579 (HTML Section 3)",
+        "Hansen-Jaworski Ars Combinatoria 94 (2010), abstract",
+        "Flajolet-Odlyzko EUROCRYPT 1989/1990 reference",
+        "Resultary query: uniform random mapping fixed points cyclic points sharp total variation dependence first order n inverse constant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional random permutation plus binomial marginal gives finite decomposition, but extracting first-order TV requires a separately justified dominated-limit/summability and binomial expansion."
+        ],
+        "reasoning": "The finite pieces are inherited; their mere availability is not a statement of the sharp constant, although a derivation may be technically accessible. Claim priority remains qualified.",
+        "searches": [
+          "Finch 2022 Sections 2-3",
+          "Hansen-Jaworski 2010 introduction and abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional permutation fixed-point law and marked random-map generating functions imply the exact finite joint law, but do not themselves evaluate the first-order total-variation coefficient."
+        ],
+        "reasoning": "Matched random map/endofunction, cyclic vertices, fixed-point counts, rencontres permutations and TV approximation—not merely title overlap. Finite law is covered; new asymptotic needs weighted Poisson-error calculation.",
+        "searches": [
+          "Resultary: uniform random mapping fixed points cyclic points sharp total variation dependence first order n inverse constant",
+          "Finch 2022 arXiv:2205.05579 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact small-n rencontres tables are consequences of the classical joint law; this claim focuses on the analytic first-order constant."
+        ],
+        "reasoning": "A table of n<=6 values cannot imply the limit. No matching first-order coefficient surfaced in inspected material.",
+        "searches": [
+          "Finch 2022 random mapping cyclic point distributions",
+          "Resultary semantic fixed/cyclic points TV dependence"
+        ]
+      },
+      "rationale": "Classical fixed/cyclic joint law and covariance are acknowledged prior; assessed novelty is explicit sharp first-order TV dependence coefficient, not the mapping count or asymptotic independence. Finch and Hansen-Jaworski describe permutation-on-cyclic-subset coupling but no displayed n*dTV limit identified.",
+      "residual_risks": [
+        "A historical first-order TV expansion may be present in mapping enumeration/permutation approximation literature not read in full.",
+        "The classical finite joint formula/covariance are not original and must not be represented as new alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS finite conditional decomposition; no same first-order total-variation asymptotic located in inspected body",
+          "evidence": "Section 3 identifies random permutation conditional on cyclic count; it does not give the n*dTV constant in the inspected formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.05579",
+          "material_read": "Full accessible article HTML, especially cyclic-component and permutation conditional formulas in Section 3",
+          "method": "Full HTML reading with targeted mathematical inspection",
+          "title": "Components and Cycles of Random Mappings",
+          "trigger": "Same uniform mapping cyclic-point/permutation statistics"
+        },
+        {
+          "assessment": "Plausible related source; cannot assert entire text noncoverage from abstract",
+          "evidence": "Conditioning on number of cyclical points is directly relevant; uninspected results remain a risk.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+          "material_read": "Accessible abstract and bibliographic summary; not entire article",
+          "method": "Publisher page/abstract inspection",
+          "title": "Random Mappings with a Given Number of Cyclical Points",
+          "trigger": "Matching model and conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantifiable mismatch between zero covariance and genuine finite-n dependence is a natural probability question; the sharp first-order TV coefficient is an exact stable asymptotic invariant useful for comparing random-map approximations, beyond generic convergence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Finch arXiv:2205.05579 (HTML Section 3)",
+    "Hansen-Jaworski Ars Combinatoria 94 (2010), abstract",
+    "Flajolet-Odlyzko EUROCRYPT 1989/1990 reference",
+    "Resultary query: uniform random mapping fixed points cyclic points sharp total variation dependence first order n inverse constant"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp n^-1 total-variation dependence of fixed and cyclic points in uniform random mappings",
+  "limitations": [
+    "Scientific claim assessed against exact frozen source tree and specific reviewed RESULT.md, checker and metadata blobs.",
+    "Previous self-review is not treated as independent science; public audit status remains unverified.",
+    "No published modification or external attestation is represented."
+  ],
+  "residual_risks": [
+    "A historical first-order TV expansion may be present in mapping enumeration/permutation approximation literature not read in full.",
+    "The classical finite joint formula/covariance are not original and must not be represented as new alone."
+  ],
+  "schema_version": 1
+}

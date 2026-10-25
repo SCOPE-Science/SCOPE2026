@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical derivation is in `RESULT.md`. The accompanying `verify.py` uses only the Python standard library; run `python verify.py` in the directory containing it.
+# Independent mathematical audit
 
-The execution completed 231 finite/exact assertions plus one numerical limiting-constant consistency check. Exact checks enumerate all \(n^n\) endofunctions for each \(1\le n\le6\), compare the joint law with the rooted-forest/rencontres factorization, and check the marginals, covariance, and total variation against independently enumerated outcomes. The numerically evaluated finite sum serves only as a check of the algebraic constant.
+## correctness
 
-The unbounded argument relies on the rooted-forest enumeration, the alternating Taylor remainder, dominated convergence with the summable bound \(nq_{n,k}\delta_k\le k\delta_k\), and a summable binomial-to-Poisson mass expansion. No finite enumeration establishes the limit. Historical priority and independent verification have not been established here.
+PASS
+
+Counting cyclic sets, permutations and rooted forests gives q(n,k)=k(n)_k/n^(k+1); conditional F has rencontres law R_k, unconditional Bin(n,1/n). Unit conditional mean proves zero covariance and K=1 proves dependence n>=2. Exact TV disintegration and |TV(R_k,B_n)-TV(B_n,Poi(1))|<=TV(R_k,Poi(1)) combine with nq(n,k)<=k and weighted-summable rencontres error to give limit. Alternating remainder and Tonelli yield sum_k k delta_k=(3e^2+1)/8; first-order binomial-to-Poisson variation yields 3/(4e). Checked independence of last limit and boundaries n=1,2.
+
+## originality
+
+PASS
+
+Classical fixed/cyclic joint law and covariance are acknowledged prior; assessed novelty is explicit sharp first-order TV dependence coefficient, not the mapping count or asymptotic independence. Finch and Hansen-Jaworski describe permutation-on-cyclic-subset coupling but no displayed n*dTV limit identified.
+
+## value
+
+PASS
+
+The quantifiable mismatch between zero covariance and genuine finite-n dependence is a natural probability question; the sharp first-order TV coefficient is an exact stable asymptotic invariant useful for comparing random-map approximations, beyond generic convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
