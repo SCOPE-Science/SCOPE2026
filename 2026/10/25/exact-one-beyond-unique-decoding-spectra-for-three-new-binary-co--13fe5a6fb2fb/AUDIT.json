@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Pairwise error sets in a radius-r ball are disjoint at d>=2r-1, close triangles have unique majority center, pair intersections have C(2r,r) centers, and four-clique incidences prove the exact full spectra via binomial moments. The self-contained integer checker recomputes all three original distance bounds, E/T/Q counts, center distinctness, and histograms; independent full-cube enumeration matched.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11609 proves cardinalities 84, 196, 65 and distances 9,9,11, not exact fourth-order decoding incidences.",
+        "Published Hamming-ball and code support spectra returned for other families, not these three explicit codebooks."
+      ],
+      "reasoning": "The general minimum-distance bound ensures unique correction through radius four or five; even the universal disjoint-support bound does not force the actual 0..4 list spectra. The three paper-specific third/fourth moments depend on their concrete codeword geometry.",
+      "searches": [
+        "Exact one-beyond-unique Hamming list decoding profile three binary codes Ota Osa Harada October 2026 22 84 9 24 196 9 25 65 11",
+        "Four-codeword common Hamming ball centers majority decoding ternary intersections min distance 2r-1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.11609",
+      "https://aeb.win.tue.nl/codes/binary-1.html",
+      "Published finding: Complete support profile of the new optimal binary LCD [55,7,25] code (different code family; inspected title and summary only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11609 Sections 3--4 state only new lower bounds and provide word lists plus a pairwise-distance verifier."
+      ],
+      "reasoning": "Knowing M,n,d alone implies unique decoding below radius r and a coarse list cap, not exact N_j. The original explicit word sets uniquely determine all N_j in principle, but deriving all high-order collision counts and proving list-size boundaries requires the new finite calculation; there is no identified published numerical or general statement subsuming these particular values.",
+      "searches": [
+        "binary (24,196,9) 2026 code Hamming radius 5 multiplicity spectrum",
+        "Exact one-beyond-unique Hamming list decoding profile three binary codes Ota Osa Harada October 2026 22 84 9 24 196 9 25 65 11",
+        "\"Ota\" \"Osa\" \"Harada\" \"Hamming ball\" \"list\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11609 Section 4 publishes the three raw codeword lists and their minimum distances, without a radius-one-beyond-unique multiplicity census."
+      ],
+      "reasoning": "Equivalent descriptions are the distribution of numbers of codewords in Hamming balls, finite list-decoding ambiguities under a uniform received-word measure, and high-order Hamming ball incidence moments. The original list of codewords determines the invariant computationally but does not report this evaluated finite higher-order property.",
+      "searches": [
+        "Ota Osa Harada 2026 binary 22 84 9 exact Hamming radius 5 list size four extremal centers list decoding",
+        "Hamming ball incidence multiplicity distribution for Ota Osa Harada 2026 binary error correcting code constructions 84 196 65"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://aeb.win.tue.nl/codes/binary-1.html tabulates bounds for A_2(n,d), rather than numbers of radius-r centers of each list size.",
+        "https://arxiv.org/abs/2610.11609 Section 4 is a list of codewords, not a table of decoding lists."
+      ],
+      "reasoning": "No exact matching ambient-cube list multiplicity table was located for the three published sets.",
+      "searches": [
+        "\"22,84,9\" \"list\" \"radius\"",
+        "\"24,196,9\" \"list decoding\"",
+        "\"25,65,11\" \"list\" 2026"
+      ]
+    },
+    "rationale": "Published codebook and size/distance assertions in Ota--Osa--Harada do not state the exact received-word list multiplicity distributions or the high-order incidence counts. The numerical claim is explicitly scoped to these published codebooks. Searches of published related records and online literature did not disclose matching three-code spectra. Unindexed duplication is possible.",
+    "residual_risks": [
+      "An unindexed or independent computation may have published these spectra.",
+      "Exact numerical statements concern the specific source codebooks rather than all codes with the same parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the underlying codewords and M,d; NOT_COVERING the exact radius-five/six list multiplicity vectors or the E,T,Q enumerations.",
+        "evidence": [
+          "Section 3, Proposition 3.1 only gives A_2 lower bounds.",
+          "Section 4 provides complete codebook decimal lists and an exhaustive pairwise-distance checker."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11609",
+        "material_read": "Abstract, introduction, definitions, results, all three complete decimal codeword lists and references (Sections 1--4).",
+        "method": "Read complete web-rendered arXiv text, including the lists in Section 4.",
+        "title": "Three Improved Lower Bounds for Binary Error-Correcting Codes",
+        "trigger": "Exact codeword sources and likely direct prior coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: records A_2(n,d) lower/upper values, not Hamming ball list-size census.",
+        "evidence": [
+          "The table defines A_2(n,d) as maximum code size and tabulates distance columns."
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+        "material_read": "General code-bounds table headings, its reduction from odd to even minimum distance, and entries surrounding lengths 21--25.",
+        "method": "Read accessible online table excerpt.",
+        "title": "Small binary codes: Table of general binary codes",
+        "trigger": "Possible existing exact database for the same code parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13fe5a6f-b2fb-4487-8718-a1efac71c885",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-list decoding one error beyond the unique-decoding guarantee is a natural robustness invariant of the record-sized 2026 code constructions. Three exact profiles differentiate the maximum decoding-list size (4,4,3), with rare extreme ambiguity centers, and the general majority/incidence lemma gives a reusable way to evaluate higher-order ambiguity without scanning the ambient cube.",
+    "status": "PASS"
+  }
+}
