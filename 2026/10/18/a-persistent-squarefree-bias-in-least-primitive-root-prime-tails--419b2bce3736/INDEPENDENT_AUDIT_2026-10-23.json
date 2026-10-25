@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T12:57:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Source RESULT.md blob 2c7c706266c9a6562b9e72b2aba5ec82ab0ff25f",
+        "Local modulus-p² formula and finite product independently evaluated for small p",
+        "Johnston–Naik Section4 CRT unrestricted baseline"
+      ],
+      "rationale": "Primitive-root classes count φ(p−1), and CRT local squarefree failure classes modulo p² number r_p=p²−1−pφ(p−1), including p=2. Möbius inversion on square divisors coprime to Q(y) yields uniform S_N=(N/ζ2)B(y)+O(Q(y)^2√N), while U_N=NA(y)+O(Q(y)). PNT implies log Q(y)~y, lower bounds A,B≥(1/3)2^{-π(y)} ensure relative uniformity y≤(1/4−ε)log N. The correction e_p=φ(p−1)/[p(p²−1)(1−φ(p−1)/p)] has absolutely summable O(p^-2), yielding strict 0<K<1 and its decimal interval from exact product plus tail. Independent arithmetic product through p=31 gave 0.59392625 before tail, consistent with K≈0.59167.",
+      "residual_risks": [
+        "Finite prime product to 31 does not prove numerical enclosure; exact outward-rounded certificate in source VERIFY.py was inspected but not independently rerun to L=100000."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnston–Naik arXiv:2610.08569 §4; Fan–Pollack arXiv:2505.05601 pp.16–17 squarefree input remark."
+        ],
+        "reasoning": "Johnston–Naik proves the unrestricted CRT product A(y) in its Section 4 and Fan–Pollack obtains conditional-GRH fixed-g least-prime bounds; squarefree restrictions on a given g do not imply the unconditional joint p² residue sieve over random g. A general squarefree progression theorem might supply a more abstract route.",
+        "searches": [
+          "least prime modulus primitive root squarefree integers conditional probability CRT sieve squarefree bias Euler product",
+          "primitive root least prime sampled squarefree conditional survival ratio infinite Euler product",
+          "arXiv:2610.08569 §4",
+          "arXiv:2505.05601v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.08569",
+        "https://arxiv.org/pdf/2505.05601",
+        "Resultary: least prime modulus primitive root squarefree integers conditional probability CRT sieve squarefree bias Euler product",
+        "Resultary: primitive root least prime sampled squarefree conditional survival ratio infinite Euler product"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johnston–Naik §4 eq.(4.1), compared with RESULT.md new p² local r_p."
+        ],
+        "reasoning": "Unrestricted A(y) is a prior ingredient, while replacing it by B(y)/ζ(2) requires exact mod-p² lifts and a uniform squarefree divisor sieve. In particular U_N(y) alone does not determine S_N(y) because squarefree and CRT survival are not independent at each prime.",
+        "searches": [
+          "least prime modulus primitive root squarefree integers conditional probability CRT sieve squarefree bias Euler product",
+          "primitive root least prime sampled squarefree conditional survival ratio infinite Euler product",
+          "arXiv:2610.08569 §4",
+          "arXiv:2505.05601v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(g)=least prime with g primitive root; local squarefree failure r_p=p²-1-pφ(p-1); K/ζ(2)."
+        ],
+        "reasoning": "Conditional squarefree prevalence S_N(y)/U_N(y), the relative squarefree survival B(y)/A(y), and the local p² factor 1-p phi(p-1)/(p²-1) describe the same sampling problem; the often searched least *squarefree primitive root modulo fixed p* reverses the sampled variable and is not equivalent.",
+        "searches": [
+          "least prime modulus primitive root squarefree integers conditional probability CRT sieve squarefree bias Euler product",
+          "primitive root least prime sampled squarefree conditional survival ratio infinite Euler product",
+          "arXiv:2610.08569 §4",
+          "arXiv:2505.05601v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary primitive-root/squarefree queries 2026-10-23: only distinct arithmetic topics surfaced."
+        ],
+        "reasoning": "Two distinct Resultary searches retrieved unrelated squarefree/cyclotomic number theory and no published product table for K or this conditional cutoff survival law.",
+        "searches": [
+          "least prime modulus primitive root squarefree integers conditional probability CRT sieve squarefree bias Euler product",
+          "primitive root least prime sampled squarefree conditional survival ratio infinite Euler product",
+          "arXiv:2610.08569 §4",
+          "arXiv:2505.05601v2"
+        ]
+      },
+      "rationale": "The precisely conditioned arithmetic selection bias and its growing-log-cutoff uniform asymptotic are not stated in the two highly pertinent primary sources that were materially read; they are more than a renaming of the unrestricted product.",
+      "residual_risks": [
+        "A generic squarefree-in-arithmetic-progressions theorem could imply the result as a corollary without naming least primitive-root primes; failed index searches do not exclude that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The prior unrestricted survival product A(y) is established; no conditioning-on-squarefree p² factor or B(y)/A(y) bias is given in those inspected sections.",
+          "evidence": [
+            "arXiv:2610.08569, Section 4 Lemmas 4.1–4.2 and eq.(4.1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08569",
+          "material_read": "Full Section 4 including Lemmas 4.1–4.2, proof of Theorem 1.3 and introductory squarefree remarks.",
+          "method": "Read public arXiv full-text HTML, lines 408–466, compared exact CRT residue product to p² squarefree local count.",
+          "title": "The least prime with a given primitive root and a variant of the larger sieve",
+          "trigger": "Recent same least-modulus P(g) statistic."
+        },
+        {
+          "assessment": "Squarefree-base inequalities for an individual g are different from the new unconditional squarefree-sample survival quotient.",
+          "evidence": [
+            "arXiv:2505.05601v2, Introduction, p.17 squarefree g remark"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.05601",
+          "material_read": "Original 27-page PDF, abstract/intro, squarefree remarks on pp. 16–17 and relevant passages in §§3–5; PDF first page visually inspected.",
+          "method": "Primary full-text search and page reading; separated fixed-base GRH bounds from sampled-base unconditional tail.",
+          "title": "Counting primes with a given primitive root, uniformly",
+          "trigger": "Earlier uniform least-Artin-prime study including a squarefree-base remark."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Squarefree-conditioned limiting selection ratio K/ζ(2), growing y bound."
+      ],
+      "rationale": "Squarefree integers are a canonical arithmetic positive-density family and appear in least Artin-prime studies. Conditioning on repeated test failure exhibits a robust nontrivial deficit 0.3597 vs natural 0.6079, with exact product and moving logarithmic cutoff. This is a meaningful dependence question, not a generic fixed-modulus exercise.",
+      "residual_risks": [
+        "Cutoff 1/4 not claimed optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite prime product to 31 does not prove numerical enclosure; exact outward-rounded certificate in source VERIFY.py was inspected but not independently rerun to L=100000.",
+    "A generic squarefree-in-arithmetic-progressions theorem could imply the result as a corollary without naming least primitive-root primes; failed index searches do not exclude that.",
+    "Cutoff 1/4 not claimed optimal."
+  ],
+  "schema_version": 1
+}

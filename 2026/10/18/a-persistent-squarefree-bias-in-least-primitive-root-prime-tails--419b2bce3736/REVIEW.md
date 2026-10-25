@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The primitive-root count \(\varphi(p-1)\) and exact \(p^2\)-lift count yield \(r_p=p^2-1-p\varphi(p-1)\). The Möbius squarefree sieve and Chinese remainder theorem prove an explicit absolute error \(O(Q(y)^2\sqrt N)\) uniformly; the prime number theorem gives the relative asymptotic up to the stated cutoff. The Euler product is strictly positive because the deviations from one are bounded by a convergent \(\sum_p O(p^{-2})\). Independent modular enumeration and finite-product checks pass. There is no unproved analytic hypothesis.
+## correctness
 
-**Originality — PASS, with stated risk.** Johnston–Naik Section 4 counts residues avoiding primitive-root tests without a squarefree restriction, and Fan–Pollack's sampling law likewise averages over unrestricted bases; neither supplies the local squarefree factor \(p\varphi(p-1)/(p^2-1)\), the growing-cutoff squarefree count, or the nontrivial limiting bias \(K\). Their bounds for *individual squarefree bases* are different statements and do not imply this conditional sampling law. Targeted result-record searches and available prior claim comparisons did not reveal covering work. A general squarefree-sieve theorem could imply this result without mentioning the exact application, so completeness of prior coverage remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** Squarefree integers are a singled-out arithmetic class in the least-Artin-prime literature. The result identifies a concrete, enduring selection bias for the natural least-prime cutoff rather than just a fixed-prime probability. Its explicit cutoff range turns the local phenomenon into a nontrivial global limit, and the product constant is quantitatively reproducible.
+Primitive-root classes count φ(p−1), and CRT local squarefree failure classes modulo p² number r_p=p²−1−pφ(p−1), including p=2. Möbius inversion on square divisors coprime to Q(y) yields uniform S_N=(N/ζ2)B(y)+O(Q(y)^2√N), while U_N=NA(y)+O(Q(y)). PNT implies log Q(y)~y, lower bounds A,B≥(1/3)2^{-π(y)} ensure relative uniformity y≤(1/4−ε)log N. The correction e_p=φ(p−1)/[p(p²−1)(1−φ(p−1)/p)] has absolutely summable O(p^-2), yielding strict 0<K<1 and its decimal interval from exact product plus tail. Independent arithmetic product through p=31 gave 0.59392625 before tail, consistent with K≈0.59167.
 
-**Closest literature and limits.** Johnston–Naik (arXiv:2610.08569v1, Theorem 1.3 and Section 4); Fan–Pollack (arXiv:2505.05601v1, Introduction and Section 4). The result does not improve the full worst-case Artin-prime bound, prove individual infinitude, or claim the cutoff coefficient \(1/4\) is optimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precisely conditioned arithmetic selection bias and its growing-log-cutoff uniform asymptotic are not stated in the two highly pertinent primary sources that were materially read; they are more than a renaming of the unrestricted product.
+
+## value
+
+PASS
+
+Squarefree integers are a canonical arithmetic positive-density family and appear in least Artin-prime studies. Conditioning on repeated test failure exhibits a robust nontrivial deficit 0.3597 vs natural 0.6079, with exact product and moving logarithmic cutoff. This is a meaningful dependence question, not a generic fixed-modulus exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
