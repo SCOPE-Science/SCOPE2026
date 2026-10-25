@@ -1,0 +1,11 @@
+# Research comparison and assessment
+
+Correctness — PASS. The chain-level separation of trivial and augmentation fiber coordinates proves a literal equivariant direct sum of augmented chain complexes, not a guessed spectral-sequence collapse. Path-link and cycle homology fix the single-degree condition; the fixed-face Lefschetz sum recovers every group-character trace. Exact independent mod-two checks and chain traces are included with their limits.
+
+Originality — PASS, qualified. General vertex-inflation results cover nonequivariant homotopy and broad wedge counts; these are explicitly excluded from the priority claim. Okura's forest lexicographic result and Berghoff's cycle-neighborhood spectral sequence do not provide the all-element semidirect-product character (including both reflection types, arbitrary independent fiber permutations and the link's signed Lefschetz contribution). The earlier path-blowup fiber module lacks cyclic dihedral action; categorical cycle products are different graphs. Actual database and literature searches are detailed in AUDIT.json. A mathematically equivalent, unindexed equivariant construction is a residual priority risk, and this is a self-review only.
+
+Value — PASS. Ordinary Betti numbers collapse all the nonisomorphic dihedral and color actions into dimensions. The trace formula determines arbitrary group-element characters and rational homology of every subgroup quotient by averaging. It supplies a uniform, symmetry-sensitive classification for an infinite graph family and handles the orientation signs that cannot be read from the known non-equivariant homotopy types. No irreducible decomposition or integral equivariant splitting is claimed.
+
+Closest sources: Berghoff (arXiv:2008.06267), Okura (arXiv:2109.04181 and arXiv:2303.11984), Björner–Wachs–Welker (2005), and Ayzenberg–Khoroshavkina (arXiv:2602.08694). Primary full texts were inspected to the degree described in AUDIT.json. Main residual risks concern unindexed equivalent equivariant results and the possibility of viewing the direct-sum isomorphism as a straightforward refinement of earlier general inflation theorems.
+
+Self-review: passed. Independent audit: not yet performed.
