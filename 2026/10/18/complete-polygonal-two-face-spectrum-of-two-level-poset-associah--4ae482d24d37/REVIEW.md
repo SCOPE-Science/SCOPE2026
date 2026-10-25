@@ -1,12 +1,21 @@
-# Mathematical review: complete biclique-poset polygon spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The face dictionary is Galashin's Theorem 1.2 for his specific family, not a generic graph-associahedron analogy. In the two-level ordinal sum every proper tube is a mixed subset. Any pair of disjoint mixed tubes gives arrows in both directions, so tubings are precisely nested chains. Maximal chains start from a lower/upper pair and add remaining labels. A two-face deletes two ranks from the maximal chain: nonadjacent omissions give four completions, adjacent noninitial omissions give six, and initial omissions give six or eight according to the class split of the four-element set. All missing-rank cases are exhausted and multiplicities follow by exact incidence counting. The octagon obstruction follows from type-A root directions. The standalone independent enumerator passed for all 25 ordered pairs of positive level sizes with total size four through eight, counting 216,147 two-faces. The infinite theorem is analytic-combinatorial, not extrapolated from the finite checks.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-Galashin (arXiv:2110.07257) proves the defining tubing/face-lattice mechanism. Sack (arXiv:2301.11449 and FPSAC 2023 extended abstract, Section 5.1) proves realization and gives the full h-vector descent formula for this same two-level family. That establishes the *total* two-face count but does not state or supply a polygon-type disaggregation. The older 2015 nested-poset-polytopes paper exhibits octagons in a different construction; the general occurrence of octagons is therefore known, and not claimed as novel. The contribution is the closed three-type polygon spectrum, sharp existence criterion, and exact count for every pair of class sizes. The complete-bipartite graph associahedron is a separate construction. Searches for 'polygon two-face spectrum', 'octagonal two-faces', and equivalent mixed-subset-chain completion formulas found no covering result. Remaining risk: a terminology-different local-face refinement may exist outside the inspected primary texts or ranked records.
+PASS
 
-## Mathematical value — PASS
-Two-face types are a natural invariant distinguishing Galashin's simple polytopes from generalized permutohedra. Prior h-vector data merge all polygon types and cannot distinguish squares, hexagons, and octagons. The theorem supplies a complete classification for a canonical infinite two-parameter family, identifies the first octagonal obstruction, and quantifies its growth exactly, not merely for one small example. It does not purport to determine higher-dimensional face geometry.
+Galashin mixed convex connected proper tubes in the height-two ordinal sum are exactly mixed nontrivial subsets, and disjoint tubes form a prohibited directed 2-cycle. Thus all tubings are strict mixed-subset chains. Missing nonadjacent ranks give 4 completions, internal adjacent ranks give 6, while missing ranks 2 and 3 give 2ab completions on a mixed 4-set, hence 6 or 8. Counting subchains and completions proves all formulas and the absence of any other polygon. A 2-plane type-A root subsystem has <=6 directed edge rays, excluding generalized permutohedra when F8>0. Independently reconstructed chain enumeration for all 18 ordered p,q with 4<=p+q<=7, matching closed counts; inspected actual verify.py and RESULT.md; all-n theorem rests on combinatorial proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh comparison of exact statements and implications, with inspected primary mathematical sources, bounded Resultary searching, and recorded inaccessible potentially relevant sources. A known tube-poset representation entails the 2-face counts only after new explicit case counting. Earlier h- or f-enumerations constrain total counts and weighted incidence but leave an octagon-frequency freedom; no earlier direct formula was identified. Same-named alternative constructions cannot be substituted.
+
+## value
+
+PASS
+
+Two-face polygon spectrum and exact octagon multiplicity refine known f-vectors of a natural, widely studied all-size poset-associahedron family. They distinguish an entire family from generalized permutohedra and are independently useful exact face-lattice invariants, not arbitrarily chosen small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

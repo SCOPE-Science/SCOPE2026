@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The checker constructs every maximal chain of connected mixed proper tubes for each positive ordered part-size pair with total size four through eight. It indexes every two-face by its fixed subchain after deleting two tube ranks, and counts all maximal chains extending each fixed subchain. Each resulting number must be four, six, or eight; the checker then compares the complete observed histogram to the three closed formulas and checks incidence totals.
+## correctness
 
-The successful run printed `VERIFY_OK instances 25 total_polygon_faces 216147` after exact comparisons for all 25 parameter pairs. The checksum verification of embedded file bytes is separate from these mathematical checks. No floating-point arithmetic, external data, or third-party package is required. Finite enumeration does not prove all-dimensional completeness: the proof in RESULT.md counts every possible pair of omitted tube ranks for arbitrary sizes.
+PASS
 
-Publication-date evidence is the initial public posting of Galashin's arXiv:2110.07257 on 2021-10-14; later revisions are not substituted for that date. Independent mathematical audit has not been performed.
+Galashin mixed convex connected proper tubes in the height-two ordinal sum are exactly mixed nontrivial subsets, and disjoint tubes form a prohibited directed 2-cycle. Thus all tubings are strict mixed-subset chains. Missing nonadjacent ranks give 4 completions, internal adjacent ranks give 6, while missing ranks 2 and 3 give 2ab completions on a mixed 4-set, hence 6 or 8. Counting subchains and completions proves all formulas and the absence of any other polygon. A 2-plane type-A root subsystem has <=6 directed edge rays, excluding generalized permutohedra when F8>0. Independently reconstructed chain enumeration for all 18 ordered p,q with 4<=p+q<=7, matching closed counts; inspected actual verify.py and RESULT.md; all-n theorem rests on combinatorial proof.
+
+## originality
+
+PASS
+
+Fresh comparison of exact statements and implications, with inspected primary mathematical sources, bounded Resultary searching, and recorded inaccessible potentially relevant sources. A known tube-poset representation entails the 2-face counts only after new explicit case counting. Earlier h- or f-enumerations constrain total counts and weighted incidence but leave an octagon-frequency freedom; no earlier direct formula was identified. Same-named alternative constructions cannot be substituted.
+
+## value
+
+PASS
+
+Two-face polygon spectrum and exact octagon multiplicity refine known f-vectors of a natural, widely studied all-size poset-associahedron family. They distinguish an entire family from generalized permutohedra and are independently useful exact face-lattice invariants, not arbitrarily chosen small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
