@@ -1,19 +1,21 @@
-# Review of the three-oscillator optimal-mass theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed rational stationary conductance follows from a stable six-dimensional Ornstein–Uhlenbeck process. The proof reduces the cross-temperature stationary covariance to a fully specified eight-variable Sylvester equation and gives the exact determinant and required solution entry. The reciprocal-conductance difference is an algebraically exact nonnegative square divided by a positive denominator; its unique zero is the asserted optimizer. The proof covers every strictly positive central mass, pinning strength and equal endpoint friction, for unequal positive bath temperatures. An independent twenty-one-variable covariance reconstruction at eight rational parameter choices and symbolic checks of the eight-equation formulas passed. A finite collection of checks is not asserted to prove arbitrary-parameter claims; those rest on explicit algebra and a linear stability argument.
+PASS
 
-## Originality — PASS, with documented residual uncertainty
+For b>0, gamma>0, m>0 and identical endpoint baths, the six-dimensional Ornstein–Uhlenbeck drift is dissipative with no nonzero zero-dissipation invariant subspace (the pinned chain is Hurwitz). Sum/difference of endpoint coordinates reduce nonequilibrium covariance to eight Sylvester equations; their determinant is 4D(m)/m^2 and their cross-momentum entry gives K=gamma[1+gamma^2(b+1)m]/[2D(m)]. Direct algebra gives 1/K(m)-1/K(m*)=2gamma(b+1)^3(m-m*)^2/[1+gamma^2(b+1)m], m*=1+b/(b+1)^2. This positive-square identity verifies positivity and unique global optimum for every positive m,gamma,b; derivative also verifies strict increase then decrease. Independently solved the FULL 6-by-6 stationary covariance (not merely the reduced solver) at four exact rational b,gamma,m triples and symbolically verified the inverse-conductance square with independent SymPy algebra. Distinguish the finite covariance checks from the unrestricted polynomial proof.
 
-The most relevant primary works were examined at the level of model definition, heat-current formula, and main claimed conclusions. Dhar–Roy 2006 and Kundu 2010 contain general Green-function representations that cover the same class of pinned classical harmonic chains with white-noise endpoint baths. They supply the general current framework, not the evaluated three-site global central-mass optimum or the exact positive-square excess resistance. Roy–Dhar 2008 concerns disorder-averaged large-chain scaling; Kim 2013 considers a different quantum bath model and coupling optimization. No equivalent exact optimizer was found in the accessible published results or searched research records. The risk of an older small-system calculation or a hidden equivalent impedance-matching formula remains; non-retrieval alone does not establish novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central mass is a natural, physically interpretable design parameter: altering it changes resonant transport while keeping force constants and reservoirs fixed. The theorem solves its unconstrained positive-mass optimization exactly, gives a nontrivial friction-independent optimum, and produces a global quantitative penalty measuring mismatch. The strict improvement over equal masses is small for some parameters but systematic, structurally certified for all positive baths and pinning, and not an arbitrary table entry. The result is a finite harmonic-transport benchmark, not a claim about infinitely extended lattices.
+Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.
 
-## Boundaries
+## value
 
-Equal endpoint masses and frictions, three sites, strictly positive pinning, classical white-noise baths, and only mean stationary current are essential scope restrictions. General Green-function formulae predate the finding; independent bibliographic and scientific verification have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A pinned three-site chain with one tunable inertial defect is the smallest symmetric nontrivial thermal transport problem. The bath-independent optimum and its exact resistance penalty distinguish center-mass optimization from generic Green-function conductance formulas and give a sharp physically interpretable benchmark for harmonic defects. The all-positive-parameter classification is not merely a restatement of the Green-function method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

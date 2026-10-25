@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:54:35.087109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b>0, gamma>0, m>0 and identical endpoint baths, the six-dimensional Ornstein–Uhlenbeck drift is dissipative with no nonzero zero-dissipation invariant subspace (the pinned chain is Hurwitz). Sum/difference of endpoint coordinates reduce nonequilibrium covariance to eight Sylvester equations; their determinant is 4D(m)/m^2 and their cross-momentum entry gives K=gamma[1+gamma^2(b+1)m]/[2D(m)]. Direct algebra gives 1/K(m)-1/K(m*)=2gamma(b+1)^3(m-m*)^2/[1+gamma^2(b+1)m], m*=1+b/(b+1)^2. This positive-square identity verifies positivity and unique global optimum for every positive m,gamma,b; derivative also verifies strict increase then decrease. Independently solved the FULL 6-by-6 stationary covariance (not merely the reduced solver) at four exact rational b,gamma,m triples and symbolically verified the inverse-conductance square with independent SymPy algebra. Distinguish the finite covariance checks from the unrestricted polynomial proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhar–Roy and Kundu allow larger disordered harmonic lattices with endpoint Langevin reservoirs, so their general current formalism covers this physical setup but not an explicit universal optimal interior mass."
+        ],
+        "reasoning": "Broader model coverage is not automatic coverage of a nontrivial all-mass minimization. In the inspected Dhar–Roy current formulas, that optimizer is neither stated nor a corollary without specializing and comparing all m.",
+        "searches": [
+          "three oscillator pinned Langevin harmonic chain optimal middle mass conductance resonance resistance mass defect",
+          "cond-mat/0606465",
+          "arXiv:1009.0366",
+          "arXiv:0806.4693"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0606465",
+        "arXiv:1009.0366",
+        "arXiv:0806.4693",
+        "Resultary semantic query: three oscillator pinned Langevin harmonic chain optimal middle mass conductance resonance resistance mass defect"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general transmission formula can derive a rational conductance after matrix inversion, but does not directly assert exact central mass m*(b) independent of gamma or sharp resistance difference."
+        ],
+        "reasoning": "Credited green-function and general harmonic heat transport. Existing general expression plus substantial specific optimization algebra does not itself establish that the exact optimizer or penalty was previously stated; explicit prior implicit-special-case risk remains.",
+        "searches": [
+          "Dhar and Roy cond-mat/0606465",
+          "Kundu arXiv:1009.0366",
+          "Kim arXiv:1304.1283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Langevin covariance, nonequilibrium Green-function Landauer transmission and rational inverse resistance are equivalent ways to compute the same current; existing transmission framework includes the model."
+        ],
+        "reasoning": "Searched optimal central mass, impurity mass, thermal resistance minimum and finite three-site conductor aliases. No inspected statement gives m*=1+b/(b+1)^2 or its all-gamma square identity; a formula that specializes to it may still exist.",
+        "searches": [
+          "three oscillator pinned Langevin harmonic chain optimal middle mass conductance resonance resistance mass defect",
+          "Dhar and Roy 2006 cond-mat/0606465",
+          "Kundu 2010 arXiv:1009.0366"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite harmonic current examples and quantum chain transport tables concern fixed or differently varied masses/couplings; no exact all-b,gamma optimum identified."
+        ],
+        "reasoning": "The asserted result is a symbolic two-parameter optimum and resistance identity, not a recomputation of numerical temperature/conductance tables.",
+        "searches": [
+          "three oscillator pinned Langevin harmonic chain optimal middle mass conductance resonance resistance mass defect",
+          "Dhar–Roy Green-function examples",
+          "Kim arXiv:1304.1283"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.",
+      "residual_risks": [
+        "Broader harmonic-transmission formulas may have unpublished or overlooked three-site closed optimizers; literature priority is best-of-knowledge.",
+        "The C calculation independently sampled four rational covariance cases; the unrestricted claim rests on the explicit algebraic proof, not these samples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MODEL_COVERAGE_NOT_EXPLICIT_OPTIMIZER",
+          "evidence": [
+            "Green-function heat current is a general transport identity, not the stated global m minimizer."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/0606465",
+          "material_read": "Inspected accessible arXiv primary PDF model, heat-current Green-function representation including transmission integral and its application; PDF page image inspected.",
+          "method": "Read model/current formulas and compared variable mass objective; not a proof of exhaustive absence.",
+          "title": "Heat transport in harmonic lattices",
+          "trigger": "General exact harmonic-chain heat transport contains these reservoirs"
+        },
+        {
+          "assessment": "PLAUSIBLE_BROADER_MODEL_UNRESOLVED_FULL_TEXT",
+          "evidence": [
+            "May include specialized Green-function evaluations; no accessible specific optimization theorem identified."
+          ],
+          "identifier_or_url": "arXiv:1009.0366",
+          "material_read": "Accessible abstract and primary citation in package; full text could not be reopened independently in this run.",
+          "method": "Compared abstract, known model and source proof citations, without claiming full-text reading.",
+          "title": "Time auto-correlation function and Green-Kubo formula: A study on disordered harmonic chain",
+          "trigger": "Same pinned arbitrary-mass chain with Langevin endpoint baths"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": [
+            "Long-chain/disorder-averaged scaling does not state the exact three-site optimum."
+          ],
+          "identifier_or_url": "arXiv:0806.4693",
+          "material_read": "Accessible primary abstract and cited scope of long-chain disorder-averaged conductance; this run did not fully re-read the original paper.",
+          "method": "Compared distinct random-chain scaling and single central mass variable.",
+          "title": "Role of pinning potentials in heat transport through disordered harmonic chain",
+          "trigger": "Pinning and randomized mass transport could entail an optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A pinned three-site chain with one tunable inertial defect is the smallest symmetric nontrivial thermal transport problem. The bath-independent optimum and its exact resistance penalty distinguish center-mass optimization from generic Green-function conductance formulas and give a sharp physically interpretable benchmark for harmonic defects. The all-positive-parameter classification is not merely a restatement of the Green-function method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader harmonic-transmission formulas may have unpublished or overlooked three-site closed optimizers; literature priority is best-of-knowledge.",
+    "The C calculation independently sampled four rational covariance cases; the unrestricted claim rests on the explicit algebraic proof, not these samples.",
+    "Not an independent formal Lean certificate, expert attestation, or publication.",
+    "Raw Git tree SHA identity was matched to authoritative pinned tree response and file/blob references, without independently hashing raw Git tree encoding."
+  ],
+  "schema_version": 1
+}
