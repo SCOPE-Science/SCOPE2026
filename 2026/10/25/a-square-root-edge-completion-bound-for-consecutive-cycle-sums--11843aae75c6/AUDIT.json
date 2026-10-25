@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "An exact induction establishes all subset sums of 2,...,m. Each integer in the middle range has a connected explicit witness via star spokes plus one tail chord. The middle intervals concatenate because T_m>=n+4; singleton and deleted-vertex witnesses cover both ends. The parameter m<=n-4 makes all chords legal, and algebra gives the claimed sqrt(2n)+O(1) bound. The standard-library checker independently exercised all claimed finite checks and returned VERIFY_OK; finite tests are not used in the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marotti--Needleman arXiv:2610.08889v1 (pages 1-6, esp. the edge-completion section and final open question); first public 2026-10-06.",
+        "Cambie--Groenland DOI:10.1007/s00373-026-03026-8 (open HTML, abstract, Sections 1-4, proofs and concluding questions)."
+      ],
+      "reasoning": "Marotti--Needleman establish mEC(n)<=n/2-1 rather than O(sqrt n) and ask whether o(n) holds. Cambie--Groenland results about graph spectra with tunable weights do not apply to the fixed labels and fixed cycle with minimum added edges.",
+      "searches": [
+        "sublinear sqrt n upper bound minimum edge completion mEC(n) consecutive cycle sums Marotti Needleman 2026 adding chords",
+        "connected subgraph vertex-label sums 1 to n(n+1)/2 O(sqrt n) chords cycle consecutive labels",
+        "sum-complete cycle after adding O(sqrt n) chords subset sums consecutive integers",
+        "\"consecutive cycle sums\" \"sublinear\" edge completion",
+        "\"minimum edge completion\" \"sqrt\" cycle sums graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08889v1 original paper (full read)",
+      "Cambie and Groenland, Graphs and Combinatorics 42 (2026) article 35 (full HTML read)",
+      "published-finding corpus semantic records searched for direct problem, aliases, edge bounds and connected subset-sum coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marotti--Needleman arXiv:2610.08889v1 (pages 1-6, esp. the edge-completion section and final open question); first public 2026-10-06.",
+        "Cambie--Groenland DOI:10.1007/s00373-026-03026-8 (open HTML, abstract, Sections 1-4, proofs and concluding questions)."
+      ],
+      "reasoning": "The original paper establishes incompleteness of unaugmented cycles and a linear edge-completion upper bound; the present explicit chord set yields a strictly stronger square-root estimate, implying the stated open sublinearity. Cambie--Groenland chooses arbitrary weight assignments to distinguish graph structures or avoid repeated sums, neither providing the fixed consecutive-weight completion.",
+      "searches": [
+        "arXiv:2610.08889v1 full text Section on adding edges and final questions",
+        "Cambie--Groenland DOI:10.1007/s00373-026-03026-8 full HTML",
+        "published-finding corpus: connected subgraph vertex-label sums 1 to n(n+1)/2 O(sqrt n) chords cycle consecutive labels"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marotti--Needleman arXiv:2610.08889v1 (pages 1-6, esp. the edge-completion section and final open question); first public 2026-10-06.",
+        "Cambie--Groenland DOI:10.1007/s00373-026-03026-8 (open HTML, abstract, Sections 1-4, proofs and concluding questions)."
+      ],
+      "reasoning": "The direct equivalent is completing a cyclic graph of fixed weights 1..n so that its connected-set spectrum is [1,T_n]. Number theoretic additive bases typically allow all subsets and do not enforce connectivity; graph cover-free and matching parameters refer to different quantities.",
+      "searches": [
+        "Consecutive Cycle Sums Marotti Needleman minimum edge completion mEC(n) add one chord graph connected subsets sums 1..n n(n+1)/2",
+        "minimal chords completing consecutive integer cycle sums connected induced vertex subset exactly one chord",
+        "\"Consecutive Cycle Sums\" \"minimum edge completion\" \"1\" 2026",
+        "\"mEC(n)\" \"cycle\" completion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 and 2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689 concern different invariants.",
+        "arXiv:2610.08889v1 has small-order numerical tables, not the square-root construction."
+      ],
+      "reasoning": "No located table records the all-n family of at most m-1 chords. Small-order tables of exact mEC values cannot imply sublinear asymptotics.",
+      "searches": [
+        "published-finding corpus: Consecutive Cycle Sums Marotti Needleman minimum edge completion mEC(n) add one chord graph connected subsets sums 1..n n(n+1)/2",
+        "published-finding corpus: sublinear sqrt n upper bound minimum edge completion mEC(n) consecutive cycle sums Marotti Needleman 2026 adding chords",
+        "\"consecutive cycle sums\" \"sqrt\" chords"
+      ]
+    },
+    "rationale": "The closest direct primary source is arXiv:2610.08889v1, which provides a linear upper bound and poses the sublinearity problem expressly; the present proof establishes sublinearity for all n>=9. Relevant full-text work on connected subgraph sums instead concerns weight reconstruction and distinctness, not consecutive-weight edge completion. Dedicated web/published-finding corpus searches  found no implication of the present construction. Literature coverage is not exhaustive.",
+    "residual_risks": [
+      "An unindexed contemporaneous manuscript or subsequent stronger version may contain a comparable bound; targeted searches are not a uniqueness certificate.",
+      "No claim that the square-root exponent or coefficient is optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct motivating primary source and closest result. Its upper bound is linear and its open question is resolved by the new constructive theorem.",
+        "evidence": [
+          "arXiv:2610.08889v1, 2026-10-06, original text including its final question"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08889",
+        "material_read": "The original 7-page PDF: abstract/problem, bounds on original cycle, upper edge-completion bound, and stated open sublinearity question.",
+        "method": "Inspected complete original preprint text and rendered relevant page.",
+        "title": "Consecutive Cycle Sums",
+        "trigger": "Same labeled cycle, same minimum edge-completion parameter"
+      },
+      {
+        "assessment": "Not covering: its choice of variable weights for graph identification or distinct sums does not guarantee interval coverage with fixed consecutive weights and bounded new edges.",
+        "evidence": [
+          "DOI:10.1007/s00373-026-03026-8; Theorems 1-2 and Sections 3-4"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-026-03026-8",
+        "material_read": "Full lawful open-access HTML article, introduction through conclusion and central theorems/proofs.",
+        "method": "Read webpage full text, compared hypotheses of theorems 1-2 and section on sum-distinct assignments.",
+        "title": "Note on extremal problems about connected subgraph sums",
+        "trigger": "Shares the connected vertex-weight-sum operator, possible broader-coverage result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11843aae-75c6-4e1b-994d-6b1c899d128f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This answers a specific open sublinearity question in the contemporaneous motivating paper, replacing its linear general bound by a uniform, explicit O(sqrt n) construction. The core interval-tiling idea supplies connected witnesses for every target and links a natural consecutive-integer subset-sum lemma with sparse graph completion. This is structural progress, not a relabeling or isolated computation.",
+    "status": "PASS"
+  }
+}
