@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T02:49:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive integer shape m and 0<q,w<1, factoring the zero-inflated negative-binomial PGF gives G(z)=w[(1−qz)^m+c^m]/(1−qz)^m, with c=(1−q)((1−w)/w)^(1/m). The exact log-PGF coefficients are ν_k=[m q^k−Σ_j(q/(1−c e^{i(2j+1)π/m}))^k]/k. If c≥2cos(π/m), all root ratios have modulus ≤q<1, so ν_k≥0 and summable and G is explicitly compound Poisson. If m≥3 and c<2cos(π/m), numerator has nearest nonreal zero at modulus R<1/q; if coefficients ν_k were all nonnegative, Pringsheim forces a singularity of log G on the positive real axis at R, contradicting local analyticity of log G there. Therefore some coefficient is negative and no lattice compound-Poisson/infinitely divisible representation exists. Boundary equality and shapes m=1,2 are covered; c threshold translates to exact w threshold for m≥3. Independent rational recurrence checks up to coefficient 110 included examples inside/outside m=3,4 thresholds. Initially choosing outside w=1/64 near m=4 threshold did not find a negative within 110; no improper conclusion was drawn from that finite cutoff, and a farther outside w=1/16 exhibited a negative coefficient at k=5. Finite tests support but do not replace Pringsheim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Negative binomial is gamma mixed Poisson; adding structural zero makes a mixture of a point mass and gamma mixing law, in the scope of broad mixed-Poisson frameworks."
+        ],
+        "reasoning": "An implication from a stronger mixing-law theorem is conceivable and was specifically investigated. Accessible abstract/general characterizations do not furnish a decisive calculation of this integer-shape zero-inflation threshold. Institutional full-text access was blocked by safety; neither negative coverage nor confirmed novelty of that source is asserted.",
+        "searches": [
+          "zero inflated negative binomial distribution infinite divisibility compound Poisson sharp threshold Poisson mixture",
+          "Puri and Goldie 1979 Poisson mixtures and quasi-infinite divisibility",
+          "Bar-Lev–Ridder arxiv:2003.13854"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md dcbb52611ac910573fc2b26038d5ed54302b921c and verify.py 6d374241e51c8d4d031545f3e50ca6b2acbb1f94",
+        "arxiv:2011.08530",
+        "arxiv:2003.13854",
+        "DOI 10.2307/3213382 abstract and access limitations",
+        "Resultary negative-binomial ID search",
+        "Independent exact recurrence through k=110 with inside/outside examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General CP coefficient nonnegativity plus numerator root locations and Pringsheim yields the given closed threshold; no equivalent explicit phase law seen in accessible statements."
+        ],
+        "reasoning": "The theorem makes a natural statistically motivated restriction of a general criterion but computes a non-obvious and sharp parameter boundary. The possibility that Puri–Goldie’s broader theory implies it cannot be excluded without full text; retain this explicit priority risk.",
+        "searches": [
+          "arxiv:2011.08530",
+          "arxiv:2003.13854",
+          "doi:10.2307/3213382"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general nonnegative integer infinite-divisibility criterion is nonnegative logarithmic PGF (compound Poisson); mixed Poisson and quasi-infinite-divisibility theories treat related distributions."
+        ],
+        "reasoning": "The generic Lévy-coefficient characterization is NOT independently new. The claim is the exact closed condition c≥2cos(π/m) for the particular structural-zero NB mixture. Equivalent generic frameworks do not explicitly yield this boundary without factorization/Pringsheim comparison. The original 1979 mixed-Poisson article remains inaccessible, so a hidden equivalent special case is possible.",
+        "searches": [
+          "zero inflated negative binomial distribution infinite divisibility compound Poisson sharp threshold Poisson mixture",
+          "Berger–Lindner arxiv:2011.08530",
+          "Puri–Goldie DOI:10.2307/3213382"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed published count-distribution records address negative-multinomial shape modes and Bernoulli mixtures, not exact infinite-divisibility thresholds for ZINB."
+        ],
+        "reasoning": "No exact ZINB shape/weight boundary table was found in the searched records; this is limited positive evidence only, not proof of novelty.",
+        "searches": [
+          "zero inflated negative binomial distribution infinite divisibility compound Poisson sharp threshold Poisson mixture",
+          "Resultary negative binomial infinite divisibility semantic search",
+          "zero-modified negative binomial and infinite divisibility literature"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. The theorem makes a natural statistically motivated restriction of a general criterion but computes a non-obvious and sharp parameter boundary. The possibility that Puri–Goldie’s broader theory implies it cannot be excluded without full text; retain this explicit priority risk.",
+      "residual_risks": [
+        "Puri–Goldie 1979 full text not read; an equivalent special case of its broad Poisson-mixing theorem could cover this boundary. An authorized full-text attempt was safety-blocked; no retry or bypass.",
+        "Other pre-1980 mixed-Poisson and zero-modified distribution literature may use different parameterization.",
+        "No claims for noninteger positive shapes or mixture endpoints w=0,1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lattice ID framework; no inspected explicit zero-inflated NB m,q,w threshold.",
+          "evidence": "General characterization via compound-Poisson nonnegative logarithmic coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.08530",
+          "material_read": "Abstract and stated general discrete infinite-divisibility framework",
+          "method": "arXiv accessible paper statements and secondary summary",
+          "title": "A Cramér–Wold device for infinite divisibility of integer-valued distributions",
+          "trigger": "Closest direct general criterion for lattice infinitely divisible laws"
+        },
+        {
+          "assessment": "Inaccessible plausible dominating source; NEITHER covered nor not-covering verdict established from abstract.",
+          "evidence": "Mixed-Poisson/quasi-infinite-divisible general subject; exact ZINB threshold comparison remains open.",
+          "identifier_or_url": "https://doi.org/10.2307/3213382",
+          "material_read": "Publisher abstract, bibliographic record and accessible summary only; full body NOT READ",
+          "method": "Lawful OA/preprint lookup then authorized institutional retrieval attempted, but blocked by safety checks",
+          "title": "Poisson mixtures and quasi-infinite divisibility of distributions",
+          "trigger": "Broad primary 1979 theory directly concerning mixed-Poisson laws including gamma mixing"
+        },
+        {
+          "assessment": "Describes zero-inflated count distribution frameworks without the inspected sharp integer-shape ID phase boundary.",
+          "evidence": "The original count-model construction is known; sharp ID criterion not observed in viewed material.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.13854",
+          "material_read": "Abstract and model specifications, not all proof sections",
+          "method": "Lawful OA arXiv abstract/primary statement comparison",
+          "title": "Exponential dispersion models for overdispersed zero-inflated count data",
+          "trigger": "Same statistical ZINB/zero-inflation model class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed sharp if-and-only-if phase boundary for infinite divisibility of a widely used structural-zero count family is a meaningful distribution-theoretic invariant, with a constructive compound-Poisson Lévy measure on one side and a root/Pringsheim obstruction on the other. It shows a qualitative transition at shape 3 and explicit weights such as w*=1/9 (m=3,q=1/2) and 1/65 (m=4,q=1/2). This is a genuinely informative model classification rather than recomputation of a general CP criterion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md dcbb52611ac910573fc2b26038d5ed54302b921c and verify.py 6d374241e51c8d4d031545f3e50ca6b2acbb1f94",
+    "arxiv:2011.08530",
+    "arxiv:2003.13854",
+    "DOI 10.2307/3213382 abstract and access limitations",
+    "Resultary negative-binomial ID search",
+    "Independent exact recurrence through k=110 with inside/outside examples"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific originality is best of current inspected sources, not attestation of absolute priority. Finite independent tests corroborate but do not replace the analytical all-parameter proof. Publication is blocked by incomplete privacy-safe metadata sanitization.",
+  "residual_risks": [
+    "Puri–Goldie 1979 full text not read; an equivalent special case of its broad Poisson-mixing theorem could cover this boundary. An authorized full-text attempt was safety-blocked; no retry or bypass.",
+    "Other pre-1980 mixed-Poisson and zero-modified distribution literature may use different parameterization.",
+    "No claims for noninteger positive shapes or mixture endpoints w=0,1."
+  ],
+  "schema_version": 1
+}

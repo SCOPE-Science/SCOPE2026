@@ -1,19 +1,21 @@
-# Review of the zero-inflated negative-binomial threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The generating function and numerator factorization give a unique logarithmic coefficient formula for every positive integer shape and every interior parameter. The root-modulus inequality implies nonnegative, summable compound-Poisson intensities including equality at the threshold. Below the threshold a nonreal numerator zero is closer to the origin than the positive generating-function pole; Pringsheim's theorem forces a negative logarithmic coefficient, proving non-divisibility. The standard library rational checker independently reproduced 126 configurations; finite checks are only corroboration.
+PASS
 
-## Originality
+For positive integer shape m and 0<q,w<1, factoring the zero-inflated negative-binomial PGF gives G(z)=w[(1−qz)^m+c^m]/(1−qz)^m, with c=(1−q)((1−w)/w)^(1/m). The exact log-PGF coefficients are ν_k=[m q^k−Σ_j(q/(1−c e^{i(2j+1)π/m}))^k]/k. If c≥2cos(π/m), all root ratios have modulus ≤q<1, so ν_k≥0 and summable and G is explicitly compound Poisson. If m≥3 and c<2cos(π/m), numerator has nearest nonreal zero at modulus R<1/q; if coefficients ν_k were all nonnegative, Pringsheim forces a singularity of log G on the positive real axis at R, contradicting local analyticity of log G there. Therefore some coefficient is negative and no lattice compound-Poisson/infinitely divisible representation exists. Boundary equality and shapes m=1,2 are covered; c threshold translates to exact w threshold for m≥3. Independent rational recurrence checks up to coefficient 110 included examples inside/outside m=3,4 thresholds. Initially choosing outside w=1/64 near m=4 threshold did not find a negative within 110; no improper conclusion was drawn from that finite cutoff, and a farther outside w=1/16 exhibited a negative coefficient at k=5. Finite tests support but do not replace Pringsheim.
 
-PASS on inspected primary material and database comparisons, with residual risk. Berger–Lindner's 2020 full arXiv text supplies general integer-valued divisibility and signed Lévy theory, not a parameter threshold for zero-inflated Pascal laws. Bar-Lev–Ridder's 2020 full text and Xekalaki's 2014 full-text survey describe zero-adjusted count models and their construction, not the displayed cosine boundary. Targeted searches under zero-inflated negative binomial, zero-modified Pascal, gamma-mixed Poisson, logarithmic coefficients, and root geometry, plus relevant published research records and earlier mathematical claims, did not identify a dominating explicit result. The full 1979 Puri–Goldie paper was inaccessible; its broad quasi-infinite-divisibility theory could contain an equivalent special case, so uniqueness is not certified.
+## originality
 
-## Value
+PASS
 
-PASS. The classification distinguishes a real structural transition in a widely used count family, not a routine moment comparison. Extra structural zeros preserve infinite divisibility universally for integer shape at most two, but at higher shape destroy it beyond an exact parameter boundary. The exact intensity formula also constructs the law in the surviving regime, while a complex-root obstruction rules it out elsewhere. For instance, at \(q=1/2\), the maximum allowable inflation weight is exactly \(1/9\) at shape three and \(1/65\) at shape four.
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. The theorem makes a natural statistically motivated restriction of a general criterion but computes a non-obvious and sharp parameter boundary. The possibility that Puri–Goldie’s broader theory implies it cannot be excluded without full text; retain this explicit priority risk.
 
-## Remaining scientific risks
+## value
 
-The result is proved only for positive integer shape and interior parameters. The inaccessible broad treatment by Puri and Goldie (1979) leaves a meaningful originality uncertainty. Any independent research audit must evaluate that material before asserting absolute priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A closed sharp if-and-only-if phase boundary for infinite divisibility of a widely used structural-zero count family is a meaningful distribution-theoretic invariant, with a constructive compound-Poisson Lévy measure on one side and a root/Pringsheim obstruction on the other. It shows a qualitative transition at shape 3 and explicit weights such as w*=1/9 (m=3,q=1/2) and 1/65 (m=4,q=1/2). This is a genuinely informative model classification rather than recomputation of a general CP criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
