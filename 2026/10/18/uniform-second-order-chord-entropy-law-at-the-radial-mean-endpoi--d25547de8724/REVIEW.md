@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has exact normalization from Fubini over parallel chords and the parameter conversion \(p=-1+\epsilon\). Convexity of chord lengths, their superlevel homotheties and the universal \(\Pr(Z<t)\le(d-1)t\) estimate supply logarithmic-moment and third-derivative bounds uniformly in body and direction. Taylor expansion of \(\log\mathbb E Z^\epsilon\) proves the stated two coefficients and dimension-only remainder. Polar integration proves the volume expansion. Berwald's published concave-function inequality provides the exact known sharp comparison and equality cases. Direct beta/gamma models and a disk model were independently numerically checked by the included checker; numerical checks are not relied upon for universality. A diameter-direction argument with continuity establishes strict positivity of the volume derivative. Nonstandard issue checked: all zero-chord boundary logarithms are integrated with exponentially bounded tails, not differentiated pointwise.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-Closest prior: Gardner–Zhang (1998) supplies the chord identity and Berwald-normalized containment; Langharst–Putterman (2025, arXiv:2210.04438, sections 1 and 3.4–3.5) supplies weighted Berwald and equality plus a qualitative endpoint limit; Langharst (arXiv:2603.14134v4, sections 1, 3 and theorem on convexity) proves the negative-parameter convexity theorem; the 2025 Cambridge article on Zhang's projection inequality explicitly gives the chord-moment identity and its Berwald implications. The finite-parameter sandwich and endpoint harmonic upper bound are established Berwald consequences and expressly NOT proposed as original. The distinct proposed contribution is the dimension-uniform-over-shape-and-direction second-order expansion, its explicit log-variance coefficient, uniform third-order remainder, and resulting second-order volume derivative. The most relevant accessible records concern sharp differentiability of cubical radial mean bodies or directional extremal shapes of the square, not this endpoint law. A more obscure previous endpoint expansion or an interpretation as an elementary implicit corollary remains a real novelty risk; absolute priority is not independently determined.
+PASS
 
-## Mathematical value — PASS
-The established theory identifies a qualitative limit toward a scaled polar projection body, but leaves its convergence rate and shape dependence unspecified. Here the entire infinite-dimensional family of convex-body shapes and all directions share a quantitative second-order law, without aspect-ratio regularity assumptions. The first coefficient is an interpretable arithmetic–geometric chord gap with exactly known sharp bounds; the second detects log-chord variance. A strictly positive volume first derivative and the squared chord-variance stability estimate explain how cylindrical and noncylindrical shapes differ. This is a motivated quantitative answer to an existing geometric-tomography endpoint, not a recomputation of a fixed table. It does not assert a new Berwald inequality or a better scale-normalized containment constant.
+For any full-dimensional compact convex K⊂R^d,d≥2, the exact Fubini chord reduction at p=−1+ε gives ρ_T/μ=(E Z^ε)^(1/(ε−1)). Chord concavity on the projection D bounds normalized chords 0<Z≤d and P(Z<t)≤(d−1)t, uniformly in K,u; hence logZ has uniformly bounded moments and cumulant derivatives through order three for ε≤1/4. Φ(0)=0, Φ′(0)=−J, Φ″(0)=V; Taylor divided by ε−1 yields εJ+ε²(J−V/2)+O_d(ε³). Berwald gives 0≤J≤H_(d−1)−log d, sharp prism/conical roof; pointwise g(z)=z−1−log z yields J≥E(Z−1)²/(2d²). Polar integration yields the stated volume coefficients; some direction has nonconstant chords (e.g. a diameter direction) so positive first coefficient. Independently evaluated Beta(1,d−1) cone moment expansions for d=2,3,5,9; this is corroboration only. No d-uniform remainder or optimal C_d claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Original part is the direction- and body-uniform dimension-only third-order error for second-order log chord moment expansion and integrated volume approach, not the known qualitative limit or sharp Berwald comparison, both explicitly credited.
+
+## value
+
+PASS
+
+Quantifies convergence of every normalized radial-mean body to its polar projection endpoint with a shape-uniform second-order entropy/variance law and volume rate. Uniform error and strict volume coefficient are valuable stability information absent from the qualitative limit; conical/prismatic equality sharpens interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
