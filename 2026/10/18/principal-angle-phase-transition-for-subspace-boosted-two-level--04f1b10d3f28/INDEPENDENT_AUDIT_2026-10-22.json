@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:11:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md blob d655dc9e524660bcce5cd0d67f9042a45ccef279",
+        "2026/10/18/principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/verify.py blob 0c26042b032f31bb936cc95e873852f343cd9cce",
+        "Independent private bounded cross-check source /mnt/data/scope08_science_checks.py (not a general proof)"
+      ],
+      "rationale": "For H=mu P_E+mu kappa(I-P_E) and W_gamma=I+(gamma-1)P_F, cosine-sine principal planes give a 2x2 positive block of determinant kappa*gamma and trace a+gamma*b, where a=kappa*cos(theta)^2+sin(theta)^2 and b=cos(theta)^2+kappa*sin(theta)^2. The maximum principal angle yields BOTH spectral extrema by trace monotonicity at fixed determinant; uncoupled diagonal eigenvalues lie between the extreme roots. Minimizing a/sqrt(gamma)+b*sqrt(gamma) for gamma>=1 gives unique gamma*=max(1,a/b), strict improvement only theta<pi/4, and exact (sqrt(1+z^2)+z)^2 optimal condition number there. At theta>=pi/4 gamma*=1 and condition=kappa. Bounded high-contrast condition forces theta=O(kappa^-1/2), and the stated critical-window limit follows from z. Valid for d>=2, 1<=k<d, kappa>1, theta in [0,pi/2]; no claimed bound for other spectral levels, anisotropic boosts, or CG iteration cost. Independently assembled 64 matrix spectra at mixed principal angles and compared characteristic roots and optimized gains numerically; bounded checks are not the all-d proof.",
+      "residual_risks": [
+        "The reduction presumes exactly two SPD eigenvalues and equal ranks; multilevel/mismatched ranks are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§3.2 analyzes projection/convergence rather than trace-determinant optimization of C_gamma.",
+          "The algorithm and loss do not give a worst-principal-angle scalar gamma optimum.",
+          "Proposition 4.3 concerns an effective condition-number estimate for deflation, not two-level SPD boosted 2x2 eigenvalues."
+        ],
+        "reasoning": "Kahl-Rittich bounds singular-deflated effective condition under angular perturbations; NeuraLSP includes learned low-dimensional subspaces but not a theorem giving exact positive scalar boost optimum.",
+        "searches": [
+          "Resultary: exact scalar subspace preconditioner boost principal angle two eigenvalue levels condition number 45 degree threshold",
+          "literature: principal angle low-rank preconditioning exact scalar boost optimization two-level spectrum; singular deflation effective condition bound"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "arXiv:2605.29304v1",
+          "material_read": "Full public HTML: introduction, construction and Sections 3.1-3.2",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods"
+        },
+        {
+          "identifier_or_url": "arXiv:2601.20174v1",
+          "material_read": "Full public HTML: §4.1–4.2 and Appendix A",
+          "title": "NeuraLSP: An Efficient and Rigorous Neural Left Singular Subspace Preconditioner for Conjugate Gradient Methods"
+        },
+        {
+          "identifier_or_url": "arXiv:1209.1963v4",
+          "material_read": "Full available PDF, especially §2, §4 and Proposition 4.3, including page screenshot",
+          "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior singular deflation, projection and multilevel coarse corrections do not imply the optimal gamma for W_gamma in a two-level SPD system without an extra spectral calculation.",
+          "§3.2 analyzes projection/convergence rather than trace-determinant optimization of C_gamma.",
+          "The algorithm and loss do not give a worst-principal-angle scalar gamma optimum."
+        ],
+        "reasoning": "Prior singular deflation, projection and multilevel coarse corrections do not imply the optimal gamma for W_gamma in a two-level SPD system without an extra spectral calculation.",
+        "searches": [
+          "Resultary: exact scalar subspace preconditioner boost principal angle two eigenvalue levels condition number 45 degree threshold",
+          "literature: principal angle low-rank preconditioning exact scalar boost optimization two-level spectrum; singular deflation effective condition bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§3.2 analyzes projection/convergence rather than trace-determinant optimization of C_gamma.",
+          "Source claim 2026/10/18/principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md (Git blob d655dc9e524660bcce5cd0d67f9042a45ccef279): Principal-angle operator norm of projector difference equals sin(theta_max); SPD scalar boost is a regularized correction rather than singular deflation. Exact trace/determinant structure distinguishes it."
+        ],
+        "reasoning": "Principal-angle operator norm of projector difference equals sin(theta_max); SPD scalar boost is a regularized correction rather than singular deflation. Exact trace/determinant structure distinguishes it.",
+        "searches": [
+          "Resultary: exact scalar subspace preconditioner boost principal angle two eigenvalue levels condition number 45 degree threshold",
+          "literature: principal angle low-rank preconditioning exact scalar boost optimization two-level spectrum; singular deflation effective condition bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search surfaced unrelated MINRES/Jacobi/Richardson angle/spectrum records, no same scalar projector extreme eigenvalue table or boost frontier; negative search alone not a novelty certificate."
+        ],
+        "reasoning": "Semantic search surfaced unrelated MINRES/Jacobi/Richardson angle/spectrum records, no same scalar projector extreme eigenvalue table or boost frontier; negative search alone not a novelty certificate.",
+        "searches": [
+          "Resultary: exact scalar subspace preconditioner boost principal angle two eigenvalue levels condition number 45 degree threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. Prior singular deflation, projection and multilevel coarse corrections do not imply the optimal gamma for W_gamma in a two-level SPD system without an extra spectral calculation.",
+      "residual_risks": [
+        "Equivalent two-level projector-boost calculation might occur in unindexed numerical-linear-algebra teaching or coarse-space preconditioner literature; priority is best of knowledge.",
+        "The exact beta=pi/4 transition applies only to gamma>=1, not all possible preconditioners."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: orthogonal constrained projection in randomized iteration, not SPD scalar boost",
+          "evidence": "§3.2 analyzes projection/convergence rather than trace-determinant optimization of C_gamma.",
+          "identifier_or_url": "arXiv:2605.29304v1",
+          "material_read": "Full public HTML: introduction, construction and Sections 3.1-3.2",
+          "method": "arXiv HTML full-text reading",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "same subspace-preconditioning keywords and spectral accuracy"
+        },
+        {
+          "assessment": "NOT_COVERING: multilevel coarse-grid correction, not this W_gamma",
+          "evidence": "The algorithm and loss do not give a worst-principal-angle scalar gamma optimum.",
+          "identifier_or_url": "arXiv:2601.20174v1",
+          "material_read": "Full public HTML: §4.1–4.2 and Appendix A",
+          "method": "arXiv HTML full-text reading",
+          "title": "NeuraLSP: An Efficient and Rigorous Neural Left Singular Subspace Preconditioner for Conjugate Gradient Methods",
+          "trigger": "approximate low modes and learned coarse corrections"
+        },
+        {
+          "assessment": "NOT_COVERING: singular deflated operator and a perturbation upper bound",
+          "evidence": "Proposition 4.3 concerns an effective condition-number estimate for deflation, not two-level SPD boosted 2x2 eigenvalues.",
+          "identifier_or_url": "arXiv:1209.1963v4",
+          "material_read": "Full available PDF, especially §2, §4 and Proposition 4.3, including page screenshot",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+          "trigger": "principal-angle bound for deflated-CG effective condition number"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md blob d655dc9e524660bcce5cd0d67f9042a45ccef279",
+        "arXiv:2605.29304v1",
+        "arXiv:2601.20174v1"
+      ],
+      "rationale": "Low-rank coarse-space preconditioners require a quantitative tolerance for subspace error. The exact worst-angle reduction, unique optimal boost, pi/4 no-gain boundary, and kappa^-1/2 contrast threshold provide a sharp design criterion rather than a generic spectral approximation estimate; natural two-level test problems and any rank k are covered.",
+      "residual_risks": [
+        "Importance is confined to the stated objects/parameters; do not claim a general unsolved conjecture or publication priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The reduction presumes exactly two SPD eigenvalues and equal ranks; multilevel/mismatched ranks are outside scope.",
+    "Equivalent two-level projector-boost calculation might occur in unindexed numerical-linear-algebra teaching or coarse-space preconditioner literature; priority is best of knowledge.",
+    "The exact beta=pi/4 transition applies only to gamma>=1, not all possible preconditioners."
+  ],
+  "schema_version": 1
+}
