@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 25-letter and 67-pair derivation, tree ccc11a72f5d1a4bce61eb10f804935ddb44fcc94",
+        "verify.py pinned Git blob ae7620a17db8bb61900d518270ed74d4e101af01 exact SymPy operations inspected",
+        "Cloitre/Ma/Zhang arXiv:2609.33421 Proposition 5.2 and Table 2",
+        "independent_checks_output.txt numerical independent solver"
+      ],
+      "rationale": "For all n>=0 define recurrence a(0)=0,a(1)=1,a(n)=n-a(n-a(n-a(n-1))) and increments d(n); the infinite morphic representation is a stated premise from Cloitre–Ma–Zhang, not inferred from a finite prefix. The productive 25-symbol substitution has incidence matrix M primitive because M^20 has all positive entries; its Perron root rho solves rho^3=rho+1. Letter frequencies v solve Mv=rho v. Every internal symbolic ordered pair contributes b_{uv}; each prior boundary pair maps to (last mu(u),first mu(v)), giving a 67-state deterministic Q and exact balance (rho I-Q)w=b. Since spectral radius(Q)=1<rho, w is uniquely determined. Count output 11 internally within eta(q) and across paired boundaries, normalize by mean output length L=1-rho+rho^2. Exact symbolic algebra in inspected verify.py is designed to verify P11=(4+9rho-8rho^2)/7 and output normalization; independent separately reconstructed PF/pair numerical system obtained P11≈0.2690628978898806 and covariance≈-0.0556550593548617, agreeing with formula. Stationarity yields P10=P01=rho^-2-P11 and P00=1-2rho^-2+P11, with rho^-2=1+rho-rho^2. Covariance (11+2rho-8rho^2)/7 is negative since rho>33/25 and its numerator is decreasing for x>1/8 and negative at 33/25. Finite prefix or floating checks alone are not exact cubic field certificates.",
+      "residual_risks": [
+        "The infinite recurrence/morphism identity is relied upon from published primary source; independent finite prefix is not a proof of that premise.",
+        "Independent numerical field reconstruction approximates; exact formulas also grounded in the inspected symbolic solver and algebraic derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary arXiv:2609.33421 full morphic theorem/balance constant; no general exact lag-one formula identified",
+          "Shallit arXiv:2503.01026 concerns different Narayana morphic word"
+        ],
+        "reasoning": "General unique ergodicity of primitive substitutions establishes existence/computability but neither this exact polynomial-in-rho invariant nor its sign without additional symbolic calculation.",
+        "searches": [
+          "Padovan nested recurrence increment adjacent pair frequency Cloitre Ma Zhang",
+          "morphic word 26-letter substitution Padovan nested recurrence autocorrelation",
+          "Shallit Narayana Morphism and Related Words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33421 full text Section 5 Table 2 Proposition 5.2 Corollary 5.3",
+        "arXiv:2503.01026 abstract",
+        "OEIS A076502",
+        "Resultary query: Padovan nested recurrence increment adjacent pair frequency Cloitre Ma Zhang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known c=rho^-2=1+rho-rho^2; stationarity only forces P01=P10=c-P11",
+          "New P11 determines P00,P01,P10 and covariance P11-c^2, giving sign <0"
+        ],
+        "reasoning": "The new vector implies the known marginal as a consistency identity; converse false because any admissible joint P11 range could share c. The source substitution enables deriving, but does not directly give, the new closed form.",
+        "searches": [
+          "Padovan nested recurrence increment adjacent pair frequency Cloitre Ma Zhang",
+          "Cloitre Ma Zhang Corollary 5.3 marginal frequency and covariance",
+          "exact rho pair frequency formula (4+9rho-8rho^2)/7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cloitre et al Proposition 5.2 gives output morphism and Corollary 5.3 gives one-letter frequency",
+          "Pair frequencies can equivalently be written length-two cylinder measures of the morphic word"
+        ],
+        "reasoning": "The full morphism determines pair frequencies algorithmically but does not state their closed form; marginal information c alone does not imply P11 or covariance. Alternate cylinder terminology was compared.",
+        "searches": [
+          "Padovan nested recurrence increment adjacent pair frequency Cloitre Ma Zhang",
+          "Padovan nested recurrence a(n) A076502 density consecutive increment 11 00 01 10 plastic",
+          "Cloitre Ma Zhang arXiv:2609.33421 Section 5 Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 2 lists productive morphism states and binary images, not output pair probabilities",
+          "OEIS A076502 concerns sequence values, not a verified complete lag-one joint law"
+        ],
+        "reasoning": "The new four-frequency table is not a known sequence table merely rewritten: requires weighting internal and cross-boundary pairs and normalizing differing binary output lengths.",
+        "searches": [
+          "Padovan nested recurrence increment adjacent pair frequency Cloitre Ma Zhang",
+          "OEIS A076502 Padovan nested recurrence two-point adjacent factor frequencies",
+          "arXiv:2609.33421 Table 2 Corollary 5.3"
+        ]
+      },
+      "rationale": "The cited primary authors published the substitution and one-letter increment frequency, but not the exact adjacent binary-pair vector or quantified negative lag-one covariance. This naturally calculable statistic is not automatically a stated/known result and its algebraic closed form is a specific new calculation. Best-of-knowledge PASS, with implicit-literature risk.",
+      "residual_risks": [
+        "A prior implicit full pair-frequency calculation in an unindexed source could exist.",
+        "Exact evaluation depends on primary substitution identity rather than re-proving it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Morphic representation and marginal are prior; no explicit lag-one full joint probability/covariance found in inspected sections",
+          "evidence": "Cloitre–Ma–Zhang 2026 Prop.5.2, Cor.5.3, Table 2",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33421",
+          "material_read": "Full accessible primary text, especially Section 5, Proposition 5.2, Corollary 5.3 and Table 2 with symbol images",
+          "method": "arXiv full text relevant material examined",
+          "title": "A Padovan-automatic description of a nested recurrence",
+          "trigger": "Exact same recurrence and needed 26-symbol morphism"
+        },
+        {
+          "assessment": "Different word; no identified implication to Padovan recurrence joint increments",
+          "evidence": "Shallit 2025 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2503.01026",
+          "material_read": "Title and abstract defining a separate morphic object",
+          "method": "Abstract-level comparison, not full-paper noncoverage assertion",
+          "title": "The Narayana Morphism and Related Words",
+          "trigger": "Potential word/substitution alias"
+        },
+        {
+          "assessment": "No verified adjacent-pair frequency table in consulted entry",
+          "evidence": "A076502 recurrence identity",
+          "identifier_or_url": "https://oeis.org/A076502",
+          "material_read": "Sequence entry and identifying recurrence as available",
+          "method": "Sequence database metadata",
+          "title": "OEIS A076502",
+          "trigger": "Canonical sequence identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact 2-block formula",
+        "Cloitre/Ma/Zhang known one-letter density"
+      ],
+      "rationale": "For a newly characterized nested recurrence, the nearest-neighbor joint law is the canonical first statistic beyond single-bit density. The exact four-cell algebraic distribution and strictly negative covariance demonstrate genuine local repulsion instead of independent Bernoulli increments, using a nontrivial 67-state boundary transfer. This precise natural invariant has value independent of any larger mixing theorem; no arbitrary lag selection is needed.",
+      "residual_risks": [
+        "No higher-lag laws, finite-prefix rates, or general mixing conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
