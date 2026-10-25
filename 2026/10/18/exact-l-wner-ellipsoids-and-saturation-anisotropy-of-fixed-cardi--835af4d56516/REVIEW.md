@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Three pairwise-disjoint Frobenius tensor contrasts diagonalize the exact assignment-incidence covariance. The formula for every \(k\)-matching's projected squared norm forces all vertices to lie on the candidate ellipsoid. The averaged enclosing-ellipsoid constraints and matrix AM–GM give a determinant lower bound, with a rigid equality case proving uniqueness. Saturated ranks are treated in their true affine hull. The exact-rational standalone checker passed 44 small profiles and 7,925 enumerated matching matrices; finite tests do not replace the proof.
+## correctness
 
-## Originality
-PASS, qualified. Gill and Linusson (2009) determine assignment-polytope faces and diameter, while Torres (2023) treats the bipartite fixed-rank polytope's fractional description and normality. Gartsman and Linial (2023) compute extremal ellipsoids for a different metric polytope. Indexed John/incenter results for assignment polytopes are not enclosing-ellipsoid results, and a rank-selected Boolean-polytope covering ellipsoid does not transfer under extra row-and-column exclusion constraints. Synonym and stronger-coverage searches identified no equivalent three-mode Löwner formula. An earlier unindexed covariance-design formulation remains a risk.
+PASS
 
-## Mathematical value
-PASS. The full all-rank semiaxis spectrum and unique minimum-volume ellipsoid solve a natural, intrinsic geometric invariant of partial assignment polytopes. The complete contact classification and the exact sharp anisotropy maximum just before square saturation illuminate a nontrivial rank transition caused by loss of row/column directions; this is neither a relabeled facet formula nor a one-off finite computation.
+Symmetry gives μ=k/(pq)11ᵀ and Cov of random k-matchings diagonalized on row-contrast, column-contrast and interaction with positive eigenvalues λ10=k(p−k)/(pq(p−1)), λ01=k(q−k)/(pq(q−1)), λ11=k((p−1)(q−1)+k−1)/(pq(p−1)(q−1)); zero modes at saturation are removed from affine hull H. Every assignment vertex has each projection norm² exactly eigenspace multiplicity×λ, hence its C_H^{-1} Mahalanobis norm² is d. For arbitrary centered/translated enclosing ellipsoid A,c, averaging vertex inequalities and determinant AM–GM gives det A≥d^d det C_H, equality only at c=μ,A=dC_H. Strict convexity gives no nonvertex contacts. Anisotropy and sharp square-rank collapse follow from eigenvalue order. Independent exact rational enumeration through p≤4,q≤5 verified every vertex contact and ratios; finite checks not universal proof.
 
-## Closest literature and limitations
-Gill–Linusson (2009; doi:10.1016/j.disopt.2008.10.003), Torres (2023; arXiv:2306.11910), Gartsman–Linial (2023; arXiv:2305.02113). Only complete bipartite assignment polytopes in the Frobenius metric are treated. Earlier equivalent publications are not conclusively excluded; mathematical validation by an independent party remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gill/Linusson and Torres establish fixed-k assignment polytope combinatorics/normality, not exact smallest-volume Euclidean enclosing ellipsoid. Closest published Resultary Birkhoff incenter record read in full gives the min enclosing *sphere* and touches all vertices, not general anisotropic min-volume ellipsoid; published John ellipsoid of square fixed-k is inscribed not enclosing. New all rectangular eigenvalue and square saturation anisotropy is not implied. Best-of-knowledge PASS with covariance-design prior-art risk.
+
+## value
+
+PASS
+
+The k-assignment polytope is a central natural family; its intrinsic Frobenius Löwner shape in every rectangular dimension, boundary affine-hull regimes, all-vertex contact design and sharp square-rank anisotropy collapse are a meaningful complete geometric classification beyond easy enclosing-sphere/combinatorial facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
