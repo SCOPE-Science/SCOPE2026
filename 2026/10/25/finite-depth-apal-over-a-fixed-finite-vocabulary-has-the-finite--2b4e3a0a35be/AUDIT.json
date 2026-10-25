@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The induction gives at most N_r types at depth r. Every allowed announcement is determined by its depth-d type, so finitely many global equivalence classes suffice. Equivalent announcements induce identical updates; finite expansion to public announcement logic and the standard S5 finite model property prove the result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper proves that unrestricted APAL lacks the finite model property and notes that announcement formulas may have arbitrary finite modal depth.",
+        "The 2023 paper studies SAPAL, FSAPAL, and SCAPAL and establishes expressivity and undecidability results for those vocabulary restrictions."
+      ],
+      "reasoning": "The unrestricted no-FMP theorem does not dominate this bounded fragment: its quantifier ranges over a larger, infinite set of announcement formulas. The atom-restricted variants in the second paper do not impose the same fixed modal-depth cutoff. The present theorem supplies a separate positive boundary result.",
+      "searches": [
+        "arXiv:2106.11498",
+        "doi:10.1093/logcom/exac012"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2106.11498",
+      "https://doi.org/10.4204/EPTCS.335.12",
+      "https://doi.org/10.1093/logcom/exac012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 theorem is a negative result for unrestricted quantified announcements.",
+        "The 2023 article analyzes different atom-domain restrictions and does not state the finite-depth expansion."
+      ],
+      "reasoning": "The current claim is not a corollary asserting FMP for unrestricted APAL. It changes the operator semantics by bounding announcement modal depth over a fixed finite vocabulary, then proves a finite expansion by finite-type counting.",
+      "searches": [
+        "arXiv:2106.11498, Theorem 10 and proof discussion",
+        "DOI 10.1093/logcom/exac012, Sections 3–6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Van Ditmarsch–French–Galimullin, arXiv:2106.11498, Sections 2–3, defines unrestricted quantified announcements and proves their failure of the finite model property.",
+        "Van Ditmarsch–Liu–Kuijer–Sedlár, DOI 10.1093/logcom/exac012, studies announcement quantifiers restricted by atom sets."
+      ],
+      "reasoning": "The stated variant fixes both a finite atom vocabulary and a finite modal-depth bound on every quantified announcement. Neither checked source states the finite-basis equivalence for this variant. The proof derives that equivalence from the finite number of bounded-depth epistemic types.",
+      "searches": [
+        "APAL fixed finite propositional vocabulary finite model property multi-agent S5 announcements only over fixed finite atom set",
+        "finite-vocabulary arbitrary public announcement logic non-finite-model property modal depth approximation finite path bisimulation",
+        "minimum modal depth quantified announcement formula without finite model property APAL"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching theorem or table was identified among the checked sources. The closest material concerns finite modal types and announcement stabilization, rather than this bounded quantifier."
+      ],
+      "reasoning": "There is no named exact database or table applicable to the claim. The search outcome is only a comparison aid, not a proof of novelty; the substantive comparison is with the two primary papers listed below.",
+      "searches": [
+        "APAL fixed finite propositional vocabulary finite model property multi-agent S5 announcements only over fixed finite atom set",
+        "finite-vocabulary arbitrary public announcement logic non-finite-model property modal depth approximation finite path bisimulation",
+        "minimum modal depth quantified announcement formula without finite model property APAL"
+      ]
+    },
+    "rationale": "The checked primary literature covers unrestricted APAL without the finite-depth cutoff and vocabulary-restricted variants without this fixed-depth theorem. No exact match was found in the checked comparisons. Residual risk remains because a bounded-fragment observation can be known outside the checked sources.",
+    "residual_risks": [
+      "An unlocated preprint, thesis, or lecture note may contain the same bounded-fragment observation.",
+      "The theorem is a finite-type compilation result; no optimal complexity bound or exact count is claimed.",
+      "The recurrence is an upper bound, not an exact count of realizable types."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unrestricted APAL and explains the role of arbitrary finite announcement depth; it does not state the finite-basis theorem for a fixed finite vocabulary and fixed depth bound.",
+        "evidence": "arXiv:2106.11498, especially the modal-depth discussion and Theorem 10.",
+        "identifier_or_url": "https://arxiv.org/abs/2106.11498; https://doi.org/10.4204/EPTCS.335.12",
+        "material_read": "Full arXiv text, definitions of modal depth and quantified-announcement semantics, and the Section 3 proof of the no-FMP theorem.",
+        "method": "Compared the statement and proof mechanism with the bounded-depth variant, rather than comparing titles alone.",
+        "title": "No Finite Model Property for Logics of Quantified Announcements",
+        "trigger": "Direct primary source for the unrestricted APAL finite-model-property boundary."
+      },
+      {
+        "assessment": "Studies restrictions based on atom sets and formula scope; it does not state the fixed finite-depth expansion proved here.",
+        "evidence": "DOI 10.1093/logcom/exac012, Sections 2–6.",
+        "identifier_or_url": "https://doi.org/10.1093/logcom/exac012",
+        "material_read": "Open full-text version: abstract, definitions of SAPAL/FSAPAL/SCAPAL, and the expressivity and undecidability sections.",
+        "method": "Compared the precise quantifier domains and whether modal depth is bounded.",
+        "title": "Almost APAL",
+        "trigger": "Closest primary work on restrictions of the announcement quantifier."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b4e3a0a-35be-4cfa-aa65-37e6aecdf031",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a mathematically motivated finite-resource boundary for quantified announcements: with fixed finite vocabulary and bounded announcement depth, each quantifier has a finite basis and the logic reduces to ordinary public announcement logic. The recursive bound makes the compilation finite and explicit; no stronger complexity or optimality claim is made.",
+    "status": "PASS"
+  }
+}
