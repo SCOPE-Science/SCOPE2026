@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two infinite logarithmic and dilogarithmic cancellations are justified by convergent \(2\)-adic power series, and the dilogarithm reflection identity is differentiated directly. The cubic coefficient has a single minimum-valuation summand at index \(4\). The three exhaustive cases for \(\nu_2(j)\) prove the comparison remainder strictly smaller in \(2\)-adic norm than that coefficient. Multiplication by the exact tail factor and Legendre's factorial valuation gives the final identity. Exact code independently constructs the original integers through \(n=4096\); finite testing is additional evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Farhi's two 2022 papers contain the sequence, its factorial formula and lower bounds, but not an exact valuation for powers of two. Dubickas's 2024 sharp inequality has equality at \(n=2^k-1\), an adjacent but different family, and does not determine the dyadic family. Farhi's 2023 prime-adic bounds likewise do not decide the actual \(2\)-adic cancellation beyond the lower bound. OEIS A003149 describes the integer sequence and sample values but not this valuation formula. Targeted indexed-record searches for formula, powers of two, and both sequence aliases found no dominating statement. The 2026 reciprocal-binomial generating-function paper's abstract concerns generating functions; its introductory material and targeted document searches found no valuation assertion. There remains a risk of equivalent work in unindexed literature or in unexamined portions of that large paper.
+PASS
 
-**Value — PASS.** This computes an exact natural valuation invariant on all dyadic indices, resolving an infinite family of unusually strong cancellations within a sequence specifically investigated for its \(2\)-adic divisibility. Relative to the factorial factor, the extra valuation is precisely \(3m-2\). The effect depends on a non-obvious double polylogarithmic cancellation, not a single textbook substitution or numerical table.
+The claim is exactly for N=2^m,m>=4, with v2(2)=1, and b_N=sum_{k=1}^N2^k/k, a_N=N!2^{-N}b_N. The two infinite sums sum2^j/j and sum2^j/j^2 vanish in Q_2: log(-1)=0, and the dilogarithm reflection follows by differentiation on v2(z)>=1 and eval z=2. For H0=sum2^{j-1}/j^3, j=4 has unique term valuation -3 (j=2 and 8 valuation -2). For N=2^m the correction terms -N*2^{j-1}/(j^3(j+N)) have valuation >=-1: exhaust v2(j)<m,=m,>m and for j=2^m u use v2(u+1)<=u. Hence v2(H_N)=-3, b_N=-2^{N+1}N^2 H_N, v2(b_N)=N+2m-2; Legendre v2(N!)=N-1 gives v2(a_N)=N+2m-3. Checked first dyadic exceptions m=1,2,3 and independent exact integer recurrence vs factorial convolution for m through 9. No arbitrary-n or other-prime theorem.
 
-The claims are limited to \(m\ge4\); there is no generalization asserted to all indices or primes. Scientific priority remains subject to further independent literature examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farhi's factorial-convolution identity and 2022 integrality are prior; the claim is not that these representations are new. Dubickas's 2024 inequality is sharp at 2^k-1, not at 2^m, and its lower bound is strictly weaker than the claimed exact valuation for m>=4. Full-text searches in the 2026 Kruchinin generating-function preprint identify no valuation statement in the inspected parts. Best-of-knowledge originality attaches to the explicit infinite sharp dyadic subsequence, with possible unindexed exact identities a residual risk.
+
+## value
+
+PASS
+
+For a natural reciprocal-binomial factorial convolution connected to Genocchi integers, the unexpectedly large 2-adic divisibility spike on the entire unbounded 2^m subsequence is a meaningful exact arithmetic invariant; proving its sharp exponent requires nontrivial p-adic analytic cancellation beyond known lower bounds. This is more than a small data extension and identifies a precise structural infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

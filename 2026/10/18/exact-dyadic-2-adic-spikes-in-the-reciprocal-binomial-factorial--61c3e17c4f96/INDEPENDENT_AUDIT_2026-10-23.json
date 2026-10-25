@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:10:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/18/exact-dyadic-2-adic-spikes-in-the-reciprocal-binomial-factorial--61c3e17c4f96/RESULT.md Git blob 1ff1a3cc96e3d8d06888e2298531c27f378882a7 tree 783d5aa4590ab79d9d94d2a5199f39cf508174ce",
+        "Inspected original 2026/10/18/exact-dyadic-2-adic-spikes-in-the-reciprocal-binomial-factorial--61c3e17c4f96/verify.py Git blob 880caf02c354838156dbbffe9902f14b3647e402",
+        "Independent arithmetic checks /mnt/data/scope_worker_08_20261023T1854_delivery/independent_checks.py with checked output independent_checks_output.txt"
+      ],
+      "rationale": "The claim is exactly for N=2^m,m>=4, with v2(2)=1, and b_N=sum_{k=1}^N2^k/k, a_N=N!2^{-N}b_N. The two infinite sums sum2^j/j and sum2^j/j^2 vanish in Q_2: log(-1)=0, and the dilogarithm reflection follows by differentiation on v2(z)>=1 and eval z=2. For H0=sum2^{j-1}/j^3, j=4 has unique term valuation -3 (j=2 and 8 valuation -2). For N=2^m the correction terms -N*2^{j-1}/(j^3(j+N)) have valuation >=-1: exhaust v2(j)<m,=m,>m and for j=2^m u use v2(u+1)<=u. Hence v2(H_N)=-3, b_N=-2^{N+1}N^2 H_N, v2(b_N)=N+2m-2; Legendre v2(N!)=N-1 gives v2(a_N)=N+2m-3. Checked first dyadic exceptions m=1,2,3 and independent exact integer recurrence vs factorial convolution for m through 9. No arbitrary-n or other-prime theorem.",
+      "residual_risks": [
+        "The claimed j>=5 lower bound is used only within the explicitly partitioned valuation cases and does not give a general-index valuation law.",
+        "Independent integer computation checks finitely many N, not all exponents; infinitude rests on the nonarchimedean analytic comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubickas proves v2(b_n)>=n+1-log2(n+1) for all n, sharp only at n=2^k-1; at n=2^m the bound is much smaller than 2^m+2m-2."
+        ],
+        "reasoning": "A general inequality with unrelated equality cases cannot by itself dominate the sharper exact formula on 2^m.",
+        "searches": [
+          "Dubickas 2024 Miskolc Math Notes DOI 10.18514/MMN.2024.4276",
+          "Farhi 2023 Journal of Integer Sequences 23.6.1"
+        ]
+      },
+      "checked_sources": [
+        "Dubickas 2024 DOI 10.18514/MMN.2024.4276",
+        "Farhi 2022 arxiv:2204.12760",
+        "Farhi 2022 arxiv:2204.10136",
+        "Farhi 2023 JIS 26 Article 23.6.1",
+        "OEIS A003149",
+        "Kruchinin arxiv:2602.07822",
+        "Resultary search exact query: Farhi factorial convolution a_n = sum k! (n-1-k)! exact v2 dyadic 2^m"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing bounds and convolution are essential premises, but no inspected theorem states or logically yields valuation N+2m-2 without extra vanishing Li2 and cubic-leading-term analysis."
+        ],
+        "reasoning": "The mathematical implication from lower bounds is only a bound; the new higher-order cancellation is an additional argument.",
+        "searches": [
+          "Farhi arxiv:2204.10136 and arxiv:2204.12760",
+          "Dubickas 2024 Theorem 1",
+          "Kruchinin arxiv:2602.07822 full HTML targeted search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a_N=N!2^{-N}b_N makes two advertised formulas strictly equivalent. Farhi 2022 contains sequence definitions/convolution, not the valuations as a consequence explicitly established."
+        ],
+        "reasoning": "The identity between b_N and a_N must be acknowledged; the two forms are the same novelty claim, not independent results.",
+        "searches": [
+          "Farhi 2022 original rational recurrence and 2022 Genocchi factorial convolution; Dubickas 2024",
+          "Resultary search exact query: Farhi factorial convolution a_n = sum k! (n-1-k)! exact v2 dyadic 2^m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS tabulates the integral factorial sequence; finite entries do not prove infinite dyadic valuation law. The 2026 paper material inspected is generating-function rather than v2-specific."
+        ],
+        "reasoning": "Exact index-specific tabulations are not an explicit all-m law; possible unindexed data remain a risk.",
+        "searches": [
+          "OEIS A003149 factorial convolution valuations",
+          "arxiv:2602.07822 Kruchinin reciprocal binomial generating functions"
+        ]
+      },
+      "rationale": "Farhi's factorial-convolution identity and 2022 integrality are prior; the claim is not that these representations are new. Dubickas's 2024 inequality is sharp at 2^k-1, not at 2^m, and its lower bound is strictly weaker than the claimed exact valuation for m>=4. Full-text searches in the 2026 Kruchinin generating-function preprint identify no valuation statement in the inspected parts. Best-of-knowledge originality attaches to the explicit infinite sharp dyadic subsequence, with possible unindexed exact identities a residual risk.",
+      "residual_risks": [
+        "An unlocated previous exact valuation formula for all powers of two could cover the claim; generative identity alone is older and explicitly credited.",
+        "Full 2026 generating-function preprint was targeted and partially read, not proved to exclude all implied corollaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as inspected",
+          "evidence": "Theorem 1 establishes a universal lower bound; equality indices are 2^k−1, not 2^m.",
+          "identifier_or_url": "DOI:10.18514/MMN.2024.4276",
+          "material_read": "entire six-page paper including Theorem 1, its equality characterization and proof",
+          "method": "open full PDF, extracted text plus screenshots of pages 1,3,5",
+          "title": "On a sequence of rational numbers with unusual divisibility by a power of 2",
+          "trigger": "same sum b_n and sharp v2 question"
+        },
+        {
+          "assessment": "NOT_COVERING as inspected",
+          "evidence": "Factorial identities and valuation lower bounds do not give this exact powers-of-two formula.",
+          "identifier_or_url": "arxiv:2204.12760",
+          "material_read": "full HTML material including Theorem 2.1, Proposition 2.2, corollaries",
+          "method": "lawful arxiv HTML",
+          "title": "The integrality of the Genocchi numbers obtained through a new identity and other results",
+          "trigger": "same factorial convolution"
+        },
+        {
+          "assessment": "NOT_ESTABLISHED as covering",
+          "evidence": "Examined material concerns generating functions; not a whole-document exclusion on deep formula equivalence.",
+          "identifier_or_url": "arxiv:2602.07822",
+          "material_read": "abstract, introductory material and targeted full-text search for valuation/2-adic/factorial",
+          "method": "arxiv full HTML, indexed search",
+          "title": "A family of generating functions for reciprocal binomial coefficients and its applications",
+          "trigger": "2026 possible dominating generating-function source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 1ff1a3cc96e3d8d06888e2298531c27f378882a7 and independently checked mathematical reasoning",
+        "Dubickas 2024 DOI 10.18514/MMN.2024.4276",
+        "Farhi 2022 arxiv:2204.12760",
+        "Farhi 2022 arxiv:2204.10136",
+        "Farhi 2023 JIS 26 Article 23.6.1",
+        "OEIS A003149",
+        "Kruchinin arxiv:2602.07822"
+      ],
+      "rationale": "For a natural reciprocal-binomial factorial convolution connected to Genocchi integers, the unexpectedly large 2-adic divisibility spike on the entire unbounded 2^m subsequence is a meaningful exact arithmetic invariant; proving its sharp exponent requires nontrivial p-adic analytic cancellation beyond known lower bounds. This is more than a small data extension and identifies a precise structural infinite family.",
+      "residual_risks": [
+        "The invariant is specialized to one dyadic subsequence and does not settle general n or odd primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
