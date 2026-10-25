@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete fractional description of the bipartite fixed-cardinality matching polytope (Torres, arXiv:2306.11910, Theorem 3.1) is applied without treating a nonfacet halfspace as a facet. For unsaturated ranks, the affine direction is the sum-zero hyperplane and the projected norms of edge, left-star, and right-star indicators are computed exactly. Summing each family of inball inequalities bounds the radius; uniform edge weights attain the minimum. The strictly weaker right obstruction and the equality cases force the displayed center space, with its full dimension justified by strict slack in the other inequalities.
+PASS
 
-At saturation, the affine direction is the direct sum of left-star sum-zero spaces. Its projected coordinate and right-star norms give two sharp bounds; equality in the winning family forces either the uniform center or a translated positive-margin graph-supported transportation polytope. Connectivity makes the bipartite incidence rank exactly \(p+q-1\), establishing cycle-space dimension. The sparse incidence-graph example has \(p=n\), \(q=\binom{n}{2}\), \(a=n-1\), and confirms the exceptional dimension jump. 132 independent SciPy linear programs corroborate the derived radii, uniform feasibility, contact counts, and equality-system ranks. Finite tests are not the universal proof.
+Checked exact fractional H-description of bipartite k-matching polytopes against Torres, arXiv:2306.11910, Theorem 3.1, and verified Hall saturation by biregular degree counting. For k<p the affine hull has sum_e x_e=k and projected support normals squared 1-1/m, a(1-1/p), b(1-1/q); summation gives coordinate, left, right candidate bounds, with the right strictly weaker for p<q. Uniform x=k/m saturates the minimum, and equality constraints prove the entire locus and dimension m-p in the left-dominated phase, unique otherwise including ties. At k=p the affine hull has independent left-star equalities, projected norms sqrt(1-1/a) and sqrt(b(1-1/a)), giving coordinate/right radius competition. Right equality yields lambda*1+(1-a*lambda)*T_G, affine dimension m-p-q+1 by connected signed-incidence rank. For vertex-edge incidence support of K_n, explicitly substituted p=n,q=n(n-1)/2,m=n(n-1), giving n4 radius=1/sqrt12, dimension3, and n>=5 unique center with radius 1/sqrt((n-1)(n-2)); n5 radius also 1/sqrt12. Read check_inballs.py, testing LP support normal distances over 132 numerical cases, a corroborating bounded check not a universal proof.
 
-## Originality — PASS, qualified
+## originality
 
-Torres establishes the matching-polytope inequalities and integrality, not the intrinsic Euclidean radii or incenter locus. Gill and Linusson address complete bipartite combinatorics rather than arbitrary sparse biregular support. The closest indexed incenter theorem treats square complete-bipartite assignment polytopes; a rectangular complete-support result addresses maximum-volume ellipsoids; and a positive-margin transportation result concerns polytopes with *both* sets of degree equalities, whereas the original sparse matching polytope has right-side caps and only its incenter locus sometimes becomes a transportation polytope. These claims do not logically cover the arbitrary connected sparse biregular family or its dimension transition. The closest square case was only available by indexed abstract, and a differently phrased or unindexed earlier argument remains possible.
+PASS
 
-## Mathematical value — PASS
+Known exact k-matching H-descriptions (Torres all bipartite and Gill–Linusson complete bipartite) are correctly treated as inputs, not new. The new subject is intrinsic standard-Euclidean inball radius and full center locus for arbitrary connected simple biregular p<q supports, including the cycle-rank center dimension and sparse-incidence transition. Resultary returned related graph-polytope inradius phases, root/symmetric edge polytopes, and a square-assignment incenter indexed result but no broader exact biregular sparse matching center theorem. A plausible unindexed graph-supported transportation incenter characterization is an explicit risk.
 
-The result supplies a complete two-parameter-plus-graph classification of a natural Euclidean extremal invariant, and an exact description of every optimizing center. At full matching rank it connects geometric nonuniqueness to graph cycle rank. A sparse incidence-graph family has identical radii in two consecutive members but a drop in center-space dimension from three to zero; this is a motivated geometric boundary not present in the source integrality theorem. General irregular supports and all face numbers of the resulting center polytope remain open.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A parameter-sharp geometric classification on arbitrary connected biregular graph supports distinguishes unique center from graph cycle-space transportation families. The incidence(K4) to incidence(K5) exact same-radius but nonunique-to-unique collapse makes a motivated sparse-support phase transition, not a gratuitous finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

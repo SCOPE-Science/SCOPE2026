@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof derives the exact intrinsic ball-containment inequalities from the finite halfspace presentation of the bipartite fixed-cardinality matching polytope. It separately computes affine-hull projections in the nonsaturated and saturated cases. Summing each symmetric family bounds the radius; the uniform center reaches the minimum. Tightness forces either a single center, free left-star contrasts, or a translated graph-supported transportation polytope. The rank of a connected graph's incidence matrix determines the last affine dimension exactly.
+## correctness
 
-The standalone code `check_inballs.py` constructs the linear programs from the *edge lists*, with no use of the predicted radius to define the optimization objective or feasible halfspaces. It numerically compares optimal radii with closed forms; checks uniform-center containment; and verifies the number of active support planes and the rank/dimension of forced equality spaces. SciPy HiGHS solved 110 complete-bipartite and 22 connected sparse incidence-graph instances: **132 profiles passed**. It also confirms the distinct center phases for the incidence graphs of \(K_4\) and \(K_n\), \(n=5,6,7\). Run `python -m pip install -r requirements.txt` and then `python check_inballs.py`.
+PASS
 
-Finite optimization is corroboration, not an exhaustive proof of the infinite family. Exact symbolic identities and rank arguments in `RESULT.md` supply the universal proof. An independent mathematical audit has not been performed, and a sufficiently broad undocumented prior result could still cover the claim.
+Checked exact fractional H-description of bipartite k-matching polytopes against Torres, arXiv:2306.11910, Theorem 3.1, and verified Hall saturation by biregular degree counting. For k<p the affine hull has sum_e x_e=k and projected support normals squared 1-1/m, a(1-1/p), b(1-1/q); summation gives coordinate, left, right candidate bounds, with the right strictly weaker for p<q. Uniform x=k/m saturates the minimum, and equality constraints prove the entire locus and dimension m-p in the left-dominated phase, unique otherwise including ties. At k=p the affine hull has independent left-star equalities, projected norms sqrt(1-1/a) and sqrt(b(1-1/a)), giving coordinate/right radius competition. Right equality yields lambda*1+(1-a*lambda)*T_G, affine dimension m-p-q+1 by connected signed-incidence rank. For vertex-edge incidence support of K_n, explicitly substituted p=n,q=n(n-1)/2,m=n(n-1), giving n4 radius=1/sqrt12, dimension3, and n>=5 unique center with radius 1/sqrt((n-1)(n-2)); n5 radius also 1/sqrt12. Read check_inballs.py, testing LP support normal distances over 132 numerical cases, a corroborating bounded check not a universal proof.
+
+## originality
+
+PASS
+
+Known exact k-matching H-descriptions (Torres all bipartite and Gill–Linusson complete bipartite) are correctly treated as inputs, not new. The new subject is intrinsic standard-Euclidean inball radius and full center locus for arbitrary connected simple biregular p<q supports, including the cycle-rank center dimension and sparse-incidence transition. Resultary returned related graph-polytope inradius phases, root/symmetric edge polytopes, and a square-assignment incenter indexed result but no broader exact biregular sparse matching center theorem. A plausible unindexed graph-supported transportation incenter characterization is an explicit risk.
+
+## value
+
+PASS
+
+A parameter-sharp geometric classification on arbitrary connected biregular graph supports distinguishes unique center from graph cycle-space transportation families. The incidence(K4) to incidence(K5) exact same-radius but nonunique-to-unique collapse makes a motivated sparse-support phase transition, not a gratuitous finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
