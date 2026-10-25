@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The scientific result was reconstructed from its hypotheses, not inferred from experiments. The all-size proof uses the minimum cyclic gap, the two-outward-neighbor identity, and cyclic propagation anchored by at least one spectator particle. Each of these steps is described in `RESULT.md`.
+# Independent mathematical audit
 
-Run the two attached standard-library scripts in a directory retaining their `artifacts/` paths:
+## correctness
 
-```
-python3 artifacts/verify_zero_forcing.py
-python3 artifacts/verify_induction_boundary.py
-```
+PASS
 
-The first script checked 35 finite graphs with three to five particles on cycles of five to sixteen sites and eight boundary examples with two particles. The second checked 7,633 local induction equations. Both runs passed. These exact finite checks are supporting evidence only; the proof establishes the full unbounded assertion. The result does not assert independent mathematical validation, infinite machine certification, or a characterization of mixed stationary states.
+For all N>=5 and 3<=k<=N, the token-graph configurations containing adjacent occupied sites form a zero-forcing set. Induct on minimum cyclic gap d; fixing a nonempty S of k-2 sites, B_t=S+{t,t+d-1} has only possible not-yet-blue neighbors A_t and A_(t-1). The absent A_s for s in S anchors a finite cyclic forcing sweep. The eigenvector consequence follows from H_(B,A) != 0 along every force; the pair-loss kernels set all initial amplitudes to zero. Independently reconstructed token-graph forcing for 39 (N,k) tests, N=5..14 and k<=6; two-particle exclusions checked. The all-N conclusion rests on the induction, not enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison: No inspected statement implies the full robust forcing theorem. Full-text access limitation prevents absolute priority claims.
+
+## value
+
+PASS
+
+The natural marked-boundary zero-forcing theorem supplies a nontrivial finite-to-all-N analytic mechanism absent from numerical dark-state tests, and is directly useful for robust dissipative many-body spectral exclusions under nonuniform hopping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
