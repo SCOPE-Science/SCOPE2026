@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact block algebra gives a triangular similarity with diagonal eigenvalues 1 and (T+WT^{-1}W)(T+alpha I)^{-1}. The stationary spectrum is {0} plus the real generalized eigenspectrum of (alpha I-B,T+alpha I). For every nonzero vector u, derivative of q_alpha(u) is strictly positive because T+B is SPD; compactness upgrades this to strict monotonicity of both spectral extrema for all eigenvalue multiplicities. Their summed signs cross exactly once, establishing the unique sharp minimizer. q_alpha(u)<1 and q_alpha(u)>-1 iff 2alpha>lambda_max(B-T), which proves the exact stability range and strict boundary. A trace equation gives the exact n=2 shift. The included independent-formula/checker code reproduces noncommuting and nilpotent examples and 80 additional finite cases; finite tests are ancillary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.29985 Theorem 1 gives sufficient convergence conditions and Sections 4–5 focus on Frobenius tuning and flexible GMRES, not sharp stationary optimization",
+        "Xie et al. (2024), DOI 10.1007/s40314-024-02643-4, has an optimal-parameter result for a different PMBP preconditioner according to its abstract",
+        "Zhang–Dai (2017), DOI 10.1007/s11075-016-0175-y, treats a separate block-preconditioner family"
+      ],
+      "reasoning": "Potential dominating statements must reproduce this VBP iteration, not merely discuss convergence or optimal shifts in other splittings. The distinct block matrices prevent direct specialization from known related results. The PMBP full text remains inaccessible and is recorded as a residual risk rather than a fabricated negative comparison.",
+      "searches": [
+        "2026 variant block preconditioner indefinite complex symmetric stationary iteration optimal convergence parameter",
+        "\"VBP\" \"optimal\" \"spectral radius\" \"Makhdomi\" \"Salkuyeh\" 2026",
+        "\"block preconditioner\" \"equioscillation\" \"complex symmetric\" convergence",
+        "\"A preconditioned version of the MBP iteration method\" optimal parameters formula 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.29985 (full theory and applications)",
+      "Huang–Chen 2018, DOI 10.1515/math-2018-0051 (full available text)",
+      "Zhang–Dai 2017, DOI 10.1007/s11075-016-0175-y (abstract and cited comparison only)",
+      "Xie et al. 2024, DOI 10.1007/s40314-024-02643-4 (abstract only)",
+      "Published published-finding corpus results: published-finding corpus:2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, published-finding corpus:2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56, published-finding corpus:2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208, published-finding corpus:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.29985, Theorem 1 and Section 4 formula (51): quotient/sufficient region/Frobenius choice",
+        "Huang–Chen, Open Mathematics 16 (2018), DOI 10.1515/math-2018-0051: different iteration block structure and preconditioner",
+        "The present proof requires a globally strictly increasing pair of extreme eigenvalues and establishes alpha_* by their sign-balanced sum, plus an exact two-dimensional trace formula"
+      ],
+      "reasoning": "The VBP eigenvalue quotient is credited to the source. Neither its sufficient convergence condition nor minimizing Frobenius distance logically entails minimizing the maximum absolute generalized eigenvalue; indeed the diagonal example has Frobenius-choice spectral radius >15 while exact optimal radius is zero. The 2018 block family has a different generalized pencil, so its parameter conclusions cannot be imported by simply setting the same symbols.",
+      "searches": [
+        "Makhdomi Salkuyeh VBP preconditioner spectral-radius optimal alpha shift generalized eigenvalue positive imaginary part indefinite real part",
+        "2026 variant block preconditioner indefinite complex symmetric stationary iteration optimal convergence parameter",
+        "A variant of the block preconditioner for indefinite complex symmetric linear systems Makhdomi Salkuyeh VBP",
+        "\"A relaxed block splitting preconditioner for complex symmetric indefinite linear systems\" Huang Chen 2018 full text parameter",
+        "\"A preconditioned version of the MBP iteration method\" optimal parameters formula 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.29985, Sections 2–4: same VBP block product and generalized Rayleigh quotient but no global balancing optimum",
+        "Huang–Chen 2018, DOI 10.1515/math-2018-0051: relaxed block preconditioner has distinct lower block",
+        "published-finding corpus:2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56: rate tuning for forward-reflected-backward, not complex VBP"
+      ],
+      "reasoning": "An equivalent formulation would minimize the maximum modulus of the eigenvalues of (alpha I - WT^{-1}W,T+alpha I). The primary preprint stops at its sufficient convergence analysis and Frobenius shift, while the 2018 splitting uses a different block factorization; generic equioscillation alone does not supply the strict all-matrix VBP eigenvalue monotonicity and exact optimizer.",
+      "searches": [
+        "Makhdomi Salkuyeh VBP preconditioner spectral-radius optimal alpha shift generalized eigenvalue positive imaginary part indefinite real part",
+        "complex symmetric block VBP optimal shift equioscillation extremal generalized eigenvalues WT inverse W T alpha",
+        "A variant of the block preconditioner for indefinite complex symmetric linear systems Makhdomi Salkuyeh VBP",
+        "VBP preconditioner stationary iteration unique optimal shift minmax equioscillation spectral radius",
+        "\"complex symmetric\" \"WT^{-1}W\" \"optimal\" \"alpha\" iteration convergence",
+        "\"alpha I - B\" \"T + alpha I\" \"optimal\" \"spectral radius\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-result searches returned no recorded VBP optimum; closest published-finding corpus IDs include 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "Primary preprint arXiv:2608.29985 reports its Frobenius quasi-optimal rule rather than an exact spectral-radius optimization table"
+      ],
+      "reasoning": "The claim is a global theorem for any dimension and any noncommuting SPD–indefinite pair, not a finite table. Numerical examples alone could not establish uniqueness. Search absence is treated only as supporting evidence and not as proof of novelty.",
+      "searches": [
+        "A variant of the block preconditioner for indefinite complex symmetric linear systems Makhdomi Salkuyeh VBP",
+        "VBP preconditioner stationary iteration unique optimal shift minmax equioscillation spectral radius",
+        "complex symmetric block VBP optimal shift equioscillation extremal generalized eigenvalues WT inverse W T alpha",
+        "\"iteration matrix\" \"alpha I\" \"WT^{-1}W\" optimum parameter",
+        "\"alpha I - B\" \"T + alpha I\" \"optimal\" \"spectral radius\""
+      ]
+    },
+    "rationale": "The fully read 2026 VBP primary work establishes block and spectral machinery but does not determine the sharp global unique stationary radius minimizer for all noncommuting SPD–indefinite pairs. Primary comparison with distinct 2018 relaxed splitting, later PMBP abstract, and published published-finding corpus searches did not reveal an equivalent or dominating VBP optimum. Classical equioscillation is credited; the novelty is the exact VBP application, strict all-dimensional balancing proof, stability frontier and coupling-independent two-dimensional formula. Residual full-text access and alias risks remain.",
+    "residual_risks": [
+      "The full Xie–Huang–Cui–Li 2024 PMBP paper was not accessible; while its block family differs, it may conceal a more general optimality theorem under an alternative formulation.",
+      "An equivalent theorem may exist in classic generalized eigenvalue/iterative splitting literature under another name; searched records do not prove absence.",
+      "Zhang–Dai 2017 full text was not materially inspected; only abstract and source-side comparison support inapplicability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source covers the spectral quotient and Frobenius rule but not the exact unique global stationary spectral-radius optimum, strict arbitrary noncommuting balancing law, or two-dimensional coupling invariance",
+        "evidence": [
+          "arXiv:2608.29985, equations defining VBP, Theorem 1, Section 4 equation (51), Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.29985",
+        "material_read": "Full available preprint theory and examples, including sections 2–5, block factorization, eigenvalue quotient, Theorem 1, and Frobenius parameter rule",
+        "method": "Read open full primary-text representation; reconstructed source matrix factors and compared implications algebraically",
+        "title": "A variant of the block preconditioner for indefinite complex symmetric linear systems",
+        "trigger": "Exact same VBP block splitting and matrix assumptions"
+      },
+      {
+        "assessment": "Analyzes a different relaxed block splitting; no algebraic implication for optimizing the same VBP pencil established",
+        "evidence": [
+          "Huang and Chen (2018), equations for relaxed block-splitting preconditioner and convergence analysis"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/math-2018-0051",
+        "material_read": "Available full paper text, especially preconditioner definition and analysis sections 2–3",
+        "method": "Compared published block factors and iteration/generalized eigenvalue dependence, not titles only",
+        "title": "A relaxed block splitting preconditioner for complex symmetric indefinite linear systems",
+        "trigger": "Primary prior method in same matrix class and stationary splitting"
+      },
+      {
+        "assessment": "Different family; no verified general VBP optimum, but limited material read constrains inference",
+        "evidence": [
+          "Zhang and Dai (2017), abstract; Makhdomi–Salkuyeh (2026), related-work discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-016-0175-y",
+        "material_read": "Bibliographic metadata, abstract and citing source comparison; no full paper analysis",
+        "method": "Compared abstract and source-reported block family; flagged limited access",
+        "title": "A new block preconditioner for complex symmetric indefinite linear systems",
+        "trigger": "2017 primary prior preconditioner cited in source"
+      },
+      {
+        "assessment": "Optimal parameters for a distinct PMBP family are suggested by abstract; full comparison unresolved but no evidence its theorem dominates this VBP claim",
+        "evidence": [
+          "Xie, Huang, Cui and Li (2024), abstract: PMBP optimal-parameter discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-024-02643-4",
+        "material_read": "Abstract and bibliographic details only; complete full text unavailable",
+        "method": "Tried public preprint/open routes and authorized institutional full-text route; no material beyond abstract accessed",
+        "title": "A preconditioned version of the MBP iteration method for a class of complex symmetric linear systems",
+        "trigger": "Earlier optimal-parameter claim on apparently nearby indefinite-complex preconditioning problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "262eff8e-a0eb-4080-adb2-98100c8c7455",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the actual 2026 VBP scheme the theorem uniquely and constructively optimizes asymptotic stationary convergence for arbitrary noncommuting indefinite W and SPD T, provides the exact stability threshold and an off-diagonal-insensitive 2x2 shift formula, and gives a practically meaningful warning that the published Frobenius distance choice can make its stationary error iterate divergent (rho about 15.999728) while alpha*=16 gives zero spectral radius. This answers a natural untuned parameter question in the source without asserting the claim for outer flexible GMRES.",
+    "status": "PASS"
+  }
+}
