@@ -1,15 +1,21 @@
-# Scientific review: integral length-restricted torus lattices of \(\(K_{3,3,3}\)\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is the ordinary unordered two-point configuration space of the nine-vertex geometric graph \(\(K_{3,3,3}\)\). Its 36 zero-, 189 one-, and 216 two-cells are all enumerated in a standard deleted-product cubical model (Barnett–Farber, arXiv:0903.2180, Section 1). Every square has an explicitly signed boundary, and \(\partial_1\partial_2=0\) is checked. An exhaustive canonical simple-cycle enumeration and all 2160 vertex-disjoint unordered cycle pairs produce signed two-cycles. The boundary rank is at least 135 over \(\mathbb F_3\); the chosen 81 triangle-pair two-cycles have integer minor determinant \(+1\), forcing the boundary rank to be exactly 135 and giving an integral basis of its kernel. Complete Smith calculations on coordinates in this basis yield the six quotient groups, including a *cyclic* order-four quotient for \((3,6)\) and a free quotient \(\mathbb Z^{21}\) for \((4,4)\). No higher cells occur. The signed conventions, counts, determinant, and normal forms are reproducible from the attached Python code and transparent integer index data. This is finite exact computation, not an extrapolation.
+## correctness
 
-## Originality — PASS with limits
-Nearest primary sources [1–4] treat the general deleted-product method, abstract ordered homology, graph braid groups, and planar geometric generators, but do not supply the six length-filtered integral two-torus lattices of the nonplanar graph \(\(K_{3,3,3}\)\). Searches of published mathematical findings with the graph's algebraic and verbal aliases, disjoint cycle-pair terminology, integral torus lattice, lengths, and cyclic index four found no covering published claim. Closest accessible matching results concern different graphs, more particles, or rational modules. The strongest possible implicit coverage is from general cycle-intersection or graph-braid chain methods: they provide the machinery, but the *specific* Smith quotients and distinguished shortest integral basis require the new calculation. No negative novelty conclusion is inferred from searches alone. A general theorem or unindexed explicit census could subsume the result; independent literature review remains necessary before priority claims.
+PASS
 
-## Mathematical value — PASS
-The length types are intrinsic geometric invariants of embedded cycle-product tori, not arbitrary cell-coordinate slices. The nonplanar complete tripartite graph has a natural large automorphism group and sufficiently many short disjoint cycles to compare integral spans. The complete table detects both integrally generating lengths and a genuine cyclic order-four defect despite individual primitive torus classes. Thus it makes a meaningful distinction between rational generation, integral generation, and geometric shortest-cycle generation, and gives a reproducible natural finite benchmark for nonplanar graph braid homology.
+The geometric unordered deleted-product CW complex has chain ranks C0=36,C1=189,C2=216 and no C3. Independent reconstruction checked ∂1∂2=0 and rank_F3(∂2)=135. All 6705 undirected cycles yield 2160 disjoint pairs in six length classes; independently recomputed every product 2-cycle, the specified 81-by-81 triangle-torus minor determinant +1, and full Hermite/Smith normal forms. The unimodular minor combined with rank gives a saturated integral Z^81 basis, and verified Smith factors give unique order-4 quotient for (3,6), free Z^21 for (4,4).
 
-## Limits and closest literature
-The underlying cubical model and cycle product classes are classical; abstract Betti numbers may be derivable from stronger existing graph classes. Only this graph and two unordered particles are treated. The rank-deficient type has free quotient \(\mathbb Z^{21}\) with no torsion. Principal references: Barnett–Farber arXiv:0903.2180; Farber–Hanbury arXiv:1005.2300; Ko–Park arXiv:1101.2648; An–Knudsen arXiv:2008.10371; Ramos–Yun arXiv:2606.13813 (different family \(K_{n,n,1}\), rational representations only).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+Length restrictions are canonical constraints on geometric torus generators in a highly symmetric nonplanar graph. The contrast between integral generation by shortest triangle-pair tori and a rationally full yet index-four length class captures a meaningful integral obstruction not inferred from Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

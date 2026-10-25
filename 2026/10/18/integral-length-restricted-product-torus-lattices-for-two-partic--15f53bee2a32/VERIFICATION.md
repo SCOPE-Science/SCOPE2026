@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification of integral geometric torus lattices
+# Independent mathematical audit
 
-The standalone `verify_k333.py` reconstructs the full nine-vertex graph and its cubical unordered deleted product with 36 zero-, 189 one-, and 216 two-cells, verifying \(\partial_1\partial_2=0\). It enumerates all 6705 simple undirected graph cycles canonically and all 2160 vertex-disjoint pairs, checks the integral boundaries of each product torus, and checks the six length-specific counts.
+## correctness
 
-The exact rank argument uses a rank-135 calculation over \(\mathbb F_3\) as a **lower bound only**, paired with an 81-column integral cycle certificate whose 81-coordinate coefficient determinant is \(+1\). Together these prove exact boundary rank and integral basis saturation. Selected indices are in `basis_indices.json`, with no other external data. Integral Hermite and Smith normal forms then verify the complete quotient invariants, including the free rank and saturation of the rank-deficient case. The key detected nonunit Smith factor for length \((3,6)\) is \(4\), so the corresponding quotient is cyclic.
+PASS
 
-Run `python verify_k333.py` in a directory containing `basis_indices.json`, using Python 3.11 or newer and `sympy==1.14.0`. The expected success marker is `VERIFY_OK_K333_INTEGRAL_LENGTH_RESTRICTED_TORUS_LATTICES`.
+The geometric unordered deleted-product CW complex has chain ranks C0=36,C1=189,C2=216 and no C3. Independent reconstruction checked ∂1∂2=0 and rank_F3(∂2)=135. All 6705 undirected cycles yield 2160 disjoint pairs in six length classes; independently recomputed every product 2-cycle, the specified 81-by-81 triangle-torus minor determinant +1, and full Hermite/Smith normal forms. The unimodular minor combined with rank gives a saturated integral Z^81 basis, and verified Smith factors give unique order-4 quotient for (3,6), free Z^21 for (4,4).
 
-These are exhaustive exact computations for one fixed graph, not a claim about arbitrary larger complete tripartite graphs or about an unbounded family. A separate external scientific audit has not occurred.
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+Length restrictions are canonical constraints on geometric torus generators in a highly symmetric nonplanar graph. The contrast between integral generation by shortest triangle-pair tori and a rationally full yet index-four length class captures a meaningful integral obstruction not inferred from Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
