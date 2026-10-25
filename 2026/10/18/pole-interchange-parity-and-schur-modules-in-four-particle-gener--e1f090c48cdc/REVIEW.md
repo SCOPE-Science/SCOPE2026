@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduced Świątkowski model computes the desired graph-configuration homology, and the weight-four degree-two chains have no incoming differential. The proof evaluates the joint kernel of two polynomial multiplication maps, splits by the invariant edge variable, and identifies the three remaining irreducible polynomial functors by explicit Pieri/Littlewood--Richardson decompositions. Pole interchange contributes the requisite Koszul sign. An independent finite matrix verifier checks four arm counts and both involution eigenspaces, and an additional script checks the complete stabilized subspace; these checks do not replace the unbounded rational argument.
+## correctness
 
-## Originality
-PASS on searched evidence, with residual uncertainty. The closest earlier generalized-theta result calculates the three-particle augmentation exterior cube and its integral relation lattice. The general planar generation theorem supplies generators but not the four-particle relation kernel or complete arm-permutation-and-pole-swap representation. The ordered banana-graph topological-complexity theorem concerns a different invariant. No stronger covering theorem was identified in the targeted sources and mathematical-record searches; unindexed equivalences remain possible.
+PASS
 
-## Mathematical value
-PASS. The infinite-family formula exactly separates the complete edge-stabilized pole-even homology from a genuinely new pole-odd Schur module already in the smallest three-arm graph. Such an equivariant distinction is not determined by second Betti numbers and bears directly on higher-weight relations among toric/theta generators.
+Used natural reduced Swiatkowski chain model: at weight 4, degree-2 group U⊗U⊗Sym²(E) and two degree-one multiplication components U⊗Sym³(E), no degree-3 boundaries; U=ker(Q^k->Q). Decompose E=Q t⊕U. t² sector kernel zero, tU sector pair-symmetrization kernel Λ³U, pure Sym²U sector flip-split gives ker in Sym²U⊗Sym²U = Schur_(2,2)U and ker in Λ²U⊗Sym²U = Schur_(2,1,1)U by Littlewood–Richardson and nonzero multiplication on target Schur_(4) and Schur_(3,1). Pole swap exchanges the two local degree-one generators, hence action is -factor-flip: even Λ³U plus Schur_(2,1,1)U, odd Schur_(2,2)U. Edge variable stabilization from weight-three Λ³U realizes full even sector by Pieri; the odd subspace cannot be stabilized. Independently built exact reduced-complex boundary matrices and modular Gaussian ranks over 1000003 for k=3..6; even/odd dimensions (0,1),(4,6),(19,20),(55,50) match hook-content formulas. These finite-field checks corroborate, do not establish infinite-characteristic-zero theorem; algebraic kernel proof does. Exact Git source tree, RESULT and verification material inspected.
 
-## Limits
-Rational representations only; no integral torsion, natural cycle basis, or multiplicative structure. The finite verifier is a consistency check for the algebraic proof, not an infinite certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Exact pole-odd summand is nonstabilized; earlier generator model is a method, not a theorem implying full decomposed module.
+
+## value
+
+PASS
+
+Full symmetry-sensitive classification of a natural family of graph-braid configuration homology at fixed four particles; detects pole-odd module invisible to three-particle theta-class stabilization. Sharp distinction between geometric generators and new four-particle classes answers a motivated structure question, beyond mere rank recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
