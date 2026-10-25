@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:55:36.296529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let B=||b||_A1<1, m=(|b|²)^hat(0)=||b||_2², c=1-m>0, h=-(|b|²-m)/(1-m). The SU(2) identity gives |a|²=c(1+h), with |||b|²||_A1<=B² and nonnegative zero coefficient m. Therefore ||h||_A1 <=(B²-m)/(1-m)<=B²<1. Thus log|a|²=log c+log(1+h) has A1 norm <=-log(1-m)-log(1-||h||)<=-2log(1-B²). Taking u=log|a|, outerness and positive a*(0) imply log a* =u_hat(0)+2 sum_{n>=1}u_hat(n) z^n and ||log a||_A1<=2||u||_A1<=-2log(1-B²). Wiener Banach-algebra exponentiation yields ||a^-1||_A1<= (1-B²)^-2. March 2026 Proposition 2 with w=1, a* outer, and B<1/sqrt2-ε gives ||F||_l1 ≲ B/[ε(1-B²)^2]. For fixed eta>0, B<1/sqrt2-eta bounds this solely in eta; eta>=1/sqrt2 is vacuous. The October negative construction gives only tau<=1, so 1/sqrt2<=tau<=1. No proof of tau equality or of sharp inverse constant. Independently recomputed the exact Git tree and source-JSON blob SHAs; rational two-coefficient test inputs (1/3,1/4), (2/5,1/3), (1/5,1/7) satisfy the h inequality and numerically the inverse bound; these bounded checks corroborate but do not prove universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October §6.1 uses the same h and log/Hilbert mechanism but its bound loses centered SU(2) cancellation, yielding 1/sqrt(3), not 1/sqrt(2).",
+          "October Theorem 5 has extra a*(0), ||a|| parameters, so it does not provide a pure B-bound as stated.",
+          "Symmetric QSP restricts F and cannot dominate the arbitrary complex potential claim."
+        ],
+        "reasoning": "The closest general prior factorization is genuinely similar and is credited; its actual quantitative bound is weaker. Improvements require the additional exact centered-convolution identity with the B norm, a concrete new deduction. A special symmetric subclass does not imply the all-complex conclusion.",
+        "searches": [
+          "A1 Wiener inverse outer factor SU(2) ||a^-1|| <= (1-||b||^2)^-2 non linear Fourier",
+          "arXiv:2610.01711v1 Theorem 5 Section 6.3",
+          "arXiv:2307.12468 symmetric quantum signal processing",
+          "Resultary: nonlinear Fourier Baxter quantitative spectral factor inverse"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01711v1 full arXiv HTML, §1, §6.1, §6.3, §7",
+        "arXiv:2603.02021 full rendered arXiv text, Proposition 2 and Lemma 6",
+        "arXiv:2307.12468 abstract only; explicit scope restriction",
+        "Resultary published mathematical-record semantic searches, 3 queries",
+        "web exact-formula and related-literature searches, Oct 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October §6.1 (equations following the h definition) bounds |||a|²-c|| by 1+||b|²||-c; for B<1/sqrt3 it ensures c>2/3.",
+          "SU(2) gives |a|²-c=-(|b|²-m), and hence |||a|²-c||=|||b|²||-m<=B²-m. This precise cancellation is not used in that proof.",
+          "For m<=B²<1, (B²-m)/(1-m)<=B², so log factorization uniformly bounds a^-1 on the entire B<1 interval.",
+          "March Proposition 2 then uses its B<1/sqrt2-ε restriction; the result does not claim tau=1/sqrt2."
+        ],
+        "reasoning": "This is a short but substantive strengthening of a prior argument aimed at the same open problem, not a wholly new inversion technique. Existing printed theorems do not imply the B-only bound without the exact centered cancellation. The overlap may reduce conceptual novelty; priority is best of knowledge rather than independence or guaranteed first discovery.",
+        "searches": [
+          "arXiv:2610.01711v1 §6.1 exact displayed h and norm estimates",
+          "arXiv:2610.01711v1 Theorems D,4,5 and Question 3",
+          "arXiv:2603.02021 Proposition 2 and Lemma 6",
+          "Mnatsakanyan Baxter radius largest tau 1/sqrt3 1/sqrt2 quantitative nonlinear Fourier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited inverse-Wiener bound and ||b/a||<=B(1-B²)^-2 imply the October Question 3 uniform-radius property for every eta below 1/sqrt(2).",
+          "March Proposition 2 alone retains the ratio ||b/a|| on the right.",
+          "October Theorem 4 reaches only 1/sqrt(3) with a B-only constant."
+        ],
+        "reasoning": "A B-only bound on a^-1 plus March Proposition 2 gives the precise new radius statement; a bound on b/a involving unspecified a is not equivalent without the new estimate. The original formula and ratio hypotheses were compared, not just titles.",
+        "searches": [
+          "Quantitative Baxter radius 1/sqrt 2 Wiener inverse nonlinear Fourier SU(2) outer spectral factor b norm A1",
+          "Mnatsakanyan Baxter radius largest tau 1/sqrt3 1/sqrt2 quantitative nonlinear Fourier",
+          "arXiv:2610.01711v1 Question 3",
+          "arXiv:2603.02021 Proposition 2",
+          "Web: quantitative Baxter sqrt 2 threshold inverse Wiener 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact numerical table is relevant: tau is an infinite-dimensional uniform-control threshold, not a finite database invariant.",
+          "Resultary nearest hit is the same published manuscript, not an independent earlier theorem; other high-ranked Fourier-norm entries address unrelated objects.",
+          "The named primary theorems still report the strictly weaker uniform radius."
+        ],
+        "reasoning": "Database/table coverage check is inapplicable to a uniform analytic radius, but exact-paper and equivalent-formula searches were still performed and compared by implication; no failed search is treated as novelty proof.",
+        "searches": [
+          "Quantitative Baxter radius 1/sqrt 2 Wiener inverse nonlinear Fourier SU(2) outer spectral factor b norm A1",
+          "A1 Wiener inverse outer factor SU(2) ||a^-1|| <= (1-||b||^2)^-2 non linear Fourier",
+          "Resultary full-title nearest hit 2026/10/11/SCOPE-a-one-over-root-two-lower-bound-for-the-quantitative-baxter-radi--bb0ce598f77a",
+          "Web: Baxter 1/sqrt(2) Wiener outer nonlinear Fourier 2026"
+        ]
+      },
+      "rationale": "The published October 1 primary paper leaves 1/sqrt(3)<=tau<=1 and already uses a centered log spectral-factor method. Its §6.1 estimates the centered term by 1+||b|²||-c, rather than the sharp identity |||a|²-c||=|||b|²-m||=|||b|²||-m. The independently audited use of SU(2) cancellation bounds ||h||<=B² for every B<1 and supplies uniform ||a^-1||<= (1-B²)^-2; combining with March Proposition 2 improves the B-only radius through 1/sqrt(2). The prior papers furnish essential ingredients but do not state/prove this stronger uniform combination. Resultary queries returned the same published record as nearest hit, not an earlier independently covering result. Priority remains best-of-knowledge.",
+      "residual_risks": [
+        "The first published October paper already uses the same centered h and outer-factor method; the advance is the exact centering/cancellation estimate, and a reader could regard it as an elementary enhancement of that proof.",
+        "Unindexed recent preprints, thesis notes or updates could independently yield the same bound despite searches.",
+        "Only the restricted symmetric QSP abstract, not complete body, was read; it does not by its own stated scope cover arbitrary complex data.",
+        "The optimal tau could exceed 1/sqrt2; the Wiener inverse constant is not asserted sharp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: Theorem 4 proves the 1/sqrt(3) radius; §6.1 already sets h=(|a|²-c)/c but bounds |||a|²-c|| with an upper bound from 1+||b|²||-c, losing the exact SU(2) centered cancellation that leads to the present B² bound. Theorem 5 depends on a*(0) and ||a|| and does not itself give the B-only margin bound.",
+          "evidence": "arXiv:2610.01711v1 Theorem 4, Question 3, Section 6.1 displayed estimates (the paper reports 1/sqrt(3)<=tau<=1).",
+          "identifier_or_url": "https://arxiv.org/html/2610.01711v1",
+          "material_read": "Full accessible HTML primary text; Introduction Theorems D,4,5 and Question 3, Section 6.1 equations (6.1 proof of Theorem 4) and Section 7.",
+          "method": "Read arXiv HTML version v1 and inspect the mathematical equations of the proof, not just the abstract.",
+          "title": "Quantitative possibilities for Baxter’s theorem in nonlinear Fourier analysis",
+          "trigger": "Direct paper posing the radius problem and proving the 1/sqrt(3) lower bound; particularly same centered spectral factor argument."
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: Proposition 2 gives ||F||_{l1}≲ε^{-1}||b/a||_{A1} under B<1/sqrt(2)-ε and outer a, but not B-only uniform inversion; Lemma 6 controls a truncated/full ratio, not the claimed absolute ||a^{-1}|| bound.",
+          "evidence": "arXiv:2603.02021, Proposition 2, Lemma 6 (3.12) and §3.4.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.02021",
+          "material_read": "Accessible full web-rendered primary text: definition of A_w, Proposition 2, Lemma 6 and its proof, §3.4 proof of Proposition 2 and surrounding Riemann–Hilbert argument.",
+          "method": "Read web-rendered arXiv primary full text and verify assumptions/normalization of the quantitative proposition.",
+          "title": "ℓ¹ mapping properties, smoothness and decay for SU(2)-valued nonlinear Fourier transform",
+          "trigger": "Direct source of the quantitative B<1/sqrt(2)-epsilon proposition used to close the argument."
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE: symmetric QSP special class does not imply arbitrary complex-sequence SU(2) nonlinear-Fourier bound; no whole-document absence claim.",
+          "evidence": "arXiv:2307.12468 title/abstract; arXiv:2610.01711v1 Theorem C and comparison with general setting.",
+          "identifier_or_url": "arXiv:2307.12468",
+          "material_read": "Public primary abstract and restriction characterized by 2026 primary sources; complete 2023 body not read.",
+          "method": "Abstract-level scope comparison and cross-reading of arXiv:2610.01711v1 Introduction.",
+          "title": "Robust iterative method for symmetric quantum signal processing in all parameter regimes",
+          "trigger": "Potentially stronger QSP numerical inversion schemes with a bigger local radius."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The authors of the October primary paper explicitly ask for the largest radius with B-only control. A proven improvement from 1/sqrt3 to the previous method’s natural 1/sqrt2 endpoint fills a significant portion of the open parameter interval and supplies a reusable quantitative uniform spectral-factor estimate. While the proof is short and draws on the paper’s existing centered-h method, the exact cancellation that changes the admissible interval is directly relevant and not a merely cosmetic normalization, known-table computation, or arbitrary slice. Its importance is this precise threshold; no claim of solving the remaining endpoint question or of a paper-sized theorem is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; closest October primary uses the same logarithm/centered h, and the decisive improvement is exact SU(2) Fourier-coefficient cancellation.",
+    "No complete body reading for restricted 2023 symmetric QSP source; abstract and full 2026 source discussion establish inapplicable class.",
+    "Finite two-frequency numerical tests are corroboration only; unrestricted proof is algebraic and from the cited quantitative proposition.",
+    "Source metadata originally has misleading 2026-03-02 first_public_date; replacement drops it rather than inventing publication priority.",
+    "Publication is a staged private change-set only: no GitHub write, dispatcher closeout, or third-party attestation."
+  ],
+  "schema_version": 1
+}
