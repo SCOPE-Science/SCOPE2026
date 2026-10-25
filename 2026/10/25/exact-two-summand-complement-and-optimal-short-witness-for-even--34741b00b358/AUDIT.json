@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The word recursion follows from the leading-Zeckendorf-Fibonacci interval split; all 132 length-21 factors and four periodic boundary types are exactly checked in bundled verify.py. Induction shows coverage for all finite prefixes, hence all n>=20. Low cases are exhaustive and n=34 forces bound>=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Springer 2019 abstract promises sums defined by base-2 and Fibonacci representations, but publicly visible specific figure caption uses the Fibonacci-odd class; full article not read.",
+        "Shallit 2022 arXiv:2203.10504v1 focuses maximum-order complexity and does not state an additive-basis theorem."
+      ],
+      "reasoning": "Potential broader automata results can algorithmically decide such statements, but generic decidability alone does not imply this exact exception set and optimal small-summand bound; inaccessible 2019 primary full text is an explicit risk, not treated as a negative search.",
+      "searches": [
+        "published-finding corpus: For integers with even Zeckendorf digit weight, all n>=6 are sums of two with one summand at most 10, exact missing 1 2 3 5",
+        "Google: \"Fibonacci-even\" \"sum of two\" \"Zeckendorf\"",
+        "Google: \"Fibonacci-even\" \"sums\" Rajasekaran"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00224-019-09929-9",
+      "https://arxiv.org/abs/2203.10504",
+      "https://oeis.org/A095076",
+      "https://www.researchgate.net/publication/333466972_Additive_Number_Theory_via_Automata_Theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 article Figures 3 and 4 address two/three Fibonacci-odd integer sums, not a documented even-weight theorem; publisher preview only.",
+        "2022 article Theorem 3 establishes factor complexity, not a sumset inclusion."
+      ],
+      "reasoning": "The new claim requires every length-21 factor to contain a zero in six selected offsets; neither available source states that condition or its consequences. A complete 2019 full-text comparison remains outstanding.",
+      "searches": [
+        "published-finding corpus: Fibonacci Thue Morse zero positions additive basis short summands covering 21 factor",
+        "Springer 2019 primary article DOI 10.1007/s00224-019-09929-9",
+        "arXiv 2203.10504v1 primary full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Springer 2019 publisher page and Figure 3 caption explicitly concern sums of Fibonacci-odd integers; present set consists of Fibonacci-even integers.",
+        "Shallit 2022 arXiv:2203.10504v1 pages 1-7 defines the same parity word; its theorems are about factor complexity."
+      ],
+      "reasoning": "Same numeration system does not make sums of the odd class equivalent to sums of the even class: the two classes have different low-index exception sets. Neither inspected theorem supplies the optimal finite witness 10.",
+      "searches": [
+        "published-finding corpus: Zeckendorf Fibonacci Thue-Morse parity of digit weight sum of two numbers same parity exceptional sets 1 2 3 5 12",
+        "published-finding corpus: sums of two Fibonacci-odd Zeckendorf numbers Rajasekaran Shallit Smith exact exceptions",
+        "published-finding corpus: additive basis 2 Zeckendorf even and odd numbers finite translated cover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A095076 records the Fibonacci-Thue-Morse digit-parity sequence, not an inspected exact even-class two-summand complement or sharp 10 bound.",
+        "All six short summands and 132 length-21 factors are recomputed from definitions by the package verifier."
+      ],
+      "reasoning": "Recording the base sequence is not equivalent to tabulating or proving the infinite additive complement or exact uniform short-witness bound.",
+      "searches": [
+        "published-finding corpus: Fibonacci even numbers Zeckendorf parity sumsets exceptional integers 1 2 3 5 and optimal ten",
+        "OEIS A095076 Zeckendorf parity digits",
+        "Google: \"Zeckendorf\" \"even number of ones\" \"sum of two\""
+      ]
+    },
+    "rationale": "Primary 2019 study has inspectable Fibonacci-odd sumsets; the 2022 complete preprint treats complexity of the same word, not the even-parity sumset or minimal bounded witness. Actual published-finding corpus searches on aliases and exact witnesses returned unrelated nearest claims. Potential implicit coverage in inaccessible complete 2019 text remains explicitly unresolved but no available decisive stronger statement was found.",
+    "residual_risks": [
+      "Full 2019 article was inaccessible due to institutional approval requirement; it may contain an implicit even-weight corollary.",
+      "Unindexed automata computations and OEIS comments not fully searchable; novelty is best-knowledge, not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related methods and odd-weight sumsets; no accessible proof of even-weight exact exception set or sharp short witness. Material limitation is a publication-priority risk.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00224-019-09929-9",
+          "https://www.researchgate.net/publication/333466972_Additive_Number_Theory_via_Automata_Theory"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-019-09929-9",
+        "material_read": "Publisher title, abstract, references and Figure 3/4 captions, plus openly displayed first-page preview; full text unavailable",
+        "method": "Publisher page, ResearchGate preview and captions; searched arXiv and OA locations; institutional request required unavailable interaction",
+        "title": "Additive Number Theory via Automata Theory",
+        "trigger": "Exact object family and a figure for two-summand Fibonacci-odd integers"
+      },
+      {
+        "assessment": "Same parity sequence, different invariant (maximum order complexity); no covered two-summand bound",
+        "evidence": [
+          "https://arxiv.org/pdf/2203.10504"
+        ],
+        "identifier_or_url": "arXiv:2203.10504v1",
+        "material_read": "Full seven-page preprint, sections 1-3 and theorems on factor complexity",
+        "method": "Read arXiv PDF full text and inspected page images",
+        "title": "Note on a Fibonacci Parity Sequence",
+        "trigger": "Same sequence of Zeckendorf digit-weight parity"
+      },
+      {
+        "assessment": "Sequence identity recorded, rather than new infinite additive complement or optimal short witness",
+        "evidence": [
+          "https://oeis.org/A095076"
+        ],
+        "identifier_or_url": "https://oeis.org/A095076",
+        "material_read": "Index and sequence descriptions accessible through literature and search",
+        "method": "Public sequence lookup and comparison with primary 2022 description",
+        "title": "On-Line Encyclopedia of Integer Sequences A095076",
+        "trigger": "Known exact digit-parity sequence and its alias"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34741b00-b358-42a8-b075-6fa6b104aab8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact missing set of an algebraically natural two-summand parity basis, complementing the historically studied odd-weight class. A stronger optimal uniform short-summand constant 10 provides bounded-choice constructive decompositions independent of n, with a structural factor proof.",
+    "status": "PASS"
+  }
+}
