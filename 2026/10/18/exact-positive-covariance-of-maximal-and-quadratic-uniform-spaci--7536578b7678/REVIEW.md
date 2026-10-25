@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite mixed-moment formula follows by integrating the inclusion–exclusion union for exceedances of Dirichlet spacings, using the exact conditional quadratic moment on translated simplices. The displayed harmonic binomial identities, both marginal means and variances, strict sign increment, and asymptotic Pearson normalization were reconstructed separately. A distinct exponential-order-statistics construction reproduces the covariance for every integer \(2\le m\le30\) in exact rational arithmetic and checks both marginal variances. The finite replay confirms examples but does not replace the all-size proof. The result excludes nonlinear independence and alternative distributions.
+## correctness
 
-## Originality — PASS with explicitly retained residual risk
-Actual semantic database queries for maximal/Greenwood, largest-gap/Dirichlet sum-of-squares, exact harmonic covariance, and asymptotic decorrelation did not return an equal or dominating scientific statement. Closely related retrieved mathematical statements address other probabilistic objects rather than this mixed covariance. Material from Holst (1980) gives marginal maximum-spacing distributions and an exponential representation; Rao–Kuo (1984) studies Greenwood null law and linear sum-functional tests; Royen (2010) gives exact Greenwood marginal distributions and bounds linking its upper tail to the largest Dirichlet component; Bairamov–Berred–Stepanov (2008 online) treats ordered uniform-spacing laws and limits; Hashorva (2014 preprint) treats extremes of aggregated Dirichlet risks. These comparisons concern the same distribution family or marginal statistics but do not prove or state the cross-covariance and its sharp Pearson decay. There is a residual possibility that a general previously published joint ordered-spacing moment formula yields this as a specialization; absence from a searched database cannot exclude that.
+PASS
 
-## Mathematical value — PASS
-The largest-spacing scan and the Greenwood quadratic spacings test are established, complementary uniformity diagnostics. An exact mixed null moment, a strict positive dependence sign for all sample sizes, and a sharp logarithmic-to-polynomial correlation decay characterize how these diagnostics overlap under the null. The finding gives a finite-size joint-calibration ingredient not reducible to a marginal test law or mere rewriting of known means. It does not claim combined-test critical values or distributional asymptotic independence.
+Uniform gaps have Dirichlet(1,...,1) law. For j selected gaps constrained >t, the translated simplex has factor (1-jt)^{m-1}; conditional G is j t^2+2j t(1-jt)/m+2(1-jt)^2/(m+1). Inclusion-exclusion for M>t and beta-polynomial integration yield I_(m,j)=2[(m+1)/j+1/j^2]/[m(m+1)(m+2)]. Binomial-harmonic sums sum (-1)^(j+1) C(m,j)/j=H_m and /j²=(H_m²+H_m^(2))/2. Thus E[M G]=(H_m²+H_m^(2)+2(m+1)H_m)/[m(m+1)(m+2)], subtract EM=H_m/m and EG=2/(m+1), proving covariance (H_m²+H_m^(2)-2H_m)/[m(m+1)(m+2)]. Its numerator strictly increases from 0 at m=1, with increment 2(H_m-1)/(m+1)+2/(m+1)²>0, so sign holds for all m>=2. The exact marginal variances [m H_m^(2)-H_m²]/[m²(m+1)] and 4(m-1)/[(m+1)²(m+2)(m+3)] produce corr~(sqrt6/(2pi))(log m)²/sqrt(m). An independent exponential-order-statistic third-moment calculation matched every m=2..23 using exact rationals; no finite test substitutes for inclusion-exclusion proof.
 
-## Closest literature and scientific limitations
-Holst (1980), *On the Lengths of the Pieces of a Stick Broken at Random*, DOI 10.2307/3212956; Rao and Kuo (1984), *Asymptotic Results on the Greenwood Statistic and Some of its Generalizations*, DOI 10.1111/j.2517-6161.1984.tb01292.x; Bairamov, Berred and Stepanov (online 2008), *Limit results for ordered uniform spacings*, DOI 10.1007/s00362-008-0134-3; Hashorva (2014 preprint), *Extremes of Aggregated Dirichlet Risks*, arXiv:1404.3304; Royen (2010 preprint), *The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood’s statistic*, arXiv:1008.4059. None of the inspected passages supplies the mixed coefficient; broader identities elsewhere remain possible. Only the symmetric Dirichlet null model and Pearson correlation are covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+The largest uniform gap and Greenwood's sum of squared gaps are classical, directly motivated but differently scaled uniformity/irregularity statistics. Their exact finite-sample dependence, unconditional positive sign and sharp diminishing correlation constant are useful for understanding redundant or complementary null diagnostics; marginal spacing laws alone do not provide this mixed moment. It is a natural complete covariance invariant of a standard Dirichlet-simplex model rather than an arbitrary slice or known marginal table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

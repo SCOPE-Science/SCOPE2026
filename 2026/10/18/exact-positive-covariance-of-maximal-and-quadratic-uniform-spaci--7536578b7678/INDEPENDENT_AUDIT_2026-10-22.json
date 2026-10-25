@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:11:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678/RESULT.md",
+        "2026/10/18/exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678/checks/exact_replay.py"
+      ],
+      "rationale": "Uniform gaps have Dirichlet(1,...,1) law. For j selected gaps constrained >t, the translated simplex has factor (1-jt)^{m-1}; conditional G is j t^2+2j t(1-jt)/m+2(1-jt)^2/(m+1). Inclusion-exclusion for M>t and beta-polynomial integration yield I_(m,j)=2[(m+1)/j+1/j^2]/[m(m+1)(m+2)]. Binomial-harmonic sums sum (-1)^(j+1) C(m,j)/j=H_m and /j²=(H_m²+H_m^(2))/2. Thus E[M G]=(H_m²+H_m^(2)+2(m+1)H_m)/[m(m+1)(m+2)], subtract EM=H_m/m and EG=2/(m+1), proving covariance (H_m²+H_m^(2)-2H_m)/[m(m+1)(m+2)]. Its numerator strictly increases from 0 at m=1, with increment 2(H_m-1)/(m+1)+2/(m+1)²>0, so sign holds for all m>=2. The exact marginal variances [m H_m^(2)-H_m²]/[m²(m+1)] and 4(m-1)/[(m+1)²(m+2)(m+3)] produce corr~(sqrt6/(2pi))(log m)²/sqrt(m). An independent exponential-order-statistic third-moment calculation matched every m=2..23 using exact rationals; no finite test substitutes for inclusion-exclusion proof.",
+      "residual_risks": [
+        "Finite exact computations diagnose bounded instances only; analytic derivation controls general quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen calculates distribution/quantiles of G; Bairamov et al. prove ordered-uniform-spacing distributional and limit laws; Holst supplies classic max-spacing representations."
+        ],
+        "reasoning": "Joint M*G expectation cannot be recovered from separate marginal laws, and the inspected principal statements do not give an all-m cross-moment. Broad Dirichlet moment machinery may in principle imply it, but no explicit dominating theorem was identified.",
+        "searches": [
+          "Holst 1980 stick-breaking spacings",
+          "Royen 2010 marginal G PDF",
+          "Bairamov–Berred–Stepanov 2010 ordered gap PDF"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.4059",
+        "https://dm.ieu.edu.tr/Ism/BaiBerredStep_StatisticalPapers.pdf",
+        "https://doi.org/10.1111/j.2517-6161.1984.tb01292.x",
+        "Resultary query 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greenwood asymptotics and exact marginal law are earlier; max spacing has extreme-value asymptotics; this computes the joint moment at every m and sharp Pearson rate."
+        ],
+        "reasoning": "Knowing G's marginal distribution and M's extreme-value law does not fix their coupling on a simplex. The translated-simplex mixed conditional moment provides the additional information.",
+        "searches": [
+          "arxiv:1008.4059 main distribution theorem",
+          "Bairamov–Berred–Stepanov 2010 Sections 1–2",
+          "Rao–Kuo 1984 metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform normalized exponential gaps are Dirichlet(1,...,1); maximum gap M is largest simplex coordinate; Greenwood G=sum squares. The mixed moment is equivalently a covariance of extreme and L2 concentration functionals."
+        ],
+        "reasoning": "Reparametrizing as ordered Dirichlet coordinates/exponentials does not make covariance a marginal moment. A general mixed ordered-Dirichlet moment identity could imply it, but was not established in inspected sources.",
+        "searches": [
+          "Resultary uniform Dirichlet spacings maximum spacing Greenwood quadratic spacing covariance mixed moment",
+          "Royen arxiv:1008.4059",
+          "Bairamov–Berred–Stepanov 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen tables are for Greenwood marginal quantiles, not Cov(max,S2). Resultary exact moment results returned different model/object."
+        ],
+        "reasoning": "No checked source/table contains this exact mixed statistic, while the search is necessarily incomplete; marginal numerical quantiles do not encode exact covariance.",
+        "searches": [
+          "Resultary uniform Dirichlet maximum Greenwood cross-moment",
+          "web \"Greenwood\" \"largest spacing\" covariance",
+          "Royen 2010 tables of Greenwood quantiles"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.",
+      "residual_risks": [
+        "Broader ordered-Dirichlet mixed-moment formulas or older statistics literature may already encode the M–G cross-moment; search negative is not novelty certification.",
+        "Rao–Kuo full content could not be read due 429 rate limiting; risk identified, not grounds by itself for scientific rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal G distribution and quantiles, not demonstrated M*G mixed expectation",
+          "evidence": "Title, abstract and main distribution/theory sections concern sum-of-squares of Dirichlet variables.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4059",
+          "material_read": "Open original arXiv PDF, introduction, marginal distribution and tables statements",
+          "method": "arXiv PDF full text, screenshot and textual search",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood’s statistic",
+          "trigger": "Direct classical Greenwood exact marginal theory"
+        },
+        {
+          "assessment": "Studies order statistics/limit laws of spacing coordinates; no checked theorem for their joint moment with Greenwood S2",
+          "evidence": "p.1 abstract specifies ordered spacings and distributional limits; pp.1–2 give classical maximum gap asymptotics.",
+          "identifier_or_url": "https://dm.ieu.edu.tr/Ism/BaiBerredStep_StatisticalPapers.pdf",
+          "material_read": "Full 14-page publicly accessible PDF, introduction and distributional/limit theorem context, exact ordered-spacing definitions",
+          "method": "OA journal PDF text and page image",
+          "title": "Limit results for ordered uniform spacings",
+          "trigger": "Direct study of the maximum and ordered Dirichlet spacings"
+        },
+        {
+          "assessment": "Cannot conclusively exclude hidden mixed moments in article; titles/metadata show Greenwood asymptotics",
+          "evidence": "Journal of Royal Statistical Society B 46 (1984) 228–237 bibliographic metadata.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1984.tb01292.x",
+          "material_read": "OA PDF cover/metadata accessible, internal page fetch was rate-limited (429); article full text not materially read",
+          "method": "Publisher repository PDF metadata, explicit access limit",
+          "title": "Asymptotic Results on the Greenwood Statistic and Some of its Generalizations",
+          "trigger": "Historical original Greenwood asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678/RESULT.md",
+        "https://arxiv.org/pdf/1008.4059",
+        "https://dm.ieu.edu.tr/Ism/BaiBerredStep_StatisticalPapers.pdf"
+      ],
+      "rationale": "The largest uniform gap and Greenwood's sum of squared gaps are classical, directly motivated but differently scaled uniformity/irregularity statistics. Their exact finite-sample dependence, unconditional positive sign and sharp diminishing correlation constant are useful for understanding redundant or complementary null diagnostics; marginal spacing laws alone do not provide this mixed moment. It is a natural complete covariance invariant of a standard Dirichlet-simplex model rather than an arbitrary slice or known marginal table.",
+      "residual_risks": [
+        "Mathematical interest is bounded to the claimed statistic/model and is not an assertion of broad theory or independent historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader ordered-Dirichlet mixed-moment formulas or older statistics literature may already encode the M–G cross-moment; search negative is not novelty certification.",
+    "Rao–Kuo full content could not be read due 429 rate limiting; risk identified, not grounds by itself for scientific rejection."
+  ],
+  "schema_version": 1
+}
