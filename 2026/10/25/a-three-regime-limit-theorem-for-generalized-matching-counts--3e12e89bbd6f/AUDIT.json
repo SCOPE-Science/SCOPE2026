@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The three limits follow from the exact decomposition of the generalized matching count into the known-correct count and the fixed-point count of the residual uniform permutation. In the sparse-skill endpoint, the known-correct count converges in total variation to a Poisson law, the residual size diverges in probability, and the conditional fixed-point law converges in total variation to Pois(1); addition gives the stated Poisson limit. In the near-perfect endpoint, the unresolved count converges in total variation to a Poisson law and the moved-point kernel gives the explicit derangement mixture. In the interior, the binomial variance diverges, while the residual fixed-point count is tight with expectation at most one; Slutsky's theorem gives the stated centered normal limit. Exact finite checks passed but are not used as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "O'Neill's Theorem 9 assumes a fixed skill parameter strictly between zero and one for the normal limit.",
+        "O'Neill's inference section states that standard asymptotic confidence intervals perform poorly when the estimated parameter is near either endpoint.",
+        "The new theorem treats parameters depending on sample size, gives both endpoint total-variation limits, and gives the interior normal limit under the condition that both known and unresolved counts diverge."
+      ],
+      "reasoning": "The fixed-parameter central limit theorem does not imply either boundary law, and it does not provide the explicit near-perfect mismatch mass. The new quantifiers cover parameter arrays approaching either boundary and the interior scaling regime.",
+      "searches": [
+        "O'Neill generalized matching distribution Theorem 9 fixed theta central limit theorem",
+        "O'Neill generalized matching distribution confidence intervals parameter near zero or one",
+        "triangular array generalized matching count theta_n tending to zero or one Poisson limit"
+      ]
+    },
+    "checked_sources": [
+      "Ben O'Neill, arXiv:2112.12442v1, first public version 2021-12-23.",
+      "Ben O'Neill, Methodology and Computing in Applied Probability 25 (2023), article 93, DOI:10.1007/s11009-023-10067-6."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper's fixed-parameter normal approximation treats a fixed interior parameter and its discussion notes boundary inference issues; neither supplies the two endpoint laws for a varying parameter.",
+        "The earlier finite-sample result on two generalized matching games concerns likelihood-ratio ordering and exact testing power, not triangular-array distribution limits.",
+        "For exactly d moved labels in a uniform permutation, one chooses the moved labels and deranges them. Mixing this exact count with a Poisson-distributed unresolved size gives the displayed endpoint mass."
+      ],
+      "reasoning": "The nearest known statements cover the model, fixed-parameter moments and normal approximation, and a different testing question. The endpoint limits require changing the asymptotic regime and, near perfect matching, deriving the law of the number of moved points under a Poisson-distributed size.",
+      "searches": [
+        "O'Neill generalized matching distribution Theorem 9 fixed parameter asymptotic behavior",
+        "two-game generalized matching likelihood ratio exact power profile",
+        "number of moved points in a Poisson-size uniform random permutation endpoint limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O'Neill defines the model through a binomial count of known correct assignments plus a classical fixed-point count on the unresolved items, and gives the fixed-parameter distribution, moments, and normal limit.",
+        "The candidate uses the equivalent unresolved-count representation and the number of moved points in a random permutation of that size; the inspected paper does not state these triangular-array endpoint limits or the displayed Poisson mixture for the near-perfect mismatch count."
+      ],
+      "reasoning": "The model itself is not claimed as new. The comparison concerns the varying-parameter limit laws and the explicit endpoint mismatch distribution. No inspected formulation implies the full three-regime statement, though uninspected related work remains a risk.",
+      "searches": [
+        "arXiv:2112.12442v1, Sections 3-4 and Theorems 7-9",
+        "\"Poissonized derangements\" random permutation number of moved points distribution Bessel",
+        "generalized matching distribution theta_n asymptotic Poisson fixed points",
+        "generalized matching distribution number of coincidences binomial pre-matches random permutation Poisson approximation sparse matching ability theta_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table is applicable to this analytical limit theorem.",
+        "The retrieved records were not exact matches for the generalized matching model's three-regime triangular-array law; this search outcome is not treated as proof of novelty."
+      ],
+      "reasoning": "The statement is an asymptotic theorem proved from a probability representation rather than a finite table lookup. Search results were used to identify possible aliases and risks, not to establish novelty by absence.",
+      "searches": [
+        "\"Poissonized derangements\" random permutation number of moved points distribution Bessel",
+        "generalized matching distribution theta_n asymptotic Poisson fixed points",
+        "matching distribution sparse matching ability phase diagram total variation Poisson limit fixed points"
+      ]
+    },
+    "rationale": "The claim is a triangular-array boundary classification, not the fixed-parameter moment or central limit statements in the closest paper. The explicit near-perfect mismatch law and its zero mass at one are the sharpest distinguishing features. The literature comparison is bounded and leaves a specific residual risk for work on Poissonized permutation statistics.",
+    "residual_risks": [
+      "A dedicated paper on Poissonized permutations or moved-point counts could contain an equivalent expression for the near-perfect endpoint law; the focused search did not identify one, and the search was not exhaustive.",
+      "The endpoint limits combine standard binomial Poisson approximation with the classical fixed-point limit; an equivalent triangular-array corollary may exist in literature not retrieved.",
+      "No convergence rates or finite-size total-variation bounds are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the triangular-array phase diagram; covers the generalized matching model, fixed-parameter moments, stochastic monotonicity, and fixed-parameter normal approximation.",
+        "evidence": [
+          "Section 3 gives the two-stage decomposition into a binomial known-match count and a residual fixed-point count.",
+          "Theorems 7-9 give the moment generating function, first four central moments, and a central limit theorem for a fixed interior skill parameter.",
+          "Section 5 explicitly warns that the usual asymptotic confidence interval performs poorly near either parameter endpoint; no displayed result gives the endpoint laws proved here."
+        ],
+        "identifier_or_url": "arXiv:2112.12442v1; DOI:10.1007/s11009-023-10067-6",
+        "material_read": "Open-access journal full text: Sections 1-4, the model identity in Section 3, Theorems 7-9, Section 5 on endpoint inference, Section 6 on matching tests, conclusion, and relevant references. The comparison did not rely on the abstract alone.",
+        "method": "Compared the exact model representation, the fixed-parameter quantifiers in Theorem 9, the endpoint-inference discussion, and the conclusion against each of the three new limit regimes.",
+        "title": "A Generalised Matching Distribution for the Problem of Coincidences",
+        "trigger": "Same underlying two-stage matching model and closest asymptotic results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e12e89b-bd6f-41a5-a6c7-f6cac36edcec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete natural asymptotic picture across sparse-skill, near-perfect-skill, and interior regimes. The explicit near-perfect mismatch law is useful because it is non-Gaussian and rules out exactly one mismatch; this supplies a concrete boundary distribution where the source literature notes standard asymptotic inference can be unreliable. The contribution is a focused exact limit classification, not merely a numerical observation or a generic normal approximation.",
+    "status": "PASS"
+  }
+}
