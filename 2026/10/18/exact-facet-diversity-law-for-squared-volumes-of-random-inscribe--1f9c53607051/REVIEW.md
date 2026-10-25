@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is proved for each integer \(d\ge2\) by a normalized barycentric determinant identity. Uniform facet sampling gives explicit Dirichlet second-moment matrices. Their weighted sum has an exact rank-two determinant factorization; extraction of its squarefree coefficient proves the stratified moment, and the known iid two-permutation determinant identity proves the facet-mixture moment. Cauchy–Schwarz and equality conditions give the sharp optimum. A separate exact permutation-expansion checker verifies multiple nontrivial dimensions, but is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** The novelty assessed is the *combined all-dimensional explicit facet-probability collision law and exact sharp comparison with independent one-per-facet sampling*, not the determinant-of-covariance identity, general mixed-determinant expansion, or Dirichlet moments. Rademacher (2010) includes the classical iid second-moment covariance formula but not the new stratified vs iid facet-mixture comparison. The relevant primary literature on boundary-random polytopes (Turchi–Wespi 2017; Reitzner–Schütt–Werner 2019) treats other regimes; Kunis–Reichenwallner–Reitzner 2016 use a distinct tetrahedral sample. Search coverage includes aliases in random simplex moment, independent facet, mixed determinant and Dirichlet coordinates, and comparison with accessible recent mathematical research summaries. General determinant identities could make an equivalent unindexed short derivation possible; no uniqueness beyond examined records is asserted.
+PASS
 
-**Mathematical value — PASS.** Exactly one sampled vertex per facet versus iid random facet choices is a natural sampling-design question for inscribed random simplices. The all-dimensional exact normalized second-moment law, its reduction to a two-label collision statistic despite \(d+1\) vertices, and the sharp, uniquely optimizing iid probability design constitute a structural comparison rather than a numerical table or a renamed general lemma. The result is applicable even to highly nonregular simplices. It does not assert a full distribution, a mean-volume comparison, or any downstream statistical rate.
+Barycentric point on facet i has E[r_j r_k]=(1+1_{j=k})/[d(d+1)] for j,k!=i and zero otherwise (Dirichlet(1,..,1)). For m=d+1, c=1/[dm], B=sum_i t_i A_i/c=T(I+11^T)-t1^T-1t^T. It acts as T on the common orthogonal complement of 1,t, and direct rank-two determinant gives det(sum t_i A_i)=c^m m T^(m-2)(T²-sum t_i²). The squarefree coefficient [prod t_i] is E(det R_strat)^2=C_d=m!/[m^(m-1)d^m]. For iid mixture A_pi, E det(R)^2=m! det(A_pi)=C_d(1-sum pi_i²). Cauchy-Schwarz yields unique uniform pi maximizer. Independent direct two-permutation rational second-moment checks: 12 cases, d=2,3,4 stratified + iid, including degenerate pi. Finite checks corroborate analytic rank-two proof.
 
-The closest prior fact is the iid squared-volume/covariance identity of Rademacher (2010). Unindexed equivalent finite-design identities and possible stronger coverage remain bibliographic risks; independent expert or formal checking has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Sharp shape-independent second moments for a natural one-point-per-facet stratification and an independently labelled iid facet-mixture, with optimal facet-diversity comparison in every dimension. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+One independent point from EACH facet is a natural sampling design distinct from iid boundary mixtures. Exact second moments and a strict sharp design advantage are nontrivial, shape-invariant benchmarks for high-dimensional inscribed simplex sampling; the iid covariance identity is classical and is not claimed itself to be new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Barycentric point on facet i has E[r_j r_k]=(1+1_{j=k})/[d(d+1)] for j,k!=i and zero otherwise (Dirichlet(1,..,1)). For m=d+1, c=1/[dm], B=sum_i t_i A_i/c=T(I+11^T)-t1^T-1t^T. It acts as T on the common orthogonal complement of 1,t, and direct rank-two determinant gives det(sum t_i A_i)=c^m m T^(m-2)(T²-sum t_i²). The squarefree coefficient [prod t_i] is E(det R_strat)^2=C_d=m!/[m^(m-1)d^m]. For iid mixture A_pi, E det(R)^2=m! det(A_pi)=C_d(1-sum pi_i²). Cauchy-Schwarz yields unique uniform pi maximizer. Independent direct two-permutation rational second-moment checks: 12 cases, d=2,3,4 stratified + iid, including degenerate pi. Finite checks corroborate analytic rank-two proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1008.3944",
+          "https://arxiv.org/abs/1911.05917"
+        ],
+        "reasoning": "Rademacher covariance-det lemma covers general iid samples and mathematically dominates that SUBCLAIM (not a new iid general theorem). It does not on its face yield the nonidentical independent stratified coefficient without the mixed evaluation. Reitzner–Schütt–Werner handle asymptotic simple-polytope boundary sampling, not a finite m-point one-per-facet design.",
+        "searches": [
+          "Resultary semantic search: random simplex on facets iid mixture one point per facet squared volume second moment facet probability diversity",
+          "Primary sources: https://arxiv.org/abs/1008.3944; https://arxiv.org/abs/1911.05917"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1008.3944",
+        "https://arxiv.org/abs/1911.05917",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1008.3944",
+          "https://arxiv.org/abs/1911.05917"
+        ],
+        "reasoning": "The general iid identity does imply the iid portion after computing A_pi, so novelty must rest on the non-iid stratified coefficient and its shape-independent comparison. Asymptotic expected deficits and a one-tetrahedron calculation neither imply this mixed discrimination nor the uniform-in-d optimum.",
+        "searches": [
+          "Resultary semantic search: random simplex on facets iid mixture one point per facet squared volume second moment facet probability diversity",
+          "Primary sources: https://arxiv.org/abs/1008.3944; https://arxiv.org/abs/1911.05917"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1008.3944"
+        ],
+        "reasoning": "General iid volume-squared determinant equals m! det(second moment) and is established in Rademacher; the iid pi factor follows after explicit evaluation of the mixture second-moment matrix. The nonidentical one-sample-per-facet coefficient is a different mixed-determinant functional.",
+        "searches": [
+          "Resultary semantic search: random simplex on facets iid mixture one point per facet squared volume second moment facet probability diversity",
+          "Primary sources: https://arxiv.org/abs/1008.3944"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1612.01893",
+          "https://arxiv.org/abs/1008.3944"
+        ],
+        "reasoning": "No exact all-d one-point-per-facet squared-determinant table or sharp iid–stratified design comparison identified. A fixed tetrahedral moment or low-d table is not automatically the all-dimensional mixed formula.",
+        "searches": [
+          "Resultary semantic search: random simplex on facets iid mixture one point per facet squared volume second moment facet probability diversity",
+          "Primary sources: https://arxiv.org/abs/1612.01893; https://arxiv.org/abs/1008.3944"
+        ]
+      },
+      "rationale": "Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Sharp shape-independent second moments for a natural one-point-per-facet stratification and an independently labelled iid facet-mixture, with optimal facet-diversity comparison in every dimension. Unindexed-equivalent risk retained.",
+      "residual_risks": [
+        "Iid mixture subformula is a direct corollary of the already-known general iid covariance-determinant identity; do not present that identity itself as new.",
+        "Mixed-discriminant coefficient identities are classical; specialized non-iid facet evaluation or same comparison could be in unindexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: established general iid determinant-of-moment formula; one-facet-per-index independent non-iid design is not treated there.",
+          "evidence": "Iid second moments have form m!det(A); stratified second moment is the squarefree mixed determinant coefficient, a different functional.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.3944",
+          "material_read": "Accessible full-text PDF; the second-moment/covariance determinant lemma and surrounding definitions",
+          "method": "Retrieved accessible author or journal full text; examined definitions, theorem statements and relevant proof/result sections (PDF pages visually inspected where applicable).",
+          "title": "On the monotonicity of the expected volume of a random simplex",
+          "trigger": "General covariance determinant could dominate both squared-volume identities"
+        },
+        {
+          "assessment": "NOT_COVERING the finite m=d+1 iid/stratified squared-volume comparison.",
+          "evidence": "Asymptotic convex-hull expectations do not determine this d+1 point squared simplex determinant moment.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Accessible full text, asymptotic leading-volume and face-count theorems",
+          "method": "Retrieved accessible author or journal full text; examined definitions, theorem statements and relevant proof/result sections (PDF pages visually inspected where applicable).",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Boundary random point models may include simplices and volume expectations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One independent point from EACH facet is a natural sampling design distinct from iid boundary mixtures. Exact second moments and a strict sharp design advantage are nontrivial, shape-invariant benchmarks for high-dimensional inscribed simplex sampling; the iid covariance identity is classical and is not claimed itself to be new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1008.3944",
+    "https://arxiv.org/abs/1911.05917",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Normalized squared volume only; not expected volume, variance or whole distribution.",
+    "Uniform surface area on an arbitrary simplex need not be uniform facet label."
+  ],
+  "residual_risks": [
+    "Iid mixture subformula is a direct corollary of the already-known general iid covariance-determinant identity; do not present that identity itself as new.",
+    "Mixed-discriminant coefficient identities are classical; specialized non-iid facet evaluation or same comparison could be in unindexed literature."
+  ],
+  "schema_version": 1
+}
