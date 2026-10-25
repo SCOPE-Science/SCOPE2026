@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full result is checked against Sun's normalized ground-state representation. Summing the kernel over distinct valuation shells gives the exact exponential Toeplitz form; its principal eigenpair is obtained from the explicit tridiagonal inverse and a uniquely solvable boundary equation. Crucially, the positive radial eigenvector solves the **pointwise** annular Dirichlet equation at every point of each shell. The ground-state factorization with this eigenvector then proves a positive remainder for arbitrary angular modes, not merely an averaged inequality. Positivity gives uniqueness of the radial extremizer. The proof covers complex test functions, all primes, dimensions, allowed orders and widths, and the one-shell boundary case. Numerical checks (858 diagnostics) are supportive rather than universal certificates.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest primary paper is Sun, arXiv:2610.04463v1 (October 3, 2026): it establishes the global sharp Hardy inequality and remainder, but not the finite-annulus principal gap. The closest published scientific result (identifier `0555d4d60a6a`, October 11, 2026) establishes the exact radial shell energy and two nonexact spectral bounds; its stated scope excludes both exact width constants and nonradial optimality. Classical Kac--Murdock--Szegő matrix theory is appropriately acknowledged as an algebraic ingredient. No directly covering all-function p-adic annular theorem was found in the checked source set. General ground-state and principal-eigenvalue theory may contain equivalent applications, and older full texts remain a priority risk; independent review is necessary.
+PASS
 
-## Mathematical value — PASS
-Exact positive stability improvements for compact annuli quantify how the global nonattained Hardy constant becomes coercive under scale confinement. The new result settles this natural sharp constant without any radiality restriction, classifies all equality cases, and gives an exact stability identity for nonradial deviations; the sharp width coefficient is useful for finite-scale limiting arguments. Neither a mere numerical value nor a routine parameter relabeling is the contribution.
+Read frozen RESULT.md and checker.py. Starting from the explicitly credited Sun quadratic ground-state form, shell-constant h-weighted profiles have energy B[(1+r)/(1-r)I-T_M(r)] with T_ij=r^abs(i-j), r=p^(-(n+alpha)/2). Inverse of T is standard tridiagonal Kac–Murdock–Szegö; positive cosine vector satisfies both endpoint equations, hence is Perron eigenvector and gives the sharp radial eigenvalue. Its pointwise shell eigen-equation with strictly positive profile yields by a second ground-state transform an all-angular, full-function nonnegative kernel remainder; connected positive kernel enforces equality only at constant quotient, so only the radial profile attains sharpness. Principal block strict top-eigenvalue growth and endpoint phase expansion give monotonicity and B*pi^2*r*(1+r)/((1-r)^3*(M+s)^2)+O(M^-4). Independently diagonalized 12 Toeplitz matrices with r=0.03,0.15,0.4 and M=1,2,4,10 and matched root characterizations to 2e-12. This corroborates, rather than substitutes for, the exact analytic argument; original primary Sun full-text authentication remained inaccessible.
 
-## Scope and limitations
-The result is restricted to the quadratic energy on a union of complete consecutive p-adic valuation shells and does not cover arbitrary shell masks, nonlinear exponent ranges or general ultrametric groups. The older hierarchical Schrödinger source was compared at abstract level only. Its possible uninspected overlap is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+An exact best constant for a natural finite cutoff of a critical p-adic Hardy inequality, especially extension from radial to unrestricted angular modes, equality rigidity and the sharp finite-width coefficient, addresses a substantive stability gap. It is not merely a reformulation of radial M^-2 bounds or a known matrix exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

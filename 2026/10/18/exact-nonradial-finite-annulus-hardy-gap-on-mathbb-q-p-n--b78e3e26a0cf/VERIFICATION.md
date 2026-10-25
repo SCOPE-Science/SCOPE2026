@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite-annulus Hardy statement
+# Independent mathematical audit
 
-The analytic verification consists of four parts. The exact shell measure and pairwise ultrametric distance reduce the ground-state deficit to the Toeplitz quadratic form \(B(sI-T_M(r))\). The tridiagonal inverse gives the positive cosine eigenvector and the unique scalar spectral angle, with \(M=1\) handled separately. Its **pointwise** annular eigen-equation proves the full-function positive integral remainder by direct expansion for every test function, which rules out angular improvements and proves equality rigidity. The endpoint equation and Taylor expansion yield the sharp shifted-width \(O(M^{-4})\) remainder.
+## correctness
 
-The file `checker.py` is standalone Python 3.9+ and requires no third-party packages. Running `python checker.py` printed `PASS 858 finite algebraic/numerical diagnostics`. It checks eigenpair equations and Rayleigh inequalities for four parameter triples and several finite widths, a one-shell nonradial angular perturbation in \(\mathbb Q_2\), and finite large-width comparisons. The checks are finite and cannot independently certify the all-function theorem or publication priority.
+PASS
 
-Scientific limitations: the proof uses Sun's already established ground-state normalization; the improvement is on complete consecutive annuli only. No formal proof assistant or independent expert audit was used.
+Read frozen RESULT.md and checker.py. Starting from the explicitly credited Sun quadratic ground-state form, shell-constant h-weighted profiles have energy B[(1+r)/(1-r)I-T_M(r)] with T_ij=r^abs(i-j), r=p^(-(n+alpha)/2). Inverse of T is standard tridiagonal Kac–Murdock–Szegö; positive cosine vector satisfies both endpoint equations, hence is Perron eigenvector and gives the sharp radial eigenvalue. Its pointwise shell eigen-equation with strictly positive profile yields by a second ground-state transform an all-angular, full-function nonnegative kernel remainder; connected positive kernel enforces equality only at constant quotient, so only the radial profile attains sharpness. Principal block strict top-eigenvalue growth and endpoint phase expansion give monotonicity and B*pi^2*r*(1+r)/((1-r)^3*(M+s)^2)+O(M^-4). Independently diagonalized 12 Toeplitz matrices with r=0.03,0.15,0.4 and M=1,2,4,10 and matched root characterizations to 2e-12. This corroborates, rather than substitutes for, the exact analytic argument; original primary Sun full-text authentication remained inaccessible.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+An exact best constant for a natural finite cutoff of a critical p-adic Hardy inequality, especially extension from radial to unrestricted angular modes, equality rigidity and the sharp finite-width coefficient, addresses a substantive stability gap. It is not merely a reformulation of radial M^-2 bounds or a known matrix exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
