@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All moment formulas follow from uniform partner probabilities, the exact deletion-seam conditional expectation for A, and an LR insertion recurrence that is explicitly justified by a bijection. The n=2 exceptional denominator is handled separately; for n>=3 the seam sum is an exact cubic sum. Conditional moments yield the LR variance by induction. The exact rational verifier exhausts every matching for 2<=n<=7 and independently verifies the moment recurrence to n=200. Infinite scope rests on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Young arXiv:2004.06921 PDF Sections 1--2 treats general k-chord short-chord counts, connected clusters and noncrossing models, not LR-pair cross-covariance.",
+        "Krasko--Omelchenko arXiv:1601.05073 PDF Sections 1--2 enumerates diagrams by loops and parallel chords, without a statistic for opener-closer adjacency in inspected material.",
+        "Marmor arXiv:2307.09894 PDF Theorem 1.6 proves Schur-positivity of short-chord support and describes refinements by intersection patterns, not the mixed LR statistic."
+      ],
+      "reasoning": "The inspected generalizations concern short-chord marginals, support-set representation structure or diagram classes. None states a joint generating function or implication that fixes the covariance with the distinct opener-closer peak count. The possibility of an uninspected stronger multivariate result is retained as a risk.",
+      "searches": [
+        "joint distribution number of short chords peaks Stirling permutations 2020",
+        "Statistics on Linear Chord Diagrams Cameron Killpatrick arXiv 1902.09021",
+        "Schur positivity short chords matchings Marmor 2023"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1902.09021 -- first posted 2019-02-24; primary full text",
+      "arxiv:1601.05073 -- first posted 2016-01-19; supporting full text selected sections",
+      "arxiv:2004.06921 -- first posted 2020-04-15; supporting full text selected sections",
+      "arxiv:2307.09894 -- first posted 2023-07; supporting full text selected sections",
+      "published matching and random-statistic research record semantic searches for short chord/LR and aliases; no identical recovered statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cameron--Killpatrick arXiv:1902.09021 Proposition 1 and recurrence (7) imply the LR mean and variance but not its covariance with short-chord count.",
+        "Young arXiv:2004.06921 Theorem 6 implies a short-chord mean, without an LR mixed moment.",
+        "The candidate explicitly derives E[SA] by conditioning on a specific short chord, deleting it, and subtracting a position-dependent seam probability; the displayed half-slope follows only after combining that mixed moment with the known marginal identities."
+      ],
+      "reasoning": "Known individual formulas imply the two variances but cannot imply the sign, size or optimal slope of the cross-covariance without a coupling theorem. The exact deletion-seam mixed moment is the comparison pivot; inspected theorem statements and their proofs do not supply it. This is a best-knowledge originality assessment, not certification against all literature.",
+      "searches": [
+        "linear chord diagram LR pair short chord covariance (n-1)/(2n-1) correlation 3/(2 sqrt(n+1))",
+        "\"short chords\" \"LR pairs\" covariance matching",
+        "random perfect matchings short adjacent chords positive covariance with number of left-right endpoint adjacencies and negative covariance with distinct chord LR pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cameron--Killpatrick arXiv:1902.09021 PDF pp. 3--10 defines both short chords and LR pairs and proves separate marginal enumerations and the second-order Eulerian recurrence.",
+        "Marmor arXiv:2307.09894 PDF Sections 1, 4 and 5 uses short-chord support sets, Schur functions and Knuth-type equivalence without the LR-pair mixed moment in inspected sections."
+      ],
+      "reasoning": "The matching model and statistics coincide with the ones in the primary source, but marginal enumerations alone do not fix a mixed covariance. The presented half-slope and equal-opposite covariances require an additional deletion-seam calculation. Searches for joint distribution, ascent and short-arc synonyms found no equivalent statement in inspected results.",
+      "searches": [
+        "\"short chords\" \"LR pairs\" covariance matching",
+        "\"short chords\" \"ascents\" \"second-order Eulerian\" matching covariance",
+        "\"short chords\" \"LR pairs\" joint covariance",
+        "Cameron Killpatrick short chord LR pair joint distribution moments regression random perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cameron--Killpatrick arXiv:1902.09021 tables (2), (3), and (6) contain separate short-chord and LR-pair marginal distributions.",
+        "The article points to short-chord sequence A079267 and second-order Eulerian sequence A008517, but neither marginal table determines the joint coupling."
+      ],
+      "reasoning": "The candidate does not re-enumerate either known table; it relates two statistics on the same matching. Even a complete exact marginal table leaves cross-covariance unidentified without shared-object information. A comprehensive database query cannot prove absence, and no fully matched joint table was found.",
+      "searches": [
+        "\"short chords\" \"LR pairs\" joint distribution chord diagrams",
+        "\"matching\" \"short chords\" \"LR pairs\" \"joint\"",
+        "second order Eulerian generalized Narayana matchings joint moments"
+      ]
+    },
+    "rationale": "The direct comparator Cameron--Killpatrick 2019 separately identifies short-chord and LR-pair distributions but does not give the shared-object mixed moment or optimal affine projection. A conditional deletion-seam count relates the statistics and yields equal-and-opposite correlations not inferred from the marginals alone. Additional matching generalizations by Krasko--Omelchenko, Young and Marmor were compared. Search and text inspection support best-knowledge novelty, with historical-priority risks explicitly retained.",
+    "residual_risks": [
+      "An older multivariate Stirling-permutation identity could imply the mixed moment without using short-chord terminology.",
+      "Some references and historical works were only partially inspected, so absence of the identity is not proved globally.",
+      "This self-review is not independent historical-priority or mathematical certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines S and L; enumerates their separate marginal distributions, gives E[S]=1 and an LR recurrence; no joint moment or regression is given in inspected results.",
+        "evidence": [
+          "Definitions of short chords and LR pairs on PDF pp. 1 and 3--4; marginal tables (2) and (3); recurrence (7) and concluding discussion on pp. 8--10."
+        ],
+        "identifier_or_url": "arxiv:1902.09021; https://dmtcs.episciences.org/en/articles/5211/download",
+        "material_read": "PDF: introduction, short-chord section, complete second-order Eulerian section and concluding discussion (pp. 1--10).",
+        "method": "Parsed PDF text with visual inspection of displayed statistics and tables.",
+        "title": "Statistics on Linear Chord Diagrams",
+        "trigger": "Same objects and both statistics; highest-priority direct comparator."
+      },
+      {
+        "assessment": "Supports existing loop-count enumeration; the inspected sections do not introduce the distinct LR-pair statistic or its joint mixed moments.",
+        "evidence": [
+          "PDF pp. 1--5: definition of loops/parallel chords, Lemma 2.2 and loop polynomial recurrence."
+        ],
+        "identifier_or_url": "arxiv:1601.05073; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v24i3p43/pdf/",
+        "material_read": "PDF introduction and Section 2 on loopless linear diagrams and loop-count generating functions.",
+        "method": "Read available full-text PDF sections and definitions.",
+        "title": "Enumeration of Chord Diagrams without Loops and Parallel Chords",
+        "trigger": "Short chords are named loops and the paper gives a strong multivariate counting apparatus."
+      },
+      {
+        "assessment": "Generalizes marginal short-chord counting, not the coupling to opener--closer adjacency required for the claim.",
+        "evidence": [
+          "Theorem 6 and Section 2 short-chord statistics; no LR-pair definition among the inspected theorem statements."
+        ],
+        "identifier_or_url": "arxiv:2004.06921; https://cs.uwaterloo.ca/journals/JIS/VOL23/Young/young5.pdf",
+        "material_read": "PDF abstract, introduction, Section 2 and the general short-chord recurrence statements in its first six pages.",
+        "method": "Full-text PDF examination of named definitions and theorems; page image inspected.",
+        "title": "Linear k-Chord Diagrams",
+        "trigger": "Potentially dominating generalization from two-endpoint chords to k-endpoint blocks."
+      },
+      {
+        "assessment": "Schur-positive statistics use short-chord support, not the LR-pair statistic; no covering cross-moment found in inspected portions.",
+        "evidence": [
+          "Definition 1.5 and Theorem 1.6, Section 4 introductory proof and Section 5 intersection-statistic refinements."
+        ],
+        "identifier_or_url": "arxiv:2307.09894; https://arxiv.org/pdf/2307.09894",
+        "material_read": "PDF introduction, Theorem 1.6, Section 4 introduction and selected Section 5 refinements.",
+        "method": "Parsed full-text PDF around definitions, theorem and refinements; searched the full PDF for LR, Eulerian and covariance terms.",
+        "title": "Schur-Positivity of Short Chords in Matchings",
+        "trigger": "Newer primary work about short-chord indicator sets that could subsume a second-order dependence claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31a0205c-4276-4554-8fed-0c71a423844c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two statistics are separately canonical and have established generalized-Narayana enumerations. Their joint covariance is not determined by either marginal sequence. The new universal half-slope, exact correlation decay and opposed same-chord/different-chord covariances give a structural coupling law and a calibrated affine predictor. The position-conditioned seam identity explains the finite-size mechanism; no unrelated slice, minor numerical improvement or unsupported downstream claim is required.",
+    "status": "PASS"
+  }
+}
