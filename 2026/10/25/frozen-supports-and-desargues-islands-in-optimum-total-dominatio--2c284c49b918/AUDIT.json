@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For n>=m>=3, an empty row and empty column cannot coexist in a total dominating set. At optimum cardinality m, one orientation has exactly one selected square per column and each occupied row has at least two. Moves cannot change the orientation, column, or occupied-row support. A row with >=3 selections is a buffer enabling arbitrary exchanges among supports of size r>=2 and m>2r; when m=2r all rows have size two and every state is immobile. Fiber-surjection enumeration gives L_{m,r}=m![x^m](e^x-1-x)^r, and each directed move is counted by fixing an affected column, its source/destination labels and an admissible (m-1)-column remainder, yielding E_{m,r}=binom(r,2)*m*L_{m-1,r}. The m=5 component is the Desargues inclusion graph. Direct enumeration: full-board open-neighborhood and single-replacement graph; n,m=(3,3),(4,3),(4,4),(5,4),(5,5),(6,5); direct_output.txt. Independent associated-surjection enumeration m=3,...,8 and r<=floor(m/2), including vertex degrees, edges and components; structure_output.txt. Combinatorial proof: empty row/column forcing; frozen support; buffer-row transpositions; exponential generating counts; double-counted directed moves; 2/3-subset inclusion identification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazemi, Pahlavsay and Stones (arxiv:1509.08208) §3 and Theorem 6 give k=1 rook-total-domination cardinality and k-tuple formulas, not the optimal exchange graph.",
+        "Choudhary, Margulies and Hicks (doi:10.37236/2535) Theorems 1-3 establish Cartesian-product domination inequalities rather than optimal-solution exchange transitions.",
+        "The earlier inclusion-minimal total-domination classification gives all feasible minimal objects and their enumerator but does not establish the graph of one-for-one exchanges; separate move analysis and connectivity construction are needed."
+      ],
+      "reasoning": "Compared mathematical implications, not just labels: exact state-set enumeration and general bounds do not imply the connected-component decomposition of the induced one-swap graph. A paired-domination result restricts to even fiber sizes, excluding the first mobile five-column case.",
+      "searches": [
+        "total domination reconfiguration Cartesian product of complete graphs rook placements token jumping minimum total dominating sets",
+        "associated Stirling surjections Hamming graph lower bounded fibers reconfiguration connected components",
+        "double occupancy surjections functions minimum fiber size two recoloring graph connected",
+        "arxiv:1509.08208",
+        "doi:10.37236/2535",
+        "arxiv:2003.05956"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/2535",
+      "arxiv:1509.08208",
+      "arxiv:2003.05956",
+      "OEIS:A384117",
+      "Relevant prior total-domination and paired-domination historical claim statements (deduplication only).",
+      "Published mathematical-record search results for rook graphs, total domination, jump reconfiguration, bounded-fiber surjections and Desargues middle levels."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Already-known minimum total-domination number m is explicitly separated from new component structure in RESULT.md.",
+        "The previous paired-domination result classifies only even-fiber optima and finds one-move rigidity there, consistent with but insufficient for the present connected odd-fiber states.",
+        "The previously recorded inclusion-minimal total-dominating-set polynomial determines counts of special states, not whether two states are joined by legal one-replacement sequences."
+      ],
+      "reasoning": "One cannot derive the current component theorem as a corollary merely by taking the lowest coefficient of a prior total-domination polynomial or by applying paired domination. The new conclusion requires identifying exact legal swaps, proving frozen supports and constructing paths within the support classes.",
+      "searches": [
+        "arxiv:1509.08208",
+        "arxiv:2003.05956",
+        "doi:10.37236/2535",
+        "rook graph minimum total domination one-for-one exchange single vertex swaps row support invariant connected components Desargues middle levels",
+        "rook graph K_n Cartesian K_m minimum total dominating set token jump exchange reconfiguration graph support fixed components Desargues graph five columns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem is equivalently a token-jumping graph of optimal rook total dominators, an exchange graph of surjections f:[m]->[n] with all positive fiber sizes at least two, or an exchange graph of the corresponding optimal edge subsets of K_{n,m}.",
+        "Mynhardt and Nasserasr arxiv:2003.05956 pp.1-2,13-14 distinguish jump and total-dominating-set graphs but do not state the rook optimum graph."
+      ],
+      "reasoning": "Checked both rook-coordinate and bounded-surjection language, and compared the definitions of token-jumping versus token-addition and slide models. The general reconfiguration survey defines related frameworks; it does not identify fixed-support components or these exact formulas.",
+      "searches": [
+        "minimum total dominating sets of rook graphs K_m Cartesian K_n exchange graph one vertex replacement connected components supports surjections with minimum fiber size two",
+        "rook graph minimum total domination one-for-one exchange single vertex swaps row support invariant connected components Desargues middle levels",
+        "minimum total dominating sets of K_n box K_m swap graph 5 column two occupied rows Desargues",
+        "token jumping minimum total dominating sets rectangular rook graph middle levels",
+        "\"minimum total dominating\" \"rook graph\" \"reconfiguration\"",
+        "arxiv:2003.05956"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A384117 (created 2025-05-20) tabulates numbers of minimum total dominating sets of n by m rook graphs and describes one-square-per-line configurations.",
+        "Direct finite checks reproduce the 5-by-5 count 410 and 6-by-5 count 306, but the new claims concern edges and components: 10K1 disjoint union 20 Desargues graphs for 5 by 5."
+      ],
+      "reasoning": "Existing tabulation covers optimum-set totals, which are credited as prior-known, but provides no exchange-edge/connected-component inventory; a counting table does not mathematically imply reconfiguration connectivity.",
+      "searches": [
+        "OEIS:A384117",
+        "minimum total dominating sets of K_n box K_m swap graph 5 column two occupied rows Desargues",
+        "rook graph K_n Cartesian K_m minimum total dominating set token jump exchange reconfiguration graph support fixed components Desargues graph five columns"
+      ]
+    },
+    "rationale": "The new claim is the full one-vertex-replacement graph decomposition of minimum total dominating sets, the exact mobility threshold and component size/edge formulas, and the five-column Desargues identification. Minimum cardinalities, counts, and component descriptions of inclusion-minimal (as opposed to minimum) total-dominating sets exist in related literature or earlier combinatorial records and are not presented as novel. Published 2013/2015 product-domination articles and 2020 reconfiguration survey were inspected at the relevant statements; no result stating or implying the exchange decomposition was found. A pre-existing paired-domination exchange result concerns a strict even-fiber subfamily, so does not imply the odd-fiber transitions. Search noncoverage is not a proof of novelty.",
+    "residual_risks": [
+      "A structurally equivalent token-jumping or surjection reconfiguration theorem could be unpublished or absent from the indexed/searchable literature.",
+      "Rook graph minimum-set counting and a broader minimal-total-domination classification are prior known; no novelty is attributed to their direct enumerative implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General total/paired domination inequalities, not an optimum one-replacement exchange-graph classification.",
+        "evidence": [
+          "Theorems 1-3 bound products of domination parameters on Cartesian products; first published 2013-08-23."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p25/pdf",
+        "material_read": "Abstract, introduction, stated theorems, and central proof/inequality sections (PDF text pages 1-3 and linked main statements).",
+        "method": "Primary publisher PDF opened; text inspected and first page rendered.",
+        "title": "A Note on Total and Paired Domination of Cartesian Product Graphs",
+        "trigger": "Directly relevant total and paired domination of Cartesian products; primary MSC 05C69"
+      },
+      {
+        "assessment": "Proves total-domination parameter and k-tuple formulas, but not this optimal-exchange component structure.",
+        "evidence": [
+          "Equation (3) gives local k-neighbor incidence matrix condition; Theorem 6 handles the k=1 minimum total domination case.",
+          "arXiv v1 submitted 2015-09-28; v2 2016-10-04."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08208",
+        "material_read": "Primary arXiv PDF pages 1-2, 6-8, 14-16, with Theorem 6, matrix model, and section conclusion.",
+        "method": "Full document accessed; relevant mathematical portions read in text view; title page rendered.",
+        "title": "Cartesian product graphs and k-tuple total domination",
+        "trigger": "Identical rook graph product and primary MSC 05C69; exact optimum k=1 parameter"
+      },
+      {
+        "assessment": "Surveys general frameworks, not the exact rook total-domination support decomposition.",
+        "evidence": [
+          "Defines minimum-set single-vertex replacement and total-dominating-set graphs; discussion §4.2 is about additions/deletions and §4.3 about ordinary domination jumps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.05956",
+        "material_read": "Primary arXiv PDF pages 1-3 and 13-15 on total-dominating and jump domination graphs.",
+        "method": "Primary PDF text and rendered first page; checked rook-specific occurrences and relevant sections.",
+        "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+        "trigger": "Potential broader coverage in standard reconfiguration models"
+      },
+      {
+        "assessment": "Counts minimum configurations, not one-swap adjacency, connected components or the Desargues phenomenon.",
+        "evidence": [
+          "Contains known min-set total 410 for the 5-by-5 board, corresponding to ten singletons plus twenty 20-vertex components."
+        ],
+        "identifier_or_url": "https://oeis.org/A384117",
+        "material_read": "Table, comments, formula, attribution and initial terms.",
+        "method": "Public OEIS page and internal metadata inspected.",
+        "title": "OEIS A384117: number of minimum total dominating sets in rook graphs",
+        "trigger": "Exact enumeration table that could cover counts or show prior known states"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c284c49-b918-4f01-9535-9c6f62f064a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum-solution exchange graph is the natural reachability structure for keeping an optimal total-dominating placement under one simultaneous replacement. The new all-board classification gives exact frozen-support obstructions, a constructive algorithm within every mobile component, exact associated-Stirling order and edge formulas, and a sharp change from entirely isolated optima for three or four columns to Desargues components for five. It explains why a complete count of optima alone misses severe disconnection and heterogeneous mobility, and supports exact optimal-placement sampling or local-search studies; no unrelated downstream theorem is assumed.",
+    "status": "PASS"
+  }
+}
