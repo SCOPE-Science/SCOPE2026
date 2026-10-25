@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The ordinary degree-five homology concentration and rank rely on the published total-cut classification together with combinatorial Alexander duality. The new reflection calculations have a complete orbit-enumeration argument in `RESULT.md`, so no inference from finite cases to infinitely many ladders is used.
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.10 or later. The included program performs two logically separate checks: exhaustive invariant-face enumeration and signed Lefschetz sums at all widths from 4 through 36; exhaustive face generation and augmented mod-two boundary-matrix reduction at widths 4 through 8. The supplied `verification_output.txt` records 99 agreement checks and five mod-two homology checks. The code is standalone and has no external dependencies.
+## correctness
 
-The program does not compute integral equivariant chain equivalences, integral quotient homology, or the status of unindexed literature. The cross-checks corroborate rather than replace the infinite argument.
+PASS
+
+For two-row ladder L_n and K=Cliq_4(L_n) (faces with no independent 4-set), published total 4-cut ladder wedge theorem and combinatorial Alexander duality establish that reduced rational homology concentrates in H5 with dimension N=binom(n−1,3). For a row-swap or reflection involution g, reduced Lefschetz identifies trace on H5 with sum over invariant faces of (−1)^(number of length2 vertex orbits + fixed singleton orbits). A rung-orbit subset of size t has independence number t, giving tr(row swap)=Σ_(t=0)^3 (−1)^t C(n,t)=−N. Even/odd column reflection and combined reflection reduce to eligible 1-,2-,3-pair-orbit unions; bipartite matching (König) restricts all faces to size≤6 and yields tr(column reverse)=−f and tr(combined)=+f, with f=n/2−1 if n even else0. Permutation action on 3-subsets of the n−1 elementary squares twisted by the two sign characters has exactly the resulting character (N,−N,−f,f), and rational C2×C2 representations are determined by their four traces. Rational transfer gives quotient H5 ranks 0,(N−f)/2,(N+f)/2,0. Independently enumerated stable faces using explicit graph independent-four predicate and signed orbit contributions for n=4 through10: characters n4=(1,−1,−1,1), n5=(4,−4,0,0), n6=(10,−10,−2,2), up to n10=(84,−84,−4,4), all matching the formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
+
+## value
+
+PASS
+
+The nonequivariant wedge rank already known does not tell how the two natural ladder involutions act; the exact full Klein-four character distinguishes reflection quotients and proves row swap kills all invariant rational classes. This is a motivated equivariant refinement for a standard grid-complex family, and its parity-dependent quotient ranks are useful even without an integral basis or an equivariant homotopy equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
