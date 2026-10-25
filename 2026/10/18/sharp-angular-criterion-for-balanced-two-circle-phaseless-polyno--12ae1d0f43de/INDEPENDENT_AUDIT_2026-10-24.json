@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:48:58Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independently evaluated degree 1–8 polynomial intensity DFTs on two radii (nonaligned offsets) and recovered a_d conjugate(a_0) from the explicit 2×2 Nyquist equations in all eight constructed cases. Source script verify_two_circle_nyquist.py was read fully; general statement follows exact Fourier/reflection proof, not the eight numerical cases.",
+      "rationale": "For f(z)=Σ_{0≤m≤d}a_m z^m, each circle intensity has harmonics from −d to d. Sampling at N=2d regular polygon phases recovers c_m(r) for |m|<d exactly, and only the ±d Nyquist collision remains. Because c_d(r)=r^d a_d conjugate(a_0), the two alternating real samples recover its two real coordinates iff the 2×2 angular matrix determinant −sin[d(θ2−θ1)] is nonzero. This yields full continuous moduli on both distinct circles; applying rational-function Schwarz reflection for each radius and dilation invariance R(z)=R((r2/r1)² z) forces f/g to be a unimodular constant, including zero and vanishing coefficients. At aligned phases z^d±i e^{idθ1} are indistinguishable. The de-aliasing Gram eigenvalues 1±|cos[d(θ2−θ1)]| give the exact normalized subsystem condition number and unique halfstep optimum. This does NOT claim global nonlinear inverse stability or minimality beyond this regular balanced geometry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodmann–Hammen use intersecting circles, geometrically distinct from two concentric polygons.",
+          "The Chalendar–Partington theorem has all angular phases as input, not N=2d discrete samples."
+        ],
+        "reasoning": "Both furnish broader conceptual uniqueness frameworks, neither is a covering statement about this particular grid and optimal Nyquist phase offset.",
+        "searches": [
+          "Bodmann–Hammen arXiv:1302.5487",
+          "Pohl–Li–Boche 2017 conference presentation full pages 16–18",
+          "Chalendar–Partington 2024 Theorem 2.16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen seven-file Git tree fb8d29c582a916145fefa0afd225591006465340 at commit fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c; RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json and verify_two_circle_nyquist.py inspected",
+        "Resultary semantic query (five topic-specific searches) and primary literature sources as individually recorded in four originality checks and source_inspections",
+        "Independent separate arithmetic/finite checks described in axes.correctness.independent_verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing analytic uniqueness supports step 3, not the finite Nyquist reconstruction and aligned-grid counterexample.",
+          "The fixed number 4d is covered in another allocation; the user-facing theorem concerns balanced 2d+2d and precise angular arithmetic."
+        ],
+        "reasoning": "The claim genuinely adds an exact finite-grid classification and a local subsystem conditioning optimum, while preserving earlier continuous uniqueness and phase retrieval counting results as prior.",
+        "searches": [
+          "Pohl–Li–Boche 2017 pages 16–18",
+          "Chalendar–Partington 2024 two-circle modulus uniqueness",
+          "Bodmann–Hammen 2013 low redundancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pohl–Li–Boche give a 4d concentric construction with 2d+1 exterior and 2d−1 interior nodes, not two equal 2d Nyquist grids.",
+          "Chalendar–Partington continuous two-circle uniqueness cannot on its own resolve finite Fourier aliases at exactly 2d points per ring."
+        ],
+        "reasoning": "Finite phase retrieval equivalence needs point configuration, offset arithmetic and universal degree-d quantifiers, not just equality of total measurements. No inspected prior theorem directly implies the sharp balanced if-and-only-if without additional alias argument.",
+        "searches": [
+          "Resultary: polynomial phase retrieval two concentric circles regular polygons balanced 2d 2d angular offsets Nyquist",
+          "Pohl–Li–Boche DOI:10.1109/SAMPTA.2017.8024411",
+          "Chalendar–Partington arXiv:2403.16255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact sample count 4d is already known; 4d alone is not novel.",
+          "No located exact design table distinguishes aligned balanced offset failure from half-Nyquist robustness."
+        ],
+        "reasoning": "The new complete iff criterion is sensitive to offsets; no covering finite tabulation found among actually examined sources. A hidden equivalent sampling design remains possible.",
+        "searches": [
+          "Resultary balanced ring polynomial magnitudes finite Nyquist offset exact phase retrieval",
+          "Pohl–Li–Boche 2017 4d count and allocation"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.",
+      "residual_risks": [
+        "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+        "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+        "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+        "Nonlinear phase reconstruction global stability is not established; κ concerns only 2×2 alias subsystem.",
+        "Concentric regular polygons with equal counts only; original Pohl–Li–Boche full proceeding was not examined, though full author presentation was materially read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_4D_ASYMMETRIC_SAMPLING",
+          "evidence": [
+            "4d total samples is not new; equal rings with offset sine criterion and balanced Nyquist condition were not shown in inspected slides."
+          ],
+          "identifier_or_url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Pohl-Phase_Retrieval_in_Spaces_of_Analytic_Functions_on_the_Unit_Disk.pdf",
+          "material_read": "Actual author PDF pages 16–18 read as text and rendered screenshots: exact polynomial circle construction allocates 2d+1 samples outside and 2d−1 inside",
+          "method": "public primary author PDF, PDF page screenshots",
+          "title": "Phase Retrieval in Spaces of Analytic Functions on the Unit Disk (conference presentation)",
+          "trigger": "Closest two-concentric-circle low-redundancy finite construction"
+        },
+        {
+          "assessment": "PRIOR_CONTINUOUS_TWO_CIRCLE_UNIQUENESS",
+          "evidence": [
+            "Continuous modulus on two radii determines f globally modulo phase; no finite balanced Nyquist sampling theorem follows without an alias recovery step."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.16255",
+          "material_read": "Rendered full-text arXiv HTML, including two-circle uniqueness Theorems 2.6/2.11/2.16 and hypotheses as displayed",
+          "method": "arXiv HTML source and theorem/assumption comparison",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Plausible stronger continuous uniqueness theorem"
+        },
+        {
+          "assessment": "INTERSECTING_CIRCLES_CONSTRUCTION; MATERIAL_LIMITED",
+          "evidence": [
+            "Earlier intersecting-circle design is credited but does not establish the balanced concentric offset criterion in material read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.5487",
+          "material_read": "Accessible abstract and source comparison; original full text not re-read",
+          "method": "arXiv abstract / frozen-source literature",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "Potential competing 4d point scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two concentric regular intensity polygons with exactly equal sample allocations are a natural constrained experimental geometry. The theorem gives both a complete yes/no design classification and the exact angular staggering that optimizes the only nontrivial linear de-aliasing subsystem. The aligned-grid ambiguity gives a motivated sharp boundary; full nonlinear stability is not asserted. Thus it is more than routine interpolation or a numerical experiment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen seven-file Git tree fb8d29c582a916145fefa0afd225591006465340 at commit fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c; RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json and verify_two_circle_nyquist.py inspected",
+    "Resultary semantic query (five topic-specific searches) and primary literature sources as individually recorded in four originality checks and source_inspections",
+    "Independent separate arithmetic/finite checks described in axes.correctness.independent_verification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+    "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+    "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+    "Nonlinear phase reconstruction global stability is not established; κ concerns only 2×2 alias subsystem.",
+    "Concentric regular polygons with equal counts only; original Pohl–Li–Boche full proceeding was not examined, though full author presentation was materially read."
+  ],
+  "residual_risks": [
+    "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+    "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+    "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+    "Nonlinear phase reconstruction global stability is not established; κ concerns only 2×2 alias subsystem.",
+    "Concentric regular polygons with equal counts only; original Pohl–Li–Boche full proceeding was not examined, though full author presentation was materially read."
+  ],
+  "schema_version": 1
+}

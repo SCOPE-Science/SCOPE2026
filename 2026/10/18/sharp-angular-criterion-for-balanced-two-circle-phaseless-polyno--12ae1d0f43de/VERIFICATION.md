@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses exact discrete Fourier alias orthogonality, a real two-by-two invertibility test and its Gram eigenvalues, and rational-function reflection under two distinct radii. Those steps establish arbitrary-degree correctness without invoking a finite numerical census.
+## correctness
 
-The accompanying `verify_two_circle_nyquist.py` script was executed with Python 3 and NumPy. It reported `PASS 990 independent numerical consistency checks for degrees 1..15`. The checks included every recoverable non-Nyquist Fourier coefficient, the real Nyquist alternation equation, recovery of the complex top coefficient when permitted, singular values of the unaliasing matrix, and indistinguishable non-equivalent polynomials on aligned configurations. They are numerical corroboration only.
+PASS
 
-No independent mathematical audit has been performed. Numerical experiments do not certify novelty, infinite quantifiers, or stable nonlinear phase inversion. The proof and literature comparison give the limited support recorded in the review.
+For f(z)=Σ_{0≤m≤d}a_m z^m, each circle intensity has harmonics from −d to d. Sampling at N=2d regular polygon phases recovers c_m(r) for |m|<d exactly, and only the ±d Nyquist collision remains. Because c_d(r)=r^d a_d conjugate(a_0), the two alternating real samples recover its two real coordinates iff the 2×2 angular matrix determinant −sin[d(θ2−θ1)] is nonzero. This yields full continuous moduli on both distinct circles; applying rational-function Schwarz reflection for each radius and dilation invariance R(z)=R((r2/r1)² z) forces f/g to be a unimodular constant, including zero and vanishing coefficients. At aligned phases z^d±i e^{idθ1} are indistinguishable. The de-aliasing Gram eigenvalues 1±|cos[d(θ2−θ1)]| give the exact normalized subsystem condition number and unique halfstep optimum. This does NOT claim global nonlinear inverse stability or minimality beyond this regular balanced geometry.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.
+
+## value
+
+PASS
+
+Two concentric regular intensity polygons with exactly equal sample allocations are a natural constrained experimental geometry. The theorem gives both a complete yes/no design classification and the exact angular staggering that optimizes the only nontrivial linear de-aliasing subsystem. The aligned-grid ambiguity gives a motivated sharp boundary; full nonlinear stability is not asserted. Thus it is more than routine interpolation or a numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
