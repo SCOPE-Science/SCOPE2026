@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact leading-run identity follows from the order-preserving bijection between full-run palindrome strings and choices of mirrored positive run lengths. All shorter palindrome run counts are bounded by a finite alphabet/run-composition enumeration. AM–GM yields the sharp leading constant; the alternating balanced construction attains it. The unique AM–GM equality case plus an exact identity for unused paired-run slack proves the full asymptotic rigidity in both directions. `verify.py` performs 54,007 exhaustive bounded run-cap checks and auxiliary exact five-run/three-run stress checks. Finite checks supplement rather than replace the proof.
+
+**Originality — PASS (subject to residual literature risk).** Comparison with Mahalingam–Pandoh, arXiv:2108.02729 (distinct scattered palindromes under no run cap); Liron–Langberg, arXiv:1202.1644 (all-subsequence deletion counts under fixed run count); Müllner–Ryzhikov, arXiv:1901.07502 (longest palindromic subsequence); Holub–Saari (2009; long palindromic subsequences) did not identify a dominating result giving the claimed sharp fixed-run asymptotic coefficient together with stability. These comparisons are substantive: in the unconstrained-count paper no fixed-run parameter is optimized, while the deletion paper optimizes a *different* statistic and its balanced-run shape does not imply the doubled middle run. Published-record searches found neighboring palindrome operations and run/subsequence questions but no equivalent. Full coverage of uncatalogued sources is not guaranteed.
+
+**Value — PASS.** Restricting the number of symbol changes turns the generally much larger family of scattered palindromes into a fixed-degree polynomial phenomenon. The exact, alphabet-independent leading coefficient and the if-and-only-if rigidity classify the unique macroscopic way to achieve maximal growth; they separate the palindromic statistic from the all-subsequence extremals. This is a structural asymptotic classification, not a single numerical instance or trivial renaming.
+
+**Residual risks.** Unindexed papers or alternate terminology may cover an equivalent statement. The general exact finite-length optimum remains unresolved. Finite tests are not a proof of the asymptotic theorem.
+
+Self-review: passed. Independent audit: not yet performed.
