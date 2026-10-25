@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 check_bistar.py` with the Python 3 standard library. The self-contained verifier reconstructs each double-star graph from adjacency bits, exhaustively searches induced component sizes, and compares each candidate face against an independently stated formula. It verifies the proposed elementary collapses *as actual free-face removals*, in descending face order, leaving precisely the full leaf simplex. Complete mod-two boundary matrices are reduced by exact bitset Gaussian elimination for all tested examples with at most eight graph vertices. Independent signed fixed-face Lefschetz sums are compared with exterior augmentation characters, including hub interchange where permitted. A full finite automorphism-group character average checks quotient-homology ranks.
+## correctness
 
-The supplied `check_output.txt` is the captured output from this verifier. The expected all-success counts are 112 face criteria, 6,210 elementary collapse pairs, 84 homology computations, 266 trace comparisons, and 36 quotient ranks. Finite computation does not establish the infinite theorem; the proof's all-parameter chain argument is the primary correctness evidence. No independent scientific audit has been performed.
+PASS
+
+For all a,b>=1, one-hub subcomplex collapses to the full leaf simplex by pairing hub-containing simplices with the opposite-block leaf, while both-hub simplices give the relative augmented leaf skeleton shifted by two degrees. Integer boundary is contraction by coordinate-sum epsilon; its top kernel is Λ^(r-2)ker(epsilon), equivariantly twisted by the sign of the two hubs. Lower degrees are exact and r=1 or r>=m+2 are contractible. Rational quotient homology equals G-invariants after barycentric subdivision: trivial invariant exterior degrees 0 and 1 before equal-block interchange; interchange removes degree 0 and preserves 1. Independently enumerated face complexes and signed Lefschetz traces for a,b=(1,1),(1,2),(2,2),(3,3) through all r, matching exterior-character predictions, including edge cases.
+
+## originality
+
+PASS
+
+Deshpande–Singh Theorem 3.10 already gives NONEQUIVARIANT sphere wedge and rank binomial(m-1,r-2); it does not identify the integral automorphism module or rational homology of the geometric orbit space. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+Natural double-star higher-independence complexes receive a complete integral family representation and a sharp balanced versus unbalanced quotient-homology dichotomy. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

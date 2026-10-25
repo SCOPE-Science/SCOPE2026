@@ -1,19 +1,21 @@
-# Scientific review of the double-star equivariant result
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The face criterion distinguishes zero, one, or two selected hubs. Pairing faces at opposite-block leaves collapses the invariant at-most-one-hub subcomplex onto the full leaf simplex. The relative chains of the remaining faces are the two-degree shifted augmented leaf skeleton, with an additional sign for hub exchange. Exact contraction by the leaf-coordinate-sum map identifies the kernel with the exterior power of the integral augmentation lattice. Rational averaging and an elementary invariant calculation give the orbit-space ranks. All parameter boundaries, including the degree-one case and a complete simplex, are covered. The attached finite verifier independently tests the key face criterion, actual elementary free-face collapses, boundary ranks, signed Lefschetz characters, and quotient invariants.
+PASS
 
-## Originality
+For all a,b>=1, one-hub subcomplex collapses to the full leaf simplex by pairing hub-containing simplices with the opposite-block leaf, while both-hub simplices give the relative augmented leaf skeleton shifted by two degrees. Integer boundary is contraction by coordinate-sum epsilon; its top kernel is Λ^(r-2)ker(epsilon), equivariantly twisted by the sign of the two hubs. Lower degrees are exact and r=1 or r>=m+2 are contractible. Rational quotient homology equals G-invariants after barycentric subdivision: trivial invariant exterior degrees 0 and 1 before equal-block interchange; interchange removes degree 0 and preserves 1. Independently enumerated face complexes and signed Lefschetz traces for a,b=(1,1),(1,2),(2,2),(3,3) through all r, matching exterior-character predictions, including edge cases.
 
-The nonequivariant homotopy decomposition is **not new**: it is a direct instance of Deshpande--Singh Theorem 3.10 (2021). The surviving contribution is the exact integral automorphism module and the full-automorphism rational quotient calculation, neither stated nor implied by that wedge count. The published tree vertex-decomposability and forest shellability theorems do not determine a group action. Published mathematical-record searches for equivalent formulations, augmentation exterior powers, hub swaps, and bistar higher-independence quotients found no direct counterpart. The closest public record about *bidirected double-star multipath* complexes concerns a different simplicial construction. A separate earlier equivariant treatment, especially an unindexed one, remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-The module identifies a concrete, natural lattice and its hub-orientation twist for every threshold, not merely a rational trace or one small complex. The new quotient distinction is substantive: two trees with equal total leaves have identical previously known nonequivariant homotopy types, yet equal versus unequal branch sizes yield different first rational homology of the full automorphism quotient at the second independence threshold. This makes the precise representation and parity under interchange mathematically motivated.
+Deshpande–Singh Theorem 3.10 already gives NONEQUIVARIANT sphere wedge and rank binomial(m-1,r-2); it does not identify the integral automorphism module or rational homology of the geometric orbit space. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
 
-## Limits
+## value
 
-The literature search is not a proof of global novelty. The quotient assertion is rational only. The computations are finite corroboration of a standalone proof, not an exhaustive verification for arbitrary parameter sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural double-star higher-independence complexes receive a complete integral family representation and a sharp balanced versus unbalanced quotient-homology dichotomy. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
