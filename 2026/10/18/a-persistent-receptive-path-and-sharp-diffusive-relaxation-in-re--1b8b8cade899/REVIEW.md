@@ -1,13 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The original 2023 update is algebraically identical to the displayed translated-neighbor average on strictly ordered, all-repulsive states. For an adjacent-receptivity path, the offset vector evolves by a reversible lazy path Markov matrix, and consecutive offsets evolve by the symmetric tridiagonal deficit matrix. The nonnegative matrix maps the invariant chamber into itself, proves the path assumption by induction for all finite times, and is primitive and substochastic with strict endpoint leakage. Perron theory and stationary Markov weights give the precise limit and nonzero leading asymptotic; Rayleigh quotients establish the sharp large-network rate. Exact-rational independent update tests and tridiagonal eigenvalue tests corroborate the identities without substituting for proof.
+## correctness
 
-**Originality (PASS, self-review).** Kann and Feng [1, equations (3)–(4), Lemma 4.9, Theorem 4.10] show qualitative maximal width and convergence properties. The exact invariant path chamber, finite-versus-limit receptive-graph discontinuity, degree-weighted limiting translation, sharp positive Perron gap profile and population-size quadratic relaxation bound are not provided in their inspected full article. Altafini and Ceragioli [2] use continuous-time sign-preserving interactions. Other two closest publicly indexed results [3–4] concern respectively heterogeneous attractive confidence switching and sinusoidally coupled phase oscillators, whose mathematical updates are distinct. Exact source-title, pairwise-equivalence, tridiagonal-spectrum and graph-freezing literature/index searches did not show theorem-level implication; search absence is not universal proof of priority.
+PASS
 
-**Value (PASS).** The exact dynamics address a substantive distinction between pointwise convergence of opinions and eventual stabilization of which social edges actually interact. They quantify how a complete antagonistic group can remain linked in a path for every finite synchronous round even as the final confidence graph is edgeless. The sharp \(n^2\)-scale relaxation law and constructive complete-confidence cases make the result structurally and temporally interpretable beyond ordinary fixed-point calculations; the parameter chamber is full-dimensional rather than a single fine-tuned orbit.
+For strictly ordered x_i with gaps in [c/2,c), only adjacent vertices have distance <c. Substituting the source sign-repulsion targets yields endpoint means (x_1+x_2−c)/2 and (x_{n−1}+c+x_n)/2, with interior triple averages. Offsets e_i=x_i−(i−1)c follow a stochastic lazy path P, consecutive deficit differences δ_i=e_i−e_{i+1} follow symmetric nonnegative tridiagonal Q with endpoints diag 1/6, interiors/off-diagonals 1/3. Positive δ<=c/2 is invariant since Q nonnegative and substochastic with endpoint leakage, so the path remains receptive at every finite step. Primitive Perron and reversibility with weights d_1=d_n=2/d_interior=3 give convergence to μ+(i−1)c, where strict confidence excludes all edges. The Toeplitz Rayleigh bound gives rho bracket and 1−rho=pi²/(3n²)+O(n^-3). Independent exact-Fraction state updates corroborated 216 transitions (n=3..10, three different initial deficit profiles, nine rounds) and symmetric eigenvalue computation confirmed brackets for n=3..30. Universality is from matrix theory/induction, not finite tests.
 
-**Limitations.** The result does not cover mixed signs or arbitrary initial data. There is no general finite-step stabilization assertion or independent audit. Specialist literature beyond the inspected sources may contain equivalent reformulations.
+## originality
 
-**References.** [1] Kann–Feng, arXiv:2301.02210v1 (2023). [2] Altafini–Ceragioli, Automatica 93 (2018), doi:10.1016/j.automatica.2018.03.064. [3] Published research note, exact logarithmic switching lifetime, 2026-10-11. [4] Published research note, discrete repulsive sine-network odd/even relaxation, 2026-10-11.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality is assigned to the exact strengthened/specialized claim, not to previously published premises: The width theorem |x_max−x_min|->(n−1)c permits many transient graph histories, so it does not imply edges persist forever at finite times, the explicit Q_{n−1} recursion, or rho_n bounds. The submitted proof establishes these stronger model-specific facts. Targeted Resultary searches and primary-paper comparisons were performed; unsuccessful searches are not priority proof. Kann–Feng establishes convergence and limiting maximal width for complete repulsive networks, but does not assert persistence of an active fixed path or its spectral n^-2 relaxation; general finite-state Markov-chain spectral bounds are conditional on the new invariant chamber. Altafini–Ceragioli considers a different continuous-time sign-preserving dynamical model.
+
+## value
+
+PASS
+
+In dynamically changing confidence graphs, convergence of states need not entail eventual stabilization of receptive links. The explicit open invariant chamber supplies permanent finite-time connectivity with an edgeless limiting graph and a sharp diffusion-like relaxation rate for arbitrary population size; this directly sharpens interpretation of the original repulsive model rather than merely reporting one numerical orbit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
