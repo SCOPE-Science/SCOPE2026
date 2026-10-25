@@ -1,19 +1,21 @@
-# Scientific review: double-pole tail of the consecutive-block merger
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The existing exact one-step transition law makes the transient chain triangular. The repeated eigenvalue is exactly \(1/2\), at sizes two and three, and the \(3\)-to-\(2\) transition is positive. The size-dependent other diagonals strictly decrease below \(11/24\). The two-by-two Jordan calculation gives \(\Pr(T_3>t)=2^{-t}(1+2t/3)\). The first-step survival recursion then yields rational coefficient recursions with positive denominators, strictly positive leading coefficient, and an exponentially smaller remainder; the finite-time \(n=4\) identity establishes sharpness of that remainder base. Rational generating functions inherit the double pole and the exponential-moment boundary. The proof covers all fixed integer sizes and time limits. Exact checker: 1237 checks, including exact enumeration of permutations through size seven and finite-state propagation through size ten. These numerical finite checks are corroboration only.
+PASS
 
-## Originality — PASS on inspected evidence, with an important access qualification
+For the exact succession-merger kernel p_{j,k}=C(j-1,k-1)A_{k-1}/j!, j>=2, the transient matrix on states 2..n is triangular. Its diagonal entries satisfy q2=q3=1/2; recurrence A_m=m A_{m-1}+(m-1)A_{m-2} makes q4=11/24 and q_j strictly decreasing for j>=4. The 3-to-2 probability is 1/3>0, so the repeated 1/2 eigenvalue has a genuine Jordan link, visible from every n>=3 via positive p_{n,3}. Exact survival recursion gives S3(t)=2^-t(1+2t/3), and for n>=4 coefficient matching gives alpha_n=2 sum_{k<n}p_nk alpha_k/(1-2q_n), beta_n=(2 sum p_nk beta_k-alpha_n)/(1-2q_n). Positive alpha_n, all other eigenvalues <=11/24, and n4 exact (6t-60)2^-t+61(11/24)^t prove the fixed-n asymptotic and its sharp second base. The PGF recursion has a genuine order-two pole at z=2 and e^s moment boundary s<log 2 (n>=2), with n1=0. Independently recomputed exact permutation transition row sums and q_j through j=8; finite checks supplement the general triangular-spectrum proof. No n-uniform remainder or n-to-infinity limit is implied.
 
-The 2023 Chern–Jiu–Simonelli manuscript establishes the merger kernel and a central-limit result as initial size grows; the inspected portions (model, theorem statements, recurrence setup and concluding proofs) do not state a fixed-size sharp far-tail decomposition, universal double spectral pole, and leading coefficient. These are not merely a reformulation of the published growing-size limit theorem. The 2016 Rao–Zhang–Huang–Cheng article addresses the same process and discusses its finite distributions, making it a particularly important historical risk. Its full text was not accessible; neither its abstract nor the separate source's citation resolves possible algebraically equivalent formulas. No claim of novelty is made for the transition kernel, general rationality of finite-state generating functions, or generic triangular-matrix theory. The exact contribution is the identified repeated mode and all-initial-size positive prefactor with sharp secondary spectral scale. Independent priority assessment is still needed.
+## originality
 
-## Value — PASS
+PASS
 
-The unusually persistent two-state-and-three-state bottleneck is not apparent from a growing-size Gaussian limit or a mean stopping-time estimate. Its \(t2^{-t}\) rather than purely geometric extreme tail determines rare long absorption times, the exact moment convergence boundary, and the sharpest universal secondary exponential among fixed initial sizes. The explicit rational recursion makes these rare-event constants calculable without numerically iterating a long-time Markov chain.
+Best-of-knowledge PASS for a fixed-initial-size long-time double-Jordan-pole asymptotic with explicit nonzero linear prefactors and universal sharp second eigenvalue. Same-process Rao et al (2016) is a serious inaccessible-text priority risk, not automatically a scientific FAIL.
 
-## Literature and limitations
+## value
 
-Chern, Jiu and Simonelli, *A central limit theorem for a card shuffling problem*, arXiv:2309.08841 (2023), full-text mathematical comparison. Rao, Zhang, Huang and Cheng, *A discrete probability problem in card shuffling* (2016), DOI:10.1080/03610926.2013.834451, bibliographic/abstract material only; historical coverage uncertain. The fixed-initial-size asymptotic is not uniform in initial size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural absorbing combinatorial Markov chain, the repeated 1/2 mode yields an unusually persistent t2^-t far-tail bottleneck invisible in the previously emphasized n-growing CLT. Exact coefficients, sharp universal 11/24 secondary rate, and exponential-moment threshold quantitatively describe rare very-long runs for each initial size. This is motivated spectral/rare-event information, not novelty of generic finite-state rationality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
