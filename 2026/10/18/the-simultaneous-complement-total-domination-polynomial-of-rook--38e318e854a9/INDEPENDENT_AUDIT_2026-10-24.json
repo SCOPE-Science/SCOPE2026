@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:09:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-simultaneous-complement-total-domination-polynomial-of-rook--38e318e854a9/RESULT.md",
+        "2026/10/18/the-simultaneous-complement-total-domination-polynomial-of-rook--38e318e854a9/verify_polynomial.py",
+        "/mnt/data/audit08_0954_checks_output.json"
+      ],
+      "rationale": "For a subset D of the m-by-n rook board, ordinary rook domination is equivalent to every row occupied or every column occupied; complement-total domination is equivalent to no row-column cross containing all D. For all occupied rows a>=3, exact cross-failure classification subtracts b z^a and ab z^(a-1)(U_b-z), whereas a=2 requires >=2 cells per row; full both-row-column coverage is E via inclusion-exclusion, with deficient cross-overlap mn z^(m+n-2)(1+z) except degenerate 2x2. Therefore the asserted F formula is correct. Sharp lower bound min(m,n) and cross obstruction lead to min=4 for m=2 and =m for m>=3; minimizing placement counts n^m-n-mn(n-1) or 2[...]-m! in square case follow by exact outlier/pigeonhole classification. Independent direct adjacency-mask brute force matched every coefficient and all minimum sets on 7 boards through 4x4 (71,504 subsets total), independent of the all-size combinatorial proof.",
+      "residual_risks": [
+        "The fully supplied source-tree listing and exact tree recomputation are not exposed by the connected GitHub fetch_file read action; per-file frozen Git blob SHA identities are verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mixed domination on modular products from Bermudo et al and standard rook domination polynomial from Mertens are distinct cases/operators; no general rook mixed polynomial appears in the read corresponding results."
+        ],
+        "reasoning": "Neither modular-product mixed minimum nor ordinary-rook polynomial mechanically yields F without independent classification of complement-total obstruction.",
+        "searches": [
+          "simultaneous ordinary domination total domination complement rook graph K_m Cartesian K_n polynomial",
+          "arxiv:2404.02853",
+          "arxiv:2401.00716"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2404.02853",
+        "arxiv:2401.00716",
+        "doi:10.1016/j.disc.2006.04.017",
+        "simultaneous ordinary domination total domination complement rook graph K_m Cartesian K_n polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combination of ordinary rook domination and complement total domination additionally excludes all selected squares confined to any row-column cross; the exact exclusion yields new terms and optimizer classification."
+        ],
+        "reasoning": "Prior necessary/sufficient single-condition statements do not individually imply the combined all-size polynomial, although their introductory definitions and ordinary-coverage components are duly credited.",
+        "searches": [
+          "arxiv:2404.02853 mixed definition",
+          "arxiv:2401.00716 formula",
+          "simultaneous ordinary domination total domination complement rook graph K_m Cartesian K_n polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Bermudo–Peterin–Sedlar–Škrekovski definition requires ordinary G-dominating and complement totally dominating; the source carefully distinguishes total domination of the rook graph versus its complement."
+        ],
+        "reasoning": "Dominating-set rook graph polynomials from Mertens enforce row/column coverage but do not enforce complement-total cross avoidance.",
+        "searches": [
+          "simultaneous ordinary domination total domination complement rook graph K_m Cartesian K_n polynomial",
+          "arxiv:2404.02853",
+          "arxiv:2401.00716"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mertens supplies exact coefficients for ordinary dominating rook subsets; these count supersets of mixed-admissible subsets, so they are not an exact table of SDCTD sets."
+        ],
+        "reasoning": "A known table for ordinary domination is not a table for stricter mixed domination; an unindexed specialized complement-total table remains possible.",
+        "searches": [
+          "simultaneous ordinary domination total domination complement rook graph K_m Cartesian K_n polynomial",
+          "arxiv:2401.00716 ordinary rook domination polynomial"
+        ]
+      },
+      "rationale": "Bermudo et al introduce mixed ordinary domination of a graph with total domination of its complement for modular product families; Mertens solves ordinary domination polynomial of rook graph, but not the complement-total condition. The source’s all-size mixed enumerator and optimizer count require a different row/column cross exclusion.",
+      "residual_risks": [
+        "Unindexed or inaccessible specialized mixed-domination rook enumeration could cover the exact polynomial.",
+        "Full-tree enumeration not available through read connector and source metadata requires sanitization before any public-file import."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces mixed parameter, but studied product and main exact results are not the rook Cartesian enumeration",
+          "evidence": "Definition uses mixed graph/complement domination; not total domination of rook graph itself",
+          "identifier_or_url": "arxiv:2404.02853",
+          "material_read": "Accessible full PDF including abstract, parameter definitions and main modular-product results; first page visually inspected",
+          "method": "Open arXiv PDF full-text reading and screenshot",
+          "title": "Domination number of modular product graphs",
+          "trigger": "introduced simultaneous ordinary graph domination and complement total domination"
+        },
+        {
+          "assessment": "Known ordinary rook domination enumerator, not strict complement-total variant",
+          "evidence": "All rows or all columns occupied is ordinary rook coverage; complement-total cross restriction is additional",
+          "identifier_or_url": "arxiv:2401.00716",
+          "material_read": "Accessible full PDF abstract, main formula, counting argument; first page visually inspected",
+          "method": "Open arXiv PDF full-text comparison and screenshot",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "same rook object and exact domination polynomial"
+        },
+        {
+          "assessment": "Plausible nomenclature overlap; entire work not asserted noncovering",
+          "evidence": "Older factor domination notion need not equal mixed graph/complement open-neighborhood total domination",
+          "identifier_or_url": "doi:10.1016/j.disc.2006.04.017",
+          "material_read": "Accessible abstract/bibliographic description only; full paper not read",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Simultaneous graph parameters: Factor domination and factor total domination",
+          "trigger": "broader simultaneous domination terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-simultaneous-complement-total-domination-polynomial-of-rook--38e318e854a9/RESULT.md",
+        "arxiv:2404.02853",
+        "arxiv:2401.00716",
+        "doi:10.1016/j.disc.2006.04.017"
+      ],
+      "rationale": "A complete counting polynomial, sharp mixed domination minimum and all exact minimizers on canonical Cartesian products of cliques is a motivated naturally defined graph invariant, distinguishable from ordinary rook domination or complementary total domination alone.",
+      "residual_risks": [
+        "Mathematical usefulness does not imply application outside the precisely stated hypotheses; the claimed exact natural invariant is independently motivated rather than a general landmark theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

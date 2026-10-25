@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Direct finite verification and scope
+# Independent mathematical audit
 
-Run the two self-contained, standard-library Python files as follows:
+## correctness
 
-`python3 verify.py`
+PASS
 
-`python3 verify_polynomial.py`
+For a subset D of the m-by-n rook board, ordinary rook domination is equivalent to every row occupied or every column occupied; complement-total domination is equivalent to no row-column cross containing all D. For all occupied rows a>=3, exact cross-failure classification subtracts b z^a and ab z^(a-1)(U_b-z), whereas a=2 requires >=2 cells per row; full both-row-column coverage is E via inclusion-exclusion, with deficient cross-overlap mn z^(m+n-2)(1+z) except degenerate 2x2. Therefore the asserted F formula is correct. Sharp lower bound min(m,n) and cross obstruction lead to min=4 for m=2 and =m for m>=3; minimizing placement counts n^m-n-mn(n-1) or 2[...]-m! in square case follow by exact outlier/pigeonhole classification. Independent direct adjacency-mask brute force matched every coefficient and all minimum sets on 7 boards through 4x4 (71,504 subsets total), independent of the all-size combinatorial proof.
 
-The first script constructs the closed neighborhoods of the rook graph and the open neighborhoods of its *complement* directly from the coordinate condition for adjacency. It checks that no subset smaller than the asserted minimum is feasible, and that every subset at the asserted size agrees with both the proposed classification and the exact number. Sixteen parameter pairs were tested, totaling 271,904 examined subsets. The second script independently builds the claimed polynomial from integer polynomial arithmetic and checks each coefficient against brute-force neighborhood tests over all subsets of twelve parameter pairs, totaling 1,435,472 subsets. Both tests passed with assertions enabled.
+## originality
 
-The finite experiments do not certify parameters beyond those explicitly tested. The infinite-domain assertions are proved combinatorially in `RESULT.md`; no computational oracle, imported search table, or unproved lemma is necessary. Neither independent scientific audit nor independent certification has been performed.
+PASS
+
+Bermudo et al introduce mixed ordinary domination of a graph with total domination of its complement for modular product families; Mertens solves ordinary domination polynomial of rook graph, but not the complement-total condition. The source’s all-size mixed enumerator and optimizer count require a different row/column cross exclusion.
+
+## value
+
+PASS
+
+A complete counting polynomial, sharp mixed domination minimum and all exact minimizers on canonical Cartesian products of cliques is a motivated naturally defined graph invariant, distinguishable from ordinary rook domination or complementary total domination alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
