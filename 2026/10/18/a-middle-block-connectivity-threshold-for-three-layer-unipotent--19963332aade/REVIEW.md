@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any finite field, block multiplication gives the exact commuting criterion \(AE=DB\). A rank-one square-zero middle-space operator builds commuting paths of length at most three for every pair of noncentral vertices once \(b\ge2\); the two prohibited-vector sets are each contained in a proper subspace, so a common middle-space vector exists even over \(\mathbb F_2\). Linear-algebra arguments provide exact diameter two for an outer block of width one, and injective/surjective test matrices provide distance-three witnesses in the claimed regime. The scalar outer-product factorization gives the exact disconnected clique sizes when \(b=1\). A separate finite graph enumerator passed thirteen direct tests, including \(\mathbb F_4\), but the proof does not rely on these checks.
+## correctness
 
-**Originality — PASS within examined sources.** Prior work by Diaconis–Thiem covers these pattern groups' orbit and character theory; Nien covers their irreducible representations; Cameron–Coll–Mayers–Russoniello covers maximum Lie-poset adjoint rank. Giudici–Pope's class-two diameter-two criterion applies to some overlapping parameter values, specifically \(b(a+c)>2ac\), and is not reclaimed. The checked statements do not supply the new exact middle-width connectivity transition, universal sharp diameter-three bound, and complete width-one component census. A corresponding result in unindexed specialized commuting-graph literature remains a residual originality risk.
+PASS
 
-**Value — PASS.** The parameter transition controls an invariant that is not determined by maximum adjoint breadth or the irreducible character-degree multiset. It gives infinitely many sharp diameter-three and exact diameter-two examples and a complete disconnected-component description, offering a structural explanation rather than an arbitrary finite tabulation. It improves family-specific information beyond the existing generic class-two bound.
+Multiplication of three-block unipotents gives g(A,B,C)g(D,E,H)=g(A+D,B+E,C+H+AE); the reduced commuting relation is AE=DB and central C contributes q^{ac} true twins for each nonzero (A,B). For b=1, α ε=δ β forces first-only and second-only complete components, while mixed pairs divide into projective scalar lines; the exact clique multiplicities follow. For b≥2, for any two noncentral vertices pick a middle-space u outside the union of at most two proper unsuitable subspaces, and choose φ_x,φ_y in u^⊥ so that (A uφ_x,uφ_x B) and its y analogue are nonzero. The rank-one nilpotents T_x=uφ_x and T_y=uφ_y have products 0, so these two neighbors commute and give a path at most 3. For min(a,c)=1, a common commuting pair is obtained using the row-dependency/nullspace split (or dual), yielding exact diameter 2 because some noncommuting pairs exist. For a,c≥b≥2, injection P and surjection Q make (P,Q),(P,0) noncommuting with no noncentral common commuter, forcing diameter 3. Cases 1<min(a,c)<b are bounded by 3 ONLY, with no exact classification. Fresh quotient finite-field F2 exhaustive graph checks: (a,b,c)=(1,1,1),(2,1,1) disconnected as predicted, (1,2,1) connected diameter2, (2,2,2) connected diameter3, (1,3,2) connected diameter2. This finite sample corroborates the all-prime-power linear-algebra proof. WARNING: quotient graph singleton components have graph-theoretic diameter zero, whereas their complete center-lift cliques have diameter one when nontrivial; no false equivalence is claimed.
 
-**Scientific limitations.** The diameter is not exactly determined when \(1<\min(a,c)<b\); the theorem explicitly gives only the uniform upper bound in this range. Equivalent formulations under different commuting-graph terminology remain possible. All assessments are based on the supplied proof, reproducible finite checks and inspected mathematical sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact disconnected b=1 decomposition, sharp uniform b≥2 diameter bound and a,c≥b≥2 diameter-three witnesses are not in the materially compared commuting-graph theorems. Crucially, Giudici–Pope class-two center-size theorem ALREADY IMPLIES all min(a,c)=1,b≥2 diameter-two subcases (since b(a+c)>2ac), so that portion is prior-art coverage, not a separate novelty claim. The full combined threshold and component-size/diameter-three package survives this deduction under best-of-knowledge checks.
+
+## value
+
+PASS
+
+The three-layer unipotent group is a canonical nilpotency-class-two family; the sharp center-block width b=1 versus b≥2 disconnection transition, complete clique sizes, constructive diameter≤3 bound and explicit diameter-three obstruction are useful structural commuting-graph facts, not an arbitrary toy-size enumeration. The omitted interior exact diameter is stated honestly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
