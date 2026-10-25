@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:52:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: four independent atomless finite clocks for two exchangeable collectors of two types give independent fair interval orientations conditional on the unordered pair of arrival times for each type. Direct enumeration of the four orientations for disjoint/crossing/nested endpoint configurations gives respectively 1,1,2 successful paths for one collector, and by exchange symmetry Pr(B)=1/2+(1/2)Pr(nesting). The two nesting directions have probabilities 2 Var(F_2(X)) and 2 Var(F_1(Y)); this proves the exact arbitrary-law identity. For independent X,Y, orthogonal L^2 projections of Z=1{X<Y} onto sigma(X),sigma(Y) bound the variance sum by Var(Z)=p(1-p)<=1/4. Separated-support law F1 uniform(2,3), F2 mixture w uniform(0,1)+(1-w) uniform(4,5), 0<=w<=1/2, attains continuously all 1/2+w(1-w) from 1/2 to 3/4. Exponential substitution yields 1/2+u(u^2+4u+1)/[(u+1)^2(u+2)(2u+1)]; the positive factorization of 2/3 minus this expression is ((u-1)^2(2u^2+7u+2))/(6(u+1)^2(u+2)(2u+1)), hence maximum 2/3 iff equal rates. Independent rational 24-permutation enumeration across 64 integer rate pairs and interval-orientation checks corroborated. No large-type or discrete simultaneous-round assertion follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Myers–Wilf (2003) Sections 2 and 2.9 uses synchronized one-draw-per-round coupons; Long (2026) focuses synchronous large-number-of-types asymptotics and notes nonuniform extensions. Neither text inspected states the arbitrary F1,F2 clock-variance formula."
+        ],
+        "reasoning": "Potential general two-sample rank theory could cover the four-arrival event, but no decisive published stronger statement was located; the specific rank law/variance-sharpness has been checked mathematically, and residual risk remains explicit.",
+        "searches": [
+          "Resultary semantic query: two collector two coupon type first arrival Poisson exponential ballot never trailing independent nonidentical time laws",
+          "arxiv:math/0304229",
+          "arxiv:2605.09641"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0304229 Sections 2, 2.9",
+        "arxiv:2605.09641",
+        "Hoeffding 1948 ANOVA conditional projections doi:10.1214/aoms/1177730196"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long's renewal–Catalan asymptotic for discrete uniform collection and Myers–Wilf synchronous lattice-path formulas have coupled round times; here the four independent clocks are continuous with arbitrary atomless CDFs."
+        ],
+        "reasoning": "A discrete-round asymptotic does not logically imply a two-type distribution-free continuous-clock identity or sharp law ranges. Conventional conditional variance decomposition is a known tool, not claimed original by itself.",
+        "searches": [
+          "Resultary semantic query: two collector two coupon type first arrival Poisson exponential ballot never trailing independent nonidentical time laws",
+          "arxiv:2605.09641",
+          "arxiv:math/0304229"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Event can be represented as orientation of two unordered arrival intervals, or a rank word over two A and two B arrivals; Myers–Wilf Section 2.9 explicitly distinguishes their discrete 'winner never behind' event."
+        ],
+        "reasoning": "Compared two-sample permutation/interval nesting formulation with coupon collector ballot nomenclature. Prior discrete versions use simultaneous rounds and repeated draws/ties, so their ranks are not the four independent type-specific first-arrival clocks.",
+        "searches": [
+          "Resultary semantic query: two collector two coupon type first arrival Poisson exponential ballot never trailing independent nonidentical time laws",
+          "arxiv:math/0304229 Section 2.9",
+          "arxiv:2605.09641"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Myers–Wilf tabulates synchronous discrete-round ballot probabilities (2/3 at d=2 among values), which matches one special equal-law numeric outcome, not the heterogeneous full range [1/2,3/4]."
+        ],
+        "reasoning": "Matching the value 2/3 does not establish a theorem on independent continuous heterogeneous arrival laws; no covering exact arbitrary-F table found.",
+        "searches": [
+          "Resultary semantic query: two collector two coupon type first arrival Poisson exponential ballot never trailing independent nonidentical time laws",
+          "arxiv:math/0304229 Section 2.9"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with rank-order priority risk: inspected Myers–Wilf and Long concern synchronous discrete coupon collection with a different clock/event process, not independent atomless heterogeneous continuous first arrivals. The equal-rate 2/3 Catalan number and Hoeffding ANOVA projection are acknowledged prior tools. No direct prior stronger theorem was found for this exact arbitrary-law probability and sharp attainable [1/2,3/4] interval.",
+      "residual_risks": [
+        "An older general rank-event/interval-containment identity may cover the distribution-free formula, and exhaustive priority certification is not available.",
+        "Exactly two types, independent atomless finite clocks and exchangeable collectors per type; no ties, dependencies or more types are included."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SYNCHRONOUS_DISCRETE_DIFFERENT_MODEL",
+          "evidence": [
+            "Section 2.9 explicitly states their never-behind discrete problem is unsolved in the paper; first two collectors draw one coupon per round and do not model four independent continuous clocks"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "full accessible 20-page PDF, abstract, introduction, Section 2's collecting event and Section 2.9 'One collector never behind', tabulated values",
+          "method": "PDF text and rendered page inspection",
+          "title": "Some New Aspects of the Coupon-Collector's Problem",
+          "trigger": "Closest classical two-player coupon ballot formulation"
+        },
+        {
+          "assessment": "ASYMPTOTIC_DISCRETE_DIFFERENT_MODEL",
+          "evidence": [
+            "large-type synchronous draw theorem does not address arbitrary-law two-type first arrival formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.09641",
+          "material_read": "full accessible author arXiv PDF, introduction, theorem statements, event definitions and closing extensions",
+          "method": "PDF text and rendered page inspection",
+          "title": "The Ballot Event for Two-Player Coupon Collection: A Renewal–Catalan Asymptotic",
+          "trigger": "Nearest recent theorem about never-behind coupon collectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a natural minimal nontrivial coupon race is completely classified under heterogeneous waiting-time laws, and the sharp general-law 3/4 versus memoryless 2/3 separation detects a real structural effect of temporal heterogeneity. The full interval and exact exponential rational are meaningful probabilistic benchmarks, not a parameter renaming or isolated numerical gain. No extension to three types is needed to make the self-contained exact fact useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0304229 Sections 2, 2.9",
+    "arxiv:2605.09641",
+    "Hoeffding 1948 ANOVA conditional projections doi:10.1214/aoms/1177730196"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older general rank-event/interval-containment identity may cover the distribution-free formula, and exhaustive priority certification is not available.",
+    "Exactly two types, independent atomless finite clocks and exchangeable collectors per type; no ties, dependencies or more types are included."
+  ],
+  "residual_risks": [
+    "An older general rank-event/interval-containment identity may cover the distribution-free formula, and exhaustive priority certification is not available.",
+    "Exactly two types, independent atomless finite clocks and exchangeable collectors per type; no ties, dependencies or more types are included."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SYNCHRONOUS_DISCRETE_DIFFERENT_MODEL",
+      "evidence": [
+        "Section 2.9 explicitly states their never-behind discrete problem is unsolved in the paper; first two collectors draw one coupon per round and do not model four independent continuous clocks"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+      "material_read": "full accessible 20-page PDF, abstract, introduction, Section 2's collecting event and Section 2.9 'One collector never behind', tabulated values",
+      "method": "PDF text and rendered page inspection",
+      "title": "Some New Aspects of the Coupon-Collector's Problem",
+      "trigger": "Closest classical two-player coupon ballot formulation"
+    },
+    {
+      "assessment": "ASYMPTOTIC_DISCRETE_DIFFERENT_MODEL",
+      "evidence": [
+        "large-type synchronous draw theorem does not address arbitrary-law two-type first arrival formula"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2605.09641",
+      "material_read": "full accessible author arXiv PDF, introduction, theorem statements, event definitions and closing extensions",
+      "method": "PDF text and rendered page inspection",
+      "title": "The Ballot Event for Two-Player Coupon Collection: A Renewal–Catalan Asymptotic",
+      "trigger": "Nearest recent theorem about never-behind coupon collectors"
+    }
+  ]
+}
