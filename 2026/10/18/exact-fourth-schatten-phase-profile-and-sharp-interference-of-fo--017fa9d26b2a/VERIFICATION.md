@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python CHECKER.py` with Python 3 and NumPy available. The deterministic checker constructs complex four-layer nilpotent matrices in four different block-size profiles. It checks that the exact traced fourth power matches the one-harmonic formula for each matrix at five weights and four angles; it verifies the sharp trace upper bound, explicit four-site equality at four positive weights, and angle-flatness in a cube-zero example. The checker passed `FOURTH_NILPOTENT_PHASE_PROFILE_OK 4805` in the packaged source folder. The critical analytic steps are written in `RESULT.md`, including the all-dimensional kernel-filtration proof and exact equality classification. At the endpoint weights t=0 and t=1, every eligible operator yields equality of zero oscillation and zero upper bound; the nontrivial extremizer classification holds only for 0<t<1. The 4,805 finite assertions are diagnostics, not a proof for all Hilbert spaces or parameters.
+## correctness
 
-Independent mathematical audit has not been performed.
+PASS
+
+For Hilbert–Schmidt T with T^4=0, direct multiplication gives R*R=t^2T*T+s^2TT*+ts(e^{2iθ}T^2+e^{-2iθ}T*^2). Squaring and tracing, the fourth harmonics vanish because Tr(T^4)=0; cyclic trace identities yield the stated constant term and 4ts(t^2+s^2)Re(e^{2iθ}Tr(T^3T*)). Maximizing and minimizing the real part gives the exact radius and oscillation. The kernel filtration K_j=ker T^j makes T strictly block upper triangular; Tr(T^3T*) is the Hilbert–Schmidt inner product of A12 A23 A34 with A14. The four-factor Hilbert–Schmidt bound and AM–GM give |gamma|<=||T||_2^4/16. Equality in each inequality forces the unused blocks to vanish and the four remaining blocks to be aligned rank-one maps of equal Hilbert–Schmidt norm, giving the four-dimensional path-plus-shortcut form. CHECKER.py was inspected; its finite matrix diagnostics are corroboration only.
+
+## originality
+
+PASS
+
+Resultary's closest hit, 'Sharp weighted Schatten-fourth radii of nilpotent shifts', is a one-step weighted-shift extremum and does not cover arbitrary fourth-order nilpotents. The full accessible Pal–Chandok paper was inspected through its weighted-radius definitions and main inequality statements; it gives general Aluthge-transform bounds and matrix examples, not the exact phase profile or equality rigidity. A published circle-covariant moment result cited by the package has a narrower covariance hypothesis; the shortcut witness has a nonconstant phase profile. Sahoo's 2025 full text was not retrieved in this pass, so that plausible source remains a risk, not an automatic failure.
+
+## value
+
+PASS
+
+The phase trace is a natural invariant, and the sharp 1/16 interference bound plus complete equality structure is a nontrivial operator-classification result at the first nilpotency order allowing nonzero phase oscillation. It is not just the easy trace expansion: the sharp bound and rigidity explain the extremal mechanism and give an exact boundary for weighted Schatten-fourth radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
