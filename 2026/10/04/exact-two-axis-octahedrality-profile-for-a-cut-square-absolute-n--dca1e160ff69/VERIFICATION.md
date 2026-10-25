@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof in `RESULT.md` is the primary verification.
 
-The companion `verify_two_axis_profile.py` uses only the Python standard library and exact `Fraction` arithmetic. For a deterministic collection of rational parameters \(t\in[0,1]\), it enumerates rational points on each of the three positive-sphere boundary segments, verifies the exact scalar objective, confirms that every sampled value is bounded by \(\max\{(3+t)/2,(2+t)/(1+t)\}\), and confirms that the diagonal sphere point attains the formula exactly. It also checks the two endpoint values and the sign change of the branch comparison around \(\sqrt2-1\).
+# Independent mathematical audit
 
-The finite grid is not an exhaustive proof of the continuous optimization. Its role is to replay the algebra, boundary parametrizations, and branch logic; the continuous statement is established by the inequalities in `RESULT.md`.
+## correctness
+
+PASS
+
+Independently reconstructed the proof from the pinned RESULT.md and all seven blobs at Git tree b6d7dd0c95b83ed4642efb23f7ef7524c03b669f. For any absolute normalized N, triangle inequality and coordinate monotonicity give Θ≤max over nonnegative sphere of min{N(1+c,d),N(c,1+d)}. Octahedrality gives almost aligned norming-functional witnesses in each real component, with 0≤c,d≤1 and ||x+cξ||≥(1−ε)(1+c), establishing the reverse supremum uniformly for all X,Y,x,y. For N_t the scalar expression is F=max{1+min(c,d),(1+c+d)/(1+t)}. On the positive sphere, min(c,d)≤(1+t)/2 and c+d≤1+t; both bounds are attained by c=d=(1+t)/2. Thus Θ=max{(3+t)/2,(2+t)/(1+t)} exactly for all 0≤t≤1. The crossing polynomial is t²+2t−1, yielding the sharp unique minimum 1+1/√2 at t=√2−1; endpoint values 2, and strict interior deficit. Independent SymPy algebra and 131199 rational boundary evaluations for 433 parameter samples were replayed from a newly written checker, alongside 433 exact diagonal equalities. The continuous theorem rests on the analytic inequalities, not finite grids.
+
+## originality
+
+PASS
+
+Targeted Resultary and published-literature comparison finds the qualitative endpoint characterization in 2017 and 2020, but no independently earlier exact cut-square simultaneous two-axis profile. The identical Resultary hit links to a mirror of the same assessed record and is not counted as independent priority. The 2021 thickness indices and 2024 Daugavet/Delta point constants are different optimization functionals and have different quantifiers, so their published quantitative values do not imply Θ_t. Originality is best-of-knowledge, not proof of historical priority.
+
+## value
+
+PASS
+
+The two prescribed axis points are precisely the natural finite witness test in the established positive-octahedrality preservation criterion. For a canonical nested deformation connecting the classical preserving ℓ1 and ℓ∞ norms, the result provides an exact quantitative obstruction throughout the nonpreserving interior, a surprising nonmonotone phase switch at a regular-octagon parameter, and a reusable scalar reduction for all absolute norms and all octahedral summands. It is an exact natural invariant, not a random parameter slice or a previously tabulated special case; future work on near-octahedrality in absolute sums can directly reuse the sharp shortfall.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
