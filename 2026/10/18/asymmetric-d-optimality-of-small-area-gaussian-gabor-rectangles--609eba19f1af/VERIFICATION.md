@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the four-state Gaussian Gram determinant result
 
-The complete statement and analytic argument are in `RESULT.md`; `checker.py` is a standalone symbolic/numerical consistency checker requiring Python 3, SymPy, and mpmath. The recorded execution is in `checker_output.txt`.
+# Independent mathematical audit
 
-The checker symbolically recomputed the exact complex-phase four-by-four determinant, checked the balanced Taylor coefficient \(1/3\), and tested the all-order coefficient induction identity behind the unique limiting maximizer. It compared 15 independently assembled high-precision Gaussian Gram matrices against the closed determinant expression for multiple positive rectangle dimensions and checked stationary points for four small-area values. Every included assertion passed.
+## correctness
 
-The unrestricted theorem does not rely on finite numerical tests: the exact factorization, strict positivity, one-sign-change Taylor argument, maximizing-sequence compactness, implicit-function theorem, and expansions are the mathematical proof. Reported decimals identify numerically approximated analytic quantities. No independent audit or outside validation was performed.
+PASS
+
+Reconstructed complex Weyl overlaps and independently factorized the symbolic 4-by-4 Hermitian Gram determinant into the stated positive formula. Dividing by u^4 gives analytic f(x) at fixed x. The f derivative sign rests on a proven one-sign-change coefficient sequence of H=x^3e^{2x}f prime; this yields the unique strict x* and nonzero Hessian. The no-escaping argument treats both x->0 and infinity, and the implicit-function theorem yields the only two global ordered branches. Independent numerical optimization at four small u values gave x*=2.38266416694, c*=0.05282488254575, and square scaled ratios tending one. The proof is restricted to sufficiently small areas and determinant—not smallest eigenvalue.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. Prior qualitative HRT/coherent-state independence implies det>0 but not its exact expression under the prescribed area, the location or uniqueness of maximizers, or the u^4/u^6 quantitative contrast.
+
+## value
+
+PASS
+
+A fixed symplectic-area four-sampling design is a natural constrained D-optimality problem for Gaussian coherent states; the optimal geometry is unexpectedly singularly anisotropic, with a nonzero long side and a short side shrinking to zero. The u^4 vs u^6 sharp separation and unique optimal branches give a mathematical prescription not supplied by mere positivity or HRT independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
