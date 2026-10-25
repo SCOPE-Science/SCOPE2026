@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`. It establishes all assertions for every positive integer \(k\); finite experiments do not replace that proof.
+## correctness
 
-Run `python3 verify/check.py` with a standard Python 3 interpreter. The checker enumerates all ternary words of length \(3k\) for \(k=1,2,3,4\), tests every phase directly, constructs rotation classes directly, and compares with the closed formulas. At \(k\le3\), it also tests each possible cyclic rotation for all \(3^k\) scattered target words without using the phase lemma. It checks primitive periods and phase-layer numbers.
+PASS
 
-Expected final line: `TERNARY_CIRCULAR_EXTREMAL_PASS`. Observed labeled counts: 6, 78, 582, 3750; necklaces: 2, 14, 66, 320; primitive necklaces: 2, 12, 64, 306. No external files or software packages are needed.
+For an alphabet of 3 letters, each constant length-k scattered subsequence forces >=k copies per letter so min length is 3k. Rich-block (arch) greedy decomposition forces k consecutive permutation triples at minimal length; circular rotation permits exactly three phase classes. Their sizes 6^k, pair intersections 3*2^k and triple intersection 6 yield L_k=3*6^k-9*2^k+6, and exactly one/two/three counts follow by inclusion-exclusion. A fixed nonmultiple-of-3 rotation would permute all phases and hence force a period-3 word, contradiction; rotations by 3j fix L_gcd(k,j) words. Burnside gives the stated N_k and Möbius inversion gives primitive necklaces. k=1 phase collapse is covered by formulas. Independent enumeration of all 3^(3k) words for k=1..4, explicit subsequence checks for k<=3, checked L_k, phase multiplicities, necklaces and primitive counts; general result proven structurally.
 
-This checker does not certify all infinitely many \(k\) or the absence of equivalent prior results. Independent audit status remains unperformed.
+## originality
+
+PASS
+
+Best-of-knowledge scientific statement-and-implication comparison: known components properly credited; no inspected accessible stronger result decisively contains the precise final claim. Residual access and priority risks explicitly retained; lack of full access was not treated as independent proof of novelty.
+
+## value
+
+PASS
+
+Closed-form exact necklace and primitive-necklace enumeration for a natural extremal circular subsequence-universality constraint. The three-phase intersection structure and rotation-fixed constraints are informative beyond a brute finite census, and exact counts at every k are usable in extremal word combinatorics, automata and sequence design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
