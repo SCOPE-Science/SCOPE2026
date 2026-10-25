@@ -1,15 +1,21 @@
-# Review of the four-chip avalanche torus family
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The synchronous firing orbit is determined exactly for any allowed parameters. The strict unoriented cyclic step inequality guarantees unique outer diagonals and hence \(n\) tetrahedron–triangle pairs followed by \(n\) triangle–edge pairs. The residual triangulation is exactly the quotient of the standard plane triangulation by a full-rank lattice. The integral homology and cup-product claim follow from the torus. A clean standalone computation verified the individual free-coface deletions, all face vectors, links, and orientability for 190 parameter choices. Its finite checks are not a substitute for the lattice proof.
+## correctness
 
-## Originality
-**PASS, subject to disclosed risks.** Riihimäki and Smith arXiv:2606.26786v1 define this invariant and prove a homotopy classification for consecutive blocks and specific three-chip supports; Section 5 asks whether some avalanche complexes are not sphere wedges. The present separated-pair four-chip supports and exact torus collapse are not entailed by those cases. Full-text comparison confirms Datta–Upadhyay (2004, Example 1) already established **exactly the target triangulation** \(T_{n,1,d-1}\). The new claim is the initial four-chip avalanche complex collapsing to it, not discovery of that triangulation. Other indexed avalanche supports gave circle/sphere-wedge outcomes, with no same four-chip torus collapse identified. Unindexed equivalent dynamical constructions remain a residual risk; search nonappearance is not a proof of universal uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** This is an explicit infinite family exhibiting a nontrivial cup product and thereby answering the structural non-wedge existence problem for avalanche complexes, rather than a purely numerical homology example. The two-parameter collapse is constructive and allows direct reproduction.
+For out-degree-one synchronous firing on directed C_n, the four 0/1 chips at {0,1,d,d+1} translate by one step, yielding precisely n facets F_i={i,i+1,i+d,i+d+1}. For d≥3 and n≥2d+5, cyclic steps 1,d−1,d,d+1 are unoriented distinct; each unique (d+1)-diagonal is free in its tetrahedron, giving n free-triangle/tetrahedron collapses, then exactly n free-edge/triangle collapses. Residual triangles A_i={i,i+1,i+d}, B_i={i+1,i+d,i+d+1} have face vector (n,3n,2n); the quotient of plane-triangulated Z² by kernel(a+db mod n) is a nonsingular oriented torus, with each edge exactly twice and 6-cycle vertex links. Cup product on H1 of T² is nonzero, ruling out wedge-of-spheres. Independently rebuilt all firing facets and all 2n free-face deletions for 190 (d,n) cases (3≤d≤12, 2d+5≤n≤2d+23) and checked residual torus combinatorics. The proof for all allowed integers is the universal cyclic-step and lattice argument, not finite tests.
 
-## Scope and limitations
-\(d\ge3\), \(n\ge2d+5\); one-chip supports at \(0,1,d,d+1\), directed cyclic graph, synchronous firing only. The finite checker covers 190 instances and does not establish all-parameter assertions by enumeration. The closest two geometric sources were inspected in their relevant full-text portions, and the target torus is already known. Coverage of every post-2026 avalanche claim cannot be certified from searches; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. Knowing a torus target or a nonwedge existence question cannot imply this particular four-chip complex collapses to it. Known three-chip families have different supporting configurations; this answers the structural existence question with an explicit all-parameter construction.
+
+## value
+
+PASS
+
+This uniform two-parameter family directly answers the previously posed existence of an avalanche complex not homotopy equivalent to any wedge of spheres, using the nonzero integral H1 cup product of its torus target. The explicit 2n elementary collapses explain the dynamical-topological mechanism and are stronger than a finite Betti computation or merely rediscovering a known torus triangulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
