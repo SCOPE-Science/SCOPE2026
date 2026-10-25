@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Direct orthogonal-conjugation computation gives the rank-one residual as a rational function of squared angular displacement; its derivative is strictly positive because a>b>0. Containment of a projective arc of length L in a centered arc establishes the exact deterministic minimax for every finite q, including L=pi. A uniform Gaussian input ray places the weak eigenvector in the parameter interval with probability L/pi; complement-gap geometry and inversion give the full CDF and its atom. Elementary tangent substitution proves the unpowered half-turn integral exactly pi*a*b. The packaged standard-library checker replayed successfully using rational matrices; finite angular grids and quadrature are supporting checks only. No unproved continuum limit is inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kressner--Lam uniform high-probability theorem assumes target rank at least two and extra random columns; its assumption set does not include the single-column target-rank-one construction.",
+        "The survey discusses general randomized range finding and power iteration, but no matched general lower bound was identified in the accessible material."
+      ],
+      "reasoning": "The oversampled theorem is neither contradicted nor a theorem whose hypotheses include this unoversampled dimension-two case. A general fixed-matrix power-iteration bound need not imply worst-case failure under shared parameter rotation. No stronger inspected result directly subsumes the claim.",
+      "searches": [
+        "\"parameter-dependent\" \"rotating\" randomized low-rank approximation",
+        "\"randomized range finder\" \"rotating\" spectrum \"uniform\" lower bound",
+        "Parameter-dependent randomized low-rank approximation rank-one moving singular subspace, uniform in parameter failure no oversampling, sharp smooth rotating example.",
+        "Kressner--Lam uniform Theorem 7 and integrated Theorem 4",
+        "arXiv:2306.12418 randomized low rank power iteration survey"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.12761v1 (2023-02-24), published open full text, Sections 2.1-2.3, Theorems 4 and 7, Remark 1, relevant Section 4.1.",
+      "arXiv:2206.08793, accessible primary mathematical Sections 3.1-3.2.",
+      "arXiv:2306.12418, arXiv abstract and overview; not full-text inspected.",
+      "arXiv:0909.4061, classical HMT context as identified in primary references; full original not inspected.",
+      "published-finding corpus semantic search, actual four focused rotating single-sketch queries; closest unique record tails listed in named check.",
+      "Accessible prior mathematics claims screened for overlap by exact object, assumptions, stated conclusion, and mathematical implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 in Kressner--Lam controls an integrated expectation, not a pathwise equality for every fixed sample ray.",
+        "Theorem 7 controls a different oversampled regime and does not describe a worst-error atom of size L/pi.",
+        "Diouane et al. do not quantify a parameter-indexed maximum with a reused probe."
+      ],
+      "reasoning": "The new proof adds specific projective geometry and integrations not delivered by the inspected source inequalities. The exact Gaussian worst-error law and finite-power persistence remain unentailed by those particular stronger-in-other-directions bounds.",
+      "searches": [
+        "arXiv:2302.12761 full-text Section 2, Theorems 4 and 7, Remark 1",
+        "arXiv:2206.08793 full-text Sections 3.1-3.2",
+        "For smooth planar SPD eigenvector rotation A(t)=R(t) diag(a,b) R(t)^T, HMT one-column fixed Gaussian sketch: exact minimax worst-parameter projection error on angular interval, probability L/pi of maximal a, and half-turn integrated squared Frobenius residual pi*a*b; sharp unoversampled limitation."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kressner--Lam analyze fixed shared random sketches for parameter families with general integrated and uniform estimates.",
+        "Diouane et al. give canonical-angle and projection-error bounds for individual matrices."
+      ],
+      "reasoning": "Parameter rotation is orthogonal conjugation and fixed shared sketches translate to a projective-circle covering problem. Pointwise fixed-matrix error bounds do not resolve joint angle-dependent maximum or its atom. No theorem in inspected material provides the exact continuum minimax, CDF, and integral.",
+      "searches": [
+        "\"constant Gaussian\" \"rotating\" \"low rank\" sketch uniform parameter error",
+        "\"parameter-dependent\" \"rotating\" randomized low-rank approximation",
+        "Constant Gaussian one-vector sketch for continuously rotating right singular vectors, full parameter interval sup error equals top singular value, integrated Frobenius error geometric mean singular values.",
+        "One-probe HMT randomized range finder rotating two-by-two singular directions pathwise integrated projection error equal product singular values; one extra probe removes gap.",
+        "arXiv:2302.12761 Theorem 4, Theorem 7, Remark 1",
+        "arXiv:2206.08793 Sections 3.1-3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic hits described multistage adaptive randomized pivoting, sparse stochastic subspace descent, a stale-eigenbasis effect, and angular numerical radius of rank-one projections.",
+        "Closest record identifiers by unique tails: 77e11f8220ee, d9ecf263b248, 91a933b03a1c, 57c3a3b603ff."
+      ],
+      "reasoning": "The records describe different algorithms, quantities, and quantifiers. Multistage pivoting estimates expected matrix error under sequential coordinate selection rather than a fixed Gaussian one-column sketch over a smoothly rotating continuum. Stale-basis work concerns optimizer updates rather than a range-projection error law. The observed nonmatch is not a uniqueness proof.",
+      "searches": [
+        "Constant Gaussian one-vector sketch for continuously rotating right singular vectors, full parameter interval sup error equals top singular value, integrated Frobenius error geometric mean singular values.",
+        "Parameter-dependent randomized low-rank approximation rank-one moving singular subspace, uniform in parameter failure no oversampling, sharp smooth rotating example.",
+        "One-probe HMT randomized range finder rotating two-by-two singular directions pathwise integrated projection error equal product singular values; one extra probe removes gap.",
+        "For smooth planar SPD eigenvector rotation A(t)=R(t) diag(a,b) R(t)^T, HMT one-column fixed Gaussian sketch: exact minimax worst-parameter projection error on angular interval, probability L/pi of maximal a, and half-turn integrated squared Frobenius residual pi*a*b; sharp unoversampled limitation."
+      ]
+    },
+    "rationale": "Best-knowledge scope-specific novelty: Kressner and Lam give integrated and uniform bounds for oversampled shared sketches, not this exact unoversampled planar rank-one minimax/CDF/half-turn law. Diouane and coauthors analyze fixed-matrix randomized projection error, not a continuum of coupled common-probe matrices. Searches of mathematical records and accessible ledger claims did not identify a statement implying this entire exact law. An undiscovered equivalent elementary geometric or numerical-linear-algebra observation remains a genuine residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier note may contain the identical projective-circle geometry and exact probability distribution.",
+      "The full texts of the historical HMT paper and the later randomized low-rank survey were not independently inspected; neither is cited as definitively not covering the claim.",
+      "This is a two-dimensional unoversampled boundary fact, not a lower bound for all randomized rangefinding algorithms or an extension of oversampled theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest primary source: bounds in an oversampled parameter family, not exact one-column continuum phase law.",
+        "evidence": [
+          "arXiv:2302.12761v1 first posted 2023-02-24.",
+          "Theorem 4: integrated expectation bound; Theorem 7: uniform estimate with at least target rank two and extra columns.",
+          "Remark 1: discontinuity at rank change; not present in this SPD example."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2576",
+        "material_read": "Full open HTML of Sections 2.1-2.3, hypotheses and statements of Theorems 4 and 7, Remark 1, and relevant synthetic numerical experiment in Section 4.1.",
+        "method": "Read the published open HTML and arXiv first-version date record.",
+        "title": "Randomized low-rank approximation of parameter-dependent matrices",
+        "trigger": "Direct primary method: shared random test vectors for parameter-dependent HMT and Nyström approximation."
+      },
+      {
+        "assessment": "Fixed-matrix bounds do not give the common-probe continuous-parameter maximal error distribution.",
+        "evidence": [
+          "Sections 3.1-3.2 provide deterministic and Gaussian fixed-matrix estimates.",
+          "A shared probe across a changing family creates dependence not addressed in the inspected fixed-matrix theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+        "material_read": "Open arXiv paper mathematical introduction and Sections 3.1 and 3.2, including deterministic projection estimate and covariance-dependent expectation argument.",
+        "method": "Read primary full-text excerpts in accessible source pages.",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Closest general deterministic canonical-angle and Gaussian projection-error framework."
+      },
+      {
+        "assessment": "Insufficient for a claim that the entire survey lacks an equivalent argument; retained as residual literature risk.",
+        "evidence": [
+          "Overview lists randomized rangefinding and power methods, but no specific parametric continuum lower bound could be established from this material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.12418",
+        "material_read": "ArXiv abstract and overview only.",
+        "method": "Read online abstract/overview.",
+        "title": "Randomized algorithms for low-rank matrix approximation: Design, analysis, and applications",
+        "trigger": "Potential survey of stronger power-iteration lower bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ff5b4a4-9a7b-48c5-b3fe-29d41805c1e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses an explicit method-design gap: whether sharing one fixed random sketch column over a smooth, uniformly gapped matrix path ensures uniformly near-optimal rank-one approximation, and whether extra power iterations fix it. The sharp minimax, exact L/pi worst-error atom and full CDF quantify failure on short and long parameter intervals; the pathwise integrated loss ab and no-escape for any finite power depth identify substantive algorithmic and sample-budget consequences. Two sketch columns plus rank-one truncation removes the obstruction in this example. This is more than a routine pointwise residual calculation and does not claim arbitrary-dimensional generality.",
+    "status": "PASS"
+  }
+}
