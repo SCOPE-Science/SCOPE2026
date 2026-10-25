@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivative ideal follows from direct differentiation with \(2\) invertible. The quadratic generators kill every product of \(u,v\), giving a split square-zero extension. The displayed two-by-two matrix has nonzero determinant \(x_0x_2-x_1^2\), making its free presentation injective in every characteristic under consideration. The explicit identification of its cokernel with \((x_0,x_1)\) in the integral quadric-cone ring determines the exact nilradical line bundle. The torsion-free identification, annihilator identities, and modular-law calculation prove the two-primary-component decomposition. The entire Hilbert series is algebraic, not extrapolated; exact finite-field linear algebra through the stated degrees separately checks the low-degree consequences. Residual mathematical limits: characteristic \(2\), other Perazzo cubics in higher dimension and unrelated schemes are not claimed.
+## correctness
 
-## Originality — PASS (qualified)
-The main closest literature states the *reduced* singular plane (Gondim–Russo, 2013, Theorem 4.2) and a distinguished conic in it (Theorem 4.1). A later orbit classification (Gharahi–Ottaviani, 2025, Proposition 37) identifies that conic as a rank-one orbit. Neither source determines the nilradical line bundle of the projective Jacobian scheme or its Hilbert series. Fiorindo–Mezzetti–Miró-Roig (2022) concern the apolar Artinian Gorenstein algebra, not the Jacobian quotient. Searches of mathematical records and the accessible historical finding claims did not yield the exact square-zero theta-line statement. The central risk is an unindexed classical derivation of the same primary decomposition; absence of a search result is not proof of global novelty. The published normal form makes the calculation approachable but does not report the claimed scheme structure.
+PASS
 
-## Mathematical value — PASS
-The ideal and its nilradical govern the base scheme of the polar map, which the source explicitly distinguishes from the reduced singular locus. The result explains the extra embedded conic, identifies it intrinsically by its half-canonical line bundle, gives all graded dimensions and the resulting depth defect, and relates the embedded support to the geometric Whitney-pinch stratum. These are natural scheme invariants not fixed by the statement that the singular *set* is a plane. No general theorem beyond this named canonical cubic is asserted or required.
+PASS: Differentiating f=x0 u^2+2 x1 u v+x2 v^2 (char k !=2) yields J=(u^2,uv,v^2,x0u+x1v,x1u+x2v). Let A=k[x0,x1,x2], M=(u,v)/J; the graded A-presentation A(-2)^2 -> A(-1)^2 -> M has 2x2 determinant Delta=x0x2-x1^2, nonzero in A, proving injection, Hilbert series 2t/(1-t)^2 and S/J=A⊕M, giving (1+2t-2t^2)/(1-t)^3. Explicit map u->x1, v->-x0 shows M is the ideal (x0,x1) in B=A/(Delta), sheaf O_C(-p)=O_{P1}(-1); it is torsion-free rank one on smooth C and square-zero as nilpotents. Hence associated primes are (u,v) and its embedded (u,v,Delta), the ideal is saturated and J=(u,v)∩(J+(Delta)), and depth equals min(3,2)=2. The projective chart f/unit=U^2+T v^2 proves Whitney umbrella on C, transverse normal crossings off C. Independently verified derivative/determinant identities symbolically and exact modular 101 quotient dimensions d=1,..,6 equal 5,10,16,23,31,40. Infinite claims are algebraic, not inferred from those six degrees.
 
-## Sources and limits
-Primary comparisons: arXiv:1312.1618v1, Theorems 4.1–4.2 and Definition 1.5; arXiv:2206.02723v2, Sections 1 and 6; arXiv:2510.07404v1, Proposition 37. The specific claims of the present package are derived in `RESULT.md`; `verify.py` is a finite independent computational consistency check, not a substitute for proof. Remaining originality uncertainty concerns unidentified classical accounts or more general syzygy literature. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Gondim–Russo already identify the reduced singular plane and distinguished conic for this Perazzo cubic. Gharahi–Ottaviani study the conic in another geometric framework; Fiorindo–Mezzetti–Miró-Roig compute the different apolar Artinian algebra. None of the materially inspected papers explicitly supplies the Jacobian-scheme embedded prime, nilpotent theta line or its all-degree Hilbert series. The classical reduced geometry and the Perazzo model are credited, not claimed new.
+
+## value
+
+PASS
+
+PASS: Reconstructing an embedded scheme structure, its sheaf as a theta-characteristic line, depth defect and precise local pinch-versus-normal-crossing transition on a classical singular cubic is a natural geometric sharpening. Its invariant is the genuine gradient scheme, not an arbitrary finite computation or trivial renaming of the known reduced conic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
