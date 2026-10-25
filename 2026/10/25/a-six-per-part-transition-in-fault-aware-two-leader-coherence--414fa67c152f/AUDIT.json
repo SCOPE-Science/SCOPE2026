@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, exactly five leader-pair cost classes are derived by eigenspace decomposition of the grounded Laplacian, with an at-most-four-dimensional quotient. The three noncontenders are proven strictly worse than the missing-endpoint pair by positive rational differences. The remaining difference has numerator f(n)=n^3-6n^2+5n-1 with values f(3)=f(4)=-13, f(5)=-1, f(6)=29 and first difference 3n(n-3)>0 for n>=4. The edge case n=3 is checked by the correct reduced quotient/direct inverse. A standalone SymPy program reconstructs all eight orbit identities and checks 245 direct rational grounded inverses (n=3..7). These finite comparisons corroborate the all-size algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1407.1569, Theorem 1 and Section V, covers arbitrary graphs implicitly via joint centrality, with closed special cases restricted to cycles and paths.",
+        "arXiv:1412.6595, Theorems 1--2, give algorithms on path and ring graphs, structurally nonapplicable to dense bicliques."
+      ],
+      "reasoning": "Broader general-purpose methods compute or characterize minimizers after specialized calculations. Neither inspected source states an ordering that implies the reported sharp defective-biclique transition without the new quotient and sign analysis; no stronger explicit special-family result was found. A previously unnoticed theorem elsewhere could still cover it.",
+      "searches": [
+        "optimal pinning two leaders consensus network complete bipartite graph arbitrary partitions grounded Laplacian trace",
+        "2014 optimal leader selection noise network grounded Laplacian trace star graph complete bipartite exact analytical",
+        "optimal two noise free leaders complete bipartite graph edge defect",
+        "leader selection bipartite graph removed edge grounded Laplacian inverse trace"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.1569, first submitted 2014-07-07, primary framework, substantive PDF text inspected",
+      "arXiv:1412.6595, first submitted 2014-12-20, objective and one-dimensional algorithms, substantive PDF text inspected",
+      "Fitch--Leonard 2013 accessible conference paper, general framework and cycle case inspected",
+      "Published mathematical finding: Exact discounted hitting domination of complete bipartite graphs (different objective; indexed summary read)",
+      "Published mathematical finding: Geodesic subpath numbers of bicliques with a deleted matching (different objective; indexed summary read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fitch--Leonard 2013 preprint, Sections IV--V: general two-leader joint-centrality formula, with a solved cycle example.",
+        "Fitch--Leonard arXiv:1407.1569, Section V.C--D: antipodal leaders on even cycles and positions on paths; no complete-bipartite edge-defect family.",
+        "Patterson et al. arXiv:1412.6595, Section III: shortest-path reduction depends on the path/ring follower-block decomposition, absent in defective complete bicliques."
+      ],
+      "reasoning": "The present theorem specifies unique optimizer type for every n>=3, its explicit minimum, and exact multiplicities; the closest inspected statements specify general optimality criteria or algorithms for other graph classes. General computability does not by itself imply the explicit all-integer comparisons. The novel content is the evaluated sign transition rather than the trace-of-inverse objective or the notion of optimal leaders.",
+      "searches": [
+        "leader selection grounded Laplacian trace graph complete bipartite weighted missing edge",
+        "leader selection bipartite graph removed edge grounded Laplacian inverse trace",
+        "optimal two noise free leaders complete bipartite graph edge defect"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fitch--Leonard arXiv:1407.1569, Sections IV--V, identifies optimal noise-free leader sets through joint centrality, giving a general formula but no defective-biclique orbit classification.",
+        "Patterson--McGlohon--Dyagilev arXiv:1412.6595, Sections II--III, uses the identical inverse-grounded-Laplacian trace objective on paths and rings only."
+      ],
+      "reasoning": "Equivalent optimization objectives include H2 follower coherence, stationary variance, pinned-consensus total covariance, and inverse grounded Laplacian trace. Full-text comparisons found general formulas and specific one-dimensional results, not a theorem that evaluates all five orbit classes on K_{n,n} with a missing edge; a general algorithm is not an explicit sharp integer classification.",
+      "searches": [
+        "two noisefree leaders optimal noisy consensus damaged biclique one deleted edge K_n,n threshold six",
+        "grounded Laplacian inverse trace complete bipartite missing one edge defective endpoints optimization",
+        "joint centrality complete bipartite K_n,n minus edge leader set",
+        "optimal leader selection complete bipartite single missing link edge noisy consensus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record \"Exact discounted hitting domination of complete bipartite graphs\" optimizes discounted hitting rather than grounded-Laplacian trace.",
+        "Published mathematical record \"Geodesic subpath numbers of bicliques with a deleted matching\" determines subpath counts under deletion rather than leader coherence.",
+        "No exact published table of the five defective-biclique leader-orbit objectives or the six-per-part optimizer switch was returned by the targeted searches."
+      ],
+      "reasoning": "Those indexed results concern different objective functions and therefore do not imply a coherence minimizer. Finite graph tables cannot certify the integer-unbounded threshold without a general claim; absence from search results alone is not a novelty proof.",
+      "searches": [
+        "two noisefree leaders optimal noisy consensus damaged biclique one deleted edge K_n,n threshold six",
+        "exact graph invariant faulty complete bipartite single-edge deletion leader placements versus healthy same part",
+        "joint centrality complete bipartite K_n,n minus edge leader set"
+      ]
+    },
+    "rationale": "The known broad joint-centrality criterion for selecting noise-free leaders does not state or evaluate the five leader-pair orbits of a balanced biclique with one missing edge, nor the exact five-to-six switch. Inspected specialized results cover paths/cycles. Searches for alternative defective-biclique, pinned consensus and grounded-inverse-trace formulations did not reveal an implication that settles this optimizer classification. Priority outside the inspected corpus remains uncertain.",
+    "residual_risks": [
+      "An unindexed or inaccessible primary paper may already contain an equivalent explicit defective-biclique classification.",
+      "General joint-centrality formulas apply to this graph after evaluation, so the originality attaches only to the new five-orbit ordering and exact phase boundary, not to the general objective.",
+      "No separate independent mathematical validation has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General joint-centrality theory and explicit path/cycle classes, not a one-missing-edge complete-bipartite threshold",
+        "evidence": "Pages 3, 7, and 11--14; Theorem 1 and Corollaries 2--3; arXiv:1407.1569.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "Abstract/introduction; Section II model; Section IV Theorem 1; Section V general interpretation and explicit cases V.C--D; page image of the contribution summary",
+        "method": "Opened and read author-version PDF text with visual confirmation of page 3",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Main same-object general framework for two noise-free leaders and possible stronger coverage"
+      },
+      {
+        "assessment": "Algorithms are for paths and rings, not dense defective bipartite graphs; no equivalent sharp transition",
+        "evidence": "Pages 1--5, equations (2)--(4), Theorems 1--2; arXiv:1412.6595.",
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Abstract; Section II objective and exact noise model; Section III path/ring shortest-path construction and theorem statements; Section IV example discussion; page 2 visually confirmed",
+        "method": "Read author-version PDF text and visual page inspection",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Same inverse-grounded-Laplacian objective could imply a broad leader-selection classification"
+      },
+      {
+        "assessment": "General objective and cycle special case; no one-missing-edge biclique or integer-six switch",
+        "evidence": "Pages 1--5, Corollary 2 and Theorem 3.",
+        "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/FitchCDC2013ol.pdf",
+        "material_read": "Introduction and model; single leader objective; general two-leader joint centrality and cycle special case; visual inspection of page 5",
+        "method": "Read accessible conference preprint PDF text and inspected relevant page image",
+        "title": "Information Centrality and Optimal Leader Selection in Noisy Networks",
+        "trigger": "Earlier same-author general two-leader theory might subsume the specialized claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "414fa67c-152f-4270-9e13-90b1b9f21c2e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact optimizer transition is motivated by how one missing communication link alters stochastic-consensus leader choice in a dense two-community graph. It settles all sizes n>=3, all minimizers, multiplicities, and the full boundary, and it reverses the intact-graph same-part choice for n<=5. The non-obvious n=5 gap is 1/720, warranting exact arithmetic. This is a natural graph-fault design fact, not a renamed invariant, a selected numeric sample, or a generic matrix identity.",
+    "status": "PASS"
+  }
+}
