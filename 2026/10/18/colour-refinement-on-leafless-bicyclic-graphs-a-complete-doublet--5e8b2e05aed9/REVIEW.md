@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The degree-excess identity forces precisely three two-cycle core types. A rooted-cover invariant recovers the length multisets at all branch vertices, excluding every nonisomorphic comparison except symmetric barbell versus theta with two repeated arm lengths. An explicit common equitable partition proves those exceptions equivalent, while their bridge discrepancy proves nonisomorphism. The integer-parameter count is exact. Independently structured finite code checks support but do not replace the unrestricted proof.
+PASS
 
-## Originality — PASS, subject to priority limitations
+Every leafless connected simple bicyclic graph obeys Σ(deg(v)−2)=2, so its reduced kernel is a degree-four figure-eight, or a two-degree-three theta/barbell. Universal-cover branch-to-branch distances yield complete length signatures at marked high-degree roots, visible to stable one-dimensional colour refinement. Their multiplicities determine each figure-eight, theta, or unequal-cycle barbell, and the only possible cross-family overlap is the equal-cycle barbell B(a,c) and theta graph Θ(a,a,c), a≥3,c≥1. An explicit common equitable partition by path length and distance from ends proves equivalence; presence versus absence of a bridge proves nonisomorphism. Their vertex count n=2a+c−1 gives precisely max(0, floor(n/2)−2) doubletons and the unique n=6 exception. Independently constructed NetworkX graphs at (a,c)=(3,1),(4,2),(3,4),(5,1),(4,4) verify synchronized WL equivalence/nonisomorphism. The inspected parameter checker reports 9619 comparisons to n=17; no finite test replaces the all-size core proof.
 
-The general logical/colour-refinement equivalence and broad identification criteria of Arvind–Köbler–Rattan–Verbitsky (2015) and Kiefer–Schweitzer–Selman (2015) are credited, not claimed. The later universal-cover analysis by Verbitsky–Zhukovskii (2025) addresses decorated *unicyclic* graphs. The new scope is the exact relative pairwise-equivalence classification, unique two-shape mechanism, and all-order doubleton count for connected **bicyclic** cores. Full-text comparisons were made on the key source sections; direct specialist tables were not located. A prior derivation from general criteria or unindexed fractional-isomorphism work remains possible; some supplementary catalogue queries were unavailable.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a natural complete-classification question rather than supplying an isolated example: it detects the precise point where two independent cycles create logical ambiguity in leafless connected cores and gives every exceptional parameter family with an exact count at each size. It exposes a bridge/nonbridge invariant that stable colour refinement loses, and supplies a reproducible class of counterexamples for counting logic.
+Best-of-knowledge originality PASS: An arbitrary known nonamenable graph might contain a similar theta/barbell witness, but this theorem classifies all C² classes within a motivated bicyclic family. Prior identification predicates alone do not logically imply its uniqueness or multiplicity without the core-length analysis.
 
-## Limits
+## value
 
-Only simple uncoloured connected graphs with minimum degree at least two and one more edge than vertex are classified; no global identification, higher-rank, or pendant-tree claim is made. Scientific assessment is not external verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The class of minimum-degree-two connected bicyclic cores is a canonical next case after cycles and unicyclic graphs for 1-WL/fractional isomorphism. A complete infinite-family classification of the only indistinguishable doubletons and their counts addresses a meaningful graph-identification gap, rather than isolated computed specimens.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
