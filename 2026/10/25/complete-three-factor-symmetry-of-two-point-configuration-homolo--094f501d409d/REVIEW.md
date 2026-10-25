@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The argument is uniform in all three part sizes. The needed maturity of \(K_{p,q,r}\) follows from the cited mature-graph edge-addition/subdivision criteria and a checked inductive construction; it gives the equivariant first-homology module. Every deleted-product cell type is enumerated with its correct permutation or orientation-signed action, including the negative contribution of swapped two-cells. Their representation-ring Euler identity expands via the standard rational Specht decompositions to the displayed nonnegative H2 decomposition. Semisimplicity upgrades the virtual formula to an actual isomorphism. Exhaustive small-group traces and independently computed signed boundaries confirm representative signs and dimensions. Finite calculations do not replace the general proof.
+## correctness
 
-## Originality (PASS, subject to bibliographic limits)
-Barnett–Farber (arXiv:0903.2180) and Farber–Hanbury (arXiv:1005.2300) give the foundational configuration-space model, maturity method and nonequivariant information, not the three-independent-factor H2 character/decomposition. Ramos–Yun (arXiv:2606.13813), §3.5, study a different balanced two-large-part/one-singleton family and a diagonal group, which does not determine the present full product-group decomposition. Compared mathematical implications, not just paper titles. Related finite-graph and sink-configuration records do not cover the three-part ordinary configuration theorem. Residual possibility of an unindexed equivalent computation remains.
+PASS
 
-## Mathematical value (PASS)
-The calculation resolves the full symmetry module for a canonical three-parameter graph family, refining known Betti-number formulas. The 34 constituent types, multiplicities, character formula and vanishing full-product invariant subspace reveal information invisible to scalar Betti numbers or the diagonal action on a different graph family. The exact finite checks offer concrete benchmark data and check nontrivial cubical orientation signs.
+Independently checked the graph-maturity induction from K_pq (p,q>=3): add edge within one original part, subdivide it to introduce a third-part vertex, add all incident missing first/second-part edges; deletion of endpoints leaves a connected existing complete bipartite core. Farber–Hanbury Theorem 1 and Proposition 22 verify premises. Reconstructed 0/1/2-cell types of unordered two-point deleted-product cubical complex and signed permutations, including -1 for swapped edge-pair cells; first H1 module is H1(G). Symbolic exact expansion of the virtual Euler character and Specht characters f_i,t_i simplifies identically to proposed closed formula; dimensions checked at (3,3,3),(3,3,4),(3,4,4),(4,4,4) as 81,146,252,414. Multiplicities nonnegative; semisimplicity gives rational isomorphism. Finite examples corroborate the all-parameter character identity rather than proving it.
 
-## Limitations
-No statement of integral module splitting, absence of integral torsion, or action exchanging equal-size parts is made. Computer checks address finitely many parameters, whereas the proof is general. Bibliographic coverage may be incomplete; independent review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farber–Hanbury 2010 proves maturity/bipartite Betti formulas but does not give the three-independent-factor S_p×S_q×S_r H2 representation. Ramos–He Yun 2026 Theorems 3.30/3.31 concern two large parts and a singleton, with only diagonal S_n action (its graph even deletes corresponding matching edges), so neither object nor group action dominates the present theorem. The full 34-constituent Specht formula and fixed/2-cycle character are not entailed by those prior statements.
+
+## value
+
+PASS
+
+For a natural three-parameter family of graphs, the result determines all rational irreducible H2 constituents and their multiplicities under the full independent symmetric relabelings, far stronger than known scalar Betti numbers or restricted diagonal actions. Explicit fixed-cycle characters and vanishing total invariants make substantive equivariant-topology information available.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

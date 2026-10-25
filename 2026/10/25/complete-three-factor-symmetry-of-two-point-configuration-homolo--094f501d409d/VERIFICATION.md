@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_tripartite.py` followed by `python3 artifacts/verify_tripartite_mod3.py` from the package root. Only standard-library Python 3 is required. Expected exact outputs are in `artifacts/verification_output.txt` and `artifacts/mod3_output.txt` respectively.
+## correctness
 
-The first program constructs all unordered two-point deleted-product cubical cells, checks \(\partial_1\partial_2=0\) over \(\mathbb F_2\), computes boundary ranks for part sizes \((3,3,3),(3,3,4),(3,4,4),(4,4,4)\), and checks every element of \(S_3^3\) and \(S_3^2\times S_4\) against both the oriented-cell trace formula and rational Specht character expansion. The second independently constructs signed boundaries and obtains ranks over \(\mathbb F_3\) for \((3,3,3),(3,3,4),(3,4,4)\), agreeing with the claimed rational Betti numbers. Degree-one \(\mathbb F_2\) Betti numbers exceed the rational values by one in these examples; this is compatible with, but does not establish, 2-primary torsion and is not used in the rational theorem.
+PASS
 
-These finite checks verify particular parameter values and signs. They cannot prove the general representation for untested sizes; that relies on the exact general argument in `RESULT.md`. None of this is an independent audit or a claim of machine certification for every parameter.
+Independently checked the graph-maturity induction from K_pq (p,q>=3): add edge within one original part, subdivide it to introduce a third-part vertex, add all incident missing first/second-part edges; deletion of endpoints leaves a connected existing complete bipartite core. Farber–Hanbury Theorem 1 and Proposition 22 verify premises. Reconstructed 0/1/2-cell types of unordered two-point deleted-product cubical complex and signed permutations, including -1 for swapped edge-pair cells; first H1 module is H1(G). Symbolic exact expansion of the virtual Euler character and Specht characters f_i,t_i simplifies identically to proposed closed formula; dimensions checked at (3,3,3),(3,3,4),(3,4,4),(4,4,4) as 81,146,252,414. Multiplicities nonnegative; semisimplicity gives rational isomorphism. Finite examples corroborate the all-parameter character identity rather than proving it.
+
+## originality
+
+PASS
+
+Farber–Hanbury 2010 proves maturity/bipartite Betti formulas but does not give the three-independent-factor S_p×S_q×S_r H2 representation. Ramos–He Yun 2026 Theorems 3.30/3.31 concern two large parts and a singleton, with only diagonal S_n action (its graph even deletes corresponding matching edges), so neither object nor group action dominates the present theorem. The full 34-constituent Specht formula and fixed/2-cycle character are not entailed by those prior statements.
+
+## value
+
+PASS
+
+For a natural three-parameter family of graphs, the result determines all rational irreducible H2 constituents and their multiplicities under the full independent symmetric relabelings, far stronger than known scalar Betti numbers or restricted diagonal actions. Explicit fixed-cycle characters and vanishing total invariants make substantive equivariant-topology information available.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

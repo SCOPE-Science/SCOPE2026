@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T18:03:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the graph-maturity induction from K_pq (p,q>=3): add edge within one original part, subdivide it to introduce a third-part vertex, add all incident missing first/second-part edges; deletion of endpoints leaves a connected existing complete bipartite core. Farber–Hanbury Theorem 1 and Proposition 22 verify premises. Reconstructed 0/1/2-cell types of unordered two-point deleted-product cubical complex and signed permutations, including -1 for swapped edge-pair cells; first H1 module is H1(G). Symbolic exact expansion of the virtual Euler character and Specht characters f_i,t_i simplifies identically to proposed closed formula; dimensions checked at (3,3,3),(3,3,4),(3,4,4),(4,4,4) as 81,146,252,414. Multiplicities nonnegative; semisimplicity gives rational isomorphism. Finite examples corroborate the all-parameter character identity rather than proving it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farber–Hanbury maturity theorem extends to graphs satisfying connectivity, but only prescribes H1/Betti data, not all H2 character values.",
+          "Ramos–He Yun stable representation is narrower in both graph parameters and group action."
+        ],
+        "reasoning": "No inspected theorem has a hypothesis encompassing three parts p,q,r>=3 with action of three independent symmetric factors and the claimed exact rational decomposition.",
+        "searches": [
+          "Computing stable homology representations complete tripartite graphs",
+          "Complete tripartite graph unordered two point configuration homology representation S_p times S_q times S_r",
+          "arxiv:1005.2300 Proposition 22"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1005.2300",
+        "https://arxiv.org/html/2606.13813v1",
+        "https://arxiv.org/abs/0903.2180"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior graph maturity and cell complex theorems supply a method: [H2]=[C2]-[C1]+[C0]-1+[H1(G)].",
+          "No prior explicit decomposition states the resulting products U_i, V_i, A_i or full f_i,t_i trace formula."
+        ],
+        "reasoning": "The new proof computes the specific cell-action modules then expands the representation ring. These are deductive consequences of general techniques only after substantial nontrivial parameterized equivariant combinatorics; no direct prior coverage identified.",
+        "searches": [
+          "arxiv:0903.2180",
+          "arxiv:1005.2300",
+          "arxiv:2606.13813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new H2 module is under S_p×S_q×S_r for p,q,r>=3.",
+          "Published 2026 equivariant tripartite calculation has an S_n diagonal action on K_{n,n,1}; its third part size=1."
+        ],
+        "reasoning": "Equivariant character data for the diagonal subgroup with singleton third part cannot uniquely recover the full three-factor irreducible multiplicities for all positive third sizes; not equivalent after relabeling.",
+        "searches": [
+          "Complete tripartite graph unordered two point configuration homology representation S_p times S_q times S_r",
+          "arxiv:2606.13813 Theorem 3.31",
+          "arxiv:1005.2300 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact representation tables in Section 3.5 are for K_{n,n,1}, diagonal S_n.",
+          "Original package verified H2 dimensions and 34 constituent types for all part sizes at least four."
+        ],
+        "reasoning": "Closest exact tables have incompatible parameters/representation group; none is a table of the present product-group character for K_pqr.",
+        "searches": [
+          "arxiv:2606.13813 Section 3.5 Table 5 Table 6",
+          "Complete tripartite graph unordered two point configuration homology representation S_p times S_q times S_r"
+        ]
+      },
+      "rationale": "Farber–Hanbury 2010 proves maturity/bipartite Betti formulas but does not give the three-independent-factor S_p×S_q×S_r H2 representation. Ramos–He Yun 2026 Theorems 3.30/3.31 concern two large parts and a singleton, with only diagonal S_n action (its graph even deletes corresponding matching edges), so neither object nor group action dominates the present theorem. The full 34-constituent Specht formula and fixed/2-cycle character are not entailed by those prior statements.",
+      "residual_risks": [
+        "A different equivariant theorem for the same full three-part family, perhaps under FI^3 terminology, could be missed.",
+        "The proof depends on correct equivariant maturity; verified exact edge-addition hypothesis and base but did not reproduce the original topological proof.",
+        "No integral splitting or torsion-freeness is established for arbitrary p,q,r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INPUT, NOT_FULL_CHARACTER: gives graph-maturity theory and bipartite cases, not full independent S_p×S_q×S_r H2 module",
+          "evidence": "Theorem 1 confirms mature edge addition when deleting endpoints keeps base connected; subdivision invariant, Prop 22 confirms K_pq base.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2300",
+          "material_read": "Complete primary PDF relevant Sections 1,6,7; Theorem 1 p.2 (connected vertex-deletion criterion), Proposition 22 p.22 (all K_pq with p,q>=3 mature); page images examined",
+          "method": "Direct arXiv full-text PDF and rendered pages",
+          "title": "Topology of configuration space of two particles on a graph, II (Farber–Hanbury, 2010)",
+          "trigger": "Structural maturity and edge-adjunction premise for proposed uniform proof"
+        },
+        {
+          "assessment": "DIFFERENT FAMILY/ACTION: K_{n,n,1} with a singleton part and diagonal S_n (indeed a deleted-matching edge construction in text), not all p,q,r>=3 nor independent S_p×S_q×S_r characters",
+          "evidence": "Theorem 3.31 describes stable diagonal S_n modules of UConf2(K_{n,n,1}); it cannot imply a full three-factor module on K_{p,q,r}.",
+          "identifier_or_url": "https://arxiv.org/html/2606.13813v1",
+          "material_read": "Primary full HTML Section 3.5, Theorems 3.27, 3.30 and 3.31 plus preceding graph definitions; independently examined stated family and action",
+          "method": "Direct full arXiv HTML primary text",
+          "title": "Computing stable homology representations of graph configuration spaces (Ramos–He Yun, 2026)",
+          "trigger": "Apparent recent covering equivariant representation theorem for complete tripartite two-particle spaces"
+        },
+        {
+          "assessment": "BACKGROUND/INACCESSIBILITY RISK: cannot claim whole-document noncoverage",
+          "evidence": "The structural cubical model is standard; must not mistake this source for verified comprehensive priority",
+          "identifier_or_url": "https://arxiv.org/abs/0903.2180",
+          "material_read": "Abstract/indexed identifying graph two-point configuration spaces; complete text not materially read",
+          "method": "Searchable arXiv record; full text not read",
+          "title": "Topology of configuration space of two particles on a graph, I (Barnett–Farber, 2009)",
+          "trigger": "Deleted-product cell model foundation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural three-parameter family of graphs, the result determines all rational irreducible H2 constituents and their multiplicities under the full independent symmetric relabelings, far stronger than known scalar Betti numbers or restricted diagonal actions. Explicit fixed-cycle characters and vanishing total invariants make substantive equivariant-topology information available.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1005.2300",
+    "https://arxiv.org/html/2606.13813v1",
+    "https://arxiv.org/abs/0903.2180"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A different equivariant theorem for the same full three-part family, perhaps under FI^3 terminology, could be missed.",
+    "The proof depends on correct equivariant maturity; verified exact edge-addition hypothesis and base but did not reproduce the original topological proof.",
+    "No integral splitting or torsion-freeness is established for arbitrary p,q,r."
+  ],
+  "residual_risks": [
+    "A different equivariant theorem for the same full three-part family, perhaps under FI^3 terminology, could be missed.",
+    "The proof depends on correct equivariant maturity; verified exact edge-addition hypothesis and base but did not reproduce the original topological proof.",
+    "No integral splitting or torsion-freeness is established for arbitrary p,q,r."
+  ],
+  "schema_version": 1
+}
