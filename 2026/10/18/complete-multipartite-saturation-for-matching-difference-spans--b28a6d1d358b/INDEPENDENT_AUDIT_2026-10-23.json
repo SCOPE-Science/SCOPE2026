@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:01:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite complete multipartite K_(n_i), matching number is nu=min(floor(n/2),n-p), p=max part: each matched edge consumes >=1 vertex outside any largest part, and complete multipartite perfect-matching criterion on any 2nu chosen vertices yields matching nu (if p>=nu explicitly match across largest part). To span arbitrary complete-graph k-matching difference polynomial for k<=nu, strongly induct on number of within-part forbidden edges. Fix uv inside part A: |V\\A|>=k. If an outside vertex w is unused, use xu-xv=(xu-xw)+(xw-xv) to replace forbidden pair by valid cross-part edges. If all outside vertices used by other k-1 edges, one other edge st lies wholly outside A, and (xu-xv)(xs-xt)=(xu-xs)(xv-xt)-(xu-xt)(xv-xs) yields two cross-part products, strictly reducing forbidden count. Each operation preserves disjointness, so induction closes exactly. Characteristic-zero two-row Specht dimension C(n,k)-C(n,k-1) and Dunkl-matching duality are credited from arXiv:2609.34260, not independently invented. Own independent SymPy rational rank computation for profiles (2,2),(3,2),(2,2,1),(4,2) in all degrees agrees; finite checks corroborate but do not prove the infinite induction. All k>nu have no matchings; connectivity n-p gives iff saturation under relevant k range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source proves k-linked => k-saturated and complement a matching => high saturation.",
+          "Corollary 5.13 specifically treats complete multipartite with all part sizes 2; its complement is a matching.",
+          "Arbitrary complete multipartite complements contain large cliques and fail complement-matching hypothesis; e.g. K_(8,2,1) is not covered. The general k-linked criterion does not automatically cover K_(k,k) at top k."
+        ],
+        "reasoning": "The primary general sufficient conditions are broader conceptually but not applicable to all claimed cases. Necessary k-connectivity is known; family-specific sufficiency is additional.",
+        "searches": [
+          "Grinberg Kirillov Shapiro arXiv:2609.34260v2 Prop 5.11 Thm 5.12 Cor 5.13",
+          "linkedness and saturation of complete multipartite graphs arbitrary part sizes"
+        ]
+      },
+      "checked_sources": [
+        "full source RESULT.md, REVIEW.md, VERIFICATION.md and own exact rational matching-rank tests",
+        "matching difference spans complete multipartite graphs k saturation Dunkl Hilbert connectivity",
+        "Grinberg Kirillov Shapiro arXiv:2609.34260v2 full primary PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known rank dim Pk(Kn)=C(n,k)-C(n,k-1) and duality determine dimensions after new span equality, but do not prove that equality.",
+          "Known necessary k-connectivity only implies non-saturation for k>n-p; sufficiency for all k<=n-p requires new replacement induction."
+        ],
+        "reasoning": "The theorem appropriately credits previously implied Specht dimensions and all-parts-two special cases; its new exact arbitrary-part saturation criterion is not a direct corollary.",
+        "searches": [
+          "arXiv:2609.34260v2 Theorem 3.2 / 4.1 / Prop 5.11 / Theorem 5.12 / Corollary 5.13",
+          "general k-connectivity necessity for saturation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saturation means equality of spans of k-matching difference polynomials, equivalently equality of graded Dunkl matching algebra dimensions using the established nondegenerate pairing.",
+          "k-vertex connectivity of complete multipartite graph equals n-max n_i, not general graph connectivity alone."
+        ],
+        "reasoning": "Compared polynomial-span, representation-theoretic Specht ranks, Dunkl Hilbert series and connectivity criteria as equivalent formulations rather than relying on matching titles.",
+        "searches": [
+          "matching difference spans complete multipartite graphs k saturation Dunkl Hilbert connectivity",
+          "Dunkl matching algebras k-saturated complete bipartite graph Specht polynomials connectivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Own rational ranks confirmed small complete multipartite profiles, and the source formula gives exact K_(4,4) and K_(8,2,1) coefficient vectors.",
+          "Resultary near hits involve other matching complexes and combinatorial spectra, not the same Dunkl matching-difference spans."
+        ],
+        "reasoning": "No checked exact database table for every multipartite profile; special all-parts-two instances already follow from the 2026 primary paper.",
+        "searches": [
+          "matching difference spans complete multipartite graphs k saturation Dunkl Hilbert connectivity",
+          "K_4,4 matching algebra Dunkl Hilbert series saturation coefficients 1 7 20 28 14",
+          "K_8,2,1 Dunkl algebra Hilbert series 1 10 44 110"
+        ]
+      },
+      "rationale": "Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.",
+      "residual_risks": [
+        "Same-paper future revision could expand saturation to arbitrary multipartite profiles, but assigned source snapshot is dated earlier.",
+        "Non-GKS earlier representation theory could implicitly cover all complete multipartite spans; no comprehensive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers duality, known dimension, k-linked/complement-matching sufficient cases; not arbitrary positive multipartite part sizes",
+          "evidence": "Corollary 5.13 states parts of size two, and general saturation=>connectivity is necessary only.",
+          "identifier_or_url": "arXiv:2609.34260v2 (2026-10-02)",
+          "material_read": "full primary arXiv PDF, including graded pairing, two-row Specht dimension, linkedness criteria and complete multipartite Corollary 5.13",
+          "method": "read mathematical statements and relevant proofs; web PDF screenshot examined around saturation section",
+          "title": "Matching algebras and their Dunkl subalgebras",
+          "trigger": "same definitions and potentially dominating saturation claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching-difference k-saturation and Dunkl subalgebra Hilbert series were explicit structural questions in the founding 2026 paper. Giving complete all-degree ranks for every positive complete multipartite part profile, including unbalanced and large missing-edge cliques, and proving connectivity suffices exactly in this broad canonical family solves a motivated case not covered by the complement-matching sufficient condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Characteristic zero for cited matching duality/Specht dimensions; no analogous full Hilbert assertion for other fields.",
+    "Result does not assert connectivity suffices for arbitrary graphs; finite rank examples not universal proof."
+  ],
+  "schema_version": 1
+}

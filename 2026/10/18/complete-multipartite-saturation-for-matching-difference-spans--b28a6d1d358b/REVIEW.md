@@ -1,19 +1,21 @@
-# Scientific review of complete multipartite matching-difference saturation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The saturation proof is a finite induction on within-part edges of an arbitrary matching of the complete graph. Given a forbidden pair in part \(A\), at least \(k\) vertices lie outside \(A\): either one is unused (the three-point difference identity removes the forbidden pair), or at least one other pair lies completely outside \(A\) (the four-point Garnir identity replaces both pairs by cross-part pairs). Every replacement preserves matching size, never overlaps an existing factor, and strictly decreases the induction statistic. The matching-number formula is proved by selection of \(2\nu\) vertices followed by a largest-parts greedy perfect matching. The character-zero complete-graph Specht dimension and graded duality are cited from the motivating paper, not re-proved as novel statements. The packaged program's exact modular rank computations verify 217 homogeneous cases; the argument is infinite and does not rely on that finite test.
+PASS
 
-## Originality
+For finite complete multipartite K_(n_i), matching number is nu=min(floor(n/2),n-p), p=max part: each matched edge consumes >=1 vertex outside any largest part, and complete multipartite perfect-matching criterion on any 2nu chosen vertices yields matching nu (if p>=nu explicitly match across largest part). To span arbitrary complete-graph k-matching difference polynomial for k<=nu, strongly induct on number of within-part forbidden edges. Fix uv inside part A: |V\A|>=k. If an outside vertex w is unused, use xu-xv=(xu-xw)+(xw-xv) to replace forbidden pair by valid cross-part edges. If all outside vertices used by other k-1 edges, one other edge st lies wholly outside A, and (xu-xv)(xs-xt)=(xu-xs)(xv-xt)-(xu-xt)(xv-xs) yields two cross-part products, strictly reducing forbidden count. Each operation preserves disjointness, so induction closes exactly. Characteristic-zero two-row Specht dimension C(n,k)-C(n,k-1) and Dunkl-matching duality are credited from arXiv:2609.34260, not independently invented. Own independent SymPy rational rank computation for profiles (2,2),(3,2),(2,2,1),(4,2) in all degrees agrees; finite checks corroborate but do not prove the infinite induction. All k>nu have no matchings; connectivity n-p gives iff saturation under relevant k range.
 
-**PASS under the documented comparison, with remaining bibliographic uncertainty.** The initiating manuscript, arXiv:2609.34260v2, was examined through its definitions, complete-graph Specht result, saturation criteria, and multipartite discussion. Its Corollary 5.13 handles only parts all of size two, its matching-complement theorem does not cover larger within-part cliques, and its linkedness criterion is insufficient for many complete multipartite graphs (e.g., \(K_{k,k}\) is not \(k\)-linked at the top matching degree for \(k\ge2\)). The new theorem covers all positive part sizes and all possible matching degrees. Targeted searches concerning Dunkl matching algebras, Specht saturation, bipartite matchings, matching-difference spans, and equivalent Hilbert series did not identify covering results. A prior unindexed formulation remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The initiating paper specifically frames deciding saturation beyond the complete graph as a structural problem. This theorem gives an exact answer for the broad canonical family of complete multipartite graphs, including arbitrarily large complements, and extracts an all-degree Hilbert series. It also supplies a family-wide converse to the known connectivity obstruction while correctly respecting counterexamples outside this family. The conclusion identifies where the algebra truncates and is not merely a recomputation of the ordinary matching polynomial.
+Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.
 
-## Closest literature and limitations
+## value
 
-Grinberg--Kirillov--Shapiro, *Matching algebras and their Dunkl subalgebras*, arXiv:2609.34260 (first public version 2026-09-28; examined v2 dated 2026-10-02), is the primary source for the definitions, complete-graph dimension, graded duality, and previous saturation criteria. Unindexed prior work may exist; the Hilbert dimension formula here is specified only for characteristic zero. The reduction argument independently verifies the proposed new span equality rather than assuming the converse to any cited sufficient condition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Matching-difference k-saturation and Dunkl subalgebra Hilbert series were explicit structural questions in the founding 2026 paper. Giving complete all-degree ranks for every positive complete multipartite part profile, including unbalanced and large missing-edge cliques, and proving connectivity suffices exactly in this broad canonical family solves a motivated case not covered by the complement-matching sufficient condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
