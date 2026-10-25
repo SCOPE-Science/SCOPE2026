@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite claim has an exact, inspectable proof by exhaustive orbit enumeration of triples of set partitions, together with synchronized full joint-atomic-mask colour refinement. Independent Burnside orbit counting gives 1, 8, 37, 285, 2,150, and 21,205 isomorphism types. The six-element classification has 21,197 counting-logic classes: eight doubletons only. Separate brute-force isomorphism and pairwise-refinement checks verify all exceptional pairs; a direct census of unordered vertex triples gives precisely zero versus two common transversals in each pair. The supplied code regenerates these certificates. This checks no sizes above six.
+## correctness
 
-## Originality — PASS, subject to material priority risk
-Kiefer, Schweitzer and Selman (arXiv:1503.08792v1; introduction and Theorems 24, 27) establish the broader colour-refinement framework for finite relational structures and already discuss six-point regular coloured examples; the existence of such examples is not new. Pratt-Hartmann (2015, DOI:10.1002/malq.201400102) studies the satisfiability/undecidability of counting logic with equivalences, not this numerical type census. The new narrow claim is the complete six-element partition into eight doubletons, four name-symmetry orbits, and one common-transversal test separating every exceptional pair. These exact conclusions were not located in the materially inspected sources; a derivation from the stronger general characterization or an unindexed historical table remains possible. Initial semantic research-record searches produced only non-implicating related hits; later targeted searches suffered temporary access errors and furnish no negative evidence.
+PASS
 
-## Value — PASS
-Three concurrent equivalence relations form a natural next level of finite multi-partition structures. Complete identification through five points, a sharp eight-doubleton failure at six, and a universal three-variable correction yield a structurally motivated boundary, more informative than one small example. The two-transversal discrepancy gives a simple reusable invariant; the 4-orbit classification identifies symmetry variants without treating relation names as interchangeable in the theorem.
+PASS: Every named triple of equivalence relations on n labels is a triple of set partitions, uniquely representable by restricted-growth strings. Orbit-transversal selection for E under S_n, F under stab(E), G under stab(E,F) is complete and without duplication. A single globally synchronized vertex color refinement retaining the full eight joint binary atomic masks and equality is equivalent to C² counting-logic equivalence for finite binary signatures. Independent rebuilt orbit/refinement enumeration at n=6 (not just reading output) produced exactly 21,205 isomorphism types, 21,197 stable C² classes, 8 doubletons and no larger classes. Brute count of the 20 unordered triples in each of the 16 exceptional structures produced 0 vs 2 common transversals in every paired class; permuting the three relation names produced doubleton orbits of sizes 1,1,3,3. The source scripts separately offer Burnside fixed-partition orbit counts, exhaustive isomorphism checks and pairwise WL tests. A single three-variable existential common-transversal sentence therefore separates each ambiguity and thus all types for n<=6 (all smaller types already C²-distinct). No higher-size inference is made.
 
-## References and limits
-Primary sources: Kiefer--Schweitzer--Selman, *Graphs Identified by Logics with Counting* (arXiv:1503.08792v1, first public 2015-03-30), and Pratt-Hartmann, *The two-variable fragment with counting and equivalence* (2015, DOI:10.1002/malq.201400102). Priority review is incomplete beyond the inspected accessible primary material, and independent mathematical auditing has not occurred. This is an exact finite statement; software checks do not prove all-size implications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for exact six-element three-equivalence C² census and common-transversal separator, not for general counting-logic/color-refinement correspondence nor known small colored examples.
+
+## value
+
+PASS
+
+PASS: The natural finite cutoff for identification by two-variable counting logic with three named equivalence relations is a complete classification problem. The eight explicit exceptions, exact named-relation symmetry orbits and one common three-point transversal separating them yield a usable logical description of the precise first obstruction, not an arbitrary small-table count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

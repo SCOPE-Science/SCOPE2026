@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-With Python 3 and the standard library, in the directory containing the supplied files, execute `python3 verify_triple_equivalences.py 6`, `python3 crosscheck_triple_equivalences.py`, and `python3 triangle_witnesses.py`.
+## correctness
 
-The first enumerates every isomorphism type of three named equivalences through six elements and computes globally synchronized vertex colour-refinement histograms from all eight binary atomic masks. Its key six-element outputs are **21,205** isomorphism types, **21,197** counting-logic classes and **eight** doubletons. The second independently checks all isomorphism totals by a Burnside fixed-partition sum, separately checks the nonisomorphism and counting-logic indistinguishability of all sixteen exceptional structures, and checks four symmetry orbits of sizes **1, 3, 3, 1**. The third exhausts twenty unordered three-vertex subsets per exceptional structure; every ambiguous pair has common-transversal counts **0** and **2**. It reproduces the machine-readable `COLLISIONS.json` witness catalogue.
+PASS
 
-All three checks were executed successfully from the supplied program files. Enumeration, not a log alone, constitutes the finite verification. The underlying standard finite-model-theoretic correspondence between counting logic and colour refinement is cited to Kiefer--Schweitzer--Selman (2015). The result is restricted to structures of at most six elements. No third-party or independent audit has been performed.
+PASS: Every named triple of equivalence relations on n labels is a triple of set partitions, uniquely representable by restricted-growth strings. Orbit-transversal selection for E under S_n, F under stab(E), G under stab(E,F) is complete and without duplication. A single globally synchronized vertex color refinement retaining the full eight joint binary atomic masks and equality is equivalent to C² counting-logic equivalence for finite binary signatures. Independent rebuilt orbit/refinement enumeration at n=6 (not just reading output) produced exactly 21,205 isomorphism types, 21,197 stable C² classes, 8 doubletons and no larger classes. Brute count of the 20 unordered triples in each of the 16 exceptional structures produced 0 vs 2 common transversals in every paired class; permuting the three relation names produced doubleton orbits of sizes 1,1,3,3. The source scripts separately offer Burnside fixed-partition orbit counts, exhaustive isomorphism checks and pairwise WL tests. A single three-variable existential common-transversal sentence therefore separates each ambiguity and thus all types for n<=6 (all smaller types already C²-distinct). No higher-size inference is made.
+
+## originality
+
+PASS
+
+PASS best of knowledge for exact six-element three-equivalence C² census and common-transversal separator, not for general counting-logic/color-refinement correspondence nor known small colored examples.
+
+## value
+
+PASS
+
+PASS: The natural finite cutoff for identification by two-variable counting logic with three named equivalence relations is a complete classification problem. The eight explicit exceptions, exact named-relation symmetry orbits and one common three-point transversal separating them yield a usable logical description of the precise first obstruction, not an arbitrary small-table count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
