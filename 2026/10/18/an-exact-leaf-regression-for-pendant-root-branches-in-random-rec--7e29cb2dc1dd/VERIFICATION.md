@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone program `verify.py` requires Python 3 and only standard-library modules. From the directory containing `verify.py`, run:
+## correctness
 
-```sh
-python verify.py
-```
+PASS
 
-The program enumerates every one of the \((n-1)!\) recursive parent assignments for each \(2\le n\le9\), verifies the exact conditional mean for every realized value of \(Z_n\), checks the known rencontres marginal and the moment implications with rational arithmetic. It separately propagates both polynomial recurrences and checks the mixed invariant coefficientwise for \(2\le n\le25\). The expected output reports the exact number of assertions.
+All four uniform attachment cases give joint generating recurrences for G_n=E[u^Z] and H_n=E[Lu^Z]. Their differential operator commutator proves H_n=((n-1)G_n+uG_n')/2 for all n>=2, so coefficient extraction gives conditional mean (n-1+z)/2 on every supported z. G_n is known rencontres truncated exponential. Exact independent full recursive-tree enumeration n=2..9 matched each conditional mean and covariance 1/2; n=2 correlation correctly excluded.
 
-These are finite consistency tests, not the justification of a universal theorem. The all-size result follows from the four exhaustive transition cases, the two polynomial recurrences, their operator identity and coefficient comparison as written in `RESULT.md`. In particular, the \(n=2\) zero-variance edge case is excluded only from the correlation formula, not from the conditional regression.
+## originality
 
-The conditional variance and full conditional law are not determined here. The singleton-root-branch marginal was already available in the cited literature; it is verified as a needed input, not presented as an original theorem. No independent audit has been performed.
+PASS
+
+Exact leaf-count conditional regression for singleton root branches is distinct from known root branch fixed-point marginal and covariance with total root degree.
+
+## value
+
+PASS
+
+An exact local-to-global conditional regression under the canonical recursive-tree growth model connects root singleton structure and global leaves and is not mechanical from the known marginal fixed-point law; useful for joint fluctuation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

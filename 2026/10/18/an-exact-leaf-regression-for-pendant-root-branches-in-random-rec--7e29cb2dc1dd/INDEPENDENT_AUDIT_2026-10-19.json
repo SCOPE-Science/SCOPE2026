@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T01:57:07.004048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All four uniform attachment cases give joint generating recurrences for G_n=E[u^Z] and H_n=E[Lu^Z]. Their differential operator commutator proves H_n=((n-1)G_n+uG_n')/2 for all n>=2, so coefficient extraction gives conditional mean (n-1+z)/2 on every supported z. G_n is known rencontres truncated exponential. Exact independent full recursive-tree enumeration n=2..9 matched each conditional mean and covariance 1/2; n=2 correlation correctly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 5.2 root branch EGF exp(Y(x,1)+(u-1)c_S x^s) gives singleton root branch marginal, not a total-leaf mark."
+        ],
+        "reasoning": "Univariate singleton-branch theorem does not mathematically imply conditional total-leaf first moment without further mixed analysis.",
+        "searches": [
+          "Seelbach Benkner Wagner Distinct Fringe Subtrees in Random Trees section 5.2 root branches generating function",
+          "Devroye Janson protected vertices fringe subtree mixed leaves root branches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, exact finite-state verify.py",
+        "Seelbach Benkner–Wagner Algorithmica 2022 section 5.2",
+        "Janson arxiv:2005.13832",
+        "Devroye–Janson 2014, contextual",
+        "Resultary: equal-share covariance root degree leaves, distinct root variable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known G_n marginal has derivative E[Z_n u^{Z_n}], but H_n requires marking L_n jointly; the four-state growth transition and mixed-transform identity supply that missing input."
+        ],
+        "reasoning": "Published marginal and covariance with a different root statistic do not imply H_n=((n-1)G_n+uG_n')/2.",
+        "searches": [
+          "Distinct Fringe Subtrees in Random Trees Section 5.2 singleton root branch",
+          "Root attachment degree vs leaf count covariance recursive tree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G_n(u)=sum_{r=0}^{n-1}(u-1)^r/r! is already known rencontres marginal.",
+          "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f addresses entire root degree, not Z_n singleton root children."
+        ],
+        "reasoning": "A root degree mark and a root singleton-branch mark are distinct statistics; the new mixed (L,Z) regression cannot be inferred from a degree-only covariance.",
+        "searches": [
+          "recursive tree leaf count given root leaf children mixed exponential generating function",
+          "Resultary: random recursive tree total leaf count conditional on singleton children of root exact regression E[L_n|Z_n]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier root-degree/leaf covariance result measures all root children; cannot serve as table of (Z_n,L_n)."
+        ],
+        "reasoning": "The asserted full n,z regression is not just a tabulated low-n coincidence.",
+        "searches": [
+          "random recursive tree joint leaves root singleton branch exact finite distribution table",
+          "Resultary root degree leaf covariance random recursive tree"
+        ]
+      },
+      "rationale": "Exact leaf-count conditional regression for singleton root branches is distinct from known root branch fixed-point marginal and covariance with total root degree.",
+      "residual_risks": [
+        "Older recursive-tree multivariate fringe enumerators might implicitly yield the same H_n.",
+        "The conditional regression is limited to uniform labelled recursive trees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact singleton-root marginal, not the asserted mixed total-leaf regression.",
+          "evidence": [
+            "Root-branch counting variable u marks copies of a fixed subtree, not total leaf count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-022-01013-y; arxiv:2105.04231",
+          "material_read": "Open-access primary full HTML introduction, combinatorial root-branch EGF in section 5.2 and principal statements inspected",
+          "method": "Substitute singleton tree and compare generating-function marked variables",
+          "title": "Distinct Fringe Subtrees in Random Trees",
+          "trigger": "Direct result on random recursive tree root branch census"
+        },
+        {
+          "assessment": "Does not establish finite mixed leaf regression by stated implication.",
+          "evidence": [
+            "Tree limit scaling rather than full finite joint transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.13832",
+          "material_read": "Cited Example 12.4 / accessible summary, no claim complete manuscript read",
+          "method": "Compare asymptotic metric scaling with finite conditional leaf statistic",
+          "title": "Tree limits and limits of random trees",
+          "trigger": "Recursive tree limit context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact local-to-global conditional regression under the canonical recursive-tree growth model connects root singleton structure and global leaves and is not mechanical from the known marginal fixed-point law; useful for joint fluctuation analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The already-published singleton-root fixed-point distribution is not original.",
+    "Only positive-probability z in uniform recursive trees, not preferential models."
+  ],
+  "schema_version": 1
+}
