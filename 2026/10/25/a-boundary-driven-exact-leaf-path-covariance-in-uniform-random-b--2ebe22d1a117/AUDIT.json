@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For a uniform BST root split, independent subtrees give the exact additive leaf and path recursions; the sole deviations from a constant leaf conditional expectation occur at subtrees of size 0 and 1. With known and independently derived first moments this produces the exact conditional-mean covariance -4(H_{n-1}-1)/(3n). The law of total covariance telescopes to -(n+3)(n-2)/(9n). The stand-alone exact verifier checks 100 moment recursions and 46,233 exhaustive permutations of sizes 1..8. Finite checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, §5.2 explicitly studies leaves/path length in random quadtrees with dimension at least 2, while §5.1 discusses median-of-(2t+1) variants.",
+        "Flajolet–Gourdon–Martínez, 1997, §2 and §5.3, gives marginal leaf statistics for the BST model."
+      ],
+      "reasoning": "Quadtree dimension 1 reproduces the BST split model, so the recurrence framework is related; nevertheless the source states its quadtree asymptotics for d>=2, not an exact one-dimensional all-n covariance. Its m-ary space/path theorem assumes m>=3. Neither inspected statement supplies or logically specializes to the asserted finite-size formula without a new boundary-case analysis.",
+      "searches": [
+        "arxiv:1501.05135 §5.1 §5.2",
+        "random binary search tree number leaves total path length covariance exact finite formula",
+        "https://www.cs.upc.edu/~conrado/research/papers/rsa-fgm97.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Gourdon–Martínez (1997), author full PDF",
+      "Bóna–Pittel arXiv:1412.2796",
+      "Chern–Fuchs–Hwang–Neininger arXiv:1501.05135",
+      "Dekking–Meester (2003), abstract and metadata only",
+      "Eberl (2020), full HTML",
+      "Indexed research records on BST split imbalance and related tree statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet et al. establish marginal mean, variance and limit laws for leaf count, but those marginals do not determine a mixed covariance.",
+        "Bóna–Pittel, arXiv:1412.2796, Lemma 2.3 and surrounding material establish a leaf-count generating function, not a joint leaf–internal-depth law.",
+        "Chern et al., arXiv:1501.05135, treats other search-tree branching regimes and quadtrees with dimension at least 2.",
+        "Closest indexed squared-root-imbalance claim has different predictor and therefore does not imply a leaf-count covariance identity."
+      ],
+      "reasoning": "General BST root-split recursions make the computation possible but do not themselves assert the evaluated finite-size covariance; marginals and unrelated joint predictors do not imply this statement. The exact polynomial/rational expression and exceptional-root-split mechanism are not present in the inspected primary material. An older explicit joint-moment analysis could still subsume the result.",
+      "searches": [
+        "Flajolet Gourdon Martinez Patterns in random binary search trees full text",
+        "Bóna Pittel arxiv:1412.2796 §2.3",
+        "Chern Fuchs Hwang Neininger arxiv:1501.05135 §5",
+        "random binary search tree number leaves total path length covariance exact finite formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet–Gourdon–Martínez PDF, §5.3: number of BST terminal leaves corresponds to the number of peaks in the increasing-tree permutation encoding.",
+        "Eberl (2020), §4.2: internal BST path length has the same law as randomized quicksort comparison count."
+      ],
+      "reasoning": "The present **joint** pair is canonically expressible as fringe-pattern count versus path length; a matching peak-vs-quicksort cost statement would cover it if the underlying coupling is preserved. No matching joint formula was located in the inspected papers; equality of separate marginal laws alone does not transfer covariance under arbitrary couplings.",
+      "searches": [
+        "random permutation quicksort comparisons number local maxima valleys covariance BST terminal nodes",
+        "quicksort cost valleys peaks local maxima covariance random permutation",
+        "Flajolet Gourdon Martinez Patterns in random binary search trees PDF, §5.3 (permutation peaks)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed research claim, titled Squared root imbalance has an exact cubic covariance with random-BST path length, measures squared root-split imbalance, not terminal-vertex count.",
+        "Exact exhaustive BST permutation moments through n=8 were computed independently in verify.py; the values were not copied from a known table."
+      ],
+      "reasoning": "No exact covariance table or database result found for the present two statistics. Because an indexed database is incomplete and permutations can have equivalent encodings, absence of hits is not proof of novelty.",
+      "searches": [
+        "random binary search tree leaf count quicksort comparison count exact negative covariance -(n+3)(n-2)/(9n)",
+        "random binary search tree number leaves total path length covariance exact finite formula",
+        "random binary search tree leaf count path length mixed moments correlation covariance",
+        "binary search tree leaves and path length correlation sign"
+      ]
+    },
+    "rationale": "Primary full texts on BST leaf-pattern marginals, leaves-by-rank, and joint tree-shape/path statistics in different model regimes were compared by implication and parameter domain, not just title. No inspected source states the exact finite-n ordinary-BST leaf–internal-depth covariance or the boundary-local conditional regression mechanism; the nearest indexed result concerns squared root imbalance. Residual risk from uninspected historical joint-moment work and one abstract-only paper is explicit; independence is not claimed.",
+    "residual_risks": [
+      "Historical priority: the 2003 Dekking–Meester path-length paper was accessible only at abstract level, and other older fringe/cost cross-moment literature might contain an equivalent mixed identity.",
+      "The one-dimensional restriction of some multi-dimensional search-tree recurrences is algebraically related but an exact evaluated covariance theorem was not identified.",
+      "The retrieved published-record database is not an exhaustive mathematical bibliography; strong nonindexed coverage remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives BST root-split law and marginal leaf mean/variance and local law, but no mixed covariance with internal path length identified.",
+        "evidence": [
+          "Pages 224, 226 and 237–239: root-split uniformity, fringe-pattern moments and exact leaf variance."
+        ],
+        "identifier_or_url": "https://www.cs.upc.edu/~conrado/research/papers/rsa-fgm97.pdf",
+        "material_read": "22-page author full PDF: inspected model and overview at pp.223–226, mean/variance §2, leaf local law pp.237–239; text search for covariance, path length, and leaves.",
+        "method": "Primary full-text page reading and page-image inspection of model, generating-function and leaf-law statements.",
+        "title": "Patterns in Random Binary Search Trees",
+        "trigger": "Same BST model and the leaf statistic, with potential stronger distributional theory."
+      },
+      {
+        "assessment": "Rank-count limits and leaf generating function but no leaf/internal path-length mixed law in inspected sections or full-text search.",
+        "evidence": [
+          "arXiv §1.3 Theorems 1.1–1.2 and §2 Lemma 2.3."
+        ],
+        "identifier_or_url": "arxiv:1412.2796",
+        "material_read": "Full arXiv HTML §§1–2 including abstract, main theorems and Lemma 2.3, plus full-text term searches.",
+        "method": "Read full HTML sections, compare objects and statements; searched path length and covariance.",
+        "title": "On a random search tree: asymptotic enumeration of vertices by distance from leaves",
+        "trigger": "Same BST leaves and possible stronger shape statistics."
+      },
+      {
+        "assessment": "The stated m-ary theorems apply for m>=3 and multivariate quadtree leaf/path treatment applies for d>=2. Neither states the ordinary d=1 BST finite-n covariance.",
+        "evidence": [
+          "arXiv 1501.05135 §§1,5.1,5.2; leaf/path discussions and explicit d>=2 assumption."
+        ],
+        "identifier_or_url": "arxiv:1501.05135",
+        "material_read": "Full arXiv HTML abstract, introduction and §§5.1–5.2 including quadtree leaf/path covariance regime; searched for leaves and dimension hypotheses.",
+        "method": "Compared theorems by model parameters and implications, including quadtree one-dimensional reduction.",
+        "title": "Dependence and phase changes in random m-ary search trees",
+        "trigger": "Highly relevant simultaneous shape and path statistics; possibility of a dominating theorem."
+      },
+      {
+        "assessment": "Describes path-length decomposition and normalized limits, not a reported leaf–path mixed covariance in accessible material; whole-document noncoverage NOT established.",
+        "evidence": [
+          "Advances in Applied Probability 35 (2003) pp.363–376; publisher abstract."
+        ],
+        "identifier_or_url": "doi:10.1239/aap/1051201652",
+        "material_read": "Publisher abstract, bibliographic metadata, and reference list; full publisher text unavailable.",
+        "method": "Abstract-level content and 2003 publication metadata inspection.",
+        "title": "An almost sure result for path lengths in binary search trees",
+        "trigger": "Same BST path statistic and external subtree decomposition."
+      },
+      {
+        "assessment": "BST path length equals quicksort cost in distribution; no cross statistic for terminal nodes established in checked material.",
+        "evidence": [
+          "Open Springer full text §4.2, Theorem 3."
+        ],
+        "identifier_or_url": "doi:10.1007/s10817-020-09545-0",
+        "material_read": "Open full HTML; sections analyzing random BSTs and their internal path length.",
+        "method": "Compared statements for exact marginal path cost and leaf coupling.",
+        "title": "Verified Analysis of Random Binary Tree Structures",
+        "trigger": "BST/Quicksort equivalence potentially implying alternative formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ebe22d1-a117-42be-a2d8-54903050840a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf number captures the frequency of terminal subproblems while total internal path length equals the number of Quicksort comparisons under the standard coupling. The sharp finite-n negative dependence and linear growth, generated entirely by four exceptional root splits even though the conditional leaf mean is flat at every interior split, reveal a structural mechanism rather than a generic covariance computation or arbitrary finite cutoff.",
+    "status": "PASS"
+  }
+}
