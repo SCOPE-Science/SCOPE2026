@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:47:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 1/2<p<1 on C_n, lifted nearest-neighbor trajectory covers precisely when its range first reaches n−1. Gambler’s ruin gives ultimate minimum K geometric with tail r^k, r=(1−p)/p. Let b=floor((n−1)/2); E={K≤b, minimum through H_b equals ultimate minimum}. The probability of K>b and the chance of a lower minimum after H_b are each at most r^(b+1). On E the range cannot reach n−1 before H_(n−1−K), and at that time its last new residue is n−1−K. Therefore the dependent joint path coupling fails with probability ≤2r^(b+1). First passage increments are iid with mean 1/(2p−1), variance 4p(1−p)/(2p−1)^3; the CLT applies. Tight K makes the shifted passage-time error O_P(1). Conditional strong Markov at fixed early s and a uniform CLT over finitely many positions prove asymptotic independence of K and normalized H_(n−1); taking s→∞ gives the Gaussian–geometric product limit. No assumption of finite-n independence is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A directed-graph last-vertex classification treats place, not cover time and its covariance with place.",
+          "Standard gambler’s ruin and CLT prove constituents, not the good-event coupling identifying the actual last vertex."
+        ],
+        "reasoning": "Generic renewal CLTs and cover-time estimates alone do not imply the bound 2(q/p)^(floor((n−1)/2)+1) for the specific pair. An unindexed stronger drifted-range theorem remains possible.",
+        "searches": [
+          "biased cycle random walk cover time last new vertex gaussian geometric joint limit hitting time",
+          "arXiv:2209.08079 uniform last vertex directed graphs",
+          "Aldous Fill cover times of cycles",
+          "arXiv:2610.15115 section on biased cycle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15115 abstract and citation",
+        "arXiv:2209.08079 full PDF",
+        "Levin–Peres Markov Chains and Mixing Times background",
+        "Resultary bounded query: biased cycle joint cover time geometric Gaussian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Idnani–Salem accessible abstract describes last-coverage probabilities and deterministic bias conventions, not an explicit joint Gaussian–geometric weak law.",
+          "Buchanan et al full manuscript is about uniformity of terminal vertex on directed graph classes, not first passage clock fluctuations."
+        ],
+        "reasoning": "Prior marginal coverage and standard hitting-time CLT can be combined but require additional actual good-event bound and independence argument; those steps are supplied in the frozen proof. Do not assert whole-document noncoverage of the modern paper without its full text.",
+        "searches": [
+          "arXiv:2610.15115 accessible statements",
+          "arXiv:2209.08079 full PDF",
+          "Levin–Peres Markov Chains and Mixing Times chapter 11 cited background"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is an exponential-error *joint pathwise coupling* of (T_n,D_n) to (H_(n−1−J_n),J_n), not only a geometric marginal of D_n.",
+          "The limit consists of an independent Gaussian first passage fluctuation and a geometric terminal displacement."
+        ],
+        "reasoning": "The marginal D_n convergence and passage-time CLT separately do not yield asymptotic independence or the explicit finite-n joint coupling; both are part of the submitted claim.",
+        "searches": [
+          "biased cycle random walk cover time last new vertex gaussian geometric joint limit hitting time",
+          "arXiv:2610.15115 last-covered vertex geometric law",
+          "Levin Peres cover times cycle gambler ruin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby random-walk cover-time records but no matching finite-n joint coupling; this is only a bounded retrieval observation.",
+          "The known geometric-looking biased cycle terminal marginal does not encode Gaussian fluctuations of completion time."
+        ],
+        "reasoning": "Comparing just constants or a geometric table would miss the dependent auxiliary hitting-time pair; the joint pathwise law is mathematically stronger than an isolated marginal.",
+        "searches": [
+          "biased cycle random walk cover time last new vertex gaussian geometric joint limit hitting time",
+          "Resultary semantic top-8 biased cycle last new vertex joint gaussian geometric",
+          "arXiv:2610.15115 biased cycle formulas"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.",
+      "residual_risks": [
+        "Full recent Idnani–Salem article not inspected: possible hidden joint extension in appendices or derivable formulas.",
+        "Unindexed drifted-range coupling theorem could dominate; negative search not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_MARGINAL_ONLY_ON_READ_MATERIAL",
+          "evidence": [
+            "The accessible publication scope covers last-covered vertices; absence of a joint theorem cannot be concluded from abstract alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15115",
+          "material_read": "Accessible abstract/bibliography and research-paper description; complete full text not obtained in this run",
+          "method": "Compared explicit described location law against requested joint time/location and exponential coupling",
+          "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+          "trigger": "Exact biased cycle last-discovery marginal predecessor"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Uniform last-vertex questions on directed graphs do not give dependent finite-n hitting time coupling or joint Gaussian–geometric limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08079",
+          "material_read": "Full lawful PDF, including model and principal uniformity statements",
+          "method": "Compared probabilistic observables and graph transition assumptions",
+          "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+          "trigger": "Last new vertex graph theorem with possible stronger domain"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "Standard symmetric cycle hitting/covering results do not themselves prove the positive fixed-drift joint law."
+          ],
+          "identifier_or_url": "https://pages.uoregon.edu/dlevin/MARKOV/markovmixing.pdf",
+          "material_read": "Relevant chapter citation and described background theorems; no claim of full book examination",
+          "method": "Used as background for identification of standard ingredients rather than as searched exhaustive source",
+          "title": "Markov Chains and Mixing Times, 2nd ed.",
+          "trigger": "Standard cycle cover-time and gambler’s ruin context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Coverage exploration requires knowing both where the last vertex is and how long completion takes. The explicitly controlled joint pathwise approximation and independent Gaussian–geometric limit are informative beyond the known biased-cycle location marginal or generic hitting-time CLT, with a useful exponential size error. Fixed positive drift and absence of Berry–Esseen rate are stated limitations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.15115 abstract and citation",
+    "arXiv:2209.08079 full PDF",
+    "Levin–Peres Markov Chains and Mixing Times background",
+    "Resultary bounded query: biased cycle joint cover time geometric Gaussian"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed p∈(1/2,1), no central/diffusive or varying drift regime.",
+    "Recent paper full text not completely read; finite-size auxiliary coordinates dependent."
+  ],
+  "residual_risks": [
+    "Full recent Idnani–Salem article not inspected: possible hidden joint extension in appendices or derivable formulas.",
+    "Unindexed drifted-range coupling theorem could dominate; negative search not proof of novelty."
+  ],
+  "schema_version": 1
+}

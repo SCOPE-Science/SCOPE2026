@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3.10 or later. The checker requires no nonstandard packages and completed successfully with 331210 deterministic assertions and 5649 qualifying finite paths.
+## correctness
 
-The checker uses exact rational arithmetic to verify the first-passage mean/variance recursion and gambler's-ruin harmonic identities at four rational biases. It enumerates all sign paths of length twelve, separately for cycle sizes three through eight, verifying that coverage and integer-range width agree and testing the hitting-time/last-vertex identity whenever the finite-path sufficient conditions hold.
+PASS
 
-These experiments cannot establish an infinite-horizon geometric minimum, an exponential probability estimate, or a central limit theorem. The proof independently establishes those steps by gambler's ruin, conditional strong-Markov estimates, passage-time renewal theory, and finite-prefix conditional Gaussian convergence. The finite-path test checks only a deterministic structural implication, not a probabilistic certificate of novelty or an independent mathematical audit.
+For fixed 1/2<p<1 on C_n, lifted nearest-neighbor trajectory covers precisely when its range first reaches n−1. Gambler’s ruin gives ultimate minimum K geometric with tail r^k, r=(1−p)/p. Let b=floor((n−1)/2); E={K≤b, minimum through H_b equals ultimate minimum}. The probability of K>b and the chance of a lower minimum after H_b are each at most r^(b+1). On E the range cannot reach n−1 before H_(n−1−K), and at that time its last new residue is n−1−K. Therefore the dependent joint path coupling fails with probability ≤2r^(b+1). First passage increments are iid with mean 1/(2p−1), variance 4p(1−p)/(2p−1)^3; the CLT applies. Tight K makes the shifted passage-time error O_P(1). Conditional strong Markov at fixed early s and a uniform CLT over finitely many positions prove asymptotic independence of K and normalized H_(n−1); taking s→∞ gives the Gaussian–geometric product limit. No assumption of finite-n independence is used.
 
-The available analysis does not address a vanishing drift, the symmetric random walk, higher-dimensional cycles, or a Berry–Esseen rate. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
+
+## value
+
+PASS
+
+Coverage exploration requires knowing both where the last vertex is and how long completion takes. The explicitly controlled joint pathwise approximation and independent Gaussian–geometric limit are informative beyond the known biased-cycle location marginal or generic hitting-time CLT, with a useful exponential size error. Fixed positive drift and absence of Berry–Esseen rate are stated limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

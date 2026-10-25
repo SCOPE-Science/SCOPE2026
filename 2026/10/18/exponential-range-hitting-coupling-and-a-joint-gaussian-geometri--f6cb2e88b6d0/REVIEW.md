@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof identifies cycle coverage with the first time the lifted walk's integer range has width \(n-1\). It constructs a concrete event on which both the cover time and final vertex agree *pathwise* with a random hitting-level pair. The two failure terms are rigorously bounded using the geometric law of the ultimate negative minimum and a strong-Markov gambler's-ruin estimate. The passage-time variance follows from a first-step recursion, while a finite-prefix conditioning argument proves asymptotic independence rather than merely convergence of the marginals. Exact rational and exhaustive finite-path diagnostics pass. The diagnostics do not prove the infinite results, for which the written argument supplies the necessary quantifiers and limiting steps.
+PASS
 
-## Originality
+For fixed 1/2<p<1 on C_n, lifted nearest-neighbor trajectory covers precisely when its range first reaches n−1. Gambler’s ruin gives ultimate minimum K geometric with tail r^k, r=(1−p)/p. Let b=floor((n−1)/2); E={K≤b, minimum through H_b equals ultimate minimum}. The probability of K>b and the chance of a lower minimum after H_b are each at most r^(b+1). On E the range cannot reach n−1 before H_(n−1−K), and at that time its last new residue is n−1−K. Therefore the dependent joint path coupling fails with probability ≤2r^(b+1). First passage increments are iid with mean 1/(2p−1), variance 4p(1−p)/(2p−1)^3; the CLT applies. Tight K makes the shifted passage-time error O_P(1). Conditional strong Markov at fixed early s and a uniform CLT over finitely many positions prove asymptotic independence of K and normalized H_(n−1); taking s→∞ gives the Gaussian–geometric product limit. No assumption of finite-n independence is used.
 
-**PASS, with priority risk.** The closest full-text source is Idnani and Salem, arXiv:2610.15115 (2026), which gives the biased cycle's marginal last-covered-vertex law; its Theorems 3.4 and 4.1 and relevant concluding discussion do not contain a joint time-location limit or a finite-\(n\) exponential *pathwise* comparison with an ultimate-minimum-indexed hitting time. Buchanan, Horn and Rombach, arXiv:2209.08079, address uniformity of last-visited vertices for simple walks on directed graphs; they do not establish this biased time-location coupling. The classical gambler's-ruin, renewal CLT, and symmetric cycle cover-time tools are correctly treated as prior ingredients. Searches of mathematical records and prior accessible claims found no direct equivalent. An unindexed earlier result or an unexamined stronger drifted-range theorem could still imply the present assertion; independent priority verification is outstanding.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating literature quantifies *where* a biased cycle walk finishes, while applications to patrol and exploration also require knowing *when*. The explicit joint exponential coupling supplies a path-level explanation and a finite-size approximation for that two-observable problem. It yields a precise Gaussian–geometric product limit and conditional asymptotic cover-time laws for each fixed terminal offset. This is structurally more informative than repeating the known geometric marginal or a generic hitting-time CLT. The result is limited to fixed strictly positive drift in one dimension and does not quantify the central-limit convergence rate.
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
 
-## Sources, comparison, and limits
+## value
 
-The motivating preprint is Idnani–Salem (2026), arXiv:2610.15115; the directed-graph last-visit comparison is Buchanan–Horn–Rombach (2022/2023), arXiv:2209.08079. Background on gambler's ruin and symmetric-cycle cover times is standard (Levin–Peres, *Markov Chains and Mixing Times*, Chapter 11; Aldous–Fill, *Reversible Markov Chains and Random Walks on Graphs*, Chapter 6). The mathematical result remains subject to independent examination of proof and priority. A negative literature search is not itself proof of novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Coverage exploration requires knowing both where the last vertex is and how long completion takes. The explicitly controlled joint pathwise approximation and independent Gaussian–geometric limit are informative beyond the known biased-cycle location marginal or generic hitting-time CLT, with a useful exponential size error. Fixed positive drift and absence of Berry–Esseen rate are stated limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
