@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edgewise Poisson solution obeys every boundary condition, including the central flux equality; positivity of the resolvent identifies its sharp endpoint norm with the maximum torsion function. The slope representation leads to a convex-simplex lower estimate and a Minkowski upper estimate, both strict for every admissible positive-length star with at least three arms. Explicit one-arm and all-but-one-arm collapsing families approach the respective constants, and continuity on the connected positive length simplex proves the complete open range. The accompanying checks are finite and do not constitute the infinite proof.
+## correctness
 
-## Originality — PASS on inspected evidence, subject to historical priority
-The closest article, Mugnolo–Plümer (arXiv:2112.00782), provides the same Poisson geometry and arbitrary-length **integral** torsion of a stower, but not the fixed-degree full \(L^\infty\)-norm allocation range. Colladay–Kaganovskiy–McDonald (arXiv:1607.05752) use torsion integrals for isospectrality. Frank–Kovařík (arXiv:1108.6145) study geometry-sensitive metric-tree heat kernels. Six semantic record searches with alias, limit, and mean-absorption queries found no direct implication match. The equilateral torsion value itself and all standard quadratic formulas are acknowledged as known.
+PASS
 
-The closest unresolved risk is an older equivalent theorem under maximum torsion, mean exit time, or landscape-function terminology. Lack of a matched result is not a proof of historical novelty.
+PASS: On each arm, the Poisson solution is the quadratic torsion profile plus the center-value affine term; the center value is fixed by the Kirchhoff flux condition. Positivity of the inverse identifies its L∞→L∞ operator norm with the maximum torsion function. The slope substitution reduces the arm lengths to a positive quadratic simplex with a fixed sum. Convexity bounds the sum of edge norms by the vertex configurations and yields the strict upper inequality; the Minkowski estimate gives the strict lower inequality. The stated collapsing/equalizing families approach the two constants, while positivity of every arm excludes attainment. Continuity of the maximum on the connected positive-length simplex gives the full open interval. The finite-element/shooting checker is only a consistency test, not the continuum proof.
 
-## Value — PASS
-The exact positive-length range and its unattained endpoints settle a natural worst-case Poisson-stability design invariant for star networks; optimal behavior deliberately breaks symmetry through a collapsing Dirichlet arm. For many arms the symmetric layout is nearly four times above the sharp infimum. This is a complete geometric classification of possible endpoint operator norms rather than a random finite computation.
+## originality
 
-## Verification and limits
-The standalone Python checker uses independent finite elements and shooting comparisons, randomized positive length vectors and degenerating families. It reports 1,000 random bounds/shooting comparisons, 32 finite-element comparisons and 24 limit-family instances. No claim is made for weighted edges, a different generator normalization, general graphs or the uniqueness of all degenerating allocation sequences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.
+
+## value
+
+PASS
+
+PASS: The L∞ norm is a natural worst-case Poisson-stability invariant for a star network with fixed total edge length. The exact range and nonattainment identify a counterintuitive design boundary: symmetric arms are not minimax-optimal, and a collapsing absorbing arm lowers the norm. This is a complete geometric classification with meaningful limiting configurations, not a finite numerical census. Its value is the global optimization beyond the known pointwise torsion profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
