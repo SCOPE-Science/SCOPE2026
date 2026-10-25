@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly differentiates the defining equations in every residue characteristic. For characteristics other than two and three, the critical-point equations reduce to the ten \(3+3\) sign partitions, and the restricted Hessian has nondegenerate projective quadratic part. In characteristic two, the translation-invariant cone structure, the invertible derivative matrix \(I+J\), and Euler's identity identify the complete Tjurina algebra, not merely its reduced support. The \(27\)-plane classification follows from the smoothness of the Hermitian cubic base, the classical upper bound of \(27\) geometric lines, and the independently replayable exact \(\mathbb F_4\) incidence calculation. In characteristic three, the cubic is the cube of the hyperplane equation. Each general statement has a symbolic derivation; finite computations are corroboration, not extrapolation.
+## correctness
 
-**Originality — PASS (qualified).** The symmetric power-sum equation and ten ordinary nodes in ordinary characteristic are classical, and the \(27\)-line theorem for smooth cubic surfaces is not new. Howard–Millson–Snowden–Vakil explicitly identify the usual equations and their characteristic-three failure (2006, Section 2.10); their characteristic-independent graphical invariant presentation is a different integral construction. Their 2007 Section 2.4 expresses matching invariants using halves of sums of symmetric coordinates, providing a concrete warning against identifying the characteristic-two models. The inspected primary passages do not state the characteristic-two length-\(16\) singular algebra or the complete \(27\)-plane, \(45\)-line, \(135\)-pair configuration for the literal power-sum model. Targeted mathematical-record searches found no implication-equivalent result. An older unindexed computation remains a residual originality risk, and uniqueness cannot be inferred from search failure.
+PASS
 
-**Mathematical value — PASS.** This addresses a structurally motivated bad-reduction question for a fundamental classical cubic threefold, not an arbitrary small finite slice. The particular prime two matters because the linear hyperplane acquires the diagonal direction and the coordinate changes to invariant-theory presentations involve \(2\) in the denominator. The finding replaces ten nodes by one length-\(16\) nonreduced singular scheme and reveals a full Hermitian finite-geometric configuration of planes, while distinguishing characteristic three, where the model ceases to have the expected fiber dimension. Such explicit data clarify precisely what changes in this standard integral equation and prevent unwarranted extrapolation of characteristic-zero moduli geometry.
+Char!=2,3 singular equations all Zi² equal imply ten partitions 3+3, tangent Hessian nondegenerate after projective radial quotient. Char2 translation by (1^6) preserves both equations, base cubic f=sum y_i³+(sum y_i)³ with Hermitian I+J invertible; gradients (I+J)y^[2] give Jideal (y_i²), length16 and cubic multiplicity3. Complete independent F4 P3 enumeration: 85 points,357 lines; smooth base has45 F4 points,27 lines, 135 intersecting pairs and216 skew; classical 27-line theorem rules out extension-only lines. Char3 sum cubes=(sum)^3.
 
-**Closest literature and limitations.** For primary comparisons see Howard–Millson–Snowden–Vakil (arXiv:math/0505096; arXiv:math/0607372, especially Section 2.10) and the six-invariant coordinate comparison (arXiv:0710.5916, Section 2.4). The theorem deliberately does not identify these reduced power-sum fibers with an independently defined integral GIT quotient. The \(27\)-line result is classical; finite-field incidence and nonreduced Tjurina length are derived and reproducible here. Possible unstated identical results in historical material remain the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical ten-nodal Segre power-sum equation and distinction from a separate integral graphical model were documented by Howard–Millson–Snowden–Vakil, including characteristic-three failure. Neither the inspected Sections1.1/2.10 nor classical Hermitian surface counts state the combined literal char2 cone, nonreduced Tjurina algebra, 27-plane incidence. This is separate from characteristic-independent GIT model.
+
+## value
+
+PASS
+
+Full arithmetic-fiber degeneration of canonical Segre cubic equation, exact singular scheme and combinatorial plane incidence has clear geometric significance, exposes risks of reducing classical formulas modulo exceptional primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
