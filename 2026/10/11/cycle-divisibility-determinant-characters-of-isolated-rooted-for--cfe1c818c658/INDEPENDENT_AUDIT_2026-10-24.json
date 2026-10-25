@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:56:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact Y_m identification with Knudson–Owens–White Theorem 9.5 gives integral homology concentrated in degree m−3 with the stated sphere count, including m=3 (six vertices, five reduced H_0 classes). For any g with cycle lengths λ_i, a g-equivariant parent map on a non-root source cycle i selects a distinct target cycle j with λ_j | λ_i and one of λ_j equivariant phases. The original forest is acyclic iff this finite quotient parent graph is acyclic: a quotient directed cycle lifts to a directed cycle after finitely many phase traversals. Each non-root cycle gives simplicial sign times arc-action parity (−1)^λ_i(−1)^(λ_i−1)=−1, so a quotient forest with s non-root cycles has weight (−1)^s. The signed directed matrix–forest theorem with edges weighted −λ_j gives det(I−L_I), with empty determinant 1. Inclusion–exclusion over nonempty forced isolated quotient cycles imposes exactly the actual original-vertex-isolation condition; the augmented Lefschetz sign and single-degree concentration yield (−1)^(m−2) times the boxed determinant sum. A separate exact-rational Python checker enumerated all parent functions and fixed simplices for all 26 conjugacy classes m=3..6, independently recomputing the signed Lefschetz traces and determinant formula, including dimension ranks (5,25,189,2041). The finite check corroborates, but does not replace, the uniform combinatorial proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozlov book §4.3.3 reports an earlier symmetric-group homology representation for all directed forests, but no transfer statement for Y_m.",
+          "Bernardi–Klivans establishes arbitrary directed-forest determinant enumeration, a proof ingredient rather than an equivariant homology theorem.",
+          "Knudson–Owens–White Theorem 9.5 yields concentration and dimension but not group action."
+        ],
+        "reasoning": "Broader classes of rooted forests and general matrix-tree theorems are logically insufficient without the restriction to at least one isolated original vertex, cycle-type orbit weights and signed augmented Lefschetz argument. No inspected stronger theorem includes those extra conclusions. Older uninspected 1999 original remains a named risk.",
+        "searches": [
+          "Kozlov Complexes of Directed Trees symmetric group representation top homology character 1999",
+          "Bernardi Klivans Directed Rooted Forests in Higher Dimension matrix tree theorem",
+          "Complexes of directed trees Kozlov equivariant homology representation forest complex isolation symmetric group cycle-index",
+          "arXiv:1512.07757 matrix-tree equation",
+          "arXiv:math/0507390 §4.3.3 S_n representation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.06844, primary article Section 9, Theorem 9.5 and proof",
+        "arXiv:1512.07757, primary forest determinant source",
+        "arXiv:math/0507390, Kozlov primary book §4.3.3, explicit unrestricted Δ(G_m) character attribution",
+        "Kozlov 2001, primary article §6 on unrestricted forest quotient",
+        "arXiv:1109.4475, primary shellability source",
+        "DOI:10.1006/jcta.1999.2984, Kozlov 1999 bibliographic/citation evidence only, full text inaccessible",
+        "arXiv:2602.14936, primary abstract/intro scope only",
+        "Resultary semantic searches on isolated directed forest, S_m equivariant homology, Knudson–Owens–White, and Kozlov"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Y_m is a proper restricted subcomplex and has a different homology rank than full Δ(G_m).",
+          "Knudson–Owens–White Theorem 9.5 supplies a non-equivariant homotopy equivalence, which does not identify the S_m action.",
+          "Signed fixed-simplex Lefschetz and the cycle-divisibility quotient are additional all-permutation steps; the matrix-forest determinant is credited as known."
+        ],
+        "reasoning": "Prior homology rank, homotopy equivalence without an equivariant statement, and forest-counting determinant identities do not logically imply the nonidentity traces. Applying signed Lefschetz and the forced-isolated-cycle inclusion–exclusion supplies new data. A decisive unpublished or inaccessible exact character could overturn priority, and is not asserted absent.",
+        "searches": [
+          "Knudson Owens White Complexes of strong discrete Morse matchings arxiv 2609.06844 Theorem 9.5 Y_n",
+          "Kozlov Complexes of Directed Trees symmetric group representation top homology character 1999",
+          "Knudson Owens White Y_n complex strong discrete Morse matchings equivariant representation determinant cycle-divisibility Laplacian",
+          "arXiv:2609.06844 Theorem 9.5",
+          "arXiv:math/0507390 §4.3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.06844 Theorem 9.5 defines the identical isolated-vertex rooted-forest Y_(m−1) and computes only its nonequivariant wedge rank.",
+          "arXiv:math/0507390 §4.3.3 concerns Δ(G_m), a strictly larger simplicial complex than Y_m.",
+          "Exact Resultary self-hit excluded from prior coverage; other returned equivariant complexes have different face models."
+        ],
+        "reasoning": "The natural aliases (strong discrete Morse matching vertex–edge subcomplex, isolated rooted forest, equivariant forest complex) were explicitly matched to the same Y_m; the target is not unrestricted Δ(G_m) or a linear-forest path complex. An S_m homology character of the larger Δ(G_m) cannot be substituted for that of Y_m on equality of group alone.",
+        "searches": [
+          "Knudson Owens White Complexes of strong discrete Morse matchings arxiv 2609.06844 Theorem 9.5 Y_n",
+          "directed rooted forest simplicial complex isolated vertices equivariant homology S_n representation",
+          "homology symmetric group character representation directed rooted forests at least one isolated vertex complete digraph cycle index permutation fixed forest complex",
+          "Knudson Owens White Y_n complex strong discrete Morse matchings equivariant representation determinant cycle-divisibility Laplacian",
+          "Kozlov 2005 arXiv:math/0507390 Section 4.3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results include the same submitted title (excluded as self-prior), plus representations for different Morse and graph complexes.",
+          "arXiv:2609.06844 has the rank/identity trace f(3)=25, f(4)=189 and f(5)=2041 but not the nonidentity conjugacy table.",
+          "Independent fixed-face enumeration produced m=4 cycle-type values 25,−3,1,1,1 and m=3..6 26-class comparisons."
+        ],
+        "reasoning": "Preexisting rank tables specify only the identity character value. Related Resultary class tables concern other complexes. The evaluated 26 finite class cases support but do not prove the universal theorem; no prior exact all-type table for Y_m was found.",
+        "searches": [
+          "homology symmetric group character representation directed rooted forests at least one isolated vertex complete digraph cycle index permutation fixed forest complex",
+          "Knudson Owens White Y_n complex strong discrete Morse matchings equivariant representation determinant cycle-divisibility Laplacian",
+          "Complexes of directed trees Kozlov equivariant homology representation forest complex isolation symmetric group cycle-index",
+          "directed forest isolated vertex homology symmetric group character",
+          "equivariant Euler characteristic directed forest complex permutation cycle lengths determinant"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the isolated-original-vertex subcomplex, not for the known nonequivariant rank or general determinant input. The exact matching Knudson–Owens–White object is only non-equivariantly classified; Bernardi–Klivans gives a general weighted forest determinant, not the restricted homology character. Kozlov/Stanley treat the unrestricted directed-forest complex, whose character does not by itself fix the isolated subcomplex. The all-cycle-type orbit-divisibility plus isolated-orbit Lefschetz formula is not implied by inspected prior statements. Kozlov 1999 original full text was inaccessible and an unindexed equivalent remains possible; this limitation alone is not adverse coverage.",
+      "residual_risks": [
+        "Kozlov (1999) exact original full text could not be inspected, and one authorized institutional attempt returned a different article while the corrected attempt was VPN-disconnected; priority comparison remains qualified.",
+        "Kozlov (2005) records Richard Stanley’s 1997 private communication on the S_m representation of the unrestricted Δ(G_m); possible unpublished extensions to Y_m cannot be excluded.",
+        "Other unindexed equivariant directed-forest identities could imply the same formula despite no matched indexed statement.",
+        "No equivariant conclusion about the larger strong discrete Morse matching complex follows from a nonequivariant subcomplex equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 9.5 proves Y_n is an ordinary wedge of n−2 spheres and gives their number; its proof and statements do not give an S_(n+1) character. Its concentration result is an explicit premise in the submitted theorem. Ordinary homotopy equivalence does not imply equivariant equivalence.",
+          "evidence": [
+            "arXiv:2609.06844, Section 9, Theorem 9.5 and proof, pp. 23–25; published count f(3)=25, f(4)=189, f(5)=2041."
+          ],
+          "identifier_or_url": "arXiv:2609.06844; https://arxiv.org/pdf/2609.06844",
+          "material_read": "Accessible primary full text; materially inspected initial definitions and Section 9, the definitions of Y_n and A_i, Theorems 9.2, 9.3 and 9.5, and Theorem 9.5 proof; searched entire text for representation/equivariant terminology.",
+          "method": "Full-primary-text section/theorem/proof comparison; PDF page inspection.",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Exact same canonical isolated-vertex vertex–edge subcomplex Y_n; most plausible dominating result."
+        },
+        {
+          "assessment": "General forest enumerators and matrix-tree theorem are known ingredients and explicitly credited; no isolated-original-vertex S_m top-homology character or cycle-divisibility quotient formula is established.",
+          "evidence": [
+            "arXiv:1512.07757, equation for det(L+xI), Section 3 rooted-forest enumeration."
+          ],
+          "identifier_or_url": "arXiv:1512.07757; https://arxiv.org/html/1512.07757v4",
+          "material_read": "Full primary HTML with introductory determinant identities and Section 3 rooted-forest/matrix-tree material.",
+          "method": "Primary theorem and matrix-forest identity inspection.",
+          "title": "Directed Rooted Forests in Higher Dimension",
+          "trigger": "General rooted-forest determinant identities could imply the Laplacian part of the claim."
+        },
+        {
+          "assessment": "Reports a symmetric-group character computation for the unrestricted complete directed-forest complex Δ(G_n), attributed to unpublished Stanley communication. That complex includes forests without isolated vertices, unlike Y_m. No verified theorem here computes Y_m’s top homology character. The private result is an explicit historical-priority risk, not proof of covering.",
+          "evidence": [
+            "arXiv:math/0507390, §4.3.3, S_n action on unrestricted Δ(G_n); bibliography [St97] private communication."
+          ],
+          "identifier_or_url": "arXiv:math/0507390; https://arxiv.org/pdf/math/0507390",
+          "material_read": "Primary book chapter on directed-forest complex Δ(G_n), especially Section 4.3.3 (PDF pages approximately 89–93), discussion of natural S_n action and Stanley 1997 private communication.",
+          "method": "Primary chapter inspection including rendered PDF page 92 and relation to the isolated-subcomplex definition.",
+          "title": "Combinatorial Algebraic Topology",
+          "trigger": "Kozlov foundational treatment of directed forest complexes and possibly stronger symmetric-group homology representations."
+        },
+        {
+          "assessment": "Computes invariants of quotients of the unrestricted directed-forest complex, not the rational S_m character of the isolated-vertex subcomplex; knowing quotient invariants does not determine all class traces.",
+          "evidence": [
+            "Kozlov, Spectral Sequences on Combinatorial Simplicial Complexes, §6."
+          ],
+          "identifier_or_url": "Kozlov (2001), Spectral Sequences on Combinatorial Simplicial Complexes (full-text article inspected)",
+          "material_read": "Accessible primary article HTML, especially section 6 on quotients of the complete directed-forest complex.",
+          "method": "Primary definitions, quotient theorems and statements comparison.",
+          "title": "Spectral Sequences on Combinatorial Simplicial Complexes",
+          "trigger": "S_n-equivariance of directed forest complexes, potentially dominating or equivalent."
+        },
+        {
+          "assessment": "Treats general directed-tree/forest complexes and shellability, not an all-cycle-type top-homology character for the forced-isolate subcomplex.",
+          "evidence": [
+            "arXiv:1109.4475, directed-forest complex definitions and shellability statements."
+          ],
+          "identifier_or_url": "arXiv:1109.4475; https://arxiv.org/abs/1109.4475",
+          "material_read": "Full primary arXiv text, introductory definitions and shellability theorems in Sections 1–2.",
+          "method": "Primary full-text definition and statement comparison.",
+          "title": "Shellability of complexes of directed trees",
+          "trigger": "Another highly related family of directed tree complexes and their homology."
+        },
+        {
+          "assessment": "Cannot exclude a hidden isolated-subcomplex character without the original full text. The inspected source citations associate this article with unrestricted directed forests, and the distinct Y_m condition is not established as covered. Specific residual historical-priority risk remains.",
+          "evidence": [
+            "DOI:10.1006/jcta.1999.2984; Knudson–Owens–White Theorem 9.2 citing Kozlov 1999; Kozlov 2005 Section 4.3.3."
+          ],
+          "identifier_or_url": "Kozlov (1999), JCTA 88:112–122, DOI:10.1006/jcta.1999.2984",
+          "material_read": "Journal abstract/metadata and secondary explicit theorem attribution; original 1999 full text not available. An institutional retrieval returned a different paper when requested by DOI; a corrected article-identifier attempt was blocked by VPN-disconnected status. Neither response was counted as the Kozlov article read.",
+          "method": "Bibliographic and citation-chain comparison only; no whole-document NOT_COVERING inference.",
+          "title": "Complexes of Directed Trees",
+          "trigger": "Foundational most plausible earlier equivariant treatment of closely related forest complexes."
+        },
+        {
+          "assessment": "Focuses on directed linear forests (vertex-disjoint paths), a different facial condition; no whole-document noncoverage claim is made from abstract alone.",
+          "evidence": [
+            "arXiv:2602.14936 abstract states directed linear-forest restriction."
+          ],
+          "identifier_or_url": "arXiv:2602.14936; https://arxiv.org/abs/2602.14936",
+          "material_read": "Primary arXiv abstract and introductory scope, not its full article.",
+          "method": "Abstract/definition comparison with explicit limitation.",
+          "title": "Vertex decomposable complexes of directed forests, conflict graphs and chordality",
+          "trigger": "Contemporary similarly named directed forest complexes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact isolated-vertex rooted-forest subcomplex occurs naturally in a recent full strong-Morse-complex analysis and has a published sphere-wedge rank but no determined permutation action in the checked primary theorem. A closed character valid simultaneously for all m≥3 and every conjugacy type determines the complete rational S_m module, not a small instance or arbitrary invariant. Nonidentity traces distinguish genuinely different representations with the same Betti count; e.g. m=4 has 25-dimensional top homology but a transposition has trace −3. The cycle-divisibility phase weights, signed Lefschetz and isolate inclusion–exclusion are nontrivial and enable exact further representation-theoretic questions. No claim of a global strong-Morse-complex equivariant equivalence, integral module decomposition, or explicit general Specht multiplicities is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.06844, primary article Section 9, Theorem 9.5 and proof",
+    "arXiv:1512.07757, primary forest determinant source",
+    "arXiv:math/0507390, Kozlov primary book §4.3.3, explicit unrestricted Δ(G_m) character attribution",
+    "Kozlov 2001, primary article §6 on unrestricted forest quotient",
+    "arXiv:1109.4475, primary shellability source",
+    "DOI:10.1006/jcta.1999.2984, Kozlov 1999 bibliographic/citation evidence only, full text inaccessible",
+    "arXiv:2602.14936, primary abstract/intro scope only",
+    "Resultary semantic searches on isolated directed forest, S_m equivariant homology, Knudson–Owens–White, and Kozlov"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Homology concentration is taken from the published Knudson–Owens–White Theorem 9.5 rather than independently proving that paper’s wedge theorem.",
+    "Computation covers only 26 conjugacy classes for m=3..6; infinite validity follows from the analytic argument.",
+    "Original Kozlov 1999 full text not read; best-of-knowledge originality includes explicit unpublished and unindexed prior-formula risks.",
+    "Applies only to canonical isolated-forest subcomplex and rational group character; no equivariant collapse for full strong matching complex.",
+    "No explicit general Specht decomposition or integral module structure is claimed."
+  ],
+  "residual_risks": [
+    "Kozlov (1999) exact original full text could not be inspected, and one authorized institutional attempt returned a different article while the corrected attempt was VPN-disconnected; priority comparison remains qualified.",
+    "Kozlov (2005) records Richard Stanley’s 1997 private communication on the S_m representation of the unrestricted Δ(G_m); possible unpublished extensions to Y_m cannot be excluded.",
+    "Other unindexed equivariant directed-forest identities could imply the same formula despite no matched indexed statement.",
+    "No equivariant conclusion about the larger strong discrete Morse matching complex follows from a nonequivariant subcomplex equivalence."
+  ],
+  "schema_version": 1
+}
