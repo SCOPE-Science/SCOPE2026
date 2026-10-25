@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` from a directory containing the standalone checker. The executed checker returned `VERIFY_OK symbolic_series=4 asymptotics=6 threshold=2` using exact SymPy symbolic arithmetic and 65-digit mpmath evaluations. It reconstructed the coefficients of \(\beta^2\), \(\beta^4\), \(\beta^3\), and \(\beta^5\), verified the closed expressions for \(A(k)\), \(B(k)\), and \(C(k)\), tested six small-increment asymptotic comparisons at three distinct radius ratios, and verified the threshold identity at two independent ratios.
+## correctness
 
-The analytical feasible-center argument in RESULT.md proves the full continuum of radius ratios and point positions. The numerical comparisons are independent local checks, not an exhaustive computation of geometric cases or a substitute for that proof. The global boundary-arc deduction is not machine-formally certified. Historical novelty has no external certification. Independent audit has not been performed.
+PASS
+
+Reconstructed feasible center lens B_{R-r}(0) intersect B_R(se1), corner supporting arcs, Green area formula F=R^2 beta-R(R-r)sin(beta)-r^2 theta and endpoint 0 to pi(R^2-r^2). Strict nesting gives monotone disk illumination, R-ball-convex iff s<=R. Independently checked F(R) trigonometric threshold and numerically extracted second inverse-area correction at k=0.2,0.8,2-2sqrt(3)/3; source symbolic checker read confirms exact b^3/b^5 coefficients and C=(3k^2-12k+8)/(5(1-k)). Boundaries r<s<=2R-r, positive radii; not uniform as r/R approaches 0 or 1.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: accessible source descriptions establish definition and qualitative asymptotics, while inspected published related result treats curvature Hessians, not this exact unweighted disk illumination profile. The highly relevant 2026 Oliva–Werner–Yalikun full text remained inaccessible; it may contain a disk case and is recorded as a material priority risk, not falsely declared NOT_COVERING.
+
+## value
+
+PASS
+
+Natural exact model for newly introduced R-ball illumination: complete disk profile determines precisely where illumination stops being ball-convex, and sign of the first curvature-sensitive correction gives a sharp meaningful parameter transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
