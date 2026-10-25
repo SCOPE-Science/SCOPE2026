@@ -1,0 +1,11 @@
+# Three-axis scientific assessment
+
+**Correctness — PASS.** The necessary and sufficient finite-prefix criterion follows from contracting the sum-\(c\) matching and applying the published two-distance Toeplitz forest theorem; super-doubling extension turns the condition into one for first-three prefixes of infinite supports. The exact sum counts the permitted initial position. The cubic term is the volume of a rational polytope, and the logarithmic term is a classical totient-divisor sum. The boundary strip is controlled by dividing spacings by their gcd; the error remains \(O(N^2)\). Finite checks independently test the reduction and formula but are not treated as proof.
+
+**Originality — PASS under examined evidence; bibliographic priority remains uncertain.** The two-distance Toeplitz forest criterion is **already known** and is explicitly excluded from the originality claim. The 2026 symbolic equivalence is also prior knowledge. The separately published logarithmic support-envelope result is a statement about occurrence-position bounds, not the asymptotic enumeration of three-point prefixes. Searches for gcd-averaged triple enumeration, equivalent Toeplitz formulations, and broader asymptotic counts did not identify a source stating the \(N^2\log N\) depletion coefficient. The 2026 full text and parts of the 2013 full text were not accessible; this residual risk is stated rather than dismissed.
+
+**Value — PASS.** The claim answers a natural statistical question about the class characterized by a recent symbolic theorem: among finite triples, exactly how prevalent is extendibility to an extremal infinite word? The leading proportion \(1/2\) alone does not detect the arithmetic obstruction, while the next-order logarithmic coefficient detects it sharply. The formula is uniform over all triples in a natural growing cutoff and has an exact finite counting version.
+
+**Related literature and scope.** Zeng–Xue–Zeng (arXiv:2609.28059v1); *Bipartite finite Toeplitz graphs* (DOI 10.1016/j.dam.2013.05.020); published sharp logarithmic support envelope for Abelian pattern Sturmian words (2026). No longer prefixes, multiletter words or arbitrary sparse supports are classified.
+
+Self-review: passed. Independent audit: not yet performed.
