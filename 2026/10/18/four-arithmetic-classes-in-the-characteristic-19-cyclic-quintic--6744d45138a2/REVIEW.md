@@ -1,9 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized degree-five Kummer cover has four tame full-ramification points, giving genus four; valuations certify the complete regular-differential basis. The Cartier coefficient selection and explicit binomial expansions prove the matrix entries for all geometric parameters. Their common root locus is exactly the three harmonic values; stable semilinear rank gives \(19\)-rank and kernel dimension gives \(a\)-number. Modular arithmetic exhausts the seventeen rational parameters; the packaged exact finite-field evaluator independently gives four distinct extension-field point counts and thus proves four rational isomorphism classes. The finite computation is used for a finite classification, not as proof of the geometric Cartier statement.
+## correctness
 
-**Originality — PASS, with acknowledged literature risk.** Cavalieri–Pries (arXiv:2308.14891, §6.1 and Remark 6.5) identify this family and compute mass formulas only for the split-prime congruence \(p\equiv1\pmod5\). Li–Mantovan–Pries–Tang (arXiv:1805.06914, §6.2) give two possible Newton polygons when \(p\equiv4\pmod5\), without identifying the exact characteristic-nineteen harmonic locus or class-by-class point counts. Streng (arXiv:2501.14902, introductory theorem and §§2–4) constructs examples in other Moonen families, not this one. Targeted searches of published mathematical results found no covering claim. Residual risk: prior small-characteristic Cartier or finite-field zeta classifications may be phrased differently and be unindexed.
+PASS
 
-**Value — PASS.** The natural Moonen special family has two theoretically permitted Newton strata, but the exact location and arithmetic multiplicity of the superspecial stratum are not entailed by that general description. Pinpointing its three harmonic parameters, establishing no intermediate geometric Cartier ranks, and determining the four rational isomorphism classes and the unique maximal one gives a complete, motivated small-characteristic classification rather than an arbitrary numerical slice. No broader statement about all genus-four curves is made.
+For C_t:y^5=x(x-1)(x-t), tame degree-5 ramification at 0,1,t,infinity yields genus4 by Riemann–Hurwitz. The four regular 1-forms dx/y²,dx/y³,dx/y⁴,x dx/y⁴ form a basis. Cartier maps the first two to each other with coefficients A(t)=[x^18]f^11=-7 t^4(t-1)^4(t-2)(t+1)(t+9) and B(t)=[x^18]f^7=3(t-2)(t+1)(t+9) mod19, and annihilates the latter two. Fresh symbolic F19 polynomial multiplication verified both identities. Thus only t=2,-1,1/2 (excluding t=0,1) have zero Cartier (rank0,a=4), and every other t has invertible two-dimensional semilinear block (stable p-rank2,a=2). Anharmonic transforms t->1-t,1/t partition all 17 F19 parameters into four orbits; fifth roots of scaling constants exist uniquely in F19, so orbit mates are F19-isomorphic. Fresh exact F361 field enumeration found quadratic point-counts 514 for {2,10,18},354 for {8,12},404 for {3,7,9,11,13,17},424 for {4,5,6,14,15,16}. These distinct F361 counts prove the four orbits are pairwise not F19-isomorphic; the first attains genus4 Hasse–Weil upper bound 514. The algebraic Cartier dichotomy holds over the entire geometric t-family, whereas point-count table concerns only F19 parameters.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cavalieri–Pries identify family M[11] and mass formulas primarily for p≡1 mod5, whereas p19≡4 mod5. Li–Mantovan–Pries–Tang describe permitted Newton polygons for M[11] in this congruence class but not the explicit Cartier harmonic t-locus or all four F19 arithmetic parameter classes. The new results refine rather than reassert the known Newton polygon possibilities.
+
+## value
+
+PASS
+
+Provides a complete explicit arithmetic stratification of a natural one-parameter genus-four cyclic-quintic family in a genuinely new congruence class: identifies the superspecial harmonic locus and exact rational isomorphism/point-count classes. These refinements are potentially useful test data for Newton polygon, superspecial curve and zeta-function studies; not just isolated brute-force point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
