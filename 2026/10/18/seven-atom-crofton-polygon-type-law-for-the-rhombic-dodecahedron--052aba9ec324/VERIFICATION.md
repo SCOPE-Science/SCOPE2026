@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific verification
+# Independent mathematical audit
 
-Run `python3 check.py` using the Python 3 standard library; no third-party package is required. The checker reconstructs the fourteen candidate vertices from the explicit coordinate model, verifies the twelve four-vertex facet sets, deduces all twenty-four genuine edges by two-facet incidence, and checks their exact squared lengths. It then verifies by rational arithmetic that all ninety-one pairwise vertex-height differences keep a fixed sign on each of seven triangular normal subchambers. Sweeping thirteen height gaps on each chamber confirms exactly the three rows of piecewise-linear offset-length coefficients in RESULT.md.
+## correctness
 
-The checker evaluates oriented spherical triangle first moments from cross products and geodesic edge lengths, comparing the resulting seven integrals with their closed forms to within `2e-14` absolute tolerance; this floating-point comparison is a numerical confirmation of the separately stated analytic moment formulas. It verifies positivity, total mass and mean side count. A separately sampled, width-weighted collection of 120000 affine planes compares the numerical frequencies to all seven exact probabilities. The stochastic experiment is corroborative, not a proof of the formula in infinitely many directions.
+PASS
 
-The actual delivered-checker run produced:
+The explicit K={|xi|+|xj|<=2} has six axial and eight diagonal vertices, 12 rhombus facets and 24 edges of length sqrt(3). For a generic affine plane the section-side count equals the number of edge-height crossings. Ordered normal chamber a>b>c>0 decomposes into three zones and seven rational subchambers, with pairwise vertex-height signs fixed on each rational triangle. Sweeping the 13 successive height intervals yields the recorded exact zone coefficient table L_k(u)=r*a+s*b+v*c for k=3,...,9; all cases and the boundaries are accounted for up to measure zero. The spherical first-moment formula for geodesic triangles integrates each coefficient to J_k (closed arctangent expressions), normalized by Z=pi*sqrt(3)/6 from the edge/dihedral mean-width identity. The edge crossing integral independently gives EN=6 and the seven masses sum to Z. The independently reconstructed 14 vertices/24 edges, three sector witnesses and seven probabilities agree to roundoff; numerical integration and sampling are supplemental to rational chamber coverage and analytic spherical integration.
 
-```
-RATIONAL_CHAMBERS_OK vertices=14 facets=12 edges=24 triangles=7
-EXACT_FORMULAS_OK classes=3..9 expectation=6
-p3=0.040224879850928
-p4=0.133974596215561
-p5=0.161886425232915
-p6=0.298680246894837
-p7=0.191034375739269
-p8=0.163122546721916
-p9=0.011076929344573
-WEIGHTED_RANDOM_PLANES_OK samples=120000
-```
+## originality
 
-The proof uses exact rational subdivision and analytic spherical identities; finite checks do not imply any claim about all directions on their own. Equality and boundary planes have zero invariant measure and are not classified. No independent mathematical audit or definitive historical-priority adjudication is claimed.
+PASS
+
+Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. Socha 1988 records interior section angle distribution pooled over vertices, which cannot determine a joint per-plane polygon side-count law without correlations; its full figures and displayed results do not entail the seven masses.
+
+## value
+
+PASS
+
+A complete and exactly evaluated polygon-type distribution for a canonical zonohedral solid is a natural stereological invariant, distinct from angle histograms, expected area, or central-section topology. Seven nonzero atoms, exact quadrilateral mass 1-sqrt(3)/2 and mean six are potentially reusable benchmarks for isotropic section simulation and integral geometry; not a made-up arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
