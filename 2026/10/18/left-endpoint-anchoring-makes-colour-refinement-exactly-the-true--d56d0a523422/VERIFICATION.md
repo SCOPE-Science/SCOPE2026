@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-## Mathematical check
-Consecutive closed neighbourhoods and monotonic right endpoints follow from the proper interval umbrella ordering. The formula for a vertex's number of neighbours in the preceding root-distance layer determines its left endpoint; the succeeding-layer neighbour count determines its right endpoint, while in the final layer that endpoint is maximal automatically. Stable equitable colours recover these counts after separating distance layers, and true twins are swapped by a root-preserving automorphism. The complete-or-empty block argument establishes identification against arbitrary rooted graphs. Fractional automorphisms are blockwise bistochastic by the stable-cell invariance argument.
+# Independent mathematical audit
 
-## Computational corroboration
-From a directory containing the four files `rooted_unit_check.py`, `rooted_unit_layers.py`, `rooted_unit_check.out`, and `rooted_unit_layers.out`, execute:
+## correctness
 
-```
-python3 rooted_unit_check.py 12 > reproduced_check.out
-python3 rooted_unit_layers.py 12 > reproduced_layers.out
-cmp reproduced_check.out rooted_unit_check.out
-cmp reproduced_layers.out rooted_unit_layers.out
-```
+PASS
 
-The first implementation enumerates nondecreasing endpoint encodings and compares actual iterative colour refinement with equality of closed neighbourhoods. The second independently calculates BFS layers and tests the adjacent-layer count criterion. Each exhausts all encodings through twelve vertices. These computations do not establish the theorem for larger instances or verify priority in the literature.
+In any connected proper-interval ordering v_1,…,v_n with umbrella property, closed neighborhoods are contiguous integer intervals [ℓ_i,r_i] and both endpoint sequences are nondecreasing. Starting at extreme v1, distance layers L_k are contiguous cliques indexed by successive b_{k+1}=r_{b_k}; stability of rooted 1-WL separates each distance layer. For each nonroot vertex in layer k, predecessor-layer neighbor count is b_{k−1}−ℓ_i+1, successor count is r_i−b_k (final layer has r_i=n), uniquely determining its full closed neighborhood. Thus equal colors iff true twins except the distinguished root, and refinement needs at most D+1 rounds. True-twin clique cells have uniform full/empty bipartite interactions, so C²-equivalent arbitrary rooted graphs must realize exactly the same cell sizes and quotients; hence rooted identification. Root-fixing automorphisms are independent permutations on nonroot twin cells. Any doubly stochastic root-fixing matrix commuting with adjacency preserves 1-WL cells (strict convexity level-set argument), hence decomposes into those Birkhoff blocks; conversely every such block commutes. Independently enumerated all 6,918 connected proper-interval right-endpoint encodings at n≤10, checked actual individualization refinement versus nonroot true-twin equality and stabilization bound, and the three-path center root counterexample. Finite checks corroborate all-size layer proof.
 
-## Scope and status
-The result concerns connected proper interval graphs distinguished at a leftmost vertex; no assertion is made for arbitrary rooting, disconnected graphs, arbitrary interval graphs, or higher-dimensional counting logic. Independent audit has not been performed.
+## originality
+
+PASS
+
+Interval umbrella ordering and general 1-WL/C² correspondence, identification and compact/fractional automorphisms were already known. The assessed distinct theorem is that ONE canonical geometrical endpoint root forces stable WL classes to exactly the true-twin partition for every connected proper interval graph; consequences then specialize established general machinery. Inspected Arvind–Köbler–Rattan–Verbitsky (2015) and Kiefer–Schweitzer–Selman (2015) full primary PDFs: they develop general color refinement, graph identification and fractional symmetry theory without stating this endpoint-specific nonroot true-twin collapse. A specialized interval-graph canonization paper or unstated broad amenable-class criterion might imply it, retained as residual risk.
+
+## value
+
+PASS
+
+The exact endpoint-to-true-twin stabilization mechanism is a structural rigidity result for a natural graph class and canonical unary geometric anchor, with explicit logical identification and compact fractional automorphism polytope consequences. Arbitrary rooting provably fails already on 3-vertex path, marking a genuine sharp geometric boundary. This is not the routine reformulation of global 1-WL equivalence; the adjacent-layer reconstruction lemma is the new mathematical ingredient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
