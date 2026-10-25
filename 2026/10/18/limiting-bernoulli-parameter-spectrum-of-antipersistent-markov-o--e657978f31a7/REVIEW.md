@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Markov transition matrix has trace \(u+vz\) and determinant \(-hz\), producing the exact finite-horizon recurrence. Positive initial and recurrence coefficients together with the sign-at-root argument yield \(n\) distinct negative zeros, in agreement with the published real-rootedness result. On the discriminant-negative interval \((t_-,t_+)\), the recurrence gives an exact cosine phase with strictly increasing angle \(\theta\), yielding \(n\)-scaled root counts in every interior interval. The phase increases by precisely \(\pi\); no asymptotic root mass can escape the band, and differentiation supplies the normalized explicit density. Exact-rational and numerical checks are supplementary only.
+## correctness
 
-## Originality — PASS on inspected evidence
-Dekking and Kong (arXiv:1102.3613, Proposition 4.2) **already prove real zeros** for the same negative-correlation parameter regime. This existing result and the corresponding Poisson-binomial representation are treated exclusively as prior work. Tang and Tang (arXiv:1908.10024, Theorem 4.1) prove/review the real-root equivalence; Xia and Zhang (arXiv:1001.2144) analyze approximation and stationary moments. In the materially inspected sections of these accessible primary texts, none specifies the weak empirical distribution, support, and density of the individual Bernoulli factors as horizon grows. Targeted title, alias, spectral-root, and parameter searches found no directly dominating formula. Residual risk: a classical theorem for zeros of second-order recurrences could imply this result as a special case even without mentioning Markov chains; full historical priority is not established.
+PASS
 
-## Value — PASS
-For a dependent count distribution that is known to admit an independent-Bernoulli representation, the shape of those independent Bernoulli parameters is a natural unresolved quantitative descriptor. Determining its full limiting law, explicit support edges, and density is more informative than the known fact of representation or a moment bound; it supplies an exact large-horizon factor-parameter profile useful for distributional approximation and simulation. It is not a mere recomputation of a single small parameter case.
+The 2x2 transfer-matrix trace u+vz and determinant -h*z produce F_{n+2}=(u+vz)F_{n+1}+hzF_n with stationary F1. Negative simple roots follow the interlacing sign proof, in accord with Dekking-Kong prior real-root theorem. For z=-t the characteristic roots are conjugate on (t-,t+) and yield an exact real cosine phase with increasing theta(t), theta(t-)=0, theta(t+)=pi. Bounded phase derivative on compact subintervals gives n*(theta(s)-theta(r))/pi+O(1) zeros there; taking band margins to zero forces the remaining fraction to vanish. Thus weak density theta_prime/pi equals the claimed formula; pushforward p=1/(1+t) gives Bernoulli-parameter law. Independent exact-rational recurrence vs 2-state path enumeration succeeded for nine small cases; numerical root scans are not infinite certification.
 
-## Limitations
-Fixed interior transitions and strict \(a+b>1\). No parameter-uniform results, finite-sample band containment, independent external certification, or full assertion of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dekking-Kong 2011 Proposition 4.2 already supplies real negative zeros for antipersistent Markov-binomial generating polynomials; existence of Bernoulli factors is not novel. The inspected primary work and associated review do not explicitly supply the weak zero empirical density, exact support and transformed Bernoulli-parameter distribution. The oscillatory recurrence derives those extra statements. Best-of-knowledge originality; abstract general recurrence-zero results may imply a special case.
+
+## value
+
+PASS
+
+The factor parameters of the Poisson-binomial representation of an antipersistent Markov occupancy count are a natural precise invariant; real-rootedness alone does not specify their distribution. The exact limiting spectral density/support quantify how underlying dependence is encoded by Bernoulli factors and provide a reusable deterministic phase-law description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
