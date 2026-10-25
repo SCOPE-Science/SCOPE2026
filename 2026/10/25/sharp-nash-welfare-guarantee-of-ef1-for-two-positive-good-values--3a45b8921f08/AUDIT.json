@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "From positive goods and m>=n EF1 loads are positive integers with spread at most two; pair smoothing needs at most floor(n/2) steps of multiplier at most 4/3; balanced integer product upper-bounds optimum. The explicitly constructed EF1 and all-utility-two allocations attain equality. A separate exact enumeration checked 6497 finite allocation count vectors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang et al. prove exact Nash optimality for uniform goods and epsilon-small-good ratios depending on epsilon.",
+        "Barman et al. present general approximate Nash guarantees for fair allocations."
+      ],
+      "reasoning": "Uniform-valued exact optimality is a strict subfamily; the small-item result has additional size-relative-to-average conditions and does not supply this exact uniform bound across all m>=n. Broad generic bounds are weaker and their application does not subsume sharpness.",
+      "searches": [
+        "arxiv:2609.03846",
+        "https://rohitvaish.in/Publications/%5BBarman%2B%5D%20Finding%20Fair%20and%20Efficient%20Allocations.pdf",
+        "arxiv:2412.15472"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.03846",
+      "https://rohitvaish.in/Publications/%5BBarman%2B%5D%20Finding%20Fair%20and%20Efficient%20Allocations.pdf",
+      "https://arxiv.org/abs/2412.15472"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.03846, abstract and theoretical results: universal e^{-1/e}, uniform-value 1, small-item epsilon-dependent bound.",
+        "Earlier literature establishes existence of efficient EF1 and other allocation properties, not all-EF1 sharp positive-bivalued ratio in the inspected material."
+      ],
+      "reasoning": "An exact guarantee for all EF1 allocations is logically distinct from the EF1 property of a welfare optimum or an algorithm constructing one fair allocation. The result can be derived from the spread property plus new discrete-product analysis, but was not found as an existing implication with the sharp constant and equality examples in the inspected texts.",
+      "searches": [
+        "arxiv:2609.03846",
+        "https://rohitvaish.in/Publications/%5BBarman%2B%5D%20Finding%20Fair%20and%20Efficient%20Allocations.pdf",
+        "arxiv:2412.15472"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.03846, Sections 3.2–3.3 and its bounded-spread argument",
+        "Proof in RESULT.md converts geometric-mean ratio to integer-product ratio (3/4)^floor(n/2)."
+      ],
+      "reasoning": "Equivalent product language, positive-bivalued language, and exact fraction language were compared. An EF1 spread-of-two lemma alone does not imply the sharp finite-agent ratio without controlling the count of simultaneous extremal pairs and proving attainability; the new proof supplies both.",
+      "searches": [
+        "\"bivalued\" \"EF1\" \"Nash social welfare\" approximation identical",
+        "\"3/4\" \"EF1\" \"Nash social welfare\" identical additive",
+        "EF1 Nash welfare two positive values identical bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary source arxiv:2609.03846 gives no tabulation of the sharp ratio for {a,2a} across n in the inspected theoretical sections.",
+        "CHECK.py enumerates only small instances as verification, not as claimed novelty."
+      ],
+      "reasoning": "No relevant published exact table was located among reviewed results. The claim is a closed-form all-n theorem, not a transcription of finite tabular values; missing search hits cannot establish exclusivity.",
+      "searches": [
+        "\"3/4\" \"EF1\" \"Nash social welfare\" identical additive",
+        "\"bivalued\" \"EF1\" \"Nash social welfare\" approximation identical"
+      ]
+    },
+    "rationale": "The motivating 2026 source gives a uniform-value result and a different small-item bound, rather than the inspected sharp {a,2a} guarantee for all inventories and n. Earlier welfare papers give broader approximate ratios without this matching finite-n guarantee. Literature and semantic overlap searches found no exact equivalent, subject to unindexed-priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent bivalued EF1 ratio may exist in unindexed literature.",
+      "Only the public abstract of the additive-welfarist-rules paper was inspected; its full theorems were not used to certify noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivating source but no identified statement of the exact bivalued n-dependent constant and matching construction",
+        "evidence": [
+          "arXiv:2609.03846 first posted 2026-09-03",
+          "Its abstract states uniform-valued NSW-optimality and an epsilon-small-item approximation rather than the discrete sharp result."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.03846",
+        "material_read": "Abstract; theoretical EF1 bounded-spread, uniform-value, and small-item theorems; their proofs and relevant appendices",
+        "method": "Read publicly available preprint text and compared statements, parameter regimes, and equality requirements",
+        "title": "EF1-Constrained Nash Social Welfare with Identical Additive Valuations: Complexity, Guarantees, and Experiments",
+        "trigger": "Same objects, fairness condition, and Nash-welfare performance objective"
+      },
+      {
+        "assessment": "General allocation context; does not imply the identified sharp two-positive-value formula in the inspected material",
+        "evidence": [
+          "General welfare guarantee differs from a sharp all-EF1, exact-bivalued bound."
+        ],
+        "identifier_or_url": "https://rohitvaish.in/Publications/%5BBarman%2B%5D%20Finding%20Fair%20and%20Efficient%20Allocations.pdf",
+        "material_read": "Introduction and relevant EF1/NSW lemmas, including the general welfare bound",
+        "method": "Read PDF extracted text and viewed a relevant PDF page image for source verification",
+        "title": "Finding Fair and Efficient Allocations",
+        "trigger": "Earlier broad fair-and-efficient allocations and Nash-welfare guarantees"
+      },
+      {
+        "assessment": "Abstract concerns uniqueness of rules ensuring EF1, not the Nash ratio of arbitrary EF1 allocations; entire paper was not inspected",
+        "evidence": [
+          "Its stated subject is a characterization of additive welfarist rules."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.15472",
+        "material_read": "Public abstract",
+        "method": "Compared stated characterization of fairness-guaranteeing maximizing rules against worst welfare across all fair allocations",
+        "title": "On the Fairness of Additive Welfarist Rules",
+        "trigger": "Two-value instances and optimality rules potentially cover related objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a45b892-1f08-4f0d-a660-afc6b7051eb0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact worst-case welfare retention factor for every EF1 allocation across all inventories in the basic strictly positive two-value class addresses the 2026 motivating paper’s quality-of-arbitrary-fair-allocation question. Both a universal proof and for-every-n equality construction show the precise cost of fair but nonoptimal output rather than a small numerical gain.",
+    "status": "PASS"
+  }
+}
