@@ -1,15 +1,21 @@
-# Scientific review: four-class analogy for idempotent unary operations
+# Independent mathematical audit
 
-## Correctness — PASS
-For any unary retraction \(f\), the syntactically infinite rule families \(f^k(z)\to f^\ell(z)\) collapse to four exponent patterns. The proof computes all five possible arrow justification sets, explicitly respects the target-coordinate maximality requirement, and checks cross-class failure in the necessary reverse directions. The singleton algebra is handled separately; all remaining cardinalities, including infinite carriers, are covered. For finite carriers the four disjoint arrow-class sizes give the displayed sum of squares. The strict monotonicity in the number of nonfixed elements follows from the explicitly negative forward difference. An independent direct-rule enumeration checked all 1,308 labelled idempotent unary operations up to six points and 67 larger canonical operations, totaling 1,826,684 ordered quadruples. Exhaustive finite tests do not prove the unrestricted theorem.
+## correctness
 
-## Originality — PASS, qualified
-Antić's monounary paper (arXiv:2208.06829, §§2–3) establishes the justification-based relation and presents Problem 6, asking when proportion transitivity holds. Its exhibited nontransitivity examples do not resolve the idempotent case. Antić's general sequel (arXiv:2405.13461) provides finite computational algorithms and foundational results, not this four-class theorem. The similarity-based variant (arXiv:2402.18360) defines a different relation and cannot imply the statement without a separate comparison. The finite-permutation result concerns bijections and intersects the idempotent class only in identity maps; a quantifier-free-type theorem about retractions does not count Antić analogies. Semantic searches for idempotent unary analogy, congruence/retraction aliases, and proportional transitivity did not identify stronger coverage. Earlier equivalent work under unrelated terminology cannot be ruled out and priority is not independently certified.
+PASS
 
-## Value — PASS
-A published characterization problem has a particularly natural missing case: the equational class of unary idempotent maps, i.e. sets partitioned into rooted stars. The result settles transitivity uniformly for every algebra in this class (also infinite), identifies each equivalence class without knowing individual star sizes, and provides a closed satisfiability-degree law and exact extremizers for finite algebras. This is a structural boundary and exact classification, rather than a small numerical extension.
+For an arbitrary nonempty set A with f^2=f (no constants), f^k for k>0 is f, so each arrow justification set is exactly one of five possibilities: full four formal exponent blocks at a fixed diagonal; J00 at a nonfixed diagonal; J01 for (a,f(a)) nonfixed; J10 for the reverse; or empty for unrelated pairs. I inspected the four original Antić directional fixed-target-first-coordinate maximality conditions, including the empty/trivial-rule clause. Same diagonal arrows are maximal because no arrow with a different target second coordinate can contain J00. Within the forward/backward sets intersections are respectively the whole J01/J10 block; unrelated arrows have empty justifications. Cross-class comparisons fail by disjointness, lack of J00, or strict improvement on fixed diagonals, including the required reverse arrow test. This establishes the four classes for infinite A without finite extrapolation; singleton A handled separately. For finite n and q nonfixed points the arrow sizes n,q,q,n(n-1)-2q give n^2+2q^2+[n(n-1)-2q]^2 satisfying ordered quadruples and strict decrease in q via the negative 12q+6-4n(n-1). An independently implemented finite evaluator computed actual maximality under original rules for all idempotent maps n<=4 and verified each equivalence and count; larger packaged tests were read but not represented as our independent infinite proof.
 
-## Limits
-The result does not classify arbitrary monounary maps or prove originality against all possible unpublished or differently named sources. Computational checks are finite, although the mathematical proof applies generally. The four-class invariant forgets the partition of nonfixed elements among roots.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result classifies a natural entire equational subclass of the nontrivial p-transitivity characterization question in Antić’s original monounary semantics and supplies a four-equivalence-class and degree formula. The later similarity-based analogy uses different definitions. Finite term-algebra algorithms and permutation-only analogy do not imply this idempotent-all-cardinality partition: an idempotent permutation is just the identity. Subject to possible unindexed retraction/functional-digraph treatments, best-of-knowledge original.
+
+## value
+
+PASS
+
+This settles all idempotent retractions, a natural algebraic subvariety of a published monounary-transitivity classification problem, including infinite algebras. The four arrow equivalence types and finite n,q satisfying-quadruple formula are independently useful structural and enumeration results rather than isolated examples or a vocabulary change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

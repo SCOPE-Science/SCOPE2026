@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The Python 3 file `verify.py` computes term-rule justifications directly from the unary operation, using each of the four exponent regimes made exhaustive by \(f\circ f=f\). For each ordered quadruple it implements all four directed maximality conditions at fixed first coordinate and compares the computed proportion with the claimed four-class partition. It then checks the analytic count for the same unary map.
+## correctness
 
-Run `python verify.py`. The completed run printed:
+PASS
 
-```
-labelled 1 1
-labelled 2 3
-labelled 3 10
-labelled 4 41
-labelled 5 196
-labelled 6 1057
-VERIFY_OK labelled_maps=1308 canonical_large=67 ordered_quadruples=1826684
-```
+For an arbitrary nonempty set A with f^2=f (no constants), f^k for k>0 is f, so each arrow justification set is exactly one of five possibilities: full four formal exponent blocks at a fixed diagonal; J00 at a nonfixed diagonal; J01 for (a,f(a)) nonfixed; J10 for the reverse; or empty for unrelated pairs. I inspected the four original Antić directional fixed-target-first-coordinate maximality conditions, including the empty/trivial-rule clause. Same diagonal arrows are maximal because no arrow with a different target second coordinate can contain J00. Within the forward/backward sets intersections are respectively the whole J01/J10 block; unrelated arrows have empty justifications. Cross-class comparisons fail by disjointness, lack of J00, or strict improvement on fixed diagonals, including the required reverse arrow test. This establishes the four classes for infinite A without finite extrapolation; singleton A handled separately. For finite n and q nonfixed points the arrow sizes n,q,q,n(n-1)-2q give n^2+2q^2+[n(n-1)-2q]^2 satisfying ordered quadruples and strict decrease in q via the negative 12q+6-4n(n-1). An independently implemented finite evaluator computed actual maximality under original rules for all idempotent maps n<=4 and verified each equivalence and count; larger packaged tests were read but not represented as our independent infinite proof.
 
-The program exhausts labelled unary idempotent maps up to six elements and checks canonical representatives arising from integer partitions for seven to nine elements. These computations are finite; the proof of the unrestricted theorem is contained in `RESULT.md`. No external independent review or proof-assistant certification is claimed.
+## originality
+
+PASS
+
+The result classifies a natural entire equational subclass of the nontrivial p-transitivity characterization question in Antić’s original monounary semantics and supplies a four-equivalence-class and degree formula. The later similarity-based analogy uses different definitions. Finite term-algebra algorithms and permutation-only analogy do not imply this idempotent-all-cardinality partition: an idempotent permutation is just the identity. Subject to possible unindexed retraction/functional-digraph treatments, best-of-knowledge original.
+
+## value
+
+PASS
+
+This settles all idempotent retractions, a natural algebraic subvariety of a published monounary-transitivity classification problem, including infinite algebras. The four arrow equivalence types and finite n,q satisfying-quadruple formula are independently useful structural and enumeration results rather than isolated examples or a vocabulary change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
