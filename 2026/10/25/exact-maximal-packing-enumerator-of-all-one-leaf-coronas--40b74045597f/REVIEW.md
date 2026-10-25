@@ -1,0 +1,11 @@
+# Assessment of the maximal-packing corona correspondence
+
+**Correctness — PASS.** The distance formulas for a private-leaf corona give a two-way bijection from core packings to inclusion-maximal corona packings. Disjoint closed core neighborhoods give the precise degree-sum cardinality, including isolated vertices and disconnected graphs. The regular-graph and sunlet formulas follow by a subset argument and a cyclic gap enumeration. The bundled checker enumerates maximal subsets directly and confirms 1,249 graph instances and the distinct maximal sets therein; the infinite assertion is proved by the written argument, not by sampling.
+
+**Originality — PASS, with residual bibliographic risk.** The motivating 2026 packing/isolation paper mentions coronas as packing-isolating examples and studies the lower packing number and well-packed trees, but its relevant full-text sections do not contain this universal bijection or size polynomial. The 2020 rooted-product packing theorem gives only maximum packing size. The 2021 two-packing-differential paper studies a different degree-minus-one objective rather than the entire maximal-packing distribution. Targeted mathematical and mathematical-record searches uncovered no equivalently strong theorem. An unindexed equivalent description in the literature on graph squares or leaf coronas remains possible.
+
+**Value — PASS.** The correspondence is valid for every finite base graph, structurally classifies the complete set of maximal packings rather than only an extremum, and turns the minimum maximal packing problem into a naturally weighted 2-packing problem on the base. It gives full enumerators and exact size spectra in infinite families, including arbitrarily large cardinality gaps in connected examples. This is a motivated structural refinement of recent lower-packing questions, not a computation on an arbitrarily chosen small graph.
+
+**Closest literature and limitations.** Boyer–Goddard–Henning (arXiv:2606.18172v1); Mojdeh–Peterin–Samadi–Yero (arXiv:1901.06813v3); Cabrera Martínez–Puertas–Rodríguez-Velázquez (DOI:10.1007/s00025-021-01473-8). The statement concerns closed-neighborhood packings and does not claim polynomial-time evaluation for arbitrary bases. A priority risk from alternate square-graph terminology remains.
+
+Self-review: passed. Independent audit: not yet performed.
