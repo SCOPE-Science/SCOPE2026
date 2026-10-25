@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge3\\), all positive prices and budgets, injectivity of individual edge weights into a reduced simple-graph Laplacian makes log determinant strictly concave on connected supports and forces a unique unrestricted optimum. Joint permutation of matched vertex labels forces exactly two weight classes. The complete four-block spectral factorization gives the exact weighted tree polynomial; the constrained logarithmic derivative has the stated explicitly signed quadratic numerator. Its sign yields the unique positive radical root below the price threshold, and a boundary optimum above. Differentiation of log tree count plus exact crown resistance identities corroborates the same threshold. The standalone exact-rational grounded determinant and resistance tests and floating-point asymmetric comparisons passed; they are not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khosoussi et al., arXiv:1604.01116, §§4–5, provide general edge-selection convex relaxation, not a closed all-individual-weights two-price optimum.",
+        "Ghosh et al., doi:10.1137/050645452, optimize sum of effective resistances, not log determinant."
+      ],
+      "reasoning": "General optimization frameworks contain applicable concavity and KKT tools but do not state a dominating explicit theorem for the same priced complete-bipartite family. Different spectral objectives, even on the same graph, do not imply exact determinant-optimal conductances.",
+      "searches": [
+        "log determinant Laplacian optimization matching edges complete bipartite graph exact optimal conductance phase transition",
+        "Khosoussi Sukhatme Huang Dellaert maximizing weighted number spanning trees 2016 arxiv PDF",
+        "graph optimal conductance determinant weighted spanning tree complete bipartite matching"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1604.01116",
+      "https://arxiv.org/pdf/1904.07766",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1904.07766, Theorem 1.3 is strong near coverage of the tree polynomial, but states no optimization, price budget, symmetry-forced unrestricted uniqueness or support transition.",
+        "arXiv:1604.01116 discusses weighted graph-design selection problems with different feasible sets."
+      ],
+      "reasoning": "The earlier matching-containment theorem plus an additional spectral or generating-polynomial calculation reproduces the unoptimized objective; maximizing this objective over every priced individual conductance still requires a global strict-concavity and symmetry argument and exact optimization, which the inspected sources do not supply. No previous statement directly implies the entire claimed optimizer without that additional derivation. This proximity is a substantial originality and value risk, openly disclosed.",
+      "searches": [
+        "D optimal weighted spanning tree budget complete bipartite graph matching edge cost conductance optimal allocation threshold",
+        "crown graph effective resistance distinguished nonedge cost normalized optimal design"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The weighted matrix-tree theorem identifies the determinant criterion with a weighted spanning-tree enumerator, while cost-normalized electrical leverage scores characterize local design optimality.",
+        "Ge–Dong arXiv:1904.07766 counts matchings and deleted edges without introducing the independently optimized two-price design."
+      ],
+      "reasoning": "Compared direct determinant allocation, weighted spanning trees, costed conductances, leverage-score KKT and deleted-matching equivalences. No checked scientific statement has the same all-budget optimizer, though its weighted-count input follows from published matching enumeration.",
+      "searches": [
+        "weighted number of spanning trees D optimal complete bipartite graph with expensive matching edge conductance budget unique optimizer threshold zero weights",
+        "sharp price threshold D-optimal network design complete bipartite graph deleted perfect matching",
+        "D-optimal experimental design graph Laplacian edge weight optimization budget logdet optimal conductances reciprocal effective resistance KKT"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ge–Dong Theorem 1.5 explicitly enumerates spanning trees of the complete bipartite graph with a matching removed, and Theorem 1.3 provides coefficients for containing specified matching edges.",
+        "The invariant crown-graph endpoint is already a known exact counting problem; no new counting formula is claimed here."
+      ],
+      "reasoning": "Known enumeration at zero matching weight is not claimed as new. The proposed exact output instead depends on price and assigns every edge its globally optimal continuous conductance. No exact price-support table matching this allocation was located, but unindexed or algebraically implicit coverage remains a risk.",
+      "searches": [
+        "crown graph weighted spanning trees edge matching weights",
+        "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs Ge Dong 2019",
+        "spanning tree maximization matching versus nonmatching allocation graph K n n edge prices"
+      ]
+    },
+    "rationale": "Related primary literature establishes general weighted matrix-tree and convex graph-design principles and, much closer, exact matching-containment tree counts and resistances for matching-deleted complete bipartite graphs. Those prior exact coefficient formulas yield the two-orbit unoptimized weighted count but do not state or globally characterize the unique price-budget allocation over all independent edges, its sharp cutoff or the full cost-dependent optimum. General theory plus simple derivations could make the distinction less independent than a wholly new spectral invariant; this is a real residual risk, not proof of uniqueness of discovery.",
+    "residual_risks": [
+      "Ge–Dong Theorem 1.3 encodes every coefficient of the invariant two-weight tree polynomial; calculus plus standard strict-concavity arguments may make the additional price classification straightforward or appear elsewhere.",
+      "Earlier Ye–Yan and Shi–Chen graph-resistance papers referenced in Ge–Dong were not independently obtained in full text; they may contain specialized electrical identities but no verified matching-price allocation theorem.",
+      "Searches and available primary sources do not prove mathematical uniqueness of publication or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General graph tree-count maximization via fixed-weight edge selection and convex relaxation; no complete unrestricted two-price \\(K_{n,n}\\) conductance-allocation classification identified.",
+        "evidence": [
+          "arXiv:1604.01116, §§2.2,4.4,5.1, Appendix A; the displayed convex programs optimize bounded edge selectors, not every continuous conductance under two prices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+        "material_read": "Abstract, introduction, weighted matrix-tree theorem, edge-selection problems, convex relaxations, numerical setup and appendix arguments for monotone weighted tree count.",
+        "method": "Opened and inspected the available 24-page primary PDF, checked matching, bipartite, budget and cost terms against the PDF text, and examined equations for its optimization variables.",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Focal early public graph-design literature and potential general coverage of log-determinant allocation."
+      },
+      {
+        "assessment": "Strong near coverage: its matching-containment formula generates the symmetric two-weight tree polynomial and its resistance work covers the deleted endpoint; it does not optimize independent conductances subject to a two-price budget or derive the transition and unique allocation.",
+        "evidence": [
+          "arXiv:1904.07766, Theorems 1.3, 1.5, 5.7 and §5.2: fixed unweighted graph counting and resistances, not optimized conductance allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+        "material_read": "Introduction, Theorems 1.3–1.5, §§3–4 on matching containment and determinant methods, §5 on effective resistances in matching-deleted complete bipartite graphs, including Theorem 5.7, corollaries and closing references.",
+        "method": "Opened and inspected the 21-page primary PDF and relevant theorem/proof and resistance sections; searched its text for allocation and optimization questions.",
+        "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+        "trigger": "Directly overlapping complete-bipartite and deleted-matching objects and exactly related weighted tree-count coefficients."
+      },
+      {
+        "assessment": "Optimizes total pairwise effective resistance (Kirchhoff index), not weighted spanning-tree determinant. No determinant-optimal crown design rule follows as a corollary.",
+        "evidence": [
+          "Ghosh, Boyd and Saberi (2008), SIAM Review 50:37–66, especially pp.37–39 and §4.2."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Abstract, statement of the conductance-budget problem, §§1 and 4 optimality conditions and the discussion of analytically solved graph classes.",
+        "method": "Read relevant portions of the publicly accessible 30-page primary paper and inspected the budget optimality equations.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Possible stronger coverage from continuous budgeted conductance optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ae0e33a-18ed-4d28-a1d5-0853ca4de22a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full closed-form resource-allocation classification for dense bipartite networks with a distinguished perfect matching determines both the unique optimal support and all conductances, including a strict phase transition at a computable resistance-leverage price ratio. The premium for deleting all n matching links tends to zero like 1/n, a nontrivial large-network design effect. This is a natural graph-design optimization, not an arbitrary finite table or isolated parameter computation; it does not rely on any claimed downstream theorem.",
+    "status": "PASS"
+  }
+}
