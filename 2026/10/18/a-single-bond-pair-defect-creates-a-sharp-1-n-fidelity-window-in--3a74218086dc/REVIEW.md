@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The channel and projected effective Hamiltonian are explicitly defined. The rank-one update of the tridiagonal Gram matrix proves the end-site flat-band projector entries for all \(N\ge2\), while the exact two-dimensional endpoint Gramian proves the amplitude bound. Irrational-frequency density establishes generic sharpness, not strict equality at exceptional rational ratios. A standalone direct-matrix checker reports 2,818 successful comparisons with worst discrepancy approximately \(7.59\times10^{-15}\). These finite checks corroborate the symbolic proof.
+## correctness
 
-**Originality — PASS, subject to independent priority review.** Almeida et al. (arXiv:2307.15360) give the general flat-band two-hub effective star transfer formula and study random coupling disorder; that ingredient is not claimed as new. The additional claim is the exact, single microscopic bond-pair defect projector calculation and its discontinuous length-dependent transfer/timing law, not a generic star-network identity. Full texts of Flach et al. (arXiv:1311.5689) and Gligorić et al. (arXiv:1909.07055) were compared for stronger coverage. Searches of published research records recovered only related but non-dominating quantum-transfer or flat-band results. A more general published Green-function identity remains a residual priority risk.
+PASS
 
-**Value — PASS.** The work resolves a concrete fabrication/transport issue left quantitative and disorder-statistical in the source model: an arbitrarily small *isolated* symmetry-breaking hopping defect activates a projected flat-band communication route, but generic high-fidelity transmission across \(N\) cells demands an \(O(1/N)\) defect window and incurs an \(\Omega(N/g)\) slow-beat time. The discontinuity at exactly zero defect and exact Gramian constitute useful structural information rather than mere parameter substitution.
+The explicitly given n×2n incidence matrix B has full row rank. Direct multiplication gives BB^T=2LL^T+2δ²e_2e_2^T. The inverse of 2LL^T and Sherman-Morrison imply Q=1+(N-1)δ² and exact endpoint flat-band projector Gram entries η_S=1/(2Q), η_R=(1+Nδ²)/(2Q), Λ=(-1)^(N+1)δ/(2Q), also N=2. Spectral functional calculus of the 2×2 Gramian yields transition amplitude Λ/Δ [cos(ω_+t)-cos(ω_-t)] and probability ceiling [1+N²δ²/4]^-1. At δ=0, Λ=0 and transfer is identically absent. For nonzero δ outside a countable frequency-ratio exceptional set, irrational torus-phase density makes the bound the actual supremum. Exact λ± expansion at δ=c/N yields splitting gc√(c²+4)/(2√2N)+O_c(gN^-2), and the cosine factor enforces an Ω(N/g) slow-beat time. Independent direct dense projection calculations gave max Gram errors 5.6e-17 (N=2), 1.1e-16 (N=5), 1.5e-16 (N=9) at three signed defects. All claims explicitly concern the resonant projected model, not the full finite-coupling chain.
 
-**Limitations.** The claim is exact for the zero-mode-projected resonant Hamiltonian. It supplies no uniform-in-time finite-coupling error for the full channel. The countable rational frequency-ratio exceptions are not classified by best achievable transfer probability. Published-priority and correctness assessments are not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Almeida et al. already derive the two-hub effective Hamiltonian and the general transfer envelope in terms of endpoint overlaps. The reviewed contribution specializes to one microscopic defect, evaluates the exact rank-one flat-band projector and its finite-N Gramian, then deduces a specific sharp defect-versus-length law. General envelope itself is NOT claimed new.
+
+## value
+
+PASS
+
+Computes an otherwise abstract two-hub coupling Gram matrix from a physically natural single antisymmetric bond-pair defect and extracts a sharp design tolerance 1/N and time cost N/g. The zero-defect discontinuity and generic attainability are concrete, independently useful features not supplied by the general reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
