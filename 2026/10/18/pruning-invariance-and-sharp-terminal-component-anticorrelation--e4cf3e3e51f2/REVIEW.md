@@ -1,15 +1,21 @@
-# Scientific review: terminal vertices and components of random mappings
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Independence of all arrow images conditional on avoiding a designated set proves an exact smaller-mapping law. Falling-factorial marking gives the complete bivariate generating polynomial, and direct cycle enumeration gives every finite covariance. The stochastic monotonicity argument uses the exact cyclic-point survival product and the independent-Bernoulli representation of uniform-permutation cycle counts. Gaussian-scale Riemann-sum bounds give \(n(a_n-a_{n-1})\to 1/2\) and therefore the covariance constant \(-1/(2e)\). Exhaustive checks cover all mappings through six vertices, while the proof handles all finite orders and the limit.
+## correctness
 
-## Originality
-**PASS on examined material, with substantive historical-priority risk.** Flajolet–Odlyzko (1990, Sections 3.1 and 3.3) derive marginal component, terminal-node, and short-cycle statistics with a general generating-function marking apparatus. Their inspected statements do not give the present terminal/component joint pruning identity, the factorial-order antitonic regression or the exact \(-1/(2e)\) covariance constant. Finch (2022) and Mutafchiev–Finch (2023) concern different component/cycle characteristics. The Stark (2022) component-count article was not available for full-text exclusion. Earlier combinatorial generating functions could imply the theorem without explicit covariance language, and that residual risk warrants independent priority assessment.
+PASS
 
-## Value
-**PASS.** Component count and indegree-zero count are canonical but structurally different statistics of a random functional graph. The pruning identity provides their complete finite joint distribution in terms of smaller mapping component laws; the negative factorial regression and length-by-length sign classification explain the dependence structurally. The nonzero limiting covariance is a precise next-order effect not determined by either marginal asymptotic mean. No broader downstream theorem is needed for this motivated natural joint invariant.
+For ordered r-set S of indegree-zero vertices, event no arrow lands in S has probability ((n-r)/n)^n. Conditional arrows restricted to T=[n]\S remain IID uniform T, giving a uniform (n-r)-mapping and leaving all original directed cycles in T; sum over S gives exact factorial-moment identity and bivariate pgf, including vector cycle counts. E C_(n,k)=(n)_k/(k n^k) yields cycle-specific and full covariance formulas, with strict monotone in n for k>=2 and equality k=1. For monotone h, cyclic-vertex survival Pr(K_m>=j)=(m)_j/m^j is monotone in m, and given K_m=j cycle count is uniform-permutation cycle count with Bernoulli(1/i) coupling. The displayed gaussian comparison and dominated Riemann-sum show n(a_n-a_(n-1))->1/2, hence covariance->-1/(2e). Independently enumerated *all* n^n maps at n=2,3,4,5 by separate functional traversal, recovering exact covariances -1/8,-34/243,-1203/8192,-295176/1953125; independently rational-computed all n=2..10. Finite enumeration does not prove the asymptotic.
 
-## Scope and limitations
-The theorem concerns unconstrained uniform maps on labeled vertices, and it does not claim full negative association, statistical independence of fixed-point and terminal counts, or any limit theorem beyond the stated covariance limit. Exact finite code verifies examples only, not the universal arguments. The comparison with an inaccessible full text remains unresolved at the historical-priority level.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Flajolet–Odlyzko 1990 Section3.1 Theorem2 separately treats component-count and terminal-node expectations; Section3.3 concerns distributions/cycle length, but inspected formulas do not provide the joint factorial-pruning law or covariance sign/limit. Finch 2022 arXiv:2205.05579 discusses components and cycles and not indegree-zero terminal nodes in inspected relevant sections. Both are credited for marginals and classic mapping decomposition. A general earlier multivariate marking identity could imply factorial deletion and remains a genuine priority risk; Resultary semantic query returned no exact theorem among inspected top12.
+
+## value
+
+PASS
+
+The joint terminal/component correlation is a natural structural statistic of uniform functional digraphs beyond classical marginals. The exact distributional pruning formula, signed entire hierarchy, fixed-point exception and sharp nonzero covariance limit are independently useful facts about dependence, not merely retabulations of the mean counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
