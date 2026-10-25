@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The included standalone `verify.py` checks every weak-Heyting axiom on all edge-generated operations for \(n=1,2,3,4,5\), verifies the box-fiber product formula, and independently enumerates every binary operation table on a three-element carrier. Replayed output:
+# Independent mathematical audit
 
-```
-N 1 BOXES TOTAL SINGLETON MAXFIBER 2 2 2 1
-N 2 BOXES TOTAL SINGLETON MAXFIBER 6 9 4 3
-N 3 BOXES TOTAL SINGLETON MAXFIBER 20 64 8 16
-N 4 BOXES TOTAL SINGLETON MAXFIBER 70 625 16 125
-N 5 BOXES TOTAL SINGLETON MAXFIBER 252 7776 32 1296
-BRUTE_ALL_BINARY_TABLES_ON_3_ELEMENTS 9
-VERIFY_OK
-```
+## correctness
 
-Replay: `python3 verify.py` in a directory containing the extracted code file. These finite enumerations test the formula but are not an infinite proof; the unrestricted argument is in RESULT.md. The cited 2015 count-all study was compared by its published abstract and metadata, not its full text.
+PASS
+
+The four stated weak-Heyting identities force antecedent antitonicity, consequent monotonicity, top for a<=b, and the adjacent-edge minimum formula. Conversely arbitrary edge values satisfy the four axioms. Box values are suffix minima of the edges, yielding all weakly increasing length-n sequences and binom(2n,n) reducts. Each adjacent repeated box value b_i contributes |[b_i,top]| independent edge choices; strictly increasing transitions force edges. The 2^n singleton fibers and maximal (n+1)^(n-1) fiber (unique for n>=2) follow. Independently enumerated and checked every edge vector against all axiom instances for n=1,2,3 and fiber counts.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. The four identities and the non-definability distinction are prior; exact per-box fibers, 2^n singleton reconstructions and the unique maximum are evaluated invariants not logically obtained from an algorithm for counting non-isomorphic total algebras without retaining unary reducts.
+
+## value
+
+PASS
+
+The exact information loss under forgetting a binary strict implication to unary box is a motivated reconstructibility invariant. Fiber formula, singleton classification and maximal ambiguity are structurally useful even when a total count of weak Heyting expansions is computable from existing lattice algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
