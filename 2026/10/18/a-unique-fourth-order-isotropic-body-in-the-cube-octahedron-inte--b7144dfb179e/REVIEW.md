@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces rank-four tensor isotropy to the vanishing of one explicitly defined scalar moment difference by independent sign-flip and coordinate-permutation symmetry. Integration of monomials over the cube-clipped positive simplex yields the exact piecewise polynomials for that difference. A positive-variable Möbius transform has one coefficient sign change on the only root-containing interval, whereas all coefficients are negative on the remaining transition interval. The outer octahedral and cubic ranges have strictly nonzero signs. A separate exact-sign interval certificate excludes sixth-order tensor isotropy at the unique fourth-order root. The standard-library checker regenerates the polynomials directly from a factorial simplex-integral formula; independent sectional quadrature additionally checks fourth moments at four interior parameters. Verification of algebraic signs is complete; no claim rests on floating-point root location or finite sampling.
+## correctness
 
-## Originality
-**PASS under the currently inspected primary literature, with residual historical-priority uncertainty.** Gravin–Lasserre–Pasechnik–Robins (2011) and Gravin–Pasechnik–Shapiro–Shapiro (2012) establish general polytope moment theory and formulas, but not the unique fourth-order isotropy transition for this clipped cube family. Módis–Kovács (2024), inspected in full text including its main symmetry classification, treats only regular Platonic solids, and does not rule out accidental isotropy in nonregular cubic-symmetry bodies. The complete published result on normalized quartic tensors of five Platonic solids was read: it supplies the cube/octahedron endpoint anisotropies but not an interpolating-family theorem. The exact published tetrahedral-volume profile concerns the same family but a different invariant, and neither implies nor subsumes a tensor-moment identity. Actual search queries and closest-source comparisons are recorded in the structured audit. Unindexed mechanics and integral-geometry literature could contain similar special-case computations, so historical novelty is not independently certified.
+PASS
 
-## Mathematical value
-**PASS.** Fourth-order isotropy is a natural invariant in integral geometry, directional moment reconstruction, and the geometry of highly symmetric convex bodies. This is not a finite numeric table: the result identifies and proves uniqueness of a nonregular polyhedron in a continuous truncation family whose fourth moments are indistinguishable from those of a rotationally symmetric distribution despite lack of rotational geometric symmetry. The explicit seventh-degree parameter equation and the rigorous sixth-order obstruction delimit the accidental symmetry sharply. It supplies an exact counterexample to the naive inference that a cubic-symmetry solid cannot have rotationally invariant fourth moments, while emphasizing that symmetry alone does not force isotropy.
+Cubic sign/permutation symmetries reduce quartic isotropy to J400=3J220. Rebuilt the even-monomial exact simplex inclusion–exclusion integral across c in (0,1),(1,2),(2,3),(3,∞), and independently recovered the stated degree-seven defect polynomial and the negative/positive endpoint values. Möbius transforms c=(1+2z)/(1+z) yield the sign sequence ++++++-- (one positive zero by Descartes); c=(2+3z)/(1+z) yields eight strictly negative coefficients, excluding another root; outer octahedron/cube regimes fixed signs. Independent exact symbolic integration recovered sixth defect polynomial and evaluated negative about −0.030309048901344227 at c*=1.6990676583226154; interval-sign certificate supplies proof beyond floating point. Octahedral symmetry implies second-order isotropy for every c, and 24 coordinate signed-permutations of (1,c−1,0) support 6 quadrangular/8 hexagonal facets.
 
-## Closest evidence and limitations
-Consulted primary texts include arXiv:1106.5723, arXiv:1210.3193, DOI 10.2298/FUACE230630022M, and the two directly relevant published mathematical records cited in `RESULT.md`. Scope is uniform volume measure for the specific three-dimensional family, not all cubic-symmetry polytopes. Computations have a reproducible exact checker but no independent scientific audit. Potential unindexed historical inertia tables remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compared mathematical objects, parameter ranges, equivalent transforms, prior stronger results and available exact tables; the specific final theorem is not known to follow from the inspected primary and Resultary findings. The general rational moment generator computes moments for any specified polytope but does not classify where J400−3J220 crosses zero along c. Regular-solid isotropy checks only c endpoint families, not an interior 24-vertex polytope. Different endpoint quartic signs imply at least one interior zero by continuity, but cannot imply uniqueness or sixth anisotropy. Both are proved by independent polynomial sign transforms.
+
+## value
+
+PASS
+
+A natural three-dimensional cube–octahedron interpolation exhibits a unique nonspherical body with fully isotropic fourth volume moments but anisotropic sixth moments. Exact uniqueness and anisotropy obstruction are meaningful structural moment-tensor phenomena and distinguish this special body from the Platonic endpoints; not just a recomputed known moment table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
