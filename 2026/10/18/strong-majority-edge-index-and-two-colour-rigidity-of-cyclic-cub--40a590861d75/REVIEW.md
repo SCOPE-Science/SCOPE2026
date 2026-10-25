@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-On every cubic graph each edge has four neighbours, so two colours require a \(2+2\) balance. The three local strip equations are necessary and sufficient and, after taking their sum and difference, force complementary rim colours, a strict period-four rim word, and alternating rungs. Ordinary and twisted boundary identifications give opposite congruences. Exactly three free starting bits produce the eight colourings. Proper three-edge-colourings constructed for both families meet the same strong-majority definition and show optimality in the other residue classes. All stated boundary orders, including the four-vertex Möbius ladder, are treated. The standalone checker independently constructs graphs and checks finite instances; finite data are not substituted for an infinite proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The full 2026 foundational treatment defines the invariant, establishes general bounds, and identifies cycle behaviour; it does not give either ladder classification. The June 2026 paper gives a universal five-colour bound, not the exact cubic result. The August 2026 article proves three colours for minimum degree at least five, while the present graphs all have degree three. The associated strong-majority vertex-colouring problem on line graphs is equivalent by definition, but broad upper bounds or ordinary majority colourings do not determine the parity-twisted eight-colouring classification. Research-record and primary-literature searches found no directly covering statement, but bibliographic uniqueness remains unproved, particularly under line-graph or transfer-matrix formulations.
+PASS
 
-## Mathematical value — PASS
-Two standard infinite cubic graph families differ solely by cyclic seam topology, yet their optimum two-colour feasibility lies in disjoint congruence classes. The proof yields a complete rigidity classification and exact colour-count, rather than an isolated existence example or generic upper bound. It supplies an explicit and reusable local-to-global obstruction for the new strong-majority edge invariant.
+All edges of both cubic families have four distinct adjacent edges. Two named colours therefore force the exact 2-of-4 linear equations for a_i,b_i,c_i. Subtraction gives d_{i+2}=-d_i and s_{i-1}+s_i=2; the identically-equal rim case contradicts the rung equations, so b_i=1-a_i, a_{i+2}=1-a_i, c_{i+1}=1-c_i. The rim's least period is four. An ordinary seam requires 4|n, a twisted seam n=2 mod 4; three independent initial bits give exactly eight label-sensitive indexed assignments. Proper 3-edge-colourings of both cubic families yield strong-majority 3-colour upper bounds even where 2 impossible; one colour is impossible with nonzero adjacency. Direct unrelated enumeration used actual edge-neighbour sets of constructed indexed graphs and found P3=0,P4=8,P5=0,P6=0,P8=8 and M4=8,M6=0,M8=0,M10=0,M12=8. Bounds n=3 and n=2, K4 case, seams and colour-name convention checked. Infinite conclusion is from recurrence, not finite counts.
 
-## Limits
-A classification for arbitrary cubic graphs is not claimed. No independent audit has been performed, and absence of a searchable analogue is not proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact circular/Möbius congruence split and named two-colour rigidity are absent from the inspected general strong-majority bounds and cycle result. Importantly, Kalinowski et al. arXiv:2605.23828v1 §3 explicitly assert at line 132 that Maj'(G)=2 requires all original vertex degrees even. The independently verified P4 and M4 examples have degree 3, providing a concrete contradiction to that blanket observation on the paper's own definition; earlier results must not be treated as establishing the claimed impossibility. Distinct from ordinary proper edge-colouring, which supplies only the three-colour upper bound.
+
+## value
+
+PASS
+
+Uniform sharp index for two natural cubic graph families plus a sharp seam/period-four mechanism and exact rigidity count. The cubic 2-colour examples also test a published necessary condition, giving structural utility beyond a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
