@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T03:44:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Claim precisely concerns two-sided Fibonacci-language shift with allowed (n+1)-blocks, log base e, m>=3 and F_m-1<=n<=F_(m+1)-2. The length-n Rauzy edge graph presents that SFT. At every nonbispecial n, unique-sided extension prevents missing concatenations, making G_(n+1) its directed line graph: the nonzero spectrum of incidence RS/SR is identical. Published Fibonacci Sturmian bispecial classification gives n=F_(m+1)-2 exactly two first-return circuits of lengths F_(m−1),F_m, so the strictly decreasing return series z^a+z^b hits 1 at unique z in (0,1), proving e^(−a h)+e^(−b h)=1; adjacent bispecial endpoints and line-graph propagation give every index and n=1 boundary. Defining c_m=F_m h, the adjacent Fibonacci ratio tends to 1/phi, whence c_m -> unique positive c with e^(−c/phi)+e^(−c)=1. The full interval of achievable n/F_m mesh limits [1,phi] gives all cluster points [c,phi c], and h=O(1/n). Independently constructed finite Fibonacci factor graphs for n=1..200 matched counts n+1/n+2, single branch and predicted two first-return lengths, and direct numpy adjacency eigenanalysis for n=1..32 satisfied the claimed root equation with maximum residual 2.09e−14. Numerical 0.87391396549 and 1.41402249941 independently recovered. These bounded checks corroborate, never replace the structural infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruin–Leplaideur arXiv:1309.7934v1 Proposition 2.2 and pp.7–8 derive bispecial lengths F_j−2 and consecutive Fibonacci buckles; p.19 Lemma 4.2 proof explicitly identifies the bispecial node as connecting loops of lengths F_{k−1},F_{k−2}.",
+          "Coles et al., Stable covers of subshifts, §2.2 and §3.3, defines canonical covers and studies entropy stability; it does not calculate the Fibonacci-specific full sequence.",
+          "de Luca arXiv:1209.3927 Proposition 3.2 and §4 describe Fibonacci palindromic-prefix periods, not SFT-cover entropy."
+        ],
+        "reasoning": "The 2013 graph-structure theorem is a very strong mathematical near-implication: Perron entropy at bispecial lengths follows immediately from the known two-loop geometry. Propagation through all intervening indices additionally uses the general nonbispecial line-graph identity; the full rescaled continuum follows an elementary Fibonacci limit argument. None of these steps is deep relative to the prior structure. No inspected source states or proves the complete SFT-cover entropy profile as a result; qualified best-of-knowledge originality is assessed with the derivational risk explicit, not by title matching.",
+        "searches": [
+          "web: \"Fibonacci\" \"Rauzy\" \"entropy\" \"finite type approximations\" Sturmian subshift",
+          "web: \"Sturmian\" \"approximations by shifts of finite type\" \"entropy\" Fibonacci",
+          "Resultary: Rauzy graph Fibonacci word loop lengths F_m entropy of canonical shifts of finite type approximations staircase"
+        ]
+      },
+      "checked_sources": [
+        "Bruin–Leplaideur, arXiv:1309.7934v1, Proposition 2.2 and Lemma 4.2, https://arxiv.org/pdf/1309.7934",
+        "Coles–Cyr–Kra–Pavlov, arXiv:2602.04097v1, §2.2 and §3.3, https://sites.math.northwestern.edu/~kra/papers/shift-stablizations.pdf",
+        "Praveen–Rama, arXiv:2210.08629v2, Theorem 3, https://arxiv.org/pdf/2210.08629",
+        "de Luca, arXiv:1209.3927v1, Proposition 3.2 and §4, https://arxiv.org/pdf/1209.3927",
+        "Resultary semantically ranked searches (three actual queries); closest result was current exact subject record, other related records did not discuss its invariant.",
+        "Exact assigned RESULT.md, SLOGAN.txt, VERIFY script, VERIFICATION.md, AUDIT.json, REVIEW.md and METADATA.json (seven blobs at assigned Git tree)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bruin–Leplaideur gives precisely the special Rauzy graph geometry and two adjacent Fibonacci return-circuit lengths; this implies e^(−F_(m−1)h)+e^(−F_m h)=1 at each endpoint by standard Perron/renewal theory.",
+          "At a nonbispecial middle n-word no left/right extension ambiguity occurs, hence the next graph is the directed line graph; incidence matrices AB and BA have identical nonzero eigenvalues, retaining the entropy.",
+          "F_m h converges from continuity of the positive root; the integer mesh of n/F_m over the Fibonacci interval fills [1,phi] in the limit."
+        ],
+        "reasoning": "Exact endpoint spectral roots are direct corollaries of known graph geometry, not independently new lemmas. The claim is the synthesis into a fully indexed canonical finite-type-cover invariant, including all staircase plateaus and the entire scaled accumulation set; literature searched did not exhibit this complete conclusion. The risk that specialists regard it as already implicit in the stronger graph theorem is substantial and recorded, but no inspected prior result provided the entire claim as an express mathematical consequence under its own stated entropy/cover assumptions.",
+        "searches": [
+          "Resultary: Fibonacci Sturmian Markov approximants Perron eigenvalue equation two cycles accumulation scaled entropy",
+          "web: \"Fibonacci\" \"Rauzy\" \"entropy\" \"finite type approximations\" Sturmian subshift",
+          "web: Sturmian shift Markov approximation entropy Fibonacci bispecial word spectral radius",
+          "Primary: Bruin–Leplaideur 2013 Proposition 2.2, §2.2 and Lemma 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary yielded the current claim as the closest match; next related results concerned different S-gap, Dyck, and bounded-type Sturmian invariants, not the same canonical-cover entropy sequence.",
+          "Coles–Cyr–Kra–Pavlov 2026 §2.2 defines its n-th SFT cover using words of length n; the reviewed claim uses words of length n+1, precisely a one-index shift.",
+          "Praveen–Rama 2022 studies generalized ell-Rauzy graph connectivity and defines ordinary Rauzy graphs, but its principal theorem is strong connectivity, not spectral entropy by every length."
+        ],
+        "reasoning": "Aliases tested include finite Markov approximants, higher-block graphs, Fibonacci/Sturmian canonical SFT covers, spectral radius and word-length reindexing. Natural one-index recoding is mathematically the same quantity and was explicitly checked; the inspected general cover and graph papers do not themselves state an equivalent full staircase and full accumulation interval.",
+        "searches": [
+          "Resultary: Fibonacci Sturmian subshift finite type Markov approximation entropy h_n spectral radius Fibonacci return words limit inf lim sup n h_n",
+          "Resultary: Fibonacci Sturmian Markov approximants Perron eigenvalue equation two cycles accumulation scaled entropy",
+          "web: Sturmian shift Markov approximation entropy Fibonacci bispecial word spectral radius",
+          "web: \"Sturmian\" \"approximations by shifts of finite type\" \"entropy\" Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search returned the subject record and structurally different entropy records (primitive Dyck truncation, geometric gap shift, countable Markov finite cutoff); no exact same-property independent table was encountered.",
+          "Praveen–Rama 2022 Figures 1–3 provide finite Rauzy graph illustrations, not all-n entropy data."
+        ],
+        "reasoning": "This is an infinite staircase and a continuum of subsequential limits, rather than a finite database entry; checking for tables still matters because published all-n spectral recurrences would mechanically cover the claim. Such a prior table was not found in the executed queries; absence is not proof.",
+        "searches": [
+          "Resultary: Fibonacci Sturmian subshift finite type Markov approximation entropy h_n spectral radius Fibonacci return words limit inf lim sup n h_n",
+          "Resultary: Rauzy graph Fibonacci word loop lengths F_m entropy of canonical shifts of finite type approximations staircase",
+          "web: Sturmian shift Markov approximation entropy Fibonacci bispecial word spectral radius"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of the exact all-length canonical SFT-cover entropy sequence and complete rescaled accumulation interval; the key bispecial loop theorem of Bruin–Leplaideur is expressly prior and the resulting endpoint spectral root is an elementary deduction. Coles et al. discuss general cover entropy stability, not the Fibonacci-specific invariant. The novelty judgment is specifically for the complete synthesis, not generic Sturmian graph structure, Perron theory, Fibonacci constants or the known graph geometry.",
+      "residual_risks": [
+        "The endpoint Perron-root formula is virtually immediate from the already published bispecial two-loop graph theorem; the all-index staircase and scaled interval might be recognized by specialists as routine consequences and/or implicit in older descriptions.",
+        "Earlier nonindexed literature on Sturmian Markov approximations or predecessor Arnoux–Rauzy graph theory may contain an equivalent entropy sequence under different conventions; search is not exhaustive.",
+        "Four relevant primary PDFs were inspected in pertinent mathematical sections, not every page and reference or all historical theses; best-of-knowledge novelty is not a universal priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general cover definitions and entropy-stability criterion; inspected text does not formulate Fibonacci full entropy plateaus or scaled accumulation interval",
+          "evidence": [
+            "§2.2 defines X_n using forbidden words of lengths up to n (offset +1 against Y_n).",
+            "§3.3 characterizes entropy stability, while §4.2 uses a Sturmian auxiliary language in a different construction; the PDF text has no Fibonacci occurrence."
+          ],
+          "identifier_or_url": "https://sites.math.northwestern.edu/~kra/papers/shift-stablizations.pdf",
+          "material_read": "Full 25-page PDF relevant introduction, §2.2 precise cover convention, §3.1–3.3 entropy stability, and §4.2 Sturmian example; searched Fibonacci and Sturmian in retrieved text",
+          "method": "Read primary PDF text, section and word search; visually inspected PDF page 3",
+          "title": "Stable covers of subshifts",
+          "trigger": "Same canonical SFT covers, direct contemporaneous entropy-stability question"
+        },
+        {
+          "assessment": "COVERS the critical bispecial lengths and the adjacent Fibonacci loop geometry, so endpoint entropy root is a routine consequence; no explicit canonical-cover all-level entropy or rescaled cluster-set theorem located in inspected relevant sections",
+          "evidence": [
+            "Proposition 2.2: bispecial words have length F_j−2.",
+            "p.8 explains two buckles of consecutive Fibonacci numbers minus one.",
+            "p.19 states the bispecial node connects loops of lengths F_(k−1),F_(k−2); its application is return-time estimates for thermodynamic formalism."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.7934",
+          "material_read": "Full arXiv PDF §§2.1–2.2 Proposition 2.2 and proof, §4.1 Lemma 4.2 graph-return discussion and surrounding phase-transition context",
+          "method": "Read primary PDF mathematical statements and proof; visually inspected PDF pp.8 and 19",
+          "title": "Renormalization, Freezing Phase Transitions and Fibonacci Quasicrystals",
+          "trigger": "Strongest matching special Rauzy graph and possible exact implication"
+        },
+        {
+          "assessment": "COVERS counts and connectivity of generalized and ordinary Fibonacci Rauzy graphs, not the exact topological entropy of every canonical finite-type cover",
+          "evidence": [
+            "§1 gives ordinary Rauzy graph convention.",
+            "§5 Theorem 3 proves strong connectivity of ell-Rauzy graphs; no complete entropy staircase or scaled continuum appears in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08629",
+          "material_read": "Full ten-page primary PDF definitions in §§2–3, examples and figures, §4 counting arguments, §5 Theorem 3 connectivity",
+          "method": "PDF text and page 4 image inspection; theorem and figure review",
+          "title": "A Note On ell-Rauzy Graphs for the Infinite Fibonacci Word",
+          "trigger": "Graph definitions, Fibonacci connectivity, possible spectral theorem"
+        },
+        {
+          "assessment": "COVERS Fibonacci central-word and palindromic-prefix periods but does not express the canonical SFT-cover Perron eigenvalue sequence or limit interval",
+          "evidence": [
+            "Proposition 3.2 states |psi(v)|=p_x(v)+p_y(v)-2 for central periods.",
+            "§4 Theorems 4.1 and 4.5 are about extremal Fibonacci palindromic-prefix length and minimal periods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.3927",
+          "material_read": "Full PDF abstract/introduction, §3 Proposition 3.2 central-word period identity, §4 extremal period theorems; selected page images",
+          "method": "Read relevant primary mathematical passages, PDF term search and visually inspected page 4",
+          "title": "Some extremal properties of the Fibonacci word",
+          "trigger": "Underlying Fibonacci special lengths and palindrome-period identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical finite-memory SFT approximations of a paradigmatic zero-entropy Sturmian system are a natural object; their exact entropy convergence rate and full rescaled cluster set quantify a sharp obstruction to replacing an O(1/n) decay by a single first-order asymptotic constant. The result provides a complete, all-index natural entropy profile beyond a single finite computation. Scientific scope is modest because the core graph input is known and elementary Perron algebra produces the formula; no general Sturmian-rate theorem, asymptotic novelty beyond the stated profile, or downstream result is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bruin–Leplaideur, arXiv:1309.7934v1, Proposition 2.2 and Lemma 4.2, https://arxiv.org/pdf/1309.7934",
+    "Coles–Cyr–Kra–Pavlov, arXiv:2602.04097v1, §2.2 and §3.3, https://sites.math.northwestern.edu/~kra/papers/shift-stablizations.pdf",
+    "Praveen–Rama, arXiv:2210.08629v2, Theorem 3, https://arxiv.org/pdf/2210.08629",
+    "de Luca, arXiv:1209.3927v1, Proposition 3.2 and §4, https://arxiv.org/pdf/1209.3927",
+    "Resultary semantically ranked searches (three actual queries); closest result was current exact subject record, other related records did not discuss its invariant.",
+    "Exact assigned RESULT.md, SLOGAN.txt, VERIFY script, VERIFICATION.md, AUDIT.json, REVIEW.md and METADATA.json (seven blobs at assigned Git tree)."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one assigned mathematical record. Full mathematical proof depends on published Fibonacci bispecial geometry; finite checks n<=200 are diagnostics only.",
+    "Primary-source reading covers high-relevance sections and identifiable claims, not every obscure historical document.",
+    "Plan withheld for confidential public-file content and missing complete sanitized guarded replacement bytes; this does not reverse scientific judgment."
+  ],
+  "residual_risks": [
+    "The endpoint Perron-root formula is virtually immediate from the already published bispecial two-loop graph theorem; the all-index staircase and scaled interval might be recognized by specialists as routine consequences and/or implicit in older descriptions.",
+    "Earlier nonindexed literature on Sturmian Markov approximations or predecessor Arnoux–Rauzy graph theory may contain an equivalent entropy sequence under different conventions; search is not exhaustive.",
+    "Four relevant primary PDFs were inspected in pertinent mathematical sections, not every page and reference or all historical theses; best-of-knowledge novelty is not a universal priority guarantee.",
+    "Finite factor checks do not prove unrestricted Fibonacci combinatorics; the proof relies on the published bispecial/return-graph theorem and on the incidence/limit arguments.",
+    "The package has confidential scope_run_id in AUDIT.json and METADATA.json and process-role wording in REVIEW.md; public sanitization and consistent status update are not verified, so publication must be withheld."
+  ],
+  "schema_version": 1
+}
