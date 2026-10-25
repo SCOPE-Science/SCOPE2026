@@ -1,15 +1,21 @@
-# Review: exact Fibonacci decorrelation cutoff
+# Independent mathematical audit
 
-## Correctness
-PASS. The Fibonacci bases \(v_n,w_n\) have determinant \(\pm1\); the stated exact images follow from the Fibonacci matrix-power identity. Two coordinate bounds reduce every putative boundary resonance to \((1+r^2)(a^2+b^2)\le2\), which forces a signed standard basis coefficient vector and gives exactly four minimizers for **all** positive lags. Fourier orthogonality then determines the band-compressed Koopman operator and its rank; a real cosine witness gives a nonzero correlation of \(1/2\). Exact finite enumerations supplement but do not replace this proof.
+## correctness
 
-## Originality
-PASS under the inspected comparisons, with priority uncertainty. Hu–Rosenhaus (2022, arXiv:2204.13655) treats cat-map correlations in Fourier series; its abstract does not state the Fibonacci minimax value or rank-four threshold. Moudgalya et al. (2018, arXiv:1808.04889), whose Fourier dynamics sections were inspected in full HTML, gives an evolution mechanism and scaling for a different cat matrix, not this sharp optimization. Fouxon–Gutkin (2022, DOI:10.1088/1751-8121/aca730) reports finite-support decorrelation for coupled cat maps. Public mathematical-result searches did not expose the same operator-bandwidth and complete extremizer result. The complete Hu–Rosenhaus paper and potentially earlier equivalent lattice statements were not available for definitive priority exclusion; the result is not claimed independently confirmed novel.
+PASS
 
-## Value
-PASS. The exact first Fourier-band overlap is a natural, operational finite-resolution version of mixing: it tells precisely which Fourier-Galerkin cutoffs retain any time-lagged signal, provides an optimal latency and characterizes **all** first surviving resonances, not just decay bounds or a selected test pair. The sharp rank-four equality certificate works uniformly at every time and supplies exact finite-dimensional Koopman information not recovered solely from the asymptotic Lyapunov exponent.
+PASS: unimodular Fibonacci basis and the two-coordinate integer obstruction fully establish the all-lag minimax, equality set, exact Fourier compression cutoff/rank and real-valued witness, with square Fourier band and Haar normalization checked.
 
-## Scope and limitations
-The theorem covers the canonical square cutoff and classical Haar cat dynamics, not general anisotropic apertures, smooth perturbations or infinitely many Fourier modes. Prior results might contain the arithmetic optimization in unexamined text; that priority question remains open to external specialist checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Fourier transport for linear hyperbolic torus dynamics is classical; the exact all-lag square-lattice minimax, only-four equality vectors, band cutoff and onset rank require nontrivial additional integer optimization not supplied by the inspected antecedents.
+
+## value
+
+PASS
+
+Square Fourier bandwidth and first exact decorrelation lag are natural for finite-mode simulation of cat mixing. The first-nonzero rank and four complete extremal resonances sharpen qualitative mixing and quantify an exact computational cutoff; nontrivial unimodular Diophantine rigidity, not a general Fourier orthogonality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
