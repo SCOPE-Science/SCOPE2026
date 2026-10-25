@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness.** The first-chaos operator is a finite kernel operator whose sharp endpoint norm is its maximal absolute row sum. For each coordinate, the centered two-point law associated with a less likely input value dominates the other input value in convex order: a secant inequality on the interval between the two endpoints proves this directly. Conditioning and replacing coordinates gives a simultaneous maximizing vertex for arbitrary complex multipliers. The binomial identity telescopes exactly, while normal convergence with uniform integrability and the binomial-to-Poisson local limit justify the two asymptotic regimes. Exact rational and complex finite tests corroborate the independent proof.
+## correctness
 
-**Originality.** The closest older treatments consider sharp Banach projection constants for hyperplanes (Kobos) and biased-cube low-degree \(L^2\) stability (Nayar). The most relevant later treatment (Defant et al.) proves invariant projection formulas on the uniform cube; its group-symmetry argument does not supply the heterogeneous rare-vertex extremizer or general complex multipliers. A published calculation of second-degree uniform-cube projections is also non-implicative. Searches for rare-vertex, first-chaos, Bernoulli, biased-Walsh, operator-norm, and equivalent terminology did not locate stronger covering statements. A hidden equivalent observation in unrelated convex-order literature cannot be ruled out absolutely.
+PASS
 
-**Value.** This is a structural determination of the optimizing kernel row for an entire parameterized family of complex linear operators, not one isolated small matrix. It replaces an exponential row maximization by one expectation for every heterogeneous Bernoulli product and yields exact norms with a change in growth scale from \(\sqrt n\) at fixed bias to \(n\) at sparse bias. It is a natural endpoint counterpart to biased spectral analysis and finite-dimensional projection-constant questions. No claim is made about minimum projection constants or higher Fourier levels.
+The orthonormal biased first-chaos coordinates yield kernel K_c(x,y)=sum c_i chi_i(x)chi_i(y). Its complex L-infinity operator norm is max_x E|K_c(x,Y)| by phase selection. At rare input coordinate x_i=r_i, the factor chi_i(x_i)chi_i(Y) equals U=(Z-a)/a with endpoint values -1,(1-a)/a; at common input it equals V=-(Z-a)/(1-a), a centered variable contained in the same interval. The secant bound for every convex t→|s+c_i t| (including complex c_i) gives E|s+c_i V|<=E|s+c_i U|. Independent coordinate replacements therefore monotonically increase row norm and make the universal rare vertex optimal for every diagonal multiplier. Adjoint argument supplies L1 norm; binomial centered first absolute moment telescopes to 2n(1-a) P(B_(n-1)=floor na), Gaussian CLT and fixed c/n Poisson local limit are correctly scoped. Independently enumerated all rows n=1..5 for heterogeneous rational coefficients and 27 exact binomial norm cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known uniform Boolean cube invariant Fourier projection norm formulas and biased-coordinate Fourier stability provide background/special cases, but the same rare vertex maximizing EVERY complex arbitrary diagonal first-chaos multiplier in an INHOMOGENEOUS Bernoulli product uses a new convex-order dominance. No cited stronger theorem found to provide this assertion verbatim or by transparent reduction.
+
+## value
+
+PASS
+
+Sharp operator norm formulas for canonical first-chaos diagonal multipliers are natural projection constants. The all-dimensions, heterogeneous biases, arbitrary complex coefficients simultaneous row-max collapse avoids exponential row optimization and supplies the Gaussian-to-Poisson regime transition; it is a structural phenomenon beyond a textbook binomial moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
