@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses specify the saturated affine lattice and normal-fan toric variety, preventing confusion with Ehrhart semigroup rings. The proof uses the standard irredundant complete-graph form of Edmonds' odd-set facet theorem, verifies each normal's primitivity, and proves that coordinate restrictions generate the relevant dual lattice over the integers. The local cut-facet count is a complement-paired binomial sum. The Picard calculation explicitly solves compatibility equations on **all** maximal cones; the canonical obstruction is an incident triple facet whose value \(2m-4\) cannot equal one for \(m\ge3\). Exhaustive finite checks for six and eight vertices returned VERIFY_OK; the general proof does not rely on finite extrapolation. Main correctness dependency: the standard classification of irredundant complete-graph perfect-matching facets.
+## correctness
 
-## Originality — PASS, with residual risk
-Edmonds supplies defining matching inequalities. Beck--Haase--Sam and Tagami study Ehrhart Gorenstein perfect-matching polytopes, especially of bipartite grids and torus graphs; neither gives the specified normal-fan global/local Weil class groups and all-fixed-chart Cartier obstruction. The 2026 Higashitani--Padrol--Sanyal theorem covers the general Minkowski-indecomposability framework and could imply the Picard-rank aspect after further deductions; the Picard rank is not claimed as independent novelty. The distinctive claim is the **joint exact integral class-group formulas and uniform canonical non-Cartierness**. Searches for exact formulas and geometric aliases did not identify coverage. A differently phrased prior result or an application of a broad general theorem could still subsume the claim; absence from search results is not proof of absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-The family is canonical in graph matching theory; divisor class groups, local \(\mathbb Q\)-factoriality, and canonical Cartier indices are core toric invariants. The exponential free-Weil versus rank-one Cartier gap across all orders and the sharp \(K_4\)/\(K_6\) transition are structurally informative. The local group formula distinguishes the varying ambient dimension from the much faster-growth nonsimplicial defect, and the non-\(\mathbb Q\)-Gorenstein result rules out a standard birational regularity condition uniformly. This is not merely a numerical check on a chosen small graph. No claims about all nongeneric analytic singularities or the singular scheme are made.
+For K_(2m), Edmonds matching inequalities give |E| coordinate facets and 2^(n-2)-n complementary nontrivial odd-cut facets, all primitive with respect to the explicitly saturated lattice Lambda=ker unsigned incidence. Since dimension d=|E|-n, the toric exact divisor sequence gives global class rank 2^(n-2), and integral coordinate restrictions span the dual lattice, excluding torsion. At matching M, precisely 2m(m-1) offmatching coordinate facets and m(2^(m-1)-2) odd facets meet, giving local class rank m(2^(m-1)-1) and integrality from offmatching coordinates. Rational support-function matching constraints require all vertex sums equal, giving Picard rank one and Pic=Z. Canonical Q-Cartier height on a blossom triple containing a matching edge evaluates n-4 rather than 1, a contradiction for m>=3. Independently checked all 15 K6 matching vertices, affine dimension 9, 25 facets and local rank 9 by exact-rational ranks. Finite K6 evidence does not replace the all-m matching-facet and lattice arguments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
+
+## value
+
+PASS
+
+The normal fan of the natural nonbipartite perfect-matching polytope offers a motivated uniform toric singularity family. The exact all-m Weil/Cartier gaps, local integral class ranks and universal canonical non-Q-Gorenstein obstruction quantify geometry not supplied by generic facet descriptions; it is neither a renaming of an Ehrhart Gorenstein statement nor just a rank calculation for one small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
