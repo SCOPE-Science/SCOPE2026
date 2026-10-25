@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:44:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The permitted weights are distinct products of exactly seven distinct rational primes. Independent enumeration of squarefree integers with omega(n)=7 recovered the first weight 510510 and c_3100=19111638, c_3101=19114095; an independently written exact 40,000,001-bit 0/1 subset-sum dynamic program with exactly those first 3100 weights proved 19027139 unreachable while every integer from 19027140 through 40000000 reachable. Unused weights exceed the alleged gap, so non-representability persists. For each c_j, replace its largest prime by the next prime q<2p by Bertrand: a valid 7-prime product is strictly between c_j and 2c_j, forcing c_(j+1)<2c_j. The starting interval width 20972861 exceeds c_3101, and two translated intervals concatenate inductively with growing width >= c_(j+2). This proves the infinite tail; the finite DP is exact, not sampling. The separate checked source C++ and alternative Python implementations show independent algorithm designs; own independent third implementation corroborated the exact finite certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li 2026 addresses Egyptian fraction representations with semiprime denominators, not sums of distinct seven-prime products of integers."
+        ],
+        "reasoning": "Different semigroup and function: no implication for max nonrepresentable integer in the specified integer coin set.",
+        "searches": [
+          "Resultary semantic: seven distinct prime factors subset sums largest nonrepresentable integer conductor Butler Erdos Graham a(7)",
+          "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+          "https://arxiv.org/abs/2606.15159"
+        ]
+      },
+      "checked_sources": [
+        "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+        "https://arxiv.org/abs/2606.15159",
+        "assigned Git RESULT.md blob 8f4d6e35e9a69229b353c0b7c063fcf1553010b0",
+        "assigned Git verify_exact.cpp blob 28a8f70671a347c2c04df4dcf2d8a7ea6d918bb7",
+        "assigned Git verify_alternate.py blob 019589d1ea95ff8ecf515762993701d02bfd0a0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior 2015 paper asks to compute a(k) and gives general representability methods and the first six cases."
+        ],
+        "reasoning": "Neither a general existence theorem nor the first six conductors determines the exact seventh value; the new finite gap certificate and propagation are necessary.",
+        "searches": [
+          "Resultary semantic: seven distinct prime factors subset sums largest nonrepresentable integer conductor Butler Erdos Graham a(7)",
+          "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+          "https://arxiv.org/abs/2606.15159"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Butler–Erdős–Graham define a(k) as maximum integer not a sum of distinct products of k distinct primes."
+        ],
+        "reasoning": "The source poses exactly this problem; supplied six earlier values do not resolve seventh. The equivalence is acknowledged.",
+        "searches": [
+          "Resultary semantic: seven distinct prime factors subset sums largest nonrepresentable integer conductor Butler Erdos Graham a(7)",
+          "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 2 of Butler–Erdős–Graham gives a(1)=6, a(2)=23, a(3)=299, a(4)=3439, a(5)=51637, a(6)=894211 but no a(7)."
+        ],
+        "reasoning": "Targeted exact numerical/conductor searches found no scientific tabulation of 19027139 as a(7); unindexed computations remain possible.",
+        "searches": [
+          "Resultary semantic: seven distinct prime factors subset sums largest nonrepresentable integer conductor Butler Erdos Graham a(7)",
+          "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+          "https://arxiv.org/abs/2606.15159"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Butler–Erdős–Graham introduced the exact conductors a(k), asked for further values, and listed a(1) through a(6) only. Their original full article was inspected and its page-eight question read. An unrelated 2026 result on distinct semiprime unit fractions solves a different reciprocal-denominator problem, not integer subset sums of squarefree 7-almost-primes. No matching previously published seventh conductor located after statement/number searches; possible prior computational table outside indexed sources remains a risk.",
+      "residual_risks": [
+        "An earlier offline or unindexed seventh conductor table is not excluded by online search.",
+        "The very large bitset certificate is independently reproducible rather than a compact symbolic hand proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGIN_OF_OPEN_SEQUENCE",
+          "evidence": "Explicitly states first six conductor values and asks to determine further a(k); no seventh exact value appears.",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+          "material_read": "Complete original PDF source with targeted Section 2/page-eight sequence and open a(k) question, verified using page screenshot",
+          "method": "author-hosted primary PDF text and screenshot",
+          "title": "Egyptian Fractions with Each Denominator Having Three Distinct Prime Divisors",
+          "trigger": "Exact originating question and potential published seventh value"
+        },
+        {
+          "assessment": "INAPPLICABLE_SUMMAND_OBJECT",
+          "evidence": "Unit-fraction denominators are not 7-prime-product integer summands; no dominance.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15159",
+          "material_read": "Abstract and representation formulation from arXiv entry",
+          "method": "arXiv abstract/bibliographic inspection",
+          "title": "Every Natural Number Is a Sum of Distinct Semiprime Unit Fractions",
+          "trigger": "Possible broader representability corollary"
+        },
+        {
+          "assessment": "ESTABLISHED_LEMMA",
+          "evidence": "Suffices for c_(j+1)<2 c_j, the sole infinite step.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Bertrand%27s_postulate",
+          "material_read": "Classical statement: for each integer m>1 a prime exists strictly between m and 2m",
+          "method": "standard mathematical theorem used directly, not a priority source",
+          "title": "Bertrand postulate",
+          "trigger": "Whether prime-gap propagation assumes anything unproved"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The seventh case of an explicitly posed arithmetic conductor sequence is an independently meaningful exact sharp invariant. Determining both the final missing integer and proving all integers thereafter represented requires a nontrivial exhaustive 0/1 finite certificate plus a rigorous infinite propagation lemma; neither is a trivial parameter substitution of the six published cases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mathweb.ucsd.edu/~ronspubs/15_04_egyptian.pdf",
+    "https://arxiv.org/abs/2606.15159",
+    "assigned Git RESULT.md blob 8f4d6e35e9a69229b353c0b7c063fcf1553010b0",
+    "assigned Git verify_exact.cpp blob 28a8f70671a347c2c04df4dcf2d8a7ea6d918bb7",
+    "assigned Git verify_alternate.py blob 019589d1ea95ff8ecf515762993701d02bfd0a0d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Summands must each be used at most once; prime factors within each summand are distinct.",
+    "No all-k closed formula or claim for repeated-prime-factor weights."
+  ],
+  "residual_risks": [
+    "An earlier offline or unindexed seventh conductor table is not excluded by online search.",
+    "The very large bitset certificate is independently reproducible rather than a compact symbolic hand proof."
+  ],
+  "schema_version": 1
+}
