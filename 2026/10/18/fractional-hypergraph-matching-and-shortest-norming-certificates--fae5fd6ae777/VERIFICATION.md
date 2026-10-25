@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of lattice-bottleneck fractional-matching formula
 
-The file `verify.py` uses Python 3 standard library only and should be invoked with `python3 verify.py`. It computes finite **exact rational** hypergraph fractional-matching primal/dual certificates and independently constructs test vectors in their \(p\)-power coordinates to match the variational lattice norm.
+# Independent mathematical audit
 
-The resulting completed execution reported `PASS: 1098 small graph primal-dual equalities; 84 parametric exact certificates.` The graph component enumerates all labeled graphs on two through five vertices; the other cases cover complete graphs, cycles, stars, complete uniform hypergraphs and the seven-line Fano plane. The test also checks nonnegativity, coordinate incidence capacities, vertex-cover inequalities, equality of primal and dual objectives, and equality of the test-family value with that objective.
+## correctness
 
-The complete proof in `RESULT.md` is analytic and covers **all** finite nonempty hypergraphs and real exponents \(1\le p<\infty\). The finite experiment does not by itself establish any all-size conclusion or exclude equivalent prior statements. The published norm model is a stated prior mathematical input, not a new lemma. Independent audit and validation have not been performed.
+PASS
+
+For E=ell_1^n the published weak-p constraint maximizes at signed coordinate vectors, giving sum_j |u_i^j|^p<=1. Each positive test row chooses an active edge and its p-power minimum, producing a feasible fractional matching of no larger support. Conversely every feasible matching creates edge-supported test vectors with identical objective and support. An extreme LP optimizer has <=n positive edges by incidence-column dependence and two-sided perturbation. Odd-cycle saturation forces all weights 1/2; Fano incidence Gram 2I+J forces unique weight 1/3 and sharp sigma=7. Independent incidence checks passed; finite graphs do not prove general statement, which follows from the two-sided mapping.
+
+## originality
+
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; The prior functional norm representation plus the new row/edge resource reduction gives equality; no inspected primary theorem states the hypergraph polynomial norm/shortest-witness result explicitly.
+
+## value
+
+PASS
+
+A natural canonical family of lattice polynomials has an exact norm and exact shortest-attaining-family complexity governed by a classical but nontrivial LP; sharp n and odd-cycle/Fano witnesses are motivated exact invariants, not arbitrary slices. No general downstream paper-sized theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

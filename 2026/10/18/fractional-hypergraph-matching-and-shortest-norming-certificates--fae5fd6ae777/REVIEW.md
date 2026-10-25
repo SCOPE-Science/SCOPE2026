@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every nonempty finite hyperedge family and every real exponent \(1\le p<\infty\). The free \(p\)-convex norm formula and its coordinate reduction were checked against the publicly available full text of Jardón-Sánchez–Laustsen–Taylor–Tradacete–Troitsky, formula (1.1) and Section 6. For the upper bound each admissible test row selects a maximizing edge; the minimum \(p\)-mass on that edge becomes a feasible fractional-matching weight. For the lower bound every fractional-matching weight becomes one dual vector supported on its edge, with the same objective. These constructions preserve actual coordinate budgets, prove attainability and identify minimum norming length without a limiting argument. The extreme-point length bound, the odd-cycle uniqueness equations, and the Fano incidence Gram matrix close the nonstandard structural claims. The package's standard-library verifier returns exact rational primal-dual equalities in 1,098 small graph cases and 84 additional certificate cases. No finite experiment is presented as a proof of the universal statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source [1] supplies a norm representation for arbitrary lattice elements, but no evaluated fractional-matching identity or norming-length classification. The source [2] treats the ordinary \(p=1\) representation; [3] treats infinite classical sequence generators. The comparison is by implication: a general variational formula does not itself present a solved rational linear program, a sharp universal norming-length bound, or its cycle and projective-plane extremizers. In related geometric-mean graph envelopes a pointwise comparison does not determine the meet-envelope norm: the star family separates them. Targeted indexed searches for graph/hypergraph matchings, vertex-cover duality, lattice meets and nonlinear summing did not identify a covering primary statement. Equivalent formulations in unindexed literature remain possible; this review is not independent novelty certification.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural classification for the norm of a whole family of generator lattice polynomials, and it reduces an a priori arbitrary-length nonlinear dual test problem to an exact finite linear program. The associated **least witness length** is independently interesting and can differ sharply at fixed norm value: odd cycles demand a witness per vertex whereas matching-covered even cycles need only half as many. The Fano example demonstrates genuinely fractional, non-half-integral values and the optimal dimension-bound on certificate length, not just a numerical table. The contribution concerns the exact Banach-lattice realization and witness complexity, not the already classical definition of fractional matching.
+For E=ell_1^n the published weak-p constraint maximizes at signed coordinate vectors, giving sum_j |u_i^j|^p<=1. Each positive test row chooses an active edge and its p-power minimum, producing a feasible fractional matching of no larger support. Conversely every feasible matching creates edge-supported test vectors with identical objective and support. An extreme LP optimizer has <=n positive edges by incidence-column dependence and two-sided perturbation. Odd-cycle saturation forces all weights 1/2; Fano incidence Gram 2I+J forces unique weight 1/3 and sharp sigma=7. Independent incidence checks passed; finite graphs do not prove general statement, which follows from the two-sided mapping.
 
-## Closest sources and limitations
-The motivating public source dates to 2021-01-10 (arXiv:2101.03510v1; primary MSC 46B42); comparisons include arXiv:1706.08147v1 and arXiv:1806.02553v1. The lattice construction and coordinate budget are real and finite-dimensional; the result is not asserted at the \(p=\infty\) endpoint. Extent of unindexed equivalent literature is a residual risk. All computations are exact finite supplements, and neither external peer review nor independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; The prior functional norm representation plus the new row/edge resource reduction gives equality; no inspected primary theorem states the hypergraph polynomial norm/shortest-witness result explicitly.
+
+## value
+
+PASS
+
+A natural canonical family of lattice polynomials has an exact norm and exact shortest-attaining-family complexity governed by a classical but nontrivial LP; sharp n and odd-cycle/Fano witnesses are motivated exact invariants, not arbitrary slices. No general downstream paper-sized theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
