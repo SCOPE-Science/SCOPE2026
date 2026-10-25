@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 8a0b7fc2a37a8a749ea2c23472d16d360b47fed3 two-round game lemma and finite-state proof",
+        "verify.py 522ab3b09cbccd34adccc600cd5ea50e42938ea9 direct 2-move game cross-check",
+        "Independent state BFS with complete append-transition closure, reversal orbit test and palindromic witness enumeration"
+      ],
+      "rationale": "The rank-two EF game characterizes each finite word by the SET of all first-picked point characters (letter, set of letters to left, set to right). Duplicator matches the first point exactly iff the two character types have matching letter and left/right sets; every second point is then matchable in either direction. The exact append transition T_a maps each existing (c,L,R) to (c,L,R∪{a}) and appends (a,U,∅), so BFS from empty signature is closed under both a in {0,1} after exactly 97 states; restricting to words containing both letters gives 90 states for arbitrary lengths. Reversal swaps L,R and fixes exactly 20 of the 90; explicit all-palindrome enumeration through length 9 realizes all and only these 20, proving sufficiency. Distribution of shortest palindrome lengths 3:2, 4:2,5:6,6:2,7:6,9:2 follows. Both nine-length extremes have eight distinct characters, including self-reversing center characters for colors 0 and 1; any length-eight palindrome duplicates each such character in mirror pairs and cannot represent all eight, proving sharp nine, while unrestricted length-eight representatives exist. Independent separately-written BFS/characters/direct game verifier reproduced 97/90/20 and the nine-length witnesses; proof rests on state closure, not arbitrary bounded-word extrapolation.",
+      "residual_risks": [
+        "Only two named letters and quantifier rank <=2; no higher-rank/more-color palindrome criterion asserted.",
+        "Finite word-length check alone would be invalid, but full 97-state transition closure proves every finite length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mwesigye–Truss 2019 classifies optimal unrestricted representatives for m colors, including 90 two-color rank-2 types and length bound m²+2m=8.",
+          "Their broader m-color class bound does not bound shortest palindromic representatives by 8, and the submitted two states actually need 9."
+        ],
+        "reasoning": "A general unrestricted-optimal-representative theorem is not stronger in the palindrome-restricted metric; symmetry introduces a different optimization target.",
+        "searches": [
+          "Resultary: Finite binary coloured linear orders rank two Ehrenfeucht Fraisse palindrome reversal invariant 90 classes 20 palindromic minimal length nine",
+          "Mwesigye Truss On Optimal Representatives of Finite Coloured Linear Orders 2019"
+        ]
+      },
+      "checked_sources": [
+        "Mwesigye–Truss 2019 Order open primary full text (relevant Sections 1–2)",
+        "Mwesigye–Truss 2011 Order 28 primary full-text relevant Definition 1.1/Theorem 1.2",
+        "Resultary published one-red rank profiles 2026",
+        "Resultary search palindrome rank-two equivalence and optimal representatives"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier 2011 character method and 2019 unrestricted 90/8 classification are explicit prior facts.",
+          "They do not logically force reversal-fixed iff palindrome-realizable: a fixed equivalence class may generally lack any point fixed under an involution, so sufficiency requires the 20 constructive palindrome witnesses."
+        ],
+        "reasoning": "Prior 90-state theory count alone cannot imply exactly 20 palindromic states, length-nine necessity, or the two extremal representatives; this requires new symmetry-specific finite state analysis.",
+        "searches": [
+          "doi:10.1007/s11083-010-9178-9",
+          "doi:10.1007/s11083-018-9458-3",
+          "Resultary: Finite binary coloured linear orders rank two Ehrenfeucht Fraisse palindrome reversal invariant 90 classes 20 palindromic minimal length nine"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any word w, rank-two theory is S(w); reversal sends (c,L,R) to (c,R,L); a theory has a palindrome representative exactly iff its S-state is fixed by this involution.",
+          "Extremal shortest-palindrome m=9 vs unrestricted m=8 quantifies a genuine symmetry-constrained length cost."
+        ],
+        "reasoning": "Examined reverse-word automorphism, involutive 2-types, 2-round EF normal forms, palindrome representative equivalent formulations; no retrieved earlier 20-class classification.",
+        "searches": [
+          "Resultary: Finite binary coloured linear orders rank two Ehrenfeucht Fraisse palindrome reversal invariant 90 classes 20 palindromic minimal length nine",
+          "rank 2 two color linear order palindrome reversal invariant Ehrenfeucht Fraisse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 2019 two-color table has 90 unrestricted theories; current direct reversal involution and palindrome enumeration isolates 20 fixed states with histogram 2,2,6,2,6,2 over lengths 3,4,5,6,7,9.",
+          "Resultary one-red-order rank-q table covers exactly one occurrence of a color, unlike unrestricted both-color words; palindrome coding tables use a different channel equivalence."
+        ],
+        "reasoning": "No same palindrome-intersection table was located in published records inspected; its value comes from complete 97-state certificate and sharp extremal obstruction, not a search null.",
+        "searches": [
+          "Resultary: Finite binary coloured linear orders rank two Ehrenfeucht Fraisse palindrome reversal invariant 90 classes 20 palindromic minimal length nine",
+          "\"90\" \"palindrome\" colored linear orders EF game"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution is exactly reversal-fixed/palindromic two-color rank-two classes (20 of the already known 90), the exact shortest palindrome-length histogram and extremal nine-position gap. Mwesigye–Truss 2011 and 2019 settle character method, 90 two-color classes and unrestricted length-eight representative bounds, which are acknowledged as prior. Primary open 2019 article Sections 1–2 describes optimal unrestricted rank-two representatives, with no palindrome-specific classification in inspected material. Resultary nearer one-red signature work is a proper subfamily; existing palindrome-duplication coding papers study different equivalence relations.",
+      "residual_risks": [
+        "Older finite-coloured-order papers or theses could contain an unindexed reversal-representative appendix; no exhaustive priority certification.",
+        "The results do not generalize automatically to higher quantifier ranks or larger alphabets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING reversal-constrained theorem in inspected portions",
+          "evidence": "Paper records the known 90 two-color rank-two classes; m²+2m unrestricted length 8. Does not state 20 palindrome-realizable types or sharp 9 in relevant sections.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/129275/15/Mwesigye-Truss2019_Article_OnOptimalRepresentativesOfFini.pdf",
+          "material_read": "Full open PDF obtained and inspected relevant Section 1, Section 2 with two-color 90 count, normal form and optimal unrestricted bound, tables; text search for palindrome/reversal returned none",
+          "method": "Primary 2019 open PDF, relevant pages and screenshots",
+          "title": "On Optimal Representatives of Finite Coloured Linear Orders",
+          "trigger": "Direct primary results on 90 two-color rank-two EF classes and min representatives"
+        },
+        {
+          "assessment": "PARTIAL; no whole-document non-coverage assertion",
+          "evidence": "Source for known 2-round character technique, explicitly treated as prior, plausible additional symmetry appendix not independently ruled out.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-010-9178-9",
+          "material_read": "Bibliographic metadata and statements cited in 2019 primary article; direct complete 2011 paper not fully inspected",
+          "method": "Primary citation chain and available description",
+          "title": "Classification of Finite Coloured Linear Orderings",
+          "trigger": "Foundational character criterion and rank-two class count"
+        },
+        {
+          "assessment": "Proper subfamily/different all-word palindrome question",
+          "evidence": "One-red words B^a R B^b, not arbitrary binary color words; cannot infer complete 20-palindrome unrestricted-type histogram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+          "material_read": "Published Resultary abstract/summary only",
+          "method": "Resultary semantic search",
+          "title": "Exact quantifier-rank profiles for finite one-red linear orders",
+          "trigger": "Potential equivalent rank-two colored-word classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mwesigye–Truss 2019 known unrestricted theory classification and submitted sharp symmetry variant"
+      ],
+      "rationale": "For finite-model theory, asking which logical rank-two theories admit a literal palindrome is a natural symmetry realizability problem, not a renaming of the unrestricted 90-type classification. The exact 20-state fixed-point theorem, complete minimal palindrome-length distribution and sharp extra-length obstruction at nine give a self-contained natural constrained normal-form theorem of plausible downstream use. The nontrivial sufficiency and sharpness are supported by complete transition closure and the EF game lemma.",
+      "residual_risks": [
+        "This is exact low-rank binary-word theory; no claim to higher ranks/general alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Rank-two finite two-color nonmonochromatic words only.",
+    "The 2011 and 2019 original articles were obtained with their relevant character theorems and optimality sections inspected; not every page of each was subjected to a line-by-line audit.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id operational identifiers. Their complete, semantically sanitized replacement public file contents, fresh blob guards and checked UTF-8 SHA-256 have not been prepared. Withhold publication despite completed scientific PASS; no public file operation was submitted."
+  ],
+  "schema_version": 1
+}

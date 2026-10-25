@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` under Python 3. The script terminates with `VERIFY_OK` after checking the complete 97-state transition closure, isolating 90 two-colour types and 20 reversal-invariant ones, and finding palindrome representatives of each invariant type of length at most nine. It independently checks that the unrestricted shortest representatives and constructed palindromes are equivalent under the literal two-round Ehrenfeucht–Fraïssé game; it also directly computes pointed character signatures rather than trusting transition indices.
+## correctness
 
-Minimum palindromic representative lengths among the 20 classes: lengths three, four, five, six, seven, eight, nine have class counts 2, 2, 6, 2, 6, 0, 2. The two classes attaining length nine contain `001010100` and `110010011`; their unrestricted minimum length is eight. The source code and proof in `RESULT.md` supply the finite-state completeness argument: closure under both append transitions extends the finite enumeration to every finite binary word.
+PASS
 
-This is a self-review with directly replayable finite computations, **not independent validation**. Priority cannot be certified by a finite literature search; the specific sources and remaining risks are described in `REVIEW.md` and `AUDIT.json`.
+The rank-two EF game characterizes each finite word by the SET of all first-picked point characters (letter, set of letters to left, set to right). Duplicator matches the first point exactly iff the two character types have matching letter and left/right sets; every second point is then matchable in either direction. The exact append transition T_a maps each existing (c,L,R) to (c,L,R∪{a}) and appends (a,U,∅), so BFS from empty signature is closed under both a in {0,1} after exactly 97 states; restricting to words containing both letters gives 90 states for arbitrary lengths. Reversal swaps L,R and fixes exactly 20 of the 90; explicit all-palindrome enumeration through length 9 realizes all and only these 20, proving sufficiency. Distribution of shortest palindrome lengths 3:2, 4:2,5:6,6:2,7:6,9:2 follows. Both nine-length extremes have eight distinct characters, including self-reversing center characters for colors 0 and 1; any length-eight palindrome duplicates each such character in mirror pairs and cannot represent all eight, proving sharp nine, while unrestricted length-eight representatives exist. Independent separately-written BFS/characters/direct game verifier reproduced 97/90/20 and the nine-length witnesses; proof rests on state closure, not arbitrary bounded-word extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is exactly reversal-fixed/palindromic two-color rank-two classes (20 of the already known 90), the exact shortest palindrome-length histogram and extremal nine-position gap. Mwesigye–Truss 2011 and 2019 settle character method, 90 two-color classes and unrestricted length-eight representative bounds, which are acknowledged as prior. Primary open 2019 article Sections 1–2 describes optimal unrestricted rank-two representatives, with no palindrome-specific classification in inspected material. Resultary nearer one-red signature work is a proper subfamily; existing palindrome-duplication coding papers study different equivalence relations.
+
+## value
+
+PASS
+
+For finite-model theory, asking which logical rank-two theories admit a literal palindrome is a natural symmetry realizability problem, not a renaming of the unrestricted 90-type classification. The exact 20-state fixed-point theorem, complete minimal palindrome-length distribution and sharp extra-length obstruction at nine give a self-contained natural constrained normal-form theorem of plausible downstream use. The nontrivial sufficiency and sharpness are supported by complete transition closure and the EF game lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
