@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:48:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the specified two-stage Radau IIA Q and c, deletion-indicator zero forces an affine collocation polynomial a+bt. Equal logistic derivatives imply U1=U2 (excluded by h>0,a∈(0,1)) or U1+U2=1. Solving yields h=12(1-2a)/((1+2a)(3-2a)), U1=(1+2a)/4, U2=(3-2a)/4 with positive h iff a<1/2. The true logistic hitting time H(s)=2atanh(s)+2atanh(s/2) exceeds h(s)=12s/(4-s²) by strictly positive coefficients from s^5; thus true endpoint below U2 and max absolute error supremum 3/4 as a→0. Independently recomputed resultant 192(3x-1)(81x³-27x²-26x-8) at (a,h)=(1/6,9/4); x<=77/192 rules out cubic for [0,1]^2, and y=2/3 is unique. Fourteen rational parameter values verified with exact substitutions. No solver-convergence statement is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adaptive time-step selection for SDC treats general nodes and controller performance, including error-estimation mechanism, but does not in inspected material solve this nonlinear two-stage system.",
+          "Aves–Griffiths–Higham 1997 concerns general spuriosity in error control."
+        ],
+        "reasoning": "A general scheme and broad qualitative failure phenomenon do not imply these exact stage parameter values or sharp 3/4 error bound; no mathematically stronger covering theorem found.",
+        "searches": [
+          "Resultary: Radau IIA collocation node deletion SDC error estimator blind locus logistic equation stage error zero",
+          "doi:10.1137/S0036142994276980"
+        ]
+      },
+      "checked_sources": [
+        "Saupe et al. arXiv:2403.13454 Section 2.2 full HTML",
+        "Aves, Griffiths and Higham 1997 DOI:10.1137/S0036142994276980 abstract",
+        "Resultary query for logistic Radau deletion blind locus (25 ranked records), no matching asserted statement",
+        "Frozen package RESULT.md, verify.py, METADATA/AUDIT/REVIEW"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saupe et al. provide the deleted-node recipe, not the identity f(U1)=f(U2) specialized to logistic equation.",
+          "Other Fehlberg and Simpson examples concern disjoint schemes."
+        ],
+        "reasoning": "The method definition alone cannot assert a zero-estimator positive-stage branch or a sharp error without the reconstructed algebra and logit-time comparison; known different-method examples are not same-case corollaries.",
+        "searches": [
+          "Resultary: Radau IIA collocation node deletion SDC error estimator blind locus logistic equation stage error zero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saupe et al. 2024 SDC Section 2.2 describes dropping a collocation node as an error signal; other numerical-analysis literature considers spurious discrete solutions."
+        ],
+        "reasoning": "Renaming the indicator as stage-interpolation curvature or a missed error estimate reproduces its definition, not the explicit logistic positive-step zero set. The exact affine condition and logistic reflection derive the new locus.",
+        "searches": [
+          "Resultary: Radau IIA collocation node deletion SDC error estimator blind locus logistic equation stage error zero",
+          "arxiv:2403.13454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact elimination identifies the single rational bounded-stage witness at a=1/6,h=9/4, and the entire one-dimensional curve rather than isolated numerical cases."
+        ],
+        "reasoning": "Numerical order tables or adaptive-step experiments do not provide the complete real solution family. No existing database exact blind-locus table found; absence not proof.",
+        "searches": [
+          "Resultary: Radau IIA collocation node deletion SDC error estimator blind locus logistic equation stage error zero"
+        ]
+      },
+      "rationale": "Best-of-knowledge new claim is precisely the exact right-Radau/logistic one-parameter blind locus, strictly positive true error and sharp supremum with bounded-stage uniqueness witness. Saupe et al. introduce the deletion-interior-stage indicator in adaptive SDC, but no evaluated logistic zero-error-signal locus is in the inspected method/source. Related spurious-equilibrium and Fehlberg/Simpson failure precedents concern different equations/estimators; an unindexed special analysis remains a priority risk.",
+      "residual_risks": [
+        "Alternative published exact nonlinear collocation resonances or earlier analyses could subsume the same curve.",
+        "Does not guarantee a finite SDC correction sweep or solver selects this solution; multiple stage roots possible elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives motivating method; no stated exact two-stage right-Radau/logistic counterexample or error supremum",
+          "evidence": "Saupe (formerly Baumann), Götschel, Lunet, Ruprecht, Speck Section 2.2, arXiv:2403.13454",
+          "identifier_or_url": "https://arxiv.org/html/2403.13454",
+          "material_read": "Primary full HTML article inspected, especially Section 2.2 node deletion, set of collocation nodes, discussion and references",
+          "method": "Read arXiv author full-text HTML",
+          "title": "Adaptive time step selection for Spectral Deferred Correction",
+          "trigger": "Defines precisely the node-deletion error estimator"
+        },
+        {
+          "assessment": "General adaptive spuriosity precedent, priority risk for related phenomena, not a documented exact logistic Radau classification",
+          "evidence": "Aves, Griffiths, Higham 1997; full article not materially read",
+          "identifier_or_url": "doi:10.1137/S0036142994276980",
+          "material_read": "Abstract/context rather than full article; no whole-document noncoverage conclusion",
+          "method": "Bibliographic and abstract search",
+          "title": "Does Error Control Suppress Spuriosity?",
+          "trigger": "Potential broad theorem about false reassuring error estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically bounded and even uniquely positive-stage collocation root produces a zero local indicator yet a sharply order-one actual endpoint error. The complete if-and-only-if curve and 3/4 supremum give a mathematically diagnostic counterexample for assessing the reliability of node-deletion step controllers; not a generic caution based only on numerical coincidences.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Saupe et al. arXiv:2403.13454 Section 2.2 full HTML",
+    "Aves, Griffiths and Higham 1997 DOI:10.1137/S0036142994276980 abstract",
+    "Resultary query for logistic Radau deletion blind locus (25 ranked records), no matching asserted statement",
+    "Frozen package RESULT.md, verify.py, METADATA/AUDIT/REVIEW"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit logistic y′=y(1−y), positive a, exact fully solved two-stage Radau IIA; no higher-stage or general flow assertion.",
+    "Rational witness root uniqueness only within [0,1]^2."
+  ],
+  "residual_risks": [
+    "Alternative published exact nonlinear collocation resonances or earlier analyses could subsume the same curve.",
+    "Does not guarantee a finite SDC correction sweep or solver selects this solution; multiple stage roots possible elsewhere."
+  ],
+  "schema_version": 1
+}
