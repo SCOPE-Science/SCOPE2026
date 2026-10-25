@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a connected simple graph with \(n\ge2\), \(m\ge1\), the three canonical points for each edge have moment sum \(M=\begin{psmallmatrix}3D-A&-B\\-B^{\mathsf T}&3I\end{psmallmatrix}\). The incidence identity \(BB^{\mathsf T}=D+A\) reduces the determinant to \(3^m(4/3)^n\det(2D-A)\). Centering by the vector of all ones gives the exact rank-\(n+m-1\) pseudodeterminant scaling \((n+m)\det M/(3m)^{n+m}\). A Cauchy–Binet expansion of \(L+D\) proves the positive rooted-forest formula. Schur complementation and a tridiagonal continuant prove the star and path formulas and the exponential volume ratio. Exact computation of the degree-sequence twins verifies graph determinants \(492\) and \(483\). The packaged checker evaluates actual vertex moments independently, all tested cases passing. The infinite statements depend on the analytic proof, not the finite checks.
+PASS
 
-## Originality — PASS, with limits
+Verified the canonical 3m cosmological polytope vertices x_u+x_v-y_e, x_u-x_v+y_e, -x_u+x_v+y_e in R^(n+m), equal vertex masses and all coordinate sums=1. Summing exact outer products gives block moment M=[[3D-A,-B],[-B^T,3I]] with unsigned incidence BB^T=D+A. Schur complement gives det M=3^m(4/3)^n det(2D-A). Since h=1 and h^T M h=3m, rank-one centering identity det*Sigma=(n+m)det M/(3m)^(n+m) yields (n+m)/m^(n+m)(4/9)^n det(2D-A); 2D-A is SPD for connected nontrivial graph. Cauchy–Binet expansion of [oriented incidence | diag(sqrt degree)] yields acyclic edge sets and one degree-weighted root per component. Exact star Schur-complement det=3(n-1)2^(n-2), path tridiagonal recurrence q_n=4q_(n-1)-q_(n-2), eigenroots 2±sqrt3, exponential pseudodeterminant separation and half-rate ellipsoid volume ratio. Independently computed path det n2..8 (3,12,45,168,627,2340,8733) and inspected exact integer-principal-minor and forest enumeration in CHECKER.py, including given six-vertex degree twins 492 and 483. The known tree normalized-volume equality is credited, not proven new.
 
-The 2017 original paper [1] supplies the object; the 2022 study [2] proves its face descriptions and tree normalized volume; the 2023 study [3] treats regular unimodular triangulations and their volumes. The classical weighted matrix–forest identity [4] is not claimed as new. The assessed statement couples the vertex covariance pseudodeterminant to this forest polynomial and proves volume-matched exponential separation and a degree-sequence-twin example. These do not follow from the cited normalized-volume or face formulas without calculating the Euclidean vertex moments. The examined full-text portions and focused literature searches identified no covering result. Prior work could formulate an equivalent vertex inertia identity under alternative matrix-tree or statistical terminology, and that possibility remains open.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Vertex inertia measures an intrinsic aspect of the *chosen Euclidean realization*, namely the shape and hypervolume of the equal-vertex-mass dispersion ellipsoid. In a natural infinite family whose intrinsic polytope volumes are identical, the inertia-ellipsoid volumes differ by an exponentially growing factor. At six vertices, the invariant also separates two trees with the same degree multiset and exactly equal covariance traces. The rooted-forest interpretation explains the structural source of this difference and yields an exact computation for every connected graph, rather than an arbitrary finite numerical datum. This is distinct from optimizing enclosing or inscribed ellipsoids.
+Published cosmological polytope papers establish canonical vertex coordinates, faces, volume and triangulations. The particular invariant is the centered covariance of uniform vertex measure and its graph-rooted-forest pseudodeterminant, not the polytope Euclidean volume or circumradius. The Resultary SCOPE closest cosmological result gives a graph-independent outer enclosing sphere, which does not imply equal-vertex covariance at vertex barycenter. Matrix-forest theorem is general established machinery, while this graph-polytope covariance specialization and asymptotic path/star separation are not located as prior direct claims.
 
-## Sources and residual risks
+## value
 
-[1] Arkani-Hamed, Benincasa, Postnikov, arXiv:1709.02813, 2017-09-08. [2] Kühne and Monin, arXiv:2209.08069, 2022-09-16. [3] Juhnke-Kubitzke, Solus, Venturello, arXiv:2303.05876, 2023-03-10. [4] Chebotarev and Shamis, arXiv:math/0602575, preexisting matrix–forest theorem. This review is not an independent validation or a guarantee of exhaustive bibliography. The normalization applies to equal vertex masses, not volume measure.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical equal-vertex-weight inertia ellipsoid is a natural Euclidean shape invariant of cosmological polytopes. The graph forest determinant identity gives a tractable combinatorial formula, and the exponential path/star separation despite identical tree-polytope volumes and vertex sphere is a motivated structural distinction. Degree-sequence twin trees further show nontrivial dependence on adjacency rather than only degrees; not an arbitrary isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

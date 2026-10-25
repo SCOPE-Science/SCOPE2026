@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:00:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the canonical 3m cosmological polytope vertices x_u+x_v-y_e, x_u-x_v+y_e, -x_u+x_v+y_e in R^(n+m), equal vertex masses and all coordinate sums=1. Summing exact outer products gives block moment M=[[3D-A,-B],[-B^T,3I]] with unsigned incidence BB^T=D+A. Schur complement gives det M=3^m(4/3)^n det(2D-A). Since h=1 and h^T M h=3m, rank-one centering identity det*Sigma=(n+m)det M/(3m)^(n+m) yields (n+m)/m^(n+m)(4/9)^n det(2D-A); 2D-A is SPD for connected nontrivial graph. Cauchy–Binet expansion of [oriented incidence | diag(sqrt degree)] yields acyclic edge sets and one degree-weighted root per component. Exact star Schur-complement det=3(n-1)2^(n-2), path tridiagonal recurrence q_n=4q_(n-1)-q_(n-2), eigenroots 2±sqrt3, exponential pseudodeterminant separation and half-rate ellipsoid volume ratio. Independently computed path det n2..8 (3,12,45,168,627,2340,8733) and inspected exact integer-principal-minor and forest enumeration in CHECKER.py, including given six-vertex degree twins 492 and 483. The known tree normalized-volume equality is credited, not proven new.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary nearest records yield outer Euclidean sphere shared by all 3m vertices for same N.",
+          "General matrix-forest theorem expands det(L+D); tree normalized volumes coincide for fixed n."
+        ],
+        "reasoning": "Neither vertex cosphericity nor normalized volume controls covariance determinant; block-moment Schur complement supplies the nontrivial translation between graph and inertia.",
+        "searches": [
+          "Resultary: Every connected cosmological polytope has graph-independent Euclidean circumradius",
+          "Juhnke-Kubitzke–Solus–Venturello arXiv:2303.05876",
+          "Matrix–Forest Theorems arXiv:math/0602575"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE Git source RESULT.md blob 76dfc97a49ef00b57d759bda0415350533f0393d",
+        "Resultary search query: cosmological polytope covariance pseudodeterminant vertex inertia graph rooted forest polynomial 2D-A",
+        "arXiv:1709.02813",
+        "arXiv:2209.08069, Corollary 4.2",
+        "arXiv:2303.05876",
+        "arXiv:math/0602575",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known normal-volume formula supplies equal-volume comparison, and standard forest determinant applies once 2D-A is obtained.",
+          "The new moment matrix calculation identifies 2D-A in the covariance rather than in usual Laplacian volumes."
+        ],
+        "reasoning": "The forest theorem is appropriately cited as a method, not original. The specialized covariance formula and implications are not direct already-stated prior results.",
+        "searches": [
+          "Kühne–Monin Corollary 4.2",
+          "Chebotarev–Shamis matrix forest theorem",
+          "Resultary cosmological circumradius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard cosmological polytope coordinate realization and vertex set are common prior objects.",
+          "The covariance considered is over *uniform vertex measure*, not interior volume or minimum enclosing radius."
+        ],
+        "reasoning": "Equivalence requires same Euclidean embedding, vertex barycenter and inertia ellipsoid; existing combinatorial faces and volume formulas are different invariants, so do not imply covariance pseudodeterminant.",
+        "searches": [
+          "Resultary cosmological polytope covariance pseudodeterminant vertex inertia graph rooted forest polynomial 2D-A",
+          "Arkani-Hamed–Benincasa–Postnikov arXiv:1709.02813",
+          "Kühne–Monin arXiv:2209.08069"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located prior cosmological polytope covariance table with path and star pseudodeterminant ratios, despite search for vertex inertia, rooted forest and 2D-A."
+        ],
+        "reasoning": "The exact infinite-family formulas are derived from recurrence, not table re-computation; unindexed graph spectral moments could cover them.",
+        "searches": [
+          "Resultary cosmological polytope covariance pseudodeterminant vertex inertia graph rooted forest polynomial 2D-A",
+          "Targeted search \"cosmological polytope\" \"covariance\" \"forest\" inertia"
+        ]
+      },
+      "rationale": "Published cosmological polytope papers establish canonical vertex coordinates, faces, volume and triangulations. The particular invariant is the centered covariance of uniform vertex measure and its graph-rooted-forest pseudodeterminant, not the polytope Euclidean volume or circumradius. The Resultary SCOPE closest cosmological result gives a graph-independent outer enclosing sphere, which does not imply equal-vertex covariance at vertex barycenter. Matrix-forest theorem is general established machinery, while this graph-polytope covariance specialization and asymptotic path/star separation are not located as prior direct claims.",
+      "residual_risks": [
+        "An older graph-covariance or inertia calculation under a different name may yield this determinant identity.",
+        "Matrix–forest machinery itself is prior work; originality is specifically the cosmological-polytope moment specialization and comparison.",
+        "Do not conflate inertia-ellipsoid volume with John/Löwner ellipsoid or uniform-interior covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION ONLY",
+          "evidence": "Vertex realization matches the three edge points, while no inspected result gives uniform-vertex covariance pseudodeterminant.",
+          "identifier_or_url": "arXiv:1709.02813",
+          "material_read": "Accessible full PDF and relevant coordinate/vertex-definition pages inspected with page screenshot.",
+          "method": "Full PDF text and page screenshot",
+          "title": "Cosmological Polytopes and the Wavefunction of the Universe",
+          "trigger": "Foundational canonical polytope vertices"
+        },
+        {
+          "assessment": "KNOWN TREE VOLUME, DIFFERENT FROM VERTEX INERTIA",
+          "evidence": "Normalized tree polytope volume 4^(n-1); same-dimensional Euclidean volume does not determine the inertia ellipsoid.",
+          "identifier_or_url": "arXiv:2209.08069, Corollary 4.2",
+          "material_read": "Full PDF, especially tree normalized-volume corollary, verified with screenshot.",
+          "method": "Full PDF, page text and screenshot",
+          "title": "Faces of Cosmological Polytopes",
+          "trigger": "Known all-tree equal normalized volume could be stronger"
+        },
+        {
+          "assessment": "TRIANGULATION BACKGROUND",
+          "evidence": "Unimodular triangulations and tree/path combinatorics rather than graph-weighted uniform-vertex covariance determinant.",
+          "identifier_or_url": "arXiv:2303.05876",
+          "material_read": "Full accessible paper text and relevant discussion/pages inspected, screenshot.",
+          "method": "Full PDF and page screenshot",
+          "title": "Triangulations of Cosmological Polytopes",
+          "trigger": "Related exact geometric/combinatorial formulas"
+        },
+        {
+          "assessment": "STANDARD GENERAL DETERMINANT IDENTITY",
+          "evidence": "General det(L+D) root-forest expansion is background, not the geometric covariance specialization.",
+          "identifier_or_url": "arXiv:math/0602575",
+          "material_read": "Established matrix-forest combinatorial theorem and indexed bibliographic description; no complete primary PDF read in this execution.",
+          "method": "Literature index and source reference",
+          "title": "Matrix–Forest Theorems",
+          "trigger": "Direct algebraic determinant-expansion ancestor"
+        },
+        {
+          "assessment": "CIRCUMRADIUS DIFFERENT FROM COVARIANCE",
+          "evidence": "Common sphere centered at all-ones point does not fix covariance around actual vertex barycenter; degree-sequence twin example distinguishes inertia.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126",
+          "material_read": "Indexed published summary, not entire article.",
+          "method": "Resultary semantic search",
+          "title": "Every connected cosmological polytope has graph-independent Euclidean circumradius",
+          "trigger": "Nearest published SCOPE with identical vertex sphere"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical equal-vertex-weight inertia ellipsoid is a natural Euclidean shape invariant of cosmological polytopes. The graph forest determinant identity gives a tractable combinatorial formula, and the exponential path/star separation despite identical tree-polytope volumes and vertex sphere is a motivated structural distinction. Degree-sequence twin trees further show nontrivial dependence on adjacency rather than only degrees; not an arbitrary isolated computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected simple graphs with n>=2 and ambient standard-coordinate realization; uniform measure on actual 3m vertices.",
+    "Inertia ellipsoid is neither claimed John nor Löwner; no global extremal separation over all trees."
+  ],
+  "schema_version": 1
+}
