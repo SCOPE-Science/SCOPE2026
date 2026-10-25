@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:53:12Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Tree 4ee72b5b46e0607469f7ba2921a823bb415d297f RESULT.md f75d10f79c62703021f43ab20f3283c3ff8a56f7 and checker.py 8e11c070c191bab723f9cb1bd5bb2c11fad59236 inspected in full.",
+        "The weak-team profile transition was checked against q=1 and fresh-value boundaries; the exact construction of the PSPACE reduction was read."
+      ],
+      "rationale": "For nonempty teams, equality throughout induces a partition of variables; marking classes that take a single constant value gives a realizable profile (c<=|M| for q>=2, special singleton q=1). Under uniform single-value quantification, a witness either equals one of c existing constant classes or is new; it cannot equal an unmarked nonconstant class throughout. The induction on formula structure gives correct truth for all profiles. There are at most 2L simultaneously active variables, so cardinalities q>=2L+2 give identical fresh-value branching; DFS enumerates profiles using polynomial space. QBF reduction uses an exact-two-elements weak-team sentence and maps quantified Boolean truth to equality with two distinguished constants; truth on the empty team does not supply satisfiability witnesses. Validity and equivalence hardness follow from a guarded sentence. Source checker sampled 18,830 cases and 400 QBF formulas; these tests are not substitutes for the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader first-order team logic can express more relations but does not provide polynomial-space decision complexity for this weak fragment from its expressivity statement."
+        ],
+        "reasoning": "A quantifier elimination procedure can be nonelementary without a bounded profile transition; current exact PSPACE and cutoff cannot be assumed from its mere existence.",
+        "searches": [
+          "Engström–Kontinen 2609.15216 accessible abstract; attempted full text via arXiv and lawful OA",
+          "Kontinen–Yang 1904.08695 expressive completeness",
+          "Resultary equality/modal complexity similarity hits"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.15216",
+        "https://arxiv.org/abs/1904.08695",
+        "Resultary pure-equality team logic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "QBF PSPACE-completeness supports lower bound source; translation to the particular team semantics and upper-bound profile automaton remain additional arguments."
+        ],
+        "reasoning": "The known QBF lower bound alone does not imply the logic hardness unless the exact two-element guard and formula translation are proved; decidability alone does not imply PSPACE membership.",
+        "searches": [
+          "2609.15216 elimination statement and Corollary 3.7 mention in source paper",
+          "QBF PSPACE-completeness standard theorem",
+          "Kontinen–Yang 1904.08695"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.15216 describes elimination and decidability for inclusion-free empty-signature fragment; no three-task exact PSPACE classification is stated in the accessible abstract."
+        ],
+        "reasoning": "Decidability does not imply the sharp PSPACE resource bound, and the QBF lower bound must be compared with the weak one-value team quantifier semantics, not ordinary FO complexity alone.",
+        "searches": [
+          "Resultary: PSPACE complexity equality elementary team logic without inclusion atoms single value quantifiers validity equivalence",
+          "Engström & Kontinen arXiv:2609.15216 bibliographic abstract",
+          "Kontinen & Yang arXiv:1904.08695"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complexity classification for unbounded syntax and quantifier depth is not a finite database or truth table."
+        ],
+        "reasoning": "An exact finite tabulation cannot settle arbitrarily long formulas; searched mathematical classifications rather than tables.",
+        "searches": [
+          "Resultary exact title/formula queries and similarity search",
+          "2609.15216 abstract"
+        ]
+      },
+      "rationale": "The accessible near-primary Engström–Kontinen statement establishes decidability by elimination, but no PSPACE upper bound, three hardness classifications or explicit 2L+2 universe cutoff appears in inspected accessible material. Full primary text was inaccessible; best-of-knowledge PASS with material overlap risk.",
+      "residual_risks": [
+        "Full 2609.15216 text inaccessible; it may contain implicit or explicit matching complexity or cardinality bounds and should be compared in full later.",
+        "Other complexity results may use alternative syntax/equivalent semantics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Highly relevant source may contain exact bounds in unread body; residual risk explicitly retained",
+          "evidence": [
+            "Accessible abstract: quantifier elimination and decidability; full text not read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.15216",
+          "material_read": "Abstract/bibliographic record only; full arXiv/OA text inaccessible, authorized institutional access blocked by disconnected VPN",
+          "method": "Compared the accessible abstract decidability statement with three PSPACE classifications and universe cutoff; did NOT infer whole-document noncoverage",
+          "title": "Intuitionistic Implication in Elementary Team Logics",
+          "trigger": "Same inclusion-free weak team logic and quantifier-elimination antecedent"
+        },
+        {
+          "assessment": "Broader expressive results do not directly imply this exact classification",
+          "evidence": [
+            "Published first-order team logic context"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.08695",
+          "material_read": "Bibliographic/abstract-level context",
+          "method": "Compared syntax and type of theorem with complexity target",
+          "title": "Complete Logics for Elementary Team Properties",
+          "trigger": "Foundational expressive characterization of larger team logic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "PSPACE lower and upper bounds are sharp with concrete algorithm and reduction."
+      ],
+      "rationale": "An exact computational-complexity classification of natural satisfiability/validity/equivalence tasks for a decidable logical fragment and polynomial universe cutoff is a substantial useful structural refinement of decidability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.15216",
+    "https://arxiv.org/abs/1904.08695",
+    "Resultary pure-equality team logic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only equality and single-value weak quantifiers; universe cutoff does not bound explicit team size; empty teams excluded from satisfiability."
+  ],
+  "residual_risks": [
+    "Full 2609.15216 text inaccessible; it may contain implicit or explicit matching complexity or cardinality bounds and should be compared in full later.",
+    "Other complexity results may use alternative syntax/equivalent semantics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Highly relevant source may contain exact bounds in unread body; residual risk explicitly retained",
+      "evidence": [
+        "Accessible abstract: quantifier elimination and decidability; full text not read"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.15216",
+      "material_read": "Abstract/bibliographic record only; full arXiv/OA text inaccessible, authorized institutional access blocked by disconnected VPN",
+      "method": "Compared the accessible abstract decidability statement with three PSPACE classifications and universe cutoff; did NOT infer whole-document noncoverage",
+      "title": "Intuitionistic Implication in Elementary Team Logics",
+      "trigger": "Same inclusion-free weak team logic and quantifier-elimination antecedent"
+    },
+    {
+      "assessment": "Broader expressive results do not directly imply this exact classification",
+      "evidence": [
+        "Published first-order team logic context"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1904.08695",
+      "material_read": "Bibliographic/abstract-level context",
+      "method": "Compared syntax and type of theorem with complexity target",
+      "title": "Complete Logics for Elementary Team Properties",
+      "trigger": "Foundational expressive characterization of larger team logic"
+    }
+  ]
+}

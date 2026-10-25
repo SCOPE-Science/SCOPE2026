@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-Run `python checker.py` with Python 3. The actual run of the bundled script produced:
+# Independent mathematical audit
 
-```text
-VERIFY_OK finite_team_symbolic_comparisons 18830 formulas 210
-VERIFY_OK qbf_translation_cases 400
-```
+## correctness
 
-The first suite generates nonempty teams in pure-equality domains of sizes one to three with one or two free columns, computes the source weak-quantifier semantics by direct element enumeration, and compares it against an equality–constancy evaluator. All team subsets in those finite universes are included. The second suite generates 400 quantified Boolean matrices and checks the guarded two-element translation on domain sizes one through three. Additional cutoff comparisons are carried out inside the script.
+PASS
 
-The machine checks do not establish arbitrary-size quantifier behavior or complexity lower bounds. Those are proved using profile transitions, a polynomial cardinality cutoff and the explicit polynomial reduction in the mathematical result. Empty teams are handled by the empty-team property and are not used as satisfiability witnesses. No external proof assistant or independent validation is claimed.
+For nonempty teams, equality throughout induces a partition of variables; marking classes that take a single constant value gives a realizable profile (c<=|M| for q>=2, special singleton q=1). Under uniform single-value quantification, a witness either equals one of c existing constant classes or is new; it cannot equal an unmarked nonconstant class throughout. The induction on formula structure gives correct truth for all profiles. There are at most 2L simultaneously active variables, so cardinalities q>=2L+2 give identical fresh-value branching; DFS enumerates profiles using polynomial space. QBF reduction uses an exact-two-elements weak-team sentence and maps quantified Boolean truth to equality with two distinguished constants; truth on the empty team does not supply satisfiability witnesses. Validity and equivalence hardness follow from a guarded sentence. Source checker sampled 18,830 cases and 400 QBF formulas; these tests are not substitutes for the induction.
+
+## originality
+
+PASS
+
+The accessible near-primary Engström–Kontinen statement establishes decidability by elimination, but no PSPACE upper bound, three hardness classifications or explicit 2L+2 universe cutoff appears in inspected accessible material. Full primary text was inaccessible; best-of-knowledge PASS with material overlap risk.
+
+## value
+
+PASS
+
+An exact computational-complexity classification of natural satisfiability/validity/equivalence tasks for a decidable logical fragment and polynomial universe cutoff is a substantial useful structural refinement of decidability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

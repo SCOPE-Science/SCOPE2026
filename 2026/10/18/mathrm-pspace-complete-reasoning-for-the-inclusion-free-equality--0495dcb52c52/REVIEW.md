@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For nonempty teams, the proof establishes an exact induction on equality–constancy profiles: a single-value quantifier can join one current constant class or introduce a fresh one. The realizability construction, the polynomial universe cutoff, and the polynomial-space recursion cover size-one domains, singleton teams, arbitrary open formulas and infinite structures. The hardness reduction builds a two-element domain guard and translates full quantified Boolean formulas using only the allowed syntax. The source's empty-team property is handled rather than silently discarded. The executable checker exercises both semantics and 400 finite quantified-Boolean reductions; finite tests are supplementary to the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Engström–Kontinen (arXiv:2609.15216, Sections 2–3, especially Corollary 3.7) give decidability through quantifier elimination but do not state a polynomial-space profile evaluator or any of these exact complexity classifications. Kontinen–Yang (arXiv:1904.08695) introduce the broader team logic, not the same equality-only inclusion-free complexity frontier. Targeted research-record searches for the fragment under its inclusion-free, pure-equality, weak-quantifier and equality–constancy aliases found no implication-equivalent claim. The standard classical quantified-Boolean complexity result supplies a hardness source only. A prior complexity analysis under alternate terminology remains possible; the older broad FOT manuscript was accessible at abstract level, not exhaustively compared in full.
+PASS
 
-**Value — PASS.** Corollary 3.7 of the new motivating paper leaves its three natural reasoning tasks classified only as decidable. Proving \(\mathrm{PSPACE}\)-completeness for all of them, and giving an explicit polynomial-space symbolic implementation with a finite universe cutoff, pinpoints a genuine computational boundary between the weak team quantifiers and more expressive team languages. The result is not a mere count of small models or a routine isolated Boolean simplification.
+For nonempty teams, equality throughout induces a partition of variables; marking classes that take a single constant value gives a realizable profile (c<=|M| for q>=2, special singleton q=1). Under uniform single-value quantification, a witness either equals one of c existing constant classes or is new; it cannot equal an unmarked nonconstant class throughout. The induction on formula structure gives correct truth for all profiles. There are at most 2L simultaneously active variables, so cardinalities q>=2L+2 give identical fresh-value branching; DFS enumerates profiles using polynomial space. QBF reduction uses an exact-two-elements weak-team sentence and maps quantified Boolean truth to equality with two distinguished constants; truth on the empty team does not supply satisfiability witnesses. Validity and equivalence hardness follow from a guarded sentence. Source checker sampled 18,830 cases and 400 QBF formulas; these tests are not substitutes for the induction.
 
-**Closest literature and limits.** The 2026 quantifier-elimination theorem supplies semantic invariance but not the bounded-space implementation; the 2023 general FOT paper studies a larger language. The result does not classify adding inclusion, stronger quantification or arbitrary predicates. The independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accessible near-primary Engström–Kontinen statement establishes decidability by elimination, but no PSPACE upper bound, three hardness classifications or explicit 2L+2 universe cutoff appears in inspected accessible material. Full primary text was inaccessible; best-of-knowledge PASS with material overlap risk.
+
+## value
+
+PASS
+
+An exact computational-complexity classification of natural satisfiability/validity/equivalence tasks for a decidable logical fragment and polynomial universe cutoff is a substantial useful structural refinement of decidability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
