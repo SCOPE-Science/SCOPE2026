@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T16:09:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 229744a38028142231d927d4a514e8049a123a54",
+        "Actual assigned source tree acce226bf7a0965ae747299cb4f8e70302395c33",
+        "Independent verification script and output: scope_worker_08_checks_20261023.py (specific ranges, not universal evidence)"
+      ],
+      "rationale": "Let t=p-6 for p>6. Immediate deficiency holds if p<=5 or a small divisor 3 or 5 divides t. Exact elementary trajectories show primes 7,13,17 deficient for all powers and 19 abundant only at exponent1: D6(19^a)-19^a=(53-17*19^(a-1))/18. For p>=23 with gcd(t,15)=1, h=L6(t) is >=7 except t=77 (p=83): if h<7, the possible prime factors 7,11 and absence of repeated factors force t in {1,7,11,77}. For t>=37, th>=7t>6(t+6), while for 17<=t<37, t is prime and t(t-6)>6(t+6). Thus D6(p^a) exceeds p^a by the first two iterates for all a>=1, except p83: D6(83)=82, and for a>=2 D6(83^a)=83^a-113*83^(a-2). All inequalities strict: no perfect prime powers. Independently factored every p<=1000, exponents1..8: exactly 961 abundant, 383 deficient, no equality, reproducing special 19^2 and 83^2 cases. This is bounded corroboration; the rough-cofactor lemma proves all p and a.",
+      "residual_risks": [
+        "Finite independent checks only corroborate stated finite domains; universal assertion follows symbolic proof and stated dependencies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem18 establishes infinitely many p with L_m(p^a)+L_m^(2)(p^a)>p^a+Ap^(a-delta) for even m.",
+          "Assigned theorem determines all p and a for m=6 including exceptions."
+        ],
+        "reasoning": "The older existence theorem is broader in m but logically weaker than the complete m=6 classification and cannot imply the precise deficient list or unique p83 exception.",
+        "searches": [
+          "Resultary: schemmel totient iteration sum D6 prime powers abundance deficiency prime 83 19 complete",
+          "Defant Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 229744a38028142231d927d4a514e8049a123a54",
+        "Defant JIS 2015 Article 15.2.1 full text pp.1-10",
+        "Resultary semantic query Resultary: schemmel totient iteration sum D6 prime powers abundance deficiency prime 83 19 complete",
+        "Independent exact prime-power enumeration p<=1000 a<=8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem18 plus Dirichlet gives infinitely many abundant prime-power families, not characterization of all exceptional primes.",
+          "The rough-factor L6(t)<7 iff t in {1,7,11,77} under the needed conditions isolates p83."
+        ],
+        "reasoning": "Exact exception handling and necessity are genuine additional claims; the old theorem gives only sufficient abundance for an infinite subset.",
+        "searches": [
+          "Resultary: schemmel totient iteration sum D6 prime powers abundance deficiency prime 83 19 complete",
+          "Defant 2015 Theorem 18 pages8-10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition D6 as sum of iterates matches Defant.",
+          "The exact theorem classifies the sign of D6(p^a)-p^a for every prime and exponent."
+        ],
+        "reasoning": "Older D_m notation and deficiency/abundance terminology are identical, but equality of definitions is not prior coverage of this exact classification.",
+        "searches": [
+          "Resultary: schemmel totient iteration sum D6 prime powers abundance deficiency prime 83 19 complete",
+          "Defant 2015 JIS 18 Article 15.2.1",
+          "OEIS A241667; A241668"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing named OEIS tables concern other Schemmel parameters and short iterate trajectories.",
+          "The paper reports finite numbers D_m-perfect below 100000 but no full p^a classification at m6."
+        ],
+        "reasoning": "An exact table of D6 classifications was not identified in inspected sources; the finite data cannot replace or dominate the all-prime proof.",
+        "searches": [
+          "Resultary: schemmel totient iteration sum D6 prime powers abundance deficiency prime 83 19 complete",
+          "OEIS A241667; A241668",
+          "Defant 2015 final numerical section"
+        ]
+      },
+      "rationale": "Defant's 2015 primary article defines D_m and Theorem 18 proves infinitely many primes whose every power is abundant for each even m. Its full text, especially pages 7-10, does not furnish the exact sixth-parameter prime-power dichotomy or isolated primes 19 and 83. The present all-prime classification is strictly sharper than that existence theorem. OEIS trajectory sequences named in the record concern other m; unindexed tables remain possible.",
+      "residual_risks": [
+        "Unindexed arithmetic-function tables may contain the same exact sign pattern.",
+        "Classification is only m=6 and only prime powers; no implications for mixed prime-factor supports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general D_m and infinite even-m abundance, not complete classification of sixth-parameter prime powers in inspected original.",
+          "evidence": [
+            "Theorem18 establishes infinitely many primes with stronger two-iterate margin; last numerical remarks treat D_m perfect numbers <100000."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Defant/defant5.pdf",
+          "material_read": "Full 13-page PDF text inspected via web; definitions pp.1-2, Theorem18 and proof pp.8-10, numerical remarks.",
+          "method": "web PDF extracted lines and page-8 screenshot",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Origin of D6 and possible already stronger abundance theorem"
+        },
+        {
+          "assessment": "Known index is not verified to contain exact sixth-parameter prime-power classification.",
+          "evidence": [
+            "Assigned record identifies parameters two/four; no claim of exhaustive index search."
+          ],
+          "identifier_or_url": "https://oeis.org/A241668",
+          "material_read": "Identifier, described trajectory parameter and historical public date in record; full tables not inspected.",
+          "method": "public metadata and reference comparison",
+          "title": "OEIS A241667 and A241668",
+          "trigger": "Potential exact precomputed D6 table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual Git blob 229744a38028142231d927d4a514e8049a123a54",
+        "Pinned RESULT.md Git blob 229744a38028142231d927d4a514e8049a123a54",
+        "Defant JIS 2015 Article 15.2.1 full text pp.1-10"
+      ],
+      "rationale": "Complete sign classification for a natural family singled out by Defant's Schemmel iteration, including an isolated 83 exception and 19 exponent transition, is a mathematically motivated exact boundary. It is not simply reprinting known values or checking a tiny slice: a structural lemma proves the infinite prime and exponent range.",
+      "residual_risks": [
+        "Value depends on the stated exact mathematical scope, not on an unproved generalization or publication impact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

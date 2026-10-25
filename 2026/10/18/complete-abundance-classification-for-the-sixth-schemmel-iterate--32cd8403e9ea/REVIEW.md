@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The product definition of \(L_6\), the reduction at factors \(3\) and \(5\), the rough-cofactor lemma, and the two-iterate inequality have been checked with explicit quantifiers. The exceptional trajectories at \(7,13,17,19,83\) are summed exactly. The universal proof covers all primes and all positive exponents; the finite checker is corroborative only. The critical low-factor lemma exhausts \(L_6(t)<7\) because the only possible prime factors are \(7\) and \(11\), with repeated factors excluded by their multiplicative contribution.
+PASS
 
-## Originality
+Let t=p-6 for p>6. Immediate deficiency holds if p<=5 or a small divisor 3 or 5 divides t. Exact elementary trajectories show primes 7,13,17 deficient for all powers and 19 abundant only at exponent1: D6(19^a)-19^a=(53-17*19^(a-1))/18. For p>=23 with gcd(t,15)=1, h=L6(t) is >=7 except t=77 (p=83): if h<7, the possible prime factors 7,11 and absence of repeated factors force t in {1,7,11,77}. For t>=37, th>=7t>6(t+6), while for 17<=t<37, t is prime and t(t-6)>6(t+6). Thus D6(p^a) exceeds p^a by the first two iterates for all a>=1, except p83: D6(83)=82, and for a>=2 D6(83^a)=83^a-113*83^(a-2). All inequalities strict: no perfect prime powers. Independently factored every p<=1000, exponents1..8: exactly 961 abundant, 383 deficient, no equality, reproducing special 19^2 and 83^2 cases. This is bounded corroboration; the rough-cofactor lemma proves all p and a.
 
-Defant's Definition 12 and Theorem 18 are the closest direct source. Theorem 18 proves an infinite abundant-prime-power subfamily for all even parameters; it does not classify every prime for the sixth parameter or show the isolated transition at \(19\) and obstruction at \(83\). The separate sparsely-Schemmel paper treats one-step extremality, and the separate iterated-arithmetic-functions note treats terminal values. The inspected OEIS entries concern parameters two and four. Searches for equivalent forms, the exact exceptional primes, stronger global coverage, and published tables did not identify a dominating statement. Residual risk: unknown unindexed work and alternative implicit interpretations of the general existence proof.
+## originality
 
-## Value
+PASS
 
-The full prime-power stratum is a natural structural test class for the iterate-sum abundance notion. A uniform explicit congruence criterion with two exceptional primes converts Defant's existence result into a complete classification for the sixth parameter, rules out perfection on the entire stratum, and exhibits the abrupt abundance-to-deficiency transition at \(19\). This is not a finite table or routine reformulation: it has an infinite proof, sharp threshold, and a meaningful boundary phenomenon.
+Defant's 2015 primary article defines D_m and Theorem 18 proves infinitely many primes whose every power is abundant for each even m. Its full text, especially pages 7-10, does not furnish the exact sixth-parameter prime-power dichotomy or isolated primes 19 and 83. The present all-prime classification is strictly sharper than that existence theorem. OEIS trajectory sequences named in the record concern other m; unindexed tables remain possible.
 
-## Limitations
+## value
 
-No classification for mixed-prime-support integers or other parameters. Finite checks are not the proof; novelty remains subject to future bibliographic discovery.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete sign classification for a natural family singled out by Defant's Schemmel iteration, including an isolated 83 exception and 19 exponent transition, is a mathematically motivated exact boundary. It is not simply reprinting known values or checking a tiny slice: a structural lemma proves the infinite prime and exponent range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
