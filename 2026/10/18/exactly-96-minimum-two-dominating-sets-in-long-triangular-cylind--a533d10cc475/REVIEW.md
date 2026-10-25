@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The new claim concerns every integer \(n\ge7\). The proof derives the full-column requirement beside each empty column, establishes the \(n+3\) obstruction to any empty column, and shows that the end-pair constraints force precisely two doubled columns in every set of minimum size \(n+2\). Three consecutive singleton middle columns force all three distinct row labels; the resulting rainbow sequence has six phases. The two independent choices at each double column produce exactly \(4\cdot6\cdot2\cdot2=96\) valid distinct configurations, and all configurations are checked against the vertex-level domination condition. No computational extrapolation is used in the proof. The standalone direct and transfer enumerators replayed successfully through their stated ranges.
+## correctness
 
-**Originality — PASS, qualified.** The closest 2021/2022 work by Garzón et al. already establishes the numerical minimum \(n+2\), so that number is explicitly not presented as new. Its full text gives optimization recurrences and minimum-size tables, not exact multiplicity or an exhaustive equality-case classification. The 2022 broader theorem by Martínez et al. establishes sharp cardinalities in a wider parameter regime, again without counts. Relevant later full-text papers concern cardinality bounds or related domination notions, not the constant \(96\) or the full four-profile theorem. Direct title, alias, equivalence, product and implication searches in mathematical records and primary literature found no covering result. Residual risk: equivalent unindexed results or overlooked classifications could exist; negative search results alone do not prove originality.
+PASS
 
-**Value — PASS.** The triangular cylinder is the smallest cyclic width in an intensively studied class of fault-tolerant domination models. Previously known minimum sizes do not measure the number, shape or degeneracy of optimal placements. The proof gives a natural infinite-family classification: beyond width \(n\ge7\), the number of optimum labeled placements stabilizes at precisely \(96\) despite the graph growing without bound. It identifies a structural mechanism—two boundary defects and forced three-periodicity—rather than recomputing an old table. Such extremal multiplicities are independently meaningful for the placement problem.
+Examined column-based proof: empty interior column forces both neighbors full; maximal chains of empties at distance two incur excess at least three. Without empties, two disjoint endpoint pairs each require one extra selected vertex, hence n+2 lower bound. Equality forces one double column in each end pair and singleton remainder; each internal singleton needs both missing labels horizontally, imposing rainbow triples and period three. Six permutations times two choices at each double boundary give 24 per one of four placement cases, hence 96, with valid constructive solutions. Independently implemented 8-mask-column dynamic program for n=7..100, matching (n+2,96) in every test.
 
-**Limits and sources.** The theorem is for \(C_3\square P_n\) with \(n\ge7\) only, and counts fixed-vertex labeled sets, not automorphism classes. Primary sources inspected: Garzón et al. (2022), DOI `10.3233/FI-222107`, full arXiv text `2109.10549`; Martínez et al. (2022), DOI `10.1007/s40314-022-02137-1`, full arXiv text `2409.16703`; Garzón et al. (2022), DOI `10.1007/s11227-022-04574-5`, full journal HTML; Žerovnik (2025), DOI `10.1007/s40314-025-03201-2`, full journal HTML. Independent scientific audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Garzón–Martínez–Moreno–Puertas 2022 establishes minimum size n+2 (at least n>=4), not optimizer multiplicity or four-family structural census in inspected full paper. Other cylinder studies address min-plus size bounds or rainbow 2-domination. The exact optimizer enumeration extends known numerical value rather than repackaging it.
+
+## value
+
+PASS
+
+Complete description of all optimal labelled vertex sets of an infinite natural cylinder family, with unexpectedly constant count 96 and sharp period-three structure, is a motivated exact extremal classification. The count is not implied by the known size alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

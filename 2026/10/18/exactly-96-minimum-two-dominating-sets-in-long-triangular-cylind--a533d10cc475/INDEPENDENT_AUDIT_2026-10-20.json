@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T18:01:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Examined column-based proof: empty interior column forces both neighbors full; maximal chains of empties at distance two incur excess at least three. Without empties, two disjoint endpoint pairs each require one extra selected vertex, hence n+2 lower bound. Equality forces one double column in each end pair and singleton remainder; each internal singleton needs both missing labels horizontally, imposing rainbow triples and period three. Six permutations times two choices at each double boundary give 24 per one of four placement cases, hence 96, with valid constructive solutions. Independently implemented 8-mask-column dynamic program for n=7..100, matching (n+2,96) in every test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Subsequent papers treat general circumference and 2-rainbow concepts or bounds, not stated complete labelled minimum-set spectrum for C3 in read material."
+        ],
+        "reasoning": "Broader graph families with partial minimum-size statements do not imply a full optimum counting theorem without further structure.",
+        "searches": [
+          "https://arxiv.org/abs/2409.16703",
+          "https://doi.org/10.1007/s40314-025-03201-2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.10549",
+        "https://arxiv.org/abs/2409.16703",
+        "https://doi.org/10.1007/s40314-025-03201-2",
+        "Resultary semantic query: 2 domination number minimum 2 dominating sets triangular prism cylinder C3 cartesian path n n+2 96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known γ2(C3 square Pn)=n+2 provides target size. Current proof classifies all size-achieving masks and counts their free end labels, yielding 96."
+        ],
+        "reasoning": "Current result entails the prior numerical formula for n>=7, whereas the prior size formula does not entail optimizer count.",
+        "searches": [
+          "https://arxiv.org/abs/2109.10549",
+          "https://arxiv.org/abs/2409.16703"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing numerical 2-domination size n+2 matches the same graph and parameter but gives no bijection or enumerator of optimizers."
+        ],
+        "reasoning": "Equality of extremal value alone does not fix number or shape of attaining subsets.",
+        "searches": [
+          "2 domination number minimum 2 dominating sets triangular prism cylinder C3 cartesian path n n+2 96",
+          "https://arxiv.org/abs/2109.10549"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior min-plus matrix treatment tabulates minimal cardinalities, not the exact 96 multiplicity across every n>=7."
+        ],
+        "reasoning": "No exact matching count table identified; searches alone do not exclude an unindexed one.",
+        "searches": [
+          "2 domination number minimum 2 dominating sets triangular prism cylinder C3 cartesian path n n+2 96",
+          "https://arxiv.org/abs/2109.10549"
+        ]
+      },
+      "rationale": "Garzón–Martínez–Moreno–Puertas 2022 establishes minimum size n+2 (at least n>=4), not optimizer multiplicity or four-family structural census in inspected full paper. Other cylinder studies address min-plus size bounds or rainbow 2-domination. The exact optimizer enumeration extends known numerical value rather than repackaging it.",
+      "residual_risks": [
+        "Some min-plus matrix code or thesis appendices may encode the 96 count without stating it explicitly.",
+        "No claims for n<7, other circumferences, or automorphism orbit counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING size γ2=n+2, not identified as covering 96 optimizer structure.",
+          "evidence": [
+            "Its C3 table reports γ2(C3 square Pm)=m+2 (m>=4); it does not establish counting of all labelled extremizers in inspected theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.10549",
+          "material_read": "Full 15-page primary PDF examined, especially theorem table for C3 and min-plus results; searched for exact optimizer multiplicities.",
+          "method": "Full source mathematical comparison of cardinality versus minimizer census.",
+          "title": "On the 2-domination Number of Cylinders with Small Cycles",
+          "trigger": "Identical C3 square Pn family and 2-domination number"
+        },
+        {
+          "assessment": "Different numerical domination variants; no direct 96 multiplicity coverage in inspected material.",
+          "evidence": [
+            "The published article considers 2-domination and rainbow 2-domination sizes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-025-03201-2",
+          "material_read": "Accessible full OA article on cylindrical 2-domination and 2-rainbow claims.",
+          "method": "Examined theorem/sections for enumerator versus minimum size.",
+          "title": "On 2-domination and 2-rainbow domination of cylindrical graphs",
+          "trigger": "Same graph class and potential stronger 2025 numerical results"
+        },
+        {
+          "assessment": "Potential broader size results; whole-document noncoverage not claimed.",
+          "evidence": [
+            "Focuses on cylindrical 2-domination bounds/constructive results; exact optimizer count remains a residual risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.16703",
+          "material_read": "Title and abstract/index accessible, full preprint could not be reliably read in this run.",
+          "method": "Checked accessible metadata and compared stated general-size focus.",
+          "title": "The 2-domination number of cylindrical graphs",
+          "trigger": "Potential broader class dominating C3 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete description of all optimal labelled vertex sets of an infinite natural cylinder family, with unexpectedly constant count 96 and sharp period-three structure, is a motivated exact extremal classification. The count is not implied by the known size alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2109.10549",
+    "https://arxiv.org/abs/2409.16703",
+    "https://doi.org/10.1007/s40314-025-03201-2",
+    "Resultary semantic query: 2 domination number minimum 2 dominating sets triangular prism cylinder C3 cartesian path n n+2 96"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Every n>=7 only, C3 square Pn and labelled subsets, no quotient by graph automorphisms.",
+    "Numerical DP is finite and does not replace all-n column proof."
+  ],
+  "residual_risks": [
+    "Some min-plus matrix code or thesis appendices may encode the 96 count without stating it explicitly.",
+    "No claims for n<7, other circumferences, or automorphism orbit counts."
+  ],
+  "schema_version": 1
+}

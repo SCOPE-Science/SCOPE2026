@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` with standard Python 3.9 or newer. The code uses no third-party dependencies.
+## correctness
 
-The source-level mathematical certificate is the four-part combinatorial proof in `RESULT.md`; it covers all integers \(n\ge7\). The program supplies separate finite corroboration, not an infinite proof.
+PASS
 
-1. A graph-neighbor checker exhaustively tests subsets by increasing size for \(2\le n\le7\). Its exact optima and labeled multiplicities, at lengths \(n=2,3,4,5,6,7\), are respectively \((3,6),(4,3),(6,78),(7,99),(8,99),(9,96)\). This method directly counts vertices and graph neighbors without using the column transfer predicate.
-2. An eight-mask-column dynamic program enumerates all two-dominating sets by minimum cardinality and exact multiplicity for \(1\le n\le200\); for each \(7\le n\le200\), it returns minimum \(n+2\) with precisely \(96\) realizations.
-3. A separate extremizer generator builds the four boundary profiles using all six rainbow phases and the two independent binary choices at each end, then tests every vertex-level constraint and checks distinctness for \(7\le n\le40\) and lengths \(n=100,150,200\).
+Examined column-based proof: empty interior column forces both neighbors full; maximal chains of empties at distance two incur excess at least three. Without empties, two disjoint endpoint pairs each require one extra selected vertex, hence n+2 lower bound. Equality forces one double column in each end pair and singleton remainder; each internal singleton needs both missing labels horizontally, imposing rainbow triples and period three. Six permutations times two choices at each double boundary give 24 per one of four placement cases, hence 96, with valid constructive solutions. Independently implemented 8-mask-column dynamic program for n=7..100, matching (n+2,96) in every test.
 
-Independent experimental methods agree with the fully symbolic proof. No tests outside the stated bounds were used to support an infinite inference. No independent external review, formal theorem-prover certification or general-circumference classification is claimed.
+## originality
+
+PASS
+
+Garzón–Martínez–Moreno–Puertas 2022 establishes minimum size n+2 (at least n>=4), not optimizer multiplicity or four-family structural census in inspected full paper. Other cylinder studies address min-plus size bounds or rainbow 2-domination. The exact optimizer enumeration extends known numerical value rather than repackaging it.
+
+## value
+
+PASS
+
+Complete description of all optimal labelled vertex sets of an infinite natural cylinder family, with unexpectedly constant count 96 and sharp period-three structure, is a motivated exact extremal classification. The count is not implied by the known size alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
