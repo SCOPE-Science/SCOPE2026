@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an exhaustive finite mod-two Betti classification on the twelve prescribed affine lines, with a complete source-level algorithm, explicit boundary matrices, exact rank operations, row-count identities and independent small-prime comparisons. The nine pencil and four parallel-class sphere cases also admit direct join/cone arguments. The finite table is not extended to unproved integral or higher-order results.
+## correctness
 
-**Originality — PASS, with literature-access risk.** Lew's thesis already evaluates the homology of the full line-free complex; that \(m=0\) case is explicitly excluded from any novelty assertion. Lew (2020) supplies general partial-Steiner representability and a homological duality, not the individual line-erasure Betti numbers. Gower studies partial Steiner defining sets rather than the topological invariant in the accessible abstract; the full Gower article was inaccessible, so its uninspected sections remain a named risk. The exhaustive all-erasure distribution and its pencil/parallel exceptions are not implied numerically by any inspected primary result or by retrieved same-topic records.
+PASS
 
-**Value — PASS.** This is a complete classification for a canonical geometry rather than an arbitrary list of sampled subinstances. It identifies a sharp and nonmonotone change in the dimension of surviving homology, detects both natural affine incidence geometries, and supplies an exact reference profile for how partial triple-system constraints affect topology. These structural signatures supply mathematical motivation beyond a code-only numerical table.
+Enumerated independently all 12 affine lines on F3^2 from translations of four direction classes. For every one of 4096 line-erasure masks enumerated all 511 nonempty subsets of nine points and formed exactly the simplices containing none of the retained 3-point lines. Constructed mod2 boundary bit matrices and exact ranks with augmentation r0=1; obtained the full dimension-by-erasure-count spectrum agreeing with all seven b3 multiplicity rows in RESULT.md. At zero erasures b2=1,b3=11; for erasures 1..7 only b3 may survive. For eight erasures nine cases have only b4=1, precisely four retained lines through a point (nine pencils); for nine erasures four cases have only b5=1, precisely three retained parallel lines; all other patterns at m>=8 are mod2 acyclic. Each pencil case is a cone attachment with link (S0)^*4≅S3 and resulting S4; each parallel three-line case is join (S1)^*3≅S5. Exhaustive enumeration additionally verifies every predecessor of these special cases restores mod2 acyclicity. This is a finite exact proof, not a claim over all affine planes or integral coefficients.
 
-The exact verifier is included. Independent validation or a broader literature audit has not been performed; the inaccessible Gower full text remains a qualification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncovered part: Complete mod-two homology spectra of ternary affine-plane line erasures. A complete exact spectrum across all 4096 constraint-erasure states for the unique nine-point affine plane is a natural finite classification of a well-defined combinatorial topology parameter; exceptional pencil and parallel classes create sharp homological reappearance beyond bulk degree-three patterns; The full spectrum and exceptional pencil/parallel ranks are genuinely additional finite calculations.
+
+## value
+
+PASS
+
+A complete exact spectrum across all 4096 constraint-erasure states for the unique nine-point affine plane is a natural finite classification of a well-defined combinatorial topology parameter; exceptional pencil and parallel classes create sharp homological reappearance beyond bulk degree-three patterns. These facts are not mere reprints of the previously known full-line X3 homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

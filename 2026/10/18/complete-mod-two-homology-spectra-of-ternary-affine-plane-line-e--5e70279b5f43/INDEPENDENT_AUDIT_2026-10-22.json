@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:03:08.530125Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-mod-two-homology-spectra-of-ternary-affine-plane-line-e--5e70279b5f43",
+        "RESULT.md 372cd690d026685d528dfd5057d547db91cb20cb",
+        "verify_line_erasure.py blob 79be9e2645198858d556acb39dc25d0e0e06cfbd inspected; original uses GF2/3/101",
+        "Independent /mnt/data/audit_check_20261022.py constructs affine lines differently and independently verifies all 4096 pattern Betti groups, frequencies and 9/4 exceptional counts."
+      ],
+      "evidence": [
+        "RESULT.md 372cd690d026685d528dfd5057d547db91cb20cb",
+        "verify_line_erasure.py blob 79be9e2645198858d556acb39dc25d0e0e06cfbd inspected; original uses GF2/3/101",
+        "Independent /mnt/data/audit_check_20261022.py constructs affine lines differently and independently verifies all 4096 pattern Betti groups, frequencies and 9/4 exceptional counts."
+      ],
+      "rationale": "Enumerated independently all 12 affine lines on F3^2 from translations of four direction classes. For every one of 4096 line-erasure masks enumerated all 511 nonempty subsets of nine points and formed exactly the simplices containing none of the retained 3-point lines. Constructed mod2 boundary bit matrices and exact ranks with augmentation r0=1; obtained the full dimension-by-erasure-count spectrum agreeing with all seven b3 multiplicity rows in RESULT.md. At zero erasures b2=1,b3=11; for erasures 1..7 only b3 may survive. For eight erasures nine cases have only b4=1, precisely four retained lines through a point (nine pencils); for nine erasures four cases have only b5=1, precisely three retained parallel lines; all other patterns at m>=8 are mod2 acyclic. Each pencil case is a cone attachment with link (S0)^*4≅S3 and resulting S4; each parallel three-line case is join (S1)^*3≅S5. Exhaustive enumeration additionally verifies every predecessor of these special cases restores mod2 acyclicity. This is a finite exact proof, not a claim over all affine planes or integral coefficients.",
+      "residual_risks": [
+        "Only AG(2,3), only reduced GF2 homology for complete spectrum; exceptional selected cases have integral sphere types but no complete all-pattern integral classification. Mod2 acyclic does not mean contractible; no full persistence module/ranks between arbitrary erasure patterns."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lew’s Chapter 7 theorem is for full line-free X_q all lines retained (and punctured counterpart), not 2^12 arbitrary retained line subsets.",
+          "Lew arxiv:2008.09997 concerns boxicity/representability for complexes defined by Steiner-type missing faces; does not state these Betti enumerations.",
+          "Gower 1997 abstract concerns minimal defining sets of affine Steiner triple systems, not Betti homology of line-erasure complexes."
+        ],
+        "reasoning": "No broader statement inspected implies all independent GF2 homology spectra, rank distributions, and pencil/parallel-class exceptions. Gower full text inaccessible, retained as risk.",
+        "searches": [
+          "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+          "https://arxiv.org/abs/2008.09997",
+          "https://doi.org/10.1002/(SICI)1520-6610(1997)5:3%3C155::AID-JCD1%3E3.0.CO;2-E"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+        "https://arxiv.org/abs/2008.09997",
+        "https://doi.org/10.1002/(SICI)1520-6610(1997)5:3%3C155::AID-JCD1%3E3.0.CO;2-E",
+        "Resultary: affine plane order three Steiner triple system line erasure simplicial homology spectrum partial lines",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing H3(X3;Z)≅Z11 for no erasure does not determine any of the other 4095 subsets, especially reemergent b4/b5 spheres.",
+          "Defining-set combinatorics classify block subsets uniquely defining a design, not chain-boundary ranks of resulting forbidden-line simplicial complexes."
+        ],
+        "reasoning": "The full spectrum and exceptional pencil/parallel ranks are genuinely additional finite calculations.",
+        "searches": [
+          "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+          "https://doi.org/10.1002/(SICI)1520-6610(1997)5:3%3C155::AID-JCD1%3E3.0.CO;2-E",
+          "https://arxiv.org/abs/2008.09997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lew 2021 thesis Chapter 7 studies the full no-line complex X_q on Fq^2; the q=3 top integral homology has rank11; baseline m=0 b3=11 is known.",
+          "Deleting line constraints changes a block-design forbidden-face complex; related partial Steiner systems and defining sets have overlapping combinatorial objects but distinct invariants."
+        ],
+        "reasoning": "The source object aliases affine Steiner triple system, 12-line AG(2,3) cap/line-free complex were checked; no thesis result found giving all 4096 line-erasure selections and spectrum.",
+        "searches": [
+          "Resultary: affine plane order three Steiner triple system line erasure simplicial homology spectrum partial lines",
+          "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+          "https://arxiv.org/abs/2008.09997"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lew thesis Figure 1.1 and Theorem 1.5.2 give full-system q=3 top rank11, but no exhaustive 4096 erasure table in inspected Chapter 7 Sections 7.1–7.4.",
+          "Indexed affine-plane incidence Rips results have 16 S2+16 S3 at radius2 for a different incidence graph, not forbidden-lines on nine point sets."
+        ],
+        "reasoning": "Complete spectrum not located in prior indexed table; documented distinction of filtration object, not an unsubstantiated novelty inference from search alone.",
+        "searches": [
+          "Resultary: affine plane order three Steiner triple system line erasure simplicial homology spectrum partial lines",
+          "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+          "Resultary: \"AG(2,3)\" \"line\" \"erasure\" homology spectrum betti"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncovered part: Complete mod-two homology spectra of ternary affine-plane line erasures. A complete exact spectrum across all 4096 constraint-erasure states for the unique nine-point affine plane is a natural finite classification of a well-defined combinatorial topology parameter; exceptional pencil and parallel classes create sharp homological reappearance beyond bulk degree-three patterns; The full spectrum and exceptional pencil/parallel ranks are genuinely additional finite calculations.",
+      "residual_risks": [
+        "Gower 1997 full text inaccessible; authorized Oxford retrieval returned vpn_disconnected; no bypass or repeat attempted. Its title/object is plausible but abstract addresses defining sets, not homology.",
+        "Other partial Steiner system enumeration may contain equal Betti tables without line-erasure terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BASELINE_ONLY",
+          "evidence": "X_3 with all twelve lines forbidden is prior; variable erasure tables and exceptional pencils/parallels not asserted in inspected material.",
+          "identifier_or_url": "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+          "material_read": "Full thesis PDF Chapter 7 Sections 7.1–7.4 structure and theorem statement, especially §7.1 and Theorem 1.5.2 q=3 rank11; read accompanying Figure discussion; viewed thesis PDF page image",
+          "method": "Full-text PDF and page-image inspection",
+          "title": "Studies in topological combinatorics",
+          "trigger": "Same full AG(2,3) line-free simplicial complex"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT_WITH_RISK",
+          "evidence": "Bounds on representability/boxicity do not themselves determine mod2 Betti spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.09997",
+          "material_read": "Published abstract and work scope with Steiner triple systems; not full paper read",
+          "method": "arXiv abstract/metadata and mathematical theorem comparison",
+          "title": "Representability and boxicity of simplicial complexes",
+          "trigger": "Potential general partial Steiner missing-face theorem"
+        },
+        {
+          "assessment": "UNREAD_FULL_TEXT_RESIDUAL_RISK",
+          "evidence": "Abstract is defining/minimal determining subsets, not topological homology; inaccessible full article cannot be called whole-document NOT_COVERING.",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1520-6610(1997)5:3%3C155::AID-JCD1%3E3.0.CO;2-E",
+          "material_read": "Wiley 1997 full bibliographic abstract read; arXiv/preprint and lawful OA full-text search did not return text; authorized Oxford result vpn_disconnected",
+          "method": "Publisher abstract, arxiv/OA search, Oxford authorized access attempted once",
+          "title": "Defining sets for the Steiner triple systems from affine spaces",
+          "trigger": "Same affine Steiner block system; potentially studies erasure subsets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-mod-two-homology-spectra-of-ternary-affine-plane-line-e--5e70279b5f43",
+        "https://www.math.cmu.edu/users/alanlew/files/theses/phd%20thesis.pdf",
+        "https://arxiv.org/abs/2008.09997",
+        "https://doi.org/10.1002/(SICI)1520-6610(1997)5:3%3C155::AID-JCD1%3E3.0.CO;2-E",
+        "Resultary: affine plane order three Steiner triple system line erasure simplicial homology spectrum partial lines",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4"
+      ],
+      "rationale": "A complete exact spectrum across all 4096 constraint-erasure states for the unique nine-point affine plane is a natural finite classification of a well-defined combinatorial topology parameter; exceptional pencil and parallel classes create sharp homological reappearance beyond bulk degree-three patterns. These facts are not mere reprints of the previously known full-line X3 homology.",
+      "residual_risks": [
+        "No general q classification or integral full spectrum claimed; independent utility is a canonical small-order test case and exact exceptional patterns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
