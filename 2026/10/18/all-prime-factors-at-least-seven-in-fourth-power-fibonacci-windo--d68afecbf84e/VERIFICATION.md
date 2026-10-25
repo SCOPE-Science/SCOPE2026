@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` using a Python standard-library interpreter. The independent script checks the formula for every length \(1\le k\le400\), constructs the integer quartic Fibonacci windows directly, calculates their gcd from the first five translates, tests that the next four translates yield the same gcd, factors all relevant lengths and gcds, computes multiplicative orders in \(\mathbb F_p[t]/(t^2+3t+1)\), and verifies each prediction for prime factors at least seven. Successful output is `PASS quartic prime-primary checks, lengths 1..400`. The infinitely quantified theorem follows from the algebraic proof, not these tests.
+## correctness
 
-The exceptional prime factors \(2,3,5\) are not classified. No external or independent mathematical audit has been performed.
+PASS
+
+Binet/Lucas formula decomposes fourth Fibonacci powers into distinct five modes 1,mu^{±1},mu^{±2} with characteristic polynomial (x−1)(x²+3x+1)(x²−7x+1), discriminant only divisible by 2,3,5. The monic integral recurrence reduces the gcd of infinitely many windows to its first five. Vandermonde over Z/p^e quadratic algebra for p>=7 separates modes; constant term forces p^e|k and t−1 invertibility converts s_k(t)=0 to t^k=1. Order h_p prime to p divides p±1; binomial lifting and constant-mode upper bound prove exact v_p formula. Direct independent k<=89 arithmetic checks corroborate; 2,3,5 excluded.
+
+## originality
+
+PASS
+
+Independent best-of-knowledge statement/implication comparisons distinguish this final theorem from relevant prior source claims. Previously known summation, size, geometric existence, and binary subcases are credited; no absolute priority guarantee is claimed.
+
+## value
+
+PASS
+
+Complete p>=7 local divisor spectrum of an infinite translated fourth-Fibonacci-power window gcd is an arithmetically natural problem explicitly motivated by prior higher-power gcd questions. It gives exact valuations, period/order tests and precise small-prime limitations, not a routine summation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
