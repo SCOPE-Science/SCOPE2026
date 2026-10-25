@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:58:31.613927Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Indicator weights 0/1 on tree edges yield selected-weight diameter ≤2 exactly when no simple path has 3 selected edges. For each rooted subtree F_v^(a), a=max marked weight from root and a∈{0,1,2}. Adding child edge b lifts child branch height to a+b; merging distinct child branches has maximum connecting path weight exactly their root-height sum, so retaining pairs a+h≤2 and state max(a,h) proves the polynomial convolution recurrence without double counting. Pairwise edge charging bounds arithmetic operations O(n²), not bit time. Independently compared implemented three-state DP with unique-graph-path brute enumeration for all 1442 labeled trees through 6 vertices and 43615 masks, plus manuscript star/path/double-star closed forms. Proof by induction handles any finite tree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel–Prabha–Klavžar 2021 prove maximum selected-edge count equals leaf count for trees; a maximum is not full coefficient distribution.",
+          "Klavžar–Tan 2023 and Tian–Klavžar–Tan 2024 study Fibonacci/Lucas-cube and extremal graph properties, not this unrestricted-tree enumeration theorem."
+        ],
+        "reasoning": "Inspected the stronger or broader candidate and tested whether hypotheses imply the target statement.",
+        "searches": [
+          "edge general position polynomial counting sets trees three state dynamic programming enumerator",
+          "All edge general position subsets spider tree enumerator polynomial",
+          "https://arxiv.org/abs/2105.04292"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2105.04292",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+        "Resultary searches: edge general position polynomial counting sets trees three state dynamic programming enumerator",
+        "Resultary searches: All edge general position subsets spider tree enumerator polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known maximum only determines polynomial degree and hence cannot recover intermediate counts.",
+          "General recursion yields both known leaf maximum and spider formula; converse does not follow from special cases."
+        ],
+        "reasoning": "Checked the direction of implication and identified genuinely additional deductions, rather than treating different wording as novel.",
+        "searches": [
+          "edge general position polynomial counting sets trees three state dynamic programming enumerator",
+          "All edge general position subsets spider tree enumerator polynomial",
+          "https://arxiv.org/abs/2105.04292"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a tree edge-general-position sets are exactly zero-one weighted-edge subsets of weighted diameter at most two.",
+          "Three root-height states (0,1,2) and cross-branch height sum express the same feasible-set relation."
+        ],
+        "reasoning": "Compared the theorem with its mathematical aliases and formulations, not only titles.",
+        "searches": [
+          "edge general position polynomial counting sets trees three state dynamic programming enumerator",
+          "All edge general position subsets spider tree enumerator polynomial",
+          "https://arxiv.org/abs/2105.04292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary source id 96369ffaa123 supplies a spider-only polynomial ∏(1+ℓ_i z)+z²Σ binom(ℓ_i,2).",
+          "A spider is the proper one-branching-vertex subclass; its identity is implied by, but cannot establish, an unrestricted quadratic DP over multi-center trees."
+        ],
+        "reasoning": "Distinguished exact previously tabulated invariants from the assigned new exact values and searched Resultary.",
+        "searches": [
+          "edge general position polynomial counting sets trees three state dynamic programming enumerator",
+          "All edge general position subsets spider tree enumerator polynomial"
+        ]
+      },
+      "rationale": "The previously known edge-general-position maximum for trees and a full polynomial only for spiders are strictly weaker than an O(n²) coefficient enumerator for every tree. Best-of-knowledge; checked source and access limitations recorded in residual_risks.",
+      "residual_risks": [
+        "General tree weighted-diameter subset counting may exist in unindexed algorithmic graph literature under different phrasing.",
+        "Spider record inspected as Resultary summary, not complete primary research file; no whole-document noncoverage claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The maximum cardinality equals the number of leaves, but its scalar extremal result does not enumerate all coefficients on arbitrary trees.",
+          "evidence": [
+            "Manuel–Prabha–Klavžar arXiv:2105.04292 (2021), tree theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Accessible full arXiv HTML and the tree maximum-size result",
+          "method": "Primary theorem comparison and target phrase search",
+          "title": "The edge general position problem",
+          "trigger": "Foundational extremal theorem for trees is closest earlier result"
+        },
+        {
+          "assessment": "Spider closed formula is a special case, not a proof of the unrestricted three-state quadratic arithmetic recurrence; potential unindexed general DP remains a priority risk.",
+          "evidence": [
+            "Published spider formula: ∏_i(1+ℓ_i z)+z²∑_i binom(ℓ_i,2), Resultary id 96369ffaa123."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "material_read": "Resultary published title and complete relevant summary formula; did not access full scientific record",
+          "method": "Resultary semantic search, compare proper-subclass formula versus arbitrary branching",
+          "title": "All edge general-position sets of spider trees",
+          "trigger": "Already-published explicit size enumerator of a proper tree subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The edge-general-position polynomial enumerates all sizes of a recognized graph invariant, beyond its known leaf maximum. Counting by three heights yields a uniform quadratic-arithmetic algorithm on every tree shape, including unbounded branching where the prior spider closed form does not suffice. An arbitrary-tree polynomial is independently useful even absent a general-graph theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication is operational not_ready despite scientific PASS; no public files written.",
+    "Root Git tree SHA supplied by assignment and pinned source files retrieved by commit; full recursive Git tree identity reconstruction was not independently done.",
+    "No Lean certification or external expert attestation claimed.",
+    "General tree weighted-diameter subset counting may exist in unindexed algorithmic graph literature under different phrasing.",
+    "Spider record inspected as Resultary summary, not complete primary research file; no whole-document noncoverage claimed."
+  ],
+  "schema_version": 1
+}
