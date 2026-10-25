@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "FROZEN RESULT.md fa9c2d7428a95ac839b409c39a805966f2939f19",
+        "FROZEN verification/check_hessian.py d3d3c3686d55fb2575d3a65e4b04fde60fb19a48",
+        "Fresh independent SymPy exact Hessian /mnt/data/scope07_independent_check_results_20261024.json"
+      ],
+      "rationale": "In independent upper-triangle variables, congruence transformation on Sym_n has determinant (det g)^(n+1), and F transforms by (det g)^2; identity evaluation gives the integral Hessian determinant (-1)^(n-1+n(n-1)/2)(n-1)2^{n(n-1)/2}F^{(n+1)(n-2)/2}. In char2 off-diagonal partials vanish, principal cofactors produce full diagonal projective image; corank-one adjugate has some nonzero diagonal, while invertible alternating matrices in even n form extra base component. At coranks 1,2,>=3, Schur-complement 2-jets give respectively rank n+1/2-or-0, rank 3/2, and 0; full rank uses orthogonal/alternating normal forms. Independent SymPy Hessians of full generic n=3,4 confirm integer polynomial identity n=3 and odd/char2 ranks at identity and corank1/2: n3 I ranks 2,6,6 for p2,p3,p5; n4 I 4,9,10; corank1 n3 p2=2,p3=4; n4 p2=2,p3=5.",
+      "residual_risks": [
+        "The numerical check covers n3,4; the arbitrary-n assertion depends on the integral identity and bilinear-form 2-jets.",
+        "Ordinary rather than Hasse Hessian and algebraically closed field; base support reduced, no primary decomposition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Characteristic-zero polar-map/homaloidal theorems do not address char2 alternating base.",
+          "Grenet–Monteil–Thomassé concerns symmetric determinantal representations, not characteristic-stratified Hessian ranks."
+        ],
+        "reasoning": "Adjacent stronger objects cannot imply modular exceptions under excluded characteristic assumptions without new argument.",
+        "searches": [
+          "arXiv:1802.08067 original abstract",
+          "arXiv:math/0701596",
+          "arXiv:1210.5879"
+        ]
+      },
+      "checked_sources": [
+        "https://www-verimag.imag.fr/~grenetb/publis/GMT13.pdf (original primary Section 2.1)",
+        "https://arxiv.org/abs/1802.08067 (char0 scope)",
+        "https://arxiv.org/abs/math/0701596 (char0 scope)",
+        "Resultary semantic: symmetric determinant modular characteristic two polar map alternating bilinear Hessian rank zero char p divides n-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical adjugation yields polar involution in char!=2; char2 involution yields vanishing offdiagonal gradients.",
+          "These facts do not alone classify corank one alternating versus nonalternating Hessians or all base components."
+        ],
+        "reasoning": "Submitted new content requires invertible alternating inverse characterization and full Taylor 2-jet rank stratification; prior tools cover premises only.",
+        "searches": [
+          "arXiv:1210.5879 Prop 2.1",
+          "arXiv:1802.08067 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The involution expansion implies square dependence in offdiagonal symmetric entries in char2.",
+          "Char2 polar base can also be described as vanishing principal cofactors or alternating inverse of a nonsingular form."
+        ],
+        "reasoning": "The basic char2 offdiag vanishing is covered, but full-rank extra component and pointwise ranks do not appear among inspected result statements.",
+        "searches": [
+          "Resultary semantic: symmetric determinant modular characteristic two polar map alternating bilinear Hessian rank zero char p divides n-1",
+          "arXiv:1210.5879 Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published same-object Resultary hit concerns degrees/curvature of symmetric determinantal rank loci, not Hessian matrix rank at geometric points.",
+          "No exact all-n char2/odd-characteristic rank table was found."
+        ],
+        "reasoning": "No exact rank table located is weak priority evidence only; standard modular bilinear algebra texts may hide equivalent calculations.",
+        "searches": [
+          "Resultary semantic: symmetric determinant modular characteristic two polar map alternating bilinear Hessian rank zero char p divides n-1",
+          "symmetric determinant ordinary Hessian characteristic 2 rank by rank and alternating type"
+        ]
+      },
+      "rationale": "The characteristic-zero adjugate/Cremona and Hessian factor are classical, while the char2 determinant involution expansion already implies off-diagonal derivative vanishing; those are explicitly not new. The assessed contribution is the all-rank modular base and Hessian rank classification, particularly invertible alternating matrices in the polar base and an odd-characteristic identically vanishing Hessian with birational polar map. Checked same-object primary mathematics does not state the combined classification.",
+      "residual_risks": [
+        "Some part of the modular rank table may be implicit in algebraic bilinear form or Hessian references not found; originality is qualified.",
+        "Grenet source PDF read text but original page screenshot timed out; do not claim successful visual inspection.",
+        "The polar base statement is only reduced support, not scheme decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determinant-involution expansion implies all off-diagonal first derivatives vanish mod2. It does not state full alternating invertible base component or all pointwise Hessian-rank strata.",
+          "evidence": [
+            "Prop 2.1 writes symmetric determinant as an involution expansion in characteristic two.",
+            "The work studies symmetric determinantal representations, not a full polar-base/Hessian-rank classification."
+          ],
+          "identifier_or_url": "https://www-verimag.imag.fr/~grenetb/publis/GMT13.pdf",
+          "material_read": "Original primary PDF text, introduction, Section 2.1 Proposition 2.1 involution expansion and surrounding proof; PDF screenshot request failed by timeout",
+          "method": "Read original PDF mathematical text; attempted source page screenshot but remote PDF screenshot timed out",
+          "title": "Symmetric Determinantal Representations in characteristic 2",
+          "trigger": "Same symmetric determinant in char2; potential implication to vanishing mixed partials"
+        },
+        {
+          "assessment": "Studies characteristic-zero degenerations and standard polar maps; cannot by itself cover the new characteristic-two alternating branch. No whole-document negative claim.",
+          "evidence": [
+            "Abstract states base field characteristic zero and lists gradient ideal, polar map, cofactors and Hessian."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.08067",
+          "material_read": "Full published abstract and scope from arXiv bibliographic entry; no comprehensive proof pages read in this run",
+          "method": "Read arXiv primary abstract/metadata; paper remainder not fully inspected",
+          "title": "Symmetry preserving degenerations of the generic symmetric matrix",
+          "trigger": "Same generic symmetric matrix, polar map and Hessian but possibly stronger results"
+        },
+        {
+          "assessment": "Characteristic-zero framework recognizes the adjugate and Hessian phenomenon but modular exceptions are not under its assumptions.",
+          "evidence": [
+            "Known characteristic-zero homaloidal polar map discussion; source does not assert char2 coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0701596",
+          "material_read": "Abstract and bibliographic scope; original source context from frozen proof",
+          "method": "Primary arXiv bibliographic/abstract reading, not full paper",
+          "title": "Homaloidal hypersurfaces and hypersurfaces with vanishing Hessian",
+          "trigger": "Classical polar Cremona/Hessian phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Characteristic-zero polar map theory and characteristic-two determinant expansion are prior tools."
+      ],
+      "rationale": "The determinant of a generic symmetric matrix and its polar geometry are central algebraic-geometric objects. The char2 full-rank alternating indeterminacy component outside det=0 and odd-characteristic birational map despite zero ordinary Hessian are substantive modular phenomena; the exact pointwise rank table across all coranks supplies a natural complete classification, not an arbitrary small example.",
+      "residual_risks": [
+        "No scheme-theoretic base decomposition is established, only support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The numerical check covers n3,4; the arbitrary-n assertion depends on the integral identity and bilinear-form 2-jets.",
+    "Ordinary rather than Hasse Hessian and algebraically closed field; base support reduced, no primary decomposition.",
+    "Some part of the modular rank table may be implicit in algebraic bilinear form or Hessian references not found; originality is qualified.",
+    "Grenet source PDF read text but original page screenshot timed out; do not claim successful visual inspection.",
+    "The polar base statement is only reduced support, not scheme decomposition.",
+    "No scheme-theoretic base decomposition is established, only support.",
+    "The frozen public AUDIT.json and METADATA.json each contain scope_run_id internal operational identifiers. Exact complete sanitized replacement file bytes with original Git blob guards, UTF-8 SHA-256 and same-claim verification were not prepared. Withhold publication of the completed scientific assessment."
+  ],
+  "schema_version": 1
+}

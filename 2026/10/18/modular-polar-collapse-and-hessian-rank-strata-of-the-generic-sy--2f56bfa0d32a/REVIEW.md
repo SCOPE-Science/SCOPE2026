@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Congruence semi-invariance and the Hessian block computation at the identity establish the integral formula with its coefficient and normalization. The characteristic-two polar base argument partitions ranks \(\leq n-2\), \(n-1\), and \(n\), identifying the extra invertible alternating branch. A second-order determinant expansion supplies all rank strata, including the corank-one alternating exception. The bundled checkers perform exact symbolic diagnostics at \(n=3,4\), exhaust 64 binary symmetric 3-by-3 matrices and spot-check 150 binary symmetric 4-by-4 matrices. This remains finite corroboration, not an infinite search or independent proof. No assertion is made about nonreduced base-scheme structure.
+## correctness
 
-**Originality — PASS (qualified).** Standard characteristic-zero adjugation and Hessian factors are acknowledged as known. Grenet–Monteil–Thomassé's characteristic-two involution expansion implies the basic off-diagonal derivative vanishing; it does not state the full-rank alternating base-component decomposition or complete Hessian ranks. Cunha–Ramos–Simis and Ciliberto–Russo–Simis are characteristic-zero references. Xie's odd-characteristic apolarity result analyzes a different differential invariant, not the pointwise Hessian/polar geometry. Targeted semantic records and inspected primary full texts did not reveal equivalent combined coverage. Residual risk: an equivalent modular statement may be implicit in unidentified work.
+PASS
 
-**Mathematical value — PASS.** The full-rank alternating polar base component lying outside the defining hypersurface and the failure of the characteristic-zero Hessian-versus-Cremona implication are structural, geometry-motivated features of the most natural symmetric determinant family. The pointwise Hessian rank classification supplies a complete invariant across all ranks and characteristics, rather than a few isolated checks.
+In independent upper-triangle variables, congruence transformation on Sym_n has determinant (det g)^(n+1), and F transforms by (det g)^2; identity evaluation gives the integral Hessian determinant (-1)^(n-1+n(n-1)/2)(n-1)2^{n(n-1)/2}F^{(n+1)(n-2)/2}. In char2 off-diagonal partials vanish, principal cofactors produce full diagonal projective image; corank-one adjugate has some nonzero diagonal, while invertible alternating matrices in even n form extra base component. At coranks 1,2,>=3, Schur-complement 2-jets give respectively rank n+1/2-or-0, rank 3/2, and 0; full rank uses orthogonal/alternating normal forms. Independent SymPy Hessians of full generic n=3,4 confirm integer polynomial identity n=3 and odd/char2 ranks at identity and corank1/2: n3 I ranks 2,6,6 for p2,p3,p5; n4 I 4,9,10; corank1 n3 p2=2,p3=4; n4 p2=2,p3=5.
 
-**Closest literature and limitations.** Ciliberto–Russo–Simis (arXiv:math/0701596); Grenet–Monteil–Thomassé (arXiv:1210.5879, Proposition 2.1); Cunha–Ramos–Simis (arXiv:1802.08067); Xie (arXiv:2609.38212). The result concerns ordinary derivatives over algebraically closed fields and the *reduced* polar base. Finite computations are corroborative. Independent expert validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic-zero adjugate/Cremona and Hessian factor are classical, while the char2 determinant involution expansion already implies off-diagonal derivative vanishing; those are explicitly not new. The assessed contribution is the all-rank modular base and Hessian rank classification, particularly invertible alternating matrices in the polar base and an odd-characteristic identically vanishing Hessian with birational polar map. Checked same-object primary mathematics does not state the combined classification.
+
+## value
+
+PASS
+
+The determinant of a generic symmetric matrix and its polar geometry are central algebraic-geometric objects. The char2 full-rank alternating indeterminacy component outside det=0 and odd-characteristic birational map despite zero ordinary Hessian are substantive modular phenomena; the exact pointwise rank table across all coranks supplies a natural complete classification, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

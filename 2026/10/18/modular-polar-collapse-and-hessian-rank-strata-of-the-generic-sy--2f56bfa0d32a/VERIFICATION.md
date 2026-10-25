@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Install the declared dependency with `python3 -m pip install -r verification/requirements.txt` and run `python3 verification/check_hessian.py` from the package root. The script computes actual symbolic determinants, ordinary second partials and gradient polynomials for symmetric matrices with independent upper triangular coordinates, with exact arithmetic. It verifies the Hessian polynomial identity symbolically at \(n=3\), checks an independent full-rank specialization at \(n=4\), and tests Hessian ranks and characteristic-two polar degeneration modulo small primes at canonical matrix representatives. Its expected final line is `VERIFY_OK`. Run `cd verification && python3 random_checks.py` to exhaust all 64 symmetric 3-by-3 matrices over the binary field and check 150 reproducibly sampled symmetric 4-by-4 matrices. This second script verifies both the reduced base-support criterion and the pointwise Hessian-rank formulas; it ends with `FINITE_SPOTS_OK`.
+## correctness
 
-Proof of the infinite-family identity is the integral congruence-covariance argument and identity evaluation in RESULT.md, not interpolation of finite examples. Proof of the characteristic-two base support is the adjugate rank stratification and the alternating-inverse condition. Proof of all Hessian ranks is the explicit 2-jet in each matrix-corank stratum, plus the classification of nonsingular symmetric bilinear forms. No full primary decomposition or nilpotent/embedded structure of the base ideal is claimed. The self-review has passed; no independent audit has been performed.
+PASS
+
+In independent upper-triangle variables, congruence transformation on Sym_n has determinant (det g)^(n+1), and F transforms by (det g)^2; identity evaluation gives the integral Hessian determinant (-1)^(n-1+n(n-1)/2)(n-1)2^{n(n-1)/2}F^{(n+1)(n-2)/2}. In char2 off-diagonal partials vanish, principal cofactors produce full diagonal projective image; corank-one adjugate has some nonzero diagonal, while invertible alternating matrices in even n form extra base component. At coranks 1,2,>=3, Schur-complement 2-jets give respectively rank n+1/2-or-0, rank 3/2, and 0; full rank uses orthogonal/alternating normal forms. Independent SymPy Hessians of full generic n=3,4 confirm integer polynomial identity n=3 and odd/char2 ranks at identity and corank1/2: n3 I ranks 2,6,6 for p2,p3,p5; n4 I 4,9,10; corank1 n3 p2=2,p3=4; n4 p2=2,p3=5.
+
+## originality
+
+PASS
+
+The characteristic-zero adjugate/Cremona and Hessian factor are classical, while the char2 determinant involution expansion already implies off-diagonal derivative vanishing; those are explicitly not new. The assessed contribution is the all-rank modular base and Hessian rank classification, particularly invertible alternating matrices in the polar base and an odd-characteristic identically vanishing Hessian with birational polar map. Checked same-object primary mathematics does not state the combined classification.
+
+## value
+
+PASS
+
+The determinant of a generic symmetric matrix and its polar geometry are central algebraic-geometric objects. The char2 full-rank alternating indeterminacy component outside det=0 and odd-characteristic birational map despite zero ordinary Hessian are substantive modular phenomena; the exact pointwise rank table across all coranks supplies a natural complete classification, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
