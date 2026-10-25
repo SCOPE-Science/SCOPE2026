@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the independence complex of the inclusion graph between the two-element and three-element subsets of a five-set. The full group identification follows from the triangular distance-two graph on the two-element side and the complement involution. The complete nonempty face poset has 6,211 elements. A deterministic 3,102-pair acyclic matching leaves one critical cell each in degrees 0 and 4 and five in degree 5; five *integer* gradient-path differential coefficients all vanish. Thus the reduced integral homology has ranks one and five in degrees four and five and vanishes elsewhere. Independent fixed-simplex and orbit-conflict-graph computations agree on the signed Lefschetz trace of every one of 240 automorphisms. The two possible generators of the abelianization force the degree-four sign character, and the remaining character is the signed five-point permutation character. The standalone verifier was executed successfully.
+PASS
 
-## Originality — PASS, subject to residual bibliographic risk
+Desargues graph is the 20-vertex bipartite inclusion graph of 2- and 3-subsets of [5], 30 edges, group S5×C2 of order240 by recovering triangular distance-two graph and complement. Independent construction: 6212 faces incl empty with f=(1,20,160,660,1510,1924,1320,480,115,20,2), 3102 matched pairs, 1 critical vertex, one 4-cell, five 5-cells, full 30360 oriented Hasse incidences acyclic. Inspected signed unit-pivot Morse gradient recursion in verification/verify_desargues_character.py has five integer 5→4 coefficients all zero, yielding H4(Z)=Z and H5(Z)=Z5. An independent recreation corroborated face/Morse acyclicity and eight sample signed Lefschetz traces. Source verifies 240 automorphisms via fixed simplices AND orbit independence polynomials and gives reduced Lefschetz (−4,−4,0,−1,−1,−2,1) on S5 seven classes, reversing under complement. Any H4 action is sgn^a⊗epsilon^b; transposition and transposition×complement trace extremality force a=b=1, whence H5 char χ(p,c^s)=(-1)^s fixed_points(p), a Perm5⊗epsilon rational module. The central involution acts -I integrally on free H5 (order2, rational trace -5). No integral H5-module isomorphism claimed.
 
-Three full-text published calculations of the same Desargues independence complex establish the nonequivariant mixed-dimensional wedge, not its group characters. The 2010 Barmak primary text establishes a general suspension homotopy type for triangle-free graphs and does not identify the Desargues equivariant module. The full arXiv text on bipartite Kneser edge ideals studies syzygies, not the stated character. The full 2017 incidence-graph paper could not be retrieved, so its general Alexander-dual correspondence is recorded as a risk rather than certified as noncovering. Searches for Desargues, generalized Petersen, bipartite Kneser and permutation-module equivalents found no stronger explicit equivariant result. No absolute uniqueness claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete automorphism action of this canonical 20-vertex symmetric cubic graph distinguishes the sign orientation class from the natural five-point permutation module and exhibits a central involution that negates all positive-degree integral homology. These are natural structural invariants unavailable from the known Betti numbers or nonequivariant wedge alone. The claim is an exact classification for a motivated object; it neither overclaims an integral fifth-homology lattice identification nor requires an infinite-family theorem to be meaningful.
+Three same-object published Desargues independence-complex findings already give non-equivariant S4∨5S5, openly treated as a premise. The new complete 240-automorphism, two-degree homology character is not in those full published findings. Barmak general suspension and Tsukuda incidence-graph/Alexander-dual reductions may explain shape, but none inspected gives these explicit fixed-point/sign characters. Full Tsukuda PDF access failed; residual coverage risk retained, not automatic O failure.
 
-## Limits
+## value
 
-A non-equivariant discrete-Morse matching proves the homology ranks; equivariance is recovered by an exhaustive signed Lefschetz computation and group character argument, not by assuming that matching preserves symmetries. Full-text access to one relevant general paper was unavailable, and unindexed equivalent formulas remain possible. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Desargues graph is a canonical symmetric bipartite Kneser/incidence graph. Full S5×C2 actions on both nonzero homology degrees and central-complement signs are natural exact invariants, distinguishing representations despite known nonequivariant ranks. These explicit group modules inform symmetry quotients and combinatorial topology of incidence graph complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
