@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the exact objective (|<u,x>|^4+|<v,x>|^4)/2. Projection to span{u,v} strictly improves objective for a nonzero perpendicular component. For 0<c<1, relative-phase alignment optimizes the second overlap and reduces the unit-vector problem to G(theta)=[cos^4(theta)+cos^4(theta-phi)]/2 on 0<=theta<=phi=arccos c. With y=cos(2theta-phi) ranging through [c,1], G=(2-c^2+2cy+(2c^2-1)y^2)/4. When 0<c<1/2, its strict concave vertex y*=c/(1-2c^2) is in (c,1) with exactly two angle/ray preimages. When 1/2<=c<1, derivative of this quadratic on [c,1] is positive except possibly at the endpoint c=1/2,y=1, giving only the bisector ray. Endpoints c=0 (two orthogonal generator rays) and c=1 (the common ray) are handled separately. Substitution yields R^2=(1-c^2)^2/[2(1-2c^2)] below c=1/2 and (1+c)^2/4 above. The exact squared branch difference is (1+c)^2(1-2c)^2/[4(1-2c^2)], leading to 1-y*=6delta+O(delta^2), angular splitting 2sqrt(3delta)+O(delta^(3/2)) and radius excess 3delta^2+O(delta^3). Independent SymPy expansion confirmed all polynomial identities, boundary values and second derivatives 19/2 vs 1/2. Finite rational sample checks are only corroboration; the polynomial and phase argument prove the full stated range and dimensional generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct Resultary theorem establishes the exact ray-multiplicity transition c_p=1-1/p for all p>=1, including all complex Hilbert dimensions >=2.",
+          "At p=2 it prints precisely J_2^2=(1-c^2)^2/[2(1-2c^2)] for c<=1/2 and (1+c)^2/4 above, and gives both maximizing-ray regimes.",
+          "Aljawi et al. 2026 defines the weighted A-joint functional and gives general bounds (Theorem 3.1 etc), not the decisive coverage; source was read through its complete accessible author-posted article text."
+        ],
+        "reasoning": "A theorem over arbitrary p dominates the one-exponent p=2 subcase, independently of whether the specialized theorem uses different algebraic or asymptotic packaging. The exact formulas plus equality classification imply the submitted one- vs two-ray transition.",
+        "searches": [
+          "Resultary semantic query: two pure quantum states sum fourth powers overlaps t-design uncertainty maximum 1/2 transition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+          "https://www.researchgate.net/publication/409448018_New_inequalities_for_the_mathbfA_-joint_weighted_numerical_radius_with_applications",
+          "DOI 10.3934/math.2026835 full author-posted source text"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-two-to-one-extremizer-transition-for-the-joint-radius-of--57c3a3b603ff",
+        "https://www.researchgate.net/publication/409448018_New_inequalities_for_the_mathbfA_-joint_weighted_numerical_radius_with_applications",
+        "https://www.aimspress.com/article/doi/10.3934/math.2026835",
+        "https://vuir.vu.edu.au/18014/1/IER2BLOHS.pdf",
+        "https://dergipark.org.tr/en/pub/hujms/article/1142554"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set p=2 in the prior p-joint theorem: J_2=R exactly. Its optimum angles theta_* and gamma-theta_* match the submitted two rays; its quadratic yields cos(2theta-gamma)=c/(1-2c^2).",
+          "The prior exact branch gap (1+c)^2(1-2c)^2/[4(1-2c^2)] is identical to the submitted factored gap since 1-c-2c^2=(1+c)(1-2c).",
+          "With delta=1/2-c, expand the prior quadratic optimizer y*=1-6delta+O(delta^2); arccos y*=2sqrt(3delta)+O(delta^(3/2)), and the prior branch values give radius gain 3delta^2+O(delta^3)."
+        ],
+        "reasoning": "Exact proof of implication: the broader source determines R(c), all maximizing rays and their coordinates via the same polynomial. The two quoted asymptotics are mechanically obtained from these prior expressions. The original is therefore not a distinct new mathematical statement, even though the asymptotic coefficients are not printed verbatim in the p-joint paper.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+          "https://www.researchgate.net/publication/409448018_New_inequalities_for_the_mathbfA_-joint_weighted_numerical_radius_with_applications",
+          "https://vuir.vu.edu.au/18014/1/IER2BLOHS.pdf",
+          "https://dergipark.org.tr/en/pub/hujms/article/1142554",
+          "Resultary semantic query: joint numerical range of two rank-one projections max sum squared expectation values two maxima phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary p-joint RESULT.md defines J_p(P,Q)=sup ((<Px,x>^p+<Qx,x>^p)/2)^(1/p) for rank-one orthogonal projections. Substituting p=2 gives exactly submitted balanced Euclidean R(P,Q), with no factor or object mismatch.",
+          "Its section “Closed Euclidean formula” uses z=cos(2theta-gamma) and exactly the submitted quadratic (2-c^2+2cz+(2c^2-1)z^2)/4, including all branches.",
+          "Dragomir 2006 Eq.(1.3) uses an unnormalized sqrt(sum two squares) radius; multiply by 1/sqrt2 for the submitted balanced convention."
+        ],
+        "reasoning": "The p=2 formulation is mathematically identical to the target with the same H,u,v,c and objective. The shared quadratic identity is the key proof, not a title/keyword match. The already-published p-joint theorem entails the submitted theorem without any new assumptions.",
+        "searches": [
+          "Resultary semantic query: balanced Euclidean numerical radius rank one orthogonal projections exact two ray extremizers fourth moments overlap transition one half",
+          "Resultary semantic query: joint numerical range of two rank-one projections max sum squared expectation values two maxima phase transition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-two-to-one-extremizer-transition-for-the-joint-radius-of--57c3a3b603ff",
+          "https://vuir.vu.edu.au/18014/1/IER2BLOHS.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct published p-joint RESULT.md prints the exact same two-branch algebraic function of c and the ray-count bifurcation.",
+          "The exact numerical threshold and formula appear in a mathematical theorem, not merely a numerical table. The target Resultary hit is the same record and was excluded from independent prior coverage."
+        ],
+        "reasoning": "This is a continuum overlap classification; the stronger published exact formula and theorem replace any need for a discrete tabulation. They cover all c in [0,1], not just experimental parameter values.",
+        "searches": [
+          "Resultary search: balanced Euclidean numerical radius rank one orthogonal projections exact two ray extremizers fourth moments overlap transition one half",
+          "Resultary exact hit: 2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed",
+          "Resultary exact hit: 2026/10/11/SCOPE-a-sharp-two-to-one-extremizer-transition-for-the-joint-radius-of--57c3a3b603ff"
+        ]
+      },
+      "rationale": "A DISTINCT currently published finding, “Sharp overlap transition for the p-joint numerical radius of two rank-one projections” (Resultary/2026, record 4d7babb11eed, dated 2026-10-11), proves a stronger theorem for EVERY real p>=1 on the identical projection-pair object and balanced mean. Its p=2 specialization is literally this R(P,Q); Section 4 states exactly the two algebraic radius branches, the c=1/2 threshold, two vs one maximizing complex ray and all endpoint cases, while its stationary-ray equation and quadratic reduction yield the submitted explicit theta_± and the square-root separation by Taylor expansion. It also determines a broader c_p=1-1/p threshold and C1/not-C2 transition. Thus the submitted result is covered in full as a mathematical special case and routine local expansion. The two entries have the same printed publication date (2026-10-11), and their intraday priority was NOT determined; this review establishes scientific coverage as of the audit, not a fabricated historical ordering. Earlier Dragomir 2006, Feki 2024 and Aljawi et al. 2026 supply definitions/general bounds but need not be claimed to establish this exact formula. The matching Resultary finding 57c3a3b603ff is the assessed record itself and not independent evidence.",
+      "residual_risks": [
+        "The two distinct Resultary records have the same printed 2026-10-11 publication day; intraday precedence and independent discovery history were not established. This does not remove the verified complete coverage as of 2026-10-25.",
+        "The original 2026 weighted-operator paper does not itself appear to supply the exact special case, but its bibliographic novelty is immaterial once the independent p-joint theorem covers it.",
+        "No claim of exhaustive global priority from the searches; independent p-joint theorem is mathematically sufficient for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: p=2 specializes exactly to the audited joint radius, exact branch values and optimizer classifications; explicit second-derivative transition and quadratic make omitted asymptotics immediate.",
+          "evidence": [
+            "Source defines J_p on the same rank-one projection pair for all real p>=1 with c_p=1-1/p.",
+            "Section 4 prints exact two-branch J_2^2 and the quadratic G_2(theta)=(2-c^2+2cz+(2c^2-1)z^2)/4.",
+            "Publication metadata dates the distinct record 2026-10-11; precedence within that calendar day unknown."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+          "material_read": "Entire RESULT.md through pinned retrieved GitHub repository file, including Finding, Assumptions, four proof stages, explicit p=2 formula, equality rays, boundary c=0 and c=1, comparisons and references; inspected METADATA.json and VERIFICATION.md for scope/date and limits.",
+          "method": "Full source-blob inspection from published Resultary Git repository",
+          "title": "Sharp overlap transition for the p-joint numerical radius of two rank-one projections",
+          "trigger": "Decisive independent Resultary semantic hit with same projection pair and stronger exponent domain"
+        },
+        {
+          "assessment": "Defines the same mean-type functional and gives inequalities, but no exact pair-of-rank-one-projections optimizer bifurcation in materially inspected full text; not the decisive covering source.",
+          "evidence": [
+            "Theorem 3.1 provides bounds for arbitrary U,V, not the exact c-dependent branch or maximizing rays.",
+            "Full displayed text sections 3–4 concern reverse Young bounds, integral radius, Cartesian/Davis–Wielandt applications; no rank-one projection special case was found."
+          ],
+          "identifier_or_url": "doi:10.3934/math.2026835",
+          "material_read": "Author-posted full article text (23 journal pages displayed on ResearchGate, approximately 3066 extracted lines): introduction, definitions, section 3 Theorems 3.1–3.3, generalized p-bound material, section 4 applications and conclusions; searched rank-one/projection terms in full displayed text.",
+          "method": "Lawfully accessible complete author-posted OA article text via ResearchGate and publisher abstract/metadata verification",
+          "title": "New inequalities for the A-joint weighted numerical radius with applications",
+          "trigger": "Direct same invariant at A=I and balanced epsilon=1/2; motivating 2026 weighted formulation"
+        },
+        {
+          "assessment": "The foundational ordinary, unbalanced-by-sqrt2 Euclidean radius and operator inequalities do not alone give the c-dependent optimizer phase diagram.",
+          "evidence": [
+            "Equation (1.3) is the ordinary sqrt(sum |<Tx,x>|^2) radius.",
+            "Theorem 1 provides general sharp inequalities in terms of numerical radii and operator norms, not the exact two-ray phase transition."
+          ],
+          "identifier_or_url": "https://vuir.vu.edu.au/18014/1/IER2BLOHS.pdf",
+          "material_read": "Full ten-page institutional-repository PDF text inspected for Eq.(1.3), Theorem 1 and the primary radius estimates; visually inspected PDF printed page 2 using a page screenshot.",
+          "method": "Lawful open-access institutional PDF; text and visual equation inspection",
+          "title": "Some Inequalities for the Euclidean Operator Radius of Two Operators in Hilbert Spaces",
+          "trigger": "Foundational Euclidean joint radius and general sharp operator bounds"
+        },
+        {
+          "assessment": "Only the general joint-radius framework and bounds established from inspected material; no conclusive full-document exclusion claimed.",
+          "evidence": [
+            "2024 abstract defines omega_{A,e} as sup sqrt(|<Tx,x>_A|^2+|<Sx,x>_A|^2) and states general numerical-radius inequalities."
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/pub/hujms/article/1142554",
+          "material_read": "Journal landing page, full abstract, source date, and bibliography; full PDF was not read in this execution.",
+          "method": "Open journal abstract/metadata inspection",
+          "title": "Inequalities for the A-joint numerical radius of two operators and their applications",
+          "trigger": "Earlier semi-Hilbertian pair-radius framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact extremizer transition for the smallest noncommuting projection pair is a natural and potentially valuable invariant in isolation. But the assessed p=2 claim, both branches, and 1-vs-2 maximizing rays are already part of the DISTINCT published, strictly broader p-joint theorem for all real p>=1. Its additional printed square-root angular splitting and quadratic gain are straightforward Taylor expansions of the same prior exact quadratic optimizer and branch difference; they do not constitute an independent new classification, structural lemma, counterexample, or unknown invariant. The correct result therefore lacks distinct scientific contribution relative to strong published coverage, rather than being dismissed for being finite/simple. Its singular coefficients might be useful exposition but do not change the decision.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-overlap-transition-for-the-p-joint-numerical-radius-of-two--4d7babb11eed/RESULT.md",
+    "https://www.researchgate.net/publication/409448018_New_inequalities_for_the_mathbfA_-joint_weighted_numerical_radius_with_applications",
+    "https://vuir.vu.edu.au/18014/1/IER2BLOHS.pdf",
+    "https://dergipark.org.tr/en/pub/hujms/article/1142554",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-two-to-one-extremizer-transition-for-the-joint-radius-of--57c3a3b603ff"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The source may be scientifically correct yet not original, and the decision is a rejection rather than a mathematical counterexample.",
+    "The distinct covering result is contemporaneous on 2026-10-11; intraday historical precedence not verified.",
+    "Existing public metadata includes operational provenance (scope_run_id and self-review vocabulary) requiring confidentiality-safe handling before any relocation/publication.",
+    "Original source package preserved; no guarded sanitized replacement files generated.",
+    "Historical ledger gaps are preserved and not validated in this run."
+  ],
+  "schema_version": 1
+}
