@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The regular language 1(1|00)* gives ordered V_m=V_{m-2} concatenated with 2^(m-1)+V_{m-1}. Its unique join gap is G_m. Each internal bridge at bit-length L occurs F_(L-m) times, and crossings of successive digit lengths contribute only gaps one or two, proving the complete finite histogram including K=1,2. Fibonacci ratios yield the limiting masses, unit total probability and the exact geometric tail. Independent predicate and token-construction verifier agrees for every K=1..15, with convergence at K=19. Finite tests corroborate but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche–Shallit, Automatic Sequences (2003), gives the classical automatic-sequence background.",
+        "Published result titled Log-periodic second-order entropy law for geometric gap shifts concerns entropy in a prescribed infinite gap alphabet, not adjacent 1-indices in Baum–Sweet."
+      ],
+      "reasoning": "An automaticity statement or regular-language support description does not itself state the complete return-gap histogram; one must derive ordered interval decompositions and count all scale bridges. Entropy for geometric S-gap shifts concerns a different object and does not dominate this theorem.",
+      "searches": [
+        "Baum Sweet sequence gaps frequency distribution return times",
+        "Baum-Sweet automatic sequence exact factor complexity palindrome factors abelian squares repetition root lengths",
+        "Baum Sweet sequence zeros ones support exact successive position gaps histogram dyadic powers Fibonacci geometric distribution"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A060142",
+      "OEIS A086747",
+      "Kimberling (2000), A Self-Generating Set and the Golden Mean",
+      "Allouche–Shallit (2003), Automatic Sequences (bibliographic comparison only)",
+      "Published mathematical record: Log-periodic second-order entropy law for geometric gap shifts (statement-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Clark Kimberling, OEIS A060142 (first recorded March 5, 2001): support closure and Fibonacci-word connection.",
+        "C. Kimberling, A Self-Generating Set and the Golden Mean (2000), examines a distinct closure system; its conclusions do not directly enumerate Baum–Sweet return gaps."
+      ],
+      "reasoning": "The known closure/support statements permit, but do not explicitly assert, the derived recursive histogram. The 2000 self-generating set is different: its transformations are not the Baum–Sweet support closure. Its golden-mean results therefore do not imply the present exact return-gap law without new mathematics.",
+      "searches": [
+        "Baum-Sweet successive nonzero term gaps Fibonacci word return distance power-law distribution",
+        "Baum Sweet sequence gap distribution between ones fibonacci gap frequency",
+        "Baum-Sweet characteristic binary language 1(1|00)* Fibonacci enumeration gap multiset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A060142 encodes the positive support via 0 in S, x->2x+1 and x->4x.",
+        "OEIS A086747 encodes the 0/1 characteristic word; its convention for the index zero differs."
+      ],
+      "reasoning": "Adjacent ones in the Baum–Sweet word are the same differences as consecutive values of the positive support, up to the explicit initial zero convention. Neither inspected OEIS entry supplies the asserted all-K histogram or limiting gap masses.",
+      "searches": [
+        "Baum Sweet sequence consecutive ones gap lengths 1 2 3 6 9 18 33 66 gaps Fibonacci distribution",
+        "Baum Sweet sequence gap distribution between ones fibonacci gap frequency",
+        "Baum Sweet sequence distances between consecutive ones distribution gaps Fibonacci",
+        "Baum Sweet sequence zero blocks lengths between ones successive gaps statistics",
+        "Exact consecutive-one gap lengths and zero-run-length spectrum in Baum-Sweet automatic sequence b(n), golden-ratio Fibonacci frequencies among run gaps",
+        "Baum-Sweet sequence return words to 1; consecutive 1 positions distances 3 6 9 18 33 66 129 frequencies golden ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A060142 contains an explicit initial support list, generation programs, and Fibonacci-related comments, with no exact finite gap-count formula.",
+        "OEIS A086747 records the characteristic sequence rather than a histogram of adjacent-one separations."
+      ],
+      "reasoning": "The first terms of the support or a table of zeros and ones can be numerically differenced but is not a certified all-K identity or limiting distribution. The recurrence and limit go beyond recomputation of a known table.",
+      "searches": [
+        "OEIS A060142 gap first differences frequency Fibonacci",
+        "OEIS A086747 1 index difference gap sequence",
+        "Baum Sweet sequence consecutive ones gap lengths 1 2 3 6 9 18 33 66 gaps Fibonacci distribution"
+      ]
+    },
+    "rationale": "OEIS A060142 fixes the exact underlying support and a Fibonacci-word positional connection, but its inspected definition, commentary, and program contain no adjacent-support-gap histogram or probability law. The present theorem is not a restatement of that support list: it computes a full family of finite histograms and an infinite-mean limiting return law. OEIS A086747 specifies the equivalent binary indicator. Targeted published literature and mathematical-record searches found no covering gap-distribution statement. A previously unindexed enumeration could still cover the claim.",
+    "residual_risks": [
+      "OEIS A060142 exactly describes the base set; an unindexed appendix, difference transform or published enumeration of its gaps may exist even though no covering formula was found.",
+      "The original Baum–Sweet 1976 article and the entire Allouche–Shallit monograph were not inspected at full-text level; any relevant gap proposition there would supersede originality.",
+      "Independent literature review and independent proof verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORT_COVERED; gap histogram and limiting masses not stated",
+        "evidence": "Sequence starts 0,1,3,4,7,9,12,15; rules 0 in S, 2x+1 and 4x; authored March 5, 2001.",
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Full accessible entry definition, terms, comments on Fibonacci word, programs, cross-references, authorship and initial public date",
+        "method": "Direct webpage textual inspection",
+        "title": "OEIS A060142 — Ordered set S defined by these rules",
+        "trigger": "Exact positive support of the Baum–Sweet word, a decisive alias"
+      },
+      {
+        "assessment": "The same support object, no exact consecutive-gap frequency law",
+        "evidence": "The indicator indexes have characteristic ones listed by A060142 after the initial element.",
+        "identifier_or_url": "https://oeis.org/A086747",
+        "material_read": "Definition, initial terms, relationship to A060142 and references",
+        "method": "Accessible webpage text inspection",
+        "title": "OEIS A086747 — Baum–Sweet sequence",
+        "trigger": "Direct characteristic-sequence alias with index-zero convention"
+      },
+      {
+        "assessment": "DISTINCT generating set; no implication establishing Baum–Sweet gap histogram",
+        "evidence": "The studied closure employs transformations different from x to 2x+1 and x to 4x.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/KIMBERLING/kimberling.html",
+        "material_read": "Article abstract, main generating rules and principal results",
+        "method": "Accessible full HTML article inspection",
+        "title": "A Self-Generating Set and the Golden Mean, Clark Kimberling",
+        "trigger": "Potential Fibonacci/Beatty covering theorem linked from neighboring OEIS entries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34910b02-e3eb-487a-991c-69a81e83f45d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Return spacings of sparse automatic sequences are natural recurrence statistics: the Baum–Sweet word has unbounded zero runs and zero symbol-one density, so existence of gap types alone does not quantify typical gaps among support points. This theorem gives every finite dyadic-prefix gap multiplicity, resolves the duplicated smallest bridge at gap three, and identifies an explicit normalized infinite-mean heavy-tail law of exponent log_2(phi). These are complete, parameter-uniform recurrence statistics rather than a fixed numerical slice. Future studies of rare-event return dynamics and correlations can use the exact one-gap marginal. The original support-language/Fibonacci facts are not claimed as new.",
+    "status": "PASS"
+  }
+}
