@@ -1,19 +1,21 @@
-# Review of the beta-Hausdorff Hilbert–Schmidt laws
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact beta-binomial/gamma decomposition of each row reduces the question to a convolution of squared gamma ratios. Three disjoint fixed-shape regimes follow from an integrable endpoint Riemann sum, a borderline harmonic sum, or the summable hypergeometric endpoint coefficient. The moving-shape proof instead gives a uniform row error \(O_R(1/n)\) and thus the explicit \(O_R(\log N)\) remainder. The normalization is unnormalized squared Frobenius energy, with rows indexed from zero. Exact-rational finite cases and recurrence checks corroborate critical identities; they do not substitute for the asymptotic argument. The estimates require fixed \(R\) and sufficiently large \(N\).
+PASS
 
-## Originality
+From the beta-binomial entry formula, exact gamma ratios give row squared mass S_n=C(a,b)^2[Gamma(n+1)/Gamma(n+a+b)]^2 sum_{k=0}^n [Gamma(k+a)/Gamma(k+1)]^2[Gamma(n-k+b)/Gamma(n-k+1)]^2. For m>1/2 the interior beta-integral convolution gives S_n~C^2 B(2a-1,2b-1)/n; at an endpoint m=1/2 harmonic divergence gives r C²(log n)/n; for m<1/2 endpoint dominance gives r C² U_m n^(-2m) with U_m=Gamma(m)^2 Gamma(1-2m)/Gamma(1-m)^2 via Gauss summation. Summation establishes three regimes. At a=.5+u/logN, b=.5+v/logN, uniformly bounded u,v, the proof estimates each row as C²/n[(1-n^(-delta_a))/delta_a+(1-n^(-delta_b))/delta_b]+O_R(1/n). Logarithmic harmonic integration yields (logN)^2/π²[Phi(u)+Phi(v)]+O_R(logN). The u=0 definition of Phi is continuous. Independent checks confirm exact Cesàro energy E_N(1,1)=H_N for N=100, exact gamma recurrence finite energies, and bounded crossover diagnostics; no extrapolation replaces the stated uniform estimates.
 
-**PASS, provisionally within the inspected literature.** Goldstein–Reinert give the beta-binomial urn law and convergence in Wasserstein distance, without evaluating accumulated squared row masses. Bellavita et al. describe moment-induced Hausdorff matrices but investigate a shifted generalized Hilbert operator on Hardy spaces. Talebi's recent generalized Hausdorff norm inequalities likewise do not state these asymptotic laws. Both broad search and research-record comparisons identified related work on collision probabilities, generalized Cesàro and Hilbert operators, and Schatten norms, but no covering formula for the two-parameter moving critical window or its uniform remainder. A differently indexed treatment of beta-binomial collision mass or regular-variation convolution remains a bibliographic risk; lack of a search hit is not a uniqueness proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** The object is the natural finite beta-mixture Hausdorff summability matrix. Its squared Hilbert–Schmidt mass is an intrinsic spectral energy and the sum over urn-count collision probabilities. The exact power/log-squared/log classification gives a complete answer for every fixed pair of positive beta parameters. The uniform two-parameter scaling profile explains how the three regimes join at the singular endpoint, including the symmetric arcsine case and the uniform-measure Cesàro boundary. This is not a renamed scalar identity or a numerical-only invariant.
+The underlying beta-binomial row law and Gauss hypergeometric summation are standard, but the fixed-shape HS-energy trichotomy and uniform jointly-moving beta-shape crossover are not implied by the cited urn approximation, Hardy operator norm, or generic Hausdorff inequalities.
 
-## Limitations
+## value
 
-The uniform remainder constant is not optimized, no unrestricted parameter-uniform asymptotic outside the stated window is claimed, and no independent priority or mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frobenius collision energy of natural finite beta-binomial/Hausdorff matrices has a sharp summability threshold and meaningful two-shape double-logarithmic crossover, beyond routine row normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

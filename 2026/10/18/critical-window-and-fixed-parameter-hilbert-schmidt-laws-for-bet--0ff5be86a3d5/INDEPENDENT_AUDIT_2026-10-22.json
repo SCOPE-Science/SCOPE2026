@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:52:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the beta-binomial entry formula, exact gamma ratios give row squared mass S_n=C(a,b)^2[Gamma(n+1)/Gamma(n+a+b)]^2 sum_{k=0}^n [Gamma(k+a)/Gamma(k+1)]^2[Gamma(n-k+b)/Gamma(n-k+1)]^2. For m>1/2 the interior beta-integral convolution gives S_n~C^2 B(2a-1,2b-1)/n; at an endpoint m=1/2 harmonic divergence gives r C²(log n)/n; for m<1/2 endpoint dominance gives r C² U_m n^(-2m) with U_m=Gamma(m)^2 Gamma(1-2m)/Gamma(1-m)^2 via Gauss summation. Summation establishes three regimes. At a=.5+u/logN, b=.5+v/logN, uniformly bounded u,v, the proof estimates each row as C²/n[(1-n^(-delta_a))/delta_a+(1-n^(-delta_b))/delta_b]+O_R(1/n). Logarithmic harmonic integration yields (logN)^2/π²[Phi(u)+Phi(v)]+O_R(logN). The u=0 definition of Phi is continuous. Independent checks confirm exact Cesàro energy E_N(1,1)=H_N for N=100, exact gamma recurrence finite energies, and bounded crossover diagnostics; no extrapolation replaces the stated uniform estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Operator-norm estimates and boundedness for Hausdorff/Hilbert transforms do not imply detailed Frobenius norm divergence of finite truncations with double-log critical scaling."
+        ],
+        "reasoning": "A stronger finite-Schatten asymptotic could dominate but was not found in inspected theorem statements; full literature is a residual coverage risk.",
+        "searches": [
+          "arXiv:2307.15334",
+          "doi:10.1186/s13660-025-03354-y"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1207.1460",
+        "https://arxiv.org/abs/2307.15334",
+        "https://doi.org/10.1186/s13660-025-03354-y",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/critical-window-and-fixed-parameter-hilbert-schmidt-laws-for-bet--0ff5be86a3d5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The urn paper covers distributional approximation; Bellavita generalizes Hilbert operators; Talebi studies norm inequalities."
+        ],
+        "reasoning": "The asymptotic object is E_N=sum_{n,k<N}|H_{nk}|² with beta shapes drifting at O(1/logN), a distinct implication target not obtained from the identified general operator statements.",
+        "searches": [
+          "Goldstein Reinert arXiv:1207.1460",
+          "Bellavita et al arXiv:2307.15334",
+          "Talebi DOI 10.1186/s13660-025-03354-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldstein–Reinert study beta-binomial distribution Wasserstein approximation; Bellavita et al analyze generalized Hilbert operators associated with Hausdorff matrices on Hardy spaces."
+        ],
+        "reasoning": "A beta-binomial sum of squared row probabilities is a collision probability, not beta-binomial weak approximation nor the operator norm of a generalized Hilbert transform; searched for aliases finite Frobenius/HS/collision energy.",
+        "searches": [
+          "beta binomial Hausdorff finite section Hilbert Schmidt norm logarithm critical parameters one half gamma convolution",
+          "arXiv:1207.1460",
+          "arXiv:2307.15334"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Cesàro special case a=b=1 has the known harmonic energy exactly; the displayed moving a,b critical window requires nontrivial gamma-convolution analysis."
+        ],
+        "reasoning": "Known beta-binomial PMF tables could reconstruct individual finite rows but do not directly tabulate or imply uniform two-parameter log-window asymptotics.",
+        "searches": [
+          "beta binomial Hausdorff finite section Hilbert Schmidt norm logarithm critical parameters one half gamma convolution",
+          "Pólya-Eggenberger urn beta-binomial collision probability"
+        ]
+      },
+      "rationale": "The underlying beta-binomial row law and Gauss hypergeometric summation are standard, but the fixed-shape HS-energy trichotomy and uniform jointly-moving beta-shape crossover are not implied by the cited urn approximation, Hardy operator norm, or generic Hausdorff inequalities.",
+      "residual_risks": [
+        "Prior literature on Rényi collision entropy of beta-binomial urn counts could phrase an equivalent asymptotic under another name; no absolute-priority certification.",
+        "Full texts of several primary Hausdorff matrix sources not systematically inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explains beta-binomial law but does not establish finite-section Hilbert–Schmidt growth in accessible material; full text not certified.",
+          "evidence": [
+            "Stein approximation to beta distribution versus sum of squared beta-binomial probabilities"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.1460",
+          "material_read": "Primary abstract and bibliographic/theorem summary, not entire proof",
+          "method": "Primary abstract comparison",
+          "title": "Stein's method for the Beta distribution and the Pólya-Eggenberger Urn",
+          "trigger": "Canonical beta-binomial mixture identity"
+        },
+        {
+          "assessment": "Infinite generalized Hilbert operator on Hardy spaces differs from finite beta-Hausdorff matrix HS energy; full-document noncoverage not claimed.",
+          "evidence": [
+            "Generalized Hilbert operator associated with measure versus beta-binomial triangular finite truncation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.15334",
+          "material_read": "Primary indexed abstract and operator description, not complete manuscript",
+          "method": "Open-access abstract and mathematical comparison",
+          "title": "Generalized Hilbert operators arising from Hausdorff matrices",
+          "trigger": "Hausdorff and Hilbert operator alias"
+        },
+        {
+          "assessment": "Cited norm inequalities do not directly imply uniform E_N critical window, but full text has not been ruled out.",
+          "evidence": [
+            "Generalized Hausdorff bounds versus the two-variable logarithmic crossover"
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-025-03354-y",
+          "material_read": "Accessible source metadata/abstract only",
+          "method": "Publisher scholarly metadata",
+          "title": "New results for generalized Hausdorff matrices",
+          "trigger": "Possible finite matrix norm domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Frobenius collision energy of natural finite beta-binomial/Hausdorff matrices has a sharp summability threshold and meaningful two-shape double-logarithmic crossover, beyond routine row normalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1207.1460",
+    "https://arxiv.org/abs/2307.15334",
+    "https://doi.org/10.1186/s13660-025-03354-y",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/critical-window-and-fixed-parameter-hilbert-schmidt-laws-for-bet--0ff5be86a3d5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform O_R(log N) only for fixed bounded |u|,|v|; no infinite Hausdorff Schatten claim.",
+    "Convolution endpoint estimates require a,b positive and Gamma functions correctly normalized."
+  ],
+  "residual_risks": [
+    "Prior literature on Rényi collision entropy of beta-binomial urn counts could phrase an equivalent asymptotic under another name; no absolute-priority certification.",
+    "Full texts of several primary Hausdorff matrix sources not systematically inspected."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Explains beta-binomial law but does not establish finite-section Hilbert–Schmidt growth in accessible material; full text not certified.",
+      "evidence": [
+        "Stein approximation to beta distribution versus sum of squared beta-binomial probabilities"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1207.1460",
+      "material_read": "Primary abstract and bibliographic/theorem summary, not entire proof",
+      "method": "Primary abstract comparison",
+      "title": "Stein's method for the Beta distribution and the Pólya-Eggenberger Urn",
+      "trigger": "Canonical beta-binomial mixture identity"
+    },
+    {
+      "assessment": "Infinite generalized Hilbert operator on Hardy spaces differs from finite beta-Hausdorff matrix HS energy; full-document noncoverage not claimed.",
+      "evidence": [
+        "Generalized Hilbert operator associated with measure versus beta-binomial triangular finite truncation"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2307.15334",
+      "material_read": "Primary indexed abstract and operator description, not complete manuscript",
+      "method": "Open-access abstract and mathematical comparison",
+      "title": "Generalized Hilbert operators arising from Hausdorff matrices",
+      "trigger": "Hausdorff and Hilbert operator alias"
+    },
+    {
+      "assessment": "Cited norm inequalities do not directly imply uniform E_N critical window, but full text has not been ruled out.",
+      "evidence": [
+        "Generalized Hausdorff bounds versus the two-variable logarithmic crossover"
+      ],
+      "identifier_or_url": "https://doi.org/10.1186/s13660-025-03354-y",
+      "material_read": "Accessible source metadata/abstract only",
+      "method": "Publisher scholarly metadata",
+      "title": "New results for generalized Hausdorff matrices",
+      "trigger": "Possible finite matrix norm domination"
+    }
+  ]
+}
