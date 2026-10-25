@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:10:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md and checker.py",
+        "independent product-exp sampler /mnt/data/scope08_math_checks_20261023.py",
+        "Reitzner–Schütt–Werner arXiv:1911.05917 (related expectation theorem)"
+      ],
+      "rationale": "On the event every polygon side has >=1 sample, hull vertices are the endpoint-most samples on each side; missing region decomposes exactly into disjoint triangles with area (1/2)sin(theta_i) U_{i-1,+}U_{i,-}. Empty-side probability <=sum_i(1-l_i/L)^N, exponentially small. For any fixed endpoint thresholds the corresponding length L t_j/N arcs are disjoint for all sufficiently large N; joint survival (1-sum_j t_j/N)^N tends to exp(-sum_j t_j), establishing 2m independent unit-exponential limits. Each capped gap has tail <=e^-t on normalized scale, so Hölder and exponential empty-side bounds give moment convergence at every fixed integer order. Conditioning products gives Laplace transform prod_i∫ e^-x/(1+t c_i x)dx, moments k!sum_{sum j_i=k}prod_j(j_i!c_i^j_i); E= sum c_i; Var=3 sum c_i². Jensen on exterior angles φ_i=π-θ_i (sum 2π) and strict concavity of sin on (0,π) gives sharp equality iff equiangular. Independence and dimensionless normalization verified; positive fixed side lengths essential. Independently sampled product exponentials in square, equilateral triangle, regular pentagon support predicted means and variances; Monte Carlo cannot prove weak convergence or all moments.",
+      "residual_risks": [
+        "No uniformity over degenerating polygons or nonfixed edge lengths.",
+        "The event every side occupied is required for exact triangle decomposition; complement is correctly controlled exponentially."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner–Schütt–Werner 2023 treats higher-dimensional simple polytopes and an expectation bound but no full polygonal area distribution statement.",
+          "Groeneboom arXiv:1109.3118 samples uniformly in polygon interior, producing different Poisson geometry."
+        ],
+        "reasoning": "Generality in ambient dimension for expectations does not dominate a distributional limit under boundary arclength sampling. Interior sampling has different point process scale and is mathematically inapplicable as a direct implication.",
+        "searches": [
+          "convex polygon uniform boundary points random hull missed area limit exponential product corner angles law",
+          "boundary sampled polygon convex hull missing area weak convergence law product exponential spacings",
+          "Reitzner Schütt Werner convex hull random points boundary simple polytope theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/1109.3118",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E[Y_K]=1/2 sum sin(theta_i), Var[Y_K]=3/4 sum sin²(theta_i), LT product_i ∫e^-x/(1+t sinθ_i x/2) dx.",
+          "An expectation asymptotic cannot specify higher cumulants or independence of corner products."
+        ],
+        "reasoning": "The full limit requires joint endpoint-gap convergence, not merely known expectation of convex hull deficit; strict mean maximizers follow Jensen once the new angular mean is established.",
+        "searches": [
+          "convex polygon uniform boundary points random hull missed area limit exponential product corner angles law",
+          "boundary sampled polygon convex hull missing area weak convergence law product exponential spacings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "pinned RESULT.md exact corner-triangle decomposition and limiting product-of-independent-exponential variables.",
+          "Reitzner, Schütt, Werner, The Convex Hull of Random Points on the Boundary of a Simple Polytope, Theorem 1.2, concerns expected deficit."
+        ],
+        "reasoning": "A corner triangle has product of two independent endpoint spacings in the limit; a first-moment asymptotic does not determine the complete probability law, variance, Laplace product, or all moments.",
+        "searches": [
+          "convex polygon uniform boundary points random hull missed area limit exponential product corner angles law",
+          "boundary sampled polygon convex hull missing area weak convergence law product exponential spacings",
+          "random polygons convex hull boundary sample area variance asymptotic law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "Published Resultary random inscribed regular polygons concern Hausdorff error/Gumbel fluctuations; the observable is not missed area.",
+          "Known exact expected missing area for triangle/parallelogram is a first moment, not the product-exponential distribution."
+        ],
+        "reasoning": "The located records/tables contain a Hausdorff or expected-area observable; no table of the full fixed-polygon normalized area limit or all its moments was identified. This is a bounded search, not definitive novelty.",
+        "searches": [
+          "convex polygon uniform boundary points random hull missed area limit exponential product corner angles law",
+          "boundary sampled polygon convex hull missing area weak convergence law product exponential spacings",
+          "boundary sampled polygon hull missed area moment distribution corners"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.",
+      "residual_risks": [
+        "An earlier random-spacing derivation of complete area deficit law under polygon boundary sampling may be indexed under spacing or random polygon terminology and cannot be globally excluded.",
+        "The Groeneboom article was inspected for model at abstract level, not its entire derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its explicit main result concerns expected volume deficits/facet estimates, not a complete distributional product-exponential fixed polygon limit; expectation inputs acknowledged.",
+          "evidence": [
+            "Theorem 1.2 expectation; model sampling from polytope boundary"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Available full Springer open primary article, abstract/main theorems and expected missing volume analysis",
+          "method": "Publisher/primary full text read",
+          "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+          "trigger": "Closest boundary sampling random-polytope asymptotics"
+        },
+        {
+          "assessment": "Different sampling measure; does not directly imply boundary corner exponential spacings",
+          "evidence": [
+            "Interior-uniform polygon sampling described in title/abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.3118",
+          "material_read": "Primary abstract and sampling definition; interior-uniform points, not boundary arclength",
+          "method": "arXiv accessible abstract/model text read",
+          "title": "Convex hulls of uniform samples from a convex polygon",
+          "trigger": "Plausible same polygon object"
+        },
+        {
+          "assessment": "Different Hausdorff extremal-distance observable and growing side-count regime, not missing area law",
+          "evidence": [
+            "Gumbel transition for Hausdorff error, normalized by m"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "material_read": "Published Resultary result summary, sample model and Hausdorff statistic",
+          "method": "Resultary indexed abstract read",
+          "title": "Gumbel transition and second-order Hausdorff error for randomly inscribed regular polygons",
+          "trigger": "Same boundary-sampled regular polygon and random hull"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/angular-product-exponential-law-for-missed-area-of-boundary-samp--bf3dbf28911a/RESULT.md",
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/1109.3118",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ],
+      "rationale": "Establishes a dimensionless full distribution law for a canonical approximation statistic rather than only expectation: the product of independent local exponential spacings reveals universality under changing edge lengths, gives all moment and Laplace constants, and supports a geometric optimality criterion at fixed number of polygon corners. This is useful for asymptotic probabilistic shape approximation and error quantification.",
+      "residual_risks": [
+        "Fixed polygon only; cannot infer joint growing m and N rates or more general boundary densities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed nondegenerate convex planar polygon, uniform boundary arclength N->infinity; all integer moments, angle-dependent law; no higher-dimensional or varying polygon assertion.",
+    "Prior coverage and inaccessibility qualifications are explicit in O; bounded literature search is not a proof of absolute priority.",
+    "Independent finite numerical or chain computations support exact steps only as described; publication remains withheld for privacy, not scientific reasons."
+  ],
+  "schema_version": 1
+}
