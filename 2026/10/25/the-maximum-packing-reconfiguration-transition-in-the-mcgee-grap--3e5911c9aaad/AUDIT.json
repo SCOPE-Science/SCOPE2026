@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive recursion over all 24 vertex choices visits 34,305 independent subsets uniquely. It proves alpha=10, 424 nine-sets, eight ten-sets, then generates every legal exchange and performs BFS from every state. A second checker enumerates all 24-choose-9 and 24-choose-10 subsets independently, constructs edges by pairwise symmetric-difference tests, checks no ten-set extends to eleven, and independently recomputes all distances. Complete independent outputs match: TJ9 1428 edges connected radius9 diameter11; TS9 1068 edges with components 416 and four K2; TJ10=TS10 two C4. Files were executed from actual packaged-source directory. The statements are exhaustive finite results, no inference beyond 24 vertices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1403.0359 full-text introduction, Proposition 1, Theorem 16 and appendices: reachability algorithms restricted to claw-free graphs. McGee has induced claws because cubic of girth seven.",
+        "arxiv:1402.1587 studies cographs, whereas the McGee graph contains induced long cycles."
+      ],
+      "reasoning": "General reconfiguration model definitions and computational complexity do not give these precise finite component counts. The McGee graph lies outside the checked claw-free/cograph classes. The maximum-layer model equivalence is credited as existing, not claimed as new.",
+      "searches": [
+        "Reconfiguring Independent Sets in Claw-Free Graphs arxiv:1403.0359",
+        "Independent Set Reconfiguration in Cographs arxiv:1402.1587",
+        "McGee graph independence graph token jumping high girth"
+      ]
+    },
+    "checked_sources": [
+      "W. F. McGee, doi:10.4153/CMB-1960-018-1, issue date 1960-05-01; publisher extract.",
+      "P. Bonsma, M. Kaminski, M. Wrochna, arxiv:1403.0359; primary full HTML examined.",
+      "Published mathematical result 5daca7995d97, McGee graph independence complex; entire scientific RESULT.md examined.",
+      "Paul Bonsma, arxiv:1402.1587, Independent Set Reconfiguration in Cographs; abstract and relevance checked."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonsma--Kaminski--Wrochna, arxiv:1403.0359, full text sections 1--6 and appendices, Proposition 1, says TS_alpha(G)=TJ_alpha(G) for every graph; this implies equality of the two McGee maximum-layer graphs but not their connected-component structure.",
+        "Published 2026 McGee independence-complex result, identifier 5daca7995d97, entire RESULT.md read: independent-set f-vector ends 424,8 and proves Ind(G) homotopy equivalent to S^5; no token-move graph assertions.",
+        "McGee (1960) historical source describes the 24-vertex cubic girth-seven graph; historical original extract only, no complete-paper absence claim."
+      ],
+      "reasoning": "The prior 2014 proposition yields only equality TJ_10=TS_10, not their graph isomorphism type. The published McGee independence complex supplies f-vector (424 9-sets, 8 10-sets) but no adjacency, so it cannot logically imply connectivity, component sizes or radii without additional computation. Prior locally accessible McGee claims concern shortest cycles and minimum independent dominating sets, not maximum independent-set TJ/TS connectivity.",
+      "searches": [
+        "McGee graph independence number 10 eight maximum independent vertex sets reconfiguration graphs two disjoint four cycles token jumping",
+        "Independent-set reconfiguration McGee graph maximum 10 sets 2 components of size 4; nine 424 connected",
+        "reconfiguration of maximum independent sets McGee graph disconnected",
+        "arxiv:1403.0359 Proposition 1 maximum independent sliding jumping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonsma--Kaminski--Wrochna, arxiv:1403.0359, full text sections 1--6 and appendices, Proposition 1, says TS_alpha(G)=TJ_alpha(G) for every graph; this implies equality of the two McGee maximum-layer graphs but not their connected-component structure.",
+        "Published 2026 McGee independence-complex result, identifier 5daca7995d97, entire RESULT.md read: independent-set f-vector ends 424,8 and proves Ind(G) homotopy equivalent to S^5; no token-move graph assertions."
+      ],
+      "reasoning": "Maximum independent-set exchange = TJ_10; its complement formulation is minimum vertex-cover exchange. The general TS_alpha=TJ_alpha equivalence from Proposition 1 does not determine two four-cycles. The previous published McGee f-vector enumerates states but not the edges between them. Searches under the independent-set, packing and token-move aliases found no exact covering statement.",
+      "searches": [
+        "McGee graph independence number 10 eight maximum independent vertex sets reconfiguration graphs two disjoint four cycles token jumping",
+        "Independent-set reconfiguration McGee graph maximum 10 sets 2 components of size 4; nine 424 connected",
+        "McGee graph independent set reconfiguration nine ten \"four\" cycles tokens",
+        "McGee max independent sets token jumping connectedness two C4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Identifier 5daca7995d97 supplies the complete independent-set f-vector and its two highest counts, but does not list TJ/TS edge counts or component sizes.",
+        "Published McGee graph fact pages describe cage structure, LCF notation and automorphism group, not state-space connectivity."
+      ],
+      "reasoning": "Previously tabulated 424 and 8 configuration counts cannot imply exact TJ9 connectivity versus TS9 fragmentation or the 2 C4 decomposition at maximum size. No exact table with that information surfaced; indexed-search absence cannot rule out unpublished or unindexed tables.",
+      "searches": [
+        "McGee (3,7) cage alpha 10 8 maximum independent sets token jumping 9 424 10 8",
+        "token jumping McGee graph independent set 10 cage",
+        "McGee graph independence number maximum independent sets 10 eight reconfiguration",
+        "McGee graph independence polynomial 424 8 exact tables"
+      ]
+    },
+    "rationale": "The published McGee independence-complex result contains the already known exact f-vector 424/8, and the 2014 claw-free reconfiguration paper proves general equivalence TS_alpha=TJ_alpha; both facts are expressly excluded from claims of novelty. Neither gives the new component geometry of the McGee TJ/TS graphs or the sharp near-capacity jump-versus-slide distinction; full relevant texts were inspected. No directly covering published-finding corpus claim or primary-publication statement was located. Residual priority risk is explicitly acknowledged.",
+    "residual_risks": [
+      "The 1960 primary article full PDF was not obtained; not treated as proof of absence.",
+      "An indexed-search negative does not establish worldwide priority: other terminology or unindexed exact configuration tables could contain the same result.",
+      "The related high-girth token-sliding literature was identified by title/abstract, but full coverage of every later algorithmic source was not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 1 already implies maximum-layer TJ=TS; rest concerns claw-free graph algorithms, so it does not give any claimed McGee connectivity or component counts.",
+        "evidence": [
+          "Article lines 16--48 define the models and prove the model equivalence for maximum independent sets.",
+          "Theorem 16 at lines 144--151 is explicitly for claw-free graphs; the 24-vertex cubic girth-seven graph contains induced claws."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.0359",
+        "material_read": "Full accessible HTML sections including introduction, definitions, Proposition 1, algorithm summary and appendices; searched throughout for McGee, cage and girth",
+        "method": "Full-text inspection and statement-to-statement implication comparison",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Exact TJ and TS definitions, generic maximal-layer implication and possible general domination"
+      },
+      {
+        "assessment": "Previously known f-vector is cited and not claimed new. The homotopy statement gives no token-move graph edges, components or distances.",
+        "evidence": [
+          "RESULT.md size vector equals (1,24,240,1304,4212,8328,10024,7072,2668,424,8).",
+          "RESULT.md concerns homotopy Ind(G) equivalent to S^5, with no TJ or TS metric claims."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-mcgee-graph-independence-complex-is-a-five-sphere--5daca7995d97",
+        "material_read": "Entire 6904-byte RESULT.md, including Finding, Proof, Verification, Relationship, Limitations, References",
+        "method": "Public mathematical document read and direct implication check",
+        "title": "The McGee graph independence complex is a five-sphere",
+        "trigger": "Same graph and complete independence-set cardinality table are strongly relevant"
+      },
+      {
+        "assessment": "Used to anchor graph identity and chronology only. The inaccessible full article was not used to assert a whole-document absence of token-reconfiguration statements.",
+        "evidence": [
+          "Canadian Mathematical Bulletin volume 3 issue 2, 1960, pages 149--152; 1960-05-01 issue date.",
+          "Independent LCF construction and girth were reconstructed directly by code."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1960-018-1",
+        "material_read": "Cambridge publisher bibliographic and introductory extract; full article not obtained",
+        "method": "Verified original journal issue date and original graph presentation",
+        "title": "A Minimal Cubic Graph of Girth Seven",
+        "trigger": "Canonical identity, cubic girth-seven graph and first public source date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e5911c9-aaad-483d-a107-05f78809f91c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unique cubic (3,7)-cage is a canonical extremal graph and maximum independent sets are a natural packing problem. This exact finite classification discovers a sharp transition: at size nine unrestricted jumps connect all 424 states while slides split into 5 components; at optimal packing size ten even jumps split all 8 states into two nontrivial four-cycles. This directly characterizes robustness of optimal packings and differs materially from the known state counts, homotopy, or generic model-equivalence lemma. No unproved large-graph consequence is suggested.",
+    "status": "PASS"
+  }
+}
