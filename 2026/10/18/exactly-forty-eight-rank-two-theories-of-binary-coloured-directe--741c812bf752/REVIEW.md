@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete two-round Ehrenfeucht--Fraïssé invariant is the set of pointed atomic-pair profiles, yielding the exact local signature from the predecessor colour, vertex colour, successor colour, and non-neighbour colours. A linear-word state retaining capped colour counts, first/last two letters, and length-three factor support has exact append transitions. Exhaustive closure produces 758 states, 48 cyclic signatures, and shortest-representative multiplicities 4, 6, 6, 9, 10, 9, 4 for lengths 3 through 9. The second program enumerates all binary words through length 15 using direct atomic-pair profiles, obtains the same spectrum, and verifies that the brute-generated 758-state set is closed under both append transitions. The all-size assertion follows from that closure and the proof of the state invariant, not merely the finite input-size bound. Both programs were executed and their outputs checked from the packaged files.
+## correctness
 
-## Originality — PASS, subject to stated priority risk
-Brown--Hoshino (2007) classify uncoloured undirected cycles under finite-round first-order equivalence, not two-coloured directed cycles. Weis--Immerman (2009), especially their Section 5, treat linear words equipped with order and successor, not cycles with cyclic wraparound and no order. Two published finite-model-theoretic comparisons concern directed paths and a one-red linear-order family, neither of which implies the 48-class cyclic quotient. Searches for binary cyclic words, two-round theories, successor-only coloured cycles, and exact representative cutoffs did not locate a direct classification. This is evidence of a gap, not proof that no earlier calculation exists. An unindexed specialised result or a derived but unreported corollary remains a priority risk.
+PASS
 
-## Value — PASS
-Quantifier-rank spectra and optimal small representatives are natural invariants in finite model theory. The theorem gives the complete observational quotient of a basic class of finite cyclic relational structures, replaces potentially unbounded cycles by a provably sufficient nine-vertex test set, and gives an explicit signature and a finite closure certificate. It is not an arbitrary parameter slice, a restatement of the two-round game, or a previously tabulated graph-count recomputation: the exact 48-class spectrum and sharp cutoff require the realizability closure. Generalization to more colours or ranks is not established or claimed.
+Two-round EF pointed type determined by predecessor, current, successor colours and the set of colours among all other vertices; equality of sets of pointed types is necessary and sufficient for rank-two sentences. Far colours require counts truncated at four and the set of cyclic length-three factors. Append-state automaton has four seeds, 758 reachable states, and closing into a cycle yields exactly 48 signature classes, with BFS least-length distribution (4,6,6,9,10,9,4) for lengths 3..9. Independently reconstructed this closure and checked direct cyclic pair profiles for every binary word length 3..12, 8184 words, including all four sharp length-nine witnesses. Completeness for all n depends on the finite-state transfer proof, not cutoff enumeration.
 
-## Limitations and closest literature
-The result does not concern quantifier ranks above two, cycles with additional relations, or stronger logics. Primary material inspected: Brown--Hoshino's abstract and Section 4 (the uncoloured cycle threshold), and Weis--Immerman's Sections 2 and 5 (game correspondence and ordered-successor rankers). The published finite-model-theory comparisons were read at their stated results and scopes. Remaining risk is incomplete priority coverage, not a discovered implication covering this exact claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brown–Hoshino 2007 provides uncoloured undirected graph path/cycle EF thresholds, not oriented binary-labelled cyclic words. Weis–Immerman includes linear order and endpoints, unlike these cycles. Classical two-round EF theorem is prior art; the exact 48 class census, 758-state closure and 9 bound are the inspected quantitative addition.
+
+## value
+
+PASS
+
+Complete finite-rank logical classification for all binary-coloured oriented cycles is a natural finite-model invariant; the sharp model-length spectrum and exact local signature are independently useful and more than applying a known count mechanically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
