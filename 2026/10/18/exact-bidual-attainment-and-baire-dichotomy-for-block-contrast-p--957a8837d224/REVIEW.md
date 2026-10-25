@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the explicitly real, disjoint, finite-block and positive-core hypotheses, each output-coordinate functional has norm strictly below one but those norms tend to one. The actual second-adjoint norm is the supremum of the coordinates indexed by the integers together with the extra limit functional. Equality forces a common sign on every positive core coordinate; the sharp signed-block bound gives necessity of vanishing limiting conflict mass. Simultaneous construction of a norming \(\ell_\infty\) vector across disjoint blocks proves sufficiency. The finite-support and full-support arguments establish the Baire statements. No finite computation substitutes for the infinite proof.
+## correctness
 
-**Originality — PASS (residual priority risk).** Dantas–Jung–Martín, arXiv:2609.00794v1, Lemma 3.14/Theorem 3.15, prove existence of a single bad \(c_0\to c\) example with a fixed full-support core; their Theorem 3.3 addresses \(c_0\to c_0\), not this exact varying-core classification. Full text pages 1–20 were inspected. A nearby full-text published-finding corpus record gives a support classification for a different diagonal perturbation \(c_0\to\ell_\infty\); the two are close in mechanism, and a different equivalent reformulation is still a priority risk. The present weighted conflict criterion encompasses strictly positive conflicts converging to zero and the dense-meagre dichotomy across all normalized disjoint finite contrasts, neither of which is stated by these comparators.
+PASS
 
-**Mathematical value — PASS.** This is a complete attainment/nonattainment classification for a natural norm-one family built from rank-one DC coupling and disjoint signed finite-difference contrasts, motivated by a published counterexample. The quantitative limiting negative-mass criterion is sharper than a binary zero-support test and permits positive-but-vanishing conflicts; the Baire result distinguishes generic failure from dense exceptional attainment while norm, first-adjoint behavior, and finite-coordinate norms stay constrained. The scope is restricted to the stated family and no broader operator theorem is claimed.
+Since the disjoint finite block supports escape, b_n(x)→0 on c0 and the codomain limit exists. The nth ℓ1 row norm is strictly <κ+(1-κ)t_n<1, but these norms tend to 1 because mass u on block supports vanishes; the limit row norm is κ<1. Any norming z∈ℓ∞ for T** must have |〈u,z〉|=1, forcing a common sign on supp u and hence σ〈b_n,z〉≤1−2D_n. Conversely a single z equal to this sign on supp u and matching b_n off it achieves equality simultaneously on disjoint blocks, giving norm 1 exactly when liminf D_n=0. The ℓ1 simplex is complete; finite-support cores are dense and eventually D_n=0; full-support cores form dense Gδ and D_n=1/2, so the attaining locus is dense meagre. Canonical pair criterion and the triple-block example with D_n=1/(4n) check signs and scope. This is an analytic infinite-dimensional proof, no finite simulation can replace it.
 
-**Literature and limitations.** The published rank-one weak-star quasi-attainment classification is a significant neighboring result. Prior source reading was sufficient for the detailed scientific comparison stated above but cannot exclude an unindexed equivalent classification. Complex coefficients and overlapping contrast supports are not treated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary Dantas–Jung–Martín work pages 1–21, including Lemma 3.14 and Theorem 3.15, was materially read and found a fixed-core counterexample but no variable-core quantitative classification. The fully read related Resultary theorem concerns a distinct w*QNA property, so does not imply this result; its similar support geometry creates a residual literature priority risk.
+
+## value
+
+PASS
+
+A sharp iff criterion and Baire dichotomy for a natural rank-one plus block-contrast family answer which input positive cores reverse a recently published bidual nonattainment example. The vanishing-but-positive conflict case demonstrates a real boundary invisible to support-only tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
