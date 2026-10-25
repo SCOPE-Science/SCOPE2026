@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` verifies the exact \(\zeta\)-Gram matrix identity, positivity of every leading Gram determinant, uniqueness of the least exterior product and an infinite \(\zeta(2)\)-summable tail bound. These steps prove the complete \(m\)-eigenvalue statement and all parameter quantifiers. In particular the exact all-rank asymptotic is not extrapolated from a finite computation.
+## correctness
 
-Run `python3 CHECKER.py` in the extracted package directory. This checker uses only the Python standard library and exact rational arithmetic, on the illustrative family \(m=3\), \(v_n=(n^{-1},2n^{-2},3n^{-3})\). It tests the Binet–Cauchy finite Gram/exterior identity, exact leading determinants, the integer-product lower gap, and the finite remainder bound, over six column truncations and four exponent values. The checked output is: `PASS: 294 exact rational finite diagnostic assertions`.
+PASS
 
-Scientific limits: the conclusion is asymptotic for fixed finitely many distinct positive atom offsets and masses. The checker cannot establish infinite-dimensional convergence; its role is to detect sign, normalization, combinatorial, and determinant errors. Originality is assessed from the stated published source comparisons, not independently certified. Independent audit is not performed.
+The factorization T_Re_n=n^-R v_n with v_n=(sqrt(w_j)n^-s_j) gives H_R=T_R*T_R and m-dimensional zeta Gram G_R=Σn^-2R v_nv_n*, with finite trace since s_j>0,R>=1. Strictly increasing distinct s_j imply independence of v_1,..,v_k by the Chebyshev/exponential-polynomial zero lemma, so Δ_k>0 and rank=m. Exterior-power compound expansion into positive u_Iu_I* terms has unique minimum index product k! for I={1,..,k}, with squared leading wedge norm Δ_k; all other tuple products >=(k-1)!(k+1). The tail is summable using Σn^-2 and bounded v_n, giving norm asymptotic Δ_k/(k!)^(2R)[1+O((k/(k+1))^(2R))]. Divide consecutive top k eigenvalue products to get λ_k=(Δ_k/Δ_{k-1})k^-2R[1+O((k/(k+1))^(2R))]. Thus eigenvalue hierarchy, simplicity and optimal compact rank-r norm error follow. Independently checked exact rational Δ1=14, Δ2=133/64, Δ3=1/324 for the provided three-vector diagnostic; finite identities are corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for translated-atomic fixed-k eigenvalue asymptotics with exact universal bases. General Helson moment representation/finite-rank theory supplies the operator model but no inspected theorem gives the k^-2R asymptotic and Gram-minor ratios. Generic separated rank-one perturbation principles remain a named residual risk.
+
+## value
+
+PASS
+
+The complete fixed-rank eigenvalue separation hierarchy for a natural translated positive Helson moment family, including determinant prefactors and universal integer decay bases, provides exact best finite-rank approximation errors not contained in mere trace/finite-rank criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
