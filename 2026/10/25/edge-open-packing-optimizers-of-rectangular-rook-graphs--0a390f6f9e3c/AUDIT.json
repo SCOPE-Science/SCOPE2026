@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "A support decomposition directly from the forbidden-third-edge definition leaves exactly H, V, L components in mutually disjoint rows and columns. Occupancy counts k=2l+h+v, r=k+v<=p, c=k+h<=q give the sharp parity optimum. Complete case partitions enumerate all extremizers without repetition. The independent original-adjacency checker agrees on 12 boards and 30,977 EOP sets; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2406.04020 Corollary 5.3 gives rho_e^o(G square H) >= max(rho_e^o(G)alpha(H),alpha(G)rho_e^o(H)).",
+        "https://arxiv.org/abs/2403.00750 derives complexity bounds and extremal graphs for the general degree upper bound.",
+        "https://arxiv.org/abs/2508.01935 Theorem 3 characterizes <=t using conditions on EOP support but does not enumerate rook-board optimum sets."
+      ],
+      "reasoning": "For clique factors each alpha and each EOP number is one, so Corollary 5.3 supplies only >=1; it cannot imply the new sharp value p (or p-1) or factorial optimizer counts. The degree upper bound |E|/delta = pq/2 also does not imply p. General structural necessary-and-sufficient tests do not state the exact enumerator or the sharp parity transition.",
+      "searches": [
+        "edge open packing Cartesian product complete graphs",
+        "edge open packing: further characterizations 2508.01935",
+        "arXiv:2406.04020 Section 5",
+        "arXiv:2508.01935 Theorem 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2406.04020",
+      "https://arxiv.org/abs/2403.00750",
+      "https://arxiv.org/abs/2508.01935",
+      "https://www.numdam.org/articles/10.1051/ro/2022171/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2406.04020 has generic graph-product lower bounds and hypercube special cases, with no complete-graph Cartesian optimum stated in the inspected Section 5.",
+        "https://arxiv.org/abs/2508.01935 supplies broad fixed-t characterizations, not these labeled optimizer counts."
+      ],
+      "reasoning": "The prior Cartesian inequality implies a bound of only 1 here; the new upper bound and count do not follow. The full new claim (classification plus exact counts) is stronger and of a different kind than generic fixed-value tests. No logical implication from any located specific theorem to this full claim has been identified.",
+      "searches": [
+        "Induced matching vs edge open packing: trees and product graphs Section 5 Corollary 5.3",
+        "\"edge open packing\" \"Cartesian\" \"complete graphs\" exact",
+        "\"edge open packing\" \"Hamming graph\" \"complete\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A rook graph K_p square K_q is the line graph of K_{p,q}. EOP support is an induced star forest; on a rook board the only possible nontrivial stars are right-angle two-edge bends.",
+        "https://arxiv.org/abs/2406.04020 Section 5 treats EOP of Cartesian products."
+      ],
+      "reasoning": "All these formulations describe the same selected-edge condition. Search results for the line-graph and rook synonyms did not exhibit this exact optimal-size or optimizer-count theorem; the equivalence itself is fully incorporated in the proof.",
+      "searches": [
+        "edge open packing of rook graphs K_p □ K_q maximizing sets even odd square factorial enumerator",
+        "maximum induced star packing graph line graph of K_{m,n} line-graph rook board 2x2 L component exact enumeration",
+        "line graph of complete bipartite graph edge open packing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The independent adjacency-based enumerator finds for 3x3 and 5x5 respectively 45 and 10800 maximum EOPs; the exact formulas agree for all 12 tested boards.",
+        "Direct searches did not return a published rook-graph EOP table giving these exact general counts."
+      ],
+      "reasoning": "An exact database or known table of the same labeled optimizers would cover this result even with different notation; none was identified by the recorded searches. Failure to find one alone does not prove novelty.",
+      "searches": [
+        "edge open packing of rook graphs K_p □ K_q maximizing sets even odd square factorial enumerator",
+        "Exact edge open packing number rho_e^o(K_m square K_n) Cartesian product of two complete graphs rook graphs, parity exception square odd, count all maximizers",
+        "maximum induced star packing graph line graph of K_{m,n} line-graph rook board 2x2 L component exact enumeration",
+        "\"edge open packing\" \"rook\"",
+        "\"edge open packing\" \"K_3\" \"K_3\" Cartesian"
+      ]
+    },
+    "rationale": "The accessible primary product-paper Section 5 gives a generic lower bound of one on two clique factors and no sharp rook-graph equality classification. General EOP bounds and graph-value characterizations do not count labeled maximizers. The new claim includes the exact aspect-ratio/parity optimum, all extremizers, and their factorial enumerator. Actual broad and object-specific searches disclosed no stronger covering theorem, with residual priority risk.",
+    "residual_risks": [
+      "An unindexed or later revised exact rook-graph enumeration could supersede the claim.",
+      "The first 2022 source was inspected through its abstract and cited descriptions rather than its full body; it is not used for a definitive whole-document noncoverage assertion.",
+      "Independent mathematical priority and correctness review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems give general bounds and hypercube results; no labeled rook-board optimizer classification or count",
+        "evidence": [
+          "Section 5, Corollary 5.3 gives a lower bound of 1 on two cliques; the present exact value grows with the smaller clique."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+        "material_read": "Introduction and Section 5, including Proposition 5.2 and Corollary 5.3",
+        "method": "Read accessible full-text HTML section by section",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Directly studies Cartesian products and the same invariant"
+      },
+      {
+        "assessment": "Characterizes equality in a degree-derived generic upper bound, not the precise rook-board optimum or counts",
+        "evidence": [
+          "Theorem framework has upper bound |E|/δ = pq/2 on R_{p,q}, much larger than the computed optimum for p,q≥3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+        "material_read": "Complete section headings, introduction, theorem on complexity and exact upper-bound scope",
+        "method": "Read accessible arXiv HTML",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Same invariant and potentially stronger global upper bounds"
+      },
+      {
+        "assessment": "General graph tests for bounds and equalities, no explicit two-clique Cartesian enumeration or optimizer multiplicity",
+        "evidence": [
+          "Theorem 3 gives structural tests requiring EOP support data for a prescribed t, and does not produce the rook-board factorial count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.01935",
+        "material_read": "Abstract, introduction and Section 2 through Theorem 3 statement and conditions",
+        "method": "Read accessible arXiv full-text HTML",
+        "title": "Edge open packing: further characterizations",
+        "trigger": "Characterizes arbitrary prescribed edge-open-packing values"
+      },
+      {
+        "assessment": "Not used to assert whole-document noncoverage; definition and generic initial bounds are acknowledged",
+        "evidence": [
+          "2024 product paper explicitly treats graph-product EOP as a subsequently investigated topic."
+        ],
+        "identifier_or_url": "https://www.numdam.org/articles/10.1051/ro/2022171/",
+        "material_read": "Bibliographic record, abstract and scope described in 2024 and 2025 papers",
+        "method": "Read publisher-indexed abstract and later papers descriptions, not its full-text proof",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Introduced the invariant and provided first bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a390f6f-9e3c-4a78-8e37-95952680ae46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a full optimizer classification and exact factorial census for a canonical infinite Cartesian-product family, a sharp odd-square obstruction, and polynomial-growth asymptotics. Moreover the generic 2024 Cartesian lower bound is 1 for clique factors while the actual optimum is unbounded, making the gap mathematically meaningful beyond a small numerical instance.",
+    "status": "PASS"
+  }
+}
