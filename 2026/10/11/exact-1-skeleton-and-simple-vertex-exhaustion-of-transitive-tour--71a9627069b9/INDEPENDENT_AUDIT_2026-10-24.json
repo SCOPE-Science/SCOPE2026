@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T09:57:47Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md and verify.py blobs from the frozen source tree",
+        "independent root-pair supporting-LP exhaustive checks for n=3,...,8, 756 pairs",
+        "Git tree SHA recomputed exactly from all seven source blob SHA1 entries"
+      ],
+      "rationale": "For n≥3, each r_{ij} (i<j) is exposed uniquely by h_i=1,h_j=−1 and other h_t=0, and P_n has affine dimension n−1 (the r_{1j} affine span has x_1=1, whereas r_{23} has x_1=0). For a pair of positive roots an exposed edge is equivalent to a functional attaining its strict maximum only at that pair. Explicit integer witnesses give shared-tail/head edges and j<k disjoint-interval edges; strictly increasing h with two unit increments of 1 and all others 2 witnesses consecutive unit-root chains at maximum −1. Non-chain overlaps contradict r_{ij}+r_{kℓ}=r_{iℓ}+r_{kj}; a chain at equal maximum T forces T<0 by the long root, and any nonunit member splits into two positive roots with scores ≤T, forcing T≤2T<T, contradiction. The positive-witness edges persist in conv(P_n∪{0}); every unit-chain witness necessarily has negative score and disappears there, giving exactly n−2 additional edges upon removing 0. Counting shared head/tail, disjoint intervals and unit chains yields 2*C(n,3)+C(n,4)+n−2; the stated local-degree formula follows directly. With ℓ=j−i, a=i−1, b=n−j, simple degree n−1 occurs for ℓ=2 with a,b≤1 (1,2,1,0 for n=3,4,5,≥6) and for ℓ=1 only twice when n=3; ℓ≥3 is never simple. A root r_{iℓ} gives every forbidden pair a two-step graph path, proving diameter 1 for n=3 and 2 for n≥4. Independent SciPy HiGHS feasibility checks compared all 756 root pairs over n=3,...,8 and separately checked edge counts and simple vertices without executing the repository verifier. Finite checks do not replace the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Numata 2022 Theorem 1.2 is broad facet classification for any quiver. Theorem 1.3 is a complete face theorem conditional on a rank function, absent for the transitive triangle. Setiabrata 2021 Corollary 5.10 concerns Q-tilde with zero, and Cho 1999 Theorem 1 concerns all positive and negative roots rather than only positive ones."
+        ],
+        "reasoning": "Broad facet tools permit recursive computations but none of these inspected results directly supplies the nonorigin complete edge graph and the sharp local simplicity cutoff for the transitive-tournament instance. Rank-function special-case theorem is inapplicable, not merely absent by title.",
+        "searches": [
+          "arXiv:2203.14521v1 Theorems 1.1–1.3",
+          "arXiv:2001.05191v2 Theorems 3.4, 3.18 and Corollaries 5.9–5.10",
+          "Cho 1999 complete primary Cambridge PDF Theorem 1, Proposition 13, Theorem 16",
+          "Web: \"convex hull of positive roots\" \"edges\" \"simple vertices\""
+        ]
+      },
+      "checked_sources": [
+        "Cho, Polytopes of roots of type A_n (1999), full 12-page lawful Cambridge PDF, Theorem 1, Proposition 13, Theorem 16, https://doi.org/10.1017/S0004972700033062",
+        "Setiabrata, Faces of Root Polytopes, arXiv:2001.05191v2 (2021), primary PDF, §§1,3,5; Theorems 3.4,3.18 and Corollaries 5.9,5.10",
+        "Numata–Takahashi–Tamaki, Faces of Directed Edge Polytopes, arXiv:2203.14521v1 (2022), primary PDF, Theorems 1.1–1.3 and §§4–5",
+        "Resultary semantic searches for positive type-A roots, nonorigin edges, transitive-tournament directed-edge polytopes and simple-vertex cutoffs (2026-10-24 UTC)",
+        "Independent SciPy HiGHS supporting-hyperplane feasibility calculation for all 756 candidate pairs n=3,...,8, plus exact enumeration of all predicted pair graph degrees and edge counts",
+        "Actual assigned Git snapshot tree and seven verified blob identities at commit 6c379935c2e469fc18959fc6c387e31328c64bcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a chain r_{ij}, r_{jℓ} with common exposed height T, r_{iℓ} has height 2T. Two-point exposure forces T<0; hence these unit-chain edges cannot survive inclusion of 0 in Q-tilde. Their n−2 appearances, however, are not among the unit-height faces of Setiabrata 2021. Cho 1999 P_n allows both root orientations, invalidating same-domain substitution."
+        ],
+        "reasoning": "There is real overlap: the shared-tail/head and disjoint-interval edges of Q_n are faces of Q-tilde and derivable from Setiabrata. The new unit-chain edges and simple-vertex exhaustion require analysis in the smaller nonorigin object. General facet enumeration can in principle derive all faces but the submitted closed-form and strict all-n threshold were not immediately implied in the inspected source statements.",
+        "searches": [
+          "Cho 1999 §§2,4 and Setiabrata arXiv:2001.05191v2 §5",
+          "Numata arXiv:2203.14521v1 Theorem 1.2 and §4",
+          "Resultary: root polytope transitive tournament face lattice origin deletion edges path adjacent simple roots"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same point configuration is the non-origin root polytope Q_{K_n} in Setiabrata 2021 and the directed-edge polytope DE(Q) of a transitive tournament in Numata et al. 2022. Resultary top exact hit was the assigned finding itself; distinct related result treated the enclosing sphere instead of the edge graph."
+        ],
+        "reasoning": "Aliased descriptions identify the exact object, but the adjacent-unit-root exceptions are specific to omitting zero and not covered by statements for the origin-adjoined or signed-root convex hulls.",
+        "searches": [
+          "Resultary: exact graph 1-skeleton convex hull positive type A roots e_i-e_j i<j transitive tournament directed edge polytope edges degrees simple vertices",
+          "Web: \"transitive tournament\" \"directed edge polytope\" edges vertices",
+          "Web: positive root polytope transitive tournament edge graph combinatorial description f-vector no zero polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cho 1999 Corollary 2 gives an f-vector for the entire signed-root polytope, a DIFFERENT numerical sequence; its Proposition 13 gives facets of the origin-adjoined positive-root polytope. Neither is an exact table of the target f1 polynomial or its n=3,4,5,≥6 simple counts. Search results did not exhibit an independent exact table."
+        ],
+        "reasoning": "The target count 2*C(n,3)+C(n,4)+n−2 is an all-dimensional edge formula for the positive-only NONORIGIN polytope; the inspected face-number tables describe other polytopes. A failed search alone is explicitly not taken as novelty proof.",
+        "searches": [
+          "Resultary: Cho Polytopes of roots of type A convex hull positive roots graph f-vector edges",
+          "Resultary: facets and edges of positive root polytope of type A without origin e_i-e_j, simple vertices",
+          "Web: root polytope all positive roots without origin f-vector face lattice simple vertices",
+          "Web: \"convex hull of positive roots\" \"edges\" \"simple vertices\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit all-n edge classification, n−2 negative-support new edges, all local degrees and sharp simple-vertex cutoff. Exact predecessor domains were compared: Cho 1999 treats the full signed root polytope and the positive-plus-origin facets; Setiabrata 2021 gives all faces of the positive-plus-origin polytope; Numata et al. 2022 gives general quiver facet criteria and a full-face theorem only under a rank-function hypothesis absent for transitive tournaments. General facet recursion can in principle derive specific edges, so the claimed novelty is the direct closed form and nonorigin structural calculation, not a new root-polytope definition or an assertion that no prior methods apply.",
+      "residual_risks": [
+        "The broad quiver facet theorem can algorithmically recover the edge graph by facet recursion; priority of the closed-form specialization is judged best-of-knowledge rather than independent of prior theory.",
+        "Published root-polytope literature beyond the inspected major primary sources may contain equivalent positive-only graph calculations under different notation; search cannot certify absence.",
+        "The n=3,...,8 LP checks corroborate only finite sizes and do not constitute originality evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state or imply by an immediate parameter specialization the graph of conv{e_i-e_j:i<j} without the origin. Its P_n comprises BOTH root signs, while P_n^+ includes the origin. Proposition 13 is a facet result for P_n^+, not an all-edges theorem for the nonorigin positive subpolytope.",
+          "evidence": [
+            "Cho 1999 p.392 definitions P_n vs P_n^+; p.393 Theorem 1; p.396 Proposition 13; p.399 Theorem 16."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700033062",
+          "material_read": "Lawful full 12-page Cambridge PDF, especially pp.391–402: §2 Theorem 1 and Corollaries 2–4 on the convex hull of all positive AND negative roots; §3 triangulations for positive roots plus zero; §4 Proposition 13 on positive-plus-zero facets and Theorem 16 on its cyclic tiling of the full-root polytope.",
+          "method": "Read extracted primary PDF and visually inspected the relevant theorem and triangulation pages (PDF pp.3 and 5); compared exact vertex sets and face domains.",
+          "title": "Polytopes of roots of type A_n",
+          "trigger": "Highly plausible oldest complete root-polytope face classification, cited as an uninspected risk in the submission"
+        },
+        {
+          "assessment": "Corollary 5.10 determines nonorigin edges of the larger tilde Q_Kn, but cannot include the n-2 consecutive-unit-root pairs: any supporting score for such a pair in the smaller P_n is negative, hence zero blocks it in tilde Q_Kn. The source does not give the complete edge classification of P_n or the simple-vertex cutoff.",
+          "evidence": [
+            "Setiabrata arXiv:2001.05191v2 p.1 definitions; PDF p.16 Corollary 5.10 and Remark 5.11."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05191",
+          "material_read": "Primary 18-page arXiv PDF, title/abstract and §1 distinction Q_G vs tilde Q_G; Theorems 3.4,3.18 and proofs in §§3–4; Proposition 5.7; Corollaries 5.9,5.10 and Remark 5.11 on the transitive complete directed graph.",
+          "method": "Read primary full-text material and inspected screenshots of first page and Corollary 5.10 page.",
+          "title": "Faces of Root Polytopes",
+          "trigger": "Exactly the same positive-root coordinates and a full classification for the origin-adjoined polytope"
+        },
+        {
+          "assessment": "Theorem 1.2 characterizes facets of any directed-edge polytope, enabling a potentially involved facet-recursion derivation; Theorem 1.3 characterizing faces of all dimensions requires a rank function. The transitive tournament for n≥3 lacks such a rank function due to edges 1→2, 2→3, 1→3. No explicit complete edge criterion, degree polynomial or simple-vertex count for the target family appears in the inspected material.",
+          "evidence": [
+            "Numata–Takahashi–Tamaki arXiv:2203.14521v1 pp.2–3 Theorems 1.1–1.3, p.14 applications."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.14521",
+          "material_read": "Primary 19-page arXiv PDF, Introduction, Theorems 1.1–1.3, proofs in §4 and applications §5, including examples of root/directed-edge polytopes.",
+          "method": "Read primary theorem text and relevant proofs/examples, with visual inspection of PDF p.2.",
+          "title": "Faces of Directed Edge Polytopes",
+          "trigger": "General quiver root-polytope face/facet theorem potentially dominating this case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive type-A root polytope is a natural all-dimensional member of the directed-edge-polytope family. An exact combinatorial adjacency test, every local graph degree, the all-n edge polynomial, the precise n−2-edge change caused by deleting the origin, and the sharp disappearance of simple vertices from n=6 are structurally motivated invariants with plausible use in combinatorial polytope comparison and computations. They are neither a one-off small instance nor merely a restatement of a known table; their value does not rely on higher-face classifications or a downstream theorem. Limitations: no higher-dimensional f-vector, Ehrhart theory or exceptional broader quiver theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cho, Polytopes of roots of type A_n (1999), full 12-page lawful Cambridge PDF, Theorem 1, Proposition 13, Theorem 16, https://doi.org/10.1017/S0004972700033062",
+    "Setiabrata, Faces of Root Polytopes, arXiv:2001.05191v2 (2021), primary PDF, §§1,3,5; Theorems 3.4,3.18 and Corollaries 5.9,5.10",
+    "Numata–Takahashi–Tamaki, Faces of Directed Edge Polytopes, arXiv:2203.14521v1 (2022), primary PDF, Theorems 1.1–1.3 and §§4–5",
+    "Resultary semantic searches for positive type-A roots, nonorigin edges, transitive-tournament directed-edge polytopes and simple-vertex cutoffs (2026-10-24 UTC)",
+    "Independent SciPy HiGHS supporting-hyperplane feasibility calculation for all 756 candidate pairs n=3,...,8, plus exact enumeration of all predicted pair graph degrees and edge counts",
+    "Actual assigned Git snapshot tree and seven verified blob identities at commit 6c379935c2e469fc18959fc6c387e31328c64bcf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite LP checks only n=3,...,8; universal result relies on strict exposure/parallelogram/chain argument.",
+    "Published prior facet methods may in principle yield this graph by nontrivial specialization; best-of-knowledge originality is restricted to explicit nonorigin closed form and structural degree/simplicity conclusions.",
+    "Publication is not_ready for confidentiality-safe public-file transport; scientific PASS must not be represented as published acceptance or external certification."
+  ],
+  "residual_risks": [
+    "The broad quiver facet theorem can algorithmically recover the edge graph by facet recursion; priority of the closed-form specialization is judged best-of-knowledge rather than independent of prior theory.",
+    "Published root-polytope literature beyond the inspected major primary sources may contain equivalent positive-only graph calculations under different notation; search cannot certify absence.",
+    "The n=3,...,8 LP checks corroborate only finite sizes and do not constitute originality evidence."
+  ],
+  "schema_version": 1
+}
