@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The exact domain is 16 binary vertices with generators {1,2,4,8,15}, and 4-flips are the only allowed transitions. A least-uncovered-vertex recurrence partitions all perfect matchings and finds 705, independently reproduced in Python and C++. A constructive cross-pairing flip enumeration agrees edge-for-edge with exhaustive 705-choose-2 symmetric differences. Every source BFS visits all 705 matchings; counts yield 2160 flips, eccentricity multiplicities {7:5,8:700}, diameter 8, radius 7 and 8840 unordered diameter pairs. 16 translations and all 120 generator permutations give the entire automorphism group of order 1920; exhaustive actions on every configuration produce the seven named orbits with direction patterns, degrees and eccentricities. The two checker source files compile and execute on their own; no infinite-family inference or extrapolation is involved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer and Müller, Counting perfect matchings and the switch chain, arxiv:1705.05790, switchable and odd-chordal hereditary classes; inspected §§1–2 and associated result statements.",
+        "Bonamy et al., The Perfect Matching Reconfiguration Problem, arxiv:1904.06184, overview and complexity results, inspected primary PDF.",
+        "Alon and Friedland, arxiv:0803.2578v1, perfect-matching upper bound by degrees."
+      ],
+      "reasoning": "The generic existence of a switch chain and complexity results do not calculate the Clebsch flip graph metrics or full symmetry orbits. In particular the odd-chordal upper bound of seven switches on sixteen vertices cannot subsume an exact computed diameter of eight in this graph. Degree-sequence bounds cannot imply these transition invariants.",
+      "searches": [
+        "Clebsch graph folded five cube 705 perfect matchings 4-cycle flip reconfiguration graph connected diameter eight radius seven",
+        "strongly regular (16,5,0,2) Greenwood Gleason graph 4-cycle switches perfect matching solution graph five automorphism orbits",
+        "Dyer Müller Counting perfect matchings and the switch chain odd chordal switchable arxiv 1705.05790",
+        "The Perfect Matching Reconfiguration Problem Clebsch strongly regular graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0803.2578v1",
+      "arxiv:1705.05790",
+      "arxiv:1904.06184",
+      "arxiv:2607.04687",
+      "arxiv:2607.16101",
+      "2026/10/11/SCOPE-mod-2-homology-of-the-clebsch-matching-complex--7e53e4d18ed4",
+      "2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+      "MathWorld: Clebsch Graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct full-text comparison: the published Clebsch matching-complex result determines 705 perfect matchings and homology, not flips.",
+        "Direct full-text comparison: the dimension-four prescribed-difference result determines profile multiplicities, not flip geometry.",
+        "The complete alternate-matchings flip graph was reconstructed by two exhaustive procedures and compared to general 4-cycle switch definitions."
+      ],
+      "reasoning": "Known facts 705 matchings, Cayley graph structure, and matching profile spectrum are used as premises and checks, not the new theorem. No inspected published statement implies the 2160-edge flip adjacency, radius seven, diameter eight, center set, or seven automorphism orbits. No partition argument is used to assert uniqueness in global literature; this is a best-knowledge originality assessment, not certified priority.",
+      "searches": [
+        "Clebsch graph folded five cube 705 perfect matchings 4-cycle flip reconfiguration graph connected diameter eight radius seven",
+        "strongly regular (16,5,0,2) Greenwood Gleason graph 4-cycle switches perfect matching solution graph five automorphism orbits",
+        "folded 5-cube perfect matchings switching graph four-cycles matching flip",
+        "Perfect matching switch graph of Cayley(F2^4, {e1,e2,e3,e4,1111}), Clebsch Greenwood-Gleason graph, seven automorphism orbits, radius 7 diameter 8",
+        "\"Clebsch\" \"perfect matchings\" \"flip\"",
+        "\"Clebsch graph\" \"705\" \"matchings\"",
+        "2026/10/11/SCOPE-mod-2-homology-of-the-clebsch-matching-complex--7e53e4d18ed4",
+        "2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clebsch = folded 5-cube = 4-dimensional projective cube; ClebschGraph, MathWorld.",
+        "Bonamy et al., arxiv:1904.06184, definition of perfect-matching reconfiguration by alternating 4-cycles, inspected accessible PDF.",
+        "Dyer and Müller, arxiv:1705.05790, switch-chain definition and connectedness results, accessible full-text sections inspected."
+      ],
+      "reasoning": "A graph matching exchange can equivalently be called a 4-cycle flip, alternating quadrilateral, 2-switch, or perfect-matching reconfiguration move. The exact 705-vertex connected graph with all-pairs shortest paths and seven symmetry orbits is not stated in the compared primary text; general definitions are not exact classifications.",
+      "searches": [
+        "Clebsch graph folded five cube 705 perfect matchings 4-cycle flip reconfiguration graph connected diameter eight radius seven",
+        "folded 5-cube perfect matchings switching graph four-cycles matching flip",
+        "Perfect matching switch graph of Cayley(F2^4, {e1,e2,e3,e4,1111}), Clebsch Greenwood-Gleason graph, seven automorphism orbits, radius 7 diameter 8",
+        "\"Clebsch\" \"perfect matchings\" \"flip\"",
+        "folded five-cube perfect matching 4-cycle switch graph reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-mod-2-homology-of-the-clebsch-matching-complex--7e53e4d18ed4: full RESULT.md inspected, includes matching sequence ending with 705.",
+        "2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098: full RESULT.md inspected, contains exact profile realization multiplicities on 16 binary vertices.",
+        "The two source statements were compared directly with the proposed flip edges, distances, and orbit partitions."
+      ],
+      "reasoning": "The matching count 705 is prior knowledge and is not original here. The direction-profile multiplicity distribution can constrain subsets of the matching space, but does not specify which pairs differ by a legal 4-cycle flip, their shortest-path distances, their eccentricities, or the distinction between two orbits with the same direction pattern. The present seven-orbit and metric data do not follow solely from either table.",
+      "searches": [
+        "Clebsch graph folded five cube 705 perfect matchings 4-cycle flip reconfiguration graph connected diameter eight radius seven",
+        "Perfect matching switch graph of Cayley(F2^4, {e1,e2,e3,e4,1111}), Clebsch Greenwood-Gleason graph, seven automorphism orbits, radius 7 diameter 8",
+        "\"Clebsch graph\" \"705\" \"matchings\"",
+        "mod 2 homology of Clebsch matching complex 705 perfect matchings",
+        "Complete prescribed-difference matching multiplicity spectrum dimension four"
+      ]
+    },
+    "rationale": "The full 705-state alternating-quadrilateral flip graph is explicitly and exhaustively classified: 2160 moves, radius seven, diameter eight, five unique parallel-direction centers, seven orbits under the complete 1920-element automorphism group. The known scalar 705 matching count and the known exact prescribed-direction multiplicities are excluded from the novelty claim. The accessible published records supply no adjacency, all-pairs distances, or full-automorphism orbit decomposition; established switch-chain results give general reconfiguration theory, not these exact strongly-regular-graph invariants. Aliases and implication-level comparisons were searched. Residual risk of independent unindexed enumeration remains.",
+    "residual_risks": [
+      "An exact same finite computation might be published under folded-cube, Greenwood–Gleason, projective-cube, or switch-chain terminology in unindexed or inaccessible sources.",
+      "General automorphism results alone do not imply orbit distribution; independently verified explicit group action supplied.",
+      "No independent audit of the exhaustive numerical certificate has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers 705 perfect matchings and homology; does not cover 4-cycle-flip graph invariants.",
+        "evidence": [
+          "Published matching number sequence ends in 705; no flip adjacency or shortest-path statements in inspected RESULT.md."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-mod-2-homology-of-the-clebsch-matching-complex--7e53e4d18ed4",
+        "material_read": "Full RESULT.md including complete matching counts and limitations",
+        "method": "Read public full-text repository file and compared statements and invariants",
+        "title": "Mod-2 homology of the Clebsch matching complex",
+        "trigger": "Exactly same 16-vertex graph and matching number"
+      },
+      {
+        "assessment": "Complete direction-multiset multiplicities are covered prior knowledge, but seven orbit split and flip graph metric are not stated.",
+        "evidence": [
+          "Complete eight-difference profile distribution with 2,027,025 complete-graph perfect matchings, distinct from legal 40-edge Clebsch matching flips."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+        "material_read": "Full RESULT.md including frequency table, proof and limitations",
+        "method": "Read public full-text repository file; compared parameter implication of direction profiles",
+        "title": "Complete prescribed-difference matching multiplicity spectrum in dimension four",
+        "trigger": "Same 16-element binary space and perfect matchings grouped by edge differences"
+      },
+      {
+        "assessment": "Found general frameworks but not Clebsch metric or orbit classification.",
+        "evidence": [
+          "Odd-chordal bound does not cover a diameter-eight example on sixteen vertices; no Clebsch-specific classification in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.05790",
+        "material_read": "Accessible full-text introductory sections 1–2 and relevant theorem statements",
+        "method": "Checked graph classes, switches, connectivity and diameter hypotheses",
+        "title": "Counting perfect matchings and the switch chain",
+        "trigger": "General 4-cycle matching switches could subsume reconfiguration claims"
+      },
+      {
+        "assessment": "General complexity results, not exact finite 705-state graph.",
+        "evidence": [
+          "Defines alternating 4-cycle exchange; does not state seven Clebsch matching orbits or exact shortest paths in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+        "material_read": "Accessible primary MFCS PDF including opening definitions, complexity classes and theorem statements",
+        "method": "Read and compared formal move/graph class assumptions; original PDF examined",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Direct terminology and 4-cycle-flip reconfiguration"
+      },
+      {
+        "assessment": "No direct matching reconfiguration theorem.",
+        "evidence": [
+          "First public arXiv date 2008-03-18; main result degree-sequence upper bound, not flip state graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0803.2578",
+        "material_read": "ArXiv abstract, public 2008 date and displayed main theorem; author-hosted article opening and first theorem statement",
+        "method": "Compared degree-sequence bound to graph-specific matching flip geometry",
+        "title": "The maximum number of perfect matchings in graphs with a given degree sequence",
+        "trigger": "Foundational first-archival source for perfect matchings and MSC graph enumeration"
+      },
+      {
+        "assessment": "Focused on complete, complete bipartite and related matching settings, not Clebsch exact metric.",
+        "evidence": [
+          "No Clebsch target or seven-orbit classification in inspected scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.04687",
+        "material_read": "Accessible abstract and introductory scope",
+        "method": "Checked graph families and stated aim",
+        "title": "Hamilton paths and cycles in flip graphs of (almost-)perfect matchings",
+        "trigger": "Recent exact flip-graph structure could cover a general family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16227075-8a81-481b-a003-ff113decb561",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Clebsch graph is the canonical 16-vertex, five-regular triangle-free strongly regular graph, and perfect matchings are basic combinatorial feasible solutions. The previously known number 705 does not describe whether one optimal pairing can be continuously exchanged for another. Exact connectedness, sharp 8-move worst-case transition, five canonical centers, and seven full symmetry types distinguish combinatorial accessibility and intrinsic geometry of the solution space, providing a reproducible benchmark for 4-cycle-flip chains. These are naturally motivated invariants of this standard graph, not an arbitrary restricted sample.",
+    "status": "PASS"
+  }
+}
