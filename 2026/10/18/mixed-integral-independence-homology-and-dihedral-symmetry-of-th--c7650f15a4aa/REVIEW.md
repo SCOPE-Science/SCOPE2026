@@ -1,15 +1,21 @@
-# Scientific review: coronene independence homology and symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined without ambiguity by seven face centers and six vertex offsets; it has twenty-four vertices, thirty edges, seven bounded hexagonal faces, and a geometric \(D_6\)-action. `verify_coronene.py` enumerates the entire independent-face complex (62,506 nonempty faces), makes 31,251 disjoint Hasse-diagram matchings, and checks all 392,364 cover relations by a complete directed acyclicity test. Exactly four critical cells remain in dimensions zero, five, seven and seven; the absence of adjacent positive critical dimensions forces the integral Morse cellular differentials to vanish. Direct signed fixed-face traces of all twelve symmetries give the specified character using the Hopf trace formula. The finite-group quotient statement follows from rational averaging. The stored execution result was regenerated and checked. This proves integral homology, not an integral wedge-of-spheres homotopy type.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary research, Chandrakar–Singh, arXiv:2512.21318v1 (first posted 2025-12-24), treats strip graphs \(H_{1\times m\times n}\); its graph vertex-count formula rules out the twenty-four-vertex coronene graph for any positive strip dimensions. The complete original result and proof of the publicly indexed *Reflection characters of linear hexagonal-chain independence complexes* also treats strip graphs with exactly \(4n+2\) vertices and a different Klein four-group action, not a compact seven-ring patch or \(D_6\). Chandrakar, arXiv:2512.21755v1, studies three-cut rather than independence complexes. Targeted literature and mathematical-record searches for the coronene independence complex, seven-hexagon benzenoids, and dihedral representations returned no equivalent coverage. This is an evidence-based originality conclusion, not a claim that indexing is exhaustive. Closest scientific sources are named in RESULT.md; an unindexed exact computation remains a residual risk.
+PASS
 
-## Value — PASS
-A compact seven-hexagon benzenoid is a canonical genuinely two-dimensional planar hexagonal patch, not a new parameter chosen to fit a numerical output. Its independence complex has nonzero **integral** homology in two distinct dimensions; the full \(D_6\) action distinguishes the two homology groups and leads to a concrete zero/nonzero classification of every geometric quotient's rational homology. The exact finite invariant is mathematically motivated independently of the computation and supplies a reproducible benchmark for topology beyond strip hexagonal graphs. The finite nature of the result and the unresolved attaching maps are expressly delimited; neither novelty nor a mere Betti computation alone is offered as the value argument.
+For seven-ring coronene the coordinate construction independently gives 24 vertices,30 edges and 62506 independent nonempty faces, f-vector (24,246,1412,5001,11358,16663,15540,8853,2876,489,42,2). Independently reconstructed the complete 31251-pair vertex-stage matching; all 392364 Hasse cover arrows admit an acyclic topological ordering through all 62506 faces, leaving exactly critical dimensions 0,5,7,7. Thus the Morse complex has no possible nonzero cellular differential, and integral H5=Z,H7=Z² (not necessarily wedge homotopy). Independently enumerated every setwise-invariant face and orientation sign under all 12 coordinate dihedral maps, producing reduced Lefschetz rotations (-3,2,0,-1,0,2), reflections (-1,1,-1,1,-1,1). Finite order and 1-dimensional H5 force χ5(r)=-1 and χ5(t)=1; H7 is inflated D3 standard, giving all subgroup rational quotient invariants. No claim about integral quotient torsion or unstable attaching classes.
 
-## Scope and residual risks
-The proof is a complete finite computational certificate using exhaustive graph/face/gradient enumeration plus standard Morse and character theorems, not an independent mathematical audit. The unknown unstable attaching maps prevent a full integral homotopy classification. Literature search could miss unindexed equivalent calculations. The result does not assert an infinite-family statement or compute integral quotient torsion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after new searches and claim-vs-prior comparisons, subject to explicitly listed source access and priority risks. The finite coronene D6 action and two-degree integral homology do not follow from strip classifications.
+
+## value
+
+PASS
+
+The 7-hexagon coronene carbon graph is a natural minimal compact benzenoid patch rather than an arbitrary graph. Exact integral homology in two separated degrees and a full D6 rational representation/quotient classification are natural reusable invariants distinct from strip results; nontrivial exact finite topology merits value without a new infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
