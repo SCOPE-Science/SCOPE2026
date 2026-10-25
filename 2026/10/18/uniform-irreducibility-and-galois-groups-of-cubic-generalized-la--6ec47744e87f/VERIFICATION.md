@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof relies on monicity, the exact identity \(y^3=(a+3)(3y+2)\), and the elementary divisibility \(\gcd(y,3y+2)=\gcd(y,2)\). The only integral candidates arising in the odd and even cases lead to \(a+3\in\{0,1,2\}\), outside the asserted domain. Thus the infinite irreducibility assertion is proved rather than inferred from experiments.
+## correctness
 
-The exact discriminant is \(108(a+2)(a+3)^2\). For an irreducible cubic, the square-discriminant criterion distinguishes the cyclic and symmetric Galois groups.
+PASS
 
-Run `python3 verify.py` with SymPy available to repeat the symbolic normalization, translation and discriminant checks, independent irreducibility checks for 513 specializations, and 60 further square-discriminant specializations. Recorded output is in `verification_output.txt`. Those checks do not exhaust the infinite range and are not a substitute for the proof.
+After scaling -6 L_3^(a) to the integral monic cubic and translating X=Y+A, A=a+3>=3, one gets exactly Y³-3AY-2A. An integral root y would satisfy y³=A(3y+2). Odd y gives gcd(y,3y+2)=1, hence 3y+2=±1, uniquely y=-1 with A=1; even y=2k gives 4k³=A(3k+1) with coprime k,3k+1, forcing 3k+1|4 and k∈{-1,0,1}, which produce A=2,0,1. None meets A>=3. Thus every nonnegative integral parameter has irreducible cubic. Discriminant Δ=108A²(A-1)=[6A]²3(a+2)>0 is square exactly when a=3k²-2, k>=1; standard transitive cubic group criterion yields C3 vs S3 and count floor(sqrt((B+2)/3)). Independent SymPy shift/discriminant checks and 100 factorizations corroborated, not a proof of all-a.
 
-The discriminant locus was identified in the 2013 paper cited in RESULT.md. The previously unavailable unrestricted irreducibility assertion is the focus of this result. Possible unindexed equivalent literature remains a residual originality risk.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for uniform cubic IRREDUCIBILITY for a>=0 and the resulting unconditional group classification, not for the square-discriminant locus itself. Banerjee–Filaseta–Finch–Leidy (2013) explicitly determine cubic square-discriminant parameters but their complete Galois classification in Theorem 2.4 only ranges a<=10. The very recent Das–Dutta–Laishram–Nair arXiv:2610.10614 gives a<=1000 and necessary conditions IF a cubic factor exists; its Theorem 1.2(ii) is not the universal absence proof. Other cited fixed-a large-n and fractional-a results reverse or restrict quantifiers. No actual prior all-a cubic theorem identified, with possible elementary historical derivation retained as risk.
+
+## value
+
+PASS
+
+Degree three is the first natural cubic case next to the exceptional quadratic Laguerre factor family. Removing the parameter-1000 cutoff solves the entire integer-parameter cubic case and turns a pre-existing square-discriminant parameterization into complete realizable cyclic-versus-symmetric splitting-field classes and exact counting. Its value is a natural uniform classification, not a claim to have rediscovered a discriminant identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
