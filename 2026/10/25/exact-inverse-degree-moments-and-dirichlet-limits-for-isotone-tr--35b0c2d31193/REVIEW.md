@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The direct crossed-transversal criterion gives the precise inverse count, and two independent uniform integer-composition coordinates yield the coefficient formula for every moment. Riemann-sum convergence on fixed-dimensional simplices, followed by the continuous mapping theorem and Dirichlet integration, proves the nondegenerate limit and all its moments. The sharp finite maximum follows from balanced integer products. Independent brute-force enumeration of the semigroup inverse identities through dimension six supports the formulas without replacing the proof.
+
+**Originality — PASS, with bibliographic residual risk.** The 2026 full-text order-preserving matching theorem gives a balanced weighting and an inverse *relation*, but no rank-conditioned inverse-degree probability distribution. The 2024 overview asks for existence of matchings, while the 2014 inverse criterion treats general full transformations and the graph of inverses. Neither inspected source implies the all-rank exact moment generating coefficients or Dirichlet-product limit without new combinatorial counting and asymptotic arguments. Actual research-record and literature searches were compared by implication; no indexed equivalent was found. Unindexed coverage is possible and no independence of this review is claimed.
+
+**Value — PASS.** The quantity counts how many semigroup inverses a transformation has, a natural local invariant of the inverse graph underlying the recent existence result. The statement resolves the complete rank-fixed moment sequence in every finite chain and its nontrivial limiting distribution for every fixed rank. Exact extremizers show which kernel–image geometries carry the most inverses. This is a quantitative law, not simply another existence argument or restatement of a known square count.
+
+**Scope and risks.** The law fixes rank before taking the limit. It does not prove matching existence, a CLT for growing rank, or an explicit closed density. Previous semigroup theory supplies the inverse criterion; novelty is restricted to the quantitative profile. Indexed searches do not prove uniqueness, and an external review has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
