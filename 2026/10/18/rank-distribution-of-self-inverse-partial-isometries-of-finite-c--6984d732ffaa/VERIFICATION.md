@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 checks/verify.py` from the root directory containing the accompanying files. The checker uses only the Python standard library, prints six `METRIC_OK` lines for \(4\le n\le9\), four `EXTENSION_OK` lines for \(4\le n\le7\), nine `DIHEDRAL_OK` lines for \(4\le n\le12\), then `VERIFY_OK`.
+# Independent mathematical audit
 
-The first route enumerates every domain and every permutation of that domain, checks its square directly, then verifies cycle-graph distances for every unordered pair. It does not assume the published dihedral-extension theorem. The second route enumerates restrictions of all rotations and reflections, removes duplicate partial maps, and directly compares each map with its inverse. A third check constructs every partial injection, tests the graph metric directly, and compares the resulting entire monoid with all dihedral restrictions for \(4\le n\le7\); this independently corroborates the structural lemma on bounded cases. Both enumerators compute rank coefficients independently of the closed polynomial arithmetic.
+## correctness
 
-The universal proof is in `RESULT.md`: the only cited non-elementary premise is the published dihedral restriction and rank-three extension lemma in Fernandes–Paulista [1]. The finite enumerations cover bounded cycle sizes only; they do not prove all-parameter uniqueness or a universal counting identity. No separate external audit or independent validation has been performed.
+PASS
+
+The Fernandes--Paulista dihedral extension theorem, checked in the primary preprint, says every partial cycle isometry restricts a dihedral symmetry, uniquely for domain rank at least 3; nonunique rank-two antipodal restrictions require correction. If alpha=g|D self-inverse at rank>=3, D invariant under g and g^2 fixes >=3 points, forcing g^2=id since a nontrivial dihedral permutation fixes at most two. Each group involution contributes (1+z)^f(1+z^2)^t for invariant domains, according to fixed points and transpositions. Odd n: identity + n reflections each (f,t)=(1,(n-1)/2); even n: n/2 vertex-axis reflections (2,(n-2)/2), n/2 edge-axis reflections plus halfturn (0,n/2). The group sum overcounts rank0 by n (odd) or n+1 (even), rank1 by n, and rank2 by 0 (odd) or n (even); subtract precisely those terms. Independently enumerated all self-inverse metric partial bijections from scratch for n=4..8, giving complete predicted vectors (1,4,12,8,6), (1,5,20,20,10,6), (1,6,30,32,36,12,8), (1,7,42,56,56,42,14,8), (1,8,56,80,124,80,64,16,10). Finite counts corroborate the universal group-theoretic argument.
+
+## originality
+
+PASS
+
+The full monoid dihedral-restriction/uniqueness theorem and all-partial-isometry enumerator are acknowledged from Fernandes--Paulista. They do not equal the self-inverse rank polynomial: the self-inverse restriction criterion and low-rank collision correction must be imposed. Related Dimitrova et al works concern three proper submonoids and presentations rather than this entire inverse monoid self-inverse distribution. Standard cycle-index multiplication is prior known; only the natural complete rank distribution is claimed as new.
+
+## value
+
+PASS
+
+The all-rank involution locus is a natural order-theoretic invariant of the inverse monoid of metric partial symmetries; precise small-domain overlaps make it differ from the raw group involution cycle index. The parity-sensitive complete distribution, not merely a tiny instance or arbitrary slice, can be reused in semigroup classifications and combinatorial enumeration. Its method is elementary but the complete natural classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

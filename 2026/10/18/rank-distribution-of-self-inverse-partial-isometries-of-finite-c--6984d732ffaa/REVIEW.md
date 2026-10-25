@@ -1,15 +1,21 @@
-# Scientific review: self-inverse partial isometries of cycles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim specifies the full monoid, the inverse-of-a-partial-bijection convention, ranks including zero, and all integer cycle sizes \(n\ge4\). Fernandes–Paulista Lemma 1.1 supplies the essential ambient dihedral extension and its uniqueness for domains of size at least three. The argument then proves the self-inverse criterion, enumerates invariant subsets of all group involutions, and corrects the three low ranks by direct elementary counting. The parity distinction, the half-turn contribution, both rank-two corrections, and the top-rank boundary were recalculated independently. Direct metric enumeration for \(4\le n\le9\), complete independently computed metric-to-dihedral extension equality for \(4\le n\le7\), and deduplicated dihedral-restriction enumeration for \(4\le n\le12\) give exact matching vectors; these finite checks only supplement the proof. No computational extrapolation is used to close a universal quantifier.
+## correctness
 
-## Originality
-**PASS with a specific residual literature risk.** Primary full text of Fernandes–Paulista [1] was checked against its structural lemma, full-monoid cardinality theorem, Green relations, rank theorem, and presentations. It neither gives the self-inverse rank distribution nor a count of its self-inverse subset. Its theorem supplies a structural premise rather than the resulting low-rank-corrected polynomial. The related full preprints [2] and [3] concern three submonoids and their cardinalities/ranks/presentations, not the stated distribution in the whole inverse monoid. Searches of the available indexed mathematical record using “involutive partial isometry”, “dihedral inverse monoid”, “self-inverse”, group-restriction rank counts, source authors, and exact coefficient sequences did not exhibit a dominating statement. An accessible earlier exact nilpotency-index enumeration for the same monoid addresses a disjoint locus apart from the empty map; an enumeration of self-inverse partial automorphisms of fences concerns a different class of partial transformations and does not imply this formula. The 2022 master's thesis on star and cycle partial isometries was identified but not retrieved as full text; that is the principal remaining specialist-literature risk. The group cycle-polynomial input is standard, and no novelty is attributed to it independently.
+PASS
 
-## Value
-**PASS.** Self-inverse elements are a canonical object in every inverse semigroup and are not determined by the ordinary monoid cardinality. The complete domain-rank distribution exposes the two reflection conjugacy types for even cycles, their contribution to the cycle-length parity transition, and a finite-boundary correction that prevents naive group-action overcounting. The exact total also shows that the \(2^n\) partial identities asymptotically exhaust the self-inverse locus even though the number of nonidentity self-inverses grows exponentially. This is a complete, natural invariant for the entire family, not a selected numerical slice or generic renaming of a known table.
+The Fernandes--Paulista dihedral extension theorem, checked in the primary preprint, says every partial cycle isometry restricts a dihedral symmetry, uniquely for domain rank at least 3; nonunique rank-two antipodal restrictions require correction. If alpha=g|D self-inverse at rank>=3, D invariant under g and g^2 fixes >=3 points, forcing g^2=id since a nontrivial dihedral permutation fixes at most two. Each group involution contributes (1+z)^f(1+z^2)^t for invariant domains, according to fixed points and transpositions. Odd n: identity + n reflections each (f,t)=(1,(n-1)/2); even n: n/2 vertex-axis reflections (2,(n-2)/2), n/2 edge-axis reflections plus halfturn (0,n/2). The group sum overcounts rank0 by n (odd) or n+1 (even), rank1 by n, and rank2 by 0 (odd) or n (even); subtract precisely those terms. Independently enumerated all self-inverse metric partial bijections from scratch for n=4..8, giving complete predicted vectors (1,4,12,8,6), (1,5,20,20,10,6), (1,6,30,32,36,12,8), (1,7,42,56,56,42,14,8), (1,8,56,80,124,80,64,16,10). Finite counts corroborate the universal group-theoretic argument.
 
-## Limitations and closest sources
-Full-monoid dihedral extension, ordinary enumeration, and presentations are due to [1]; related smaller inverse monoids and their presentations are studied in [2,3]. The result does not claim new group cycle-index theory or the structure of products of self-inverse maps. The general proof uses [1] as a published structural input; the finite checks are not a substitute for that input. The thesis mentioned above remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full monoid dihedral-restriction/uniqueness theorem and all-partial-isometry enumerator are acknowledged from Fernandes--Paulista. They do not equal the self-inverse rank polynomial: the self-inverse restriction criterion and low-rank collision correction must be imposed. Related Dimitrova et al works concern three proper submonoids and presentations rather than this entire inverse monoid self-inverse distribution. Standard cycle-index multiplication is prior known; only the natural complete rank distribution is claimed as new.
+
+## value
+
+PASS
+
+The all-rank involution locus is a natural order-theoretic invariant of the inverse monoid of metric partial symmetries; precise small-domain overlaps make it differ from the raw group involution cycle index. The parity-sensitive complete distribution, not merely a tiny instance or arbitrary slice, can be reused in semigroup classifications and combinatorial enumeration. Its method is elementary but the complete natural classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
