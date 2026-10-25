@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The base-Laplacian eigenspace decomposition splits the doubled state space into disjoint increasing eigenvalue branches. Scalar aggregate gains are computed exactly on both branches; the upper branch has zeros precisely at the displayed resonance gains. The classical real-symmetric observability criterion yields the exact invisible-dimension sum. The all-module distinct-gain conclusion uses connectedness to preclude eigenvectors supported on a single vertex. The accompanying exact-arithmetic verifier passed 42 rank/defect comparisons and three full-sensing contrasts; two numerical cycle checks illustrate rather than certify the infinite result.
+
+**Originality — PASS (self-review).** Inspected antecedents cover direct vertex sensors on paths/cycles (Parlangeli–Notarstefano 2011), corona spectra (Liu 2014), and composite-graph one-vertex controllability transfer (Hsu 2018). Their stated results do not imply the proposed heterogeneous aggregate-sensor erasure ranks or the full-sensor gain paradox. The comparison includes the cycle-leader work of Liu–Ji 2017 and semantic search results on finite-cycle sensor frames. Some specialized aggregate-sensing literature may have escaped retrieval; originality is not independently certified.
+
+**Mathematical value — PASS.** The exact defect formula isolates a physically meaningful failure of local sensing: measuring every module can still erase a network eigenmode when channels are aggregated with a resonant gain. It also proves an entirely explicit, topology-independent correction (pairwise distinct module gains), rather than just giving an isolated counterexample. These are useful for observer design and sensing-placement analysis; the result does not claim conditioning or noise robustness.
+
+Self-review: passed. Independent audit: not yet performed.
