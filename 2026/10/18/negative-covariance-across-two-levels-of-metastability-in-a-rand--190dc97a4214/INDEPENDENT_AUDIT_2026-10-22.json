@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:07:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A block flip changes energy only on two boundary bonds. A wall must be a radius-k strict minimum of iid bond strengths, and all such minima are separated; even wall subsets give exactly 2^(M_k) stable configurations, accounting for ring spin parity and global spin reversal. For k=1,2, local overlap integrals under the probability-integral transform give p11(2)=2/15,p12(2)=1/18,p12(3)=8/105,p22(3)=1/20,p22(4)=2/45. Independently recomputed exact SymPy integrals produce those values, and cyclic displacement sums for n>=11 yield Var(M1)/n=2/45, Cov(M1,M2)/n=-1/315, Var(M2)/n=13/450. The bounded 4-dependent vector indicator process and Cramer–Wold give the joint Gaussian limit, with cyclic cut changes O(1) only. The finite-n restriction avoids cyclic window collision. These analytical steps, not saved verifier logs, support all n>=11.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1999 paper studies all-M stability and dynamical properties; 1989 paper focuses on 1-spin distributions."
+        ],
+        "reasoning": "Broad all-M discussion is not a theorem giving this particular mixed covariance or bivariate CLT; full 1989 text unavailable, so no universal noncoverage assertion.",
+        "searches": [
+          "Newman–Stein 1999 full PDF",
+          "Masui–Southern–Jacobs 1989 PhysRevB abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/cond-mat/9908455",
+        "https://doi.org/10.1103/PhysRevB.39.6925",
+        "https://arxiv.org/abs/0801.1224"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal means n/3 and n/5 are consistent with earlier individual-level results."
+        ],
+        "reasoning": "Neither marginal theorem determines covariance sign/constant; mixed-window integrals and an m-dependent vector CLT are substantive additional work.",
+        "searches": [
+          "Newman–Stein 1999 stated 2^(n/3) scale",
+          "Masui et al. one-spin distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radius-k minima characterize weak bonds; S_k=2^(M_k) in this periodic positive iid setting."
+        ],
+        "reasoning": "State counts become a joint count of radius-one and radius-two local minima; existing individual-level results need an additional mixed-overlap calculation to infer covariance.",
+        "searches": [
+          "Newman–Stein cond-mat/9908455 Section on M-flip stable weak bonds",
+          "web: metastable two-spin covariance weak bonds 1D Ising"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching rational -1/315 joint table found in retrieved sources."
+        ],
+        "reasoning": "A one-spin state-count table cannot fix the mixed local-minimum joint probabilities; there is no exact matching two-level matrix in examined sources.",
+        "searches": [
+          "Resultary: negative covariance across two levels metastability random",
+          "web: metastable two-spin covariance weak bonds 1D Ising"
+        ]
+      },
+      "rationale": "Newman–Stein develop metastable-state structure and known one-spin typical scale; Masui-Southern-Jacobs examine one-spin finite-chain distributions. Their available results do not imply the joint disorder covariance across one- and two-spin stability levels, which can be negative despite S2<=S1. The inaccessible 1989 full text remains a named priority risk, not automatic rejection.",
+      "residual_risks": [
+        "The full Masui–Southern–Jacobs 1989 primary article was not inspected; its accessible abstract covers one-spin laws but could hide useful comparison.",
+        "A specialized unpublished mixed-local-minima covariance may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes weak-bond/dynamical context and one-spin 2^(n/3) asymptotic scale; does not give the joint finite-size M1/M2 logarithmic cross-covariance in inspected parts.",
+          "evidence": [
+            "https://arxiv.org/pdf/cond-mat/9908455"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9908455",
+          "material_read": "Introduction, sections on one-dimensional weak bonds and M-spin dynamics; Section 5 and discussion of state counts, overlaps and remanence; original full-text PDF.",
+          "method": "primary full-text PDF or open HTML read",
+          "title": "Metastable States in Spin Glasses and Disordered Ferromagnets",
+          "trigger": "Same random-bond Ising model, M-spin metastability and weak bonds"
+        },
+        {
+          "assessment": "Available abstract addresses 1-spin state distributions in 1D/2D, not a stated two-level cross-covariance. Full text gap retained as priority risk.",
+          "evidence": [
+            "https://doi.org/10.1103/PhysRevB.39.6925"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.39.6925",
+          "material_read": "Journal title, abstract and bibliographic description; original full text not accessible in this run.",
+          "method": "authoritative abstract and bibliographic inspection; institutional full text blocked",
+          "title": "Metastable states of Ising spin glasses and random ferromagnets",
+          "trigger": "Plausible original 1989 one-spin 1D metastability enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact negative cross-covariance is a counterintuitive fluctuation effect across nested physically meaningful metastability notions; the universal rational covariance matrix and joint CLT permit quantitative comparisons rather than mere marginal state-count asymptotics. Natural object and invariant, not a manufactured statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/cond-mat/9908455",
+    "https://doi.org/10.1103/PhysRevB.39.6925",
+    "https://arxiv.org/abs/0801.1224"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "IID atomless positive bonds, periodic chain n>=11, strict connected flips of one or two spins.",
+    "Gaussian limit concerns potential stable configurations, not basin volume or dynamical selection."
+  ],
+  "residual_risks": [
+    "The full Masui–Southern–Jacobs 1989 primary article was not inspected; its accessible abstract covers one-spin laws but could hide useful comparison.",
+    "A specialized unpublished mixed-local-minima covariance may be unindexed."
+  ],
+  "schema_version": 1
+}

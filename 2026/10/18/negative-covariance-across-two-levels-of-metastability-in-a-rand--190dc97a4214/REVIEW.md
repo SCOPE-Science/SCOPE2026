@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the energy change for arbitrary connected one- or two-spin flips, proves the weak-bond characterization with the even-wall parity condition, evaluates the five critical joint probabilities by explicit elementary integrals, and sums the finite-range correlations to the exact negative coefficient. The bivariate limit follows by the bounded 4-dependent central limit theorem and a finite cyclic-boundary correction. A self-contained standard-library checker passes 144 direct Hamiltonian counts, the rational local-window comparisons, the covariance identities, and a full nine-bond disorder-ranking census.
+## correctness
 
-**Originality — PASS, with a specific residual source risk.** Newman–Stein (1999) already present weak bonds and the one-spin count scale and discuss two-spin dynamics. Masui–Southern–Jacobs (1989) study the one-spin metastable distribution; Wacław–Burda (2008) calculate one-spin stable counts on general graphs. Schnabel–Janke (2020) examine marginal log-normal behavior numerically. Comparisons of hypotheses and implications reveal no asserted cross-covariance between *different* stability levels or the explicit two-level Gaussian law. This is a comparison of claims rather than a claim that no similar terminology exists. The potentially relevant 1989 primary full text was inaccessible, so a previously unnoticed exact identity is a residual bibliographic risk.
+PASS
 
-**Value — PASS.** Strict two-spin stability is a nested subset of strict one-spin stability, yet the disorder fluctuations of their log counts are negatively correlated. The exact finite-size anticorrelation and universal joint scaling characterize the geometry of a physically motivated hierarchy of kinetic traps; neither a typical complexity exponent nor two separate variances answers this coupling question. No assertion is made about kinetic absorption probabilities or experimentally realized states.
+A block flip changes energy only on two boundary bonds. A wall must be a radius-k strict minimum of iid bond strengths, and all such minima are separated; even wall subsets give exactly 2^(M_k) stable configurations, accounting for ring spin parity and global spin reversal. For k=1,2, local overlap integrals under the probability-integral transform give p11(2)=2/15,p12(2)=1/18,p12(3)=8/105,p22(3)=1/20,p22(4)=2/45. Independently recomputed exact SymPy integrals produce those values, and cyclic displacement sums for n>=11 yield Var(M1)/n=2/45, Cov(M1,M2)/n=-1/315, Var(M2)/n=13/450. The bounded 4-dependent vector indicator process and Cramer–Wold give the joint Gaussian limit, with cyclic cut changes O(1) only. The finite-n restriction avoids cyclic window collision. These analytical steps, not saved verifier logs, support all n>=11.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Newman–Stein develop metastable-state structure and known one-spin typical scale; Masui-Southern-Jacobs examine one-spin finite-chain distributions. Their available results do not imply the joint disorder covariance across one- and two-spin stability levels, which can be negative despite S2<=S1. The inaccessible 1989 full text remains a named priority risk, not automatic rejection.
+
+## value
+
+PASS
+
+The exact negative cross-covariance is a counterintuitive fluctuation effect across nested physically meaningful metastability notions; the universal rational covariance matrix and joint CLT permit quantitative comparisons rather than mere marginal state-count asymptotics. Natural object and invariant, not a manufactured statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
