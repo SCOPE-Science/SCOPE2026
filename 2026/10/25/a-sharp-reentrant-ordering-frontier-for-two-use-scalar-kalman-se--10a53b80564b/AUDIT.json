@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The two Kalman information recurrences have strictly positive denominators for p,q,r,s>0 and t>=0. Their exact difference factors into (r-s)(t/((t+nu C)(t+nu D))-1). Exact AM–GM minimization of the inverse ratio establishes the critical noise threshold; a convex quadratic gives all strict/tie cases. Factorization of the discriminant gives the square-root closing width; Vieta gives small-noise endpoint laws. An independent exact-rational checker passed 10016 assertions, including the full three-regime witness. The universal classification rests on the symbolic proof, not finite trials.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dutta–Wilde–Smith 2023 Theorem 1 solves a general constrained program exactly by MIQP.",
+        "Maity–Hartman–Baras 2021 Sec. 3 constructs covariance-tracking relaxations and suboptimal schedules.",
+        "Pasand–Montazeri 2017 develops periodic access schedules by convex relaxation; Huber 2012 assumes reusable sensors."
+      ],
+      "reasoning": "These broad scheduling frameworks can handle or approximate related instances but do not derive the closed critical noise frontier as a theorem. Implicit finite-instance computability via a general optimizer is distinguished from a covered symbolic characterization. The scalar greedy result applies only to the less constrained problem and hence cannot dominate the once-only resource problem.",
+      "searches": [
+        "sensor scheduling scalar covariance two time two sensors precision ordering dynamics instability switching process noise",
+        "arxiv:2110.08924 covariance tracking sensor scheduling",
+        "DOI:10.4218/etrij.17.0116.0566 sensor access periodic convex order",
+        "DOI:10.1109/TAC.2011.2175070 scalar sensor dominance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.02692v1 (full arXiv text)",
+      "arxiv:2110.08924 (full arXiv text)",
+      "DOI:10.1109/TAC.2011.2175070 (author-uploaded primary text, scalar lemma)",
+      "DOI:10.4218/etrij.17.0116.0566 (available publisher sections; equation-image limitation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 MIQP delivers exact optimal schedules for fixed input instances but provides no explicit root structure when dynamics gain varies.",
+        "The 2012 scalar ordering theorem shows each individual choice favors the stronger sensor when the future can also reuse that sensor; exactly-once use invalidates this comparison.",
+        "The 2021 method supplies tracking relaxation rather than an exact two-sensor threshold."
+      ],
+      "reasoning": "None of the materially read theorems implies that an optimal order must reverse twice in the allowed two-schedule problem, nor yields the exact critical ratio and square-root collapse without the new exchange calculation. The proof deliberately excludes unconstrained reuse and makes no claim about general scheduling optimality outside its two-option feasible set.",
+      "searches": [
+        "two sensor scalar Kalman filtering ordering stronger measurement first last process noise crossover reentrant observation schedule exact threshold",
+        "Reentrant optimal order stronger measurement last first last as scalar state gain varies with process noise",
+        "arxiv:2304.02692v1 Theorem 1",
+        "arxiv:2110.08924 Section 3",
+        "Huber 2012 sensor information order Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dutta–Wilde–Smith 2023 Sec. III–IV models general Kalman observations but gives an optimization program, not a two-order exchange identity.",
+        "Huber 2012 Sec. III.A establishes reusable-sensor single-stage dominance, which ceases to be a legal replacement under a one-use-per-sensor budget."
+      ],
+      "reasoning": "Scalar covariance and information updates are equivalent formulations, and reversal of the two sensors is the only alternative schedule. The present comparison is exact for all gain and process-noise parameters subject to each sensor being used once. The examined closest general theorems do not state this phase diagram or impose an implication that forces its two distinct roots and noise cusp. The Huber result optimizes a different feasible set, allowing reuse.",
+      "searches": [
+        "two sensor scalar Kalman filtering ordering stronger measurement first last process noise crossover reentrant observation schedule exact threshold",
+        "Kalman filter two measurements exchange argument sensor ordering Riccati covariance noise gain optimal first last",
+        "Two-step scalar Kalman filter exactly-once two sensors precision r s sharp q/p crossover (sqrt(1+pr)+sqrt(1+ps))^-2",
+        "Kalman information-form Riccati measurement precision exchange order",
+        "arxiv:2304.02692v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched scientific records contained no matching tabulation of the two-precision order threshold; the closest retrieved sensor record concerned random observation directions in an Ornstein–Uhlenbeck model, not finite-horizon measurement permutation.",
+        "The three main full-text papers inspect scheduling and covariance methods rather than a published table of two-stage sharp critical thresholds."
+      ],
+      "reasoning": "The new claim is a symbolic necessary-and-sufficient classification rather than a recomputation of a known database entry. Search non-detection alone does not prove novelty; residual publication-priority risk remains.",
+      "searches": [
+        "optimal two step scalar Kalman sensor scheduling reentrant threshold quadratic discriminant",
+        "Two-step scalar Kalman filter exactly-once two sensors precision r s sharp q/p crossover (sqrt(1+pr)+sqrt(1+ps))^-2",
+        "Riccati information filter scalar sensor permutation exchange order two steps distinct precisions once only final covariance",
+        "exact scalar Kalman once-only two time sensor scheduling phase diagram table",
+        "arxiv:2304.02692v1"
+      ]
+    },
+    "rationale": "A source-specific new sharp closed parametric classification of exactly-once two-step scalar Kalman sensor order, not just the standard update or generic optimal scheduling solver. Compared actual broader statements and resource assumptions of published full-text sources; no logically covering exact frontier was identified. A specialized earlier equivalent statement remains a residual risk.",
+    "residual_risks": [
+      "Exact publication priority is not established by semantic search or the four inspected primary sources; specialized historical scalar scheduling work might contain an equivalent exchange calculation.",
+      "Some equations from the 2017 indexed publisher article were image-only; the textual results surveyed did not state the two-slot noise threshold.",
+      "This is a strictly once-only two-time, scalar, final-error result; more general sensing regimes are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general formulation can optimize two schedules separately but does not state or algebraically imply a closed parametric sharp reentrant-gain threshold by its given theorems alone.",
+        "evidence": [
+          "arxiv:2304.02692v1 Secs. III–V; Equation (9) resource-constrained objective; Theorem 1 MIQP"
+        ],
+        "identifier_or_url": "arxiv:2304.02692v1; https://arxiv.org/abs/2304.02692",
+        "material_read": "Public arXiv full-text rendering: problem statement and budgets (Sec. III), mixed-integer exact reformulation (Sec. IV), evaluated examples (Sec. V), and the surrounding introduction, proof and discussion.",
+        "method": "Checked hypotheses, objective, once-use resource expressibility, theorem and examples for scalar sensor-ordering formulas.",
+        "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+        "trigger": "Exact motivating finite-horizon constrained-sensor optimization; potential broader coverage."
+      },
+      {
+        "assessment": "General covariance tracking and relaxation guarantees, but no once-only two-precision exact crossover or critical process-noise formula in the examined article.",
+        "evidence": [
+          "arxiv:2110.08924 Sec. 2 Eqs. (3)–(5), Secs. 3–4"
+        ],
+        "identifier_or_url": "arxiv:2110.08924; https://arxiv.org/abs/2110.08924",
+        "material_read": "Public arXiv full-text rendering of problem formulation, observation/prediction covariance recurrences, sensor design relaxation, covariance tracking, and evaluation sections.",
+        "method": "Compared their Riccati information identities and scheduling assumptions with the exact two-slot once-only swap and noise phase diagram.",
+        "title": "Sensor Scheduling for Linear Systems: A Covariance Tracking Approach",
+        "trigger": "Plausible coverage via information-form covariance optimization and dynamic programming."
+      },
+      {
+        "assessment": "A stronger sensor wins a same-stage choice when freely reusable and therefore the greedy schedule repeats it; that result cannot compare strong–weak versus weak–strong with each sensor available once. No full parameter-dependent exchange law found.",
+        "evidence": [
+          "Huber (2012), Sec. III.A, scalar-system conclusion immediately after Theorem 2 and Corollary 1"
+        ],
+        "identifier_or_url": "DOI:10.1109/TAC.2011.2175070; 2012",
+        "material_read": "Author-uploaded complete article text accessible in HTML; inspected problem formulation, Theorems 1–2, sensor information ordering, scalar greedy conclusion and pruning construction.",
+        "method": "Checked whether single-use budget is enforced and whether the scalar order lemma compares permutation schedules instead of freely reusable sensors.",
+        "title": "Optimal Pruning for Multi-Step Sensor Scheduling",
+        "trigger": "Most threatening scalar sensor-information dominance theorem."
+      },
+      {
+        "assessment": "The accessible text states convex approximations and periodic-filter results; no explicit scalar order threshold. Some equation-image content could not be text-inspected, leaving a limited residual equivalence risk.",
+        "evidence": [
+          "Pasand and Montazeri (2017), Sec. III.1–III.2; Sec. V; DOI:10.4218/etrij.17.0116.0566"
+        ],
+        "identifier_or_url": "DOI:10.4218/etrij.17.0116.0566; 2017",
+        "material_read": "Indexed open-access publisher text covering Sec. III sensor scheduling, convex relaxation/periodic design, and Sec. V conclusions; several displayed equations appeared only as images in the accessible rendering.",
+        "method": "Compared objective, periodic scheduling methodology, and stated theorems with exact scalar two-slot once-only allocation.",
+        "title": "Kalman Filtering with Optimally Scheduled Measurements in Bandwidth Limited Communication Media",
+        "trigger": "Directly studies sensor communication access order and final estimation covariance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10a53b80-564b-4c72-9cd5-2191ba8299e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's budgeted finite-horizon sensor problem naturally includes two sensors available once. The result exactly classifies both feasible permutations for every positive prior, process noise and pair of precisions, detecting an unexpected strong-last/strong-first/strong-last reentrance with varying dynamics gain. A sharp noise threshold, explicit switching roots and the square-root disappearance of the favorable window quantify a design-sensitive boundary that generic mixed-integer optimization does not describe analytically. It is a natural complete classification with potential use in scheduling short-lived measurements, not a random parameter slice or isolated numerical counterexample.",
+    "status": "PASS"
+  }
+}
