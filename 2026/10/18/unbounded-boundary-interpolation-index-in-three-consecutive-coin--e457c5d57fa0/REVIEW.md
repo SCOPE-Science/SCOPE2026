@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two exact possibilities for the total number of coins exhaust all nonnegative solutions, with quantifiers \(k\ge2\) and \(1\le r\le k-1\). The parameter upper endpoint forces the crucial strict inequality excluding totals other than the two found. The three coordinate-edge points are distinct and affinely independent; the determinant divided by the ambient kernel's index proves the claimed \(r+1\) saturation factor. Uniqueness of affine coordinates establishes the minimal normalization denominator. The finite checker enumerated 741 parameter pairs and 9,880 positive interior points, supplementing the unrestricted proof.
+## correctness
 
-**Originality — PASS relative to inspected sources.** He–Shiue–Venkat discuss general boundary interpolation and a search with coefficient sum one, but do not derive a sharp unbounded-normalization law for fibers with one point per edge. Binner's 2021 disproof addresses the prior conjecture by cardinality (and therefore preempts any claim of being its first counterexample), not this exact lattice-index phenomenon. His 2020 general representation-count formula does not state the uniform lattice-index result. Targeted published-finding corpus and bibliographic searches found no covering statement, but absence from searches is not a proof of novelty.
+PASS
 
-**Value — PASS.** An exact natural obstruction to the apparently economical boundary-reconstruction strategy is quantified in a full infinite family, including the exact integer-fiber classification and sharp necessary denominator. The striking feature is that all three edge sets are nonempty and each has exactly one element: the obstruction persists without boundary scarcity or affine rank degeneracy. It limits methods that restrict normalized edge combinations to bounded denominators, but does not threaten approaches allowing arbitrary denominators.
+Substitution T=x+y+z and s=k+3+r-T into (2k+1)x+(2k+2)y+(2k+3)z=(2k+1)(k+3+r)+1 yields y+2z=(2k+1)s+1. Nonnegative x,y,z force s>=0 and (2k+3)s<=2(k+3+r)-1<=4k+3<2(2k+3), hence s=0 or1. These yield precisely C=(k+2+r,1,0) and D_j=(j,2(r+1-j),k-r+j) for 0<=j<=r+1. Exactly C,D_0,D_(r+1) are boundary. Projection of homogeneous solution lattice to (x,y) is kernel modulo c=2k+3 of a surjective homomorphism, index c; determinant of boundary differences is (r+1)c, yielding lattice index r+1. Unique barycentric coefficients give denominator (r+1)/gcd(j,r+1) and D_1 has unbounded denominator. Direct small-k exhaustive nonnegative solution enumeration corroborates; the proof is universal.
 
-**Limits and residual risk.** General arbitrary-coefficient counting formulas exist. An equivalent special-case saturation-index result in unindexed literature is possible; independent review is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior He–Shiue–Venkat discusses boundary interpolation and Binner has an earlier counterexample to a different cardinality formulation. This theorem neither claims first disproof nor contradicts unrestricted rational coefficients: it computes a sharp unbounded integral normalization index in a sparse uniform consecutive-denomination family. Best-of-knowledge PASS with material unread full §3 risk.
+
+## value
+
+PASS
+
+Integer versus rational boundary interpolation is a natural question in 3-variable Frobenius fibers; a precise saturation-index obstruction even with exactly one solution on every edge is a motivated, unbounded structural phenomenon, not merely a small numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
