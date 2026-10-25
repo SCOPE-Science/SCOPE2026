@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:00:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: verified Git blob 80b4071f55558bab9ef3db1531dcb59623b8a26e",
+        "verify_width.py: verified Git blob 327bb05f5ba9d14ea943148afe36885c7f3ce11f"
+      ],
+      "rationale": "The exact difference-body identity D=Delta(n,k)-Delta(n,k)={z:sum z_i=0, ||z||_infty<=1, ||z||_1<=2m} follows in both directions: any vertex difference has signed mass <=min(k,n-k), while for an admissible z the intervals max(0,-z_i)<=y_i<=min(1,1-z_i) have endpoint sums t and n-t and admit sum y_i=k. On the intrinsic zero-sum Euclidean subspace, centered-ball inclusion in D is equivalent to two sharp support constraints. Projection e_i-1/n has norm sqrt((n-1)/n); the maximizing L1 norm of a unit zero-sum vector is 2 sqrt(floor(n^2/4)/n), with equality exactly on balanced two-valued sign blocks. Hence width min(sqrt(n/(n-1)),m sqrt(n/floor(n^2/4))) and the exact union of active equality normals. The tie condition m^2(n-1)=floor(n^2/4) reduces for odd n to n=4m^2-1, and for even n>=4 has no solution. This checks all n>=3 and 1<=k<=n-1, including the n=3,k=1 coincident-family boundary. An independently coded SciPy convex-hull facet reconstruction of D for eight (n,k) cases n=3..6 gives maximum absolute error 2.22e-16 in predicted intrinsic width, but the finite test cannot prove the all-n identity.",
+      "residual_risks": [
+        "Numerical finite diagnostics cannot replace analytic proof; scoped normalization and quantifiers are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matroid-base-polytope result supplies intrinsic inradius of Delta itself; independent-polytope result concerns sum_i x_i<=r, not Delta-Delta with two competing norm barriers."
+        ],
+        "reasoning": "Neither prior inradius/independence geometry computes the difference-body inradius, all minimizing normals, or the discrete arithmetic tie condition.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-the-inradius-of-every-connected-matroid-base-polytope-is-a-fract--a58242d50e97; Resultary 2026/10/11/SCOPE-uniform-matroid-independence-polytopes-have-two-exact-euclidean--7ec706524f8f"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md; verify_width.py (full text, blob-identified)",
+        "Har-Peled & Robson arXiv:2301.02616 (open primary)",
+        "Grande Padrol Sanyal arXiv:1601.02416 (bibliographic/abstract)",
+        "Hibi Solus DOI:10.1007/s00026-016-0325-x (relevant facet context)",
+        "Resultary published matched inradius/independence-polytopes hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular-simplex width theorem gives only k=1, while Grande et al treat extension complexity and Hibi-Solus facet combinatorics."
+        ],
+        "reasoning": "Published geometry of hypersimplex itself cannot be substituted for support width of Delta-Delta without a separate new reduction; the displayed two sharp norm obstructions provide that reduction.",
+        "searches": [
+          "Har-Peled and Robson arXiv:2301.02616; Grande Padrol Sanyal arXiv:1601.02416; Hibi Solus doi:10.1007/s00026-016-0325-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Har-Peled and Robson, arXiv:2301.02616, On the Width of the Regular n-Simplex"
+        ],
+        "reasoning": "Rank-one k=1 specialization of the formula gives prior regular-simplex result, but general k>=2 has an additional balanced/coordinate switch not implied by the simplex result.",
+        "searches": [
+          "Resultary query: Euclidean minimum width hypersimplex uniform matroid base polytope balanced normal difference body thickness k n phase transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite verified cases (3<=n<=6) and published inradius formula for hypersimplex yield no exhaustive all-n difference-body table."
+        ],
+        "reasoning": "Numerical/low-dimensional tables cannot dominate the universal minimizer classification. No exact matching database or stronger table was located.",
+        "searches": [
+          "Resultary semantic hypersimplex width/phase query; pinned verify_width.py"
+        ]
+      },
+      "rationale": "No stronger published theorem identified that determines the same difference-body inradius and its entire two-normal-family phase classification for all proper hypersimplices. The rank-one standard regular-simplex width is acknowledged prior knowledge; the original hypersimplex inradius and matroid-base-polytope rank-radii concern different convex bodies. This is best-of-knowledge, not absolute priority.",
+      "residual_risks": [
+        "Potential earlier formula for Euclidean inradius of zero-sum section of cube–cross-polytope difference body under a different name not ruled out.",
+        "Arbitrary affine realization and general matroid base polytopes are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers standard regular simplex width, not all proper k-hypersimplices",
+          "evidence": "k=1 agrees after edge-length sqrt(2) normalization",
+          "identifier_or_url": "https://arxiv.org/abs/2301.02616",
+          "material_read": "Three-page open paper including theorem and normalization comparison",
+          "method": "Full accessible primary mathematical text read",
+          "title": "On the Width of the Regular n-Simplex",
+          "trigger": "Exact k=1 prior"
+        },
+        {
+          "assessment": "Only intrinsic original-polytope inradius reported; not sufficient for difference-body claim",
+          "evidence": "Published summary describes rank-deficit cut formula and hypersimplex inradius min(k,n-k)/sqrt(n(n-1))",
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-the-inradius-of-every-connected-matroid-base-polytope-is-a-fract--a58242d50e97",
+          "material_read": "Published result title and semantic summary; original full proof not retrieved",
+          "method": "Resultary semantic result, not full-text",
+          "title": "The inradius of every connected matroid base polytope is a fractional-partition ratio",
+          "trigger": "Same object (hypersimplex), possible stronger matroid theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md; verify_width.py (full text, blob-identified)",
+        "Har-Peled & Robson arXiv:2301.02616 (open primary)",
+        "Grande Padrol Sanyal arXiv:1601.02416 (bibliographic/abstract)",
+        "Hibi Solus DOI:10.1007/s00026-016-0325-x (relevant facet context)",
+        "Resultary published matched inradius/independence-polytopes hits"
+      ],
+      "rationale": "Hypersimplices are canonical uniform-matroid base polytopes; intrinsic Euclidean minimum support width and all extremizing normals are natural dimension- and rank-sensitive invariants. The two competing norm barriers, exact difference body and arithmetic two-orbit transition (n=4m^2-1, first genuinely distinct tie (15,2)) are a complete structural classification beyond an arbitrary finite table or trivial simplex restatement.",
+      "residual_risks": [
+        "Mathematical value is limited to precise theorem scope and does not establish unproved general downstream claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
