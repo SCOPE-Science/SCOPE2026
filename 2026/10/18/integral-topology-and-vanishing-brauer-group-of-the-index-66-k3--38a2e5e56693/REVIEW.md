@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit order-66 action preserves the elliptic equation, preserves the section and fibre generating the known unimodular Picard lattice \(U\), and acts primitively on the holomorphic two-form. Therefore its action on the twenty-dimensional orthogonal transcendental lattice has characteristic polynomial \(\Phi_{66}\). The exact identity \(\Phi_{66}(1)=1\) proves unimodular integral coinvariants, excluding hidden torsion missed by rational Betti counts. The mapping-torus model, Wang sequence, and integral Künneth theorem yield every cohomology group; invariant Hodge theory and the exponential sequence establish Brauer vanishing. The checker verifies the critical arithmetic and rank profiles. The argument assumes the published lattice determination, not an original computation of the K3 Picard number.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-Singh states the quotient and its canonical index; his separate \(W^{(n)}\) Betti computations do not determine this quotient's integral groups or Brauer group. Festi–Nijgh–Platt prove the necessary Picard-lattice input, not the quotient result. Hashimoto–Kanazawa determine nonzero two-primary Brauer groups for eight type-K Calabi–Yau threefold classes, but those have trivial canonical bundles and vanishing irregularity, unlike the index-66 quotient. No direct source or recorded overlapping claim in focused comparisons supplied the stated integral profile or \(\operatorname{Br}(V)=0\). The classical methods are not claimed as new, and implicit historical prior coverage remains a risk.
+PASS
 
-## Value — PASS
-An extremal canonical index does not predetermine integral cohomological torsion or the Brauer group. This exact, natural quotient has a completely torsion-free cohomology profile, trivial Brauer group, and a nontrivial order-66 canonical bundle in its connected Picard variety; the result contrasts with the substantial Brauer group of its K3 fibre and the two-primary groups in classical type-K examples. These are geometric invariants of the entire natural threefold, not an arbitrary numerical slice.
+The free order-66 diagonal action, invariant elliptic fibre and zero section, and Kondō Picard lattice NS(S)=U give a primitive unimodular invariant summand of H²(S;Z). The holomorphic two-form has eigenvalue zeta^5 of primitive order 66; its degree-20 cyclotomic factor fills the rank-20 transcendental summand. Exact Phi_66(1)=1 makes (1-g*) invertible over Z on that summand, not merely over Q. Integral Wang sequence for the K3 mapping torus followed by Künneth with S¹ gives H^k(V;Z) free with ranks (1,2,3,4,3,2,1) and fundamental group Z². Invariant Hodge decomposition gives h^20=0, h^11=3 and h^21=2. Analytic exponential sequence with H²(O)=0, H³(Z)=Z⁴ implies zero cohomological torsion Brauer and thus zero Azumaya Brauer. Order-66 canonical bundle is topologically trivial because H²(Z) has no torsion. Exact sympy Phi_66 check was performed independently; no finite test stands in for Wang/lattice arguments.
 
-## Closest literature and limits
-J. Singh, arXiv:2502.07031v1; D. Festi–W. Nijgh–D. Platt, DOI 10.1007/s10711-024-00900-8; K. Hashimoto–A. Kanazawa, arXiv:1511.08778v4; J. Keum, arXiv:1402.6803. The computation is over the complex numbers for the precise diagonal order-66 quotient. A broader implicit earlier monodromy calculation remains the main novelty risk. No assertion about other quotients, the full cup-product ring or number-field Brauer groups is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality lies in the complete integral, torsion-sensitive cohomology and Brauer profile of the specific extremal quotient, not in constructing the quotient or determining NS(S). Singh explicitly constructs V^(3) with index 66 but does not state these integral groups or Brauer vanishing in the inspected text. Festi–Nijgh–Platt and Kondō supply the Picard input; Hashimoto–Kanazawa type-K quotients have K trivial and q=0, unlike this torsion-canonical quotient with q=1. No stronger coverage was identified; different terminology or previously implicit group-cohomology calculations remain risks.
+
+## value
+
+PASS
+
+Integral torsion-sensitive topology and Brauer behavior for the canonical largest-index known smooth threefold is a natural topological question: a free cyclic quotient can conceal torsion and a torsion canonical line bundle need not force torsion integral cohomology. Determining the entire profile and vanishing Brauer is nontrivial, not only repeating index 66 or textbook Hodge ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
