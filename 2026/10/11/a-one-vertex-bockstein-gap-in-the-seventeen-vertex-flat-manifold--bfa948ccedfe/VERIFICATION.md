@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library and reads the included scientific certificates `integral_certificate.json` and `carrier_census.json`.
+# Independent mathematical audit
 
-For integral \(H_2\), it checks an explicit primitive basis \(B\subset\ker\partial_2\) via
-\[
-\partial_2B=0,
-\qquad
-LB=I_{100},
-\]
-verifies \(\operatorname{rank}\partial_2=100\), forms \(H=L\partial_3\), and evaluates
-\[
-\det H=-2.
-\]
-Thus \(H_2(K;\mathbb Z)\cong\mathbb Z/2\).
+## correctness
 
-For integral \(H_1\), it contracts the certified spanning tree and performs unimodular reduction of the facial relation matrix. The Smith data are
-\[
-1^{99},4,0,
-\]
-so \(H_1(K;\mathbb Z)\cong\mathbb Z\oplus\mathbb Z/4\). Included free and mod-four cocycles are checked against all facial relations and against explicit generator cycles.
+PASS
 
-Over \(\mathbf F_2\), exact bit elimination gives a two-dimensional \(H_2\). For each nonzero class, the verifier computes the coefficient Bockstein by dividing the integral boundary of a \(0/1\) representative by two and evaluating the resulting \(1\)-cycle in the certified \(H_1\) coordinates. Exactly one nonzero class has zero Bockstein; the other two map to the order-two element of the \(\mathbb Z/4\) summand.
+The result is a finite classification of one completely specified labelled simplicial complex, and was independently reconstructed. At the pinned 100-facet source, E=117 and T=200. Exact signed integral boundaries, a 200x100 primitive kernel basis and 100x200 integer left inverse satisfy d2B=0, LB=I; independently computed exact 100x100 determinant det(Ld3)=-2 with zero Bareiss divisibility failures. Independent unimodular reduction of the 200x101 contracted graph presentation isolates 99 unit factors then a 4 times primitive rank-one residual, giving H1=Z+Z/4. Direct mod-two rank computations give rk d2=99, rk d3=99, dim ker d2=101 and dim H2(F2)=2. Explicit halved boundaries paired with verified free and mod-four cocycles yield beta classes (0,2),(0,0),(0,2). A distinct Python source built from the public Manifold Page facets examines every 65,535 nonempty support of size ≤8, finds minimum supports 8,7,8 and carrier counts 15,7,20 with rank-one images, and verifies all seven 7-vertex minimizers have 21 edges,14 triangles, zero tetrahedra, edge degree two, coherent orientation and connectedness, hence are tori. All 42 original claimed carrier supports were separately checked against their exact one-dimensional class images. No proof rests only on a verifier log.
 
-Every vertex subset of size at most eight is then exhaustively checked. The unique zero-Bockstein class has minimum support seven and exactly seven carriers. The other two classes have minimum support eight and carrier counts fifteen and twenty. The complete support lists are compared byte-for-byte at the data level with `carrier_census.json` after recomputation. Each seven-vertex carrier is independently verified to be an induced orientable closed surface with face vector \((7,21,14)\), hence a torus.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=17,117,200,100 H1_Z=Z+Z/4 H2_Z=Z/2 H2_F2_dim=2 bockstein=nonzero_classes_to_order2 integral_reduction_min_support=7 integral_reduction_carriers=7 all_integral_min_carriers_induced_tori=yes bockstein_min_supports=8,8 bockstein_carrier_counts=15,20 minimal_support_images_rank1=yes`
+Best-of-knowledge original precise induced-vertex-support filtration for the published labelled B4 triangulation. The 2003 and 2009 primary tables give the exact complex and ambient homology; exactness of the coefficient Bockstein gives only the dimensions/kernel and cannot dictate the labelled subset minima or carrier multiplicities. The closest published B3 seven-torus census treats a different 102-tetrahedron complex and only integral support. The identical indexed B4 listing is the same finding mirrored, not an independent earlier result. Unindexed equivalent enumerations remain a real priority risk.
+
+## value
+
+PASS
+
+The fixed triangulation B4 is a classical small nonorientable flat 3-manifold with H1 order-four torsion and H2 order-two torsion. The induced vertex-support filtration of H2(F2) is a natural combinatorial invariant, and the coefficient connecting Bockstein supplies an intrinsic distinction between liftable and nonliftable classes. The sharp one-vertex obstruction, seven minimal induced torus representatives and complete (7,15,20) classwise counts form a motivated exact structural boundary not implied by ambient homology tables. Future work on support filtrations or comparisons among minimal flat-manifold triangulations can use the precise fact without requiring a general theorem. It is not merely recomputing Smith groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
