@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The nearest-site Voronoi partition is exact because all sites lie on a common circle. Each cell comprises two congruent OVM right triangles; polar integration around V gives M_n(p) exactly. The derivative identity for cos(t)/sin(t)^(p+1) is checked algebraically. Endpoint expansions distinguish p<1, p=1, p>1, while a uniform sine-versus-linear comparison proves the crossover for bounded lambda. Independently reconstructed nearest-vertex distances and quadrature agree with the formulas for tested values; those finite checks are not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Qiu DOI 10.1155/2016/8371750: exact arbitrary-triangle moments and Voronoi motivation, full sections 2--5 inspected",
+        "Bäsel arxiv:1204.2707: chord-length and two-uniform-point distance distributions, not nearest vertex"
+      ],
+      "reasoning": "The Li--Qiu triangle method genuinely dominates the finite-order integration machinery and can specialize to each n. It does not itself assert the joint limit p=1+lambda/log(n/pi) with compact-uniform scaling or the contrasting critical exponents. General Voronoi cell definitions and geometric probability distributions do not directly supply this particular boundary-layer asymptotic.",
+      "searches": [
+        "Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles Li Qiu 2016",
+        "nearest vertex regular polygon n Voronoi mean p-th distance asymptotic logarithmic phase transition quantization 2010 2016",
+        "regular simplex uniform random point distance nearest vertex distribution expected"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.2707",
+      "doi:10.1155/2016/8371750",
+      "preprints:202505.1270",
+      "arxiv:1207.5857 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--Qiu Sections 3 and 3.1 derive general moments for a fixed triangle; their regular-polygon example uses distances to the polygon center",
+        "Khalid--Durrani arxiv:1207.5857 uses a fixed reference location in a regular polygon",
+        "Pan preprint 202505.1270 calculates the probability of avoiding radius-side-length vertex neighborhoods for n>6"
+      ],
+      "reasoning": "There is real mathematical implication from Li--Qiu to finite-n computability; consequently no uniqueness of the finite formula is claimed. To reach the stated new theorem one must identify the Voronoi polygon family, analyze the singular endpoint as n varies and the exponent crosses p=1, and prove compact-uniform crossover. None of the inspected statements supplies these conclusions as results or immediate fixed-parameter specializations.",
+      "searches": [
+        "\"Voronoi\" \"regular polygon\" \"distance moment\" limit",
+        "\"nearest vertex\" \"regular n-gon\" expected distance",
+        "Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles formula 20 asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li and Qiu, 2016, DOI 10.1155/2016/8371750, formula (20): arbitrary triangle vertex-distance moments",
+        "Pan 2025, preprints:202505.1270: one nearest-vertex exclusion probability threshold"
+      ],
+      "reasoning": "The single-polygon Voronoi cell reduces to triangles, so the finite moment expression can be obtained from the broad triangle-moment result; this finite-n component is not claimed to be original. The distinct fixed-p rates and compact-uniform moving-p crossover are neither listed nor directly equivalent to a fixed-triangle moment formula without a new nonuniform endpoint analysis. The threshold probability in Pan is not an integrated family of moment asymptotics.",
+      "searches": [
+        "Expected pth moment of distance from uniformly random interior point of regular polygon to nearest vertex, asymptotic phase transition at p=1 and log n / n^2",
+        "\"nearest vertex\" \"regular polygon\" \"moment\" asymptotic",
+        "Voronoi quantization regular polygon vertices nearest distance p moment 1/n^(p+1) gamma function asymptotic logarithmic correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pan 2025 gives a single area fraction at a radius equal to side length; not a table of p-moments",
+        "Bäsel arxiv:1204.2707 reports random pair-distance examples; it is a different random variable"
+      ],
+      "reasoning": "No inspected exact-value table contains the exponent-varying asymptotic law. The exact p=1 and p=2 finite-n formulas alone are not asserted as table novelties.",
+      "searches": [
+        "nearest vertex regular polygon mean distance finite n asymptotic",
+        "expected distance nearest vertex uniformly random point regular polygon n asymptotic",
+        "random point regular polygon nearest boundary vertex average distance finite n asymptotic"
+      ]
+    },
+    "rationale": "The main contribution is the compact-uniform critical-window law and the three distinct exponent-dependent convergence regimes, not the finite-n triangle integral. Bäsel (2012) and Khalid--Durrani (2012) study different distance laws, while Li--Qiu (2016) supplies a broader finite-triangle moment framework but does not state the n-to-infinity nearest-vertex moment phase transition or moving-p scaling function. Pan (2025) handles one exclusion threshold. No equivalent asymptotic theorem was identified by the specified searches; absolute priority remains a residual risk.",
+    "residual_risks": [
+      "An unlocated equivalent nearest-vertex exponent-transition or critical-window asymptotic may exist.",
+      "General triangle-moment results dominate the finite-n integration itself; the asserted novelty is solely the cross-exponent asymptotic analysis.",
+      "Only abstract/metadata, not full text, was inspected for Khalid--Durrani."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different random variable: distance between two independent random points (and chord lengths), rather than distance from one point to its nearest vertex; no endpoint exponent transition.",
+        "evidence": [
+          "arxiv:1204.2707, abstract and introduction",
+          "arxiv:1204.2707, section 5 examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+        "material_read": "Full arXiv HTML transcription: introduction, geometric chord-length construction, distance-distribution theorem and examples; 19-page arXiv PDF opening and examples/references inspected.",
+        "method": "Read arXiv HTML and PDF extracted text; visually inspected PDF pages 1 and 17.",
+        "title": "Random chords and point distances in regular polygons",
+        "trigger": "Same shape and random distance keywords; archived motivating work."
+      },
+      {
+        "assessment": "Broader finite-triangle moment computation dominates the elementary finite-n integral; it does not present the moving-exponent nearest-polygon-vertex phase transition. Main theorem is restricted to the new asymptotic consequences.",
+        "evidence": [
+          "DOI 10.1155/2016/8371750, sections 2--3 formula (20)",
+          "DOI 10.1155/2016/8371750, section 3.1 regular polygon example",
+          "DOI 10.1155/2016/8371750, section 5 conclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2016/8371750",
+        "material_read": "Full accessible HTML article sections 1--5, including its general moment formula (20), polygon example in section 3.1 and conclusion.",
+        "method": "Read accessible publisher HTML and inspect formula context, polygon example, and conclusion.",
+        "title": "Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles",
+        "trigger": "Closest general method: exact moments of distance to a fixed triangle vertex, with explicit Voronoi application."
+      },
+      {
+        "assessment": "Computes one CDF-tail value with radius equal to side length for n>6, not all positive moments or their joint asymptotic transition.",
+        "evidence": [
+          "Preprints.org 202505.1270, sections 1--2 and formula for P"
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202505.1270",
+        "material_read": "Full posted preprint HTML: abstract, introduction, geometric exclusion proof, conclusion/references.",
+        "method": "Read publisher-hosted full HTML text.",
+        "title": "A Closed-Form Probability Formula for Random Points Avoiding Vertex Neighborhoods in Regular Polygons",
+        "trigger": "Directly uses nearest-vertex distances in regular polygons; potentially dominant coverage."
+      },
+      {
+        "assessment": "Distance to an arbitrary fixed interior reference point; the reference does not vary with location to select the nearest vertex. Full-text implications were not exhaustively inspected.",
+        "evidence": [
+          "arxiv:1207.5857, abstract",
+          "DOI 10.1109/TVT.2013.2241092, journal abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.5857",
+        "material_read": "Abstract and bibliographic overview, not full manuscript.",
+        "method": "Checked arXiv abstract and journal-index summary.",
+        "title": "Distance Distributions in Regular Polygons",
+        "trigger": "Fixed-point distance law in the same ambient polygon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7901466d-060d-41a8-897f-1198dbb92c05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nearest-vertex distance moment is a natural Voronoi quantization and facility-distance invariant. The theorem identifies a genuine nonuniform limit phenomenon: the vertex-discretization error has different decay exponents above and below p=1, a logarithmic critical point, and an explicit continuous critical-window scaling function uniform on compact lambda sets. It is not just a new numeral or isolated evaluation; it organizes a whole positive-exponent family and explains its boundary-layer mechanism.",
+    "status": "PASS"
+  }
+}
