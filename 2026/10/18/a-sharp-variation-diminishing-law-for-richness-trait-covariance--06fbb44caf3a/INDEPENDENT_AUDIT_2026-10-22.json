@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For a uniformly drawn size-m subset without replacement, conditioning on species i absence yields Cov(I_i,T_m)=a_i(t_i-μ)/N · C(N-a_i-1,m-1)/C(N-1,m-1); summing gives the exact identity. Grouping decreasing abundance levels and using Σ b_j=0 gives a summation-by-parts decomposition -Σ_{j<r}B_j Σ_{h=n_j}^{n_{j+1}-1} C(h,m-2). Pascal binomial coefficients form a totally nonnegative path matrix, and aggregation into ordered disjoint consecutive column blocks preserves total nonnegativity via Cauchy–Binet; variation diminution gives <=var(B_1,...,B_(r-1))<=r-2 sign switches with zeros omitted. For arbitrary r, the binomial polynomials evaluated at distinct nodes N-i-1 form an invertible Newton-Vandermonde matrix; specifying alternations (-1)^m for m=2..r and zero for m=1 yields traits c+b_i/i made positive by large c. This supplies sharp r-2 reversals, not an extrapolation from finite testing. For r=1 all covariances zero; monotone abundance/trait corollary follows from the weighted two-sample rearrangement sign. Independent exact Fraction calculation on N=10, a=(1,2,3,4), t=(56,1/2,181/3,28) gives sample-depth covariances 1/90, -1/360, 1/840.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pascal total nonnegativity and the variation-diminishing theorem are broad classical lemmas, not the ecological covariance identity or the sharp cumulative abundance-imbalance criterion.",
+          "Classical rarefaction sources give marginal richness expectation/variance, not observed matching result on trait association versus m."
+        ],
+        "reasoning": "The abstract general theory is a proof ingredient, but no examined theorem gives the new statistic/weights or all-level constructive sharpness as a corollary without the new transform.",
+        "searches": [
+          "Pinkus Totally Positive Matrices 2009 chapter on variation diminution",
+          "Kersey Pascal submatrix invertibility arXiv:1303.6159",
+          "Heck–van Belle–Simberloff 1975 rarefaction moments"
+        ]
+      },
+      "checked_sources": [
+        "https://borea.mnhn.fr/sites/default/files/pdfs/2017%20Hawkins%20et%20al.%20-%20Journal%20of%20Biogeography.pdf",
+        "https://doi.org/10.2307/1934716",
+        "https://doi.org/10.1111/1365-2435.12433",
+        "https://doi.org/10.1017/CBO9780511691713.004",
+        "https://arxiv.org/abs/1303.6159",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hawkins et al work with associations across spatial assemblages and species co-occurrence; their sampling space is not random size-m subsets of one census.",
+          "Total positivity bounds arbitrary sign variation, but the special B_j factors, r-level sharpness and covariance normalization require specific derivation."
+        ],
+        "reasoning": "No inspected source implies the claimed combined theorem. An older survey-sampling expression with equivalent coefficients remains conceivable.",
+        "searches": [
+          "Hawkins et al 2017 Journal of Biogeography full PDF",
+          "Pinkus 2009 standard Pascal total positivity",
+          "Resultary SCOPE richness/frequency switch and missing-mass records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary closest SCOPE one-switch covariance law treats iid uniform occupancy richness against frequency counts; the missing-mass covariance record treats successive iid discoveries.",
+          "Hawkins et al. 2017 analyze repeated spatial co-occurrence across assemblages, not fixed finite-population rarefaction across m."
+        ],
+        "reasoning": "The sampling law and second statistic differ; no equivalent finite-population trait-mean sign-variation formulation was identified.",
+        "searches": [
+          "Resultary: hypergeometric covariance sampled species richness abundance-weighted mean traits sign changes totally positive Pascal rarefaction",
+          "Resultary: rarefaction sign changes covariance richness abundance weighted trait mean",
+          "Search finite survey-sampling/occupancy aliases including community weighted means"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result quantifies over every finite abundance profile and r, not a particular small table."
+        ],
+        "reasoning": "Exact database/table matching is inherently inapplicable to this universal parametric sign-change classification; no already-tabulated exact 4-level witness match was found.",
+        "searches": [
+          "Resultary richness-trait covariance searches",
+          "Heck et al DOI 10.2307/1934716",
+          "Paine et al DOI 10.1111/1365-2435.12433"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the entire finite-rarefaction sign-variation and arbitrary-r sharpness theorem; classical rarefaction and total positivity are expressly excluded from novelty.",
+      "residual_risks": [
+        "Paine 2015 full text and the original Heck 1975 paper not read; a historical hypergeometric survey-covariance version could exist.",
+        "Generic variation diminution is classical: originality relies on the nontrivial identification and sharp all-r consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the finite hypergeometric sampling-depth theorem; treats across-site assemblage regression.",
+          "evidence": [
+            "2017 PDF abstract and methods describe spatial co-occurrence and aggregated traits, not hypergeometric draw size."
+          ],
+          "identifier_or_url": "https://borea.mnhn.fr/sites/default/files/pdfs/2017%20Hawkins%20et%20al.%20-%20Journal%20of%20Biogeography.pdf",
+          "material_read": "Full relevant introduction, abstract, methods and discussion of geographic assemblage aggregation, including rendered first page.",
+          "method": "Compared random objects, covariance conditioning, and sampling effort variable.",
+          "title": "Structural bias in aggregated species-level variables driven by repeated species co-occurrences",
+          "trigger": "Closest trait/richness covariance ecological primary model"
+        },
+        {
+          "assessment": "Accessible material concerns richness mean/variance; absence of a trait covariance in complete source cannot be certified.",
+          "evidence": [
+            "Ecology 56 (1975) 1459-1461; abstract-level read."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Abstract and bibliographic characterization, not full article.",
+          "method": "Checked which moments and sampling model are discussed.",
+          "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+          "trigger": "Classical finite-population species richness rarefaction"
+        },
+        {
+          "assessment": "Plausible bibliographic risk, neither covering nor not-covering based on full text.",
+          "evidence": [
+            "Functional Ecology 29 (2015) 1325-1331."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1365-2435.12433",
+          "material_read": "Abstract-level material only; full paper unavailable.",
+          "method": "Compared study target with exact richness–trait sample-depth covariance.",
+          "title": "Optimal strategies for sampling functional traits in species-rich forests",
+          "trigger": "Potential trait sampling prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact richness/abundance-weighted-trait covariance as sampling effort varies is an ecologically meaningful invariant. A sharp universal sign-variation budget controlled by the number of abundance levels, plus a finer cumulative-imbalance criterion and constructive sharpness for all r, clarifies when sampling effort can reverse an association; this is not merely a generic Pascal-matrix theorem restated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://borea.mnhn.fr/sites/default/files/pdfs/2017%20Hawkins%20et%20al.%20-%20Journal%20of%20Biogeography.pdf",
+    "https://doi.org/10.2307/1934716",
+    "https://doi.org/10.1111/1365-2435.12433",
+    "https://doi.org/10.1017/CBO9780511691713.004",
+    "https://arxiv.org/abs/1303.6159",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform hypergeometric individual sampling and individual-weighted sample trait mean only; no presence-weighted average, spatial sampling or variable traits. The exact sign-change bound ignores zero terms. Positive-trait sharpness constructive, not positivity of arbitrary inputs."
+  ],
+  "residual_risks": [
+    "Paine 2015 full text and the original Heck 1975 paper not read; a historical hypergeometric survey-covariance version could exist.",
+    "Generic variation diminution is classical: originality relies on the nontrivial identification and sharp all-r consequences."
+  ],
+  "schema_version": 1
+}

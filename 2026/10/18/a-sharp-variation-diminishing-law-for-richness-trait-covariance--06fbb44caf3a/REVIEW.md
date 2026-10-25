@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact covariance identity follows from species non-detection conditioning and one binomial identity, including the boundary samples. Grouping by distinct abundance values makes the numerator a Pascal transform with zero-sum coefficients. Summation by parts yields consecutive Pascal-column aggregates acting on cumulative trait imbalances. Pascal total nonnegativity, its preservation by ordered interval sums, and classical variation diminution prove the finite and sharpened reversal bounds. A square binomial-Vandermonde interpolation system proves sharpness for arbitrary numbers of abundance levels. Independent labeled-sample enumeration checks all specified finite cases with exact fractions. Remaining scientific limitation: the theorem addresses only the stated sampling law and trait mean.
+## correctness
 
-## Originality — PASS (self-review)
-Comparison was by mathematical implication, not titles. Classical rarefaction concerns richness moments, not this richness–sample-trait cross-covariance sign variation. Ecological trait literature on sampling accuracy and structurally spurious cross-site richness–trait associations motivates but does not, in the technical texts inspected, provide the finite-population Pascal-variation theorem or an unrestricted sharpness construction. Known total positivity is acknowledged as prior theory, not claimed as new. Research-index checks under covariance, rarity, mean trait, abundance level, Pascal kernel and variation diminishing returned related occupancy-frequency/Simpson results rather than equivalent coverage. Residual risks: an inaccessible 2015 trait-sampling manuscript and the abstract-only 1975 original, plus possible older occupancy/survey-sampling equivalent formulations. Absence of a match does not establish uniqueness.
+PASS
 
-## Value — PASS
-Across random samples from a single fixed community, association between two standard biodiversity summaries need not have stable sign. The new theorem gives an all-population sharp complexity bound from interpretable abundance classes and cumulative trait imbalances; it identifies an important monotone-trait regime where reversals are impossible. Exact four-class and arbitrary-class constructions show the bound is meaningful and can be attained with positive traits, rather than a numerical accident. It is intended as a mathematically checkable caution about finite sampling associations, not a causal ecological model.
+PASS: For a uniformly drawn size-m subset without replacement, conditioning on species i absence yields Cov(I_i,T_m)=a_i(t_i-μ)/N · C(N-a_i-1,m-1)/C(N-1,m-1); summing gives the exact identity. Grouping decreasing abundance levels and using Σ b_j=0 gives a summation-by-parts decomposition -Σ_{j<r}B_j Σ_{h=n_j}^{n_{j+1}-1} C(h,m-2). Pascal binomial coefficients form a totally nonnegative path matrix, and aggregation into ordered disjoint consecutive column blocks preserves total nonnegativity via Cauchy–Binet; variation diminution gives <=var(B_1,...,B_(r-1))<=r-2 sign switches with zeros omitted. For arbitrary r, the binomial polynomials evaluated at distinct nodes N-i-1 form an invertible Newton-Vandermonde matrix; specifying alternations (-1)^m for m=2..r and zero for m=1 yields traits c+b_i/i made positive by large c. This supplies sharp r-2 reversals, not an extrapolation from finite testing. For r=1 all covariances zero; monotone abundance/trait corollary follows from the weighted two-sample rearrangement sign. Independent exact Fraction calculation on N=10, a=(1,2,3,4), t=(56,1/2,181/3,28) gives sample-depth covariances 1/90, -1/360, 1/840.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the entire finite-rarefaction sign-variation and arbitrary-r sharpness theorem; classical rarefaction and total positivity are expressly excluded from novelty.
+
+## value
+
+PASS
+
+PASS: The exact richness/abundance-weighted-trait covariance as sampling effort varies is an ecologically meaningful invariant. A sharp universal sign-variation budget controlled by the number of abundance levels, plus a finer cumulative-imbalance criterion and constructive sharpness for all r, clarifies when sampling effort can reverse an association; this is not merely a generic Pascal-matrix theorem restated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
