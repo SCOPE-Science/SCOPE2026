@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter; no dependencies outside the Python standard library are required. It uses exact rational matrix arithmetic rather than floating point. The expected summary is:
+## correctness
 
-`VERIFY_OK cases 61 facet_contacts 26006 vertex_contacts 998`
+PASS
 
-The script constructs connected cacti from one or more cycles of lengths \(3\) through \(8\) and attached bridges, including trees and mixed-parity multicycle examples. It explicitly enumerates all product polar vertices for each instance, reconstructs graph potentials, checks that the active edge vectors span the full \(d\)-dimensional incidence space, evaluates \(y^{\mathsf T}\Sigma_Jy=1\) for every polar corner, and evaluates \(b_e^{\mathsf T}(\Sigma_L|_H)^{-1}b_e=1\) for both signs of each graph edge. Equality checks use `fractions.Fraction` and exact Gaussian elimination.
+Incidence edge space of a cactus has exactly one disjoint support relation per cycle, so its P_G=conv±b_e is a linear image of the free sum of each centered cycle-vertex configuration u_i=e_i−1/ℓ and independent bridge segments. Polar is product Q_ℓ={y∈Hℓ:|y_i|≤1}×bridge intervals. Every Qℓ vertex has norm² kℓ=ℓ for even ℓ, or ℓ−1 for odd ℓ; the exact facet count follows. Symmetry and uniqueness force block-scalar extremal shapes. John determinant optimization under single budget Σkℓ aℓ+Σt_bridge≤1 yields aℓ=(ℓ−1)/(d kℓ), t=1/d, transporting to Σ_J weighted Laplacian. Löwner independent outer-vertex constraints yield aℓ=(ℓ−1)/ℓ, t=1, transporting to Σ_L. All polar vertices attain John support equality; all signed generating edge roots meet Löwner boundary, and strict convexity excludes other points. Block determinant ratio gives d^{d/2}∏(kℓ/ℓ)^((ℓ−1)/2); matching block ratios gives precise homothety classification. Weighted matrix-tree identity gives individual volumes. Finite 61-cactus checker explicitly confirms 26,006 facet contacts and 998 signed vertex contacts; it cannot prove all cacti. Proof valid even single-bridge graph and multiple articulation cycles.
 
-These tests establish finite-instance consistency only. General correctness rests on the linear-isomorphism, polar-vertex, uniqueness/symmetry, determinant-optimization, and determinant-ratio arguments in `RESULT.md`. The implementation does not enumerate arbitrary cactus graphs, certify literature priority, or constitute an independent audit.
+## originality
+
+PASS
+
+Known symmetric edge polytope regular-matroid/facet structural results and general John–Löwner theorem supply ingredients but not the explicit paired ellipsoid matrices, universal all-contact property and mixed odd/even cactus homothety dichotomy. A related published *cographic* complete-graph orthogonal cycle-space John/Löwner result uses a distinct polytope realization and does not imply this *graphic* cactus incidence result. Facet count is not claimed as new; best-of-knowledge ellipsoid novelty subject to more general optimal-design formulations.
+
+## value
+
+PASS
+
+Two canonical extremal ellipsoids are natural geometric invariants of all connected cactus graph root polytopes. Closed Laplacian coefficients, absolute/relative volumes, contacts and an exact homothety classification detect parity, bridge structure, and odd cycle lengths, allowing structural computation without exponentially enumerating faces. This is a complete natural family classification beyond a textbook bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
