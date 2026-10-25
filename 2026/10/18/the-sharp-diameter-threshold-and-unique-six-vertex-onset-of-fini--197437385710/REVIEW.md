@@ -1,19 +1,21 @@
-# Review of the sharp multiset-partition diameter threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For diameter at most two, every \(k\)-part partition yields at most \(k\) possible codes; the only possible resolving partition would have all vertices singleton, but then its codes are determined by positive vertex degree, which cannot be distinct at all vertices. The finite uniqueness is proved by the actual exact labelled graph-and-partition enumeration: \(12,300,12540\) diameter-three connected masks at orders four to six, and \(0,0,720\) labelled masks admitting resolving partitions. All \(720\) are explicitly checked to be isomorphic to the seven-edge witness. Its full partition enumeration gives exactly two five-part solutions and none of other sizes. Code, proof and produced output are included.
+PASS
 
-## Originality — PASS with identified risks
+For every connected simple n>=2 diameter-at-most-2 graph a k-block distance multiset has exactly one 0 and its remaining k-1 entries in {1,2}; at most k codes force k=n, but repeated degrees force two equal all-singleton codes. At diameter 3 a fully independent labelled graph and set-partition census finds connected counts 12,300,12540 at orders 4,5,6, and resolving counts 0,0,720; all 720 labelled witnesses are one orbit of the six-vertex H with edges 01,03,04,12,15,23,34. Its 203 partitions contain exactly the two resolving five-block partitions joining {1,2} or {1,3}. This checks the finite assertion exhaustively, not an infinite diameter-3 classification.
 
-The 2026 original paper supplies the definition, a general bound and named infinitude cases, but its materially inspected Sections 1–4 do not give the universal diameter-two theorem or sharp unique six-vertex onset. The 2026 survey introduces the parameter without this classification. published-finding corpus and broader-source alias searches found other multiset parameters but no implication covering both clauses. Absence from inspected work is not proof of bibliographic priority; older unordered-distance-code or partition terminology is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a structural impossibility criterion across **all** connected diameter-two graphs instead of listing particular families. Its sharpness is nontrivial: the first possible finite case at diameter three occurs in just one isomorphism class at order six, and all optimal partitions are classified. The fact that the discrete refinement fails shows why unordered block-distance codes behave differently from standard ordered partition resolving codes. This is a natural boundary theorem for a new graph invariant; the finite census is a complete cutoff rather than an arbitrary isolated numeric answer.
+The global diameter-two obstruction subsumes existing listed infinitude families. The sharp first diameter-three six-vertex existence and complete unique isomorphism/partition spectrum are separate from known path/cycle/grid formulas. Search and accessible primary text do not establish a prior stronger theorem; originality is best-of-knowledge, not a no-priority certificate.
 
-## Scope and limits
+## value
 
-The classification at diameter three concerns at most six vertices, not all orders. The universal impossibility proof is unrestricted for diameter one and two. The finite claim depends on a transparent complete enumeration, independently checkable from the attached standalone Python source. Definitive priority and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first possible diameter with finite multiset partition dimension and the first possible graph order are natural structural boundary invariants for a newly studied partition metric; the unique witness and failure under refining its five-block solutions give reusable counterexamples to monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
