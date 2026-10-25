@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:51:39Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent integer-only DFS, hypergraph construction and affine action replicated full exhaustive finite search, including nontrivial solutions with repeated variables. The subgroup and orbit-size normalization were checked, not merely a printed VERIFY_OK.",
+      "rationale": "The coefficient 3 is a unit mod 8, and x+5y=3z+3u is equivalent to u=3x+7y-z on each coordinate of G=(Z/8)^2, with every repeated-variable possibility included. Exact independent enumeration of all 64^3 triples gives 31,152 distinct forbidden supports (96 pairs,3456 triples,27600 quadruples). Increasing-label rooted independent-set DFS applies F2,F3,F4 masks when a new vertex is chosen and eliminates precisely those partial subsets containing forbidden supports; pruning by remaining allowed-bit count is sound. Independent enumeration found 12,288 independent rooted eight-subsets, zero rooted nine-subsets, with source-matching node counts 57,143 and 16,096. Translation sends every maximal subset to a rooted one; double-counting incidences gives 98,304 total. Exhaustively checking the 1,536 matrices with odd determinant (the exact GL2 over Z8) gives four rooted orbit sizes 3,072 and the source four representatives, hence 24,576 unrooted per orbit. These are complete finite certificates for this one ring/group, not claims for all moduli or ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asymptotic lower-density constructions for cyclic 8-adic groups and slice-rank bounds for prime-field vector spaces do not force the rank-two maximum, exact count or orbit profile in (Z/8)^2.",
+          "Hametner–Solymosi arXiv:2609.13972 constructs large integer solution-free sets for related equations rather than enumerating this finite module."
+        ],
+        "reasoning": "Asymptotic bounds do not mathematically dominate a complete finite extremizer census unless specialized with sharp equality/uniqueness claims, which are not in accessed statements.",
+        "searches": [
+          "Katalin Gyarmati Translation-invariant equations in F_p^n and groups Theorems 1 2 3 4"
+        ]
+      },
+      "checked_sources": [
+        "Gyarmati, Translation-invariant equations in F_p^n and groups (2026) https://arxiv.org/abs/2610.09887",
+        "Hametner and Solymosi, Large solution-free sets via combinatorial degenerations (2026) https://arxiv.org/abs/2609.13972"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper’s displayed same-coefficient asymptotic existence statement does not entail that eight is maximal among 64 vertices, nor that all maximal sets form four orbits.",
+          "A generic solution-free construction supplies lower bounds and candidate sets but not uniqueness or exhaustion."
+        ],
+        "reasoning": "No actual inspected implication to the full theorem was established; uninspected original later proofs remain an explicit priority risk.",
+        "searches": [
+          "x+5y=3z+3u Gyarmati 2610.09887 finite rank two Z8^2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gyarmati arXiv:2610.09887 (Oct. 7 2026) explicitly uses X+5Y=3U+3Z and groups modulo eight; abstracts/main statements discuss asymptotic constructions and general upper bounds.",
+          "The equation is exactly independence in the finite 31,152-support hypergraph from u=3x+7y-z, which is the same finite problem in another form."
+        ],
+        "reasoning": "Same coefficient vector and hypergraph description were compared directly; publicly accessible source statements do not present the complete rank-two maximum and four-orbit classification. This is best-of-knowledge, not whole-document negative after inaccessible parts.",
+        "searches": [
+          "Solution free x+5y=3z+3u in (Z/8Z)^2 maximum eight affine orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source’s own 98,304 and four 24,576 orbit counts are finite results verified independently; a public external table with these exact objects was not located.",
+          "Gyarmati’s accessible numerical table instead covers a different coefficient quadruple 2X+2Y=U+3Z."
+        ],
+        "reasoning": "Matching the modulus 8 alone is not sufficient: coefficients, rank and affine group must match for an existing table to cover this claim.",
+        "searches": [
+          "x+5y=3z+3u Z8 squared 98304 24576 four affine classes"
+        ]
+      },
+      "rationale": "Best-of-knowledge scientific originality after checking statement-level equivalence, stronger coverage, exact-table aliases, prior implications and accessible primary text. Direct mathematical priority risks remain documented.",
+      "residual_risks": [
+        "The original Gyarmati arXiv:2610.09887 full proof sections and Hametner–Solymosi arXiv:2609.13972 full text were not completely read here; an implicit finite section or appendix might overlap.",
+        "The exact result is confined to (Z/8Z)^2 and that one coefficient vector; no higher-rank density or limit statement is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published asymptotic constructions and prime-field bounds; insufficient full text to rule out all implicit finite results",
+          "evidence": "Gyarmati (Oct. 7 2026), same equation X+5Y=3U+3Z, asymptotic logarithmic density about 0.5283.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09887",
+          "material_read": "Primary arXiv abstract and accessible introductory theorem statements; later full proof/appendix inaccessible, not deemed read",
+          "method": "arXiv abstract and accessible primary portions",
+          "title": "Translation-invariant equations in F_p^n and groups",
+          "trigger": "Same exact four-variable coefficients and groups modulo eight"
+        },
+        {
+          "assessment": "Large integer-domain construction does not visibly include a rank-two Z8-square maximum/orbit census; uninspected body risk retained",
+          "evidence": "Hametner–Solymosi (2026), asymptotic construction of solution-free sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13972",
+          "material_read": "Accessible official abstract/metadata, not entire article",
+          "method": "primary arXiv abstract",
+          "title": "Large solution-free sets via combinatorial degenerations",
+          "trigger": "Potential stronger additive-combinatorial construction for same equation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The translation-invariant equation has a recent asymptotic motivating literature. The first noncyclic rank-two group (Z/8)^2 is a natural finite testbed. The exact maximum, total extremizer count, and complete four affine orbits identify small-rank geometric patterns unavailable from construction lower bounds. This is valuable as an exact finite extremal classification even without claiming any higher-rank optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gyarmati, Translation-invariant equations in F_p^n and groups (2026) https://arxiv.org/abs/2610.09887",
+    "Hametner and Solymosi, Large solution-free sets via combinatorial degenerations (2026) https://arxiv.org/abs/2609.13972"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete finite classification for G=(Z/8)^2 alone; no general higher-rank upper bound or other modulus conclusion.",
+    "Full motivating original paper could contain an uninspected appendix; best-of-knowledge literature judgment."
+  ],
+  "residual_risks": [
+    "The original Gyarmati arXiv:2610.09887 full proof sections and Hametner–Solymosi arXiv:2609.13972 full text were not completely read here; an implicit finite section or appendix might overlap.",
+    "The exact result is confined to (Z/8Z)^2 and that one coefficient vector; no higher-rank density or limit statement is asserted."
+  ],
+  "schema_version": 1
+}
