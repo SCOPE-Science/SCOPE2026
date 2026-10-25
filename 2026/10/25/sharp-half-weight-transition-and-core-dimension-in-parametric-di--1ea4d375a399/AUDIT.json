@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1, loopless nonnegative weighted digraph and 0<=lambda<=1, co-singleton inequalities sum to lambda*W <= (3lambda-1)*W, excluding lambda<1/2 when W>0. At lambda=1/2 their coordinate bounds force the sole allocation I/2. For lambda>=1/2 the displayed allocation I/2+(lambda-1/2)O has exact nonnegative slack (lambda-1/2)(A+B)+(1-lambda)(B-E); above the threshold tight coalitions are precisely unions of weak positive-support components, yielding dimension n-c. Explicit restricted allocations prove all restricted cores nonempty above threshold, and the two-node arc is sharp. Zero-weight networks give the zero game. The standalone exact rational program completed 22,085 tests; finite tests are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bandhana–Kroupa–García 2024, Proposition 3.4, fixed-sum core allocation, https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+        "Ryzák–Kroupa 2026, Lemmas 5.1–5.2, singleton core and total balancedness of fixed sum, https://arxiv.org/html/2605.18157v1"
+      ],
+      "reasoning": "Nonnegative superpositions of previously stable endpoint games can recover existence at lambda>=1/2, but provide neither the empty-core converse for all nonzero directed networks nor the exact affine dimensions; the proof checks both with explicit coalitional inequalities.",
+      "searches": [
+        "cooperative trust game convex combination internal external component core nonempty parameter",
+        "cooperative game of directed graph sum internal edges minimum external incoming agents parameter tradeoff alpha 1/2 full dimensional core"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.18157v1, full-text Sections 1–6",
+      "Bandhana–Kroupa–García, AAMAS 2024 pp. 132–140, source PDF and model/core sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 paper Section 5 yields only the lambda=1/2 singleton core after scaling.",
+        "2026 Section 6 presents the alpha-weighted version as a future question.",
+        "2024 AAMAS work Section 3 gives an indegree core allocation only for internal+external fixed sum."
+      ],
+      "reasoning": "New claim implies the prior fixed-sum core result at lambda=1/2 but is not entailed by that one-parameter statement. At the other endpoint lambda=1, classical directed internal-edge games have nonempty cores, but endpoint coverage does not imply the intermediate affine dimension, the universal emptiness result, or the sharp balancedness threshold.",
+      "searches": [
+        "\"A Tractable Class of Cooperative Games Defined by Directed Networks\" \"alpha\" \"core\"",
+        "theorem Ryzak Kroupa 2026 trust game weighted sum internal external core dimension",
+        "\"Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network\" 2024 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryzák–Kroupa 2026 Definition 2.1: fixed sum internal + external, https://arxiv.org/html/2605.18157v1",
+        "Ryzák–Kroupa 2026 Section 6 explicitly identifies convex combinations as future work, https://arxiv.org/html/2605.18157v1"
+      ],
+      "reasoning": "The equal-coefficient sum is proportional to lambda=1/2, but no change of scale turns lambda unequal to 1/2 into that fixed game. General wording about core existence cannot imply nonexistence below 1/2 or the component-dimension formula above 1/2. Direct targeted searches did not identify an equivalent theorem.",
+      "searches": [
+        "parametric trust cooperative game alpha internal external min incoming core threshold 1/2 Ryzak Kroupa",
+        "\"parametric trust game\" alpha core 2026 directed network",
+        "directed weighted graph cooperative trust game core Shapley incoming neighbors minimum external support Ryzák Kroupa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No tabulation or precomputed named invariant is used: proof holds for arbitrary finite weighted digraphs and real convex parameters.",
+        "Published full text of arXiv:2605.18157v1 gives a fixed-parameter characterization, not a parameter phase table."
+      ],
+      "reasoning": "The proposed theorem is an analytic all-graph classification; finite checker counts are verification only. The target source contains no database, exact table, or statement yielding the classification.",
+      "searches": [
+        "Parametric trust game convex combination internal edges external minimum incoming edges alpha core nonemptiness threshold one half affine dimension weak components",
+        "Weighted directed trust game Ryzak Kroupa parameter alpha alpha internal beta external core total balancedness",
+        "generalized cooperative trust games convex combination internal external minimum incoming coalition characteristic function core"
+      ]
+    },
+    "rationale": "The new parameter-wide half-threshold, sharp empty/singleton/positive-dimensional core classification, positive-support component dimension and total-balancedness equivalence address an explicitly uncompleted convex-mixing direction in arXiv:2605.18157v1 Section 6. That paper proves only the fixed equal-weight game; the 2024 precursor proves nonemptiness of its fixed-sum game. Published and indexed-result searches were compared at the level of logical implication, not names alone. Historical-priority risk under other terminology remains.",
+    "residual_risks": [
+      "An implication-equivalent result may exist in broader parametric cooperative-game or balanced-game literature using different terminology; negative targeted searches do not prove universal priority.",
+      "General core theory provides some components of the proof, especially existence via nonnegative game sums, but no checked source explicitly supplies the full all-graph transition and dimension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the equal-weight baseline; does not state the lambda-wide phase diagram, the core dimension or the total-balancedness threshold.",
+        "evidence": [
+          "Definition 2.1 internal+external; Lemma 5.1 singleton core; Lemma 5.2 total balancedness; Section 6 future line on convex combinations."
+        ],
+        "identifier_or_url": "arxiv:2605.18157v1 / https://arxiv.org/html/2605.18157v1",
+        "material_read": "HTML full text including Sections 1–6, Definition 2.1, the core proofs in Section 5 and future directions in Section 6.",
+        "method": "Read openly accessible author full-text HTML, identifying objects, fixed weights, theorems, and proposed convex combinations.",
+        "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+        "trigger": "Same directed minimum-incoming trust game; fixed-sum core and an explicit parametric research direction."
+      },
+      {
+        "assessment": "Fixed internal+external sum and core nonemptiness only; no weighted convex-mixing classification.",
+        "evidence": [
+          "AAMAS 2024 Proposition 3.4 and discussion of core; the conclusion poses other structural questions for the fixed game."
+        ],
+        "identifier_or_url": "Bandhana–Kroupa–García, AAMAS 2024 pp. 132–140 / https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+        "material_read": "Abstract, graph/model definition, Sections 3 and 3.1 core proposition and game decomposition, and concluding open-problem passage.",
+        "method": "Read the accessible conference PDF text and inspected the model/core page images.",
+        "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+        "trigger": "Original paper introducing the characteristic function and core allocation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ea4d375-a399-4473-96e7-7d55e3bad3cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper expressly invites a weighted internal/external trust-game analysis. The all-network half-weight threshold identifies a universal stability failure as exposure dominates, an isolated unique allocation at balance, and precisely n-c degrees of bargaining freedom when internal interactions dominate. Total balancedness changes at the same sharp threshold. These are structural and graph-topological outputs with a two-peer tight example, not arbitrary computed slices.",
+    "status": "PASS"
+  }
+}
