@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library; there are no third-party packages or downloaded data. The verifier rebuilds every graph by explicit equality-of-row-or-column adjacency, computes closed neighborhoods and the maximum residual degree by bitset enumeration, and independently evaluates the inclusion–exclusion coefficients. It checks all subsets for \(2\le m\le n\le4\) and \(1\le\ell\le m+n-1\), totaling 487472 graph-subset decisions across 30 parameter triples. It also checks the exact minimum-count formulas from the distribution, and on larger boards compares 13400 deterministic pseudorandom adjacency tests against the support threshold while checking further exact polynomial minima.
+## correctness
 
-Expected final line: `VERIFICATION_OK 30 487472 13400`. The recorded `verify_output.txt` was produced by execution of the packaged code. Only finitely many examples are computationally checked; the proof of the infinite claim is the structural argument in `RESULT.md`. No independent audit has been performed.
+PASS
+
+A selected cell set with a occupied rows and b occupied columns has residual graph precisely K_(m-a) square K_(n-b). For both residual factors nonempty, residual degree m+n-a-b-2, so absence of K_(1,ell) is equivalent to a=m or b=n or m+n-a-b<=ell+1. Unique occupied support and row/column inclusion-exclusion give the all-size polynomial. For p<m selected cells, a+b<=2p forces p>=ceil((m+n-ell-1)/2); partial permutation matrices attain the bound unless all m rows must be hit. Equality forces support sizes (t,t) or, at odd L, (t,t-1)/(t-1,t), giving exactly the claimed factorial/binomial optimizer counts including t=m exceptional boundary. Rebuilt rook adjacency and residuals independently, checking the feasibility equivalence for 23 triples with m=2,3 and n<=4. The general argument is structural, not inferred from finite enumeration.
+
+## originality
+
+PASS
+
+No dominating equivalent or stronger complete statement identified in the targeted primary-source and Resultary searches; assessment is best-of-knowledge, not exhaustive priority certification. A star-as-induced-subgraph condition would differ; the audited theorem explicitly uses ordinary subgraphs and fixes its indexing. Scalar isolation bounds alone do not give the complete coefficient-by-coefficient inclusion-exclusion sum or all equality-support types. The full product-isolation primary text was not retrievable for exhaustive comparison. No exact all-size star-isolation table was recovered; independent tables outside indexed sources remain possible. An extremal scalar cannot determine all polynomial coefficients; proving the support characterization and inclusion-exclusion adds a separately usable classification.
+
+## value
+
+PASS
+
+For the natural two-factor rook graphs, the complete star-isolation polynomial and exhaustive parity-sensitive minimum-set classification extend scalar isolation parameters into a useful all-size invariant. Recovery of unordered factor orders from polynomial degrees and the empty-set threshold provides additional structural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

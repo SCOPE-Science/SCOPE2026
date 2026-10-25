@@ -1,15 +1,21 @@
-# Review: Full star-isolation spectra and parity-rigid minimum sets on rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The selected row/column supports uniquely determine the residual induced rook graph. Its regular degree, or its emptiness if a factor is zero, gives the exact threshold. Row/column inclusion–exclusion enumerates each supported cell set once. The minimum is sharp because any set smaller than the smaller factor must satisfy the support-sum bound, while nonattacking-rook witnesses attain the bound. Equality forces only three support patterns in the interior, and the saturated-row case has one precisely delimited extra pattern. Boundary cases (empty optimum, \(2\times2\), rectangular disparity, large stars) are included. The standalone verifier compares exact graph-based subset tests with every enumerator coefficient on 30 small parameter triples and checks larger cases.
+## correctness
 
-## Originality — PASS (best-knowledge, residual source-access risk)
-Zhang and Wu (SSRN 4634672; posted 16 November 2023) develop general star-isolation bounds; their public abstract was read, but the full text could not be examined. Brešar et al. (arXiv:2508.16338) explicitly record the scalar ordinary isolation number of square rook graphs and study graph-product bounds. Brešar and Rall (arXiv:2608.25752) extend general forbidden-subgraph isolation inequalities to Cartesian products, with a cycle–clique exact example. The available relevant sections do not state the complete rook-graph star-isolation size distribution, all minimum configurations, or the parity/independent-optimum structure. Published mathematical-record searches and accessible earlier claim comparisons revealed no implication covering the combined result. This is not a uniqueness certificate; the unavailable 2023 primary full text and unindexed enumerations remain risks.
+PASS
 
-## Value — PASS
-Star isolation measures how many selected closed neighborhoods are needed to eliminate stars of prescribed size; an entire counting polynomial is a natural refinement of its scalar minimum. The theorem solves every cardinality across three unbounded discrete parameters. It also identifies a sharp transition between nonattacking-rook optima and configurations with a single doubled coordinate, proves that independent optima always exist, and recovers both factor orders from the full star-threshold spectrum. These features distinguish it from a one-off small calculation or a mere restatement of a known scalar bound.
+A selected cell set with a occupied rows and b occupied columns has residual graph precisely K_(m-a) square K_(n-b). For both residual factors nonempty, residual degree m+n-a-b-2, so absence of K_(1,ell) is equivalent to a=m or b=n or m+n-a-b<=ell+1. Unique occupied support and row/column inclusion-exclusion give the all-size polynomial. For p<m selected cells, a+b<=2p forces p>=ceil((m+n-ell-1)/2); partial permutation matrices attain the bound unless all m rows must be hit. Equality forces support sizes (t,t) or, at odd L, (t,t-1)/(t-1,t), giving exactly the claimed factorial/binomial optimizer counts including t=m exceptional boundary. Rebuilt rook adjacency and residuals independently, checking the feasibility equivalence for 23 triples with m=2,3 and n<=4. The general argument is structural, not inferred from finite enumeration.
 
-## Limits and validation
-The result is for exactly two complete-graph factors and forbidden non-induced stars. Exhaustive checks do not substitute for proof. A full-text comparison with Zhang–Wu remains outstanding, and no independent scientific validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No dominating equivalent or stronger complete statement identified in the targeted primary-source and Resultary searches; assessment is best-of-knowledge, not exhaustive priority certification. A star-as-induced-subgraph condition would differ; the audited theorem explicitly uses ordinary subgraphs and fixes its indexing. Scalar isolation bounds alone do not give the complete coefficient-by-coefficient inclusion-exclusion sum or all equality-support types. The full product-isolation primary text was not retrievable for exhaustive comparison. No exact all-size star-isolation table was recovered; independent tables outside indexed sources remain possible. An extremal scalar cannot determine all polynomial coefficients; proving the support characterization and inclusion-exclusion adds a separately usable classification.
+
+## value
+
+PASS
+
+For the natural two-factor rook graphs, the complete star-isolation polynomial and exhaustive parity-sensitive minimum-set classification extend scalar isolation parameters into a useful all-size invariant. Recovery of unordered factor orders from polynomial degrees and the empty-set threshold provides additional structural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
