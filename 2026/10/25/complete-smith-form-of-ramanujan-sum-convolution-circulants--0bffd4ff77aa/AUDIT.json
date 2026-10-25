@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For all positive moduli, the Ramanujan prime-power identity splits \\(C(p^a)\\) into \\(p^{a-1}\\) blocks \\(p^{a-1}(pI_p-J_p)\\). Unimodular column summation and row subtraction reduce each block to a rectangular \\(pI_{p-1}\\) over a row of minus ones, with determinantal divisors exactly \\(p^{k-1}\\) at all nonzero ranks \\(k\\). Hence the local Smith entries are \\(p^{a-1}\\), \\(p^a\\) and zero in the stated counts. Chinese remaindering multiplies the full difference kernels via tensor products of unimodular equivalences. For each prime \\(p\\), exactly \\(\\varphi(n)/(p-1)\\) of \\(\\varphi(n)\\) nonzero product entries have valuation \\(a-1\\), all remaining ones valuation \\(a\\). Primewise sorting yields the global divisibility-chain formula. Boundary \\(n=1,2\\), rank, cokernel order/exponent, cyclicity and modular kernel count follow. Exact SymPy Smith checks passed for 28 moduli through 42, supporting but not replacing the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schlage-Puchta, A determinant involving Ramanujan sums and So’s conjecture, DOI:10.1007/s00013-021-01643-8 (2021), Theorem 1 and Section 2.",
+        "Le and Sander, Integral Circulant Ramanujan Graphs of Prime Power Order, DOI:10.37236/3159 (2013), published abstract and article description.",
+        "Chandler, Sin and Xiang, The Smith and critical groups of Paley graphs, arXiv:1401.8260, abstract (different finite-field adjacency operator)."
+      ],
+      "reasoning": "A general integral Smith theorem for arbitrary cyclic group-ring idempotents could imply this classification, but none was located in the inspected accessible sources. Adjacency and Laplacian Smith results for Paley/unitary Cayley graphs concern different kernels. Complex eigenvalue theorems are strictly weaker over the integers and cannot by themselves supply the claimed invariant factors.",
+      "searches": [
+        "\"Smith normal form\" \"integral circulant graphs\" adjacency",
+        "\"Smith normal form\" \"unitary Cayley\" graphs circulant Ramanujan sums",
+        "\"Smith normal form\" \"primitive\" \"Fourier projection\" integer",
+        "\"Ramanujan sum matrix\" \"Smith\" \"circulant\" integer"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1201.1060v4 (full text, Sections 1–3)",
+      "doi:10.1007/s00013-021-01643-8 (full open article)",
+      "doi:10.37236/3159 (publisher abstract and metadata)",
+      "arxiv:1401.8260 (abstract; Paley adjacency matrix distinct)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fowler, Garcia and Karaali, Ramanujan sums as supercharacters, arXiv:1201.1060v4 (2012), eq. (3.1), Theorems 3.1 and 3.5, pp. 7–12.",
+        "Schlage-Puchta, A determinant involving Ramanujan sums and So’s conjecture, DOI:10.1007/s00013-021-01643-8 (2021), Theorem 1 and Section 2.",
+        "Le and Sander, Integral Circulant Ramanujan Graphs of Prime Power Order, DOI:10.37236/3159 (2013), published abstract and article description."
+      ],
+      "reasoning": "Equation (3.1) and Theorem 3.1 of the 2012 paper give the prime-power Ramanujan values and multiplicativity, which are inputs to this proof. Its Theorem 3.5 applies to divisor-indexed supercharacter matrices of size \\(\\tau(n)\\), not the \\(n\\times n\\) difference circulant, and does not state or imply the exact integral Smith factors without additional nontrivial row/column and local-valuation arguments. The 2021 paper’s nonsingular divisor-indexed determinant similarly does not dominate the claimed singular circulant SNF. The 2013 graph-spectral results do not classify the integer cokernel. The new deduction is therefore not covered by the precise inspected conclusions, although earlier unindexed general results could exist.",
+      "searches": [
+        "arxiv:1201.1060 Ramanujan sums supercharacters Kronecker product prime-power sum Section 3",
+        "A determinant involving Ramanujan sums and So’s conjecture 2021 divisor-indexed matrix theorem",
+        "Integral Circulant Ramanujan Graphs of Prime Power Order 2013 spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fowler, Garcia and Karaali, Ramanujan sums as supercharacters, arXiv:1201.1060v4 (2012), eq. (3.1), Theorems 3.1 and 3.5, pp. 7–12.",
+        "Schlage-Puchta, A determinant involving Ramanujan sums and So’s conjecture, DOI:10.1007/s00013-021-01643-8 (2021), Theorem 1 and Section 2.",
+        "The full kernel has complex eigenvalues \\(n\\) and \\(0\\); such spectral data do not fix integer Smith factors."
+      ],
+      "reasoning": "Checked equivalent descriptions as integral Ramanujan convolution, primitive-character Fourier projection, and cyclic group-ring multiplication. The two closest Ramanujan-matrix papers concern different divisor-indexed matrices of size \\(\\tau(n)\\), and the inspected work supplies no integer Smith factors for the full \\(n\\)-index difference kernel. No exact all-moduli formula was found in the searched literature; absence of hits is not itself proof of priority.",
+      "searches": [
+        "\"Ramanujan sum\" \"Smith normal form\" circulant matrices",
+        "\"Ramanujan\" \"Smith normal form\" \"circulant\"",
+        "\"Ramanujan sum\" \"elementary divisors\" circulant",
+        "Integral Smith group cokernel for Fourier projection onto primitive characters, cyclic convolution by Ramanujan sums, 2-adic and odd p primary torsion exponents",
+        "Smith normal form integer circulant matrix with Ramanujan sum kernel at prime powers and composite moduli; full invariant factor classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fowler, Garcia and Karaali, Ramanujan sums as supercharacters, arXiv:1201.1060v4 (2012), eq. (3.1), Theorems 3.1 and 3.5, pp. 7–12.",
+        "Schlage-Puchta, A determinant involving Ramanujan sums and So’s conjecture, DOI:10.1007/s00013-021-01643-8 (2021), Theorem 1 and Section 2.",
+        "Exact full-matrix calculations for 28 sample moduli agreed with the derived factors; these are newly computed checks, not an established public lookup table."
+      ],
+      "reasoning": "No matching published Smith table or closed full-modulus sequence was identified among the investigated sources. The divisor-indexed determinant is not a table of this singular full circulant’s Smith invariants. Small verified calculations alone make no novelty claim.",
+      "searches": [
+        "\"Ramanujan sums\" \"invariant factors\" matrix",
+        "\"c_n(i-j)\" \"Smith\"",
+        "Smith invariant factors torsion cokernel of n by n Ramanujan-sum convolution matrix C_n(i,j)=c_n(i-j), formula d_j product p^(a-1+1_{j>phi(n)/(p-1)}), elementary divisors"
+      ]
+    },
+    "rationale": "Comparison of actual results and matrix dimensions in the primary 2012 supercharacter paper and the 2021 divisor-indexed determinant paper found no all-moduli integral Smith form for the full difference circulant. Spectral statements alone do not give integer cokernels. Search for SNF, modular-kernel, primitive-character projector and general circulant synonyms found no dominating theorem in inspected coverage. Potential unindexed prior work is an explicit residual priority risk.",
+    "residual_risks": [
+      "Search cannot establish unique historical priority; a previous unindexed classification of this exact integer circulant remains possible.",
+      "An unidentified general group-ring or cyclic projector Smith theorem may imply this formula even without matching Ramanujan terminology.",
+      "The Le–Sander graph paper was assessed from publisher abstract only, though its described spectral question uses a different matrix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_FULL_CIRCULANT_INTEGRAL_SNF",
+        "evidence": [
+          "Equations (1.1) and (3.1) give the sum and prime-power evaluations.",
+          "Theorem 3.1 is multiplicativity; Theorem 3.5 is the tensor factorization of divisor-indexed supercharacter tables \\(S(n)\\), size \\(\\tau(n)\\).",
+          "No stated Smith normal form for the full \\(n\\times n\\) difference circulant."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1201.1060",
+        "material_read": "Full searchable 32-page manuscript accessible; inspected definitions/prime powers in pp. 1–7 and Kronecker/multiplicativity and examples in pp. 9–13; searched full text for Smith normal form and circulant statements.",
+        "method": "Read primary open-access PDF text and relevant theorem/proof sections, cross-checking object definitions and dimensions.",
+        "title": "Ramanujan sums as supercharacters",
+        "trigger": "Primary archival source on prime-power Ramanujan sums, supercharacter matrices and Kronecker decomposition."
+      },
+      {
+        "assessment": "DIFFERENT_DIVISOR_INDEXED_MATRIX_AND_DETERMINANT_ONLY",
+        "evidence": [
+          "The article defines \\(C_n=(c(d,t))_{d,t\\mid n}\\) with \\(\\tau(n)\\) rows and columns.",
+          "Its Theorem 1 states \\(|\\det C_n|=n^{\\tau(n)/2}\\) for the nonsingular divisor matrix; the present full difference circulant is singular for every \\(n>1\\)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-021-01643-8",
+        "material_read": "Accessible full open article (Introduction, Theorem 1 and Section 2 proof), including the precise indexing and block determinant.",
+        "method": "Read open-access HTML full text of the theorem, setup and proof.",
+        "title": "A determinant involving Ramanujan sums and So’s conjecture",
+        "trigger": "Closest explicitly named Ramanujan matrix determinant source, plausibly could dominate integral invariant factors."
+      },
+      {
+        "assessment": "SPECTRAL_GRAPH_CLASSIFICATION_NOT_AN_INTEGRAL_COKERNEL_THEOREM_BY_AVAILABLE_EVIDENCE",
+        "evidence": [
+          "The published abstract studies graph Ramanujan property and integral circulant graph spectra, not the Ramanujan-sum kernel Smith normal form.",
+          "Because only the published abstract was inspected, no whole-paper exclusion is claimed."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/3159",
+        "material_read": "Published article abstract, indexing, publication date, and described spectral objective; full manuscript not examined.",
+        "method": "Inspected publisher article description and abstract.",
+        "title": "Integral Circulant Ramanujan Graphs of Prime Power Order",
+        "trigger": "Potential synonym in circulant graph literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0bffd4ff-77aa-4cb9-ac4f-176d37d21ab2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determining the entire canonical integral Smith form for a natural arithmetic convolution at every modulus is a complete torsion/cokernel classification, not a finite census or mere rewriting of known Fourier eigenvalues. The theorem derives nontrivial exact torsion exponents, a complete \\(\\{1,2,3,6\\}\\) cyclicity criterion, and the exact number of modular null vectors for every modulus, giving meaningful arithmetic information unavailable from the complex spectrum alone.",
+    "status": "PASS"
+  }
+}
