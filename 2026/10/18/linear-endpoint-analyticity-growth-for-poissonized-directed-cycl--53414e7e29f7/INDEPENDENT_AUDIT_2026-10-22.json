@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T15:13:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/linear-endpoint-analyticity-growth-for-poissonized-directed-cycl--53414e7e29f7/RESULT.md",
+        "/mnt/data/scope_worker_08_20261022T1454_delivery/independent_checks.py",
+        "/mnt/data/scope_worker_08_20261022T1454_delivery/independent_checks_output.txt"
+      ],
+      "rationale": "For every n≥2 the cyclic Poisson convolution kernel difference has identical ℓ¹ and ℓ∞ induced norms equal to its ℓ¹ variation, by row/column sums. Uniform early-time O((1+t)^(-1/2)) variation and large-time Fourier gap O(n^(-1) exp(-8t/n²)) suppress t/n²→0,∞. On t=sn² compact windows Fourier modes converge uniformly to a periodized Gaussian derivative; shifted Riemann sums give s∫|h_s′|. Jacobi triple product establishes strict decrease on the semicircle and the odd theta series G(u)=u∑_{k odd≥1}e^(-k²u). Tail inequalities confine maximizers to (.6,1); explicit bound G″<0 there and opposite derivative signs yield unique u*=0.9972653787252169, C*=4G(u*)/π²≈0.1491464853520236 and t/n²→u*/(2π²). Independent finite Poisson/Fourier samples n=32,64,128,256 converge, not proofs. Hilbert normal multipliers optimize to 1/(e sin(π/n)), consistent also n=2.",
+      "residual_risks": [
+        "No certified decimal enclosures or convergence rate; exact limit is analytically specified.",
+        "Finite checks are not a proof of compact-window Fourier uniformity, for which the kernel and tails were inspected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gerencsér adds long-range edges and studies mixing times; Xu bounds interior Lp maximal operators."
+        ],
+        "reasoning": "Neither stronger mixing rate nor p∈(1,∞) estimates dominate the sharp endpoint derivative operator norm with optimizing time; no implication of the explicit theta coefficient was identified.",
+        "searches": [
+          "Gerencsér arXiv:1401.1692",
+          "Xu arXiv:1402.2344"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: oriented directed cycle continuous-time Poisson random walk endpoint l1 infinity analytic semigroup t derivative total variation theta asymptotic n",
+        "Gerencsér arXiv:1401.1692",
+        "Xu arXiv:1402.2344",
+        "Laurent Saloff-Coste Random Walks on Finite Groups, §2.2 equation (2.10)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard group Poissonization gives e^-t∑t^m S^m/m!, but does not by itself maximize t||Lexp(-tL)||.",
+          "Gerencsér mixing statements concern distances to stationarity; Xu operator bounds exclude p endpoints."
+        ],
+        "reasoning": "Prior implications cover the convolution representation and general semigroup context but not the sharp asymptotic nor uniqueness of the optimizing diffusion scale.",
+        "searches": [
+          "Saloff-Coste Random Walks on Finite Groups §2.2",
+          "Gerencsér arXiv:1401.1692",
+          "Xu arXiv:1402.2344"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu assumes 1<p<∞ and studies maximal inequalities; claimed law is p=1,∞ and exact n-linear coefficient.",
+          "No Resultary returned equivalent wrapped-Poisson norm result."
+        ],
+        "reasoning": "Equivalent formulations include t times total-variation speed of Poisson walk modulo n and circular heat-kernel variation. Xu’s interior-scale operator calculus is not this endpoint sharp coefficient. Unindexed TV speed literature remains a priority risk.",
+        "searches": [
+          "Resultary: oriented cycle endpoint semigroup total variation theta",
+          "Xu arXiv:1402.2344"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact tables or discrete finite database relevant to the growing-n sharp coefficient appeared in results; the audited result is an infinite-sequence asymptotic."
+        ],
+        "reasoning": "Finite per-n tabulations cannot establish a universal coefficient or maximizing-time convergence. This check is naturally inapplicable as an exact database coverage issue, but exact wrapped-Poisson values could in principle be tabulated.",
+        "searches": [
+          "Resultary semantic oriented-cycle theta coefficient 0.149146485",
+          "literature theta cyclic Poisson variation"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Unique sharp endpoint theta coefficient, maximizer localization and ℓ² contrast not inferred from standard Poissonization/mixing.",
+      "residual_risks": [
+        "Complete historical-priority assurance is not possible from bounded literature search.",
+        "Full texts not read are not declared not covering; relevant inaccessible/unread literature remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "abstract establishes mixing bounds, not a full-text noncoverage conclusion",
+          "evidence": "Non-reversible mixing-time bounds for cycles with n^γ extra edges; derivative norm not mentioned in abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.1692",
+          "material_read": "arXiv abstract and stated reversible/nonreversible mixing objectives; not full body",
+          "method": "arXiv abstract read, compared asserted theorems by topic",
+          "title": "Mixing times of Markov chains on a cycle with additional long range connections",
+          "trigger": "directed cyclic chain and possible stronger mixing theory"
+        },
+        {
+          "assessment": "stated parameter range does not include p=1 or ∞; exact endpoint sharp asymptotic not a stated implication",
+          "evidence": "The abstract explicitly restricts p to 1<p<∞ and discusses maximal ergodic/sectorial norms.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2344",
+          "material_read": "abstract specifying 1<p<∞, vector-valued inequalities and analytic semigroup assumptions; no full body",
+          "method": "arXiv abstract and journal abstract",
+          "title": "H-infinity functional calculus and maximal inequalities for semigroups of contractions on vector-valued Lp spaces",
+          "trigger": "analyticity/derivative-norm framework potentially dominating endpoint claim"
+        },
+        {
+          "assessment": "background only, no whole-document noncoverage inference",
+          "evidence": "Known Poisson expansion is ingredient, not itself optimization of theta profile.",
+          "identifier_or_url": "https://pi.math.cornell.edu/~lsc/papers/chap5.pdf",
+          "material_read": "cited §2.2/eq.(2.10) as identified in package; independent full-text not retrieved in run",
+          "method": "package reference and independently reconstructed finite convolution",
+          "title": "Random Walks on Finite Groups",
+          "trigger": "Poissonization and group-convolution identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/linear-endpoint-analyticity-growth-for-poissonized-directed-cycl--53414e7e29f7/RESULT.md",
+        "https://arxiv.org/abs/1401.1692",
+        "https://arxiv.org/abs/1402.2344",
+        "https://pi.math.cornell.edu/~lsc/papers/chap5.pdf"
+      ],
+      "rationale": "The natural endpoint semigroup analyticity modulus for a basic nonreversible directed Markov chain grows linearly although Hilbert analytic modulus has a smaller coefficient. The exact odd-theta coefficient and localization of every maximizing time to a universal diffusive clock, despite ballistic drift, are mathematically informative beyond Poissonization and routine mixing bounds.",
+      "residual_risks": [
+        "The result establishes its stated exact invariant/domain, not a stronger universal theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No certified decimal enclosures or convergence rate; exact limit is analytically specified.",
+    "Finite checks are not a proof of compact-window Fourier uniformity, for which the kernel and tails were inspected.",
+    "Potential public metadata privacy blocker is operational, not mathematical failure.",
+    "No formal Lean/expert certification inferred from code or independent calculations."
+  ],
+  "schema_version": 1
+}
