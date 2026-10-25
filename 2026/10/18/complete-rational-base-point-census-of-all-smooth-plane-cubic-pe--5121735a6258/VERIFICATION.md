@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and exact limits
+# Independent mathematical audit
 
-The included C++17 full orbit/enumeration source is `smooth_cubic_pencils_f3_v2.cpp`; its exact stdout/stderr are `smooth_cubic_pencils_f3_v2.out` and `smooth_cubic_pencils_f3_v2.err`. It emits `smooth_ids.txt`, listing all 16,848 normalized smooth ternary cubic forms.
+## correctness
 
-The independent `verify_geometric_smoothness.py` calculates all three affine-chart Gröbner bases over the field of three elements for each of the 25 orbit representatives. `verify_geometric_smoothness.out` records ten geometrically smooth orbits (16,848 forms), fifteen singular orbits (12,676), and the complete total 29,524.
+PASS
 
-The independently programmed `verify_direct_tally.py` enumerates every ordered pair of the 16,848 smooth projective cubic forms rather than relying on projective-orbit weights. Its saved output `verify_direct_tally.out` reproduces all base-point counts and the total 87,348,456 ordered generator pairs. Every final stratum count is an exact integer quotient by twelve.
+Every nonzero ternary cubic over F3 is represented by a normalized projective coefficient vector (29524 forms). A 25-orbit PGL3(F3) reduction and exact three-chart Jacobian Groebner ideal test give 10 smooth orbits containing exactly 16848 projective smooth cubic forms. Independently implemented finite group-orbit enumeration, exact SymPy Groebner smoothness tests of the 25 representatives, and a complete separate 16,848×16,848 vectorized ordered-generator-pair enumeration with both F+G and F+2G smooth. Raw counts by rational base cardinality: 30932928,31817448,17926272,5997888,673920 for 0..4; all larger zero. Each pencil has exactly 12 ordered projective generator pairs, yielding histogram 2577744,2651454,1493856,499824,56160 and total 7279038. Rational point incidence sum across four members is 13+3b; Hasse gives b≤5 but exhaustive exact census sharpens to b≤4. Finite-field completeness is proven for the entire stated q=3 population; no claim of geometric smoothness of every algebraic-closure member.
 
-The main C++ checker tests singular points over extensions of degrees at most three. This is sufficient for a geometrically singular plane cubic over the field of three elements: an absolutely irreducible singular cubic has a unique singular point, necessarily rational; a reducible cubic has intersecting line/conic components defined over extensions of degree at most three, forcing a singular intersection in one of those extensions. Independently, the Gröbner checker proves the geometric smoothness status without relying on this extension bound.
+## originality
 
-The explicit sharpness pair was separately checked by affine-chart Gröbner calculations for each of its four rational members; its four common rational points are listed in `RESULT.md`.
+PASS
 
-All claims are finite-field exact statements for the specified pencils. An independent audit of the mathematics and bibliographic priority has not been performed.
+Kaplan–Matei counts rational intersections of unrestricted cubic pairs subject to no common geometric component; it does not enforce simultaneous smoothness of all four pencil members. Asgarli–Ghioca establishes finite-field pencil existence, not all-smooth F3 rational-basepoint statistics. Moschetti–Pirola–Stoppino works over the complex numbers with one geometric basepoint. Therefore those previously studied invariants do not imply this restricted F3 histogram. No equivalent table surfaced in the actual Resultary semantic query; unindexed computations remain risk.
+
+## value
+
+PASS
+
+The full finite incidence census resolves a natural arithmetic-geometric classification at the smallest ternary field where a rational pencil has four members, including an attained sharp basepoint maximum four that improves the general Hasse-only bound five. The exact full histogram is an independently useful finite-field invariant rather than a cherry-picked tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

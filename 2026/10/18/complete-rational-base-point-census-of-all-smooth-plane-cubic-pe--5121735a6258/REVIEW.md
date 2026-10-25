@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The underlying parameter space is finite and the projective-coordinate orbits exhaust its 29,524 points. The ten smooth orbits give 16,848 smooth cubic forms; 25 independent affine-chart Gröbner-basis checks confirm the geometric classifications. Both a ten-orbit weighted full partner enumeration and a separately coded direct 16,848-by-16,848 enumeration produce identical ordered-pair multiplicities for every rational-base-point stratum. Division by twelve uses the complete ordered projective-generator count in each two-dimensional subspace. The exhibited four-base-point pencil satisfies all four exact affine-chart smoothness checks. The sharp conclusion is limited to rational points over the specified field.
+## correctness
 
-**Originality: PASS, subject to bibliographic priority risk.** Kaplan–Matei count all component-disjoint cubic pairs without requiring all four members smooth (Theorem 1); their numbers are not the same conditional distribution. Asgarli–Ghioca prove a sufficient large-field smooth-pencil existence theorem (Theorem 1.3), not the enumerative distribution at field size three. Moschetti–Pirola–Stoppino classify complex pencils with one geometric base point, not this finite-field rational-base statistic. Searches of accessible research records and the existing related finite-field pencil findings found no subsuming exact statement. An unindexed census remains plausible; independent human literature checking is recommended.
+PASS
 
-**Value: PASS.** All-smooth rational pencils are a natural finite Bertini problem. The full rational-base-locus spectrum at the smallest odd field, including the positive extremal four-point stratum and zero five-point stratum, refines both existence theorems and unrestricted cubic-intersection counts. The exclusion of five is stronger than the independent Hasse-incidence upper bound of five. It describes genuine geometric incidence restrictions and provides reproducible reference data.
+Every nonzero ternary cubic over F3 is represented by a normalized projective coefficient vector (29524 forms). A 25-orbit PGL3(F3) reduction and exact three-chart Jacobian Groebner ideal test give 10 smooth orbits containing exactly 16848 projective smooth cubic forms. Independently implemented finite group-orbit enumeration, exact SymPy Groebner smoothness tests of the 25 representatives, and a complete separate 16,848×16,848 vectorized ordered-generator-pair enumeration with both F+G and F+2G smooth. Raw counts by rational base cardinality: 30932928,31817448,17926272,5997888,673920 for 0..4; all larger zero. Each pencil has exactly 12 ordered projective generator pairs, yielding histogram 2577744,2651454,1493856,499824,56160 and total 7279038. Rational point incidence sum across four members is 13+3b; Hasse gives b≤5 but exhaustive exact census sharpens to b≤4. Finite-field completeness is proven for the entire stated q=3 population; no claim of geometric smoothness of every algebraic-closure member.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kaplan–Matei counts rational intersections of unrestricted cubic pairs subject to no common geometric component; it does not enforce simultaneous smoothness of all four pencil members. Asgarli–Ghioca establishes finite-field pencil existence, not all-smooth F3 rational-basepoint statistics. Moschetti–Pirola–Stoppino works over the complex numbers with one geometric basepoint. Therefore those previously studied invariants do not imply this restricted F3 histogram. No equivalent table surfaced in the actual Resultary semantic query; unindexed computations remain risk.
+
+## value
+
+PASS
+
+The full finite incidence census resolves a natural arithmetic-geometric classification at the smallest ternary field where a rational pencil has four members, including an attained sharp basepoint maximum four that improves the general Hasse-only bound five. The exact full histogram is an independently useful finite-field invariant rather than a cherry-picked tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
