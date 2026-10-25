@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The direct graph-definition proof identifies all general-position configurations for the diameter-two parameter range, with a disjoint enumeration of rows, columns, coordinate transversals, three-corner shapes, and four-corner shapes. All sign comparisons are exact and cover every integer, including the special small cases. Independent-of-formula brute-force shortest-path enumeration reproduces nine small graph polynomials. Limits: no claim about arbitrary larger numbers of parts.
+## correctness
 
-**Originality: PASS, with residual risk.** The foundational polynomial paper explicitly leaves the relevant unimodality question open (Problem 5.2) and gives only a nonsharp sufficient condition for three parts. Its expression for these exact graph coefficients differs from direct finite graph enumeration; for \(T^*(2,3)\), the graph is \(C_6\) and has two rather than twenty general-position triples. The present result reconstructs the coefficients directly, then proves new sharp cutoffs for both three- and four-part cases. Research-record and literature searches identified no implication covering both the corrected coefficient identity and the sharp classification. Residual risk: possible unindexed equivalent work or later corrections not located.
+PASS
 
-**Value: PASS.** The result resolves two natural parameter slices of a specifically stated open problem and exposes finite nonunimodality intervals followed by eventual unimodality. The four-part transition at \(r=40\) is a substantial parameter boundary not supplied by the scalar general-position number or by the originally printed coefficient expression.
+For a,r>=3 graph diameter two makes GP subsets exactly induced disjoint unions of cliques. Partition into one-row, one-column, coordinate-distinct transversals, and three/four corners of a 2x2 rectangle gives the full c_k formula. Exact c3-c4 and c5-c4 sign cubics/quartics plus binomial-tail monotonicity give a=3 precisely r<=10 or >=18, a=4 precisely r<=11 or >=40; the exceptional r=1,2 formulas have separately checked geometry. Independently enumerated shortest paths and all vertex subsets on seven small graph cases and checked 200 parameter pairs, without mistaking finite tests for the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2024 primary text General Position Polynomials discusses this exact graph family and explicitly leaves its full unimodality behavior as Problem 5.2; its cited sufficient a=3 bound r>=19 is weaker than the exact 18, and its expression disagrees with the literal graph at r=2,a=3. Existing general-position graph families do not imply the sharp windows.
+
+## value
+
+PASS
+
+Exact complete parameter-window classification for the natural general-position polynomial on two fixed part counts, with a surprising loss and return of unimodality; this answers motivated explicit earlier questions, not an arbitrary sequence test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
