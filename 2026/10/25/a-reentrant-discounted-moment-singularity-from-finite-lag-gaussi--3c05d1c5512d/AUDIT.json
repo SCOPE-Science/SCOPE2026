@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Sections 1–4 of RESULT.md: exact OU conditional moments and diffusion generator; normalized invariant Student density; finite/infinite fourth stationary moment threshold; triangular moment ODEs including nonnegative boundary forcing; closed-form Laplace transform; strictly monotone H(s) yielding exactly one positive peak and two lag roots. Replayed standard-library rational identities and RK4 discounted integrations. The independent finite tests corroborate algebra, and the all-lag assertion follows from the analytic derivative proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayraktar et al. (2026) prove consistency of one-step generator approximations under assumptions that restrict unbounded growth.",
+        "Monthus (2023) covers all Pearson moment rates but without the exact OU lag map or a discount/lag critical-interval classification."
+      ],
+      "reasoning": "No inspected general theorem optimizes the moment growth exponent over OU sampling lag or gives the two critical lags for quartic discounted reward. Generic Pearson theory covers the moment recursion itself, which is excluded from the novelty assertion.",
+      "searches": [
+        "arXiv:2606.26498v1 Sections 4,5 and Appendix",
+        "arXiv:2303.09348v3 Sections III, XIII",
+        "Forman Sørensen 2008 Pearson diffusions polynomial eigenfunctions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.26498v1 Section 4.1, Section 4.2 and Section 5",
+      "arXiv:0905.4324 Section 2 and Section 3",
+      "arXiv:2303.09348v3 Sections III and XIII",
+      "arXiv:2604.16645v2 Supplement S1",
+      "DOI:10.1111/j.1467-9469.2007.00592.x abstract (full text unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact reconstructed generator coefficients follow from Lade (2009); the polynomial moment recursion is of the type in Monthus (2023); the uncentered increment convention follows Bayraktar et al. (2026).",
+        "The global lag dependence \\(F(s)=2(1-4e^{-s}+3e^{-2s})/s\\), its strict unique maximum, and the resulting finite–infinite–finite resolvent trichotomy require the additional monotone-derivative comparison in RESULT.md."
+      ],
+      "reasoning": "Neither matched title nor different parameter name proves originality. The previously known formula components are attributed; the final claim only extends them by the globally proved lag/discount phase diagram. A possible straightforward inference by another author remains a priority risk.",
+      "searches": [
+        "arXiv:0905.4324 equations (7)–(8)",
+        "arXiv:2303.09348v3 equations (24),(26),(435)",
+        "arXiv:2606.26498v1 equations (15)–(19)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Monthus 2023 (arXiv:2303.09348v3) Eq. (435) gives the generic Student-process moment-growth rate.",
+        "Lade 2009 (arXiv:0905.4324) Eqs. (7)–(8) give the exact OU finite-lag coefficients."
+      ],
+      "reasoning": "The known formulas imply the ingredients by substitution but do not by themselves give the global lag/discount reentrance theorem; the strictly unimodal profile and exact boundary classification are the newly proved joint conclusion. No alternative equivalent theorem was found in source sections examined.",
+      "searches": [
+        "PhiBE first-order raw conditional increment covariance sampled OU quartic discounted value divergence window finite observation interval",
+        "finite-time Kramers-Moyal Ornstein Uhlenbeck reconstructed surrogate Student diffusion exact stationary fourth moment",
+        "linear drift quadratic diffusion Pearson moment exponent reentrant discount threshold two sampling gaps",
+        "arXiv:2303.09348v3 Section XIII"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact table reports the two positive roots of a fixed-discount quartic value threshold for first-two-increment OU reconstructions.",
+        "Existing finite-time OU coefficient and Pearson moment tables are acknowledged, not recomputed as a standalone contribution."
+      ],
+      "reasoning": "The value is the complete natural lag/discount domain of finiteness, not a standalone decimal constant; exact roots are characterized analytically and numerical values only illustrate them.",
+      "searches": [
+        "\"finite-time\" \"Kramers-Moyal\" \"stationary distribution\" \"Student\"",
+        "\"discount\" \"fourth moment\" \"finite lag\" OU quadratic diffusion",
+        "finite-time Kramers-Moyal Ornstein Uhlenbeck reconstructed surrogate Student diffusion exact stationary fourth moment",
+        "linear drift quadratic diffusion Pearson moment exponent reentrant discount threshold two sampling gaps"
+      ]
+    },
+    "rationale": "The finite-lag OU coefficients are explicitly older (Lade 2009) and generic Pearson Student tails and moment dynamics are explicitly older (Monthus 2023 and Forman–Sørensen 2008). The final claim adds the global one-peak sampling-lag growth profile and the resulting reentrant discounted quartic finiteness interval at fixed discount; these are absent from the closely inspected primary literature. No equivalent published record was found by the stated queries. Priority uncertainty from possible recombination or alternative vocabulary remains.",
+    "residual_risks": [
+      "The full text of Forman and Sørensen (2008) was not inspected; it might indirectly contain equivalent lag-specific claims, although the inspected abstract concerns generic Pearson theory.",
+      "The reentrant interval is obtained by combining published exact finite-lag coefficients and published general moment formulas with an additional strict-unimodality calculation; earlier unindexed derivations under different nomenclature are possible.",
+      "No independent literature-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact estimator convention verified; no quartic OU reentrant lag/discount phase theorem in relevant inspected sections; scalar uncontrolled specialization lies outside some stated bounded-coefficient theorems",
+        "evidence": [
+          "https://arxiv.org/abs/2606.26498",
+          "Section 4.1 equations (15)–(19)",
+          "Section 4.2 Assumption 4.3 and Remark 4.4"
+        ],
+        "identifier_or_url": "arXiv:2606.26498v1",
+        "material_read": "Abstract; Section 4.1 equations (15)–(19); Section 4.2 regularity assumptions and scope; Section 5 LQR additive-noise modification; methods/background",
+        "method": "Primary open full-text HTML text, targeted section read",
+        "title": "Mean-Field PhiBE: Continuous-Time Mean-Field Reinforcement Learning from Discrete-Time Data",
+        "trigger": "Eligible recent primary 93E20 source defining one-step uncentered conditional covariance surrogate"
+      },
+      {
+        "assessment": "Exactly covers the finite-lag coefficients; those are acknowledged rather than treated as new. Does not classify discounted quartic value against lag and discount.",
+        "evidence": [
+          "https://arxiv.org/abs/0905.4324",
+          "Section 3 equations (7),(8)"
+        ],
+        "identifier_or_url": "arXiv:0905.4324",
+        "material_read": "Introduction; Section 2 derivation and Section 3 OU special case with equations (7)–(8)",
+        "method": "Primary open full-text HTML text",
+        "title": "Finite sampling interval effects in Kramers-Moyal analysis",
+        "trigger": "Potential exact coverage of scalar OU finite-lag drift and second increment"
+      },
+      {
+        "assessment": "General Student invariant/moment recursion is covered, but no exact finite-lag OU reconstruction parameterization or global discount-versus-lag reentrant singularity classified.",
+        "evidence": [
+          "https://arxiv.org/html/2303.09348v3",
+          "Eqs. (24),(26),(432),(435),(439)"
+        ],
+        "identifier_or_url": "arXiv:2303.09348v3",
+        "material_read": "Contents; Section III.2 moment equations (24)–(35); Section XIII Student invariant density and moments (432)–(439)",
+        "method": "Primary full-text arXiv HTML, targeted material inspected",
+        "title": "Large deviations for the Pearson family of ergodic diffusion processes involving a quadratic diffusion coefficient and a linear force",
+        "trigger": "Potentially dominates stationary Student tail and moment eigenvalue steps"
+      },
+      {
+        "assessment": "General Pearson/Student heavy-tail integrability covered; does not address the uncentered finite-lag OU estimated generator discounted reentrance.",
+        "evidence": [
+          "https://arxiv.org/html/2604.16645v2",
+          "Supplement S1"
+        ],
+        "identifier_or_url": "arXiv:2604.16645v2",
+        "material_read": "Abstract and supplementary section S1 classification of one-dimensional Pearson diffusions, especially quadratic squared diffusion and fourth-moment integrability",
+        "method": "Primary arXiv full-text HTML, targeted material inspected",
+        "title": "Strang splitting estimator for nonlinear multivariate stochastic differential equations with Pearson-type multiplicative noise",
+        "trigger": "Contemporary Pearson estimator with explicit Student invariant and moment criteria"
+      },
+      {
+        "assessment": "Generic Pearson stationary distributions and conditional moments already covered; cannot claim whole-document absence of the specialized lag/discount theorem; priority risk retained.",
+        "evidence": [
+          "https://doi.org/10.1111/j.1467-9469.2007.00592.x",
+          "Publisher abstract and bibliographic summary"
+        ],
+        "identifier_or_url": "DOI:10.1111/j.1467-9469.2007.00592.x",
+        "material_read": "Accessible abstract, bibliographic data and references only; complete primary text not recovered",
+        "method": "Publisher abstract and accessible university bibliographic summary",
+        "title": "The Pearson Diffusions: A Class of Statistically Tractable Diffusion Processes",
+        "trigger": "Foundational general classification with possible spectral coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c05d1c5-512d-49eb-84be-53e068014e91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fourth-order polynomial evaluation is the first even-degree test that exposes the mismatch between perfectly matched second stationary moments and heavy-tail moment failure. The rigorous bounded intermediate sampling-lag singular band with recovery of discounted integrability at very large lag is not a routine single-parameter substitution: it yields a global nonmonotone phase diagram and a practical stability diagnostic for uncentered-increment-based continuous-time policy evaluation. No new universal algorithm performance guarantee is asserted.",
+    "status": "PASS"
+  }
+}
