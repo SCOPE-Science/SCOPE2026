@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-**Theorem-side checks.** The proof isolates the exact possible cardinalities of \(B\cup C\) when \(|B|=i\) and \(|C|=j\), including overlap, then analyzes the infinite-cardinality case separately. Its characteristic formulas have depth bounded by their displayed index and recover every size up to \(2^d\). The size-zero and size-one base predicates are interpreted consistently across every powerset model.
+## correctness
 
-**Independent finite replay.** Extract `check_union_modal.py` from this package and run `python3 check_union_modal.py`. The checker uses Python's standard library, a direct powerset semantics independent from a cardinality abstraction, and structural characteristic-formula construction. Expected output:
+PASS
 
-```
-BINARY_UNION_DEPTH_VERIFY_OK profiles=3,4,6,10,18,34 subset_semantics=35770 characteristic_checks=9709
-```
+At depth 0, fixed marker valuations Z(X)=[|X|=0], A(X)=[|X|=1] yield exactly sizes 0,1,>1. For a depth-d child size cutoff t=2^d, exact finite child cardinalities i,j<=t can cover X iff max(i,j)<=|X|<=i+j. If |X|>2t, including infinite cardinality, attainable child-type pairs are uniformly those with >=1 tail child (choose that component X) and impossible for two exact children. Thus formula truth depends solely on sizes 0..2t or >2t at depth d+1. Conversely the join of exact t and k-t cardinality formulas defines [t,k], and subtracting exact lower sizes inductively defines each size k=t+1,...,2t at depth d+1. Hence all 2^d+2 types and arbitrary Boolean unions are realized, yielding 2^(2^d+2) classes, including arbitrary infinite ambient sets. Direct independent cardinality signature refinement for sizes 0..69 at d=0..5 gave 3,4,6,10,18,34 as predicted. The least depth separating 1<=n<m is ceil(log2 n).
 
-The profile test covers sizes through \(70\) and depths through \(5\); direct subset checks cover ground sets of sizes \(0\) through \(8\) and randomly generated nested modal formulas. No finite enumeration proves infinite correctness. The theoretical argument is a complete induction applying to every finite or infinite ground set. Open questions of historical priority and broader-language extensions remain outside these checks.
+## originality
+
+PASS
+
+Sharp logical cardinality visibility profile for one fixed-marked lax binary-join modal language, with all finite/infinite pointed types and formula-class numbers.
+
+## value
+
+PASS
+
+The binary-only fragment of a recently defined information logic has a concrete sharp expressive resource hierarchy: exact cardinality visibility as a function of modal nesting depth, all pointed theories including infinite states, and a closed formula-algebra size. These are natural logic invariants that inform expressivity and model comparison, independent of claims about the full richer language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
