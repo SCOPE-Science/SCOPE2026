@@ -1,117 +1,197 @@
 {
   "correctness": {
-    "rationale": "After dihedral reduction, six relative edge classes admit explicit signed-facet lower certificates L_j(d). Their pointwise minimum is the stated three-branch function M. The opposite six edges are covered because y->-y swaps the two chord lengths and M is a decreasing involution. Three explicit edge families attain M on [0,1], [1,sqrt(3)] and [sqrt(3),2]. Substitution into the finite facet representation proves the exact distance and sum norms. The angle-modulus formula is then its definition.",
-    "risks": [
-      "Endpoint points lie on two closed edges, but the facet proof is nonexclusive and therefore remains valid at ties.",
-      "The symbolic certificate assumes exactly the displayed linearly isometric dodecagon normalization."
+    "checked_sources": [
+      "The complete stated mathematical proof and independently reconstructed signed-facet identities.",
+      "The independent exact symbolic replay of affine inequality and attainment certificates.",
+      "The original verification note, with no proof-assistant or external expert claim."
     ],
-    "sources": [
-      "doi:10.3390/math10162965",
-      "Bundled RESULT.md",
-      "Bundled verify.py"
+    "evidence": [
+      "Assigned RESULT.md Proof, formulas (1)-(6), exact edge certificates for j=0..6, central-symmetry/involution step, and three witness families.",
+      "Assigned verify.py examined as source only; separate independently written SymPy proof replay yields CHECK_PASS for twelve signed facets, six edge classes, all envelope intervals, all three continuum witness families and the involution; exact algebraic nonnegative signs, not floats.",
+      "For M1=2-(2-sqrt3)d, M2=1+sqrt3-d, M3=(2+sqrt3)(2-d), exact identities M3(M1(d))=d, M2(M2(d))=d and M1(M3(d))=d; transition endpoints match.",
+      "Boundary cases epsilon=0,1,sqrt3,2 included: m(0)=2, m(1)=sqrt3, m(sqrt3)=1, m(2)=0, with nonempty explicit unit-pair witnesses."
+    ],
+    "rationale": "For the displayed six-pair-of-facets norm on R^2, its unit sphere has twelve edges. D12 symmetry reduces x to E0. For y on relative edges E0..E5, signed support-functional certificates yield lower bounds 2, 2-(2-sqrt3)d, (4-d)/sqrt3, 1+sqrt3-d, 4-sqrt3*d and (2+sqrt3)(2-d) for s=||x+y|| at d=||x-y||. The two split certificates for edges E1 and E5 are nonnegative on the respective triangles a+b<=1 and >=1; linear ones are exact on E2..E4. The lower envelope is the claimed 3-branch M, j=6 forces d=2, and edges E7..E11 reduce by y->-y because M is a strictly decreasing involution. Three explicit affine edge families realize each branch and all endpoint values, giving m(epsilon)=M(epsilon) and rho^a=1-M^2/2. I independently reconstructed all signed facets from exact Q(sqrt3) geometry, checked edge certificate identities and signs on their complete triangles, all 18 envelope comparisons by interval endpoints, and all sharp-family norm equalities by every signed facet and affine endpoints. No numerical sampling is used as the continuum proof.",
+    "residual_risks": [
+      "The conclusion is for the specified real regular-dodecagonal norm; no claim for other regular polygons or complex Banach spaces.",
+      "The proof determines minimum values and exhibits witness families, not a full uniqueness/orbit classification of every extremizer.",
+      "The bundled verify.py uses floating comparisons for algebraic sign in parts; the independent replay removes this concern by exact SymPy sign checking."
     ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The defining paper gives general structural relations and selected classical examples, not polygonal profiles.",
-        "The own dodecagonal convexity profile determines a maximum chord rather than the minimum chord.",
-        "No broader regular-polygon smoothness theorem was located."
+        "All-even-regular-polygon scale modulus theorem in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f has broader polygon parameter n but a different, Day, objective.",
+        "Dodecagonal angle-convexity theorem https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19 is same norm and all epsilon but maximizes A; the target minimizes A.",
+        "Dodecagonal P-angle result https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-regular-dodecagonal-banach-plane--98630849e639 controls A+sqrt3 B and sqrt3 A+B from above, insufficient to force target strict lower bound."
       ],
-      "reasoning": "Neither general identities nor the opposite extremal profile fixes the lower boundary of the dodecagonal chord-pair region.",
+      "reasoning": "Broader parameter inclusion or the same polygon is not enough: the prior functional must imply the claimed A_min(B) profile. The inspected broader result does not do so, while prior upper-envelope/scalar results leave this lower-envelope problem undetermined.",
       "searches": [
-        "regular dodecagon angle modulus smoothness exact profile rho_X^a epsilon",
-        "classical modulus of smoothness regular dodecagon Banach exact",
-        "modulus of smoothness regular 12-gon norm exact"
+        "regular dodecagon norm polygon exact classical modulus of smoothness sharp chord profile 1 sqrt3",
+        "angle modulus of convexity smoothness regular dodecagon Banach polygon previous results",
+        "polygon norm moduli angle smoothness regular dodecagon profile Banach",
+        "modulus of convexity smoothness Banach regular polygon exact piecewise 12-gon",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-regular-dodecagonal-banach-plane--98630849e639"
       ]
     },
     "checked_sources": [
       "doi:10.3390/math10162965",
-      "2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
-      "own:0b286005-bc19-4fbe-9d7b-2c8e9f3522e2",
-      "own:5b7b05da-38b3-4e4b-a27b-51f256f1f602",
-      "own:98630849-e639-4c97-b83d-2869040bcdd7"
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-regular-dodecagonal-banach-plane--98630849e639",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The dodecagonal angle-convexity result controls max ||x+y||, not min ||x+y||.",
-        "The dodecagonal P-angle scalar constant gives only a global two-chord envelope.",
-        "The octagonal and hexagonal smoothness results concern non-isometric polygons with different branch structures."
+        "Du et al. Prop. 7 is a definitional transform of the unknown m(epsilon), not an explicit polygon calculation.",
+        "Convexity profile sup A at fixed B cannot determine inf A; the given upper support inequalities A+sqrt3 B<=4 and sqrt3 A+B<=4 do not prove A>=M(B).",
+        "For 0<B<2 the elementary triangle lower bound A>=2-B is strictly weaker than the new M(B); the P-angle containing polygon admits points below M(B).",
+        "The all-regular-polygon Day rho(t) maximizes the average norm at a scalable input t; it is neither a statement about fixed B nor a lower bound on A."
       ],
-      "reasoning": "Recovering the accepted theorem requires the new signed-facet lower envelope and its involution; none of the closest prior statements supplies that implication.",
+      "reasoning": "No inspected source has antecedents sufficient to imply the three lower affine bounds jointly with their sharp witnesses; complementary maximum-chord, P-angle and Day-modulus results cannot be relabelled as the minimum-chord graph.",
       "searches": [
-        "regular dodecagon angle modulus smoothness exact profile rho_X^a epsilon",
-        "regular dodecagon minimum ||x+y|| fixed ||x-y|| epsilon",
-        "modulus of smoothness regular 12-gon norm exact"
+        "doi:10.3390/math10162965",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-regular-dodecagonal-banach-plane--98630849e639",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+        "regular polygon Banach plane modulus rho(epsilon) sup 1-1/2 norm x+y at fixed separation regular dodecagon"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Du--Ahmad--Din--Li define rho_X^a(epsilon) as 1 minus one half the square of the minimum possible sum chord at fixed separation.",
-        "published-finding corpus returned the regular-octagon unit-separation computation but no dodecagonal full profile.",
-        "General web searches for regular-dodecagon modulus of smoothness produced no exact profile."
+        "Du et al. (2022) Section 3 defines rho_X^a through inf ||x+y|| at fixed ||x-y||=epsilon and Proposition 7 supplies an equivalent constrained-chord modulus.",
+        "Equivalent exact M(epsilon) branches 2-(2-sqrt3)epsilon,1+sqrt3-epsilon,(2+sqrt3)(2-epsilon were searched under regular dodecagon norm aliases.",
+        "The related all-even-polygon Day modulus differs by its t-scaled unconstrained supremum, as stated explicitly in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f"
       ],
-      "reasoning": "The searches cover both angle-modulus notation and the implication-equivalent minimum-chord/classical-modulus formulation.",
+      "reasoning": "All equivalent formulations of the target are the lower boundary A_min(B) of the unit-pair chord region, not the Day average-norm maximum. No inspected independent publication establishes this boundary on the displayed dodecagonal norm.",
       "searches": [
-        "regular dodecagon angle modulus smoothness exact profile rho_X^a epsilon",
-        "regular dodecagon minimum ||x+y|| fixed ||x-y|| epsilon",
-        "classical modulus of smoothness regular dodecagon Banach exact"
+        "regular dodecagonal normed plane angle modulus of smoothness minimum norm x+y given norm x-y fixed exact piecewise polygon",
+        "regular dodecagon norm polygon exact classical modulus of smoothness sharp chord profile 1 sqrt3",
+        "Du Ahmad Din Li 2022 Some Moduli of Angles in Banach Spaces exact definition rho angle smoothness examples polygon",
+        "regular dodecagon modulus of smoothness Banach space exact norm minimum sum chords fixed distance",
+        "regular polygon Banach plane modulus rho(epsilon) sup 1-1/2 norm x+y at fixed separation regular dodecagon",
+        "Resultary: exact profile + minimum-chord formulation and all three radicals",
+        "doi:10.3390/math10162965"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Exact branch-expression searches returned no dodecagonal angle-smoothness table.",
-        "The only close exact published-finding corpus hit is the octagonal epsilon=1 value.",
-        "Own-ledger exact searches found no claim with the three breakpoints and branch formulas."
+        "The identical indexed result is the theorem under assessment, not a distinct antecedent.",
+        "Closest exact rho^a prior is the regular-octagon epsilon=1 formula https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+        "A same-norm opposite rho/angle convexity formula exists https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19 and differs explicitly at all-epsilon quantifiers and extremum orientation."
       ],
-      "reasoning": "Searching the exact radicals and affine branches catches isolated tabulations even if they omit the theorem title.",
+      "reasoning": "Database/table comparison was by object, exact radicals, breakpoints, constraint and extremum direction; no separate exact dodecagonal minimum-chord table was found. Absence of a search hit is not evidence of universal absence.",
       "searches": [
-        "rho^a regular dodecagonal Banach plane 2-(2-sqrt3) epsilon",
-        "angle modulus smoothness dodecagon 1+sqrt3-epsilon",
-        "regular dodecagon modulus smoothness exact 4-sqrt3 epsilon"
+        "Resultary query: regular dodecagonal normed plane angle modulus of smoothness minimum norm x+y given norm x-y fixed exact piecewise polygon",
+        "Resultary query: regular dodecagon norm polygon exact classical modulus of smoothness sharp chord profile 1 sqrt3",
+        "Resultary query: angle modulus of convexity smoothness regular dodecagon Banach polygon previous results",
+        "regular dodecagon modulus of smoothness Banach space exact norm minimum sum chords fixed distance",
+        "polygon norm moduli angle smoothness regular dodecagon profile Banach",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19"
       ]
     },
-    "rationale": "The defining 2022 full text was inspected at the definitions of both angle moduli, the concrete-space examples, Proposition 7 relating the smoothness modulus to the minimum sum chord, and the conclusions; no regular-dodecagon or regular-polygon computation appears. published-finding corpus searches covered the exact invariant, dodecagon aliases, all three branch expressions, the minimum-chord equivalent formulation, and classical-modulus wording. The closest same-invariant record is the regular-octagon unit-separation value. Own ledgers were checked: the dodecagonal angle-convexity profile gives the opposite extremum, while the hexagonal smoothness profile is a different norm.",
+    "rationale": "Best-of-knowledge novelty survives the strongest located same-norm and stronger-parameter comparisons: the 2022 source defines angle smoothness and relates it to the constrained minimum chord but does not supply this dodecagonal 3-branch evaluation; the public dodecagonal angle-convexity result controls the opposite maximum chord; the P-angle exact result gives a non-sharp lower-bound description of the chord feasible region; and an all-even-regular-polygon theorem controls Day's unconstrained scaled smoothness rather than the fixed-separation minimum. A published octagonal unit-separation result is on a nonisometric norm and single epsilon. Actual full published mathematical files were read for four closest results, and the primary 2022 accessible indexed source was inspected; no blanket novelty certification is claimed.",
     "residual_risks": [
-      "Bibliographic and semantic searches cannot establish absolute novelty.",
-      "An equivalent profile could exist under the classical minimum-chord modulus rather than angle-modulus notation.",
-      "No independent human literature audit has been performed."
-    ],
-    "risks": [
-      "The originality claim is for the complete dodecagonal minimum-chord/angle-smoothness profile, not for the definition or general relation to the classical modulus."
+      "The historical literature may contain an equivalent theorem under a different norm normalization or modulus name.",
+      "Not every item in the broader geometric literature was inspected in complete text; the judgment is best-of-knowledge.",
+      "Indexed database results cannot establish absolute novelty."
     ],
     "source_inspections": [
       {
-        "assessment": "DEFINING_BUT_NOT_COVERING: the paper defines the exact invariant and proves general relations but contains no regular-dodecagon profile.",
-        "evidence": "Mathematics 10 (2022), article 2965; published 17 August 2022; MSC 46B20.",
-        "identifier_or_url": "doi:10.3390/math10162965",
-        "material_read": "Open-access publisher full text: publication metadata and MSC; definitions of delta_X^a and rho_X^a; the concrete ell_p smoothness example; Proposition 7 relating rho_X^a to the minimum sum-chord modulus; conclusions. Full-text searches for 'dodecagon' and 'regular polygon' returned no matches.",
-        "method": "Open-access publisher HTML/full-text inspection.",
+        "assessment": "The theorem's definition is confirmed; the accessible portions derive general identities and ell_p examples, not the dodecagonal three-piece formula.",
+        "evidence": [
+          "Definition: rho_X^a(epsilon)=sup_{unit x,y; ||x-y||=epsilon}(1-||x+y||^2/2).",
+          "Proposition 7 expresses rho_X^a via the infimum of ||x+y||/2 at fixed separation; it does not evaluate X_12."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10162965",
+        "material_read": "Publisher-indexed article text: definition of both angle moduli, Section 3, Example 2 on ell_p, Proposition 7 and conclusions; comparisons are limited to material actually inspected.",
+        "method": "Inspection of publicly available publisher-indexed open text.",
         "title": "Some Moduli of Angles in Banach Spaces",
-        "trigger": "Defining primary source for rho_X^a and its minimum-chord equivalent form."
+        "trigger": "Defines the precise angle-modulus, its constrained minimum-chord equivalent, and formulas for selected normed spaces."
+      },
+      {
+        "assessment": "Its function is max ||x+y|| at fixed separation, not min ||x+y||. Its upper-bound facets do not imply the audited lower envelope.",
+        "evidence": [
+          "Theorem: sup A = min{2,(4-epsilon)/sqrt3,4-sqrt3*epsilon}; target is inf A with branches 2-(2-sqrt3)epsilon,1+sqrt3-epsilon,(2+sqrt3)(2-epsilon).",
+          "Its inequalities A+sqrt3 B<=4, sqrt3 A+B<=4 are upper, not lower bounds on A."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19",
+        "material_read": "Complete public RESULT.md: finding, norm, dual-facet upper inequalities, full three-branch maximum-chord theorem, five sharp witnesses, limitations.",
+        "method": "Public repository file read at its complete result text.",
+        "title": "Exact angle modulus of convexity of the regular dodecagonal Banach plane",
+        "trigger": "Same norm and fixed-separation chord geometry; strongest close published statement."
+      },
+      {
+        "assessment": "Provides A+sqrt3 B<=4 and sqrt3 A+B<=4 and a scalar P-angle constant, not the requested lower A(B) profile.",
+        "evidence": [
+          "Feasible containing polygon vertices (0,0),(2,0),(2,2(2-sqrt3)),(2(sqrt3-1),2(sqrt3-1)),(2(2-sqrt3),2),(0,2).",
+          "The polygon contains points below the true min-chord graph; it is not an exact feasible chord-pair region."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-regular-dodecagonal-banach-plane--98630849e639",
+        "material_read": "Complete public RESULT.md: definition, dual support table, two weighted inequalities, feasible polygon and quadratic maximization proof, sharp pair.",
+        "method": "Public repository full-text result inspection.",
+        "title": "Exact P-angle constant of the regular dodecagonal Banach plane",
+        "trigger": "Same dodecagonal sum/difference norms; theorem derives an upper containing polygon for their joint feasible values."
+      },
+      {
+        "assessment": "Computes Day's scale-t modulus sup (||x+t y||+||x-t y||)/2-1, not the fixed-separation constrained minimum ||x+y||. Hence no direct implication from its all-polygon theorem.",
+        "evidence": [
+          "Day definition explicitly varies t and maximizes average norm of x +/- t y; target fixes ||x-y||=epsilon and minimizes ||x+y||.",
+          "The source asserts its result differs from angle-restricted smoothness moduli."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f",
+        "material_read": "Complete public RESULT.md: full theorem, definitions, dual polygon reduction, fixed maximizing pair, exact affine envelope, limitations and references.",
+        "method": "Public repository full-text result inspection.",
+        "title": "A scale-independent maximizing vertex pair for regular-polygon smoothness moduli",
+        "trigger": "Potentially dominating all-regular-even-polygon smoothness result, including the 12-gon."
+      },
+      {
+        "assessment": "A single eps=1 value for a different eight-vertex norm is not the 12-gon all-epsilon function.",
+        "evidence": [
+          "Its target is rho_{X8}^a(1)=3sqrt2-9/2, not rho_{X12}^a(epsilon) for 0<=epsilon<=2."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+        "material_read": "Complete public RESULT.md: octagonal norm, epsilon=1 result, finite exact active-facet branch enumeration proof, limitations.",
+        "method": "Public repository full-text result inspection.",
+        "title": "Exact angle modulus of smoothness at unit separation for the regular octagonal plane",
+        "trigger": "Closest distinct public exact evaluation of exactly the same invariant."
       }
-    ],
-    "sources": [
-      "doi:10.3390/math10162965"
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_evidence_preserved": {
+    "correctness": "The previous mathematical assessment identified relative-edge facet inequalities, the involutive lower envelope and three sharp affine witness families. The current assessment independently reconstructed these symbolic identities using exact algebraic sign checks.",
+    "originality": "The previous mathematical comparison distinguished the dodecagonal maximum-chord profile, polygonal P-angle constants, hexagonal and octagonal angle-smoothness examples from the submitted constrained dodecagonal minimum-chord curve. The current assessment additionally inspected the all-even-polygon Day modulus and confirmed its different objective.",
+    "value": "The complete one-parameter modulus and two sharp breakpoints provide a natural dodecagonal chord-geometry invariant beyond a single-value computation."
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "46ee334f-62ec-4358-a6a5-20c3246004b2",
   "value": {
-    "rationale": "The theorem resolves a full one-parameter modulus, not a single value. Its three affine chord regimes and exact transitions at 1 and sqrt(3) describe the lower boundary of the dodecagonal two-chord geometry and complement the previously known opposite maximum-chord profile. The involutive structure of the sharp lower envelope is a nontrivial geometric feature useful for other fixed-separation constants.",
-    "risks": [
-      "The profile is specific to the dodecagon; a general regular-polygon law remains open here."
-    ],
-    "sources": [
+    "checked_sources": [
       "doi:10.3390/math10162965",
-      "Bundled RESULT.md"
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+      "assigned RESULT.md and exact independent facet proof replay"
+    ],
+    "evidence": [
+      "All-epsilon formulas with three active edge configurations and explicit attainment families; complete sharp geometry rather than a sampled numerical instance.",
+      "Existing published dodecagonal upper-chord profile https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-angle-modulus-of-convexity-of-the-regular-dodecagonal-bana--0b286005bc19 and octagonal single-point smoothness https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6 demonstrate the naturally distinct missing exact lower-bound invariant."
+    ],
+    "rationale": "The source defines a natural geometric modulus measuring the worst P-angle at every prescribed separation. The regular dodecagon is a canonical non-smooth normed plane with enough face classes to create genuinely different optimizer regimes. The result computes the entire continuous epsilon-profile exactly and shows two nontrivial, sharp transitions at 1 and sqrt3, plus an involutive minimal-chord envelope. This is substantially more informative than one epsilon value and complements, without being implied by, the opposite extremal dodecagonal convexity profile. A researcher studying polygonal moduli and normed-circle chord geometry could use the exact function for comparison or optimal estimates, despite its elementary finite-facet proof.",
+    "residual_risks": [
+      "The result is one specific polygon, not a general law for all regular polygons.",
+      "No all-minimizer classification or perturbative stability is established, and no downstream theorem is claimed."
     ],
     "status": "PASS"
-  }
+  },
+  "verification_scope": "Mathematical review of the displayed claim and cited primary results; not a formal proof-assistant verification or external expert attestation."
 }
