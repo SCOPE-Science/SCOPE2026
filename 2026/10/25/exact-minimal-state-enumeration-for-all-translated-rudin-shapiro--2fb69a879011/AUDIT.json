@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The concatenation identity represents every continuation after a given input prefix as F_{q,s,t}; different triples are inequivalent since Rudin–Shapiro is not ultimately periodic and a nonzero translation difference cannot be two-periodic. An exact level bound B+3 follows from the two quotient classes and from the opposite values at 4j+2, 4j+3. Dyadic levels give one, two, three, four per level and four final zero-quotient states, yielding 4m+2. Independently built carry automata were minimized for 2,048 offsets and matched the residual formula; finite tests supplement rather than replace the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moradi–Rampersad–Shallit, arXiv:2512.10017v5, Thm. 19 bounds MSD-first Thue–Morse translations and Thm. 21 constructs MSD-first automata for shifted powers-of-two indicators; Sec. 3 provides addition automata without a Rudin–Shapiro minimum-state count.",
+        "Rampersad–Shallit, arXiv:2302.00405v3, introduces Rudin–Shapiro recurrences and constructs automata for Rudin–Shapiro sums; text searches for state complexity and shift produced no corresponding theorem."
+      ],
+      "reasoning": "General automatic-sequence closure and an O(log c) arithmetic-transducer upper bound do not imply distinguishability of the explicit residual triples, the short-interval exact count, or the coefficient 4 in the dyadic count. Existing more-general automaticity methods therefore do not entail the stated numerical classification.",
+      "searches": [
+        "arxiv:2512.10017v5 §§3,4.2,4.3",
+        "arxiv:2302.00405v3 sections 1,3,9",
+        "web: \"Rudin-Shapiro\" \"shifted\" \"minimal\" automata",
+        "web: \"Rudin-Shapiro\" \"state complexity\" \"translation\" shift DFAO",
+        "Rudin Shapiro linear subsequence automaton shift 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2512.10017v5",
+      "https://arxiv.org/html/2302.00405v3",
+      "https://doi.org/10.1016/j.aam.2014.10.002",
+      "published-finding corpus:2026/9/8/SCOPE079",
+      "published-finding corpus:2026/10/11/SCOPE-rational-rudin-shapiro-filter-mixtures-have-only-zero-and-nyquis--ef4ab1fef012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025/2026 results analyze other automatic sequences or give general upper bounds, without stating the exact arithmetic residual classification for Rudin–Shapiro.",
+        "The Rudin–Shapiro published-finding corpus hits concern finite string attractors or Fourier-filter mixtures, neither implying minimal translated DFAO counts.",
+        "The independently stated earlier result concerns LSD-first shifts of Thue–Morse, whose parity-of-ones statistic lacks the neighboring-bit interaction of Rudin–Shapiro.",
+        "Final exact-claim semantic searches produced no corresponding translated-kernel theorem; nearest lexical hits were unrelated Shapiro-type inequalities or automata rank compression."
+      ],
+      "reasoning": "All claims were compared by mathematical implication, not title: even a general shift automaton or an O(log c) bound may overcount after minimization, whereas the present result proves all reachable arithmetic residuals inequivalent and computes their count exactly. The own Thue–Morse formula cannot be substituted for the Rudin–Shapiro 11-pattern parity.",
+      "searches": [
+        "arxiv:2512.10017v5 Theorem 19 and §4.3",
+        "arxiv:2302.00405v3 fundamental recurrence and §§3,9",
+        "published-finding corpus 2026/9/8/SCOPE079",
+        "published-finding corpus 2026/10/11/SCOPE-rational-rudin-shapiro-filter-mixtures-have-only-zero-and-nyquis--ef4ab1fef012",
+        "Prior exact LSD-first translated Thue–Morse state-complexity claim"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/9/8/SCOPE079 concerns string attractors of Rudin–Shapiro dyadic prefixes, not shifted DFAO residuals.",
+        "Rowland–Yassawi (2015), Example 4.2, identifies four elements in the unshifted Rudin–Shapiro binary kernel.",
+        "arXiv:2512.10017v5, Secs. 4.2–4.3, explicitly studies shifted Thue–Morse and powers-of-two characteristic sequences, not shifted Rudin–Shapiro."
+      ],
+      "reasoning": "Alternative nomenclature includes 2-kernel cardinality of translated sequences, arithmetic residuals, coefficient-sequence shifts, and reverse-digit minimal-state complexity. A four-state base kernel at zero shift cannot imply the entire offset-dependent exact formula; the source that analyzes shifts considers different base sequences and orientations.",
+      "searches": [
+        "Rudin Shapiro sequence shift state complexity least significant digit first automaton c power of two",
+        "Rudin Shapiro shifted sequences exact minimal LSD first DFAO state complexity all integer offsets shifts",
+        "Rudin Shapiro k-kernel of shifted sequence r(n+c) exact number of states",
+        "Rudin Shapiro 2-kernel translation state complexity binary subsequences",
+        "web: \"Rudin-Shapiro\" \"shifts\" \"state complexity\" automaton",
+        "web: \"Rudin-Shapiro\" \"translate\" \"number of states\" automaton",
+        "web: \"Rudin–Shapiro\" \"shift\" \"state\" \"DFAO\"",
+        "Rudin Shapiro translated digit pair parity DFAO minimal states 4m+2 powers of two shift least significant digit first",
+        "Exact k-kernel size of shifted Rudin Shapiro sequence 4m+2 translation",
+        "Rudin Shapiro arithmetic residual r(n+q) xor parity(n) shifted automata minimal state count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The four-element kernel listed in Rowland–Yassawi Example 4.2 is the special offset c=0, agreeing with N(0)=4.",
+        "OEIS A020985 provides the classical underlying coefficient sequence, not the inspected exact shifted-state formula.",
+        "The nearby OEIS A382296 mentioned in arXiv:2512.10017v5 addresses MSD-first shifted Thue–Morse state complexity, a different sequence and orientation."
+      ],
+      "reasoning": "Neither the basic Rudin–Shapiro sequence table nor the unshifted kernel fixes the states of its translated sequence. No matching exact shifted table was found in the inspected sources; the possibility of another database entry remains a priority risk.",
+      "searches": [
+        "Rowland–Yassawi DOI 10.1016/j.aam.2014.10.002 Example 4.2",
+        "web: \"Rudin-Shapiro\" \"2-kernel\" \"shift\" complexity",
+        "web: \"Rudin-Shapiro\" \"least significant\" \"shift\" states",
+        "OEIS A020985 Rudin–Shapiro coefficient sequence (in arxiv:2302.00405v3)"
+      ]
+    },
+    "rationale": "Distinct translated Rudin–Shapiro residuals are separated symbolically by a nonperiodicity/period-two-difference argument; the formula gives the exact minimal DFAO state count at every offset and the sharp dyadic identity. The inspected 2025 state-complexity paper does not give a corresponding exact LSD-first Rudin–Shapiro formula; the 2023 Rudin–Shapiro automata paper treats summatory functions; and the 2015 binary-kernel example addresses only the unshifted sequence. The published-finding corpus semantic searches did not identify the claimed implication. Search absence is not itself a novelty proof, and unindexed equivalent results remain a risk.",
+    "residual_risks": [
+      "An equivalent translated-kernel formula could appear under a different terminology in unindexed or unpublished literature.",
+      "Exact state complexities might be implicit in a computer-generated table not located through the examined searches.",
+      "The source inspection of the 2015 article was limited to the accessible Rudin–Shapiro example and surrounding exposition; the article concerns cellular automata rather than translation state complexity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering exact LSD-first Rudin–Shapiro shift states",
+        "evidence": "Theorems 19, 20 and 21 concern MSD-first shifts of Thue–Morse and powers-of-two characteristic sequences; no Rudin–Shapiro shifted-state theorem is stated.",
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "HTML Introduction, Section 3 fixed-addition automata, Sections 4.2 shifted Thue–Morse and 4.3 low-complexity shifts, open-problems section",
+        "method": "Full-text HTML headings plus targeted section reading",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Recent primary theory of shifts of automatic sequences, including input orientation distinctions"
+      },
+      {
+        "assessment": "Not covering exact minimal DFAO counts for translations",
+        "evidence": "The paper develops automata for Rudin–Shapiro summatory functions; the fundamental recurrences appear in its Introduction, but no shift-state result appears in searched text.",
+        "identifier_or_url": "https://arxiv.org/html/2302.00405v3",
+        "material_read": "HTML title/abstract, Introduction and Section 3 automata; navigated section map and full-text searched shift, translate, state complexity",
+        "method": "HTML text examination and exact-text full-document finds",
+        "title": "Rudin-Shapiro Sums Via Automata Theory and Logic",
+        "trigger": "Same underlying Rudin–Shapiro object and automata methods"
+      },
+      {
+        "assessment": "Example 4.2 addresses the unshifted four-kernel fact; the entire article was not exhaustively inspected for translation consequences.",
+        "evidence": "Example 4.2 explicitly lists the four binary-kernel sequences of the unshifted Rudin–Shapiro word.",
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2014.10.002",
+        "material_read": "Accessible full-text Example 4.2 and surrounding description of the four-element 2-kernel",
+        "method": "Publisher full-text HTML excerpt accessed via web search",
+        "title": "A characterization of p-automatic sequences as columns of linear cellular automata",
+        "trigger": "Classical Rudin–Shapiro kernel with possible stronger residual equivalences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fb69a87-9011-4572-b7c5-0c79386361d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal DFAO state complexity of natural translated automatic sequences is an actively studied exact invariant, and the 2025 motivating paper highlights input orientation and shifted-state questions. The theorem gives a complete arbitrary-offset exact computation by O(log c) small interval tests, rigorously proves no residual mergers, and derives the nontrivial dyadic count 4m+2. This is substantially more informative than generic closure or the previously known O(log c) shift-automaton construction and is not merely a particular arbitrary finite parameter census.",
+    "status": "PASS"
+  }
+}
