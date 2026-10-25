@@ -1,29 +1,21 @@
-# Same-model review
+# Mathematical review: balanced Grassmannians and diameter equality
 
-## Correctness — PASS
+## Claim and conclusion
 
-The graph-chart Kähler potential
-\[
-\Phi=\log\det(I+Z^\ast Z)
-\]
-gives \(\det h=(\det(I+Z^\ast Z))^{-N}\). The Ricci-form identity gives \(\operatorname{Ric}(g_0)=2N g_0\). The full geodesic-distance proof in Chen--Deng--Zhang establishes the principal-angle norm and hence \(\operatorname{diam}_{g_0}=\pi\sqrt{k}/2\) when \(N\ge2k\). The rescaling is therefore exactly
-\[
-\operatorname{diam}_{2N g_0}=\pi\sqrt{Nk/2}.
-\]
-The comparison with \(m=k(N-k)\) is an identity. At \(N=2k\) equality holds, while the Schubert/Künneth calculation \(b_2=1\) versus \(k^2\) excludes the proposed product. The bundled exact checker replays the determinant and normalization factors; it is not used in place of the general argument.
+For each integer k≥2, the complex Grassmannian Gr_C(k,2k) with its standard Plücker-induced Kähler metric scaled to Ric(g)=g has complex dimension k² and diameter πk. It is not homeomorphic to (CP¹)^(k²), because its second Betti number is one rather than k². This contradicts the uniqueness-of-equality clause of the conjecture of Chakraborty–Wang–Wu; it does not contradict their proposed upper diameter bound.
 
-## Originality — PASS
+## Correctness
 
-The motivating complete preprint conjectures uniqueness of the product of projective lines. The closest full primary comparison proves the **unscaled intrinsic Grassmann diameter** for the trace metric, but does not compute the Ricci-normalized family as an equality case of that conjecture. Chu--Lee--Zhu discuss a different diameter rigidity problem with stronger holomorphic-sectional-curvature assumptions. Direct conjecture/source/parameter searches found no prior statement of the balanced-Grassmannian refutation. The separate Grassmann metric and Einstein properties are classical, and the result does not claim they are new.
+The graph-chart potential Φ=log det(I+Z*Z), with ω₀=(i/2)∂∂̄Φ, yields det h=(det(I+Z*Z))^(-N) and Ric(g₀)=2N g₀. The trace metric has intrinsic geodesic distance given by the ℓ² norm of the principal angles. For N≥2k, k right-angle principal pairs are realizable, hence diam(g₀)=π√k/2 and diam(2N g₀)=π√(Nk/2). The squared diameter gap from π²m is π²k(N−2k)/2, vanishing exactly for N=2k. The Betti-number distinction is conclusive. These geometric identities provide a proof for every stated k,N, not merely the checked small examples.
 
-A residual priority risk is that these classical ingredients could have been combined in an unindexed observation. The contradiction itself is decisive: for every \(k\ge2\) an irreducible manifold attains the asserted diameter equality but has the wrong second Betti number.
+## Originality and attribution
 
-## Value — PASS
+The Grassmann metric, the principal-angle distance theorem, the Einstein rescaling and the Schubert cohomology facts are prior knowledge. The mathematical contribution is the explicit implication of these facts for the specific September 2026 equality conjecture. Recent relevant diameter theory for isometric quotients and for stronger holomorphic-sectional/bisectional curvature does not itself establish this Ricci-only equality counterexample. The current best-of-knowledge assessment finds no independently published equivalent refutation among the inspected sources. The relevant recent arXiv manuscripts could not be obtained in complete text for this assessment; an unindexed earlier observation or an updated version remains a priority risk.
 
-The counterexamples invalidate a central rigidity clause in a recent explicit Kähler diameter conjecture, not a peripheral normalization. They identify the balanced higher-rank symmetric spaces as a necessary family for any corrected equality statement. The exact parameter formula also shows that unbalanced complex Grassmannians do not attain the proposed bound.
+## Value and limits
 
-Same-model review: passed. Independent audit: not yet performed.
+An infinite, irreducible homogeneous family refutes a substantive rigidity prediction. Any corrected equality statement must account for balanced higher-rank Kähler–Einstein symmetric spaces. Neither universal upper diameter bounds nor a full replacement equality classification are established here.
 
-## Closest literature and limitations
+## References
 
-The closest sources are Chakraborty--Wang--Wu (arXiv:2609.03287v1), Chen--Deng--Zhang (arXiv:2609.21535v1), and Chu--Lee--Zhu (DOI:10.1007/s00209-026-04132-2). The result does **not** prove or disprove the universal Kähler diameter upper inequality or classify all of its possible equality geometries.
+Chakraborty, Wang, Wu, *Spectral Improvements of Geometric Inequalities on Closed Kähler Manifolds*, arXiv:2609.03287 (2026). Chen, Deng, Zhang, *A diameter gap for irreducible compact symmetric spaces of fixed rank*, arXiv:2609.21535 (2026). Absil, Mahony, Sepulchre, *Riemannian Geometry of Grassmann Manifolds with a View on Algorithmic Computation*, Acta Appl. Math. 80 (2004), 199–220. Chu, Lee, Zhu, *On diameter rigidity for Kähler manifolds with positive holomorphic sectional curvature*, Math. Z. 314 (2026), article 18.

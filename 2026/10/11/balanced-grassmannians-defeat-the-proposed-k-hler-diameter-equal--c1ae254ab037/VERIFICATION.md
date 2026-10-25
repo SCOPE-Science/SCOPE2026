@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-In a graph chart for \(\operatorname{Gr}_{\mathbb C}(k,N)\), define
-\[
-S=I_k+Z^\ast Z,\qquad T=I_{N-k}+ZZ^\ast.
-\]
-The Kähler potential \(\log\det S\) has Hermitian tensor
-\[
-h(H,H)=\operatorname{tr}(S^{-1}H^\ast T^{-1}H).
-\]
-Consequently
-\[
-\det h=(\det S)^{-(N-k)}(\det T)^{-k}=(\det S)^{-N},
-\]
-and the Ricci form is \(2N\) times the original Kähler form. Thus the Einstein-normalized metric is \(g=2N g_0\).
+# Independent mathematical audit
 
-The canonical intrinsic metric satisfies the principal-angle distance formula
-\[
-d_{g_0}(U,V)^2=\sum_{j=1}^{k}\theta_j^2,
-\]
-with \(0\le\theta_j\le\pi/2\). When \(N\ge2k\), orthogonal subspaces realize all angles \(\pi/2\); hence
-\[
-\operatorname{diam}_{g_0}=\pi\sqrt{k}/2.
-\]
-Therefore
-\[
-\operatorname{diam}_{g}=\pi\sqrt{Nk/2},
-\quad
-m=k(N-k),
-\quad
-\pi^2m-\operatorname{diam}_g^2=\pi^2k(N-2k)/2.
-\]
-The equality condition \(N=2k\) is exact for the stated range. The complex Grassmannian has \(b_2=1\) and its proposed projective-line product comparison has \(b_2=k^2\), so the manifolds cannot be homeomorphic when \(k\ge2\).
+## correctness
 
-The standalone \(\texttt{verify.py}\) recomputes the metric determinant in a nontrivial rational chart and symbolically replays the dimension/diameter factors and the \(\operatorname{Gr}_{\mathbb C}(2,4)\) example. The checker is not a substitute for the full principal-angle minimality theorem or the Schubert cohomology fact. This result concerns **only** the uniqueness-of-equality part of the conjecture, not the upper bound itself.
+PASS
+
+For all integers k>=2,N>=2k, the Plucker metric from log det(I+Z*Z) has Ricci form 2N omega0 by the Kronecker determinant; g=2N*g0 obeys Ric(g)=g. The canonical intrinsic Grassmann geodesic metric is the l2 norm of principal angles; N>=2k permits k orthogonal principal pairs, giving diam(g0)=pi sqrt(k)/2 and scaled diam=pi sqrt(Nk/2). With m=k(N-k), pi^2*m-diam^2=pi^2*k*(N-2k)/2. At N=2k this vanishes, but b2(Gr_C(k,2k))=1 and b2((CP1)^(k^2))=k^2, excluding even a homeomorphism for k>=2. The normalized CP1 k=1 edge check matches diameter pi/2 before Einstein scaling. Actual seven source files and Git SHA were inspected; exact rational chart and general polynomial gap recomputed independently. The ambient Plucker projective distance is not used. This only disproves uniqueness of equality, not the inequality.
+
+## originality
+
+PASS
+
+Best-of-knowledge: a fresh exact conjecture quote and established Grassmann metric components imply an explicit infinite non-product equality family, contradicting the new September 2026 conjecture uniqueness clause. Prior metric, Schubert, and Ricci facts are credited and are not separately claimed novel. Three Resultary semantic queries returned only the same record as an exact claim, not independent priority, and independent published work concerns metric geometry, isometric-quotient lower bounds, or stronger-curvature rigidity. Full-text primary-access limitations and possible unindexed observations remain explicitly material residual risks; inaccessible literature alone does not compel rejection.
+
+## value
+
+PASS
+
+This is a mathematically motivated structural counterexample to a concrete newly formulated uniqueness-of-equality claim in sharp Kähler diameter geometry. The entire infinite family of irreducible balanced higher-rank homogeneous Kähler–Einstein spaces forces any corrected equality statement to include non-product geometries; the exact gap formula distinguishes strictly unbalanced parameters. The calculation uses classical ingredients but its implication is a substantive obstruction to a proposed rigidity classification, not an arbitrary tiny number or rebranding; does not claim the upper inequality fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
