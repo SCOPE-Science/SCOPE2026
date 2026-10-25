@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The binomial CDF power identity for the maximum is exact. For two underlying Bernoulli trials, the quadratic generating polynomial has nonnegative discriminant by convexity; all coefficients are positive. In dimensions at least three, coefficientwise convergence after rare-event rescaling to \(m(1+t)^n-(m-1)\) forces a nonreal root for every sufficiently small success probability. In the first failing case, the cubic discriminant identity yields the unique sharp algebraic threshold. The standalone exact-polynomial checker completed 2,615 checks, independently reconstructing the displayed discriminant factorization. Finite checks supplement rather than replace the universal proof.
+PASS
 
-## Originality (PASS on inspected evidence)
+The exact order-statistic probability mass is P(M=k)=F_k(p)^m-F_(k-1)(p)^m, with F the Bin(n,p) CDF. At n=2, the quadratic discriminant is q^(2m)*([(1-p)^m+(1+p)^m]^2-4)>0 by strict convexity for m>=2, and all coefficients are positive, so the roots are strictly negative. For any fixed n>=3,m>=2, coefficientwise convergence of G(t/p) at p->0 gives m(1+t)^n-(m-1) with a simple nonreal zero; fixed-degree root continuity supplies a genuine positive-p failure interval. For n=3,m=2, exact sympy re-expansion of the CDF squared verifies Disc_z G=108 p^6(1-p)^12 Q(p), Q=4p^6+8p^3+3p^2+6p-1. Q increases strictly from -1 to 20 and has a unique positive root; positive PGF coefficients exclude nonnegative real roots, so sign of the discriminant yields the precise iff. At equality its simple discriminant zero implies exactly one double negative root. Crosschecks verify polynomial factorization and sampled signs; the universal n>=3 statement uses analytic root continuity, not a finite grid.
 
-Badiella, del Castillo and Puig (2023) establish that discrete order statistics preserve ultra log-concavity; this does not imply Poisson-binomial decomposability, as the present negative-discriminant regimes demonstrate. Kim, Kim and Lee (2018) earlier proved ordinary log-concavity preservation. Tang and Tang's survey (2019), Theorem 4.1, gives the equivalence of Pólya-frequency, real-rooted, and Bernoulli-sum representations, but not the new exact family classification. Completed mathematics-record and literature searches included the corresponding aliases, rare-event description, concrete cubic polynomial and sharp parameter. No matching or dominating specific theorem was identified. The full 2018 article was not accessed, and older unindexed work remains a residual originality risk; database nonmatches are not novelty proofs.
+## originality
 
-## Value (PASS)
+PASS
 
-This is a natural complete boundary question at the interface of discrete order statistics and factorization of count laws. The all-sample-size preservation cutoff is sharp, and the first dimension beyond it admits a complete one-parameter phase diagram with an explicit algebraic constant. The results distinguish ultra log-concavity, known to be preserved, from the stronger Poisson-binomial property and identify when the latter may still be used for independent-count computations.
+Qualified best-of-knowledge originality for the precise final theorem and its stated parameter domain. The four named implication comparisons discriminate known mathematical inputs from the sharp new increment; an unindexed equivalence remains possible. Generic characterization cannot supply root locations for these maxima. The proof exhibits a nonreal root for all n>=3 small p, excluding any generic stronger max-preservation result without contradicting its own hypotheses.
 
-## Scope and verification limits
+## value
 
-The result does not give a global parameter classification for arbitrary larger trial counts and sample sizes. The positivity neighborhood in each dimension at least three is existential. Scientific statements have undergone the review status below; they have not been independently audited. References and exact mathematical evidence are in RESULT.md and AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Real-rootedness/Poisson-binomial factorization is a strictly stronger natural invariant than log concavity for maxima of familiar binomial counts. The largest trial size universally preserving it and the exact first failing probability threshold are meaningful familywise boundary facts rather than a generic counterexample; the rare-event polynomial mechanism identifies the obstruction for every n>=3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
