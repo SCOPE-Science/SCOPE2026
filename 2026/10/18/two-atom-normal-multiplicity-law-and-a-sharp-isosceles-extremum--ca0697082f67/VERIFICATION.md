@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify_triangle_normals.py` is self-contained and requires Python 3 standard library only. Run `python3 verify_triangle_normals.py`; the expected output is `TRIANGLE_NORMALS_EXACT_OK checks=2715`.
+## correctness
 
-Exact rational checks compare a direct face-by-face normal-base enumeration with the analytically predicted four-or-six count on interior barycentric grids for six rational triangles. The program additionally checks the exact opposite-side interval identity in the obtuse cases and the squared-gap sharp inequality for rational leg ratios and angle-cosine parameters. Its assertion count is 2,715. The analytical proof in `RESULT.md`, rather than finite tests, establishes the theorem for real triangles and parameters.
+PASS
 
-No external or independent audit has been performed. Inaccessible historical full texts prevent definitive priority certification.
+For each interior point, the normal foot on an edge is internal exactly when its signed edge projection lies strictly between endpoint values; vertex support normals correspond to positive dot products with both incident edge rays. In an obtuse triangle at apex A, the two acute vertices and BC always contribute three bases; signs of x·u and x·v cannot both be negative since x=s u+t v for s,t>0. Exactly two positives yield 6 total normals, exactly one yields 4. Intersections of the two altitude boundaries with opposite side give z_low=-g/(V-g), z_high=U/(U-g), hence the 6-normal area fraction (UV-g²)/((U-g)(V-g)); the rest have four. For fixed angle t=-cos(theta) and ratio r, the rational p expression and nonnegative square-gap identity prove the unique isosceles maximum and nonattained infimum 0. Independently checked representative exact rational chamber fractions and 507 rational interior sample counts; proof applies to continuous area measure, excluding null bifurcation lines.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact final statement, including earlier stronger/special-case results and mathematical implications, did not identify decisive coverage of the stated new component; this is not an exhaustive global priority certification.
+
+## value
+
+PASS
+
+The classic average-normal question is naturally distributional; the exact complete support-and-mass law for every Euclidean triangle and sharp fixed-obtuse-angle isosceles extremum strengthens the earlier qualitative mean dichotomy. The full two-atom law and shape extremizer provide nontrivial, independently useful geometric probability data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
