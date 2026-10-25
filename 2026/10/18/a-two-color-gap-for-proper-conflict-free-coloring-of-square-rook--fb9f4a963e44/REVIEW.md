@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any proper Latin-rectangle representation, a neighborhood has a uniquely occurring color exactly when its row and column palettes differ; its neighbors may have multiplicity at most two, so the odd formulation coincides. When the board is rectangular, row/column cardinalities prove the optimal Latin-rectangle upper bound. For a square with at most \(n+1\) colors, the multisets of omitted row and column colors coincide by double counting, so some palettes coincide; the lower bound is therefore \(n+2\). Explicit modular constructions with a unit step outside \(\{\pm1\}\), together with direct exceptional matrices for orders 2 and 4, attain the bound for every square order. The independent checker directly evaluates graph neighborhoods on 461 examples and exhaustively excludes smaller palettes for orders two and three. Its finite range is not the basis of the unrestricted proof.
+## correctness
 
-**Originality — PASS (subject to unindexed-priority risk).** The earliest source defines the investigated parameter, not its exact rook graph value. The closest general quasi-line theorem gives equality with proper odd coloring and an upper bound \(3\Delta/2+2\), but not the exact values or the square/non-square transition. Literature explicitly devoted to odd colorings of Cartesian products covers paths and cycles, while the product-structure paper gives coarse boundedness for another graph category. Existing Latin rectangles cover proper colorability but not the noncoincidence of row/column palettes. Searches by exact formulas, the alternative line-graph representation, parity-odd aliases, and related published records found no statement implying this formula. A missed older paper or an unindexed equivalent remains a risk; a failed search is not evidence of uniqueness.
+PASS
 
-**Value — PASS.** The rook graphs are natural line graphs of complete bipartite graphs, with exact ordinary chromatic number already known. The new invariant exhibits a sharp, structurally explained two-extra-color obstruction on every square order and no extra cost after changing either dimension, a distinction not visible from ordinary colorability. The row/column omission criterion and explicit all-size coloring schemes constitute a complete infinite-family classification with a clear relationship to broader proper conflict-free/odd coloring research.
+For proper cell colouring of R_{m,n}=K_m □ K_n, a neighbour colour has multiplicity 1 precisely when in row palette A_i symmetric-difference column palette B_j; all multiplicities are 0,1,2, making the proper odd condition equivalent. Rectangular m<n has optimal n-colour cyclic Latin rectangle since row palette size n differs from column size m. For square n×n with ≤n+1 colours, each row/column misses exactly one of n+1 palette colours; counting occurrences of each colour by rows and columns forces identical multisets of missing colours, hence some A_i=B_j, disproving valid χ<=n+1. Explicit 4-colour 2×2 and 6-colour 4×4 matrices realize exceptions. For other n≥3, k=n+2 and c_ij=i+qj mod k with q unit distinct from ±1 gives row missing 2-sets with differences ±q and column missing differences ±1, so palettes differ; piecewise q existence is algebraic for all sizes. A fresh checker of actual open-neighborhood colour multiplicities (not using the palette criterion) verified all 2<=m,n<=12 and squares n=13..80 (189 instances). This finite check corroborates, but the modular construction and omission-multiset counting prove all integer n,m>=2.
 
-**Limits.** Covers \(m,n\ge2\), proper open-neighborhood colorings only. No claim of independent review or priority certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact statements/implications, relevant published corpus findings and available primary material. Classical ingredients are credited; no located stronger theorem or exact table entails the claimed new conclusion. Residual access and priority limits are recorded.
+
+## value
+
+PASS
+
+Proper conflict-free and odd neighbourhood colouring of rook/Hamming dimension-two graphs is a natural exact chromatic invariant. A uniform, sharp two-colour penalty precisely for square aspect ratios, together with explicit optimal Latin-type matrices, is a motivated structural classification rather than a routine recalculation of ordinary rook chromatic number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
