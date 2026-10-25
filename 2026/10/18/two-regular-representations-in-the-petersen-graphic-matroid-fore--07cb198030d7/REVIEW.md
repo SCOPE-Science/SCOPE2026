@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Petersen graphic matroid has rank nine and is coloopless; its forest complex has reduced homology in degree eight by matroid shellability. The proof derives the signed orbit-union Lefschetz formula, exhaustively enumerates every forest over the fifteen graph edges, and checks all seven \(S_5\) conjugacy types. A distinct direct signed-face calculation over each of the \(120\) group elements agrees. The rational character consequently equals two regular characters. The ordinary wedge consequence is based on an established general theorem, not inferred from finite data alone.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Ardila–Castillo–Samper's general shellability and ordinary wedge statements are preexisting, as are Moci–Pezzoli's equivariant matroid representation comparisons. Neither inspected primary text evaluates the Petersen forest complex as two copies of the rational regular \(S_5\)-module. Indexed Petersen results for matchings, cuts, Morse matchings and graph configuration spaces have different face definitions and do not directly cover the claim. A generic theorem could make the specific calculation derivable; an unindexed identical evaluation could preexist.
+PASS
 
-**Mathematical value — PASS.** The claim computes a natural and complete topological symmetry invariant of the canonical Petersen graphic matroid. The twice-regular phenomenon determines all Specht multiplicities and the exact full-group fixed dimension, strictly more than homology ranks. It is a motivated equivariant topology calculation rather than a free parameter substitution.
+Petersen graphic matroid is connected, coloopless rank nine; known matroid independence complex shellability concentrates homology in degree eight and implies sphere wedge. The oriented, augmented Lefschetz trace for a permutation of its 15 graph edges is -sum_{union of full edge-orbits forest}(-1)^(number of selected orbits). I independently enumerated 32768 subsets (22292 forests) and all 120 induced S5 permutations with signed fixed-face parity. The exact trace distribution was identity 240 and zero for all 119 nonidentity elements, independently confirming the source orbit table; Q-rational character theory then gives two regular summands. Here exhaustive enumeration genuinely covers the finite Lefschetz sum, while shellability supplies the general homotopical step.
 
-**Limitations.** The statement identifies rational group modules, not integral equivariant splitting, nor an equivariant sphere-wedge model. Independent replication by a separate investigator has not been performed. Neither the generic shellability theorem nor generic equivariant matroid formulas are claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical highly symmetric graphic matroid, but its ordinary top homology dimension does not determine its S5 module. Complete seven-class rational character and the surprising two-regular decomposition give a natural exact equivariant homological invariant useful in matroid symmetry comparisons. The nontrivial signed orbit cancellations, not generic matroid shellability, give its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

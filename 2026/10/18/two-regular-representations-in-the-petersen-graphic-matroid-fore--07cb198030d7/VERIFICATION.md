@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the exact finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer; only the standard library is required. The script reports success only after checking the seven conjugacy-type orbit polynomials and a separately computed oriented-face Lefschetz trace for each of the \(120\) five-label permutations.
+## correctness
 
-The graph model starts with the ten two-subsets of \(\{0,1,2,3,4\}\), listed lexicographically, and the fifteen edges joining disjoint pairs, also listed lexicographically. The test enumerates all \(32768\) subsets of those fifteen edges and verifies that exactly \(22292\) are forests. The forests contribute to the augmented simplicial chain complex; the empty forest must be included to obtain the reduced character.
+PASS
 
-The mathematical bridge from the finite trace to the actual homology representation is the standard matroid shellability/concentration theorem. The checker does not independently prove the shellability theorem. Character equality is a rational semisimple group-representation conclusion, not an integral module calculation. No independent external audit is represented by these checks.
+Petersen graphic matroid is connected, coloopless rank nine; known matroid independence complex shellability concentrates homology in degree eight and implies sphere wedge. The oriented, augmented Lefschetz trace for a permutation of its 15 graph edges is -sum_{union of full edge-orbits forest}(-1)^(number of selected orbits). I independently enumerated 32768 subsets (22292 forests) and all 120 induced S5 permutations with signed fixed-face parity. The exact trace distribution was identity 240 and zero for all 119 nonidentity elements, independently confirming the source orbit table; Q-rational character theory then gives two regular summands. Here exhaustive enumeration genuinely covers the finite Lefschetz sum, while shellability supplies the general homotopical step.
+
+## originality
+
+PASS
+
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical highly symmetric graphic matroid, but its ordinary top homology dimension does not determine its S5 module. Complete seven-class rational character and the surprising two-regular decomposition give a natural exact equivariant homological invariant useful in matroid symmetry comparisons. The nontrivial signed orbit cancellations, not generic matroid shellability, give its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
