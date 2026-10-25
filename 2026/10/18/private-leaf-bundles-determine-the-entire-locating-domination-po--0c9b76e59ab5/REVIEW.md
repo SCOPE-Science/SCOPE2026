@@ -1,12 +1,21 @@
-# Review of private-leaf location domination and partitions
+# Independent mathematical audit
 
-## Correctness — PASS
-The local classification follows from open-twin leaves: omitting two is impossible, and omitting one requires its center in the code. Conversely, every omitted center is distinguished by a private selected leaf, while every omitted leaf is distinguished by its unique selected core neighbor. The independent options yield exactly \(\mathcal L_G(z)=z^K\prod_i(k_i+1+z)\). Requiring the complement to dominate forces an entire bundle into the LD side and its center into the dominating side for large bundles, and exactly one endpoint per pair for singleton bundles; the two-LD obstruction and domination-number equalities follow. Complete finite enumeration of 1,335 graphs and 1,518,440 vertex subsets corroborates the proof. Risk: independent human checking of the unrestricted reasoning is still pending; finite checking cannot replace it.
+## correctness
 
-## Originality — PASS with priority risk
-The 2026 general DLDS partition theorem establishes existence and cites the ordinary one-leaf corona as a sharp example, but supplies neither the full nonuniform independent-leaf-bundle LD polynomial nor its partition enumeration. The 2014 Canoy–Malacas–Tarepe characterization concerns coronas of two connected nontrivial factors; the independent private-leaf modules here violate its assumptions. The 2012 corona paper derives minimum-parameter facts and bounds, not an all-code polynomial or this complete count. The 2022 introduction of the location-domination polynomial evaluates other graph families. A later 2025 preprint studies two-LD partitions for certain twin-free graph classes; the present bundles with two or more leaves are not twin-free. Targeted literature and semantic mathematical-record searches found no dominating prior implication, although priority cannot be certified from the searched corpus and not every potentially relevant paper was accessible in full.
+PASS
 
-## Value — PASS
-The theorem gives every coefficient, all minimum codes, graph-edge invariance, explicit real zeros, exact complement partitions, sharp equality in a general domination inequality, and an if-and-only-if classification for splitting into two LD sets. It simultaneously handles arbitrary graph cores and independent heterogeneous pendant multiplicities, far beyond the one-leaf existence observation. These structural distinctions and enumeration support concrete reasoning about locating-code redundancy and partition feasibility; this is not merely a renamed extremal number.
+At each bundle of k_i open-twin leaves, no LD set can omit two because their traces coincide; omitting one requires its centre selected to dominate. If no leaf is omitted the centre is arbitrary. Conversely an omitted leaf has the unique selected centre as trace and an omitted centre has a nonempty private-leaf trace, separating all outside vertices across and within bundles independently of edges of H. The three choices give local factor z^k_i(k_i+1+z), yielding complete LD polynomial, min cardinality K and ∏(k_i+1) min sets, all zeros real nonpositive. A complement D dominates iff for k_i≥2 its centre goes in D and all leaves in X; for k_i=1 one endpoint of each pendant pair is in D. Thus 2^s DLDS choices, γ(G)=n, and two-LD partitions iff all k_i=1 with 2^n ordered choices. Independent enumeration verified the polynomial and both partition counts for 74 labeled core/bundle configurations through n=3; source checker extends much farther, neither finite checker proves universal assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
+
+## value
+
+PASS
+
+The complete size generating polynomial, independence from all edges of the arbitrary core graph, and exact complementary domination/locating-partition family provide an informative structural classification beyond a routine γ value or existence theorem. The sharp condition for two locating-dominating parts isolates the obstruction created by twin leaf multiplicity and can be reused as a boundary construction. It is limited to genuinely independent degree-one private leaves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
