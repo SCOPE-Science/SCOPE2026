@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives an exact prefix identity for palindromic count, uniformly bounds its error by three, proves rationally independent logarithmic torus phases are equidistributed with harmonic weights, and transfers weak limits across tie-free chamber boundaries. The arbitrary-length example is justified by Gelfond--Schneider transcendence and a simple-pole linear-independence argument. An exact-count and rational-volume checker passed 45,082 finite comparisons. The finite checks do not substitute for equidistribution or transcendence.
+## correctness
 
-## Originality — PASS within inspected evidence
-The directly relevant published full papers are Phunphayap--Pongsriiam (2022, first released 2021), especially Theorems 11–12 and concluding Problem 2, and Phunphayap--Pongsriiam (2023), especially Section 4, Question 4.1. They study extremal sign changes, including infinitely many pairwise ties, and formulate, rather than settle, multibase rankings. The present joint *logarithmic* distribution, density integrals, and arbitrarily long explicit family are not stated there. Other records checked concern palindromes as individual integers, word-palindrome coding, or multiplicatively dependent base comparisons; they do not imply these reciprocal-independent race densities. Classical digit counting, harmonic Weyl equidistribution, and Gelfond--Schneider are acknowledged, not claimed as novel. Residual risk: a more general existing torus-flow formulation could imply the theorem; publication priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The 2023 paper poses arbitrary-ordering recurrence as an open problem. The explicit infinite family solves a mathematically motivated part for every family length and strengthens infinitude to a complete positive-density law and exact pairwise bias. The independence argument is constructive and uses transcendence to handle a genuinely multidimensional condition; it is not a restatement of the authors' pairwise extremal results.
+The exact palindrome-digit-prefix identity A_b(n)=H+floor(n/H)+epsilon-2, with H=b^{ceil(floor(log_b n)/2)}, gives a uniform O(n^{-1/2}) error after dividing by sqrt(n). Writing Delta=distance(log_b n,2Z) yields phase profile 2 cosh((log b)Delta/2). For rationally independent reciprocals 1/log b_i, the weighted character sums sum_{n<=X} n^{-1+i*pi*sum h_i/log b_i}=O_h(1) for each nonzero integer h via integral comparison; Weyl gives logarithmically weighted Haar equidistribution on k-torus. Uniform phase distances produce independent Uniform[0,1], so ordering events are continuity sets, ties density zero. The ordered-volume formula and for b<c with irrational log ratio d{A_b>A_c}=log b/(2 log c) follow. Explicit b_j=3*2^j are jointly Q-independent: alpha=log2/log3 is transcendental by irrationality + Gelfond–Schneider, and a rational relation among 1/(1+j alpha) forces a zero polynomial whose partial-fraction residues vanish. Independently verified 13,194 (n,base) exact palindrome counts for bases 2,3,4,5,8,10 and n1..2199; checked source checker and arithmetic argument. These finite tests do not prove equidistribution.
 
-## Limitations
-Only logarithmic densities are proved. Pairwise irrationality alone is not proved sufficient when more than two bases are involved. No independent scientific audit, natural density, uniform quantitative rate, or priority determination is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Phunphayap–Pongsriiam 2022 and 2023 full primary PDFs establish extremal comparisons, sign changes, recurrent equalities, and explicitly ask for arbitrary strict k-base orderings under weaker conditions. Their inspected sections do not provide a product logarithmic limiting law, exact ordering chamber volumes or the explicit arbitrarily-long independent family. The result does not claim to solve their full pairwise-log-irrationality conjecture, since rational independence is stronger. Standard equidistribution and Gelfond–Schneider are plainly attributed. A broader independent published race law could imply this theorem; retained as risk.
+
+## value
+
+PASS
+
+Quantifies the precise logarithmic frequencies of all strict orderings and resolves an explicit infinitely-long subfamily of a published multibase-palindrome race question. The joint limit distribution and positive-density all-k! outcomes are meaningful number-theoretic facts beyond known pairwise infinite sign changes; logarithmic density is clearly distinguished from natural density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
