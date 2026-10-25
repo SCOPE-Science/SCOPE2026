@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit quadratic-residue difference-set identity yields every claimed face count. The affine orbit of the missing triangle \(\{0,1,3\}\) has size \(55\), and each missing triangular boundary is filled by three present faces; this proves simple connectivity. The \(55\) prescribed free-face collapses leave a two-complex with Euler characteristic \(22\). Hurewicz and homological Whitehead give exactly \(21\) sphere summands. The signed fixed-simplex Lefschetz calculation yields the stated affine character and rational quotient rank. Two standalone programs directly verify all finite assertions. These arguments do not rely on extrapolating a finite experiment to an infinite family.
+## correctness
 
-**Originality — PASS.** The closest primary source, Dochtermann–Singh (arXiv:2108.10948, Definitions 4.1, Theorems 4.3 and 4.12, Sections 5 and 7), defines the complex and raises the tournament-topology problem but does not give the specific Paley-\(11\) type or group character. Jones (arXiv:1702.00285, Section 9.7) supplies the known affine automorphism group, not the topology. Searched exact parameters, equivalent design formulations, and published results on other Paley and tournament complexes; the identified statements contain no implication covering this claim. The closest symmetric-biplane block-complex result concerns the different \(16\)-point Kummer design. Unindexed equivalent work is possible.
+PASS
 
-**Mathematical value — PASS.** This gives a complete integral homotopy type at a canonical highly symmetric tournament, together with an exact character for the full automorphism group and rational quotient topology. The object is motivated by the explicitly identified open-ended classification problem for tournament neighborhood complexes, not an arbitrarily selected induced subcomplex. The symmetry calculation contains information unavailable from the sphere count alone.
+Recomputed Q={1,3,4,5,9} and all facets t+Q. The (11,5,2) difference design yields complete face vector (11,55,110,55,11). Enumerated all 55 missing triangles as one orbit of {0,1,3}; its boundary is filled by three present triangles with cone point 2, hence π1=0. Every 4-face/5-face lies in a unique design facet, permitting 55 prescribed free-face collapses to f=(11,55,66), a 2-complex with Euler characteristic 22 and π1=0; Hurewicz plus 2-dimensional homological Whitehead give wedge 21 S². Separately enumerated signed fixed-face Lefschetz values across all 55 affine elements, agreeing with (21,-1,1). Averaging yields (21-10+44)/55=1; only rational homology of geometric quotient is asserted.
 
-**Limits.** The proof does not classify general Paley tournaments or the integral topology of the quotient; it also does not establish independent novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general directed neighborhood-complex and edge-Hom theorems of Dochtermann–Singh establish the framework and ask about tournament homotopy, but do not determine the Paley-11 complex, 21 spheres, or the affine representation. Jones supplies the tournament affine automorphisms, not the action on these homology groups. The published Paley-19 directed FLAG and Paley-13 undirected graph neighborhood results concern different complexes and parameters.
+
+## value
+
+PASS
+
+A canonical doubly regular eleven-vertex tournament provides a natural test of a published open classification question. The exact homotopy type and entire affine representation and quotient rational invariant are mathematically motivated finite topological classifications, not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
