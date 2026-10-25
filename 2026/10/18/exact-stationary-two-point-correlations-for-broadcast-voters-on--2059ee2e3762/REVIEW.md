@@ -1,15 +1,21 @@
-# Review of the exact stationary pair law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result is a single complete pair-covariance classification for the stationary product-start broadcast-voter law on an infinite regular tree. The critical joint midpoint event is of rate \(q\), the two single midpoint moves have rate \(1-q\), and the remaining pair-distance motion is a one-dimensional outward-drifting birth-and-death chain. Its eventual collision probability solves two local equations and an exact gambler's-ruin tail; the stated rational solution satisfies each generator equation. Moment duality turns meeting probability into the stationary covariance. Strict parameter monotonicity and inversion follow by algebra, not simulation. The exact-rational checker passes 2430 finite recurrence/truncation tests; these are only consistency checks of the analytic proof.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The main primary paper [1] establishes broadcast dynamics, their coordinated dual, stationary existence, and full-law moment-profile identification on trees. Its pertinent primary full-text sections do not state the regular-tree two-point profile, its distance-two coordination correction, or recovery of \(q\) from a single pair covariance. Classical tree collision probabilities [2] address only the uncoordinated case. A related 2026 voter-variant paper uses different dynamics, and the named targeted mathematical-record/public searches did not show a covering formula. A yet-unlocated general explicit-coalescence theorem could imply the calculation, and independent priority checking remains necessary.
+PASS
 
-## Mathematical value
-**PASS.** The formula completely describes the natural two-point stationary dependence of the new model on a homogeneous nonamenable network, including exact spatial-decay universality and identifiable broadcast coordination from minimal observable data. The single density and pair covariance do not identify the entire broadcast distribution; higher moments can matter for higher-order statistics. This is an exact structural benchmark rather than a code-only finite census.
+For the broadcast-voter model on T_d, d>=3, the two-ancestral-particle dual of Astoquillca–González Casanova–dos Santos has ordinary inward/outward jump rates 2 and 2(d-1) for distance>=3; at distance 2 the one midpoint simultaneously broadcasts to both occupied neighbors at rate q=∫uΛ(du)/Λ[0,1], while individual inward jumps total 2(1-q); at distance 1 direct coalescence has rate 2. The k>=3 gambler-ruin hitting probability of level2 is (d-1)^-(k-2). Solving 2d h1=2+2(d-1)h2 and (2d-q)h2=q+2(1-q)h1+2(d-1)h3, h3=h2/(d-1), gives h1=[2(d-1)+(d-2)q]/H, hk=[2+(d-2)q]/H (d-1)^-(k-2), H=2(d-1)^2+(d-2)q. I independently simplified both generator equations to zero symbolically; derived d(h1)/dq=2(d-2)^2(d-1)/H²>0 and d(h2)/dq=2d(d-2)^2/H²>0; checked q=0 gives classical (d-1)^-k. Duality under Bernoulli(p) initial data converts coalescence probability to covariance p(1-p)h_k; algebraic inversion follows from h1<1. The proof relies on full primary graphical subset rates; these were inspected in arXiv:2610.04530 Sections 3.2-3.4 and their pair specialization.
 
-## Limitations and sources
-The domain is \(d\ge3\), fixed homogeneous finite nonzero \(\Lambda\), and stationary laws formed from Bernoulli\((p)\) product initial data with \(0<p<1\). The calculation does not treat irregular graphs or all invariant measures. The principal comparison is [1] Astoquillca, González Casanova and dos Santos, arXiv:2610.04530v1 (2026-10-03); additional context is [2] Durrett, *Dynamics on Graphs*, Chapter 7, Example 7.4.3; [3] Aldous and Fill, Section 14.3; and [4] Astoquillca, *Journal of Theoretical Probability* 39:34 (2026).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original broadcast-voter paper proves stationary existence, duality and full moment-profile identifiability for trees; this adds the exact homogeneous-tree two-point covariance, sharp distance decay, q-monotonicity, and inversion from one measured pair, none stated in its theorem. Classical ordinary voter model supplies only q=0.
+
+## value
+
+PASS
+
+An exact all-distance covariance profile and one-pair identification formula are natural observables for this new interacting-particle process, quantify how first moments alter local clustering but not distant decay, and can be used to calibrate the broadcast parameter. Neither immediate generic duality nor q=0 collision probability gives the result automatically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

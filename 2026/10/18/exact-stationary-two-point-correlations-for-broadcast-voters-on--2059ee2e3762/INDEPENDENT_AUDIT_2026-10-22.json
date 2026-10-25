@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:00:38.612573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-stationary-two-point-correlations-for-broadcast-voters-on--2059ee2e3762/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-stationary-two-point-correlations-for-broadcast-voters-on--2059ee2e3762/verify.py"
+      ],
+      "evidence": [
+        "Pinned RESULT.md blob e06d5f787e5f50a37dd8fd8e60af8280a11b4a6d",
+        "Pinned verify.py blob d27b3797c20bcf025706b078932cc0e8008b190e",
+        "Independently reconstructed symbolic/finite diagnostics from actual displayed source equations; see rationale."
+      ],
+      "rationale": "For the broadcast-voter model on T_d, d>=3, the two-ancestral-particle dual of Astoquillca–González Casanova–dos Santos has ordinary inward/outward jump rates 2 and 2(d-1) for distance>=3; at distance 2 the one midpoint simultaneously broadcasts to both occupied neighbors at rate q=∫uΛ(du)/Λ[0,1], while individual inward jumps total 2(1-q); at distance 1 direct coalescence has rate 2. The k>=3 gambler-ruin hitting probability of level2 is (d-1)^-(k-2). Solving 2d h1=2+2(d-1)h2 and (2d-q)h2=q+2(1-q)h1+2(d-1)h3, h3=h2/(d-1), gives h1=[2(d-1)+(d-2)q]/H, hk=[2+(d-2)q]/H (d-1)^-(k-2), H=2(d-1)^2+(d-2)q. I independently simplified both generator equations to zero symbolically; derived d(h1)/dq=2(d-2)^2(d-1)/H²>0 and d(h2)/dq=2d(d-2)^2/H²>0; checked q=0 gives classical (d-1)^-k. Duality under Bernoulli(p) initial data converts coalescence probability to covariance p(1-p)h_k; algebraic inversion follows from h1<1. The proof relies on full primary graphical subset rates; these were inspected in arXiv:2610.04530 Sections 3.2-3.4 and their pair specialization.",
+      "residual_risks": [
+        "The pair formula concerns product-start weak stationary limits only, not arbitrary invariant laws; the infinite-state conclusion uses published duality and the transient gambler-ruin limit, not merely finite Dirichlet truncations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.04530 Theorem 2.5, Sec 5",
+          "Durrett Dynamics on Graphs Ch 7.4"
+        ],
+        "reasoning": "Theorem 2.5 of 2610.04530 identifies the *entire* broadcast moment profile from the *whole* stationary measure on suitable trees; it does not state individual h_k, a rate-independent geometric tail, or recover the first moment from a *single* nearest-neighbor covariance. It is a strictly broader qualitative identifiability theorem but not a stronger quantitative explicit result.",
+        "searches": [
+          "Resultary: Lambda broadcast voter coordinated coalescing walkers explicit stationary covariance regular d-ary tree",
+          "Web: regular tree broadcast voter two point stationary correlations explicit Astoquillca 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04530",
+        "https://doi.org/10.1007/s10959-025-01474-1",
+        "Resultary: Lambda broadcast voter coordinated coalescing walkers explicit stationary covariance regular d-ary tree",
+        "Web: regular tree broadcast voter two point stationary correlations explicit Astoquillca 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2610.04530 Sections 3.3-3.4 and 5",
+          "Durrett ordinary voter/coalescing model"
+        ],
+        "reasoning": "Published duality and stationary-law theorem entail representation by collision probabilities, not this solved distance birth-death chain with its nonclassical distance-2 transition. The standard q=0 formula is its special case, not coverage for q>0.",
+        "searches": [
+          "Resultary: Lambda broadcast voter coordinated coalescing walkers explicit stationary covariance regular d-ary tree",
+          "Web: regular tree broadcast voter two point stationary correlations explicit Astoquillca 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.04530 Secs 2,3,4",
+          "Springer Astoquillca 2026 voter-model variants"
+        ],
+        "reasoning": "Coalescence probability h_k is exactly the normalized stationary covariance of the product-start law; it is not the usual discrete-generation broadcasting/reconstruction on trees with transmission noise. The latter has a different dynamical generator.",
+        "searches": [
+          "Resultary: Lambda broadcast voter coordinated coalescing walkers explicit stationary covariance regular d-ary tree",
+          "Web: regular tree broadcast voter two point stationary correlations explicit Astoquillca 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic tree-coalescence searches",
+          "arXiv:2610.04530"
+        ],
+        "reasoning": "No discrete database, numerical table, or precomputed tree covariance table claims this continuous-in-q exact formula. The k=1,2 harmonic boundary equations are not a table lookup.",
+        "searches": [
+          "Resultary: Lambda broadcast voter coordinated coalescing walkers explicit stationary covariance regular d-ary tree",
+          "Web: regular tree broadcast voter two point stationary correlations explicit Astoquillca 2026"
+        ]
+      },
+      "rationale": "Original broadcast-voter paper proves stationary existence, duality and full moment-profile identifiability for trees; this adds the exact homogeneous-tree two-point covariance, sharp distance decay, q-monotonicity, and inversion from one measured pair, none stated in its theorem. Classical ordinary voter model supplies only q=0.",
+      "residual_risks": [
+        "Best-of-knowledge search is not an exhaustive novelty guarantee; unindexed stronger or equivalent treatments could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies crucial rate/duality assumptions and qualitative tree identifiability; no explicit C_k or nearest-pair inversion found",
+          "evidence": [
+            "Sec 3.3 coordinated coalescing generators; Sec 3.4 Lemma 3.2; Sec 5 Thm 2.5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04530",
+          "material_read": "Accessible complete arXiv HTML: model subset intensities, coordinated-walker generator/duality Secs 3.2-3.4, stationary construction Sec 4 and Thm 2.5/Sec 5",
+          "method": "Primary full HTML article, mathematical section reading",
+          "title": "The broadcast voter model: Stationary measures",
+          "trigger": "Introduces exact model and potentially stronger tree identifiability"
+        },
+        {
+          "assessment": "Different voter variants (swaps and dynamical percolation) rather than Lambda-broadcast coordinated pair covariance",
+          "evidence": [
+            "Springer J Theor Probab 39:34, 12 Mar 2026 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-025-01474-1",
+          "material_read": "Accessible Springer open-access abstract and model description; complete article not separately read",
+          "method": "Publisher abstract plus bibliographic context",
+          "title": "On the Stationary Measures of Two Variants of the Voter Model",
+          "trigger": "Similar author and stationary tree-coalescence title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-stationary-two-point-correlations-for-broadcast-voters-on--2059ee2e3762/RESULT.md",
+        "https://arxiv.org/abs/2610.04530",
+        "https://doi.org/10.1007/s10959-025-01474-1"
+      ],
+      "rationale": "An exact all-distance covariance profile and one-pair identification formula are natural observables for this new interacting-particle process, quantify how first moments alter local clustering but not distant decay, and can be used to calibrate the broadcast parameter. Neither immediate generic duality nor q=0 collision probability gives the result automatically.",
+      "residual_risks": [
+        "Higher-order stationary correlations depend on higher moments; no statement about arbitrary stationary invariant laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
