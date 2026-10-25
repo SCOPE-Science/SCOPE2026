@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:57:23.016898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1bc6612ca5f6986bd7c1b06a37727e6634bb036a",
+        "check.py blob 34fbc7d7d30dd8d3b6272c56ed65c7bff06d0fe6",
+        "Independent rational Cayley cut multiplicities and finite S expectations n=3,4,5"
+      ],
+      "rationale": "Under exactly the standard Euclidean segment embedding sum[e_i,e_j] and uniform Cayley labeled trees, each tree has independent n-1 incidence columns, Gram determinant n, and intrinsic volume sqrt n. Deleting edge e splits the tree into sizes k and n-k, and Cauchy–Binet tree-incidence minors yield each of its TWO facet Gram determinants k(n-k). Therefore S(T)=2 sum_e sqrt(k(n-k)). Cayley counting gives exact q_nk=binom(n,k) k^(k-1)(n-k)^(n-k-1)/n^(n-2), with half factor k=n/2. Independently recomputed rational cut expectations for n=3,4,5, verifying their counts sum n-1 and the corresponding intrinsic area expectations. Uniform Stirling cancellation yields q_nk=n^(5/2)/[sqrt(2pi)(k(n-k))^(3/2)]*(1+O(1/k+1/(n-k))); identity sum_{k≤n/2} w/[k(n-k)]=H_(n-1)/n gives sqrt(2/pi)n^(3/2)log n+O(n^(3/2)). Uniform random facet has P(K_n=k)=E N_k/(n-1) tending to Borel(1), whose k^(-3/2) tail gives E sqrt B infinity; normalization E(A_n/sqrt n)~log n/sqrt(2pi). No concentration claimed and area-weighted facet selection would differ. Actual package check.py enumerates all Prüfer n3..6 with Gram minors and compares expectations.",
+      "residual_risks": [
+        "No claim of almost sure limit or uniform integrability; convergence in distribution has infinite limiting mean.",
+        "Direct independent check sampled exact formulas at n3..5; asymptotic analysis was inspected rather than independently machine-certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider, Random zonotopes and valuations, Theorem 1 requires i.i.d. generators in fixed ambient space, unlike dependent Cayley incidence columns in changing dimension.",
+          "Padrol–Pilaud–Poullot study deformed graphical zonotopes and combinatorial construction, not this stochastic volume functional."
+        ],
+        "reasoning": "Known Cauchy–Binet face Gram identity plus Cayley enumeration are genuine prior inputs; neither a general i.i.d. random segment theorem nor deterministic edge order directly supplies the dependent-tree Borel facet profile and uniform asymptotic coefficient.",
+        "searches": [
+          "uniform Cayley tree graphical zonotope Euclidean surface area expectation Borel law facet area logarithmic n to 3/2",
+          "arXiv:2202.06774 random zonotopes valuations independent generators",
+          "arXiv:2111.12422 graphical zonotopes"
+        ]
+      },
+      "checked_sources": [
+        "Padrol–Pilaud–Poullot arXiv:2111.12422, primary relevant full text",
+        "Schneider arXiv:2202.06774, Theorem 1 original",
+        "Song–Huang–Wang arXiv:2010.03981, original edge-division section",
+        "Resultary full RESULT.md width-variance of tree zonotopes",
+        "Pešović–Stojadinović arXiv:2209.12053, graphical polytope constructions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All tree zonotopes same volume sqrt n and combinatorial cube type is prior, not novel.",
+          "The deterministic star/path bound follows from cited edge-division theory and is expressly background; random-tree cut probabilities require exact Cayley split enumeration."
+        ],
+        "reasoning": "Known fixed-tree facet determinants alone and general deterministic extremizers do not imply the expectation asymptotic or limiting uniform-facet probability law; the Cayley counting plus uniform asymptotic constitute the new claim.",
+        "searches": [
+          "arXiv:2111.12422",
+          "arXiv:2202.06774",
+          "arXiv:2010.03981",
+          "uniform Cayley tree graphical zonotope Euclidean surface area expectation Borel law facet area logarithmic n to 3/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same facet area is a square-root-weighted tree edge-division index; q_nk is distribution of smaller component cut size.",
+          "Song–Huang–Wang reports deterministic edge-division order and star/path extremizers, not Cayley expectation or Borel facet limit."
+        ],
+        "reasoning": "Compared intrinsic V_(n-2), boundary surface area, forest component determinants, Cayley random split indices, and conditioned critical Galton–Watson fringe sizes; no inspected equivalent exact stochastic geometric formula found.",
+        "searches": [
+          "uniform Cayley tree graphical zonotope Euclidean surface area expectation Borel law facet area logarithmic n to 3/2",
+          "random Cayley tree graphical zonotope facet area Borel distribution critical logarithmic expectation",
+          "arXiv:2010.03981"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published width-variance RESULT.md gives E W, E W^2, and q(G)=sum_v binom(deg(v),2), not intrinsic surface or uniform facet area.",
+          "No equivalent Cayley surface expectation table found in Resultary results for precise graph, statistic and Borel terminology."
+        ],
+        "reasoning": "A second moment of random-direction width does not fix the sum of codimension-one facet volumes or its Cayley expectation. A finite table for small trees could not imply the all-order logarithmic law.",
+        "searches": [
+          "uniform Cayley tree graphical zonotope Euclidean surface area expectation Borel law facet area logarithmic n to 3/2",
+          "Resultary sharp width variance extremizers among tree graphical zonotopes"
+        ]
+      },
+      "rationale": "The exact Cayley-averaged intrinsic boundary area, its logarithmic coefficient, and uniform random facet Borel limit are distinct from known graphical-zonotope geometry, general i.i.d. random zonotopes, deterministic tree edge-division extremizers, and previously published width-variance formulas.",
+      "residual_risks": [
+        "An exact equivalent Cayley square-root edge-split index or conditioned-Galton–Watson fringe statistic might appear under other terminology or in an unindexed paper.",
+        "The deterministic extremal order is already known and was excluded from originality; the present priority assessment is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the object and general geometry, not random Cayley Euclidean facet expectations",
+          "evidence": "Padrol–Pilaud–Poullot graphical deformation cone results do not state a random facet law.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Original PDF introduction, graph-construction and main deformation-cone statements",
+          "method": "Public primary PDF text and rendered opening pages",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Exact graphical zonotope realization and deformation literature"
+        },
+        {
+          "assessment": "Its i.i.d. random generators have different dependence and dimension hypotheses",
+          "evidence": "Theorem 1 assumes independent identically distributed generators, inapplicable to globally tree-conditioned incidence vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.06774",
+          "material_read": "Original PDF opening pages, Theorem 1 hypotheses and valuation expansion",
+          "method": "Direct arXiv primary PDF text plus page screenshot",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Broader-looking random intrinsic volume theorem"
+        },
+        {
+          "assessment": "Covers deterministic extremal background credited by the claim, not random Cayley mean",
+          "evidence": "Edge division vector order and star/path extremal statements (including earlier citations) are prior.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.03981",
+          "material_read": "Original PDF introduction, edge-division vector and deterministic extremal order definitions",
+          "method": "Primary arXiv PDF read and rendered page",
+          "title": "The extremal graphs of order trees and their topological indices",
+          "trigger": "Might preempt star/path extremizers and edge-split index"
+        },
+        {
+          "assessment": "Distinct angular width variance invariant, no surface-area expectation",
+          "evidence": "Formula E(W_T^2) depends on degree-pair count q(T), not random edge-cut sqrt(k(n-k)) sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+          "material_read": "Complete primary published RESULT.md, definitions, width second moments, proof",
+          "method": "Fetched actual published GitHub RESULT.md",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "Same class of tree zonotopes and Euclidean statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md mathematical proof and independent small exact expectations",
+        "Related primary zonotope and tree edge-division results"
+      ],
+      "rationale": "All tree graphical zonotopes have the same intrinsic volume sqrt n and cube face lattice, so the changing Euclidean surface across the natural uniform Cayley ensemble is a motivated geometric statistic. The exact critical n^(3/2) log n scale and Borel(1) uniform-facet distribution with infinite mean expose a genuine heavy-tail/non-uniform-integrability mechanism distinguishing typical geometry from mean geometry. This is a natural all-size stochastic-geometric theorem independent of a downstream application.",
+      "residual_risks": [
+        "Only expectation and uniform-facet weak convergence, not concentration or area-size-biased facet sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform labeled Cayley trees and canonical unscaled segments; no recursive/unlabeled ensemble, no almost-sure surface area law."
+  ],
+  "schema_version": 1
+}
