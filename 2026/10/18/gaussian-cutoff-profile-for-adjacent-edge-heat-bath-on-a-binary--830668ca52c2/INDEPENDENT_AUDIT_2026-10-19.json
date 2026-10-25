@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T06:56:46.394712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2/VERIFICATION.md",
+        "Independent fresh exact bounded checks: /mnt/data/scope_worker03_delivery_20261019T0638Z/_independent_checks.json"
+      ],
+      "rationale": "Walsh characters diagonalize the exact edge-heat-bath operator: lambda(S)=1-|edges incident to S|/n=1-(k+r)/n for nonempty proper S of size k and r cyclic runs. The exact run multiplicities are (n/r)*choose(k-1,r-1)*choose(n-k-1,r-1). At t=floor(n log n/4+cn), the mass from subsets with adjacent occupied indices vanishes in L2 via sum_{r,m>=1} (n e^{-4t/n})^r/r! * binom(m+r-1,r-1)e^{-2tm/n}, bounded by exp(A/(1-w))-exp(A)->0 where A=nw²=O(1), w=e^{-2t/n}->0. For fixed isolated k, eigenvalue (1-2k/n)^t matches b^k with b=(1-2/n)^t, and summable factorial tails finish L2 product approximation. A Gaussian CLT for log product density and bounded L2 norms yield TV 2Phi(e^{-2c}/2)-1, and Fourier Parseval yields exp(e^{-4c})-1 chi-square. Independently checked cyclic-run counts through n=8 and exact finite transitions/Walsh eigenvalues for n=4,5. Finite checks do not prove limit; proof handles any fixed c and all deterministic starting states by translation.",
+      "residual_risks": [
+        "Diagnostic finite computations alone cannot establish an infinite-dimensional or asymptotic assertion; unrestricted scope depends on reconstructed analytical argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General block spatial-mixing and entropy-factorization bounds and structural cutoff criteria can bound convergence but do not determine this chain specific TV window profile or L2 density approximation; Collevecchio–Griffiths studied different hypercube walk updates."
+        ],
+        "reasoning": "The known general theorems provide methods or qualitative conclusions, not the asserted explicit Fourier-error limit and Gaussian profile.",
+        "searches": [
+          "arxiv:1708.01513",
+          "arxiv:2103.07459",
+          "arxiv:2102.05597",
+          "arxiv:2002.09059"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 61cbb7fdde969991f8df74b94832c71cb3adb875",
+        "verify.py f9e767c3fc00eb68eee5c1d1f6c80ec0c3de068b",
+        "Independent exhaustive run counts and exact small-chain transition/Walsh comparisons /mnt/data/scope_worker03_delivery_20261019T0638Z/_independent_checks.json",
+        "arxiv:2002.09059",
+        "arxiv:1708.01513",
+        "arxiv:2103.07459",
+        "arxiv:2102.05597",
+        "Resultary overlapping edge heat bath search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.3 gives broad Fourier spectral representation; its explicit block example has disjoint blocks and Theorem 3.13 concerns coordinate-exchangeable updates, not cyclic overlapping-edge refresh."
+        ],
+        "reasoning": "The cycle r-run expansion and summability needed for the sharp profile are not automatic corollaries of generic hypercube spectra; inverse implication also fails because this theorem uses equal cycle edge rates.",
+        "searches": [
+          "arxiv:2002.09059 Theorem 3.3 and 3.13",
+          "arxiv:1708.01513",
+          "arxiv:2103.07459"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is an additive hypercube walk with a random 2-coordinate refresh mask, hence classical Walsh diagonalization applies. Generalized hypercube random-walk representation is known, and the overlap-dependent eigenvalue is specialized here."
+        ],
+        "reasoning": "The spectral viewpoint is prior technique; the cycle overlap induces k+r instead of exchangeable or nonoverlapping-block eigenvalues, and the exact Gaussian cutoff profile plus full L2 product approximation are separate claims.",
+        "searches": [
+          "binary cycle overlapping edge heat bath bit resampling total variation cutoff gaussian profile n log n",
+          "arxiv:2002.09059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic published-result search surfaced no source with overlapping random adjacent-pair binary refreshment and this n log n cutoff profile."
+        ],
+        "reasoning": "A negative database search does not demonstrate novelty by itself; comparisons with published exact chain formulations are the substantive evidence.",
+        "searches": [
+          "binary cycle overlapping edge heat bath bit resampling total variation cutoff gaussian profile n log n",
+          "Resultary binary cycle adjacent heat bath cutoff query"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.",
+      "residual_risks": [
+        "An indexed general hypercube local-refresh cutoff result may imply this special-cycle Gaussian profile even if its theorem terminology differs.",
+        "Full texts of all general entropy/cutoff articles were not exhaustively read; no whole-document novelty exclusion is asserted.",
+        "The proof covers only fixed c windows, uniform unbiased cycle edges and independent fair endpoint refresh."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Fourier method overlaps, but inspected exact example and theorem concern distinct mixing chains",
+          "evidence": "Published framework does not state the exact lambda(S)=1-(k+r)/n cycle formula plus corresponding Gaussian profile.",
+          "identifier_or_url": "arxiv:2002.09059",
+          "material_read": "Opened full arXiv HTML and inspected spectral representation Theorem 3.3, example/block assumptions, Theorem 3.13 and relevant setup",
+          "method": "open primary arXiv HTML, targeted theorem/assumption reading",
+          "title": "Three steps mixing for general random walks on the hypercube at criticality",
+          "trigger": "Potentially general theorem covering arbitrary overlapping block refresh chains"
+        },
+        {
+          "assessment": "Prior mixing framework acknowledged; possible implicit sharp case not excluded by snippets alone",
+          "evidence": "General spatial mixing bounds give quantitative rates but no matched explicit profile in the inspected source material.",
+          "identifier_or_url": "arxiv:1708.01513",
+          "material_read": "Checked primary title, theorem topic and package specific use; complete article not reread in this execution",
+          "method": "bibliographic plus source-level comparison (not full-text exclusion)",
+          "title": "Spatial Mixing and Non-local Markov chains",
+          "trigger": "General block-update mixing bounds could dominate cycle refresh case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2/RESULT.md",
+        "arxiv:2002.09059",
+        "arxiv:1708.01513"
+      ],
+      "rationale": "A sharp Gaussian cutoff window and a stronger L2 approximation for the full joint distribution of an overlapping local-update chain are natural and useful quantitative mixing statements, substantially more specific than proving only order-of-magnitude mixing or existence of cutoff.",
+      "residual_risks": [
+        "Assessment is of this precise natural result, not a claim of broad independent external certification or a general unproved extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An indexed general hypercube local-refresh cutoff result may imply this special-cycle Gaussian profile even if its theorem terminology differs.",
+    "Full texts of all general entropy/cutoff articles were not exhaustively read; no whole-document novelty exclusion is asserted.",
+    "The proof covers only fixed c windows, uniform unbiased cycle edges and independent fair endpoint refresh."
+  ],
+  "schema_version": 1
+}

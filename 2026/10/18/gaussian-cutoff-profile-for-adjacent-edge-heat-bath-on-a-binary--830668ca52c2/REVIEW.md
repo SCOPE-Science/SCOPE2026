@@ -1,9 +1,21 @@
-# Scientific review: overlapping-edge binary heat-bath cutoff
+# Independent mathematical audit
 
-**Correctness — PASS.** The state space, discrete clock, update distribution and all normalization factors are explicit. For a nonempty proper cyclic subset with \(k\) vertices and \(r\) occupied runs, exactly \(k+r\) of the \(n\) possible refreshed edges intersect the subset. The eigenvalue \(1-(k+r)/n\) and cyclic-run multiplicity \(n\binom{k-1}{r-1}\binom{n-k-1}{r-1}/r\) follow. The split into isolated sets and sets with touching vertices is exhaustive. Exponential generating-function bounds force all touching-set Fourier mass to zero at \(t=(n/4)\log n+O(n)\); fixed isolated cardinalities converge to the corresponding product-law coefficients, and bounded exponential tails justify passage to the sum. The independent-density Gaussian central limit plus the explicit bounded second moment supplies total variation. The exact-rational checker passed 2,097 finite checks; the continuum/asymptotic assertions are separately proved analytically. Risks: finite computational tests are not certificates for the asymptotic theorem, and no rate uniform over diverging window parameters is asserted.
+## correctness
 
-**Originality — PASS on inspected evidence.** Closest inspected literature is Collevecchio–Griffiths (2020), arXiv:2002.09059. Their general spectral theorem already covers the diagonalization *method*, so spectral representation itself is **not** presented as new; their displayed block example is a disjoint partition, and the nonlocal cutoff theorem treats an exchangeable selection law. Neither inspected statement implies the new comparison to a time-matched independent Bernoulli product for overlapping adjacent-edge selection. Blanca–Caputo–Sinclair–Vigoda (2017), arXiv:1708.01513, and Blanca et al. (2021), arXiv:2103.07459, give broader block-mixing and entropy estimates, but not this exact law/profile. Salez (2021), arXiv:2102.05597, gives general cutoff criteria, not this Gaussian window result. Source-versus-claim implications and historical overlap were checked with available published search records. Risk: differently named work on zero-interaction Gibbs sampling or local-support random walks may contain an equivalent specialization; independent historical-priority assessment remains needed.
+PASS
 
-**Value — PASS.** A uniformly chosen edge is a natural minimal overlapping heat-bath block. Correlations induced by repeatedly updating overlapping blocks might conceivably survive at the \(L^2\)-scale even though each spin's bias vanishes. The result proves their complete suppression *as a density*, not just a first-moment estimate, determines the exact worst-start total-variation cutoff constant and Gaussian profile, and provides the explicit chi-square profile. The stronger approximation can be reused to understand likelihood-ratio testing of proximity to stationarity. The novelty and value are the structural dependent-to-independent approximation and sharp profile, not an elementary reexpression of the generic Walsh formula.
+Walsh characters diagonalize the exact edge-heat-bath operator: lambda(S)=1-|edges incident to S|/n=1-(k+r)/n for nonempty proper S of size k and r cyclic runs. The exact run multiplicities are (n/r)*choose(k-1,r-1)*choose(n-k-1,r-1). At t=floor(n log n/4+cn), the mass from subsets with adjacent occupied indices vanishes in L2 via sum_{r,m>=1} (n e^{-4t/n})^r/r! * binom(m+r-1,r-1)e^{-2tm/n}, bounded by exp(A/(1-w))-exp(A)->0 where A=nw²=O(1), w=e^{-2t/n}->0. For fixed isolated k, eigenvalue (1-2k/n)^t matches b^k with b=(1-2/n)^t, and summable factorial tails finish L2 product approximation. A Gaussian CLT for log product density and bounded L2 norms yield TV 2Phi(e^{-2c}/2)-1, and Fourier Parseval yields exp(e^{-4c})-1 chi-square. Independently checked cyclic-run counts through n=8 and exact finite transitions/Walsh eigenvalues for n=4,5. Finite checks do not prove limit; proof handles any fixed c and all deterministic starting states by translation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
+
+## value
+
+PASS
+
+A sharp Gaussian cutoff window and a stronger L2 approximation for the full joint distribution of an overlapping local-update chain are natural and useful quantitative mixing statements, substantially more specific than proving only order-of-magnitude mixing or existence of cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
