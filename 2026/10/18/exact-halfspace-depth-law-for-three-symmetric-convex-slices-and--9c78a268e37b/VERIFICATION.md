@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library only. The checked execution printed:
+## correctness
 
-```
-VERIFY_OK exact_rational_assertions=3952 cases=3
-```
+PASS
 
-This program independently clips rational convex polygons with rational halfplanes, checks the middle-slice cap algebra for three polygon families over rational directions and thresholds, identifies a strictly positive cap imbalance for two incomparable centered rectangles, checks the nested limiting halfspace witnesses, and verifies the rational sharp one-third witness profile for seven thin crossed-rectangle pairs. The calculations are exact rational arithmetic, with no floating-point decisions.
+Reconstructed quasiconcavity reflection argument: each center maximizes depth on its own slice, extreme centers have depths a0/2 and a2/2, and middle halfspace mass is a1/2+a2+F0(u,t)-F2(u,t); cap reflection makes the infimum a1/2+a0-D. Empty/full caps give eta>=0; supporting separation proves eta=0 iff one outer body includes the other. For equal volumes D<v/2 by common interior and compact angular support; transverse thin rectangles show infimum 1/3 not attained. Independently verified exact rational cap identities on perpendicular and nested boxes. d>=2 essential for transverse sharpness; d=1 stated separately.
 
-The all-dimension theorem is proved analytically in `RESULT.md`; tests over finitely many directions do **not** establish an infimum or supremum over all directions, nor prove geometric inclusion. Separate analytic arguments establish quasiconcavity, nesting equivalence, sharpness, and strictness for the equal-volume bound. The literature comparison remains a documented best-knowledge originality assessment; an independent scientific audit has not been performed.
+## originality
+
+PASS
+
+PASS: earlier three-slice results either require midpoint inclusion or special rK,K,K stack; the arbitrary nonnested outer-cap discrepancy and its exact characterization are not implications of those results.
+
+## value
+
+PASS
+
+A structural exact law and sharp infimum of a natural mixed-dimensional depth functional; nonnesting penalty eta reveals geometry not encoded by volumes and resolves equal-volume transverse-slice regime. The 1/3 bound is not claimed for unrestricted mixed-integer convex bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
