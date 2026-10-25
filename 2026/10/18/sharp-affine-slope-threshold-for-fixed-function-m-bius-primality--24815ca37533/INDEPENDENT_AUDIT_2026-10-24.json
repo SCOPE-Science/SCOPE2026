@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:47:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting consecutive partial sums of the original floor recurrence gives the exact divisor formula h_c(n)=-1-c sum_{1<d<n,d|n}h_c(d), valid including n=2. With g_c=epsilon+c(u-epsilon), convolution yields h_c*g_c=epsilon+(c-1)(u-epsilon). Modulo c-1 (c>=3), g_c≡u and Möbius inversion gives h_c≡mu mod(c-1), excluding nonsquarefree composites from h=-1. On squarefree r-prime support, Boolean subset convolution gives generating function H(z)=[(c-1)e^z-(c-2)]/[c e^z-(c-1)] =1-1/c+c^{-2}e^{-z}/(1-rho e^{-z}), rho=(c-1)/c. Its rth coefficient for r>=1 is (-1)^r c^{-2} sum_{m>=1}m^r rho^{m-1}, magnitude exactly 1 at r=1 and strictly >1 at r>=2. Thus all primes exactly -1 and no composite for every fixed c>=3. Sharp boundary c=0 at n4, c=1 at n30 via mu, c=2 at n8 by prime-power formula. Independently evaluated ORIGINAL floor recurrence versus the divisor recurrence for c=0..8, n<=180, all prime/composite classifications within cutoff; this bounded computation corroborates but does not replace the infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andrews et al. supply general recurrence and alleged unrestricted fixed-f primality iff; counterexample c=0 invalidates that broad wording.",
+          "Classical Möbius inverse gives the modular technique, but no general proven theorem for all nonnegative integer affine weights with sharp c=3 cutoff was located."
+        ],
+        "reasoning": "The asserted broader theorem cannot logically establish a valid property for every fixed f because it is false at c0; positive interval may be implicit in alternate proof not read due PDF access blocker.",
+        "searches": [
+          "Andrews Kauffman Sahoo A surprising generalization of the Möbius function arXiv:2609.25628",
+          "Resultary constant-function obstruction 2026-10-04",
+          "classical Möbius inversion on divisor lattice"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25628",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+        "https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition-style divisor reformulation follows from general original recurrence; the squarefree generating series and c-1 congruence are additional affine-specific proof.",
+          "A generalized Möbius claim valid as a polynomial nonidentity over all admissible functions is not an all-fixed-functions primality detector."
+        ],
+        "reasoning": "The c>=3 biconditional is not a consequence of the literal erroneous unrestricted biconditional; the final proof independently establishes the necessary composite exclusions and all boundary slopes.",
+        "searches": [
+          "Andrews Kauffman Sahoo arXiv:2609.25628 Proposition 1 and alleged Theorem 1 abstract",
+          "Resultary constant-function obstruction entry",
+          "Dirichlet inverse u*mu=epsilon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original generalized recurrence is identical in syntactic shape; its assertion that any f(1)=1 detects primes is contradicted by f≡1 (c=0), explicitly covered by a published obstruction.",
+          "The affine theorem proves a valid *fixed* iff for c>=3 and fails exactly at 0,1,2; this is distinct from a false unrestricted general theorem."
+        ],
+        "reasoning": "Equivalent Dirichlet-convolution inverse/kernel formulations were considered; no inspected positive affine c>=3 classification. Literature beyond the primary abstract may imply it; risk preserved.",
+        "searches": [
+          "Resultary fixed affine f(k)=1+c(k-1) generalized Möbius floor recurrence prime detection c>=3",
+          "Resultary A constant-function obstruction to a generalized Möbius primality criterion 2026-10-04",
+          "arXiv:2609.25628"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific c=0 false-positive n4 is already published, and prime-power c2 false-positive n8 is elementary once recurrence specialized.",
+          "The exact c>=3 infinite fixed-family and squarefree coefficient formula were not in identified indexed result/table."
+        ],
+        "reasoning": "Known counterexample alone is not the newly claimed threshold; unknown pre-existing Dirichlet inverse parameter table may dominate, so priority remains best-of-knowledge.",
+        "searches": [
+          "Resultary constant function obstruction generalized Möbius primality criterion",
+          "fixed function affine slope 3 threshold 0 1 2 counterexamples",
+          "arXiv:2609.25628"
+        ]
+      },
+      "rationale": "Andrews–Kauffman–Sahoo arXiv:2609.25628 states a very broad claimed iff for arbitrary f, but fixed function f≡1 is a published counterexample, so that literal theorem cannot establish valid fixed-function primality across all choices. The proven affine positive/negative threshold c>=3, with exact squarefree layer formula and congruence, is a specific nontrivial surviving classification not stated in inspected abstract or closest published Resultary obstruction. Full original 2026 arXiv paper could not be read due access failure, so hidden sufficient conditions in its body could preempt the positive portion; this is explicitly retained.",
+      "residual_risks": [
+        "Original Andrews–Kauffman–Sahoo 2026 complete paper was not accessible via arXiv HTML/PDF, ar5iv or authorized Oxford (VPN disconnected); undiscovered corrected hypotheses/explicit affine examples could preempt the positive theorem.",
+        "Not a complexity-efficiency primality test, and all slopes must be nonnegative integers; no classification of nonaffine/negative/nonintegral weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UNRESTRICTED_ASSERTION_COUNTEREXAMPLED; FULL_BODY_UNINSPECTED",
+          "evidence": "Abstract asserts prime iff for arbitrary f(1)=1 but fixed constant f≡1 yields h=-1 for every n>=2; cannot treat false broad claim as valid prior coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25628",
+          "material_read": "Original arXiv abstract/bibliographic record, purported iff claim; full paper PDF and HTML repeatedly returned disabled; Oxford authorized retrieval also blocked by disconnected VPN",
+          "method": "ArXiv abstract and attempted lawful full-text retrieval",
+          "title": "A surprising generalization of the Möbius function",
+          "trigger": "Same exact recurrence and apparently dominating arbitrary-f statement"
+        },
+        {
+          "assessment": "PUBLISHED_NEGATIVE_BOUNDARY_C0",
+          "evidence": "The record gives f(k)=1 yields h(n)=-1 for all n>=2, so c=0/n=4 is known rather than independently new.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+          "material_read": "Resultary indexed title and scientific summary returned by actual semantic search; full underlying research record not independently read",
+          "method": "Resultary indexed result only",
+          "title": "A constant-function obstruction to a generalized Möbius primality criterion",
+          "trigger": "Most directly related published correction of original theorem"
+        },
+        {
+          "assessment": "BACKGROUND_NO_AFFINE_CLASSIFICATION",
+          "evidence": "Möbius inversion gives h mod(c-1) but does not by itself supply the strict squarefree EGF inequality or sharp affine threshold.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula",
+          "material_read": "Standard convolution epsilon/u/mu inverse identity as proved and employed in result",
+          "method": "Direct mathematical identity rederived",
+          "title": "Classical Möbius inversion",
+          "trigger": "Standard divisor-convolution machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A new generalized Möbius recurrence purports to be a primality criterion but fixed-function quantifier matters. This result identifies an infinite sharp family of genuine *fixed* primality detectors and all failing nonnegative integer affine slopes, separating squarefree-support obstruction from nonsquarefree congruence obstruction. The complete threshold and coefficient formula give genuinely useful structural information beyond one cheap counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.25628",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+    "https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed affine functions f_c(k)=1+c(k-1) with c a nonnegative integer and integer n>=2.",
+    "Finite n<=180 verification corroborates but does not prove every composite is excluded; analytic EGF and modular inversion do."
+  ],
+  "residual_risks": [
+    "Original Andrews–Kauffman–Sahoo 2026 complete paper was not accessible via arXiv HTML/PDF, ar5iv or authorized Oxford (VPN disconnected); undiscovered corrected hypotheses/explicit affine examples could preempt the positive theorem.",
+    "Not a complexity-efficiency primality test, and all slopes must be nonnegative integers; no classification of nonaffine/negative/nonintegral weights."
+  ],
+  "schema_version": 1
+}
