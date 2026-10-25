@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each spoke, its closed edge neighbourhood has size \\(k\\) if its arm has length one, and \\(k+1\\) otherwise; the corresponding red-count constraint is exactly \\(R\\in\\{1,k-1\\}\\) or \\(R+b_i\\in\\{1,k\\}\\). For \\(k\\ge3\\) these force precisely \\(R\\in\\{0,1,k-1,k\\}\\), with fixed second-edge colours. On each path, every interior triple must be nonmonochromatic and the last pair must differ, yielding the independent Fibonacci completion counts \\(F_{L-2}\\) and \\(F_{L-1}\\), including the \\(L=2\\) boundary. Disjoint central cases give the complete \\(N_2(S)\\) count. Positivity gives the precise obstruction, and an explicit depth-modulo-three edge colouring bounds the index by three. The standalone independent edge-neighbourhood enumerator reproduced the formula on 356 profiles (300 systematic, 56 sampled); these finite checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin–Gao prove a universal three-colour upper bound for bipartite graphs and a necessary-and-sufficient local binary-edge-subset condition for two-colouring a tree.",
+        "Guo et al. characterize no-degree-two trees by an induced matching and supply a sufficient condition for degree-two trees.",
+        "Kamyczura et al. prove that every tree admits three conflict-free edge colours."
+      ],
+      "reasoning": "The general upper bounds do not decide whether a given mixed-length spider needs two or three colours. The general existence criterion does not count solutions, so it does not dominate the enumerative claim; extracting the obstruction and exact Fibonacci coefficients requires the new four-regime analysis.",
+      "searches": [
+        "arXiv:2604.24183 Theorems 1.3 and 1.9 (full text)",
+        "arXiv:2409.10899 Theorems 2.3 and 4.1 (full text)",
+        "arXiv:2203.02040 Lemma 1 (full text)"
+      ]
+    },
+    "checked_sources": [
+      "Jin and Gao, arXiv:2604.24183v1 (2026-04-27), complete HTML text",
+      "Guo et al., arXiv:2409.10899v1 (2024-09-17), full parsed primary text",
+      "Kamyczura et al., arXiv:2203.02040v1 (2022-03-03), full parsed primary text",
+      "Published abstract and literature search terms for spider conflict-free edge colourings and subdivided stars"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier depth-based three-colour construction handles only the upper endpoint.",
+        "The no-degree-two induced matching theorem applies to stars but not the general subdivided arms.",
+        "The 2026 edge-subset degree-sum equivalence recognizes a colouring once supplied, without the spider-specific Fibonacci enumeration."
+      ],
+      "reasoning": "The precise claim includes an explicit count for every k and every length vector as well as the positive-count obstruction. Neither the previously known star subcase nor the general nonconstructive feasibility encoding logically yields the stated closed count without additional case analysis.",
+      "searches": [
+        "arXiv:2203.02040 Lemma 1 and Section 2",
+        "arXiv:2409.10899 Theorem 2.3, Section 4",
+        "arXiv:2604.24183 Theorem 1.9, Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.24183 Theorem 1.9 is a general feasibility equivalence in edge subsets F expressed via endpoint degree sums.",
+        "arXiv:2409.10899 Section 4 treats general degree-two vertices by a sufficient condition, not a full spider formula.",
+        "No matching explicit spider Fibonacci count was returned by the listed searches."
+      ],
+      "reasoning": "Replacing named red/blue colours by the selected edge subset is an equivalent encoding, but it is not an explicit evaluation of feasible subsets for arbitrary subdivided stars and gives no product-sum count. The claimed enumeration solves those constraints nontrivially.",
+      "searches": [
+        "\"conflict-free chromatic index\" \"spider\" \"trees\" (web search)",
+        "\"conflict-free edge-coloring\" \"subdivided star\" (web search)",
+        "\"conflict-free chromatic index\" \"spiders\" exact two-color (web search)",
+        "arXiv:2604.24183 Theorem 1.9",
+        "arXiv:2409.10899 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No explicit mixed-length spider table or labelled colouring count occurs in the inspected tree paper sections.",
+        "The searches returned related conflict-free results and unrelated spider colouring conventions, rather than a table determining this count."
+      ],
+      "reasoning": "A search for an exact table cannot establish that none exists; the checked primary sources do not contain one, and the formula is proved independently. Unindexed tables are retained as residual originality risk.",
+      "searches": [
+        "\"conflict-free chromatic index\" \"spider\" \"Fibonacci\" (web search)",
+        "\"conflict-free edge-coloring\" \"spider\" subdivision (web search)",
+        "arXiv:2409.10899 all theorem statements and Section 4"
+      ]
+    },
+    "rationale": "The accepted statement is a complete labelled two-colour edge-colouring enumerator and its sharp arm-length threshold for all spiders of arbitrary arm lengths. Kamyczura–Meszka–Przybyło (arXiv:2203.02040) provides tree upper bounds, Guo–Li–Li–Li (arXiv:2409.10899) gives a characterization for trees without degree-two vertices and only a sufficient condition with degree-two vertices, and Jin–Gao (arXiv:2604.24183) gives the bipartite upper bound and a general binary-edge-subset feasibility reformulation. None of their inspected specific theorem statements or proofs gives the Fibonacci enumeration or the exact mixed-length spider obstruction. Logical application of the general feasibility reformulation still requires solving and counting nontrivial compatible local arm states. Search nonappearance is not a proof of uniqueness; unindexed equivalent formulae remain a risk.",
+    "residual_risks": [
+      "A previously unindexed formulation or table could give the same labelled spider count.",
+      "Theorem 1.9 of Jin–Gao is an all-tree binary-subset characterization; the mathematical novelty asserted here concerns its explicit parametric resolution and full count, not merely recognizing the decision problem.",
+      "The 2013 thesis concerning UCE-P_m colourings of spiders uses a different specified path-hypergraph rule; only retrieved excerpts were available for that comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General upper bound and tautological edge-subset feasibility, but no explicit spider arm-length threshold or named two-colouring count",
+        "evidence": [
+          "Theorem 1.3: all bipartite graphs have index at most three.",
+          "Theorem 1.9: binary-edge-subset local degree criterion for two-colour trees."
+        ],
+        "identifier_or_url": "arXiv:2604.24183v1 | https://arxiv.org/html/2604.24183",
+        "material_read": "Complete HTML text, in particular Introduction, Theorem 1.3, Theorem 1.9 and Section 3 proof",
+        "method": "Author preprint HTML, inspected theorem statements and relevant full proofs",
+        "title": "Conflict-free chromatic index of bipartite graphs",
+        "trigger": "Recent primary work proving the sharp bipartite index bound and general tree two-colour feasibility condition"
+      },
+      {
+        "assessment": "Complete algorithmic characterization targets trees with no degree-two vertices; Section 4 condition is sufficient, not a full classification of arbitrary subdivided spiders, and no enumeration appears",
+        "evidence": [
+          "Theorem 2.3 restricts to no degree-two vertices.",
+          "Theorem 4.1 supplies a sufficient condition for trees with degree-two vertices."
+        ],
+        "identifier_or_url": "arXiv:2409.10899v1 | https://arxiv.org/abs/2409.10899",
+        "material_read": "Full parsed arXiv article, Introduction, Theorems 2.3 and 3.7, Section 4 with Theorem 4.1",
+        "method": "Author preprint full-text article as served on arXiv abstract/text view",
+        "title": "Conflict-free chromatic index of trees",
+        "trigger": "Closest structural work on which trees have index two"
+      },
+      {
+        "assessment": "Establishes universal tree three-colour bound and complete bipartite base cases, not count of two-colourings of subdivided stars",
+        "evidence": [
+          "Lemma 1 explicitly colours tree levels modulo three.",
+          "Observation 2 addresses complete bipartite graphs, not all spiders."
+        ],
+        "identifier_or_url": "arXiv:2203.02040v1 | https://arxiv.org/abs/2203.02040",
+        "material_read": "Full parsed author manuscript including Section 2, Lemma 1 and Observation 2",
+        "method": "Author preprint full text from arXiv",
+        "title": "A note on the conflict-free chromatic index",
+        "trigger": "Original general tree bound, notation and definition, and earlier paper raising tree-colouring classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20bf83fe-1c7a-4e10-8166-aba08d51f96c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The long-standing two-versus-three question for conflict-free edge colouring of trees is resolved exactly on a natural all-subdivisions class. The sharp obstruction depends only on the coexistence of pendant arms and multiple once-subdivided arms, a structural statement not predicted by the general upper bounds. The closed Fibonacci formula counts every labelled optimum two-colouring for arbitrary arm lengths and exposes how local path constraints couple through the high-degree vertex. This is a complete natural classification and enumerator, not an arbitrary finite parameter slice, a routine restatement of feasibility, or an experimental guess.",
+    "status": "PASS"
+  }
+}
