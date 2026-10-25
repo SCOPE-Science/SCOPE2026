@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplicative local ratios were reconstructed, including the strict signs for prime exponents one and at least two. The score construction is an exact upper enclosure because every discretized logarithm is bracketed by cross-multiplication. The CRT cylinder weights, 670-prime convolution, and both rounded-up tail moments were reproduced by the actual standalone checker. The logarithmic threshold uses the strict elementary inequality \(\log(1+t)>t/(1+t)\), and one-sided Chebyshev is applied only beyond the certified mean. Finite-prime independence and vanishing tail expectation justify the density passage. Computations certify finite rational inequalities, not a sampled asymptotic.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Trudgian's original source gives only a lower bound and finite numerical proportion; the published published-finding corpus lower-certificate study also proves only the reverse inequality. OEIS A322446 reports finite tabulations but no rigorous upper bound. Actual comparison searches for upper estimates, alternative divisor-function names, prime-exponent cylinder bounds, and a stronger general result found no covering claim. The possibility of an unindexed stronger estimate remains.
+PASS
 
-**Value — PASS.** Trudgian explicitly asked for this density. Proving an upper bound below \(0.78\), only about \(0.0014\) above the reported numerical estimate, converts a lower-only problem into a rigorous narrow two-sided bracket. The contribution is an independent upper-side mechanism (deficient-cylinder enumeration plus prime-tail variance control), not a small numerical retuning of the earlier lower-cylinder result.
+Local factors rho_p(v_p(n))=(1+p^a)/sum_{d|a}p^d multiply exactly, with exponent0 factor1; a=1 gives 1+1/p and a>=2 gives <1. Take p<=5003 with specified caps, b=1001/1000 and exact integer ceil scores k_p(a). The weighted CRT DP over 670 primes counts E={all capped, sum scores<=−2}; independently recomputed 4216 nonzero states and exact G/M>11023/50000 with mass 0.220466626902605. On E, local product<=b^−2. Tail positive log is at most X=sum_{p>5003,p|n}1/p; CRT and sum p^−2 converge, giving independent limiting Bernoulli tail μ<31e−6, V<23e−10. Independently reproduced exact prime sieve ceiling sums 20243665461,2200010 for p<=100000 (8922 tail primes), variance Chebyshev risk <0.000594454<3/5000 above threshold 2ln b>2/1001. Thus E∩{X<2ln b} has lower density > (11023/50000)(1−3/5000)=55081931/250000000, where full divisor ratio<1. Complement upper density of strict excess <194918069/250000000. This is a genuine infinite tail domination argument, not extrapolation from 30,000 cases; exact DP reimplemented independently, not just source VERIFY_OK.
 
-**Closest literature and limits.** T. Trudgian, *The sum of the unitary divisor function*, arXiv:1312.4615; the full published published-finding corpus lower-bound result listed in RESULT.md; OEIS A322446. The exact density and priority beyond indexed literature are not resolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trudgian poses the density comparison and gives squarefree lower bound and numerics. A relevant earlier published Resultary result gives a rigorous 0.753659844... LOWER density bound, not an upper bound. The present certified positive-density deficient-cylinder construction plus bounded all-prime compensation gives the different-sided strict upper bound. No stronger relevant upper theorem found in actual searches; unseen estimates remain risk.
+
+## value
+
+PASS
+
+The density of the inequality between two natural divisor sums was explicitly posed and had a large uncertainty between rigorous lower bound and empirical frequency near 0.7783. A certified quantitative upper bound 0.779672276, close to the observed regime, is a substantive mathematical tightening, not mere rounding of a finite numerical table. The finite cylinder and analytic tail split is a reusable method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
