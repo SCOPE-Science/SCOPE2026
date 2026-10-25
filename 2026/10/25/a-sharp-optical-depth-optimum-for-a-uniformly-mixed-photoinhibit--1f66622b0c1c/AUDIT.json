@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The Steele--Beer integral is evaluated exactly with a change of variables. The derivative is the difference between the final integrand and its initial mean. Its derivative has one change of sign at log(q) and its terminal value is negative, proving exactly one optimum for q>1 and strict monotonicity for q<=1. Explicit nonzero signs of both implicit partial derivatives prove strict increase of the optimizing depth. The analytic extension of g/t^2 at (1,0) proves the 3/2 onset; the exponentially small tail gives log(q)+log(log(q)) at high light. Verified against the self-contained standard-library finite tests in verify.py; computations are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Steele (1962) introduces the nonlinear photoinhibition law but does not give an all-optical-depth optimizer in the examined development.",
+        "Walsby (1997) treats more realistic time-dependent light, depth profiles and numerical integration, not a sharp theorem for constant physiological parameters.",
+        "Idso and Foster (1975) report analytic production integrals for several light-response types, potentially stronger formula coverage; complete text unavailable."
+      ],
+      "reasoning": "A more general response-curve treatment could imply this special case without naming Steele optical depth. The available inspected works cover forward production expressions or numerical estimators. The uninspected analytic 1975 article is an explicit remaining risk, not a NOT_COVERING full-text conclusion.",
+      "searches": [
+        "photoinhibition water column maximum production at intermediate turbidity unique turning point depth average irradiance response",
+        "phytoplankton vertical integrated Steele photoinhibition optimal turbidity increasing illumination optimal irradiance at bottom",
+        "Idso Foster 1975 complete photoinhibition Steele column integrated photosynthesis optimization attenuation",
+        "10.1007/BF00348095"
+      ]
+    },
+    "checked_sources": [
+      "Steele 1962 DOI 10.4319/lo.1962.7.2.0137 (full text)",
+      "Bannister 1974 DOI 10.4319/lo.1974.19.1.0001 (full text)",
+      "Walsby 1997 DOI 10.1046/j.1469-8137.1997.00736.x (full text)",
+      "Idso--Foster 1975 DOI 10.1007/BF00348095 (abstract, full text unavailable)",
+      "Murphy 1962 DOI 10.1577/1548-8659(1962)91[69:EOMDAT]2.0.CO;2 (abstract)",
+      "Ryther 1956 DOI 10.4319/lo.1956.1.1.0061 (publisher abstract; not a full-text exclusion claim)",
+      "Semantic research-record searches for optical-depth optimizer and unimodal-running-mean formulations (partial ranked coverage)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Steele (1962), PDF p. 2, equation (2), gives the photoinhibition response used as an assumption, not the derived optical-depth optimizer.",
+        "Bannister (1974), PDF p. 6, equation (20), establishes the underlying production integral but neither the sharp threshold q=1 nor the optimizer derivative or high-light double logarithm in the inspected discussion.",
+        "Walsby (1997), full-text opening and numerical treatment, studies changing light and biomass distributions rather than the proposed fixed-response all-q inequality."
+      ],
+      "reasoning": "Known prior formulas do imply the analytic objective but not, without a fresh global optimization argument, the theorem that its unique interior optimum grows monotonically from 3/2(q-1) to log(q)+loglog(q). One cannot rule out that older uninspected analytical literature or a general optimization theorem subsumes these conclusions.",
+      "searches": [
+        "phytoplankton photoinhibition exponential light attenuation vertical depth-integrated productivity unique maximizing turbidity extinction coefficient optical depth",
+        "photoinhibition water column maximum production at intermediate turbidity unique turning point depth average irradiance response",
+        "equivalence maximum of running average of unimodal photosynthesis response Gumbel density uniform log irradiance optical window",
+        "10.4319/lo.1962.7.2.0137",
+        "10.4319/lo.1974.19.1.0001",
+        "10.1046/j.1469-8137.1997.00736.x"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannister (1974), equation (20), contains the depth-integrated Steele exponential kernel, hence already covers the integral representation, which is expressly not claimed as new.",
+        "The optimizer is the zero of the difference between a terminal value and its running optical-depth mean; this equivalence was checked algebraically against the prior kernel."
+      ],
+      "reasoning": "The integral formula, change-of-variables representation, and end-value/running-mean expression are equivalent; only the global critical maximum and its parameter/asymptotic laws are claimed. No inspected source states these latter laws, and the uninspected 1975 full text remains a risk.",
+      "searches": [
+        "phytoplankton photoinhibition exponential light attenuation vertical depth-integrated productivity unique maximizing turbidity extinction coefficient optical depth",
+        "equivalence maximum of running average of unimodal photosynthesis response Gumbel density uniform log irradiance optical window",
+        "10.4319/lo.1974.19.1.0001"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Steele (1962), Bannister (1974) and Walsby (1997) works do not supply a table of this all-q critical optimizer or its high-light asymptotic.",
+        "Closest semantically ranked published records concerned unrelated population-cycle moment inequalities and analytic-function norm extremization, not photoinhibition or depth-integrated production optimization; their IDs are retained in the private literature comparison."
+      ],
+      "reasoning": "No matching numerical database or exact tabulation was located; the candidate is an analytic continuous-parameter classification, not an entry in a finite database. Semantic searches are partial, not proof of uniqueness.",
+      "searches": [
+        "Platt Gallegos Harrison 1980 model optimally attenuating light water column depth integrated production",
+        "Steele 1962 I exp(1-I) Beer's law depth mean productivity unique optimal optical depth kH surface illumination q>1 root t y=1-exp(y-q)",
+        "phytoplankton water column photoinhibited production logarithm logarithm high-light asymptotic maximizing extinction coefficient mixing layer"
+      ]
+    },
+    "rationale": "The original photosynthesis curve is Steele (1962), and the integrated-production expression is close to Bannister (1974) equation (20); the present claim is strictly the complete sharp optimization classification (zero-versus-positive optimum, all-q uniqueness, parameter monotonicity, and both asymptotic laws). Full PDFs of Steele, Bannister and Walsby were materially inspected. The published Idso--Foster (1975) and Murphy (1962) abstracts are relevant but their complete texts were not accessible; those possible implications and general running-mean theorems remain residual priority risks. The closest semantic mathematical-record hits do not concern the same objective or establish the conclusions.",
+    "residual_risks": [
+      "Idso and Foster 1975 complete text was not accessible; an explicit or stronger extremal claim may be present in its analysis.",
+      "Murphy 1962 and older complete water-productivity texts were not accessible; title and abstract do not resolve all implications.",
+      "General theorems optimizing initial averages of unimodal functions may imply the uniqueness and monotonicity specialization; no priority claim over that abstract class.",
+      "The exact forward productivity integral is established prior work (Bannister); the claimed novelty is restricted to optimizer classification and precise scales."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Steele response and ecological setting; does not explicitly formulate the sharp all-optical-depth optimization theorem in inspected text.",
+        "evidence": [
+          "Publisher PDF page 2 (printed page 138), equation (2)",
+          "1962 publication listing states first published April 1962."
+        ],
+        "identifier_or_url": "10.4319/lo.1962.7.2.0137",
+        "material_read": "Full accessible 13-page publisher PDF, especially the derivation of equation (2), discussion of response/photoinhibition, and column-production exposition.",
+        "method": "Publisher full-text PDF text and page-image inspection",
+        "title": "Environmental Control of Photosynthesis in the Sea",
+        "trigger": "Original high-light inhibition response"
+      },
+      {
+        "assessment": "The exact forward column-production integral is close prior coverage; no all-q optimum, derivative-monotonicity or optical-depth asymptotic stated in the inspected material.",
+        "evidence": [
+          "Printed page 6 equation (20): Steele exponential depth-production equation",
+          "Printed pages 1-3: positioning of earlier depth integration formulas."
+        ],
+        "identifier_or_url": "10.4319/lo.1974.19.1.0001",
+        "material_read": "Accessible 12-page publisher PDF, introduction, light attenuation and production assumptions, printed page 6 equation (20), discussion of integrated equations.",
+        "method": "Publisher full-text PDF text and page-image inspection",
+        "title": "Production Equations in Terms of Chlorophyll Concentration, Quantum Yield, and Upper Limit to Production",
+        "trigger": "Exact exponential photoinhibition column integral might subsume formula"
+      },
+      {
+        "assessment": "Forward numerical day/depth integration and nonuniform population, without explicit global Steele optical-depth optimizer.",
+        "evidence": [
+          "1997 journal PDF printed page 189 abstract and introduction",
+          "Methods for numerical integrated productivity."
+        ],
+        "identifier_or_url": "10.1046/j.1469-8137.1997.00736.x",
+        "material_read": "Accessible 22-page complete PDF including abstract, light-model introduction and numerical method and assumptions.",
+        "method": "Publisher full-text PDF and page-image inspection",
+        "title": "Numerical Integration of Phytoplankton Photosynthesis Through Time and Depth in a Water Column",
+        "trigger": "Could generalize optimization under changing attenuation"
+      },
+      {
+        "assessment": "Analytically integrates photoinhibited production and may contain broader relevant results; full-text implication check unresolved.",
+        "evidence": [
+          "PubMed PMID 28308791 states instantaneous integral photosynthesis as function of extinction coefficient and light.",
+          "Oecologia 18 (1975), 145-154."
+        ],
+        "identifier_or_url": "10.1007/BF00348095",
+        "material_read": "PubMed abstract and publisher bibliographic metadata only; full text inaccessible after open-access and institutional alternatives.",
+        "method": "Abstract inspection and lawful access attempts (not full-document reading)",
+        "title": "An Analytical Study of Three Characteristic Forms of Light-Forced Primary Production in Aquatic Ecosystems",
+        "trigger": "Potential stronger analytical integration and exact parameter optimization"
+      },
+      {
+        "assessment": "A feedback formula on mixed-depth/turbidity and production; may be related conceptually but no decisive equivalence claim possible.",
+        "evidence": [
+          "Transactions of the American Fisheries Society 91 (1962), 69–76, publisher abstract."
+        ],
+        "identifier_or_url": "10.1577/1548-8659(1962)91[69:EOMDAT]2.0.CO;2",
+        "material_read": "Oxford Academic abstract and publication data only; complete text inaccessible.",
+        "method": "Abstract and citation-page inspection, not full-text assessment",
+        "title": "Effect of Mixing Depth and Turbidity on the Productivity of Fresh-Water Impoundments",
+        "trigger": "Earlier turbidity productivity treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f66622b-0c1c-4019-9dd7-9c653b7144a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question distinguishes ecological photon saturation and photoinhibition, and quantifies when scattering/attenuation can improve instantaneous fixed-biomass production rather than always decreasing useful light. A complete sharp critical boundary, global monotone response and double-log high-light optical-depth scale resolve a naturally dimensionless design choice. The result is nontrivial although conditional on fixed physiology and Beer attenuation; it is not a universal field-management conclusion.",
+    "status": "PASS"
+  }
+}
