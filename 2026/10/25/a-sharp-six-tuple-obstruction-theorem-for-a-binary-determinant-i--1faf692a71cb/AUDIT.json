@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The two-red-register representation is equivalent to the original team split by downward closure. At most two mixed y-fibres can be covered; any three furnish a six-tuple failure. With two, exactly two assignments of red registers can cover both, and the resulting two Boolean failure clauses force precisely LL/RR four-tuple patterns or full-fibre-plus-cross-pair six-tuple patterns. With three, the types L,R,C have at most one L and one R in an inclusion-minimal failure. The weights t,t,2t yield exactly the stated formulas. The six-tuple witness in RESULT.md is deletion-minimal. Exhaustive reproducible diagnostics covered 1,450,240 finite subteams, with direct splitting checks on three domains; all passed. Neither finite tests nor status fields replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fröhlich–Kolaitis–Meier, arXiv:2508.16146, Section 4 Theorem 25 and Appendix A: unrestricted incoherence, with determinant range growing in the witnesses.",
+        "Barlag et al., arXiv:2605.31269, Sections 3 and 5: general coherence/FO-rewritability and decision-complexity characterizations.",
+        "Theorem 22 of arXiv:2508.16146 proves 4-coherence for the different common-determinant formula dep(x,y)∨dep(x,z)."
+      ],
+      "reasoning": "The unrestricted formula is known incoherent rather than governed by a stronger uniform 6-bound. The common-determinant 4-coherence theorem has different dependencies and does not dominate the cross-linked three-variable case.",
+      "searches": [
+        "two functional dependencies disjunction three-column database minimal nondecomposable relation 4 6 witness",
+        "small-model property two-dependence-atom disjunction with two-element x-domain first order six-tuples",
+        "dependence logic disjunction binary determinant 6 coherence bounded variables"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.16146; CSL 2026, Theorem 25 and Appendix A",
+      "arXiv:2605.31269, Sections 2, 3 and 5",
+      "Kontinen, 2010 thesis, repository abstract only",
+      "Published finding: Exact antecedent boundary for material implication closure in team semantics (different operator)",
+      "Published finding: Soft repairing is NP-hard for two common-left functional dependencies (optimization rather than disjunctive split validity)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fröhlich–Kolaitis–Meier, arXiv:2508.16146, Section 4 Theorem 25 and Appendix A: unrestricted incoherence, with determinant range growing in the witnesses.",
+        "Barlag et al., arXiv:2605.31269, Sections 3 and 5: general coherence/FO-rewritability and decision-complexity characterizations.",
+        "Independent z choices can change whether the blue remainder is z-constant at a y fibre while leaving its first two coordinates unchanged."
+      ],
+      "reasoning": "Unrestricted incoherence has witnesses using unboundedly many first-coordinate values, so it cannot imply or refute the exact two-value restriction. The opposite-dependence formula applies when z=x but does not control the general three-coordinate cases. General FO-rewritability consequences provide neither the restricted coherence premise nor the coefficients of the labelled enumeration.",
+      "searches": [
+        "Disjunctions of Two Dependence Atoms theorem 25 dep(x,y) dep(y,z) incoherent",
+        "Aspects of Coherence in Dependence Logic section 3 coherent FO rewritable",
+        "binary first determinant x two values exact 6 coherence dep(x,y) or dep(y,z) teams finite forbidden subteams"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fröhlich–Kolaitis–Meier, arXiv:2508.16146, Section 4 Theorem 25 and Appendix A: unrestricted incoherence, with determinant range growing in the witnesses.",
+        "Barlag et al., arXiv:2605.31269, Sections 3 and 5: general coherence/FO-rewritability and decision-complexity characterizations.",
+        "The two-register normal form is a reduction to a two-choice per determinant-value constrained colouring; no matching four/six-tuple obstruction formula occurs in the inspected sections."
+      ],
+      "reasoning": "Relabel the result as finite forbidden configurations for red x-to-y versus blue y-to-z functional dependency colourings. The first paper proves unbounded failure but not the binary determinant bound; the second is general theory without this case analysis.",
+      "searches": [
+        "\"dep(x,y)\" \"dep(y,z)\" binary x domain six coherence",
+        "minimal unsatisfiable two-colour split of functional dependencies x determines y or y determines z binary x four six tuples",
+        "bounded domain dependence logic dep(x,y) OR dep(y,z) 2 by b by 2 minimal unsatisfiable teams and sharp support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite enumeration confirms minimal-failure count pairs (2,4), (18,108), (6,56), (54,1512), (12,200), (20,480), and (72,864) on the indicated labelled alphabets.",
+        "The 2025 and 2026 primary works do not contain this labelled obstruction table or a formula implying it."
+      ],
+      "reasoning": "The exact table is structurally indexed by choices of two or three mixed second-coordinate fibres and by pairs of output alphabet labels; no inspected exact database/table covers those objects.",
+      "searches": [
+        "forbidden obstruction census dep(x,y) vee dep(y,z) for two-valued x exact choose(b,2) choose(c,2) formula",
+        "functional dependency OR functional dependency partition table binary x z forbidden subrelation finite basis"
+      ]
+    },
+    "rationale": "Theorem 25 of arXiv:2508.16146 addresses unbounded determinant alphabets and neither restricts x to two values nor supplies a forbidden-pattern basis, labelled enumerator, or sharp six-tuple upper bound. General coherence theory in arXiv:2605.31269 likewise does not imply the exact bounded-alphabet classification. The directly related two-coordinate opposite-dependence statement lacks the independently variable third coordinate. Actual semantic searches found no dominating statement; older terminology remains a residual risk.",
+    "residual_risks": [
+      "A previously established restricted-domain database decomposition theorem under other vocabulary may have equivalent consequences.",
+      "The historical 2010 thesis could not be checked beyond its public repository abstract.",
+      "Search limitations do not establish universal priority or independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unrestricted incoherence, not two-value determinant minimal forbidden patterns or exact labelled counting.",
+        "evidence": [
+          "Theorem 25(2): dep(x,y)∨dep(y,z) incoherent.",
+          "Appendix A, Theorem 25: use an arbitrarily growing set of x-values in the witness construction."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+        "material_read": "Definition of splitting and coherence, model-checking reduction, Section 4 theorems 22–26 and Appendix A proof of Theorem 25.",
+        "method": "Opened open-access full HTML and inspected the relevant theorem statements, constructions, and proof sections.",
+        "title": "Disjunctions of Two Dependence Atoms",
+        "trigger": "Exact same dependence-atom disjunction and unrestricted incoherence; strongest direct comparison."
+      },
+      {
+        "assessment": "General framework and decision results; no restricted binary-determinant obstruction classification or counting formula.",
+        "evidence": [
+          "Definition 2.3 gives the splitting semantics used here.",
+          "Section 3 characterizes coherent quantifier-free formulas through first-order rewritability.",
+          "Section 5 investigates deciding coherence generally."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+        "material_read": "Full-text definitions of team semantics and coherence, Section 3 on rewritability, Section 5 on deciding coherence.",
+        "method": "Opened publicly accessible complete article text; inspected definitions, proof arguments and related results in these sections.",
+        "title": "Aspects of Coherence in Dependence Logic",
+        "trigger": "New work on coherence, rewritability and complexity of fixed dependence-logic formulas."
+      },
+      {
+        "assessment": "Background theory is relevant, but this does not establish a matching binary-determinant enumerator; specific uninspected passages remain a residual priority risk.",
+        "evidence": [
+          "2010 thesis abstract describes coherence and quantifier-free dependence logic, without stating a finite-valued obstruction census."
+        ],
+        "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/2088/",
+        "material_read": "Repository abstract and bibliographic entry only; full thesis PDF was not retrieved.",
+        "method": "Repository entry inspected; full-text retrieval attempt did not succeed.",
+        "title": "Coherence and Complexity in Fragments of Dependence Logic",
+        "trigger": "Earlier broad thesis on the coherence concept and quantifier-free formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1faf692a-71cb-46fa-8411-9000749fbbe9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of values taken by the first determinant is a natural finite-domain parameter in dependence logic and database tables. This theorem exhibits a sharp qualitative boundary: a formula known incoherent without input restrictions has an exact six-tuple forbidden-obstruction bound with only a binary first determinant, plus a complete labelled two-size census and explicit local pattern classification for all two remaining alphabet sizes. The result gives a finite witness basis and computable benchmarks rather than an arbitrary numerical slice; no downstream theorem or publication-scale claim is presumed.",
+    "status": "PASS"
+  }
+}
