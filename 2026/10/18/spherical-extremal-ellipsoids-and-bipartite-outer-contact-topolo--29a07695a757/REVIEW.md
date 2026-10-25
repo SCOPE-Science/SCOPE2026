@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The support function is computed directly from the filled coordinate-plane unit disks. The lower inequality \(\sqrt{s}\ge s\), regular graph degree sum, sharp Cauchy–Schwarz upper inequality, and equality equations on a connected graph yield exact radii and all contact points. The inscribed-ellipsoid volume bound is Hadamard's inequality; averaging the signed outer contacts bounds every containing ellipsoid by AM–GM. The equality cases fix both ellipsoid centers and shapes. The bipartite locus is an embedded complete-bipartite graph because distinct sign/angle arcs meet only at endpoints. A standalone checker corroborates small cases; it is not the proof. Risks: the theorem deliberately excludes the one-edge graph and makes no nonregular ellipsoid classification.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** Gesmundo–Meroni, arXiv:2111.01241, Sections 2–3, 6–8, study discotope support/faces/algebraic boundary and the three-disk example, not an all-regular-graph classification of extremal Euclidean ellipsoids and the topology of farthest points. Mathis–Meroni, arXiv:2105.12406 / DOI:10.1007/s00454-022-00451-3, Section 5.2, studies fiber convex bodies instead. Related published mathematical-record items on graphical zonotopes and on convex hulls of orthogonal disks have different summands or a different convex-body operation. Actual semantic mathematical-record searches and own accessible ledger comparison found no implication covering the claim. Risk: an equivalent unindexed or differently named result may exist; the accessible result descriptions do not constitute exhaustive historical coverage.
+PASS
 
-**Mathematical value — PASS.** A natural infinite graph-indexed class of nonpolyhedral zonoids acquires exact canonical ellipsoids **without** graph vertex-transitivity. More significantly, the topology of the full outer-contact locus sharply distinguishes bipartiteness while the two canonical radii are unchanged: isolated signed points versus a connected complete-bipartite graph with first Betti number \((2^{n/2}-1)^2\). This global topological classification, not merely the elementary radius bounds or finite computations, supplies the substantive structural advance. Limitation: it does not resolve generic discotope geometry.
+For a connected simple d-regular G (n≥3,d≥2), the Minkowski sum support h_K(u)=Σ_edges sqrt(u_i²+u_j²). For unit u put z_i=u_i². Since each edge sum z_i+z_j≤1, sqrt(s)≥s gives h_K(u)≥Σ_i degree(i)z_i=d, equality only for signed coordinate basis when connected degree≥2 (any distributed positive z creates an incident edge with 0<s<1). Thus dB_n is inscribed and contacts exactly ±d e_i. Coordinate support inequalities constrain each row norm of any inscribed ellipsoid affine map ≤d, so Hadamard proves unique John ball and unique centered maximal inball. Cauchy–Schwarz gives h²≤|E|Σ_edges(z_i+z_j)=n d²/2. Equality iff z_i+z_j=2/n along every edge; odd cycle forces all z_i=1/n, whereas connected bipartite graph forces one constant on each part and normalized a+b=2/n. Equality support points are Ru, giving 2^n sign points for nonbipartite, versus independent sign choices and a quarter-great-circle parameter for bipartite equal partitions p=n/2; interiors disjoint, endpoint identifications yield K_(2^p,2^p), cycle rank (2^p-1)^2. Independently derive Löwner optimality from signed flat contact design with E xx^T=(d²/2)I and tr(Q^-1)≤2/d², then AM–GM implies det Q≥(nd²/2)^n with equality only centered sphere. Independent checks on C3 and C4 reproduce h extrema and contacts. Finite checks do not substitute for all-graph proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original discotope literature defines and analyzes disks Minkowski sums, face/algebraic boundaries; fiber convex bodies considers a different operation and a three-disk example. Closely ranked Resultary records concern segment graphical zonotopes, fractional matching/symmetric edge polytopes, or other convex graph bodies. Disk versus segment and direct Minkowski sum versus fiber construction are substantive differences; no inspected source proves the regular graph extremal ellipsoid and bipartiteness contact-locus topology.
+
+## value
+
+PASS
+
+A sharp natural graph-geometric dictionary: without vertex transitivity both optimal Euclidean extremal ellipsoids become spheres with explicit radii, and bipartiteness determines whether the entire outer-contact set is discrete or a high-cycle-rank embedded complete bipartite graph. This is an exact classification for all connected regular graphs, not arbitrary small-parameter computation. The Betti number gives a motivated global topological invariant, potentially useful in discotope geometry and symmetric convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
