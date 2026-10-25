@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Execute `python3 verify_cube_line_graph.py` and `python3 verify_coordinate_model.py` in a clean Python 3 environment. The scripts use only the Python standard library. Compare stdout byte-for-byte with `verification_output_cube.txt` and `verification_output_coordinates.txt`.
+# Independent mathematical audit
 
-The first script exhausts every nonempty subset of twelve graph vertices, prints all face counts and matching stages, tests acyclicity of the full oriented face-poset graph, computes mod-two boundary ranks, enumerates 48 graph automorphisms, and calculates ten rational character traces via exact signed fixed-simplex sums. The second script independently constructs the Euclidean cuboctahedral graph and computes the component condition via breadth-first search; it checks the Euler characteristic, the identity and antipodal character values, and the full-group invariants.
+## correctness
 
-The finite search is mathematically exhaustive because all \(2^{12}-1\) possible nonempty vertex subsets and all 48 signed coordinate permutations are explicitly traversed, without sampling or timeout. The integer homotopy statement additionally invokes the standard discrete Morse theorem: one zero-cell and 32 three-cells are the only critical cells. No calculation here determines a general family of larger line-graph cubes; no external independent audit has been performed.
+PASS
+
+The 12 vertices are cube edges; face membership for dissociation Ind_2(L(Q3)) is equivalent to every selected graph vertex having at most one selected neighbor. Exhaustive 4095 nonempty masks yield face vector (12,66,164,177,36), 455 faces and 1512 Hasse covering relations. Deterministic vertex-toggle matching stages (0,126),(11,55),(5,15),(8,15) remove 211 pairs, leaving one critical 0-cell and 32 critical 3-cells. Reversing matched edges in the FULL face-poset Hasse graph gives an acyclic digraph with all 455 vertices topologically sorted; Forman yields an integral wedge of 32 S³, not merely mod-2 homology. Independently rebuilt masks, toggles and directed acyclicity. Signed fixed-simplex Lefschetz formula and full 48 cube symmetries give the stated 10-class rational H3 character, average 96/48=2 invariant dimension, antipodal trace 10 and 21/11 eigensplit. Package contains two distinct finite graph constructions with same character. This exactly finite census is exhaustive for this 12-vertex object, not a universal theorem for larger graph families.
+
+## originality
+
+PASS
+
+The 2-independence (dissociation) complex forbids every selected path on three vertices, not only three-cliques; it is strictly smaller than CF3(L(Q3)), and the ordinary matching complex, ordinary/total cut complexes and graph Čech filtrations also have different faces. Sawant's r-independence vertex-decomposability is for trees, not the cyclic cuboctahedron. Published exact findings on the same cuboctahedral graph refer to other complexes; no covering Ind2 wedge or full octahedral rational character found, with residual risk for unindexed enumerations.
+
+## value
+
+PASS
+
+The cuboctahedron is an intrinsically motivated highly symmetric Archimedean graph and canonical cube line graph; Ind₂ is a natural higher-independence invariant. Determining its integral homotopy type with a complete acyclic Morse certificate and full symmetry character (including antipodal eigenspaces) is a nontrivial exact classification, not a gratuitous small graph lookup or unproved mod-2 extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

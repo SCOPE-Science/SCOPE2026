@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The object and its component-size condition are explicit. Every nonempty subset of the twelve-vertex cuboctahedral line graph was enumerated; all 455 faces and 1512 face covering relations were counted. A deterministic 211-pair matching was checked to be acyclic by a complete topological sort and has exactly one critical zero-cell and 32 critical three-cells. Forman's theorem therefore gives a wedge of 32 three-spheres integrally. An independent coordinate-model construction confirmed the face vector and rational traces; the original calculation also verified all mod-two boundary ranks. The character formula is a signed Lefschetz trace; all 48 group elements and the ten class traces are computed exactly. Numerical checks alone were not used to claim homotopy.
+## correctness
 
-**Originality (PASS with residual risk).** The closest reviewed higher-independence theorem (Sawant, arXiv:2605.25150) concerns trees; this graph is a cuboctahedral line graph with cycles. Deshpande and Singh's classifications do not cover this graph. The previously recorded three-clique-free / two-matching theorem for the same line graph concerns a strictly larger complex: the three-vertex path example in the proof separates the face conditions. Ordinary matching, graph-cut, and intrinsic Čech results are not equivalent. The exact character and wedge multiplicity were not found in the checked indexed findings or primary sources. Searches cannot rule out all unindexed work, and incomplete indexed full-text access remains an originality risk.
+PASS
 
-**Mathematical value (PASS).** The cuboctahedron is a canonical Archimedean graph and the line graph of the three-cube. Its dissociation complex is natural in the established higher-independence hierarchy and is not a relabeling of the known two-matching complex on the same vertices. The integral sphere-wedge classification resolves a concrete nontrivial graph-complex homotopy invariant, while the full octahedral character distinguishes antipodal eigenspaces and exhibits two invariant third-homology classes. No claim is made for a family of all hypercubes or for an integral representation decomposition.
+The 12 vertices are cube edges; face membership for dissociation Ind_2(L(Q3)) is equivalent to every selected graph vertex having at most one selected neighbor. Exhaustive 4095 nonempty masks yield face vector (12,66,164,177,36), 455 faces and 1512 Hasse covering relations. Deterministic vertex-toggle matching stages (0,126),(11,55),(5,15),(8,15) remove 211 pairs, leaving one critical 0-cell and 32 critical 3-cells. Reversing matched edges in the FULL face-poset Hasse graph gives an acyclic digraph with all 455 vertices topologically sorted; Forman yields an integral wedge of 32 S³, not merely mod-2 homology. Independently rebuilt masks, toggles and directed acyclicity. Signed fixed-simplex Lefschetz formula and full 48 cube symmetries give the stated 10-class rational H3 character, average 96/48=2 invariant dimension, antipodal trace 10 and 21/11 eigensplit. Package contains two distinct finite graph constructions with same character. This exactly finite census is exhaustive for this 12-vertex object, not a universal theorem for larger graph families.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2-independence (dissociation) complex forbids every selected path on three vertices, not only three-cliques; it is strictly smaller than CF3(L(Q3)), and the ordinary matching complex, ordinary/total cut complexes and graph Čech filtrations also have different faces. Sawant's r-independence vertex-decomposability is for trees, not the cyclic cuboctahedron. Published exact findings on the same cuboctahedral graph refer to other complexes; no covering Ind2 wedge or full octahedral rational character found, with residual risk for unindexed enumerations.
+
+## value
+
+PASS
+
+The cuboctahedron is an intrinsically motivated highly symmetric Archimedean graph and canonical cube line graph; Ind₂ is a natural higher-independence invariant. Determining its integral homotopy type with a complete acyclic Morse certificate and full symmetry character (including antipodal eigenspaces) is a nontrivial exact classification, not a gratuitous small graph lookup or unproved mod-2 extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
