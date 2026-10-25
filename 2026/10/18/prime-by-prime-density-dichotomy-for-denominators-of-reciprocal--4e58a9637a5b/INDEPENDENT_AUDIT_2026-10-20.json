@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T21:54:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grouping j by gcd(n,j) proves H(n)=h(n)/n with multiplicative h and h_p(a)=(p^(2a+1)+1)/(p+1), so denominator has ell iff v_ell(n)>sum_{p != ell}v_ell(h_p(v_p(n))). All h_p(a) are odd, hence delta_2=1/2. When ell=3 or ell=1 mod6, Phi_6 has a nonzero root mod ell; infinitely many primes in that residue class contribute positive ell-valuation already at exponent one. Divergence of reciprocal primes in the progression and finite-prime CRT independence, bounded variance and Chebyshev force numerator valuation above any fixed threshold for density one; hence denominator ell density zero. For ell=5 mod6 Phi_6 has no root, so only p^a with a>=2 can contribute. Tail density sum_{p>Y}1/p² vanishes; finite-prime valuation independence gives the stated convergent positive Euler product, each factor 1+O(p^-2). A p=-1 mod ell and a=(ell-1)/2 gives a positive valuation by LTE and proves strict <1/ell. At ell=5 primitive residue order shows only p=-1 mod5 contribute, with v_5(h_p(a))=v_5(2a+1). Independent rational summation checks H(n)=h(n)/n for n<=350; independently counting n<=10000 with 5|den gives 1994. This is not a proof of asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Integrality h(n) divisible by n is a simultaneous condition far stronger than requiring a single prime in reduced denominator; the original sparse-integrality upper bound does not entail any of the fixed-prime densities."
+        ],
+        "reasoning": "Neither a bound on rare integer values nor denominator sequences dominate a distributional density theorem, although stronger work for ell=3 is expressly credited.",
+        "searches": [
+          "arXiv:2610.10572v1 main theorem",
+          "OEIS A333696/A070999/A071000"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10572v1 De Koninck–Letendre",
+        "OEIS A333696 denominator table",
+        "OEIS A070999/A071000 related sequences",
+        "Resultary 12-hit prime-denominator semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Motivating paper derives h multiplicative and studies n|h(n); OEIS tabulates finite terms; a known stronger ell=3 zero-density branch is explicitly acknowledged in claim."
+        ],
+        "reasoning": "The numerator formula is a necessary lemma but not an implicit all-prime theorem: distinguishing nonroot primes of Phi_6 and controlling p² tails establishes the new implication. The ell=3 special case is not independently asserted as novel.",
+        "searches": [
+          "De Koninck–Letendre arXiv:2610.10572v1",
+          "OEIS A333696"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full motivating paper uses the identical H(n) and numerator h(n), but its main theorem concerns integer-valued H(n) (all prime valuations at once) and sparsity, not marginal density at fixed ell."
+        ],
+        "reasoning": "The product identity is prior work. It does not imply this prime-by-prime distribution without the split/inert root analysis and valuation tail.",
+        "searches": [
+          "De Koninck–Letendre arXiv:2610.10572v1",
+          "web search reciprocal gcd denominator density primes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS tabulates exact denominators but no all-X density or Euler product in inspected material. Resultary exact-themed search found unrelated gcd map product rather than this function."
+        ],
+        "reasoning": "A numerical approximation 0.1992415 is not the theorem. The nontrivial original object is the exact Euler product and dichotomy for infinitely many n.",
+        "searches": [
+          "OEIS A333696 denominator table",
+          "Resultary semantic search: denominator density reciprocal gcd sum multiplicative numerator cyclotomic Euler product prime 5"
+        ]
+      },
+      "rationale": "Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.",
+      "residual_risks": [
+        "An unindexed short note might already derive local denominator densities from Phi_6(p).",
+        "No uniform-in-ell error term or stronger numerical precision is proved; approximate delta5 is not an exact identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known h(n)/n identity and sparse integrality are credited; inspected principal claims do not contain fixed-prime denominator-density product",
+          "evidence": "The published main problem is n|h(n), whereas ell|den(H(n)) means v_ell(n)>v_ell(h(n)).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10572",
+          "material_read": "Lawful 12-page arXiv preprint, introduction, numerator formulas, main integrality counting theorem and related discussion",
+          "method": "arXiv OA PDF read in relevant pages",
+          "title": "The Integer Values of sum of reciprocal gcds",
+          "trigger": "Same exact arithmetic function and numerator identity"
+        },
+        {
+          "assessment": "Exact sequence not an all-prime asymptotic or positive Euler-product formula",
+          "evidence": "A333696 lists reduced denominators for reciprocal gcd sums.",
+          "identifier_or_url": "https://oeis.org/A333696",
+          "material_read": "OEIS denomination and table description as referenced by package",
+          "method": "database/source-page inspection",
+          "title": "OEIS A333696",
+          "trigger": "Existing numerical denominator table for identical function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The previously studied arithmetic function had a difficult sparse integrality problem. The set of primes dividing reduced denominators is a natural complementary local invariant. A complete fixed-prime density dichotomy and genuinely positive product at inert primes, including a concrete 5-adic value, provide a usable arithmetic classification rather than isolated numerical tables.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.10572v1 De Koninck–Letendre",
+    "OEIS A333696 denominator table",
+    "OEIS A070999/A071000 related sequences",
+    "Resultary 12-hit prime-denominator semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed prime ell natural density only; no convergence rate/uniformity across primes.",
+    "Numerical delta5 not a rigorously bounded decimal from the independent check."
+  ],
+  "residual_risks": [
+    "An unindexed short note might already derive local denominator densities from Phi_6(p).",
+    "No uniform-in-ell error term or stronger numerical precision is proved; approximate delta5 is not an exact identity."
+  ],
+  "schema_version": 1
+}

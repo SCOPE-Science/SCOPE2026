@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact multiplicative formula is stated in the motivating paper and independently derived by grouping gcd classes; the valuation criterion follows by reduction of an integer fraction. For split primes, Dirichlet/PNT-AP supplies infinitely many prime factors contributing already at exponent one, and finite-prime independence plus a second-moment bound forces zero density. For inert primes, the first nontrivial numerator valuation at any other prime occurs only at exponent at least two, making the truncation error summable; the resulting absolutely convergent product has positive factors. The lower/strict-upper bounds and the special five-adic LTE reduction are proved. The executable only confirms finite cases and the approximation.
+## correctness
 
-**Originality (PASS, with residual risk).** De Koninck–Letendre's full preprint bounds how often the entire rational value is integral, which is a strictly different implication from a positive density of denominators divisible by any selected inert prime. OEIS A333696 tabulates denominators without the all-prime density classification. The previous three-adic asymptotic is stronger than this result's isolated zero-density statement at \(\ell=3\), and is explicitly excluded from the originality claim; it does not imply positive products at \(\ell\equiv5\pmod6\) or zero density at all split primes. No published equivalent/stronger statement was found in targeted searches. An implicit or unindexed derivation remains possible.
+PASS
 
-**Mathematical value (PASS).** The result classifies a natural infinite arithmetic question for every fixed denominator prime, including a sharp distinction between cyclotomic split/inert behavior. For the inert half of odd primes it gives nonzero constants rather than just existence or bounds, with a readable specialization at five. This is mathematically motivated by the gap between rarity of integral sums and the distribution of their residual denominator factors.
+Grouping j by gcd(n,j) proves H(n)=h(n)/n with multiplicative h and h_p(a)=(p^(2a+1)+1)/(p+1), so denominator has ell iff v_ell(n)>sum_{p != ell}v_ell(h_p(v_p(n))). All h_p(a) are odd, hence delta_2=1/2. When ell=3 or ell=1 mod6, Phi_6 has a nonzero root mod ell; infinitely many primes in that residue class contribute positive ell-valuation already at exponent one. Divergence of reciprocal primes in the progression and finite-prime CRT independence, bounded variance and Chebyshev force numerator valuation above any fixed threshold for density one; hence denominator ell density zero. For ell=5 mod6 Phi_6 has no root, so only p^a with a>=2 can contribute. Tail density sum_{p>Y}1/p² vanishes; finite-prime valuation independence gives the stated convergent positive Euler product, each factor 1+O(p^-2). A p=-1 mod ell and a=(ell-1)/2 gives a positive valuation by LTE and proves strict <1/ell. At ell=5 primitive residue order shows only p=-1 mod5 contribute, with v_5(h_p(a))=v_5(2a+1). Independent rational summation checks H(n)=h(n)/n for n<=350; independently counting n<=10000 with 5|den gives 1994. This is not a proof of asymptotics.
 
-**Closest literature and limits.** De Koninck–Letendre, arXiv:2610.10572v1 (2026-10-04); OEIS A333696; standard Dirichlet/PNT-AP and LTE. The theorem gives neither rates nor uniformity in the selected prime; an independent literature and mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+The previously studied arithmetic function had a difficult sparse integrality problem. The set of primes dividing reduced denominators is a natural complementary local invariant. A complete fixed-prime density dichotomy and genuinely positive product at inert primes, including a concrete 5-adic value, provide a usable arithmetic classification rather than isolated numerical tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
