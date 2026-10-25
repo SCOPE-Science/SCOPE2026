@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:16:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each generic direction sort the projected halfwidths xi>=eta>=zeta. Sweeping all twelve box edges gives positive-offset lengths (2zeta, 2(eta-zeta)+(xi-eta-zeta)_+, 2min(xi-eta,zeta), (eta+zeta-xi)_+) for 3,4,5,6 vertices, summing to xi+eta+zeta. Integrating with Haar dOmega dt (width-biased normals) gives p3=4T/s and p6=2Q/s, the remaining probabilities by the exact length identity. Spherical Stokes vector-area integrals give the stated arccos/arctan closed forms for T=E min(A,B,C) and Q=E(S-2max)_+. Coarea on a|U1|=b|U2| near c=0 gives Q/c^2->1/(2sqrt(a^2+b^2)) and hence the extinction constant 1/((a+b)sqrt(a^2+b^2)); the small simultaneous X,Y case contributes only O(c^3). Independently counted intersections of all 12 physical edges at 70,000 weighted normals for each of (1,1,1) and (.7,1.5,.3): max empirical discrepancy 0.0031. This is finite corroboration, not a substitute for the spherical/coarea proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bray 2009 thesis Ch10 documents a cube-specific full section-type table; general a,b,c not established by that specialization.",
+          "Birkemeyer et al arXiv:2609.16195 Theorem 4.5 concerns reconstruction from face-count function, not measure of hyperplanes by section type."
+        ],
+        "reasoning": "A table at a=b=c and slice type classification cannot imply exact all-a,b,c T/Q integrals or the flat-limit coefficient. Bray full chapter unavailable, so priority risk retained.",
+        "searches": [
+          "Crofton affine plane section rectangular box hexagon probability formula flattening quadratic",
+          "Crofton invariant random affine plane rectangular cuboid hexagonal probability aspect ratio",
+          "Bray 2009 invariant measures manifolds convex polytopes cube chapter 10 thesis",
+          "arxiv:2609.16195 combinatorial slicing probabilities"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/elementary-crofton-section-type-law-and-quadratic-hexagon-extinc--ecdb5fa9f8fa/RESULT.md",
+        "https://arxiv.org/pdf/2609.16195",
+        "https://ro.uow.edu.au/theses/3403",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2609.16195 Theorem 5.11 classifies relations between slice-equivalence data; no probabilistic formula.",
+          "Resultary central-section exact hexagon formula conditions offset t=0; affine conditional offset integrates t over [-h,h]."
+        ],
+        "reasoning": "The prior results cannot be substituted without a new offset integral: central slices and affine hit-conditioned slices even have different cube probabilities; general-box flattening follows from a further coarea argument.",
+        "searches": [
+          "Crofton affine plane section rectangular box hexagon probability formula flattening quadratic",
+          "Crofton invariant random affine plane rectangular cuboid hexagonal probability aspect ratio",
+          "Bray 2009 invariant measures manifolds convex polytopes cube chapter 10 thesis",
+          "arxiv:2609.16195 combinatorial slicing probabilities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary: 2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4 central-section claim; fixed u has t=0 unlike affine Crofton integration.",
+          "Birkemeyer et al arXiv:2609.16195 §§1,4,5 distinguish central and affine possible slice combinatorics."
+        ],
+        "reasoning": "Equivalences tested: central Haar-normal hexagon event (fixed t=0) versus affine-plane invariant dOmega dt conditioned on hit (normal weighted by width). Neither model determines the other distribution from its quoted statement.",
+        "searches": [
+          "Crofton affine plane section rectangular box hexagon probability formula flattening quadratic",
+          "Crofton invariant random affine plane rectangular cuboid hexagonal probability aspect ratio",
+          "Bray 2009 invariant measures manifolds convex polytopes cube chapter 10 thesis",
+          "arxiv:2609.16195 combinatorial slicing probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary central-section box result 45d2a55425d4 is a different conditional slice measure; no exact noncentral affine all-box distribution in top search results.",
+          "Bray cube constants are acknowledged and not newly claimed."
+        ],
+        "reasoning": "No found table covers the all-aspect Crofton law; absence of an indexed match does not prove novelty.",
+        "searches": [
+          "Crofton affine plane section rectangular box hexagon probability formula flattening quadratic",
+          "Crofton invariant random affine plane rectangular cuboid hexagonal probability aspect ratio",
+          "Bray 2009 invariant measures manifolds convex polytopes cube chapter 10 thesis",
+          "arxiv:2609.16195 combinatorial slicing probabilities"
+        ]
+      },
+      "rationale": "The motion-invariant noncentral-affine-plane four-type distribution and flattening coefficient are not implied by an equal-probability central-section theorem or cube-only tabulation; the searched recent combinatorial slicing paper concerns possible face types and reconstruction, not invariant affine hit-conditioned probabilities. Best-of-knowledge original for arbitrary positive aspect ratios; Bray chapter 10 inaccessible leaves genuine historical risk.",
+      "residual_risks": [
+        "Bray (2009) full thesis Chapter 10 was not obtained; could contain a general aspect-ratio Crofton table.",
+        "The spherical vector-area formula was mathematically reconstructed and finite geometry independently tested, but a full high-precision symbolic arccos integration was not separately implemented."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_QUESTION",
+          "evidence": "Theorems state reconstruction and combinatorial slicing relations, not section-type probabilities under Euclidean kinematic measure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16195",
+          "material_read": "PDF full source available; read abstract, introductory theorems 4.5 and 5.11 and stated scope; inspected rendered PDF page 1",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices",
+          "trigger": "Very recent paper on both affine and central cube slicing"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "A full chapter could contain more than the cube case; its absence retained as residual priority risk.",
+          "identifier_or_url": "https://ro.uow.edu.au/theses/3403",
+          "material_read": "Reference and cube-Ch10 coverage statement in submitted proof; institutional landing page not accessible; chapter PDF NOT READ",
+          "method": "Web attempt returned inaccessible page",
+          "title": "Invariant measures on manifolds of convex polytopes (Bray thesis, 2009)",
+          "trigger": "Cited exact distribution of cube sections, plausible general treatment"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": "Precisely states uniformly oriented central section (t=0), not randomly translated affine planes weighted by hit width.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Resultary published title and ranked mathematical summary (not full text)",
+          "method": "Resultary semantic search",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Same geometric box and hexagon event in published finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-aspect-ratio law for random intersecting affine sections of the natural three-dimensional rectangular box supplies probabilities of four combinatorial types without quadrature and a sharp, positive c^2 degeneration invariant. This is a substantial geometric-kinematics fact, not the earlier cube-only table or the known mean-four formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/elementary-crofton-section-type-law-and-quadratic-hexagon-extinc--ecdb5fa9f8fa/RESULT.md",
+    "https://arxiv.org/pdf/2609.16195",
+    "https://ro.uow.edu.au/theses/3403",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Bray (2009) full thesis Chapter 10 was not obtained; could contain a general aspect-ratio Crofton table.",
+    "No GitHub publication, third-party attestation or formal mechanized proof is represented; finite checks are corroboration only."
+  ],
+  "residual_risks": [
+    "Bray (2009) full thesis Chapter 10 was not obtained; could contain a general aspect-ratio Crofton table.",
+    "The spherical vector-area formula was mathematically reconstructed and finite geometry independently tested, but a full high-precision symbolic arccos integration was not separately implemented."
+  ],
+  "schema_version": 1
+}

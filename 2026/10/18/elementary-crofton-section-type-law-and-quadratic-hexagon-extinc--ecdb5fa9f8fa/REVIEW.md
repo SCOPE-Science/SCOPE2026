@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-normal partition derives the four section lengths by enumerating all twelve edges. A spherical Stokes vector-area calculation evaluates both the minimum of three coordinate contributions and each dominance defect as explicitly displayed elementary functions. The exact pointwise max/min inclusion-exclusion identity then reconstructs the hexagon probability, and the other probabilities follow by direct length identities. The near-degenerate limit follows from spherical coarea on the coordinate-tie great circles, where the tangential gradient is constant. The standalone independent checker tests actual edge crossings, normal weights, and the known cube table on 1,250,000 sampled planes; high-precision numerical flattening tests support but do not replace the proof. Assumptions: positive Euclidean orthogonal half-lengths, generic affine planes, motion-invariant conditioning.
+## correctness
 
-## Originality — PASS with historical risk
-The cube's full probability table (Bray 2009), the four-vertex mean, and the known all-box triangular-section optimization are expressly prior work, not novel parts of the claim. The 2026 slicing-reconstruction source addresses combinatorial possibility rather than probability. The 2025 cube-slicing work has a matching geometric object but available material did not reveal an unequal-box Crofton-type probability theorem; full text remains a risk. The all-unequal-box elementary hexagon law and its sharp quadratic extinction coefficient were not found in the direct primary and mathematical-record searches, including the different central-section formulas. Priority is not independently certified; an older kinematic-integral equivalent is possible.
+PASS
 
-## Mathematical value — PASS
-The hexagon is the rarest high-complexity Crofton section of a generic cuboid, with probabilities sensitive to aspect ratios. An exact all-aspect-ratio formula, not merely the cube constants or a previously studied triangular probability, completes the natural stereological polygon-type profile. The novel quadratic limit supplies the sharp way this event disappears in the geometric degeneration from three dimensions to a rectangle, including an explicit coefficient for every fixed planar shape. It offers a checkable reference for cuboid-shape inference from random cuts.
+For each generic direction sort the projected halfwidths xi>=eta>=zeta. Sweeping all twelve box edges gives positive-offset lengths (2zeta, 2(eta-zeta)+(xi-eta-zeta)_+, 2min(xi-eta,zeta), (eta+zeta-xi)_+) for 3,4,5,6 vertices, summing to xi+eta+zeta. Integrating with Haar dOmega dt (width-biased normals) gives p3=4T/s and p6=2Q/s, the remaining probabilities by the exact length identity. Spherical Stokes vector-area integrals give the stated arccos/arctan closed forms for T=E min(A,B,C) and Q=E(S-2max)_+. Coarea on a|U1|=b|U2| near c=0 gives Q/c^2->1/(2sqrt(a^2+b^2)) and hence the extinction constant 1/((a+b)sqrt(a^2+b^2)); the small simultaneous X,Y case contributes only O(c^3). Independently counted intersections of all 12 physical edges at 70,000 weighted normals for each of (1,1,1) and (.7,1.5,.3): max empirical discrepancy 0.0031. This is finite corroboration, not a substitute for the spherical/coarea proof.
 
-## Limits and closest literature
-The classification is restricted to rectangular boxes and the Euclidean-invariant **affine** sampling law, not oblique parallelotopes or Haar-central slices. Bray's cube table is a genuine covering special case. The earlier all-box triangular result provides \(p_3\) but not the new evaluated all-box \(p_6\), so the main claim is not presented as independent of that antecedent. Historical equivalence beyond the inspected sources remains possible, especially because the 2025 cube-slicing full text was unavailable in this run.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motion-invariant noncentral-affine-plane four-type distribution and flattening coefficient are not implied by an equal-probability central-section theorem or cube-only tabulation; the searched recent combinatorial slicing paper concerns possible face types and reconstruction, not invariant affine hit-conditioned probabilities. Best-of-knowledge original for arbitrary positive aspect ratios; Bray chapter 10 inaccessible leaves genuine historical risk.
+
+## value
+
+PASS
+
+An exact all-aspect-ratio law for random intersecting affine sections of the natural three-dimensional rectangular box supplies probabilities of four combinatorial types without quadrature and a sharp, positive c^2 degeneration invariant. This is a substantial geometric-kinematics fact, not the earlier cube-only table or the known mean-four formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
