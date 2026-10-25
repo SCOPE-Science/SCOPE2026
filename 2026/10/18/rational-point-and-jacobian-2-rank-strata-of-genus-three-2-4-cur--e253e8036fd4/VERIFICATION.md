@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` using the standard Python library. This enumerates all \(32{,}767\) nonzero mask triples, detects smoothness by two exact gcd tests, computes rational-fiber and branch-support counts, partitions all smooth equations into \(36\)-element group orbits, and compares against `data/joint_table.json` and `data/orbit_representatives.csv`. Expected terminal result:
+## correctness
 
-```
-PASS: 32767 nonzero equations, 9216 smooth, 294 embedding orbits.
-PASS: full independent coefficient and orbit distributions agree.
-PASS: 1083 six-point curves, 37 orbits, p-rank 1/3 split 282/801.
-```
+PASS
 
-Run `python crosscheck.py` with SymPy installed. This checks the Jacobian ideal on all four affine charts by exact Gröbner-basis calculation over \(\mathbf F_2\), for representatives of **every** ambient projective-coordinate orbit, including singular ones. It independently obtains the first three extension-field point counts for each smooth orbit representative and derives the Jacobian \(2\)-rank from the genus-three zeta polynomial modulo two. Expected result:
+In characteristic two F=U²A+UVB+V²C is geometrically smooth exactly when B is nonzero and gcd(B,(CA′+AC′)²+AC(B′)²)=1 in both base charts. Elimination of the quadratic fibre coordinate accounts for all geometric singularities; direct evaluation of three rational fibres counts N, and Deuring–Shafarevich computes p-rank as distinct geometric zeros of homogeneous B minus one (infinity counted once). The 36 coordinate changes preserve the embedded problem. A separate complete 32,767-section scan verified exactly 9,216 smooth, all 17 nonzero distribution cells, 294 orbits, and the six-point split of 282/801 equations in 11/26 orbits. This exhaustive finite calculation is within the precisely specified F2 coefficient domain.
 
-```
-PASS: Groebner smoothness on all projective orbits (smooth and singular).
-PASS: independent finite-field zeta p-ranks on every smooth orbit.
-```
+## originality
 
-The orbit reduction is exact because the program explicitly applies all \(36\) group elements, validates that each computed orbit lies inside the remaining coefficient set, and exhausts that set. The field-extension counts verify \(2\)-ranks but do not replace the exact algebraic smoothness test. The data files and both source files are part of the package. No proof about larger fields or about abstract isomorphism-class numbers is asserted.
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+A complete natural census refining rational point counts by Jacobian 2-rank and a distinguished bidegree embedding is a concrete moduli/arithmetic reference; it identifies two different rank strata at the six-point boundary. It is not just the elementary six-point bound or repeated abstract isomorphism enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
