@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustive enumeration using the original graph definition, complete elementary free-face conditions, reversal of the matched Hasse incidences and exhaustive topological sorting establish finite acyclic discrete Morse matchings with critical dimensions exactly zero and five for all six grids. The wedge conclusion follows from the absence of lower positive-dimensional cells. Signed fixed-simplex traces and character orthogonality prove the rational dihedral decompositions. The standalone complete verifier was run on the packaged files. No extrapolation beyond the six listed grids is claimed.
+## correctness
 
-**Originality — PASS with stated residual risk.** The critical source Filakovský [1], read in complete accessible arXiv HTML, handles all grids only for \(k\le3\), while arbitrary parameter applies to edge-only square sequences; the parameter-four corner attachment cases are outside its statements and identified as challenging. Bayer et al. [2], full PDF Sections 4–5 inspected, tabulate several four-cut Betti ranks for the Alexander-dual complexes but do not supply the present explicit homotopy proof or square homology representations. Chandrakar et al. [3], full primary PDF inspected, prove different two-row/parameter-three cases. The exact \(4\times4\) nonequivariant homotopy case is present in earlier work and is **not** claimed new; its dihedral character is new, as are the five other finite homotopy cases. Prior-record searches included direct and equivalent-formulation queries; no statement dominating the combined new assertion was identified. Inaccessible unindexed works remain a scientific risk.
+PASS
 
-**Mathematical value — PASS.** The first finite, genuinely two-dimensional parameter-four cases address the corner-gluing obstruction and strengthen known rank tables to actual homotopy types, while dihedral characters expose nontrivial representation structure invisible in Betti numbers. The next square of side five produces a natural unreported rank alongside a full representation. This is a bounded classification, not an arbitrary subgraph slice or cosmetic recomputation.
+All six finite grid face sets were independently regenerated from forbidden independent four-subsets. An independent free-face priority matching leaves respectively 1 vertex and 4,20,56,84,220,560 critical 5-faces, with 192,697,1792,2363,5753,13518 matched pairs; complete matched Hasse directed graphs were topologically sorted, not merely counted. D4 signed fixed-face traces for side 3,4,5 are [4,0,0,0,0,0,-2,-2], [84,0,4,0,-10,-10,-10,-10], [560,0,0,0,0,0,-28,-28]. An acyclic Morse CW complex with only one 0-cell and 5-cells is the claimed wedge. The claim is only for 3<=m<=n<=5, not all grids or equivariant homotopy.
 
-**Limits.** The result is finite; it does not establish the all-grids wedge conjecture, does not assert equivariant homotopy equivalences, and depends on the reproducible computational certificates for its nonstandard finite matching assertions. The specific \(4\times4\) homotopy classification is reproduced solely as a comparator and uniform consistency check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; The exact k=4 six-case Morse certificates and three D4 character vectors are strictly finer than published k<=3 or Betti-only statements; five nonequivariant sizes other than 4x4 are newly asserted at this priority check.
+
+## value
+
+PASS
+
+First finite k=4 corner-glued rectangular grid cases have meaningful integral homotopy classification rather than rank data alone; complete square D4 characters detect information not fixed by Betti numbers. The known 4x4 nonequivariant case is expressly excluded from novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

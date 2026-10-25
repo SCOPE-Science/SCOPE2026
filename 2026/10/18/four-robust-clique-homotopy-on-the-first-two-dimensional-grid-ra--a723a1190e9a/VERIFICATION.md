@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact proof certificate is the binary-compressed JSON object `grid4_morse_certificate.json.gz`; its keys identify the six rectangular grid sizes and store all elementary simplicial removals plus critical-face declarations. `grid4_morse.py` loads the certificate and independently reconstructs the graph, every independent four-set, every nonempty face, every codimension-one incidence, and all matching incidences. It checks that matched free faces satisfy unique remaining coface constraints, that all declared critical faces are maximal, and that **all** oriented Hasse arrows form a directed acyclic graph. This checks full finite validity, not merely a random sample. The reduced Euler identity and all eight square-symmetry signed fixed-simplex character computations are then recomputed, followed by exact integer character-table inner products.
+## correctness
 
-Execution of `python grid4_morse.py` on the files packaged here succeeded, for face counts 389, 1415, 3641, 4811, 11727, 27597 and matching-pair counts 192, 697, 1792, 2363, 5753, 13518. The Morse critical profiles are one degree-zero cell and respectively 4, 20, 56, 84, 220, 560 degree-five cells. No theorem about sizes outside this finite range and no equivariant homotopy equivalence is certified. An independent audit is not performed.
+PASS
+
+All six finite grid face sets were independently regenerated from forbidden independent four-subsets. An independent free-face priority matching leaves respectively 1 vertex and 4,20,56,84,220,560 critical 5-faces, with 192,697,1792,2363,5753,13518 matched pairs; complete matched Hasse directed graphs were topologically sorted, not merely counted. D4 signed fixed-face traces for side 3,4,5 are [4,0,0,0,0,0,-2,-2], [84,0,4,0,-10,-10,-10,-10], [560,0,0,0,0,0,-28,-28]. An acyclic Morse CW complex with only one 0-cell and 5-cells is the claimed wedge. The claim is only for 3<=m<=n<=5, not all grids or equivariant homotopy.
+
+## originality
+
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; The exact k=4 six-case Morse certificates and three D4 character vectors are strictly finer than published k<=3 or Betti-only statements; five nonequivariant sizes other than 4x4 are newly asserted at this priority check.
+
+## value
+
+PASS
+
+First finite k=4 corner-glued rectangular grid cases have meaningful integral homotopy classification rather than rank data alone; complete square D4 characters detect information not fixed by Betti numbers. The known 4x4 nonequivariant case is expressly excluded from novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
