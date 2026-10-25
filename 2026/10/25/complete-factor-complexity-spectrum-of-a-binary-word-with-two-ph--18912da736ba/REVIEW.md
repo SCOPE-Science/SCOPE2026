@@ -1,0 +1,11 @@
+# Scientific review of the two-defect factor-complexity theorem
+
+**Correctness — PASS.** The word has exactly two `00` blocks and three alternating segments of lengths \(A,B,C\). Every distinct factor contains zero, one, or two of those blocks. The zero-block factors have exactly \(q_T(\ell)\) possibilities, the one-block factors form the union of two rectangles indexed by uniquely readable extension lengths, and the two-block factors form a third rectangle with fixed internal separation. The resulting inclusion–exclusion identity, valid for every positive parameter triple and every allowed length, is proved directly. Running the standalone verifier checked all \(729\) triples with \(1\le a,b,c\le9\) at every length and checked the summed total.
+
+**Originality — PASS with residual risk.** The inspected 2017 primary treatment of linguistic complexity via string attractors gives upper bounds in terms of covering positions, not an exact two-defect length spectrum. The 2022 reconstruction paper treats a different observation/inversion problem, not exact factor enumeration. Targeted searches for contiguous-factor complexity, periodic words with two insertions/phase defects, and lattice-diagonal overlap terms disclosed no identical or stronger covering statement. Such searches are not proof of novelty; unindexed equivalent results remain a substantive risk.
+
+**Value — PASS.** Fixed-length factor counts are natural measures of text repetitiveness. A single insertion is a local exception to a periodic word, but two exceptions interact: the overlap \(\min(A,B)\min(B,C)\) must be subtracted to avoid double-counting whole families of repeated factors. The theorem resolves the entire length spectrum, not just a total, and shows exactly how the separation \(B\) changes the profile. This is a meaningful complete classification for the first nontrivial interacting two-defect family; it does not assert an unsupported broader application.
+
+**Residual limitations.** Arbitrary defect symbols/locations, other alphabets, and three or more defects are unclassified. A tangential article on infinite quasiperiodic-word complexity was accessible only at abstract level and no full-text negative assertion is made about it. Independent scientific checking has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
