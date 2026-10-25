@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:00:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob 23183fa72a3b7080833e49950dca9e5392764987",
+        "Git source verification script 35bc83b8c6b41361f5db8d2ee7b6afff4c0db676",
+        "independently executed /mnt/data/audit07_independent_checks.py bounded numeric/rational tests"
+      ],
+      "rationale": "For G=K_{m_1,...,m_r} with r>=2 and n=sum m_i, Laplacian spectral projectors onto constants, part-constant mean-zero vectors, and within-part zero sums have eigenvalues 0,n,n-m_i. Applying e^{-tL^2} gives exact cross-part off-diagonal (1-e^{-n²t})/n>0 for t>0; the positive diagonal and within-part off-diagonal w_s(t)=[s/n+(1-s/n)e^{-n²t}-e^{-(n-s)²t}]/s show only within-part signs matter. T(t)1=1, hence the sharp ℓ∞ norm equals 1+2 max_i(m_i-1)[-w_{m_i}(t)]_+, proving interval-preservation equivalence. Let x=(n-s)/n and u=n²t; the sign of -w_s is F(x,u)=e^{-x²u}-(1-x+xe^{-u}). F(x,0)=0, its t derivative has precisely one turning point, and its long-time value is -(1-x), so there is a unique strictly positive recovery root u(x). For fixed u the derivative in x is initially and finally positive (above u0), with at most two zeros by F_xx=2u(2ux²-1)e^{-ux²}; this yields a unique spatial sign-changing point and strict decrease of u(x). Hence the largest part s determines the final root. As x↑1 the root tends to u0>0 with e^{u0}=1+2u0; as x↓0, xu(x)->1. This gives n²τ for one deleted edge ->u0 and nτ for a star ->1, although their first-order norms both grow 1+2(n-2)t+O_n(t²). Independently computed four small graph matrices from adjacency, squared them, exponentiated and matched source closed-form row norms within 1e-10; finite tests are not a proof for all part sizes. The result does not cover weighted/normalized Laplacians or ordinary e^{-tL}.",
+      "residual_risks": [
+        "Historical equivalent evaluations of small-spectrum graph matrix exponentials might exist under different terminology.",
+        "Finite matrix exponential checks cannot establish strict u(x) ordering for all real x.",
+        "Only connected unweighted complete multipartite graphs with unnormalized Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1511.05294v2 §§1,6,9",
+          "arXiv:1511.09020v1 §§1,6.1,6.3",
+          "Published three spectral value barrier result 2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271"
+        ],
+        "reasoning": "General semigroup positivity hypotheses imply eventual positivity after some threshold, but no explicit largest-part sharp tau. The 3-eigenvalue no-gap theorem gives only qualitative interval structure in its restricted class, not a unique quantitative root for arbitrary multipartite spectra.",
+        "searches": [
+          "Daners Gluck Kennedy Eventually Positive Semigroups Section 6.3 squares of generators",
+          "published SCOPE a three spectral value barrier gaps positivity times self adjoint semigroups"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1511.05294",
+        "https://arxiv.org/abs/1511.09020",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Daners–Glück–Kennedy 1511.05294 §9 finite-dimensional criterion and §6 fourth-order examples",
+          "1511.09020 §6.1 and §6.3",
+          "Published three spectral barrier discussion."
+        ],
+        "reasoning": "Known positive dominant spectral projection can ensure eventual positivity, but exact first time of entrywise nonnegativity and strict monotonicity over all part sizes require the new spectral projector coefficient/root analysis. No implication from qualitative eventual positivity to these two distinct asymptotic timescales.",
+        "searches": [
+          "\"Eventually and asymptotically positive semigroups\" squared Laplacian matrix",
+          "\"Eventually Positive Semigroups of Linear Operators\" Proposition 6.6 Laplacian square"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Daners–Glück–Kennedy arXiv:1511.05294v2 §9 matrix positivity",
+          "User package exact projector decomposition compared with general selfadjoint eventually positive semigroups"
+        ],
+        "reasoning": "This is equivalent to eventual positivity and ℓ∞ contraction of the mass-conserving squared combinatorial Laplacian heat matrix; it is not ordinary graph heat or a normalized bi-Laplacian. General criteria are existential but cannot supply the exact graph-specific time root.",
+        "searches": [
+          "complete multipartite graph biharmonic heat squared Laplacian eventual positivity sharp threshold root largest part",
+          "\"exp(-t L^2)\" complete multipartite positivity threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches 2026/10/4/SCOPE-transmission-zero-forcing-of-complete-multipartite-graphs--1247bfce37f4 (different combinatorial invariant)",
+          "No exact largest-part u((n-m)/n)/n² table found among checked semigroup records."
+        ],
+        "reasoning": "The other complete multipartite records use transmission zero forcing, fractional edge dimension, etc.; those invariant formulas do not imply the biheat kernel cutoff. Negative exact-match search is not priority certification.",
+        "searches": [
+          "Resultary: complete multipartite graph biharmonic heat squared Laplacian eventual positivity sharp threshold root largest part",
+          "complete multipartite bi-heat sharp cutoff largest part u(x)"
+        ]
+      },
+      "rationale": "Daners–Glück–Kennedy primary semigroup papers establish eventual positivity criteria and examples including squared Laplacians, but the materially read full-text sections do not furnish these exact complete-multipartite matrix entries, strict part-size ordering and recovery root. A SCOPE-published three-spectral-value no-gap principle does not calculate the root and fails to dominate arbitrary part profiles with >3 distinct spectral levels; where it applies it covers only the no-gap shape, not the quantitative theorem. The distinct ordinary heat derivative result cannot directly give positivity of e^{-tL²}. Search non-exhaustivity and an unpublished equivalent matrix-exponential computation remain risks.",
+      "residual_risks": [
+        "Historical equivalent evaluations of small-spectrum graph matrix exponentials might exist under different terminology.",
+        "Finite matrix exponential checks cannot establish strict u(x) ordering for all real x.",
+        "Only connected unweighted complete multipartite graphs with unnormalized Laplacian."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative eventual positivity and spectral criteria but no explicit complete multipartite positivity-time root.",
+          "evidence": [
+            "§6 and §9"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1511.05294",
+          "material_read": "Full accessible ar5iv document: abstract/introduction, Section 6 squared-generator examples and Section 9 finite-dimensional spectral criteria.",
+          "method": "Inspected mathematical theorems and their hypotheses.",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General eventual-positive semigroup and squared Laplacian source"
+        },
+        {
+          "assessment": "No exact arbitrary-multipartite positivity cutoff or strict largest-part ordering identified.",
+          "evidence": [
+            "§6.1, §6.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.09020",
+          "material_read": "Open arXiv PDF first-page screenshot and indexed/full accessible theorem sections including §6.1, §6.3 on finite positive semigroups and squares of generators.",
+          "method": "PDF screenshot used; compared theorem-level scope.",
+          "title": "Eventually Positive Semigroups of Linear Operators",
+          "trigger": "Closest other primary theoretical source"
+        },
+        {
+          "assessment": "Even its no-gap conclusion does not imply the numerical positivity cutoff and many multipartite graphs have >3 eigenvalues.",
+          "evidence": [
+            "Published result identifier and mathematical summary"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Research record summary and stated ≤3 spectral value domain; relevant theorem targets inspected through indexed math description.",
+          "method": "Compared spectral cardinality and claimed consequences.",
+          "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+          "trigger": "Potential stronger no-gap theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1511.05294",
+        "https://arxiv.org/abs/1511.09020"
+      ],
+      "rationale": "Positivity of a mass-preserving smoothing kernel is the precise order-preservation and bounded-input range-stability criterion. The theorem finds the sharp recovery time for a large natural graph family, a nontrivial largest-part sufficiency law, and contrasting star versus almost-clique timescales even when their first-order amplification is identical. This is a motivated structural classification requiring a real root-ordering lemma, not just reporting diagonalization of a graph matrix.",
+      "residual_risks": [
+        "Historical equivalent evaluations of small-spectrum graph matrix exponentials might exist under different terminology.",
+        "Finite matrix exponential checks cannot establish strict u(x) ordering for all real x.",
+        "Only connected unweighted complete multipartite graphs with unnormalized Laplacian."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical equivalent evaluations of small-spectrum graph matrix exponentials might exist under different terminology.",
+    "Finite matrix exponential checks cannot establish strict u(x) ordering for all real x.",
+    "Only connected unweighted complete multipartite graphs with unnormalized Laplacian."
+  ],
+  "schema_version": 1
+}
