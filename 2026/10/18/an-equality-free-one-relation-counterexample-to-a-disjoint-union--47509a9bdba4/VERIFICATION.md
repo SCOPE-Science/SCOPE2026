@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The formula uses one ordinary binary relation and no equality. The main proof is structural: (i) preservation under every nonempty disjoint union, (ii) direct evaluation on the three- and four-point structures, and (iii) induction for existential formulas with two-way guarded universal quantifiers under induced two-way neighborhood-closed embeddings. The induction is the necessary infinite-language argument.
+## correctness
 
-Run `python3 check.py` in the same directory. The checker uses Python's standard library only. It rebuilds the two separating frames, computes the locally defined predicates and the sentence's truth value, checks the complete ordered pairs of satisfying structures on one to three vertices, and generates 15,000 bounded-depth syntactic instances with a fixed random seed. Observed successful output:
+PASS
 
-```text
-UNION_PRESERVATION_OK 155236 ordered small-model pairs; satisfying_counts={1: 0, 2: 7, 3: 387}
-FRAGMENT_TRANSFER_OK 15000 randomly generated formulas
-SEPARATION_OK A_size=3 B_size=4
-```
+Formula Θ has local U(x)=∃y(Rxy∧¬Ryy) and V(x)=Rxx∧¬Ux. Two distinct nonempty components satisfying Θ each have a U witness, which are nonadjacent across components, proving closure for even infinite unions. In A={(p,p),(p,s),(q,q)} on three points only p is U and q V, so Θ holds. In B with two isolated loop points q1,q2, only p U and q1,q2 V: Θ false. Each copy of A induced on {p,s,qi} inside B is closed under both incoming/outgoing neighbors and covers B. Structural induction gives preservation of the stated fragment under two-way-neighborhood-closed embeddings, including negated atoms, existentials and both restricted universal directions; thus no ∀xα can distinguish A and B. Fresh independent evaluation of the two models and unions confirmed finite witness; the structural induction proves the unbounded fragment.
 
-The finite tests do not decide equivalence for every formula and do not establish any upper bound on arbitrary countermodels. The scientific source comparison and its residual priority risks are in REVIEW.md and AUDIT.json. Independent validation has not been performed.
+## originality
+
+PASS
+
+The March 2026 van Benthem–ten Cate–Yang paper explicitly gives an equality-using counterexample and identifies its equality-free form as an unresolved variant. Here the source sentence uses only R and no equality, with smaller signature and explicit induced-copy transfer obstruction. Older modal generated-submodel techniques are acknowledged as tools.
+
+## value
+
+PASS
+
+Directly settles a natural open equality-free robustness question in finite model theory with a transparent three-to-four-element witness in a single binary signature. Concrete negative boundary for a proposed syntactic normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
