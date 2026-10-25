@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result concerns the formally extended Euler polynomial, not a claim that every real multiplicity vector is realized geometrically. The Euler coefficient expression is reconstructed from the primary paper's Theorem 4.6, with explicit multiplicity convention and matrix normalization. The polar matrix is circulant; its Fourier diagonalization, trigonometric factorization, strict absence of additional zeros for odd primes, arithmetic negative-mode witness, and positive trace are proved in the manuscript. The independent standard-library checker matches exact shift-matrix identities and all signs in bounded cases.
+PASS
 
-## Originality
+For odd prime p and nonzero weights, the formal real quadratic extension Q=1/2Σ[(u_j−u_{j+a})²+(u_j−u_{j+b})²−(u_j−u_{j+a+b})²] diagonalizes by additive characters. With normalized a=1 and c=−b/a, signs of nonzero Fourier eigenvalues are sign cos(π(k−[ck]_p)/p); p odd excludes equality/extra nullspace. If c∈{1,2,2^{-1}}, every sign positive. Otherwise c≤(p−1)/2 after k=1 restriction and k=floor((p−1)/c) yields a strict negative mode; positive trace gives an opposite sign. Checked exact residue inequalities across 45 odd primes <200, 556,656 prime-ratio mode instances, including even negative multiplicity. Proof, not finite check, establishes all p. This does not assert realized Hilbert-scheme multiplicities.
 
-**PASS, with residual risk.** The originating source calculates the Euler form and sorts group actions by displacement coincidences; it does not state a positivity criterion covering all prime-order nonzero weights. General signed-graph Laplacian bounds are not equivalent to this arithmetic iff statement. Existing related specializations concern one weight ratio or integral cokernel invariants. In particular, the fact that the polar matrix has a given Smith form does not determine its real inertia. A complete all-prime classification and explicit inertia count require the separate residue-permutation argument. An unindexed derivation or an implicit treatment elsewhere remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Euler correction governs the dimension formula for equivariant Hilbert schemes, making the definiteness of its signed McKay-graph quadratic form a motivated structural invariant. The result partitions *every* nontrivially weighted odd-prime cyclic quotient plane into precisely two natural symmetry types with a genuine nonnegative energy and all other types with unavoidable negative directions. It also supplies a complete computable inertia formula for every weight ratio, beyond checking isolated examples. The result is not a claim about which formal negative vectors are geometrically realizable.
+Consequence of originating Euler form and general signed graph Laplacian results not shown to subsume exact odd-prime three-ratio classification. Specific highly plausible originating paper inaccessible in full, so best-of-knowledge priority risk is elevated. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
 
-## Closest literature and limitations
+## value
 
-Bachhuber–Gholampour, arXiv:2610.12736v1, Theorem 4.6 and §§6–7; Agbanusi–Bronski–Kielty, arXiv:2005.09608. Related earlier scalar-action inertia and integral cyclic-Euler Smith-form results overlap in examples but do not cover the asserted iff classification. Full historical priority and independent verification remain unestablished. The result excludes composite cyclic orders, zero weights, noncyclic groups, and Hilbert-scheme nonemptiness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact inertia of the Euler correction is a natural structural invariant for the equivariant quotient dimension formula; the three precise symmetry types, one-dimensional nullspace and signs of all other modes are a complete family classification. The result deliberately separates formal quadratic energy from geometric existence, avoiding unsupported significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

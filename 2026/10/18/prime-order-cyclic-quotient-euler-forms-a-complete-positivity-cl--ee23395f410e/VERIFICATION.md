@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof reconstructs the Euler polynomial, its polar matrix, the full Fourier spectrum, and a prime-dependent exact integer witness to strict negativity. The equality cases in the integer proof are checked using primality; no finite search substitutes for the unbounded argument. The full real kernel and positive trace are proved analytically.
+## correctness
 
-The accompanying `verify.py` uses only Python's standard library. It verifies the polar matrix against the defining difference formula, the Fourier eigenrelation, the cosine-sign factorization, and every allowed weight ratio for odd primes below \(200\). The run produced:
+PASS
 
-`VERIFY_OK primes=45 exact_negative_witnesses=2001 trigonometric_sign_cases=40016 exact_integer_polar_cases=34`
+For odd prime p and nonzero weights, the formal real quadratic extension Q=1/2Σ[(u_j−u_{j+a})²+(u_j−u_{j+b})²−(u_j−u_{j+a+b})²] diagonalizes by additive characters. With normalized a=1 and c=−b/a, signs of nonzero Fourier eigenvalues are sign cos(π(k−[ck]_p)/p); p odd excludes equality/extra nullspace. If c∈{1,2,2^{-1}}, every sign positive. Otherwise c≤(p−1)/2 after k=1 restriction and k=floor((p−1)/c) yields a strict negative mode; positive trace gives an opposite sign. Checked exact residue inequalities across 45 odd primes <200, 556,656 prime-ratio mode instances, including even negative multiplicity. Proof, not finite check, establishes all p. This does not assert realized Hilbert-scheme multiplicities.
 
-The comparison of trigonometric values uses finite-precision floating-point arithmetic, while the classification of signs and the negative-mode witnesses use integer comparisons. No computer algebra package or external service is needed to reproduce the checks. No independent audit has been performed. No assertion is made about the existence of Hilbert schemes realizing every character vector.
+## originality
+
+PASS
+
+Consequence of originating Euler form and general signed graph Laplacian results not shown to subsume exact odd-prime three-ratio classification. Specific highly plausible originating paper inaccessible in full, so best-of-knowledge priority risk is elevated. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
+
+## value
+
+PASS
+
+Exact inertia of the Euler correction is a natural structural invariant for the equivariant quotient dimension formula; the three precise symmetry types, one-dimensional nullspace and signs of all other modes are a complete family classification. The result deliberately separates formal quadratic energy from geometric existence, avoiding unsupported significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
