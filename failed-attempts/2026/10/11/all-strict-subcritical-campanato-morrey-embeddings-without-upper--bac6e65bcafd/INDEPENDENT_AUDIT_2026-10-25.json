@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T13:51:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at Git blob c87e6e5d013608d06b5a75d1e89aaa02450994a3",
+        "Frozen VERIFICATION.md at Git blob 81a4f6205041b505a7d1c9e9e9c068339c33a449",
+        "Frozen checks/weight_sanity.py at Git blob ceb4b61d5582c2e626cba6b9694aee1b45bf6ada",
+        "Independent elementary calculus/reverse-growth derivation"
+      ],
+      "rationale": "Definitions and all boundary cases reconstructed from frozen RESULT.md. F(t)=2t−t log t has derivative log(e/t), F(1)=2. For a=max(0,x−r), b=min(1,x+r), ell=b−a, L=log(e/b), r<=ell<=2r for r<=1, and 0<=∫_a^b log(b/t)dt=ell+a log(a/b)<=ell, whence rL<=mu(B)<=4rL. b_R/b_r<=R/r yields mu(B_R)/mu(B_r)>=(R/r)/[4(1+log(R/r))]. Maximizing r^(1−lambda)log(e/r) for 0<=lambda<1 gives A_lambda=4e^(−lambda)/(1−lambda). Telescoping nested means with Holder yields sum S_{p,lambda}=Σ_{j>=0}(1+j log2)^(1/p)2^(−j(1−lambda)/p)<∞ for each fixed lambda<1, including p=1; top-scale mean controlled by mu(X)=2 and Lp. Minkowski proves the advertised norm inclusion. For lambda=0 target Morrey is Lp. Density>=1 and intervals have length>=r prove lower 1-regularity; mass comparison gives doubling<=8. At x=0, mu(B(0,r))/r=2−log r→∞, so upper 1-regularity and endpoint L_M^{p,1} membership of f=1 fail while f=1 has finite L_C norm. Finite test of 20000 independently generated (x,r,R) samples supports but does not prove mass bounds: minimum observed reverse-growth slack 3.49146 and maximum doubling ratio 2.85259; conclusions are analytic. No uniform lambda→1 bound is claimed.",
+      "residual_risks": [
+        "Finite numerical sampling is illustrative, not an infinite proof.",
+        "No sharp optimal embedding constant is established; only boundedness for each fixed p and lambda."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakai 2006, definitions p.2, conditions (2.1)–(2.4) p.4 and Corollary 2.3 p.5: for finite doubling (X,d,mu), L_{p,phi}-Campanato coincides continuously with L_{p,phi}-Morrey when phi satisfies four shape/scale conditions and integral Phi(a,r)=∫_r^{2R0}phi(a,t)dt/t<=C phi(a,r). Setting phi(a,r)=r^(lambda/p)/mu(B(a,r))^(1/p) makes the Nakai seminorms precisely the submitted radius-normalized seminorms.",
+          "For 0<lambda<1, 1<=p<infinity: (2.1) follows from doubling and 2-scale radius powers; (2.2) holds with theta=1 because phi(r)/r=r^(lambda/p-1)/mu(B(r))^(1/p) decreases with r; (2.3) reduces exactly to ∫_0^r t^(lambda/p-1)dt=(p/lambda)r^(lambda/p), also for radii exceeding the diameter; (2.4) follows from B(a,r)⊂B(b,2r) for d(a,b)<=r and doubling. For r<=t<=1 the exact reverse-growth estimate mu(B(a,t))/mu(B(a,r)) >=(t/r)/[4(1+log(t/r))] gives phi(a,t)/phi(a,r)<=4^(1/p)(1+log(t/r))^(1/p)(t/r)^(-(1-lambda)/p); integrating dt/t is finite for each strict lambda. The bounded t∈[1,2R0] contribution is absorbed since phi(a,r)>=A_lambda^(-1/p) for r<=1, and all remaining r lie in a compact interval. Thus Nakai Corollary 2.3 directly yields the asserted continuous embedding for every 0<lambda<1. lambda=0 is L^p trivially; lambda=1 fails for f=1 by the elementary mass formula.",
+          "Stempak–Tao 2014, Section 3 and Remark 7, gives related generalized local/global frameworks but does not supply the decisive domination; Nakai Cor.2.3 does."
+        ],
+        "reasoning": "All of Nakai’s explicit hypotheses hold for the given log-density measure for each fixed 0<lambda<1. The older general sufficient criterion therefore covers the full claimed family of positive inclusions; its conclusion is not just analogous or qualitative.",
+        "searches": [
+          "Resultary: radius normalised Campanato space to Morrey for doubling lower regular metric measure spaces reverse doubling",
+          "Resultary: Gorka Stepien optimal embeddings Campanato and Morrey all lambda Q upper regularity question",
+          "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+          "K. Stempak and X. Tao, Local Morrey and Campanato Spaces on Quasimetric Measure Spaces, Journal of Function Spaces (2014), DOI:10.1155/2014/172486, https://onlinelibrary.wiley.com/doi/10.1155/2014/172486"
+        ]
+      },
+      "checked_sources": [
+        "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+        "K. Stempak and X. Tao, Local Morrey and Campanato Spaces on Quasimetric Measure Spaces, Journal of Function Spaces (2014), DOI:10.1155/2014/172486, https://onlinelibrary.wiley.com/doi/10.1155/2014/172486",
+        "P. Górka and Z. Stępień, Optimal Embeddings of Campanato and Morrey Spaces, arXiv:2610.04622v1, https://arxiv.org/abs/2610.04622",
+        "Resultary 2026/10/11/SCOPE-power-weighted-interval-counterexample-to-the-doubling-only-camp--bd4b0bf73d66 (Campanato-to-Hölder, distinct target and weight)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nakai 2006, definitions p.2, conditions (2.1)–(2.4) p.4 and Corollary 2.3 p.5: for finite doubling (X,d,mu), L_{p,phi}-Campanato coincides continuously with L_{p,phi}-Morrey when phi satisfies four shape/scale conditions and integral Phi(a,r)=∫_r^{2R0}phi(a,t)dt/t<=C phi(a,r). Setting phi(a,r)=r^(lambda/p)/mu(B(a,r))^(1/p) makes the Nakai seminorms precisely the submitted radius-normalized seminorms.",
+          "For 0<lambda<1, 1<=p<infinity: (2.1) follows from doubling and 2-scale radius powers; (2.2) holds with theta=1 because phi(r)/r=r^(lambda/p-1)/mu(B(r))^(1/p) decreases with r; (2.3) reduces exactly to ∫_0^r t^(lambda/p-1)dt=(p/lambda)r^(lambda/p), also for radii exceeding the diameter; (2.4) follows from B(a,r)⊂B(b,2r) for d(a,b)<=r and doubling. For r<=t<=1 the exact reverse-growth estimate mu(B(a,t))/mu(B(a,r)) >=(t/r)/[4(1+log(t/r))] gives phi(a,t)/phi(a,r)<=4^(1/p)(1+log(t/r))^(1/p)(t/r)^(-(1-lambda)/p); integrating dt/t is finite for each strict lambda. The bounded t∈[1,2R0] contribution is absorbed since phi(a,r)>=A_lambda^(-1/p) for r<=1, and all remaining r lie in a compact interval. Thus Nakai Corollary 2.3 directly yields the asserted continuous embedding for every 0<lambda<1. lambda=0 is L^p trivially; lambda=1 fails for f=1 by the elementary mass formula.",
+          "Górka–Stępień 2026 accessible abstract confirms Campanato/Morrey embeddings as its theme; supplied repository record quotes its Theorem 3.2 and Question 2, but complete original PDF was not independently readable during this run."
+        ],
+        "reasoning": "The positive all-strict-subcritical side follows from Nakai (2006) by a fully checked substitution and Dini integral estimate. The failure of upper 1-regularity and endpoint is immediate from mu(B(0,r))/r=2−log r. Thus the entire pair of conclusions is mathematically available from older general theory plus straightforward properties of a standard slowly varying log weight, regardless of absence of an exact titled statement.",
+        "searches": [
+          "Resultary: Gorka Stepien optimal embeddings Campanato and Morrey all lambda Q upper regularity question",
+          "Resultary: radius normalised Campanato space to Morrey for doubling lower regular metric measure spaces reverse doubling",
+          "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+          "P. Górka and Z. Stępień, Optimal Embeddings of Campanato and Morrey Spaces, arXiv:2610.04622v1, https://arxiv.org/abs/2610.04622"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakai 2006, definitions p.2, conditions (2.1)–(2.4) p.4 and Corollary 2.3 p.5: for finite doubling (X,d,mu), L_{p,phi}-Campanato coincides continuously with L_{p,phi}-Morrey when phi satisfies four shape/scale conditions and integral Phi(a,r)=∫_r^{2R0}phi(a,t)dt/t<=C phi(a,r). Setting phi(a,r)=r^(lambda/p)/mu(B(a,r))^(1/p) makes the Nakai seminorms precisely the submitted radius-normalized seminorms.",
+          "Nakai p.2 defines both spaces by mu(B)^(-1/p)phi(B)^(-1) times Lp deviation or Lp mass, exactly the submitted radius-normalized definitions after choosing phi as above."
+        ],
+        "reasoning": "Under this exact, not approximate, normalization the paper’s embedding is L_{p,phi}^Campanato→L_{p,phi}^Morrey; finite-space Campanato norm in the record controls the Nakai ball mean. The general prior equivalence is strictly stronger in scope.",
+        "searches": [
+          "Resultary: Campanato Morrey embedding all subcritical exponents logarithmic density no upper Ahlfors regularity counterexample",
+          "Resultary: radius normalised Campanato space to Morrey for doubling lower regular metric measure spaces reverse doubling",
+          "Resultary: log weighted interval measure Campanato Morrey embedding endpoint obstruction",
+          "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the identical submitted title/statement; it is excluded from independent priority. A related power-weighted result concerns a Campanato-to-Hölder target, not the same Morrey embedding.",
+          "No finite exact database governs this all-radii analytic embedding; the decisive prior coverage is a general continuous-space theorem, not a table."
+        ],
+        "reasoning": "Finite-table match is inapplicable, but the mathematically stronger Nakai theorem is independent published evidence that supersedes any missing exact-title hit.",
+        "searches": [
+          "Resultary: Campanato Morrey embedding all subcritical exponents logarithmic density no upper Ahlfors regularity counterexample",
+          "Resultary: log weighted interval measure Campanato Morrey embedding endpoint obstruction",
+          "Resultary record 2026/10/11/SCOPE-all-strict-subcritical-campanato-morrey-embeddings-without-upper--bac6e65bcafd (identical submission; NOT independent priority evidence)",
+          "Resultary 2026/10/11/SCOPE-power-weighted-interval-counterexample-to-the-doubling-only-camp--bd4b0bf73d66 (Campanato-to-Hölder, distinct target and weight)"
+        ]
+      },
+      "rationale": "Scientific priority is defeated by the 2006 Nakai general equivalence theorem. The positive subcritical embedding is directly a specialization of its Corollary 2.3 after the exact parameter substitution phi(x,r)=r^(lambda/p)/mu(B(x,r))^(1/p); the submitted ball mass/reverse growth computations verify all the published hypotheses uniformly. The remaining lambda=0 and endpoint constant-function observations are elementary. Nakai did not explicitly publish this 2026 question or log-density example in the inspected theorem, but the audited claim is a mathematical consequence of the stronger prior result, so wording mismatch/newly phrased question cannot establish O. This is a scientific rejection, NOT a failure caused by inaccessible 2026 full text.",
+      "residual_risks": [
+        "The Nakai theorem decisively covers the continuous embeddings for every 0<lambda<1; although it does not explicitly list the particular logarithmic density or later question, the required specialization is elementary and therefore cannot be claimed as an original theorem under the stated implication standard.",
+        "The original 2026 Górka–Stępień full text was inaccessible this run (arXiv/OA fetch failures; authorized Oxford VPN disconnected). Its exact question formulation is recorded from the frozen package, not independently attested from complete source.",
+        "An even earlier directly stated log-weight counterexample might exist, but it is unnecessary for the scientific rejection; Resultary summaries cannot replace complete primary reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: Corollary 2.3 is stronger and applies after rigorous verification of phi conditions for every fixed 0<lambda<1. The endpoint obstruction is elementary.",
+          "evidence": [
+            "p.2 normalized Morrey/Campanato definitions; p.4 equations (2.1)-(2.4); p.5 Corollary 2.3 (i)⇒(ii); p.10 proof via Theorem 2.2 and Lemma 3.3; exact verification of the hypotheses recorded in claim_vs_prior_implication."
+          ],
+          "identifier_or_url": "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+          "material_read": "Original 19-page primary PDF: definitions p.2; structural hypotheses (2.1)–(2.4) p.4; Theorem 2.2 and Corollary 2.3 p.5; normalized-space theorem p.6; Theorem 2.2 and Corollary 2.3 proofs p.10. Other portions located by full-text search. Visual screenshots checked pages 2,4,5,6,10.",
+          "method": "Opened publisher-hosted full-text PDF; inspected text and page screenshots directly, including the exact definitions, quantified conditions and proof of implication.",
+          "title": "The Campanato, Morrey and Hölder spaces on spaces of homogeneous type",
+          "trigger": "Strongly relevant same-spaces equivalence theorem on arbitrary doubling metric measure spaces, potentially dominating exact submitted result"
+        },
+        {
+          "assessment": "BACKGROUND/NOT NECESSARY FOR REJECTION: broad quasimetric function-space theory; inspected results do not supersede the explicit Nakai 2006 derivation for this particular pair.",
+          "evidence": [
+            "Remark 7 describes classical global Lebesgue identifications; Proposition 9 concerns comparison of alternative metrics, locality functions and weights; it cites Nakai 2006 for broader same-space relations."
+          ],
+          "identifier_or_url": "K. Stempak and X. Tao, Local Morrey and Campanato Spaces on Quasimetric Measure Spaces, Journal of Function Spaces (2014), DOI:10.1155/2014/172486, https://onlinelibrary.wiley.com/doi/10.1155/2014/172486",
+          "material_read": "Full Wiley open-access HTML, Introduction and Section 3, especially the definitions, Remarks 7–8, Proposition 9, Remark 11, Example 12 and open-domain discussion; display formula rendering incomplete.",
+          "method": "Direct publisher HTML reading, targeted full-text review of global versus local conventions and implications.",
+          "title": "Local Morrey and Campanato Spaces on Quasimetric Measure Spaces",
+          "trigger": "Highly relevant generalized local and global Morrey/Campanato equivalence framework, potential alias/stronger theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: no whole-document NOT_COVERING assessment; the 2006 prior coverage is independently decisive.",
+          "evidence": [
+            "arXiv:2610.04622v1 abstract identifies the same metric-measure Campanato/Morrey topic. Package RESULT.md quotes Q2 but is not independent verification. Oxford reported vpn_disconnected."
+          ],
+          "identifier_or_url": "P. Górka and Z. Stępień, Optimal Embeddings of Campanato and Morrey Spaces, arXiv:2610.04622v1, https://arxiv.org/abs/2610.04622",
+          "material_read": "Original arXiv abstract and submission metadata (2026-10-03), plus quotation of Theorem 3.2 and Question 2 inside frozen source package. Full original source unavailable in this run.",
+          "method": "Attempted arXiv PDF and HTML, lawful OA alternatives and authorized Oxford request only after those failed. Oxford returned vpn_disconnected; no bypass or fabricated page reading.",
+          "title": "Optimal Embeddings of Campanato and Morrey Spaces",
+          "trigger": "Named paper allegedly posing precisely the 2026 endpoint regularity question"
+        },
+        {
+          "assessment": "The power-weighted result targets Hölder rather than Morrey; it is not the decisive prior. Identity match is excluded as independent evidence.",
+          "evidence": [
+            "Resultary 2026/10/11/SCOPE-power-weighted-interval-counterexample-to-the-doubling-only-camp--bd4b0bf73d66 (Campanato-to-Hölder, distinct target and weight)",
+            "Resultary record 2026/10/11/SCOPE-all-strict-subcritical-campanato-morrey-embeddings-without-upper--bac6e65bcafd (identical submission; NOT independent priority evidence)"
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-power-weighted-interval-counterexample-to-the-doubling-only-camp--bd4b0bf73d66 (Campanato-to-Hölder, distinct target and weight)",
+          "material_read": "Read Resultary search titles and summaries of the top topical hits from four independent semantic queries; not treated as primary full-text proof.",
+          "method": "Resultary semantic searches; compared targets, weights, and quantifiers, excluded identical record as independent priority.",
+          "title": "Published Resultary records for Campanato-related metric embeddings",
+          "trigger": "Relevant published-record check for same parameter/object implications and aliases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "P. Górka and Z. Stępień, Optimal Embeddings of Campanato and Morrey Spaces, arXiv:2610.04622v1, https://arxiv.org/abs/2610.04622",
+        "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The proposed boundary example addresses a natural mathematical question: whether all strict-subcritical Campanato-to-Morrey embeddings force upper critical volume regularity. A finite nonatomic, compact, connected, doubling, lower-1-regular weight exhibiting a logarithmic defect is mathematically motivated; the sharp critical endpoint and quantified failure are substantive even though the embedding follows from a prior general theorem. This is potential explanatory value, not a claim of independent novelty, and no paper-sized theorem is required. The precise positive range and endpoint failure make a coherent natural counterexample rather than an arbitrary slice or tiny numerical gain.",
+      "residual_risks": [
+        "As a new contribution the result has limited independent value because a 2006 general theorem already implies the central embedding; V=PASS does not rescue O=FAIL.",
+        "The original question wording was not independently verified against the 2026 full PDF during this run."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Eiichi Nakai, The Campanato, Morrey and Hölder spaces on spaces of homogeneous type, Studia Mathematica 176 (2006), 1–19, DOI:10.4064/sm176-1-1, https://www.impan.pl/shop/en/publication/transaction/download/product/90165",
+    "K. Stempak and X. Tao, Local Morrey and Campanato Spaces on Quasimetric Measure Spaces, Journal of Function Spaces (2014), DOI:10.1155/2014/172486, https://onlinelibrary.wiley.com/doi/10.1155/2014/172486",
+    "P. Górka and Z. Stępień, Optimal Embeddings of Campanato and Morrey Spaces, arXiv:2610.04622v1, https://arxiv.org/abs/2610.04622",
+    "Resultary 2026/10/11/SCOPE-power-weighted-interval-counterexample-to-the-doubling-only-camp--bd4b0bf73d66 (Campanato-to-Hölder, distinct target and weight)",
+    "Frozen original Git files 2026/10/11/all-strict-subcritical-campanato-morrey-embeddings-without-upper--bac6e65bcafd"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Original analytic argument correct and valuable but original claim not novel under general 2006 Nakai Corollary 2.3 plus readily verified log-weight conditions.",
+    "Authorized Oxford access disconnected; complete Górka–Stępień PDF not read and no claim of whole-document exclusion is made.",
+    "Frozen metadata and audit JSON contain confidential identifiers; no privacy-safe, hash-guarded final public publication package was prepared.",
+    "Failed result retains its original full package as evidence; do not publish or move pending sanitization."
+  ],
+  "residual_risks": [
+    "The Nakai theorem decisively covers the continuous embeddings for every 0<lambda<1; although it does not explicitly list the particular logarithmic density or later question, the required specialization is elementary and therefore cannot be claimed as an original theorem under the stated implication standard.",
+    "The original 2026 Górka–Stępień full text was inaccessible this run (arXiv/OA fetch failures; authorized Oxford VPN disconnected). Its exact question formulation is recorded from the frozen package, not independently attested from complete source.",
+    "An even earlier directly stated log-weight counterexample might exist, but it is unnecessary for the scientific rejection; Resultary summaries cannot replace complete primary reading.",
+    "No GitHub changes or server intake occurred; publication status remains not_ready."
+  ],
+  "schema_version": 1
+}
