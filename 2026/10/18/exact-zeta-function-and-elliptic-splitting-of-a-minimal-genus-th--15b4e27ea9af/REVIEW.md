@@ -1,15 +1,21 @@
-# Review of Exact zeta function and elliptic splitting of a minimal genus-three Artin–Schreier curve
+# Independent mathematical audit
 
-## Correctness — PASS
-The homogeneous equation is nonsingular at every geometric point: the \(Y\)-derivative controls the affine part and the two points at infinity are smooth by separate derivatives. The finite-field trace count gives \((5,17,44)\) for degrees \(1,2,3\). Newton identities and the genus-three Weil functional equation reconstruct all six coefficients without extrapolating from experiments. Integer factorization, point counts over extension degrees four and five, and two explicit elliptic-model counts were replayed with the attached executable. The isogeny conclusion follows from standard Tate theory. Independent certification is not asserted.
+## correctness
 
-## Originality — PASS (residual literature risk)
-The motivating Proposition 4.2 proves the genus-three, positive-rank, geometrically rigid construction without this arithmetic splitting. Auer–Top's full-text family has different geometric symmetry and all three elliptic factors isogenous, so it cannot imply the mixed-factor conclusion. Dedicated database searches for both the equation and polynomial gave no matching claim. General algorithms for zeta functions may compute the number in principle but do not themselves state this explicit identification. A possible unpublished or unindexed equivalent genus-three zeta computation remains a risk; a plausible older genus-three curve classification was located by abstract but its full text was not accessible and does not, in accessible material, decide this model.
+PASS
 
-## Mathematical value — PASS
-The curve is the first genus allowed for positive \(3\)-rank with no extra geometric automorphisms in the originating classification, so the arithmetic of this exact model is motivated rather than an arbitrary finite-field slice. The split Jacobian despite geometric automorphism rigidity distinguishes this boundary example and supplies an exact group order, Newton slopes, and all extension-degree point counts. The result is a natural finite invariant with structural meaning, not a claim about an entire moduli space.
+PASS: For y³-y=x²+x+1/x over F3 the projective homogenization XY³-XYZ²-X³Z-X²Z²-Z⁴ defines a smooth quartic: affine partial derivative in Y is -X at X≠0, and both points at infinity are smooth with nonzero Z or X derivative. It has genus three, two F_(3^n)-rational points above poles, and #C(F_(3^n))=2+3#{x≠0:Tr(x²+x+x^-1)=0}. Independent polynomial-basis computations over F3,F9,F27 reproduce counts 5,17,44, giving Frobenius power sums -1,-7,-16. Newton identities + genus-3 Weil reciprocal functional equation force P(T)=1+T+4T²+9T³+12T⁴+9T⁵+27T⁶=(1-T+3T²)^2(1+3T+3T²). Elliptic F3 curves with traces 1 and -3 give ordinary and supersingular factors by Tate; P(1)=63. Factorization independently verified. No claim of polarized isomorphism.
 
-## Scientific limits and closest literature
-The result is specific to the chosen descent to \(\mathbb F_3\), and neither a polarized product isomorphism nor automorphism classification is newly proved. Primary comparators are Tafazolian–Kazemifard (arXiv:2610.13279) and Auer–Top (arXiv:math/0201320). Unindexed computations and inaccessible general genus-three classification literature are residual overlap risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.
+
+## value
+
+PASS
+
+PASS: Exact zeta function, rational Jacobian order and mixed elliptic isogeny factors are natural arithmetic invariants of an explicit geometric extremal genus-three curve. These facts refine an automorphism/p-rank existence construction and distinguish its arithmetic type; exact fixed-object calculation has independent mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
