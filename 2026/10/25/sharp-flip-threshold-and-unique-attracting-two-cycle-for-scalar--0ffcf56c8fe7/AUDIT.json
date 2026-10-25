@@ -1,0 +1,190 @@
+{
+  "correctness": {
+    "rationale": "For every \\(a>0,\\ \\varepsilon>0,\\ \\alpha>0,\\ \\beta\\in[0,1)\\), the dimensionless map \\(F(z,w)=(z-cg(s),s),\\ s=\\beta w+(1-\\beta)z,\\ g(s)=s/\\sqrt{1+s^2}\\) has unique origin equilibrium. Its Jacobian has determinant \\(\\beta\\) and trace \\(1+\\beta-d(1-\\beta)\\), \\(d=c(1+s^2)^{-3/2}\\). The exact Schur inequalities yield \\(c_*=2(1+\\beta)/(1-\\beta)\\). For any nontrivial two-cycle, momentum balance gives \\(w_1=m-tD,\\ w_2=m+tD\\); odd injectivity forces \\(m=0\\), and \\(2=ct/\\sqrt{1+t^2D^2}\\) yields the unique orbit iff \\(c>c_*\\). At that cycle \\(d=8/(c^2t^3)<c_*\\), so its monodromy is strictly Schur stable. At \\(c=c_*\\), the diagonalized coordinates \\((u,v)\\) have \\(u^+=-u+tu^3+O(u^4)\\) on a local center manifold, \\(t>0\\); hence \\(u_n^{-2}/n\\to2t\\) and local asymptotic stability follows. Symbolic algebra checked the exact Jacobian conjugacy; bundled verify.py passed all 63 parameter configurations, 3000 numerical derivative comparisons, and four 40000-step critical tests. No finite check is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.30546v1 Corollary 2 supplies asymptotic stationarity only for a sufficiently small step and momentum \\(\\beta<1/\\sqrt{2}\\), not a necessary-and-sufficient scalar bound for every \\(\\beta<1\\).",
+        "arXiv:2605.23871v1 Appendix A.17 treats sufficient discrete Lyapunov contraction for a broader regularized map, with parameter restrictions and scaling of β with step h; no supercritical cycle enumeration or critical flip coefficient.",
+        "arXiv:2510.11312v1 Section 1 and algorithm table identify nonlinear preconditioners such as ε+|gradient| and arsinh, plus sufficient generalized-smoothness convergence statements, not the identical soft-sign recurrence."
+      ],
+      "reasoning": "Broader dimension/objective guarantees are conditional sufficient descent results. Such conclusions cannot imply an exact supercritical orbit, its uniqueness and Floquet stability, or a sharp boundary and critical inverse-square-root coefficient over the complete \\(\\beta\\) interval. The schemes with other nonlinear preconditioners have different derivatives and are not stronger covering theorems for this map.",
+      "searches": [
+        "arXiv:2609.30546v1 Theorem 1/Theorem 2/Corollary 2 and appendices",
+        "arXiv:2605.23871v1 Appendix A.17 discrete contraction",
+        "arXiv:2510.11312v1 nonlinear preconditioned gradient methods heavy ball",
+        "soft Muon without momentum scalar quadratic global attracting two cycle bifurcation critical n inverse sqrt",
+        "regularized orthogonalization Muon Hamiltonian discrete fixed step stability nonlinear bifurcation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30546v1 — https://arxiv.org/abs/2609.30546",
+      "arXiv:2605.23871v1 — https://arxiv.org/html/2605.23871v1",
+      "arXiv:2602.11948v1 — https://arxiv.org/html/2602.11948v1",
+      "arXiv:2510.11312v1 — https://arxiv.org/abs/2510.11312",
+      "Public scalar Signum result — https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+      "Public Polar Express flip result — https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+      "Public scalar SAM/EMA cycle result — https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82",
+      "published-finding corpus semantic source/alias/parameter searches listed in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the new map the origin is stable iff c≤2(1+β)/(1−β) locally, and exactly one locally attracting prime two-cycle exists iff the inequality is reversed. At equality the center map has cubic \\(t>0\\).",
+        "The primary source reports simulation transitions and small-step convergence, not a precise flip boundary or all period-two states.",
+        "The hard-sign note has an interval of neutral cycle centers; the Polar Express note has a smooth fourth-root map with critical \\(n^{-1/4}\\); the momentum SAM note instead has a sign perturbation, a cycle in a low-step regime, and a different stability conclusion."
+      ],
+      "reasoning": "The statements of the compared papers cannot be specialized or trivially reduced to the claimed simultaneous sharp full-momentum local stability, exact prime-two census, supercritical cycle attraction, and critical \\(n^{-1/2}\\) rate. A global convergence theorem would dominate local stability but none of the inspected sources claims global convergence at supercritical steps; existing sufficient local/small-step results do not entail the phase diagram. Priority remains a residual search risk.",
+      "searches": [
+        "Soft Muon regularized soft-sign map scalar quadratic momentum exact flip threshold 2(1+beta)/(1-beta) unique attracting symmetric two-cycle",
+        "Muon soft normalization x/sqrt(x^2+epsilon^2) scalar quadratic unique periodic 2 cycle critical inverse square root",
+        "arXiv:2609.30546v1 §2.2 Figure 1, §3, §5, Appendix A",
+        "arXiv:2605.23871v1 §§2 and A.17.1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.30546v1 defines the same normalized-momentum soft-sign update in its equations (8a)-(8b), while distinguishing it from the practical Newton-Schulz polynomial (lines 65-83 in accessible HTML).",
+        "arXiv:2605.23871v1 defines a regularized matrix orthogonalization step with a momentum-first update; Appendix A.17.1 proves a separate sufficient fixed-step contraction theorem under additional assumptions.",
+        "The publicly inspected scalar Signum RESULT.md uses the discontinuous map sign(momentum), admits a continuum of neutral period-two orbits, and has no positive smoothing parameter."
+      ],
+      "reasoning": "The analytic scalar soft-sign is identical to the motivating paper's exact surrogate but differs in its normalization law from hard Signum, a fourth-root Polar Express map, and finite-degree practical Muon. Strict monotonicity of \\(s/\\sqrt{1+s^2}\\) rules out a shifted two-cycle, unlike the continuum in hard Signum. The equal model in the primary source does not itself imply the newly proved sharp boundary, uniqueness, attraction, or critical rate.",
+      "searches": [
+        "soft-sign Muon gradient descent scalar quadratic regularization learning rate sharp convergence two-cycle alpha a epsilon",
+        "Soft Muon regularized soft-sign map scalar quadratic momentum exact flip threshold 2(1+beta)/(1-beta) unique attracting symmetric two-cycle",
+        "Muon soft normalization x/sqrt(x^2+epsilon^2) scalar quadratic unique periodic 2 cycle critical inverse square root",
+        "arXiv:2609.30546v1 §2.1 equations (6)-(8)",
+        "arXiv:2605.23871v1 §§2,A.17.1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus candidate 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f analyzes \\(z/(1+|z|^4)^{1/4}\\), not \\(z/\\sqrt{1+z^2}\\), and obtains a fourth-root critical rate without momentum.",
+        "published-finding corpus candidate 2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82 analyzes SAM with a discontinuous sign perturbation plus linear momentum, not soft-sign normalization.",
+        "published-finding corpus candidate 2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e has neutral shifted cycles for hard Signum, in contrast with the unique attracting centered cycle of the analytic soft-sign map.",
+        "Gonon–Muşat–Boumal §4 and Appendix B describe noisy sign projection, Newton-Schulz polar approximation, and hard-sign grid confinement; they do not present an exact table of this soft-sign momentum phase diagram."
+      ],
+      "reasoning": "The searches returned several close algorithmic dynamical systems, and the three most relevant publicly archived RESULT.md statements were directly inspected. They have distinct update functions and cannot be transformed into the present complete scalar Soft Muon classification by renaming parameters or choosing a tabulated entry. No exact matching published table was identified; absence from the indexed results alone is not a proof of priority.",
+      "searches": [
+        "soft-sign Muon gradient descent scalar quadratic regularization learning rate sharp convergence two-cycle alpha a epsilon",
+        "soft Muon without momentum scalar quadratic global attracting two cycle bifurcation critical n inverse sqrt",
+        "normalized gradient x/sqrt(x^2+epsilon^2) iteration flip threshold periodic orbit",
+        "Soft Muon regularized soft-sign map scalar quadratic momentum exact flip threshold 2(1+beta)/(1-beta) unique attracting symmetric two-cycle",
+        "soft sign heavy-ball preconditioned gradient descent strongly convex scalar exact period two threshold step size momentum",
+        "Muon soft normalization x/sqrt(x^2+epsilon^2) scalar quadratic unique periodic 2 cycle critical inverse square root",
+        "arXiv:2602.11948v1 §4 and Appendix B momentum variants",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e"
+      ]
+    },
+    "rationale": "Compared mathematical implications rather than titles: the motivating paper defines the map and gives small-step convergence, the Hamiltonian-Muon paper proves conditional small-step convergence for a regularized map, the quadratic Muon paper concerns signed/approximate polynomial projection, and nonlinear-preconditioned methods paper concerns other maps. Public archive near matches—Signum neutral continuum, fourth-root Polar Express \\(n^{-1/4}\\), SAM sign perturbation—are not equivalent. The searches found no stronger source logically implying the exact all-\\(\\beta\\) flip boundary, unique attracting supercritical two-cycle, and cubic critical-rate coefficient. Residual independent-priority uncertainty remains and is explicitly recorded.",
+    "residual_risks": [
+      "Historical priority is not certified; a generic dynamical-systems theorem for odd smooth saturating two-dimensional momentum maps may subsume this special case, though no such covering statement was identified in the actual searches.",
+      "Finite web/index coverage and accessible public source material cannot prove the absence of equivalent work elsewhere.",
+      "Higher-period attractors and global basins remain outside the claim, not an asserted uniqueness of all nonstationary dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found the defining recurrence and small-step sufficient theory, without this sharp all-momentum flip/cycle classification in the inspected relevant material.",
+        "evidence": [
+          "Equations (8a)-(8b) same analytic soft-sign model; text explicitly distinguishes polynomial practical Muon.",
+          "Corollary 2 \\(\\beta_*=1/\\sqrt 2\\), small step; §5 simulations show oscillatory/stable regimes without threshold formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.30546",
+        "material_read": "Accessible full-text HTML main definitions §2.1, Figure 1 and text §2.2, convergence theorem statements §§3–3.1, experiment discussion §5.1, and appendix proof statements A.5–A.6.",
+        "method": "Read source equations (6)–(8), propositions, main theorem conditions and specified proof sections; directly compared their quantifiers with the new scalar necessity and periodic classification.",
+        "title": "Convergence guarantees for Muon: New parameter regimes and generalizations",
+        "trigger": "Source of the exact Soft Muon scalar map and convergence discussion."
+      },
+      {
+        "assessment": "Same family of regularized velocity maps in a broader framework; only sufficient contraction for restricted discrete scaling and assumptions was identified; exact two-cycle and critical threshold not established in the inspected sections.",
+        "evidence": [
+          "Semi-implicit discrete regularized momentum update at Appendix A.17.1 equations (109)–(111).",
+          "Appendix A.17 uses small admissible h and \\(\\beta_h\\) near 1, rather than exact arbitrary fixed β stability boundary and supercritical cycle census."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.23871v1",
+        "material_read": "Full-text HTML Sections 2 and Appendix A.17 introduction, discrete update (109)–(111), and discrete sufficient contraction claims and concluding remarks.",
+        "method": "Compared momenta, normalization and step restrictions; checked whether global fixed-step results imply an all-parameter phase diagram.",
+        "title": "Move on Muon: A Hamiltonian probability gradient flow perspective of Muon optimizer",
+        "trigger": "Potential broader theorem for precisely this regularized momentum-first update."
+      },
+      {
+        "assessment": "Does not present a sharp soft-sign momentum-phase classification in these inspected relevant full-text sections.",
+        "evidence": [
+          "§4.1 uses \\(\\operatorname{sign}(s)+\\eta\\) and §4.2 Gaussian sign perturbation.",
+          "Appendix B preserves hard-sign grid confinement under momentum-before-projection; our smooth analytic map is different."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.11948v1",
+        "material_read": "Full-text HTML Introduction, Section 3 statements, Section 4 perturbation and approximate polynomial discussion, Appendix B momentum variants.",
+        "method": "Compared exact signed/polar, noisy signed, finite-degree polynomial algorithms with smooth analytic normalized-momentum recurrence.",
+        "title": "Insights on Muon from Simple Quadratics",
+        "trigger": "Directly studies Muon-type algorithms on scalar/isotropic quadratics and periodic trajectories."
+      },
+      {
+        "assessment": "Relevant general background but not a proof of the exact soft-sign prime two-cycle classification.",
+        "evidence": [
+          "Table 1 lists ε+|gradient| normalization and arsinh rules.",
+          "Theorem summaries are sufficient convergence results under generalized smoothness; no explicit period-two theorem identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.11312",
+        "material_read": "Accessible article full-text introduction, algorithm table, contribution and related-work statements, plus find checks of periodic dynamics.",
+        "method": "Compared specific nonlinear preconditioners and type of convergence assertion.",
+        "title": "Nonlinearly Preconditioned Gradient Methods: Momentum and Stochastic Analysis",
+        "trigger": "Potential generic smooth nonlinear preconditioning with momentum covering the new theorem."
+      },
+      {
+        "assessment": "Hard sign produces a continuum of cycles, which cannot imply the unique attracting smoothed cycle.",
+        "evidence": [
+          "Its rule uses sign(momentum) with discrete step magnitude; cycle midpoint is free in an open interval.",
+          "Soft-sign uses strictly increasing bounded smooth map and fixes midpoint at zero."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+        "material_read": "Publicly accessible RESULT.md first 80 lines, including model, full finding, cycle midpoint interval, and local transverse stability.",
+        "method": "Retrieved publicly published result and compared the update law and orbit cardinalities.",
+        "title": "Exact continuum of neutral two-cycles for scalar Signum",
+        "trigger": "Closest hard-sign normalized momentum two-cycle record returned by published-finding corpus."
+      },
+      {
+        "assessment": "Fourth-root normalization and no momentum; does not cover the soft-sign heavy-ball two-dimensional result.",
+        "evidence": [
+          "Update denominator \\((\\varepsilon^4+|d|^4)^{1/4}\\).",
+          "Critical rate \\(n^{-1/4}\\), unlike cubic \\(n^{-1/2}\\) here."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+        "material_read": "Publicly accessible RESULT.md first 80 lines, including equation and critical convergence rate.",
+        "method": "Compared normalization exponent, dimensional state, momentum, and critical asymptotics.",
+        "title": "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+        "trigger": "A closely related smooth normalized scalar quadratic flip calculation."
+      },
+      {
+        "assessment": "Same algebraic Jury factor in a different piecewise affine algorithm, but no implication of this soft-sign supercritical orbit.",
+        "evidence": [
+          "SAM uses gradient \\(\\lambda(x+\\rho\\operatorname{sign}x)\\) and linear x update.",
+          "Its cycle is stable on the lower-step side and diverges on upper-step side; Soft Muon cycle is born on upper-step side."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82",
+        "material_read": "Publicly accessible RESULT.md first 80 lines, including SAM update, cycle law and stability threshold.",
+        "method": "Compared discontinuous SAM-perturbed gradient and linear momentum descent with smooth nonlinear momentum normalization.",
+        "title": "Exact cycle-stability frontier for scalar SAM with EMA momentum",
+        "trigger": "Nearby sharp EMA momentum threshold and sign-alternating orbit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ffcf56c-8fe7-47cb-9095-0c7c386a5350",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivated determining when analytic regularization actually suppresses nonvanishing Muon oscillations, but its guarantees are merely sufficient for small steps. The formula \\(\\alpha_*=2\\varepsilon(1+\\beta)/[a(1-\\beta)]\\) is an exact all-momentum hyperparameter frontier even at \\(\\beta\\) above generic sufficient-theory ranges. The complete prime-two orbit census, exact attracting amplitude \\(X\\), sharp square-root onset and critical inverse-square-root slowdown give a structural classification. Unlike a renaming of a Signum computation, smoothing selects one attracting centered cycle out of the hard-sign neutral continuum. This supplies meaningful stability and oscillation-floor information for a natural new optimizer model despite being scalar and local.",
+    "status": "PASS"
+  }
+}
