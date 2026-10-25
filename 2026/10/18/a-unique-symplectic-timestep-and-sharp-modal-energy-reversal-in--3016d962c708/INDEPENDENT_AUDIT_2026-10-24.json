@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:54:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree 8f9fd0053184a3e3dcbafb5655653395752d98e7)",
+        "Independent SymPy Q2-Q1 factorization and threshold benchmark"
+      ],
+      "rationale": "Four RK4 stage derivatives of diag(w1 J,w2 J), 0<w1<w2, have determinant (h^6/32)*w1^3*w2^3*(w2^2-w1^2)^2||z1||^2||z2||^2; nonzero on full-excitation open set. Thus one-invariant quasi-orthogonal projection becomes radial normalization z+=(||z||/||R(hA)z||)R(hA)z. Q(x)=|R(ix)|^2=1+x^6(x^2-8)/576>0 gives exact modal action ratio E2(n)/E1(n)=(E2(0)/E1(0))*(Q(w2 h)/Q(w1 h))^n. Difference Q2-Q1 is an h^6 positive factor times h²-h*² with h*²=8(w2^6-w1^6)/(w2^8-w1^8). For unequal Q modes, action-angle Jacobian determinant at equal actions equals 4Q1Q2/(Q1+Q2)^2<1 and map cannot be symplectic; at equal Q it is a constant block rotation and symplectic. The switch lies strictly below h²=8/w2²; independently simplified the exact symbolic factor and evaluated w1=1,w2=2 to h*²=168/85. No finite check extrapolated to arbitrary timesteps.",
+      "residual_risks": [
+        "Excludes zero-mode initial data for strict transfer, nonlinear systems, multi-invariant projection, floating-roundoff symplecticity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Najafian–Vermeire arxiv:2409.18328 full §2 definitions/remarks, §3 oscillator experiments and general small-step solvability; Jiang–Gong–Wang arxiv:2001.00774 radial quadratic projection."
+        ],
+        "reasoning": "Prior broad conservation and order theorems cover technique and feasibility but do not yield the frequency-specific Q2-Q1 sign factorization, unique positive symplectic step or global modal transfer as a reported implication.",
+        "searches": [
+          "RK4 quasi-orthogonal energy projection two-frequency harmonic oscillators unique symplectic timestep modal energy transfer",
+          "arxiv:2409.18328 quasi orthogonal Runge Kutta projection full text",
+          "arxiv:2001.00774 energy preserving methods projection scheme 3.1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree 8f9fd0053184a3e3dcbafb5655653395752d98e7)",
+        "Independent SymPy Q2-Q1 factorization and threshold benchmark",
+        "Najafian–Vermeire arxiv:2409.18328 full text",
+        "Jiang et al. arxiv:2001.00774 (limited material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Najafian 2024 saturated stage subspace reduces to radial projection, but action-angle Jacobian analysis and Q2-Q1 factorization are new derivations. Distinct SSPRK(2,2) energy-cascade systems do not force a classical RK4 one-step balancing resonance."
+        ],
+        "reasoning": "General norm-preservation says nothing about symplecticity or action redistribution. The complete claim follows only after specializing RK4 multipliers and checking the action Jacobian.",
+        "searches": [
+          "RK4 quasi-orthogonal energy projection two-frequency harmonic oscillators unique symplectic timestep modal energy transfer",
+          "Resultary oscillator energy cascade SSPRK(2,2) relaxation-free"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Najafian Vermeire 2024 quasi-orthogonal projection covers stage-span saturation; Jiang et al. 2020 ordinary quadratic energy projection."
+        ],
+        "reasoning": "The terminology quasi-orthogonal vs orthogonal collapses here after exact determinant proof; algorithmic novelty is NOT claimed. The novelty claim pertains to exact RK4 two-frequency action-ratio recurrence and unique balancing step.",
+        "searches": [
+          "RK4 quasi-orthogonal energy projection two-frequency harmonic oscillators unique symplectic timestep modal energy transfer",
+          "orthogonal projection postprocessed RK4 modal energy symplectic resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Q frequency-balancing equation derived from RK4 stability polynomial; no matching modal-ratio or symplectic step table found in inspected 2024 method."
+        ],
+        "reasoning": "The rational benchmark is only an example of the general formula, not independently novel; exact family-wide iff analysis is the evaluated claim.",
+        "searches": [
+          "RK4 quasi-orthogonal energy projection two-frequency harmonic oscillators unique symplectic timestep modal energy transfer",
+          "two oscillator RK4 projection h^2 168/85 exact symplectic",
+          "RK4 amplification equality two frequencies table"
+        ]
+      },
+      "rationale": "Najafian–Vermeire 2024 introduced quasi-orthogonal RK projection and explicitly observed stage-space saturation reduction to normal projection. Jiang–Gong–Wang 2020 earlier normalized energy projection, so neither the radial correction nor total-energy preservation is novel. However inspected methods do not imply a two-frequency exact h* where projected classical RK4 is symplectic iff, nor the all-n energy-ratio asymptotic phase reversal. Distinct projected oscillator methods may carry equivalent amplification analysis; risk noted.",
+      "residual_risks": [
+        "Earlier orthogonal-projection or RK4 postprocessing analysis could give mathematically equivalent amplification matching condition with different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD; no exact two-frequency iff theorem",
+          "evidence": "If stage span is full, quasi-orthogonal projection equals orthogonal; numerical examples do not state h*²=8(w2^6-w1^6)/(w2^8-w1^8).",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.18328",
+          "material_read": "Complete accessible PDF, §2 equations and Remark 4, §3.2 oscillator numerical experiments",
+          "method": "Full PDF text inspected and screenshot pages 4,7",
+          "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+          "trigger": "Introduces identical one-invariant stage-space projection method"
+        },
+        {
+          "assessment": "EARLIER_TECHNIQUE; full implications require caution",
+          "evidence": "Uses radial preservation of quadratic invariant; considered as antecedent of correction, not an exact RK4 action-switch theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00774",
+          "material_read": "Abstract and scheme description in accessible source context; complete paper not independently reread in this run",
+          "method": "Abstract/targeted reference review",
+          "title": "Explicit high-order energy-preserving methods for general Hamiltonian PDEs",
+          "trigger": "Earlier quadratic-energy orthogonal normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree 8f9fd0053184a3e3dcbafb5655653395752d98e7)",
+        "Independent SymPy Q2-Q1 factorization and threshold benchmark",
+        "Najafian–Vermeire arxiv:2409.18328 full text",
+        "Jiang et al. arxiv:2001.00774 (limited material)"
+      ],
+      "rationale": "Energy-conserving numerical integration can strongly misrepresent distribution of separate physical actions. The exact two-mode linear benchmark identifies an interior RK4-stability window where all energy eventually concentrates into one mode, and a single positive timestep where projected RK4 unexpectedly recovers both actions and symplecticity. This precise reliability boundary is a motivated test for conserving schemes.",
+      "residual_risks": [
+        "Earlier orthogonal-projection or RK4 postprocessing analysis could give mathematically equivalent amplification matching condition with different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier orthogonal-projection or RK4 postprocessing analysis could give mathematically equivalent amplification matching condition with different terminology.",
+    "Excludes zero-mode initial data for strict transfer, nonlinear systems, multi-invariant projection, floating-roundoff symplecticity.",
+    "No source updates and no public publication. Original human/expert and formal-proof status untouched; independent scientific review is not an external certified proof."
+  ],
+  "schema_version": 1
+}

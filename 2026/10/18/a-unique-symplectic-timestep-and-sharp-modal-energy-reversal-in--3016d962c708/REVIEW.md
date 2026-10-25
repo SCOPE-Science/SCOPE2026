@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four stage vectors have exact determinant \(h^6\omega_1^3\omega_2^3(\omega_2^2-\omega_1^2)^2E_1E_2/32\), forcing the projected gradient to equal the full RK4 predictor for two excited modes. The minimum-norm correction is therefore radial, with no singularity because the RK4 imaginary-axis polynomial has positive squared modulus. Exact action ratios follow by cancellation of the common normalization. Their sign changes once at the explicit positive threshold. An action-angle Jacobian strictly below one at equal actions unless the modal attenuation factors match excludes symplecticity away from that threshold. At equality, the map is a fixed orthogonal block rotation, proving the converse. Exact symbolic computation and direct stage comparisons were replayed; no infinite conclusion depends upon finite numerical tests.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Four RK4 stage derivatives of diag(w1 J,w2 J), 0<w1<w2, have determinant (h^6/32)*w1^3*w2^3*(w2^2-w1^2)^2||z1||^2||z2||^2; nonzero on full-excitation open set. Thus one-invariant quasi-orthogonal projection becomes radial normalization z+=(||z||/||R(hA)z||)R(hA)z. Q(x)=|R(ix)|^2=1+x^6(x^2-8)/576>0 gives exact modal action ratio E2(n)/E1(n)=(E2(0)/E1(0))*(Q(w2 h)/Q(w1 h))^n. Difference Q2-Q1 is an h^6 positive factor times h²-h*² with h*²=8(w2^6-w1^6)/(w2^8-w1^8). For unequal Q modes, action-angle Jacobian determinant at equal actions equals 4Q1Q2/(Q1+Q2)^2<1 and map cannot be symplectic; at equal Q it is a constant block rotation and symplectic. The switch lies strictly below h²=8/w2²; independently simplified the exact symbolic factor and evaluated w1=1,w2=2 to h*²=168/85. No finite check extrapolated to arbitrary timesteps.
 
-The full text of the introducing September 2024 work was inspected through its projection definitions, solvability theorems, oscillator experiments, and discussion. It provides the method and its reduction to orthogonal projection when stages span the state space, not the exact two-frequency threshold or unique symplecticity characterization. The earlier 2020 Jiang–Gong–Wang orthogonal energy projection is a more general predecessor of the *algorithm itself*, fully acknowledged; its conservation/order statements do not imply the reported action-by-action switching threshold and symplecticity iff condition. Relevant mathematical-record searches and earlier scientific claims were compared by mathematical implication: a quasi-orthogonal explicit-midpoint single-oscillator solvability theorem and a different two-stage RK energy-cascade theorem do not imply this RK4 symplectic resonance. Specialized projection-method literature might already express an equivalent crossover under alternate language, so absolute novelty is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The source method explicitly aims to conserve numerical invariants. This exact two-mode benchmark demonstrates a failure not detected by conserving the total quadratic invariant: inexorable transfer of the *entire* conserved energy to one oscillator, even when classical RK4 is linearly stable for both, and an isolated positive step where the same projected RK4 map unexpectedly becomes symplectic and preserves both original actions. This identifies a concrete internal-stability region in which energy conservation does not imply modal fidelity, with exact sharp parameter selection. It is a four-dimensional benchmark rather than a general structural theorem for arbitrary nonlinear systems.
+Najafian–Vermeire 2024 introduced quasi-orthogonal RK projection and explicitly observed stage-space saturation reduction to normal projection. Jiang–Gong–Wang 2020 earlier normalized energy projection, so neither the radial correction nor total-energy preservation is novel. However inspected methods do not imply a two-frequency exact h* where projected classical RK4 is symplectic iff, nor the all-n energy-ratio asymptotic phase reversal. Distinct projected oscillator methods may carry equivalent amplification analysis; risk noted.
 
-## Closest work and remaining risks
+## value
 
-Najafian–Vermeire (2024) already defines quasi-orthogonal gradient-stage projection and the saturated-stage reduction; Jiang–Gong–Wang (2020) already defines radial energy projection. Neither source claims the present exact modal crossover and iff symplecticity criterion in the inspected material. The published oscillator-energy cascade with relaxation-free SSPRK(2,2) is algorithmically different and lacks a globally defined fixed-energy projection or a positive symplectic balancing step. Residual risk: an equivalent exact frequency-selective amplification analysis could exist in earlier orthogonal-projection/postprocessing work not retrieved by the checked searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Energy-conserving numerical integration can strongly misrepresent distribution of separate physical actions. The exact two-mode linear benchmark identifies an interior RK4-stability window where all energy eventually concentrates into one mode, and a single positive timestep where projected RK4 unexpectedly recovers both actions and symplecticity. This precise reliability boundary is a motivated test for conserving schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
