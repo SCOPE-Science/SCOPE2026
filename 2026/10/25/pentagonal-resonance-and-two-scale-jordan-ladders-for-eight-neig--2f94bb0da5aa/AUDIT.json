@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies the eight-neighbour convolution in the correct 5k by 5ℓ periodic quotient, splits the quotient into 25 local factors, checks the nine zero eigenvalue factors, and constructs explicit complete cyclic bases. Eight nontrivial zeros have a simple u-adic leading term giving L chains of length K each; the trivial zero has a quadratic leading term giving 2L chains of length K/2, with the base K=1 handled separately. Fitting decomposition gives all exact transient counts and sharp T=K. Independent direct GF(2) matrix rank calculations test all predicted ranks on nine sample sizes, including a 1600-dimensional case. Computations are corroborating, not substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Section 4D of Martin–Odlyzko–Wolfram explicitly treats type II 2D periodic additive cellular automata and gives generic period constraints, but no closed formula for this family’s Jordan sizes.",
+        "Omirov–Redjepov–Usmonov (2024) discusses mixed boundary matrix reversibility rather than exact nilpotent layers of this periodic rule."
+      ],
+      "reasoning": "The general quotient framework covers the formal representation, so it is cited as prior work. Its theorems do not assert the nine zero frequency components, the two characteristic-two vanishing orders, or their exact all-parameter Jordan multiplicities; these require the new local calculations supplied in the proof.",
+      "searches": [
+        "Algebraic Properties of Cellular Automata Martin Odlyzko Wolfram 1984 multidimensional Section 4D",
+        "additive cellular automata torus root of unity fifth eigenvalue multipliers transient ranks",
+        "arXiv:2406.06195v1",
+        "Martin-Odlyzko-Wolfram-1984-CMP93-219-258"
+      ]
+    },
+    "checked_sources": [
+      "Martin–Odlyzko–Wolfram, Communications in Mathematical Physics 93 (1984), Section 4D, PDF full text",
+      "Ekhad–Sloane–Zeilberger, arXiv:1503.04249v1, PDF full text",
+      "Omirov–Redjepov–Usmonov, arXiv:2406.06195v1, HTML full text",
+      "Siap–Akin–Uguz, EJPAM 6 (2013) 315–334, publicly accessible full PDF",
+      "OEIS A160239, Fredkin Replicator single-seed growth",
+      "Published mathematical-record searches by exact local operator, aliases and parameter family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Martin–Odlyzko–Wolfram (1984), Section 4D: general bivariate periodic additive automata; Ekhad–Sloane–Zeilberger (2015), Section 2: exact Moore rule 757 but only infinite single-seed growth.",
+        "Previously recorded four-neighbour and triangular-torus parity claims use different convolution multipliers; their stated formulas do not imply Moore eight-neighbour zero multiplicities."
+      ],
+      "reasoning": "The earlier general theory supplies the language of convolution and polynomial zeros but not the specialized fifth-root resonance calculation and local Jordan filtration. The single-seed growth theorem does not determine all-state transient strata. Earlier adjacent-grid models cannot be reduced by simple relabelling: adding the four diagonals changes every local factor. Thus neither an equivalent claim nor a stronger theorem directly implying the explicit census was found.",
+      "searches": [
+        "eight-neighbor Moore binary parity cellular automaton periodic 5 by 5 torus Jordan transient recurrent dimension 16 9",
+        "2D XOR Moore neighborhood 8 neighbor toroidal 5*2^a 5*2^b nilpotent blocks",
+        "arXiv:1503.04249v1",
+        "Martin-Odlyzko-Wolfram-1984-CMP93-219-258",
+        "arXiv:2406.06195v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Odd-rule 757 is the same local Moore XOR rule; the equivalence was checked explicitly against formula (1) of Ekhad–Sloane–Zeilberger (2015).",
+        "Martin–Odlyzko–Wolfram (1984) represents the same type of periodic finite automaton by a bivariate polynomial, Section 4D."
+      ],
+      "reasoning": "Both different nomenclatures (Fredkin Replicator, odd rule 757, Moore XOR, graph adjacency parity, Laurent polynomial convolution) were searched. Equivalent dynamical variables were compared: old sources address singleton growth or generic period/root algorithms, not the explicit Fitting/Jordan decomposition on the specified infinite finite-torus family.",
+      "searches": [
+        "two dimensional additive cellular automata Moore neighborhood parity 8 neighbors torus periodic boundary reversible kernel 5",
+        "linear cellular automata Moore neighbourhood eight neighbors periodic boundary nilpotent Jordan spectrum over GF2",
+        "eight neighbor additive cellular automata toroidal 5 by 5 rule 757 cycles nilpotent",
+        "eight-neighbor Moore binary parity cellular automaton periodic 5 by 5 torus Jordan transient recurrent dimension 16 9",
+        "odd rule 757 Moore neighborhood eight XOR finite torus 5 powers of two recurrent dimension 16 Jordan nilpotent 8 2",
+        "arXiv:1503.04249v1",
+        "Martin-Odlyzko-Wolfram-1984-CMP93-219-258"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published search hit 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 has different Boolean-cube graph and parity operator.",
+        "OEIS A160239 records infinite-lattice Fredkin Replicator ON-cell counts from a single seed, not exact binary finite-torus rank or transient counts."
+      ],
+      "reasoning": "Specific parameter aliases (5 by 5, 5 times powers of two, 16kℓ recurrent, nine zero modes, Jordan chains) and the exact local rule were searched. No published exact table with the same all-state invariants was identified; no absence-of-search-result claim is treated as a proof of global novelty.",
+      "searches": [
+        "eight-neighbor Moore binary parity cellular automaton periodic 5 by 5 torus Jordan transient recurrent dimension 16 9",
+        "2D XOR Moore neighborhood 8 neighbor toroidal 5*2^a 5*2^b nilpotent blocks",
+        "odd rule 757 Moore neighborhood eight XOR finite torus 5 powers of two recurrent dimension 16 Jordan nilpotent 8 2",
+        "binary Moore cellular automaton toroidal square 5 dyadic frequencies zero eigenvalue 9 nilpotency",
+        "Odd-rule 757 torus periodic table recurrence rank fifth roots",
+        "OEIS A160239 Fredkin Replicator sequence"
+      ]
+    },
+    "rationale": "Full-text primary comparisons show the same eight-neighbour multiplier was known, and a general multivariate periodic quotient framework was known in 1984. The claim is narrower and computationally nontrivial: exact nine fifth-root zero modes, separate K and K/2 Jordan ladders, and all-state transient counts on the full 5-times-dyadic rectangular family. These formulas and a dominating exact result were not located. Novelty remains bounded by accessible sources and search coverage.",
+    "residual_risks": [
+      "Some historical works may be unindexed or inaccessible; absence of a matched title is not a uniqueness certificate.",
+      "Broad prior algebraic methods can imply the result after nontrivial specialization and calculation; the novelty claim is the explicit closed-form decomposition and counts, not the general polynomial formalism."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets up bivariate Laurent-polynomial periodic quotient and general roots/period constraints, but supplies no explicitly evaluated fifth-root local factors or two-scale Jordan blocks for the eight-neighbour binary rule.",
+        "evidence": [
+          "Section 4D, printed pages 96-98, discusses type II eight-neighbour automata and quotient by coordinate periods; Theorems 4.7–4.8 concern period bounds; paragraph on printed page 98 says detailed state-transition structure is more complicated in multidimensions."
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~odlyzko/doc/arch/cellular.automata.pdf",
+        "material_read": "Full searchable 43-page PDF, with focused reading of introduction, Section 4, Section 4D (printed pages 96-98), and its theorems and reachability discussion.",
+        "method": "Primary text and page-image inspection of printed page 96, with comparison of two-dimensional general results and the claimed exact local Jordan multiset.",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Broadest classic polynomial theory for additive automata, explicitly includes two-dimensional periodic eight-neighbour rules."
+      },
+      {
+        "assessment": "Specifies the same Laurent polynomial but studies population counts from a single live cell on the infinite lattice. The finite periodic torus Jordan decomposition and entire-state transient distributions are not given.",
+        "evidence": [
+          "Section 2, equation (1), supplies exactly the eight-neighbour Moore multiplier; Section 1 and Theorems 1–4 target single-site growth/run-length transforms, not finite-torus recurrence. Author posting shows March 12, 2015; arXiv v1 March 13, 2015."
+        ],
+        "identifier_or_url": "arXiv:1503.04249v1; https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/3x3.html",
+        "material_read": "Fifteen-page lawful arXiv PDF, including full abstract, Sections 1–5, generating-function appendix, and page 2 image of polynomial (1).",
+        "method": "Primary PDF text and page image; checked declared lattice, initial condition, invariants and classification target.",
+        "title": "Odd-Rule Cellular Automata on the Square Grid",
+        "trigger": "The exact binary eight-neighbour local rule is identified as Odd-rule 757, Fredkin’s Replicator."
+      },
+      {
+        "assessment": "Concentrates on mixed boundary conditions and invertibility criteria of rule matrices; no evaluated nine-mode zero set or 5-times-dyadic transient Jordan census.",
+        "evidence": [
+          "Abstract and Sections 3–5 specify mixed boundary cases and rule-matrix reversibility rather than recurrent-state Jordan sizes."
+        ],
+        "identifier_or_url": "arXiv:2406.06195v1",
+        "material_read": "Accessible complete arXiv HTML paper, Sections 1–6 and references, including boundary-condition tables and main reversibility statements.",
+        "method": "Read full text, comparing boundary conditions, coefficients, rank/reversibility statements to the recurrent spectrum and nilpotent powers in this claim.",
+        "title": "2D Moore CA with new boundary conditions and its reversibility",
+        "trigger": "Same Moore neighborhood with finite matrix representation, possible dominating periodic-boundary results."
+      },
+      {
+        "assessment": "The source uses the ternary field and prolonged axial-distance-two neighbours, not eight surrounding Moore offsets over characteristic two; its rank algorithm does not give the claimed classification.",
+        "evidence": [
+          "Abstract explicitly states the ternary field, and the rule-offset definitions include prolonged next-nearest axial sites."
+        ],
+        "identifier_or_url": "https://www.ejpam.com/ejpam/article/view/2011",
+        "material_read": "Complete twenty-page publicly accessible article PDF, title/abstract, neighbourhood definitions and matrix-rank sections.",
+        "method": "Direct text and first-page image inspection, compared update offsets and coefficient field.",
+        "title": "2-D Reversible Cellular Automata with Nearest and Prolonged Next Nearest Neighborhoods under Periodic Boundary",
+        "trigger": "An apparently relevant older paper on two-dimensional periodic linear cellular automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f94bb0d-a5aa-4102-8c39-94e68068f8b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The eight-neighbour Moore XOR rule is a historically studied natural cellular automaton, and its finite periodic attractor structure is an independent dynamical invariant not accessible from a single-seed growth count. The fifth-root resonance gives exactly nine singular frequencies and the characteristic-two doubling creates two distinct nilpotent Jordan scales (K and K/2), yielding sharp, unbounded convergence depth, recurrent-state codimension and exact last-step proportions for every torus in a natural arithmetic family. This is an infinite-family structural classification, not an arbitrary finite table or routine numerical gain.",
+    "status": "PASS"
+  }
+}
