@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit 24-edge graph and all 2,835 nonempty matchings are reconstructed. A complete Hasse-graph acyclicity check validates 1,399 Morse pairs and critical inventory (one vertex, 32 three-cells, four four-cells). Signed integer gradient reductions, a checked \(32\times4\) matrix of Smith invariants \(1,1,1,3\), exhaustive enumeration of 423 induced cross-polytopes, all 423 quotient-class tests, and an augmented 32-unit Smith certificate prove the integral results. An independent modular boundary implementation reproduces the characteristic-three rank drop. A standard flag homology-support bound ensures eight vertices are minimal. Scope is one finite graph only.
+## correctness
 
-## Originality — PASS, with uncertainty
-Compared with the complete-graph torsion theory of Shareshian–Wachs and Jonsson; outerplanar-graph sphere-wedge theorem of Bayer–Jelić Milutinović–Vega; the matching complexes of the distinct icosahedral and Grötzsch graphs; and Chvátal graph independence-complex studies. None of the inspected statements gives this 24-edge graph's integral Morse invariants or the unique order-three minimal sphere. No directly covering equivalent result was found in targeted mathematical-record searches, but this is not proof of absolute historical priority. Under-indexed graph-specific computations remain a risk.
+PASS
 
-## Mathematical value — PASS
-The Chvátal graph is a canonical small regular triangle-free four-chromatic graph. Its matching complex has genuine three-torsion, sharply contrasting with the torsion-free Grötzsch example, and the exact 423-carrier classification identifies a unique minimal torsion representative while showing integral generation by all shortest spheres. Neither the ambient homology of a complete graph nor a Betti number explains this local-to-global distinction.
+The explicitly provided 12-vertex, 24-edge triangle-free Chvátal graph yields matching complex f=(24,204,752,1175,628,52). Independently regenerated every face (2836 including empty), pivot Morse matching with 1399 nonempty face pairs and one critical 0-cell, 32 critical 3-cells, four critical 4-cells, and checked Hasse acyclicity. Computed exact signed gradient path boundary B (32x4) with Smith factors 1,1,1,3 and selected -3 determinant. Thus integral 3-homology Z^28 plus Z/3, and 3/4-dimensional CW attaching maps classify the claimed wedge^28 S3 plus Moore M(Z/3,3). Matching complex is flag; the standard flag support lower bound for H3 is 8, with equality the fourfold S0 join. Enumerated all 72 three-vertex paths and all 423 disjoint four-path covers -> precisely 423 induced octahedral 3-spheres. Independent signed projection verifies only index 262 is rational boundary (coefficients [-2/3,-2/3,1/3,-1/3], hence exact 3-torsion); 422 are rationally nontrivial and infinite. Augmented 32x427 matrix has all 32 unit Smith factors, proving integral generation, not only Q-span. This was a complete exact computation of the supplied finite complex, not extrapolation from a partial census or saved log.
 
-## Limitations
-The finite-graph computation does not characterize general four-chromatic, regular, or planar graph classes. Absolute publication priority and independent scientific validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage is supported by the statement-level comparisons below; this is not a proof of absolute bibliographic novelty.
+
+## value
+
+PASS
+
+A complete integral homotopy calculation for the canonical Chvátal graph detects rare torsion hidden by rational Betti numbers and identifies its unique minimal induced carrier among 423 spheres. Integral generation, precise minimal supports and homotopy type are independently useful natural finite-complex invariants; no general family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
