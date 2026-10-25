@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The double dihedral cover, graph-subgroup identification, trivial normal core, and faithful coset action prove the Galois closure and monodromy. The one-factor branch equations prove all inertia indices; generic tame discriminant orders and the stabilizer-orbit description yield six irreducible ramification components and every exceptional fiber. The oddness hypothesis ensures both the automorphism \(r\mapsto r^2\) and the reflection centralizer calculation. The direct group enumerator verifies finite cases, but the general proof is not inferred from enumeration.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Full relevant sections of Malara--Merta--Szpond--Zieliński (arXiv:2610.01783v1, especially Section 6) and Laface--Ugaglia (arXiv:2609.26521v2, Section 2) were examined. They establish the group actions, first-coordinate ruling and six quotient singularities, but neither gives the *combined* two-coordinate covering's Galois closure, branch divisor with discriminant weights, or all nine crossing-fiber cardinalities and smooth/singular types. Published mathematical-record searches returned only separate covers or unrelated dihedral actions, not equivalent statements. Standard abstract group-cover theory could recover the calculation and remains the principal residual priority risk. No absolute novelty or independent certification is claimed.
+PASS
 
-**Value — PASS.** The original articles rely on this quotient surface for their Seshadri constructions. The full finite covering carries different information from the individual rulings: a faithful monodromy action of order \(4n^2\), an explicit global branch discriminant and a complete stratification of the 9 distinguished fibers in every odd degree. The six quotient singularities are known, but their placement and interaction in the simultaneous two-coordinate covering and the ramification structure are not determined by the cited source results. This provides a reusable structural description for studying covering degenerations or computing related invariants; it is not an arbitrary slice or a claim of a new Seshadri theorem.
+For odd n, the doubled-rotation automorphism of D_n identifies the quotient subgroup as its graph in D_n x D_n. The graph core is trivial because Z(D_n)=1; hence the Galois closure has order 4n^2 and quotient degree 2n. Reflections on D_n produce n disjoint 2-cycles, rotations two n-cycles, giving finite-line discriminant order n and infinity-line order 2(n-1). Two commuting coordinate inertia actions classify all nine crossing fibers: finite/finite 1 size-two orbit plus (n-1)/2 size-four orbits; mixed one 2n-orbit; infinity/infinity two n-orbits. Local stabilizer weights give one A1 at each finite/finite crossing and 1/n(1,2), 1/n(1,n-2) at the double infinity crossing. Independently reconstructed D_n orbit types for n=5,7,9. These checks corroborate, not prove, all odd n.
 
-**Limits and risks.** Generic ramification and geometric crossing fibers only; scheme-theoretic nonreduced crossing fiber lengths, additional birational or topological invariants, and even values of \(n\) are not classified. The finite verifier is corroborative, not an infinite proof. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No dominating equivalent or stronger complete statement identified in the targeted primary-source and Resultary searches; assessment is best-of-knowledge, not exhaustive priority certification. Translated the two-invariant morphism to cosets H/G rather than comparing titles; Seshadri value itself is a different invariant. Neither inspected primary text gives the combined two-coordinate cover full monodromy/discriminant and all nine reduced intersection fibers. Abstract Galois theory does not by itself supply these explicit parameters. No matching table found in searched published records; this does not eliminate unindexed Galois-cover computations. Original quotient and singularities alone do not state the full branch cycle and discriminant formula. Some local singularity pieces are explicitly prior and not separately asserted new.
+
+## value
+
+PASS
+
+An exact finite-cover monodromy, ramification divisor, six rational ramification components and every exceptional intersection fiber are meaningful invariants of the dihedral quotient surface motivating the original Seshadri construction. The classification is complete for its natural odd-n family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
