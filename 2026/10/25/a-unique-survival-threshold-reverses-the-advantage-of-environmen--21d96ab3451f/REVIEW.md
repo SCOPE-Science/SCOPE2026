@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof obtains the unique positive Perron-root coincidence from a resolvent identity, orders the two left Perron rays through a monotone quadratic, and reduces spectral-product ordering to an exact two-dimensional projector determinant identity. Explicit boundary checks distinguish the rank-one endpoint \(s=0\) from the strict positive range. The exact rational example and 12,000 independently generated admissible numerical comparisons support the algebra, without being substituted for the proof.
+
+**Originality — PASS with residual risk.** Tuljapurkar–Haridas (2006) established why temporal autocorrelation influences matrix-population growth; Engen et al. (2013) developed the reproductive-value interpretation; Steinsaltz–Tuljapurkar–Horvitz (2011) derived sensitivity formulas; Altenberg (2013) studied different spectral-product inequalities; Protasov–Logofet (2014) treated rank-one demographic-matrix corrections and second eigenvalues. The inspected primary sources do not explicitly supply the present all-positive-parameter unique threshold for a fixed pair of rank-one-plus-diagonal matrices, together with universal order-independence at the threshold. The 2006 publisher full text was unavailable, and historical priority is therefore not independently certified. The 2013 Logofet variable-environment paper was consulted at abstract level only and is a smaller residual risk.
+
+**Value — PASS.** Environmental-order effects on population persistence matter independently of annual mean fecundity. The theorem furnishes a sharp transition between persistence-favored and alternation-favored scheduling under fixed environmental frequencies, an exact positive-matrix proof, and a stronger common-ray equality phenomenon. The contrast is not inferred from a single numerical witness or routine variance calculations.
+
+**Scope and residual uncertainty.** Results concern deterministic asymptotic growth for a strictly positive two-stage model with a specific fecundity tradeoff, not extinction probabilities or an arbitrary stochastic environmental process. A broader historical theorem may subsume part of this classification. External scrutiny of priority and model applicability is still required.
+
+Self-review: passed. Independent audit: not yet performed.
