@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For n≥2 and 1≤k<n, uniform root splitting gives the exact f_k recursion with boundary values f_k(m)=0 (m<k), 1 (m=k), 2(m+1)/((k+1)(k+2)) (m>k). Expressing f_k(m) as its linear extension plus a finite defect yields zero defect mass, first moment k/3, second moment k(3k-1)/6. Conditioning on root rank and using symmetry then proves Cov((2I-(n-1))^2,X_{n,k})=4k(3k+1-2n)/(3n), including overlapping defect ranges. Exact enumeration of all insertion orders n=2..8 and rational finite-sum checks n=2..200 passed. Both global sum rules follow from the per-k formula; finite tests are supportive, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dennert and Grübel (2010), full article pp. 561–578: Theorem 2.2 is a joint Gaussian profile limit for FIXED small sizes and Theorem 2.4 concerns cumulative large subtree counts; (3.3) retains the root split in the proof, but no all-k root-imbalance covariance spectrum is displayed.",
+        "Holmgren and Janson arXiv:1406.6883, sections 1 and 3 establish broad additive-functional laws; the inspected Theorem 1.12 treats profile-count pair covariances, not the nonlinear root statistic.",
+        "Seelbach Benkner and Wagner arXiv:2003.03323, Sections 1 and 4: expected distinct fringe-tree type counts and associated asymptotic bounds, not finite first-split covariance."
+      ],
+      "reasoning": "Classical general recursions and joint asymptotic profile results do not list or assert the finite all-size mixed covariance. The new full spectrum resolves one root-split observable against every fringe size and isolates the sharp sign threshold; it is nevertheless an algebraically accessible consequence of well-known techniques, a residual priority risk.",
+      "searches": [
+        "published-finding corpus query: BST root split size fringe subtree profile conditional expectation mixed moment 3k plus 1 minus 2n",
+        "Web search: On the subtree size profile of binary search trees covariance root split fringe subtree counts",
+        "Web search: random binary search tree fringe subtree counts variance covariance arxiv 2019 2022"
+      ]
+    },
+    "checked_sources": [
+      "Dennert–Grübel 2010 full text, DOI 10.1017/S0963548309990630",
+      "Holmgren–Janson arXiv:1406.6883 relevant full-text sections",
+      "Seelbach Benkner–Wagner arXiv:2003.03323 relevant full-text sections",
+      "published-finding corpus 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9 full RESULT.md",
+      "Accessible prior local 2026-10_week3 ledger generation g000044 (recoverable claim/title deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior published root-imbalance/path-length identity is Cov(Q,P)=(n-2)(n-1)(n+1)/9. The new full formula gives it by summing (k-1)Cov(Q,X_{n,k}) over k.",
+        "The prior scalar path-length identity cannot determine the n-1 separate mixed moments: a single weighted sum has many possible vectors, even if the unweighted total sum is zero.",
+        "The 2010 full article gives exact means and conditioning but does not evaluate the mixed Q/count covariance or the 2/3 sign boundary; deriving them requires cancellation of the first three moments of a boundary defect."
+      ],
+      "reasoning": "Our claim STRICTLY REFINES the existing aggregate: the all-k formula implies the published cubic but not conversely. The earlier conditional decomposition suffices as a starting lemma, so original data and recurrences are not reasserted as new. The additional signed profile is a complete finite classification, not a renamed special case of the old global covariance.",
+      "searches": [
+        "Published published-finding corpus record 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9 RESULT.md",
+        "Dennert and Grübel (2010) equations (2.1),(3.3), Proposition 2.1, Section 4.2",
+        "Holmgren–Janson arXiv:1406.6883 Theorem 1.12 and Lemma 3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dennert and Grübel (2010), DOI 10.1017/S0963548309990630, equations (2.1) and (3.3) explicitly give the mean fringe-size counts and conditional split decomposition, but their Proposition 2.1 is covariance BETWEEN TWO subtree size counts.",
+        "Holmgren and Janson, arXiv:1406.6883, Theorem 1.12 and Lemma 3.3 reproduce the count-count covariances and means.",
+        "Closest published-finding corpus search hit 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9 concerns path length, a weighted sum of size counts."
+      ],
+      "reasoning": "The new variable is the squared FIRST root-split imbalance, not another fringe count or a generic level statistic. In the read texts, its covariance with each individual fringe-size count, including the full sign transition, was not stated. The classical conditional decomposition makes the new calculation possible, but does not itself provide the evaluated spectrum.",
+      "searches": [
+        "published-finding corpus query: binary search tree fringe subtree size count root rank squared imbalance covariance sign threshold two thirds",
+        "Web search: root split imbalance fringe subtree count covariance random binary search tree",
+        "Own ledger content search terms: binary search tree; root split; fringe subtree; subtree size; imbalance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9 gives the single aggregate cubic covariance, not the vector indexed by individual k.",
+        "Own accessible ledger claims include other tree models (recursive trees and Ford growth) but no random-BST root-imbalance and fringe-size spectrum.",
+        "Dennert and Grübel (2010) Table-free Proposition 2.1 reports covariances among two fringe counts; these do not tabulate the present mixed statistic."
+      ],
+      "reasoning": "No searched indexed record or inspected table supplies the evaluated coefficient 4k(3k+1-2n)/(3n) or its sign transition. This absence is not a proof of worldwide novelty; the closest aggregate is explicitly acknowledged.",
+      "searches": [
+        "published-finding corpus query: fringe subtree size profile root imbalance cubic path length covariance refining by subtree sizes",
+        "published-finding corpus query: binary search tree fringe subtree size count root rank squared imbalance covariance sign threshold two thirds",
+        "Own ledger title/claim search across accessible 2026-10_week3 generation g000044"
+      ]
+    },
+    "rationale": "Inspected full highly relevant Dennert–Grübel profile paper, Holmgren–Janson functional treatment, 2020 motivating random-BST fringe-type paper, and the closest published published-finding corpus root-imbalance/path-length note. Earlier explicit means, split identities, count-count covariances and global path-length covariance are credited. None of the inspected sources states the all-k root-imbalance mixed covariance with sharp 2/3 threshold. The new full vector implies, but is not implied by, the earlier cubic path-length covariance. Extensive known machinery makes an unnoticed earlier exact specialization a genuine residual risk.",
+    "residual_risks": [
+      "An earlier exact root-rank/fringe-size mixed moment could exist outside inspected sources or under equivalent algorithms terminology.",
+      "The classical conditional mean (3.3) and exact mean (2.1) make this spectrum algebraically derivable, though the exact signed all-k classification was not found explicitly in inspected sources.",
+      "No independent reviewer has checked historical priority or the mathematical proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical means and exact pairwise count-count covariances are prior; the new root-imbalance mixed profile and sign threshold were not present in the inspected article.",
+        "evidence": [
+          "Equation (2.1) gives E[X_{n,k}]=2(n+1)/((k+1)(k+2)).",
+          "Equation (3.3) gives E[X_{n,j}|I_n=i]=E[X_{i,j}]+E[X_{n-1-i,j}].",
+          "Proposition 2.1 gives Cov(X_{n,j},X_{n,k}) between two subtree-size counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548309990630",
+        "material_read": "Full 18-page article, including pp. 564–569 for mean, Proposition 2.1 and conditional split formula (3.3), plus sections on large profiles.",
+        "method": "Authorized complete-paper text extraction after open-access search did not locate the full text.",
+        "title": "On the Subtree Size Profile of Binary Search trees",
+        "trigger": "Highly relevant same model and exactly the same subtree-size profile; potential dominant general result."
+      },
+      {
+        "assessment": "The cited exact pairwise fringe-size covariance and additive-functional limit theorems do not directly state root-imbalance size-by-size mixed moments.",
+        "evidence": [
+          "Theorem 1.12 explicitly restates Dennert–Grübel pairwise Cov(X_{n,k},X_{n,m}).",
+          "Lemma 3.3(i) gives exact E[X_{n,k}] for n>k, n=k and n<k."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "Public full article relevant parts: introduction/Theorem 1.12 and Lemma 3.3 in Section 3, including exact mean/covariance formulas.",
+        "method": "Public arXiv full article text.",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+        "trigger": "Potentially broader joint functional covariance and random BST representation."
+      },
+      {
+        "assessment": "Study of distinct fringe types and compression; not the present conditional root-imbalance profile.",
+        "evidence": [
+          "First public arXiv posting Friday, 2020-03-06.",
+          "Section 4 addresses ordered and unordered distinct fringe-subtree counts in random BSTs, not mixed covariance with root imbalance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.03323",
+        "material_read": "Public full article sections 1 and 4, including random-BST distinct fringe-tree results and cited prior work.",
+        "method": "Public arXiv full article text.",
+        "title": "On the Collection of Fringe Subtrees in Random Binary Trees",
+        "trigger": "Qualifying 2020 source on random-BST fringe types and their value for tree compression."
+      },
+      {
+        "assessment": "Provides aggregate path-length covariance, root-split regression and variance, not the new individually signed fringe-size spectrum; aggregate recovered from new formula.",
+        "evidence": [
+          "The scalar statement is Cov(Q_n,P_n)=(n-2)(n-1)(n+1)/9.",
+          "That record does not quantify Cov(Q_n,X_{n,k}) over 1≤k<n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9/RESULT.md",
+        "material_read": "Complete published RESULT.md including equations (1)–(9), proof, limitations, and references.",
+        "method": "Read-only public repository file retrieval.",
+        "title": "Squared root imbalance has an exact cubic covariance with random-BST path length",
+        "trigger": "Closest published scientific record returned by targeted semantic searches; same nonlinear root statistic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "122dad6b-b12e-4874-ba28-2eb4171a8eda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The identity gives the full finite-size response of all fringe-subtree size strata to an intuitive symmetric root-balance statistic. Its unique non-asymptotic sign switch at k=(2n-1)/3 explains why small-size and large-size components have opposing associations with root imbalance, while their weighted sum produces the known positive path-length covariance. The object is the classical BST subtree-size profile used in fringe analysis and tree-compression questions; the sharp complete classification is useful without a downstream theorem.",
+    "status": "PASS"
+  }
+}
