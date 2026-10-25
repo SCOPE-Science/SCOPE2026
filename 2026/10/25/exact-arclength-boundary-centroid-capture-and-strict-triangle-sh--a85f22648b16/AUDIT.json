@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Conditional edge sampling probabilities are exactly normalized lengths; all 3^3 occupation configurations reduce to three null same-edge cases and the 2+1 and 1+1+1 patterns. Analytic reference-triangle halfplane characterization, exhaustive disjoint region integration, multiplicity sum and strict edge-length inequalities reconstruct the claimed exact polynomial and sharp majorization bounds. The quoted integrals were independently evaluated symbolically and checked numerically; Cartesian Monte Carlo corroborates across triangle shapes without serving as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halász and Kleitman 1974 (bibliographic abstract) study area-uniform triangles and optimization of containing point, not explicitly arclength boundary sampling.",
+        "Wendel 1962 imposes central symmetry on the sampling distribution.",
+        "Bárány Fodor Vígh 2009 main theorems treat intrinsic-volume fluctuation of interior-sampled random polytopes in smooth bodies."
+      ],
+      "reasoning": "The closest strong geometric-probability theorems use different sampling measures (interior area), symmetry hypotheses (Wendel), or sample-size asymptotic functionals, so their stated conclusions do not dominate the new weighted boundary law. Original 1974 full-text uncertainty is retained as risk.",
+      "searches": [
+        "random triangle contains fixed point on boundary of triangle side probability arclength 1974 Halasz Kleitman",
+        "Wendel random triangle containing origin arbitrary edge weighted perimeter distribution",
+        "arxiv 0906.0309 intrinsic volumes of inscribed random polytopes smooth convex bodies 2009"
+      ]
+    },
+    "checked_sources": [
+      "Prékopa 1972 DOI:10.1007/BF02018666 Section 5 including Lemma 2 and formula (5.24)",
+      "Wendel 1962 DOI:10.7146/math.scand.a-10655",
+      "Bárány–Fodor–Vígh 2009 arXiv:0906.0309 full HTML introduction and main theorems",
+      "OEIS A393427 full record",
+      "Halász–Kleitman 1974 DOI:10.1002/sapm1974533225 abstract only",
+      "published-finding corpus search for unequal side lengths/perimeter three-point centroid probabilities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For all triangles, area-uniform interior sample hull contains centroid with the known constant, using affine invariance and Prékopa 1972.",
+        "Uniform perimeter sample side probabilities are actual normalized Euclidean lengths, not uniformly 1/3 except for equilateral triangles.",
+        "Database prior: vertex-sampled regular polygon center-containing conditional area moments; different object and sampling.",
+        "Database prior: squared distance moments for two boundary points; no triple containment."
+      ],
+      "reasoning": "Equal-edge-mass sampling is the covered specialization p=(1/3,1/3,1/3). For genuine non-equilateral triangles the new value is strictly below the known area benchmark and has a complete polynomial profile. Hence neither the known constant nor the sampled-vertex/distance theorems imply the full claim without substantial new geometric integration.",
+      "searches": [
+        "Prékopa 1972 On the number of vertices of random convex polyhedra equations 5.19 to 5.24",
+        "probability uniform perimeter points triangle span centroid equilateral triangle",
+        "published-finding corpus conditional-area-moments-for-center-containing-regular-polygon-triangles",
+        "published-finding corpus exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prékopa 1972 Lemma 2 shows area-uniform simplex projected radially from centroid has uniform edge distribution; its equation (5.24) yields the equal-edge-mass benchmark.",
+        "A general non-equilateral triangle maps by affine transformation to a regular simplex, but Euclidean total-arclength sampling changes its edge masses to the true length ratios, whereas the radial area-uniform pushforward assigns equal mass 1/3 to each side."
+      ],
+      "reasoning": "The equal-edge-mass constant is covered by the earlier theorem. The unequal-length-weighted polynomial, its strict Schur order, and the perimeter-versus-area comparison are not implied by that constant without new conditional occupancy probabilities and weighted summation.",
+      "searches": [
+        "centroid containment triangle uniform independent perimeter sample unequal side lengths probabilities elementary symmetric polynomial",
+        "Prékopa 1972 centroid random triangle uniform simplex interior radial boundary projection 2/27 20 log 2 /81",
+        "https://rutcor.rutgers.edu/~prekopa/number.pdf Section 5 Lemma 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A393427 explicitly identifies the decimal 0.245221526064184... as Prékopa 1972 formula for three area-uniform interior points of a triangle.",
+        "The same number occurs as the upper bound here because the equilateral arclength law coincides with equal-side radial pushforward of interior area sampling."
+      ],
+      "reasoning": "The numerical maximum is known in a published exact table and is not a novel value. The present exact full triangle-shape profile is the accepted claim; searched table and database results do not provide the unequal-length profile.",
+      "searches": [
+        "OEIS A393427 probability centroid three random points interior triangle",
+        "triangle perimeter centroid capture probability three independent uniform boundary points log 2 equilateral upper bound",
+        "centroid containment triangle uniform independent perimeter sample unequal side lengths probabilities elementary symmetric polynomial"
+      ]
+    },
+    "rationale": "Prékopa (1972), Section 5 and Lemma 2, proves the constant for area-uniform interior simplex points, equivalently equal mass on each edge under radial projection. The new probability under uniform total boundary arclength assigns unequal edge masses proportional to unequal Euclidean side lengths; the exact cubic and strict majorization shape law do not appear in that primary statement and are not covered by symmetry-based Wendel or the interior-volume moment literature. Primary source scans were inspected. The numeric equilateral specialization is expressly known and is not claimed novel; residual possible unindexed weighted-boundary formula remains.",
+    "residual_risks": [
+      "Halász–Kleitman 1974 specialist original full text was not available for materially complete inspection; available abstract refers to area-uniform samples.",
+      "An older generalized boundary-direction or conditional-integration theorem may algebraically subsume the weighted boundary formula even though current searches did not locate one.",
+      "The sharp numerical upper endpoint is a known Prékopa value and must not be represented as newly computed novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS equal edge mass and the area-uniform benchmark; DOES NOT state unequal total-arclength edge-mass polynomial or Schur shape ordering.",
+        "evidence": [
+          "Lemma 2 states radial projection of a uniform interior point of a regular simplex is uniform on its boundary.",
+          "Equation (5.24) evaluates 2/27+20 log 2/81 for three area-uniform points."
+        ],
+        "identifier_or_url": "https://rutcor.rutgers.edu/~prekopa/number.pdf",
+        "material_read": "Entire relevant Section 5, PDF pages 15–21; in particular original scans pages 15, 19 and 20, including Lemma 2 and equation (5.24).",
+        "method": "Full-text inspection and PDF-page image verification; compared radial boundary pushforward and conditional edge masses.",
+        "title": "On the number of vertices of random convex polyhedra",
+        "trigger": "Exact match of equilateral constant to known area-uniform centroid-capture probability"
+      },
+      {
+        "assessment": "Not covering; point law on triangle boundary is not centrally symmetric.",
+        "evidence": [
+          "Wendel formula for d=2,n=3 assumes symmetric point distribution, giving 1/4 rather than the weighted triangle law."
+        ],
+        "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+        "material_read": "Original paper first two pages and journal landing page; scope and antipodal symmetry assumptions checked.",
+        "method": "Original scan and published exposition compared to model assumptions.",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "Possible stronger universal center-containing random triangle law"
+      },
+      {
+        "assessment": "Not covering fixed three-point boundary-arclength capture.",
+        "evidence": [
+          "The model samples points uniformly from the interior of smooth bodies and proves asymptotic intrinsic-volume fluctuation bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0906.0309",
+        "material_read": "ArXiv full HTML introduction, assumptions and Theorems 1–3; submission timestamp checked.",
+        "method": "Read primary full-text sections; compared sampling domain and conclusion.",
+        "title": "Intrinsic volumes of inscribed random polytopes in smooth convex bodies",
+        "trigger": "Pre-2016 geometric-probability literature for random convex hulls"
+      },
+      {
+        "assessment": "Potentially relevant; advertised area-uniform triangle samples, not explicitly total boundary arclength. No full-text exclusion is claimed.",
+        "evidence": [
+          "Available abstract discusses area-uniform triangle containment of a point and maximization at the centroid."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sapm1974533225",
+        "material_read": "Bibliographic abstract and cited theorem descriptions only; complete original unavailable to inspect.",
+        "method": "Bibliographic scope and comparison to Prékopa 1972.",
+        "title": "A Note on Random Triangles",
+        "trigger": "Historically related exact centroid capture in triangle"
+      },
+      {
+        "assessment": "Confirms known exact equilateral/equal-edge-weight value through area-uniform probability; does not list arbitrary-perimeter triangle law.",
+        "evidence": [
+          "A393427 gives 2/27+20 log 2/81 and cites Prékopa 1972 Section 5."
+        ],
+        "identifier_or_url": "https://oeis.org/A393427",
+        "material_read": "Whole record including problem definition, formula, citations and historical attribution.",
+        "method": "Direct record inspection.",
+        "title": "OEIS A393427",
+        "trigger": "Numerical coincidence of upper endpoint and an exact published constant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a85f2264-8b16-4041-89b5-5733b0ca7592",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact natural centroid-capture invariant for three Euclidean perimeter-uniform boundary points in EVERY triangle, not an arbitrary slice. Provides sharp equality-rigid comparison with the classical area-uniform benchmark, strict Schur ordering of shape imbalance and an attained/unattained sharp range. The known benchmark constant is only used as the classical reference; general unequal-edge profile has meaningful independent geometric content.",
+    "status": "PASS"
+  }
+}

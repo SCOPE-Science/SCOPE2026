@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The exact claim is restricted to nondegenerate Euclidean triangles and three independent samples uniformly distributed by boundary arclength. Affine reduction makes within-edge positions independent uniforms, but does not erase the edge masses: the latter remain the normalized Euclidean side lengths. Exhaustive side-occupation partitioning leaves two nonzero conditional probabilities. For two-on-one edge, a horizontal-slice bracketing criterion gives a one-dimensional elementary integral. For one-on-each, three signed barycentric tests decompose into three disjoint forbidden subsets with exact elementary integrals. Multiplicity-weighted reconstruction gives the stated polynomial; both coefficients are positive. Elementary symmetric-function bounds and strict Schur concavity give the endpoint and rigidity claims. A standalone numerical checker corroborates the analytic calculations but is not substituted for proof.
+
+## Originality — PASS with residual risk
+
+Prékopa's 1972 paper is a close and important prior result: its Lemma 2 and (5.24) already imply the equilateral specialization and every-triangle **area-uniform** benchmark. This result expressly does not claim the classical maximum number as novel. The new statement instead concerns three samples uniform by the *entire Euclidean boundary arclength*, whose side masses vary with the triangle shape, and derives the complete unequal-side probability polynomial and strict majorization classification. Prékopa's radial transfer produces equal side masses for area sampling and so does not state or imply the non-equilateral arclength formula without additional conditioning and calculation. The independent point-distribution scope of Wendel's theorem requires central symmetry, absent here. Halász–Kleitman concerns area-uniform sampling and is not directly the arclength law, though its complete text was not inspected. Searches found no directly matching full weighted formula; this is not a proof of global novelty. Residual risk is an older generalized conditional-integration formula covering side-weighted boundary samples.
+
+## Value — PASS
+
+The exact invariant is a natural sampling probability for the centroid of a triangle, with the physically canonical Euclidean arclength measure. The result explains how perimeter sampling departs from the classical interior sampling probability, rigorously separates equal-sided and non-equal-sided cases, supplies a complete triangle-shape ordering and two sharp global endpoints (one attained, one degeneration limit), and handles every triangle rather than a contrived subfamily. This is a meaningful exact classification despite relying on elementary integrals and despite the known classical equilateral constant.
+
+## Limits and reference checks
+
+Prékopa (1972), author's full available text, Section 5 pages 16–21, including Lemma 2 and (5.24), was materially compared. Wendel (1962) was checked in the original journal text and a modern open exposition of its symmetry hypothesis. Bárány–Fodor–Vígh (2009, arXiv:0906.0309) was checked for sampling assumptions and principal theorems. Halász–Kleitman (1974) was identified from bibliographic abstract and remains a material-read limitation; possible undocumented general boundary sampling in its full text is a residual originality risk. Additional database records describe center-containing **vertex-sampled** polygons, not the arclength triangle theorem. Numerical experiments are not proofs of the exact law, strict inequalities or novelty.
+
+Self-review: passed. Independent audit: not yet performed.
