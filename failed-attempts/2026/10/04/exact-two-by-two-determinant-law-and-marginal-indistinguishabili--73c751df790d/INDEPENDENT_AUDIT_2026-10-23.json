@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:57:34Z",
+  "axes": {
+    "correctness": {
+      "checked_source_paths": [
+        "RESULT.md",
+        "verify.py",
+        "VERIFICATION.md",
+        "SLOGAN.txt"
+      ],
+      "rationale": "For a,b,c,d≥0 and S>0, (a+b)(a+c)/S−a=(bc−ad)/S; conservation of row and column sums forces the other entries to alternate signs. Thus P(V)=V iff ad=bc, equivalent to rank-one for nonzero 2×2 V. The diagonal D_M gives underestimation ratio 1/(1+M), and the strictly positive symmetric V_ε gives overestimation 1/(2ε); both are unbounded as M→∞ or ε→0. The positive pair V_ε,W_ε has exactly equal one-one marginals, so any common h within factor K must satisfy (1−ε)/ε≤K²; choosing small ε refutes any finite K. For β∈(0,1), linear exponential averaging with zero start gives the full bias-corrected target cell (β A_11+c)/(1+β), with identical compressed states under same marginals and common second gradient. Taking c=ε² produces ratio [β(1−ε)+ε²]/[βε+ε²]→∞. The proof is symbolic in all permitted real parameters, not inferred from samples.",
+      "scope": "Second-moment projection and bias-corrected full-memory comparison only, pre-clipping/fixed floors; no optimizer divergence or arbitrary downstream training-loss assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017, equation (2.2), applies to every two-way table size, with 2×2 as its smallest nontrivial case.",
+          "2001 Dobra–Fienberg treats fixed marginal totals and sharp cell-entry bounds; the binary coupling ambiguity is classical.",
+          "2018 Adafactor paper defines the very reconstruction and EMA compatibility used here."
+        ],
+        "reasoning": "The fixed-margin theory covers all nonnegative 2×2 matrices and more general dimensions. It dominates the marginal nonidentifiability portion under equivalent assumptions. The extra optimization notation is a direct application of the already-defined Adafactor state and EMA recursion; it does not evade coverage.",
+        "searches": [
+          "Generalized Fréchet Bounds for Cell Entries in Multidimensional Contingency Tables (2017) https://arxiv.org/pdf/1708.02708",
+          "Bounds for cell entries in contingency tables induced by fixed marginal totals (2001) https://sites.stat.washington.edu/adobra/Files/Papers/sju00499.pdf",
+          "Adafactor generalized KL rank one algorithm 2 https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf",
+        "https://arxiv.org/pdf/1708.02708",
+        "https://sites.stat.washington.edu/adobra/Files/Papers/sju00499.pdf",
+        "https://proceedings.neurips.cc/paper_files/paper/2025/file/8e237ec6d3bc86f6d4967e9c7eef37ff-Paper-Conference.pdf",
+        "https://arxiv.org/html/2403.14958",
+        "Resultary semantic searches: Adafactor row-column marginal reconstruction two by two determinant exact error coordinatewise lower bound no multiplicative guarantee",
+        "Resultary semantic searches: Adafactor factored second moment indistinguishable matrices same row and column sums cannot approximate full adaptive moment",
+        "Resultary semantic searches: Nonnegative matrices independence coupling Fréchet bounds row-column margins no multiplicative approximation uniform cell estimates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put r1=r2=c1=c2=1 into Uhler–Richards (2.2): any x∈[0,1] is feasible in the cell (1,1). The two strictly positive opposite couplings with x=ε and 1−ε are the immediate endpoints approached from the interior.",
+          "The projector from Shazeer–Stern Lemma 1 always returns 1/2 for either coupling; hence the factor ratio 1/(2ε), and any shared estimate h must satisfy (1−ε)/ε≤C².",
+          "For general V, fixed marginals make the entire error matrix proportional to [[−1,1],[1,−1]], and its entry (1,1) is (bc−ad)/S, a one-step expansion of the original published formula.",
+          "2018 Algorithm 2 explicitly states marginals commute with EMA. Applying it twice to two same-marginal first gradients and a common second gradient yields identical compressed state but full moments βA+C over 1+β.",
+          "Hong–Lin (2025) convergence guarantees do not claim uniform per-entry recovery, hence do not rescue novelty or contradict the obstruction."
+        ],
+        "reasoning": "Every substantive assertion is a direct substitution, algebraic identity, or two-step application of published general statements. The claim is correct as an illustrative corollary, but wording that focuses on an optimizer cannot turn the mathematical consequence into a new independent theorem.",
+        "searches": [
+          "PMLR 2018 Shazeer Stern Lemma 1 Algorithm 2 full PDF https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf",
+          "Uhler Richards equation 2.2 full text https://arxiv.org/pdf/1708.02708",
+          "NeurIPS 2025 Adafactor convergence theory https://proceedings.neurips.cc/paper_files/paper/2025/file/8e237ec6d3bc86f6d4967e9c7eef37ff-Paper-Conference.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shazeer–Stern 2018, Sect.3 Lemma 1: P(V)_{ij}=r_i c_j/S, the independence-model table.",
+          "Uhler–Richards 2017, Sect.2 eq.(2.2): max(0,r_i+c_j-S) ≤ V_{ij} ≤ min(r_i,c_j) for arbitrary nonnegative 2-way tables.",
+          "For all row/column totals equal 1 (S=2), V11 can be any x∈[0,1] while the independence projection is 1/2."
+        ],
+        "reasoning": "The alleged Adafactor-specific 2×2 determinant law is the standard deviation of a 2×2 observed cell from its independence-model fitted cell. Its remaining three entries are forced by zero row and column error sums. The same-marginal witness and multiplicative impossibility follow from the complete Fréchet fiber, not from an additional structure theorem.",
+        "searches": [
+          "Adafactor row-column marginal reconstruction two by two determinant exact error coordinatewise lower bound no multiplicative guarantee",
+          "Adafactor factored second moment indistinguishable matrices same row and column sums cannot approximate full adaptive moment",
+          "Shazeer and Stern 2018 Section 3 Lemma 1 factored reconstruction https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf",
+          "Uhler and Richards 2017 two-way table fixed marginals equation 2.2 https://arxiv.org/pdf/1708.02708"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Connected Resultary semantic searches (three queries, 30 results each) returned the precise target finding as the top hit; this is self-indexing, not independent antecedent publication.",
+          "Other returned findings concern low-rank approximation, preconditioners, and marginal properties of unrelated objects; none is used to establish the current failure.",
+          "Directly relevant older primary mathematical coverage is the Fréchet fixed-marginal feasible interval, not a named exact Adafactor table."
+        ],
+        "reasoning": "No new exact finite table or database classification is submitted; it is an analytic 2×2 identity. Failure of a text search to find the name Adafactor next to determinant is not novelty evidence. The mathematical coverage is demonstrated by implication from older primary sources.",
+        "searches": [
+          "Adafactor row-column marginal reconstruction two by two determinant exact error coordinatewise lower bound no multiplicative guarantee",
+          "Adafactor factored second moment indistinguishable matrices same row and column sums cannot approximate full adaptive moment",
+          "Nonnegative matrices independence coupling Fréchet bounds row-column margins no multiplicative approximation uniform cell estimates",
+          "Resultary published semantic index Adafactor exact 2x2 determinant law"
+        ]
+      },
+      "rationale": "The submitted mathematical components are already implied by two older primary results: Shazeer–Stern (2018), Section 3 Lemma 1 and Algorithm 2, gives precisely the normalized marginal outer product and says row/column marginalization commutes with exponential smoothing; the classical sharp Fréchet cell bounds for fixed row/column totals, stated explicitly in Uhler–Richards (2017), equation (2.2), give the entire unconstrained 2×2 cell interval. Specializing to equal one-one marginals immediately produces the same V_ε/W_ε indistinguishability, unbounded relative fidelity, and exact one-dimensional checkerboard error upon subtracting the independence reconstruction. The two-step variant is one iteration of the pre-existing linear EMA recursion. These are covering mathematical implications, although the newer Adafactor wording and assembled toy examples need not appear verbatim. No distinct nonstandard theorem beyond these routine specializations was established.",
+      "residual_risks": [
+        "The earlier papers do not literally print the same checkerboard matrix identity or two-step toy witness; the FAIL rests on the demonstrated straightforward implication of their stronger statements, not a claim of verbatim duplication.",
+        "An unfamiliar optimizer-specific application may still be pedagogically useful; that is accounted for under V, not treated as mathematical novelty.",
+        "No claim of formal independence or external expert certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_FOUNDATION: explicitly supplies projector and EMA compatibility; the submitted extensions are direct specializations with old Fréchet bounds.",
+          "evidence": "Sect.3 Lemma1 normalized row-column product; Algorithm2 R_t,C_t recursions; paragraph says summing and EMA commute.",
+          "identifier_or_url": "https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf",
+          "material_read": "Open-access full PDF, abstract, Sect.2, Sect.3 Lemma 1 proof and Algorithm 2, the marginal-linear-smoothing paragraph, update-clipping motivation and scope.",
+          "method": "Primary PDF text and page image inspection, direct comparison of formulas and algorithm recursions.",
+          "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+          "trigger": "Original defining primary source and exact same projector/optimizer state."
+        },
+        {
+          "assessment": "BROADER_MATHEMATICAL_COVERAGE: the fixed-marginal interval gives both indistinguishability and unbounded ratio whenever a cell approaches zero.",
+          "evidence": "Sect.2 eq.(2.2): max(r_i+c_j−S,0)≤V_ij≤min(r_i,c_j). With r_i=c_j=1 and S=2 the interval is [0,1].",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02708",
+          "material_read": "Complete abstract and introduction, Sect.2 (including explicit two-way formula (2.2) and Theorem2.1), relevant subsequent generalizations.",
+          "method": "Open-access arXiv PDF text and page image inspection of 2-way fixed-marginal bound; specialize algebraically to uniform binary marginals.",
+          "title": "Generalized Fréchet Bounds for Cell Entries in Multidimensional Contingency Tables",
+          "trigger": "Primary general theorem on the exact fixed-marginal cell range for the same nonnegative matrices."
+        },
+        {
+          "assessment": "FOUNDATIONAL_PRIOR_FIXED_MARGINAL_COVERAGE; makes the exact cell ambiguity classical rather than optimizer-specific.",
+          "evidence": "2001 discussion of Fréchet bounds on cell entries given marginal totals.",
+          "identifier_or_url": "https://sites.stat.washington.edu/adobra/Files/Papers/sju00499.pdf",
+          "material_read": "Original 2001 paper introduction and the discussion of simple two-way Fréchet bounds and fixed-marginal cell intervals.",
+          "method": "Lawful open full-text PDF sections on fixed-marginal feasible tables.",
+          "title": "Bounds for cell entries in contingency tables induced by fixed marginal totals",
+          "trigger": "Earlier foundational antecedent of the same sharp fixed-margin constraints."
+        },
+        {
+          "assessment": "DIFFERENT_CONCLUSION: optimizer convergence despite factored state does not imply per-coordinate fidelity or directly refute the exhibited obstruction.",
+          "evidence": "Smooth nonconvex convergence results use regularization, clipping and proxy-step inequalities rather than a uniform coordinatewise approximation constant.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/8e237ec6d3bc86f6d4967e9c7eef37ff-Paper-Conference.pdf",
+          "material_read": "40-page proceedings paper, abstract/introduction, algorithm setup, main convergence theorems, relevant proxy-step analysis and appendices.",
+          "method": "Lawful public proceedings PDF text and relevant page images.",
+          "title": "Theoretical Investigation of Adafactor for Non-Convex Smooth Optimization",
+          "trigger": "Later potentially stronger same-optimizer convergence theorem."
+        },
+        {
+          "assessment": "CONTEXT_NOT_DECISIVE: documents approximation concerns but does not supply needed novelty; classical fixed-marginal bound supplies the decisive coverage.",
+          "evidence": "Motivates alternative low-rank adaptive approximations and explicitly compares second-moment compression errors.",
+          "identifier_or_url": "https://arxiv.org/html/2403.14958",
+          "material_read": "Open full-text HTML abstract, introduction and factorization discussion, including Adafactor comparison.",
+          "method": "Open-access HTML text review and relevance matching.",
+          "title": "Adapprox: Adaptive Approximation in Adam Optimization via Randomized Low-Rank Matrices",
+          "trigger": "Related optimizer work on limitations of factored second moments."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The target is a natural performance-relevant invariant: whether a memory-efficient factored adaptive moment can recover per-coordinate scales at bounded distortion. The sharp 2×2 information-loss demonstration and its dynamical persistence isolate exactly what compression cannot preserve, independently of optimizer convergence and empirical clipping remedies. This is mathematically relevant as a cautionary lower-bound example even though the proof is elementary and the components were already implied by general prior fixed-margin theory. Value does not confer novelty.",
+      "risks": [
+        "A two-by-two consequence of classic fixed-margin bounds is not a new independent structural theorem.",
+        "Worst-case coordinate fidelity does not quantify typical neural-network gradients or imply failure of clipped Adafactor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and all six accompanying original blobs, Git tree 15b93a12cd683229c887b8cb49bd02964f82319f",
+    "https://proceedings.mlr.press/v80/shazeer18a/shazeer18a.pdf",
+    "https://arxiv.org/pdf/1708.02708",
+    "https://sites.stat.washington.edu/adobra/Files/Papers/sju00499.pdf",
+    "https://proceedings.neurips.cc/paper_files/paper/2025/file/8e237ec6d3bc86f6d4967e9c7eef37ff-Paper-Conference.pdf",
+    "https://arxiv.org/html/2403.14958",
+    "Connected Resultary semantic queries on Adafactor, fixed-marginal indistinguishability, and Fréchet bounds"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No new theorem separating these formulas from old fixed-marginal Fréchet bounds and the original Adafactor EMA construction was located.",
+    "Finite exact-rational tests support transcription only; symbolic proof is the correctness basis.",
+    "Optimizer convergence and empirical accuracy are not claimed to fail.",
+    "No publication/import has occurred."
+  ],
+  "residual_risks": [
+    "Scientific rejection is based on strong mathematical implication by earlier general results, not exact-string matching.",
+    "Fixed second-moment floors, clipping and nonlinear training dynamics are outside the theorem and may bound practical impact.",
+    "Published source results were inspected best-of-knowledge; no formal proof assistant or expert attestation claim.",
+    "Full privacy-neutral relocation was not completed; scientific failure must not be confused with transport/publication readiness."
+  ],
+  "schema_version": 1
+}
