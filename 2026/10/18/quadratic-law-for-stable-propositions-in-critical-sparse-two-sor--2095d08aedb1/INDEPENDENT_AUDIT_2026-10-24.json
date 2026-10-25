@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stable extents are formal concepts (maximal complete bipartite rectangles) by Galois antitone duality. Partition by sizes: min-side ≤1 gives ≤2n+2, both sides ≥3 have expectation O_c(n^{3/2}) since t_{a+1,b}/t_{a,b}≤np³=c³/√n for a,b≥3. Two-object pairs with ≥3 common attributes have Poisson(λ=c²) codegrees; an extra object joins their common attributes with probability ≤np³, yielding E|X−(n²/2)P(Poi λ≥3)|=O(n^{3/2}), and symmetrically Y. Maximal 2×2 rectangles have exact mean binom(n,2)²p⁴(1−p²)^{2(n−2)}. Row-resampling changes only rooted K2,2 and K3,2 configurations; their second moments are O_c(n²) because rooted overlap exponent 2−t+(t−1)s/2≤2 for t=0,1,2 and s=0,1,2. Efron–Stein then gives Var Z=O_c(n³), so L1 error O_c(n^{3/2}), implying E|S/n²−F(c)|=O_c(n^−1/2). Independently enumerated all 1×1,2×2,3×3 incidence matrices and cross-checked the exact mean and maximality correction. These exhaustive finite sizes corroborate but do not prove the asymptotic variance estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakurai gives exact random-context expectation and superpolynomial lower bounds in a different, fixed-edge-density model.",
+          "Kovács gives an all-n expectation identity; BBK discusses exact maximal-biclique enumeration algorithms."
+        ],
+        "reasoning": "The broader finite expectation counts can yield the specialized expected constant only with asymptotic work; they do not imply variance/O(n³) and L1 rate. Dense-case growth and algorithmic runtime do not dominate the critical square-root regime.",
+        "searches": [
+          "primary: arxiv:2101.11023 Proposition 4.1 / Theorem 5.1",
+          "primary: DOI:10.18514/MMN.2018.2529 Section 2",
+          "primary: arxiv:2405.04428"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2101.11023v1; https://arxiv.org/html/2101.11023v1",
+        "arxiv:1809.11160v1; https://arxiv.org/abs/1809.11160",
+        "arxiv:2309.04115v1; https://arxiv.org/html/2309.04115v1",
+        "Resultary: number of maximal bicliques in random bipartite graph edge probability c / sqrt n quadratic concentration formal concepts",
+        "primary: arxiv:2309.04115v1 Sections 2.2–3",
+        "primary: arxiv:2101.11023 Proposition 4.1 / Theorem 5.1",
+        "primary: DOI:10.18514/MMN.2018.2529 Section 2",
+        "primary: arxiv:2405.04428",
+        "MathOverflow discussion 2009 expected maximal bicliques random bipartite",
+        "primary: Felde/Hanika 2018 coin toss model",
+        "primary: Sakurai 2021 exact expectation and asymptotic statements",
+        "primary: Howlader/Liau 2023 modal formal-concept correspondence",
+        "primary: Felde/Hanika 2018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The modal/concept identification and Bernoulli null model are wholly prior.",
+          "The new proof additionally isolates the n² contribution from (2,≥3), (≥3,2), and (2,2) and proves variance concentration for the latter."
+        ],
+        "reasoning": "No inspected prior theorem logically entails an O_c(n^−1/2) L1 rate for c/√n: means alone do not control fluctuations, and constant-density results concern a different limit.",
+        "searches": [
+          "primary: Sakurai 2021 exact expectation and asymptotic statements",
+          "primary: Howlader/Liau 2023 modal formal-concept correspondence",
+          "primary: Felde/Hanika 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The KF two-sorted stable modalities correspond to antitone Galois-fixed extents/formal concepts.",
+          "Those objects correspond to maximal complete incidence bicliques including empty-boundary cases."
+        ],
+        "reasoning": "Modal fixed propositions, closure extents and maximal bicliques must all be compared; the claim is not new because of renaming. The explicitly scaled L1 theorem is the asserted additional statement.",
+        "searches": [
+          "Resultary: number of maximal bicliques in random bipartite graph edge probability c / sqrt n quadratic concentration formal concepts",
+          "primary: arxiv:2309.04115v1 Sections 2.2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A MathOverflow expected-value discussion and general table formulas give formal concept means, not a critical L1 law.",
+          "The checked semantic top hits from Resultary concern other combinatorial invariants."
+        ],
+        "reasoning": "No relevant exact tabulation or published concentration coefficient was located; that negative search is only bounded best-of-knowledge evidence.",
+        "searches": [
+          "Resultary: number of maximal bicliques in random bipartite graph edge probability c / sqrt n quadratic concentration formal concepts",
+          "MathOverflow discussion 2009 expected maximal bicliques random bipartite",
+          "primary: Felde/Hanika 2018 coin toss model"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. No inspected prior theorem logically entails an O_c(n^−1/2) L1 rate for c/√n: means alone do not control fluctuations, and constant-density results concern a different limit.",
+      "residual_risks": [
+        "An older/random maximal-biclique concentration theorem in graph terminology could subsume the claim but was not located.",
+        "2020 journal null-model variant was not fully inspected; accessible precursor and source descriptions support but do not settle complete priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Expected counts and a different dense-model lower bound, not the critical L1 law",
+          "evidence": "Proposition 4.1 exact expectation; Theorem 5.1 superpolynomial estimate under its own sampling regime.",
+          "identifier_or_url": "arxiv:2101.11023v1; https://arxiv.org/html/2101.11023v1",
+          "material_read": "Primary full-text manuscript, particularly Proposition 4.1 and Theorem 5.1, background/assumptions",
+          "method": "Examined full accessible text and exact theorems",
+          "title": "On formal concepts of random formal contexts",
+          "trigger": "Directly identical random formal concepts and expected count"
+        },
+        {
+          "assessment": "Known random-context sampling model, no checked matching critical concentration statement",
+          "evidence": "Definition and experimental treatment of the coin-toss formal-context model.",
+          "identifier_or_url": "arxiv:1809.11160v1; https://arxiv.org/abs/1809.11160",
+          "material_read": "Accessible full-text model discussion, Sections 2–4, and source abstract",
+          "method": "Inspected model definitions and results in accessible primary text",
+          "title": "Formal Context Generation using Dirichlet Distributions",
+          "trigger": "Coin-toss/Bernoulli null model for formal contexts"
+        },
+        {
+          "assessment": "Semantics and fixed-point correspondence covered; probabilistic limit outside scope",
+          "evidence": "KF stable modal propositions as Galois-closed extents.",
+          "identifier_or_url": "arxiv:2309.04115v1; https://arxiv.org/html/2309.04115v1",
+          "material_read": "Accessible Sections 2.2–3 on formal concepts and window modalities",
+          "method": "Primary HTML section examination",
+          "title": "Two-sorted Modal Logic for Formal and Rough Concepts",
+          "trigger": "Semantic identity of two-sorted stable propositions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the critical sparse scale, the count of formal concepts is dominated by distinct Poisson-codegree shapes. Its explicit quadratic density and quantitative L1 concentration provide a useful null-model benchmark in formal concept analysis, random bipartite graph theory and the corresponding two-sorted modality; unlike a bare exact mean identity, concentration is substantial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
