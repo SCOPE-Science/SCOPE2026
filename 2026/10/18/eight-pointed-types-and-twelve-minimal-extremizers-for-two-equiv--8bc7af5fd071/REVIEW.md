@@ -1,13 +1,21 @@
-# Review of the eight-type extremum for two equivalences
+# Independent mathematical audit
 
-## Correctness — PASS
-Each rank-one pointed type in the pure two-equivalence signature is the four-bit pattern recording a distinct witness in each of the four \((E,F)\)-relationship regions. An intersection cell with no disjoint occupied cell forces a two-star support and at most five types; otherwise only the eight patterns with the fourth bit equal to one can occur. Four singleton cells and four double cells require at least twelve elements, and the displayed partitions realize all eight. At size twelve, unique weighted cells for each triple reduce the classification to two isolated support edges, two core edges, and four leaves. Disjoint, shared-left and shared-right core configurations yield four nonisomorphic weight assignments apiece. The twelve templates were checked by a separate program; the exhaustive restricted-growth program corroborates the first-attainment order but is not used to assert the all-size bound.
+## correctness
 
-## Originality — PASS with residual priority risk
-The closest literature is Kieroński–Otto on small substructures and two-variable logic with equivalences (LICS 2005; JSL 2012) and Pratt-Hartmann on two-variable counting logic with one/two equivalences (MLQ 2015, especially local configurations and Section 7). Those treatments address satisfiability, complexity, and constructions involving more expressive signatures; the material inspected does not give the exact universal eight-type extremum, twelve-element threshold, or twelve named-side intersection templates. Previous mathematical results on pointed types of two total orders and on \(C^2\)-identification of small double-partition systems are different statements and do not dominate the present theorem. Full text of Kieroński–Otto was not available for detailed comparison; its broad methods or an unindexed special case may contain an earlier derivation. Bibliographic searches and research-record searches cannot certify uniqueness or precedence.
+PASS
 
-## Value — PASS
-Two equivalence predicates form a foundational and expressively delicate signature in finite-variable model theory. Counting *coexisting local types* measures the diversity visible at one quantifier of depth, independently of numerical counting logic. The exact ceiling and first order of attainment, together with a complete twelve-class structural classification, give a natural small-model benchmark and an interpretable boundary imposed by the interaction of two partitions. This is not claimed to improve general satisfiability complexity or to classify all higher-rank theories.
+A pure two-named-equivalence structure has exactly four possible existential witness bits a,b,c,d at rank one (with x itself always available but not a distinct witness). Occupied E×F cells form a simple bipartite support weighted by intersection multiplicity; a indicates multiplicity≥2, b/c degree≥2 on each side, d existence of an occupied nonincident cell. If some d=0 the support lies in two incident stars with at most five bit types; otherwise all types d=1 and the remaining 3 bits allow at most eight. Eight types require four weight1 and four weight2 cells, hence |X|≥12, and the displayed 12-point partitions realize them. At equality each type names a unique cell, with two isolated cells and two (1,1) core cells. Disjoint, shared-left, shared-right core incidences each have four leaf-weight choices. An independent support-incidence enumeration recovered 12 possible edge-equality support templates. The original 324,446,969-instance C++ n=12 log is supporting provenance, not rerun; the structural classification, not a timeout or log, proves all-N bound and 12 isomorphism types. A rank-two sentence has outer quantified variable applied to a pointed rank-one property, so extremizers sharing all eight types agree on rank-two sentences.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General two-variable satisfiability and counting-logic constructions do not directly calculate simultaneous realized first-order rank-one one-types and identify 12 minimal named-equivalence isomorphism configurations. The sharp triple (8 types, 12 points, 12 minimal isomorphism classes) survives as best-of-knowledge original finite-model theory, with strong older full-text risk.
+
+## value
+
+PASS
+
+Coexisting rank-one local profiles is a natural, sharply finite expressivity measure for the foundational signature of two equivalences. The exact cap, minimum domain size, complete twelve-configuration classification and rank-two elementary-equivalence consequence form a motivated reusable benchmark; they are not an arbitrary numerical slice of Bell numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
