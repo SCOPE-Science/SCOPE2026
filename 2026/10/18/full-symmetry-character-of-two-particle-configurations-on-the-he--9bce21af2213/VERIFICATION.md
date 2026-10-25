@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and checks
 
-Execute `python3 verify_configuration.py` and `python3 verify_cycles.py` with the six accompanying research documents and verification programs in one working directory. Their outputs should match `CONFIGURATION_CHECK.txt` and `CYCLE_CHECK.txt` verbatim. The programs use only the Python standard library and require no network access.
+# Independent mathematical audit
 
-The first checker reconstructs the Fano incidence relation, the Abrams unordered two-particle model with cell counts 91, 252 and 168, signed boundary matrices with zero composition, matrix ranks modulo 2, 3, 5, 7, and 101, all 336 automorphisms with their exact signed chain traces, and both invariant-average equalities. The second checks all vertex deletions of size zero, one and two for connectivity, enumerates the 28 six-cycles, establishes girth at least six and their eight-dimensional mod-three cycle span.
+## correctness
 
-The proof of integral degree-one homology relies on Ko–Park, *Characteristics of graph braid groups*, Theorem 3.16 (arXiv:1101.2648); the integral degree-two group is free as a subgroup of a free cellular group and has rank fixed by Euler characteristic. The equivariant degree-one identification uses a mathematical lifting of graph cycles, not merely the finite-field tests. The new degree-two rational character is computed from an exact cellular trace identity and all finite graph automorphisms. These are reproducibility checks and self-review, not an independent audit.
+PASS
 
-No claim is made about integral equivariant decomposition, configuration cup products, higher-particle cases or absolute novelty against material unavailable in the consulted literature.
+The Heawood Fano incidence graph has 14 vertices, 21 edges, 28 girth-six cycles, rank H1(graph)=8. Unordered Abrams D2 complex has 91 zero-, 252 one-, 168 two-cells; its Euler characteristic is 7. Ko–Park triconnected nonplanar graph theorem supplies H1 integral Z^8 plus Z/2; connectedness and Euler characteristic then force H2=Z^14 (cellular H2 is free). Signed cellular Hopf trace and the graph-chain projection yield the characters. Independently reconstructed the 168 Fano collineations plus one polarity, enumerated all 336 graph automorphisms, and counted oriented cellular fixed-cell traces; result exactly [(order, exchanges?, count, trH1, trH2)]=(1,False,1,8,14),(2,False,21,0,-2),(2,True,28,-2,-2),(3,False,56,-1,-1),(4,False,42,0,2),(6,True,56,1,1),(7,False,48,1,0),(8,True,84,0,0). Averaging over all 336 and over the 168 preserving automorphisms gives zero positive-degree invariant ranks. The 28 six-cycles span graph H1, so the natural equivariant map H1(D2)->H1(graph) is an isomorphism. These exact finite combinatorial checks really exhaust this finite graph, while the prior integral H1 theorem supplies torsion.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
+
+## value
+
+PASS
+
+The full rational character on the natural nonplanar Fano incidence graph is an informative equivariant invariant not determined by its ordinary Betti numbers; in particular vanishing of orbit-space reduced rational homology is a meaningful global-symmetry consequence. The submitted result appropriately excludes novel claims for the classical integral H1 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

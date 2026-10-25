@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The known Ko–Park integral first-homology theorem applies because the Heawood graph is triconnected and nonplanar; its girth-six, 14-vertex, 21-edge structure also makes the two-particle Abrams model applicable. Exact cell counts (91, 252, 168), Euler characteristic 7 and the free nature of the kernel of the degree-two boundary give second Betti rank 14. The equivariant chain map forgetting the stationary particle induces a rational first-homology isomorphism: its image contains all 28 lifted six-cycles spanning the eight-dimensional graph cycle space. Therefore both characters are determined from explicit signed chain traces. The complete 336-element automorphism enumeration, 8-class trace table, and vanishing group averages agree with the chain formulas and two executable cross-checks. Repeated finite-field ranks are corroboration, not an inference that experiments alone establish integral Smith invariants.
+## correctness
 
-## Originality — PASS
-The most closely related published Heawood configuration calculation concerns ordered two-particle mod-two Betti numbers, not the degree-one and degree-two rational character of the unordered space under all 336 symmetries. Ko–Park establishes first integral homology but not the automorphism action on second homology. An–Knudsen studies second homology of planar graph braid groups, so its principal structural theorem does not apply to the nonplanar Heawood graph. Lawrence–Wilson establishes the graph symmetries but no induced configuration-homology representation. Separate symmetry studies for Petersen, dodecahedral, and cuboctahedral configuration spaces concern different graphs. Targeted database and scholarly literature searches found no covering characterization, but an unindexed equivalent remains a residual originality risk.
+PASS
 
-## Mathematical value — PASS
-The Heawood graph is a canonical highly symmetric finite incidence graph, and graph-particle configuration spaces are natural topological invariants. The theorem supplies the complete 336-element graded rational character, an invariant not determined by previously available integral Betti groups. In particular, it proves that both the full automorphism quotient and the index-two point-line-preserving quotient are rationally acyclic after degree zero, despite fourteen original second-homology generators. The value lies in an exact symmetry-sensitive topological classification for a natural object, not in simply recomputing its Betti numbers.
+The Heawood Fano incidence graph has 14 vertices, 21 edges, 28 girth-six cycles, rank H1(graph)=8. Unordered Abrams D2 complex has 91 zero-, 252 one-, 168 two-cells; its Euler characteristic is 7. Ko–Park triconnected nonplanar graph theorem supplies H1 integral Z^8 plus Z/2; connectedness and Euler characteristic then force H2=Z^14 (cellular H2 is free). Signed cellular Hopf trace and the graph-chain projection yield the characters. Independently reconstructed the 168 Fano collineations plus one polarity, enumerated all 336 graph automorphisms, and counted oriented cellular fixed-cell traces; result exactly [(order, exchanges?, count, trH1, trH2)]=(1,False,1,8,14),(2,False,21,0,-2),(2,True,28,-2,-2),(3,False,56,-1,-1),(4,False,42,0,2),(6,True,56,1,1),(7,False,48,1,0),(8,True,84,0,0). Averaging over all 336 and over the 168 preserving automorphisms gives zero positive-degree invariant ranks. The 28 six-cycles span graph H1, so the natural equivariant map H1(D2)->H1(graph) is an isomorphism. These exact finite combinatorial checks really exhaust this finite graph, while the prior integral H1 theorem supplies torsion.
 
-## Sources and limitations
-K. H. Ko and H. W. Park, *Characteristics of graph braid groups* (arXiv:1101.2648), Theorem 3.16; B. H. An and B. Knudsen, *On the second homology of planar graph braid groups* (arXiv:2008.10371); E. D. Lawrence and R. T. Wilson, *The Structure of the Heawood Graph* (arXiv:1907.11978). Comparison to the database record on ordered two-point Heawood configurations was based on its accessible ranked summary, not full source text. No integral equivariant character, homotopy classification, or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
+
+## value
+
+PASS
+
+The full rational character on the natural nonplanar Fano incidence graph is an informative equivariant invariant not determined by its ordinary Betti numbers; in particular vanishing of orbit-space reduced rational homology is a meaningful global-symmetry consequence. The submitted result appropriately excludes novel claims for the classical integral H1 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
