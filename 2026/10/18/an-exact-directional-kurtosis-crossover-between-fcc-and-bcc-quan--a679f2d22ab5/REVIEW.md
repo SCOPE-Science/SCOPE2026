@@ -1,21 +1,21 @@
-# Scientific review of the directional-kurtosis crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The underlying FCC and BCC polytopes are proved to be the precise Voronoi cells of their stated lattices, including all nonminimal lattice vectors. Two exact simplex decompositions calculate the complete cubic quartic tensors and radial moments through degree six. The directional contraction follows from signed permutation symmetry, and the resulting comparison is the nonzero linear form \(4(74w-29)/5415\) with \(1/3\le w\le1\). The independent convex-hull tetrahedral calculation from the listed rational vertex sets confirms every moment. Its numerical hull discovery is a corroborating check, not a substitute for the analytic simplex proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+The displayed FCC and BCC Voronoi halfspace systems follow from all even/two-odd D3 lattice vectors and all even/all-odd BCC lattice vectors, respectively. In the signed-permutation FCC chamber x1>=x2>=x3>=0, x1+x2<=1, simplex Jacobian is 1/4; BCC positive octant is the 3/2-simplex minus three disjoint translated 1/2-simplices. Exact rational independent integration reproduced volume (2,4), radial second (3/8,19/32), fourth (41/240,409/960), sixth (1397/16128,27217/80640), A=E Xi^4 (3/80,89/960), C=E Xi²Xj² (7/720,71/2880). Cubic invariance yields K_F=(28+8w)/15, K_B=(3408+864w)/1805, w=sum_i u_i^4∈[1/3,1], difference 4(74w−29)/5415, sharp crossing w=29/74. Recomputed radial gaps R4=308/48735 and R6=1758278/58335795, positive. Independent rational sums were NOT based solely on the saved verifier.
 
-Conway–Sloane (1982) and Barnes–Sloane (1983) give the standard second-moment quantization setting, with the latter proving BCC second-moment optimality. Sloane–Beferull-Lozano (arXiv:math/0207147v1; 2002) supplies explicit FCC/BCC geometric background but discusses second moments of intersections, not the present fourth-order directional comparison. Related published work on distance from a point to the boundary of cubic Voronoi cells concerns a different random variable; work on quartic moment tensors of Platonic solids concerns different bodies. The exact quartic crossover surface and two rational higher-radial-moment differences are not logical consequences of any inspected, already-evaluated result. General monomial-integration techniques are not presented as new.
+## originality
 
-**Residual historical-priority risk:** An older crystallographic mass-moment table or unindexed treatment of FCC/BCC quantization error could contain the quartic tensor explicitly. The comparison to the Barnes–Sloane journal article used its accessible author-posted text. No exhaustive search of all printed sources or independent novelty certification was possible.
+PASS
 
-## Value — PASS
+Classical quantizer optimality compares mean-square error or second moments; no inspected source states the orientation-specific quartic comparison surface at w=29/74 plus two radial higher-moment gaps for these aligned Voronoi cells. The exact quadrature method is textbook, but the paired moment and sharp sign reversal are not found in checked primary statements. Priority risk: older quantization/crystallographic higher-moment tables.
 
-Fourth-order error characteristics detect tail behavior and direction-sensitive deviations that cannot be determined from the known optimal second moment. An exact full-sphere transition at \(\sum_i u_i^4=29/74\) distinguishes the radially preferable BCC cell from FCC, which has less directional kurtosis near cubic body diagonals despite its larger radial fourth and sixth moments. This is a natural complete geometric comparison of the two canonical three-dimensional lattice quantizers, not an arbitrary finite enumeration or restatement of a second-moment theorem.
+## value
 
-## Scope and limitations
+PASS
 
-The theorem does not assert higher-order global optimality among all three-dimensional lattices, stochastic dominance, or independence of relative lattice orientation. The verification is an exact computational cross-check plus a written self-contained proof; further mathematical audit is desirable.
+Scale-free cubic directional kurtosis tests how lattice quantization errors depend on measurement direction. The exact sign reversal, transition locus on S² and simultaneous disagreement with higher radial moment ordering supply a physically motivated boundary not recoverable from classical second-moment optimality. Both cells and invariants are standard, not arbitrary small slices.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

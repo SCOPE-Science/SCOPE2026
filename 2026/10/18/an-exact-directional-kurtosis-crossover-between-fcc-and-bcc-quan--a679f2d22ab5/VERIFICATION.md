@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Exact verification and boundaries
+# Independent mathematical audit
 
-Execute `python verify.py` with SymPy, NumPy, and SciPy installed. The program (1) integrates symmetric polynomials on a directly parameterized FCC simplex chamber and a BCC simplex-minus-three-corners decomposition; (2) independently constructs the complete convex hull of both rational vertex sets; (3) triangulates their boundary, evaluates the exact rational determinant of each origin pyramid, and integrates the same polynomial moments on those tetrahedra. Both methods produce the following exact values:
+## correctness
 
-- FCC: 14 vertices, 24 triangular hull boundary pieces, volume \(2\), radial moments \(3/8\), \(41/240\), \(1397/16128\), component fourth moment \(3/80\), distinct-component mixed fourth moment \(7/720\).
-- BCC: 24 vertices, 44 triangular hull boundary pieces, volume \(4\), radial moments \(19/32\), \(409/960\), \(27217/80640\), component fourth moment \(89/960\), distinct-component mixed fourth moment \(71/2880\).
+PASS
 
-Exact rational assertions then check the radial gaps and symbolic identity \(K_F(u)-K_B(u)=4(74w(u)-29)/5415\). The independent triangulation's facet discovery uses floating-point hull software with exact-rational determinants and polynomial integration afterward; the independent direct simplex decomposition and Voronoi inequalities in the written proof remove reliance on floating-point completeness. The executable does not prove historical priority or external validation.
+The displayed FCC and BCC Voronoi halfspace systems follow from all even/two-odd D3 lattice vectors and all even/all-odd BCC lattice vectors, respectively. In the signed-permutation FCC chamber x1>=x2>=x3>=0, x1+x2<=1, simplex Jacobian is 1/4; BCC positive octant is the 3/2-simplex minus three disjoint translated 1/2-simplices. Exact rational independent integration reproduced volume (2,4), radial second (3/8,19/32), fourth (41/240,409/960), sixth (1397/16128,27217/80640), A=E Xi^4 (3/80,89/960), C=E Xi²Xj² (7/720,71/2880). Cubic invariance yields K_F=(28+8w)/15, K_B=(3408+864w)/1805, w=sum_i u_i^4∈[1/3,1], difference 4(74w−29)/5415, sharp crossing w=29/74. Recomputed radial gaps R4=308/48735 and R6=1758278/58335795, positive. Independent rational sums were NOT based solely on the saved verifier.
+
+## originality
+
+PASS
+
+Classical quantizer optimality compares mean-square error or second moments; no inspected source states the orientation-specific quartic comparison surface at w=29/74 plus two radial higher-moment gaps for these aligned Voronoi cells. The exact quadrature method is textbook, but the paired moment and sharp sign reversal are not found in checked primary statements. Priority risk: older quantization/crystallographic higher-moment tables.
+
+## value
+
+PASS
+
+Scale-free cubic directional kurtosis tests how lattice quantization errors depend on measurement direction. The exact sign reversal, transition locus on S² and simultaneous disagreement with higher radial moment ordering supply a physically motivated boundary not recoverable from classical second-moment optimality. Both cells and invariants are standard, not arbitrary small slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
