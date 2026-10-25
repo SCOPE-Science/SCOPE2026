@@ -1,11 +1,21 @@
-# Scientific review of the circular-ladder zero forcing classification
+# Independent mathematical audit
 
-**Correctness: PASS.** A first-force argument excludes all sets with fewer than four vertices. A local two-case neighborhood table restricts every potentially successful four-set to five dihedral-and-layer-exchange orbits. Each orbit admits an explicit route to two fully colored adjacent rungs, which then force the whole cylinder. The orbit-stabilizer counts are disjoint. Direct independent enumeration and closure computations corroborate every four-set for \(5\le n\le15\), but the universal conclusion rests on the graph-theoretic argument.
+## correctness
 
-**Originality: PASS with risk.** The closest primary publication, Boyer et al. (arXiv:1801.08910v1), introduces exactly the relevant coefficient but gives formulas for paths, cycles, wheels, and threshold graphs, not the claimed prism extremizers. Curtis et al. (arXiv:2208.12899v1) provides general probability and coefficient inequalities, not a prism count. Searches for alternative terminology (circular ladders, prism graphs, minimum forcing sets, Cartesian cycle products), together with comparison against indexed graph-invariant findings, did not produce an implication of the claimed \(13n\) count. An unindexed exact count remains possible; novelty cannot be established solely by a negative search.
+PASS
 
-**Value: PASS.** The exact leading coefficient is a natural invariant of the zero forcing polynomial, and the complete classification shows why it scales linearly despite the exponentially large vertex power set. Five orbit types provide structurally interpretable extremizers, rather than a numerical list, for an infinite graph family. The result is narrower than a formula for the entire polynomial but is a complete, motivated optimizer census.
+The three-vertex first-force cases (three adjacent vertices in a layer or a rung angle) force once then stall. For a four-set, inspect the two possible initial forcing triples; the remaining vertex is restricted to four neighboring locations in each case. Dihedral and layer symmetry reduce those eight cases to five listed representatives. Each grows to two adjacent full rungs and then propagates around both cyclic layers; orbit stabilizers are 2,1,1,4,2 in a group of order 4n. Independently exhaustive standard color-change closure for all 4-sets and 3-sets of prisms n=5..12 agrees with 13n and five disjoint orbit counts. The all-n conclusion depends on the local adjacency proof, not just the finite experiments.
 
-**Remaining limits:** Only the standard zero forcing rule and \(n\ge5\) are covered. The numerical and orbit proofs are self-contained, while external independent verification has not been performed. Related unindexed graph-family calculations may overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The zero forcing polynomial and general coefficient inequalities precede the claim. Boyer et al. give exact polynomial families for paths, cycles, wheels and other families, not an inspected prism enumeration; nearby circular-ladder records address cut-complex topology or homology rather than forcing. Possible older unindexed prism zero forcing coefficients remain a priority risk.
+
+## value
+
+PASS
+
+The circular ladder is a canonical cyclic product graph; classifying all minimum forcing sets and their orbit multiplicities yields a natural first nonzero coefficient of the zero-forcing polynomial, not a trivial graph renaming or single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

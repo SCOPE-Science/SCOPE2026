@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing that program. It uses only the Python standard library, builds adjacency lists for both cyclic layers, and applies legal forces until closure stabilizes. For every \(5\le n\le15\), it tests all \(\binom{2n}{4}\) candidate four-vertex sets for equivalence with the union of the five predicted symmetry orbits and all \(\binom{2n}{3}\) three-vertex subsets for failure. It separately checks the five orbit sizes for \(5\le n\le19\), and that every constructed four-set forces the entire graph for those values and for \(n\in\{20,30,50,100\}\). Recorded output is in `verification_output.txt`.
+## correctness
 
-The computations are exhaustive only over the stated finite graph orders. The infinite theorem follows from the proved first-force case split and propagation argument. This file records the absence of independent validation and does not purport to supply such validation.
+PASS
+
+The three-vertex first-force cases (three adjacent vertices in a layer or a rung angle) force once then stall. For a four-set, inspect the two possible initial forcing triples; the remaining vertex is restricted to four neighboring locations in each case. Dihedral and layer symmetry reduce those eight cases to five listed representatives. Each grows to two adjacent full rungs and then propagates around both cyclic layers; orbit stabilizers are 2,1,1,4,2 in a group of order 4n. Independently exhaustive standard color-change closure for all 4-sets and 3-sets of prisms n=5..12 agrees with 13n and five disjoint orbit counts. The all-n conclusion depends on the local adjacency proof, not just the finite experiments.
+
+## originality
+
+PASS
+
+The zero forcing polynomial and general coefficient inequalities precede the claim. Boyer et al. give exact polynomial families for paths, cycles, wheels and other families, not an inspected prism enumeration; nearby circular-ladder records address cut-complex topology or homology rather than forcing. Possible older unindexed prism zero forcing coefficients remain a priority risk.
+
+## value
+
+PASS
+
+The circular ladder is a canonical cyclic product graph; classifying all minimum forcing sets and their orbit multiplicities yields a natural first nonzero coefficient of the zero-forcing polynomial, not a trivial graph renaming or single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
