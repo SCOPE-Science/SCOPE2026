@@ -1,19 +1,21 @@
-# Scientific review: twelve-column symmetry stabilization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The homological-concentration premise is the exact wedge-of-spheres theorem of Matsushita and Wakatsuki (arXiv:2203.16391, Theorem 1.1), with the same graph dimensions and the stated \(n\ge2\) domain. The independent-set character formula uses reduced Hopf traces with orientation signs, not merely fixed-set counts. The critical eight-state identities \((T^6-I)\mathbf1=v\), \(Tv=-v\), \(\alpha=T^2\mathbf1\), and \(\beta=\mathbf1-T\mathbf1+T^3\mathbf1\) are explicit exact integer equalities. They imply all-parameter formulas, period-six scalar recurrences and the 12-column character difference. Rational semisimplicity then gives the specified noncanonical module decomposition. The accompanying exact checker validates the identities, four symmetry traces for small grids, inter-length character increments and mod-two homology in small cases; finite checks are supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified by bibliographic uncertainty
+For n≥2, the 8 admissible four-row independent column masks are [0,1,2,4,5,8,9,10]. Reconstructed the 8×8 signed incompatibility transfer and verified the exact vector identities (T^6-I)1=(2,1,1,1,0,1,0,0), Tv=−v, α=T²1 and β=1−T1+T³1. Signed Hopf trace of each reflection (not unsigned fixed faces) yields χ_n=(-1)^n times the displayed z,p and half-length boundary entries, conditional on the cited published homology concentration in degree n−1. Independently enumerated fixed independent sets and permutation parity for n=2..8; direct characters agree. Integer matrix recurrence gives all-n 12-column character difference and C2×C2 Fourier coefficients, checked for n=2..429. Full all-n homological premise is cited to Matsushita-Wakatsuki; finite enumerations are not its proof.
 
-The nearest primary source [1] proves the nonequivariant homotopy type and sphere count, not the four-entry reflection character. Okura (arXiv:1908.09356, Appendix A) supplies the ordinary Euler characteristic, so the identity component is explicitly treated as prior. Bousquet-Mélou, Linusson and Nevo (arXiv:math/0701890) develop signed independent-set enumeration and transfer methods, including other boundary conditions, but the inspected sections do not contain the explicit ordinary four-row grid half-turn character or the rational 12-column representation decomposition. Statements about a different graph complex or a generic transfer method do not logically imply the specified module without the signed symmetry boundaries and arithmetic. The unresolved possibility of an unindexed equivalent calculation prevents any claim of exhaustive novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The grid family is a natural two-parameter lattice-graph object with a canonical symmetry subgroup, and the number of top-dimensional spheres grows with length. Nonequivariant Betti numbers determine only the identity trace and cannot recover the reflected character. The result determines every rational irreducible multiplicity for all lengths, and its parity-dependent four-dimensional decomposition is a structural stabilization statement rather than an isolated small numerical table. It may guide comparisons of symmetry-refined grid topology and exact signed transfer boundaries without asserting an unproved downstream theorem.
+Matsushita-Wakatsuki provide the ordinary four-row grid wedge ranks; Okura provides ordinary Euler data. Those determine the identity character only, not the two reflection traces. The submitter derives explicit boundary vectors and a parity-dependent 12-column rational module increment, absent from inspected abstracts and returned Resultary comparisons. Qualified best-of-knowledge originality.
 
-## Scientific limitations
+## value
 
-No integral-lattice decomposition, natural maps between lengths, full special-square symmetry, or equivariant homotopy classification is established. An unindexed prior equivalence remains a bibliographic risk. Independently verified proof is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four-row grid independence complexes form a natural family with two geometric reflections. Previously known sphere counts determine only the identity trace; the explicit full Klein-four rational character and 12-column parity-dependent four-dimensional module increment classify symmetry that ordinary homotopy loses. This is a structural all-n result, not one isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
