@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:54:05.046330Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read pinned RESULT.md SHA a037ad3c0c823f628c50c3f7105c73850165696d and literal verify.py SHA 216e179d946502b504ac67ccd21cc6263df9e13d.",
+        "Independently enumerated 70,498 labelled 0/1 matrices across (1,1),(1,4),(2,2),(2,3),(2,4),(3,3),(3,4),(4,4); every proper-support minimum, maximum, and extremal multiplicity matched the source formulas.",
+        "Root Git tree SHA-1 independently reconstructed as 23d37aeaee22b5522450b4ec8cdc00bf2aa85ac4 using original entry modes and hashes."
+      ],
+      "rationale": "The literal condition is disjointness of all row and column sums in the selected-edge matrix, including zeros on original edges. Below m selected edges each bipartition has a zero, which is forbidden. At m<n, an isolated right vertex forces every left selected degree to be exactly one, and each occupied right fibre to have size at least two; the exponential generating-function and inclusion-exclusion formulas count these maps, and fibre partitions give all orbits and labelled multiplicities. For balanced q, any minimum q-edge support with a zero on either side is one of two disjoint star orientations; if neither side has zero, the support is a perfect matching and fails. Complementation subtracts degrees from q on both sides, giving reciprocity. For m,n=m+1, the zero-edge graph condition x_u-y_v≠1 proves no deletion of one or two edges, and precisely the left-centred 3-stars as first allowable deletion; n≥m+2 admits all mn single deletions. The m=1 boundaries are verified separately. The all-size proof is not inferred from enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu 2016 gives parity-factor/existence theorems for two-weight bipartite graphs, not support optimization.",
+          "Aute–Panolan–Philip 2026 analyzes parameterized complexity and generalizations; Bensmail et al. 2025 remove edges and require local irregularity only along retained edges."
+        ],
+        "reasoning": "A broad theorem of existence or an edge-irregulator algorithm does not imply the number of optimizing full-original-edge weightings; in the deletion setting formerly adjacent vertices may become nonadjacent, an implication barrier absent here.",
+        "searches": [
+          "Resultary semantic: proper binary vertex sum edge weighting complete bipartite graph K_mn minimum number of one edges classification non-singleton star fibres and high support gap",
+          "Resultary semantic: binary vertex-colouring edge-weightings K_mn support spectrum minimal star forest 3 deletion",
+          "arXiv:2609.27719",
+          "arXiv:2511.14514v1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.46298/dmtcs.2162",
+        "arXiv:2609.27719",
+        "arXiv:2511.14514v1",
+        "doi:10.11650/twjm/1500406380",
+        "Resultary semantic research index (two actual queries listed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-source calculation imposes r_u≠c_v on every pair across L×R, including missing/zero-weight original edges.",
+          "The earlier edge-irregulator property checks deg_{G-S}(u)≠deg_{G-S}(v) only for uv remaining in G-S."
+        ],
+        "reasoning": "The known balanced endpoint and existence results are subsumed as background, but the sharp consecutive-part 1/2/3-deletion pattern and all minimum-support multiplicities do not follow from the inspected prior statements; theorem implication was compared on hypotheses, not names.",
+        "searches": [
+          "Resultary semantic: proper binary vertex sum edge weighting complete bipartite graph K_mn minimum number of one edges classification non-singleton star fibres and high support gap",
+          "Resultary semantic: binary vertex-colouring edge-weightings K_mn support spectrum minimal star forest 3 deletion",
+          "arXiv:2511.14514v1",
+          "doi:10.46298/dmtcs.2162"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A selected support F is a bipartite binary matrix whose row degree set is disjoint from its column degree set.",
+          "In a minimum support the function L→R has no occupied fibre of size one; the orbits are partitions of m with parts ≥2."
+        ],
+        "reasoning": "Translated vertex-sum weighting to 0/1 binary matrices, non-singleton surjections onto a variable centre set, and fibre partitions; none of the inspected broad two-edge weighting sources tabulates these orbit/multiplicity refinements.",
+        "searches": [
+          "Resultary semantic: proper binary vertex sum edge weighting complete bipartite graph K_mn minimum number of one edges classification non-singleton star fibres and high support gap",
+          "Resultary semantic: binary vertex-colouring edge-weightings K_mn support spectrum minimal star forest 3 deletion",
+          "web: vertex coloring edge weighting K_mn zero one minimum number ones minimizers classification",
+          "doi:10.46298/dmtcs.2162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full formulas m![x^m](e^x-x)^n and first 3-deletion coefficient were checked against independent matrix enumeration; no exact published coefficient table with all-part labelling and orbit factors was found in the actual searches.",
+          "Bensmail Theorem 4.2 gives scalar deletion endpoints for balanced and unbalanced bicliques, so those endpoints themselves are not claimed novel."
+        ],
+        "reasoning": "Known scalar minima cannot certify a whole labelled optimiser census or edge-support reciprocity. No negative search result is treated as proof of nonexistence.",
+        "searches": [
+          "Resultary semantic: proper binary vertex sum edge weighting complete bipartite graph K_mn minimum number of one edges classification non-singleton star fibres and high support gap",
+          "Resultary semantic: binary vertex-colouring edge-weightings K_mn support spectrum minimal star forest 3 deletion",
+          "web: vertex coloring edge weighting K_mn zero one minimum number ones minimizers classification"
+        ]
+      },
+      "rationale": "The two-weight vertex-sum criterion, existence for many bipartite graphs and some scalar endpoints are established prior art. The claim being assessed is instead the complete extremal support classification, fibre-partition orbit multiplicities, balanced support reciprocity, and sharp first near-full gap for K_{m,m+1}. Aute–Panolan–Philip concerns complexity and partially specified weighting; Lu concerns existence; Bensmail et al. treat edge deletion local irregularity checked only on retained edges, a genuinely weaker original-edge condition. The inspected primary statements and proofs do not supply the joint enumeration or gap. This is best of knowledge, subject to unknown specialized weighted degree-matrix enumerations.",
+      "residual_risks": [
+        "Unindexed exact support polynomials, degree-matrix classification, or inclusion-exclusion identities could already contain the orbit count.",
+        "Published first endpoints and raw feasibility are explicitly prior art; originality pertains to full new extremal enumerations and sharp 3-deletion layer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_COUNTS",
+          "evidence": "Proves structural existence for connected bipartite graphs, no star-fibre enumeration or K_{m,m+1} deletion coefficient.",
+          "identifier_or_url": "https://dmtcs.episciences.org/2162/pdf",
+          "material_read": "Entire available 12-page primary PDF; introduction, parity-factor lemmas, theorems and conclusion; PDF pages 0-11",
+          "method": "Read text and page 3 screenshot; searched statements for biclique optimizer enumeration",
+          "title": "Vertex-Coloring Edge-Weighting of Bipartite Graphs with Two Edge Weights",
+          "trigger": "Exact vertex-colouring 0/1-edge-weighting notion"
+        },
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_COUNTS",
+          "evidence": "Complexity and extension results are not labelled minimizer/orbit counts; no equivalent stated extremal classification in inspected primary material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27719",
+          "material_read": "Full accessible 46-page arXiv PDF, definitions, abstract, theorem/algorithm sections and relevant appendices",
+          "method": "Read PDF source text, searched complete bipartite and weighted vertex-sum extremal claims; visually inspected pages 1 and 6",
+          "title": "Vertex-Coloring Edge-Weighting: Kernelization and Generalization",
+          "trigger": "Recent directly matching two-weighting problem"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Scalar endpoints covered or analogous; deletion irregularity only checks retained edges, unlike original-edge weighting.",
+          "identifier_or_url": "https://arxiv.org/html/2511.14514v1",
+          "material_read": "Full text HTML, definitions and Section 4 structural results including Theorem 4.2",
+          "method": "Compared edge existence domains and complete-biclique numerical statements",
+          "title": "Graph Irregularity via Edge Deletions",
+          "trigger": "Published scalar endpoint for related locally irregular subgraphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying all cheapest 0/1 vertex-sum weightings on a ubiquitous biclique is a natural extremal optimization problem; the integer-partition fibre types and exact labelled multiplicities capture all optimizers, not merely an attainable endpoint. The symmetric reciprocity for square bicliques is an exact full-support constraint, while the sharp 3-deletion plateau at consecutive part sizes isolates a meaningful qualitative transition from the unbalanced n≥m+2 case. These facts have structural content independent of code reproducibility and are not textbook restatements of the known scalar endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No full intermediate support polynomial for arbitrary rectangular bicliques.",
+    "Finite masks do not prove infinite classifications; the source analytic proof carries general quantifiers.",
+    "New bibliographic overlap can arise despite genuine source comparisons.",
+    "Finite independent tests and source self-checks supplement rather than establish infinite quantified mathematical statements.",
+    "Originality is assessed by real source statement comparisons and retained uncertainty; an unsuccessful search is not a proof of novelty.",
+    "No Lean proof, human expert attestation, external certification or claim of scientific independence of tools.",
+    "A scientific PASS is separate from public transport permission; material privacy blocker forces not_ready."
+  ],
+  "schema_version": 1
+}
