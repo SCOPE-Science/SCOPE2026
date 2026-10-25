@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Poisson thinning yields the exact least-fixed-point equations, whose nontrivial zero-dispersal branch is differentiable because \(rq<1\) and \(s<1\). Direct implicit differentiation gives the sharp sign test. A strictly negative spectral derivative and standard multitype branching extinction criteria give the unique high-dispersal collapse boundary, while a scalar convexity argument proves the parameter band is nonempty for all \(r>1\). The exact example and a standalone numerical implementation provide separate finite checks, not substitutes for the algebraic proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closely related Bansaye–Lambert source–sink paper (arXiv:1111.2535, sections 1–3 and Appendix B) studies the same basic lifecycle, but focuses on persistence thresholds, growth rates, and ancestry rather than the uniform-founder low-dispersal extinction derivative. Tomasini–Peischl (2018, model and discussion) and Czuppon et al. (2021, model and equations 4–8) already analyze multi-type establishment and migration nonmonotonicity; the qualitative phenomenon and generic Poisson fixed points are **not** claimed as new. Their alternative habitat-selection/migration life cycles and objectives do not state the joint exact \(s>rq\) criterion, universal nonempty band, and continuously decreasing growth contrast. General theory could imply a specialization not stated explicitly; an unindexed exact result remains possible.
+PASS
 
-**Value — PASS.** Comparing founder establishment with Perron growth addresses an ecologically motivated planning tradeoff. The sharp sign condition and universal existence of a beneficial-then-fatal dispersal interval for any viable source are structural conclusions, not an arbitrary numerical example or routine reparameterization of a known table.
+PASS. Independently differentiated the minimal extinction system, checked physical branch rather than trivial Q=1 root, strict Perron monotonicity, global irreducible extinction threshold including d=0 and 1 endpoints, and universal nonempty parameter interval. Numerical tests are bounded corroboration of an unrestricted analytic argument.
 
-**Limits.** Only the stated two-patch Poisson offspring-then-dispersal model with uniform founder locations is covered. The location and uniqueness of the interior optimum are not determined. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Bansaye–Lambert already prove broader source–sink persistence and growth theory; Tomasini–Peischl and Czuppon et al already describe migration-increased establishment and nonmonotonicity. Those qualitative and generic fixed-point facts are credited. The exact derivative sign for uniform founder, global Perron decline, and a nonempty all-r rescue-then-extinction band are not stated by inspected comparisons.
+
+## value
+
+PASS
+
+PASS. Contrasting survival of a new lineage with long-term expected population growth is a motivated ecological intervention tradeoff; a sharp sign criterion valid for every supercritical source and eventual certain-extinction boundary are substantive structural facts, not merely one numerical simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

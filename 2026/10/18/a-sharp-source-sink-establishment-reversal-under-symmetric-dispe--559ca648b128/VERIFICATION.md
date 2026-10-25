@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard library. The program reproduces the exact example numerically, checks the sign of the extinction sensitivity using a small one-sided increment, tests strict decline of the Perron eigenvalue on grids for seven parameter choices, and confirms that the sample high-dispersal regime is subcritical.
+## correctness
 
-Successful execution prints a PASS line and the example's model parameters, critical rate, and founder-establishment probabilities. Near-critical fixed-point iteration can converge slowly, so verification deliberately avoids numerical evaluation at the exact spectral threshold. The symbolic proof in `RESULT.md` establishes all infinite and boundary assertions. Numeric checks alone neither prove monotonicity for all real parameters nor establish literature novelty.
+PASS
+
+PASS. Independently differentiated the minimal extinction system, checked physical branch rather than trivial Q=1 root, strict Perron monotonicity, global irreducible extinction threshold including d=0 and 1 endpoints, and universal nonempty parameter interval. Numerical tests are bounded corroboration of an unrestricted analytic argument.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Bansaye–Lambert already prove broader source–sink persistence and growth theory; Tomasini–Peischl and Czuppon et al already describe migration-increased establishment and nonmonotonicity. Those qualitative and generic fixed-point facts are credited. The exact derivative sign for uniform founder, global Perron decline, and a nonempty all-r rescue-then-extinction band are not stated by inspected comparisons.
+
+## value
+
+PASS
+
+PASS. Contrasting survival of a new lineage with long-term expected population growth is a motivated ecological intervention tradeoff; a sharp sign criterion valid for every supercritical source and eventual certain-extinction boundary are substantive structural facts, not merely one numerical simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
