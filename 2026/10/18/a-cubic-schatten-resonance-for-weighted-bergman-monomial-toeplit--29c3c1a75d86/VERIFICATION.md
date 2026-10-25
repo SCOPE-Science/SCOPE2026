@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-`checker.py` can be executed with Python 3, SymPy and NumPy installed by running `python checker.py` in the directory containing the extracted files. It verifies 1,247 exact rational/symbolic, large-\(n\), and independent finite-matrix assertions over multiple positive weight parameters and monomial exponent combinations. The script has no external-data dependency.
+## correctness
 
-The actual proof of the infinite singular limits is the exact monomial diagonal formula, its rational Gamma-moment expansion, and the one-diagonal singular-value ordering argument in `RESULT.md`. A finite checker is not proof of an asymptotic theorem. In particular, the numerical comparisons do not certify all real parameters or all exponent tuples. The precise critical Schatten endpoints and Dixmier traces are proved analytically.
+PASS
 
-The finite-rank classification is not independently novel; it is included to make the trichotomy exhaustive. The priority comparison is limited to the identified material and may miss equivalent historical symbolic-calculus results. Independent auditing has not been performed.
+On weighted A^2_alpha, angular orthogonality gives the exact monomial Toeplitz action and a single-diagonal commutator with c_n=[R_r(n)R_p(n+ell)-R_p(n)R_r(n+k)]/sqrt(R_m(n)). The moment ratio product yields quadratic numerator coefficient (alpha+1)(qr-ps). When qr=ps, primitive exponent vectors (p,q)=u(a,b),(r,s)=v(a,b) give cubic coefficient -(alpha+1)abuv(a-b)(u-v). All coefficient-vanishing cases commute: identity, analytic, coanalytic, radial or identical symbols. Counting the nonzero weighted-shift singular values proves n^-2/n^-3 sharp asymptotics and iff Schatten thresholds 1/2,1/3; logarithmic Cesaro sums yield critical Dixmier residues. Independently evaluated exact rational c_n for generic and resonant examples at n=200000, matching predicted constants; read symbolic checker source, which tests coefficient identities and finite matrix entries. Such finite checks are not an infinite proof.
+
+## originality
+
+PASS
+
+Published finite-rank and quasihomogeneous Mellin-transform classifications concern vanishing/rank, not the positive infinite-rank n^-2 and cubic n^-3 asymptotic coefficients for weighted disk monomial commutators. Direct arXiv full text 1411.0213 (Section 6, Corollary 6.5), full author-hosted 2008 text (Theorems 6-7), and Resultary semantic search do not establish the sharp spectra, weak-Schatten boundaries, or weight-dependent residues. Best-of-knowledge PASS, with unindexed/asymptotic symbol-calculus overlap possible.
+
+## value
+
+PASS
+
+Exact spectral asymptotics for a canonical Toeplitz commutator family, especially the cancellation-induced cubic resonance and consequent new ideal threshold, are functional-analytic operator invariants not implied by rank classifications. The critical logarithmic residue and recovery of alpha+1 are specific useful quantitative data. Zero-case trichotomy alone is prior and not credited as novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

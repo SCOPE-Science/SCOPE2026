@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every bounded monomial symbol has the exact weighted Bergman matrix coefficient given in `RESULT.md`. The fixed-degree Gamma ratio has a uniform-for-fixed-parameters asymptotic expansion; the quadratic coefficient is \((\alpha+1)(qr-ps)\), and if this cancels, integer primitiveness reduces the next coefficient to \(-(\alpha+1)abuv(a-b)(u-v)\). Exhaustive degeneracy cases commute identically. A weighted single-diagonal operator has singular values equal to its absolute weights, so the counting and Schatten deductions are valid. The companion checker verifies the algebra and independent finite matrices. No finite test is asserted to prove an infinite limit.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2008 Čučković–Louhichi published text and the 2014 Dong–Zhou arXiv preprint/2016 version were inspected in their relevant monomial and analytic Bergman sections. They establish finite-rank behavior, not the two quantitative singular asymptotic coefficients or critical residue. Precise searches on quasihomogeneous Bergman Schatten commutators and proportional exponent resonance, together with mathematical-result searches, did not reveal an equivalent or stronger covering statement. Later monomial-type work concerns higher-dimensional commuting/finite-rank classifications. This is best-knowledge originality; alternate terminology and inaccessible recent full text are residual risks, not evidence of proven uniqueness.
+PASS
 
-**Value — PASS.** Approximation numbers distinguish two geometrically natural types of monomial pair: a nonzero determinant/Poisson bracket produces a quadratic tail, whereas parallel but nonidentical nonradial monomials produce a cubic tail. The resulting exact \(\mathcal S_t\) thresholds, leading constants and critical logarithmic residues quantify spectral smoothing and recover the power-weight parameter from the commutator tail. The result is not a mere restatement of the published finite-rank classification.
+On weighted A^2_alpha, angular orthogonality gives the exact monomial Toeplitz action and a single-diagonal commutator with c_n=[R_r(n)R_p(n+ell)-R_p(n)R_r(n+k)]/sqrt(R_m(n)). The moment ratio product yields quadratic numerator coefficient (alpha+1)(qr-ps). When qr=ps, primitive exponent vectors (p,q)=u(a,b),(r,s)=v(a,b) give cubic coefficient -(alpha+1)abuv(a-b)(u-v). All coefficient-vanishing cases commute: identity, analytic, coanalytic, radial or identical symbols. Counting the nonzero weighted-shift singular values proves n^-2/n^-3 sharp asymptotics and iff Schatten thresholds 1/2,1/3; logarithmic Cesaro sums yield critical Dixmier residues. Independently evaluated exact rational c_n for generic and resonant examples at n=200000, matching predicted constants; read symbolic checker source, which tests coefficient identities and finite matrix entries. Such finite checks are not an infinite proof.
 
-Closest literature: Čučković–Louhichi (2008), Dong–Zhou (arXiv:1411.0213), and Jiang–Dong–Zhou (2019). The last paper concerns different domains and was available only in abstract/metadata and preprint index during this review. No independent proof or priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published finite-rank and quasihomogeneous Mellin-transform classifications concern vanishing/rank, not the positive infinite-rank n^-2 and cubic n^-3 asymptotic coefficients for weighted disk monomial commutators. Direct arXiv full text 1411.0213 (Section 6, Corollary 6.5), full author-hosted 2008 text (Theorems 6-7), and Resultary semantic search do not establish the sharp spectra, weak-Schatten boundaries, or weight-dependent residues. Best-of-knowledge PASS, with unindexed/asymptotic symbol-calculus overlap possible.
+
+## value
+
+PASS
+
+Exact spectral asymptotics for a canonical Toeplitz commutator family, especially the cancellation-induced cubic resonance and consequent new ideal threshold, are functional-analytic operator invariants not implied by rank classifications. The critical logarithmic residue and recovery of alpha+1 are specific useful quantitative data. Zero-case trichotomy alone is prior and not credited as novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
