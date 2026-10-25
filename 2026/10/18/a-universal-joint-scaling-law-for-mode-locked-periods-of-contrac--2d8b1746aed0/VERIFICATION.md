@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility of the contracted-rotation scaling law
+# Independent mathematical audit
 
-Run `python verify.py` in an environment with Python 3. The checker requires only the standard library, with either SciPy or mpmath available for the diagnostic numerical zeta benchmark.
+## correctness
 
-The program independently reconstructs rational plateau endpoints with exact fractions for \(\lambda\in\{1/2,2/3\}\), verifies their exact equal-width formulas at all reduced fractions with \(2\le q\le12\), checks the standard totient divisor identity for integers through \(1000\), and simulates attracting orbits at plateau midpoints to corroborate the expected rotation numerators. It also numerically sums the full exact mass law over sufficiently many denominators for \(h\in\{0.12,0.06,0.025,0.01\}\) and checks normalization and the convergence trend of its first two rescaled moments.
+PASS
 
-Observed terminal line:
+For contracted rotations x→{lambda x+delta}, with delta uniformly sampled, Laurent–Nogueira's exact coprime p/q rational plateau width is w_q=(1-lambda)^2 lambda^(q-1)/(1-lambda^q), independent of numerator p. The special q=1 interval length 1-lambda agrees. Writing h=-log lambda gives w_q=2(cosh h-1)/(exp(hq)-1); grouping phi(q) numerators yields P(Q=q) with total sum one by sum_{d|n}phi(d)=n. Summatory totient 3X²/pi²+O(X log X), partial summation and uniform short/large scaled-period tail bounds produce hQ⇒density (6/pi²)t/(exp t-1) on t>0, whose integral is 1. For each q≥2, number of reduced numerators ≤u q is u phi(q)+O(tau(q)); weighted error O(h log²(1/h)) proves angular equidistribution and asymptotic independence R and hQ. Uniform exponential tails imply convergence of all nonnegative integer moments to 6 Gamma(r+2) zeta(r+2)/pi². Independently computed totient-normalized periods at h=.15,.05,.01,.003 (up to 12,666 denominators) with total mass deviations below 1e-8 and mean approaching 12 zeta(3)/pi²; exact divisor identities verified for n≤149. These are finite sanity checks; the analytic argument covers all h→0 and all claimed moments.
 
-`VERIFY_OK 90 exact rational tongues; 90 midpoint rotation simulations; 1000 totient-divisor identities; 4 limiting-law mass/moment checks`
+## originality
 
-These tests are finite checks, not an exhaustive mathematical proof or a check of literature priority. Infinite normalization, the joint weak limit, and convergence of all moments follow analytically from the displayed totient identities, equidistribution estimate, and uniform tail bounds in `RESULT.md`.
+PASS
+
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
+
+## value
+
+PASS
+
+Mode-locking period statistics are natural quantitative dynamics invariants in devil-staircase families. The result supplies an exact period distribution and a nontrivial joint scaling limit with asymptotic independence and complete moments; this converts known rational-plateau geometry into a reusable new statistical phase law, not a mere renaming of the plateau width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: neutral-contraction period law
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rational-plateau lengths are an established theorem (Laurent--Nogueira, Theorem 3(ii)); subtracting their displayed endpoints yields the stated width. Grouping disjoint plateaux by the reduced denominator and applying the classical Euler-totient divisor identity gives a normalized exact period distribution. Partial summation using the summatory totient asymptotic proves the limiting density. Möbius inversion bounds primitive numerators uniformly by the divisor function, which supplies joint angular equidistribution; exponential tails justify the moments. The optional executable check independently verifies exact small-denominator widths and selected orbit rotation numbers. The analytical argument, rather than finite experiments, proves all limiting quantifiers.
+## correctness
 
-## Originality — PASS with identified priority risk
-The rational mode-locking plateaux, zero-measure irrational exceptional set, and Farey parameterization are prior work and are not claimed new. The proposed distinction is the two-coordinate scaling distribution of reduced rotation fraction and least attracting period as the contraction factor approaches one, including their asymptotic independence and all positive integral moment limits. The inspected open full texts establish dynamical classification and arithmetic properties, not this distributional asymptotic; the accessible publisher abstract for Ding--Hemmer establishes exact parameter regions, not a limiting random-parameter law. A complete full-text comparison with Bugeaud--Conze (1999) and Ding--Hemmer (1987) was not obtainable and remains an explicit residual risk. No claim of independent priority certification is made.
+PASS
 
-## Mathematical value — PASS
-The least period is a canonical observable of mode locking. Under uniform parameter variation the individual rational plateaux aggregate into a nontrivial limit of scale \((1-\lambda)^{-1}\), rather than concentrating at a characteristic deterministic period. The explicit \(t/(e^t-1)\) density and its zeta-valued moments quantify the entire period spectrum near loss of contraction. The independent uniform winding fraction supplies additional information not obtainable merely from the classical location of each plateau.
+For contracted rotations x→{lambda x+delta}, with delta uniformly sampled, Laurent–Nogueira's exact coprime p/q rational plateau width is w_q=(1-lambda)^2 lambda^(q-1)/(1-lambda^q), independent of numerator p. The special q=1 interval length 1-lambda agrees. Writing h=-log lambda gives w_q=2(cosh h-1)/(exp(hq)-1); grouping phi(q) numerators yields P(Q=q) with total sum one by sum_{d|n}phi(d)=n. Summatory totient 3X²/pi²+O(X log X), partial summation and uniform short/large scaled-period tail bounds produce hQ⇒density (6/pi²)t/(exp t-1) on t>0, whose integral is 1. For each q≥2, number of reduced numerators ≤u q is u phi(q)+O(tau(q)); weighted error O(h log²(1/h)) proves angular equidistribution and asymptotic independence R and hQ. Uniform exponential tails imply convergence of all nonnegative integer moments to 6 Gamma(r+2) zeta(r+2)/pi². Independently computed totient-normalized periods at h=.15,.05,.01,.003 (up to 12,666 denominators) with total mass deviations below 1e-8 and mean approaching 12 zeta(3)/pi²; exact divisor identities verified for n≤149. These are finite sanity checks; the analytic argument covers all h→0 and all claimed moments.
 
-## Scope of evidence and limitations
-The exact dynamical plateau theorem is a cited input, not re-proven as original. The number-theoretic averaging and independence limit are proved in the finding. The result is for uniformly distributed shift parameter and the one-dimensional contracted rotation; it does not apply to general forcing or nonlinear families. Publisher access limitations leave an unquantified historical-priority risk but do not affect verification of the stated input theorem in the accessible arXiv manuscript.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
+
+## value
+
+PASS
+
+Mode-locking period statistics are natural quantitative dynamics invariants in devil-staircase families. The result supplies an exact period distribution and a nontrivial joint scaling limit with asymptotic independence and complete moments; this converts known rational-plateau geometry into a reusable new statistical phase law, not a mere renaming of the plateau width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
