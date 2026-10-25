@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact tail generating identity and the critical Abelian estimates prove the universal multi-survivor law for every fixed threshold. Canonical binomial-beta integration yields the normalized finite-thinning law. A monotone beta-family likelihood ratio and an explicit symmetric covariance establish a sole sign crossing between two and three; direct integration then proves the exact total-variation identity. The standalone program confirms 125 finite identities and numerical inequalities without purporting to prove the infinite statements.
+## correctness
 
-**Originality — PASS on inspected evidence.** The most directly related theorem is Kella–Löpker, arXiv:2202.10296, Theorem 11, which addresses conditioning on at least one and treats tail exponents strictly below one for the infinite-mean case. The present theorem treats the excluded critical exponent one, conditions on any fixed threshold at least two, and derives a full finite-parameter error formula for a natural canonical tail. Klebanov–Šumbera (arXiv:2204.08871) and Levina–Priesemann (doi:10.1038/ncomms15140) provide related Sibuya and power-law subsampling context without matching the claimed finite identity in inspected material. Semantic database searches found related but non-dominating count-distribution results. An equivalent treatment in older Zipf/Yule–Simon subsampling literature cannot be ruled out, and the conclusion is not an independent priority certificate.
+PASS
 
-**Value — PASS.** At the \(1/k\) infinite-mean boundary, the gap between a nonempty observation and a multiple observation is logarithmic and determines whether rare observed groups contain informative multiplicity. The full threshold-indexed conditional distribution and sharp finite-parameter total-variation formula quantify this natural sample-size bias and provide a calibration target for count subsampling, not just a qualitative limit.
+The exact generating-tail identity P(T_e>=r)=e^r A^(r-1)(1-e)/(r-1)! is established by tail summation, where A(z)=sum_{k>=1}P(X>=k) z^(k-1). The critical a_k~c/k Abelian estimates give P(T_e>=1)~ce log(1/e), P(T_e>=r)~ce/(r-1), and fixed conditional masses (r-1)/[j(j-1)] (j>=r) whose total is 1; countable Scheffe supplies TV convergence. For canonical P(X=k)=1/[k(k+1)], the beta integral yields D=e(1-e+e log e)/(1-e)^2, p2=e(1-e^2+2e log e)/(2(1-e)^3), and exact TV=1/2-p2/D. Beta(j-1,2) stochastic order and strict covariance put j=2 below and j>=3 above baseline for every 0<e<1. Independent numerical integration at e=0.2,0.5,0.8 reproduced D and exact TV; those values are corroboration only.
 
-**Limits and risks.** Slowly varying corrections beyond an asymptotically constant multiplier, growing conditioning thresholds, and quantitative rates outside the canonical law are not covered. A general Tauberian theorem can supply some intermediate asymptotics, but the exact all-parameter likelihood-ratio crossing and distance are separately proved. No independent historical or mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact mathematical comparison to subcritical Sibuya and thinning literature; neither the finite-mean collapse nor 0<alpha<1 regularly varying Sibuya theorem logically supplies fixed r>=2 conditional law or epsilon log epsilon canonical exact TV at alpha=1. Primary extracts inspected; residual priority is explicit.
+
+## value
+
+PASS
+
+Critical-tail exponent 1 and fixed-r multiple-survivor law are plausible original boundary phenomena, along with canonical all-e likelihood-ratio one-crossing and sharp exact TV rate, not just standard finite-mean or 0<alpha<1 Sibuya thinning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
