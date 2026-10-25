@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In \(\mathbb Z[[x]]\), multiplying the difference by \(A(x)\) is reversible because its constant term is one; this preserves content and first nonzero modular coefficient. Prime-power divisibility follows from formal Frobenius and \(a\) applications of the elementary prime-power binomial lifting fact. The exact binomial-valuation formula \(\nu_p\binom{p^{2a}}j=2a-\nu_p(j)\) isolates the unique term of valuation \(a+1\) at degree \(p^{a-1}\); every earlier positive-degree coefficient has valuation at least \(a+2\). For non-prime-power \(t\), direct formal Frobenius gives an explicit coefficient \(-m^2\not\equiv0\pmod p\) for every \(p\mid t\). The coefficient of degree one is \(-t^2\), excluding all other primes. Formal-series identities prove all parameters and indices; reproducibility tests do not substitute for the proof.
+PASS
 
-## Originality — PASS, with uncertainty
+PASS: In Z[[x]], A(x) is a unit, so the gcd of F_(t²)-C_t equals that of H=A(x)^(t²)-A(x^t)^t. Frobenius A^p≡A(x^p) mod p and binomial lifting (U≡V mod p^s => U^p≡V^p mod p^(s+1)) establish H≡0 mod p^(a+1) for t=p^a. For N=p^(2a), v_p(binomial(N,j))=2a-v_p(j); all degrees below d=p^(a-1) vanish mod p^(a+2), while [x^d]H≡-p^(a+1) mod p^(a+2), including a=1 and p=2. The degree-one H coefficient excludes primes outside t. For t=p^a m with m>1,p∤m, Frobenius gives first p-nonzero H term at n=p^(2a), coefficient -m² mod p, hence gcd 1. Independent direct finite Euler-product expansion checked t=2,3,4,5,6,8,9,10,12,16,25 through n=40; this is corroboration, not proof.
 
-Sharma, arXiv:2610.01422v1, Theorem 1 and Propositions 1–2, proves modulus \(p^a\) for \(t=p^a\) and modulus \(p^2\) when \(a=1\), but does not assert the general optimal modulus \(p^{a+1}\) with a first-failure coefficient at degree \(p^{a-1}\). The source's non-prime-power obstruction is acknowledged as prior work, not counted separately as novel. Han–Ono's 3-core theorem compares zero sets rather than the precise common modulus. OEIS tables show special coefficients, not the all-prime-power result. The targeted published-result searches found no dominating theorem; this absence is not a proof of global novelty. The 2010 Han journal webpage supplied article abstract/metadata but was not treated as a full-text exclusion. Possible unindexed congruences, or an implicit known general theorem on binomial Euler products, remain residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The newly determined \(g_t\) is the natural positive content of the exact difference of two classical partition-theoretic series. The 2026 motivating work explicitly raised the possibility of higher prime-power lifting, and its stated modulus does not determine this invariant for \(a>1\). The exact all-index lift together with its earliest sharp obstruction resolves both the maximal common modulus and the location where any stronger modulus first fails. This is a coherent structural answer, not an arbitrary finite improvement. It does not assert independent validation or a deeper modular-form classification.
+Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.
 
-## Limits and closest literature
+## value
 
-Complete primary text inspected: Sharma 2026 and Han–Ono 2008. Han 2010 abstract/metadata, and OEIS A000731/A033687 entries were checked with their material-access limits. Earlier results expressed in different Euler-product notation might be equivalent and require future specialist comparison. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The prime-power exact gcd and sharp first failure degree settle the maximal universal congruence modulus, a natural sharp question explicitly motivated by the new prime-power dichotomy. For a>1, the p^(a+1) strengthening and degree p^(a-1) cutoff are not mere restatements of the cited p^a theorem; nonprime-power part is credited, not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

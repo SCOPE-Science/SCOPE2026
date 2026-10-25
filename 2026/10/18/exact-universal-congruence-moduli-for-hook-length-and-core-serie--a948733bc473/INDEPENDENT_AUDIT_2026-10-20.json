@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T16:55:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-universal-congruence-moduli-for-hook-length-and-core-serie--a948733bc473/RESULT.md",
+        "actual RESULT.md blob d560f8dd917be8514b92094a21fb5e509df6194f",
+        "verify.py inspected (Git blob 468c7eb1dd858c26ab8f0a27b6eac08baf463c8e)",
+        "independent exact coefficient-product check in scope_worker03_independent_checks.py"
+      ],
+      "rationale": "PASS: In Z[[x]], A(x) is a unit, so the gcd of F_(t²)-C_t equals that of H=A(x)^(t²)-A(x^t)^t. Frobenius A^p≡A(x^p) mod p and binomial lifting (U≡V mod p^s => U^p≡V^p mod p^(s+1)) establish H≡0 mod p^(a+1) for t=p^a. For N=p^(2a), v_p(binomial(N,j))=2a-v_p(j); all degrees below d=p^(a-1) vanish mod p^(a+2), while [x^d]H≡-p^(a+1) mod p^(a+2), including a=1 and p=2. The degree-one H coefficient excludes primes outside t. For t=p^a m with m>1,p∤m, Frobenius gives first p-nonzero H term at n=p^(2a), coefficient -m² mod p, hence gcd 1. Independent direct finite Euler-product expansion checked t=2,3,4,5,6,8,9,10,12,16,25 through n=40; this is corroboration, not proof.",
+      "residual_risks": [
+        "Exact content for all t≥2 only; fixed-index restricted subsequence congruences not addressed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharma Proposition 2: t=p^a congruence mod p^a; Proposition 1: prime case mod p²; Section 4: non-prime-power first failure; Han 2010 general Euler-product identity."
+        ],
+        "reasoning": "Sharma is directly broader in parameter t, with some conclusions already covering t mixed and prime a=1. Its published statements do not cover sharp all a>1 content or binomial-valuation first failure; the latter requires additional argument. No general-series stronger theorem located.",
+        "searches": [
+          "https://arxiv.org/html/2610.01422v1",
+          "https://doi.org/10.5802/aif.2515"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.01422v1",
+        "https://arxiv.org/abs/0805.2461",
+        "https://doi.org/10.5802/aif.2515",
+        "https://oeis.org/A000731",
+        "https://oeis.org/A033687"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharma Theorem 1 prime-power iff congruent mod t; Section 2 Frobenius lifting; Section 4 nonprime-power obstruction. Han–Ono t=3 zero-equivalence concerns vanishing indices."
+        ],
+        "reasoning": "The nonprimepower gcd=1 and first mod-p failure are already consequences of Sharma and explicitly credited. Its lifting machinery suggests a nearby strengthening but does not state sharp p^(a+1) or first p^(a+2) failure at d=p^(a-1). Han–Ono zero-set equivalence cannot imply exact coefficient differences.",
+        "searches": [
+          "https://arxiv.org/html/2610.01422v1",
+          "https://arxiv.org/abs/0805.2461"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A-unit transformation identifies content with A^(t²)-A(x^t)^t; Sharma gives F_(t²) and C_t congruence in the same normalization."
+        ],
+        "reasoning": "Checked alias via eta/Euler products and formal series multiplication by A, so no false distinction based on quotient form. Sharma states all-t prime-power congruence mod p^a and prime p mod p², not exact gcd or first prime-power obstruction.",
+        "searches": [
+          "Resultary semantic: exact universal modulus congruence Nekrasov Okounkov hook t core Euler product prime powers p^(a+1)",
+          "web: Nekrasov Okounkov core p^(a+1) modulus 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000731 and A033687 tabulate fixed-parameter coefficients; the tables cannot establish gcd across infinitely many coefficients for every t."
+        ],
+        "reasoning": "Fixed coefficient tables/finite computations are compatible but neither imply uniform maximality nor cutoff. This test is applicable and no covering complete gcd table identified.",
+        "searches": [
+          "https://oeis.org/A000731",
+          "https://oeis.org/A033687",
+          "web search exact universal congruence modulus t-core prime powers"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.",
+      "residual_risks": [
+        "The lifting proof in Sharma might admit immediate strengthening, although sharpness and first-degree valuation are not provided.",
+        "Unindexed higher-order eta-product congruences could give equivalent exact content; Han 2010 full proof was not read.",
+        "Negative Resultary/keyword searches are not priority proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior overlap for mixed t and prime case; distinct sharp a>1 exact content and cutoff.",
+          "evidence": [
+            "Propositions 1–2; Section 4 Corollary 2 about p^(2a) mixed-factor obstruction; Section 5 t=3 coefficient table."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01422v1",
+          "material_read": "Full HTML: abstract; §§1–6, specifically Propositions 1–2, lifting proof, Section 4 first failure, Section 5 table.",
+          "method": "Primary HTML reading and formula comparison",
+          "title": "A Prime-Power Dichotomy for Nekrasov–Okounkov Hook Lengths and t-Core Partitions",
+          "trigger": "exact same generating functions and t-prime-power theorem"
+        },
+        {
+          "assessment": "Vanishing-set result does not directly imply exact coefficient content; full text uninspected.",
+          "evidence": [
+            "2008/2011 theorem concerns a_3(n)=0 iff b_3(n)=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.2461",
+          "material_read": "Abstract/bibliographic statement of zero-set equivalence, not full proof.",
+          "method": "ArXiv abstract and cited theorem comparison",
+          "title": "Hook Lengths and 3-Cores",
+          "trigger": "parameter t=3 exact named pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-universal-congruence-moduli-for-hook-length-and-core-serie--a948733bc473/RESULT.md",
+        "https://arxiv.org/html/2610.01422v1",
+        "https://arxiv.org/abs/0805.2461",
+        "https://doi.org/10.5802/aif.2515",
+        "https://oeis.org/A000731",
+        "https://oeis.org/A033687"
+      ],
+      "rationale": "PASS: The prime-power exact gcd and sharp first failure degree settle the maximal universal congruence modulus, a natural sharp question explicitly motivated by the new prime-power dichotomy. For a>1, the p^(a+1) strengthening and degree p^(a-1) cutoff are not mere restatements of the cited p^a theorem; nonprime-power part is credited, not claimed novel.",
+      "residual_risks": [
+        "Mathematical motivation is specific to the stated object/invariant; no claim of broad downstream theorem or priority certification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact content for all t≥2 only; fixed-index restricted subsequence congruences not addressed.",
+    "Best-of-knowledge originality is not external publication-priority certification.",
+    "Publication plan not_ready due to public-file confidentiality constraints; does not change science."
+  ],
+  "schema_version": 1
+}
