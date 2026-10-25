@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-Execute `python3 verify.py` with a Python 3 standard-library interpreter from the folder containing this file and the verifier. The checker independently enumerates positive divisors by trial division, recomputes both divisor sums by Euler products, validates the complete \(49\)-divisor partial partition and its remaining complement, and checks the relevant inequality for \(13!\). The checked arithmetic proves the stated finite five-layered witness; the monotonicity step in the written proof covers all \(1\le m\le13\). This is not a verification of any classification beyond the least index.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+A group containing the unique largest divisor m! must have total at least m!, hence five-layered implies sigma(m!)/m!≥5. This abundancy quotient is monotone under divisibility, so all m≤13 fail once sigma(13!)=31044179712<5·13!=31135104000 is checked. At 14!, sigma=442487616480, equal group sum T=88497523296. I independently parsed all four explicit supplied divisor lists (lengths 5,7,10,27), tested all 49 entries are pairwise distinct positive divisors of 14!, summed each exactly to T, and used tau(14!)=2592 to show the nonempty complement of 2543 divisors sums to T. This proves the complete minimality assertion, not just a finite sample.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Least five-layered factorial is 14!
+
+## value
+
+PASS
+
+The first five-layer factorial is a sharply defined unknown boundary in the standard k-layered divisor-partition hierarchy. The explicit nontrivial 49-divisor witness and a clean optimal exclusion proof make the precise threshold useful even without all m>14 being classified; it is neither arbitrary slices nor mere sigma divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

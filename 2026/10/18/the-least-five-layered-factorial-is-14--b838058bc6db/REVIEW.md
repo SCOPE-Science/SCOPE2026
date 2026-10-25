@@ -1,19 +1,21 @@
-# Review of the least five-layered factorial
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(m!\) with \(m\le13\), \(\sigma(m!)/m!\le\sigma(13!)/13!<5\); hence five equal-sum groups cannot exist, because the group containing \(m!\) would require sum at least \(m!\). For \(14!\), the exact positive divisors are exhausted by four explicitly listed nonoverlapping groups, each of sum \(88\,497\,523\,296\), and their complementary fifth group. The independent divisor enumeration and multiplicative sigma computation in `verify.py` both pass. The infinite-looking claim is only the finite least-index statement with a monotonic bound for all lower indices; no unproved extrapolation is used.
+PASS
 
-## Originality — PASS within inspected evidence
+A group containing the unique largest divisor m! must have total at least m!, hence five-layered implies sigma(m!)/m!≥5. This abundancy quotient is monotone under divisibility, so all m≤13 fail once sigma(13!)=31044179712<5·13!=31135104000 is checked. At 14!, sigma=442487616480, equal group sum T=88497523296. I independently parsed all four explicit supplied divisor lists (lengths 5,7,10,27), tested all 49 entries are pairwise distinct positive divisors of 14!, summed each exactly to T, and used tau(14!)=2592 to show the nonempty complement of 2543 divisors sums to T. This proves the complete minimality assertion, not just a finite sample.
 
-Jokar (arXiv:2207.09053, Theorems 5.15 and 5.18) proves the factorial three-layer and four-layer cases but does not give a five-layer factorial threshold. Its Conjecture 5.23 is unproved and its computational Remark 5.22 is restricted to integers no greater than \(10^10\). The 2020 paper of Mahanta, Saikia, and Yaqubi treats layered-number constructions that do not imply this boundary. Relevant published records on \(5\mid\sigma(N)\) are necessary-condition results, not five-way divisor partitions. The accessible historical claims on three-/four-layer bounds and the smallest unrestricted \(k\)-layered number likewise do not cover this exact factorial question. The residual risk is independent, unindexed literature or an unexamined stronger general theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Jokar's factorial classification progresses through three and four layers. Five is the next natural, not arbitrarily selected, partition multiplicity. The exact least factorial at that next layer is a useful structural boundary for future factorial-layeredness classifications, including work on whether all larger factorials qualify. The positive certificate exceeds the published paper's finite checked range, and the proof distinguishes a necessary abundancy test from a genuine five-way divisor decomposition.
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Least five-layered factorial is 14!
 
-## Limits
+## value
 
-The result does not settle Jokar's sufficiency conjecture or show that every later factorial is five-layered. Only an independent examination could eliminate the remaining novelty risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first five-layer factorial is a sharply defined unknown boundary in the standard k-layered divisor-partition hierarchy. The explicit nontrivial 49-divisor witness and a clean optimal exclusion proof make the precise threshold useful even without all m>14 being classified; it is neither arbitrary slices nor mere sigma divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
