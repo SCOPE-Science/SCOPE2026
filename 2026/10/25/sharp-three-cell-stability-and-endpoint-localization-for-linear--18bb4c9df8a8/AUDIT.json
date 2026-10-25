@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all positive lengths, the exact 4x4 hat Gram matrix is symmetric positive definite and becomes an irreducible strictly diagonally dominant Stieltjes matrix after alternating-sign conjugation. The kernel absolute integral is convex on each element, so the norm is one of four signed row integrals. Exact rational identities show each endpoint row strictly dominates its neighboring interior row, the shorter terminal element determines the maximizing endpoint, and 5/3 < each endpoint row < 8/3. Strict positivity follows from explicit positive-coefficient polynomial certificates. The two exact degeneration limits prove sharpness without finite attainment; kernel sign inputs attain fixed-mesh norms. All symbolic identities and limits were independently reconstructed by bundled checker.py; finite quadrature samples supplement but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner–Shadrin 2013 Theorem 1.2: inverse Gram decay",
+        "Oswald 2006 Section 1: one-dimensional universal upper bound 3",
+        "Kayumov 2004 abstract: global norm 3"
+      ],
+      "reasoning": "A global upper bound 3 and uniform kernel decay do not entail the strictly sharper optimal three-cell upper bound 8/3 nor the lower envelope and endpoint selection; those would require additional nontrivial finite-mesh analysis.",
+      "searches": [
+        "Finite mesh number of cells sharp spline orthogonal projector constant 3 - 4/(3 2^(m-1))",
+        "L infinity norm L2 orthogonal projection piecewise linear splines three elements nonuniform knots exact norm optimum Shadrin"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1308.4824, selected primary PDF pages",
+      "arxiv:math/0611573, selected primary PDF pages",
+      "arxiv:math/0408418, primary abstract only",
+      "doi:10.1007/978-1-4614-4565-4_24, citation and metadata only",
+      "doi:10.4064/sm164-1-4, journal abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-interior-knot norm 1+4/(3(1+min(a,1−a))) on a distinct two-cell space",
+        "Oswald 2006 proven 2D divergence but 1D estimate 3",
+        "Passenbrunner–Shadrin 2013 only uniform boundedness and convergence"
+      ],
+      "reasoning": "The one-knot formula cannot yield the sharp three-cell upper envelope or endpoint localization. The global 3 inequality allows 8/3 but does not prove it. Higher-dimensional counterexamples address incompatible domains. Thus inspected coverage is strictly weaker or concerns distinct hypotheses.",
+      "searches": [
+        "For piecewise affine L2 spline projector with four nodal basis functions, exact norm depends on three positive cell lengths, strict inequalities 5/3 < norm < 8/3",
+        "orthogonal projections splines norm finite number of knots upper bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1308.4824: general integral kernel and inverse Gram framework",
+        "arxiv:math/0611573: established 1D uniform bound 3"
+      ],
+      "reasoning": "The finite-three-cell L-infinity operator norm equals the largest absolute L1 mass of four inverse-Gram kernel rows, equivalently an endpoint Lebesgue constant. The searched two-knot, mass-matrix, and Lebesgue-constant formulations did not yield the 8/3 extremal law in the inspected sources.",
+      "searches": [
+        "Linear spline L2 orthogonal projection on exactly three subintervals (two interior knots) has sharp uniform L-infinity norm supremum 8/3 and infimum 5/3, approached under hierarchical shrinking mesh lengths",
+        "For piecewise affine L2 spline projector with four nodal basis functions, exact norm depends on three positive cell lengths, strict inequalities 5/3 < norm < 8/3",
+        "linear spline L2 projector exact norm 3 intervals 8/3 knot placement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ciesielski–Kamont 2004 DOI:10.4064/sm164-1-4 reports a structured refinement-mesh constant",
+        "The earlier one-interior-knot result addresses only a two-cell partition and a three-dimensional spline space"
+      ],
+      "reasoning": "No exact three-element arbitrary-mesh table or equivalent boundary pair optimization was located. The restricted Franklin mesh family does not cover all positive three-cell meshes. This absence is not a proof of historical uniqueness.",
+      "searches": [
+        "Linear spline L2 orthogonal projection on exactly three subintervals (two interior knots) has sharp uniform L-infinity norm supremum 8/3 and infimum 5/3, approached under hierarchical shrinking mesh lengths",
+        "Ciesielski Kamont linear splines orthogonal projector norm finite intervals sharp constant 8/3 3",
+        "linear spline L2 projector exact norm 3 intervals 8/3 knot placement"
+      ]
+    },
+    "rationale": "The inspected principal general spline projector literature establishes global boundedness, inverse-Gram estimates and convergence, not the exact finite three-cell envelope and endpoint-selection formula. Known one-knot, periodic and infinite-mesh calculations do not imply this exact three-element classification. Searches using two-knot/three-cell, 5/3, 8/3, finite mesh, and equivalent inverse Gram descriptions returned no dominating claim. Older inaccessible closely related linear-spline sources pose an expressly recorded residual priority risk.",
+    "residual_risks": [
+      "The closely relevant 2013 Oswald linear-spline projection chapter could not be read in full; it may contain an equivalent finite-mesh bound.",
+      "Older Ciesielski or spline-projection papers may encode equivalent sharp three-element bounds without the searched wording.",
+      "Partially available source abstracts cannot support full-text negative-coverage claims; the priority assessment is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves uniform max-norm boundedness, inverse-Gram decay and almost-everywhere convergence; no exact three-cell 5/3–8/3 range, endpoint dominance or extremal mesh classification in inspected results.",
+        "evidence": [
+          "Theorem 1.1 concerns almost-everywhere convergence",
+          "Theorem 1.2 gives knot-independent inverse-Gram estimates",
+          "Section 1 states general boundedness as a prior theorem without finite-cell constants"
+        ],
+        "identifier_or_url": "arxiv:1308.4824 (https://arxiv.org/pdf/1308.4824)",
+        "material_read": "Selected full-PDF pages: introduction, theorem statements, Section 2 kernel bounds, and a page of Section 5 inverse-Gram analysis.",
+        "method": "Read extracted PDF text and inspected page images for definitions, bounds and proof scope.",
+        "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+        "trigger": "Same L2 spline projector and arbitrary knot positions"
+      },
+      {
+        "assessment": "Quotes Ciesielski one-dimensional upper bound 3 and proves unboundedness over certain 2D triangulations; does not resolve the 1D three-cell finite-partition extremal value.",
+        "evidence": [
+          "Introduction explicitly cites the classical 1D bound 3",
+          "Main theorem constructs higher-dimensional triangulations with growing projector norm"
+        ],
+        "identifier_or_url": "arxiv:math/0611573 (https://arxiv.org/pdf/math/0611573)",
+        "material_read": "Selected full-PDF pages: introduction, definition of the L2 projector, theorem statement and beginning of the higher-dimensional construction.",
+        "method": "Read extracted PDF text and inspected initial-page image.",
+        "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+        "trigger": "Direct discussion of the 1D linear-spline projector and exact global bound 3"
+      },
+      {
+        "assessment": "The abstract states the global constant 3 and its analogue for certain exponential L-splines. A three-cell sharp constant is neither documented nor excluded by the abstract alone.",
+        "evidence": [
+          "Abstract explicitly says the exact mesh-independent bound is 3 for the polynomial linear-spline case"
+        ],
+        "identifier_or_url": "arxiv:math/0408418 (https://arxiv.org/abs/math/0408418)",
+        "material_read": "Source record and abstract; primary full PDF was not obtainable through the attempted arXiv PDF endpoints.",
+        "method": "Read primary arXiv abstract and checked claimed norm domain.",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Established sharp global 3 constant for ordinary linear-spline orthoprojection"
+      },
+      {
+        "assessment": "Potential priority risk; full-text coverage not assessed or represented as absent.",
+        "evidence": [
+          "2013 chapter, pp. 303–316, concerns the L-infinity behavior of L2 projection onto linear splines"
+        ],
+        "identifier_or_url": "doi:10.1007/978-1-4614-4565-4_24",
+        "material_read": "Bibliographic title and references only; neither an accessible arXiv version nor lawful open-access full text could be located. Further authorized access was unavailable.",
+        "method": "Checked bibliographic listings, searched for open-access versions and attempted authorized access.",
+        "title": "L-infinity Bounds for the L2-Projection onto Linear Spline Spaces",
+        "trigger": "Plausibly closest title discussing the same projector and sharp estimates"
+      },
+      {
+        "assessment": "The reported optimum 2+(2−sqrt(3))^2 concerns a special structured family of refinement meshes rather than all positive three-cell partitions. It does not imply the claimed 8/3 supremum by its stated hypotheses.",
+        "evidence": [
+          "Abstract defines a restricted knot family and derives its exact global Lebesgue constant"
+        ],
+        "identifier_or_url": "doi:10.4064/sm164-1-4",
+        "material_read": "Journal abstract and mesh specifications; full detailed argument not inspected.",
+        "method": "Read journal source record and abstract.",
+        "title": "The Lebesgue constants for the Franklin orthogonal system",
+        "trigger": "Exact endpoint norm over a structured family of piecewise-linear spline meshes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18bb4c9d-f8a8-4dd5-9a49-d3ad129b0a61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial fixed-resolution three-cell spline projector is a motivated stability benchmark for adaptive least-squares finite elements. Its exact 8/3 sharp upper constant improves the unrestricted dimension-one bound 3, the lower 5/3 bound is also sharp without finite attainment, and the unexpected shorter-terminal-cell localization gives a practical worst-error location. The two different mesh degenerations reveal precise changes under clustering rather than an arbitrary isolated parameter computation.",
+    "status": "PASS"
+  }
+}
