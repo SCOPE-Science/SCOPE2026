@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.9 or later. The included `verify_output.txt` records the program's expected standard output. The script uses only Python's standard library and a fixed seeded pseudorandom test.
+## correctness
 
-The check enumerates all distinct uniform words on \(2\), \(3\), or \(4\) letters in eight specified small parameter combinations (\(4348\) words in total), checks the projection equivalence pair by pair, evaluates another \(2000\) four-letter triple-occurrence words, constructs and checks the \(C_5\) witness, and prints `ALL CHECKS PASS`. These tests were run and completed successfully. The proof for all alphabets and all \(k\ge1\) is the direct uniqueness argument in `RESULT.md`.
+PASS
 
-This verifies no claim of independent audit or historical priority. The resulting circle-graph multiplicity classification also depends on published theorems identifying the classical \(2\)-uniform class with circle graphs and the two-word \(1\)-uniform class with permutation graphs.
+PASS: The lemma is an exact combinatorial equivalence for every pair and arbitrary uniformity k; the first-symbol choice ensures the unique alternating projection. The class consequence and 1-versus-2 minimum use separately acknowledged prior results. Checked k=1, singleton alphabet vacuity, circle graph and strictness boundaries; finite 90-word test is corroborative only.
+
+## originality
+
+PASS
+
+Best-of-knowledge full-claim comparison: Canonical first-occurrence-word embedding from classical uniform representations to two-word projection equality. G1 and C2 alone do NOT imply circle graphs in G2; the new first-occurrence projection lemma supplies that missing implication. Published membership of C5, and its minimum 2 when not permutation, is background, not claimed as separately novel. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: A universal explicit multiplicity-preserving embedding between two independently natural word-graph models addresses the hierarchy of G_k, not a picked example or renaming. It gives all circle graphs in G2 and a sharp per-circle-graph one-vs-two minimum, distinguishing this full-class insight from the earlier individual cycle cases. The simplicity of the canonical lemma does not erase the motivated general class inclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
