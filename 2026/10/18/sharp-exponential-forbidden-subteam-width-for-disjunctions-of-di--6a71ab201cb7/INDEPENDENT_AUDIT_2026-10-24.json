@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T07:14:18.928897Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under lax team semantics, disjunction of n distinct constancy atoms means all relation tuples can be covered by n axis-parallel coordinate hyperplanes, one fixed value per coordinate. For infinite teams, a finite-character induction fixes a root tuple and one coordinate satisfying every finite subteam, reducing to n-1 coordinates. For finite inclusion-minimal un-coverable U, deletion of each u has a coordinate hyperplane cross-cover missing u; labeling finite values in Q gives tensor factors P(v)=tensor(1,h_i(v_i)) and Q(u)=tensor(-h_i(a_i^(u)),1), producing a diagonal pairing with all diagonal values nonzero. Thus |U|<=dim((Q^2)^tensor n)=2^n. The full Boolean cube is an inclusion-minimal obstruction of that size; any <=n tuples are coverable, and an n+1 point diagonal is minimally failing. Handles n=1, empty and infinite teams; do not confuse at-most-size coherence with exactly-k convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CSL 2026 Corollary 23 gives width4 for exactly two constancy atoms; 2026 Barlag §5.1 propositional teams have Boolean domains and a trivial 2^n size cap."
+        ],
+        "reasoning": "Neither fixed-two-atom theorem nor Boolean-domain cap implies the arbitrary-domain uniform bound for all n, since general teams can have arbitrarily many values per coordinate.",
+        "searches": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+          "https://arxiv.org/html/2605.31269v1",
+          "Kontinen 2010 thesis coherence complexity dependence logic"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+        "https://arxiv.org/html/2605.31269v1",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fröhlich Cor.23 exactly covers n=2; Barlag Theorem 28 concerns coRE complexity for disjunction including FO formula and k constancy atoms, not precise fiber-cover rank bound."
+        ],
+        "reasoning": "The published special case must be excluded from novelty; n>=3 and arbitrary alphabets require new tensor diagonal argument, not entailed by a single n=2 coherence result.",
+        "searches": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+          "https://arxiv.org/html/2605.31269v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lax team disjunction is precisely one chosen fiber per coordinate; a failing relation is one not covered by coordinate fibers. The tensor construction encodes deletion certificates."
+        ],
+        "reasoning": "Any prior Helly/covering theorem for these exact coordinate-fiber choices and an optimal 2^n threshold would dominate; no such covering theorem verified in searched primary literature.",
+        "searches": [
+          "coherence disjunction n distinct constancy atoms 2^n minimal noncoverable team forbidden subteam",
+          "disjunction of constancy atoms coherence level 2^n distinct x_i",
+          "cross cover relation one coordinate fiber per coordinate tensor bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary n-cube witnesses tightness for all n, with minimal obstruction size2^n, and n+1 diagonal witnesses smallest failing size."
+        ],
+        "reasoning": "The theorem is universally quantified across n and arbitrary coordinate domains, not a finite classification table; bounded enumeration alone cannot settle the infinitary version.",
+        "searches": [
+          "coherence disjunction n distinct constancy atoms 2^n minimal noncoverable team forbidden subteam",
+          "SCOPE Resultary constancy atoms 2^n"
+        ]
+      },
+      "rationale": "Fröhlich–Kolaitis–Meier Corollary 23 establishes the n=2 case (width4), which is credited, and their general scope is disjunctions of TWO atoms. Barlag et al treat finite-domain propositional team coherence and logic rewritability rather than domain-independent optimal 2^n for arbitrary numbers n of distinct constancy atoms. No definite stronger prior implication found; older database/Helly literature remains risk.",
+      "residual_risks": [
+        "Kontinen older thesis and combinatorial coordinate-hyperplane/covering designs may imply 2^n in alternate language; complete thesis not inspected.",
+        "The result applies to pairwise distinct unary constancy atoms only, not arbitrary dependence atom disjunctions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREVIOUS_N2_CASE_ONLY",
+          "evidence": [
+            "Corollary 23 states dep(y)∨dep(z) has coherence-level4. Main classification is disjunctions of two dependence or constancy atoms."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+          "material_read": "Accessible full CSL 2026 HTML §§2–5; in particular §4 Corollary 23 and Theorems 22–26.",
+          "method": "publisher licensed conference full HTML",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exact special case n=2 and possible generalized theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_DOMINATING_ARBITRARY_DOMAIN_N_ATOMS",
+          "evidence": [
+            "§5.1 restricts valuations to Boolean alphabet; Theorem 28 permits an arbitrary FO disjunct and discusses complexity rather than optimal fixed-formula width."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.31269v1",
+          "material_read": "Full arxiv HTML including §3 coherence and rewritability, Theorem 28, and §5.1 propositional domain {0,1}.",
+          "method": "arxiv full HTML",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Potential dominating coherence and FO theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact uniform forbidden-subteam/Helly number for cross-coverability on arbitrarily large coordinate domains is useful for finite witnesses, FO translation and logical coherence. The tensor bound with matching Boolean-cube obstruction is a natural complete classification of a parameterized family, not a trivial domain-cardinality bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+    "https://arxiv.org/html/2605.31269v1",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kontinen older thesis and combinatorial coordinate-hyperplane/covering designs may imply 2^n in alternate language; complete thesis not inspected.",
+    "The result applies to pairwise distinct unary constancy atoms only, not arbitrary dependence atom disjunctions."
+  ],
+  "schema_version": 1
+}
