@@ -1,15 +1,21 @@
-# Review of the local triangular square-image density
+# Independent mathematical audit
 
-## Correctness — PASS
-Matrix multiplication gives the exact diagonal-root and off-diagonal ideal condition over \(\mathbb Z_p\). The proof verifies both equal- and unequal-valuation boundary cases, including the unique dyadic \(r=s\) correction. Known scalar unit-square measures supply the weights; explicit absolutely convergent geometric sums yield \(7/372\) and the odd-prime rational function. Nested compact root fibers establish the finite-modulus limit without assuming compatible arbitrary roots. The standalone verifier independently checks a finite range; it is not substituted for the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The October 7, 2026, Jordan Diophantine-set paper uses the integer-matrix square-root criterion but analyzes cardinalities and existence of integral Diophantine sets. The earlier difference-of-squares paper treats two-square differences, not the distribution of one-square images. Polynomial-image work over algebraically closed fields and Waring results over finite fields have different ambient rings, quantified objects and conclusions. Searches using upper-triangular squaring, finite prime-power images, \(p\)-adic Haar density and the explicit rational expressions found no exact local-measure theorem covering this formula. A prior result implicitly applying scalar square densities and the basic triangular matrix identity could still subsume it; no uniqueness certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The upper-triangular matrix square condition is the central local obstruction in a recently studied matrix Diophantine system. The exact Haar image probability is a natural complete invariant for each prime, including the unexpected dyadic deviation and a uniform limit from finite residue rings. Unlike a single sample computation, it quantifies local representability for the entire infinite family of primes and all lifting depths and is suitable as a local factor in future density or sieve questions; no unsupported global theorem is asserted.
+ORIGINAL math contained a falsifiable asymptotic error: the claimed odd-prime density is p³(p−1)(p²+1)/(4(p+1)(p⁵−1)), whose expansion starts 1/4−1/(2p), NOT 1/4−3/(4p) as printed. A full replacement RESULT.md now gives 1/4−1/(2p)+3/(4p²)+O(p^{-3}). The central density formula is proved by the exact upper-triangular square identity, union of (x±z) ideals, v_p exponent min(r,s) except dyadic r=s adds one, scalar-square Haar weights and a convergent geometric double sum. The zero diagonal is Haar-null. Compact inverse limit of modular root sets proves convergence of distinct finite-ring image ratios. Independent residue-image enumeration at p=2,3,5,7 and symbolic rational expansion confirmed the repaired final claim; no unrestricted conclusion rests solely on finite calculations.
 
-## Limits and prior comparison
-The exact finite-ring tests are not proof of the infinite statement. The result measures single-square images, not integral difference-of-squares or representations as sums of multiple powers. Earlier local-ring literature could implicitly contain an equivalent counting formula. Independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical contribution after separate comparisons of equivalent formulations, broader known work, exact tables and logical prior implications. Related methods and endpoint results explicitly credited; residual bibliographic uncertainty retained.
+
+## value
+
+PASS
+
+The image size of a polynomial map on a natural noncommutative p-adic algebra is a canonical local density invariant. The rational formula for all primes and unusual dyadic correction identify exact local arithmetic behavior and its finite-ring limit, beyond the elementary matrix square criterion. The one-term asymptotic correction is necessary to keep the statement correct; the repaired exact result is valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

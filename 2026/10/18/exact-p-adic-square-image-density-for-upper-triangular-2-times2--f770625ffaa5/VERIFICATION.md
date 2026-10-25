@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of local triangular square-image density
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md` and establishes the theorem at every prime and every lifting depth. The following finite computations are supplemental and independently reproducible by invoking `python verify.py` with standard Python 3, without external packages.
+## correctness
 
-The verifier enumerates squares of every scalar residue modulo \(p^k\), then for each ordered diagonal-image pair enumerates all possible root-sign sums and counts the **union** of possible upper-right residues using the least gcd with the modulus. It therefore counts distinct matrix squares rather than square-root multiplicity. It also independently evaluates a long truncated rational valuation series and compares it against the derived exact formulas.
+PASS
 
-Exhaustive finite ranges are \(p=2,1\le k\le8\); \(p=3,1\le k\le5\); \(p=5,1\le k\le3\); and \(p=7,1\le k\le2\). Final checks are:
+ORIGINAL math contained a falsifiable asymptotic error: the claimed odd-prime density is p³(p−1)(p²+1)/(4(p+1)(p⁵−1)), whose expansion starts 1/4−1/(2p), NOT 1/4−3/(4p) as printed. A full replacement RESULT.md now gives 1/4−1/(2p)+3/(4p²)+O(p^{-3}). The central density formula is proved by the exact upper-triangular square identity, union of (x±z) ideals, v_p exponent min(r,s) except dyadic r=s adds one, scalar-square Haar weights and a convergent geometric double sum. The zero diagonal is Haar-null. Compact inverse limit of modular root sets proves convergence of distinct finite-ring image ratios. Independent residue-image enumeration at p=2,3,5,7 and symbolic rational expansion confirmed the repaired final claim; no unrestricted conclusion rests solely on finite calculations.
 
-- \(p=2,k=8\): finite image proportion \(10647/524288\), compared with limiting \(7/372\).
-- \(p=3,k=5\): finite image proportion \(226324/1594323\), compared with limiting \(135/968\).
-- \(p=5,k=3\): finite image proportion \(70041/390625\), compared with limiting \(1625/9372\).
-- \(p=7,k=2\): finite image proportion \(3382/16807\), compared with limiting \(8575/44816\).
+## originality
 
-For every tested prime, finite proportions form a nonincreasing sequence bounded below by the closed form, as required by the compactness argument. The rational truncated series agrees with the closed form numerically to \(10^{-12}\). Execution of the verifier returns `VERIFY_OK`.
+PASS
 
-The finite checks do not establish the infinite formula, rule out earlier equivalent results or certify global integer-matrix solvability. Independent audit is not performed.
+Best-of-knowledge original mathematical contribution after separate comparisons of equivalent formulations, broader known work, exact tables and logical prior implications. Related methods and endpoint results explicitly credited; residual bibliographic uncertainty retained.
+
+## value
+
+PASS
+
+The image size of a polynomial map on a natural noncommutative p-adic algebra is a canonical local density invariant. The rational formula for all primes and unusual dyadic correction identify exact local arithmetic behavior and its finite-ring limit, beyond the elementary matrix square criterion. The one-term asymptotic correction is necessary to keep the statement correct; the repaired exact result is valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
