@@ -1,0 +1,14 @@
+# Scientific review
+
+## Correctness (C): PASS
+The conclusion is a statement about all bi-infinite words avoiding antisquares of order at least two. The previously proved minimal-antisquare theorem and exceptional-word proposition in Baranwal et al., Sections 6–7, reduce periodic points and invariant measures to the eight-pattern shift. The ten-state adjacency table on each of two complementary components is explicit, complete, and checked by integer arithmetic; the unweighted and symbol-weighted characteristic polynomials determine the zeta function, entropy phases, and digit frequencies. The exceptional points are nonperiodic shift-orbits and carry no invariant probability mass. Exact cyclic-word checks through period 14 independently test the reduction. The standard finite-state Perron–Frobenius theorem is the only dynamical input beyond the cited combinatorial classification.
+
+## Originality (O): PASS, with a specific residual risk
+The original paper gives the minimal forbidden antisquares, an exceptional bi-infinite-word statement, and the finite-word exponential growth rate; it does **not** state the periodic-point sequence, exact dynamical zeta function, splitting into precisely two entropy-maximizing components, or maximal-entropy digit densities. The previously published forbidden-pattern/Pansiot-code characterization makes the calculations possible, so the result is an explicit quantitative continuation of that work, not an independent new entropy constant. Published-record searches did not locate the same statements. A prior unindexed finite-state calculation, or an implicit presentation of the component zeta in symbolic-dynamics literature, remains a risk. Search failure is not a uniqueness proof.
+
+## Mathematical value (V): PASS
+The exact periodic-orbit census and coexistence of two complementary, symbol-density-distinct maximal-entropy measures describe meaningful natural invariants of the full antisquare-good shift. These are not merely a few extra counts or a renamed forbidden language: the exceptional nonperiodic orbits must be separated to transfer periodic and invariant-measure assertions, and the two mixing phases are invisible in a sole exponential growth-rate statement. The scope is a complete orbit law and a phase classification, though not a complete classification of all invariant measures.
+
+The closest publication is A. Baranwal et al., *Antisquares and Critical Exponents* (arXiv:2209.09223, initial 2022-09-20; DMTCS 2023), especially Theorem 11, Proposition 18, and Theorem 19. Standard matrix determinant and Perron–Frobenius theory are used without claiming novelty. The included code checks the new finite certificates; it does not replace proof of the cited source theorems. No independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
