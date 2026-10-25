@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivative-based Hardy–Sobolev space has the exact Fourier weight \(p_n(s)=\sum_{j=0}^n s^{2j}\) under the unitary Paley–Wiener transform. Substitution into the affine composition symbol gives a weighted-dilation formula; iterating yields a precise operator-norm supremum. The undamped supremum has exact high-frequency value, and the inverse norm gives the other annulus boundary. Both spectral interiors have explicitly exhibited infinite-dimensional eigenspaces (of the adjoint for zero displacement and of the operator for positive displacement), and closure supplies the boundary. Uniform tail domination yields the normalized power limit; a variational logarithmic quotient gives the sharp damping cutoff. A rescaling of the polynomial shows the exact \(b^{-n}\) prefactor. Pointwise eigenfunction identities and finite power values were checked by the standalone script. The essential-spectrum proof does not infer an infinite statement from finite tests. Risks: the theorem does not address complex dilation or nonaffine symbols; the two small-parameter limits cannot be interchanged by this proof.
+## correctness
 
-## Originality — PASS with literature risk
-The initiating full paper [1] develops the unweighted-derivative Hardy–Sobolev Fourier model and affine weighted-composition boundedness, but not the proposed composition spectra, power asymptotics, or damping cutoff. Chalendar–Partington [2] gives the closest method and a **qualitatively analogous** annulus/disk spectral transition on Hardy–Bergman Zen spaces. Its underlying weight is nonincreasing and its results neither assert the increasing polynomial-weight case nor determine the sharp positive damping cutoff and the \(b^{-n}\) amplification law. Thus the **general** annulus/disk phenomenon, spectral-radius technique, and multiplicative-periodic eigenvector mechanism are already known and not claimed as original. Galé et al. [3] and Liu et al. [4] use weighted derivatives of a distinct Hardy–Sobolev scale and discuss composition boundedness. Searches comparing exact claims, equivalent Fourier formulations, broader operator-spectrum claims, and database coverage did not reveal an implication establishing the complete quantitative classification. A residual risk remains from unindexed spectral literature or a broader weighted-dilation result not surfaced here.
+PASS
 
-## Mathematical value — PASS
-The result determines a natural spectral invariant and sharp quantitative dynamics for the first derivative-based half-plane Hardy–Sobolev scale, where high-frequency regularity changes the undamped outer radius. It shows a singular perturbation: every positive vertical shift drops the spectral radius by the fixed factor \(a^n\), yet the operators converge strongly without converging in norm. The optimal power-amplification prefactor has a **nonzero finite critical damping boundary**, and its divergence exponent directly identifies Sobolev order. Those effects are nontrivial structural boundaries, not mere numerical recomputation of a known norm criterion.
+The Paley–Wiener model carries T_b to A_b f(s)=a^-1 exp(-bs/a)f(s/a) on L2(p_n ds), with p_n=sum_{j<=n}s^{2j}. Change of variables gives norm^2=a^-m sup exp(-2bs(1-a^-m)/(a-1))p_n(s)/p_n(a^-m s). At b=0, upper/inverse radii are a^{n-1/2} and a^-1/2; adjoint eigenfamily g=t^gamma/p_n(t) for -1/2<Re gamma<n-1/2, multiplied by log-periodic independent functions, fills infinite-multiplicity essential annulus. At b>0, f=t^gamma exp(-bt/(a-1)) (Re gamma>-1/2) fills punctured essential disk; bounded powers give radius a^-1/2. Tail uniformity validates sup-limit K, and K=1 iff b>=(a-1)/2 max_{s>0}log p_n(s)/s. Small-b Laplace scaling gives (n(a-1)/(e b))^n, and exact norm nonconvergence follows as s->infty. Independently optimized b_* for (n,a)=(1,2),(3,1.7), finding K(b*/2)>1 and K(b*),K(2b*)=1. These finite tests do not prove spectral statements.
 
-## Sources and limitations
-[1] Liang–Li–Qian, arXiv:2603.13983v1, Theorem 4.1 and Section 5.
-[2] Chalendar–Partington, arXiv:2204.05894v2, Section 3, equations (6)–(7), Propositions 3.5–3.6, Theorem 3.7.
-[3] Galé–Matache–Miana–Sánchez-Lajusticia, arXiv:2401.16091v1, definition and Section 7.
-[4] Liu–Li–Kou–Qu, DOI 10.23952/jnva.9.2025.2.05, definition and Section 5.
-Numerical diagnostics are finite and do not prove operator spectral statements. The interval of absolute novelty is limited to the investigated sources. No external independent review is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Liang–Li–Qian 2026 Theorem 4.1 provides the underlying polynomial Fourier weight, while their inspected Section 5 studies multiplier spectra and weighted-composition boundedness, not this T_b full Fredholm spectrum and sharp K threshold. Chalendar–Partington 2023 Section 3.3 has a qualitatively analogous annulus/disk phenomenon for Hardy–Bergman intersection using a *decreasing* Laplace weight 1+1/t; its actual norm/radii differ and do not imply the Sobolev growth exponent n or b_*. General Zen-space spectral method is credited, but its admissible measure-generated weights are not this strictly increasing polynomial. Semantic Resultary query returned no matching theorem among inspected hits. Broad generalized weighted shifts may imply some parts, remaining a residual risk.
+
+## value
+
+PASS
+
+A natural operator on derivative Hardy–Sobolev spaces displays a dimension/order-dependent annulus collapsed by arbitrarily small positive vertical translation, with a sharp quantified power threshold and singular amplification. These are structural spectral and quantitative phenomena, not mere renamings; the method is motivated by the same-family Fourier representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
