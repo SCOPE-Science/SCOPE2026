@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof's critical finite corner integral is
+## correctness
 
-\[
-\int_{\substack{y_i\ge0\\2\sum_i y_i\le b}}\prod_i y_i\,dy
-=\frac{b_+^{2d}}{4^d(2d)!}.
-\]
+PASS
 
-The factor \(4^{-d}\) arises from replacing the constraint \(2\sum_i y_i\le b\) with a standard simplex, not from a sampling symmetry factor. The independent triangular coordinate densities contribute \(h^{2d}\) under the corner scaling. Maximizing sign vectors are exactly the component-constant assignments, giving \(2^c\) rather than the cube's \(2^d\) for any fixed positive deformation.
+At fixed d, positive Gram I+hH ensures convex quadratic maximum at sign corners; energy identity d+2hW−4hC(s) and positivity give exactly 2^c maximizers. Triangular cube difference density ∏(1−|z_i|) is exact and deficit≥∑(1−|z_i|) localizes each coordinate at h scale. Corner scaling z_i=s_i(1−hy_i) gives h^{2d}∏y_i and Dirichlet simplex integral b_+^{2d}/[4^d(2d)!]; monotone continuous limit gives uniformity on compact t. For fixed h>0, expansion 2∑(1+ha_i)v_i yields endpoint coefficient and 2^{c−d} jump. Checked one-edge d=2 explicit quartic denominator 192; Git checker rational spin enumeration d=2..5 and quadrature are supplementary, not proof.
 
-Execute `python3 checks/check_distance_tail.py` using Python 3 (standard library only). The script checks exact cut gaps and zero-cut multiplicity in dimensions two through five, an independent numerical integral for the two-dimensional crossover, and the fixed-positive-deformation leading endpoint coefficient. The final line `VERIFY_OK` indicates those finite tests passed. Continuous limits, all-dimensional quantifiers, cut-spectrum distributional reconstruction, and uniformity on compact \(t\)-intervals are established analytically in `RESULT.md`, not certified by finite test cases.
+## originality
 
-Independent scientific assessment and publication-priority certification have not been performed.
+PASS
+
+Published covariogram theory and Ising-cut identities are acknowledged premises, while the singular deformation endpoint distribution and exact recoverability are not identified as consequences of an already evaluated stronger result. Best-of-knowledge pass with missing full cube-thesis source and unindexed corner-asymptotic risk.
+
+## value
+
+PASS
+
+The complete weighted cut spectrum with multiplicities becomes observable from a natural two-point metric distribution, and its singular endpoint behavior measures component multiplicity. This is a structural graph/geometric probability bridge for every finite positive weighted graph, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
