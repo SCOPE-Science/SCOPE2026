@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Proof independently rederived: swapping adjacent unlike agents requires the exterior neighbors in opposite order, exactly forbidding two consecutive singleton runs; disjoint-singleton bound n>=3r and equality alternating colors; explicit composition-wise run-length construction attains the admissible maximum; monochromatic edge count yields welfare n-2r. Independently implemented agent-payoff enumeration checks 131036 words in 119 fixed-composition cases for n=3..16, and 6215 constructed witnesses for n=3..112. Computations are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full-text Section 3.3 in DOI:10.1007/s10458-022-09573-7 calls its cycle bounds almost tight and explicitly identifies tightness only when o=1 or b>=2o.",
+        "In the remaining regime it minimizes welfare via an integer-programming relaxation but constructs no matching local equilibrium."
+      ],
+      "reasoning": "The closest broader local swap game bounds do not imply equality in the previously non-tight compositional regime or the one-run deficit at n multiple of three. A stronger general theorem would dominate our specialization, but none found in searches performed.",
+      "searches": [
+        "query: \"local swap Schelling\" \"cycles\" \"price of anarchy\" exact 2023 2024 2025 2026",
+        "query: \"Topological influence and locality in swap schelling games\" cycle Theorem 13 tight bound maximal monochromatic runs",
+        "source: DOI:10.1007/s10458-022-09573-7 Theorem 13"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1203.6346",
+      "doi:10.4230/LIPIcs.MFCS.2020.15",
+      "doi:10.1007/s10458-022-09573-7",
+      "2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d (claim synopsis only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 13 gives tight LPoA only for minority o=1 or b>=2o, not the remaining b<2o case.",
+        "Our n=12,a=b=6 strict bound Wmin=6 yields LPoA=5/3; prior upper bound 5/2, so source cannot imply this sharp value without additional analysis.",
+        "2012 random process does not impose mutual strict payoff improvements of adjacent agents."
+      ],
+      "reasoning": "The new exact construction yields matching worst equilibrium welfare in b<2o cases, except for the proven n=3r balanced composition obstruction where it improves the prior upper bound. Neither prior general inequality yields these equalities; stronger implicit graph-combinatorial arguments in other work remain possible.",
+      "searches": [
+        "source: DOI:10.1007/s10458-022-09573-7 Section 3.3 Theorem 13, proof and equality cases",
+        "source: DOI:10.4230/LIPIcs.MFCS.2020.15 local 2-SSG cycle bounds",
+        "source: arxiv:1203.6346 introduction and model",
+        "query: \"local\" \"Schelling\" \"cycles\" \"Theorem 13\" tight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 13 of DOI:10.1007/s10458-022-09573-7 uses number of maximal monochromatic paths (runs) to express welfare; Sections 1.1 and 3.3 inspected in full.",
+        "Public index result 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d concerns covariances of transition indicators, not equilibria."
+      ],
+      "reasoning": "Maximal runs, minimal monochromatic edges, minimum stable welfare and fixed-composition LPoA are equivalent formulations here because W=n-2r. Literature comparison covered those equivalences. The fixed-composition transition-covariance result does not establish the mutual-improvement constraint or an extremal feasible cyclic word.",
+      "searches": [
+        "query: \"adjacent swap 0101 to 0011 dynamics, absorbing states, maximal segregation, number of stable two-color configurations\"",
+        "query: \"cyclic Schelling profitable swaps alternating four vertices singleton runs 3k obstruction\"",
+        "query: \"Schelling local swap equilibrium binary cycle maximal number of color boundaries period 3 correction\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full-text 2022 article has Table 2 with asymptotic bounds and Theorem 13 with a partial exact classification; no complete all-composition table.",
+        "Related public-index record 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d has a different fixed-composition covariance claim."
+      ],
+      "reasoning": "Exact small enumerations agree with theorem but are not claimed as novel if already tabulated. Neither this query set nor the checked source reports an identical exact all-n equilibrium maximum or the exceptional family.",
+      "searches": [
+        "query: \"exact enumeration swap-stable Schelling equilibria on cycles with two agent types and any color proportions, stability entropy\"",
+        "query: \"Local Swap Schelling game on cycles exact price of anarchy for arbitrary group sizes modulo three; adjacent singleton blocks\"",
+        "query: \"one-dimensional Schelling locally stable arrangements count isolated singleton runs\""
+      ]
+    },
+    "rationale": "Bilò et al. (2022) Theorem 13 proves the same local game but, for larger color group less than twice smaller, only an LPoA upper bound; explicit statement of tightness excludes this region. The new exact if-and-only-if equilibrium attainability, divisibility-three defect, and constructed lower bounds imply a classification not in the materially inspected Section 3.3. Brandt et al. 2012 concerns a distinct random swap model. Searches did not expose stronger later coverage; equivalent word-avoidance results remain a residual risk.",
+    "residual_risks": [
+      "A previously unlocated exact result may appear under circular binary forbidden-pattern optimization or finite Schelling games rather than price-of-anarchy terminology.",
+      "Public-index hit at 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d was compared from a short scientific synopsis, not primary full text; covariance of transition indicators is a different object.",
+      "Independent expert validation and comprehensive exhaustive bibliographic certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: different random-segregation update protocol, no exact mutual-improvement adjacent-swap LPoA",
+        "evidence": [
+          "Public posting date 2012-03-28; probabilistic segregative movement model and results about clustering, not payoff-stable run maximization."
+        ],
+        "identifier_or_url": "arxiv:1203.6346; https://arxiv.org/abs/1203.6346",
+        "material_read": "27-page preprint, Introduction and model statement, pp. 1-4, plus abstract",
+        "method": "Accessible arXiv open PDF text and rendered page inspection",
+        "title": "An Analysis of One-Dimensional Schelling Segregation",
+        "trigger": "Earliest publicly dated literature anchor and shared one-dimensional Schelling subject"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: known LPoA bounds and special tight cases; no all-composition exact classification",
+        "evidence": [
+          "Conference article abstract states almost-tight bounds; 2022 expanded version has exact model-specific theorem."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.MFCS.2020.15; https://drops.dagstuhl.de/storage/00lipics/lipics-vol170-mfcs2020/LIPIcs.MFCS.2020.15/LIPIcs.MFCS.2020.15.pdf",
+        "material_read": "Material relevant sections of a freely accessible 15-page conference paper: introduction, definitions, sections on cycles and locality",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "Topological Influence and Locality in Swap Schelling Games",
+        "trigger": "Same game, authors, earlier conference version"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: Theorem 13 sharp for minority one or majority at least twice minority; only upper bound otherwise, whereas new result proves full exact classification",
+        "evidence": [
+          "2022 article lines 809-829: bound (n-2)/(alpha+beta) for b<2o, tightness asserted only for other regimes, proof uses integer-programming relaxation."
+        ],
+        "identifier_or_url": "doi:10.1007/s10458-022-09573-7; https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "material_read": "Open-access full article Section 1.1 model and definitions; Section 3.3 Theorems 12-15, complete Theorem 13 and proof, Section 5 conclusions",
+        "method": "Public full-text HTML direct inspection and theorem/assumptions implication comparison",
+        "title": "Topological influence and locality in swap schelling games",
+        "trigger": "Direct same-model claim and potential dominating statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0283c685-ded2-4ef9-aade-0105b05542da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes the directly cited 2022 non-tight local two-color cycle regime with a sharp fixed-composition theorem; exposes a genuine arithmetic obstruction at n divisible by three and gives explicit optimum witnesses for every feasible count. It is not merely a textbook derivation of the known r<=floor(n/3) upper bound, because the equality obstruction and universal constructions are essential to exact welfare.",
+    "status": "PASS"
+  }
+}
