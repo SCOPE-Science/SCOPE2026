@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python morse_integral.py` with Python 3. Run `python verify.py` with NumPy and NetworkX installed as described in `requirements.txt`.
+## correctness
 
-The integer script checks the complete 1,090-face complex, 542 matching pairs, all 4,272 oriented Hasse covers, acyclicity by directed topological sort, the six critical cells, and the exact zero Morse boundary between dimensions four and three. This confirms the ordinary integral homotopy type and the absence of torsion (the attaching degree vector vanishes).
+PASS
 
-The character script reconstructs exactly 24 edges and all 96 graph automorphisms. It checks degree-four/five boundary ranks 181/58 over the fields of 101 and 103 elements, verifies that the fourth mod-prime quotient is one-dimensional, calculates every induced scalar, identifies the bipartition sign on that line, computes all signed Lefschetz traces, and verifies all character-table frequencies and irreducibility inner products. It separately checks the published rotation-subgroup character.
+All nonempty independent faces of GP(8,3) total 1090 with f-vector 16,96,272,376,240,72,16,2; the reviewed integral Morse program constructs 542 pairings, exactly 1/4/1 critical cells in dimensions 0/3/4, checks the 4272 covers are directed acyclic and gives zero integer top attaching vector. The degree-four rank-one free integral group makes its automorphism scalar exactly ±1, not merely a modular guess. Reviewed chain-action code tests all 96 graph automorphisms at primes 101 and 103, identifies beta on H4, computes H3 from signed reduced Lefschetz, and shows H3=(beta·edge-sign)⊕W3 with inner-product-one 3D irreducible complement. Independent fresh enumeration checked 1090 faces and symmetry/character aggregate. Topological wedge input and absence of integral torsion are separately supported by the exact matching and prior published proof.
 
-These are exhaustive finite checks for this finite graph, not merely numerical samples. Mod-prime ranks alone would not certify integral freeness; the matching proof supplies that premise. No external independent audit or integral equivariant direct-sum classification is provided.
+## originality
+
+PASS
+
+The claim is the entire 96-automorphism rational graded character, not the older wedge decomposition nor the order-eight rotation restriction. Existing C8 characters are compatible but fail to determine the remaining 88 actions, the global one-dimensional constituents, the 3D irreducible remainder, or full-group fixed subspaces. Searches produced no stronger exact full-group character.
+
+## value
+
+PASS
+
+A complete representation classification of the natural 96-element automorphism group on a canonical symmetric graph complex is a motivated exact invariant. Distinguishing rotation-fixed cycles from all-symmetry-fixed cycles and exposing an absolutely irreducible 3-dimensional constituent are nontrivial new data beyond Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
