@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope and reproduction
+# Independent mathematical audit
 
-Run `python3 verify_examples.py` from this directory using Python 3 and no external packages. Exact rational row reduction validates the maximal-isotropic circuit construction in every rank \(4\le m\le12\) and for every projective dimension \(2\le d\le m\), including all \(d\)-line subfamilies; the program also checks representative matching/nonmatching graphs. The actual program was run and printed `EXACT_TESTS_OK: ranks 4..12, every projective obstruction dimension 2..rank`.
+## correctness
 
-These finite checks cover only their enumerated matrices. The infinite proof relies on the linear representation of orthogonal maximal tori, splitting off pairwise orthogonal hyperbolic planes, Witt extension for independent isotropic vectors, and the rank bound on independent totally isotropic sets. The toric-bundle existence and splitting corollary explicitly invokes Proposition 5.1 of arXiv:2610.11340v1, whose hypotheses (smooth toric fan and local compatibility) hold for the complete fan of projective space. Full independent mathematical audit has not been carried out.
+PASS
+
+PASS: In split SO(2m,C), m>=4, distinct isotropic projective lines fixed by one maximal torus must be weight lines of a hyperbolic basis, so their nonzero-pairing graph is a matching and unmatched lines are independent. Conversely, nondegenerate orthogonal hyperbolic pairs split off, leaving an independent totally isotropic span in the orthogonal complement, which Witt completion extends to a hyperbolic basis. Minimal incompatibilities are a three-line degree-two graph obstruction or an orthogonal linear circuit of length 3..m+1. A circuit e_1,..,e_m,sum(e_i) proves the bound m+1 sharp. For the fan of P^d, Tsvelikhovskiy Prop.5.1 identifies compatible proper ray subsets with an existing toric bundle and global compatibility with equivariant splitting: d>=m+1 forces splitting and d+1 independent-up-to-one circuits give nonsplit examples 2<=d<=m. Finite examples check ranks 4..9; infinite theorem follows from Witt/linear algebra, not the program.
+
+## originality
+
+PASS
+
+PASS best of knowledge for the precise isotropic-line parabolic two-obstruction criterion, restricted sharp upper Helly bound, and restricted toric-bundle dimension boundary. Tsvelikhovskiy 2026 already proves unrestricted D_m lower m+1, general upper m+2, and bundle existence/splitting equivalence; none of those assertions supplies this restricted m+1 upper bound. Older partial-frame Witt/apartment literature may imply the linear criterion; inaccessible full text remains a material priority risk and no absolute priority is claimed.
+
+## value
+
+PASS
+
+PASS: Resolves the natural one-unit gap for a geometrically distinguished maximal-parabolic type left by the m+2 general bound; a complete classification of minimal incompatibilities and precise toric projective-space splitting threshold are independently meaningful structural consequences. The Witt extension step is standard and explicitly credited, not presented as an original general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
