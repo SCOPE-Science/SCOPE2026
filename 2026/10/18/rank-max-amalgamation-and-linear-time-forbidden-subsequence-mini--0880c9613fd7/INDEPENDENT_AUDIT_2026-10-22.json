@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T04:11:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/875480c798577c14e05ef382db7e0f43fa956786/2026/10/18/rank-max-amalgamation-and-linear-time-forbidden-subsequence-mini--0880c9613fd7/RESULT.md",
+        "checker.py (assigned Git blob b5b44060541ea4ded404fd84e356feb2156fdbd6; inspected, not executed)"
+      ],
+      "rationale": "PASS: For fixed nonempty forbidden scattered word P, subsequence monotonicity yields the lower bound max_i rho_P(W_i). Greedy matching decomposes each W_i into phases U_{i,j} containing no next desired letter P[j+1]; concat those phase pieces across all inputs and share the marked p_j letters to build S embedding each input and with greedy rank exactly T=max input rank. If T=|P| every common supersequence contains P, otherwise this witnesses feasibility. The left-to-right rightmost-embedding deletion test is equivalent to embeddability of every input in the retained prefix plus remaining suffix; any retained position is irreversibly essential, proving inclusion minimality in O(k N+|P|) time and O(N+|P|) space. The statement handles k=1, empty inputs, repeated symbols and nonempty forbidden P. Independent direct brute check exhaustively compared 3150 binary pairs of lengths <=3 against their phase amalgamation, rank, and independently reduced inclusion-minimal witnesses.",
+      "residual_risks": [
+        "3150 finite brute-force binary checks are bounded; the universal theorem requires the phase and essentiality proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1",
+          "Riccardo Dondi, The constrained shortest common supersequence problem, J. Discrete Algorithms 21 (2013) 11–17, DOI:10.1016/j.jda.2013.03.004",
+          "McDevitt and Ruškuc, Atomicity and Well Quasi-Order for Consecutive Orderings on Words and Permutations (2021), DOI:10.1137/20M1338411"
+        ],
+        "reasoning": "Sopp Theorem 6.1 gives O(N log N) unconstrained minimalization from an already given S; this can be applied to the claim’s constructed witness but does not provide the witness or avoid-P feasibility. Dondi concerns globally shortest supersequences under letter multiplicity constraints, not one forbidden scattered pattern; McDevitt–Ruškuc studies consecutive containment.",
+        "searches": [
+          "common supersequence avoiding single forbidden scattered subsequence greedy rank principal downset amalgamation inclusion minimal",
+          "common supersequence avoiding P subsequence complexity general k",
+          "Dondi constrained shortest common supersequence occurrence counts"
+        ]
+      },
+      "checked_sources": [
+        "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1",
+        "Riccardo Dondi, The constrained shortest common supersequence problem, J. Discrete Algorithms 21 (2013) 11–17, DOI:10.1016/j.jda.2013.03.004",
+        "McDevitt and Ruškuc, Atomicity and Well Quasi-Order for Consecutive Orderings on Words and Permutations (2021), DOI:10.1137/20M1338411"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1",
+          "arXiv:2603.22591v1, section 7 concluding remarks explicitly poses noncontainment of P as an interesting open question; Theorem 4.1 reduces unconstrained S.",
+          "Riccardo Dondi, The constrained shortest common supersequence problem, J. Discrete Algorithms 21 (2013) 11–17, DOI:10.1016/j.jda.2013.03.004"
+        ],
+        "reasoning": "Unconstrained minimalization by deletions preserves P-avoidance once a P-avoiding S exists, but Sopp does not show existence or construct this S from individually avoiding W_i. The rank-max phase amalgamation is exactly the missing implication. A multiplicity-constrained SCS shortest solver is mathematically incomparable and cannot establish this equivalence.",
+        "searches": [
+          "common supersequence avoiding single forbidden scattered subsequence greedy rank principal downset amalgamation inclusion minimal",
+          "Sopp Liyanage Gong Zhu section 7 forbidden pattern minimal common supersequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1",
+          "rho_P(X) is the state of the greedy subsequence-recognition automaton; P-avoiding words form a principal avoidance downset."
+        ],
+        "reasoning": "The maximum-rank formula is equivalently a directed-amalgamation property of the principal scattered-word avoidance class. Analogous factor-avoidance or substring matching changes the order; neither their constraint nor their algorithms is synonymous with scattered P avoidance.",
+        "searches": [
+          "common supersequence avoiding single forbidden scattered subsequence greedy rank principal downset amalgamation inclusion minimal",
+          "joint embedding principal downset of scattered pattern wqo forbidden subsequence",
+          "subsequence DFA prefix rank join embeddings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top nearby sequence universality finding 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+          "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1"
+        ],
+        "reasoning": "No fixed enumerative table is relevant: theorem covers all finite alphabets, word families and nonempty P, with a structural identity and algorithm. Nearby Resultary length-to-subsequence-universality fact addresses an extremal insertion metric, not common-supersequence avoidance; search absence is not novelty certification.",
+        "searches": [
+          "common supersequence avoiding single forbidden scattered subsequence greedy rank principal downset amalgamation inclusion minimal",
+          "forbidden scattered subsequence inclusion minimal common supersequence algorithm formula"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Sopp et al. (2026) Theorems 4.1, 6.1 and 6.2 reduce an existing common supersequence to an MCS and section 7 explicitly asks for one avoiding a forbidden scattered subsequence. They neither state the rank-max identity nor construct a pattern-avoiding witness. Dondi constrains multiplicities in a shortest SCS; McDevitt–Ruškuc uses consecutive subwords, different containment. No directly covering Resultary record was located; unindexed related embedding-class results remain a risk.",
+      "residual_risks": [
+        "Full Dondi and McDevitt–Ruškuc texts not audited line-by-line; only the different listed object/constraint has been established.",
+        "Unindexed directedness/joint-embedding results for principal scattered-subsequence ideals might encompass the rank-max identity.",
+        "3150 finite brute-force binary checks are bounded; the universal theorem requires the phase and essentiality proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "problem posed rather than solved, unconstrained deletion reduction is compatible but weaker",
+          "evidence": "Section 7 asks what if MCS must not contain P as a subsequence; Theorems 4.1 and 6.1 reduce an already-existing common supersequence without a P restriction.",
+          "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+          "material_read": "Complete HTML sections 2–7; definitions, Theorems 4.1, 6.1, 6.2 and concluding section 7",
+          "method": "read primary full mathematical text and open-problem passage",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "directly poses forbidden-subsequence constrained MCS problem"
+        },
+        {
+          "assessment": "letter multiplicity and shortest objective rather than single scattered forbidden P and inclusion minimal",
+          "evidence": "Constrained SCS limits occurrence counts of letters, not membership in a principal scattered-subsequence avoidance class.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jda.2013.03.004",
+          "material_read": "Bibliographic record and accessible abstract/constraint characterization, not entire article",
+          "method": "abstract-level comparison, marked partial",
+          "title": "The constrained shortest common supersequence problem",
+          "trigger": "ambiguous constrained SCS title"
+        },
+        {
+          "assessment": "consecutive subword containment differs from scattered subsequence",
+          "evidence": "Embedding relation in title and stated setting uses consecutive factors, which need not preserve P-avoidance under the scattered relation.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1338411",
+          "material_read": "Primary abstract and mathematical problem statement; full article not inspected",
+          "method": "partial abstract-level semantic comparison",
+          "title": "Atomicity and Well Quasi-Order for Consecutive Orderings on Words and Permutations",
+          "trigger": "joint embedding and avoidance within word orders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/875480c798577c14e05ef382db7e0f43fa956786/2026/10/18/rank-max-amalgamation-and-linear-time-forbidden-subsequence-mini--0880c9613fd7/RESULT.md",
+        "Sopp, Liyanage, Gong, Zhu, Computing and Enumerating Minimal Common Supersequences Between Two Strings, arXiv:2603.22591v1, https://arxiv.org/html/2603.22591v1",
+        "Riccardo Dondi, The constrained shortest common supersequence problem, J. Discrete Algorithms 21 (2013) 11–17, DOI:10.1016/j.jda.2013.03.004",
+        "McDevitt and Ruškuc, Atomicity and Well Quasi-Order for Consecutive Orderings on Words and Permutations (2021), DOI:10.1137/20M1338411"
+      ],
+      "rationale": "PASS: This supplies a closed-form minimum greedy forbidden-pattern rank, an exact feasibility criterion, and an explicit efficient construction for a natural constrained common-supersequence problem explicitly raised by a 2026 primary article. The strict difference between shortest and inclusion-minimal is demonstrated by the infinite 0^m1, 10^m, P=11 family. The single-pattern hypothesis is substantive, and arbitrary k is covered.",
+      "residual_risks": [
+        "Originality and mathematical potential do not imply external uptake; publication remains withheld pending privacy-safe guarded files."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

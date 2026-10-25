@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The rank-max identity follows from a direct lower bound by subsequence monotonicity and an explicit matching-rank phase amalgamation. All greedy blocks in each phase omit the next pattern symbol, so the constructed supersequence has exactly the maximal input rank. The reduction procedure uses rightmost suffix embeddings to delete a letter if and only if all inputs remain embeddable; every retained position has a permanent essentiality witness. Its output is inclusion-minimal and deletion cannot introduce the forbidden scattered subsequence. Empty inputs, repeated symbols, all pattern ranks from zero to the terminal rank, and arbitrary positive pattern lengths are covered. Finite exhaustive and randomized tests corroborate, rather than replace, these universal arguments.
+## correctness
 
-**Originality (PASS within checked sources).** The March 2026 article by Sopp et al. explicitly raises, rather than resolves, forbidden-subsequence minimal common supersequences in §7. The new rank-max formula and phase construction are not stated in the inspected article. The published Dondi constraint concerns symbol multiplicities and globally shortest supersequences, and the McDevitt–Ruškuc atomicity setting uses consecutive factors. Searches for equivalent formulations including directed avoidance classes, joint embedding, greedy pattern automata, and forbidden-pattern supersequences produced no direct stronger implication in the checked material. Residual risk: equivalent scattered-word amalgamation statements might exist in unindexed literature; novelty is not logically certified by failed searches.
+PASS
 
-**Value (PASS).** A very recent primary source names the specific constrained problem as a research question. The formula proves an unexpected closure property for a principal forbidden-subsequence class and yields a simple feasibility test for any number of input strings, with no multiplicative dependence on the forbidden pattern length. A sharp infinite family shows why optimizing an ordinary shortest common supersequence first is not a valid replacement. The answer concerns inclusion-minimal, not minimum-length, strings, and the one-pattern hypothesis is substantive.
+PASS: For fixed nonempty forbidden scattered word P, subsequence monotonicity yields the lower bound max_i rho_P(W_i). Greedy matching decomposes each W_i into phases U_{i,j} containing no next desired letter P[j+1]; concat those phase pieces across all inputs and share the marked p_j letters to build S embedding each input and with greedy rank exactly T=max input rank. If T=|P| every common supersequence contains P, otherwise this witnesses feasibility. The left-to-right rightmost-embedding deletion test is equivalent to embeddability of every input in the retained prefix plus remaining suffix; any retained position is irreversibly essential, proving inclusion minimality in O(k N+|P|) time and O(N+|P|) space. The statement handles k=1, empty inputs, repeated symbols and nonempty forbidden P. Independent direct brute check exhaustively compared 3150 binary pairs of lengths <=3 against their phase amalgamation, rank, and independently reduced inclusion-minimal witnesses.
 
-Independent scientific validation has not been performed; computational tests have finite scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Sopp et al. (2026) Theorems 4.1, 6.1 and 6.2 reduce an existing common supersequence to an MCS and section 7 explicitly asks for one avoiding a forbidden scattered subsequence. They neither state the rank-max identity nor construct a pattern-avoiding witness. Dondi constrains multiplicities in a shortest SCS; McDevitt–Ruškuc uses consecutive subwords, different containment. No directly covering Resultary record was located; unindexed related embedding-class results remain a risk.
+
+## value
+
+PASS
+
+PASS: This supplies a closed-form minimum greedy forbidden-pattern rank, an exact feasibility criterion, and an explicit efficient construction for a natural constrained common-supersequence problem explicitly raised by a 2026 primary article. The strict difference between shortest and inclusion-minimal is demonstrated by the infinite 0^m1, 10^m, P=11 family. The single-pattern hypothesis is substantive, and arbitrary k is covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
