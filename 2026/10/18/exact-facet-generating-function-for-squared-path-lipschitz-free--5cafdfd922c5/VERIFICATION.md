@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify_facets.py` is standalone Python 3 code without third-party dependencies. From the extracted folder run `python3 verify_facets.py`. It checks each entry of the displayed transfer matrix by a separate small union-find reconstruction; verifies the exact row identity that implies the recurrence; compares 63 transfer coefficients with the formal recurrence; and enumerates every normalized integer Lipschitz potential for sizes \(2\le n\le11\), computing saturated-edge connectivity directly. The program printed `PASS 124 exact assertions` on this package. These tests do not enumerate arbitrary real points; their coverage of all real vertices is established separately by the proved integral-height lemma.
+## correctness
 
-Scientific proof checkpoints: (1) the vertex–facet polarity and tight-component rank identity; (2) no omitted tight component when eliminating the older boundary point; (3) exact transition matrix; (4) exact row polynomial identity; (5) base values and rational-series algebra. Beyond the stated graph family, no extension is claimed.
+PASS
 
-No independent audit or external certification has been performed.
+By polar duality the facets of the real Lipschitz-free unit ball equal vertices of L_n={f(1)=0, |f(i)-f(j)|<=1 when |i-j|<=2}. At a dual vertex active tight edges must connect all n labels (active rank n-1), and a tight spanning tree enforces integer heights. Scanning from left to right, no tight connected component may be abandoned beyond the last two vertices. The six states (increment in {-1,0,1}, last-two joined flag c in {0,1}) completely encode future feasibility; the displayed 6x6 transition T and initial v, terminal w imply F_n=vT^(n-2)w. Exact row identity vT³=vT²+2vT+2v gives recurrence n>=5 and the GF. Independent brute force 2<=n<=11 tested all valid three-valued height increments and directly checked tight-graph connectivity: F=(2,6,12,28,64,144,328,744,1688,3832), matching recursion. Completeness is from boundary-component argument, not finite search.
+
+## originality
+
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. All-dimensional exact facet count for the natural squared-path metric by a finite-state tight-graph classification and rational generating function. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+The graph square P_n² has overlapping triangles, a natural first non-tree case for real finite Lipschitz-free spaces and symmetric edge polytopes. Counting all facets in every size by a small transfer automaton is a motivated infinite combinatorial classification, rather than a short finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

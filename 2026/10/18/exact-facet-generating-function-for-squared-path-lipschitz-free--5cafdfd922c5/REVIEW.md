@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is complete in the real finite-dimensional setting: the connected tight-edge criterion is derived from active-constraint rank, and a complete boundary-partition transfer applies because new edges look back only two vertices. The explicit \(6\times6\) matrix gives \(vT^3=vT^2+2vT+2v\) and the three initial counts, proving the exact rational generating function for all \(n\ge2\). The standalone exact-integer checker independently counts small-dimensional tight graphs and verifies the row identity. Finite checks are not taken as a substitute for the argument.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest sources are Chen–Davis–Korchevskaia (general facet-subgraph and orientation parametrization, arXiv:2107.12315), D'Alì–Delucchi–Michałek (general integer facet labels and bipartite edge-gluing rule, 2022, Theorem 11 and Proposition 37), and Braun–Bruegge (few-cycle graph facet counts, arXiv:2201.13303). None of their inspected results evaluates squared-path facet counts uniformly in size. The bipartite-gluing multiplicative formula is inapplicable to successive triangles, and a capped-path metric with superficially similar notation has a different unit ball and a different count. Mathematical-record queries using graph, metric, recurrence and equivalent terminology likewise located no dominating exact formula. Unindexed coverage cannot be excluded.
+PASS
 
-## Value — PASS
-The theorem determines a natural Banach-space unit-ball invariant for the classical squared-path metric family, including an explicit growing-rank triangle-chain classification and nontrivial exact recurrence. The infinite family is not reducible to the product formula for paths or bipartite edge amalgams. No assertion about higher powers, all faces, or complex norms is made.
+By polar duality the facets of the real Lipschitz-free unit ball equal vertices of L_n={f(1)=0, |f(i)-f(j)|<=1 when |i-j|<=2}. At a dual vertex active tight edges must connect all n labels (active rank n-1), and a tight spanning tree enforces integer heights. Scanning from left to right, no tight connected component may be abandoned beyond the last two vertices. The six states (increment in {-1,0,1}, last-two joined flag c in {0,1}) completely encode future feasibility; the displayed 6x6 transition T and initial v, terminal w imply F_n=vT^(n-2)w. Exact row identity vT³=vT²+2vT+2v gives recurrence n>=5 and the GF. Independent brute force 2<=n<=11 tested all valid three-valued height increments and directly checked tight-graph connectivity: F=(2,6,12,28,64,144,328,744,1688,3832), matching recursion. Completeness is from boundary-component argument, not finite search.
 
-## Scientific limits
-The proof is real-only, and the originality finding remains dependent on the scope of the inspected sources. Reproduction checks include exhaustive finite cases only. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. All-dimensional exact facet count for the natural squared-path metric by a finite-state tight-graph classification and rational generating function. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+The graph square P_n² has overlapping triangles, a natural first non-tree case for real finite Lipschitz-free spaces and symmetric edge polytopes. Counting all facets in every size by a small transfer automaton is a motivated infinite combinatorial classification, rather than a short finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
