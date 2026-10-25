@@ -1,0 +1,19 @@
+# Scientific assessment: square-antiprism central-section law
+
+## Correctness — PASS
+
+The exact geometric model has eight explicitly stated vertices, sixteen edges and a positive axial half-height. Each generic central-plane intersection vertex corresponds one-to-one to an original edge with opposite-sign endpoints. After symmetry reduction to one azimuth wedge, the eight endpoint signs change at precisely four explicitly ordered thresholds; evaluating the full sixteen-edge crossing count gives six or eight, with the octagon threshold equal to the maximum of two elementary trigonometric quantities. Direct integration against Haar spherical measure gives the probability formula. The independent edge-angle expectation identity implies a second, algebraically equivalent formula. Expansions establish the thin and tall regimes and equating lateral with horizontal edges gives the equal-edge height. The program `verify.py` independently reconstructs the hull edges via supporting planes, calculates actual cut-polygon convex hulls, and checks exact-formula consistency. All finite checks succeeded. The proof is analytical; no finite sampling is relied upon to exhaust normals or parameters.
+
+## Originality — PASS, subject to stated historical uncertainty
+
+The full text of Y. Lonke's *On random sections of the cube* (arXiv:math/9812123v1) studies expected cube-section face counts, not the present antiprism distribution. The entire eight-page text of B. Grünbaum's *Are prisms and antiprisms really boring? (Part 2)* (2004) concerns antiprism definitions, constructions and polarity kernels, not Haar-random central-plane polygon types. A published abstract of M. Broadie's *A theorem about antiprisms* concerns convex antiprism realizability. Available extracts of P. K. Aravind's 1996 *Two families of antiprisms* describe nonstandard antiprism families and do not contain a matching probability statement, but the full article was not accessible. Publicly indexed neighboring results for cubes, orthotopes, icosahedra and prisms concern different polyhedra or distinct invariants. The compared statements do not logically entail the theorem: expected section vertex counts of cubes do not determine the square-antiprism support, and geometric antiprism realizability does not determine Haar orientation probabilities. This is evidence of noncoverage, not proof of absolute historical priority.
+
+## Mathematical value — PASS
+
+The regular square antiprism is a canonical semiregular solid and a first genuinely four-sided antiprism beyond the triangular one. Its lack of central symmetry makes the rigidity of **only even, six- or eight-sided generic central sections at every height** notable. The theorem determines the entire probability law across a natural one-parameter geometric family, including a strictly monotonic interpolation between thin and tall regimes, sharp quadratic and inverse-height endpoint orders, and an exact equal-edge constant. The conclusion is not just a routine expectation computation: it requires classifying which cut configurations are geometrically realizable; the expected vertex count alone would not supply the two-point support for an arbitrary eight-vertex polytope. The exact result supplies a reproducible benchmark for geometric slicing and random polytope-section statistics. Broader extrapolations to arbitrary antiprisms are neither proved nor claimed.
+
+## Closest literature and remaining limits
+
+Compared material: Lonke (1998), Grünbaum (2004), Broadie (1985 abstract), and Aravind (1996 extract). The main residual risk is unindexed or inaccessible older stereological literature on antiprism sections. The theorem applies to central, uniformly oriented sections of congruent rotated squares only. Independent audit is not part of this assessment.
+
+Self-review: passed. Independent audit: not yet performed.
