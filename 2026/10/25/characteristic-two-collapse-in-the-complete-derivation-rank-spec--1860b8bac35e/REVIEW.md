@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The 12 free derivation coefficients are established by differentiating cubic relations. Every operator has the explicit \(6\times6\) block form with \(T_M=M\otimes I+I\otimes M\). The cyclic-form tensor ranks, kernel-to-cokernel fiber lemma, and closed \(2\times2\) matrix counts prove every displayed formula in all characteristics and over all prime-power fields. The distribution totals \(q^{12}\) and is independently tested exhaustively over \(\mathbb F_2\) and \(\mathbb F_3\), with additional finite-field strata and Leibniz tests. The finite checks do not substitute for the proof.
+
+**Originality — PASS, bounded priority assessment.** The closest inspected primary sources are Strametz (arXiv:math/0111060) on monomial-algebra Hochschild derivation structure, Guo–Li (arXiv:1010.1980) on derivations of untruncated path algebras, and Dugas–Huisgen-Zimmermann–Learned (arXiv:1407.2672) on module homological dimensions of truncated path algebras. A directly inspected published short-local algebra classification addresses monomializability, not derivation-rank multiplicities. Published related findings on one-variable truncated-polynomial derivations, inner commutators in a different truncated free algebra, and tensor-action fixed spaces concern different maps. The new computation is not a stated or direct corollary of these sources; a literature-priority risk remains because searches cannot prove uniqueness.
+
+**Value — PASS.** A characteristic-uniform full rank census for the canonical two-loop radical-cube-zero free quotient reveals a structural rank drop from six to four exactly in characteristic two. The result quantifies every rank stratum and the tensor-square degeneration underpinning it, providing a concrete low-degree base case for noncommutative truncated-algebra symmetry questions. It is not a table of isolated examples or a textbook rank identity alone.
+
+**Limitations.** No classification of higher truncations, general quivers, Jordan types of the derivations, or their automorphism-conjugacy orbits is claimed. The source comparison is substantial but bounded and does not constitute independent peer review.
+
+Self-review: passed. Independent audit: not yet performed.
