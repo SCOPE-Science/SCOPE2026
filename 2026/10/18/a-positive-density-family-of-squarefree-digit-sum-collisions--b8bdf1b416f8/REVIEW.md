@@ -1,15 +1,21 @@
-# Review of squarefree digit-sum collisions
+# Independent mathematical audit
 
-## Correctness — PASS
-The digit expansions and the \(\gcd\) identities reconstruct the exact criterion for simultaneous squarefreeness. There are two allowed classes modulo four, five modulo nine, and exactly \(p^2-3\) allowed classes modulo \(p^2\) for every prime \(p\ge5\). CRT gives finite-cutoff densities; the explicit large-square tail bound is \(O(T\sum_{p>P}p^{-2}+\sqrt T)\), which justifies the infinite product. Python checks of 29,994 collision identities, 1,994 squarefree equivalences and 11 local prime counts passed. The infinite proof does not rely on computation.
+## correctness
 
-## Originality — PASS within inspected literature
-The closest primary source is Noppakaew and Pongsriiam (2023), Example 11, Example 14 and Question 30. The polynomial family includes its listed \(b=7\) pair but extends this sporadic example to a quantitative positive-density family beyond \(b=10\). The source's unrestricted collision and finite squarefree examples do not imply this conclusion. Indexed mathematical-result searches compared function-level claims, not merely paper titles; no stronger coverage was found. Unindexed later work remains a genuine overlap risk.
+PASS
 
-## Mathematical value — PASS
-A published natural question specifically asks for squarefree collisions at all larger bases. An explicit positive-density family with a sharp Euler-product count for its witnesses gives a quantitative, rigorous partial answer. The prime-square restrictions explain mathematically why this witness family succeeds on a structured proportion of bases rather than every base.
+Expanding X=b(2b−3)=b²+(b−3)b and Y=(b−2)(2b−3)=b²+(b−7)b+6 shows valid base-b digits for b≥7, giving S_b(X)=b−2 and S_b(Y)=b and hence exact equal H_b. gcd(b,2b−3)=gcd(b,3) and gcd(b−2,2b−3)=1 give simultaneous squarefree iff b,b−2,2b−3 squarefree and 3∤b. Mod 4 has two allowed residues; mod 9 has five; mod p² for p≥5 has p²−3 since the three affine zeros are distinct. Finite-cutoff CRT densities converge because exceptional prime-square divisors p>P contribute at most 3T∑_{p>P}1/p²+O(√T), proving positive Euler-product density 5/18∏_{p≥5}(1−3/p²). Independent direct digit and squarefree tests b=7..500 and six exact local prime-square residue counts all pass. Infinite density follows from the sieve argument, not sampled frequencies.
 
-## Scientific limitations
-The theorem does not establish noninjectivity for every base, and its Euler product is not the density of all bases with arbitrary squarefree collisions. The construction need not be smallest. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 Noppakaew–Pongsriiam source contains the special b=7 pair 55 and 77, known unrestricted collisions and an explicit question for b≥11, but not an all-base polynomial family with an exact positive-density squarefree sieve. The b=7 instance and standard CRT squarefree technology are prior art and explicitly credited. This is an unbounded positive-density partial solution, subject to unknown later treatments.
+
+## value
+
+PASS
+
+It gives quantitatively many base parameters satisfying a natural published squarefree injectivity question, with explicit polynomial witnesses and the precise arithmetic obstruction underlying the family. The Euler-product density is for these witnesses only; no full-base universality or all-witness density is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
