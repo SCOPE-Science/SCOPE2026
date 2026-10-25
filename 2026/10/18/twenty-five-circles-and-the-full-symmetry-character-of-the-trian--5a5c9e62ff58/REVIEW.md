@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete reconstruction of all 720 vertex orders yields exactly 18 vertices, 66 edges and 24 triangles of the strong-Morse complex. A fully explicit matching certificate has 41 disjoint covering pairs and one critical vertex plus 25 critical edges; orientation reversal on all 204 Hasse covers gives a directed acyclic graph by a complete 108-vertex topological sort. Forman's theorem proves a 25-circle integral homotopy type. A second independently written verifier recalculates the mod-two boundary ranks and signed chain traces of every group automorphism; the resulting character equals two regular representations plus the inflated sign. The computer certificate is finite and exhaustive; it makes no infinite-family claim.
+## correctness
 
-**Originality — PASS, with residual risk.** The September 6, 2026 primary paper gives the strong-Morse definition and results for paths, cycles, stars and simplex examples, but no triangular-prism classification. The closest exact prism record is for the **ordinary** Morse complex, with 1,727 nonempty faces and 64 four-spheres; its theorem neither contains nor implies the 108-face **strong** subcomplex classification. Searches checked the alternative graph-prism, rooted-forest and directed-incidence descriptions and automorphism-module aliases. No matching or stronger result was identified, but unindexed or differently named computations are still possible.
+PASS
 
-**Mathematical value — PASS.** The triangular prism is the canonical smallest nontrivial three-regular prism, immediately outside the published path/cycle/star families. The computation demonstrates a substantial topological difference between the strong and ordinary Morse complexes of exactly the same graph and determines the entire twelve-automorphism rational homology action, not just an isolated Betti number. The classification provides a reproducible benchmark for structural analysis of strong-Morse complexes on graphs with multiple cycles.
+The defined full strong-Morse complex uses all 720 orders of the one-dimensional triangular-prism graph and matching incidences with exactly one earlier neighbor. Independently reconstructed 18 directed incidence vertices and nonempty face vector (18,66,24), then greedy incidence-toggle matching gives 41 cover pairs and 26 critical faces (one vertex, 25 edges). Independently built all 204 Hasse covers, reversed matching arrows and topologically sorted all 108 nonempty faces, verifying acyclicity; Forman theory yields integral wedge^25 S1 and π1 free rank25. Independently enumerated all 12 S3×C2 automorphisms and signed simplex traces: identity 25, layer swap and 3cycles 1, transpositions −1. This is χ=2regular+inflated sign, invariants=2. The exact domain is the full strong matching construction for one unfilled prism, not ordinary/pure complexes.
 
-The mathematical claims here concern only the unfilled, one-dimensional prism. The rational representation formula does not claim an integral representation splitting. No independent external mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full strong Morse complex is materially different from the ordinary Morse complex of the same six-vertex prism. The published ordinary complex is a 64-fold wedge S^4 on 1,727 faces; this explicit strong subcomplex has 108 faces and a 25-circle wedge, plus a twelve-element symmetry module character. The Knudson-Owens-White primary introduction names other graph families in its accessible abstract. Best-of-knowledge not universal-priority.
+
+## value
+
+PASS
+
+The triangular prism is the smallest multi-cycle cubic prism outside the path, cycle and star examples. The exact strong-Morse homotopy type and full symmetry character distinguish it sharply from the previously known ordinary Morse complex on the same graph, providing a concrete integral/topological benchmark for strong matching complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The included Python programs and finite certificate reconstruct the complex directly from its graph edges and the 720 vertex orders. No outside software beyond the Python standard library is required. Execute `python verify_topology.py` and `python verify_representation.py` in the directory containing the certificate.
+## correctness
 
-`verify_topology.py` checks the precise 36 facet bit masks, every one of the 108 nonempty faces, the 41 certified Hasse-pair matches, all 204 covering relations, and exhausts an acyclic topological ordering of the reoriented Hasse diagram. The critical face multiset is one vertex and 25 edges, hence Forman's theorem proves the asserted integral homotopy type.
+PASS
 
-`verify_representation.py` regenerates the entire complex independently, obtains binary boundary ranks 17 and 24, and computes signed Lefschetz traces of all twelve automorphisms. Their character is 25 at identity, 1 at identity with layer swap and at every three-cycle with/without swap, and -1 at every transposition with/without swap. This is the character of two regular rational modules plus the inflated sign.
+The defined full strong-Morse complex uses all 720 orders of the one-dimensional triangular-prism graph and matching incidences with exactly one earlier neighbor. Independently reconstructed 18 directed incidence vertices and nonempty face vector (18,66,24), then greedy incidence-toggle matching gives 41 cover pairs and 26 critical faces (one vertex, 25 edges). Independently built all 204 Hasse covers, reversed matching arrows and topologically sorted all 108 nonempty faces, verifying acyclicity; Forman theory yields integral wedge^25 S1 and π1 free rank25. Independently enumerated all 12 S3×C2 automorphisms and signed simplex traces: identity 25, layer swap and 3cycles 1, transpositions −1. This is χ=2regular+inflated sign, invariants=2. The exact domain is the full strong matching construction for one unfilled prism, not ordinary/pure complexes.
 
-`topology_output.txt` and `representation_output.txt` contain the exact observed outputs of these two programs. Neither finite homology over a field nor a log alone substitutes for the separate acyclic-matching proof of integral homotopy type. The research does not establish an infinite-family generalization or an integral equivariant decomposition. Independent scientific audit is not performed.
+## originality
+
+PASS
+
+The full strong Morse complex is materially different from the ordinary Morse complex of the same six-vertex prism. The published ordinary complex is a 64-fold wedge S^4 on 1,727 faces; this explicit strong subcomplex has 108 faces and a 25-circle wedge, plus a twelve-element symmetry module character. The Knudson-Owens-White primary introduction names other graph families in its accessible abstract. Best-of-knowledge not universal-priority.
+
+## value
+
+PASS
+
+The triangular prism is the smallest multi-cycle cubic prism outside the path, cycle and star examples. The exact strong-Morse homotopy type and full symmetry character distinguish it sharply from the previously known ordinary Morse complex on the same graph, providing a concrete integral/topological benchmark for strong matching complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
