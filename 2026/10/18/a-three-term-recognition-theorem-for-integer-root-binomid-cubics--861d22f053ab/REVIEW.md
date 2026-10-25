@@ -1,11 +1,21 @@
-# Scientific review: three-term recognition for integer-root binomid cubics
+# Independent mathematical audit
 
-**Correctness — PASS.** Binomid integrality forces the two first-term ratios to be integers. Monotonic estimates bound the two smallest nonnegative root shifts; the exact rational equation for the last shift produces twelve and only twelve candidates. The third-to-first ratio eliminates nine. The survivors are products or scalar multiples of ordinary and Pascal-column binomid sequences. The latter have the published integer determinant representation displayed in the proof. The proof is universal in the unbounded root parameters and all generalized-binomial indices. The companion checker confirms exact arithmetic but is not treated as an infinite proof.
+## correctness
 
-**Originality — PASS, relative to inspected sources.** Shapiro (2023) classifies degree at most two, explicitly asks for cubic classification, and establishes the binomid property of individual Pascal-column sequences. Those results prove the positive cases but do not imply the exhaustive three-root classification or the two-coefficient finite test. Caalim–Tanaka (2024) study valuation indices and minimal extensions, not restrictions on cubic root shifts. Targeted searches for cubic binomid polynomials, split roots, finite tests and equivalent classification did not identify a stronger result. Remaining risk: an unindexed equivalent or a classification embedded in uncatalogued later literature.
+PASS
 
-**Value — PASS.** Complete classification of a natural three-parameter root-geometry subclass of a published open degree-three problem is mathematically motivated. The result gives an unexpectedly short, exact decision certificate—two small divisibility checks—for an otherwise infinite family of generalized-binomial coefficients. The excluded cases are proved impossible uniformly, not merely eliminated by computer search. The result is confined to the integral-root subclass, and does not claim the full cubic problem.
+If the cubic sequence is binomid, k=1 yields integral f2/f1 and f3/f1. For ordered nonnegative integer a<=b<=c, u_t=(t+2)/(t+1) strictly decreases. Bounding 1<u_a u_b u_c excludes a>=3 and b outside 0..3,1..5,2..3. Solving exact integer m=f2/f1 via c+1=K/(m-K), K=u_a u_b, gives exactly twelve admissible triples and no unbounded c escapes. Independently enumerated all candidates using rational arithmetic and checked f3/f1, leaving exactly (0,0,0),(0,0,1),(0,1,2). Their sequences n³,2n·C2(n),6C3(n) are products/scalings of binomid integer n and Pascal columns; Shapiro’s integer determinant gives all generalized binomial coefficients integral. The package’s larger finite checks are corroboration, not an infinity argument. Carefully limited to cubic split-root shifts.
 
-**Closest prior literature and limits.** Shapiro (2023), Theorem 26 and Open Problem 27; Pascal-column binomid examples and determinant formula; Caalim–Tanaka (2024), valuation-index framework. No independent literature survey beyond the reported sources is implied; no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shapiro published Theorem 26 classifies degrees at most two and Open Problem 27 explicitly asks for cubic classification (full primary journal PDF and page image inspected); it provides Pascal-column sufficiency but no exclusion of other integral shifts. Caalim–Tanaka studies binomid index extension/valuations, not complete shift triples. The theorem solves the natural integer-root subfamily with a two-coefficient test and does not claim the whole open problem.
+
+## value
+
+PASS
+
+This is a genuinely complete natural three-parameter subclass of the published open cubic-polynomial binomid question. A short two-ratio certificate decides infinitely many divisibility constraints by a uniform exact reduction; classifying the excluded root multiplicities is substantive beyond known Pascal-column examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
