@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/AUDIT.json",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/METADATA.json",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/RESULT.md",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/REVIEW.md",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/SLOGAN.txt",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/VERIFICATION.md",
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/verify.py"
+      ],
+      "rationale": "The fixed normalized gcd gives coprime increasing a_n<b_n for every k≥2. For coprime a<b, choose α inverse of a modulo b in [1,b−1] and β=(ab+1−aα)/b in [1,a]. The complementary Bézout identity gives either the witness ((α−1)/2,(β−1)/2) to M when both α,β are odd, or ((b−α−1)/2,(a−β−1)/2) to M−1 otherwise; the latter two numerators are odd by aα+bβ=ab+1 mod 2. Every target <ab has at most one nonnegative representation because x is determined mod b; Frobenius complement F=ab−a−b=2M−1 proves only one of M,M−1 is representable, with a=1 handled separately. Under (a,b)→(b,kb−a), transported (α,β)→(kα+β−a,b−α) satisfies the new Bézout equation and positivity. Modulo 2 this transformation permutes all six admissible parity states in three 2-cycles if k even, or two 3-cycles if k odd, each with nonconstant δ pattern and exact least period. Independent exact six-state calculation reproduced these cycles and least periods. Original verify.py was inspected; its finite tests cannot substitute for the parity-state proof.",
+      "residual_risks": [
+        "Requires k≥2, positive A<B and invariant gcd normalization; no assertion for signed/nonmonotone recurrences.",
+        "The δ period does not mean the unbounded integer solution coordinates are periodic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arachchi and collaborators establish equation selection and positive-sign generalized Fibonacci recurrences.",
+          "Chu et al. later generalize midpoint targets and treat additive/Fibonacci settings; retrieved material does not establish the present uniform negative-sign theorem."
+        ],
+        "reasoning": "The existence/uniqueness predicate is known generally; the universally exact subtractive period and inverse-witness transport are a further proposition not supplied by the cited broader target or positive-sign recurrences.",
+        "searches": [
+          "arXiv:2309.04488 primary full text",
+          "arXiv:2609.08728",
+          "arXiv:2509.01781",
+          "Resultary semantic query: two Diophantine equations ax+by=(a-1)(b-1)/2 and ax+by+1= ... subtractive Lucas recurrence u_{n+2}=k u_{n+1}-u_n alternating period 2 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.04488",
+        "doi:10.7546/nntdm.2023.29.3.495-502",
+        "arXiv:2609.08728",
+        "arXiv:2509.01781",
+        "arXiv:2512.12681",
+        "Resultary: two Diophantine equations ax+by=(a-1)(b-1)/2 and ax+by+1= ... subtractive Lucas recurrence u_{n+2}=k u_{n+1}-u_n alternating period 2 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 special balancing result is included as a strict subcase and is acknowledged as prior.",
+          "The positive-sign transfer has different mod-2 parity-state dynamics and does not imply a negative-sign period without new analysis."
+        ],
+        "reasoning": "The prior statement “exactly one midpoint equation solvable” is insufficient to constrain the index pattern to minimal periods 2/3 for subtractive iterations.",
+        "searches": [
+          "doi:10.7546/nntdm.2023.29.3.495-502",
+          "arXiv:2309.04488",
+          "arXiv:2609.08728"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bézout inverse witnesses encode uniquely which of the two adjacent midpoint targets is representable.",
+          "The six-state parity evolution is the determinant-one matrix [[0,1],[-1,k]], unlike the additive recurrence with a +1 lower-left entry."
+        ],
+        "reasoning": "Rewriting the equation selection as parity of modular inverses identifies the right antecedent, but the subtractive transport and its orbits do not follow by renaming k or the starting terms.",
+        "searches": [
+          "Resultary semantic query: two Diophantine equations ax+by=(a-1)(b-1)/2 and ax+by+1= ... subtractive Lucas recurrence u_{n+2}=k u_{n+1}-u_n alternating period 2 3",
+          "arXiv:2309.04488 Theorem 7 and equation-selection criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary Lucas recurrence hits concern different local-period or entry-point invariants.",
+          "Davala gives balancing and Lucas-balancing special families, including coefficient six; no arbitrary-seed subtractive period table was found."
+        ],
+        "reasoning": "Some examples/periods were previously known but not a complete two/three-period law across every admissible seed. An unsuccessful search is only best-of-knowledge evidence.",
+        "searches": [
+          "Resultary semantic query: two Diophantine equations ax+by=(a-1)(b-1)/2 and ax+by+1= ... subtractive Lucas recurrence u_{n+2}=k u_{n+1}-u_n alternating period 2 3",
+          "arXiv:2309.04488",
+          "arXiv:2512.12681"
+        ]
+      },
+      "rationale": "An all-seed, all-coefficient (k≥2) sharp period-2/period-3 law for the negative-sign recurrence with explicit modular inverse witnesses is not implied by the positive-sign recurrence analyses or isolated balancing-sequence cases.",
+      "residual_risks": [
+        "Complete 2026 generalization full text not independently verified; hidden subtractive corollary is a residual priority risk.",
+        "Unindexed negative-sign Lucas-sequence work might already state the six-state law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FOUNDATION_NOT_STRONG_COVERAGE",
+          "evidence": "Shows midpoint equation-selection and additive recurrences, not the arbitrary-seed negative-sign transport or universal parity-orbit law.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04488",
+          "material_read": "Full public PDF (22 pages), including equation-selection theorem and recurrence section: generalized Fibonacci/additive recurrence; comparisons of initial-seed assumptions and sign.",
+          "method": "Read arXiv full text and relevant theorems.",
+          "title": "On a Pair of Diophantine Equations",
+          "trigger": "Same midpoint pair, uniqueness and generalized recurrence."
+        },
+        {
+          "assessment": "COVERS_SPECIAL_CASE",
+          "evidence": "Coefficient-six adjacent balancing cases acknowledged as prior; arbitrary seeds and every k remain a separate claim.",
+          "identifier_or_url": "https://doi.org/10.7546/nntdm.2023.29.3.495-502",
+          "material_read": "Prior special-case statements as quoted and bibliographic record; full primary-text reading not independently confirmed.",
+          "method": "Theorem statement/bibliographic comparison, not whole-paper noncoverage inference.",
+          "title": "Solution to a pair of linear, two-variable, Diophantine equations with coprime coefficients from balancing and Lucas-balancing numbers",
+          "trigger": "Same Diophantine targets for balancing/Lucas-balancing recurrences."
+        },
+        {
+          "assessment": "RESIDUAL_RISK",
+          "evidence": "Potentially broader generalized midpoint statement not fully inspected; assessed accessible statements address different target/recurrence setup.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08728",
+          "material_read": "Accessible title, abstract and indexed statements; full text not independently read in this execution.",
+          "method": "Preprint/abstract comparison with explicitly limited coverage conclusion.",
+          "title": "Generalizing a Pair of Diophantine Equations",
+          "trigger": "Recent same pair with generalized targets could dominate the current claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-midpoint-diophantine-witnesses-and-a-two-three-period-law--1ce3e945b24a/RESULT.md",
+        "arXiv:2309.04488",
+        "doi:10.7546/nntdm.2023.29.3.495-502",
+        "arXiv:2609.08728",
+        "arXiv:2509.01781",
+        "arXiv:2512.12681",
+        "Resultary: two Diophantine equations ax+by=(a-1)(b-1)/2 and ax+by+1= ... subtractive Lucas recurrence u_{n+2}=k u_{n+1}-u_n alternating period 2 3"
+      ],
+      "rationale": "The solvability of paired midpoint Frobenius equations is a natural question with known isolated recurrence instances; the exact universal least 2/3 period, frequencies, and explicit witness recurrence resolve the natural arbitrary-seed negative-sign extension. It is a sharp structural classification, not merely substituting the sign in known formulas.",
+      "residual_risks": [
+        "Mathematical usefulness is limited to the specified natural family and invariant; no downstream theorem or exhaustive priority certificate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires k≥2, positive A<B and invariant gcd normalization; no assertion for signed/nonmonotone recurrences.",
+    "The δ period does not mean the unbounded integer solution coordinates are periodic.",
+    "Complete 2026 generalization full text not independently verified; hidden subtractive corollary is a residual priority risk.",
+    "Unindexed negative-sign Lucas-sequence work might already state the six-state law.",
+    "No source edits or publication made. Finite checks corroborate, not establish infinite theorems."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the midpoint recurrence theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof derives the complementary Bézout representations directly, transports both modular-inverse witnesses under the determinant-one recurrence, and enumerates the complete six-state parity automaton. The explicit cycles give least periods rather than upper period bounds. Checked small instances confirm every claimed witness and the distinction between even and odd \(k\). Finite tests supplement but are not substituted for the universal proof.
+PASS
 
-## Originality: PASS within inspected evidence
+The fixed normalized gcd gives coprime increasing a_n<b_n for every k≥2. For coprime a<b, choose α inverse of a modulo b in [1,b−1] and β=(ab+1−aα)/b in [1,a]. The complementary Bézout identity gives either the witness ((α−1)/2,(β−1)/2) to M when both α,β are odd, or ((b−α−1)/2,(a−β−1)/2) to M−1 otherwise; the latter two numerators are odd by aα+bβ=ab+1 mod 2. Every target <ab has at most one nonnegative representation because x is determined mod b; Frobenius complement F=ab−a−b=2M−1 proves only one of M,M−1 is representable, with a=1 handled separately. Under (a,b)→(b,kb−a), transported (α,β)→(kα+β−a,b−α) satisfies the new Bézout equation and positivity. Modulo 2 this transformation permutes all six admissible parity states in three 2-cycles if k even, or two 3-cycles if k odd, each with nonconstant δ pattern and exact least period. Independent exact six-state calculation reproduced these cycles and least periods. Original verify.py was inspected; its finite tests cannot substitute for the parity-state proof.
 
-Davala (2023, DOI 10.7546/nntdm.2023.29.3.495-502) already covers several balancing and Lucas-balancing instances, including the adjacent balancing case with \(k=6\). These are a strict subcase of the new theorem and are not claimed as new. Arachchi and collaborators (arXiv:2309.04488, Theorem 5.2) prove a different, additive-sign recurrence classification; their pairwise modular inverse criterion is an antecedent, not the claimed negative-sign transport and dichotomy. Chu, Miller and Tresch (arXiv:2512.12681) pose general recurrence questions. The 2025 survey and September 2026 preprint were additionally inspected; their arbitrary-seed and generalized-target results concern Fibonacci/additive sequences and other target values, respectively, not the full subtractive claim. Targeted result-record and literature searches did not identify a theorem dominating the complete arbitrary-seed subtractive case. Remaining risks: unindexed work and unnoticed implicit corollaries.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The classification directly addresses the natural extension from special balancing sequences to every positive, ordered initial pair and every subtractive recurrence coefficient \(k\ge2\). It resolves both which equation is solvable and its unique witness for all indices, with a sharp period and frequency distinction. This is a structural uniform extension rather than another finite computation or a renamed known example.
+An all-seed, all-coefficient (k≥2) sharp period-2/period-3 law for the negative-sign recurrence with explicit modular inverse witnesses is not implied by the positive-sign recurrence analyses or isolated balancing-sequence cases.
 
-## Limits
+## value
 
-The parameter domain excludes negative or unordered seeds and \(k<2\). The review is same-model, not independent. Prior work already proves the fixed-pair existence-and-uniqueness theorem and some balancing subfamilies.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The solvability of paired midpoint Frobenius equations is a natural question with known isolated recurrence instances; the exact universal least 2/3 period, frequencies, and explicit witness recurrence resolve the natural arbitrary-seed negative-sign extension. It is a sharp structural classification, not merely substituting the sign in known formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
