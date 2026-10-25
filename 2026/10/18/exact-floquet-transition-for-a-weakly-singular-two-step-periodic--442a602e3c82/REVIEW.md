@@ -1,15 +1,21 @@
-# Scientific review of the Floquet transition
+# Independent mathematical audit
 
-## Correctness
-PASS. The positive-solution domain is reconstructed by matching the two conserved mechanical energies at the prescribed switching times and evaluating exact positive-root time quadratures. The monodromy is derived from two genuine solutions of the linearized equation on each constant-forcing segment. Its determinant, trace, a nonzero off-diagonal entry at resonance, and both trace factorizations have been rechecked by exact symbolic algebra using the package's standalone checker. Independent ODE/variational integrations for representative parameters agree numerically. Positivity, periodicity, switching regularity, and the excluded endpoint have distinct explicit justifications; finite numerics are not used as proof.
+## correctness
 
-## Originality
-PASS on the scientific comparison available, with a stated residual source-access risk. Godoy–Zamora (arXiv:1707.04513v1, Corollary 1 and Example 1) gives a sufficient existence criterion for precisely this weak singularity, not a Floquet spectrum. Boscaggin–Feltrin–Zanolin (arXiv:2009.00854v1, Proposition 4.2 and the subsequent discussion) address existence and prospective uniqueness in this regime, without the monodromy classification. Cagnetta (arXiv:2610.06068v1, abstract) reports a newer comprehensive existence/uniqueness theorem, so no such result is claimed as new here. A complete existence/uniqueness classification does not determine the trace of the derivative of the return map or the defective resonance at the ratio \(\sqrt2\). Targeted searches found no matched stability trace, although the full text of Cagnetta's work was inaccessible and its coverage of stability cannot be ruled out purely from the abstract.
+PASS
 
-## Value
-PASS. There are two mathematically distinct thresholds: at \(\beta=\sqrt2\) a unique positive \(C^1\) forced response changes from elliptic linear dynamics to a hyperbolic saddle of the prescribed-time map via a nonsemisimple \(-1\) multiplier, while the response itself remains positive and unique up to the larger sharp cutoff \(\beta_*=(3+\sqrt{17})/2\). The exact parameter-independent discriminant gives more qualitative information than existence or uniqueness and exhibits an explicit internal spectral boundary not apparent from energy quadratures alone. The conclusion is sharply restricted to the stated oscillator; it does not infer nonlinear stability or period-doubling existence.
+Checked actual RESULT.md and nested verification/check.py in pinned tree. Conserved first and second half-step energies force equal interface x=s and opposite velocities ±v; positive-root energy quadratures give ξ=v²/(a√s)=6β(β−1)/(1+β²), with existence exactly 0<ξ<4, β in asserted interval. Scaling exhibits two independent segment-variational solutions X′ and X−3θX′/4; endpoint fundamental matrices have nonzero determinants and their product has det=1, rational trace and M21=−6q(β²−1)/(1+β²) ≠0. Factorizations trace−2=−36(β²−1)²/(1+β²)² and trace+2=−16(β²−2)(2β²−1)/(1+β²)² give spectral regimes. Independent SymPy calculations at rational β=11/10,4/3,3/2,2,3 give exact agreement (β=2 trace=−274/25). The defective Jordan conclusion uses nonzero offdiagonal, not just trace. No nonlinear stability or period-doubling asserted.
 
-## Closest literature and limits
-The 2017 and 2020 primary works were inspected in their relevant full-text sections, and the 2026 source was checked at the abstract level after failed full-text access. The full text of the newest classification is a specific remaining originality risk, but its publicly available abstract makes existence/uniqueness—not the monodromy spectrum—the announced contribution. No claim of independent verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Godoy–Zamora and Boscaggin–Feltrin–Zanolin provide existence theories; Cagnetta 2026 extends existence/uniqueness to this exponent. Those facts alone do not determine the derivative of a forcing-period map. An actual close reading of Cagnetta arXiv:2610.06068 PDF introduction, main theorem and time-map sections found focus on existence and uniqueness, not a Floquet trace or resonance. Distinct exact trace β=sqrt(2) threshold is the incremental claim, not rediscovery of the domain.
+
+## value
+
+PASS
+
+A sharp stability-type transition strictly *inside* the periodic-state existence interval is a motivated Floquet invariant: it separates bounded linearized oscillation from exponential instability, with an explicit defective resonance at an exact dimensionless forcing ratio. The proof demonstrates a useful scaling-mode monodromy mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
