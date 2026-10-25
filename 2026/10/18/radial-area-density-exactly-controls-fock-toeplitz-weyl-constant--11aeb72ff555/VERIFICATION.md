@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` establishes the monomial diagonalization, strict eigenvalue ordering, uniformly Gaussian-concentrated radial moments, the quantitative saddle tracking bound, mesh density of the saddle radii, and the iff relation between spectral and geometric limits. The weight hypotheses imply \(m\leq\Phi'(r)/r,\Phi''(r)\leq M\), and every assertion is for fixed \(\beta>0\).
+## correctness
 
-Run `python verify_radial_weyl.py` in an environment with Python 3, SciPy and NumPy-compatible numerical primitives (SciPy suffices for the script). Expected terminal marker: `RADIAL_FOCK_WEYL_MOMENT_CHECKS_OK checks=20`. The computation uses centered quadrature for \(n=40,100,400,1600\) on three explicit weights and checks the saddle relation against moments. No external data or other files are required.
+PASS
 
-The numerical checks do not prove the infinite-dimensional assertions, the sharp cluster interval, or global originality. Those conclusions rely on the stated analytic argument and literature comparison. Independent review has not been performed.
+Radial Fock monomials diagonalize positive T_f with eigenvalue integral ratio; covariance with R² shows strict n-monotonicity. h_n=(2n+1)log r-2Phi(r) has unique saddle rho_n satisfying rho_n Phi’(rho_n)=n+1/2; Hessian mI<=Hess Phi<=MI makes the radial sampling law uniformly Gaussian concentrated within O(1) of rho_n. This gives lambda_n=f(rho_n)(1+O(n^-1/2)) and (n+1)^(beta/2)lambda_n=b(rho_n)^(beta/2)+O(n^-1/2), b=Phi’/r. Adjacent saddles have gaps O(1/rho_n) while |b’|<=2M/r, hence the full b-tail interval is sampled. Spectral counting inversion for a positive decreasing sequence and convex forward/backward secant bounds establish the three iff conditions including disk averaged Laplacian identity 2Phi’(R)/R. Direct Gamma(n+1,1) moment computation for quadratic Phi=r²/2 at beta=1,2,4, n=50/200/800 confirms convergence of scaled ratios, not the uniform theorem. Oscillatory-Hessian and oscillatory-slope examples satisfy stated Hessian bounds.
+
+## originality
+
+PASS
+
+The exact uniform radial tracking, iff criterion and cluster interval extend Xu–Dong’s quadratic-weight Weyl sufficiency and their radial nonconvergence example. Monomial-moment diagonalization was known; claim is not that formula. A broader radial asymptotic theorem was not identified in the searched literature; Bdarneh’s unavailable full article limits priority confidence.
+
+## value
+
+PASS
+
+Xu–Dong directly demonstrate failure of a Weyl coefficient under uniform Hessian bounds and ask what extra global geometric information is needed. The necessary-and-sufficient half-disk-Laplacian criterion, full cluster interval and O(n^-1/2) tracking answer that precise nontrivial question for a natural class, while distinguishing slope from oscillating local Hessian.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
