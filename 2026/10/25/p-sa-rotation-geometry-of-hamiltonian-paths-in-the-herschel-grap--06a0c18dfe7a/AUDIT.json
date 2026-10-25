@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Explicit 11-vertex adjacency-list construction matches the standard Herschel graph (18 edges, degrees eight 3s and three 4s, characteristic spectral pattern). Every Hamiltonian path has a red endpoint. Depth-first search exhaustively explores all red-starting simple spanning vertex sequences; a separate independent search tests all 43,758 10-edge subsets for connected path degree pattern. Both yield 222 unordered paths. In a graph with no Hamiltonian cycle, one-edge spanning-path exchange coincides with endpoint Pósa rotation. Both checkers construct all 444 edges; BFS from each of 222 states reaches all states and gives radius 8, diameter 9, ecc distribution 198/24. Exact instructions and stdout are included. The proof that every state has four neighbors uses the two unused edges at each degree-three red endpoint.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krivelevich, arXiv:1507.00205, Section 2.3 explains general Pósa rotation-extension and bounds on reachable endpoints in expanding graphs, not complete all-path graph distances for the specific eleven-vertex Herschel graph.",
+        "The known Petersen Hamiltonian-path rotation claim concerns ten vertices, not the eleven-vertex Herschel graph; no reduction establishing identical rotation geometry was found."
+      ],
+      "reasoning": "The standard rotation lemma controls endpoints for long paths under global hypotheses, not these exact enumeration and distance distributions; a distinct graph result is not a dominating special case.",
+      "searches": [
+        "web: Herschel graph Posa rotation graph Hamiltonian paths reconfiguration graph",
+        "web: Herschel graph number Hamiltonian paths spanning paths rotations",
+        "published-finding corpus: rotation-extension graph of Hamiltonian paths in smallest non-Hamiltonian polyhedral graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1108.1036v1 Theorem 15 surrounding discussion",
+      "arxiv:1507.00205 Section 2.3",
+      "https://mathworld.wolfram.com/HerschelGraph.html",
+      "published-finding corpus search: 222 Hamiltonian paths Herschel and Pósa rotations",
+      "accessible history: Petersen Hamiltonian-path Pósa/backbite reconfiguration, distinct graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kriesell–Pedersen arXiv:1108.1036v1 identifies the dual of the Herschel graph after Theorem 15 as an object in a colouring-number classification.",
+        "Krivelevich arXiv:1507.00205 Section 2.3 supplies the general operation, not an exact all-path reconfiguration graph.",
+        "published-finding corpus nearest same-object publication record 2026/10/11/SCOPE-the-herschel-graph-independence-complex-and-its-complete-vertex--e6d752a4b77d concerns independence homotopy, not Hamiltonian paths."
+      ],
+      "reasoning": "The prior theorems establish the graph and the transformation separately, without determining their joint state graph; their statements have no implication that forces the exact census, connectivity, radius, or diameter. Publication priority is not conclusively established.",
+      "searches": [
+        "arxiv:1108.1036v1 Theorem 15 Herschel dual",
+        "arxiv:1507.00205 Section 2.3 Pósa Lemma",
+        "published-finding corpus: undirected Hamiltonian path rotation graph Herschel smallest non-Hamiltonian planar graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1507.00205 Section 2.3 defines elementary Pósa rotations on a path; comparison requires identifying reversal-quotiented undirected Hamiltonian paths rather than arbitrary longest paths.",
+        "published-finding corpus search showed no Herschel Hamiltonian-path rotation claim; a Herschel independence-complex record 2026/10/11/SCOPE-the-herschel-graph-independence-complex-and-its-complete-vertex--e6d752a4b77d concerns a different complex."
+      ],
+      "reasoning": "Equivalent operations include backbite moves and path edge-exchange on a graph with no Hamiltonian cycle; searches for these notions were considered. An independence-complex homotopy result on the same graph does not imply the 222-state rotation graph. Absence of a match alone is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Herschel graph Pósa rotation Hamiltonian path reconfiguration connected 222 444 diameter nine",
+        "published-finding corpus: Herschel graph exact number Hamiltonian paths path rotations 222",
+        "web: \"Herschel graph\" \"Pósa\" rotation paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Herschel Graph page identifies the graph and its adjacency-spectrum data, but the page inspected did not give the path-rotation graph or eccentricity table.",
+        "published-finding corpus searches for exact values 222 and 444 did not retrieve an applicable table."
+      ],
+      "reasoning": "No matching exact finite database entry was located; unindexed computed invariants, cached graph datasets, and other names for the move remain live residual risks.",
+      "searches": [
+        "web: \"Herschel graph\" \"222\" \"Hamiltonian\" paths rotations",
+        "web: \"Herschel graph\" \"Pósa\" rotation paths",
+        "web: Herschel graph Hamiltonian paths count 2017"
+      ]
+    },
+    "rationale": "The exact all-Hamiltonian-path rotation graph of the Herschel graph, rather than the known existence/nonexistence of Hamiltonian cycles or the generic Pósa operation, is not implied by the inspected source statements. Searches against actual published-finding corpus records, accessible historical claims, primary papers and finite graph tables found no broader coverage. This is a best-knowledge assessment, not a publication-priority certificate.",
+    "residual_risks": [
+      "Unindexed exact Hamiltonian-path counts or rotation-graph tables for the Herschel graph might already contain the result.",
+      "Some plausible sources were inspected only in the relevant sections rather than every appendix; none inspected strongly implied the claim.",
+      "No independent external novelty audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies Herschel in a colouring-number context, with no Hamiltonian-path rotation claim in the examined relevant sections",
+        "evidence": [
+          "Theorem 15 and immediately following sentence: graph Q2 is dual to Herschel."
+        ],
+        "identifier_or_url": "arxiv:1108.1036v1; https://arxiv.org/html/1108.1036v1",
+        "material_read": "HTML abstract, introductory definitions, Theorem 15 and the following sentence naming the dual of the Herschel graph",
+        "method": "Accessible full-text HTML section reading",
+        "title": "On graphs double-critical with respect to the colouring number",
+        "trigger": "Named earliest publicly dated source on the Herschel graph"
+      },
+      {
+        "assessment": "Provides move definition and general endpoint-control results; no specific Herschel path-space census or diameter in inspected relevant material",
+        "evidence": [
+          "Section 2.3 defines the precise move and studies longest paths in expanding graphs."
+        ],
+        "identifier_or_url": "arxiv:1507.00205; https://arxiv.org/abs/1507.00205",
+        "material_read": "Accessible full-text Section 2.3 including elementary rotation definition, Pósa lemma and rotation-extension argument",
+        "method": "Full-text HTML section reading",
+        "title": "Long paths and Hamiltonicity in random graphs",
+        "trigger": "Foundational mathematical treatment of Pósa rotation relevant to possible general implications"
+      },
+      {
+        "assessment": "No displayed Pósa rotation-state count or metric found; other unseen database tables remain a possible overlap risk",
+        "evidence": [
+          "Page gives 11-vertex 18-edge identification and adjacency spectrum."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/HerschelGraph.html",
+        "material_read": "Page text identifying graph, minimal non-Hamiltonian property and graph spectrum",
+        "method": "Readable webpage inspection",
+        "title": "Herschel Graph",
+        "trigger": "Potential exact graph database/table covering numerical invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06a0c18d-fe7a-4ec7-9b29-99ed59cc0396",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Herschel graph is the extremal smallest non-Hamiltonian polyhedral graph. Its Hamiltonian paths exist but cannot close to a Hamiltonian cycle, making the reconfiguration of all spanning paths under the Pósa move a natural question. The finding gives a nontrivial complete answer: all 222 paths lie in one 4-regular reconfiguration component and transform within nine moves, with exact optimal worst-case distance and eccentricity distribution. This is a motivated complete finite invariant, not a random slice or generalization by renaming. No broader graph-family theorem is claimed.",
+    "status": "PASS"
+  }
+}
