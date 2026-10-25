@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty antitone decreasing f on [n], min(domain)=d and max(image)=f(d)<=d; image∩domain either empty or {d}. Strict case gives f²=0; touching case gives f² constant d on the nonempty fiber f^-1(d), a rank-one idempotent, hence f³=f². For fixed domain/image of cardinalities w,h, the h positive consecutive inverse-image blocks number C(w-1,h-1). Strict union has w+h distinct points, giving C(n,w+h); touching has w+h-1 distinct points, giving C(n,w+h-1). Binomial series gives nonzero square total F_{2n}; shifting the strict domain down one unit bijects zero-square maps on [n] with all nonempty antitone decreasing maps on [n-1], giving F_{2n-1}-1. Standalone exhaustive checker confirms n=1..9 without being used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.21134, Thm.1.4 count C(w-1,h-1)C(n+1,w+h); this is exactly the sum of our two counts.",
+        "Cornelius et al., 2026, p.90–91, explicitly specify partial one-to-one maps, narrower than arbitrary maps.",
+        "arXiv:2507.06047 available abstract refers to cardinalities/maximal subsemigroups/ranks; version withdrawn."
+      ],
+      "reasoning": "An already known total rank/width census is not a theorem about second powers. Injective fixed-point results could cover h=w, but h<w consists of noninjective maps outside their definitions. No inspected broader theorem dominates both refined formulas and stabilization.",
+      "searches": [
+        "arxiv:2512.21134 full 20-page paper, definitions, Thm.1.4 and semigroup/rank sections",
+        "doi:10.62054/ijdm/0302.06, 2026 article on injective order-reversing decreasing maps",
+        "arxiv:2507.06047 abstract and withdrawal notice",
+        "\"order reversing\" \"order decreasing\" \"square\" partial transformations nilpotent semigroup"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2512.21134",
+      "https://arxiv.org/pdf/2512.21134",
+      "https://ijdm.org.ng/index.php/Journals/article/download/343/300/3643",
+      "https://arxiv.org/abs/2507.06047",
+      "https://www.researchgate.net/publication/277106344_Semigroups_of_order-decreasing_transformations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior C(w-1,h-1)C(n+1,w+h) = C(w-1,h-1)[C(n,w+h-1)+C(n,w+h)] matches the new sum identically.",
+        "Primary 2025 proof chooses min domain and image points but does not classify the second powers.",
+        "2026 injective paper restricts to partial one-to-one maps; in noninjective terms h<w is omitted."
+      ],
+      "reasoning": "Prior formula implies the sum and supports an easy consistency check, but determining which summands correspond to f²=0 and to rank-one idempotent f² requires the dynamical lemma; this strengthened structural partition and separate Fibonacci totals do not follow from a statement solely giving the sum. A prior fixed-point census for injectives cannot imply full noninjective distribution.",
+      "searches": [
+        "arxiv:2512.21134 Theorem 1.4 count and its proof",
+        "doi:10.62054/ijdm/0302.06 sections on fixed points and injectivity",
+        "arxiv:2507.06047 available abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.21134, sec.1 and Thm.1.4: counts order-reversing decreasing maps by width and height but does not state a square-stratification or stabilization theorem.",
+        "The exact second-iterate partition is controlled by whether max(image)=min(domain), not only by width or height."
+      ],
+      "reasoning": "An equivalent result would provide the second-power zero/nonzero or fixed-point/no-fixed-point distribution at all widths and heights, not merely the unsplit total count. Searched phrases and source passages gave no such result in accessible coverage.",
+      "searches": [
+        "\"square-zero\" \"order-reversing\" \"partial transformations\"",
+        "\"antitone\" \"partial\" \"f^3\" \"f^2\" semigroup",
+        "\"Fibonacci\" \"order reversing\" \"partial\" transformations square zero",
+        "arxiv:2512.21134, full text, terms \"nilpotent\"/\"square\"/\"powers\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed search most closely returned a record on finite weak-order retracts (an indexed 2026 finding on finite weak-order retracts), which studies a different order structure and no second powers of these maps.",
+        "Indexed search returned a rank-compression automata item (an indexed 2026 finding on automata rank compression), which has no corresponding semigroup invariant.",
+        "arXiv:2512.21134, Remark 1.8 records unsplit enumerative arrays but no zero-square/stabilized-square tables."
+      ],
+      "reasoning": "Neither searched indexed records nor the numerical tables in the principal recent source gave the square-refined width-height counts; the existing unsplit table is acknowledged and recovered on summing.",
+      "searches": [
+        "Idempotents of monotone order-decreasing partial transformations finite chains rank generating function fixed-point enumeration Rees quotients",
+        "Antitone order-decreasing partial transformations of a chain f cubed f squared square-zero count rank width height Fibonacci",
+        "Order reversing decreasing partial maps strict endpoint touching endpoint nilpotent square-zero compositions binomial n choose w+h",
+        "\"Fibonacci\" \"order reversing\" \"partial\" transformations square zero"
+      ]
+    },
+    "rationale": "The fully inspected 2025 primary source proves the sum of the proposed two refined counts but not the separate second-iterate dichotomy or their distinct Fibonacci totals. The 2026 injective refinements are limited to maps with width equal to height, hence cannot dominate the full noninjective claim. Search of indexed records and accessible literature for equivalent square-zero/power formulations found no dominating result. The withdrawn related preprint and older thesis impose documented residual risk, not a fabricated certainty of uniqueness.",
+    "residual_risks": [
+      "A withdrawn but topically adjacent preprint and the original thesis were not available in full; their accessible abstracts do not resolve all possible overlaps.",
+      "A prior equivalent endpoint-partition proof or exact noninjective square census might exist in unindexed literature.",
+      "The new split uses elementary binomial reasoning from the same domain/image representation as the published unsplit census; novelty is specifically the dynamical interpretation and refinement, not that underlying representation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unsplit width-height count, not the second-iterate split or separate Fibonacci totals",
+        "evidence": [
+          "Theorem 1.4 explicitly counts maps of width w and height h as C(w-1,h-1)C(n+1,w+h).",
+          "Introduction identifies antitone sector and rank aims; later section defines vital maps with a fixed point."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.21134",
+        "material_read": "Accessible complete 20-page manuscript, definitions and setup pp.1–3, proof of Theorem 1.4 pp.4–5, claims from later Green/rank sections and relevant fixed-point passages",
+        "method": "Full-text document inspection and focused theorem/term comparison",
+        "title": "The monoid of monotone and decreasing partial transformations on a finite chain",
+        "trigger": "Same object, rank/width parameters and closest unsplit count"
+      },
+      {
+        "assessment": "Injective (one-to-one) transformations only, so does not dominate the noninjective width-height square distribution",
+        "evidence": [
+          "The abstract and section 2 restrict to partial one-to-one transformations.",
+          "Proofs are organized by fixed points/image changes, not squares of arbitrary antitone maps."
+        ],
+        "identifier_or_url": "https://ijdm.org.ng/index.php/Journals/article/download/343/300/3643",
+        "material_read": "9-page accessible PDF, definitions, statements on fixed points, image changes and combinatorial refinements",
+        "method": "Direct PDF text and relevant theorem inspection",
+        "title": "Combinatorial Properties of Order Decreasing and Order Reversing Partial One-to-One Transformation Semigroup",
+        "trigger": "Closest title and fixed-point enumeration for an order-reversing decreasing subclass"
+      },
+      {
+        "assessment": "Abstract discusses cardinalities, ranks and maximal subsemigroups, not the claimed second-power census; unresolved risk remains",
+        "evidence": [
+          "arXiv abstract lists cardinalities, maximal subsemigroups and ranks.",
+          "Version 2 was withdrawn January 23, 2026 and no PDF was available from public abstract page."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.06047",
+        "material_read": "Public abstract, dates, version and withdrawal notice; original full text unavailable",
+        "method": "Preprint abstract and public version-status inspection; full comparison limited",
+        "title": "On certain semigroups of finite monotone and order-decreasing partial transformations",
+        "trigger": "Earlier overlapping monoid subject and possible stronger rank formula"
+      },
+      {
+        "assessment": "Abstract covers nilpotent subsemigroups of full/injective order-decreasing maps; does not verify the antitone noninjective square stratification; uncertain full-text content",
+        "evidence": [
+          "Public abstract specifically refers to ranks of nilpotent subsemigroups of order-decreasing full or partial one-to-one semigroups."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/277106344_Semigroups_of_order-decreasing_transformations",
+        "material_read": "Available long thesis abstract; complete original text not inspected",
+        "method": "Abstract-level context and hypothesis comparison",
+        "title": "Semigroups of order-decreasing transformations",
+        "trigger": "Older treatment of nilpotent order-decreasing transformation subsemigroups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ef5265e-d4a1-4b67-904a-61c1427ef3da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural semigroup-theoretic problem asks which antitone decreasing elements of a recently studied transformation monoid square to zero and which stabilize to nonzero idempotents. The theorem provides an all-n structural dichotomy, sharp width-height support thresholds, complete counts by both standard semigroup parameters, and a nontrivial split into distinct Fibonacci sequences, including all noninjective elements. These data describe second powers and nilpotence, not an arbitrary slice or mere recomputation of the already published total.",
+    "status": "PASS"
+  }
+}
