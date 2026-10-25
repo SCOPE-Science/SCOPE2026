@@ -1,21 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Period integration of the top-predator equation is legitimate for every strictly positive \(T\)-periodic solution. A period shift removes \(\tau_2\) from the integrated birth term and yields an exact top-predator-weighted stationary identity. The strict comparison follows from \(q>0\) and \(x_3>0\); Jensen applies to the strictly concave function \(u/(v+pu)\). The resulting rational inequality forces \(\eta>pe\) and gives the stated threshold. On the slice \(\tau_2=0\), averaging \(d(\log x_3)/dt\) gives the ordinary-time version. The proof explicitly does not use that logarithmic step for positive \(\tau_2\), where it would be invalid.
+## correctness
 
-Risk: the theorem is conditional on a positive periodic solution and does not address nonperiodic recurrent solutions or ordinary unweighted means when \(\tau_2>0\).
+PASS
 
-## Originality
-**PASS.** The primary article's full text was inspected at the model definition, positivity/boundedness arguments, equilibrium formulas, top-predator-free stability theorem, interior Hopf theorems, and numerical periodic-orbit section. It contains the static threshold \(ve/(\eta-pe)\) but no mean, weighted-mean, or finite-amplitude periodic-orbit theorem. Related open full text on delayed tritrophic food chains with multiple gestation periods and with additive Allee effect was also inspected; those works analyze equilibria, delay thresholds, periodic solutions, and chaos for different functional responses, but do not imply this source-specific weighted barrier. Searches of published mathematical findings using the source title, DOI, threshold, weighted-mean aliases, and periodic-orbit formulations returned only different-system results.
+For the precise three-equation Wang–Shao–Chai delay system, all parameters r,k,b,a,alpha,m,beta,d,theta,v,p,q,eta,e are strictly positive, both delays nonnegative, and the assumed solution is strictly positive and T-periodic. Integrating x3 prime over a complete period makes the delayed birth integral equal its undelayed counterpart. Normalizing by integral x3 defines dnu=x3 dt/integral x3; hence e/eta=int x2/(v+p*x2+q*x3) dnu. Since q*x3>0, this is strictly below int f(x2)dnu with f(u)=u/(v+pu), strictly concave because f double prime = -2pv/(v+pu)^3<0. Jensen yields e/eta<f(M3)=M3/(v+p*M3)<1/p. Thus eta>pe, and M3>ve/(eta-pe), where M3=int x2*x3/int x3. When tau2=0, division by current x3 and period integration of d log(x3)/dt instead supplies the ordinary-time version. That step is correctly NOT used for tau2>0. The result is conditional on strictly positive periodic solutions and does not assert existence, attraction, Hopf continuation, or an unweighted bound at positive tau2. Strict q and positive x3 matter.
 
-Residual risk: similar Jensen-style population-balance estimates may occur elsewhere in the broad permanence literature. No inspected source covered the exact Wang–Shao–Chai statement or an implication strong enough to subsume it.
+## originality
 
-## Value
-**PASS.** The source's central dynamic phenomenon is delay-induced Hopf oscillation. The new bound is finite-amplitude, applies to every positive periodic state rather than only near Hopf onset, is independent of both delay lengths in its weighted form, and lands exactly on the model's local top-predator invasion threshold. It therefore supplies a structural consistency check for computed periodic branches and an ecological interpretation of that local threshold beyond equilibrium linearization. The distinction between the general-delay weighted mean and the \(\tau_2=0\) ordinary mean is substantive rather than cosmetic.
+PASS
 
-Risk: the result is a necessary barrier, not a classification of periodic dynamics.
+Best-of-knowledge, source-specific novelty: the motivating Wang–Shao–Chai 2023 full paper has the static coexistence and local-invasion threshold ve/(eta-pe) but not a universal finite-amplitude periodic weighted-mean barrier, nor the tau2=0 ordinary-mean version. Open full-text comparisons to related delay/Hopf papers use distinct functional responses and do not imply the same-system result. Fresh searches of published findings detected the same assigned record (explicitly EXCLUDED as independent priority evidence) and related mean laws in distinct equations rather than dominating same mathematical model theorems. The Jensen method alone is classical; only the precise model-specific periodic consequence and static-threshold alignment are credited. The 2014 interference/gestation-delay article remains a full-text access risk, NOT evidence of absence.
 
-## Closest literature and limitations
-The closest inspected source is the motivating 2023 article itself, followed by the 2019 multiple-gestation tritrophic study and the 2021 delayed food-chain study. These sources establish Hopf/periodic behavior but not the stated finite-amplitude mean constraint. The 2014 top-predator-interference paper was identified as a highly relevant earlier model; available material confirms its focus on interference, gestation delay, Hopf bifurcation, and periodic stability, but a complete source-specific statement comparison from lawful full text was not available in this run. That access limitation remains a recorded originality risk rather than being treated as evidence of absence.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Wang–Shao–Chai source studies Hopf-driven nonstationary predator coexistence and identifies the top-predator invasion level only at equilibria. An explicit necessary bound on the natural x3-weighted abundance of its intermediate predator along EVERY positive finite-amplitude periodic state, valid for arbitrary gestation delays, is a motivated nonlocal invariant of the published model, not a random parameter slice. The same exact threshold as local invasion makes it interpretable and usable as an analytic consistency check for proposed oscillatory branches. The tau2=0 ordinary mean statement clarifies a structurally important boundary in delay placement. It is a precise but modest self-contained mathematical fact: the proof is elementary once the right observable is chosen, it does not yield existence/stability or general permanence, and those limits do not erase its specific usefulness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

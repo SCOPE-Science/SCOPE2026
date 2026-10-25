@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T03:50:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md SHA1 52736dfbf8aefb22005da9499f851fbc3268fa79",
+        "SCOPE-Science/SCOPE2026 pinned VERIFICATION.md SHA1 ee8c2cf23b4d98190b814bfcd1113a9c1f722948",
+        "SCOPE-Science/SCOPE2026 pinned verify.py SHA1 a4f2b6da84c9186558f1918ddc5f552b5567da13",
+        "doi:10.3934/math.2023378 equation (2.1) independently checked against the audited model"
+      ],
+      "rationale": "For the precise three-equation Wang–Shao–Chai delay system, all parameters r,k,b,a,alpha,m,beta,d,theta,v,p,q,eta,e are strictly positive, both delays nonnegative, and the assumed solution is strictly positive and T-periodic. Integrating x3 prime over a complete period makes the delayed birth integral equal its undelayed counterpart. Normalizing by integral x3 defines dnu=x3 dt/integral x3; hence e/eta=int x2/(v+p*x2+q*x3) dnu. Since q*x3>0, this is strictly below int f(x2)dnu with f(u)=u/(v+pu), strictly concave because f double prime = -2pv/(v+pu)^3<0. Jensen yields e/eta<f(M3)=M3/(v+p*M3)<1/p. Thus eta>pe, and M3>ve/(eta-pe), where M3=int x2*x3/int x3. When tau2=0, division by current x3 and period integration of d log(x3)/dt instead supplies the ordinary-time version. That step is correctly NOT used for tau2>0. The result is conditional on strictly positive periodic solutions and does not assert existence, attraction, Hopf continuation, or an unweighted bound at positive tau2. Strict q and positive x3 matter.",
+      "residual_risks": [
+        "The result does not establish existence or stability of periodic solutions.",
+        "For positive top-predator delay, period integration produces a top-predator-weighted mean, not an ordinary time mean.",
+        "Finite Fraction algebra checks corroborate only the rational rearrangement, not the universal periodic integration proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Upadhyay–Mishra–Dong–Takeuchi 2019 full article analyzes a gestation-delay tritrophic system with Sokol–Howell interactions; its top-predator birth term is not the same Beddington–DeAngelis denominator.",
+          "Vinoth et al. 2021 full article studies a delayed tritrophic Allee food chain with different functional responses and Hopf/periodic behavior, without an identified theorem reducing to this precise weighted barrier.",
+          "Jana–Agrawal–Upadhyay 2014 is explicitly related (predator interference and gestation delay), but only its metadata/abstract was accessible; no NOT_COVERING assessment is inferred.",
+          "The positivity, Jensen, and delayed-integral tools are general classical mechanisms, but no inspected general theorem already entails this exact model/parameter bound as stated."
+        ],
+        "reasoning": "Although general concavity and weighted time-average balance principles can be specialized to many ecological models, the searched full-text broader papers differ in nonlinear incidence and do not establish a stronger theorem covering this precise parameter dependence. Inaccessible 2014 full text is a documented residual risk, not automatic rejection or novelty evidence.",
+        "searches": [
+          "Beddington DeAngelis top predator periodic orbit Jensen weighted mean gestation delay",
+          "delay independent invasion threshold predator positive periodic solutions averaged population density",
+          "three species delayed food chain top predator periodic solution time average lower bound invasion threshold Beddington DeAngelis Jensen",
+          "doi:10.3934/mbe.2019234 PDF full-text model and Hopf comparison",
+          "doi:10.1186/s13662-021-03216-z open full-text model and periodic-solution comparison",
+          "Jana Agrawal Upadhyay 2014 top predator interference gestation delay model full text pdf",
+          "doi:10.1016/j.chaos.2014.09.001 arXiv/OA/Oxford authorized access attempts"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2023378 full publisher PDF, system/equilibria/Theorem5.3/Hopf",
+        "doi:10.3934/mbe.2019234 full publisher PDF, system/Hopf",
+        "doi:10.1186/s13662-021-03216-z full OA article, model/Hopf",
+        "doi:10.1016/j.chaos.2014.09.001 abstract only; Oxford full text unavailable",
+        "Resultary 2026/10/11/SCOPE-a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301 self-hit excluded as novelty proof",
+        "Resultary 2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd",
+        "Resultary 2026/10/11/SCOPE-exact-recurrence-crossing-and-mean-elevation-law-in-a-fear-contr--697c1c041e58",
+        "Resultary 2026/10/11/SCOPE-delay-independent-finite-amplitude-mean-corridor-for-periodic-pr--4cc59f562ca9",
+        "Resultary 2026/10/11/SCOPE-critical-t-1-predator-extinction-with-an-exact-gestation-delay-f--9e6e513e14cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local invasion criterion at a boundary equilibrium and the interior fixed-point positivity formula contain ve/(eta-pe).",
+          "The primary paper studies Hopf onset and gives oscillatory numerical illustrations, but a local Hopf eigenvalue crossing does not bound all finite-amplitude cycles.",
+          "Period-integrated x3 balance gives e/eta=E_nu[x2/(v+p*x2+q*x3)], which is not an equilibrium identity but a theorem valid on any positive periodic solution.",
+          "The zero-top-delay refinement uses the logarithmic derivative of x3, an identity unavailable when tau2>0."
+        ],
+        "reasoning": "The new statement implies a necessary density barrier for every positive periodic state but no existence or stability; known source results imply only equilibrium/local conditions or occurrence of Hopf bifurcations. Neither implication direction makes the weighted periodic theorem a mere restatement, although the concavity method itself is routine.",
+        "searches": [
+          "Wang Shao Chai 2023 Dynamics of a predator-prey model with fear effects and gestation delays full text pdf",
+          "Wang Shao Chai delayed food chain top predator periodic orbit weighted average intermediate predator threshold",
+          "delay independent invasion threshold predator positive periodic solutions averaged population density",
+          "primary doi:10.3934/math.2023378 equilibrium x3* and Theorem 5.3 versus periodic M3",
+          "Resultary 2026/10/11/SCOPE-critical-t-1-predator-extinction-with-an-exact-gestation-delay-f--9e6e513e14cd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Shao–Chai 2023 eq. (2.1) is the exact system, with top-predator birth eta*x2(t-tau2)*x3(t-tau2)/(v+p*x2(t-tau2)+q*x3(t-tau2)).",
+          "The equilibrium formula x3*=(eta-pe)*x2*/(q*e)-v/q implies static x2*>ve/(eta-pe).",
+          "The paper uses ve/(eta-pe) in Theorem 5.3 as a local top-predator-free invasion/stability threshold; neither formula asserts a weighted time-mean inequality over every positive periodic solution.",
+          "The paper gives delay-induced Hopf and numerical cycles but no corresponding finite-amplitude period-integral statement."
+        ],
+        "reasoning": "An equilibrium threshold or invasion eigenvalue cannot imply a bound for every periodic orbit without additional dynamics. The period-integrated x3 balance and the tau2=0 logarithmic identity provide statements with different quantifiers and objects. No equivalent full-cycle mean formulation was located in the primary full text; this is not a proof of global historical absence.",
+        "searches": [
+          "Wang Shao Chai delayed food chain top predator periodic orbit weighted average intermediate predator threshold",
+          "Wang Shao Chai 2023 Dynamics of a predator-prey model with fear effects and gestation delays full text pdf",
+          "doi:10.3934/math.2023378 full PDF: equations (2.1), equilibria, Theorem 5.3, Theorem 5.5, periodic/Hopf and numerical sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/11/SCOPE-a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301 reproduces the same assigned claim and is expressly excluded from independent novelty evidence.",
+          "Resultary 2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd gives an additive-predation Bai–Zhang model with a different mean law.",
+          "Resultary 2026/10/11/SCOPE-exact-recurrence-crossing-and-mean-elevation-law-in-a-fear-contr--697c1c041e58 concerns a Kumar–Kumari fear-controlled Holling-II food chain, not the Wang–Shao–Chai top-predator denominator.",
+          "Resultary 2026/10/11/SCOPE-delay-independent-finite-amplitude-mean-corridor-for-periodic-pr--4cc59f562ca9 gives a Wu–Zheng delayed predator–prey finite-amplitude mean corridor, again different equations.",
+          "Resultary 2026/10/11/SCOPE-critical-t-1-predator-extinction-with-an-exact-gestation-delay-f--9e6e513e14cd concerns critical beta=d extinction for a related three-level system, not the eta>pe finite-amplitude period mean.",
+          "No independent exact-table or same-system database hit with an implication stronger than the present weighted bound was located."
+        ],
+        "reasoning": "The checked related table/database items concern different vector fields, response terms, or dynamical properties. The exact assigned self-hit is not independent prior evidence. Similar names, predator parameters, or use of averages do not constitute theorem implication; the outcome is a bounded best-of-knowledge search rather than a proof of novelty.",
+        "searches": [
+          "Wang Shao Chai delayed food chain top predator periodic orbit weighted average intermediate predator threshold",
+          "Beddington DeAngelis top predator periodic orbit Jensen weighted mean gestation delay",
+          "delay independent invasion threshold predator positive periodic solutions averaged population density",
+          "weighted predator mean periodic solutions ecological food chains positive cycles",
+          "Resultary semantic search: Wang Shao Chai delayed food chain top predator periodic orbit weighted average intermediate predator threshold",
+          "Resultary semantic search: Beddington DeAngelis top predator periodic orbit Jensen weighted mean gestation delay",
+          "Resultary semantic search: delay independent invasion threshold predator positive periodic solutions averaged population density",
+          "Resultary semantic search: weighted predator mean periodic solutions ecological food chains positive cycles",
+          "Resultary record 2026/10/11/SCOPE-a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301",
+          "Resultary record 2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd",
+          "Resultary record 2026/10/11/SCOPE-exact-recurrence-crossing-and-mean-elevation-law-in-a-fear-contr--697c1c041e58",
+          "Resultary record 2026/10/11/SCOPE-delay-independent-finite-amplitude-mean-corridor-for-periodic-pr--4cc59f562ca9",
+          "Resultary record 2026/10/11/SCOPE-critical-t-1-predator-extinction-with-an-exact-gestation-delay-f--9e6e513e14cd"
+        ]
+      },
+      "rationale": "Best-of-knowledge, source-specific novelty: the motivating Wang–Shao–Chai 2023 full paper has the static coexistence and local-invasion threshold ve/(eta-pe) but not a universal finite-amplitude periodic weighted-mean barrier, nor the tau2=0 ordinary-mean version. Open full-text comparisons to related delay/Hopf papers use distinct functional responses and do not imply the same-system result. Fresh searches of published findings detected the same assigned record (explicitly EXCLUDED as independent priority evidence) and related mean laws in distinct equations rather than dominating same mathematical model theorems. The Jensen method alone is classical; only the precise model-specific periodic consequence and static-threshold alignment are credited. The 2014 interference/gestation-delay article remains a full-text access risk, NOT evidence of absence.",
+      "residual_risks": [
+        "Highly related 2014 Jana–Agrawal–Upadhyay paper was not available in full text; a similar or stronger mean estimate in that text cannot be excluded.",
+        "Similar time-average and Jensen arguments may have appeared earlier in broad predator–prey permanence/dynamical systems literature under different terminology.",
+        "Novelty is source-specific: neither Jensen, periodic integration, equilibrium invasion, nor use of weighted means is asserted to be new.",
+        "Semantic search, even when primary papers are read, cannot establish exhaustive worldwide priority; these comparisons are best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as to the source-specific universal weighted periodic-mean claim. Exact invasion threshold occurs only in static/local settings.",
+          "evidence": "System (2.1); x3*=(eta-pe)*x2*/(q*e)-v/q; local top-predator-free Theorem 5.3; Theorem 5.5/Hopf and numerical sections; no stated finite-amplitude weighted-period theorem in inspected full paper.",
+          "identifier_or_url": "doi:10.3934/math.2023378",
+          "material_read": "Full 25-page lawful OA publisher PDF: governing system (2.1), existence/positivity preliminaries, equilibrium section, top-predator-free stability Theorem 5.3, coexistence Hopf results, numerical periodic-orbit illustrations and references. Actual PDF page screenshots examined pages 3, 5 and 6 (zero-based screenshot indices 2,4,5); searched mean/average terminology.",
+          "method": "Open-access publisher full text PDF, text inspection, PDF screenshots",
+          "title": "Dynamics of a predator-prey model with fear effects and gestation delays",
+          "trigger": "Same exact equations and same local top-predator invasion threshold; essential priority comparison"
+        },
+        {
+          "assessment": "NOT_COVERING; different nonlinear functional response and no theorem logically implying the same Wang–Shao–Chai mean barrier.",
+          "evidence": "Its equations (2.1) use a different nonmonotone functional response from (v+p*x2+q*x3); the results focus on Hopf/periodic regimes and delay dynamics.",
+          "identifier_or_url": "doi:10.3934/mbe.2019234",
+          "material_read": "Full 32-page lawful OA publisher PDF inspected, including model equations, original Sokol–Howell response, equilibrium and Hopf sections; page 4 (zero-based screenshot index 3) visually examined.",
+          "method": "Open-access publisher full text PDF and PDF screenshot",
+          "title": "Exploring the dynamics of a tritrophic food chain model with multiple gestation periods",
+          "trigger": "Plausible broader delay/periodic theorem for tritrophic food chain"
+        },
+        {
+          "assessment": "NOT_COVERING; differently parameterized and structurally different model, no found logical implication of the present same-system statement.",
+          "evidence": "Different top-predator nonlinear response (Crowley–Martin-type), maturation and Allee terms; no strong same-system period-mean theorem identified.",
+          "identifier_or_url": "doi:10.1186/s13662-021-03216-z",
+          "material_read": "Accessible OA publisher HTML full text: model equations, Allee mechanism, functional response, Hopf theory, periodic simulations and conclusions.",
+          "method": "Lawful open-access journal full HTML",
+          "title": "Dynamical analysis of a delayed food chain model with additive Allee effect",
+          "trigger": "Closely adjacent delayed tritrophic literature with periodic behavior"
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_RISK, NOT a NOT_COVERING claim; primary full-text comparison not possible here.",
+          "evidence": "DOI/title/abstract indicate predator interference and gestation-delay oscillations, but there is no inspected full-text theorem to establish a covering implication. Oxford retrieval job 39d8432b22ff93795691d0d499e2f77f returned vpn_disconnected.",
+          "identifier_or_url": "doi:10.1016/j.chaos.2014.09.001",
+          "material_read": "Title, bibliographic metadata and abstract only; arXiv/preprint and lawful OA paths checked but no full readable text found.",
+          "method": "Open web metadata/abstract, followed by authorized Oxford publisher-paper retrieval; latter returned vpn_disconnected, no workaround attempted.",
+          "title": "Top-predator interference and gestation delay as determinants of the dynamics of a realistic model food chain",
+          "trigger": "Highly plausible earlier predator-interference with gestation delay, potentially broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3934/math.2023378 self-review, stability/Hopf/oscillatory section",
+        "pinned RESULT.md proof and scope",
+        "doi:10.3934/mbe.2019234 related oscillation modeling"
+      ],
+      "rationale": "The Wang–Shao–Chai source studies Hopf-driven nonstationary predator coexistence and identifies the top-predator invasion level only at equilibria. An explicit necessary bound on the natural x3-weighted abundance of its intermediate predator along EVERY positive finite-amplitude periodic state, valid for arbitrary gestation delays, is a motivated nonlocal invariant of the published model, not a random parameter slice. The same exact threshold as local invasion makes it interpretable and usable as an analytic consistency check for proposed oscillatory branches. The tau2=0 ordinary mean statement clarifies a structurally important boundary in delay placement. It is a precise but modest self-contained mathematical fact: the proof is elementary once the right observable is chosen, it does not yield existence/stability or general permanence, and those limits do not erase its specific usefulness.",
+      "residual_risks": [
+        "The inequality is necessary rather than sufficient and is conditional on positive periodic solutions.",
+        "For tau2>0 it constrains a weighted mean that depends on the predator density rather than the ordinary observed time mean.",
+        "The Jensen method itself is classical; significance is restricted to the motivated exact threshold in this model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "2014 high-relevance paper full text not available through Oxford (vpn_disconnected); priority assessment remains best of knowledge with this explicit risk.",
+    "No scientific files or GitHub record were modified.",
+    "The theorem is conditional on positive cycles and controls only weighted means for positive tau2."
+  ],
+  "schema_version": 1
+}
