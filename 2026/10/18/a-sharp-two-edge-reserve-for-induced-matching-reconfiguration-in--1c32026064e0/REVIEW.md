@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The affine-incidence conflict-mask enumeration is complete by an increasing-index recursion; the absence of size-six induced matchings proves the claimed optimum size. All state and transition counts, connected components, and shortest paths are reproduced by an independent LCF construction using a separate subset-enumeration method. A complete certificate of masks, transitions, and the line-graph bijection is checked against reconstructed graph edges. The metric theorem concerns optimum vertices only, not all states.
+## correctness
 
-## Originality
-**PASS with limitations.** General results on maximal induced matching enumeration (Basavaraju et al., arXiv:1312.5180), token jumping (Ito et al., arXiv:1406.6567), and exact homotopy of the ordinary Pappus matching complex do not determine the induced-matching reconfiguration graph. Relevant portions of the primary PDFs were materially compared for the first two papers, and the complete published result text was inspected for the Pappus matching-complex and affine-locality results. The abstract of Dabrowski–Demange–Lozin (2013) suggests class-wide complexity statements, not the precise Pappus exchange geometry; the full paper could not be retrieved. Unindexed equivalent work remains a residual risk, so this is not independent priority certification.
+PASS
 
-## Value
-**PASS.** Maximum induced matchings are a natural edge-packing invariant in network interference and strong edge coloring. Their unmoveability under optimum-preserving one-edge exchanges and the sharp two-edge reserve distinguish local optimality from global reconfigurability. The nontrivial line-graph model gives exact distances for every pair of optima and a geometric interpretation, rather than a mere scalar count. The finite classification is precise and reproducible; no higher-order family theorem is claimed.
+The Pappus graph is the biaffine incidence graph with points (x,y), lines (m,b) over F_3 and incidence y=mx+b. An induced matching is an independent set in the conflict graph of its 27 graph edges. Increasing-edge-index recursion enumerates EVERY independent set, with counts (1,27,189,387,135,27,0) at cardinalities 0..6, so the maximum is five. Exactly 153 size-three matchings and 27 size-five matchings have no extension; all 135 size-four matchings have unique maximum extension. The reserve-four add/remove graph therefore has 27 isolated K_{1,5} components. For floor three, exhaustive BFS on 387+135+27=549 states and 675 transitions gives one 396-state component containing all 27 maxima and 153 isolated vertices. The exact certificate supplies explicit H->L(Pappus) permutation: H joins maximal matchings sharing three edges, has 54 edges and degree four, and every one of the 351 optimum pairs has d_TAR=4d_H. Exact distance spectrum: 54 at 4,108 at 8,162 at 12,27 at 16. Independently reconstructed F3 incidence, compatibility, all-size counts, BFS and a NetworkX L(P) isomorphism, not relying on logged VERIFY_OK. Exhaustiveness comes from enumerating all independent edge subsets, not from a search timeout.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality assessment of this EXACT final statement against published mathematical results and the source model, not certification of historical priority. General mathematical machinery and prior model definitions are attributed; claim-specific evaluated classification is not found among inspected primaries. A failed search is not novelty proof. Maximum-induced-matching complexity and FPT/reconfiguration tools could compute these properties after a dedicated finite calculation but do not logically imply a 27-star reserve-four graph or exact distance histogram. The certified enumeration supplies the missing finite object-specific theorem.
+
+## value
+
+PASS
+
+The 18-vertex Pappus graph is a canonical cubic bipartite incidence graph. A sharp reserve threshold for connecting maximum induced matchings, the entire finite reconfiguration-component decomposition, the surprising compression onto the line graph of the same graph, and the exact optimal-state metric supply a reusable benchmark and structural obstruction to local improvement; these are not merely recomputed ordinary matching counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
