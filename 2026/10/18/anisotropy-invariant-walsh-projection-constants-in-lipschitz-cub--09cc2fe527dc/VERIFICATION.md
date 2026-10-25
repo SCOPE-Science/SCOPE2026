@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof derives an upper estimate from directional Walsh kernels and an attaining sign-gradient at a least-weight coordinate. Translation averaging proves that the Fourier projection has the minimum norm among all projections onto the specified subspace. Coordinate transitivity makes the directional kernel norms coincide, independently of the positive weights.
+# Independent mathematical audit
 
-For reproducibility, run `python CHECKER.py`. The script uses Python's standard library only and performs exact rational evaluations of weighted edge Lipschitz norms and integer Walsh transforms. It tests all homogeneous degrees in dimensions \(2\) through \(6\), selected unions of spectral levels, and a proper-transitive example; it compares kernel and binomial values through dimension \(7\) and checks the quadratic identity through dimension \(11\). The tests do not enumerate all dimensions, all support families, or all real weights. Universal validity depends on the written analytic argument rather than empirical checks.
+## correctness
 
-No external or independent audit has been performed.
+PASS
+
+For finite positive weights w_i, coordinate-sign translation operators are still isometries of pointed Lip_0, so averaging any projection yields the canonical Walsh projection Q_A as unique character-diagonal equivariant projector, proving minimum norm. Weighted Lipschitz norm is maximum over edge differences/w_i. Fourier derivative along i is convolution by K_i, yielding norm <=max_i c_i where c_i is the mean absolute coordinate-shadow Walsh kernel. Pick i with smallest weight and let h=sign K_i; f=(w_i/2) x_i h(x_without_i), normalized at basepoint, has Lipschitz norm 1 because every transverse edge has weight at least w_i and its amplitude difference <=w_i. Its i-th projected derivative attains c_i. Coordinate-transitive spectral support makes every c_i identical, so sharp weighted norm is the unweighted coordinate-shadow constant. The homogeneous layer count follows by binomial signs; degree-2 formula gives n=4 value 3/2 for every positive w. Zero-kernel signs, n>=2, degree 1 and n endpoints are accounted for; argument proves all weights, not only tested rational examples.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison identifies no prior theorem implying the final claim at its actual hypotheses; known overlap and residual bibliographic risks are recorded, not erased.
+
+## value
+
+PASS
+
+Exact relative projection constants for every coordinate-transitive Walsh support on arbitrarily anisotropic positive weighted Hamming cubes, including proper transitive groups and all homogeneous layers, reveal a non-obvious invariant of finite metric Banach spaces even though coordinate permutations cease to be isometries. The least-weight sign-gradient construction is a reusable sharpness mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
