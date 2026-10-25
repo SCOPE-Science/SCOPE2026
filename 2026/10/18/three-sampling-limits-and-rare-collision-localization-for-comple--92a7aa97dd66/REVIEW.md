@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact-angle claim is a factorial fiber count after identifying Gaussian coordinate orders with nested-fan search trees. The labeled-broom multiplicity uses disjoint exhaustion-color cases; the normalization and collision moment follow by summing these fibers. In the balanced case, Gaussian and uniform vertex limits follow from factorial ratios and dominated convergence. For collision conditioning, the exact summand ratio bounds the entire far tail and gives total mass tending to \(e\), not merely convergence of fixed coordinates. Eight finite cases were exhaustively checked against direct Minkowski-sum support vertices with exact arithmetic. Boundaries \(r=1\), \(r=\max(p,q)\), and \(p=q=1\) are included; independent validation has not occurred.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The canonical graph associahedron, the nested fan, and the fact that complete-bipartite search trees have broom form are older results and are explicitly excluded from novelty. Cardinal–Pournin–Valencia-Pabon (arXiv:2106.16130, Sections 1 and 6) determine combinatorial distance bounds rather than angular probability laws. The 2023 associahedron survey explains the general fan framework but does not supply these balanced rare-collision and competing-sampling asymptotics. Gargantini–Pastine–Torres (arXiv:2406.06317, Introduction/Section 4) likewise studies flip distances. The publicly indexed finite \(K_{4,4}\) eccentricity record has the same broom-shape counts for one graph; its flip-distance law neither determines collision localization nor provides the all-dimension asymptotic. Related angular laws for graphical *zonotopes* or star-graph interpolations do not dominate the present graph-associahedron result because their fans/normal cones differ.
+PASS
 
-A prior paper could state the same convergence in the equivalent language of random elimination trees or linear-extension fibers. The checked searches did not identify one; absence of a hit alone does not prove novelty.
+The Minkowski sum of connected induced coordinate simplices has normal fan indexed by recursive maximum-coordinate search trees, and in a biclique these are an ordered elimination handle ending in r unordered same-color leaves. Among n! strict Gaussian coordinate permutations, each labeled broom has precisely r! orderings of its terminal leaves; hence mass r!/n!. Counting the last exhausted-color vertex and unordered remaining leaves yields N_{p,q}(r)=(n−r−1)![p C(q,r)1_{r≤q}+q C(p,r)1_{r≤p}], including r1. Independently enumerated all connected tubes, all n! coordinate orders, and directly computed Minkowski-maximizing vertex vectors and grouping by brooms for p,q=(1,1),(1,2),(2,2),(2,3),(2,4),(3,3),(3,4), with exact rational masses. For (3,4) obtained exactly 3702 vertices and C=11/22050, matching equations (1),(2). For m=m derive N_m(r)=2m*C(m,r)*(2m−r−1)!, fixed-r Gaussian leaf mass→2^-r and vertex count/(2m)!→e^{1/2}−1 by dominated convergence. Write collision C as 2(m!)³/((2m)!)² Σ_{k=0}^{m−1} a_m(k), a_m(k)=(m+k−1)!(m−k)!/((m−1)!m!k!), ratio=(m+k)/((m−k)(k+1)); for k≤m/2 bound a_m(k)≤3^k/k!, later terms nonincreasing up to k=m−2 and total tail ≤m·3^floor(m/2)/floor(m/2)!→0. Hence sum→e and conditioned deficit→Pois(1), analytically—not inferred from finite census. At p=q=1 and n2 degenerate brooms still correct.
 
-## Mathematical value — PASS
-Angular probabilities are the intrinsic probabilities that a randomized linear optimization direction chooses a vertex. The geometric distribution for ordinary Gaussian sampling is fundamentally different from the Poisson behavior of the uniform vertex ensemble, while a two-sample collision selects extremely atypical, maximum-leaf brooms. The theorem gives exact finite spectra and a sharp asymptotic rare-event law for a natural infinite family, quantifying strong sampling bias that neither combinatorial vertex counts nor graph-diameter bounds alone describe. No general theorem for arbitrary graphs or a paper-sized contribution is assumed necessary for this claim.
+## originality
 
-## Limitations
-The infinite limits require balanced bipartition size and isotropic independent Gaussian objectives; alternative embeddings, anisotropic directions and unequal growth rates are outside the proved limits. Mathematical checks are same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Established graph-associahedron theory already provides the connected-tube simplex sum, nested fan, search-tree bijection and biclique broom shapes. Related K4,4 graph-associahedron eccentricity data count brooms but study flip distance rather than isotropic Gaussian normal cones. The all-(p,q) exact solid-angle masses and three balanced sampling/collision limits are not implied by that distance table or cited diameter estimates as stated. Best-of-knowledge O PASS, with explicit equivalence risk to known random search-tree/linear-extension theory.
+
+## value
+
+PASS
+
+Different sampling measures of the same natural polytopal vertex set lead to genuinely different limiting laws—geometric typical Gaussian, conditioned Poisson under vertex-uniform, and opposite-end Poisson under rare collisions. The exact normal-cone collision localizes exponentially atypical configurations and is a meaningful asymptotic invariant of standard biclique graph associahedra, not an arbitrary numerical slice or generic shape classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python check_angles.py` using Python 3 with the standard library only. The script independently enumerates every strict coordinate ranking and every canonical Minkowski-sum supporting vertex of the graph associahedra for eight graph sizes: \((1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3),(3,4)\). It identifies the recursive elimination-tree keys and tests the exact equality of the two equivalence relations, checks the full vertex-count spectrum and each factorial permutation fiber, and calculates collision probabilities as exact rational numbers. The eight enumerations passed, with successful terminal marker `ALL EXACT CHECKS PASSED`.
+## correctness
 
-The script also evaluates four finite scaled collision sums at balanced orders \(m=5,10,20,50\). Those are numerical consistency observations, not exhaustive proofs of any infinite statement. The arbitrary-order formulas follow by counting all labeled brooms. The limits use fixed-index factorial estimates, a summable \(1/r!\) majorant for uniform vertices, and the ratio/tail argument for the collision-conditioned deficit. These analytical steps, rather than finite experiments, establish the asymptotic results.
+PASS
 
-Mathematical limitations: the laws concern isotropic Gaussian exposed vertices of the specified nested-fan realization; no arbitrary-direction or nonbalanced-scaling limit is asserted. Independent mathematical validation has not been performed.
+The Minkowski sum of connected induced coordinate simplices has normal fan indexed by recursive maximum-coordinate search trees, and in a biclique these are an ordered elimination handle ending in r unordered same-color leaves. Among n! strict Gaussian coordinate permutations, each labeled broom has precisely r! orderings of its terminal leaves; hence mass r!/n!. Counting the last exhausted-color vertex and unordered remaining leaves yields N_{p,q}(r)=(n−r−1)![p C(q,r)1_{r≤q}+q C(p,r)1_{r≤p}], including r1. Independently enumerated all connected tubes, all n! coordinate orders, and directly computed Minkowski-maximizing vertex vectors and grouping by brooms for p,q=(1,1),(1,2),(2,2),(2,3),(2,4),(3,3),(3,4), with exact rational masses. For (3,4) obtained exactly 3702 vertices and C=11/22050, matching equations (1),(2). For m=m derive N_m(r)=2m*C(m,r)*(2m−r−1)!, fixed-r Gaussian leaf mass→2^-r and vertex count/(2m)!→e^{1/2}−1 by dominated convergence. Write collision C as 2(m!)³/((2m)!)² Σ_{k=0}^{m−1} a_m(k), a_m(k)=(m+k−1)!(m−k)!/((m−1)!m!k!), ratio=(m+k)/((m−k)(k+1)); for k≤m/2 bound a_m(k)≤3^k/k!, later terms nonincreasing up to k=m−2 and total tail ≤m·3^floor(m/2)/floor(m/2)!→0. Hence sum→e and conditioned deficit→Pois(1), analytically—not inferred from finite census. At p=q=1 and n2 degenerate brooms still correct.
+
+## originality
+
+PASS
+
+Established graph-associahedron theory already provides the connected-tube simplex sum, nested fan, search-tree bijection and biclique broom shapes. Related K4,4 graph-associahedron eccentricity data count brooms but study flip distance rather than isotropic Gaussian normal cones. The all-(p,q) exact solid-angle masses and three balanced sampling/collision limits are not implied by that distance table or cited diameter estimates as stated. Best-of-knowledge O PASS, with explicit equivalence risk to known random search-tree/linear-extension theory.
+
+## value
+
+PASS
+
+Different sampling measures of the same natural polytopal vertex set lead to genuinely different limiting laws—geometric typical Gaussian, conditioned Poisson under vertex-uniform, and opposite-end Poisson under rare collisions. The exact normal-cone collision localizes exponentially atypical configurations and is a meaningful asymptotic invariant of standard biclique graph associahedra, not an arbitrary numerical slice or generic shape classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
