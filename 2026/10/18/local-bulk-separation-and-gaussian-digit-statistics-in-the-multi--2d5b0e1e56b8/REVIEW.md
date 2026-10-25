@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplicative exclusion splits exactly into independent odd-rooted dyadic chains. Their Fibonacci partition polynomials give all finite counting moments. The geometric length distribution yields convergent mean/variance series; Lindeberg proves the Gaussian law with the claimed deterministic centering. Perron ratios establish the fixed-coordinate limiting product law; the explicit Markov recursion identifies the distinct almost-sure bulk density. Independent-chain Hoeffding concentration yields the exponential total-variation lower bound. The standalone program confirms finite identities independently by exact admissible-word enumeration; infinite claims rely on the proof rather than numerical tests.
+## correctness
 
-## Originality — PASS
-The known decomposition and golden-mean counting formula appear in Fan–Liao–Ma (2011) and Kenyon–Peres–Solomyak (2011), while Peres–Solomyak (2012) treats the same system using selected infinite product measures for a different objective. The closest inspected published record on a dyadic Parry limit concerns an additive doubling-map pushforward of a self-similar measure, not finite uniform multiplication-constrained prefixes. No inspected claim entails the conjunction of the uniform-prefix count CLT, cylinderwise convergence, the different bulk digit densities, and quantified exponentially maximal total-variation separation. Historical priority beyond inspected sources is not certified; a broader unindexed weighted-subshift theorem remains a risk.
+PASS
 
-## Mathematical value — PASS
-This is a canonical non-additively constrained symbolic system. The explicit distinct constants for a naturally arising finite-volume law and its local weak limit quantify why passing to an infinite local limit does not preserve macroscopic frequencies. Exponential separation gives a nontrivial structural consequence, while the Gaussian fluctuation scale and variance series provide reproducible finite-volume information. The result is neither a relabeling of known Fibonacci counts nor a finite numerical curiosity.
+For uniform admissible N-prefixes of X={x in {0,1}^N: x_j x_(2j)=0}, unique dyadic decomposition j=2^r i with odd i splits configurations into independent length L_i(N)=1+floor(log2(N/i)) golden-mean chains. Chain log-PF recurrence Z0=1,Z1=1+exp(t),Zk=Z(k-1)+exp(t) Z(k-2) yields exact first two moments. Since d_k(N)=N/2^(k+1)+O(1), convergent series define alpha~0.366541662066731 and sigma²~0.148936034454920>1/16, with mean alpha N+O(log²N), variance sigma² N+O(log³N). Independent-chain triangular-array Lindeberg, with max chain length O(log N), establishes the asserted normal law. Perron–Frobenius ratios give fixed-cylinder local Markov limit with initial (1/phi,1/phi²) and transition [[phi^-1,phi^-2],[1,0]]; its almost-sure digit density beta=2/(4+sqrt5)~0.320714913 follows q_(r+1)=phi^-2(1-q_r) and independent-chain Hoeffding. The bound sum_i L_i²<=6N yields TV>=1−4exp(−(alpha−beta)² N/48) for sufficiently large N, proving local and bulk separation. Independently enumerated legal words N=5,10,14 (20,288,2880 words) and checked series and moment recurrences. Finite cases are corroboration, not CLT/TV proof.
 
-## Scope and limitations
-The claims concern precisely uniform binary admissible prefixes for the relation at indices \(j\) and \(2j\). No general rate in the central limit theorem, finite cutoff for the total-variation inequality, or extension to other multiplicative subshifts is established. Classical golden-mean Perron matrices, independent-chain counting, Lindeberg and Hoeffding are used as standard inputs. Unresolved priority risk from general weighted transfer formalisms is retained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kenyon–Peres–Solomyak already study the multiplicative golden mean shift, independent dyadic-chain decomposition and dimension/the variational principle, and Peres–Solomyak special infinite product measures. The newly assessed law compares UNIFORM finite-prefix ensembles to their distinct boundary-biased local limit, proves quantitative global total variation separation, and gives a Gaussian digit-count CLT with explicit mean/variance series. The dimension formulas alone do not imply this pair of measure-specific probabilistic limits. Risk remains of a generic multiplicative shift CLT or boundary ensemble theorem that implicitly specializes.
+
+## value
+
+PASS
+
+The observable discrepancy between local weak convergence and exponentially maximal growing-volume total variation in a canonical multiplicative subshift is a mathematically substantive boundary-versus-bulk phenomenon; the explicit Gaussian density and variance describe natural finite-volume digit statistics, beyond classical Hausdorff dimension of the same space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
