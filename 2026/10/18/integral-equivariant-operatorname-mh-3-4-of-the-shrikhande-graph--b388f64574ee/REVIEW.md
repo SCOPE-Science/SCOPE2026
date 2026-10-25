@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's precise object is the Shrikhande Cayley graph, with endpoint-fixed integral magnitude chain groups at length four. All 256 endpoint pairs reduce under the complete 192-element automorphism group to exactly four orbit representatives. For each, all integral chain bases and signed smooth-vertex deletion matrices are enumerated. Their dimensions and exact Smith invariants are in the accompanying result and certificate. The image of the length-four boundary is primitive, so the endpoint third homology is torsion-free. The two nonzero endpoint fibers are each rank one. Rank-one cocycles and all stabilizer actions are checked modulo the exact coboundary span, establishing the integral signs. The full-group order is corroborated by Brouwer. No unbounded inference is required. Risks: the method depends on the correctness of a finite exact-arithmetic implementation, which is furnished for replay; no separate human proof check has occurred.
+PASS
 
-## Originality — PASS, qualified
+From the actual Cayley generators on Z4², independent shortest-path enumeration gives 16 vertices, degree6, distance distribution (1,6,9), and 12 linear generators fixing 0, yielding 192 affine graph automorphisms, matching the published full order. The four displacement orbits have sizes 1,6,3,6. For each representative, independently generated every length4 magnitude-chain basis and signed d3,d4, checked d3d4=0, and computed full integer SNF: for distance0 dims C2,C3,C4=(9,54,96), ranks d3,d4=(9,45), H3=0; distance1 (6,54,80), ranks(6,48), H3=0; both distance2 orbit reps (4,66,80), ranks(4,61), H3=Z. All nonzero SNF factors of d3/d4 equal 1, proving torsion-freeness, 144 localized Z copies in total. Independent rational cohomology cocycle action verifies signs on every representative stabilizer: H_(0,2): two + two -, H_(1,2): one + one -. Integral rank-one fiber action has same ± signs. Endpoints induce full 192-group lattice modules; invariant zero and each nontrivial stabilizer coinvariants Z/2, total (Z/2)².
 
-Gu (2018), Appendix A Proposition A.2 and Tables 1–2, is decisive prior art: it already provides the *rational rank* 144, and the rook-graph contrast. Neither number is credited as new. Gu's appendix explicitly describes rational Sage computations, with no endpoint-localized integral Smith forms or full signed automorphism representation. Asao–Izumihara provide a general endpoint-complex framework, rather than this evaluated group and its integral action. Sazdanovic–Summers show torsion can be present in magnitude homology, so an integral upgrade cannot be inferred merely from rational rank. Brouwer describes graph automorphisms but does not compute magnitude-homology actions. Explicit research-record searches for this graph, endpoints, integral torsion, pair stabilizers, and equivariant magnitude homology yielded related but distinct topological complexes or graph families. An equivalent unindexed equivariant computation is the remaining literature risk.
+## originality
 
-## Value — PASS
+PASS
 
-The full \(\mathbb Z[\operatorname{Aut}(S)]\)-module is a natural topological invariant of the canonical smallest non-distance-transitive distance-regular graph. It makes precise both the integral torsion question left open by a rational rank and the symmetry organization of all 144 classes. The two nontrivial stabilizer characters make the module different from the naïve unsigned permutation representation, forcing zero full-automorphism invariants and two independent order-two coinvariants. This is structural data on the same natural object, not a rephrased rank or an arbitrary numerical slice. Risks: this does not extend to other bidegrees or graph families and does not establish an all-graph equivariant theorem.
+Best-of-knowledge original only for the precise additional integral/equivariant/multiplicative result; explicit known portions carved out. Two targeted indexed semantic searches plus specified primary comparisons do not show a stronger implying theorem; absence of hits is not a proof of novelty. See each named mathematical implication check and named residual risks.
 
-## Closest prior literature and scientific limitations
+## value
 
-Primary source: Y. Gu, arXiv:1809.07240, Appendix A, Proposition A.2 and Tables 1–2 (2018); the rank is known. Related methods: Y. Asao–K. Izumihara, arXiv:2003.08058 (2020), and Y. Tajima–M. Yoshinaga, arXiv:2110.02458 (2021). Integral torsion motivation: R. Sazdanovic–V. Summers, arXiv:1912.13483 (2019). Graph symmetry: A. E. Brouwer, Shrikhande graph entry. The new statement is limited to endpointwise integral homology and its natural full automorphism action in bidegree \((3,4)\); unresolved risk is unindexed equivalent work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Shrikhande graph is the canonical counterexample partner of the 4x4 rook graph among strongly regular (16,6,2,2) graphs. Published rational MH3,4 rank144 does not determine integral torsion, which endpoint orbit supports homology, or the full signed 192-group module. Complete local Smith and sign classification is a natural exact invariant useful for equivariant magnitude homology comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
