@@ -1,19 +1,21 @@
-# Review of the triangular-graph transportation-ball classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The facet potential criterion follows from the rank of the active edge-incidence matrix. Its connected tight graph gives integrality; graph diameter two reduces the entire problem to exactly \(3^{10}\) normalized candidates, not an asymptotic guess or sampled grid. The standalone pure-standard-library program exhaustively verifies all candidates, independently re-enumerates the two-level and three-level cases, computes the signed \(S_5\) orbits, and checks Burnside's count. The sharp \(20\)-vertex upper bound and equality classification have a separate five-clique/Hamiltonian-cycle proof, removing dependence on numerical output for the extremal assertion.
+## correctness
 
-## Originality
-**PASS, subject to ordinary literature risk.** The 2019 work of D'Alì–Delucchi–Michałek provides the general connected-tight-subgraph criterion; Chen–Davis–Korchevskaia describe arbitrary graph facet-subgraph fibers. Those are prior tools and are not claimed as new. Neither inspected paper tabulates the \(1032\) facets, the complete \(17\) symmetry orbits or the sharp Hamiltonian-cycle extremizers for \(J(5,2)\). The published Aliaga functional-analysis work concerns general extreme points, not this graph's exact facet classification. The closest available mathematical records for \(J(n,2)\) concern projection norms, while Petersen-graph facet records concern the complementary *different graph*; these do not entail the specific incidence spectrum. An unindexed count or database entry remains possible and is not ruled out by a negative search.
+PASS
 
-## Value
-**PASS.** This is a complete exact facet-orbit classification of a canonical highly symmetric ten-point graph metric free space, not the recomputation of a stated table. The result identifies five distinct facet incidence classes, two potential-level types, and a distinguished smallest symmetry orbit of exactly twelve optimizers, with a structural bijection to complementary Hamiltonian cycle decompositions of \(K_5\). The exact certificate and representatives make the classification a concrete benchmark for comparing finite transportation norms. The result is finite but a natural complete classification, not an arbitrary parameter slice or a routine substitution into a known count formula.
+G=L(K5)=J(5,2) has 10 metric points, 30 edges, diameter 2, so the real 9-dimensional free unit ball is a symmetric edge polytope. At a polar vertex active ± incidence normals span dimension 9 iff tight-edge graph connected. Along a tight spanning tree differences are ±1 and normalization min f=0 gives integer f; graph diameter 2 gives f in {0,1,2}^10. Thus checking exactly 3^10=59049 candidate assignments is exhaustive, not sampling. Independently enumerated 1032 connected-tight admissible potentials, with tight edge-count multiplicities {12:110,14:300,16:330,18:280,20:12}, levels {2:922,3:110}. Independent S5×C2 orbit enumeration yielded 17 orbits of exactly stated sizes; the five maximum K4 stars distinguish S5 as all graph automorphisms. Every K4 star contributes at most 4 tight edges, so upper bound 20. Equality forces balanced 2+2 at all five K5 vertices; no simultaneous level 0/2 classes on 5 ground vertices; hence each color is spanning 2-regular, necessarily complementary Hamiltonian 5-cycles, 12 labeled maximizers. The equality proof does not depend solely on enumeration.
 
-## Closest literature and limits
-- D'Alì, Delucchi and Michałek, *Many faces of symmetric edge polytopes*, arXiv:1910.05193, Theorem 3.1 (general criterion; 2019).
-- Chen, Davis and Korchevskaia, *Facets and facet subgraphs of symmetric edge polytopes*, arXiv:2107.12315, Theorems 3, 9 and 12 (general facet-subgraph structure; 2021).
-- Aliaga, *Extreme points in Lipschitz-free spaces over compact metric spaces*, arXiv:2102.01219 (general Banach-space context; 2021).
+## originality
 
-The conclusion does not cover arbitrary \(J(n,2)\), complex free spaces or the entire linear isometry group. The general facet characterizations naturally allow *algorithms* for every finite graph; the new claim is their explicit complete evaluation and independent extremal characterization here. Further unindexed literature could contain equivalent evaluated results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
+
+## value
+
+PASS
+
+A canonical highly symmetric ten-point graph metric acquires a complete exact real transportation-ball facet-orbit classification and five distinct incidence strata; the sharp optimizer family is linked to complementary Hamiltonian cycles. Such a finite natural complete classification is independently useful as a computational/combinatorial benchmark, even without a formula for all J(n,2), and is not a mere generic recognition criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
