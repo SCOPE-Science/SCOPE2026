@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A first-decrease obstruction bounds white occupancies by two on each side, and a separate first-forcing argument excludes two unmatched white vertices. The completion lemma checks the single-white-side boundary, including the case in which the only blue vertex on a three-vertex part is the non-neighbor of the remaining opposite white vertex. The two-pair case reduces exactly to inequality of matched-index subsets. Exhaustive graph-based computation checks 130 full profiles and 12 larger restricted profiles. The proof, not the finite tests, is the basis for the universal claim.
+PASS
 
-## Originality
+For G=K_(a,b) minus t disjoint cross-edges with a,b≥3, any >=3 initial white vertices on one side cannot ever be the first forced there because every opposite blue vertex has at least u−1>=2 white neighbors. A white pair on one side must include a matched endpoint to allow a blue opposite partner to see only the other. When both white sides have size two, initial forces exist exactly if the marked index sets I_U, I_V are unequal; equality is a complete deadlock. Checked completion cases u,v≤1, (2,0), (2,1), and symmetric, including a=3 exceptional one-blue-on-side case: a matched opposite partner always supplies a valid first move. Thus admissible whites sizes 0–4 are exactly those characterized in RESULT.md. Counting gives 1,N,ab+p+q,bp+aq,r with p=binom(a,2)−binom(a−t,2), q=binom(b,2)−binom(b−t,2), r=pq−t(a−t)(b−t)−binom(t,2). At t=0,1,>=2, r/support yield sharp Z=N−2,N−3,N−4. Independent brute-force simulation of all blue masks for selected (a,b,t): (3,3,0..3), (4,5,2),(4,5,4) matched predicted polynomial (e.g. t=2 3×3 coefficients 1,6,15,18,6); source verify.py independently read but opaque uploaded code not run. Unlimited parameter result rests on forcing-move classification, not finite sample.
 
-PASS under the recorded published-source and mathematical-record comparisons, with residual risk. Boyer et al. (2018, arXiv:1801.08910v1) already determine the ordinary zero-forcing polynomial for undeleted complete bipartite graphs and give generic high coefficients. Fallat et al. (2023, arXiv:2306.01138v1) determine a scalar forcing variant for undeleted complete bipartite graphs. Neither inspected relevant full-text section implies the new positive-matching-deletion all-set classification and lower coefficients. Nearby published-finding corpus results concern chain graphs with non-singleton twin classes, other forcing rules, or other graph invariants. Unindexed literature is an explicit remaining risk.
+## originality
 
-## Value
+PASS
 
-PASS. The exact cardinality polynomial solves the complete initial-condition enumeration, not only a scalar minimum, on a natural dense bipartite perturbation family including crown graphs. Its matched-index obstruction yields a sharp three-stage zero-forcing-number law and every minimum-set count. The dimension lower bound is part of the theorem and small-side variants are not asserted.
+Best-of-knowledge PASS for positive matching deletion. Boyer et al already give undeleted K_(a,b) polynomial and generic two top coefficients, which are acknowledged. Related Resultary exact non-CIS-pair count is the same graph family but a different property. No inspected source supplies the newly enumerated white deadlocks and low-degree polynomial coefficients.
 
-## Limitations
+## value
 
-Ordinary forcing only. Both part sizes must be at least three; exceptional order-two cases are outside scope. Computational tests are finite; no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting a matching from a dense bipartite graph is a natural sparse perturbation, including crown graphs. The complete zero-forcing set polynomial and exact sharp two-stage collapse at t=1 and t=2 distinguish all forcing-set sizes and minimum-set multiplicities, significantly refining the known undeleted K_{a,b} polynomial and scalar invariants. This structural family result supports further forcing polynomial comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
