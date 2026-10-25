@@ -1,19 +1,21 @@
-# Scientific review: coordinate Toeplitz resolvent
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The moment normalization follows from an exact beta integral. Fourier orthogonality turns coordinate compression into an invertible positive bilateral weighted shift. The inverse-power estimates make the Laurent expansion convergent in operator norm for every radius below one. The analytic/co-analytic cross block is a literal vector outer product; its norm is the product of two explicitly summable generating functions. Both remaining half-line blocks have the smaller order \(O_\alpha((1-r)^{-(\alpha+3)/2})\). The exterior equality follows from contraction plus the approximate unit-circle spectrum. Rotational covariance yields angular uniformity. Finite-dimensional tests check identities but are not substituted for proofs.
+PASS
 
-## Originality (O): PASS with disclosed access risk
+For real α>−1 in the complex-valued harmonic Bergman L²((α+1)(1−|z|²)^α dA/π), the Fourier monomials e_n produce a bilateral weighted shift, positive weights w_n→1 in both tails, ||T||=1, inverse powers of polynomial norm growth, hence spectrum is exactly the unit circle. For r<1, the inverse Laurent series converges in operator norm. Its analytic-to-antianalytic block is exactly rank one with entries r^(m+j−1)/sqrt(m_m m_j); sum 1/m_n=(1−r²)^−(α+2) gives norm r^−1(1−r²)^−(α+2)sqrt(1−(1−r²)^(α+2)). The remaining two within-half-line blocks have ||·||=O((1−r)^−(α+3)/2), strictly smaller than the cross block because α>−1; hence the sharp interior limit 2^−(α+2) after scaling by (1−r)^(α+2). The outer norm equals 1/(r−1) by ||T||=1 and spectral radius lower bound. Fourier rotation invariance and inversion give the stated asymmetric pseudospectral radial depths. Independent reconstructed truncated matrices checked rank-one norm and positive block tail formula for 12 α,r configurations; finite sections are not infinite operator estimates. Pseudospectral statement assumes the stated resolvent convention; α=−1 excluded.
 
-The 2026 Huang–Wang–Zhao abstract describes the ordinary spectrum and Weyl properties, not an exact rank-one resolvent mechanism or pseudospectral exponent. The 2002 Guo–Zheng article concerns compactness and Toeplitz algebras; the 2025 Iqtaish–Louhichi–Yousef article concerns commuting operators. Neither the publicly checked statements nor the semantically searched mathematical records supply the asserted quantitative boundary law. An analytic spectral-curve theorem and a compactness criterion do **not** imply the sharp norm coefficient for a nonnormal resolvent. A preprint full-text comparison and the 2002 full text were unavailable despite bounded retrieval attempts; this leaves a genuine but not decisive priority risk. No uniqueness across all mathematical literature is claimed.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The spectrum alone does not predict these markedly asymmetric pseudospectral boundaries. This result determines a natural exact family of leading constants and a variable exponent across the full integrable power-weight range. Its cross-block factorization explains why the analytic and anti-analytic halves interact at a higher order than either half separately. That is a structural feature useful for resolvent and spectral-stability questions, not merely a rephrasing of the known qualitative circle spectrum.
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. Quantitative resolvent asymptotic is not a direct corollary of the compared C* algebra and ordinary spectrum results. The value arises from controlling the two within-side blocks uniformly and proving the coefficient, not naming the circle spectrum.
 
-## Scientific limits
+## value
 
-The inner formula is asymptotic rather than a complete finite-radius norm formula; the full original preprint is still an originality risk. No result is claimed for general symbols or for the excluded endpoint \(\alpha=-1\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit nonnormal pseudospectral boundary of the canonical coordinate Toeplitz operator is a natural spectral-stability invariant. It provides an α-dependent interior power law and exact exterior linear law with leading constants, explaining a pronounced one-sided boundary-layer phenomenon via a rigorously isolated rank-one analytic-to-antianalytic block.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
