@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md bd668c0a48d6b4df28e80d05c683778ac1d7f975",
+        "verification/check_arithmetic_rank.py and verification/cross_pairing.json Git blobs",
+        "independent_checks.py matrix ranks/minors",
+        "height_pair_spotcheck.py independent x,y exact G_11"
+      ],
+      "rationale": "Take Burek's explicit elliptic model with twelve Q(i)[v,t] sections, and use Burek Proposition 5.6's geometric Mordell–Weil upper bound 12 and good K3 specialization v=5. Conjugation σ fixes K=Q(v,t). Height pairing H of published points and cross-pairing G=<P_i,σP_j> define Gram pairings 2(H±G) of traces Q=P+σP and anti-traces R=P−σP. The inspected exact symbolic script constructs all twelve published x,y polynomials, tests Weierstrass identities and computes G by K3 type-IV component corrections and polynomial gcd intersection at v=5,7. Independently, I reconstructed rational H,G from the actual cross_pairing.json and checked rank(2(H+G))=8, rank(2(H−G))=4, nonzero principal minors 16777216/9 and 256, and det H=4096/9; a separate independent coordinate-derived cross-height spot check gives G_11=2/3 using exact gcd t at v=5. The 8 fixed and 4 anti-fixed independent generic sections saturate geometric rank 12, forcing Q(v,t) rank8 and Q(i)(v,t) rank12. This does not prove a saturated integral basis or ranks in other fields; prior geometric rank is an explicit input.",
+      "residual_risks": [
+        "Individual bounded numerical/finite tests only corroborate their stated domains; proof uses explicit all-parameter or certified exhaustive structural arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Kuwata Theorem 2.10 (nonisogenous generic case) gives fields of definition, Theorem 5.1 describes F^(4) geometric rank lattice.",
+          "Burek Theorem 1.1 / Proposition 5.6 establish geometric bound 12 on precisely the present family."
+        ],
+        "reasoning": "The geometric rank bound is used as a premise; these papers do not display the specific Q-invariant 8-dimensional Galois eigenspace for Burek family, and no simple implication from splitting fields alone determines it.",
+        "searches": [
+          "Resultary: elliptic Calabi Yau Burek Mordell Weil rank twelve Q(i) Q rational descent conjugation 8 and 4",
+          "arxiv:1409.2931",
+          "arxiv:2610.01276"
+        ]
+      },
+      "checked_sources": [
+        "actual Resultary query: elliptic Calabi Yau Burek Mordell Weil rank twelve Q(i) Q rational descent conjugation 8 and 4",
+        "arxiv:2610.01276",
+        "arxiv:1409.2931"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burek Proposition 5.6 proves independent Q(i)-sections and rank_C upper bound, but not how conjugation acts on their span.",
+          "2(H±G) ranks 8 and4 from exact height computation identify invariant and anti-invariant Q-spaces."
+        ],
+        "reasoning": "The rank8 over Q is not a mere specialization or automatic 12/2 inference, because Galois eigenspace dimensions need not split equally.",
+        "searches": [
+          "Resultary: elliptic Calabi Yau Burek Mordell Weil rank twelve Q(i) Q rational descent conjugation 8 and 4",
+          "arxiv:2610.01276",
+          "arxiv:1409.2931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burek Proposition 5.6 states rank_C(v,t)=12 and twelve sections over Q(i)(v,t).",
+          "Kumar–Kuwata Theorem 2.10 treats torsion-field definitions for their F^(n) K3 families."
+        ],
+        "reasoning": "Field containing some/all generators is not equal to fixed-subgroup rank over Q; conjugation representation is extra data. The present elliptic threefold varies in two parameters, not just a single K3 base.",
+        "searches": [
+          "Resultary: elliptic Calabi Yau Burek Mordell Weil rank twelve Q(i) Q rational descent conjugation 8 and 4",
+          "arxiv:2610.01276",
+          "arxiv:1409.2931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Appendix A height matrix H has determinant4096/9 and sections P_j.",
+          "Current complete exact G data and independent G_11=2/3 coordinate check lead to 8+4 determinants."
+        ],
+        "reasoning": "A generic K3 height table omits the cross-conjugate Gram needed to compute arithmetic trace ranks. No identical G table found in inspected Burek text; unindexed later corrections possible.",
+        "searches": [
+          "Resultary: elliptic Calabi Yau Burek Mordell Weil rank twelve Q(i) Q rational descent conjugation 8 and 4",
+          "arxiv:2610.01276"
+        ]
+      },
+      "rationale": "The original Burek paper gives geometric rank12 and coordinates of twelve sections over Q(i), but existence over Q(i) does not determine the rank of the Q-rational Galois fixed space. Kumar–Kuwata's generic K3 field-of-definition results concern distinct families and do not compute this curve's conjugate cross-height matrix. The new 8+4 eigenspace split therefore contributes arithmetic descent not shown in the inspected source statements.",
+      "residual_risks": [
+        "The cross-height entries beyond G_11 were examined in source-derived SymPy checker and checked algebraically but not independently reconstructed one by one; independent matrix checks conditional on supplied cross-pairing data.",
+        "An unindexed Galois-module/rational-rank calculation for the same Burek model might exist.",
+        "Geometric bound and type-IV resolution formulas are cited inputs, not independently reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric rank12 and original H are prior inputs; arithmetic 8+4 split not stated in those results",
+          "evidence": "Proposition 5.6 gives rank_C 12 and Q(i) sections; Appendix A source H and the type-IV local pairing rules.",
+          "identifier_or_url": "arxiv:2610.01276",
+          "material_read": "Accessible primary full HTML Theorem 1.1, Proposition 5.6, Appendix A.2–A.3 sections/height formula, search for conjugation",
+          "method": "Full-text theorem and appendix inspection, source coordinate comparison",
+          "title": "An elliptic Calabi–Yau threefold of Mordell–Weil rank twelve",
+          "trigger": "Exact same curve and 12 Q(i)-sections; strongest potential prior coverage"
+        },
+        {
+          "assessment": "Generic F^(n) elliptic K3 field-of-definition bound, not arithmetic rank8 on Burek two-variable threefold",
+          "evidence": "Theorem 2.10 assumes E1,E2 nonisogenous, gives field containing generators; Theorem 5.1 describes F^(4) geometric basis.",
+          "identifier_or_url": "arxiv:1409.2931",
+          "material_read": "Primary full HTML introduction, Theorem 2.10–2.11 and Theorem 5.1/5.3 read",
+          "method": "Theorem statement/assumption comparison with Burek family",
+          "title": "Elliptic K3 surfaces associated with the product of two elliptic curves: Mordell–Weil lattices and their fields of definition",
+          "trigger": "Potential broader Galois descent/field-of-definition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Burek 2026 arxiv:2610.01276 Proposition 5.6",
+        "Kumar–Kuwata 2017 arxiv:1409.2931 Theorems 2.10, 5.1"
+      ],
+      "rationale": "Arithmetic Mordell–Weil descent from a new geometric rank-twelve Calabi–Yau fibration is a natural invariant of independently motivated arithmetic geometry. Exact rank8 and conjugation eigenspace dimensions clarify rational sections vs quadratic-extension sections, useful without producing an integral basis or new geometric rank theorem.",
+      "residual_risks": [
+        "Mathematical value rests on the exact natural invariant and its contextual motivation, not code execution or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

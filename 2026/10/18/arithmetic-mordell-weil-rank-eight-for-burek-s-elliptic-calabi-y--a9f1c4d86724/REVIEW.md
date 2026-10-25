@@ -1,19 +1,21 @@
-# Scientific review of the arithmetic Mordell–Weil rank
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise curve is Burek's equation (1.5), whose geometric rank \(12\) and torsion-freeness are established in the source. The proof constructs trace/anti-trace sections and obtains nonzero exact height determinants \(16777216/9\) and \(256\) for eight and four sections, respectively. Each intersection rule follows the local type-IV resolution calculation in the originating Appendix A.3. All twelve source identities and both good specializations' full height matrices are checked by the included standalone exact-arithmetic script. Specialization gives genuine lower bounds; the known geometric rank gives the upper bound. This avoids assuming saturation of the twelve-point lattice.
+PASS
 
-## Originality — PASS
+Take Burek's explicit elliptic model with twelve Q(i)[v,t] sections, and use Burek Proposition 5.6's geometric Mordell–Weil upper bound 12 and good K3 specialization v=5. Conjugation σ fixes K=Q(v,t). Height pairing H of published points and cross-pairing G=<P_i,σP_j> define Gram pairings 2(H±G) of traces Q=P+σP and anti-traces R=P−σP. The inspected exact symbolic script constructs all twelve published x,y polynomials, tests Weierstrass identities and computes G by K3 type-IV component corrections and polynomial gcd intersection at v=5,7. Independently, I reconstructed rational H,G from the actual cross_pairing.json and checked rank(2(H+G))=8, rank(2(H−G))=4, nonzero principal minors 16777216/9 and 256, and det H=4096/9; a separate independent coordinate-derived cross-height spot check gives G_11=2/3 using exact gcd t at v=5. The 8 fixed and 4 anti-fixed independent generic sections saturate geometric rank 12, forcing Q(v,t) rank8 and Q(i)(v,t) rank12. This does not prove a saturated integral basis or ranks in other fields; prior geometric rank is an explicit input.
 
-The source paper proves geometric rank \(12\) and supplies twelve sections over \(\mathbb Q(i)(v,t)\), but not the rank over \(\mathbb Q(v,t)\). Kumar–Kuwata's geometric lattice and fields-of-definition results do not calculate this two-variable fixed rank. Direct comparison with the nearest previously recorded same-family point-count/height-distribution result shows it determines a different invariant of a single K3 fibre rather than Galois descent for the family. Targeted mathematical-literature and indexed-result searches did not reveal a covering statement. Residual risk: an unindexed calculation or a nonobvious consequence of earlier field-of-definition work could duplicate this value; search non-detection alone is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The rank discrepancy is an arithmetic obstruction to descending the sections of a naturally constructed high-rank elliptic Calabi–Yau threefold. The specific eight/four decomposition identifies exactly how much of its Mordell–Weil space exists over the original rational-function field, rather than merely over a convenient quadratic coefficient extension. It concerns the central invariant in the originating work, not an incidental numerical feature. It is a complete exact answer for this particular field-extension question.
+The original Burek paper gives geometric rank12 and coordinates of twelve sections over Q(i), but existence over Q(i) does not determine the rank of the Q-rational Galois fixed space. Kumar–Kuwata's generic K3 field-of-definition results concern distinct families and do not compute this curve's conjugate cross-height matrix. The new 8+4 eigenspace split therefore contributes arithmetic descent not shown in the inspected source statements.
 
-## Closest literature and limits
+## value
 
-Dominik Burek, arXiv:2610.01276v1, Theorem 1.1/Proposition 5.6/Appendix A; Abhinav Kumar and Masato Kuwata, arXiv:1409.2931, Theorems 2.10–2.11 and 5.1–5.3. The calculation gives rational ranks, not a saturated integral Mordell–Weil basis. The geometric rank bound remains an explicit external premise.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arithmetic Mordell–Weil descent from a new geometric rank-twelve Calabi–Yau fibration is a natural invariant of independently motivated arithmetic geometry. Exact rank8 and conjugation eigenspace dimensions clarify rational sections vs quadratic-extension sections, useful without producing an integral basis or new geometric rank theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
