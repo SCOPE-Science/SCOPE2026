@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify_boundary.py` with Python 3.9 or later from the same directory; no packages or network access are required. The script outputs `FINITE_FIELDS (135621, 5909)`, `RECURRENCES 4240`, `SHARP_h5_x05 [3]`, and `VERIFY_OK`.
+# Independent mathematical audit
 
-The enumeration covers relevant primes no larger than 2000 and positive starting values for parameters no larger than 40. The program checks exact rational squares using integer square roots and an independent modular first-hit computation. It verifies the claimed example and many finite cases, but does not prove the result for untested primes or parameters. The proof in RESULT.md supplies the universal argument via coprime recurrences, finite-field symmetry, and prime-wise exclusion. No external or independent audit was performed.
+## correctness
+
+PASS
+
+With t_n=S_n/h=u_n/v_n in coprime lowest terms, recurrence u_{n+1}=u_n²+v_n², v_{n+1}=u_n v_n holds. The reduced x_{n+1} gives Q_{n+1}=(u_{n-1}+v_{n-1})²/gcd(h,u_n), so for odd obstruction p, p never divides numerator; for p=2 denominator has valuation one and resulting 2-adic valuation is odd. Thus Q square iff d_n=1. Primes 3 mod 4 never divide u_n; p=2 only can first divide u_1, so only Q_2. For odd p=1 mod4, starting ratio z evolves under T(z)=z+z^-1 until first 0, and sign and inversion preserve first-hit depth. Every hit level nonempty up to k; four-point orbits except possibly two levels involving z²=±1 give at least 4k-4 nonzero field elements, so k<=(p+3)/4 and Q_{k+1}<= (p+7)/4. At h=x_0=5 Q_3=9/5 and deadline 3 is attained. I independently reproduced exact finite-field orbit and rational special case checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge original combined claim, not merely its known premises: Knowing one exceptional index per p does not bound how late that index can occur; a complete functional-graph depth classification might imply the bound, so its unread full detail remains a priority risk rather than being declared noncovering. Broader works and residual risks below qualify priority.
+
+## value
+
+PASS
+
+The original finite-exception theorem does not tell an analyst when all terms must be squares uniformly over starting values. The explicit prime-quarter deadline is a substantive quantitative stopping-time theorem for a natural arithmetic dynamical system; group symmetry explains a nontrivial factor-four bound and has an attained boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

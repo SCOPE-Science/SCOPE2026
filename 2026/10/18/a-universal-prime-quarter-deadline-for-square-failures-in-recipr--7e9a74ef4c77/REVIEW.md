@@ -1,9 +1,21 @@
-# Scientific review: universal prime-quarter square-failure deadline
+# Independent mathematical audit
 
-**Correctness — PASS.** The coprime integer recurrence gives an exact square criterion at each term. For odd relevant primes, first-hit levels of \(z\mapsto z+z^{-1}\) are stable under sign and inversion; their orbit sizes force \(4k-4\le p-1\) and therefore the asserted all-start deadline. Prime \(2\) and primes \(3\pmod4\) are checked separately. The \(h=x_0=5\) boundary gives \(Q_3=9/5\), attaining the bound. Exact finite certificates support but do not replace the proof.
+## correctness
 
-**Originality — PASS, with risk.** The 2026 motivating work proves only a prime-wise count of nonsquare terms, and an earlier starting-value law gives complete modular classifications of which terms fail without stating a uniform quarter-of-prime depth bound. The 2014 finite-field dynamics literature supplies the same map. Comparisons of actual mathematical implications did not identify coverage of the explicit bound, but access to complete relevant papers was limited, and a specialized subsequent search failed temporarily. These are residual originality risks.
+PASS
 
-**Value — PASS.** An explicit cutoff uniform over *all* starting values replaces a merely trajectory-wise finite-exception conclusion. The fourfold symmetry yields a structural factor-four improvement over the basic finite-field pigeonhole horizon and an attained small-prime boundary. This does not claim asymptotically optimal constants or a new distribution law.
+With t_n=S_n/h=u_n/v_n in coprime lowest terms, recurrence u_{n+1}=u_n²+v_n², v_{n+1}=u_n v_n holds. The reduced x_{n+1} gives Q_{n+1}=(u_{n-1}+v_{n-1})²/gcd(h,u_n), so for odd obstruction p, p never divides numerator; for p=2 denominator has valuation one and resulting 2-adic valuation is odd. Thus Q square iff d_n=1. Primes 3 mod 4 never divide u_n; p=2 only can first divide u_1, so only Q_2. For odd p=1 mod4, starting ratio z evolves under T(z)=z+z^-1 until first 0, and sign and inversion preserve first-hit depth. Every hit level nonempty up to k; four-point orbits except possibly two levels involving z²=±1 give at least 4k-4 nonzero field elements, so k<=(p+3)/4 and Q_{k+1}<= (p+7)/4. At h=x_0=5 Q_3=9/5 and deadline 3 is attained. I independently reproduced exact finite-field orbit and rational special case checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original combined claim, not merely its known premises: Knowing one exceptional index per p does not bound how late that index can occur; a complete functional-graph depth classification might imply the bound, so its unread full detail remains a priority risk rather than being declared noncovering. Broader works and residual risks below qualify priority.
+
+## value
+
+PASS
+
+The original finite-exception theorem does not tell an analyst when all terms must be squares uniformly over starting values. The explicit prime-quarter deadline is a substantive quantitative stopping-time theorem for a natural arithmetic dynamical system; group symmetry explains a nontrivial factor-four bound and has an attained boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
