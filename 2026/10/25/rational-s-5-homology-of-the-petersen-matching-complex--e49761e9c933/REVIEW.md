@@ -1,0 +1,15 @@
+# Scientific assessment: rational Petersen matching-complex symmetry
+
+## Correctness — PASS
+The theorem states rational \(S_5\)-modules, not integral module isomorphisms. The finite chain model comprises 15, 75, 145, 90 and 6 simplices in degrees 0–4. `verify.py` recomputes integer boundary compositions and modulo-two ranks \((14,61,79,6)\). Eleven certified integer third cycles and a verified unimodular coordinate inverse bound the rational rank of the third boundary by 79, proving equality with the modulo-two lower bound. The remaining boundary ranks follow from chain-complex inequalities; the resulting nonzero reduced rational Betti numbers are five in degrees two and three. All 120 signed group actions are rebuilt and checked against the certified kernel basis. Injectivity of the fourth boundary and Hopf's trace formula yield the two complete characters; comparison with standard permutation modules proves the claimed representation identifications. No finite sample extrapolation is used.
+
+## Originality — PASS, qualified
+The two closest published Petersen matching-complex records, [3] and [4] in `RESULT.md`, explicitly establish the nonequivariant integral homotopy type and the Betti ranks, not its \(S_5\)-homology character. Their complete `RESULT.md` scientific statements were inspected and compared for implication, not just title similarity. The full accessible text of Bate–Everitt–Ford–Ramos treats matching complexes of complete hypergraphs and broad representation-stability families, rather than this matching complex. The Mondal–Mukherjee–Saha abstract and reported scope concern \(\operatorname{Match}(K_n)\); its case \(n=5\) gives the Petersen graph, not \(\operatorname{Match}(P)\). Searches of the published research database and public literature included the alias \(\operatorname{Ind}(L(P))\), automorphism characters, and irreducible Specht descriptions. No checked result implies the two representations. Remaining risk: unindexed or not-fully-inspected material could contain an equivalent calculation; novelty is assessed under documented search limits.
+
+## Mathematical value — PASS
+The canonical Petersen graph has full automorphism group \(S_5\), making its action on a known mixed-dimensional sphere wedge a natural invariant. The result separates a reducible signed permutation module in degree two from an irreducible Specht module in degree three, which the common rank five cannot detect. It also distinguishes quotients by \(S_5\) and \(A_5\) in rational homology. These are complete symmetry-sensitive invariants for the natural finite object, not arbitrary numerical increments or changes of notation.
+
+## Limits
+The theorem concerns rational representations on a single graph. Full prior-source coverage cannot be inferred from a negative search; the 2023 Mondal document was assessed from accessible abstract/scope and not claimed to have been read in full. The executable checks are exact and reproduce the proof's nonstandard finite lemmas; independent mathematical audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
