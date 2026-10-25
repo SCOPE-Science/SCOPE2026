@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any missing edge uv, exact operator-norm Cauchy bound yields ||P-J|| >=1/(n-1). Equality forces H(e_v-1/n)=-(1/(n-1))(e_u-1/n), so a vertex with two distinct nonneighbors is impossible. Conversely the explicit matching-deleted kernel is nonnegative and stochastic; its four invariant subspace types have eigenvalues 1, +a, -a, 0 with a=1/(n-1), giving exact equality. Compactness makes the nonmatching case strictly larger. Reconstructable for all n>=3; standard-library rational checker replayed 224 pairs n<=30, and finite replay is not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao (2009), Theorem 3.1, pp. 799–800, DOI 10.1137/070689413; full article read at https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "Jafarizadeh (2025), arXiv:2501.02421, full-text accessible at https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs; introduction, general clique lift reductions, complete-graph and topology sections checked",
+        "Theorem 3.1 of 2009 covers edge-transitive graphs, including complete graphs with a perfect matching removed; this special case is fully prior-covered."
+      ],
+      "reasoning": "The perfect-matching-deleted special case is already implied by the 2009 edge-transitive formula and is not offered as novel. Partial matching deletion with unmatched vertices generally breaks edge transitivity, and an iff classification over all incomplete graphs is not a consequence of that theorem. The 2025 reductions solve families of clique-lifts and subgraphs, but no covering graph-universal minimum-equality classification was found in its accessible full text.",
+      "searches": [
+        "arxiv:0709.0955",
+        "arxiv:2501.02421",
+        "FMMC K_n minus disjoint matching sharp second largest eigenvalue modulus missing edges",
+        "nonedge spectral norm lower bound Markov stochastic optimal if complement matching"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, pp. 668–669 and sections 3–4; full article read at https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2009), Theorem 3.1, pp. 799–800, DOI 10.1137/070689413; full article read at https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Jafarizadeh (2025), arXiv:2501.02421, full-text accessible at https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs; introduction, general clique lift reductions, complete-graph and topology sections checked",
+      "Published mathematical results and indexed abstracts concerning deleted matchings and stochastic graph mixing",
+      "Previously available graph-mixing claims and their exact parameter domains, compared for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, pp. 668–669 and sections 3–4; full article read at https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao (2009), Theorem 3.1, pp. 799–800, DOI 10.1137/070689413; full article read at https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "Jafarizadeh (2025), arXiv:2501.02421, full-text accessible at https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs; introduction, general clique lift reductions, complete-graph and topology sections checked",
+        "Direct proof: equality in an operator-norm bound from a zero offdiagonal entry forces two missing neighbors at one vertex to yield inconsistent centered columns; converse explicit rational spectrum on arbitrary deleted matchings."
+      ],
+      "reasoning": "Boyd et al. 2004 supplies the optimization definition and universal SDP method but not the graph extremal equality theorem; Boyd et al. 2009 implies the perfect-matching-deleted edge-transitive case, not the necessity for arbitrary graphs or the partial-matching converse. The new exact iff classification cannot be read as a mere reparameterization of the cited special-case formula. Nonetheless, an unlocated general consequence of a published duality theorem is possible.",
+      "searches": [
+        "The fastest mixing symmetric stochastic Markov chain among noncomplete graphs order n sharp universal bound 1/(n-1) equality iff complement is a matching",
+        "Graph theoretic characterization equality sharp SLEM 1/(n-1) for symmetric stochastic transition matrices with one forbidden entry; complement graph must be a matching; all noncomplete n vertex graphs",
+        "doi:10.1137/S0036144503423264",
+        "doi:10.1137/070689413",
+        "arxiv:2501.02421"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, pp. 668–669 and sections 3–4; full article read at https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao (2009), Theorem 3.1, pp. 799–800, DOI 10.1137/070689413; full article read at https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "Orthogonal-centering identity: for symmetric stochastic P, SLEM equals ||P-J||_2; a single forbidden entry gives an offdiagonal bilinear constraint of size 1/n."
+      ],
+      "reasoning": "Compared Markov SLEM, centered matrix operator norm, symmetric doubly stochastic completion with forbidden entries, and graph edge-deletion descriptions; the named prior general SDP does not state the iff complement-is-matching characterization.",
+      "searches": [
+        "fastest mixing Markov chain complete graph minus one edge symmetric stochastic exact SLEM",
+        "The fastest mixing symmetric stochastic Markov chain among noncomplete graphs order n sharp universal bound 1/(n-1) equality iff complement is a matching",
+        "Graph theoretic characterization equality sharp SLEM 1/(n-1) for symmetric stochastic transition matrices with one forbidden entry; complement graph must be a matching; all noncomplete n vertex graphs",
+        "arxiv:0709.0955",
+        "doi:10.1137/S0036144503423264"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus record `2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5` addresses orientation imbalance rather than SLEM.",
+        "Other ranked published-finding corpus records concern matchings in combinatorics, John ellipsoid graphs, and generic mixing.",
+        "The 2009 work gives an analytic table/formula for edge-transitive graphs only, not the universal matching-complement iff statement."
+      ],
+      "reasoning": "No retrieved exact SLEM classification table or published published-finding corpus statement subsumes the equality graph characterization. Search coverage does not establish absolute uniqueness; see residual risks.",
+      "searches": [
+        "single link failure fastest mixing K_n minus edge stochastic matrix eigenvalue optimal",
+        "sharp fastest mixing walk almost complete graph missing edge FMMC",
+        "FMMC K_n minus disjoint matching sharp second largest eigenvalue modulus missing edges",
+        "minimum SLEM graph complement matching 1/(n-1)",
+        "2009 full-text find: matching",
+        "2004 full-text find: matching"
+      ]
+    },
+    "rationale": "Compared previously available mathematical claims about graph/spectral mixing for overlap, multiple actual published-finding corpus semantic formulations, and 2004/2009 primary full texts plus accessible 2025 broader article. The edge-transitive perfect-matching subcase is already known and explicitly excluded from standalone novelty. The all-graphs iff matching-complement characterization with necessity from equality saturation and constructive partial-matching sufficiency was not implied by the inspected published theorems; general SDP techniques alone are not an exact statement. Residual risk that an overlooked more general dual theorem implies this consequence is explicitly retained.",
+    "residual_risks": [
+      "An undiscovered or indirectly implied extremal equality theorem may occur in the extensive SDP-duality and stochastic-matrix completion literature; searchable results and inspected primary full text cannot prove global uniqueness.",
+      "The perfect-matching-deleted equal-value special case follows already from Boyd et al. (2009) edge-transitive theory and is not independently novel.",
+      "Other faster mixing definitions (total-variation time, nonreversible chains or forbidden holding loops) have distinct optima and are outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and solves graph-specific SDP formulation, not located universal noncomplete lower-bound equality classification.",
+        "evidence": "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, pp. 668–669 and sections 3–4; full article read at https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full PDF text and title/introduction, section 1 problem statement, convex SDP/dual portions; searched matching and missing-edge statements.",
+        "method": "Direct text navigation and visual inspection of printed p.668; checked SDP dual description.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Exact FMMC objective, symmetric stochastic support constraints and possible general graph bounds"
+      },
+      {
+        "assessment": "Already covers perfect-matching-deleted clique special case; does not directly give universal iff classification or general partial matching deletions.",
+        "evidence": "Boyd, Diaconis, Parrilo, Xiao (2009), Theorem 3.1, pp. 799–800, DOI 10.1137/070689413; full article read at https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full PDF searchable text; Theorem 3.1 (printed p.799), examples in section 3, introduction, and searches for matching and complete graph.",
+        "method": "Direct text navigation and visual inspection of first page; explicit implication comparison using edge-transitive formula.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Potential stronger edge-transitive theorem subsuming deleted matching families"
+      },
+      {
+        "assessment": "Broad reductions but no equivalent all-incomplete-graphs sharp spectral obstruction and equality classification located.",
+        "evidence": "Jafarizadeh (2025), arXiv:2501.02421, full-text accessible at https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs; introduction, general clique lift reductions, complete-graph and topology sections checked",
+        "identifier_or_url": "https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "material_read": "Accessible full text, introduction contributions, complete graph and lollipop/clique-lift topology sections, text searches for matching/missing edge.",
+        "method": "Searchable article full-text navigation and relevant sections.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Broad clique-lift/subgraph optimization might dominate dense edge-deletion setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fb26b95-916e-45fe-87b6-af4217e27ec0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question seeks the optimal *resilience of uniform mixing to missing communication links* across all finite graph topologies, not an arbitrary small graph instance. The result gives the globally sharp minimum nonzero spectral mixing obstruction on every noncomplete n-vertex support and a complete graph-theoretic characterization of equality. It distinguishes vertex-disjoint link failures, whose optimal penalty never worsens, from shared-endpoint failures, which strictly worsen it; this is a structural design principle for link-failure patterns. The full iff theorem is strictly more informative than a known single-family SLEM formula or one computed table.",
+    "status": "PASS"
+  }
+}
