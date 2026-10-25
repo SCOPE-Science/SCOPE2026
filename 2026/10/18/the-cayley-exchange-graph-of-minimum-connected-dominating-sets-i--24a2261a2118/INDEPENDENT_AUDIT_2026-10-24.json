@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On Q4 with 16 labeled binary vertices, exhaustive direct independent enumeration of all subsets k=1,...,6 proved zero connected dominating sets for k<6 and exactly 192 of size6, all induced P6. All 192 optimum sets arise from direction words (a,b,c,d,a); source verify_group.py independently builds connected subsets and a free transitive 192-element affine-even-permutation group action on the state set. Exhaustive one-vertex replacements give degree4 and 384 jump edges; zero replacements use a cube-adjacent moved token, so slide exchange graph is empty. The four displayed H=F2^4⋊A4 generators act as all neighbors and give an inverse-closed Cayley graph; BFS distance levels (1,4,10,23,45,76,30,3) show diameter7 and connectedness. Independent reimplementation directly rebuilt state jump graph and parity-double BFS, obtaining odd girth11, matching source group method and explicit 11-letter odd identity word. This is exhaustive for Q4 only; no higher-dimensional extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "IPEC 2015 primary Theorems/intro address enumeration algorithms and maximum counts in graph classes; the source does not formulate fixed-size optimal token-jump adjacency.",
+          "Suzuki et al. 2014 studies dominating configurations of size <=k and one-vertex addition/deletion, a distinct reconfiguration graph."
+        ],
+        "reasoning": "Golovach–Heggernes–Kratsch 2015 gives algorithms and bounds for minimal connected dominating sets in bounded-chordality classes, a broader enumeration setting but neither a four-cube (which has induced C4 and more) optimum exchange Cayley action nor a graph metric of its state transitions.",
+        "searches": [
+          "Resultary exact semantic query: Q4 four dimensional hypercube minimum connected dominating sets exchange graph token jumping Cayley graph 192",
+          "SCOPE frozen-repository keyword search: connected dominating Cayley Q4",
+          "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "https://doi.org/10.1016/S0012-365X(02)00524-1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob f9599e2b369ee8d70f0e27af855d8a23d406eec9, verify_subsets.py blob 1223ca6588c88bcdf48f73b3288a2e6310c8dfee and verify_group.py blob 2b0af920c7e32cc4feabb70fd7e3e3ff7f90e64d",
+        "Independent Q4 all-subsets k<=6, all 192-state jumps, metric and parity-double odd-girth computations",
+        "Golovach–Heggernes–Kratsch IPEC 2015 full 12-page PDF; Dvořák–Havel–Mollard 2003 abstract only and authorized institution VPN disconnected",
+        "Resultary Q4 domination Cayley query and restricted SCOPE repository code search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Golovach et al. algorithms concern membership/listing not the exchange graph; Dvořák–Havel–Mollard hypercube dominating paths could overlap the path-domain but full text was unavailable."
+        ],
+        "reasoning": "Even a complete published enumeration of min connected dominating subsets would not automatically imply the exchange adjacency graph, its regular F2^4⋊A4 action, metric, odd girth, or absence of all token slides; those require additional pair/group and BFS calculations.",
+        "searches": [
+          "Resultary exact semantic query: Q4 four dimensional hypercube minimum connected dominating sets exchange graph token jumping Cayley graph 192",
+          "SCOPE frozen-repository keyword search: connected dominating Cayley Q4",
+          "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "https://doi.org/10.1016/S0012-365X(02)00524-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fricke–Hedetniemi–Hedetniemi–Hutson 2011 studies ordinary dominating-set γ-graphs and local slides, while current optimum jump graph has 384 edges but exactly zero sliding edges."
+        ],
+        "reasoning": "Previously named γ-graphs exchange ordinary dominating configurations by slides, not minimum connected dominating configurations by arbitrary jumps; size and connectedness constraints change the state space and adjacency relation.",
+        "searches": [
+          "Resultary exact semantic query: Q4 four dimensional hypercube minimum connected dominating sets exchange graph token jumping Cayley graph 192",
+          "SCOPE frozen-repository keyword search: connected dominating Cayley Q4",
+          "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "https://doi.org/10.1016/S0012-365X(02)00524-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive Q4 enumeration found 192 connected minimum 6-sets, 384 token-jump edges, layers (1,4,10,23,45,76,30,3), odd girth11; some underlying path description may be prior."
+        ],
+        "reasoning": "The 192 configurations and paths might be obtainable in earlier hypercube domination tables, and are not alone relied on for original value. No earlier exact 192-vertex 4-regular affine Cayley exchange graph, odd girth11, diameter7, or 0 sliding-edge table was located in inspected sources.",
+        "searches": [
+          "Resultary exact semantic query: Q4 four dimensional hypercube minimum connected dominating sets exchange graph token jumping Cayley graph 192",
+          "SCOPE frozen-repository keyword search: connected dominating Cayley Q4",
+          "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "https://doi.org/10.1016/S0012-365X(02)00524-1"
+        ]
+      },
+      "rationale": "Past work on γ-graphs moves unrestricted minimal dominating sets by slides, at-most-k dominating-set reconfiguration permits add/delete, and general connected-domination papers enumerate minimal solutions, not this exact optimal connected jump graph. A 2003 primary paper about paths and cycles dominating hypercubes has plausible overlap with minimum size and induced P6 descriptions, which the current assessment does not assert uniquely new. Its full text could not be retrieved through lawful OA or authorized institutional retrieval (VPN disconnected), but no evidence of the much more specific affine Cayley token-jump exchange theorem was found. Best-of-knowledge PASS applies to the full exchange graph and its metrics, retaining source risk.",
+      "residual_risks": [
+        "Dvořák–Havel–Mollard (2003) highly relevant dominating paths in hypercubes full text unavailable after lawful arXiv/OA attempts and Oxford VPN disconnected; may cover minimum and P6 domain.",
+        "Lomarda–Canoy (2015) one-movable connected dominating configurations available only as abstract/indexed excerpts; move model may overlap details.",
+        "No higher-dimensional hypercube claim; finite exhaustive test and Cayley correspondence have specific source-code assumptions checked, not a machine-checked formal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_EXCHANGE_CAYLEY_THEOREM",
+          "evidence": "Paper studies enumeration algorithms/bounds for minimal connected dominating sets over graph classes, not the fixed-minimum-size Q4 jump graph and odd girth.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "material_read": "Complete 12-page freely available primary PDF; read abstract, Section 1, definitions and stated enumeration bounds through Section 2 and theorem context",
+          "method": "Read original conference PDF and visually inspected title page",
+          "title": "Enumerating Minimal Connected Dominating Sets in Graphs of Bounded Chordality",
+          "trigger": "Closest general result on enumeration of minimal connected dominating sets"
+        },
+        {
+          "assessment": "UNCHECKED_HIGH_RELEVANCE_SOURCE",
+          "evidence": "Could contain earlier path construction and minimum connected dominating set counts, and this part is not asserted original; exact Cayley reconfiguration might still require separate prior search.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00524-1",
+          "material_read": "Bibliographic abstract and available publisher metadata only; arXiv/preprint and open full text unavailable; institutional full-text request returned VPN disconnected",
+          "method": "Attempted lawful same-paper full-text access, retained explicit access limitation",
+          "title": "On Paths and Cycles Dominating Hypercubes",
+          "trigger": "Identical Q4 domination objects, plausible strong prior coverage of minimum P6 paths"
+        },
+        {
+          "assessment": "DIFFERENT_STATE_SPACE_AND_MOVES",
+          "evidence": "Minimum ordinary domination under adjacent token exchanges differs from optimum connected domination with arbitrary jumps.",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1562",
+          "material_read": "Abstract and published definition of γ-graph adjacency; full PDF not exhaustively read",
+          "method": "Compared feasible sets and move rule",
+          "title": "γ-Graphs of Graphs",
+          "trigger": "Prior minimum dominating set reconfiguration networks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Q4 is a natural canonical finite hypercube, and minimum connected dominating sets are optimal connected coverage backbones. An exact classification of their reconfiguration graph, affine regular action, diameter, shortest odd cycle, and obstruction to all local token slides exposes meaningful reachability/dynamics structure, not just an arbitrary catalogued integer. The contrast that all optimal states are connected by jumps within seven steps but isolated by slides is a motivated qualitative boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob f9599e2b369ee8d70f0e27af855d8a23d406eec9, verify_subsets.py blob 1223ca6588c88bcdf48f73b3288a2e6310c8dfee and verify_group.py blob 2b0af920c7e32cc4feabb70fd7e3e3ff7f90e64d",
+    "Independent Q4 all-subsets k<=6, all 192-state jumps, metric and parity-double odd-girth computations",
+    "Golovach–Heggernes–Kratsch IPEC 2015 full 12-page PDF; Dvořák–Havel–Mollard 2003 abstract only and authorized institution VPN disconnected",
+    "Resultary Q4 domination Cayley query and restricted SCOPE repository code search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Dvořák–Havel–Mollard (2003) highly relevant dominating paths in hypercubes full text unavailable after lawful arXiv/OA attempts and Oxford VPN disconnected; may cover minimum and P6 domain.",
+    "Lomarda–Canoy (2015) one-movable connected dominating configurations available only as abstract/indexed excerpts; move model may overlap details.",
+    "No higher-dimensional hypercube claim; finite exhaustive test and Cayley correspondence have specific source-code assumptions checked, not a machine-checked formal proof.",
+    "All literature-priority findings are best-of-knowledge; source downloads/reading scope is stated exactly; absent search hits do not certify worldwide novelty.",
+    "Finite consistency checks are not infinite theorems; general claims were assessed by the mathematical proof and critical algorithms."
+  ],
+  "residual_risks": [
+    "Dvořák–Havel–Mollard (2003) highly relevant dominating paths in hypercubes full text unavailable after lawful arXiv/OA attempts and Oxford VPN disconnected; may cover minimum and P6 domain.",
+    "Lomarda–Canoy (2015) one-movable connected dominating configurations available only as abstract/indexed excerpts; move model may overlap details.",
+    "No higher-dimensional hypercube claim; finite exhaustive test and Cayley correspondence have specific source-code assumptions checked, not a machine-checked formal proof."
+  ],
+  "schema_version": 1
+}
