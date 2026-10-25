@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 check_sections.py` from this directory using Python 3 and its standard library. The successful output is:
+## correctness
 
-```
-EXACT_SECTION_CHAMBERS_OK 21151 positive cones and symbolic edge sets OK
-HAAR_EXPECTATION_MC_OK [('lo', 0.25, 6.74956, 6.76182), ('lo', 0.5, 7.37456, 7.37398), ('lo', 0.75, 7.78722, 7.77844), ('hi', 0.25, 7.126, 7.11557), ('hi', 0.5, 6.22633, 6.23164), ('hi', 0.75, 5.41589, 5.41583)]
-```
+PASS
 
-The script independently generates vertex-edge graphs for the lower, joining, and upper regimes, verifies vertex and edge counts, and compares exact edge-sign crossings to the chamber indicator formulas over 21,151 eligible integer-normal and rational-parameter configurations. It checks explicit support witnesses for the 3+1+4 possible counts across five rational scales. Finally, rotationally invariant Gaussian normals test the exact angular-mean identities at six values. The Gaussian comparison has a declared numerical tolerance and is not a rigorous probability certificate. The all-parameter assertions, excluded boundaries, and strict derivatives are established symbolically in `RESULT.md`; the finite replay is supplementary. No external validation was performed.
+Verified fourteen-facet crossing reduction independently via literal halfspace intersections rather than submitted facets code. For 35 pairs of rational-ish t and strictly generic normals, enumerated true vertices by solving supporting triples and counted crossing facets, matching both closed chamber indicator formulas exactly. At t=2 the six coordinate and eight sign facets give four crossing pairs each, hence generic section octagon; special vertex-containing normals are excluded. Haar average equals (1/pi) sum over edges of endpoint angles since Gaussian sign disagreement is angular/π; edge orbits have sizes 24+12 off t=2 and 24 at t=2. Differentiating the explicit arccos means gives strictly positive derivative for 1<t<2 and strictly negative for 2<t<3. Five sample normals were checked for each parameter including rectification; finite checks supplement rather than prove the continuous inequalities.
+
+## originality
+
+PASS
+
+Earlier central-slicing reconstruction and hypercube slicing theory addresses general algorithms, reconstruction and attainable numbers; available statements do not imply the direction-resolved three-coordinate chamber indicators for this 1-parameter family and their sharp Haar mean. Indexed earlier results on K_t concern tetrahedral volumes, illumination and Mahler products, not its sectional vertex count.
+
+## value
+
+PASS
+
+Natural two-class 3D polytope interpolation between cross-polytope and cube; the cuboctahedron is an exact unique section-count rigid point with global mean optimizer, a nontrivial geometric statistic and complete orientation classification over continuum parameters, not a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
