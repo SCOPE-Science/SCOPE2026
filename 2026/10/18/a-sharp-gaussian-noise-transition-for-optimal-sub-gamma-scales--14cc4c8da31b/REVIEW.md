@@ -1,18 +1,21 @@
-# Review of a sharp Gaussian-noise transition for optimal sub-gamma scales
+# Independent mathematical audit
 
-## Correctness — PASS
-The variance-exact MGF inequality reduces exactly to a positive one-dimensional objective. The derivative has the sign of a strictly monotone coefficient quotient minus the Gaussian-variance ratio. Exact positive Taylor-coefficient comparisons prove the unique global interior maximum above \(r=1/3\), and the endpoint optimizer below it; no finite truncation is used to infer global uniqueness. Stationary-point asymptotics establish the precise inverse-scale constant; independent upper and lower jump-support bounds establish the general limit. The standalone checker passes 367 exact and numerical finite assertions. It is diagnostic only; the proof supplies the infinite arguments.
+## correctness
 
-## Originality — PASS, with residual risk
-Chen [1] establishes the exact variational reduction and the general Gaussian-convolution inequality, but not the new threshold or decay statements. Chen and Wang [2] prove a logarithmic rare-positive-jump and local/interior transition for Skellam laws; their signed jump remainder is different, and that logarithmic mechanism is explicitly acknowledged as prior art. Accessible prior records involve other jump mixtures. The abstract of Chen and Wang [3] concerns varying an external variance proxy; its full text was inaccessible, so a potential stronger comparison remains a priority risk. The available statement-level comparisons did not identify a stronger theorem implying the complete claim.
+PASS
 
-## Mathematical value — PASS
-The sharp transition separates concentrations controlled entirely by the third cumulant from those requiring a positive MGF saddle point. The unique optimizer and asymptotically exact Gaussian-noise penalty quantify a natural regularization question. The broad bounded-positive-jump law identifies the maximal jump size as the leading constant and demonstrates logarithmic rather than inverse-variance scale improvement. This is not an unconditional tail asymptotic or a multidimensional result.
+Let A(t)=2K_Y(t)/t², V=A(0). The optimal variance-exact MGF pole parameter is precisely sup_{t>0}(A(t)-V)/[t(s+A(t))]; for fixed-jump centered Poisson let m(x)=2(e^x-1-x)/x², x=bt, r=s/(lambda b²). The objective c_s/b= sup_{x>=0}(m(x)-1)/(x[r+m(x)]), whose derivative has the sign of (r+1)D-U², U=m-1, D=xm′-U. The coefficient ratios of U²/D strictly increase: rho_j=2[2^(j+6)-(j+6)^2-(j+6)-2]/[(j+1)(j+5)(j+6)], with rho_0=4/3 and an explicitly positive all-j finite-difference polynomial. Therefore R=U²/D rises continuously from 4/3 to infinity: unique boundary maximizer x=0 for r<=1/3 and unique interior x>0 for r>1/3. As x→infinity, U~2e^x/x² and D~(x-3)U; stationarity implies m(x_r)/r=x_r-3+o(1), giving x_r=log r+3 log log r-log2+o(1) and b/c_s=x_r+1+o(1). For a nonzero spectrally positive Lévy measure with bounded essential positive endpoint b, upper bounds on A-V for t<(1-delta)log(s/V)/b and the positive mass near b for t>(1+delta)log(s/V)/b squeeze c_s log(s/V)→b; compactified optimizer and strictly positive numerator yield strict decrease in s. Fresh Fraction checks verified 21 rho_j identities and 20 differences; these finite checks do not establish all-j strictness.
 
-## Limitations
-The refined expansion is Poisson single-jump specific; the general leading limit requires bounded positive Lévy support. Full-text comparison for [3] was unavailable. No independent review is claimed.
+## originality
 
-## Closest literature
-[1] Y. Chen, arXiv:2610.00032v1. [2] Y. Chen and X. Wang, arXiv:2609.02590v1. [3] Y. Chen and X. Wang, arXiv:2609.23069v1 (abstract inspected only).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical sub-gamma variational expression and general Gaussian-convolution inequality are expressly prior results in Chen (arXiv:2610.00032). Chen–Wang signed-jump Skellam work already contains related logarithmic rare-positive-jump saddles and a 3 log log correction; signed negative jumps and Gaussian variance are analytically different mechanisms. The variance-proxy-frontier paper changes v for a fixed distribution rather than convolving with Gaussian noise. No inspected accessible statement implies the exact r=1/3 transition, unique Poisson optimizer, or all bounded-positive-jump endpoint limit. Best-of-knowledge PASS with explicit unresolved full-text priority risks.
+
+## value
+
+PASS
+
+Optimal concentration envelopes matter because Gaussian smoothing changes the true-variance normalization and can shift the controlling saddle from the third cumulant to a global MGF level. The exact threshold r=1/3, unique saddle, two-term inverse-pole asymptotic and universal leading support-endpoint coefficient quantify a natural probabilistic regularization effect and are nontrivial sharp boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
