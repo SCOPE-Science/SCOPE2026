@@ -1,15 +1,21 @@
-# Scientific review of the eight-cycle four-color categorical-product calculation
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph, incidence convention, and augmented empty face are specified exactly. An independently enumerated circular transfer polynomial agrees with the complete recursive face enumeration: 196,226 nonempty faces and a maximum face size of 16. One explicit element-matching order yields 98,106 pairs and precisely one critical zero-cell, five four-cells and eight five-cells. Every one of the 1,457,216 nonempty Hasse incidences is oriented and the complete directed Hasse graph is topologically sorted, proving acyclicity rather than relying on a heuristic matching claim. Exact integer gradient-path reduction produces the stated five-by-eight boundary. Its only two independent rows have a unit two-by-two minor, so all nonzero Smith factors are units. The CW model has no cells in dimensions one through three or above five; Hurewicz and the attaching-degree classification reduce the two unit pairs, leaving the stated integral sphere wedge. A second complete matching independently gives seven four-cells, ten five-cells, rank four and a unit maximal minor. No infinite inference is drawn from finite tests.
+## correctness
 
-## Originality — PASS, qualified
-Antolín Camarena–Carnero Bravo, arXiv:2307.12401v1, §3.2 Theorem 23 and Question 24, provide a general dimensional/Moore-space restriction and an open torsion question but no exact integral computation for the eight-cycle with four colors. Their recorded finite eight-cycle example uses three colors. Carnero Bravo, arXiv:2505.06457v1, §3 concerns graph products with a path factor, not this categorical product of an eight-cycle with a four-clique. The earlier complete-graph-product result concerns complete factors, not the eight-cycle. A publicly indexed seven-cycle/four-color classification and an accessible local eight-cycle/three-color claim have different graph parameters; neither statement implies the present eight-cycle/four-color integral attaching matrix. Searches for equivalent clique-complex and independence-complex descriptions, parameters and aliases revealed no matching indexed exact classification. The relevant 2023 full arXiv manuscript and the 2025 open-access manuscript were read in the material passages cited; an accessible summary is not mistaken for complete full-text exclusion. Residual risk: unindexed equivalent work, a journal-only addition not inspected, or an inaccessible stronger result.
+PASS
 
-## Mathematical value — PASS
-The 2023 paper explicitly asks whether the unsolved categorical cycle-product cases are torsion-free. The eight-cycle/four-color case is the first non-divisible-by-three even cycle after the small solved cycles in this four-color progression and lies outside the numerical examples recorded there for the eight-cycle. A complete integral homotopy classification of a 196,226-face complex, including both adjacent sphere multiplicities and vanishing torsion, is stronger than the paper's dimension bounds and Euler-characteristic constraints. It is a motivated finite test of an explicit published structural question, not an arbitrary slice of a large table. It also provides data comparable with the adjacent seven-cycle four-color case without claiming a natural suspension theorem or an all-parameter result. The value is this particular homotopy classification; computation or novelty alone is not claimed to establish wider consequences.
+Categorical product has vertices (i,c), i mod8, c in{0,1,2,3}, with edges exactly adjacent cycle indices and unequal colors, not Cartesian or strong product. Independent enumeration and separate circular 16-state transfer yield the complete face-size vector 1,32,400,2560,9400,21440,33040,37728,34488,26336,16896,8864,3648,1120,240,32,2 (196,226 nonempty). An independently reconstructed staged matching leaves one critical vertex, five 4-cells and eight 5-cells after 98,106 pairs; all 1,457,216 Hasse relations pass full directed topological sort. Signed gradient-path elimination gives the displayed 5×8 ∂5 with equal nonzero rows 1/3 and another independent row4, rank2 and determinant ±1 maximal 2-minor. Hence integer Smith nonzero factors units; 4-skeleton wedge5 S4 and attaching maps of eight 5-cells classified by π4(wedge5 S4)=Z5, so homotopy cancels two unit 4/5 pairs, yielding 3 S4 vee 6 S5. Finite exact exhaustive proof for this fixed 32-vertex graph, not for all n and q. This was independently recomputed rather than trusting VERIFY_OK.
 
-## Closest literature and limits
-The closest full-text source is *Homotopy type of the independence complex of some categorical products of graphs* (arXiv:2307.12401v1), with relevant restrictions in Theorem 23. *On independence complexes of graph products* (arXiv:2505.06457v1) is a later near-neighbor but uses path factors for its pertinent product formulas. Published summaries for the seven-cycle/four-color calculation are compared as neighboring rather than dominating statements. The original 2023 question remains open in general. The exact homotopy classification is supported by a complete executable finite certificate; independent audit of the mathematical work has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The principal paper explicitly leaves a torsion question and only proves qualitative constraints for the case; its three-color n8 and published four-color n7 examples are not the desired exact integer n8,q4 homotopy.
+
+## value
+
+PASS
+
+PASS: C8×K4 is the first unsolved even non-three-divisible cycle among small four-color categorical-product cases, a natural instance of the published 2023 torsion-freeness question. Determining exact two adjacent wedge multiplicities and no torsion is independent substantive data about the precisely motivated invariant of a finite natural graph. No broad theorem is claimed or required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
