@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph criterion and every formula reduce to a directly proved necessary-and-sufficient characterization by signed block imbalance. Matching in an induced complete bipartite graph requires equal positive part populations, and that equality also gives domination. Components are exactly the opposite-imbalance magnitude classes, yielding complete bipartite graphs. Counting the minimum required \(d\) vertices from each side gives the triangular obstruction, and explicit pure-side blocks plus surplus vertices attain every allowed count. Equality at triangular side lengths forces one pure block of each size on each side; the labeled multinomial enumeration has no hidden isomorphism divisor. The formal exponential product assembles independently nonempty positive- and negative-imbalance block collections for each magnitude. These arguments cover all \(m,n\ge1\). Independent perfect-matching enumeration and exact rational coefficient comparisons pass for all \(1\le m,n\le5\) with at most ten total vertices. No finite observation is used as a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS
-Samadzadeh–Mojdeh–Nadimi (2024) established the scalar paired-coalition number for complete multipartite graphs and analyzed coalition graphs for paths, cycles and trees; their full paper was inspected and does not assert a signed-imbalance biclique realization spectrum, a sharp maximum number of coalition-graph components or a partition enumerator. The publicly available paired-domination polynomial of complete multipartite graphs counts individual paired-dominating sets, including balanced subsets in a biclique. Its full result was inspected and does not imply the stated partition-spectrum classification without new combinatorial arguments. Targeted mathematical-record searches for the source title, signed imbalance, biclique coalition graph realizations, triangular fragmentation and generating functions produced no equivalently covering claim. Ordinary and double coalition results use different domination conditions. Residual risk: a poorly indexed related paper may contain a fragment or equivalent formulation; this does not constitute independent novelty certification.
+PASS
 
-## Value — PASS
-The founding paper's complete multipartite paired-coalition number is trivially the total number of vertices, so it does not distinguish the many distinct coalition-graph structures of this graph class. The theorem introduces a natural finer invariant (the number of coalition-graph components), shows it grows by a sharp triangular threshold in the smaller part size, and completely classifies feasible coalition-graph types by a finite integer constraint. Exact multipartition counting and the rigidity at triangular equality make the result useful both for structural classification and enumeration rather than a tiny numerical improvement.
+For every nonempty block S of K_{m,n}, a paired-dominating set is exactly one with equal positive part populations, because K_{a,b} has perfect matching iff a=b>0 and then dominates K_{m,n}. Nonpaired blocks have nonzero signed imbalance; partners iff their imbalances sum to 0. Therefore each distinct |d| yields exactly one complete bipartite PCG component with p_d,q_d>=1; the feasibility m=t+sum d*p_d, n=t+sum d*q_d is necessary and constructive (allocate t neutral pairs to a block). Distinct positive d each use at least d vertices from BOTH sides; sum d>=c(c+1)/2 gives the sharp maximum c and all c by explicit pure-block construction. Equality at m=n=T_c forces sizes 1..c and c! labeling quotient, giving (T_c!/prod j!)^2. The block-assembly bivariate labeled EGF treats each present sign as a nonempty SET of blocks, counts components u and blocks z without witness overcount. Independent enumeration of unlabeled set partitions of K_{2,4} and K_{3,3}, direct domination/matching checks, recovered 20 and 50 admissible partitions, with precisely nine 2-component partitions for K_{3,3}, confirming triangular extremal formula.
 
-## Closest literature and limits
-The full 2024 founding paper and the full recent paired-domination polynomial result were inspected. Ordinary-coalition and double-coalition results are not statements about paired dominating unions. The theorem's scope is strictly the complete bipartite base; there is no claim for general complete multipartite bases or uniqueness beyond inspected sources. Exhaustive finite computations through ten vertices support but do not establish the infinite assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as a realization/enumeration theorem for every PCG(K_{m,n}) isomorphism type and its fragmentation profile. Samadzadeh, Mojdeh and Nadimi introduce paired coalition and show PC(Kmultipartite)=total vertices: a scalar maximum number of blocks, not a classification of PCG connected components or all partition coefficients. Published paired-domination polynomials enumerate balanced sets, not partitions into nonpaired blocks with signed partners. Primary source material inspected and Resultary comparison contain no implication of distinct-magnitude triangular extremum or bivariate EGF.
+
+## value
+
+PASS
+
+A full realization criterion for a natural coalition graph operator and an exact quantitative fragmentation law answer an intrinsic structural question beyond the scalar coalition number. The sharp triangular cutoff identifies the minimum resource cost of c distinct partner-imbalance magnitudes; the two-variable labeled generating function captures exact global partition data and can be used to recover many invariants. Distinct full-space classification and EGF are mathematically motivated, not a small arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

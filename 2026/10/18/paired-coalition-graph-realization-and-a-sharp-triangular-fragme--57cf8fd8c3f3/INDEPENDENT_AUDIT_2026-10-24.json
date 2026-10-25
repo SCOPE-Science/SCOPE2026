@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md bf6832595607b925f17bbbc03c23fb4edb9a50f0 steps 1-5 signed imbalance and EGF derivation",
+        "Verifier verify.py 1cf0fd0ec97792a31ba7707e996867aa9d03dd55",
+        "Independent direct partition generation and perfect-matching equivalent criterion for K2,4 and K3,3"
+      ],
+      "rationale": "For every nonempty block S of K_{m,n}, a paired-dominating set is exactly one with equal positive part populations, because K_{a,b} has perfect matching iff a=b>0 and then dominates K_{m,n}. Nonpaired blocks have nonzero signed imbalance; partners iff their imbalances sum to 0. Therefore each distinct |d| yields exactly one complete bipartite PCG component with p_d,q_d>=1; the feasibility m=t+sum d*p_d, n=t+sum d*q_d is necessary and constructive (allocate t neutral pairs to a block). Distinct positive d each use at least d vertices from BOTH sides; sum d>=c(c+1)/2 gives the sharp maximum c and all c by explicit pure-block construction. Equality at m=n=T_c forces sizes 1..c and c! labeling quotient, giving (T_c!/prod j!)^2. The block-assembly bivariate labeled EGF treats each present sign as a nonempty SET of blocks, counts components u and blocks z without witness overcount. Independent enumeration of unlabeled set partitions of K_{2,4} and K_{3,3}, direct domination/matching checks, recovered 20 and 50 admissible partitions, with precisely nine 2-component partitions for K_{3,3}, confirming triangular extremal formula.",
+      "residual_risks": [
+        "Finite direct check uses at most six base vertices; the proof of all m,n uses exact signed-imbalance characterization and labeled combinatorial species.",
+        "Paired-coalition number (number of blocks) is a distinct invariant from number of connected coalition graph components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samadzadeh–Mojdeh–Nadimi Observation 2.2 states paired coalition number of complete multipartite equals order; later classifications treat paths/cycles/trees, not graph realizations of K_{m,n} partitions.",
+          "The published complete multipartite paired-domination polynomial characterizes individual balanced sets in K_{m,n}, but not the global condition that every block has a partner."
+        ],
+        "reasoning": "A broader graph-family scalar result and individual subset enumerator do not imply the exact PCG structural spectrum or component-count statistic.",
+        "searches": [
+          "Resultary: Paired coalition graph partitions complete bipartite graphs imbalance realizing disjoint unions complete bipartite components counting",
+          "Samadzadeh Mojdeh Nadimi arxiv:2402.10842 complete multipartite paired coalition"
+        ]
+      },
+      "checked_sources": [
+        "Samadzadeh, Mojdeh, Nadimi arXiv:2402.10842 (2024), relevant full-text material",
+        "Resultary 2026 paired-domination polynomial of complete multipartite graphs ea2bc935cbba",
+        "Resultary query signed imbalance complete bipartite coalition graph",
+        "Ordinary coalition graphs surveyed as different matching-free definition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PC(K_{n1,...,nr})=sum_i n_i concerns maximum number of blocks; our fragmentation c_max=floor((sqrt(8min(m,n)+1)-1)/2) can be 1 even with many blocks.",
+          "The known bipartite paired-domination polynomial sum_q C(m,q)C(n,q)x^{2q} counts balanced subsets, a separate enumerand."
+        ],
+        "reasoning": "No logical implication: counts of paired-dominating subsets do not determine partner edges between all non-dominating blocks in every partition.",
+        "searches": [
+          "arxiv:2402.10842",
+          "Resultary: Paired coalition graph partitions complete bipartite graphs imbalance realizing disjoint unions complete bipartite components counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A block bisection is encoded by δ(S)=#A-#B; the partners are exactly δ(X)=-δ(Y), so each magnitude gives a K_{p_d,q_d} component.",
+          "The component structure is not equivalent to the scalar paired-coalition number PC(G), which maximizes the block count."
+        ],
+        "reasoning": "Looked for weighted-balanced coalition partitions, signed imbalance block pairings and generating functions; no equivalent graph realization/count result in returned records.",
+        "searches": [
+          "Resultary: Paired coalition graph partitions complete bipartite graphs imbalance realizing disjoint unions complete bipartite components counting",
+          "\"paired-coalition\" signed imbalance components bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary finding SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba is a set polynomial, not bipartite coalition-partition EGF.",
+          "Independent K3,3 partition census has exactly 9 max-fragmentation partitions; formula gives 9."
+        ],
+        "reasoning": "No same-table result found. A small table of balanced subsets would not imply the labeled partition bivariate coefficient for all m,n.",
+        "searches": [
+          "Resultary: Paired coalition graph partitions complete bipartite graphs imbalance realizing disjoint unions complete bipartite components counting",
+          "Resultary 2026 paired-domination polynomial of complete multipartite graphs ea2bc935cbba"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as a realization/enumeration theorem for every PCG(K_{m,n}) isomorphism type and its fragmentation profile. Samadzadeh, Mojdeh and Nadimi introduce paired coalition and show PC(Kmultipartite)=total vertices: a scalar maximum number of blocks, not a classification of PCG connected components or all partition coefficients. Published paired-domination polynomials enumerate balanced sets, not partitions into nonpaired blocks with signed partners. Primary source material inspected and Resultary comparison contain no implication of distinct-magnitude triangular extremum or bivariate EGF.",
+      "residual_risks": [
+        "Equivalent signed-block-balance partition enumerations might be indexed under zero-sum colored set partitions, rather than paired coalition terminology.",
+        "Some main-paper paragraphs outside inspected sections or unpublished follow-ups could cover a special case; no exhaustive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING present biclique graph spectrum in inspected relevant sections",
+          "evidence": "Observation 2.2 fixes maximum BLOCK count; no statement of union-of-bicliques partner graph indexed by signed imbalance or triangular component cutoff.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.10842",
+          "material_read": "Definitions, Observation 2.2 for complete multipartite, and graph-classification/results sections around paths, cycles, trees",
+          "method": "Primary full-text PDF opened, searched and relevant pages viewed",
+          "title": "Paired coalition in graphs",
+          "trigger": "Exact shared concept paired-coalition and complete multipartite graphs"
+        },
+        {
+          "assessment": "RELATED but distinct enumerand",
+          "evidence": "Counts individual paired-dominating sets via balance, not set partitions into non-domination blocks with reciprocal partner relation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "material_read": "Published Resultary summary of balancing rule and complete polynomial, not full source",
+          "method": "Resultary query return; limited coverage statement",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "Same graph family and perfect-matching domination predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Inspected construction/inequalities/EGF in RESULT.md and the primary paper defining paired coalition"
+      ],
+      "rationale": "A full realization criterion for a natural coalition graph operator and an exact quantitative fragmentation law answer an intrinsic structural question beyond the scalar coalition number. The sharp triangular cutoff identifies the minimum resource cost of c distinct partner-imbalance magnitudes; the two-variable labeled generating function captures exact global partition data and can be used to recover many invariants. Distinct full-space classification and EGF are mathematically motivated, not a small arbitrary slice.",
+      "residual_risks": [
+        "Scope is complete bicliques, and the existential integer criterion is not a closed formula for unlabeled coalition graph isomorphism types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for general multipartite/noncomplete bipartite/ordinary coalition graphs.",
+    "Exhaustive independent check K2,4 and K3,3 only; the arbitrary-order claims are symbolic.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id operational identifiers. Their complete, semantically sanitized replacement public file contents, fresh blob guards and checked UTF-8 SHA-256 have not been prepared. Withhold publication despite completed scientific PASS; no public file operation was submitted."
+  ],
+  "schema_version": 1
+}
