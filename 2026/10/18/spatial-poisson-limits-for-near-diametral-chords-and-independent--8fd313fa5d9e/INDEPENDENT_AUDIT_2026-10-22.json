@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:03:52.940283Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-limits-for-near-diametral-chords-and-independent--8fd313fa5d9e/RESULT.md Git blob 0190a2b1ee8a41eeb86c618035c12601abce08cb",
+        "2026/10/18/spatial-poisson-limits-for-near-diametral-chords-and-independent--8fd313fa5d9e/verify.py Git blob c9634c11561e7183d9913b2efc5d42fee7d87fea"
+      ],
+      "evidence": [
+        "Pinned RESULT.md blob 0190a2b1ee8a41eeb86c618035c12601abce08cb §§1–7; inspected verify.py blob c9634c11561e7183d9913b2efc5d42fee7d87fea",
+        "Independent exhaustive matchings n=2..6 (1,3,15,105,945,10395 matchings by n) verified crossing moments and covariance.",
+        "Flajolet–Noy RR-3914 Theorem 3 full OA text and screenshot page 9 verify exact published Gaussian marginal."
+      ],
+      "rationale": "Uniform matching of 2n vertices has P(t disjoint specified edges)=[(2n-1)(2n-3)⋯(2n-(2t-1))]^-1. For each fixed deficiency 0≤j≤J the candidate class contains n antipodal edges at j=0, 2n near-antipodal edges otherwise, with bounded incident candidate degree. O(n^(t-1)) t-tuples conflict while disjoint t-tuples have matching probability (2n)^-t(1+O(t²/n)); joint spatial factorial moments then yield independent Poisson processes of rates 1/2 and 1. Flajolet–Noy Theorem 3 independently provides exact E C_n=n(n-1)/6, Var C_n=n(n-1)(n+3)/45 and crossing CLT. Conditioning on ANY t specified disjoint candidate chords leaves uniform matching of remaining 2(n-t) cyclically ordered vertices, so residual crossings have law C_(n-t); t imposed chords affect at most t(n-t)+t(t-1)/2 crossing pairs, O_t(n), negligible against n^1.5. This uniform conditional CLT factors with all marked factorial moments, proving Gaussian independence from Poisson marks. D_n≥k iff no deficiency 0..k-1, giving e^(-(k-1/2)); tail →0 ensures tightness. The finite covariance follows by conditioning on a prescribed edge, counting ab/(2n-3) expected other crossings plus residual mean. Independently enumerated matching sets n=2..6 and exactly checked published crossing means, variance and derived class-crossing covariances, rather than inferring CLT from enumerations.",
+      "residual_risks": [
+        "Deficiency cutoff J fixed as n→∞; no uniformity in growing J or TV rate for point process.",
+        "Antipodal location convention has a chosen origin; limit homogeneous and thus invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan count PPP theorem is for finitely many fixed small absolute lengths and no Gaussian coordinate.",
+          "Paguyo provides marginal approximation rates, not conditional robustness under prescribed near-antipodal chords."
+        ],
+        "reasoning": "Uniform matching general theory supports the proof mechanisms but no stronger located theorem implies the joint marked Gaussian independence.",
+        "searches": [
+          "Acan arXiv:1501.01489 §4",
+          "Paguyo arXiv:2104.01134",
+          "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson",
+        "INRIA RR-3914, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "arXiv:1501.01489v1, https://arxiv.org/abs/1501.01489",
+        "arXiv:2104.01134, https://arxiv.org/abs/2104.01134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even independent marginal convergence of short-chord Poisson and crossings Gaussian is insufficient for independence of their joint limiting vector, much less of near-diametral marks.",
+          "The uniform conditional-stability bound O_t(n)/n^1.5 resolves dependency for fixed prescribed near-antipodal chord sets."
+        ],
+        "reasoning": "Combination is not just juxtaposition of prior marginal results: uses new uniform conditioned CLT and factorial-moment marking in the moving maximum-length regime.",
+        "searches": [
+          "Flajolet–Noy Theorem 3",
+          "Acan Theorem 4.2",
+          "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan studies fixed shorter chord lengths (near perimeter), while the current j fixed describes chord length n-j moving toward diameter.",
+          "Flajolet–Noy global crossings CLT is the same Gaussian marginal."
+        ],
+        "reasoning": "The circular maximum length (minimum deficiency) and a marked antipodal random edge process are equivalent formulations; existing short-chord PPP is not the same asymptotic class or marked space-time object.",
+        "searches": [
+          "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson",
+          "Acan arXiv:1501.01489 Theorem 4.2",
+          "Flajolet–Noy RR-3914 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mean n(n-1)/6 and variance n(n-1)(n+3)/45 are existing exact formulas, excluded from novelty.",
+          "New finite class-crossing covariance checked through n=6; no identified exact existing near-diametral table."
+        ],
+        "reasoning": "Existing crossing moment tables do not yield spatial asymptotic PPP or joint independence; finite covariance is calibration, not sole valuable result.",
+        "searches": [
+          "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson",
+          "Flajolet–Noy RR-3914 Theorem 3",
+          "Acan Theorem 4.2"
+        ]
+      },
+      "rationale": "Flajolet–Noy exactly covers Gaussian crossing count, Acan Theorem 4.2 exactly covers Poisson counts of fixed *short* chord classes, and Paguyo concerns individual convergence rates. None of these inspected statements covers moving near-diametral deficiency j=n-s(e), spatial Poisson locations, and asymptotic independence from crossing Gaussian. Conditional stability supplies genuinely additional joint information; best-knowledge priority acknowledges possible broad matching rare-edge theorems.",
+      "residual_risks": [
+        "Alternative formulations of random matching extreme edge lengths or stronger multivariate rare-chord theorems could be unindexed; Paguyo full text was not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS mean n(n-1)/6, variance n(n-1)(n+3)/45 and Gaussian crossing marginal, NOT the marked near-diametral Poisson field or independence",
+          "evidence": "Theorem 3 parts (i) and (ii), pp.6–8 of document",
+          "identifier_or_url": "INRIA RR-3914, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Read complete 14-page open report text; inspected Theorem 3 on PDF page 9 visually and analytical proof pages 9–11",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Same uniform chord matching and exact global crossing Gaussian statistic"
+        },
+        {
+          "assessment": "NOT_COVERING moving near-diametral deficiency or spatial process; covers fixed short chord length classes as independent Poisson counts",
+          "evidence": "Theorem 4.2 fixes absolute chord lengths, unlike s(e)=n-j in reviewed claim.",
+          "identifier_or_url": "arXiv:1501.01489v1, https://arxiv.org/abs/1501.01489",
+          "material_read": "Read complete arXiv HTML, especially Section 4 and Theorem 4.2",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same uniform random perfect matching, short-chord Poisson limits may dominate"
+        },
+        {
+          "assessment": "UNRESOLVED_MINOR priority risk only; cited results address separate crossings/simple-chord approximation, not located near-diametral marked process",
+          "evidence": "Abstract and source discussion of marginal convergence rates",
+          "identifier_or_url": "arXiv:2104.01134, https://arxiv.org/abs/2104.01134",
+          "material_read": "Read abstract and comparative statements; not full text",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Could contain joint normal and rare Poisson convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-limits-for-near-diametral-chords-and-independent--8fd313fa5d9e/RESULT.md Git blob 0190a2b1ee8a41eeb86c618035c12601abce08cb",
+        "2026/10/18/spatial-poisson-limits-for-near-diametral-chords-and-independent--8fd313fa5d9e/verify.py Git blob c9634c11561e7183d9913b2efc5d42fee7d87fea",
+        "Resultary searches: Uniform random perfect matchings chord diagrams near diametral chords Poisson spatial extreme lengths independent Gaussian crossing count; near diametral maximum cyclic chord length uniform random chord diagram Poisson"
+      ],
+      "evidence": [
+        "Extremal deficiency tail exp(-(k-1/2)) distinguishes antipodal class of multiplicity n from moving deficiencies of multiplicity 2n.",
+        "Conditioned matching CLT provides a transportable technique for sparse local features versus global U-statistics."
+      ],
+      "rationale": "Near-antipodal chords are natural geometric extreme structures in uniform chord diagrams, while the total crossing count is a central global statistic. The result identifies a sharp discrete extreme-deficiency tail, a full spatial limiting process, and a nontrivial independence between sparse extremes and dense Gaussian fluctuations. The exact covariance order n underlines why covariance alone is not enough to show the joint theorem.",
+      "residual_risks": [
+        "Only fixed finite deficiency classes and no convergence rate; Gaussian marginal itself is old."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
