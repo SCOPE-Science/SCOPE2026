@@ -1,15 +1,21 @@
-# Scientific review: Hesse affine-plane noncover complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The complex is explicitly the simplicial family of point sets missing an entire affine line; all twelve lines and all 339 nonempty faces are regenerated from coordinates. A complete acyclic matching on all 1,260 Hasse incidences has critical vector \((1,0,0,11,1,0)\). The 36-term oriented integral four-cycle and the two-support cocycle detect a primitive generator in degree four and force the unique four-cell's Morse boundary to vanish. This yields the integral wedge-of-spheres homotopy type. Four signed boundary witnesses establish triviality of the top homology representation for group generators whose verified closure has 432 elements; the signed Lefschetz character identity is exhaustively verified for all 432 group elements. The supplied standalone verifier reproduces every finite certificate using exact integers. A second standalone chain complex implementation agrees on all boundary ranks over four primes. The all-dimensions homotopy result follows from discrete Morse theory and the Hurewicz calculation of \(\pi_3\) of a wedge of three-spheres, not from a finite experiment extrapolated to an infinite domain.
+## correctness
 
-## Originality — PASS (with stated limits)
-Kim–Kim (arXiv:2101.01850v1) establishes general noncover-complex bounds and special tight-hypergraph classifications, but does not establish this affine-plane case. Santhanam–Shukla–Singh (arXiv:2211.10607v1) supplies general collapsibility bounds but not an exact Hesse homotopy or representation theorem. The affine-plane transversal literature gives a different invariant. Compared published affine-plane incidence-graph Rips and projective-plane nonincidence-neighborhood results concern different vertex sets, face definitions, and homological dimensions; neither of the available descriptions logically entails this claim. The finite-geometry cap-complex formulation is the Alexander dual, not a duplicate of the wedge and equivariant calculation. Exact-alias, stronger-coverage, table, and claim-implication searches are recorded in the structured report. Equivalent work outside accessible full text or the indexed corpus remains possible; search non-detection is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The order-three affine plane is the smallest nontrivial affine line hypergraph exhibiting four parallel classes and the classical nine-point Hesse incidence structure. It is a natural, independently studied 3-uniform geometric hypergraph rather than an arbitrary finite slice. Its pure five-dimensional noncover complex has the unexpected mixed integral wedge \(\bigvee^{11}S^3\vee S^4\), and its rational affine action refines the Betti numbers to two canonical augmentation modules with a determinant twist. This gives a tractable but nontrivial full-symmetry model, with a sharp separation between its invariant top class and invariant-free third homology. No universal affine-plane formula or integral equivariant lattice classification is claimed.
+The 12 affine lines in F3² give exactly 12 complement facets, 339 nonempty faces and f-vector (9,36,84,126,72,12). The prescribed complete elementary face matching yields 163 pairs and critical cells one in dimension 0, eleven in dimension 3, one in dimension 4; the 1,260 face incidences orient acyclically. The explicit 36-support signed 4-cycle z has exact ∂z=0; cochain φ supported at 4-simplices indices 0 and 6 annihilates all boundaries of 12 five-simplices and has φ(z)=1, detecting primitive H4 and forcing the sole Morse 4-boundary to vanish. Since π3(∨11 S³)=Z^11, the 4-cell attachment is null, proving integral ∨11 S³∨S⁴ (not only Betti numbers). Four explicit generator differences g·z−z are boundaries of listed integral 5-chains; the generators yield all 432 AGL2(F3) elements, so H4 character is trivial. For every affine element independent signed-face Lefschetz summation gives χ3=det-sign×(fixed points+fixed directions−2), proving the rational module identity. Independent reconstruction found mod-two Betti 11 and 1, exact primitive cycle pairing and all 432 traces. Integral equivariant lattice of H3 is not claimed.
 
-## Scope of the review
-The original sources' more general bounds are not independently reproved here. A published result with a genuinely stronger implication could supersede this originality assessment. The exact scientific claims in the package can be reproduced using `verify.py` and `EXPECTED.txt`; these computations have not undergone external independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kim–Kim noncover complexes paper defines the same class but its tight-path, tight-cycle and domination-bound theorems do not classify the affine-plane line hypergraph. Full read published affine-plane incidence Rips paper concerns the 21-vertex point-line incidence GRAPH and pairwise graph-distance simplices, not the nine-point line-avoiding noncover complex; order-three Rips ranks 16 and 16 differ from current 11 and 1. The extra AGL432 rational homology character is not a consequence of general noncover bounds.
+
+## value
+
+PASS
+
+The Hesse nine-point affine plane is a canonical small finite geometry, and its integral homotopy type together with complete affine symmetry character resolves meaningful intrinsic topological invariants; the exact primitive cycle/representation goes beyond a routine finite homology table or an unrelated Rips complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

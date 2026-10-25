@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-Extract `verify.py` and `EXPECTED.txt` without changing their bytes and execute `python3 verify.py`. Standard-library exact arithmetic is sufficient; no precomputed database, network connection, external solver, or runtime-dependent random seed is required. The expected stdout is reproduced in `EXPECTED.txt`. Separately execute `python3 verify_alt.py` and compare with `EXPECTED_ALT.txt` for a modular boundary-rank cross-check over four different primes.
+## correctness
 
-The verifier constructs the nine points and all twelve lines from the coordinate equations, builds the face set, and independently checks all 1,260 Hasse incidences and the entire directed incidence graph for cycles. It checks the signed boundary of the displayed 36-term four-cycle, the primitive pairing with a four-cochain annihilating the twelve five-simplex boundaries, and four explicit integer boundary witnesses for the affine group generators. A generated permutation-group closure has order 432, and 432 direct signed Lefschetz counts satisfy the claimed rational character formula.
+PASS
 
-The finite computation is exhaustive for the named nine-point affine plane only. The derived homotopy equivalence uses the separately stated discrete-Morse and attaching-map arguments; the verifier alone should not be interpreted as an assertion about arbitrary finite planes. The rational module isomorphism uses equality of all finite-group character values. The separate modular rank checks are corroboration, not a proof that all integral torsion vanishes; the integral discrete-Morse argument handles that. No independent mathematical audit has been performed.
+The 12 affine lines in F3² give exactly 12 complement facets, 339 nonempty faces and f-vector (9,36,84,126,72,12). The prescribed complete elementary face matching yields 163 pairs and critical cells one in dimension 0, eleven in dimension 3, one in dimension 4; the 1,260 face incidences orient acyclically. The explicit 36-support signed 4-cycle z has exact ∂z=0; cochain φ supported at 4-simplices indices 0 and 6 annihilates all boundaries of 12 five-simplices and has φ(z)=1, detecting primitive H4 and forcing the sole Morse 4-boundary to vanish. Since π3(∨11 S³)=Z^11, the 4-cell attachment is null, proving integral ∨11 S³∨S⁴ (not only Betti numbers). Four explicit generator differences g·z−z are boundaries of listed integral 5-chains; the generators yield all 432 AGL2(F3) elements, so H4 character is trivial. For every affine element independent signed-face Lefschetz summation gives χ3=det-sign×(fixed points+fixed directions−2), proving the rational module identity. Independent reconstruction found mod-two Betti 11 and 1, exact primitive cycle pairing and all 432 traces. Integral equivariant lattice of H3 is not claimed.
+
+## originality
+
+PASS
+
+Kim–Kim noncover complexes paper defines the same class but its tight-path, tight-cycle and domination-bound theorems do not classify the affine-plane line hypergraph. Full read published affine-plane incidence Rips paper concerns the 21-vertex point-line incidence GRAPH and pairwise graph-distance simplices, not the nine-point line-avoiding noncover complex; order-three Rips ranks 16 and 16 differ from current 11 and 1. The extra AGL432 rational homology character is not a consequence of general noncover bounds.
+
+## value
+
+PASS
+
+The Hesse nine-point affine plane is a canonical small finite geometry, and its integral homotopy type together with complete affine symmetry character resolves meaningful intrinsic topological invariants; the exact primitive cycle/representation goes beyond a routine finite homology table or an unrelated Rips complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
