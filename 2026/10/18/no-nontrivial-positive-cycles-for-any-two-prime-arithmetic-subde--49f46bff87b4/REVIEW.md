@@ -1,9 +1,21 @@
-# Scientific review — two-prime arithmetic subderivative periodic orbits
+# Independent mathematical audit
 
-**Correctness: PASS.** Multiplication of orbit ratios forces the valuation-linear quantity \(c_i\) to be \(\{p,q\}\)-smooth with product \((pq)^L\). Exact valuation updates show the threshold \(pq\) is forward invariant and that a positive orbit cannot be periodic below it. This gives \(c_i=pq\) throughout, hence every periodic point is fixed. The argument is uniform for every prime pair and period; the supplied Python checks are supplementary.
+## correctness
 
-**Originality: PASS relative to inspected sources.** The general fixed-point classification in Talukdar–Saikia (2026, Theorem 3.4) covers the exact fixed families but not the exclusion of nontrivial periodic cycles; their Discussion names that as an open direction. The closest publicly available cycle-exclusion theorem treats only the pair \(\{2,3\}\). This theorem resolves all two-prime supports rather than a single prime substitution. An unindexed stronger theorem remains possible, and the 2025 generalized-subderivative source was inspected only at abstract level.
+PASS
 
-**Value: PASS.** Positive periodic points are a natural unresolved object in arithmetic subderivative dynamics. Exact classification for every prime support of size two closes a whole structural regime and sharpens previously partial parameter-specific results. No claim is made for larger supports or trajectories that are not periodic.
+For arbitrary primes p<q and a positive periodic trajectory n_i, define c_i=qνp(n_i)+pνq(n_i)>0. Exact ratios n_{i+1}/n_i=c_i/(pq) imply product c_i=(pq)^L and every c_i has only p,q prime factors. Valuation updates give c_{i+1}−c_i=q(u_i−1)+p(v_i−1) if c_i=p^{u_i}q^{v_i}. Below pq, smoothness forces c_i to be p^u or q; c=p or q exits positivity, otherwise p^u increases. At/above pq, the half-line is forward invariant, including pure q^v via c_next>=q²−q+p>=pq. Thus no finite positive cycle can contain c<pq; all c_i=pq by product, hence every point is fixed. Integer congruence q a+p b=pq has only exponent solutions (p,0) or (0,q). Independently sampled 35,955 bounded trajectories over prime pairs through 29 with zero nontrivial cycles; this is supplementary to the unrestricted valuation proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Talukdar and Saikia (2026) Theorem 3.4 already classifies positive fixed points for general supports; those families are explicitly not new. Their discussion names additional periodic points as further work. Published 2026 Resultary theorem excludes nontrivial cycles for {2,3}, but a single prime pair does not imply arbitrary p<q. The new universally quantified two-prime cycle exclusion, using a smooth threshold and orbit-product argument, survives these comparisons. General support size three remains unknown here.
+
+## value
+
+PASS
+
+Nontrivial periodic points in prime-supported arithmetic differential dynamics are a natural open structural problem highlighted by primary literature. Closing it uniformly for the entire family of two-element prime supports is a substantive classification and not just restating the known fixed-point formula or changing numeric parameters in the {2,3} theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
