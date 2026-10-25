@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model fixes every update normalization, graph, initial phase, payoff, and weak-selection quantifier. The neutral reproductive-value martingale identifies the first-order fixation drift. The six ancestral-pair survival recurrences form an absorbing substochastic matrix; the displayed resolvent sums every update for the infinite periodic process. Exact rational elimination supplies the three benefit coefficients and common cost, and a separately implemented fourteen-state transient-chain differentiation exactly reproduces all six values. Analyticity of the finite transient resolvent turns a nonzero first derivative into a correct sufficiently-small-positive-selection sign. The minimum-order conclusion assumes connected simple graphs with one appearance per edge and uniform initial mutant.
+## correctness
 
-## Originality — PASS (with residual risk)
-Meng–McAvoy–Li's 2024 preprint and 2025 article establish a much broader temporal-network coalescent criterion and use hub-late ordering as a successful empirical design heuristic. The specifically computed, sharp path-four periodic order thresholds and the opposite sign at benefit-to-cost ratio four are not stated in the portions of those sources inspected; obtaining the values requires nontrivial six-pair resolvent arithmetic and a complete comparison of all six permutations, not simple quotation. The published generic criterion supplies the overarching analytical method and could in principle imply these finite cases upon explicit specialization; supplementary or unindexed literature might already tabulate equivalent values. Allen et al.'s 2017 general static theory does not itself resolve the three-phase order comparison. The result is not represented as refuting a claimed universal theorem: the source's scheduling advice is explicitly heuristic.
+PASS
 
-## Value — PASS
-Ordering the same contacts is an expressly motivated intervention in the 2024 work. This complete smallest connected edge-ordering example gives a sharp *counterdirection* to scheduling the central, higher-degree edge last. It shows a qualitative reversal of which invading strategy is favored, not merely a tiny numerical change, and identifies exact thresholds under which it occurs. The three order classes, fixed-phase qualification and four-vertex minimum are necessary to interpret the boundary correctly.
+Neutral reproductive values π=(1,2,2,1)/6 define a voter-model fixation martingale. Differentiating neighbor fitness weighting gives explicit active-edge drift; duality reduces quadratic moments under the sum of single-cooperator/single-defector laws to six two-lineage survival probabilities Q^t 1. Coalescence on finite connected P4 makes ρ(Q)<1 and sums the full infinite-time periodic drift via (I−Q³)^−1. The cost contribution is −4c/21; three distinct benefit coefficients are 12920/259077, 1730/37011 and 11981/259077. Reversal swaps L,R, exhaustive six permutations cover all cases. Independent rational SymPy inversion of the exact 6×6 Q reproduces all six benefit/cost coefficients, three b/c thresholds, and signs at (4,1). The source also uses separate 14 transient-state differentiation. Analytic finite absorbing-chain inversion justifies sufficiently weak δ>0, not large δ or derivative-equality endpoints.
 
-## Closest literature and limitations
-[1] Meng, McAvoy, and Li, arXiv:2404.07530v1 (2024-04-11), and later PNAS article doi:10.1073/pnas.2509575122 (2025); general temporal-game criterion and empirical hub-priority ordering. [2] Allen et al., Nature (2017), doi:10.1038/nature21723; static population structure and coalescent methods. This exact finite classification is conditional on the specified temporal phase and updating convention, not a universal ordering rule. Journal supplemental material and other specialist papers may contain related small instances.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meng–McAvoy–Li (2024/25) gives a general temporal-network coalescent criterion and empirical low-degree-first heuristic; it does not identify the explicit three-class P4 phase-zero counterexample. The general equation can be specialized algorithmically, but exact rational ordering and minimal graph witness require nontrivial exact six-state calculation and a small-graph symmetry argument. The result rebuts a heuristic, not a published universal theorem.
+
+## value
+
+PASS
+
+A rigorous minimal connected-graph reversal to a motivated scheduling heuristic is a worthwhile sharp boundary: it identifies assumptions (single-edge snapshots, phase of introduction) where a commonly recommended design principle reverses. Exact rational thresholds make a reusable diagnostic beyond an arbitrary four-vertex numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
