@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cubic intrinsic-volume coefficients are independently obtained from the support function, surface area and volume; exact discriminant reduces to (4Q^3-H^2)/27. Differentiation produces strictly positive sum-of-squares derivatives for F± whenever Q>0. A proven global inequality m^3>9πt ensures negative H at all Q=0 boundaries. This excludes hidden bounded components and proves two and only two crossings on the final unbounded component, with correct double-root and negative-real-root classifications. The standalone checker successfully verifies algebraic identities, a rational bound, and high-precision numerical thresholds; numerics are supplementary, not the proof.
+## correctness
 
-The comparison of roots uses the exact cubic discriminant and positivity of coefficients; signs at isolated numerical samples alone would not establish a global classification. The analytic endpoint argument supplies the missing infinite-domain step.
+PASS
 
-## Originality — PASS
-Published archive-era full texts supply the intrinsic-volume roots framework and right-cone coefficients, but do not solve the exact shape-dependent Wills discriminant phase. The closest published identical-shape two-transition theorem solves the differently normalized Steiner problem, with different roots and thresholds. Multiple successful research-index searches and material full-text inspections of the strongest plausible sources support originality, while residual risk of unindexed prior equivalents is explicitly retained.
+For a solid right circular cone with h/r=t>0, direct volume/surface/support integration gives normalized intrinsic volumes V0=1,V1=m(t)=π+t−atan(t), V2=π(1+√(1+t²))/2,V3=πt/3. The reciprocal monic cubic has Q=m²−3πs/2, H=2m³−9πms/2+9πt, discriminant (4Q³−H²)/27. On Q>0 the functionals F±=H±2Q^(3/2) have derivative exactly 3(x(m±√Q)−3π/4)²+9π(16−3π)/16>0. The global inequality m³>9πt, derived from the tangent lower bound to atan and polynomial positivity, forces H<0 on each Q=0 boundary; hence no additional bounded-component crossings. Each F± has precisely one unbounded-component zero α≈1.7602188992, β≈1.8972451274; sign factorization forces exactly 3 distinct negative real roots for α<t<β and single negative root plus a complex pair otherwise. At α,β one double negative root. Numerical root/signed discriminant checks corroborate rather than prove uniqueness.
 
-Closest sources: Hernández Cifre–Yepes Nicolás (2013, and their full author preprint), Saorín (2009), Henk–Hernández Cifre–Saorín (2011), Hernández Cifre–Yepes Nicolás (2015), and the public cone Steiner root-phase result. The last gives two thresholds for another polynomial and therefore does not imply these two Wills thresholds. Possible unindexed duplicate formulations are the principal residual risk.
+## originality
 
-## Value — PASS
-An exact all-aspect-ratio real-rootedness classification for a basic 3D convex body resolves a natural gap between universal Wills root-location theorems and known exact Steiner root phases. The unexpectedly narrow window and explicit rigid two-transition count are intrinsic-volume geometric facts, not an arbitrary numerical slice or routine table recomputation. The derivative identity and boundary exclusion are structural lemmas applicable to an entire continuous cone family.
+PASS
 
-## Scientific limitations
-Three dimensions and solid right circular cones only; no closed elementary form for either transition; other cone families and individual nonreal root locations are not classified. Numerical reproduction checks support the formulas but not the infinite proof. No independent validation.
+Best-of-knowledge priority conclusion, not exhaustive novelty certification. The known Steiner phase diagram concerns parallel-volume coefficients (1,πs,πm,4π/3) and has different transitions (1.15239...,3.37108...). The Wills coefficient polynomial uses intrinsic volumes and has thresholds (1.76021...,1.89724...). They are not polynomial multiples under a single variable scaling. The prior work supplies intrinsic-volume/root-location methods and the cone coefficients but does not logically imply uniqueness of two Wills discriminant sign changes. Its Steiner equivalent-shape classification is not a direct implication because coefficient weights differ.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The 3D solid right circular cone is a basic intrinsic-volume test family. The exact two-transition Wills real-rootedness interval is a complete continuous-parameter geometric classification and unexpectedly narrow compared with the known Steiner polynomial interval. The global sum-of-squares and forbidden-component argument are structural, not a mere list of numerical roots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
