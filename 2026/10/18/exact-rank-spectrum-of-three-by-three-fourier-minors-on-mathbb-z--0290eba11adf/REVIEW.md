@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result reconstructs the unit-modulus three-by-three determinant rigidity lemma, identifies every proportional Fourier row/column pair by group annihilators, and counts all intersecting congruence events without omitted cases. All ranks are complex. The standalone modular checker exhaustively verified orders 15 and 21, but the complete proof is analytic and independent of the experiments.
+## correctness
 
-**Originality — PASS, with residual risk.** Prior literature on Kronecker rank-deficient Fourier blocks (Delvaux--Van Barel), prime and squarefree uncertainty (Tao; Bonami--Ghobber; Loukaki), and principal Fourier minors (Caragea--Lee) was compared by logical implication. Closest published exact three-by-three classifications treat the cyclic orders \(2p\) and \(p^2\) or the noncyclic group \(\mathbb F_p^2\). The known elementary unit-modulus rigidity lemma is reused and not claimed new. None of these inspected results directly gives the order-\(3p\) classification together with all three rank multiplicities. An implicit corollary in general Kronecker-defect theory or an unidentified older table remains possible.
+PASS
 
-**Mathematical value — PASS.** The result establishes the full small-minor incidence structure for the smallest odd semiprime cyclic family, including positive rank-one multiplicities absent at even semiprime orders. This resolves a natural finite Fourier interpolation classification with an exact all-prime formula rather than a single finite experiment.
+For any 3×3 matrix with unit-modulus entries, normalize first row/column to 1. If (u-1)(t-1)=(v-1)(w-1)≠0, conjugation and unimodularity imply ut=vw and u+t=v+w, hence equal two-element multisets and a repeated row or column; zero-product cases likewise produce a proportional pair. For characters on Z3×Zp, proportional rows occur exactly when their difference has order 3 or p and the three columns lie in its annihilator coset, yielding four pure/collision configurations including transposes. Rank one needs entire selected row space to be proportional and forces complementary 3-pure/p-pure sets. Count 3-pure row triples as 3*binom(p,3), p-pure as p; p-colliding as p+9p(p-1), 3-colliding as T-p³, subtract precisely the two 3pure/p-pure overlaps. This gives N1,N2,N3 as stated for all primes. Independently enumerated every possible triple-pair incidence for p=5 and p=7: (300,13800,192925) and (1470,91728,1675702). Those finite checks do not prove complex-character rigidity for all primes; the general proof does.
 
-**Limitations.** The scope is complex three-by-three minors and prime \(p\ge5\). Independent mathematical and bibliographic validation has not been performed; an equivalent previously published enumeration remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published complete analogues for even semiprime Z2p, cyclic prime-square Zp², and elementary abelian Fp² are related but not this odd squarefree cyclic Z3p family. The Fp² paper already uses the identical elementary 3×3 unit-modulus lemma, expressly excluded from novelty. The fully quantified rank multiplicities for Z3p were not identified as prior results. Broader Kronecker-product maximal rank-deficient theory could imply an equivalent enumeration but its full paper was not accessible.
+
+## value
+
+PASS
+
+An exact full rank-one/rank-two/full-rank incidence census for the natural odd squarefree cyclic Fourier family, with different small-minor behaviour than even semiprime Z2p, is a motivated finite-harmonic-analysis invariant. The all-prime structural classification and multiplicity formulas are useful to interpolation/uncertainty computations; the contribution is beyond a single finite table and uses an explicit group-annihilator proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
