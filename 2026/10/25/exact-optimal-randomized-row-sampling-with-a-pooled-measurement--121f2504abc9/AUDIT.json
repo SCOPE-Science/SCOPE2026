@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the exact conditional error identity, full orthogonal spectral splitting, permutation-averaging global bound, unique t intersection, full feasibility condition and exact endpoint polynomial. Independent verification checks 55 configurations and 2750 nonsymmetric allocations plus exact symbolic identities. Tests complement an all-m and all-eligible-c analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai et al. arXiv:1402.2863 equation (18), Section III gives general SDP and approximate solvers, not a closed-form specialization.",
+        "Agaskar–Wang–Lu (GlobalSIP 2014) Section 3 optimizes the annealed multi-step MSE rate, a different quantity."
+      ],
+      "reasoning": "The general SDP contains this instance in principle but does not imply its explicit optimum without the present block-decomposition and sharp bound; an exact multi-step MSE optimum does not dominate a worst-direction one-step bound. Specialized E-optimality theory remains a residual risk.",
+      "searches": [
+        "published-finding corpus: E-optimal experimental design simplex star regressors one central unit vector m tilted unit vectors explicit weights",
+        "published-finding corpus: Optimal E-design for m+2 observations of m+1 coordinates with hub local blended rows and pooled aggregate measurement",
+        "Web: E-optimal experimental design star structured vectors common component rank-one aggregated observation optimal allocations 2014"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.2863",
+      "doi:10.1109/globalsip.2014.7032145",
+      "published-finding corpus:82c9d23eb995",
+      "published-finding corpus:332a15a5d36f",
+      "published-finding corpus:d549f7251aa1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ID 82c9d23eb995 assumes SPD square coordinate-descent Hessian; augmented frame has more rows than unknowns, singular row Gram, and a distinct sampling objective.",
+        "ID 332a15a5d36f gives greedy maximal-distance Kaczmarz residual spikes, not optimal fixed iid sampling.",
+        "ID d549f7251aa1 gives two-row cyclic overrelaxation at finite horizons, not the augmented star.",
+        "Dai et al. derive a general SDP; Agaskar et al. distinguish annealed and quenched exponents from one-step bounds."
+      ],
+      "reasoning": "Neither the generic optimization formulation, nor an invertible square-Hessian theorem, nor greedy two-row results implies the explicit unique symmetric optimizer and pooled-observation activation boundary without additional mathematics. The theorem expressly does not assert multi-step MSE optimality.",
+      "searches": [
+        "published-finding corpus: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "published-finding corpus: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+        "Primary: arXiv:1402.2863 Sections II-IV",
+        "Primary: doi:10.1109/globalsip.2014.7032145 Sections 2-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai et al. arXiv:1402.2863 Sections II-III: arbitrary row-selection min-eigenvalue design SDP; no explicit augmented pooled-star row family formula in inspected full text.",
+        "Published inverse-positive coordinate-sampling finding, 2026/9/20, ID 82c9d23eb995: closed form for invertible Hessian; here the row Gram has m+2 rows and rank m+1."
+      ],
+      "reasoning": "The natural equivalence to E-optimal design is acknowledged; general formulation alone does not supply the explicit globally optimal probabilities. A square Gram inverse-positive criterion cannot be directly applied because the additional pooled observation makes the row Gram singular. No stronger equivalence was found in the checked relevant sources.",
+      "searches": [
+        "published-finding corpus: E optimal Kaczmarz sampling m local rows c e0 + s ei plus direct e0 plus pooled mean of ei row, optimal three probability classes",
+        "published-finding corpus: Randomized Kaczmarz on redundant symmetric arrowhead frames optimal sampling direct and aggregate measurements eigenvalue",
+        "published-finding corpus: E optimal design star frame eigenvalue max min eigen sum probabilities rank one projectors p_i exact witness equal row correlations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching pooled-aggregate row design formula in retrieved published-finding corpus top results; nearest 82c9d23eb995 concerns square inverse-positive coordinate design.",
+        "Accessible existing slot claims show no equivalent augmented-pooled sampling statement."
+      ],
+      "reasoning": "Available checks found no exact table/database statement of this m+2 by m+1 augmented-row design. Search absence alone is not proof of absolute uniqueness.",
+      "searches": [
+        "published-finding corpus: Augmented star frame pooled measurement improves E optimal design, common-mode noise c, optimal row probabilities activation and vanishing hub",
+        "published-finding corpus: Sharp worst-case conditional squared-error contraction constant (1-c)/(m+1+(m-1)c) for normalized common-mode Kaczmarz row system with m leaf measurements",
+        "Accessible own ledger titles, claims, and source identifiers through previous generation g000118"
+      ]
+    },
+    "rationale": "The explicit globally optimal formula for the overcomplete star-plus-pooled measurement frame does not follow by a simple square-system inverse-positive sampling reduction. Closest 2014 primary papers provide a general SDP or a distinct multi-step MSE objective; published-finding corpus comparisons found no equivalent augmented-frame formula. Residual risk from specialized design literature remains.",
+    "residual_risks": [
+      "Equivalent E-optimal design for a structured redundant sensing frame could exist under a different name.",
+      "One relevant indexed result was compared from its summary, not from its full source text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General formulation covers the optimization variables, but no derived pooled-star exact probability law or hub zero-weight boundary.",
+        "evidence": [
+          "arXiv:1402.2863, first posted 2014-02-12, Section II equations (5)-(18), Section III general SDP approximations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+        "material_read": "Sections I-IV including normalized rows, conditional contraction, SDP and proposed approximations; abstract and references.",
+        "method": "Accessible full arXiv text, inspected objective and solution methods.",
+        "title": "On the Randomized Kaczmarz Algorithm",
+        "trigger": "Most direct primary source for the min-eigenvalue Kaczmarz sampling objective."
+      },
+      {
+        "assessment": "Targets exact finite-horizon MSE/annealed exponent and generic SDP; not a direct formula for the sharp one-step worst-direction objective on the explicit augmented frame.",
+        "evidence": [
+          "Agaskar, Wang, Lu, GlobalSIP 2014; page 4 Section 3 and equations concerning annealed eigenoperator."
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Six-page lawful open-access paper, Sections 1-3 and mathematical objective in Section 3; PDF page 4 screenshot inspected.",
+        "method": "Full-text extracted PDF plus page image.",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Potential stronger exact convergence/MSE sampling theorem."
+      },
+      {
+        "assessment": "Potentially dominates a square-row candidate but does not directly imply augmented overcomplete pooled-frame design; full published text not inspected.",
+        "evidence": [
+          "Indexed ID 82c9d23eb995: SPD coordinate sampling with entrywise nonnegative inverse."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published indexed title and full summary; not a full-text source inspection.",
+        "method": "published-finding corpus search result and theorem statement comparison.",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest indexed closed-form optimal coordinate sampling result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "121f2504-abc9-46c3-99ad-c657afd74afc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An aggregate sensing row changes a square star to an overcomplete measurement design. A universal explicit sampling rule quantifies when the pooled observation should be sampled and gives a sharp coupling threshold where a direct hub measurement may receive zero weight, a structural E-optimal design property for every integer dimension m>=2, not a special-case computation.",
+    "status": "PASS"
+  }
+}
