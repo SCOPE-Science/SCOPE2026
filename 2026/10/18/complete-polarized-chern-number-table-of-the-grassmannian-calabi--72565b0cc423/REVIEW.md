@@ -1,11 +1,21 @@
-# Review of the polarized characteristic-number table
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact normal bundle is ten copies of the Plücker line bundle and the tangent bundle has the virtual-root formula \(10[S^*]-[S^*\otimes S]-10[\mathcal O(H)]\). The Schubert coefficient integral on \(\operatorname{Gr}(2,10)\) is an exhaustive algebraic intersection formula. The eleven degree-six partitions exhaust the claimed table. A standard-library rational checker reproduced every coefficient extraction and separately checked all eleven using the 45 fixed-point formula; the new claim is therefore supported by mathematical arguments and a reproducible finite exact calculation.
+## correctness
 
-**Originality — PASS, with a significant delineation.** Fatighenti–Mongardi [2, Appendix B, Table 5] already identify the family through \(A(2,7)\) and publish its Hodge numbers, including the Euler characteristic derived from them. Hodge information is excluded from the novelty claim. Bolognesi–Ciliberto–Verra [1] give the contemporaneous Pfaffian construction but not the polarized eleven-entry Chern table. The inspected Fatighenti–Mongardi appendix does not report that table. Searches for exact Chern triples, Plücker intersections, equivalence \(A(2,7)\), and published mathematical-result records produced no same table. The Hodge \(\chi_y\) genus does not determine every tangent Chern characteristic number of a Calabi–Yau sixfold in general. General universal formulas do make these particular numbers computable; possible unindexed precedent is the main residual priority risk, not proof of absence.
+PASS
 
-**Value — PASS.** The complete natural degree-six numerical characteristic class ring of this polarized sixfold is determined in a single exact table, including intrinsic products \(c_2^3,c_2c_4,c_3^2\) and mixed Chern/Plücker pairings. These measure geometry finer than the already tabulated Hodge diamond and can be used in characteristic-genus and intersection-theoretic comparisons. Their precise values concern a sixfold singled out by a recent geometric construction and are not arbitrary parameter slices. No new Hodge, birationality, or higher-dimensional classification theorem is asserted.
+The normal sequence gives the tangent total Chern class (1+x)^10(1+y)^10/((1-(x-y)^2)(1+x+y)^10), c1=0. The Gr(2,10) Schubert-residue pairing is [x^9 y^8]((x-y)(x+y)^10Q) for codimension-six Q. Reconstructed all 11 exact coefficient integrals with separate symbolic arithmetic: H^6=1430, c2 H^4=4004, c3 H^3=-4290, c4 H^2=9350, c5 H=-15180, c6=24920, c2^2 H^2=11330, c2 c3 H=-12210, c2^3=32480, c2 c4=26720, c3^2=13200. Independent c2=x^2+8xy+y^2, c3=-10xy(x+y). HRR yields chi(O(mH))=143m^6/72+1001m^4/72+154m^2/9+2. All eleven partitions of six with part 1 interpreted H are represented; no primitive-cycle/intersection assertion.
 
-Closest material: [1] M. Bolognesi, C. Ciliberto, A. Verra, arXiv:2610.11925v1 (2026); [2] E. Fatighenti, G. Mongardi, arXiv:1904.05679, Appendix B (2019); [3] D. Inoue, A. Ito, M. Miura, arXiv:1607.07821 (2016). Risks include previously unindexed characteristic-number evaluations and formulas general enough to imply them; the full text of [3] was not used to exclude all such possibilities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Appendix B of Fatighenti–Mongardi already reports A(2,7), deformation-equivalent to ten hyperplane sections Gr(2,10), including Hodge numbers and Euler 24920. Bolognesi–Ciliberto–Verra addresses the geometry of this linear-section family. Neither source material examined states all eleven polarized Chern intersections; a universal residue formula implies the entries computationally but no dominating explicit sixfold table was evidenced. Best-of-knowledge table originality only, no novelty for Hodge/Euler/degree.
+
+## value
+
+PASS
+
+The complete characteristic-number data of this naturally occurring Calabi–Yau sixfold, particularly intrinsic c2^3,c2c4,c3^2 and polarized mixed pairings, give concrete inputs for Hirzebruch–Riemann–Roch and topological/specialization comparisons. Although calculable by standard Grassmannian machinery, the precise complete numerical invariant is motivated and not merely arbitrary parameter fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
