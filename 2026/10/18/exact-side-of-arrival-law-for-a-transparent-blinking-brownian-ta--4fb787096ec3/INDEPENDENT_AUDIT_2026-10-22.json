@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:04:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Brownian generator D ∂xx with independent A→I α, I→A β, Poisson reset x→x0 at rate r, and target at 0 transparent when inactive, absorbing when active. The coupled backward ODE on two half-lines has reset value u=F(x0), one-sided active Dirichlet data F_A(0+)=0,F_A(0−)=1, and continuity of F_I,F_I′ at the transparent interface. Decomposition of gate generator into constant vector and (α,−β) eigenvector yields modes exp(−√(r/D)x),exp(−√((r+λ)/D)x), with c=(z−1)/(2λ) and matching constraints. Solving source-value fixed point gives p_-^A=α(1−z)(1−h)/(2λ), p_-^I=(1−z)[α+(r+β)h]/(2λ), stationary mixture p_-=α(1−z)(1+rh/λ)/(2λ), h=e^(−x0√((r+λ)/D)), z=√(r/(r+λ)). Derivative analysis gives strict reduction with reset rate r and x0 and strict increase with λ at fixed α/λ. Boundary r→0, r→∞ fixed x0, λ→∞ and x0√(r/D)→ell limits follow directly; almost-sure eventual capture establishes uniqueness of bounded Dirichlet solution. Independently checked generator/interface residuals in three parameter regimes and simulated exact Brownian-bridge crossings between jump times in 30,000 independent paths per rate, matching p_- within sampling error. The independent check does not prove the general PDE theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Żbik et al. discuss Fig.5 side of arrival numerically, no exact formula in full HTML sections read.",
+          "Bressloff conditional splitting in bounded regions is between different physical endpoints, not opposite approach sides at a transparent origin."
+        ],
+        "reasoning": "An underlying more general BVP solution may contain this specialization implicitly, but inspected primary results do not state or evaluate the exact conditional formula and singular law.",
+        "searches": [
+          "blinking transparent target Brownian resetting opposite side detection probability active inactive gate",
+          "Zbik transparent blinking resetting Fig 5 initial side probability",
+          "Bressloff 2601.01588 gated endpoint splitting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2512.09739v2",
+        "https://arxiv.org/abs/2009.02739",
+        "https://arxiv.org/abs/2107.02148",
+        "https://arxiv.org/abs/2601.01588",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-side-of-arrival-law-for-a-transparent-blinking-brownian-ta--4fb787096ec3",
+        "Resultary:blinking transparent target Brownian resetting opposite side detection probability active inactive gate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix B calculates gate-state FPT transform/moments; first-passage marginal does not encode the sign of the particle before absorption.",
+          "Fig.5 discusses side probabilities numerically, with an empirical trend needing reconciliation with the exact PDE calculation; no claimed closed-form expression there."
+        ],
+        "reasoning": "The original observations motivate the question but do not prove the exact closed directional law or singular limits. Contradictory numerical trend must be checked before broad physical interpretation.",
+        "searches": [
+          "blinking transparent target Brownian resetting opposite side detection probability active inactive gate",
+          "Żbik et al full arxiv 2512.09739v2 section III.3 appendix B Fig 5",
+          "Bressloff renewal theory gated targets 2601.01588"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same transparent target and position resetting are studied in Żbik et al.; previously derived FPT Laplace transforms do not mark the approach side.",
+          "One-sided active Dirichlet data and inactive C1 matching differ from reflective half-line gates."
+        ],
+        "reasoning": "Equivalent gate/reset dynamics are acknowledged; differing observables and interface conditions prevent direct reuse of the previously stated marginal FPT result as the present directional probability.",
+        "searches": [
+          "blinking transparent target Brownian resetting opposite side detection probability active inactive gate",
+          "Żbik Dybiec Capała Palmowski Sokolov arxiv:2512.09739v2 Appendix B",
+          "Bressloff gated resetting Brownian 2020,2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits were unrelated Bernoulli or first-passage threshold results, not a directional approach-side table.",
+          "Analytic formula is continuous in four positive parameters and no exact table identified."
+        ],
+        "reasoning": "Lack of hit is not proof; the exact same mathematical model original paper is the substantive comparison.",
+        "searches": [
+          "blinking transparent target Brownian resetting opposite side detection probability active inactive gate",
+          "Resultary transparent blinking target opposite-side resetting exact law",
+          "Hitting the blinking target under stochastic resetting arxiv:2512.09739"
+        ]
+      },
+      "rationale": "PASS best of knowledge with substantial numerical-prior conflict: Żbik–Dybiec–Capała–Palmowski–Sokolov 2025/2026 treats the same transparent blinking target with position resetting and solves first-passage-time Laplace transforms and mean time. Its section III.3 plots and discusses a numerical probability of capture from the initially occupied side, rather than supplying a closed analytic side-approach formula. Crucially, that numerical trend versus resetting rate is different from the exact backward-equation derivative found here; this is identified as unresolved scientific reconciliation and not erased. First-passage-time marginal laws cannot determine side marking. Reflective gated half-line analyses of Bressloff and Mercado-Vásquez–Boyer use different boundary conditions; Bressloff 2026 spatial-endpoint splitting differs from two sides of one transparent target. General matrix backward-ODE techniques are prior knowledge, not the specific result.",
+      "residual_risks": [
+        "The original same mathematical model Figure 5 numerical initial-side trend differs from the sign of the present proven derivative; potential differing parameterization/finite-sampling or event simulation bias requires careful reconciliation. This is not suppressed as mere literature inaccessibility.",
+        "The side at active first arrival assumes non-simultaneous Poisson switches and Brownian hitting, and x0>0; beginning exactly at the origin has a distinct boundary convention.",
+        "Potential general matrix-valued splitting-probability literature could implicitly include this formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior gives FPT-time formulas and numerical side discussion; exact opposite-side formula not stated. Reported numerical trend contrasts with present monotonicity and is a material residual scientific risk.",
+          "evidence": [
+            "Section III.3 Fig.5 reports numerical initial-side trend",
+            "Appendix B FPT Laplace transform and MFPT"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.09739v2",
+          "material_read": "Full arXiv HTML, section III.3 directional simulation/Fig.5, appendices including B Laplace FPT",
+          "method": "read complete HTML relevant model, results, appendix and Fig.5 discussion",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "Precisely same transparent blinking Brownian target and particle-only resetting"
+        },
+        {
+          "assessment": "Inactive reflecting half-line rather than transparent crossable interface, so opposite-side approach is unavailable",
+          "evidence": [
+            "Reflecting gated target geometry"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+          "material_read": "Lawfully accessible abstract and model summary, boundary condition comparison",
+          "method": "read abstract and model boundary description",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Gated Brownian target with resetting, apparently same objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: side-resolved capture probability at a semipermeable blinking trap with nonrenewed gate is an independently meaningful first-passage observable. Its exact conditional law, strict monotonicities and singular fast-gating limit reveal pathwise information not present in marginal first-passage-time laws, with a nontrivial strong-reset spatial boundary layer. The possible discrepancy with published numerics increases the need for follow-up rather than making the theorem scientifically trivial.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2512.09739v2",
+    "https://arxiv.org/abs/2009.02739",
+    "https://arxiv.org/abs/2107.02148",
+    "https://arxiv.org/abs/2601.01588",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-side-of-arrival-law-for-a-transparent-blinking-brownian-ta--4fb787096ec3",
+    "Resultary:blinking transparent target Brownian resetting opposite side detection probability active inactive gate"
+  ],
+  "disposition": "passed",
+  "limitations": "One-dimensional driftless Brownian motion with D>0, r>0, α,β>0,x0>0, inactive transparent interface and gate not reset. Fast-gate pathwise limit is not equivalent to an always-active-target approach-side probability.",
+  "residual_risks": [
+    "The original same mathematical model Figure 5 numerical initial-side trend differs from the sign of the present proven derivative; potential differing parameterization/finite-sampling or event simulation bias requires careful reconciliation. This is not suppressed as mere literature inaccessibility.",
+    "The side at active first arrival assumes non-simultaneous Poisson switches and Brownian hitting, and x0>0; beginning exactly at the origin has a distinct boundary convention.",
+    "Potential general matrix-valued splitting-probability literature could implicitly include this formula."
+  ],
+  "schema_version": 1
+}
