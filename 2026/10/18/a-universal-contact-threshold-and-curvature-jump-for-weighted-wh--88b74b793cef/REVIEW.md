@@ -1,12 +1,21 @@
-# Scientific review: weighted-wheel Lipschitz John ellipsoids
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement consistently concerns the ball of real Lipschitz functions anchored at the hub, in the Euclidean coordinates of the rim values. For all integer \(m\ge3\) and real \(t\ge1/2\), the graph-edge inequalities are exactly the Lipschitz unit ball. For \(t\le1/\sqrt2\), the Euclidean ball satisfies every constraint. For \(t>1/\sqrt2\), the unique positive root \(q\) gives a positive precision matrix with exact diagonal covariance \(t^2\) and adjacent-difference variance \(1\). Summing the signed halfspace support bounds with the positive precision coefficients, and using determinant AM–GM, proves maximal volume and uniqueness against *all* ellipsoids. Root-of-unity factorization proves the volume formula; differentiating a strictly concave one-parameter log-determinant design proves the contact threshold and exact \(C^1\)-but-not-\(C^2\) law. The high-dimensional limit follows from the unique scalar root. Executed standalone programs passed 276 spectral/contact/determinant cases, 47 spectral moments and 20 full-matrix numerical optimizations. Numerical tests supplement, rather than replace, the all-parameter proof.
+## correctness
 
-## Originality
-PASS with disclosed bibliographic risk. The nearest available mathematical record explicitly solves the Löwner ellipsoid of the *unweighted* wheel symmetric-edge polytope, which is the polar problem at \(t=1\); the existing solution to this special case is credited. General graph optimal-design and effective-resistance methods of Suliman–Weinstein furnish the variational context, but do not state the variable-metric phase diagram, the universal boundary \(1/\sqrt2\), or the singular second-derivative jump. D’Alì–Delucchi–Michałek treat wheel symmetric edge-polytopes' facet and lattice invariants, while Alexander–Fradelizi–García-Lirola–Zvavitch treat finite Lipschitz-free geometry and volume products. A related wheel-metric facet count does not determine an optimizing ellipsoid. The comparisons use actual full scientific texts where accessible, not just titles; nevertheless unindexed equivalent calculations are a residual risk.
+PASS
 
-## Mathematical value
-PASS. A maximum-volume inscribed ellipsoid is a natural Banach-space geometric invariant. The complete continuum of wheel spoke deformations has an exact contact-set transition, a universal non-smooth volume response, and an explicit limiting volume rate. Even the sharp change from a spherical inball to a graph-Laplacian ellipsoid is not supplied by the known unweighted instance. These features have structural content beyond finite recomputation or a routine parameter substitution. The result is specific to uniform spokes and the stated Euclidean normalization.
+For every m>=3 and spoke length t>=1/2, the anchored wheel metric gives exactly the 2m signed spoke and 2m signed unit rim inequalities. At t<=1/sqrt(2), covariance t^2 I meets spoke constraints and has rim variance 2t^2<=1. For larger t, the unique monotone cyclic inverse parameter q in (0,1) gives A=alpha I+beta L, positive alpha,beta, alpha t^2+beta=1, and exact covariance diagonal t^2 and adjacent-difference variance 1. Summing weighted inequalities for an arbitrary centered or translated competing ellipsoid yields tr(AS)+c^T Ac<=m; determinant AM–GM establishes the claimed ellipsoid as the unique unrestricted volume maximizer. Cyclic Fourier determinant gives the exact volume. Strict concavity of log det in beta and the cycle spectral first/second moments give F(tau-)=-2m and F(tau+)=-10m; first derivatives agree. The root equation yields the fixed-t large-m volume rate. Independently recomputed cyclic eigenvalue sums, feasibility, contacts and normalization for m=3,4,7,13 and t=0.5,1/sqrt(2),0.8,1.1,3 without using supplied verifier. Numerical spectra supplement analytic proof; m=3 cycle neighbor convention was included.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the entire one-parameter spoke-weight transition and curvature jump; explicit prior unweighted wheel enclosing-ellipsoid result at t=1 is acknowledged as covered.
+
+## value
+
+PASS
+
+The largest-volume inscribed ellipsoid is a canonical normed-space invariant of a natural weighted family of metric graph Lipschitz balls. The theorem resolves all spoke lengths, identifies a universal contact-orbit transition, a genuine non-C2 volume response with exact jump -8m, and an all-dimensional limiting rate. A single unweighted solution neither supplies nor trivializes this parameter-dependent geometric phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

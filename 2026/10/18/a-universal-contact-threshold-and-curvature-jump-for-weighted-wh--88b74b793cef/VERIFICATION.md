@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of weighted-wheel Lipschitz ellipsoid formulas
 
-The claimed domain is every integer \(m\ge3\) and real \(t\ge1/2\), with the hub anchored at zero and rim coordinates in ordinary \(\mathbb R^m\). The proof in `RESULT.md` is the mathematical basis of the universal statement.
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python standard library. The recorded execution returned `VERIFY_OK 276 parameter configurations and 47 boundary-moment identities`, confirming contact equalities, positive-definiteness, the precision normalization, cyclic eigenvalues and the closed determinant formula. This includes parameters on both sides of \(t=1/\sqrt2\).
+## correctness
 
-Run `python3 verify_unrestricted.py` in an environment with NumPy and SciPy. The recorded execution returned `UNRESTRICTED_OK 20 full symmetric-matrix optimizations`, testing \(m=3,4,5,6\) and five spoke lengths at each order. The implementation imposes no circulant symmetry on the competing covariance matrix. Numerical optimization starts from a strictly feasible scaling of the analytical covariance; it provides corroboration rather than an independent lower-bound proof.
+PASS
 
-The sharp curvature jump is derived symbolically from the cycle spectral moments in the proof. Additional finite-difference checks at rim counts \(3\), \(7\) and \(20\) approached the predicted one-sided second derivatives \(-2m\) and \(-10m\). All numerical tests are finite and subject to tolerance; neither the checks nor a literature search establish the theorem over infinitely many parameters or absolute originality by themselves. Independent scientific audit has not been performed.
+For every m>=3 and spoke length t>=1/2, the anchored wheel metric gives exactly the 2m signed spoke and 2m signed unit rim inequalities. At t<=1/sqrt(2), covariance t^2 I meets spoke constraints and has rim variance 2t^2<=1. For larger t, the unique monotone cyclic inverse parameter q in (0,1) gives A=alpha I+beta L, positive alpha,beta, alpha t^2+beta=1, and exact covariance diagonal t^2 and adjacent-difference variance 1. Summing weighted inequalities for an arbitrary centered or translated competing ellipsoid yields tr(AS)+c^T Ac<=m; determinant AM–GM establishes the claimed ellipsoid as the unique unrestricted volume maximizer. Cyclic Fourier determinant gives the exact volume. Strict concavity of log det in beta and the cycle spectral first/second moments give F(tau-)=-2m and F(tau+)=-10m; first derivatives agree. The root equation yields the fixed-t large-m volume rate. Independently recomputed cyclic eigenvalue sums, feasibility, contacts and normalization for m=3,4,7,13 and t=0.5,1/sqrt(2),0.8,1.1,3 without using supplied verifier. Numerical spectra supplement analytic proof; m=3 cycle neighbor convention was included.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the entire one-parameter spoke-weight transition and curvature jump; explicit prior unweighted wheel enclosing-ellipsoid result at t=1 is acknowledged as covered.
+
+## value
+
+PASS
+
+The largest-volume inscribed ellipsoid is a canonical normed-space invariant of a natural weighted family of metric graph Lipschitz balls. The theorem resolves all spoke lengths, identifies a universal contact-orbit transition, a genuine non-C2 volume response with exact jump -8m, and an all-dimensional limiting rate. A single unweighted solution neither supplies nor trivializes this parameter-dependent geometric phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
