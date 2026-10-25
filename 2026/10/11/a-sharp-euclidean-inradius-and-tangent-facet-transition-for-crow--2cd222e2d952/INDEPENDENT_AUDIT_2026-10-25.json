@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T07:12:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned GitHub RESULT.md blob 20a3fe5208473ee75f502493bfbdb4e0d74e8e1e",
+        "Pinned GitHub verify_crown.py blob 34ca6253e2f4dd072479e36730aee77cb86b4dfc (read, not executed)",
+        "Chen et al. full author PDF https://arxiv.org/abs/2107.12315 (Theorem 3); reviewed through original full PDF",
+        "D’Alì et al. full original OA paper https://arxiv.org/abs/2307.04933 (Theorem 5.8/Remark 5.10)",
+        "Independent finite program independent_checks.py and exact results independent_checks.json"
+      ],
+      "rationale": "Reconstructed the entire n>=4 proof for the inherited Euclidean zero-sum metric: polar vertices are exactly integer 1-Lipschitz potentials with a connected tight spanning graph; crown diameter 3 bounds translated labels to 0..3. A range-three extremum is necessarily a missing-pair (0,3) labeling with n−1 other 1s and n−1 other 2s, squared centered norm S_n=(n+8)/2, with precisely 2n sign/index choices. Range at most two with no diagonal gap two belongs to the complete-bipartite Lipschitz polar, whose extremal norm is U_n=n−(n mod2)/(2n), achieved at 0/2 splits of one part. Remaining diagonal-gap-two assignments satisfy the explicit J,K incompatibility; norm² <=n/2+2 (or 4), strictly below S_n. Strict convexity restricts maximal polar norm to vertices, polarity gives r=1/sqrt(max(S_n,U_n)), and duality gives all tangent facets. Comparing branches gives the unique n=8 tie, F8=16+2*C(8,4)=156; 4<=n<=7 gives 2n; n>=9 gives central-binomial multiplicities. Central symmetry centers a maximal ball at origin even when arbitrary centers allowed. Independently enumerated ALL integer potentials and tight connected subgraphs for n=3,4,5 in a separately written program, confirming exact maxima/contact counts; symbolic arithmetic checked n=4..60. This FINITE check is corroborative, NOT a replacement for unrestricted proof.",
+      "residual_risks": [
+        "No formal proof assistant/expert certificate is asserted; finite enumeration through n=5 and arithmetic through n=60 does not establish all-n validity. The verdict rests on reconstructed written classification and algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-multipartite formulas require all edges between parts, whereas the crown graph omits a perfect matching of cross-part edges; crowns n>=4 are not complete multipartite.",
+          "The degree-2-deletion theorem requires maximum degree two in the deleted graph; complement of crown contains two K_n cliques plus matching so maximum deleted degree equals n, violating this requirement.",
+          "The general facet/2-cut theorems characterize admissible polar vertices but do not maximize their Euclidean norms or derive the threshold."
+        ],
+        "reasoning": "Explicitly compared the graph hypotheses and statement implications of stronger-looking sources. No inspected broader theorem subsumes this graph-specific metric theorem, despite several precise structural premises and alternate constructions.",
+        "searches": [
+          "Resultary semantic query: Crown graph symmetric edge polytope inradius tangent facets Euclidean zero sum hyperplane threshold 8",
+          "Resultary semantic query: Euclidean radius of symmetric edge polytopes complete bipartite minus perfect matching crown graph polar facet norms",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-and-tangent-facet-phase-of-complete-mul--6a4ae3f39c96/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-inball-contact-spectrum-of-dense-symmetric-edge-polytop--458bf3929dde/RESULT.md",
+          "Chen et al. full author PDF https://arxiv.org/abs/2107.12315 (Theorem 3); reviewed through original full PDF",
+          "D’Alì et al. full original OA paper https://arxiv.org/abs/2307.04933 (Theorem 5.8/Remark 5.10)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Crown graph symmetric edge polytope inradius tangent facets Euclidean zero sum hyperplane threshold 8",
+        "Resultary semantic query: Graph spread maximum variance of Lipschitz functions crown graphs K_n n minus perfect matching balanced distance three potentials",
+        "Resultary semantic query: Euclidean radius of symmetric edge polytopes complete bipartite minus perfect matching crown graph polar facet norms",
+        "Web queries: crown graph spread maximum variance Lipschitz function exact formula crown graph; complete bipartite graph minus a perfect matching graph spread maximum variance Lipschitz; symmetric edge polytopes crown graph inradius 2024 graph spread",
+        "Primary: Chen, Davis, Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315, Theorem 3; full open author PDF",
+        "Primary: D’Alì, Juhnke-Kubitzke, Koch, On a generalization of symmetric edge polytopes to regular matroids, arXiv:2307.04933; original open full PDF Section 5, Theorem 5.8 / Remark 5.10",
+        "Primary: D’Alì, Delucchi, Michałek, Many Faces of Symmetric Edge Polytopes, Electronic J. Combinatorics 29(3) (2022), Section 2.3, original full PDF",
+        "Published Resultary SCOPE exact Euclidean inradius and tangent-facet phase of complete multipartite symmetric edge polytopes, full RESULT.md, 2026/10/11/...6a4ae3f39c96",
+        "Published Resultary SCOPE largest part versus balanced cut exact inradius phase diagram of complete multipartite symmetric edge polytopes, full RESULT.md, ...fee756ec3437",
+        "Published Resultary SCOPE complete inball contact spectrum under degree-two deletions, full RESULT.md, ...458bf3929dde"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Davis–Korchevskaia and D’Alì–Juhnke-Kubitzke–Koch give facet eligibility, which is necessary but not a metric maximum; the required crown-specific norm comparison is not their statement.",
+          "Complete multipartite radius may bound/describe the K_{n,n} supergraph, but cannot recover the crown range-three normals corresponding to deleted matched pairs.",
+          "Degree-two-deletion contact theorem is inapplicable to a dense deleted graph with large complement degree; the same Resultary mirror is not earlier mathematical coverage."
+        ],
+        "reasoning": "Compared prior hypotheses and consequences rather than words/parameters: a general facet classification alone does not imply this explicit optimization without new work, and the other published exact radius formulas have incompatible graph classes. The three inspected relevant primary articles lack the sharp crown numerical formula and n=8 transition.",
+        "searches": [
+          "Chen et al. full author PDF https://arxiv.org/abs/2107.12315 (Theorem 3); reviewed through original full PDF",
+          "D’Alì et al. full original OA paper https://arxiv.org/abs/2307.04933 (Theorem 5.8/Remark 5.10)",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-and-tangent-facet-phase-of-complete-mul--6a4ae3f39c96/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-inball-contact-spectrum-of-dense-symmetric-edge-polytop--458bf3929dde/RESULT.md",
+          "Resultary semantic query: Graph spread maximum variance of Lipschitz functions crown graphs K_n n minus perfect matching balanced distance three potentials"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polar P(G)^circ is the space of 1-Lipschitz potentials modulo constants in the inherited Euclidean metric. For crown with 2n vertices, r(P_n)^(-2)=2n*spread(Cr_n) where spread is maximum uniform-vertex variance.",
+          "Many Faces Section 2.3 gives the KR–Lipschitz polar duality; Resultary multipartite theorem states the same spread/inradius identity on its graph class."
+        ],
+        "reasoning": "Tested graph spread, maximum Lipschitz variance, polar circumradius, and KR/root-polytope synonyms. These are equivalent FORMULATIONS, not earlier computed exact values for crowns; a title mismatch alone is not novelty. The candidate mirror in Resultary is excluded from independent-prior counting.",
+        "searches": [
+          "Resultary semantic query: Graph spread maximum variance of Lipschitz functions crown graphs K_n n minus perfect matching balanced distance three potentials",
+          "Resultary semantic query: Euclidean radius of symmetric edge polytopes complete bipartite minus perfect matching crown graph polar facet norms",
+          "D’Alì, Delucchi, Michałek, Many Faces of Symmetric Edge Polytopes, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ (Sec. 2.3)",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary search finds the same candidate mirror, not an independent exact crown graph radius/contact table; other matched results concern different graph families.",
+          "Independent exhaustive tight-spanning potential enumeration gives n=4: R²=6,F=8 and n=5:R²=13/2,F=10; n=8 tie is algebraic S8=U8=8, F8=156."
+        ],
+        "reasoning": "A few small tabulated values could not establish the all-n theorem, but any earlier complete table with proof of the same norm maximum would defeat originality. Searches did not find such an independent table; absence is not proof of novelty.",
+        "searches": [
+          "Resultary semantic query: Crown graph symmetric edge polytope inradius tangent facets Euclidean zero sum hyperplane threshold 8",
+          "Resultary semantic query: Graph spread maximum variance of Lipschitz functions crown graphs K_n n minus perfect matching balanced distance three potentials",
+          "Resultary semantic query: Euclidean radius of symmetric edge polytopes complete bipartite minus perfect matching crown graph polar facet norms",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-and-tangent-facet-phase-of-complete-mul--6a4ae3f39c96/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge original: searched actual Resultary and related published results, and materially read three original primary research papers and three closely related full Resultary theorems. Prior general facet/Lipschitz descriptions supply premises or aliases but not the crown-specific Euclidean maximum, the exact n=8 tie, or the complete nearest-facet count. The exact candidate mirror at Resultary is the SAME finding and is not independent prior coverage. Residual risk of an older graph-spread formulation remains.",
+      "residual_risks": [
+        "The exact crown graph spread may already have been proved under an older graph-variance, Lipschitz-potential or metric embedding alias not surfaced by semantic/keyword searches.",
+        "The older Arithmetic aspects of symmetric edge polytopes primary paper (arXiv:1807.07678) was located in an original institutional repository and its abstract inspected; no full text of that paper was independently inspected in this run, limiting coverage for that particular source.",
+        "Generic facet tightness is classical; the novelty judgment attaches only to the graph-specific max Euclidean norm and precise transition/contact enumeration.",
+        "Candidate mirror in Resultary and this assigned package have matching mathematical contents and cannot constitute evidence of independently prior discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Facet-subgraph combinatorial characterization applies but gives no crown-specific Euclidean polar maximum or n=8 contact count.",
+          "evidence": [
+            "Theorem 3 characterizes symmetric-edge-polytope facets via maximal bipartite spanning subgraphs; the source theorem is combinatorial, not the claimed metric extremization."
+          ],
+          "identifier_or_url": "arXiv:2107.12315; open complete author PDF ()",
+          "material_read": "Original article PDF, introduction, definitions and Theorem 3 proof in Sections 3–4, and facet-subgraph comparisons (PDF page 5 visually inspected).",
+          "method": "Read primary full-text PDF by theorem/section and confirm displayed theorem via rendered PDF screenshot.",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "An original general symmetric-edge-polytope facet theorem potentially implying the crown facet result."
+        },
+        {
+          "assessment": "Integer tight-spanning-tree potential characterization is prior structural input; it does not optimize the Euclidean norm nor distinguish missing-pair and balanced-cut crown extremizers.",
+          "evidence": [
+            "Remark 5.10 identifies integer vertex labelings and tight connected edge sets for facet normals; Section 5 addresses facet/2-cut correspondence and Ehrhart invariants."
+          ],
+          "identifier_or_url": "arXiv:2307.04933; full lawful OA original PDF ()",
+          "material_read": "Full original paper accessible; introduction, definitions, Section 5 Proposition 5.1, Theorem 5.8 and Remark 5.10, spanning tight cuts and corresponding proofs; rendered PDF page 16 visually inspected.",
+          "method": "Read relevant primary theorems and surrounding arguments in full downloaded PDF and checked screenshot.",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "Stronger framework of polar facet potentials might subsume the proof and metric target."
+        },
+        {
+          "assessment": "Identifies the Lipschitz/KR dual representation and general facet theory but not crown graph spread or exact Euclidean inradius/contact transition.",
+          "evidence": [
+            "Section 2.3 explicitly defines the Lipschitz polytope as the polar of the Kantorovich–Rubinstein polytope; this supplies a formulation, not a formula for crown variance maxima."
+          ],
+          "identifier_or_url": "Electronic Journal of Combinatorics 29(3) (2022), P3.24; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+          "material_read": "Primary complete 42-page PDF made available; introduction, Section 2.3 Kantorovich–Rubinstein/fundamental metric polytopes, and relevant facet results in Section 3; inspected PDF page 5 as a screenshot.",
+          "method": "Read mathematical text in primary PDF, including the polar Lipschitz definition and metric graph interpretation, and visually verified relevant page.",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Potentially stronger metric/Kantorovich–Rubinstein duality and facet coverage for the same polytopes."
+        },
+        {
+          "assessment": "Scope is complete multipartite graphs with at least three parts; a crown with n>=4 is K_{n,n} minus n edges and is not complete multipartite. This does not imply the crown distance-three branch.",
+          "evidence": [
+            "The published formula is max of balanced cut and signed split within a complete part; its edge set requires all cross-part edges, violated by a crown."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-and-tangent-facet-phase-of-complete-mul--6a4ae3f39c96/RESULT.md",
+          "material_read": "Complete published RESULT.md finding, definitions, proof, and limitations.",
+          "method": "Read exact published GitHub source using authenticated read-only GitHub fetch_file.",
+          "title": "Exact Euclidean inradius and tangent-facet phase of complete multipartite symmetric edge polytopes",
+          "trigger": "Extremely similar metric, optimization and tangent-facet transition for a possibly dominating graph class."
+        },
+        {
+          "assessment": "Formula applies to complete multipartite graphs, not matched-edge-deleted crowns. Its general spread identity is an alias of the polar radius but does not bound the crown missing-pair level-3 potentials.",
+          "evidence": [
+            "The theorem assumes G=K_{n_1,...,n_k}, k>=3, and employs a complete-multipartite facet classification unavailable after matching deletions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437/RESULT.md",
+          "material_read": "Complete published RESULT.md theorem, both proof branches, graph spread equivalence, and limitations.",
+          "method": "Read exact published GitHub RESULT.md by read-only connector.",
+          "title": "Largest part versus balanced cut: the exact inradius phase diagram for complete multipartite symmetric edge polytopes",
+          "trigger": "Matches metric optimization and its graph-spread alias in a related infinite graph family."
+        },
+        {
+          "assessment": "For crown Cr_n on 2n vertices, the complement consists of two K_n cliques and n cross matched edges, so max complement degree is n (>=4), not 2. Neither its radius nor its contact formula applies.",
+          "evidence": [
+            "Published hypotheses Δ(H)=2 in G=overline(H); here H has degree n, excluding every n>=4 candidate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-inball-contact-spectrum-of-dense-symmetric-edge-polytop--458bf3929dde/RESULT.md",
+          "material_read": "Complete published RESULT.md theorem, proof and scope for complements with maximum deleted degree exactly two.",
+          "method": "Read full published GitHub scientific source via read-only connector.",
+          "title": "Complete inball contact spectrum of dense symmetric edge polytopes under degree-two deletions",
+          "trigger": "Potential dominating all-n deletion theorem might contain the crown deletion case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned full RESULT.md (the theorem, classification, and equality cases)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-and-tangent-facet-phase-of-complete-mul--6a4ae3f39c96/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-inball-contact-spectrum-of-dense-symmetric-edge-polytop--458bf3929dde/RESULT.md"
+      ],
+      "rationale": "The crown graph K_{n,n} minus a perfect matching is a natural canonical highly symmetric non-complete bipartite family, and its Euclidean symmetric-edge-polytope inradius is an intrinsic geometric invariant in the prescribed root embedding, equivalent to a natural exact maximum-variance graph-spread fact. The deletion creates genuinely new diameter-three extremal potentials competing with balanced complete-bipartite cut potentials; the first and unique sharp switch at n=8, and the complete classification/number of nearest facets for every n>=4, are nonroutine structural results not an arbitrary tiny sample, cosmetic reparametrization or mere recomputation of a prior table. This exact fact could serve later study of graph spread, metric Lipschitz polytopes and symmetric-edge-polytope contact geometry. The claim is mathematically self-contained; no downstream theorem is required for its intrinsic value.",
+      "residual_risks": [
+        "The value conclusion presumes best-of-knowledge originality of the specific crown-family metric extremal theorem; an undiscovered dominating radius/spread theorem would change both O and V."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic query: Crown graph symmetric edge polytope inradius tangent facets Euclidean zero sum hyperplane threshold 8",
+    "Resultary semantic query: Graph spread maximum variance of Lipschitz functions crown graphs K_n n minus perfect matching balanced distance three potentials",
+    "Resultary semantic query: Euclidean radius of symmetric edge polytopes complete bipartite minus perfect matching crown graph polar facet norms",
+    "Web queries: crown graph spread maximum variance Lipschitz function exact formula crown graph; complete bipartite graph minus a perfect matching graph spread maximum variance Lipschitz; symmetric edge polytopes crown graph inradius 2024 graph spread",
+    "Primary: Chen, Davis, Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315, Theorem 3; full open author PDF",
+    "Primary: D’Alì, Juhnke-Kubitzke, Koch, On a generalization of symmetric edge polytopes to regular matroids, arXiv:2307.04933; original open full PDF Section 5, Theorem 5.8 / Remark 5.10",
+    "Primary: D’Alì, Delucchi, Michałek, Many Faces of Symmetric Edge Polytopes, Electronic J. Combinatorics 29(3) (2022), Section 2.3, original full PDF",
+    "Published Resultary SCOPE exact Euclidean inradius and tangent-facet phase of complete multipartite symmetric edge polytopes, full RESULT.md, 2026/10/11/...6a4ae3f39c96",
+    "Published Resultary SCOPE largest part versus balanced cut exact inradius phase diagram of complete multipartite symmetric edge polytopes, full RESULT.md, ...fee756ec3437",
+    "Published Resultary SCOPE complete inball contact spectrum under degree-two deletions, full RESULT.md, ...458bf3929dde"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact theorem asserts only standard 2n-coordinate inherited Euclidean H metric and n>=4; it does not assert metric invariance under unimodular changes.",
+    "The n=3 crown equals a six-cycle, excluded from new finding; tests of n=3 are only an auxiliary boundary check.",
+    "No inference of novelty solely from unsuccessful searches; best-of-knowledge O with named graph-spread residual risk.",
+    "Scientific C/O/V passed on the package as audited, but no safe publication/export is currently ready."
+  ],
+  "residual_risks": [
+    "The exact crown graph spread may already have been proved under an older graph-variance, Lipschitz-potential or metric embedding alias not surfaced by semantic/keyword searches.",
+    "The older Arithmetic aspects of symmetric edge polytopes primary paper (arXiv:1807.07678) was located in an original institutional repository and its abstract inspected; no full text of that paper was independently inspected in this run, limiting coverage for that particular source.",
+    "Generic facet tightness is classical; the novelty judgment attaches only to the graph-specific max Euclidean norm and precise transition/contact enumeration.",
+    "Candidate mirror in Resultary and this assigned package have matching mathematical contents and cannot constitute evidence of independently prior discovery.",
+    "No formal proof assistant/expert certificate is asserted; finite enumeration through n=5 and arithmetic through n=60 does not establish all-n validity. The verdict rests on reconstructed written classification and algebra.",
+    "The value conclusion presumes best-of-knowledge originality of the specific crown-family metric extremal theorem; an undiscovered dominating radius/spread theorem would change both O and V."
+  ],
+  "schema_version": 1
+}

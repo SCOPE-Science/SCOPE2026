@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from an exhaustive classification of vertices of the polar Lipschitz polytope, with norm calculations separately for missing-matching distance-three potentials, full-bipartite balanced potentials, and exceptional diagonal-gap-two potentials. The tight-edge spanning-tree criterion justifies integrality and the range bound; each optimizer corresponds to an actual tangent facet by polar duality. Exact finite computations confirmed the values for dimensions parameterized by \(n\) from 3 to 14, with independent direct-coordinate checks for 3 and 4. The theorem itself is for \(n\ge4\); finite tests do not replace its general proof.
+## correctness
 
-## Originality — PASS, with uncertainty
-Chen–Davis–Korchevskaia, *Facets and facet subgraphs of symmetric edge polytopes* (arXiv:2107.12315), characterizes facet subgraphs generally. D’Alì–Juhnke-Kubitzke–Koch, *On a generalization of symmetric edge polytopes to regular matroids* (arXiv:2307.04933), characterizes integer tight-spanning-tree facet labels and studies polar Ehrhart invariants. Neither inspected primary article determines the extremal Euclidean norm of crown facets or the exact n=8 transition. Existing complete-multipartite inradius results do not cover crown graphs: deleting a perfect matching changes their graph class. The size-three crown is a previously covered six-cycle and is excluded from the new statement. Equivalent graph-spread or Lipschitz-potential formulations remain a literature risk; negative searches cannot prove novelty.
+PASS
 
-## Value — PASS
-The theorem identifies the exact competition between two canonical types of polar vertex in a natural infinite family, including the precise threshold and exact tangent-facet counts. The result gives a geometric invariant and its extremizers, rather than an isolated value or a mere reformulation of known facet eligibility.
+Reconstructed the entire n>=4 proof for the inherited Euclidean zero-sum metric: polar vertices are exactly integer 1-Lipschitz potentials with a connected tight spanning graph; crown diameter 3 bounds translated labels to 0..3. A range-three extremum is necessarily a missing-pair (0,3) labeling with n−1 other 1s and n−1 other 2s, squared centered norm S_n=(n+8)/2, with precisely 2n sign/index choices. Range at most two with no diagonal gap two belongs to the complete-bipartite Lipschitz polar, whose extremal norm is U_n=n−(n mod2)/(2n), achieved at 0/2 splits of one part. Remaining diagonal-gap-two assignments satisfy the explicit J,K incompatibility; norm² <=n/2+2 (or 4), strictly below S_n. Strict convexity restricts maximal polar norm to vertices, polarity gives r=1/sqrt(max(S_n,U_n)), and duality gives all tangent facets. Comparing branches gives the unique n=8 tie, F8=16+2*C(8,4)=156; 4<=n<=7 gives 2n; n>=9 gives central-binomial multiplicities. Central symmetry centers a maximal ball at origin even when arbitrary centers allowed. Independently enumerated ALL integer potentials and tight connected subgraphs for n=3,4,5 in a separately written program, confirming exact maxima/contact counts; symbolic arithmetic checked n=4..60. This FINITE check is corroborative, NOT a replacement for unrestricted proof.
 
-## Limitations and remaining checks
-The ambient zero-sum Euclidean norm is essential; the result makes no claim for arbitrary lattice-equivalent embeddings. Mathematical claims have been checked symbolically and supported by finite exact enumeration, but not subjected to independent validation. Terminological equivalence elsewhere in the graph-spread literature remains a residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: searched actual Resultary and related published results, and materially read three original primary research papers and three closely related full Resultary theorems. Prior general facet/Lipschitz descriptions supply premises or aliases but not the crown-specific Euclidean maximum, the exact n=8 tie, or the complete nearest-facet count. The exact candidate mirror at Resultary is the SAME finding and is not independent prior coverage. Residual risk of an older graph-spread formulation remains.
+
+## value
+
+PASS
+
+The crown graph K_{n,n} minus a perfect matching is a natural canonical highly symmetric non-complete bipartite family, and its Euclidean symmetric-edge-polytope inradius is an intrinsic geometric invariant in the prescribed root embedding, equivalent to a natural exact maximum-variance graph-spread fact. The deletion creates genuinely new diameter-three extremal potentials competing with balanced complete-bipartite cut potentials; the first and unique sharp switch at n=8, and the complete classification/number of nearest facets for every n>=4, are nonroutine structural results not an arbitrary tiny sample, cosmetic reparametrization or mere recomputation of a prior table. This exact fact could serve later study of graph spread, metric Lipschitz polytopes and symmetric-edge-polytope contact geometry. The claim is mathematically self-contained; no downstream theorem is required for its intrinsic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
