@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The update is defined on labelled complete multipartite graphs with arbitrary positive part sizes. An exact seven-support-type quotient tracks the number of parts carrying each support, saturated at two. Because availability of each successor color outside the current part depends only on zero/one/at-least-two membership, the quotient is an exact factor for **all** graph sizes. All 2158 realizable signature classes are exhaustively processed in a standalone checker, establishing entry into global rotation or monochromatic fixation within two updates. The same checker tests all-support configurations through five parts and independently simulates 24246 labelled configurations on representative graphs. Recurrent-state enumeration follows by support-specific surjection counting. The sharpness witness is explicit. Finite labelled tests serve as corroboration, not the infinite-size proof.
+
+## Originality — PASS, with residual risks
+Searches of published mathematical findings and academic literature found no same-operator complete multipartite three-color cyclic recurrent-state census with the two-step cutoff. The closest general paper of Gravner–Lyu–Sivakoff proves synchronization via circulation and characterizes long-run excitation activity, but neither gives this exact census nor the sharp bounded transient for all parameters. Durrett–Griffeath supplies the historic lattice model, not the multipartite result. Related complete-multipartite **Greenberg–Hastings** and complete-**bipartite** cyclic calculations concern different maps or fewer graph parts; neither entails the current theorem without the independent all-size transition quotient. The bipartite model admits primitive period four while this model does not. Residual risk: mathematically equivalent analyses may be unindexed, and the foundational 1993 full text was not materially inspected.
+
+## Value — PASS
+This proves a sharp uniform finite-entry theorem across infinitely many graphs, a complete primitive orbit census, a graph-part-count bifurcation excluding period four, and an exact zeta function. It distinguishes cyclic competition from the Greenberg–Hastings operator even on the same graph family: their coincident all-advancing support census hides genuinely different fixation and transient behavior. The finite quotient compresses arbitrary graph sizes to a tractable, auditable 2158-signature certificate. No larger-color generalization is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
