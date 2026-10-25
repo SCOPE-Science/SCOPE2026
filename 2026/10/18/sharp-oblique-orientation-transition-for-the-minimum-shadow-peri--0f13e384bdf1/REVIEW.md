@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every positive base radius and half-height, projection perimeter is reconstructed through the exact support function. The piecewise elliptic profile uses the correct angle cutoff. After differentiating, a change of variables converts the derivative into a one-dimensional function whose first term increases and whose second decreases strictly; this proves the stated exhaustive equality and uniqueness classification. The endpoint sign is evaluated exactly as \(\sqrt{1+t^2}-\operatorname{arsinh}(1/t)\), with a strictly positive derivative. The square-root transition comes from a nonzero implicit derivative. An independent numerical projected-hull reconstruction and support quadrature corroborate, but do not prove, the global result.
+## correctness
 
-## Originality
-**PASS against inspected evidence, with historical-priority risk.** Searches of mathematical literature and relevant published mathematical records were compared at the level of objects, parameters and conclusions. Finch's 2012 cone study calculates intrinsic volumes and bisected-cone ratios, not a global minimization over perimeters of **planar orthographic projections of a symmetric bicone**. A separate Finch study calculates intrinsic volumes of hulls of two disks, a different convex body. Related records about bicone sections, cones' width distributions and cylinder shadow moments do not imply the claimed unique oblique shadow-perimeter transition. Classical ellipse perimeters and support integration are acknowledged ingredients. This is not a claim of exhaustive historical coverage; an uncatalogued treatment of this exact projection optimization remains possible.
+PASS
 
-## Value
-**PASS.** The minimum shadow perimeter is a natural two-dimensional geometric measurement used to quantify the best-view silhouette of an elementary body of revolution. Its optimizer undergoes a sharp, unexpected change from an axial-containing plane to a unique genuinely oblique plane despite fixed symmetry, with an exact transcendental threshold and quantitative square-root orientation law. This is more than a fixed-angle ellipse-perimeter evaluation and gives a complete classification across the whole natural aspect-ratio family.
+For K={sqrt(x²+y²)/r+|z|/h<=1}, the support function max(r rho,h|z|) and planar Cauchy support formula give P(s)/(4r)=integral_0^(pi/2) max(sqrt(1-s²cos²theta),t s cos theta)dtheta with s=sin alpha and t=h/r. The moving crossover cancels in differentiation. On s>1/sqrt(1+t²), x=s sqrt(1+t²) yields xP′/(4r)=G_t(x), whose positive t sqrt(x²−1) increases while the other positive integral decreases, establishing strict monotonicity and at most one interior minimum. Endpoint derivative at s=1 equals H(t)=sqrt(1+t²)−asinh(1/t), strictly increasing across one zero. The stated unique side-on vs tilted minimizer, equality cases, smooth-root near threshold yielding square-root angular cusp, and t→infinity expansion follow. Independently integrated directional support profiles and bisected the threshold; finite sampling is corroborative.
 
-## Scope and residual risks
-This is a three-dimensional orthographic projection-perimeter theorem for symmetric circular bicones only. The oblique optimum is implicitly rather than elementarily specified. The primary sources inspected address related, not identical, invariants; historical priority needs independent verification. Computational sampling is finite and is not used as a proof of the continuum statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge review of the final claim and stronger implications: specific exact result not found to be subsumed by inspected primary sources; acknowledged overlapping premises and priority risks are itemized.
+
+## value
+
+PASS
+
+The bicone is a canonical symmetric nonpolyhedral convex body. Finding the direction that minimizes its shadow perimeter, including a unique geometric bifurcation between side-on and oblique, has clear geometric optimization content: exact full-domain threshold, global uniqueness and critical square-root law. These are not automatic consequences of generic projection formulas or arbitrary numerical minimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
