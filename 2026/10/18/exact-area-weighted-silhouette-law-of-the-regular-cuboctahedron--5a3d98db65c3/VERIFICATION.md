@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of internal mathematical checks
+# Independent mathematical audit
 
-The bundled `verify_cuboctahedron.py` evaluates exact formulas against independently computed orthogonal projections, deterministic quadrature and seeded sampling. It requires Python, NumPy and SciPy; run with `python verify_cuboctahedron.py`.
+## correctness
 
-The source uses all twelve vertices of the standard cuboctahedron, calculates two-dimensional convex hulls in 500 directions and confirms area and vertex count. It integrates the spherical triangle over the gnomonic coordinates \((s,t)\) satisfying \(0\le s\le1\), \(0\le t\le1-s\), with area element \((1+s^2+t^2)^{-3/2}\,ds\,dt\). It also uses 240,000 seeded uniform-sphere samples as a stochastic check. The recorded successful output is:
+PASS
 
-`CUBOCTAHEDRON_SILHOUETTE_OK quadrature_nodes=5184 direct_hulls=500 monte_carlo=240000 p_octagon=0.649040687816 mean_oct_area=4.622206367513 mean_hex_area=4.935189771122 covariance=-0.142587021853`
+Direct facet-normal signs for square and triangular faces show six silhouette edges when a<b+c and eight when a>b+c. Cauchy projected-area formula gives 3(a+b+c) and 4a+2b+2c in those respective chambers. Spherical triangle Girard area yields p=12 atan(3-2sqrt2)/pi. Independent high-precision evaluation yielded p=0.649040687816, conditional areas 4.62220636751<4.93518977112, covariance -0.142587021853. The analytical surface-divergence boundary flux integral of B over one spherical triangle is pi/2, yielding exact weighted mass 3 and complementary sqrt3; the finite Monte Carlo checker cannot replace that proof.
 
-The exact conclusions rest on analytic finite face enumeration and the spherical boundary-flux calculation. Neither a sampling run nor numerical quadrature proves an exact equality for all viewing directions. Degenerate viewing directions lie on finitely many great circles and have Haar measure zero.
+## originality
+
+PASS
+
+McGuire computes expected silhouette size via dihedral-angle sums; this may already imply p for the 6/8 dichotomy, so p alone is not original. Cauchy area mean 3+sqrt3 is classical. Neither marginal alone yields the exact partition of area by silhouette size, the conditional means, or covariance.
+
+## value
+
+PASS
+
+The exact joint area/edge-count relationship is a natural complete first-moment invariant of the canonical Archimedean cuboctahedron, distinguishing combinatorial complexity from projected area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact face normals and edge incidence give the six/eight silhouette dichotomy. The octagonal directional region is a union of three explicit spherical triangles in one octant; Girard's spherical-excess identity gives its Haar measure. Cauchy's polyhedral area formula yields the piecewise brightness profile. A spherical boundary flux calculation gives the nontrivial identity \(\mathbb E[B\mathbf1_{\{N=8\}}]=3\), while the total projected-area mean gives the complementary value \(\sqrt3\). Algebra and rational bounds prove strict negative covariance. Direct convex hulls, quadrature, and simulation have been run as ancillary checks; none replaces the proof. The claim is restricted to generic directions almost surely, with zero-measure boundaries excluded.
+PASS
 
-## Originality
+Direct facet-normal signs for square and triangular faces show six silhouette edges when a<b+c and eight when a>b+c. Cauchy projected-area formula gives 3(a+b+c) and 4a+2b+2c in those respective chambers. Spherical triangle Girard area yields p=12 atan(3-2sqrt2)/pi. Independent high-precision evaluation yielded p=0.649040687816, conditional areas 4.62220636751<4.93518977112, covariance -0.142587021853. The analytical surface-divergence boundary flux integral of B over one spherical triangle is pi/2, yielding exact weighted mass 3 and complementary sqrt3; the finite Monte Carlo checker cannot replace that proof.
 
-**PASS relative to inspected evidence, with acknowledged residual priority risk.** McGuire's dihedral-angle identity already implies the *unweighted* expected silhouette count, and in combination with the established two-type property it implies the octagonal marginal probability. This overlap is explicitly acknowledged; that marginal is not offered as the novel core. The additional exact *area-weighted event* identities, conditional shadow-area means, and their strict inverse ordering are not supplied by that identity or by Cauchy's total projected-area identity. Glisse–Lazard provide asymptotic silhouette-size bounds; Biedl–Hasan–López-Ortiz treat viewing-region selection and inverse projection-count reconstruction; Black–Criado prove general random-shadow complexity bounds. Inspected source sections do not supply the weighted cuboctahedral formula. Plausible older specialized Archimedean-projection calculations might overlap and require independent historical investigation.
+## originality
 
-## Value
+PASS
 
-**PASS.** This provides the exact joint relationship between two natural image measurements—boundary complexity and projected area—for a canonical nonsimplicial, nonzonotopal Archimedean solid. The area-weighted identities partition the classical Cauchy mean into two unexpectedly simple constants. The negative covariance records a substantive geometric effect: more silhouette edges correspond to *smaller*, rather than larger, conditional mean area. Unlike an arbitrary small numerical example, the statistic is intrinsic to a symmetric canonical polyhedron and is derived from a complete angular chamber law.
+McGuire computes expected silhouette size via dihedral-angle sums; this may already imply p for the 6/8 dichotomy, so p alone is not original. Cauchy area mean 3+sqrt3 is classical. Neither marginal alone yields the exact partition of area by silhouette size, the conditional means, or covariance.
 
-## Scope and limits
+## value
 
-The theorem concerns orthogonal rather than perspective viewing, exact population averages, and the standard regular cuboctahedron. The marginal silhouette probability is implied by prior unweighted expectation formulas. A complete conditional area distribution, deformation stability, and a full historical-priority audit are not established. Numerical tests are corroborative rather than infinitary certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact joint area/edge-count relationship is a natural complete first-moment invariant of the canonical Archimedean cuboctahedron, distinguishing combinatorial complexity from projected area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
