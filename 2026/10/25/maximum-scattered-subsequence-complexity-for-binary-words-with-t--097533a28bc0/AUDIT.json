@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact gap polynomial is reconstructed from the previous-occurrence dynamic recurrence and nilpotent zero-block matrix. Pair-gap smoothing has strict positive differences whenever imbalanced by at least two. Four explicit algebraic transfer differences and parity comparisons provide the exact all-n equality cases. A direct-subsequence-set checker on 330 small words and a dynamic checker over 73,815 quadruples confirm the formulas; finite tests are not invoked as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin Theorem 2 maximizes over all binary words at each length, uniquely producing a length-n alternating pattern; it gives an exponential Fibonacci optimum.",
+        "Liron–Langberg Theorem III.1 optimizes for fixed number of nonempty runs, with balanced equal-run lengths only when divisible; these balancing moves need not preserve the count of ones."
+      ],
+      "reasoning": "The unrestricted Fibonacci bound is not tight for weight three for increasing n; its optimizer lies outside the specified class. Balanced-run bounds do not select a fixed-three-ones maximizing word or derive the exact quartic. Therefore their stronger-looking optimization domains do not logically give this constrained answer.",
+      "searches": [
+        "web: maximum number of distinct subsequences binary strings fixed number of ones optimal run lengths",
+        "web: distinct subsequences count maximum given letter frequencies binary word ordered",
+        "deletion channel binary word with three ones extremal total number of possible subsequences balanced gap lengths",
+        "primary: Flaxman–Harrow–Sorkin 2004 Theorem 2 and Theorem 5",
+        "primary: Liron–Langberg 2012 Theorem III.1 and Lemma II.7"
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v11i1r8",
+      "https://arxiv.org/abs/1202.1644",
+      "https://arxiv.org/abs/1310.7288",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 global optimum is unconstrained and achieved uniquely by alternating words, so only its general upper bound applies after restriction.",
+        "The 2012 fixed-run theorem permits all symbol multiplicities, whereas our three single-one markers produce four zero gaps that include zeros and may change the number of runs.",
+        "published-finding corpus nearest deletion records concern pairwise ambiguity under a fixed number of deletions, not total distinct subsequences of one constrained input."
+      ],
+      "reasoning": "Neither located theorem implies the claimed exact optimum through a specialization: the asserted optimal witnesses generally violate weight three, and their bounds are too loose. The new pairwise gap smoothing and quartic optimization are additionally needed.",
+      "searches": [
+        "primary: 2004 PDF sections 2–3, Theorems 2/5, proof pages 3–6",
+        "primary: arXiv:1202.1644 sections II–III and conclusion",
+        "fixed Parikh composition extremal distinct scattered subsequences binary words exactly 3 ones maximum all lengths zero run balancing",
+        "deletion channel binary word with three ones extremal total number of possible subsequences balanced gap lengths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The precise claim is equivalent to optimizing the total zero-error output alphabet of an arbitrary-deletion observation when source words have exactly three ones.",
+        "The closest 2004 theorem fixes only word length and alphabet and has alternating maximizers.",
+        "The 2012 result fixes runs, not symbol counts."
+      ],
+      "reasoning": "A fixed-Parikh extremal theorem or a fixed-composition deletion-sphere theorem summed across lengths would dominate the claim. Neither such specialized equivalent nor its quartic and maximizers was found in the examined texts and identified research records.",
+      "searches": [
+        "maximum number of distinct scattered subsequences of binary word with exactly three ones fixed composition n-3 zeros optimize distribution zero gaps",
+        "fixed Parikh composition extremal distinct scattered subsequences binary words exactly 3 ones maximum all lengths zero run balancing",
+        "distinct subsequence set size exactly three ones zero-gap product quartic closed formula maximum",
+        "web: \"fixed Hamming weight\" \"distinct subsequences\" words",
+        "web: \"fixed number of ones\" \"distinct subsequences\" maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus results include fixed-weight code problems, binary two-multispectrum reconstruction, and fixed-run complexities, but no weight-three total subsequence extremal table.",
+        "For direct finite checks, all 73,815 gap tuples with at most 34 zeros were enumerated by an independent algorithm; these are newly produced computations and not preexisting published table evidence."
+      ],
+      "reasoning": "No exact database or table containing the infinite-period-four quartic or the complete maximizing gap tuples was found. A searched finite table, even if present, would not itself prove the all-length statement.",
+      "searches": [
+        "maximum number of distinct scattered subsequences of binary word with exactly three ones fixed composition n-3 zeros optimize distribution zero gaps",
+        "distinct subsequence set size exactly three ones zero-gap product quartic closed formula maximum",
+        "web: number distinct scattered subwords fixed content binary words 3 ones",
+        "web: scattered subword complexity extremal fixed Parikh vector binary composition maximum"
+      ]
+    },
+    "rationale": "Semantic search and theorem-level comparison were made against the 2004 unconstrained string optimum, 2012 fixed-run deletion analysis, a 2013 random-string expectation paper, own recoverable deduplication claims, and published-finding corpus entries. These bound or quantify different domains: no examined statement fixes exactly three ones while determining all-length scattered-subsequence maxima and every maximizing gap tuple. Earlier equivalent results remain a residual priority risk.",
+    "residual_risks": [
+      "Unindexed early article or unpublished preprint using different terminology might contain an equivalent fixed-Parikh extremal theorem.",
+      "The random-word work was screened by abstract only; it was not treated as a full-document novelty clearance.",
+      "No independent mathematical referee or human certification has tested the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover fixed three-ones maximizer or quartic count; solves no-Parikh-restriction optimum, yielding alternating words.",
+        "evidence": [
+          "PDF pages 2–3 define all-subsequences and theorem unconstrained maximizers",
+          "Pages 4–6 prove alternating global optimum and Fibonacci generating function",
+          "Publication 2004-01-05 and primary classification 68R15 on first page"
+        ],
+        "identifier_or_url": "doi:10.37236/1761; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+        "material_read": "Relevant full-text sections: definitions, Theorems 2 and 5, their proofs on pages 2–6, and concluding comparisons and bibliography on pages 9–10; visually inspected PDF pages 3, 4 and 6 (one-based).",
+        "method": "Open-access journal PDF text and page screenshots",
+        "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+        "trigger": "Direct match to objective: maximizing distinct scattered subsequences"
+      },
+      {
+        "assessment": "Bound only at fixed run number; its balancing may alter ones count and does not establish fixed-weight-three optima.",
+        "evidence": [
+          "Theorem III.1 requires each of r runs to have length n/r for exact balanced case",
+          "Lemma II.7 describes run-level balancing, not fixed Parikh counts",
+          "2012-02-08 arXiv version predates later 2015 journal version"
+        ],
+        "identifier_or_url": "arxiv:1202.1644; https://arxiv.org/abs/1202.1644",
+        "material_read": "Accessible full-text arXiv HTML: introduction, balancing lemma II.7, balanced-strings Theorem III.1 and its proof, and conclusions.",
+        "method": "Open arXiv rendered HTML, including theorem statements, assumptions and implications",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Possible dominating result from optimizing deletion-sphere sizes by run structure"
+      },
+      {
+        "assessment": "Random uniform-string expectation and length-specific expectations rather than exact fixed-content optimization; lower priority for full-text inspection.",
+        "evidence": [
+          "Abstract describes expectation over random binary strings and fixed subsequence length, not weight-three maximizers"
+        ],
+        "identifier_or_url": "arxiv:1310.7288; https://arxiv.org/abs/1310.7288",
+        "material_read": "Title, publication date and abstract; not full proof.",
+        "method": "Public arXiv abstract",
+        "title": "The Number of Distinct Subsequences of a Random Binary String",
+        "trigger": "Alias in total distinct subsequences literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "097533a2-8bc0-4e02-b628-510a220144e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed Hamming weight is a natural deletion-channel source constraint. This all-length optimum and full optimizer classification refine the classical unrestricted Fibonacci maximum into an exact quartic composition-restricted extremum, with an explicit and structurally motivated balancing mechanism. The result is not merely a fixed small table or a routine substitution of a published bound.",
+    "status": "PASS"
+  }
+}
