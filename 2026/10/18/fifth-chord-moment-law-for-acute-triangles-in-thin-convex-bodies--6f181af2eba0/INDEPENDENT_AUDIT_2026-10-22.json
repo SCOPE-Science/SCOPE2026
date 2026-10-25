@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:53:09.320053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sorting horizontal coordinates with gaps s,t and ordinate increments alpha,beta gives strict angle inequalities, including st<epsilon^2|alpha beta| and alpha beta<0. In sector s<t with t>>epsilon, substitute z=st/epsilon^2 and ds=epsilon^2 dz/t. At t=epsilon^theta (0<theta<1), continuity of convex vertical-section endpoints implies three ordinate intervals coalesce, and the permitted z length becomes |alpha|min(|alpha|,|beta|) for alpha beta<0. Bounded sections and Jacobian dominate the log t integral; the t~epsilon and t~1 boundary slices contribute no epsilon^2 log-scale mass. The exact fiber integral for one interval is 2 int_0^w int_0^r int_0^r u min(u,v)dvdu dr=w^5/12; the sorted-label factor 6 and symmetric t<s regime yield precisely A^-3 int w^5. Independent SymPy integration recomputed int_0^1 int_0^1 u min(u,v)=5/24 and fiber=1/12, with rectangle/triangle/trapezoid coefficients 1,4/3,28/9 under given normalization. Jensen gives the lower bound, and standard 1D Berwald for concave w gives int w^5<=16 A^5/(3 L^4); affine vanishing widths and constant widths show sharpness. Numerical Sobol tests in packaged code are diagnostic only, never continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabriel Khan, Hall’s Conjecture on Extremal Sets for Random Triangles, arXiv:1704.05913 / J. Geom. Anal. 2020: local maximum near disk and bounds on maximizing region aspect ratio",
+          "Beck 2026 full HTML treats randomly chosen points in 3D cube and references Langford rectangular 2D calculations"
+        ],
+        "reasoning": "A local disk-maximality/isoperimetric extremal theorem alone is not the full epsilon->0 asymptotic for an arbitrary fixed compressed convex K; the relevant Khan full text was not read and may contain unindexed intermediate thin-domain estimates. The authors’ published theorem descriptions were compared without claiming full-text NOT_COVERING.",
+        "searches": [
+          "probability three random points in thin convex plane body form acute triangle epsilon squared log epsilon fifth chord length moment",
+          "doi:10.1093/biomet/56.3.689"
+        ]
+      },
+      "checked_sources": [
+        "Beck 2026 Cambridge Core published full HTML",
+        "Langford 1969 Biometrika abstract and 2019 author-upload PDF attempt (failed)",
+        "Gabriel Khan arXiv:1704.05913 abstract/author page (full pdf inaccessible)",
+        "Classical 1D Jensen/Berwald inequalities",
+        "Resultary 2026-10-11 geometric-probability search results",
+        "Frozen check_acute.py inspected; independent exact SymPy fiber integral and three shape coefficients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Berwald inequality yields the sharp UPPER range for any concave w once the coefficient is established, but not the coefficient itself",
+          "The rectangle exact probability and Khan near-disk Hall results concern narrower bodies or different limiting regions"
+        ],
+        "reasoning": "The Jensen/Berwald sharp bounds are standard consequences of a proven new coefficient and must not be billed as standalone independent originality. The nontrivial new implication is from a singular three-angle probability integral to A^-3 int w^5 for arbitrary convex K; no inspected source gives that general reduction.",
+        "searches": [
+          "probability three random points in thin convex plane body form acute triangle epsilon squared log epsilon fifth chord length moment",
+          "arxiv:1704.05913",
+          "doi:10.1093/biomet/56.3.689"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Langford (1969) Biometrika 56(3) pp.689–690 abstract: exact rectangle P(L) only",
+          "Beck (2026), The probability that a random triangle in a cube is obtuse, Cambridge Core full HTML introduction: credits Langford rectangles"
+        ],
+        "reasoning": "For a rectangle C=1 in unit-normalized dimensions, so the present result has a covered rectangular specialization. An exact P(L) for rectangles can imply its own long-aspect-ratio asymptotic, but does not alone determine the coefficient for arbitrary varying concave profiles w(x).",
+        "searches": [
+          "probability three random points in thin convex plane body form acute triangle epsilon squared log epsilon fifth chord length moment",
+          "arxiv:1704.05913"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-11 area-perimeter signature in small circumradius law of random triangles, record 1252d4f1e8f4, a different event/limit",
+          "Langford rectangle and Beck cube are known exact geometric-probability special objects"
+        ],
+        "reasoning": "Small-radius/circumradius tables and classic exact rectangle probabilities do not encode the new fifth parallel-chord integral for every K. Failure of semantic lookup is an incomplete novelty test, not affirmative proof.",
+        "searches": [
+          "probability three random points in thin convex plane body form acute triangle epsilon squared log epsilon fifth chord length moment",
+          "Resultary:2026/10/11/the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4"
+        ]
+      },
+      "rationale": "Langford explicitly treats exact acute/obtuse probabilities for rectangles, an included specialization. The exact logarithmic thin-convex-body coefficient for arbitrary concave chord profiles and its sharp shape normalization are not statements of the accessible Beck cube study or Khan disk-local extremality abstract; the complete inaccessible Khan/Langford texts are named as substantive residual priority risks, not declared wholly non-covering.",
+      "residual_risks": [
+        "The full Langford 1969 two-page article, despite author-upload/OA and authorized Oxford attempts, was inaccessible (Oxford VPN disconnected); rectangle limit may have been derived there.",
+        "Khan 2020 Hall’s conjecture full text was inaccessible; an unexamined intermediate slender-domain estimate may overlap; only abstract theorem scope was assessed.",
+        "Dominated-convergence proof is for each fixed compact convex K; no uniform K-dependent error or global epsilon inequality; numerical tests are not proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies exact 3D cube and summarizes classic 2D rectangle; no all-convex planar thin-body coefficient in read material",
+          "evidence": "Beck 2026 intro and main probability statement.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/probability-that-a-random-triangle-in-a-cube-is-obtuse/BB6E7ECA977E3BB6EEDFB478C90BAB60",
+          "material_read": "Published full HTML, introduction/background, stated cube theorem and rectangular Langford discussion; relevant sections of HTML",
+          "method": "full primary HTML read by sections",
+          "title": "The probability that a random triangle in a cube is obtuse",
+          "trigger": "Closest accessible Langford follow-up with related acute-triangle integral"
+        },
+        {
+          "assessment": "Covers rectangles and hence likely rectangular thin-limit specialization; full text inaccessible so cannot determine whether it contains a broader limiting argument",
+          "evidence": "Langford abstract: expression for rectangle 1 x L.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/56.3.689",
+          "material_read": "1969 Biometrika abstract from Oxford; ResearchGate author-upload PDF link attempted and returned 404/403; full article not read; Oxford institutional attempt returned vpn_disconnected",
+          "method": "journal abstract, author-upload attempt, authorized institutional attempt",
+          "title": "The probability that a random triangle is obtuse",
+          "trigger": "Exact planar rectangle and possible thin-limit antecedent"
+        },
+        {
+          "assessment": "Main described results are disk local maximality and an isoperimetric bound, neither identical to fifth-chord law; no full-document noncoverage assertion",
+          "evidence": "arXiv 1704.05913 / J. Geom. Anal. 30 (2020), 3413–3457, theorem overview.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.05913",
+          "material_read": "Full abstract, author public Hall project page, targeted search; open-access PDF from CORE and arXiv retrieval failed, so body uninspected",
+          "method": "primary abstract and author project page, attempted OA manuscript",
+          "title": "Hall’s Conjecture on Extremal Sets for Random Triangles",
+          "trigger": "Highly relevant all-planar-convex acute probability, possible broader result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural acute-triangle event has an uncommon epsilon^2 log(1/epsilon) singular degeneration under slenderness, whose constant becomes a fifth chord moment distinguishing all convex shapes. A sharp range and shape extremizers turn a vanishing geometric probability into useful normalized quantitative information, not merely a rectangle calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Beck 2026 Cambridge Core published full HTML",
+    "Langford 1969 Biometrika abstract and 2019 author-upload PDF attempt (failed)",
+    "Gabriel Khan arXiv:1704.05913 abstract/author page (full pdf inaccessible)",
+    "Classical 1D Jensen/Berwald inequalities",
+    "Resultary 2026-10-11 geometric-probability search results",
+    "Frozen check_acute.py inspected; independent exact SymPy fiber integral and three shape coefficients"
+  ],
+  "disposition": "passed",
+  "limitations": "Fixed full-dimensional planar convex compact K, vertical compression epsilon->0, strict Euclidean acute triangles; no universal finite epsilon bound or rate uniform over convex K.",
+  "residual_risks": [
+    "The full Langford 1969 two-page article, despite author-upload/OA and authorized Oxford attempts, was inaccessible (Oxford VPN disconnected); rectangle limit may have been derived there.",
+    "Khan 2020 Hall’s conjecture full text was inaccessible; an unexamined intermediate slender-domain estimate may overlap; only abstract theorem scope was assessed.",
+    "Dominated-convergence proof is for each fixed compact convex K; no uniform K-dependent error or global epsilon inequality; numerical tests are not proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Studies exact 3D cube and summarizes classic 2D rectangle; no all-convex planar thin-body coefficient in read material",
+      "evidence": "Beck 2026 intro and main probability statement.",
+      "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/probability-that-a-random-triangle-in-a-cube-is-obtuse/BB6E7ECA977E3BB6EEDFB478C90BAB60",
+      "material_read": "Published full HTML, introduction/background, stated cube theorem and rectangular Langford discussion; relevant sections of HTML",
+      "method": "full primary HTML read by sections",
+      "title": "The probability that a random triangle in a cube is obtuse",
+      "trigger": "Closest accessible Langford follow-up with related acute-triangle integral"
+    },
+    {
+      "assessment": "Covers rectangles and hence likely rectangular thin-limit specialization; full text inaccessible so cannot determine whether it contains a broader limiting argument",
+      "evidence": "Langford abstract: expression for rectangle 1 x L.",
+      "identifier_or_url": "https://doi.org/10.1093/biomet/56.3.689",
+      "material_read": "1969 Biometrika abstract from Oxford; ResearchGate author-upload PDF link attempted and returned 404/403; full article not read; Oxford institutional attempt returned vpn_disconnected",
+      "method": "journal abstract, author-upload attempt, authorized institutional attempt",
+      "title": "The probability that a random triangle is obtuse",
+      "trigger": "Exact planar rectangle and possible thin-limit antecedent"
+    },
+    {
+      "assessment": "Main described results are disk local maximality and an isoperimetric bound, neither identical to fifth-chord law; no full-document noncoverage assertion",
+      "evidence": "arXiv 1704.05913 / J. Geom. Anal. 30 (2020), 3413–3457, theorem overview.",
+      "identifier_or_url": "https://arxiv.org/abs/1704.05913",
+      "material_read": "Full abstract, author public Hall project page, targeted search; open-access PDF from CORE and arXiv retrieval failed, so body uninspected",
+      "method": "primary abstract and author project page, attempted OA manuscript",
+      "title": "Hall’s Conjecture on Extremal Sets for Random Triangles",
+      "trigger": "Highly relevant all-planar-convex acute probability, possible broader result"
+    }
+  ]
+}
