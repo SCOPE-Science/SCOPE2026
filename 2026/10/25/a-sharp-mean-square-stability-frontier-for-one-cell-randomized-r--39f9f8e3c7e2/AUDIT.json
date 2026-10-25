@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact source-stage update yields the three-step companion with independent uniform coefficients. Recomputing the symmetric six-moment map gives T(X)=AXA^T+(z^4/12)X_33 e1e1^T. Cubic Jury conditions give the midpoint bound f(z)>0. The rank-one positive Lyapunov resolvent is H(z) as displayed, and 1-z^4 H(z)/12 factors as 4q(z)/[3(2-z)(z^2+2z+4)f(z)]. An explicit negative derivative makes q have one crossing in (0,delta). The positive definite dual eigenmatrix proves nondecay or growth for every nonzero deterministic starting state at/above the threshold before delta; Jensen proves failure beyond delta. A standalone self-contained exact-rational checker independently reconstructs the operator, Lyapunov identities and stage updates (239 checks). The finite tests do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2006.12131, Section 5: stability for the ODE test equation u'(t)=lambda u(t), via independent scalar quadratic random amplification; no delay state or three-step companion operator.",
+        "The 2019 S-ROCK article studies stochastic delay differential equations driven by Itô noise, with Chebyshev-based stabilized explicit stages. Its accessible abstract and introduction address another stochastic integrator and not the independent internal-stage randomness of the 2024 deterministic DDE integrator."
+      ],
+      "reasoning": "General positive-map spectral-radius and Schur/Jury tests supply tools, not an already stated exact cutoff for this specific freshly reconstructed delayed-stage map. A general stability theorem for the older no-delay RK method does not dominate a lagged three-state method. Brownian-forced stochastic delay integrators are mathematically different from algorithmic stage randomization of a deterministic DDE.",
+      "searches": [
+        "distributed noise randomized delay differential equation Runge Kutta strong mean square stability boundary algebraic polynomial",
+        "stochastic three-step recurrence multiplicative uniform random coefficient delay numerical integrator Lyapunov small gain stability threshold",
+        "\"randomized Runge-Kutta\" \"delay differential equations\" \"mean-square stability\" uniform stage",
+        "linear delay test equation random stage two-stage Runge Kutta uniform mean square stability characteristic polynomial",
+        "arXiv:2006.12131, Section 5",
+        "doi:10.1016/j.cam.2018.12.042"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11658v1 (full HTML, equations and sections 4–5)",
+      "arXiv:2006.12131 (full HTML, Section 5)",
+      "doi:10.1016/j.cam.2018.12.042 (abstract and opening)",
+      "arXiv:2404.19059 (abstract only)",
+      "Published mathematical record 9ae0040f2dac (retrieved title and statement summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2401.11658v1, equations (2.3)-(2.4) define the fresh delayed-stage scheme, Theorem 4.3 finite-horizon mesh convergence, Section 5 numerical finite-horizon examples; no infinite-horizon sharp delay stability polynomial.",
+        "arXiv:2006.12131, Section 5: stability for the ODE test equation u'(t)=lambda u(t), via independent scalar quadratic random amplification; no delay state or three-step companion operator.",
+        "The new calculation gives a sixth-order moment operator and exact rank-one Lyapunov feedback gain with a seventh-degree crossing polynomial; none of the inspected statements provides these numbers or an immediate parameter substitution yielding them."
+      ],
+      "reasoning": "The source algorithm entails the exact three-step recurrence, but its published finite-time convergence estimates do not imply infinite-time mean-square stability at coarse one-cell resolution. The earlier randomized ODE stability formula concerns E|1+z+U z^2|^2 and cannot encode delayed memory. The claimed cutoff requires a new six-moment analysis and elimination rather than a renaming of an earlier parameter.",
+      "searches": [
+        "arXiv:2401.11658v1 Theorem 4.3 and equations (2.3)-(2.4)",
+        "arXiv:2006.12131 Section 5 mean-square stability",
+        "randomized Runge Kutta delay differential equation independent uniform stage one grid step per delay x prime -a x(t minus tau) exact mean square stability threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.11658v1, equations (2.3)-(2.4) define the fresh delayed-stage scheme, Theorem 4.3 finite-horizon mesh convergence, Section 5 numerical finite-horizon examples; no infinite-horizon sharp delay stability polynomial.",
+        "arXiv:2006.12131, Section 5: stability for the ODE test equation u'(t)=lambda u(t), via independent scalar quadratic random amplification; no delay state or three-step companion operator."
+      ],
+      "reasoning": "A possible alias is mean-square absolute stability of the lag-one random-stage RK stability matrix, or spectral-radius stability of a random companion recursion. The inspected primary delay paper does not contain this polynomial or spectral cutoff, and the earlier ODE stability theorem has only a scalar stage multiplier. The present theorem concerns a rank-one-noise perturbation of a three-dimensional delayed recurrence and is not its ODE corollary.",
+      "searches": [
+        "randomized Runge Kutta delay differential equation independent uniform stage one grid step per delay x prime -a x(t minus tau) exact mean square stability threshold",
+        "randomized two-stage Runge Kutta Caratheodory delay equation one step per delay scalar lag-only feedback stochastic companion matrix spectral radius",
+        "randomized Runge Kutta 2401.11658 one step delay mean square stability degree seven",
+        "arXiv:2401.11658v1, equations (2.3)-(2.4), Sections 4-5",
+        "arXiv:2006.12131, Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record: Exact delay-distribution law for two-coordinate randomized Gauss-Seidel, identifier suffix 9ae0040f2dac, concerns stale-read distributions in Gauss-Seidel rather than randomized time nodes of a delay differential equation.",
+        "Database search returned no exact degree-seven cutoff or approximate numerical value 1.14447604735408 for the specified delay integrator; this absence is not proof of novelty."
+      ],
+      "reasoning": "No matched table or exact database record supplies this stability polynomial or its comparison against the midpoint threshold. The numerical closeness to unrelated delayed-equation Hopf crossing values is not an implication: underlying equations and observables differ.",
+      "searches": [
+        "delay-only feedback randomized stage RK scalar linear delay midpoint mean square separation",
+        "z^7-z^5-4z^4-4z^3+12z^2-24z+24 stability",
+        "\"Difonzo\" \"Przybyłowicz\" \"Wu\" \"Xie\" stability delay Runge Kutta",
+        "published mathematical record queries: exact stochastic delay law randomized Gauss-Seidel; randomized Runge Kutta delay stability"
+      ]
+    },
+    "rationale": "The full primary delay-integrator construction and its finite-horizon analysis were read and compared at the update level. The new sharp degree-seven stability cutoff, strict gap from deterministic midpoint, and rational-gap witness are not stated or parametrically implied by the inspected delay paper. The closest ODE randomized-Runge–Kutta stability theorem analyzes a one-component product (rather than a random three-step delayed companion). A related published randomized Gauss–Seidel delay theorem concerns algorithmic stale reads and gives a different recurrence. No direct covering result was found in targeted mathematical record and literature searches; residual equivalence risk is acknowledged.",
+    "residual_risks": [
+      "A general stochastic delay recurrence theorem or unindexed exact table could imply the specialized threshold without matching terminology.",
+      "Only accessible excerpt of S-ROCK and abstract of the 2024 implicit randomized RK paper were compared; no whole-document not-covering claims are made for these sources.",
+      "All priority claims await independent external literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected full article",
+        "evidence": "Equation (2.4) uses the current uniform stage for the freshly predicted delayed state; Theorem 4.3 estimates errors on fixed finite horizons; Section 5 reports finite-horizon numerical examples, without a one-cell mean-square spectral classification.",
+        "identifier_or_url": "https://arxiv.org/html/2401.11658v1",
+        "material_read": "Complete source-method equations (2.3)-(2.4), surrounding stage construction, full Theorem 4.3 and finite-horizon analysis, Section 5 numerical examples, introduction and references.",
+        "method": "Opened full accessible arXiv HTML and cross-checked the original PDF method page.",
+        "title": "A Randomized Runge–Kutta Method for Time-Irregular Delay Differential Equations",
+        "trigger": "Exact underlying method and possible covering long-time delay stability theory"
+      },
+      {
+        "assessment": "NOT_COVERING; ODE-only multiplier framework",
+        "evidence": "Its test problem is z'(t)=lambda z(t), and the method iterates iid scalar amplification p_j(h lambda). No delayed state, companion matrix, or degree-seven stability cutoff occurs in that method.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+        "material_read": "Full accessible arXiv HTML, introduction, algorithmic setting, Section 5 and especially Subsection 5.1 and formula (73).",
+        "method": "Read full-text arXiv HTML and compared stability variables and implications.",
+        "title": "Randomized Runge–Kutta Method—Stability and Convergence under Inexact Information",
+        "trigger": "Strongest similar prior exact randomized Runge–Kutta stability analysis"
+      },
+      {
+        "assessment": "DIFFERENT_NOISE_MODEL_ON_READ_MATERIAL; full-text comparison incomplete",
+        "evidence": "Describes Chebyshev-stabilized explicit stochastic Runge–Kutta for Itô stochastic delay equations; independent internal quadrature-node randomness in deterministic delay differential equations is not its described model.",
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2018.12.042",
+        "material_read": "Accessible publisher abstract, article description, and opening introduction.",
+        "method": "Read accessible publisher page; full article not inspected.",
+        "title": "S-ROCK Methods for Stochastic Delay Differential Equations with One Fixed Delay",
+        "trigger": "Plausible nearby numerical stability literature with both RK and delay"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY; probable different implicit ODE method, residual full-text risk",
+        "evidence": "Abstract concerns an implicit two-stage RK scheme, A-stability in three probabilistic senses, and no mention of delayed state.",
+        "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+        "material_read": "Accessible arXiv abstract only.",
+        "method": "Read metadata and abstract; no full-text equivalence conclusion.",
+        "title": "Convergence and Stability of Randomized Implicit Two-Stage Runge–Kutta Schemes",
+        "trigger": "Same author and randomized-stage mean-square stability comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39f9f8e3-c7e2-48e5-941d-baf980220bc5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary algorithm was proposed with finite-horizon accuracy analysis, leaving natural long-time memory-feedback stability unexplored. The exact algebraic cutoff solves a canonical scalar pure-delay test equation at the coarsest permissible lag-resolving grid, a conventional stability benchmark. It identifies an open interval (rho,delta) where mean and mean-square stability disagree, with an exact rational witness z=7/6; the exact boundary informs delay-step/stiffness selection and separates finite-horizon accuracy from infinite-horizon reliability. This structural transition and universal one-step stability classification are more substantive than a routine small-step sufficient bound or an arbitrary finite table. No multi-cell or nonlinear guarantees are claimed.",
+    "status": "PASS"
+  }
+}
