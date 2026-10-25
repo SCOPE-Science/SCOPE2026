@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact polar is the convex hull of the dual \(\ell_q\) ball and two axial points, whose unique tangent point is determined from the axis intercept. Direct slicing yields both volume factors, including the conical cap term. Differentiation simplifies to \(H'(a)=-g/(da^2)\); the resulting sign function has derivative proportional to \(T(a^p)-m(2-p)/2\). The auxiliary \(T\) decreases strictly from \(m\) to zero, proving the complete all-dimensional phase law, with endpoint control. Independent planar polar-area integration and the three-dimensional Euclidean polynomial agree with the exact formula. The finite computations are diagnostic, not proof of universal quantification.
+## correctness
 
-## Originality — PASS, with stated residual priority risks
-Targeted searches for coordinate-sliced \(\ell_p\) balls, their polar hulls, the parameter \(p=2\), equivalent Mahler-product and slab language, and general geometric volume-product bounds found no result whose statement implies the asserted unique global cut-depth maximum. The closest published work addresses general planar lower bounds (Böröczky–Makai–Meyer–Reisner 2013, full accessible preprint inspected), locally perturbed bodies (Reisner–Schütt–Werner 2010, preprint inspected), and symmetry-based lower bounds (Barthe–Fradelizi 2013, abstract only). Existing results about cube–crosspolytope products, simplex interpolation, volume-only plank clipping, and quadratic Santaló *moment* products do not imply this Mahler-product optimization. The symmetry-bound paper's inaccessible full text and potentially unindexed equivalent formulas are genuine priority uncertainties, not evidence of coverage or novelty.
+PASS
 
-## Mathematical value — PASS
-The Mahler volume product is a central affine invariant. Coordinate slabs form a canonical controlled deformation of the classical \(\ell_p\)-ball family, so whether removing or introducing a truncation improves the product is a motivated geometric stability question. The complete \(p=2\) phase reversal across **all** dimensions and the unique global optimizer for \(p<2\) are qualitative and structurally nonroutine, not a numerical constant or a renamed textbook identity. The proof's monotone auxiliary criterion provides a reusable mechanism to distinguish volume and polar-volume competition. It does not purport to prove general Mahler conjectures.
+Polarity yields K°=conv(Bq^d,±e1/a). Exact polar cone tangent at s=a^(p-1) gives product 4κp,mκq,m F(a)H(a); direct calculus gives F'=v^(m/p), H'=-v^(m/q)/(d a²). Sign of derivative reduces to W, and W' has positive prefactor times [T(a^p)-m(2-p)/2], with T decreasing strictly m to 0; endpoint signs prove unique maximum for 1<p<2 and strict monotonicity for p>=2. Independent numeric derivative, polar-section and d3,p2 polynomial checks corroborated analytic proof.
 
-## Reproducibility and limitations
-The embedded `mahler_checker.py` was executed with SciPy and independently checks selected cases. The statement excludes \(p=1,\infty\) and noncoordinate clipping; the general optimizer is implicit. Unavailable full primary material may conceal an equivalent special case; independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact p=2 phase for coordinate-clipped ell_p Mahler product differs from generic bounds, local perturbations, and different body families; highly relevant symmetry paper unavailable in full, explicitly recorded.
+
+## value
+
+PASS
+
+Mahler product is central affine convex geometry, and clipping a classical ell_p ball is a natural geometric deformation. The exact p=2 monotonicity bifurcation and unique optimizing cut depth across all dimensions resolve a substantive optimization rather than a sampled numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
