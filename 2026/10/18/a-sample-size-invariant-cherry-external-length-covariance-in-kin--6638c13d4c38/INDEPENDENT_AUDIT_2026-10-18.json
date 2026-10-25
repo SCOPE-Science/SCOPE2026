@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For j=1,2,3, survival of ordered marked leaves as singletons to k blocks gives E[(S_k)_j]=(k)_j(k-1)_j/(n-1)_j. The chance two existing singletons eventually merge together before either merges otherwise is 2/[3(k-1)]. Conditional final cherry expectation is H_k+2*[S_k choose 2]/[3(k-1)] for k>=3. Pair-merger counting yields z_{k-1}=(k-2)z_k/k+F_3(k)/[k(k-1)] for z_k=E[S_k H_k], solved by z_k=k(k-1)/3*[1-(k-1)(k-2)(k-3)/((n-1)(n-2)(n-3))]. Combining with factorial moments gives the full negative covariance stage profile, zero at k=n-1,n; independent exponential waiting times E tau_k=2/[k(k-1)] give Cov(C_n,L_n)=-2/9 exactly after a finite falling-factorial sum. For n=2,3, C_n identically 1 so covariance 0. Established Var(C_n)=2n/45 and Var(L_n)~8log n/n yield correlation coefficient. Separate exact-fraction Markov-chain enumeration tested mean cherries for n=4..13 and independent full stage/joint calculations through bounded n; infinite validity rests on recursion, not test counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Kersting gives external length, singleton counts and its marginal asymptotics.",
+          "Disanto–Wiehe gives cherry/pitchfork distributions in ranked trees without branch lengths.",
+          "François–Mioland abstract discusses total cherry height and external branch length, not plainly the number of cherries."
+        ],
+        "reasoning": "No accessible theorem simultaneously handles final cherry count and external length covariance; a complete look at François–Mioland would be needed to exclude possible equivalent joint formulas definitively.",
+        "searches": [
+          "Janson Kersting The external lengths in Kingman coalescent 2011 singleton urn",
+          "Disanto Wiehe Exact enumeration of cherries and pitchforks ranked trees 2011",
+          "François Mioland Gaussian approximations phylogenetic branch length statistics cherries 2007"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md (blob 9d399c3f3c10b5f03a8ad1f882edc537fc30ba01)",
+        "https://arxiv.org/abs/1004.5011",
+        "https://arxiv.org/abs/1112.1295",
+        "https://arxiv.org/abs/1303.4562",
+        "https://doi.org/10.1016/j.mbs.2007.01.005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete external-length primary contains the singleton urn and marginal laws, while the complete cherry paper focuses on topology.",
+          "The abstract of François–Mioland addresses cherry height (sum of lengths around cherry) and external branch statistics, a different random variable than the number of cherries."
+        ],
+        "reasoning": "Neither inspected complete paper implies the cross covariance. The closest 2007 comparison is not decisive while full text is inaccessible, but absence alone does not fail best-of-knowledge originality; residual risk is explicit.",
+        "searches": [
+          "arxiv:1004.5011 Janson Kersting 2011 external lengths Kingman",
+          "arxiv:1112.1295 Disanto Wiehe cherries pitchforks ranked trees",
+          "doi:10.1016/j.mbs.2007.01.005 François Mioland"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cherry count is a terminal tree-topology statistic; external length sums singleton counts weighted by exponential intercoalescence times.",
+          "C_n and L_n are respectively variables in the cherry enumeration and external-length literature."
+        ],
+        "reasoning": "The mixed moment is equivalent to integrating the stage-wise covariance with singleton counts; separate marginal distributions do not determine it.",
+        "searches": [
+          "Kingman coalescent cherry count external branch length cross covariance",
+          "ranked tree cherries and singleton lineage counts stage covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned tree degree/leaf-count covariance and unrelated species-partition findings, not the same Kingman cross-moment.",
+          "Known published marginal variance values cannot determine the exact mixed second moment."
+        ],
+        "reasoning": "No checked exact census/table covers the n-independent -2/9 or the all-k stage profile; unsuccessful search alone is not novelty proof.",
+        "searches": [
+          "Resultary: Kingman coalescent number of cherries covariance external branch length singleton counts",
+          "Kingman coalescent cherry external length joint moment -2/9 table"
+        ]
+      },
+      "rationale": "The complete Janson–Kersting Kingman paper studies external lengths and singleton counts but not cherry count cross-moments; the full Disanto–Wiehe ranked-tree paper studies cherries/pitchforks topologically but not external length. The new all-n mixed covariance and full negative stage profile are not entailed by marginal laws. The 2007 François–Mioland paper concerns cherry height and branch-length statistics, but only the abstract was confirmed: its full text remains a significant best-of-knowledge priority risk.",
+      "residual_risks": [
+        "The complete François–Mioland 2007 primary manuscript was not obtained; an authorized retrieval returned the wrong publication and the next attempt errored. Its possible stronger joint results remain a priority risk.",
+        "A mixed covariance may be implicit in older Kingman or Yule genealogy literature under other statistic names.",
+        "Correlation asymptotic uses previously known marginal variance formulas, not a newly claimed joint central limit theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains external-length moments but not a covariance with total terminal cherry count.",
+          "evidence": [
+            "Develops singleton counts and total external branch lengths, without a cherry count theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1004.5011",
+          "material_read": "Complete primary PDF abstract, singleton/urn construction, covariance and variance formulas, asymptotic analysis and references.",
+          "method": "Full PDF text and page inspection.",
+          "title": "The external lengths in Kingman's coalescent",
+          "trigger": "Exact Kingman external length and singleton urn could contain cross-covariance."
+        },
+        {
+          "assessment": "Topological enumeration with no external branch length covariance.",
+          "evidence": [
+            "Counts cherries and pitchforks under ranked-tree/coalescent topology rather than integrating waiting times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.1295",
+          "material_read": "Complete primary PDF combinatorial ranked-tree enumeration, cherry/pitchfork distributions and conclusions.",
+          "method": "Full PDF text and page inspection.",
+          "title": "Exact enumeration of cherries and pitchforks in ranked trees under the coalescent model",
+          "trigger": "Exact cherry statistics might already be jointly coupled to branch lengths."
+        },
+        {
+          "assessment": "Could discuss relevant joint statistics; exact cherry count covariance not verified absent from inaccessible text.",
+          "evidence": [
+            "The public abstract distinguishes total cherry height from count, but does not settle possible other joint mixed moments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2007.01.005",
+          "material_read": "Publisher/bibliographic abstract only; complete target paper not obtained. An authorized DOI retrieval returned a nonmatching 2005 Blum–François manuscript; subsequent exact-title retrieval returned service error. Nonmatching manuscript excluded from scientific comparison.",
+          "method": "Abstract comparison; authorized institutional retrieval attempted without bypass.",
+          "title": "Gaussian approximations for phylogenetic branch length statistics under stochastic models of biodiversity",
+          "trigger": "Title and abstract mention cherry heights and external branches, plausible prior coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sample-size-independent negative covariance and its signed time-stage mechanism answer a natural joint genealogy-statistics question connecting topology (cherries) to metric branch length; usable for joint summaries and correlation asymptotics. Neither marginal alone determines the cross-moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Constant-population Kingman pairwise merger rate one; no varying demographic history or multiple-merger coalescents.",
+    "n>=4 for the stated nonzero covariance; n=2,3 cherry count is deterministic.",
+    "The complete François–Mioland 2007 primary manuscript was not obtained; an authorized retrieval returned the wrong publication and the next attempt errored. Its possible stronger joint results remain a priority risk.",
+    "A mixed covariance may be implicit in older Kingman or Yule genealogy literature under other statistic names.",
+    "Correlation asymptotic uses previously known marginal variance formulas, not a newly claimed joint central limit theorem."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim uses the standard pair-merger-rate-one Kingman genealogy, with independent exponential waiting times. Singleton falling-factorial moments follow by tracking designated tips. A first-step recursion gives the probability that two present singletons will eventually form a cherry. A separate recursion for the mixed stage moment \(\mathbb E[S_{n,k}H_k]\) is solved and substituted to establish the exact stage covariance; summing against exact waiting-time means yields \(-2/9\) for all \(n\ge4\). Exact-fraction dynamic programming independently verified all covariance identities through \(n=23\) for the integrated claim and through \(n=13\) for the entire stage profile. Finite tests are corroboration, not the proof. The marginal variance inputs underlying the correlation rate are identified and sourced.
+## correctness
 
-**Originality — PASS (subject to literature-access risk).** Janson–Kersting treats external branch lengths and their singleton urn process, but not the cherry-count mixed moment. Disanto–Wiehe develops exact cherry statistics but explicitly excludes branch lengths. Dahmer–Kersting handles branch lengths by descendant counts, without the joint cherry-count statistic. A 2007 study by François–Mioland compares *total height* of cherries against external length; its abstract does not identify the *number* of cherries as a variable, but the complete full text was not available for inspection. Its possible implicit overlap remains a specific residual risk. No identical stage profile or \(-2/9\) covariance was found in the inspected material; lack of a match is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** Cherry count measures tree shape, whereas total external length is a genealogical metric with sampling consequences. The signed stage-by-stage covariance locates the negative dependence throughout the genealogy and explains its unexpected exact invariance in sample size. The limiting negative correlation decays only as the inverse square root of the logarithm despite a constant covariance. This is a complete naturally parametrized cross-moment, not a marginal formula, arbitrary numerical cut-off, or one-case calculation.
+For j=1,2,3, survival of ordered marked leaves as singletons to k blocks gives E[(S_k)_j]=(k)_j(k-1)_j/(n-1)_j. The chance two existing singletons eventually merge together before either merges otherwise is 2/[3(k-1)]. Conditional final cherry expectation is H_k+2*[S_k choose 2]/[3(k-1)] for k>=3. Pair-merger counting yields z_{k-1}=(k-2)z_k/k+F_3(k)/[k(k-1)] for z_k=E[S_k H_k], solved by z_k=k(k-1)/3*[1-(k-1)(k-2)(k-3)/((n-1)(n-2)(n-3))]. Combining with factorial moments gives the full negative covariance stage profile, zero at k=n-1,n; independent exponential waiting times E tau_k=2/[k(k-1)] give Cov(C_n,L_n)=-2/9 exactly after a finite falling-factorial sum. For n=2,3, C_n identically 1 so covariance 0. Established Var(C_n)=2n/45 and Var(L_n)~8log n/n yield correlation coefficient. Separate exact-fraction Markov-chain enumeration tested mean cherries for n=4..13 and independent full stage/joint calculations through bounded n; infinite validity rests on recursion, not test counts.
 
-**Limits and remaining risks.** The theorem does not apply without adjustment to changing effective-population-size time scales, multiple-merger genealogies, or \(n\le3\). Historical literature may contain equivalent mixed moments not identified in the accessible primary papers. The finite verification cannot certify the infinite assertion independently of the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete Janson–Kersting Kingman paper studies external lengths and singleton counts but not cherry count cross-moments; the full Disanto–Wiehe ranked-tree paper studies cherries/pitchforks topologically but not external length. The new all-n mixed covariance and full negative stage profile are not entailed by marginal laws. The 2007 François–Mioland paper concerns cherry height and branch-length statistics, but only the abstract was confirmed: its full text remains a significant best-of-knowledge priority risk.
+
+## value
+
+PASS
+
+The exact sample-size-independent negative covariance and its signed time-stage mechanism answer a natural joint genealogy-statistics question connecting topology (cherries) to metric branch length; usable for joint summaries and correlation asymptotics. Neither marginal alone determines the cross-moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
