@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The result is a specific finite integral cycle-space theorem. The 30-vertex graph is built directly from duads and synthemes. Exhaustive enumeration finds 90 shortest octagons and 1,125 disjoint pairs. The unordered deleted-product chain model has cell counts 435, 1,260 and 900; every boundary composition and all 1,125 signed torus boundaries vanish. A rank-810 nonzero minor is certified over the field of 101 elements by sparse elimination. A specified collection of 90 torus classes from the distinguished 360-pair orbit has an integral 90-by-90 coefficient determinant of -1. The determinant plus the rank bound proves generation of the entire primitive integral kernel, not merely vector-space spanning. Two generator permutations determine orbit sizes and geometric types, and the remaining individual orbit families have binary ranks strictly below 90.
+
+## Originality — PASS with residual literature risk
+The inspected foundational paper of Barnett–Farber (arXiv:0903.2180, full PDF, especially Lemma 1.1 and Section 1) establishes the deleted-product model but does not classify this graph's pair-of-octagons orbit. Farber–Hanbury (arXiv:1005.2300, full PDF, introduction and mature-graph section) gives a framework for second Betti numbers rather than a shortest-cycle integral torus basis. An–Knudsen (arXiv:2008.10371, full PDF, Theorem 1.1 and Example 6.8) limits its general generation assertion to planar graphs and discusses nonplanar failure. Indexed searches of the eight-cage's other names and of two-particle integral geometric generators yielded no covering exact orbit-basis statement. Related literature on other graph complexes of the Tutte–Coxeter graph, and on two-particle homology for different graphs, concerns nonidentical objects or does not imply the orbit-selective integral result. This comparison is not a guarantee against unindexed, inaccessible, or unpublished duplicate calculations.
+
+## Mathematical value — PASS
+The Tutte–Coxeter graph is the distinguished cubic girth-eight cage. Its minimum possible cycles have length eight; determining whether product tori on pairs of those cycles exhaust degree-two homology is a natural geometric-generation problem, especially outside the planar setting. The finding proves more than a Betti number: among four natural symmetry orbits, exactly one individually gives all integral homology, witnessed by a primitive unimodular basis, whereas the other three fail modular necessary tests. This is a concrete structural boundary for nonplanar geometric generators, not an arbitrary small numerical refinement.
+
+## Limits
+One finite graph, two unordered particles, and degree-two integral homology only; the six-symbol action is not claimed to be the entire graph-automorphism representation. Modular rank defects do not themselves determine other orbits' rational ranks. The signed computational proof is reproducible using the embedded exact verifier; no independent external audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
