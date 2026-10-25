@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every prime-directed three-cycle with least vertex no greater than \(349\) is captured by a uniquely rotated two-edge path. Complete integer factorization enumerates \(70\) such paths; only \((349,121453,9710803)\) closes. The exact certificate, enumerated CSV, primality tests, and independent arithmetic replay agree. The reciprocal-gcd formula follows directly by divisor grouping and multiplicativity. The claim explicitly does not classify cycles with larger least vertex.
+## correctness
 
-## Originality
-PASS, subject to residual unindexed-literature risk. The source establishes the divisor-sum identity and proposes prime cycles as constructions but does not identify the first three-cycle, the minimum vertex cutoff, or this three-prime example. OEIS A317480 lists early integer solutions without this larger witness. A nearby published result on reciprocal prime pairs concerns \(\Phi_3\), not length-three cycles for \(\Phi_6\). The reciprocal-prime-pair condition for \(\Phi_6\) is a two-vertex condition and does not itself determine the minimum vertex of a three-cycle. Actual source, number, alias, and implication searches did not find stronger coverage; their failure to find a match is not taken as a uniqueness proof.
+PASS
 
-## Mathematical value
-PASS. The original paper explicitly separates prime-factor cycles of length at least three from two-cycle obstructions and asks about attainable cycle lengths. This is an exact, reproducible first-vertex cutoff for the smallest genuinely three-vertex feedback configuration, and it yields a concrete squarefree three-prime reciprocal-gcd-integral integer where the paper showcases four primes. Both the fixed minimality problem and the sphenic example are natural arithmetic consequences, not arbitrary parameter slices. It does not establish an infinite family.
+PASS. Rotate any three-cycle to its unique smallest vertex p<=349. Every outgoing q is a prime divisor of F(p)=p^2-p+1 and every subsequent r a prime divisor of F(q), so two-stage complete factorization exhausts the infinite condition without upper bounds on q,r. Independent SymPy enumeration recovered exactly 70 candidate p->q->r paths and exactly one closing cycle (349,121453,9710803); primality/divisibilities and H(pqr)=F(p)F(q)F(r)/(pqr)=410433300314317 verified exactly. No stronger claim for p>349.
 
-## Closest sources and risks
-De Koninck–Letendre arXiv:2610.10572v1, §§1, 5, 7, is the primary source; OEIS A317480 is the related exact integer table; the published \(\Phi_3\) reciprocal-pair result treats another cyclotomic equation. The only residual originality risk is an unindexed earlier computation of the same exact cycle and cutoff; broader results about all three-cycles, if subsequently identified, may subsume it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Earlier De Koninck–Letendre gives the reciprocal-gcd multiplicative identity and introduces prime-factor cycles, while the OEIS small values and Resultary Phi_3 prime-pair classification do not imply this Phi_6 three-vertex least-prime cutoff. The closely related global least-product result is a different optimization: knowing a minimum product does not exclude a smaller cycle vertex at much larger product. Full primary text of the newly posted preprint was unavailable and remains a genuine priority risk.
+
+## value
+
+PASS
+
+PASS. The 3-cycle is the smallest nontrivial feedback pattern after the excluded 2-cycle, arising directly in the natural reciprocal-gcd integrality construction. Its sharp least starting prime and explicit first witness answer a motivated arithmetic minimality question; it is not arbitrary finite sampling or a general infinitude claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
