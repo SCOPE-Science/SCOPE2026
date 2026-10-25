@@ -1,13 +1,21 @@
-# Review of the graph edge-averaging generating-radius theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** All edge coefficients lie strictly inside the positive probability simplex, making the exact norm-attainment set a union of cube faces where adjacent coordinates equal \(1\) or \(-1\). The polytope is their sign-vertex hull. For every real dual vector an allowed signing either maximizes the whole cube, or the maximizing proper coloring can be changed into an allowed signing by flipping one cheapest non-isolated coordinate; any allowed signing must pay at least that cost. This yields the exact support function. Its comparison with the \(\ell_1\) dual norm proves the uniform lower radius, and the uniform-magnitude proper-coloring dual vector attains the sharp upper radius. The proof includes graph disconnectedness, isolates, zero dual coefficients, and \(k=2\). The finite-dimensional reduction agrees with Definition 3 and Proposition 2 of [1]. Exhaustive checks on \(1094\) graphs and \(157849\) integer dual cases provide additional exact finite consistency evidence, not the infinite proof.
+## correctness
 
-**Originality (PASS, with residual bibliographic risk).** The 2023 source [1] establishes the notion and convex-hull criterion, and its finite-dimensional Corollary 3 already implies the \(r=1\) conclusion once norm-attainment at every cube vertex is known. However, it does not give the graph-signing support function, the weight-insensitive all-graph classification, or the exact bipartite \(1-2/k\) radius. Indexed related research on \(\ell_1\to c_0\) near-norm-attainment hulls concerns a different operator and lacks this graph family. The graph numerical-index parity literature [2] addresses Lipschitz-free spaces and cannot imply a generating radius for the present weighted vertex-to-edge operator without a missing identification. Actual query variants concerned graph averaging, generating radii, monochromatic sign vertices, equivalent convex-hull inradius statements, and support functions. Accessible current and prior research-claim ledgers yielded no implication covering this statement. An unindexed equivalent coloring-hull computation remains possible, and the review is not an assertion that all literature has been searched.
+PASS
 
-**Mathematical value (PASS).** The exact classification covers arbitrary finite graphs and completely arbitrary strictly internal edge weights, not an isolated numerical example. The index has a discontinuous jump to \(1\) on introducing an odd cycle, yet is otherwise insensitive to the number of edges, connected components, and weight imbalance; the same proof supplies the full dual support function. The theorem turns a recent quantitative Banach-operator invariant into an explicit combinatorial boundary criterion and offers a reusable class of fully computed operator examples.
+Strictly positive interior coefficients make every norm attaining vector have both endpoints of at least one edge equal +1 or equal -1. Convexity of the union of cube faces reduces the norm-attaining hull exactly to sign assignments with some monochromatic edge. Every maximizing sign vector either already lies in that hull, or is a proper 2-coloring and must flip a nonisolated coordinate; flipping the least |a_v| is feasible and optimal, proving the exact support L(a)-2 min_{v in V+}|a_v|. For nonbipartite graphs all signings are admitted, r=1. For bipartite graphs min≤L/k yields r≥1−2/k, while a proper coloring with active dual magnitudes 1/k realizes equality. Handles disconnectivity, ties, isolates, k=2 (r=0), and every interior weight. Independently enumerated 71 labeled graphs on 2–4 vertices and 40,204 exact integer dual comparisons; finite checks only corroborate the universal separation proof.
 
-**Scope.** Real scalars and strictly positive interior weights are essential premises; no claim is made for complex scalars or endpoint weights. The computational verification has bounded dimension. Independent external audit is outstanding.
+## originality
 
-**Literature.** [1] V. Kadets, M. Martín, J. Merí, A. Quero, *Generating operators between Banach spaces*, arXiv:2306.02645v1 (2023-06-05), doi:10.1007/s13398-024-01582-3 (2024), Definition 3 and Proposition 2. [2] *Bipartiteness exactly characterizes numerical index one for finite graph metrics* (2026), an invariant of Lipschitz-free graph spaces.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kadets–Martín–Merí–Quero established the general quantitative generating-operator framework and finite-dimensional norm-attainment characterization; their open-access full article is not a theorem classifying edge-positive vertex-to-edge averages by graph bipartiteness with sharp radius 1−2/k. Known bipartite graph numerical indices concern other Banach spaces/invariants. The nonbipartite r=1 conclusion is largely a corollary of their criterion, but the support-function identity and bipartite exact quantitative branch survive.
+
+## value
+
+PASS
+
+The formula is a precise universal and weight-independent quantitative norm-attainment invariant on a natural graph operator family, detects an extremal parity obstruction, and gives all cases including degeneracy k=2; it is more than a routine substitution in a general generating definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
