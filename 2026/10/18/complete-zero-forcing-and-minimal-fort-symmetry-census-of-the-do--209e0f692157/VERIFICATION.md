@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-**Scope.** The finite graph is the explicit 20-vertex generalized Petersen graph \(GP(10,2)\). In this instance, all \(2^{20}=1048576\) initial coloring configurations are exhaustively enumerable. No infinite graph family is claimed to have been verified.
+## correctness
 
-The four included artifacts are `direct.cpp`, `fort.cpp`, `verify.py`, and `orbit_certificate.json`. From their common directory on a conventional 64-bit little-endian system with a C++17 compiler and Python 3, execute:
+PASS
 
-```sh
-g++ -O3 -std=c++17 direct.cpp -o direct
-./direct
-g++ -O3 -std=c++17 fort.cpp -o fort
-./fort
-python3 verify.py
-```
+Fort duality follows from the color-change rule: a stalled nonempty white set is a fort and no fort can be entered by a first color-change move. Independently enumerated all 2^20 subsets using adjacency for GP(10,2), exact fort test and a complete subset-zeta transform: 74170 forts, 804264 zero-forcing sets, polynomial coefficients k=6..20 exactly (2040,16900,62890,127480,168244,163560,125230,77460,38760,15504,4845,1140,190,20,1), 3000 inclusion-minimal forcing sets sizes (6:2040,7:180,8:780), and 830 inclusion-minimal forts sizes (7:60,8:20,9:200,10:410,11:120,12:20). Separately computed the full 120-element automorphism group and orbit partitions, matching 30 forcing-minimal and 15 fort-minimal orbits with all size/orbit multiplicities in the source certificate. The verifier paths direct.cpp, fort.cpp, verify.py, and orbit_certificate.json were materially inspected; finite exhaustive work establishes precisely this graph, not arbitrary generalized Petersen graphs.
 
-The C++ programs independently generate the binary decisions as well as the minimal-set and minimal-fort masks; the Python program checks all decisions, all masked minimality conditions, reconstructs the entire full automorphism group and verifies every orbit certificate representative. The status files are generated locally by these commands; they are not missing input dependencies. Direct forcing enumerates success and propagation rounds; the second algorithm checks the mathematically equivalent absence of forts by a 20-dimensional subset-zeta transform.
+## originality
 
-Observed successful verifier output:
+PASS
 
-```text
-CROSSCHECK_OK all_1048576_masks_agree=true total_forcing=804264
-MINIMALITY_OK minimal_forcing=3000 sizes=6:2040,7:180,8:780 minimal_forts=830
-ORBITS_OK minimal_zero_forcing_orbits orbits= 30 sets= 3000 spectrum= {(6, 60): 6, (6, 120): 14, (7, 60): 1, (7, 120): 1, (8, 60): 3, (8, 120): 5}
-ORBITS_OK minimal_fort_orbits orbits= 15 sets= 830 spectrum= {(7, 60): 1, (8, 5): 1, (8, 15): 1, (9, 20): 1, (9, 60): 1, (9, 120): 1, (10, 30): 1, (10, 40): 2, (10, 60): 3, (10, 120): 1, (11, 120): 1, (12, 20): 1}
-VERIFY_ALL_OK graph_vertices=20 edges=30 automorphism_order=120
-```
+Best-of-knowledge: known Z(GP(10,2))=6 and general zero-forcing frameworks are credited; no comparable complete 20-vertex subset/fort/orbit table was identified in exact-object searches or published-finding comparisons.
 
-**Limitations.** These checks rely on exact finite computations and source correctness; an independent scientific audit has not been carried out. The established previously published minimum value is credited, and the calculations cannot exclude a prior unindexed table of the same results. No other graphs are assessed.
+## value
+
+PASS
+
+GP(10,2) is the canonical highly symmetric 20-vertex cubic dodecahedron. Beyond known Z=6, exact higher coefficients, non-well-forced minimal sets of size 7 and 8, complete minimal-fort obstruction antichain and its automorphism orbits supply naturally reusable exact structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

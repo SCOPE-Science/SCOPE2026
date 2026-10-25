@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is restricted to the explicit 20-vertex cubic graph and all \(2^{20}\) possible initial subsets, with no extrapolation. The fort-versus-forcing equivalence is proved logically and employed by a subset-zeta enumerator independent of the direct propagation enumerator. Their decisions coincide on all 1048576 masks. Inclusion-minimality is checked using valid monotonicity, and all 120 automorphisms are independently reconstructed from the graph and used to certify each orbit's entire extent. The embedded sources and orbit certificate reproduce all substantive numerical claims. Limits: the use of a general-purpose C++ compiler and Python interpreter is a standard computational assumption; no infinite-family theorem is inferred.
+PASS
 
-## Originality: PASS, with priority risk
+Fort duality follows from the color-change rule: a stalled nonempty white set is a fort and no fort can be entered by a first color-change move. Independently enumerated all 2^20 subsets using adjacency for GP(10,2), exact fort test and a complete subset-zeta transform: 74170 forts, 804264 zero-forcing sets, polynomial coefficients k=6..20 exactly (2040,16900,62890,127480,168244,163560,125230,77460,38760,15504,4845,1140,190,20,1), 3000 inclusion-minimal forcing sets sizes (6:2040,7:180,8:780), and 830 inclusion-minimal forts sizes (7:60,8:20,9:200,10:410,11:120,12:20). Separately computed the full 120-element automorphism group and orbit partitions, matching 30 forcing-minimal and 15 fort-minimal orbits with all size/orbit multiplicities in the source certificate. The verifier paths direct.cpp, fort.cpp, verify.py, and orbit_certificate.json were materially inspected; finite exhaustive work establishes precisely this graph, not arbitrary generalized Petersen graphs.
 
-The known value \(Z(GP(10,2))=6\) from Rashidi, Shajareh Poursalavati and Tavakkoli (2020) is expressly excluded from novelty. The zero-forcing polynomial was defined in earlier literature and minimal forcing and well-forced structures are established. The inspected same-object paper and relevant full-text treatments of polynomial, minimality and well-forcedness do not give the new all-subset polynomial, all inclusion-minimal families and 30/15 full symmetry orbit census. No identical archived result appeared in the targeted published mathematical-record searches. Lack of indexed matches is not a uniqueness proof; unindexed datasets and computational supplements remain risks.
+## originality
 
-## Value: PASS
+PASS
 
-A naturally defined graph with the previously known minimum forcing size \(6\) possesses inclusion-minimal sets of sizes \(7\) and \(8\). The exact gap of two and the complete 3000-set and 830-minimal-fort obstruction catalogues distinguish minimum versus minimal behavior and show the full orbit structure on the canonical dodecahedral graph. This is a substantial exact structural classification, not solely a recomputation of the known minimum or a change of notation. It supplies reproducible test data for forcing algorithms and examples for well-forcedness theory.
+Best-of-knowledge: known Z(GP(10,2))=6 and general zero-forcing frameworks are credited; no comparable complete 20-vertex subset/fort/orbit table was identified in exact-object searches or published-finding comparisons.
 
-## Relevant literature and limits
+## value
 
-See the five source references in RESULT.md and the detailed source comparisons in AUDIT.json. Only self-review has been undertaken. An earlier unindexed or unpublished complete census may exist, and computer-assisted exhaustive arithmetic has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+GP(10,2) is the canonical highly symmetric 20-vertex cubic dodecahedron. Beyond known Z=6, exact higher coefficients, non-well-forced minimal sets of size 7 and 8, complete minimal-fort obstruction antichain and its automorphism orbits supply naturally reusable exact structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
