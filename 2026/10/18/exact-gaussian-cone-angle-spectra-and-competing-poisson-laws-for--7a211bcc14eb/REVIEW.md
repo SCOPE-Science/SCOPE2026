@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces the intrinsic Gaussian normal fan to uniformly distributed total orders, proves that an orientation class contains exactly \(2^s\) orders by matching-specific incomparability, counts the classes by binomial inversion, and obtains collision probabilities from squared cone masses. Poisson limits follow from a probability-generating function whose coefficients are uniformly bounded by \(1/t!\); uniform-vertex sampling is a rigorously normalized exponential tilt. The independently implemented exact checker groups all orientation signatures directly for 23 parameter pairs through order eight and agrees with the analytical identities. The high-precision asymptotic checks are illustrative only. No reliance on numerical experimentation for universal claims.
+PASS
 
-## Originality — PASS with bounded bibliographic risk
+For the matching-deleted graphical zonotope of K_n with n>=3 and 0<=k<=floor(n/2), maximizing segment endpoints under an isotropic zero-sum Gaussian gives each of n! coordinate orders probability 1/n!. In a fixed orientation class, precisely the deleted-matching pairs that are consecutive in one linear extension may swap, independently; other unmatched vertex pairs are graph-comparable, so class size is exactly 2^J, J the number of consecutive deleted pairs. For t prescribed pairs, 2^t(n−t)! permutations contain all t as blocks. Binomial inversion gives A_s=Σ_{t=s}^k (−1)^(t−s) binom(t,s)binom(k,t)2^t(n−t)!, and vertex angle multiplicity N_s=A_s/2^s. Collision C=(1/n!²)Σ binom(k,t)2^t(n−t)! and v=Σ(−1)^t binom(k,t)(n−t)!. The generating function E[a^J]=Σ binom(k,t)2^t(n−t)!/n! (a−1)^t converges via the coefficient bound (2k/n)^t/t!<=1/t! to exp(2ρ(a−1)) if k/n→ρ; Gaussian S→Pois(2ρ), while reweighting each class by 2^(−S) gives uniformly selected vertex S→Pois(ρ). I independently exhaustively grouped orientation signatures for n=4..7 and every admissible k and verified that all sizes equal 2^J, separately from the packaged n<=8 verifier; the all-n statements use the proved swap and exponential-series lemmas, not small enumeration.
 
-The primary graphical-fan correspondence, complete-multipartite face structure and vertex counts are explicitly prior. In particular Chapoton--Pilaud already treats the whole graph class combinatorially, and OEIS A033815 gives the perfect-matching acyclic-orientation count. Comparing those exact implications with the present statement, a total count does not furnish the distribution of Gaussian solid angles, the collision probability, or the two Poisson limits. The closest published mathematical-record results on complete-multipartite graphical-zonotope circumspheres and matching-deleted acyclic-signature parity do not imply these angular probabilities. Targeted equivalent-term and database searches found no covering claim. Residual risk: an existing angular refinement may use another permutation-class or hyperplane-arrangement terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely determines a natural stochastic-geometric invariant (the normal-cone angle census) on the infinite named family of matching-deleted permutohedra, rather than merely counting vertices. It quantitatively distinguishes uniform vertex selection from random supporting-direction selection, with different limiting Poisson parameters and a nontrivial sharp collision inflation factor \(e^{\rho}\). The angular invariant and its sampling consequences are motivated by random linear optimization and cannot be recovered from the already known vertex count alone.
+Best-of-knowledge novelty is the specific fully quantified invariant, not the underlying classical method or any known special-case total count. The old acyclic-orientation/ordered-partition picture gives the correct equivalent formulation but not, in sources inspected, the specific matching-specialization 2^s angle spectrum or two differently sampled Poisson laws. Comparing mathematical implications rather than titles: old counts cannot determine second moments or size-biased versus unweighted sampling limits.
 
-## Sources and limitations
+## value
 
-Primary literature: Padrol--Pilaud--Poullot, arXiv:2111.12422 (Section 1.3); Chapoton--Pilaud, arXiv:2201.06896 (Sections 1.4, 2.4); OEIS A033815. The special complete-bipartite case overlaps the previously understood low-dimensional graphical-zonotope setting but does not subsume the exact all-dimensional family. Matching deletion, isotropic Euclidean objectives and the stated growth regime are essential. Independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Normal-cone angles determine how likely different exposed vertices are under random optimization, which cannot be inferred from the number of vertices of a graphical zonotope. The exact factorial spectrum yields collision probabilities and reveals that Haar-direction-selected and uniformly selected vertices have asymptotically DIFFERENT Poisson parameters, a structural bias persisting in a dense natural graph family. These concrete invariants are useful to random optimization, graphical zonotope geometry and asymptotic combinatorics, not just a known orientation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

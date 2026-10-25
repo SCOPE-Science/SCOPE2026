@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T11:00:44.396329Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-gaussian-cone-angle-spectra-and-competing-poisson-laws-for--7a211bcc14eb",
+        "RESULT.md pinned Git blob 8cf83466d4e83c8a0a1be4589be4b449e98e810f",
+        "verify_angles.py pinned Git blob d17ba8d100c5735ee4d194238819cd57bb2ed1b7"
+      ],
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-gaussian-cone-angle-spectra-and-competing-poisson-laws-for--7a211bcc14eb",
+        "RESULT.md pinned Git blob 8cf83466d4e83c8a0a1be4589be4b449e98e810f",
+        "verify_angles.py pinned Git blob d17ba8d100c5735ee4d194238819cd57bb2ed1b7",
+        "Independent audit script: /mnt/data/scope_worker02_run_20261022T1043/independent_checks.py (private working file; independently executed)."
+      ],
+      "rationale": "For the matching-deleted graphical zonotope of K_n with n>=3 and 0<=k<=floor(n/2), maximizing segment endpoints under an isotropic zero-sum Gaussian gives each of n! coordinate orders probability 1/n!. In a fixed orientation class, precisely the deleted-matching pairs that are consecutive in one linear extension may swap, independently; other unmatched vertex pairs are graph-comparable, so class size is exactly 2^J, J the number of consecutive deleted pairs. For t prescribed pairs, 2^t(n−t)! permutations contain all t as blocks. Binomial inversion gives A_s=Σ_{t=s}^k (−1)^(t−s) binom(t,s)binom(k,t)2^t(n−t)!, and vertex angle multiplicity N_s=A_s/2^s. Collision C=(1/n!²)Σ binom(k,t)2^t(n−t)! and v=Σ(−1)^t binom(k,t)(n−t)!. The generating function E[a^J]=Σ binom(k,t)2^t(n−t)!/n! (a−1)^t converges via the coefficient bound (2k/n)^t/t!<=1/t! to exp(2ρ(a−1)) if k/n→ρ; Gaussian S→Pois(2ρ), while reweighting each class by 2^(−S) gives uniformly selected vertex S→Pois(ρ). I independently exhaustively grouped orientation signatures for n=4..7 and every admissible k and verified that all sizes equal 2^J, separately from the packaged n<=8 verifier; the all-n statements use the proved swap and exponential-series lemmas, not small enumeration.",
+      "residual_risks": [
+        "Normal-cone probability assumes intrinsic isotropic Gaussian measure, not arbitrary correlated objective distribution.",
+        "Independent finite tests n<=7 do not establish all-n adjacencies or Poisson limits; these follow from the finite combinatorial proof and bounded series convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol–Pilaud–Poullot detail graphical zonotope normal fans, and Chapoton–Pilaud classify complete multipartite fan coarsenings and orientation counts. Those general structural results provide the setting, but do not state explicit spherical angles, two-objective collisions or both limiting Gaussian/uniform vertex sampling distributions in the matching-deleted dense-graph regime."
+        ],
+        "reasoning": "Knowing the normal fan is weaker than classifying all chamber multiplicities and their factorial/Possion asymptotics. The stated angular law is deduced by the new matching-specific adjacent-swap count.",
+        "searches": [
+          "Gaussian normal cone solid angle distribution and collisions for graphical zonotopes complete multipartite graphs missing disjoint matching acyclic orientations",
+          "https://arxiv.org/abs/2111.12422",
+          "https://arxiv.org/abs/2201.06896"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-gaussian-cone-angle-spectra-and-competing-poisson-laws-for--7a211bcc14eb",
+        "Resultary semantic search: Gaussian normal cone solid angle distribution and collisions for graphical zonotopes complete multipartite graphs missing disjoint matching acyclic orientations",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2201.06896",
+        "https://oeis.org/A033815"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing fan/acyclic orientation facts and total vertex counts are genuine antecedents; the claimed exact 2^s/n! angular mass counts imply the known vertex count by summation, but the reverse is underdetermined. The new collision law is the second moment of the full angle distribution and thus also not fixed by v."
+        ],
+        "reasoning": "Comparing mathematical implications rather than titles: old counts cannot determine second moments or size-biased versus unweighted sampling limits.",
+        "searches": [
+          "Padrol/Pilaud/Poullot Section 1.3 arXiv:2111.12422",
+          "Chapoton/Pilaud Propositions 36–39,48–50,98–100 arXiv:2201.06896",
+          "OEIS A033815"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G=K_{2,...,2,1,...,1} is complete multipartite; a zonotope vertex is an acyclic orientation and a braid-fan chamber class is its set of linear extensions. Gaussian solid angles equal (# linear extensions)/n! in this fan."
+        ],
+        "reasoning": "The old acyclic-orientation/ordered-partition picture gives the correct equivalent formulation but not, in sources inspected, the specific matching-specialization 2^s angle spectrum or two differently sampled Poisson laws.",
+        "searches": [
+          "Gaussian normal cone solid angle distribution and collisions for graphical zonotopes complete multipartite graphs missing disjoint matching acyclic orientations",
+          "exact complete multipartite permutohedron normal cones Gaussian angles linear extensions 2^s adjacency pairs",
+          "https://arxiv.org/abs/2201.06896"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A033815 already tabulates complete-graph-minus-perfect-matching acyclic orientation totals; related published complete multipartite graphical zonotope papers examine circumspheres and radii. Neither provides the entire indexed cone-angle multiset nor collision/Poisson contrasts."
+        ],
+        "reasoning": "Explicitly exclude v_{n,k} from the novelty claim; v alone is a weighted sum over N_s and cannot recover each N_s. Search did not find exact same table but cannot establish all-history priority.",
+        "searches": [
+          "Resultary semantic query: Gaussian normal cone solid angle distribution and collisions for graphical zonotopes complete multipartite graphs missing disjoint matching acyclic orientations",
+          "Resultary: exact complete multipartite permutohedron normal cones Gaussian angles linear extensions 2^s adjacency pairs",
+          "https://oeis.org/A033815"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the specific fully quantified invariant, not the underlying classical method or any known special-case total count. The old acyclic-orientation/ordered-partition picture gives the correct equivalent formulation but not, in sources inspected, the specific matching-specialization 2^s angle spectrum or two differently sampled Poisson laws. Comparing mathematical implications rather than titles: old counts cannot determine second moments or size-biased versus unweighted sampling limits.",
+      "residual_risks": [
+        "Known distribution of adjacencies in uniform permutations is classical and independently implies the Poisson(2ρ) part for J; novelty is its geometric exposure/angle-tilting identification and complete finite angle spectrum.",
+        "Other complete multipartite Gaussian order statistics may encode this spectrum under different terminology, beyond the indexed source set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NORMAL_FAN_KNOWN_NOT_EXACT_SPECTRUM",
+          "evidence": "Graphs give braid-arrangement coarsenings and acyclic orientations; inspected statements do not give matching-adjacency angular multiplicity and Poisson pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Lawful arXiv full PDF retrieved; Section 1.3 and normal-fan propositions read, with relevant page-image inspection.",
+          "method": "primary full PDF section/theorem inspection",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "General graphical normal fan and potential angle formula"
+        },
+        {
+          "assessment": "GENERAL_COMPLETE_MULTIPARTITE_COMBINATORICS",
+          "evidence": "Gives posets, braid fan coarsening and cardinalities; inspected statements omit angular multiplicities and Gaussian-versus-uniform Poisson limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.06896",
+          "material_read": "Lawful arXiv PDF retrieved; Propositions 36–39,48–50 and 98–100 and nearby derivations inspected including page images.",
+          "method": "primary PDF statement/proof and page-image inspection",
+          "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+          "trigger": "Complete multipartite ordered-partition characterization might dominate"
+        },
+        {
+          "assessment": "TOTAL_COUNT_ALREADY_KNOWN",
+          "evidence": "Numerical v for k=n/2 is older; the audited theorem explicitly does not claim it as new.",
+          "identifier_or_url": "https://oeis.org/A033815",
+          "material_read": "Sequence identifier, description and application to perfect-matching deletion checked, not a full proof of all terms.",
+          "method": "public integer-sequence index / textual record",
+          "title": "OEIS A033815",
+          "trigger": "Exact vertex count special case could already be tabulated"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-gaussian-cone-angle-spectra-and-competing-poisson-laws-for--7a211bcc14eb",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2201.06896",
+        "https://oeis.org/A033815"
+      ],
+      "rationale": "Normal-cone angles determine how likely different exposed vertices are under random optimization, which cannot be inferred from the number of vertices of a graphical zonotope. The exact factorial spectrum yields collision probabilities and reveals that Haar-direction-selected and uniformly selected vertices have asymptotically DIFFERENT Poisson parameters, a structural bias persisting in a dense natural graph family. These concrete invariants are useful to random optimization, graphical zonotope geometry and asymptotic combinatorics, not just a known orientation count.",
+      "residual_risks": [
+        "Matching deletion is essential; arbitrary missing-edge graphs can have interacting incomparable pairs and different angle spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
