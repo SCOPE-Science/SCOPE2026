@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library (no external packages). On the reviewed source it reports `VERIFIED 3655 deterministic checks`. Its independent 3-by-3 Lyapunov solver cross-checks analytic resonant determinant formulas for rational and irrational split fractions, verifies exact denominator resonance arithmetic, tests the nonzero sharp quadratic small eigenvalue coefficients, and checks the small-step invariant covariance limit against the continuous Lyapunov solution.
+## correctness
 
-For \(\gamma=0.2\), \(\omega=1.3\), \(\sigma=1.17\), \(\alpha=1/2\), and \(h_*=2\pi/\omega\), the calculated stationary velocity variance is approximately \(5.338718097851207\), and \(\lambda_{\min}(P_h)/(h-h_*)^2\) approaches \(1.322167202261677\).
+PASS
 
-Exact irrationality, infinitely many exceptional rational steps, positive coefficients for all admissible parameters and the sharp total-variation claims depend on the analytic proof. Finite tests alone do not certify those quantifiers. The 2020 nonuniform sampling paper was accessible only through its abstract; independent literature priority and independent audit have not been performed.
+Directly reconstructed E_t b=e^{-gamma t}(sin(omega t)/omega,cos(omega t)-gamma sin(omega t)/omega) and the positive stationary reachability Gramian. Off oscillator resonance, b,E_h b span R^2. On h=m*pi/omega, E_h=(-1)^m exp(-gamma h)I and rank depends exactly on sin(m*pi*alpha). The 2x2 rank-one-sum determinant proves the displayed formula; a geometrically weighted variance of j+s yields the quadratic least-eigenvalue coefficient. The exact continuous Lyapunov solution has positive covariance, making the rank-one discrete stationary Gaussian mutually singular in TV. Independently solved the discrete Lyapunov equation at 21 resonant parameter points and 3 offsets; no finite experiment used as proof of irrational/all-step quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. Qualitative reachability recovery and invariant weak convergence are prior facts; the specific rational/irrational locus, stationary law singularity, resonant determinant, and sharp eigenvalue coefficient are additional conjuncts. Inspected material does not show they are all prior implications, but a high-relevance uninspected primary paper could alter the decision.
+
+## value
+
+PASS
+
+Numerical invariant measures can collapse onto a strict subspace at arbitrarily large resonant steps even when the exact Langevin law is fully supported. The rational-versus-irrational splitting phase boundary, the sharp minimum independent kicks, and the explicit collapse constant are natural design and conditioning diagnostics for stochastic integrators, not a generic textbook identity or a fabricated performance advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

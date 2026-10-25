@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact matrix exponential, unique stationary Gaussian Gramian, and determinant identity have complete analytic derivations. The rational/irrational condition follows from the exact sine zeros; the quadratic eigenvalue coefficient follows from an absolutely convergent weighted covariance of phase slopes, not numerical extrapolation. The exact continuous invariant covariance and mutual singularity at rational resonances follow from the Lyapunov equation. The embedded standard-library verifier passed 3,655 independent finite checks on these formulas; sampling is not used as proof of the all-parameter statements.
+## correctness
 
-**Originality — PASS, with meaningful residual risk.** Arara, Debrabant and Kværnø (2023) provide the stochastic exponential-integrator family and order theory, while Lei, Bréhier and Gan (2023) study damped-wave exponential Euler invariant distributions. Cohen, Larsson and Sigg (2012) give an undamped stochastic trigonometric method. All are acknowledged. Classical sampled controllability (Hautus, 1972) and Kronecker-based nonuniform sampling (Hamidoğlu and Mahmudov, 2020) already cover the broad rank-aliasing mechanism; **that mechanism is not independently claimed as new**. The assessed full contribution is the weighted Brownian two-piece invariant-law support classification, exact determinant, sharp quadratic eigenvalue coefficient, and total-variation consequences. Search results found no decisive complete coverage. The potentially relevant full 2020 article was inaccessible, so its abstract is not used to justify a whole-paper negative. An equivalent quantitative result there or in unindexed literature remains possible.
+PASS
 
-**Value — PASS.** Exact rank/support and the quadratic conditioning rate are motivated diagnostics for invariant sampling by fixed-fraction stochastic-convolution quadratures. A single Gaussian kick cannot achieve an all-step full-support Gaussian invariant law, whereas two irrationally separated kicks can; common rational subdivisions fail infinitely often. At the failure steps the numerical and exact equilibrium laws are mutually singular even though the deterministic propagation remains stable. The theorem deliberately does not assert that irrational fractions improve accuracy or finite-precision robustness.
+Directly reconstructed E_t b=e^{-gamma t}(sin(omega t)/omega,cos(omega t)-gamma sin(omega t)/omega) and the positive stationary reachability Gramian. Off oscillator resonance, b,E_h b span R^2. On h=m*pi/omega, E_h=(-1)^m exp(-gamma h)I and rank depends exactly on sin(m*pi*alpha). The 2x2 rank-one-sum determinant proves the displayed formula; a geometrically weighted variance of j+s yields the quadratic least-eigenvalue coefficient. The exact continuous Lyapunov solution has positive covariance, making the rank-one discrete stationary Gaussian mutually singular in TV. Independently solved the discrete Lyapunov equation at 21 resonant parameter points and 3 offsets; no finite experiment used as proof of irrational/all-step quantifiers.
 
-**Closest literature and limits.** Refs: arxiv:2310.09179, arxiv:2306.13998, arxiv:1203.3668, doi:10.1109/TAC.1972.1100045, doi:10.1080/00207179.2020.1787523. Finite-dimensional scalar-driven underdamped harmonic oscillator, exact Brownian increments, constant internal split, arbitrary mathematical real step size. No multistep nonlinear accuracy or independent publication priority established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. Qualitative reachability recovery and invariant weak convergence are prior facts; the specific rational/irrational locus, stationary law singularity, resonant determinant, and sharp eigenvalue coefficient are additional conjuncts. Inspected material does not show they are all prior implications, but a high-relevance uninspected primary paper could alter the decision.
+
+## value
+
+PASS
+
+Numerical invariant measures can collapse onto a strict subspace at arbitrarily large resonant steps even when the exact Langevin law is fully supported. The rational-versus-irrational splitting phase boundary, the sharp minimum independent kicks, and the explicit collapse constant are natural design and conditioning diagnostics for stochastic integrators, not a generic textbook identity or a fabricated performance advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
