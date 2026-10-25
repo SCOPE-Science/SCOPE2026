@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify_dodeca_shadow.py`. This standalone checker requires only the Python standard library and generates its own exact field coordinates, sign chambers, polar vertices and viewing directions.
+## correctness
 
-The checker verifies 32 realizable sign chambers (20 triangles and 12 pentagons), all 20 exact triangular-chamber linear and quadratic identities, the ten/twelve-vertex silhouette classification, 400 independently reconstructed projected convex hulls with normalized brightness comparisons, and 240,000 deterministic sphere quadrature directions. The numerical type-weighted moment comparisons had errors approximately \(9.16\times10^{-5}\) in the twelve-vertex probability, \(2.529\times10^{-4}\) in the weighted first moment, and \(6.984\times10^{-4}\) in the weighted second moment.
+PASS
 
-The exact classification uses integer sign comparisons in \(\mathbb Z[\varphi]\) and a proof that every sign-chamber vertex arises from a pair of bounding great circles. The spherical divergence identities, not quadrature, prove the continuum statements. The total second moment uses the established absolute-product kernel; the numerical hull and quadrature checks are corroborative rather than certified infinite proofs.
+Exact face-normal arrangement has six antipodal axes and 32 generic sign chambers, consisting of 20 spherical triangles giving twelve-vertex silhouettes and 12 pentagons giving ten-vertex silhouettes. I independently reconstructed the six normals, generated all 64 sign masks and pair-crossing rays; found exactly the same 32 nonempty chambers (20/12), and checked the first and second weighted moments by fresh 100,000-sphere Monte Carlo. The continuum proof is not the sample: Cauchy brightness W=sum_i |s_i·u|/sqrt(phi+2), spherical Laplacian identities Delta h=-2h and Delta h^2=2|q|^2-6h^2, and constant triangular edge normal and corner values yield exact flux integrals. The complement moments use known E W=3 and absolute-Gaussian two-normal kernel. Checking p>1/(phi+2) proves negative covariance; exceptional directions have spherical measure zero.
 
-No independent external audit has been performed.
+## originality
+
+PASS
+
+An earlier full-text published Resultary classification of central icosahedron section polygon types establishes exactly the same unweighted 20/12 chamber law and p=15theta/pi-5, which is expressly credited. An earlier full five-Platonic variance result establishes the unconditional dodecahedral E W^2, also credited. The separately published conditional tetrahedral moments use a different normal arrangement. None of these prior statements determines dodecahedral type-weighted first and second moments: marginal silhouette type and unconditional brightness moments lack the joint coupling.
+
+## value
+
+PASS
+
+How viewing complexity (10 versus 12 vertices) statistically selects projected area is a natural geometric stereology invariant of a highly symmetric convex body. Four exact conditional moments and the rigorous negative area-complexity covariance go beyond known marginal geometry and can support exact conditional variances and sampling analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
