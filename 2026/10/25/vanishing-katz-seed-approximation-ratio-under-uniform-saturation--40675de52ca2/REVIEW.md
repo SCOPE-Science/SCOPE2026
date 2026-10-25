@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** On every integer \(k\ge4\), the stated digraph is strongly connected. The unique positive Perron root of the displayed cubic is strictly below one because \(1-\alpha^2-ke^2/2>0\), so the Katz resolvent and each seed score are well defined. Solving the four exact Katz recursions proves all maximizers lie on the two-node reinforcing cycle. The capped process bounds both cycle nodes by one and every broadcast-side node by \(\varepsilon\) for those seeds, whereas seeding the broadcaster activates all \(k\) leaves in the first step. This proves the all-time, all-parameter ratio upper bound. Exact-fraction checks in `check.py` reproduce the algebra and several finite instances but are not used as a substitute for the infinite proof.
+
+## Originality
+**PASS, within the searched and inspected literature, with residual risk.** Tian--Lambiotte (2021/2022), eqs. (7), (16) and Theorem 6, make Katz exact for *linear* propagation, and compare Katz with optimized nonlinear GIP numerically. The source does not give this strongly connected zero-threshold analytic counterfamily or an equivalent vanishing worst-case ratio. Bilmes--Bai (2017) analyze concave saturation and submodularity in general nonnegative networks, but their results do not compare outgoing Katz ranking with capped nonlinear propagation influence. Broader known negative assessments of centrality heuristics are not, without an explicit implication, a proof of this model-specific bound. Semantic database searches and own ledger claim comparisons found no equivalent claim. A precise reduction to a more general centrality-failure theorem not discovered in those searches would supersede originality; independent bibliographic assessment is warranted.
+
+## Value
+**PASS.** The source motivates Katz initialization as an exactly solved linear endpoint and as an initialization for nonlinear search. The family rigorously determines the worst-case qualitative limitation when a uniform upper saturation is imposed: there can be no positive model-uniform approximation ratio for this initialization, even without a positive activation threshold or graph disconnection. This distinguishes repeated-walk prominence from breadth of genuinely activated agents and motivates nonlinear-aware seed selection or structural restrictions on edge weights.
+
+## Closest literature and limitations
+Primary: Tian--Lambiotte, *Unifying information propagation models on networks and influence maximization*, arXiv:2112.01465v1 (2021), full text v3; equations (2), (7), (16), Theorem 6 and Section V. Secondary: Bilmes--Bai, *Deep Submodular Functions*, arXiv:1701.08939v1 (2017), concave nonnegative feed-forward models. This is a single-seed, fixed-discount, size-dependent weighted-network counterfamily for direct Katz choice; it says nothing about convergence guarantees for subsequent local search or stochastic cascades. Wider centrality-influence performance literature remains a specific originality risk.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For all k>=4 the Perron cubic has positive root below one, giving convergence of the Katz resolvent. Four exact walk-score equations separate every Katz maximizer to the two high-gain loop vertices. Upper-capped trajectories from those vertices cannot give more than 2+(k+1)epsilon total per time, while seed b reaches k leaves at t=1; the claimed all-k ratio follows. The finite exact-fraction checker is auxiliary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bilmes--Bai Section 4 and Theorem 5.14 address nonnegative network layers with concave saturation and related submodularity, not Katz-heuristic approximation.",
+        "Tian--Lambiotte state Katz is exact only for the linear endpoint, and empirically compare alternatives for nonlinear cases."
+      ],
+      "reasoning": "Generic concavity/submodularity does not bound a centrality ordering relative to nonlinear single-seed influence. General centrality-heuristic warnings or experiments lack an explicit implication to this quantitative, connected network family. Residual risk remains that a stronger unlocated worst-case theorem subsumes it.",
+      "searches": [
+        "concave threshold propagation submodular influence spread function dynamical feedback saturation weighted networks",
+        "nonlinear capped influence maximization score Katz resolvent misleading reinforcement loop saturation directed graph",
+        "centrality heuristics worst-case ratio 0 influence maximization feedback saturation nonlinear deterministic network",
+        "arXiv:1701.08939v1, Sections 4--5; arXiv:2112.01465v3 Sections IV--V"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.01465v3 full HTML, Sections III--V and relevant appendix",
+      "arXiv:1701.08939v1 full HTML, Sections 3--5",
+      "published-finding corpus semantic searches (actual queries listed above)",
+      "Accessible own week ledgers p0001_g000077 and p0002_g000014, claim fields only",
+      "Web literature queries on Katz centrality saturation, strongly connected graph and influence heuristic approximation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 of Tian--Lambiotte establishes the Katz criterion under linear EIC, not the clipped dynamics.",
+        "Its experiments establish performance comparisons on two finite network classes without a zero worst-case bound.",
+        "Bilmes--Bai saturation concavity results apply to structure of set functions, not selection-by-Katz worst-case rates."
+      ],
+      "reasoning": "A nonlinear worst-case separation cannot be deduced from a linear optimizer theorem; finite simulations do not prove an asymptotic arbitrarily-small ratio. The construction explains the exact obstruction using a near-critical two-cycle and a one-step broadcaster.",
+      "searches": [
+        "generalized information propagation GIP Tian Lambiotte low lower bounds influence maximization submodular greedy approximation saturated monotone network feedback",
+        "influence maximization clipped linear dynamical systems submodular seed selection feedback loops min saturating states",
+        "Katz centrality arbitrarily poor approximation ratio saturated clipped linear influence propagation continuous states with feedback cycles directed network one seed",
+        "arXiv:2112.01465v3 Theorem 6 and Sections V.2.1--V.2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tian--Lambiotte (arXiv:2112.01465v3) equations (7),(16) show the nonlinear update and the Katz linear limit; Theorem 6 proves optimality only at the EIC endpoint.",
+        "The appendix and nonlinear numerical comparisons in sections V and C describe methods, not the claimed analytic worst-case family."
+      ],
+      "reasoning": "The source linear-EIC Katz optimality is not an implication for clipped GIP, and none of the searched published-finding corpus near matches describes a strongly connected zero-threshold GIP Katz seed with vanishing ratio. The score uses the outgoing resolvent row sum in both cases, so this is a genuine same-parameter comparison.",
+      "searches": [
+        "generalized information propagation GIP Tian Lambiotte low lower bounds influence maximization submodular greedy approximation saturated monotone network feedback",
+        "concave threshold propagation submodular influence spread function dynamical feedback saturation weighted networks",
+        "Tian Lambiotte GIP bounded nonlinear dynamics Katz centrality optimum counterexample unbounded gap 2-cycle versus star",
+        "arXiv:2112.01465v3 equations (7),(16),Theorem 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus results returned network-threshold, discounted domination and feedback topics but no exact analytic capped-GIP Katz family.",
+        "The primary work has numerical SBM/collaboration comparisons rather than an exact tabulation of this family."
+      ],
+      "reasoning": "The theorem is a symbolic every-k unbounded family rather than a fixed parameter in a table. Searches discovered no exact database row or prior finite table that implies the family bound.",
+      "searches": [
+        "influence maximization clipped linear dynamical systems submodular seed selection feedback loops min saturating states",
+        "Katz centrality arbitrarily poor approximation ratio saturated clipped linear influence propagation continuous states with feedback cycles directed network one seed",
+        "Tian Lambiotte GIP bounded nonlinear dynamics Katz centrality optimum counterexample unbounded gap 2-cycle versus star",
+        "nonlinear capped influence maximization score Katz resolvent misleading reinforcement loop saturation directed graph"
+      ]
+    },
+    "rationale": "Full-text Tian--Lambiotte comparison separates the model-specific nonlinear analytic vanishing-ratio claim from its exact linear Katz theorem and numerical experiments. Bilmes--Bai broad concave-submodular theory does not imply Katz seed performance. Database, web literature, and own accessible ledger claim comparisons find no covering theorem; relevant residual risks are stated.",
+    "residual_risks": [
+      "Wider centrality-influence approximation literature may prove a mathematically dominating worst-case failure under a reparameterization; searches were broad but cannot establish uniqueness.",
+      "No independent human research audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Linear EIC Katz optimality covers the unsaturated endpoint, while the claimed bounded-GIP worst-case counterfamily is not presented.",
+        "evidence": [
+          "Eq (7) permits lower bound zero, upper bound one; Eq (16) defines the discounted outgoing resolvent; Theorem 6 covers linear EIC; Sec V.2 numerically compares nonlinear GIP methods."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.01465v3",
+        "material_read": "Full open HTML model definition and primary result, sections III.1--III.4, IV.1--IV.4 including Theorem 6, V.2 and appendix comparisons/proofs.",
+        "method": "Read and compared equations (2),(7),(16), Theorem 6, the nonlinear numerical comparisons and appendix structure with the exact claims and graph construction.",
+        "title": "Unifying information propagation models on networks and influence maximization",
+        "trigger": "Original GIP bounded-linear equation and Katz exactness for EIC are closest same mathematical model literature."
+      },
+      {
+        "assessment": "General diminishing returns/submodularity may cover clipped activation structure; there is no Katz heuristic worst-case ratio conclusion in inspected relevant sections.",
+        "evidence": [
+          "Section 4: nonnegative network layers and monotone concave activations; Section 5: saturation and submodularity closure."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1701.08939v1",
+        "material_read": "Definitions in Section 3--4 and Section 5 statements on concave saturation, closure and submodularity, including Theorem 5.14.",
+        "method": "Compared their submodular class and concave saturation results against the Katz-vs-clipped-influence approximation statement.",
+        "title": "Deep Submodular Functions",
+        "trigger": "Potential stronger coverage through nonnegative compositions of concave saturations and set submodularity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40675de5-2ca2-4094-aeaf-8d1ca7e702f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an explicit, all-size impossibility for uniform approximation by the source-paper linear-optimal Katz initial seed in nonlinear capped GIP. It isolates saturation/feedback rather than positive adoption threshold or disconnectedness, and shows why linear walk prominence can disagree arbitrarily with nonlinear seed utility. The absence of any positive worst-case ratio is a meaningful qualitative benchmark for heuristic design.",
+    "status": "PASS"
+  }
+}
