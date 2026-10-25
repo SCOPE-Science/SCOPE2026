@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Boolean-cell/acyclic-orientation correspondence identifies each face and its orientation sign. Acyclicity of a complete bipartite orientation forces nested row out-neighborhoods, and an invariant orientation collapses to an acyclic orientation on permutation cycles. The signed augmented Lefschetz calculation then proves the exact character without extrapolating finite checks. The invariant-line corollary follows separately by counting nonzero orbit sums of alternating color patterns; the alternating Euler characteristic is one in top-degree only when the color classes balance. The accompanying verifier independently enumerates 47 symmetry class comparisons and 25 invariant-line instances. The proof uses the already established top-degree homology concentration.
+PASS
 
-## Originality — PASS
+For all positive m,n, regular Boolean cell complex of injective words modulo commutation of adjacent same-color letters. Acyclic complete bipartite orientation ≡ linearly nested left-row neighbor sets (directed cycle iff directed four-cycle), so g=(σ,τ)-fixed orientations are uniformly determined on selected σ- and τ-cycles and equal acyclic orientations of smaller K_{a,b}. A selected permutation cycle of length ell contributes (-1)^ell in alternating augmented count times (-1)^(ell−1) in cellular orientation sign, hence -1. Augmented Lefschetz and known top-sphere homology yield χ(g)=sgnσ sgnτ β(K_{cσ,cτ}), with known Stirling β formula. Group-invariant cellular chains only admit strictly alternating color blocks: any same-color block of size≥2 has orientation-reversing stabilizer. Their alternating Euler dimensions give 1 for m=n and 0 otherwise. Independent exact β formula and 25 full symmetric-group averaging computations (1≤m,n≤5) agree, including β(K3,3)=73 and β(K3,4)=301; finite checks are not proof of all m,n. The general cycle contraction and Euler argument supply unbounded proof.
 
-Compared the statement and its implications with the regular CW and shellability results of Jonsson–Welker (arXiv:0712.2143), the nonequivariant Boolean complex wedge theorem of Ragnarsson–Tenner (arXiv:0806.0906), the complete-bipartite Boolean-number calculation of Claesson–Kitaev–Ragnarsson–Tenner (arXiv:0808.2307), and the subsequent homology-basis paper (arXiv:1005.4411). Their results establish cells, Betti numbers, shellability, or bases, but do not determine the stated action of arbitrary side-preserving permutations. Comparisons with adjacent equivariant Morse-matching complexes and filtered Boolean-lattice order complexes do not imply the character: those use different cell objects. Searches of available research records and primary-literature searches yielded no covering formula. This is a best-knowledge scientific originality judgment, not a claim to exhaustive world-wide publication coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a complete infinite-family homology representation, not merely a dimension. Its cycle-count reduction computes all symmetry traces at arbitrarily large parameters from smaller known Boolean numbers, and the balanced-only invariant-line phenomenon distinguishes genuine quotient-topological symmetry information. The objects are canonical in the commutation-class literature; the representation question is motivated by how symmetric relabelings act on their top homology.
+Jonsson–Welker and Ragnarsson–Tenner establish regular cell structure and top homology concentration; Claesson et al evaluate ordinary β(Kmn). No inspected primary theorem presents the side-preserving full automorphism character in terms of permutation-cycle counts or balanced-only invariant line. Resultary Boolean-lattice rank-span and Kmn Morse complex entries are different constructions, not covering.
 
-## Scope and residual risk
+## value
 
-No color-class exchange, integral equivariance, explicit integral generators, or homotopy classification beyond the preexisting wedge theorem is claimed. An unindexed or inaccessible later treatment could conceivably give an equivalent formula. Only the 47 finite character checks and 25 invariant-line checks are computationally reproduced; the universal result requires the written proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform nonidentity automorphism trace formula is a natural and usable equivariant refinement of the classical complete-bipartite Boolean number, replacing a potentially huge cell calculation by the known β of the cycle-contracted bipartite graph. The balancedness classification identifies precisely when an invariant top class survives, a structural phase distinction not inferable from non-equivariant Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
