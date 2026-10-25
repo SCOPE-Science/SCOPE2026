@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The normal-form relation ba=a^{-1}b gives all exponents r-2t for 0<=t<=r when s>0. Odd b-counts cannot give identity; the three even cases follow from b^2=a^m. Exact suffix-quotion classification has (m-1)+2m+4(m-1)+4=7m-1 reachable classes, with explicit distinguishing witnesses. Finite group-product DP and suffix-equivalence tests pass independently for m=2..10; only the proof supports the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2004.11772, Theorem 3.4: at most |Q|^k times product of generator orders, giving 128m^3 for the regular action of the dicyclic group; the proof only bounds, not exactly classifies, right quotients.",
+        "arxiv:2008.05420, Theorem 3 and §5 discuss regularity of commutative closures of shuffle expressions and operations on commutative group languages."
+      ],
+      "reasoning": "These cover regularity and upper bounds, but not the sharp formula or Myhill–Nerode partition. A general result that accepts a DFA construction is not an exact minimality theorem.",
+      "searches": [
+        "Exact syntactic monoid quotient complexity perm(L) for dicyclic Dic_n and dihedral D_2n finite group language",
+        "State Complexity Bounds for the Commutative Closure of Group Languages 2020 theorem 3.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2004.11772",
+      "arxiv:2008.05420",
+      "arxiv:2111.13523",
+      "10.1016/j.ic.2013.07.003 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cano--Guaiana--Pin (2013), available article metadata/abstract describes regularity and robust classes, not sharp dicyclic minimal DFA complexity.",
+        "Hoffmann (2020), full preprint §3.3 and Examples 3–4, contains no dicyclic family and only a construction bound."
+      ],
+      "reasoning": "The original group DFA (4m states) and a dihedral quotient do not imply the 7m-1 state count after commutative closure: the central b-square changes both accepted Parikh vectors and the transient right quotients. Source-specific implication comparisons do not reveal a stronger dominating numerical theorem.",
+      "searches": [
+        "State complexity of commutative closure of generalized quaternion dicyclic group identity word problems with two generators a^(2m)=1 b²=a^m bab^-1=a^-1",
+        "regular languages and partial commutations Cano Guaiana Pin 2013",
+        "\"quaternion group\" \"Parikh\" \"word problem\" perm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2004.11772, introduction and Theorem 3.4 define the Parikh-permutation closure of a group language",
+        "arxiv:2111.13523, §3 distinguishes product-form commutative automata and minimal commutative automata",
+        "The group presentation gives a threshold at r=m and a four-way positive-s parity quotient; neither source states these exact classes."
+      ],
+      "reasoning": "The exact claim is invariant under the language description as a Parikh projection or permutation closure. The literature was compared at that language/quotient level, not just by matching group names. Group quotient to dihedral does not preserve acceptance of identity under positive generators or minimal state counts.",
+      "searches": [
+        "generalized quaternion groups Q4m identity word problem commutative closure permutation length Parikh quotient complexity",
+        "dicyclic Dic_m permutational closure group languages minimal DFA counters modulo four",
+        "Q8 quaternion group commutative closure of word problem language semilinear automata",
+        "\"quaternion\" \"commutative closure\" automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed dicyclic findings concern noncyclic graphs and subgroup commutativity degrees, not word-language state complexity; IDs listed in closest_results.",
+        "No exact public table or database encoding the quantity 7m-1 was identified."
+      ],
+      "reasoning": "Checked the natural invariants and the full parameter family rather than only searching the displayed answer. The absence of a hit is not proof of novelty.",
+      "searches": [
+        "dicyclic Dic_m permutational closure group languages minimal DFA counters modulo four",
+        "Minimal deterministic automata of Parikh images of generalized quaternion group word problems and dicyclic regular languages with threshold r>=m",
+        "\"7m-1\" \"dicyclic\" automata"
+      ]
+    },
+    "rationale": "The general 2020 group-language closure bound and related 2020/2021 papers cover regularity, product forms, and broader operation bounds but do not imply the exact 7m-1 minimal DFA count or its dicyclic threshold. Searches using dicyclic/quaternion/Parikh/formal-language aliases found unrelated graph/group invariants as closest hits. The central relation b²=a^m prevents substitution of known dihedral results. These searches support, but do not prove, originality.",
+    "residual_risks": [
+      "Search coverage is incomplete: unindexed treatments and a 2013 relevant original article not fully inspected may conceal a prior exact specialization.",
+      "Exact results for the dihedral quotient exist separately; the effect of the nontrivial central extension on minimal automata was compared conceptually but not assumed to preserve complexity.",
+      "No independent validation or external formal proof audit was performed; the script checks only finite group parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_COVERAGE_NOT_EXACT",
+        "evidence": [
+          "§3.3 Theorem 3.4 upper bound |Q|^k product of letter orders",
+          "Examples 3–4 treat distinct permutation automata",
+          "§4 explicitly discusses lack of sharpness of the general bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.11772",
+        "material_read": "Full publicly accessible arXiv HTML text, including §§1–4, Theorem 3.4, Examples 3–4 and conclusion; searched for quaternion/dihedral examples.",
+        "method": "arXiv full-text open/find and theorem/example/conclusion reading",
+        "title": "State Complexity Bounds for the Commutative Closure of Group Languages",
+        "trigger": "Exact group-language commutative closure and state complexity are the central objects."
+      },
+      {
+        "assessment": "RELATED_OPERATIONS_NO_DICYC_ANSWER",
+        "evidence": [
+          "Theorem 3, regularity of commutative closure of shuffle expressions",
+          "§5, bounds for shuffle closure of commutative group languages"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.05420",
+        "material_read": "Accessible arXiv full text: abstract, introduction, §§4–5 and central theorems.",
+        "method": "arXiv full-text open/find and passage inspection",
+        "title": "The Commutative Closure of Shuffle Expressions over Group Languages is Regular",
+        "trigger": "Possible stronger regularity/state bound for closure of group languages."
+      },
+      {
+        "assessment": "NONIMPLICATION",
+        "evidence": [
+          "§3 defines product-form minimal automata and distinguishes them from minimal commutative automata",
+          "Theorems 4–6 concern shuffle, closure, and product-form properties, not dicyclic group identity languages"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.13523",
+        "material_read": "Accessible arXiv full text: introduction, §3 definitions/theorems and conclusion; searched dicyclic.",
+        "method": "arXiv full-text open/find and result inspection",
+        "title": "Commutative Regular Languages with Product-Form Minimal Automata",
+        "trigger": "Potential product-form classification could dominate minimal-state count."
+      },
+      {
+        "assessment": "GENERAL_REGULARITY; UNREAD_FULL_TEXT",
+        "evidence": [
+          "Abstract identifies regularity and robust language varieties, not an exact dicyclic automaton count"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ic.2013.07.003",
+        "material_read": "Publisher/institutional metadata and abstract only; full text was not relied upon for a negative coverage conclusion.",
+        "method": "Academic repository abstract and bibliographic comparison",
+        "title": "Regular languages and partial commutations",
+        "trigger": "Foundational result on regularity of commutative closures of group languages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f897fe6-c1e8-40f1-b2c3-ea9bcbee93be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a uniform and sharp minimal automaton classification for every group in a natural infinite family of finite nonabelian dicyclic groups, with the smallest quaternion case included. The nontrivial central b-square produces a genuine transient threshold absent from the dihedral case and makes commutative closure increase state count from 4m to 7m-1. This is a structural state-complexity benchmark for the general bounds rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
