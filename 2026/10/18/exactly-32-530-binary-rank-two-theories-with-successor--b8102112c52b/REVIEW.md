@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Equality of the rank-two theories is proved equivalent to equality of the sets of realized first-order rank-one pointed witness profiles. The exact append transfer operates solely on those profile sets; induction from the empty word proves that closure under appending the two letters covers *every finite word*. Breadth-first enumeration of that closed system gives exactly 32,541 states, 32,530 mixed-word states, and a longest minimal representative of 24 symbols. Two distinct source-code implementations reproduce the same 25-entry depth vector. The provided certificate and scripts permit full re-execution. The finite computation is used with, not instead of, the all-word transfer proof.
+## correctness
 
-**Originality — PASS (priority risk remains).** The closest primary source is Weis–Immerman (2009), which gives a general ranker characterization for two-variable first-order logic with successor at every quantifier depth. That theorem supports, but does not explicitly give, the *numerical* count of binary rank-two theories or the sharp length-24 representative bound in the inspected material. Kallas–Kufleitner–Lauser (2010) concerns algebraic/topological descriptions of logical language classes, not the numerical fixed-depth quotient in the inspected parts. Targeted research-database queries found related rank-profile results for order-only restricted word families, but no matching successor-index census. A specialized earlier tabulation or a published numeric consequence of the general theorem remains possible.
+PASS
 
-**Value — PASS.** The finite index of bounded-depth logical equivalence is a natural invariant measuring the information visible to that fragment. Adding primitive successor drastically refines the binary rank-two partition; the exact index and optimal small-representative cutoff give an exhaustive, directly reproducible boundary for low-depth definability. This is a complete classification, not a table for an arbitrary cutoff length.
+For one distinguished position, quantifier-rank-one pointed types are determined by its colour and four left/right adjacent/nonadjacent colour-existence sets. Both directions of the rank-two sentence criterion follow from the two-move Ehrenfeucht–Fraïssé game. On appending one letter, the former terminal type and all nonterminal types have the exact claimed deterministic transformations, proving finite closure covers every word, not just sampled lengths. Reconstructed independent closure returned 32541 total states (empty included), 32530 mixed, 16 states at first-discovery depth 24; 814 direct signature crosschecks. Source certificate reports identical count, 32541-state canonical digest a0a1f4f7049b3dd18ba1297669ceac92d0d04ddb4bd59f50ee33a23deb82b16b. Breadth-first depth proves optimal minimal length.
 
-**Scientific limitations.** The result is for the precise unaugmented vocabulary of linear order, primitive successor, and two letter predicates, without endpoint constants or counting quantifiers. The enumeration is rigorous when combined with the proved exact transfer; reproducibility does not constitute independent validation. Earlier specialized priority is not excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general FO2-with-successor ranker classification in Weis–Immerman (2009), Theorem 5.4, is prior art and supplies structural expressibility. The submitted local profile lemma is elementary specialization. Its quantitative complete binary depth-two index 32530 and sharp shortest representative 24 are not stated in inspected primary results. Kallas–Kufleitner–Lauser concerns related successor fragments over infinite words. Unindexed equivalent enumerations remain possible.
+
+## value
+
+PASS
+
+Exact finite quotient size and sharp shortest-model bound are natural invariants in finite model theory and logic over words; the globally closed profile automaton is reusable as a bounded-model canonical classifier, not a renamed textbook theorem. The enumeration is substantively nontrivial despite using standard EF methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
