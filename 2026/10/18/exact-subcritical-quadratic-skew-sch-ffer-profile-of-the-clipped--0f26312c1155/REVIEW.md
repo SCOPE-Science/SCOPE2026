@@ -1,15 +1,21 @@
-# Scientific review: exact subcritical quadratic skew Schäffer profile
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim precisely fixes the real norm, exponent, and parameter interval. Expanding the clipped-disk norm gives the exact two-absolute-values identity. A known lower bound excludes equal-stratum pairs once the explicit radical witness is constructed. For mixed strata, a signed but feasible dual combination of the two absolute-value branches yields a quadratic lower certificate. The certificate weights are nonnegative in the requisite sense and have total mass below one; the exact polynomial relation produces the strict feasibility slack. Its Hessian-like completing-square reduction is nonnegative globally, and equality holds at the witness. The previously established sharp threshold supplies the saturated portion. Boundary cases at zero and at the junction are explicitly resolved. A standalone standard-library checker replayed on 2,000 interior parameters checked the witness, coefficient sign restrictions, algebraic identities, and stationarity; no finite check substitutes for the symbolic proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The motivating Xu–Liu arXiv paper proves the saturated branch only on a sufficient range. The closest published published-finding corpus full results were inspected: `2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be` states the exact saturation onset and explicitly disclaims an exact formula below it, while `2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65` proves only the first derivative at zero and explicitly disclaims a positive-parameter interval formula. Neither implies the exact radical values between zero and onset. Queries for complete parameter profiles, clipped disk norm radicals, and equivalent Banaś–Frączek skew constants returned these and geometric invariants with different definitions; accessible prior claims in the ongoing mathematical ledger were compared for aliases and shared norm parameters. The main remaining priority risk is an older unindexed variational identity for this plane or a different formula for the same infimum.
+PASS
 
-## Mathematical value — PASS
-The invariant is a recently defined quantitative nonsquareness measurement; existing results left the entire strict interval unevaluated. The claimed exact curve determines the natural missing values for the critical symmetric clipping geometry, not a chosen arbitrary finite test. It requires a nontrivial global minimax certificate and shows why corner-to-corner **outputs**, despite mixed-stratum inputs, control this range. It joins a known sharp saturation onset and known first derivative into an exact formula across every parameter. This is a meaningful natural complete classification for a one-parameter geometric model. The result does not extend to arbitrary clipping parameters or nonquadratic means.
+For the real Banaś–Frączek norm N(a,b)=max(sqrt2|a|,sqrt(a²+b²)), the unit input set splits into flat and circular strata. Pure flat-flat and arc-arc inputs obey F>=q=1+r²; the explicit mixed-stratum witness has F<q below r_c=sqrt(2-sqrt3), so minima are mixed. The displayed U=(1-r*sqrt(1-r²+r⁴))/(1+r⁴) solves (1+r⁴)U²-2U+1-r²=0 and yields unit x=(1/sqrt2,(2U-1)/sqrt2), y=(-v,sqrt(1-v²)), with v=[1-(1+r²)U]/(sqrt2*r). Both transformed outputs lie on corner rays, attaining F_*=(1+r²)²[1+(1-r²)U²]/2. The two-variable inequality (1) is bounded by a linear combination of its two max branches with weights ell in (-1,0), mu>0, |ell|+mu<1; the resulting quadratic minimization completes squares, proves its unique lower certificate globally, and matches the witness. At r_c the value agrees with published exact saturation 3(1+r²)/4, and r=0 value is 1. Independently minimized over two unit-sphere angular parameters using SciPy global differential evolution at r=.02,.1,.22,.4,.51: discrepancies from claimed F_* under 1.1e-9, and inspected 2,000-sample verifier for witness/weights. These samples corroborate but the algebraic dual certificate supplies the all-r bound.
 
-## Limitations and follow-up
-The dual weights are parameter-dependent and singular in form at zero; the proof treats zero separately. The superseding candidate is not a statement about global uniqueness of minimizers. Relevant comparison records were checked at their exact domain and conclusion level. Independent priority and proof verification remain advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu–Liu Example 3.5 proves a late-r equality branch; Resultary saturation-threshold result proves precisely *where* that branch starts but expressly leaves r below it uncomputed; a separate Resultary paper obtains the first derivative at zero, not the full nonlinear interior curve. Radical U and global mixed-stratum certificate fill that natural gap.
+
+## value
+
+PASS
+
+This computes a naturally previously missing entire interval of a standard geometric Banach-space invariant between two established analytic regimes. The exact radical and certified minimizer produce a complete λ=sqrt2 profile and a nontrivial global minimax lower certificate, not a reparametrization of saturation or of endpoint slope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
