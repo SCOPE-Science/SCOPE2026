@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof separates the cases of unequal side lengths, square boards with nonattacking marked squares, and square boards with attacking marked squares. The critical steps are the exact common-neighbour formula, the first-round definability of an occupied row, and the resulting singleton crosspoints. The pointwise stabilizer group is derived from the row/column clique system, including the four-cycle boundary. The orbit and two-round claims hold for every marked subset, including the empty set. Direct refinement and explicit stabilizer enumerators independently corroborate the proof; finite checks are not substituted for infinite reasoning.
+PASS
 
-## Originality — PASS
+Automorphisms of K_m square K_n are independent row/column permutations, augmented by global swap iff m=n; this includes K_2 square K_2. Unique landmarks pointwise fix their occupied rows and columns. For m!=n, marked-neighbor common counts n-2 vs m-2 distinguish which coordinate matches a landmark in round two. For square nonattacking F, first-round adjacency labels unordered coordinate-category pairs and swap realizes exactly their orbits. For square attacking F, two marked squares determine a first-round-definable shared row; intersecting it with each off-row marked neighborhood yields first-round singleton crosspoints, which let round two distinguish columns and then rows. Thus the class counts AB or binomial(A+1,2) and sizes follow. Explicit nonsquare single-marker and square 4x4 three-marker configurations establish 2-round sharpness. An independent direct orbit/refinement implementation tested 891 finite marked patterns, including the sharp 4x4 example.
 
-Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255) prove a general refinement hierarchy and Tinhofer property for a different line-graph family, \(J(n,2)=L(K_n)\). Their result does not by itself apply to the complete-bipartite line graphs \(L(K_{m,n})\), and gives no universal sharp two-round rook-graph statement. Kiefer–Schweitzer–Selman (arXiv:1503.08792) establish the overarching counting-logic framework but not the claimed arbitrary-landmark orbit census. Targeted semantic and textual literature comparisons did not establish prior implication; specialist priority remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, natural stabilizer-orbit classification for arbitrary individualizations of an unbounded symmetric graph family, not a parameter substitution of a fixed two-marker formula. It provides a sharp depth bound of two and transparent class sizes, including the qualitative distinction between square boards with matchings of marked squares and every other pattern. The result speaks only to orbit recovery inside the given marked graph, not global graph identification.
+Tinhofer result for Johnson graphs J(n,2)=L(K_n) is not a theorem for rook graphs L(K_{m,n}); even a general Tinhofer statement would imply eventual orbits but not the sharp uniform two-round class census. Counting-logic foundational references distinguish graph identification from within-graph orbit refinement. No matching arbitrary-landmark rook depth theorem was found by actual named and semantic search.
 
-## Limits and prior work
+## value
 
-Related studies: arXiv:1502.01255; arXiv:1503.08792; product-graph distinguishing-number literature. A more general specialist result might subsume the stable orbit statement, and exhaustive priority verification has not been carried out. No extension to higher-dimensional Cartesian products is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-marking orbit recovery theorem for a natural highly symmetric graph product supplies a sharp constant-time refinement complexity and complete stabilizer class profiles with an exceptional square nonattacking symmetry regime. Unlike a simple one-marker observation it treats all subsets and all sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

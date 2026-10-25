@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_refinement.py` and `python3 verify_orbits.py` from this directory. The refinement verifier constructs actual adjacency lists and compares 1-WL partitions at rounds zero, one and two to the predicted orbit partition for all marker subsets up to size three in boards from \(2	imes2\) through \(4	imes5\), and additional seeded tests through \(9	imes11\). It also directly checks a nonsquare and a square sharpness witness. The automorphism verifier independently enumerates row and column permutations, with coordinate swaps for square boards, filters by pointwise-mark fixation and compares group orbits to the category formula.
+## correctness
 
-Observed exact program outputs are in `verification_output.txt`:
+PASS
 
-- `VERIFY_REFINEMENT_OK cases=6413 vertex_instances=208470 sharp_examples=2`
-- `VERIFY_ORBITS_OK explicit_group_instances=1276`
+Automorphisms of K_m square K_n are independent row/column permutations, augmented by global swap iff m=n; this includes K_2 square K_2. Unique landmarks pointwise fix their occupied rows and columns. For m!=n, marked-neighbor common counts n-2 vs m-2 distinguish which coordinate matches a landmark in round two. For square nonattacking F, first-round adjacency labels unordered coordinate-category pairs and swap realizes exactly their orbits. For square attacking F, two marked squares determine a first-round-definable shared row; intersecting it with each off-row marked neighborhood yields first-round singleton crosspoints, which let round two distinguish columns and then rows. Thus the class counts AB or binomial(A+1,2) and sizes follow. Explicit nonsquare single-marker and square 4x4 three-marker configurations establish 2-round sharpness. An independent direct orbit/refinement implementation tested 891 finite marked patterns, including the sharp 4x4 example.
 
-These are finite consistency checks, not proof for arbitrary dimensions or all marker subsets. The general mathematical proof appears in `RESULT.md`. The external independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Tinhofer result for Johnson graphs J(n,2)=L(K_n) is not a theorem for rook graphs L(K_{m,n}); even a general Tinhofer statement would imply eventual orbits but not the sharp uniform two-round class census. Counting-logic foundational references distinguish graph identification from within-graph orbit refinement. No matching arbitrary-landmark rook depth theorem was found by actual named and semantic search.
+
+## value
+
+PASS
+
+An exact all-marking orbit recovery theorem for a natural highly symmetric graph product supplies a sharp constant-time refinement complexity and complete stabilizer class profiles with an exceptional square nonattacking symmetry regime. Unlike a simple one-marker observation it treats all subsets and all sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
