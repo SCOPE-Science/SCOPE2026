@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The ratio of the two binomial masses gives the unique fixed-count crossing probability. Differentiation of a geometric mean of distinct affine factors gives a strictly negative second derivative; its tangent-intercept quantity is strictly decreasing, reducing global optimization to a single continuous trough. An exact factorial induction identifies the transition at \(r=11\). Integer-power interval certificates verify each of the finite neighboring comparisons required to select the unique optimal trial count. The checker is additional finite evidence, not a replacement for the global calculus proof.
+
+**Originality — PASS (best-knowledge assessment).** Kleiner (2026) proves a larger heterogeneous-class reversal bound and derives a fixed-count crossing identity, but its sharp \(r\ge3\) result is driven by a support-shifting class excluded by homogeneous binomial experiments. The submitted result supplies a new all-gap homogeneous-optimizer classification, including the complete finite integer list and the \(r=11\) nonattainment transition. Gnedin (2024) concerns modes and likelihood-ridge phenomena, not this joint extremal problem. Semantic searches of mathematical records and web literature identified no covering statement. An implicit classical binomial inequality remains a residual risk.
+
+**Value — PASS.** Varying the number of homogeneous trials is a canonical comparison between concentrated finite Bernoulli experiments and rare-event Poissonization. The theorem completely resolves which experiment first permits a specified nonadjacent mass reversal at the least mean: neither the minimum count nor the diffuse limit is always optimal. The abrupt change from an optimizer with 294 trials at \(r=10\) to no finite optimizer for \(r\ge11\) is a meaningful phase boundary not supplied by the unrestricted threshold.
+
+Limitations: The theorem does not cover heterogeneous Bernoulli parameters, general atom pairs, or a fixed sample size. Equality-boundary experiments do not satisfy the strict reversal; the minimum for \(r\ge11\) is only a limit. The absence of identified prior coverage is not proof of global novelty.
+
+Self-review: passed. Independent audit: not yet performed.
