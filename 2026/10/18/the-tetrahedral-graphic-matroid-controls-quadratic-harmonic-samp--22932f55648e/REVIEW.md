@@ -1,15 +1,21 @@
-# Scientific review: The tetrahedral graphic matroid controls quadratic-harmonic sampling on the cuboctahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The nine polynomial evaluation columns are a basis of degree-at-most-two spherical harmonics on the sphere after harmless column scalings. Parity and coordinate-plane comparisons prove the full twelve-point evaluation matrix has rank nine. The displayed three-dimensional Gale kernel has direct integer entries, annihilates all nine columns, and is a full left-kernel basis. The six antipodal pairs become six tetrahedral edge differences. Standard graph-incidence rank and rank-nullity prove the formula for **every** erasure pattern. The standalone rational checker independently reproduced all 4096 cases and exact counts, using the actual source file.
+## correctness
 
-## Originality — PASS, with residual risks
-The primary comparators were Womersley–Sloan on spherical interpolation, Keiner–Kunis–Potts on full-rank conditions for spherical Fourier matrices, Rupright on gridded harmonic regression, and Ahrens–Beylkin on symmetry-adapted spherical quadratures. Those sources supply the general evaluation framework but not the exact cuboctahedral graph-incidence rank rule. Targeted published-result queries examined aliases involving root-system coordinates, the Gale transform, erasures, tetrahedral edges, and full spherical-harmonic bandlimits. Related published computations on other polyhedra and cuboctahedral topological complexes do not entail the claim. An unidentified equivalent statement may exist under graph-matroid or root-system terminology. A more recent cubed-sphere interpolation source was available only at abstract and grid-definition level through the attempted routes; its grid cardinalities rule out identical node sets, but its full text was not read.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves the exact reconstruction rank for *every* deletion of a canonical symmetric twelve-node grid, with an unexpectedly elementary K4 connectivity certificate. It provides a complete natural sampling classification and a closed generating polynomial, not simply another numerical rank table. The 128 successful and 92 unsuccessful three-erasure patterns (and their exact graphical obstruction) identify the sharp erasure tolerance in noiseless quadrupole sampling.
+At the 12 normalized cuboctahedron vertices, degree<=2 spherical harmonic restriction has evaluation matrix E of size 12x9 and rank9. A displayed rank3 integer 12x3 B has B^T E=0; hence it spans the complete left kernel. The six antipodal row-pairs of B are signed/parallel tetrahedral potential differences t_i-t_j, so erased-row rank B_T=4-c(G_T) by graphic incidence. The retained rank is (12-|T|)-(3-rank B_T)=13-|T|-c(G_T) for every subset, with empty/full boundaries included. Independent finite-field exact matrix rank checks across every one of the 4096 erasures, all 27 nullspace products and the complete rank census agree; 60/66 2-erasure and 128/220 3-erasure choices are recoverable. The abstract Gale/graphic identity also proves the finite exhaustive formula, not merely a log output.
 
-## Limitations and supporting materials
-The claim is restricted to the cubic/octahedral twelve-node orbit and harmonic degrees at most two, and says nothing about stability under noisy measurements or higher-degree bands. The full arithmetic assertions and program invocation are in RESULT.md, VERIFICATION.md and verify_cuboctahedral_erasure.py. General interpolation results are not being advertised as new, and external novelty verification remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+The twelve cuboctahedral nodes form a natural highly symmetric harmonic-sampling grid. The complete exact erasure identifiability rank matroid, graph interpretation and all-pattern count are nontrivial structural diagnostics for resilient noiseless spherical sampling. No conditioning/stability or higher-degree claims are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
