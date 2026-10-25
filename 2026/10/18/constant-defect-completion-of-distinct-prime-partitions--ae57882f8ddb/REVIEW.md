@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The deep input is Matomäki–Maynard–Shao's published near-equal three-primes argument. Its proof is explicitly uniform in the three chosen reduced residue classes modulo a slowly growing primorial, subject to their sum congruence. Choosing classes distinct modulo seven via seven explicit triples forces the constructed primes to be pairwise different, without incorrectly upgrading the theorem's bare existence statement. The Chinese remainder construction handles all other local prime factors. For the completion, one of two fixed values of the number of omitted small primes gives the required odd remainder; near-equal summands then lie above the omitted small-prime cutoff by a fixed relative margin. Parity yields the exact single-class classification. The bound on the exact product uses the independently identified Deléglise–Nicolas primorial envelope, and the part-count limit follows by AM–GM. The program verifies only finite examples.
+## correctness
 
-## Originality — PASS with residual risk
-The new statement concerns extremal distinct-prime partition cardinality, the exact-versus-bounded sum product gap and a parity classification. Dong et al. count prime partitions, Deléglise–Nicolas optimize bounded-sum products, and Matomäki–Maynard–Shao establish nearly equal three-prime sums; none states the resulting full extremal conclusions. The 2017 proof is used transparently and may make this a short corollary for experts. A literature search found no theorem giving the uniform two-part packing deficit and polynomial relaxation ratio. An implicit corollary or earlier equivalence remains possible. The later exact-sum study by Campbell establishes unboundedness of a different cardinality gap and does not subsume this assertion.
+PASS
 
-## Mathematical value — PASS
-The theorem establishes a uniform **constant** obstruction bound in a natural extremal partition problem, describes its parity-driven exact behavior on a full arithmetic class and gives a polynomial-factor guarantee that replacing a bounded-sum prime-product optimum by an exact-sum optimum has modest cost. These conclusions do not follow from the naive packing bound or a mere enumeration, and connect deep additive prime results with the structure of multiplicative extremizers. The constants are not claimed sharp across all integers.
+For k the largest number of initial distinct primes with sum ≤n, choose j=k−t with t∈{4,5} of parity n. Then R=n−S_j is sufficiently large odd with R∼t p_j. The Matomäki–Maynard–Shao residue-uniform almost-equal ternary-prime proof can assign admissible three different classes mod 7 for every R mod 7, guaranteeing three DISTINCT q_i=(R/3)+O(R^θ)>p_j for θ∈(11/20,1). Appending these q_i to the first j primes gives k−1 or k−2 exact summands, proving 0≤k−L≤2. If n≡k mod 2, a k-part representation cannot contain prime 2 and its minimum sum is S_{k+1}−2; parity and n<S_{k+1} show iff exactly that endpoint. The published bounded-sum primorial envelope P_k≤H≤P_{k+1} and the constructed exact product ≥P_j give H/M≤p_{k+1}^6≤(2n)^6. PNT and AM–GM then show K/k→1 and log M∼√(n log n). Fresh dynamic programming checked representative n=301..1500 parity cases; finite checks do not establish the sufficiently-large threshold.
 
-## Sources and limitations
-See the exact residue-class comparison with [3] in the proof. The asymptotic threshold is not explicit. Earlier historical records were not comprehensively accessible, and a short implicit corollary in older literature remains an originality risk. Independent assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The near-equal ternary Goldbach proof, primorial bounded-sum envelope and Campbell discrepancy are compared by their actual implications: none asserts a two-part deficit to the initial-prime packing bound plus exact-product completion and parity classification. Distinct admissible residues mod7, used through the source uniform residue argument, are the critical added step.
+
+## value
+
+PASS
+
+Distinct-prime additive partitions and prime-product maximization are classical extremal questions. Constant loss of at most two parts for ALL sufficiently large integers, a parity-branch exact criterion and a polynomial multiplicative exact-sum completion bound are substantive quantitative bridges between different natural extremal objectives; neither follows from routine PNT estimates alone, requiring a deep almost-equal primes construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

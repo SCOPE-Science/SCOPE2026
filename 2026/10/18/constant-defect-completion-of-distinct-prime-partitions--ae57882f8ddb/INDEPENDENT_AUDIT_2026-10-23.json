@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T17:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/18/constant-defect-completion-of-distinct-prime-partitions--ae57882f8ddb/RESULT.md, Git blob a9bd9014e6ecbce047998ace12bcc59596fa8630",
+        "Pinned source-tree e24aa2a55ae26a62278dae9cc53450d5567b6800",
+        "Inspected pinned verifier source verify.py",
+        "Fresh independent_checks.py with independent_checks_output.txt, exact bounded domains only"
+      ],
+      "rationale": "For k the largest number of initial distinct primes with sum ≤n, choose j=k−t with t∈{4,5} of parity n. Then R=n−S_j is sufficiently large odd with R∼t p_j. The Matomäki–Maynard–Shao residue-uniform almost-equal ternary-prime proof can assign admissible three different classes mod 7 for every R mod 7, guaranteeing three DISTINCT q_i=(R/3)+O(R^θ)>p_j for θ∈(11/20,1). Appending these q_i to the first j primes gives k−1 or k−2 exact summands, proving 0≤k−L≤2. If n≡k mod 2, a k-part representation cannot contain prime 2 and its minimum sum is S_{k+1}−2; parity and n<S_{k+1} show iff exactly that endpoint. The published bounded-sum primorial envelope P_k≤H≤P_{k+1} and the constructed exact product ≥P_j give H/M≤p_{k+1}^6≤(2n)^6. PNT and AM–GM then show K/k→1 and log M∼√(n log n). Fresh dynamic programming checked representative n=301..1500 parity cases; finite checks do not establish the sufficiently-large threshold.",
+      "residual_risks": [
+        "Asymptotic sufficiently-large threshold not effective; inequalities not asserted globally sharp, and other parity branch not classified.",
+        "The bounded checks are supplementary and do not replace the general mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matomäki–Maynard–Shao 2017 Thm2.1 and Section3; Deléglise–Nicolas 2015 Prop1"
+        ],
+        "reasoning": "The prime-existence theorem is stronger in its own setting but does not directly assert distinctness and near-minimal number of parts for every large n; residue-uniform distinctness and t=4,5 insertion supply the implication.",
+        "searches": [
+          "Resultary: partition integers as sums of distinct primes maximal number of summands exact sum primorial max product",
+          "Near-equal ternary Goldbach and bounded-sum maximal product with arbitrary primes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: partition integers as sums of distinct primes maximal number of summands exact sum primorial max product",
+        "https://arxiv.org/abs/1610.02017",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL18/Deleglise/deleglise3.pdf",
+        "https://arxiv.org/html/2610.19534v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Campbell Thm1 proves L−K unbounded; inequalities k−L≤2 involve a different baseline k"
+        ],
+        "reasoning": "Unbounded L−K is compatible with bounded k−L; neither theorem subsumes the other. Prior H bounded-sum result supplies envelope but not M exact-sum lower bound.",
+        "searches": [
+          "Resultary: partition integers as sums of distinct primes maximal number of summands exact sum primorial max product",
+          "Campbell unbounded L−K vs bounded k−L and H/M product completion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matomäki–Maynard–Shao near-equal ternary primes arXiv:1610.02017; Deléglise–Nicolas primorial envelope"
+        ],
+        "reasoning": "These are the correct stronger-input formulations; the exact-sum constant defect and product ratio require a new partition construction and parity analysis.",
+        "searches": [
+          "Resultary: partition integers as sums of distinct primes maximal number of summands exact sum primorial max product",
+          "Maximal number of distinct prime parts vs initial-prime packing bound, exact-product vs bounded-sum Landau-style primorial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Campbell arXiv:2610.19534v1 Theorem1; distinct-prime DP n≤2000 source and independent spot checks"
+        ],
+        "reasoning": "Finite tables and Campbell L−K discrepancy do not state an eventual two-part defect theorem or a global polynomial exact-sum product loss.",
+        "searches": [
+          "Resultary: partition integers as sums of distinct primes maximal number of summands exact sum primorial max product",
+          "Prime partitions extremal small-n computations"
+        ]
+      },
+      "rationale": "The near-equal ternary Goldbach proof, primorial bounded-sum envelope and Campbell discrepancy are compared by their actual implications: none asserts a two-part deficit to the initial-prime packing bound plus exact-product completion and parity classification. Distinct admissible residues mod7, used through the source uniform residue argument, are the critical added step.",
+      "residual_risks": [
+        "Possible implicit general additive-completion theorem is not exhaustively excluded.",
+        "Semantic searches and inspected primary sources support only best-of-knowledge originality; missing indexing or other literature could alter priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies near-equal three-prime existence and residue-class freedom; the target use of three different residues mod seven and exact-part extremal deduction is an additional argument",
+          "evidence": [
+            "Uniform construction allows reduced classes b1,b2,b3 with sum n mod W",
+            "Different nonzero residues mod 7 force distinct primes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.02017",
+          "material_read": "Full primary paper, proof of Theorem 2.1 and Section 3 construction with arbitrary admissible reduced residue classes",
+          "method": "arXiv primary full text with theorem/section-specific inspection",
+          "title": "Vinogradov’s theorem with almost equal summands",
+          "trigger": "Essential deep input: three almost equal primes with independent admissible residue choices"
+        },
+        {
+          "assessment": "Provides P_k ≤ H(n) ≤ P_{k+1}, not an exact-sum completion theorem or a bounded ratio H/M",
+          "evidence": [
+            "Proposition 1 supplies bounded-sum primorial envelope"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Deleglise/deleglise3.pdf",
+          "material_read": "Primary PDF: introduction, Proposition 1 and its bounding inequalities; first pages inspected as rendered PDF",
+          "method": "web full-text PDF and page screenshot",
+          "title": "On the Largest Product of Primes with Bounded Sum",
+          "trigger": "Identical relaxed product H(n) and primorial sandwich"
+        },
+        {
+          "assessment": "Shows unbounded discrepancy L(n)-K(n), compatible with k(n)-L(n)≤2; does not assert presented constant defect and polynomial product completion",
+          "evidence": [
+            "Different discrepancy compares maximum exact cardinality with number of factors of the maximizing product"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19534v1",
+          "material_read": "Full primary HTML including Theorem 1 and discussion of distinct primes",
+          "method": "arXiv full text via web, theorem search",
+          "title": "On a problem on partitions into distinct primes",
+          "trigger": "Very recent same distinct-prime partition functions L(n), K(n)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1610.02017",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL18/Deleglise/deleglise3.pdf",
+        "https://arxiv.org/html/2610.19534v1"
+      ],
+      "rationale": "Distinct-prime additive partitions and prime-product maximization are classical extremal questions. Constant loss of at most two parts for ALL sufficiently large integers, a parity-branch exact criterion and a polynomial multiplicative exact-sum completion bound are substantive quantitative bridges between different natural extremal objectives; neither follows from routine PNT estimates alone, requiring a deep almost-equal primes construction.",
+      "residual_risks": [
+        "Possible implicit general additive-completion theorem is not exhaustively excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
