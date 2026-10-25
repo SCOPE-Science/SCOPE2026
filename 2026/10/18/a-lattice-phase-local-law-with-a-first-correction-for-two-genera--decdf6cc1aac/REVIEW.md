@@ -1,9 +1,21 @@
-# Review of the lattice-phase local law
+# Independent mathematical audit
 
-**Correctness — PASS.** Unique singleton/doubleton generator choices yield the exact coefficient-index distribution, and a direct ratio expansion around the unique continuous saddle root gives the first correction. A uniform Gaussian tail bound justifies l1 summation and the quadratic error term. The finite verifier independently checks enumerations and six normalizations; it does not prove the infinite result.
+## correctness
 
-**Originality — PASS (qualified).** OEIS A079491 already contains the exact finite coefficient formula and labeled graph description, and A339832 covers the unlabeled class. Gawronski–Neuschel (2013) and Paris (2015) prove asymptotics of the same lacunary polynomial normalizer. None of the materially inspected sources states the **normalized coefficient-index l1 local expansion with explicit first-order finite-size correction**. Equivalent alternative coefficientwise asymptotics remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** The typical number of singleton generators in a natural low-rank fragment of union-closed team properties is logarithmic, with bounded, non-Gaussian, phase-varying fluctuations. The full local distribution and the first correction quantify finite-size behavior beyond a known total enumerator. The assertion is restricted to labeled universes and rank-two generating teams.
+Canonical union-irreducible singleton/doubleton generators yield exact weights C(n,s)2^{-s(s−1)/2}. Ratios w_{s+1}/w_s=((n−s)/(s+1))2^-s anchor uniquely at q solving (q+1)2^q=n. For centered j the oriented products expand log(w_{m+j}/w_m)=(ln2)F_theta(j)+F_theta(j)/(m+1)+uniform second-order error on a central window. Monotone ratios give uniform quadratic tails and summable remainder, while normalization replaces F by F−mu, proving global ℓ1 O((m+1)^-2). Independently compared exact weights at n=4096,65536,1048576: leading ℓ1 errors about .0661,.0493,.0414 versus corrected .0112,.00459,.00438. Finite checks corroborate; the uniform tail estimates prove the asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The finite coefficient binomial sum, graph correspondence and theta-oscillating normalizing polynomial are already known (OEIS and Paris/Gawronski--Neuschel). The accepted new result is a uniform signed first correction in ℓ1 for the coefficient-index distribution of a natural labelled union-closed team model, not a new count or leading normalization.
+
+## value
+
+PASS
+
+The intrinsic singleton-generator count is a natural size statistic for union-closed team families. Its bounded-width, phase-dependent, non-Gaussian local law and precise first correction are independently useful for sampling and probabilistic structural analysis; it is not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

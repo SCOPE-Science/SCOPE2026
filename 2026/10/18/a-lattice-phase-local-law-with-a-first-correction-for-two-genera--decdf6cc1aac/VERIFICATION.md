@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify_phase.py` using Python 3.10 or newer and its standard library. It exhaustively constructs the union-generated families from at most four labelled valuations, checks singleton profiles against the exact formula, and compares finite normalized distributions for six specified sample sizes with the leading and corrected phase approximations. A successful run prints `VERIFY_OK`.
+## correctness
 
-The proof of the infinite, phase-indexed local limit and the uniform squared-logarithmic remainder is in `RESULT.md`; finite enumeration or floating-point agreement does not establish that proof. No external audit, separate certification, or machine-checked infinite proof is asserted.
+PASS
+
+Canonical union-irreducible singleton/doubleton generators yield exact weights C(n,s)2^{-s(s−1)/2}. Ratios w_{s+1}/w_s=((n−s)/(s+1))2^-s anchor uniquely at q solving (q+1)2^q=n. For centered j the oriented products expand log(w_{m+j}/w_m)=(ln2)F_theta(j)+F_theta(j)/(m+1)+uniform second-order error on a central window. Monotone ratios give uniform quadratic tails and summable remainder, while normalization replaces F by F−mu, proving global ℓ1 O((m+1)^-2). Independently compared exact weights at n=4096,65536,1048576: leading ℓ1 errors about .0661,.0493,.0414 versus corrected .0112,.00459,.00438. Finite checks corroborate; the uniform tail estimates prove the asymptotic.
+
+## originality
+
+PASS
+
+The finite coefficient binomial sum, graph correspondence and theta-oscillating normalizing polynomial are already known (OEIS and Paris/Gawronski--Neuschel). The accepted new result is a uniform signed first correction in ℓ1 for the coefficient-index distribution of a natural labelled union-closed team model, not a new count or leading normalization.
+
+## value
+
+PASS
+
+The intrinsic singleton-generator count is a natural size statistic for union-closed team families. Its bounded-width, phase-dependent, non-Gaussian local law and precise first correction are independently useful for sampling and probabilistic structural analysis; it is not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
