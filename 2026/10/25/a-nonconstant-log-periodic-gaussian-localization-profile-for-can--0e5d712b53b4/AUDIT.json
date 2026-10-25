@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact zero-mode Cantor integration formula is established by disjoint ternary-digit integrals. Split the finite product at floor(log_3 A); the two product tails have explicit exponentially small and A/3^n bounds. The identities 3^delta=2 and K(3t)=K(t)/2 give normalization and exact multiplicative periodicity. The log-derivative is a normally convergent bilateral sum, and its strict nonzero value at t=1 is demonstrated by 8 explicit rational lower terms and integer comparison 2^1000<3^631. A standalone standard-library script reproduced the rational witness and finite identities. No claim about the operator norm or unverified infinite numerical extrapolation is included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knutsen I gives lambda_0 <= ||P|| <=2 lambda_0 and an exact product, but no sharp normalized asymptotic.",
+        "Knutsen II gives full-norm bounds for general digit alphabets and proves the Gaussian can maximize for left-packed alphabets; middle-third digits {0,2} are not that case.",
+        "Abreu–Mouayn–Voigtlaender studies a different hyperbolic Bergman localization operator, not this Gaussian Fock eigenvalue."
+      ],
+      "reasoning": "An explicit finite-n product contains all information about the zero mode, but extracting a positive nonconstant periodic coefficient and a uniform quantitative remainder requires a separate analysis. No inspected broader theorem states that conclusion as part of its coverage. The result is confined to the vacuum eigenvalue, avoiding a claim that current whole-operator theory already implies.",
+      "searches": [
+        "log periodic fluctuations Gaussian localization Cantor radial Toeplitz eigenvalue",
+        "Knutsen Cantor localization eigenvalue periodic asymptotics vacuum log periodic",
+        "Daubechies Cantor localization full norm hyperbolic Bergman 2022",
+        "arXiv:2104.10976"
+      ]
+    },
+    "checked_sources": [
+      "Knutsen, arXiv:1907.00848 (first posted 2019-07-01), section 2.3, section 4.2 and Proposition 4.1, finite vacuum product and comparable operator-norm bounds.",
+      "Knutsen, arXiv:2104.10976 (first posted 2021-04-22), introduction and Sections 2-3, general Cantor digit alphabets and leading-order norm bounds.",
+      "Abreu, Mouayn, Voigtlaender, arXiv:2201.11705 (first posted 2022-01-27), introduction and Theorem 1, hyperbolic Bergman counterpart with comparison-scale norm bounds."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knutsen I: exact product (1-e^{-A/3^n}) product (1+e^{-2A/3^j}) and operator norm bounds only up to constants.",
+        "Present claim: lambda_0/[(2/3)^n A^(1-delta)] -> H(A) with explicitly nonconstant H, exact scale periodicity and an error bound.",
+        "Known finite product algebraically entails all zero-mode computations but its published stated asymptotic does not identify the periodic coefficient."
+      ],
+      "reasoning": "The difference is not a new operator or diagonalization, but a nontrivial, quantitative leading-order analysis of a known product. Strict nonconstancy is a delicate comparison certified rationally, not a mere substitution of parameters. The possibility that this follows routinely from classical lattice renewal/Mellin methods is explicitly retained as residual priority risk.",
+      "searches": [
+        "Knutsen I arXiv:1907.00848 Theorem 4.1, Proposition 4.1, formula 4.4",
+        "Knutsen II arXiv:2104.10976 Theorem 3.1 and Proposition 3.1",
+        "Abreu et al arXiv:2201.11705 Theorem 1",
+        "Cantor distribution Laplace transform asymptotic periodic function x log 3 log periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knutsen I, exact finite product in section 4.4; inspection shows bounds up to constants and does not state a nonconstant periodic normalized profile.",
+        "Knutsen II, extended digit alphabets and norm comparison; no log-periodic leading waveform stated.",
+        "The normalized profile is also a scaled Laplace transform of the ternary Bernoulli convolution and so equivalent formulations are plausible."
+      ],
+      "reasoning": "For equivalence one needs the same coefficient H(t), its exact 3-multiplicative periodicity and strict nonconstancy, and a remainder uniform as A->infinity and A/3^n->0. Generic estimates of the same power-law exponent cannot imply the nonconstant profile, though a general renewal theorem could.",
+      "searches": [
+        "middle third Cantor Daubechies localization log periodic asymptotic first Hermite eigenvalue infinite product multiplicative periodic amplitude",
+        "Cantor phase-space localization vacuum eigenvalue no constant leading coefficient oscillating log 3 Fock",
+        "Cantor distribution Laplace transform asymptotic periodic function x log 3 log periodic",
+        "arXiv:1907.00848; 2104.10976; 2201.11705"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches found no exact table or explicit nonconstant middle-third Gaussian-vacuum leading profile.",
+        "A related published theorem on logarithmic spectral filtering for smooth radial Fock Toeplitz operators concerns Dixmier-trace behavior rather than Cantor-annulus Gaussian concentration.",
+        "Related results on fixed finite annular eigenvalue peak counts involve different objects and do not state growing Cantor-iterate asymptotics."
+      ],
+      "reasoning": "The surviving claim is not a recomputation of a finite numeric table: it is a uniform asymptotic over infinitely many iterates and continuously varying radial scale, with a nonconstant limiting function. Search absence is not proof of novelty.",
+      "searches": [
+        "middle third Cantor Daubechies localization log periodic asymptotic first Hermite eigenvalue infinite product multiplicative periodic amplitude",
+        "Cantor phase-space localization vacuum eigenvalue no constant leading coefficient oscillating log 3 Fock",
+        "log periodic fluctuations Gaussian localization Cantor radial Toeplitz eigenvalue",
+        "Gaussian Fock radial annulus critical-width central limit crossover eigenvalue norm normal CDF Poisson gamma Hermite",
+        "Cantor phase-space localization vacuum eigenvalue no constant leading coefficient oscillating log 3 Fock"
+      ]
+    },
+    "rationale": "Best knowledge from relevant mathematical-result searches, relevant prior mathematical statements, and direct primary-text comparisons. The two Knutsen papers contain radial spectral formulas, an exact finite vacuum product, and two-sided estimates up to constants, but do not state the nonconstant log-periodic leading factor and explicit uniform multiplicative remainder for the middle-third Gaussian eigenvalue. The Bergman Cantor analogue concerns a different operator. The leading waveform is a sharpened asymptotic of an acknowledged known product, not a claimed new eigenvalue formula. Equivalence through general Laplace-transform renewal theory is the principal independent-priority risk.",
+    "residual_risks": [
+      "A general old lattice-renewal or Cantor Laplace-transform theorem may already encode the log-periodic profile and could weaken the priority claim.",
+      "The 2019 finite product is a mathematically complete specification of the zero eigenvalue, so the refinement is an asymptotic consequence of known data rather than a new spectral model.",
+      "No independent domain-specialist priority audit was undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source for known product; nonconstant periodic leading profile and explicit uniform error not stated.",
+        "evidence": [
+          "Theorem 2.1 gamma eigenvalues",
+          "equation 4.4 exact finite product",
+          "Theorem 4.1 factor-two upper norm bound",
+          "Proposition 4.1 two-sided comparability"
+        ],
+        "identifier_or_url": "arXiv:1907.00848; https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "material_read": "Open-access article: introduction, sections 2.3–2.4, section 3, section 4 statements, proof of finite product and comparison estimates.",
+        "method": "Read accessible full-text HTML mathematical formulas and assertions, not snippets alone.",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Same Cantor mask, Gaussian window, and exact zero Hermite eigenvalue"
+      },
+      {
+        "assessment": "Generalized norm comparability and left-packed Gaussian extremizers; no same nonconstant periodic multiplier stated for mid-third digits.",
+        "evidence": [
+          "Introduction distinction between general alphabets and canonical left-packed alphabets",
+          "Proposition 3.1 product bounds",
+          "Section 3 full-norm estimates"
+        ],
+        "identifier_or_url": "arXiv:2104.10976; https://arxiv.org/abs/2104.10976",
+        "material_read": "Accessible full-text arXiv HTML main introduction, radial spectral preliminaries, section 3 theorems and proofs, and indexed construction in section 4.",
+        "method": "Inspected primary text by formulas and headings; searched periodic/oscillation terminology.",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets II",
+        "trigger": "Plausibly dominating generalized digit-set theorem"
+      },
+      {
+        "assessment": "Distinct hyperbolic Bergman/Cauchy-wavelet problem, no present normalized Fock vacuum waveform.",
+        "evidence": [
+          "Theorem 1 norm scale up to constants",
+          "Section 1.2 explicit comparison to Knutsen Fock setting"
+        ],
+        "identifier_or_url": "arXiv:2201.11705; https://arxiv.org/abs/2201.11705",
+        "material_read": "Accessible arXiv HTML abstract, introduction and Section 2 theorem, analytic-wavelet normalization, Cantor construction.",
+        "method": "Compared operator, domain, leading conclusions and moment representations in primary text.",
+        "title": "A fractal uncertainty principle for Bergman spaces and analytic wavelets",
+        "trigger": "Known analogous Cantor localization power law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e5d712b-53b4-4cf8-aa03-6b273c73ae9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural sharp-asymptotic question remains when a fractal localization estimate is only known up to multiplicative constants: is the Gaussian test-vector coefficient an ordinary constant? A full uniform double-scaling formula identifies a genuine multiplicative periodic obstruction, its exact positive profile, and a rational certificate that its tiny oscillation cannot vanish. This is structural information about fractal-scale dependence of a canonical spectral observable; it goes beyond an arbitrary parameter plug-in. It does not claim a sharpened norm formula, physical utility beyond mathematical phase sensitivity, or results for arbitrary fractals.",
+    "status": "PASS"
+  }
+}
