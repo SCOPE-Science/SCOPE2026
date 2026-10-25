@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:01:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/verify.py",
+        "/mnt/data/_scope07_independent_checks.py (private independent finite experiments)"
+      ],
+      "rationale": "The Crofton motion-invariant line measure of lines hitting a convex polygon is its perimeter; a segment has hit measure twice its length. For adjacent sides AB and BC, their union of hit-line sets equals the hit-line set of triangle ABC almost everywhere; inclusion-exclusion gives joint measure |AB|+|BC|-|AC|. Thus normalized side lengths a_i=m_i/2 and two-step chords b_i=a_i+a_{i+1}-q_i, whose cosine law uniquely fixes all interior angles. Positive turns summing to 2pi plus vector closure with lengths a_i give a strictly convex closed polygon and are necessary/sufficient. Compact strict angle/side lower bounds imply inverse local Lipschitzness; equilateral lengths make m_i=2/n. Independently computed random convex polygon side incidence by angular quadrature; maximum error approximately 2.64e-9. This finite test corroborates only, not proves the full converse.",
+      "residual_risks": [
+        "Finite checks do not prove all parameters; universal proof depends on the mathematical lemmas and hypotheses explicitly reconstructed in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gates' full chord-length distribution recognizes triangles and quadrilaterals; Harutyunyan–Ohanyan and Bäsel consider regular polygon chord laws."
+        ],
+        "reasoning": "Those sources either target limited polygon classes with richer observables or a different statistic, and do not imply sparse labeled adjacent-hit data suffice for every strictly convex polygon.",
+        "searches": [
+          "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/recognition-of-triangles-and-quadrilaterals-by-chord-length-distribution/D8705E2F4BD143D28993F169C8960443",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+          "https://arxiv.org/pdf/1204.2707"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/RESULT.md",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+        "https://arxiv.org/pdf/1204.2707",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/recognition-of-triangles-and-quadrilaterals-by-chord-length-distribution/D8705E2F4BD143D28993F169C8960443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crofton/Cauchy and triangle union imply the local distance identities; previous chord distribution results do not assert equivalence to this limited incidence-data inverse."
+        ],
+        "reasoning": "The proof uses elementary tools but the exact information sufficiency and iff feasibility conditions are not corollaries of cited published statements as inspected.",
+        "searches": [
+          "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/recognition-of-triangles-and-quadrilaterals-by-chord-length-distribution/D8705E2F4BD143D28993F169C8960443",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+          "https://arxiv.org/pdf/1204.2707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observables are equivalent to normalized side lengths and two-step vertex chords, by m_i=2a_i and q_i=a_i+a_{i+1}-b_i."
+        ],
+        "reasoning": "This explicit equivalence transforms local Crofton incidence data to Euclidean polygon reconstruction; it does not make existing chord-length-distribution theorems an automatic substitute.",
+        "searches": [
+          "Resultary: random Crofton line adjacent side intersection probabilities determine convex polygon side lengths angles",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+          "https://arxiv.org/pdf/1204.2707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Regular polygon formulas and individual side-pair integrals supply some numerical instances, not the global closure+turn feasibility test for arbitrary input arrays."
+        ],
+        "reasoning": "Known regular-polygon quantities are recognized, but there is no matching exact general inverse table in inspected sources.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+          "https://arxiv.org/pdf/1204.2707",
+          "Resultary: random Crofton line adjacent side intersection probabilities determine convex polygon side lengths angles"
+        ]
+      },
+      "rationale": "Cauchy-Crofton normalization, triangle inclusion-exclusion and law of cosines are classical individual tools. Harutyunyan–Ohanyan 2009 and Bäsel 2012 derive chord-length laws mainly for regular polygons, not labeled local-edge hit marginals plus adjacent joint-event inversion for all strictly convex polygons. Gates characterizes triangle/quadrilateral from richer whole chord-length distributions. The complete sparse inverse and global feasibility criterion are a distinct theorem on inspected evidence; residual older side-pair integral geometry priority remains.",
+      "residual_risks": [
+        "Older combinatorial Crofton side-incidence treatments may include an equivalent reconstruction in a different formulation.",
+        "Full Gates 1982 text and historical tomography literature not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Computes overall chord law and regular side-pair integrations, not sparse adjacent-event inverse for arbitrary strictly convex P.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+          "material_read": "Full nine-page primary paper, notably section 2 side-pair decomposition",
+          "method": "Full primary PDF including page screenshot",
+          "title": "The chord length distribution function for regular polygons",
+          "trigger": "Line hit integrals grouped by polygon side pairs"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Regular polygon chord lengths and point distances, not label-dependent side-incidence inverse and feasibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.2707",
+          "material_read": "Full 19-page primary PDF and polygon chord distributions",
+          "method": "Full primary PDF including page screenshot",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Regular polygon random chord geometry"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Identifiability from whole unmarked chord-length distribution in specific small-n classes, not sparse adjacent incidence for all n; no whole-text absence asserted.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/recognition-of-triangles-and-quadrilaterals-by-chord-length-distribution/D8705E2F4BD143D28993F169C8960443",
+          "material_read": "Accessible abstract; full text not read",
+          "method": "Journal abstract page",
+          "title": "Recognition of triangles and quadrilaterals by chord length distribution",
+          "trigger": "Prior polygon identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/local-crofton-tomography-and-feasibility-of-convex-polygons--e979ae35fcf7/RESULT.md",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B6106C113723976E5F1DDDF89FB47D58/S0001867800003335a.pdf/chord_length_distribution_function_for_regular_polygons.pdf",
+        "https://arxiv.org/pdf/1204.2707",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/recognition-of-triangles-and-quadrilaterals-by-chord-length-distribution/D8705E2F4BD143D28993F169C8960443"
+      ],
+      "rationale": "Identifying a labeled convex polygon from only local single-side and adjacent-pair Crofton hit probabilities is a sparse reconstruction problem with natural input observables. Explicit inverse, global feasibility and nondegenerate stability establish substantially more than routine side-length formulas, and the equilateral q-only reduction is a motivated special subclass.",
+      "residual_risks": [
+        "Mathematical significance judged for the exact natural invariant or classification; downstream use and external reception are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the named final claim and domain were reviewed; no formal Lean or external expert attestation was represented or produced.",
+    "Read-only GitHub source snapshots were inspected, with no writes.",
+    "Best-of-knowledge historical priority; remaining source-inspection risks are recorded per originality.",
+    "Complete scientific disposition is independent of not_ready publication transport status."
+  ],
+  "schema_version": 1
+}

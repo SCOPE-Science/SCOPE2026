@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Crofton normalization follows by integrating projected widths; the probability of hitting a side is twice its length divided by the perimeter. For adjacent sides forming two sides of a triangle, their line-hit union equals the triangle-hit event, giving the exact joint-measure formula by inclusion–exclusion. The two-step vertex distance and every interior angle therefore follow from observed probabilities without unidentified geometric parameters. Sequential turning reconstructs all labeled vertices up to similarity and reflection. For the feasibility converse, strictly increasing positive edge directions with one total turn and closure imply that every edge is a supporting line, hence strict convexity. The inverse is smooth on compact nondegenerate domains. The bundled standard-library checker passed 1,162 comparisons, including independently integrated line-hit events; finite checks are corroborative only.
+PASS
 
-## Originality — PASS relative to inspected sources
+The Crofton motion-invariant line measure of lines hitting a convex polygon is its perimeter; a segment has hit measure twice its length. For adjacent sides AB and BC, their union of hit-line sets equals the hit-line set of triangle ABC almost everywhere; inclusion-exclusion gives joint measure |AB|+|BC|-|AC|. Thus normalized side lengths a_i=m_i/2 and two-step chords b_i=a_i+a_{i+1}-q_i, whose cosine law uniquely fixes all interior angles. Positive turns summing to 2pi plus vector closure with lengths a_i give a strictly convex closed polygon and are necessary/sufficient. Compact strict angle/side lower bounds imply inverse local Lipschitzness; equilateral lengths make m_i=2/n. Independently computed random convex polygon side incidence by angular quadrature; maximum error approximately 2.64e-9. This finite test corroborates only, not proves the full converse.
 
-Harutyunyan–Ohanyan (2009), DOI 10.1239/aap/1246886615, develops edge-pair integrals and an overall chord-length law for regular polygons, but the inspected sections do not give reconstruction of all labeled strictly convex polygons from just one-edge marginals and *adjacent* pair incidences, nor the exact closure-based feasibility criterion. Bäsel (2012), arXiv:1204.2707, derives chord-length and point-distance distributions for regular polygons, using different observables. Gates (1982) identifies triangles and quadrilaterals from unmarked chord-length information; Nagel (1993) and older X-ray probing research use orientation-dependent or more informative measurements. These richer or different reconstruction inputs do not imply the sufficiency of this sparse local statistic. Published semantic searches and comparisons against accessible prior research claims identified no covering assertion. The Crofton formula and cosine law are classical and excluded from the novelty claim. Historical-priority risk remains in older combinatorial-integral-geometry sources and inaccessible full texts of selected related papers.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete inverse classification for a natural stochastic-geometric observable on *every* strictly convex polygon, not a one-shape computation: it supplies a finite explicit inverse, necessary-and-sufficient realizability equations, local robustness, and an equilateral data-reduction corollary. Recovering the entire geometry from observations involving only one side or a neighboring side pair is a meaningful shape-tomography statement despite its elementary proof. Applications requiring unordered side labels, finite-sample statistical accuracy, or degenerating polygons are explicitly outside the theorem.
+Cauchy-Crofton normalization, triangle inclusion-exclusion and law of cosines are classical individual tools. Harutyunyan–Ohanyan 2009 and Bäsel 2012 derive chord-length laws mainly for regular polygons, not labeled local-edge hit marginals plus adjacent joint-event inversion for all strictly convex polygons. Gates characterizes triangle/quadrilateral from richer whole chord-length distributions. The complete sparse inverse and global feasibility criterion are a distinct theorem on inspected evidence; residual older side-pair integral geometry priority remains.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Identifying a labeled convex polygon from only local single-side and adjacent-pair Crofton hit probabilities is a sparse reconstruction problem with natural input observables. Explicit inverse, global feasibility and nondegenerate stability establish substantially more than routine side-length formulas, and the equilateral q-only reduction is a motivated special subclass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
