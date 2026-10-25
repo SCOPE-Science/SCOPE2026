@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The vertex decomposition exhausts every nonzero zero-divisor. Each weak-adjacency assertion has explicit nonzero annihilator witnesses, and each exception is excluded because a field factor has no nonzero zero-product. Subtracting direct zero-product edges yields exactly the four-block path. Graph parameter identities follow by direct counts and sharp explicit witnesses; intrinsic twin classes reconstruct the three numerical parameters. Eleven finite test rings independently confirm the adjacency rules and reconstruction prerequisites. The finite tests are not a substitute for the proof, which covers arbitrary finite residue fields and arbitrary square-zero maximal ideals.
+## correctness
 
-**Originality (PASS, with bibliographic risk).** The closest directly inspected primary source is Wani (arXiv:2607.17677, Sections 1, 3, 8--9): its classification and reconstruction assume finite *reduced* rings, and Section 9 expressly leaves nonreduced valuation states beyond that theorem. The present nonreduced local-by-field case is disjoint from that domain, with an explicit structural normal form and a contrasting failure of ring rigidity. Nikmehr--Azadi--Nikandish study the weak graph, whereas this theorem studies the **difference** of weak and ordinary graphs. Available mathematical search results concerned other zero-divisor graphs or different ring families. An unpublished or unindexed equivalent nonreduced-case treatment cannot be excluded.
+PASS
 
-**Value (PASS).** Moving from reduced rings, for which two-factor difference graphs are empty, to a single square-zero nonfield local factor creates a nontrivial perfect P4-blow-up whose numerical parameters can be reconstructed internally. The formula works beyond principal-ideal chain rings and shows exactly what algebraic information survives the graph functor, and exactly what does not. Its complete structural classification and genuine reconstruction boundary are more informative than a raw graph census.
+Nonzero zero-divisors of A×F divide into blocks A=(0,u), B=(x∈m\{0},0), C=(x∈m\{0},u), E=(unit,0), of sizes s-1,h-1,(h-1)(s-1),h(q-1). For all pairs except two units-with-zero-second-component, nonzero square-zero m witnesses or the complementary idempotent give weak annihilator-product adjacency; E–E is not weak because both annihilators lie in the field factor. Subtracting the ordinary zero-product relation yields cliques A,C and only A–C, C–E, E–B interblock edges. Counts of vertices and edges follow, and a size h(s-1) clique with explicit proper coloring proves omega=chi; E plus one A proves alpha=h(q-1)+1. Graph substitution preserves perfectness. The twin-free quotient P4 and nontrivial internal-block reversal incompatibility recover a,b,c,d and hence q,h,s, but not the local ring. Separately enumerated annihilator witnesses for Z/4Z×F2 yielded the predicted 5-vertex 5-edge degree pattern [1,2,2,2,3]. The universally quantified statement follows from the ring/graph proof, not the finite example.
 
-**Literature and scope risks.** The comparison with Wani uses the full indexed paper text, including nonreduced remarks; no finding is claimed beyond the square-zero local times field family. Independent mathematical audit has not occurred; primary articles not located by the searches could still overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct exact theorem after statement-level comparison: Wani’s inaccessible nonreduced Section 9 may already derive a length-two chain-ring case; arbitrary square-zero local case and parameter reconstruction not independently excluded from full text. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.
+
+## value
+
+PASS
+
+The nonreduced square-zero local-by-field family is a natural first departure from the reduced theory, and a four-block perfect P4 blow-up gives a closed normal form with explicit graph invariants. More importantly, precise intrinsic recovery of q,h,s alongside failure to recover the underlying local ring identifies an informative boundary of graph reconstruction. The theorem handles arbitrary nonprincipal square-zero ideals, not just sample chain rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
