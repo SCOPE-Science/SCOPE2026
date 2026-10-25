@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit Euler lattice-error decomposition is exact entry by entry; its rank-one terms have norm at most one and coefficients bounded by \(1/(2\ell^2)\). Schatten \(p\)-subadditivity gives \(\mathcal S_p\) membership for \(p>1/2\); triangular finite compressions and eigenvalue–singular-value majorization exclude \(p\le1/2\), including the critical endpoint. Trace-norm approximation establishes the determinant and exact nonzero eigenvalue set. Finite computations corroborate the identities, not the infinite claim.
+
+**Originality — PASS (within examined sources).** Bellavita–Stylogiannis's sampled Mellin calculus supplies general Hilbert–Schmidt bounds. The close prior public finding *Trace-class Mellin semigroup defects and zeta traces for Cesàro powers* proves trace class and \(\zeta(2)\) for this exact operator, so those are not claimed as new. Its full result explicitly leaves quasi-Schatten membership for \(p<1\) unaddressed; the present \(\mathcal S_p\) iff \(p>1/2\) and the quantitative quasi-Schatten bracket are not consequences of trace class alone. Rhaly operator and self-commutator papers study different matrices. Residual risk: equivalent older/unindexed discrete Hardy or quasi-Banach ideal statements.
+
+**Mathematical value — PASS.** The 2026 sampled Mellin framework asks for improved Schatten regularity of multiplicativity defects. The precise critical \(p=1/2\) in its canonical nontrivial example is an intrinsic invariant: positive membership on one side and constructive divergence on the other. This settles the entire natural quasi-Schatten parameter range for that operator, beyond a norm or trace recomputation, although not for general sampled Mellin products.
+
+**Limitations and closest evidence.** Relevant primary sections were read in arXiv:2609.09453v1, arXiv:2503.21930v1, and arXiv:2606.15875v1; the full publicly indexed trace-class result and the full Cesàro self-commutator result were compared. Priority cannot be guaranteed against undiscovered classical triangular-operator literature. None of the finite code checks establish a universal result.
+
+Self-review: passed. Independent audit: not yet performed.
