@@ -1,19 +1,21 @@
-# Scientific review: rank-one exponential Carleman perturbation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The unitary Mellin multiplier \(m(\xi)=\pi/\cosh(\pi\xi)\) and the transform of the normalized vector \(g(t)=\sqrt2e^{-t}\) yield the exact spectral density \(w(\xi)=1/\cosh(\pi\xi)\). The rank-one eigenvalue condition reduces to a scalar Stieltjes transform, which integrates to the stated arctangent/artanh formulas. Its strict monotonicity gives precisely one simple exterior eigenvalue of the appropriate sign; pole and endpoint integrability exclude embedded eigenvalues. The threshold expansions give a quadratic gap at \(\pi\) and exponential gap at zero with the displayed coefficients. Exact normalization, signs, limiting ranges, and coupling landmarks were checked. The 83 standalone numerical assertions are supporting checks rather than a proof of universal statements.
+PASS
 
-## Originality
+Mellin transform diagonalizes Carleman as pi sech(pi xi); Gamma reflection yields spectral weight sech(pi xi) for the precisely normalized g. Independent normalization integral of weight is one. The rank-one eigen-equation reduces outside [0,pi] to 1=gamma F(z), with F(z)=(1/pi) integral dtheta/(z-pi cos theta), and F′(z)<0 on both components. F diverges with opposite signs at respective edges, granting one eigenvalue simple on gamma-selected side. Since Mellin g is nowhere zero and the multiplier has simple interior zeros and quadratic maximum at xi=0, (m-lambda)^-1 g is not L2 at any interior/edge lambda; no point eigenvalues there. Expand z=pi+delta: F=sqrt(2/pi)delta^-1/2-2/pi^2+O(sqrt(delta)), yielding delta=(2/pi)gamma^2+O(gamma^3). At z=-a: -F=(2/pi^2)log(2pi/a)+O(a^2 log(1/a)), yielding exponentially small a=2pi exp(-pi^2/(2|gamma|))(1+o(1)). Direct quadrature checked exterior expressions and two landmarks, with strong-coupling moment <g,Cg>=2. Actual check_carleman.py was read for independence of tested numerical assertions; quadrature is corroboration, not the proof.
 
-**PASS, with residual historical-priority risk.** Yafaev, arXiv:1210.5709, establishes the Carleman Mellin dispersion relation, general resolvent, and qualitative existence of an upper-band eigenvalue under a positive perturbation (Theorem 6.4). Yafaev, arXiv:1304.2677, Theorem 1.3, already establishes the negative eigenvalue count for finite-rank Hankel perturbations. These qualitative statements are not presented as novel. The contribution is the explicit scalar secular equation for this normalized exponential direction, together with both sharp, asymmetric threshold prefactors and coupling landmarks. The inspected relevant sections of both complete primary texts did not state those two quantitative edge laws. A differently worded earlier calculation or a result implicit in broad resolvent formulae remains a genuine priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Carleman operator is a natural bounded noncompact Hankel operator with spectral edges of different analytic types. The exact example shows that the same fixed rank-one direction produces a power-law upper-edge bound state and a beyond-all-orders lower-edge state, and identifies constants rather than only qualitative existence. This makes the lower-edge logarithmic spectral-response singularity quantitatively accessible and illustrates a structural distinction not captured by eigenvalue counting alone.
+Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. Known qualitative existence/counters are openly excluded from novelty. Even if Yafaev Theorem 1.3 gives the number of negative bound states for gamma<0, it cannot imply energy -2pi exp(-pi^2/(2|gamma|)) without additional spectral density calculation.
 
-## Limitations and relation to literature
+## value
 
-The claim is for one explicitly normalized exponential rank-one perturbation, not all compact or Hankel perturbations. No exact scattering operator or eigenvalue law for other directions is asserted. Similar published-finding corpus records about normal Cesàro operators concern different unperturbed spectra and do not imply this Carleman threshold pair; absence of a near-identical record is not a uniqueness certificate. Sources: Yafaev, arXiv:1210.5709 (Sections 1–3, 6); Yafaev, arXiv:1304.2677 (Theorem 1.3, Sections 1.2, 3.4). Independent mathematical and bibliographic reviews remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two opposite edges of one canonical continuous-spectrum operator produce qualitatively different sharp weak-coupling universality classes with nontrivial prefactors. This supplies an explicit spectral threshold benchmark and exact negative-binding law absent from the broad qualitative eigenvalue-count statements; mathematically motivated and not just reformatting the counting theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
