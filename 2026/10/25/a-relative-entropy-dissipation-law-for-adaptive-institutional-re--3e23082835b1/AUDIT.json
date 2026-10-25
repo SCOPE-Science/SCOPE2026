@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Differentiate the two Bernoulli relative entropies in the exact two-variable Hua–Liu Eq. (6). A weighted coefficient cancels the adaptive-reward cross term, leaving the exact expression minus delta*a/epsilon times (x-x*)[S_N(x*)-S_N(x)]. For integer N>=2 the derivative S_N'(x)<=-1 on [0,1], giving strictly negative dissipation except on x=x*. Each relative entropy diverges as its state variable approaches a boundary, so initial sublevels are compact and forward invariant. On x=x*, the flow leaves that line unless a=a*. LaSalle gives global interior convergence for all epsilon>0, hence the exact dissipation integral and integrated squared-error bound. The source model and normalization were checked against its published Eq. (6). The standalone exact-rational checker reproduced 6048 instances as supporting finite evidence, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hua and Liu, arXiv:2308.09530v1, Sections 3.3, 4, Appendix: two-way adaptive game and local stability analysis",
+        "Liu, Chen and Szolnoki, eLife 12:e82954, Results and Appendix: nonmonotone risk response and bifurcations"
+      ],
+      "reasoning": "A sufficiently general negative-feedback convergence theorem might subsume this special game; none was located and applied in the inspected materials. General local stability, equilibrium-existence, or plotting results do not imply strict entropy dissipation or global interior attraction. The analogous nonmonotone feedback model lacks the required monotonicity and is inapplicable.",
+      "searches": [
+        "eco evolutionary dynamics linear environmental feedback global convergence monotone payoff diminishing rewards stable equilibrium",
+        "global asymptotic stability adaptive institutional reward public goods replicator feedback Hua Liu 2023 Lyapunov relative entropy arbitrary epsilon",
+        "coevolutionary reward cooperation relative entropy Lyapunov no limit cycle all adjustment speeds"
+      ]
+    },
+    "checked_sources": [
+      "Hua and Liu, 2023, arXiv:2308.09530v1, full arXiv manuscript",
+      "Liu, Chen and Szolnoki, 2023, eLife 12:e82954, full text",
+      "Published mathematical-record and literature searches by exact source title, feedback aliases, monotone payoff and entropy Lyapunov terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hua–Liu 2023 Eq. (6) and Appendix use an equilibrium Jacobian; existence of a hyperbolic sink does not imply global attraction",
+        "Liu–Chen–Szolnoki 2023 Eq. (5) payoff contains a binomial nonmonotone risk response, so the monotone-kernel dissipative estimate fails in that model"
+      ],
+      "reasoning": "The exact source local sink implies attraction only from a neighborhood, whereas the new proper entropy identity supplies a compact sublevel trap and excludes distant recurrent states for all positive relative speeds. The source’s speed assumption epsilon small does not imply this parameter-uniform stability. The related risk game neither covers the specified reward law nor provides a stronger monotone-feedback global theorem.",
+      "searches": [
+        "\"Coevolutionary dynamics of population and institutional rewards in public goods games\" local stability global",
+        "\"Coevolutionary dynamics via adaptive feedback in collective-risk social dilemma game\" periodic oscillations",
+        "2016 Weitz oscillating tragedy commons game environment feedback global stable monotone payoff Lyapunov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2308.09530 : Eq. (6) and Sections 4–5 focus on local Jacobian stability and selected phase portraits",
+        "https://journal-symfony7.elifesciences.org/articles/82954 : Eq. (5) involves nonmonotone binomial cooperation payoff and can admit cycles"
+      ],
+      "reasoning": "The claim can be rephrased as a proper weighted Kullback–Leibler Lyapunov function for a logistic replicator coordinate coupled to a bounded logistic adaptation coordinate. Matching the words “coevolution” or “stable equilibrium” does not suffice: the precise all-speed entropy identity and full-interior quantifiers were compared. The two closest inspected manuscripts do not give these implications.",
+      "searches": [
+        "\"Coevolutionary dynamics of population and institutional rewards\" \"global\" \"Lyapunov\"",
+        "\"institutional reward\" \"global asymptotic\" \"Lyapunov\" replicator feedback",
+        "replicator negative feedback monotone game incentive relative entropy global stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original arXiv:2308.09530v1 is an analytic ODE article without an exact global-entropy theorem or associated stability table with these quantifiers",
+        "Standalone exact-rational regression check in verify.py has 6048 sampled states, not a research database or exhaustive parameter table"
+      ],
+      "reasoning": "The finding concerns an infinite continuum of parameter tuples and interior starting states, not a finite integer or finite database lookup. No matching precomputed theorem or classification table was found in the inspected source literature; finite checker is not asserted exhaustive.",
+      "searches": [
+        "\"Shijia Hua\" \"Linjie Liu\" \"institutional rewards\" global convergence exact entropy",
+        "\"Coevolutionary dynamics of population and institutional rewards in public goods games\"",
+        "adaptive reward feedback public goods game interior coexistence equilibrium limit cycles Dulac"
+      ]
+    },
+    "rationale": "The full publicly available motivating 2023 paper supplies the exact model, equilibrium and local eigenvalue analysis plus illustrations, but does not establish an all-interior-states, all-positive-speed Lyapunov convergence theorem or exact transient dissipation budget. A related adaptive feedback collective-risk model uses a nonmonotone payoff, with periodic dynamics not implying the monotone model theorem. Equivalence, larger-coverage, and theorem implication searches found no direct coverage among inspected materials; broader unlocated general negative-feedback Lyapunov theorems are explicitly retained as residual priority risk.",
+    "residual_risks": [
+      "The broader evolutionary-game and monotone two-variable negative-feedback literature could contain a general theorem implying the same global convergence and KL Lyapunov construction; an unindexed equivalent theorem was not excluded.",
+      "The publication-priority comparison is same mathematical model literature analysis rather than an independently certified global search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces target model and local sink but not the newly established global entropy dissipation identity or total transient budget",
+        "evidence": [
+          "arXiv:2308.09530v1 posted 2023-08-18; Eq. (6), Sections 3.3 and 4, Appendix"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.09530",
+        "material_read": "Full HTML manuscript including abstract, model Section 3, Results Sections 4–5, and Appendix stability cases",
+        "method": "Read manuscript text and formulas; compared Eq. (6), interior equilibrium expression, Jacobian calculations and all stated stability conclusions",
+        "title": "Coevolutionary dynamics of population and institutional rewards in public goods games",
+        "trigger": "The exact motivating equation, date, hypotheses, local versus global conclusion, and appendix were decisive to correctness and priority"
+      },
+      {
+        "assessment": "Nonmonotone binomial risk factor can create Hopf cycles; its theorem assumptions and conclusions do not imply global attraction for the strictly decreasing institutional-reward kernel",
+        "evidence": [
+          "eLife 12:e82954 (2023), Eq. (5), Results and Appendix 1"
+        ],
+        "identifier_or_url": "https://journal-symfony7.elifesciences.org/articles/82954",
+        "material_read": "Full accessible article text including model Eq. (5), results on coexistence and oscillations, and Appendix 1",
+        "method": "Compared feedback equation, the form and derivative of the strategy payoff, and dynamic conclusions",
+        "title": "Coevolutionary dynamics via adaptive feedback in collective-risk social dilemma game",
+        "trigger": "Nearby coupled strategy/environment public-goods dynamics may have a broader feedback stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e230828-35b1-4869-b20e-41a5effb016e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating study establishes a coexistence sink locally under a fast-strategy/slower-reward assumption and illustrates selected trajectories; the new theorem provides global convergence from every interior state without any relative-speed restriction. A proper explicit entropy function and exact accumulated squared-deviation bound give quantitative global control, ruling out persistent oscillations in this monotone reward-feedback regime and distinguishing it from feedback games admitting cycles. That is a substantive mathematical extension rather than a textbook local calculation.",
+    "status": "PASS"
+  }
+}
