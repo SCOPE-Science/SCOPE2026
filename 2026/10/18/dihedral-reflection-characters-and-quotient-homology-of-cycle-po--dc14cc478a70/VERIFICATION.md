@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-With Python 3 installed, run `python3 verify.py` in this directory. The complete expected deterministic output is in `verify_output.txt`. The verifier reconstructs vertex-orbit invariant faces directly from all connected three-vertex tests, implements the signed action on oriented simplices, and compares the resulting Lefschetz traces with the proved formulas in 90 reflection instances covering \(2\le p\le7\). It separately builds the original cut complex for six small reflection cases, including the empty-face reduction, rather than reusing the Alexander dual representation. Full rational dihedral quotient ranks are independently reconstructed by averaging all signed dual-chain traces at 21 parameter pairs, without using the known closed rotational-character formula. Exact mod-two triangle boundary ranks check the dual first Betti number at five parameters.
+## correctness
 
-The program uses only standard-library modules. All finite checks returned `VERIFY_OK`. It does not independently prove the general reflection-localization lemma, the published shellability theorem, or full integral homotopy, and it is not an independent scientific audit. The displayed mathematical conclusions have received only the stated self-review.
+PASS
+
+For ordinary 3-cut K=Δ3(Cn^p), p≥2 n≥6p−3, the combinatorial Alexander dual L consists exactly of sets in which each vertex has at most one internal nonneighbor. Published shellability fixes the homology in degree n−4 with β=1+n(n−4p−1)/2. Equivariant Alexander duality twists H1(L) by the sign of the n-point permutation. Explicit signed reflection-orbit enumeration yields odd-n reflection value (-1)^((n+1)/2)(n−4p+1)/2 and both even-n reflection classes; averaging the known rotation characters plus these signs yields the four quotient residue classes. A separately implemented direct connected-triple dual enumeration agreed with the two reflection classes in 24 bounded cases across p=2,3 near their sharp threshold. The derivation of the locality/cancellation theorem supplies the general proof; finite enumeration is corroboration only.
+
+## originality
+
+PASS
+
+The published cycle-power 3-cut result already determines all rotations on the SAME graph and parameter range, but explicitly does not determine reflections. The new theorem computes both reflection classes and derives full D_n invariants; prior dihedral cut-complex theorem concerned unpowered cycles.
+
+## value
+
+PASS
+
+Determines the missing reflection character of a natural established parameter family and deduces an exact four-class congruence classification of symmetry-quotient rational homology, including infinitely many rationally acyclic quotients. This is genuine structure beyond the previously tabulated cyclic action and ordinary Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
