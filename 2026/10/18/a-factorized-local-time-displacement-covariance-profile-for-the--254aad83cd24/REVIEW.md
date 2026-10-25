@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The segment conditional-survival formula agrees with Pitman's endpoint local-time density after Brownian scaling. Conditional independence and the explicit exponential coupling establish strict stochastic order for all interior times. A separate Gaussian occupation-density proof gives the mixed moment; the two elementary integrals, centering, midpoint extremum, and Fubini for every integrable deterministic weight have been reconstructed with their endpoints and normalizations checked. `verify.py` passed all 29 described numerical consistency checks. The numeric tests only corroborate the analytic argument.
+## correctness
 
-**Originality — PASS, with a specifically bounded risk.** Pitman's 1998 equation (3) supplies the one-segment local-time distribution; this ingredient is explicitly not claimed new. Knight (2000) treats integrated reflected area and Gittenberger–Louchard (2000) treat local-time densities over spatial levels. Material inspected does not present the exact deterministic-time factorization \(\operatorname{Cov}(L,|B_t|)=-(1-\sqrt t)(1-\sqrt{1-t})\) or its continuous weighted covariance kernel. The conditional representation is a short consequence of classical endpoint laws and the bridge Markov property, and the integrated unweighted covariance may be covered implicitly by Knight. These are residual implicit-coverage risks, not evidence of independently certified novelty. The claimed quantitative time profile is narrower and was assessed by direct implication comparison rather than title matching.
+PASS
 
-**Value — PASS.** This continuum time-resolved identity gives the exact direction and magnitude of dependence between bridge zero occupation and absolute displacement, identifies its unique strongest time, and resolves all deterministic nonnegative weighted-area covariance signs at once. The conditional coupling also supplies a direct simulator and a stochastic-order statement beyond a single covariance coefficient. It addresses dependence of natural Brownian bridge functionals rather than an arbitrary finite evaluation.
+A standard zero-endpoint Brownian bridge split at t in (0,1), conditional on signed B_t=x, consists of two independent Brownian bridge legs of lengths t and 1-t. The classical endpoint local-time survival exp[-(z²+2|x|z)/(2u)] for each leg yields the explicit two independent exponential representation for L|R_t=r, with each summand strictly decreasing in r, proving negative regression and all bounded increasing transform covariance inequalities (strict under the stated nondegeneracy). Independently, occupation density gives E[L|B_t|]=integral_0^1 p_{B_s}(0) E(|B_t||B_s=0)ds; Gaussian conditional variance splits at s=t and beta/trigonometric integration gives sqrt(t)+sqrt(1-t)-1. From EL=sqrt(pi/2) and E|B_t|=sqrt(2/pi) sqrt(t(1-t)), the exact covariance factorizes -(1-sqrt(t))(1-sqrt(1-t)). This is strictly negative, maximal magnitude at t=1/2, and Fubini gives all L1 deterministic weighted areas with constant-weight 1/3-pi/8. Independently evaluated Gaussian split integral by high-precision quadrature at t=.11,.25,.5,.8, agreeing with formula; continuum proof is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.
+
+## value
+
+PASS
+
+For a standard Brownian bridge, zero local time and midpath displacement are canonical but distinct random observables. The full deterministic-time covariance profile and monotone conditional law quantify their dependence and give immediately usable covariance for arbitrary deterministic weighted absolute area, beyond a single global area moment; endpoint normalization and the sharp t=1/2 extremum are mathematically natural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
