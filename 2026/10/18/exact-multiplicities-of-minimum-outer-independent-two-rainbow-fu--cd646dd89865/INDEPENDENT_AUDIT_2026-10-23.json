@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Steps 1-4, tree c9fd827000f3507abd06ba67378cea27181c9793",
+        "verify.py pinned Git blob 5aba184198ac4c57a974749b37a0a0f039e15b13",
+        "independent_checks_output.txt six board checks"
+      ],
+      "rationale": "For 2<=m<=n the independent empty-label set in K_m square K_n is a nonattacking-rook placement of size <=m. Exact weight is mn-|Z|+|D|, with D doubly colored cells, and the diagonal-hole triangular singleton coloring attains mn-m. Every minimizer therefore has m injection-placed holes and no double labels. Fixing holes, each failed constraint E_i forces monochromatic color on the m+n-2 neighbors; for any nonempty k-row subset of constraints their neighborhoods overlap pairwise and have union size u_k=k(m+n-k-1), yielding 2^(mn-m-u_k+1) solutions. Inclusion-exclusion over k gives stated finite closed formula for all m,n. Its fixed-m k=1 leading term is -m*2^-(n+m-3), higher k terms O_m(2^-2n). New independent singleton-color enumeration matches (2,2)=4,(2,3)=60,(2,5)=4520,(3,3)=264,(3,4)=10224,(4,4)=87024. Enumeration supports, not replaces, the inclusion-exclusion proof.",
+      "residual_risks": [
+        "No count of nonminimum, unlabeled or higher-dimensional Hamming-graph functions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary id 7f7bcd9e9b58 counts ordinary 2-rainbow functions on complete multipartite graphs, not independent-holes on K_m square K_n",
+          "arXiv:2208.02340 graph-product bounds and dominance inequalities"
+        ],
+        "reasoning": "Neither graph class nor constraint set matches; an ordinary 2-rainbow enumerator does not automatically enforce outer independence on rook graphs. Scalar bounds cannot determine optimizer multiplicities.",
+        "searches": [
+          "outer independent 2 rainbow domination number minimum functions rook graph complete graph cartesian product enumeration",
+          "Resultary published All 2-rainbow dominating functions of complete multipartite graphs 7f7bcd9e9b58",
+          "Samadi Soltankhah Further results outer independent 2-rainbow functions product graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.02340 original product bounds",
+        "DOI:10.7494/OpMath.2020.40.5.599",
+        "DOI:10.3390/math10132287",
+        "Resultary id 7f7bcd9e9b58",
+        "Resultary query: outer independent 2 rainbow domination number minimum functions rook graph complete graph cartesian product enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known outer-independent two-rainbow minimum weights and product bounds are preconditions",
+          "New formula resolves correlations via k-fold intersections, not implied by the scalar minimum"
+        ],
+        "reasoning": "The scalar parameter follows from minimizer existence but conversely does not specify labels/counts. Existing complete-multipartite count cannot be transported by a named graph isomorphism to general rook products.",
+        "searches": [
+          "outer independent 2 rainbow domination number minimum functions rook graph complete graph cartesian product enumeration",
+          "Mansouri Mojdeh 2020 outer independent rainbow dominating functions bounds",
+          "Samadi Soltankhah 2022 2023 graph products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-color labels are named; injection holes represent maximum matchings in K_{m,n}, but full color assignments are extra data",
+          "Samadi/Soltankhah 2023 product work provides scalar bounds rather than this complete solution count"
+        ],
+        "reasoning": "An equivalent count could be expressed as colorings avoiding monochromatic row-column stars in a punctured matrix; searched literature did not establish a formula for that exact problem.",
+        "searches": [
+          "outer independent 2 rainbow domination number minimum functions rook graph complete graph cartesian product enumeration",
+          "outer independent two rainbow rook graph count all optimum labeled functions",
+          "arXiv:2208.02340"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published graph-product article primarily evaluates minimum weights/bounds",
+          "Six new explicit N_{m,n} evaluations include N_4,4=87024"
+        ],
+        "reasoning": "No verified exact rook-minimizer table in the inspected published sources; a few computed counts alone would not be the contribution, which is all-parameter expression.",
+        "searches": [
+          "outer independent 2 rainbow domination number minimum functions rook graph complete graph cartesian product enumeration",
+          "outer independent 2-rainbow graph cartesian complete graph exact optimal multiplicities"
+        ]
+      },
+      "rationale": "The new all-(m,n) enumeration of labeled minimum outer-independent 2-rainbow functions is not supplied by existing scalar domination bounds, by enumerators for complete multipartite graphs, or by Roman-labeling variants. Its exact pattern of neighborhood intersections matters. Best-of-knowledge PASS, retaining unindexed-result risk.",
+      "residual_risks": [
+        "Other unpublished/unindexed optimum-coloring enumerators may coincide.",
+        "The minimum scalar is not novel, and no originality attaches to its proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Product bounds and some scalar cases, not claimed enumerator",
+          "evidence": "Graph products section, scalar domination inequalities",
+          "identifier_or_url": "https://arxiv.org/abs/2208.02340",
+          "material_read": "Definitions, main product-graph statements and Cartesian-product section",
+          "method": "Accessible primary full text/article HTML examined",
+          "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+          "trigger": "Closest product-graph theorem"
+        },
+        {
+          "assessment": "Foundational bounds, not all minimum rook-graph functions",
+          "evidence": "Mansouri–Mojdeh 2020",
+          "identifier_or_url": "https://doi.org/10.7494/OpMath.2020.40.5.599",
+          "material_read": "Definitions and bounding results in accessible primary journal article",
+          "method": "Primary full text inspected",
+          "title": "Outer independent rainbow dominating functions in graphs",
+          "trigger": "Origin of outer-independent label constraint"
+        },
+        {
+          "assessment": "No all-rectangular-rook optimizer enumeration found",
+          "evidence": "Cabrera-Martinez (2022) graph-operations bounds",
+          "identifier_or_url": "https://doi.org/10.3390/math10132287",
+          "material_read": "Abstract and available main discussion on graph classes",
+          "method": "Publisher article/abstract as available",
+          "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+          "trigger": "Related structural results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact labeled enumeration",
+        "Samadi/Soltankhah prior scalar product bounds"
+      ],
+      "rationale": "The optimal solution count is a natural robustness and degeneracy statistic for rainbow domination on standard rook/Hamming graphs. Unlike scalar optimum weight, it tracks many competing labeled two-color assignments, and nontrivial k-fold neighborhood overlaps require a genuine enumeration. The expression works for every rectangular size, including asymptotic proportion for fixed m; it is more than a small known-table recomputation.",
+      "residual_risks": [
+        "No quotient by automorphisms or enumeration of nonoptimal labelings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

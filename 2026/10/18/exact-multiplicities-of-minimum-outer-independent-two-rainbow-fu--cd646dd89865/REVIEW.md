@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an \(m\)-by-\(n\) rook graph with \(2\le m\le n\), every independent empty-label set has at most \(m\) members, and the weight identity \(w=mn-|Z|+|D|\) forces any minimum function to have exactly \(m\) empty labels and no double-color labels. The diagonal-hole upper/lower-triangular two-color construction attains the minimum. Each set of \(k\) failed rainbow constraints has exactly \(2^{mn-m-k(m+n-k-1)+1}\) singleton colorings because the corresponding neighborhood union contains \(k(m+n-k-1)\) cells and all selected neighborhoods share their common monochromatic color. Inclusion-exclusion yields the formula. Independently constructed, exhaustive finite enumeration confirms every coefficient-free optimum-count instance listed in the package; it is not used as an infinite proof.
+PASS
 
-## Originality — PASS with residual uncertainty
+For 2<=m<=n the independent empty-label set in K_m square K_n is a nonattacking-rook placement of size <=m. Exact weight is mn-|Z|+|D|, with D doubly colored cells, and the diagonal-hole triangular singleton coloring attains mn-m. Every minimizer therefore has m injection-placed holes and no double labels. Fixing holes, each failed constraint E_i forces monochromatic color on the m+n-2 neighbors; for any nonempty k-row subset of constraints their neighborhoods overlap pairwise and have union size u_k=k(m+n-k-1), yielding 2^(mn-m-u_k+1) solutions. Inclusion-exclusion over k gives stated finite closed formula for all m,n. Its fixed-m k=1 leading term is -m*2^-(n+m-3), higher k terms O_m(2^-2n). New independent singleton-color enumeration matches (2,2)=4,(2,3)=60,(2,5)=4520,(3,3)=264,(3,4)=10224,(4,4)=87024. Enumeration supports, not replaces, the inclusion-exclusion proof.
 
-The 2020 foundational paper provides definitions and bounds. The 2022 first-public product-graph preprint supplies invariant motivation and studies scalar bounds for graph products. The 2022 note treats related structural bounds; none of the inspected accessible text states an all-parameter multiplicity enumerator for minimum labeled functions on Cartesian products of complete graphs. The closest relevant published research records treat 2-rainbow labelings of complete multipartite graphs, outer-independent Roman labelings on complete multipartite graphs, and Roman \(\{3\}\)-domination on complete prisms. None implies the rook-graph outer-independent 2-rainbow multiplicity formula. A separate prior result counts minimum outer-independent two-rainbow functions of sunlet graphs; the different graph family does not subsume this theorem. Unindexed identical formulas or broader results may exist; priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The natural multiplicity question is how many optimal two-color defending assignments exist once maximum independent hole placements are fixed in a graph with two transverse clique partitions. The optimum scalar alone does not determine this quantity. The exact, all-parameter answer resolves overlapping monochromatic-deficiency events and describes exponentially many competing optimal solutions, including the limiting abundance for fixed row number. It quantifies degeneracy of optimal assignments rather than merely reproving a minimum or counting an arbitrary small instance.
+The new all-(m,n) enumeration of labeled minimum outer-independent 2-rainbow functions is not supplied by existing scalar domination bounds, by enumerators for complete multipartite graphs, or by Roman-labeling variants. Its exact pattern of neighborhood intersections matters. Best-of-knowledge PASS, retaining unindexed-result risk.
 
-## Limitations
+## value
 
-Only finite simple rectangular rook graphs are covered, with \(2\le m\le n\). The result counts all labeled minimum solutions but no higher-weight solutions. No claim of exhaustive publication priority search or independent scientific validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimal solution count is a natural robustness and degeneracy statistic for rainbow domination on standard rook/Hamming graphs. Unlike scalar optimum weight, it tracks many competing labeled two-color assignments, and nontrivial k-fold neighborhood overlaps require a genuine enumeration. The expression works for every rectangular size, including asymptotic proportion for fixed m; it is more than a small known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
