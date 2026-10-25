@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classical pointwise 2-versus-4 normal classification reduces the mean to the ellipse/evolute overlap area. Ellipse–astroid crossing has a unique intersection per quadrant beyond the explicitly checked axis-ratio boundary. Both area integrals evaluate directly, and independent normal-map Jacobian quadrature agrees with the formula. The threshold and large-ratio constants follow from controlled rescaling of the two thin overlap caps; finite numerical checks corroborate but do not establish the theorem.
+## correctness
 
-## Originality — PASS, with explicit historical risk
-The 2014 Domokos–Lángi primary article develops the general average-normal framework, but its inspected arguments do not give an explicit axis-ratio law, fractional smoothness boundary, or elongated limit for ellipses. Hartmann–Jantzen, MathWorld and Aliyev give the required pointwise classification and geometrical crossings, not the area-averaged profile. Earlier general papers by Hann (1993) and Hug (1995) were found but not readable in full through available lawful access; they present residual possible overlap rather than negative search proof. Searches for alternative normal-multiplicity terminology and dominating formulations produced no decisive prior implication.
+PASS
 
-## Value — PASS
-Santaló's classical average-normal invariant is an intrinsic, scale-free geometric statistic. Its value for the most elementary anisotropic smooth convex bodies is a natural exact question, not an arbitrary parameter slice. The complete formula, strict monotonicity, sharp fractional onset at the cusp-containment transition, and cubic decay of the deficiency quantify a structural change missed by pointwise 2-versus-4 classification alone.
+For any r>1 a generic point of E_r has exactly four normal feet inside the evolute astroid and two outside, so M(r)=2+2 Area(E_r∩astroid)/(πr). The astroid semiaxes are A=(r²−1)/r and B=r²−1; it lies within E_r exactly through r²≤2, giving 2+3(r²−1)²/(4r²). Beyond, the first-quadrant crossing parameter v=(2r²−1)/(r⁴−1) solves the ellipse–astroid intersection equation, and the two elementary antiderivatives give J and M=2+8J/(πr). Normalized-disk astroid growth proves strict monotonicity. The thin first-quadrant cap has leading horizontal width (2√3/9) ε^(3/2) and height ε(1−z^(2/3)); integrating gives the stated negative 5/2 correction and C²/not-C³ transition. The long-aspect missing quarter cap has leading integral 44√2/15, yielding 4−M~352√2/(15πr³). Independently reconstructed all eight blob identities and their exact assigned Git tree; checked symbolic cap constants, high-aspect integral, and independent ellipse/evolute overlap numerical integrals at multiple aspect ratios. The finite tests corroborate but do not prove the all-parameter analytic deductions.
 
-## Limitations
-No claim is made that the pointwise ellipse caustic, its area, or its intersection threshold is new. The inaccessible Hann and Hug papers leave a nonzero historical novelty risk. The statement is a population mean, not a finite-data sampling guarantee. Numerical checks provide corroboration but are not infinite proofs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete explicit area-averaged normal-count function of ellipse aspect ratio, its strict monotonicity, the 5/2-order nonanalytic onset at r=sqrt(2) and sharp large-r inverse-cubic deficit. The pointwise 2-versus-4 normal classification, evolute astroid, and ellipse/evolute crossing threshold are explicitly prior results, not novel here. Relevant general normal-count theory did not supply the inspected ellipse-specific full mean and sharp asymptotics. The earlier Hann 1993 and Hug 1995 texts could not be materially inspected, so coverage uncertainty is substantive and named, not dismissed as proof of novelty.
+
+## value
+
+PASS
+
+The area-averaged number of normals is a canonical scale-invariant Santaló-type convex-geometric statistic. Even for ellipses, exact normalization against a four-cusped evolute changes at the nontrivial containment threshold r=sqrt(2). The all-r law, strict monotonicity, and sharp 5/2 and inverse-cubic boundary layers give exact structural and regularity information absent from the classical pointwise normal classification, and a useful benchmark for further convex-body comparisons. It is not just a known pointwise formula reparameterized; genuine integration and asymptotic analysis are required. No claim of general convex-body formula is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
