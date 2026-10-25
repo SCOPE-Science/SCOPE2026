@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact identity-normalized 1,711-support quotient of all 34,220 unordered three-element supports, an explicitly implemented even-permutation model of the 60-element group, a complete 60-by-60 adjacency matrix for each support, and exact rational Gaussian elimination. Each case and all 13 claimed invariant bins were actually checked, and the bin counts independently sum to the full combinatorial support total. Inversion invariance of the split five-cycle conjugacy classes and independence of the anchor are tested exhaustively. The underlying matrix-convolution correspondence follows directly from the stated action; no approximation, failed timeout, or incomplete search is used as proof. The result is limited to the group and unweighted support domain defined in the proof.
+PASS
 
-## Originality — PASS, with stated risk
+The 60 even permutations on 5 letters constitute A5. Every 3-element support reduces by translation to one of C(59,2)=1711 normalized unordered pairs, each representing 20 of the 34220 supports. Exact quotient-order triple, generated-subgroup order and—in the (3,5,5) case—a five-cycle class equality distinguish 13 types. All 1711 integer 60x60 unit-convolution matrices have exact rational ranks from the inspected check_a5.py elimination. An independently written finite group and modular-rank implementation checked ALL 1711 cases with two distinct primes whose product exceeds the 3^30 determinant bound for 60x60 matrices, proving agreement with characteristic-zero ranks. Its 13 class frequencies reproduce the complete distribution {0:19020,4:4800,5:3600,10:4800,20:1800,40:200}; 15200 singular. The 200 max-nullity supports are the cosets of the ten cyclic order-3 subgroups. Group-theoretic inversion-invariance of split order-five classes and independence under all anchor choices checked. This is exact exhaustive finite analysis, not a sample.
 
-The general Cayley digraph block characteristic-polynomial framework of Arezoomand–Taeri (2013) does not itself state the present complete thirteen-bin support census. Siemons–Zalesski (2018) addresses singular normal, conjugacy-invariant connection sets, not arbitrary nonnormal three-element sets. Liu–Zhou (2022) surveys related alternating-group spectra but the inspected relevant portions do not enumerate these nullities. Fang–Lu–Wang–Xu (2004) examines normality and automorphisms of small-out-valency Cayley digraphs of finite simple groups; its publicly readable author-uploaded full text does not contain zero-eigenvalue or kernel-rank formulas. Xu–Xu (2004) investigates cubic/quartic Cayley-graph symmetry on the same group; its accessible abstract treats normality and arc transitivity, but its full text was not obtained, so implicit equivalent information there is a residual priority risk. Explicit mathematical-record searches found neighboring three-term classifications for different group families, not the same group or a stronger all-finite-group theorem. The review does not assert that search absence proves uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest nonabelian simple group is a canonical test case for noncentral finite-group harmonic analysis. The classification requires genuinely distinct invariant data: in addition to pairwise quotient orders and subgroup order, the split A5 five-cycle conjugacy classes resolve two nonidentical nullity levels at signature \((3,5,5)\). Thus order signatures that suffice for some related twofold-cover groups do not suffice here. The full intrinsic 13-class classification, complete support census, and sharp extremal coset characterization resolve the natural all-three-tap question, rather than isolate an arbitrary support or merely repeat the general Fourier-block formula. The result is self-contained as a finite exact theorem; independent publication priority is not claimed.
+PASS best-of-knowledge for the full intrinsic 13-type A5 unweighted three-tap nullity census. General Cayley character-factorization and conjugacy-invariant singular graph criteria do not already state or imply these 13 numerical levels for arbitrary supports. Highly relevant same-group 2004 Xu--Xu paper concerns small-valency Cayley symmetry in the accessible abstract, but its complete text could not be obtained, leaving material priority risk. Oxford institutional retrieval reported vpn_disconnected and was not bypassed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A5 is the smallest nonabelian simple group, canonical for spectral convolution. The complete all-three-tap kernel classification identifies the precise extra subgroup order and split five-cycle class data needed beyond quotient orders. This natural complete finite invariant and sharp C3 coset extremum are independently usable without demanding an infinite-group extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
