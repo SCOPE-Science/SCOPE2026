@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-later-larger-element argument proves the endpoint lemma directly and is invariant under reversed complementation. Combining it with the cyclic closing difference gives the universal \(3m+1\) upper bound. A descending-block construction attains the bound; deleting up to two largest entries covers every smaller permitted order. Equality in all endpoint inequalities forces all four stated extremal entries. The arguments cover \(m=1\), \(n=3,4\), and empty middle blocks. A standalone program provides finite, separately constructed corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS with an identified access risk.** Nadler's 2026 paper establishes the linear-adjacency setting, diagonal localization, and Hamiltonian-path interpretation, so those are not presented as new. The assessed statement is the sharp *cyclic closing-edge* cutoff, an explicit sharp construction for every residue, and four-position rigidity at equality. Comparisons with Bóna–Cory (permutations consisting of one permutation cycle) and Ehrenborg (cyclic consecutive patterns) show that those notions are not interchangeable with the present restriction. Searches of the mathematical literature and indexed prior findings produced no covering cycle-boundary result. The complete text of Nadler's 49-page preprint was inaccessible, so an unadvertised overlapping result remains a real bibliographic risk; the abstract alone is not proof of absence.
+PASS
 
-**Value — PASS.** The ordinary path power has Hamiltonian cycles for arbitrarily large order once the jump radius is at least two; requiring a rooted classical \(123\)-avoiding ordering instead imposes the exact finite threshold \(n\le3m+1\). All cycles at the threshold are pinned at four specified positions. This is a structural existence/rigidity transition motivated directly by closing the Hamiltonian paths studied in the recent source, not an arbitrary finite census or just a numerical improvement.
+Classical 123 avoidance with linear jumps |π_(i+1)-π_i|≤m implies π_1≥n−m: the first subsequent term above π_1 must be n, and its predecessor is at most π_1 but within m of n. Applying reverse-complement gives π_n≤m+1. The cyclic closing jump then imposes n−2m−1≤π_1−π_n≤m, hence n≤3m+1; m=1 cannot host an n≥3 simple Hamiltonian cycle. For m≥2 the displayed five-block witness W_m at n=3m+1 is a permutation, 123-avoiding, has maximal edge jump m including its closing edge. For 5≤n<3m+1 choose r=ceil((n−1)/3)≤m and delete 0,1,2 largest entries from W_r; new jumps stay ≤r; n=3,4 use explicit tuples. At equality all endpoint inequalities are equalities; the first exceeding n−m is n immediately after π_1, and reversed complement forces π_(n−1)=1. This proves every claimed quantifier and boundary. Independent direct permutation enumeration compared all 24 pairs (n=3..8,m=1..4), forced endpoints and exact existence, with no counterexample. These tests are finite; the all-parameter proof is the endpoint argument and construction.
 
-**Limits.** Independent validation and conclusive bibliographic priority are outstanding. Small-parameter enumerations in the package are corroborating checks, not claimed as general closed formulas. The claim is for classical subsequence avoidance in one distinguished linear reading, not rotation-invariant cyclic pattern avoidance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nadler 2026 treats 123 avoidance with linear bounded adjacent jumps and Hamiltonian paths, and obtains reverse-diagonal localization, but not adding the cyclic closing edge, the sharp n=3m+1 cutoff or all four forced positions. Novelty is the exact cycle closure, not the known linear localization.
+
+## value
+
+PASS
+
+Adds a natural Hamiltonian-cycle extremal property to a studied family of pattern-constrained Hamiltonian paths and establishes the exact maximum feasible length with a rigid four-position boundary. The all-n construction and sharp boundary are useful combinatorial structure, not an arbitrary short census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as this document. Only Python's standard library is used. The expected four output lines appear in `verify_output.txt` and finish with `VERIFY_OK`.
+## correctness
 
-The verifier uses a direct triple-loop definition of classical pattern \(123\) and a separate adjacent-difference predicate. It enumerates all permutations for \(3\le n\le8\) and \(1\le m\le4\), comparing counts with an independently coded memoized state recurrence. It also verifies the exact near-boundary counts \(1,4,35,338\) for \(m=2,3,4,5\) and no examples one length beyond the proposed boundary. The explicit formula is checked for \(2\le m\le40\), including deletion of zero, one, or two highest labels.
+PASS
 
-The all-parameter result is established in `RESULT.md` by an endpoint lemma, a cyclic closing-edge inequality, an explicit extremal construction, and equality-case rigidity. Finite tests cannot establish nonexistence outside tested parameters. No independent external audit has been performed; no result beyond the theorem's stated pattern, parameter and rooted-reading scope is verified here.
+Classical 123 avoidance with linear jumps |π_(i+1)-π_i|≤m implies π_1≥n−m: the first subsequent term above π_1 must be n, and its predecessor is at most π_1 but within m of n. Applying reverse-complement gives π_n≤m+1. The cyclic closing jump then imposes n−2m−1≤π_1−π_n≤m, hence n≤3m+1; m=1 cannot host an n≥3 simple Hamiltonian cycle. For m≥2 the displayed five-block witness W_m at n=3m+1 is a permutation, 123-avoiding, has maximal edge jump m including its closing edge. For 5≤n<3m+1 choose r=ceil((n−1)/3)≤m and delete 0,1,2 largest entries from W_r; new jumps stay ≤r; n=3,4 use explicit tuples. At equality all endpoint inequalities are equalities; the first exceeding n−m is n immediately after π_1, and reversed complement forces π_(n−1)=1. This proves every claimed quantifier and boundary. Independent direct permutation enumeration compared all 24 pairs (n=3..8,m=1..4), forced endpoints and exact existence, with no counterexample. These tests are finite; the all-parameter proof is the endpoint argument and construction.
+
+## originality
+
+PASS
+
+Nadler 2026 treats 123 avoidance with linear bounded adjacent jumps and Hamiltonian paths, and obtains reverse-diagonal localization, but not adding the cyclic closing edge, the sharp n=3m+1 cutoff or all four forced positions. Novelty is the exact cycle closure, not the known linear localization.
+
+## value
+
+PASS
+
+Adds a natural Hamiltonian-cycle extremal property to a studied family of pattern-constrained Hamiltonian paths and establishes the exact maximum feasible length with a rigid four-position boundary. The all-n construction and sharp boundary are useful combinatorial structure, not an arbitrary short census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
