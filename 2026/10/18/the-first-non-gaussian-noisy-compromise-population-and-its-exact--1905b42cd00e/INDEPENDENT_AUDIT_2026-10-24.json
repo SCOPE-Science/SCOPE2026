@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<mu<1 and always-active uniformly selected pairs, the centered disagreement evolves as dʹ=(P-mu v vᵀ)d + projected selected Gaussian noise. Exact pair average loss 2t/(N-1) with t=2mu(1-mu) gives contraction and a unique finite-fourth-moment invariant. Stationary squared norm =Delta²(N-1)²/(tN), hence each coordinate variance =Delta²[(N-1)/N]²/t. For N=2 only one pair yields Gaussian AR(1); for N>=3 exchangeability would require a Gaussian covariance sigma²P, but each edge-dependent Gaussian covariance differs and selected-noise covariance has rank two rather than one on H. Strict Gaussian-mixture convexity rules out a Gaussian joint invariant. Reconstructed the N=3 norm-squared fourth recurrence, E[S²]=4Delta^4(16-11t)/(9t²(2-3t/2)), giving standardized coordinate fourth 3(16-11t)/(16-12t), positive excess and max 3/20 at mu=1/2. Independent SymPy rational-algebra recomputation agrees. Does not claim the uncentered mean is stationary or finite-confidence dynamics remain linear.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siebenmorgen–Restrepo approximate single-cluster Gaussian closure at infinite-N or negligible correlations; Acemoglu et al model stubborn opinion sources."
+        ],
+        "reasoning": "The same update rule’s prior paper does not imply an exact finite-population stationary fourth moment; difference is a quantitative correction and minimal non-Gaussian threshold, not a contradiction of the approximation.",
+        "searches": [
+          "noisy randomized pairwise compromise opinion stochastic gossip Gaussian shocks stationary covariance nonGaussian distribution N=3 exact kurtosis",
+          "https://arxiv.org/html/2605.21844v1",
+          "arxiv:1009.2653"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1009.2653",
+        "https://arxiv.org/html/2605.21844v1",
+        "https://stanford.edu/~boyd/papers/gossip.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Gaussian representative-agent variance ignores finite correlations; it is not the stationary coordinate variance of selected-noise centered N-agent chain.",
+          "Stubborn-agent models fix boundary opinions; Boyd et al convergence omits fresh Gaussian innovations."
+        ],
+        "reasoning": "Neither prior approximation nor different gossip/noise assumptions implies the exact fourth moment or N=3 boundary.",
+        "searches": [
+          "noisy randomized pairwise compromise opinion stochastic gossip Gaussian shocks stationary covariance nonGaussian distribution N=3 exact kurtosis",
+          "arxiv:2605.21844v1",
+          "arxiv:1009.2653",
+          "https://stanford.edu/~boyd/papers/gossip.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered-state Markov chain is a selected-edge random affine recursion; the Gaussian-mixture stationary fixed-point criterion is equivalent to equality of conditional Gaussian covariances."
+        ],
+        "reasoning": "Generic stochastic gossip/Gaussian-mixture formulations were considered, but no inspected antecedent supplies this exact selected-two-agent noise model’s N=3 kurtosis.",
+        "searches": [
+          "noisy randomized pairwise compromise opinion stochastic gossip Gaussian shocks stationary covariance nonGaussian distribution N=3 exact kurtosis",
+          "arxiv:2605.21844v1",
+          "arxiv:1009.2653"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Model-specific fourth moment 3(16-11t)/(16-12t) and N-specific factor [(N-1)/N]^2 not found as exact entries in inspected material."
+        ],
+        "reasoning": "No located exact table for this selected-pair Gaussian-shock model; no inference of novelty solely from negative search.",
+        "searches": [
+          "noisy randomized pairwise compromise opinion stochastic gossip Gaussian shocks stationary covariance nonGaussian distribution N=3 exact kurtosis",
+          "Resultary semantic search query #2",
+          "https://arxiv.org/html/2605.21844v1"
+        ]
+      },
+      "rationale": "Siebenmorgen–Restrepo derive an approximate Gaussian representative-agent variance for their state-dependent bounded-confidence utility model. They do not establish the exact stationary centered finite-N law for the neutral always-interacting specialization; the N-dependent variance correction and smallest N=3 non-Gaussian fourth moment are stricter model-specific facts. Fixed-stubborn-agent gossip and noiseless consensus address different transition mechanisms.",
+      "residual_risks": [
+        "General random-affine-recursion or noisy-gossip literature may already contain the selected-edge N=3 kurtosis under equivalent variables; searched sources not exhaustive.",
+        "Full papers for other gossip models were not inspected beyond abstracts/overviews."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR MODEL NOT EXACT FINITE-N RESULT",
+          "evidence": [
+            "Gaussian closure ignores finite-population correlations; exact selected-pair stationary centered kurtosis not established there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.21844v1",
+          "material_read": "Full accessible HTML main text and supplementary appendices D–F including equations (1), (10)–(15) and approximation premises.",
+          "method": "Read primary full HTML",
+          "title": "A Utility-Driven Bounded-Confidence Model for Opinion Dynamics",
+          "trigger": "Same underlying microscopic pair update and Gaussian single-cluster approximation"
+        },
+        {
+          "assessment": "PARTIAL DIFFERENT MODEL",
+          "evidence": [
+            "Stubborn agents rather than independent additive Gaussian shocks attached only to sampled pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2653",
+          "material_read": "Abstract and model summary available; full paper not read.",
+          "method": "Abstract/bibliography",
+          "title": "Opinion Fluctuations and Disagreement in Social Networks",
+          "trigger": "Stochastic persistent opinion noise and invariant beliefs"
+        },
+        {
+          "assessment": "PARTIAL DIFFERENT NOISE ASSUMPTION",
+          "evidence": [
+            "Noiseless consensus convergence, so no finite-noise stationary fourth moment."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/gossip.html",
+          "material_read": "Accessible summary and model scope; full original 2006 paper not read.",
+          "method": "Abstract/overview",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Baseline randomized pairwise consensus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gaussian representative-agent closure is a concrete modelling approximation; identifying the smallest population where it fails and quantifying excess kurtosis alongside the exact finite-size variance is an independently meaningful boundary for stochastic opinion dynamics, not just a Gaussian-mixture textbook example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1009.2653",
+    "https://arxiv.org/html/2605.21844v1",
+    "https://stanford.edu/~boyd/papers/gossip.html"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General random-affine-recursion or noisy-gossip literature may already contain the selected-edge N=3 kurtosis under equivalent variables; searched sources not exhaustive.",
+    "Full papers for other gossip models were not inspected beyond abstracts/overviews.",
+    "Administrative publication plan is not_ready because sanitized guarded public-file replacements were not supplied; scientific assessment alone does not change repository or certify publication."
+  ],
+  "schema_version": 1
+}
