@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The line-restriction identity is exact for every rational line and every odd prime power. Its Frobenius factor vanishes simply at each rational point; its residual quadratic cannot vanish identically by the exhaustive diagonal-rank argument. Tangency multiplicities are therefore controlled by a genuine binary quadratic. Cauchy–Binet identifies its discriminant with the displayed quartic up to a nonzero square, and double-counting rational tangent incidences proves all cardinality formulas. Seven direct finite-prime-field tangent maps independently agree with the quartic, and three-chart exact Gröbner bases certify the seven illustrated quartics' smoothness. No finite computation is used as the uniform proof. The Hasse bounds explicitly require companion-quartic smoothness; geometric smoothness of the original plane-filling curve is neither assumed nor asserted.
+## correctness
 
-## Originality — PASS
-The 2023 motivating source provides the rational-smoothness criterion and exclusion of rational line components, but it does not identify or count the quartic discriminant, flexes, rational bitangents, or their Hasse bounds. The related 2023 tangent-filling paper treats a different covering property and does not compute the same family. Searches of mathematical research records for the defining family, residual binary quadratic, Klein specialization, flexes, bitangents, dual discriminants, and equivalent genus-three counts identified no statement whose hypotheses imply this exact classification. The previously recorded rational node/cusp stratification for this family concerns singularity local types, not tangent fibers of the rationally smooth members. Residual risks include differently presented classical Frobenius-curve results and incomplete bibliographic coverage.
+PASS
 
-## Value — PASS
-This gives a structural reduction of rational-tangent incidence on a natural high-degree curve, whose degree grows with \(q\), to point counting on a fixed-degree genus-three curve. The reduction gives exact counts for three distinct line-tangent types for every qualifying finite field and nontrivial square-root error for smooth quartics. It supplies a natural and reusable arithmetic invariant, not an arbitrary finite census or a restatement of rational smoothness.
+For rational line L with F_q basis U,V, each Frobenius binomial restricts to its corresponding cross-product coefficient times (s^q t−s t^q). This factors curve|_L as a product of a simple rational-point factor and Q_L, the restriction of (c+kb)X²+aY²+bZ². Q_L is not identically zero: a rank-three ternary quadratic has no 2-plane totally isotropic; rank-two such a plane must contain its radical axis, which fails for L in each parameter case; rank-one gives a nonzero square. Consequently 0,1,2 rational roots of nonzero binary Q correspond respectively to 0 tangencies, a double rational flex of exact contact three, or two rational tangencies. In odd characteristic its discriminant equals −4λ²(a³b+b³c+ac³+k(b⁴+abc²)) via the adjugate identity. Counting each rational point’s unique tangent gives 2B+F=N and counting rational lines gives zero-tangent count E=B, with F=#D_k(F_q), N=q²+q+1. For smooth quartic genus 3 gives Hasse |F−(q+1)|≤6√q, |B−q²/2|≤3√q. Fresh independent direct tangent-gradient tests for five prime fields q=3,5,7,11,13 exactly match quartic F and B. Minor proof typo: the rank-one γ-only line is Y−kZ=0 (source writes Y+kZ=0), but Q_L=bZ² still nonzero in either expression, so theorem and nonvanishing conclusion are unaffected.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Asgarli–Ghioca introduced this exact degree-(q+3) plane-filling family and its rational smoothness parameter condition; a separate paper studies tangent-filling coverage, a different incidence predicate. Neither mathematically read source supplies its dual quartic discriminant and exact flex/bitangent counts. Standard Hasse–Weil and adjugate algebra are acknowledged inputs. No equal or stronger targeted result appeared in Resultary’s high-level matches; classical dual-curve equivalents remain priority risk.
+
+## value
+
+PASS
+
+The result reduces rational tangent fibers of a high-degree Frobenius plane-filling curve uniformly in q to rational points of a fixed quartic (genus three when smooth), yielding exact three-type incidence census and square-root errors. This is a natural structural arithmetic-geometric bridge rather than an arbitrary finite table or mere restatement of smoothness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
