@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:10:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md c7e3b221b463e7b4fc603f39f749999f53d78e81",
+        "NIST DLMF 10.21 Bessel zeros",
+        "local independent_checks.py R2"
+      ],
+      "rationale": "The operator kernel 1_{t<=x^alpha} is Hilbert–Schmidt; K=T* T has kernel 1-max(s,t)^{1/alpha}. Its eigenvalue equation differentiates to u_doubleprime+(1-gamma)u_prime/t+(gamma/lambda)t^{gamma-1}u=0 with u(1)=0 and t^(1-gamma)u_prime(t)->0, gamma=1/alpha. The Bessel basis t^(gamma/2)J_{+-gamma/(gamma+1)}(z t^((gamma+1)/2)) shows weighted-derivative endpoint selects J_{-gamma/(gamma+1)}; at t=1 its positive simple zeros give s_n=2 sqrt(alpha)/((1+alpha)j_{-1/(1+alpha),n}). Converse integration of boundary ODE eliminates spurious solutions, compact injectivity completes spectrum. Trace integrations produce moments 1/(1+alpha), 1/((1+alpha)(1+2alpha)); fixed-order zeros give n*s_n. Near alpha=0 the first Bessel zero escapes to zero, others tend to j_{1,k}; Rayleigh sum and dominated tail lead s1=1-3alpha/4+o(alpha), tail HS 1/2; alpha->inf yields j_{0,k}. Independent alpha=1 Volterra singular values and moments and 21 alpha=2 Bessel roots checked; not a general proof.",
+      "residual_risks": [
+        "Boundary limits are fixed rank only, not uniform in growing n.",
+        "Bessel-zero interpolation and finite partial moment computation do not prove spectrum; the ODE/converse provide the general argument.",
+        "No independent rehash of full assigned Git tree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tuan–Gorenflo title/abstract concerns asymptotics of weighted integration",
+          "DLMF §10.21 standard zero theory"
+        ],
+        "reasoning": "General weighted Volterra singular-value asymptotics and classical Bessel zero identities explain the n^-1 scale, but do not by the inspected statements give the entire spectrum and both alpha boundary layers of this substitution operator. A time-changed Brownian covariance classification may exist and remains a substantive bibliographic risk.",
+        "searches": [
+          "power substituted Volterra operator integral zero to x^alpha singular values Bessel zeros L2 rank one boundary",
+          "doi:10.1080/01630569608816704",
+          "https://dlmf.nist.gov/10.21"
+        ]
+      },
+      "checked_sources": [
+        "power substituted Volterra operator integral zero to x^alpha singular values Bessel zeros L2 rank one boundary",
+        "https://impan.pl/shop/en/publication/transaction/download/product/85864",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/90072"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary eigenvalues (1-alpha) alpha^(n-1) versus singular s_n~C/n",
+          "Domanov 2008 text §2 studies Fredholm determinant for eigenvalues"
+        ],
+        "reasoning": "The primary ordinary-spectral theorems do not entail the claimed singular values; generic singular asymptotics give only leading order, not Bessel quantization or alpha->0 rank-one splitting. The exact Sturm–Liouville identification is the asserted contribution, subject to older weighted-Gram literature.",
+        "searches": [
+          "power substituted Volterra operator integral zero to x^alpha singular values Bessel zeros L2 rank one boundary",
+          "doi:10.4064/bc75-0-8",
+          "doi:10.4064/sm185-1-3",
+          "doi:10.1080/01630569608816704"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Domanov 2007 proposition gives geometric point eigenvalues; 2008 paper applies Fredholm determinants to ordinary spectra"
+        ],
+        "reasoning": "Domanov studies the same T_alpha and geometric ordinary eigenvalues (alpha in (0,1)), not the singular values of T*T. The latter are harmonic and have a Bessel-zero parameter, so ordinary eigenvalue equality or shared operator notation cannot imply the spectrum.",
+        "searches": [
+          "power substituted Volterra operator integral zero to x^alpha singular values Bessel zeros L2 rank one boundary",
+          "doi:10.4064/bc75-0-8",
+          "doi:10.4064/sm185-1-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "J_{-1/(1+alpha)} zeros vary with the Volterra substitution parameter"
+        ],
+        "reasoning": "Bessel-zero tables are general special-function data and do not identify this operator spectrum or provide the operator-specific rank-one coefficients. Neither a Bessel formula nor an exact Hilbert–Schmidt trace is independently novel if previously tabulated.",
+        "searches": [
+          "power substituted Volterra operator integral zero to x^alpha singular values Bessel zeros L2 rank one boundary",
+          "NIST DLMF 10.21",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "Primary scientific comparisons concern same objects, parameters, reductions and stronger-coverage possibilities; no inspected statement decisively covers the complete final claim. Best-of-knowledge originality with explicit remaining access/priority risks.",
+      "residual_risks": [
+        "Could be a prior Bessel-singular calculation in time-changed Brownian-motion covariance or general Sturm–Liouville literature.",
+        "1996 Volterra singular-asymptotic full text not materially read; abstract-only evidence cannot justify global NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves ordinary eigenvalues and eigenvectors in 0<alpha<1, not the singular spectrum of T* T.",
+          "evidence": [
+            "Ordinary eigenvalue law (1-alpha)alpha^(n-1)"
+          ],
+          "identifier_or_url": "https://impan.pl/shop/en/publication/transaction/download/product/85864",
+          "material_read": "Complete short six-page primary article including theorem/proposition and remarks",
+          "method": "Authorized open-access primary text inspected in browser PDF/text, including indicated sections/pages",
+          "title": "On the spectrum and eigenfunctions of the operator (Vf)(x)=integral_0^{x^alpha} f(t)dt",
+          "trigger": "Exactly same nonnormal operator"
+        },
+        {
+          "assessment": "An accessible full PDF was opened and its relevant sections examined; its Fredholm determinant computes nonnormal ordinary point spectra, not all singular values.",
+          "evidence": [
+            "Section 2.2 Fredholm determinant D_K(lambda) and eigenvalue zeros"
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/90072",
+          "material_read": "Introduction, section 2 Fredholm determinant construction, and statements relevant to composition operators",
+          "method": "Authorized open-access primary text inspected in browser PDF/text, including indicated sections/pages",
+          "title": "On the spectrum of the operator which is a composition of integration and substitution",
+          "trigger": "Same operator class and possible stronger spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md c7e3b221b463e7b4fc603f39f749999f53d78e81",
+        "https://impan.pl/shop/en/publication/transaction/download/product/85864",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/90072"
+      ],
+      "rationale": "Whole singular spectrum fixes every finite-rank approximation error, Schatten boundary and singular alpha limits for a nonnormal operator whose ordinary eigenvalues are misleadingly geometric. The sharp rank-one residual profile is motivated and unavailable from the ordinary spectrum.",
+      "residual_risks": [
+        "The Bessel transform is classical; exact operator-specific identification, not novelty of Bessel identities, supplies value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
