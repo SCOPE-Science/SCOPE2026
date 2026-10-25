@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The explicit elementwise assembly yields M=ell(2D+A)/6, K=(D-A)/ell with positive definite M. A full M-orthogonal generalized eigenbasis has eigenvalues 0,3/ell^2,12/ell^2, producing exact projectors and four entry classes. All opposite-part entries are positive. Same-part entries force x>=1/(6theta) for positive times; the smallest diagonal is controlled by F_m. Its sign at the lower boundary, concavity or nonnegative coefficients, and unique root establish all theta regimes and endpoints. Independent exact-rational Gauss-Jordan versus projector replay passed 2952 cases; proof covers all p,q,theta,t in domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li-Huang arXiv:1209.5657 Theorem 3.1 only sufficient bounds; its abstract notes lower/upper restrictions, not necessity.",
+        "Jin-Lazarov-Thomée-Zhou arXiv:1510.02825 Theorem 4.3 uses Stieltjes sufficiency and concerns fractional diffusion on planar domains.",
+        "Chatzipantelidis-Horváth-Thomée DOI:10.1515/cmam-2015-0018 title/abstract only; a full-text comparison is unavailable."
+      ],
+      "reasoning": "General lower and upper sufficient conditions cannot imply a necessary-and-sufficient all-parameter phase diagram. An inaccessible plausible specialized article remains a genuine originality risk, but its available abstract does not assert the same metric network theorem.",
+      "searches": [
+        "maximum principle for the finite element solution time dependent anisotropic diffusion theta method",
+        "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "\"metric graphs\" \"finite elements\" \"positivity\" \"heat equation\" mass"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.5657 (full text selected sections and proof)",
+      "arXiv:1510.02825 (full text selected sections and proof)",
+      "DOI:10.1515/cmam-2015-0018 (abstract only; full text unavailable)",
+      "Published 2026/9/20 backward-Euler-filtered Crank–Nicolson lattice positivity (abstract only)",
+      "Prior scientific claims on periodic/Dirichlet one-dimensional meshes and metric trees compared for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li-Huang arXiv:1209.5657 Theorem 3.1 states sufficient two-sided time-step bounds; for the current equilateral graph, imposing nonnegativity of the step numerator alone gives t <= ell²/[3(1-theta)], a sufficient rather than exact ceiling.",
+        "At theta=1/2 and m=2 the exact ceiling (1+sqrt(3))ell²/3 is larger than 2ell²/3.",
+        "The known K_{2,2} Crank–Nicolson special case has the same finite ceiling, expressly treated as covered.",
+        "The earlier metric-tree positivity result fixes theta=1 and says nothing about theta=1/3 isolated admissibility."
+      ],
+      "reasoning": "Neither the published sufficient conditions nor covered special cases logically entail an all-theta classification for arbitrary p,q, particularly the disappearance of any upper bound exactly when theta reaches 1-1/(2max(p,q)). This is a strictly stronger object-parameter result, although not a claim of global uniqueness of mathematical discoveries.",
+      "searches": [
+        "Li Huang Theorem 3.1 theta method DMP lower upper bounds",
+        "Jin Lazarov Thomee Zhou Theorem 4.1 4.3 positivity threshold",
+        "prior exact Crank Nicolson periodic finite element cycle 4 nodes",
+        "prior backward Euler metric trees exact positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text arXiv:1209.5657 pp. 1-8, Theorem 3.1: theta-method and DMP bounds on simplicial domains, no K_{p,q} metric graph.",
+        "Full text arXiv:1510.02825 pp. 1-2, 8-9, Theorems 4.1-4.3: subdiffusion/BE convolution quadrature, not full theta phases."
+      ],
+      "reasoning": "Projector/eigenmode formulation is equivalent to entrywise positivity of (M+theta tK)^-1(M-(1-theta)tK). General positivity threshold papers employ mass matrix resolvents but do not report the exact 0,3,12 generalized eigenspaces or three-regime biclique positivity formula.",
+      "searches": [
+        "complete bipartite metric graph consistent mass P1 finite element theta time stepping entrywise positivity exact interval threshold graph",
+        "sharp positivity window finite element theta method K p q complete bipartite consistent mass",
+        "\"complete bipartite\" \"consistent mass\" \"theta\" positivity finite element",
+        "\"theta method\" \"complete bipartite\" heat equation positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific-index searches returned no explicit exact table for the all-theta complete-bipartite consistent-mass metric-network case.",
+        "Prior documented claims concern respectively backward Euler periodic meshes, Crank–Nicolson Dirichlet intervals, Crank–Nicolson periodic cycles, and backward Euler metric trees."
+      ],
+      "reasoning": "The four-cycle Crank-Nicolson endpoint occurs as K_{2,2}, so this special case is prior-covered; the new statement instead quantifies over all complete bipartite part sizes including stars and the entire theta parameter with its one-point and half-line transitions. No known table contains that all-parameter object.",
+      "searches": [
+        "mass stiffness matrices for bipartite graphs finite element theta maximum principle upper lower timestep exact",
+        "discrete maximum principle for heat equation on complete bipartite metric networks exact theta method",
+        "\"bipartite\" \"time step\" \"finite element\" \"positivity\" \"mass\""
+      ]
+    },
+    "rationale": "No accessible prior source or indexed mathematical record located that implies the complete all-theta equilateral K_{p,q} consistent-mass positivity classification. Li-Huang gives sufficient graph-independent mesh bounds, while Jin et al. discuss distinct time-discrete models. Own prior special cases concern backward Euler on trees/periodic meshes and Crank-Nicolson on interval/cycle meshes; K_{2,2} theta=1/2 is acknowledged as covered special case. Residual coverage uncertainty is explicit.",
+    "residual_risks": [
+      "The detailed 2015 Chatzipantelidis–Horváth–Thomée positivity article could not be compared beyond abstract because lawful full-text access did not succeed.",
+      "A specialization hidden in another general theorem not surfaced by semantic queries remains possible; search incompleteness is not novelty proof.",
+      "The K_{2,2} Crank–Nicolson special case is already known within accessible historical records, and is not individually new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General sufficient mesh and step-size bounds for Dirichlet simplicial domains; no exact Kpq Kirchhoff network classification",
+        "evidence": [
+          "Theorem 3.1 on PDF p.8 states explicit sufficient lower and upper bounds; Sec. 2 sets Dirichlet PDE on polygonal/polyhedral domain."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Full source text inspected: introduction, finite-element matrix assembly, Section 3 and Theorem 3.1 with proof, conclusion location; page images 1 and 8 inspected.",
+        "method": "arXiv open access PDF, text and page-image inspection",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Closest exact theta-method conventional finite-element DMP reference"
+      },
+      {
+        "assessment": "Small-time nonnegativity obstruction and Stieltjes-based sufficient conditions in fractional/ordinary subdiffusion on domains, not the all-theta metric biclique step.",
+        "evidence": [
+          "Theorem 4.1 proves a small-step failure; Theorem 4.3 gives a sufficient threshold for BE-based convolution quadrature."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+        "material_read": "Full source text inspected: introduction/model; Theorems 4.1, 4.2, 4.3 and proofs; page images 1 and 9 inspected.",
+        "method": "arXiv open access PDF, text and page-image inspection",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Related full-text paper by Thomée and coauthors on consistent-mass positivity thresholds"
+      },
+      {
+        "assessment": "Unresolved specialized literature risk; no claim of NOT_COVERING from abstract alone.",
+        "evidence": [
+          "Available description treats homogeneous Dirichlet FE heat equations; detailed results not checked."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+        "material_read": "Abstract and bibliographic record only; arXiv and lawful open-access searches did not yield full text; available institutional access did not supply the paper.",
+        "method": "abstract and bibliographic source; attempted lawful full-text access",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Plausible related heat-equation positivity classification"
+      },
+      {
+        "assessment": "Different composition C^k R^m for ordinary lattice operators; does not on its stated abstract imply the consistent-mass all-theta Kpq formula.",
+        "evidence": [
+          "Indexed result gives a composite BE-filtered CN positivity theorem on infinite/periodic 1D lattices."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Indexed title and scientific abstract only; full source not accessible via available web route.",
+        "method": "Published mathematical-summary record and attempted GitHub full-source opening",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson",
+        "trigger": "Closest relevant published mathematical finding in targeted literature search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0eb4f2e3-0fa5-443b-91c1-7eb4ed0ac153",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity preservation is an essential discrete maximum-principle property on branched wire networks. Exact design guidance identifies a previously nontrivial isolated admissible step at theta=1/3, a sharp all-theta finite-window/half-line transition at theta=1-1/(2max(p,q)), and a computable exact finite upper CFL root depending only on the larger part size. This explains why general coefficientwise sufficient restrictions can be conservative and relates a natural network invariant to numerical method admissibility; it is not a named-parameter substitution or a one-off sample.",
+    "status": "PASS"
+  }
+}
