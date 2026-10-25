@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The row and column maxima of any finite-chain reflexive/transitive two-confluence relation satisfy monotonicity, extensivity and idempotence. For every pair of chain closure maps, the possible-edge relation is proved transitive by closure identities and contains all endpoint generators, so the reflexive transitive closure of those generators and the possible-edge relation give sharp lower/upper realizations. The local iff criterion is proved by identifying same-fibre edges and showing, case by case, how allowed intermediate points factor through shared closure endpoints; conversely a forbidden pattern creates an edge that cannot occur even in a transitive path of generators. The four-state transition matrix proves the count. A bundled standard-library checker exhausts original quantified axioms through four worlds and performs independent endpoint and reconstruction checks through eight. Limit: finite tests are not proofs of the quantified theorem.
+## correctness
 
-**Originality — PASS, with residual risks.** The closest accessible result, *Maxima normal form and exact census for chain birelational relations*, proves monotonic extrema for **unrestricted** binary relations and counts independently optional edges. It does not claim idempotent closure-operator pairs for preorders, transitively closed lower envelopes, the local unique-reconstruction iff or the \(4\cdot3^{n-2}\) count. The separate finite-chain KI row-minimum/row-maximum census and an upward-flat Heyting–Lewis Bell-number census concern different semantic conditions. Full content of the cited constructive S4 frame paper was examined at Definitions 7–8 and neighboring exposition; only an abstract of the 2026 motivating paper was accessible. Targeted indexed mathematical and bibliographical queries found no dominating equivalent. Residual risks: unindexed order-relation combinatorics and undiscovered coverage in the unavailable motivating manuscript.
+PASS
 
-**Value — PASS.** A bi-preorder is a basic semantic object for IS4; the two closure maps are natural directly observable boundary invariants of its accessibility relation. Exact reconstruction answers how much these invariants determine, via a pair of canonical extremal frames, a sharp local obstruction and a nontrivial exponential exact census. A general finite-model theorem neither determines these reconstruction fibres nor supplies their identifiability threshold. The theorem does not assert a closed count for all frames.
+For any reflexive/transitive IS4 relation on C_n, forth-up and back-up are respectively monotonic row and column maxima, and transitivity forces h(h(i))=h(i), b(b(j))=b(j); both are extensive closure maps. Conversely for any closure pair the possible relation U: j<=h(i), i<=b(j) is reflexive/transitive via idempotence and contains forced generators i→h(i), b(j)→j. Their transitive closure L has exact maxima, so all transitive intermediates L⊆R⊆U are valid frames. On a chain an upward U edge is within an h-fibre and downward within a b-fibre; failure of factorization occurs iff one of the two adjacent-bit forbidden patterns. The surviving four-symbol words count 4*3^(n-2) (n≥2), with Q1=1. Independently enumerated all paired closure maps through n=5, verified L,U and uniqueness iff, counts 1,4,12,36,108; no extrapolation from n<=5.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full nearest Resultary maxima normal form classifies monotone row/column maxima for arbitrary relations, with independent optional edges; the IS4 preorder adds idempotent closure maps and a transitive lower closure that constrains previously optional edges. Balbiani et al. define general IS4 modal axioms, not sharp chain uniqueness. The unavailable full Girlando manuscript is a real residual coverage risk rather than an automatic failure.
+
+## value
+
+PASS
+
+The row and column extremal maps are canonical observables of any finite-chain IS4 preorder. The theorem determines which pairs occur, canonical extremal realizations, when the observables reconstruct the full relation, and a sharp exponential census—useful structural information not provided by existence or finite-model decidability alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
