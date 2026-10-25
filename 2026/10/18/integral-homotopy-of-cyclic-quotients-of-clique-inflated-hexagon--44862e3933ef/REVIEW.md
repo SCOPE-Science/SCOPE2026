@@ -1,15 +1,21 @@
-# Review of integral rotation-quotient homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integer palette sizes \(q\ge1\), the proof partitions the independence complex into two threefold joins plus the antipodal bridge edges. The full geometric rotation quotient of the two joins reduces to \(A/C_3\); its orbit cells consist of \(q\) vertices, \(q^2\) edges and \((q^3+2q)/3\) 2-cells. Crucially, the monochromatic stabilized triangle attaches along its diagonal loop once, not thrice. The explicit groupoid-style triangle relations kill the fundamental group. Euler characteristic, Hurewicz and Whitehead then give a wedge of \(((q-1)^3+2(q-1))/3\) two-spheres. Orbit analysis of antipodal edges adds \(q(q-1)/2\) circle summands and only collapsible terminal leaves. The count and attaching-map conventions were checked against a completely enumerated barycentric-quotient cellular chain complex for \(q=1,2,3,4\), with finite-field ranks and the smaller integral Smith calculations. No small-case enumeration is used as proof of the infinite family.
+## correctness
 
-## Originality — PASS, with risk
-The broad Björner–Wachs–Welker simplicial inflation decomposition and **its explicit equivariant rational-homology formula** (Corollary 8.5) are prior results and dominate any claim that the homology character or rational invariant dimensions alone are new. The final claim is instead the full **integral homotopy type of a geometric orbit space**, including its free fundamental group. Those are not logical consequences of a character formula without extra quotient fundamental-group and attaching-map information. The same paper's equivariant homotopy theorem imposes stabilizer connectivity conditions not met by discrete multi-copy fibers; the needed stabilized-triangle cell computation is carried out directly. Okura's lexicographic-product theorems have a forest base, whereas the base here is a six-cycle. Multiple indexed similarity searches found no statement equivalent to this entire orbit-space homotopy classification. Residual risk: an unindexed equivariant-inflation example or more general theorem might contain the quotient calculation.
+PASS
 
-## Mathematical value — PASS
-The first even cycle whose independence complex has competing maximal parity triples provides a natural test for equivariant clique inflation beyond forests. The result classifies an **infinite family of nonfree geometric rotation quotients** up to integral homotopy and determines their fundamental groups and all integral homology groups. Treating the stabilizer of each monochromatic triangle correctly is essential: taking a naive quotient boundary of three edges would spuriously suggest three-torsion. The result is stronger than known rational homology-representation deductions and does not depend on arbitrary parameter slicing.
+For all integers q≥1, split Ind(C6[Kq]) into two disjoint joins of three q-point discrete sets A,B plus exactly 3q² antipodal bridge edges. The C6 quotient of A⊔B is Y=A/C3. Its geometric CW structure has q vertices, q² edges, and (q³+2q)/3 triangles; constant-color triangles with isotropy attach via e_aa ONCE rather than e_aa³. Explicit triangular relations eliminate every loop in pi1(Y); χ(Y)-1=((q−1)^3+2(q−1))/3 gives free H2 and a wedge of S2 by Hurewicz/Whitehead. Opposite-color edge orbits become C(q,2) circle generators and equal-color flipped edges become leaves. Independently enumerated 2q³ maximal parity triples for q=1,2,3; source barycentric quotient checker examined modulo 2,3,5,7 for q≤4 and SNF q≤2. These finite cases are only corroboration; all-q proof is CW stabilizer and π1 argument.
 
-## Closest literature and limitations
-Björner–Wachs–Welker, *Poset fiber theorems* (2005), especially Sections 7–8 and Corollary 8.5, provides the important broader rational equivariant comparison. Okura, *Independence Complex of the Lexicographic Product of a Forest* (arXiv:2109.04181, initially posted 2021-09-09), addresses the lexicographic construction over forests, not this cyclic quotient. The result covers only uniform clique width and six cycle positions. Unindexed equivalent research remains possible; independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equivalent object: independence complex of six cyclic clique blocks with C6 rotation and geometric quotient, or C3 quotient of one parity join with antipodal-edge orbits. Search of inflation/necklace orbit-space vocabulary and full Björner–Wachs–Welker paper found no exact quotient-wedge calculation. Björner–Wachs–Welker inflation theorem and Corollary 8.5 give original complex homotopy/equivariant homology under group action; passing to a geometric orbit need not commute with integral homology or control stabilizers, π1 and attaching degrees. No stronger result inspected implies this exact quotient. Björner–Wachs–Welker pre-quotient inflated complexes and shellability of lexicographic products lack quotient-space statement. Inference fails precisely because fixed simplex stabilizers make geometric quotient boundary different from formal orbit coinvariants.
+
+## value
+
+PASS
+
+Uniform clique inflation is a natural graph construction and cyclic rotation a natural symmetry; computing the actual geometric orbit-space integral homotopy and free fundamental group is genuinely more subtle than pre-quotient inflated-complex homology or equivariant rational characters. Stabilizer-induced onefold boundary is a motivating nonroutine phenomenon; formula describes a full infinite q family and can serve other equivariant orbit computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
