@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "The R-encoding is explicitly specified, including all loops, layers, markers, and data edges; the root test and bit test are valid on each tag. The precisely (t+2)-edge path with loop-free internals recovers each S_i. A nested chain with rebinding uses only three variable names and has O(t) size. For each CoR circuit gate the M^2 tag blocks lift Boolean/complement/converse exactly; the identity for relational composition gives at most M^3 new composition gates per old gate. The resulting circuit computes Uezato Φ_k on every finite base structure, so his Theorem 1.3 gives the claimed \\(2^{k-1}/M_k^3\\) bound. Executed finite checker gave 640 agreement checks; no finite test substitutes for the argument or the cited source theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.3 is stronger in exponent but weaker in signature restriction; Remark 4.1 leaves fixed-signature exponential behavior open.",
+        "published-finding corpus ID 2026/9/20/SCOPE-fixed-hidden-alphabet-finite-projection-blowup--b068c755f7ab treats language projection, not arbitrary CoR composition-gate cost."
+      ],
+      "reasoning": "The growing-signature 2^(k-1) bound does not cover one binary symbol by statement or an immediate specialization, because identifying the inputs changes the hard formula. A fixed-hidden-alphabet finite-language projection result cannot yield a first-order versus relational-circuit bound, absent a reduction that controls composition gates; none was identified.",
+      "searches": [
+        "encode many binary relations into one binary relation using logarithmic-length labeled paths preserving relation algebra circuit size block matrix",
+        "fixed signature polynomial blow-up encoding relational circuits variable finite predicates FO3 near-exponential gap",
+        "An Exponential Succinctness Gap between Three-Variable Logic and the Calculus of Relations fixed vocabulary remark 4.1",
+        "Uezato arXiv:2609.26778v1 Theorem 1.3 Remark 4.1"
+      ]
+    },
+    "checked_sources": [
+      "Uezato, arXiv:2609.26778v1 (full-text excerpts incl. Theorem 1.3 and Remark 4.1)",
+      "AMS MSC2020 entry 03B10",
+      "published-finding corpus 2026/9/20/SCOPE-fixed-hidden-alphabet-finite-projection-blowup--b068c755f7ab (search result summary, not full text)",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-three-universal-cutoff-for-bernays-sch-nfinkel-triple-syst--6226309b0668 (search result summary, not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original formula Φ_k over 2k independent binary symbols, arXiv:2609.26778v1 pp. 2-3; fixed-signature caveat p. 23.",
+        "Block identity (G;H)_{uv}=union_w G_{uw};H_{wv} and one-relation tagged gadget are separately reconstructed and verified."
+      ],
+      "reasoning": "The new result follows from the published lower bound only after adding two nontrivial quantified implications: explicit O(log k)-size 3-variable interpretations of each symbol in one graph and an arbitrary-circuit M^3 block lifting which preserves composition gate counts under complement and sharing. The source does not supply these reductions or the stated bound; the full fixed-signature exponential conjecture still does not follow.",
+      "searches": [
+        "arXiv:2609.26778 Theorem 1.3, Section 4.2 and Remark 4.1",
+        "fixed signature polynomial blow-up encoding relational circuits variable finite predicates FO3 near-exponential gap",
+        "An Exponential Succinctness Gap between Three-Variable Logic and the Calculus of Relations fixed vocabulary remark 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uezato (2026), Theorem 1.3 and Remark 4.1, arXiv:2609.26778v1; original lower bound requires 2k symbols."
+      ],
+      "reasoning": "The proposed statement is a quantitative fixed-binary-vocabulary CoR circuit lower bound. A generic graph interpretation alone does not imply it: both 3-variable definability and composition-gate simulation with a polynomial overhead are indispensable. Neither the source theorem nor the closest returned published-finding corpus summaries established that conjunction.",
+      "searches": [
+        "FO3 calculus of relations single binary relation fixed vocabulary almost exponential lower bound 2^{Omega(n/log n)} circuit succinctness",
+        "Yuya Uezato 2026 FO3 CoR succinctness gap fixed vocabulary one relation logarithmic code near exponential",
+        "almost exponential succinctness gap fixed binary relation FO3 calculus relations",
+        "published-finding corpus: semantic search fixed binary relation three-variable logic relational circuits"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest thematic published-finding corpus ID 2026/9/20/SCOPE-fixed-hidden-alphabet-finite-projection-blowup--b068c755f7ab, a distinct finite-language projection problem.",
+        "Closest foundations published-finding corpus ID 2026/10/4/SCOPE-sharp-three-universal-cutoff-for-bernays-sch-nfinkel-triple-syst--6226309b0668 is a finite-spectrum model-size bound."
+      ],
+      "reasoning": "No exact tabulation is at issue: the infinite lower bound is a uniform asymptotic theorem. Actual published-finding corpus searches found no matching published fixed-signature FO3/CoR composition-gate lower bound, but incompleteness of semantic retrieval is acknowledged.",
+      "searches": [
+        "published-finding corpus: FO3 calculus of relations single binary relation fixed vocabulary almost exponential lower bound 2^{Omega(n/log n)} circuit succinctness",
+        "published-finding corpus: encode many binary relations into one binary relation using logarithmic-length labeled paths preserving relation algebra circuit size block matrix",
+        "published-finding corpus: Yuya Uezato 2026 FO3 CoR succinctness gap fixed vocabulary one relation logarithmic code near exponential"
+      ]
+    },
+    "rationale": "The inspected primary source expressly distinguishes growing from fixed vocabularies and leaves the fully exponential fixed-vocabulary question open (Remark 4.1). The independently constructed bit-labeled FO3 interpretation and arbitrary CoR-circuit block lifting yield a quantitative near-exponential one-symbol bound. Actual published-finding corpus and primary literature searches found no claim implying this precise restricted-signature bound. General gadget coding is prior technique; claims of absolute novelty or of solving the full open problem are expressly not made. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "General graph interpretation or relational-circuit block simulation ideas might imply an equivalent bound in older terminology not recovered by searches.",
+      "published-finding corpus semantic retrieval is not a completeness certificate; only the named and materially-read source was checked at theorem level.",
+      "The published source Theorem 1.3 is used as an accepted mathematical input, not re-proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.3 covers 2k independent binary inputs and supplies a \\(2^{k-1}\\) composition-gate lower bound for arbitrary shared CoR circuits over finite inputs; Remark 4.1 does not give this one-symbol near-exponential reduction and leaves the stronger full exponential fixed-vocabulary claim open.",
+        "evidence": [
+          "arXiv:2609.26778v1, Theorem 1.3 (pp. 2-3); Remark 4.1 (p. 23)",
+          "https://arxiv.org/abs/2609.26778"
+        ],
+        "identifier_or_url": "arXiv:2609.26778v1",
+        "material_read": "Abstract, introduction and main theorem (PDF pp. 1-3), relevant proof mechanism/technical sections, and Remark 4.1 (PDF p. 23); not a whole-document originality certification.",
+        "method": "Accessible first-version PDF text, rendered pages 2-3, and primary arXiv HTML cross-check.",
+        "title": "An Exponential Succinctness Gap between Three-Variable Logic and the Calculus of Relations",
+        "trigger": "Theorem 1.3 and Remark 4.1 explicitly distinguish arbitrary growing signatures from fixed signatures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33c46a34-3c34-4e92-955a-3d83216f523b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recently proved optimal exponential FO3/CoR gap explicitly did not resolve its one-symbol signature restriction. This quantified \\(2^{\\Omega(s/\\log s)}\\) bound addresses the same fixed-signature research gap while controlling circuit DAG reuse and free Boolean/complement/converse gates. The algebraic block lifting is structural and allows future attempts to remove the logarithmic coding overhead; it is more than a fixed small example or table and does not overclaim the full exponential result.",
+    "status": "PASS"
+  }
+}
