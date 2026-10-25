@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the precise unweighted Bergman and monomial slant normalization, the normalized basis calculation makes \(W-\sqrt2J\) compact. Compact support of a continuous vanishing-boundary Toeplitz symbol gives a Hilbert--Schmidt cutoff approximation. Bergman shifts converge to unilateral shifts on each fixed diagonal, so a trigonometric boundary polynomial reduces modulo compacts to a two-input Hardy Toeplitz row. Compression bounds its norm above by the supremum of its row Fourier symbol, while weakly-null long plane-wave packets give the matching essential lower bound. The antipodal parallelogram identity is exact, and uniform approximation extends to all continuous symbols. The finite verifier independently checks coefficient and polyphase identities, not the infinite proof.
+## correctness
 
-## Originality — PASS (residual literature risk)
-The exact antipodal essential-norm formula was not found in multiple semantic searches of published published-finding corpus and textual literature. Full relevant passages of the October 2026 Cui--Li--Lu article (definition and commutation theorems) and the July 2025 Singh--Singh--Singh article (normalization and spectrum/compactness section) were inspected. Both study slant Toeplitz operators, but neither inspected treatment states an equivalent essential-norm formula; the latter uses a different normalization. Standard unilateral Laurent Toeplitz theory supplies a proof tool, not a prior assertion concerning this Bergman slant operator. The 1996 Ho paper and possible older essential-norm results remain uninspected and constitute residual originality risk; semantic search alone does not establish absolute novelty.
+PASS
 
-## Value — PASS
-The formula determines a canonical quantitative Calkin invariant for every continuous symbol in a recently active Bergman slant Toeplitz class. Its antipodal two-channel structure is not determined by the ordinary uniform boundary norm: \(\varphi(z)=1+z\) gives essential norm \(2\), while \(1+z^2\) gives \(2\sqrt2\). It also yields an exact compactness criterion and explains why a single scalar boundary symbol is inadequate. This is a motivated operator-ideal classification, not a numerical exercise.
+For unweighted Bergman A²(D) with e_n=sqrt(n+1)z^n and the *monomial* decimator W z^(2n)=z^n (zero on odd powers), W e_2n=sqrt((2n+1)/(n+1))e_n; its compact asymptote is sqrt(2)J where J is normalized even-index decimation. Symbols continuous and zero on the circle yield compact Toeplitz operators by uniform cutoff and compact interior Bergman inclusion. For each boundary Fourier mode z^k or conjugate z^k, the Bergman Toeplitz matrix differs compactly from unilateral shift S^k or S*^k, reducing to sqrt(2)J L_p modulo compacts. Even/odd coefficient splitting gives a row of two unilateral Laurent Toeplitz blocks with symbols a(zeta)=sum_r c_(2r)zeta^r, b(zeta)=sum_r c_(2r+1)zeta^(r+1); the row Calkin norm equals sup_zeta sqrt(|a|²+|b|²), by bilateral compression upper bound and weakly-null long plane-wave packets lower bound. The antipodal parallelogram identity yields ||B_phi||_e=max_{|eta|=1}sqrt(|phi(eta)|²+|phi(-eta)|²). Trigonometric approximation and Poisson extension extend to all continuous closed-disk symbols; compact iff boundary values vanish. Independent monomial/polyphase identities and unit-circle grid tests give 2 for 1+z and 2sqrt(2) for 1+z², plus 101 antipodal Fourier checks, but finite data alone do not establish the Calkin formula.
 
-## Closest literature, scope, and risk
-The closest primary source arXiv:2610.09728v1 treats commutators and zero products. arXiv:2507.06546v1 treats related normalized slant operators and spectra. The older Ho (1996) manuscript was not read in full; an equivalent formulation there or in related Hardy polyphase literature is a residual risk. The present theorem is restricted to symbols continuous on the closed disk and to the explicitly defined monomial slant map. Independent external audit remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct exact essential norm in canonical unweighted Bergman monomial-slant normalization for every continuous symbol has not been identified in the inspected modern slant-operator papers or semantic published records. Classical Hardy/bilateral slant Toeplitz results may underlie the row formula, and old Ho work treats norms and essential spectra; an unverified older polyphase norm theorem could imply much of the result via compact Bergman-to-Hardy transfer. This remains a concrete historical overlap risk, not a fabricated global uniqueness claim.
+
+## value
+
+PASS
+
+An exact Calkin/essential norm for a canonical operator family is a motivated quantitative operator-theoretic invariant. The antipodal two-channel interaction and compactness criterion distinguish it from a naive boundary sup norm; the result gives a complete classwise formula for continuous symbols and the precise monomial-slant convention, beyond checking a few symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
