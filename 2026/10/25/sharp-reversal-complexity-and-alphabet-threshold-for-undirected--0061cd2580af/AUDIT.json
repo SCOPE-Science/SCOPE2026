@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Stepwise proof: involutive-letter reverse-subset construction is DUFA, group transitivity distinguishes distinct subsets, orbit-stabilizer gives exact complexity; explicit three involutions generate S_n; subgroup of two involutions is cyclic-by-two and transitive order <=2n; for n4 orbit six cannot divide order4/8, for n5 all pairs have a reflection stabilizer; n>=6 central binomial exceeds 2n. The actual embedded verifier independently checks 36 n,m configurations, 118080 words and 159 exhaustive transitive binary pairs. No finite-to-infinite inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hospodár–Mlynárčik 2020, DOI 10.1007/978-3-030-48516-0_10, author-uploaded full text at researchgate.net/publication/341627890_Operations_on_Permutation_Automata, Lemmas 6,7 and Theorems 8,11: PFA closure and binomial bound, binary sharp witness with full cycle generator.",
+        "Kutrib–Malcher–Schneider, Acta Informatica 2021 OA full text, DOI 10.1007/s00236-021-00402-0, §3.1, §4, §6: DUFA binary classification; reversal questions explicitly open for multiple final states."
+      ],
+      "reasoning": "The PFA superclass theorem covers the general binomial upper bound and PFA closure, which are acknowledged as prior. But preserving an involutive transition on every letter and proving sharp realizations *within DUFA* are stronger restrictions: the PFA sharp witnesses use a full cycle generator and are not DUFA for n>=4. The binary-impossibility/ternary-optimality statement is not implied by the superclass sharp bound.",
+      "searches": [
+        "Permutation automata with involutive letter actions reversal state complexity binomial(n,m) subset orbit symmetric group",
+        "Hospodár Mlynárčik Lemma 7 Theorem 8 Theorem 11 full text DOI 10.1007/978-3-030-48516-0_10",
+        "Published findings search query concerning involutive automaton reversal bounds"
+      ]
+    },
+    "checked_sources": [
+      "Kutrib–Malcher–Schneider, DCFS 2018, DOI 10.1007/978-3-319-94631-3_18, Springer print-date 2018-07-11 and eBook 2018-07-14.",
+      "Kutrib–Malcher–Schneider, Acta Informatica 2021 OA full text, DOI 10.1007/s00236-021-00402-0, §3.1, §4, §6: DUFA binary classification; reversal questions explicitly open for multiple final states.",
+      "Hospodár–Mlynárčik 2020, DOI 10.1007/978-3-030-48516-0_10, author-uploaded full text at researchgate.net/publication/341627890_Operations_on_Permutation_Automata, Lemmas 6,7 and Theorems 8,11: PFA closure and binomial bound, binary sharp witness with full cycle generator.",
+      "Rauch and Holzer, On the accepting state complexity of operations on permutation automata, arXiv:2208.14731",
+      "Targeted semantic searches of published research results; source titles, DOIs and comparisons shown in the checks above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "PFA Lemma 7 already proves a binomial upper bound using an n-cycle and transposition and subset distinguishability; this is a proper scientific overlap.",
+        "DUFA paper: one-final-state reverse closure is easy, general closure and state complexity are open in published text."
+      ],
+      "reasoning": "The PFA result logically implies the numerical upper bound on all DUFAs because they are PFAs; it does NOT imply reversal stays in DUFA (involutive letters) or that some DUFA achieves this bound, and does not imply any binary prohibition. The new equality witnesses and sharp alphabet lower bound establish precisely these unproved parts. The cited prior own finding varies accepting-state complexity rather than the present state count and involutive alphabet requirement.",
+      "searches": [
+        "2020 PFA full text Lemma 7 and Theorem 11: Hospodár–Mlynárčik 2020, DOI 10.1007/978-3-030-48516-0_10, author-uploaded full text at researchgate.net/publication/341627890_Operations_on_Permutation_Automata, Lemmas 6,7 and Theorems 8,11: PFA closure and binomial bound, binary sharp witness with full cycle generator.",
+        "2021 DUFA open problem Section 6: Kutrib–Malcher–Schneider, Acta Informatica 2021 OA full text, DOI 10.1007/s00236-021-00402-0, §3.1, §4, §6: DUFA binary classification; reversal questions explicitly open for multiple final states.",
+        "reversal of deterministic finite automata with undirected state graphs DUFA symmetric transitions minimal state complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kutrib–Malcher–Schneider, Acta Informatica 2021 OA full text, DOI 10.1007/s00236-021-00402-0, §3.1, §4, §6: DUFA binary classification; reversal questions explicitly open for multiple final states.",
+        "The formal equivalent claim is closure under language reversal for the class of complete DFAs whose input maps are involutions; the prior article explicitly says this is open."
+      ],
+      "reasoning": "DUFA is equivalently a complete DFA generated by a set of involutions, not merely an arbitrary permutation DFA; the new construction acts by the same involutions on reachable final subsets. The unary or one-final-state cases in the earlier DUFA paper do not cover arbitrary n and 1<m<n.",
+      "searches": [
+        "Reversal closed in deterministic undirected finite automata with exact binomial state bound attained by three involutive letters",
+        "Language reversal closure of deterministic undirected finite automata DUFA, each transition involution, subset construction preserving involutions, maximum binomial n choose k",
+        "Published findings search query concerning DUFA reverse-state orbit equivalents",
+        "full text Acta Informatica DOI 10.1007/s00236-021-00402-0 Sections 3,4,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-results searches found rank-compression and finite-group findings whose conclusions do not imply reversal closure or exact reversal complexity for DUFAs.",
+        "The available published sources contain no table giving sharp DUFA reversal complexity or minimum input alphabet."
+      ],
+      "reasoning": "No identified published exact table gives DUFA reversal closure plus the three-letter central-binomial threshold. This is a best-knowledge literature comparison, not an exhaustive originality proof.",
+      "searches": [
+        "Reversal closed in deterministic undirected finite automata with exact binomial state bound attained by three involutive letters",
+        "Three involution generators symmetric group attain reverse state complexity binomial for involution DFAs",
+        "All subset orbits for reversible DFA reverse are minimal, undirected DFA reversal closure, ternary alphabet threshold"
+      ]
+    },
+    "rationale": "The reviewed Acta Informatica article expressly leaves DUFA reversal closure and state complexity open for multiple accepting states; a full-text implication comparison with the broader permutation-automaton theorem verifies that its binomial bound is inherited but its witness violates involutive generator restrictions. The new result supplies three involutive generators, the exact orbit formula for DUFA and the lower bound proving three letters necessary for central extremality for every n >= 4. Targeted published-literature searches found no equivalent or dominating claim, with residual indexing risk.",
+    "residual_risks": [
+      "An unindexed or later DUFA-specific resolution could exist despite published 2021 explicit open problem and targeted searches.",
+      "Unindexed or not-yet-inspected publications might contain an equivalent or stronger result.",
+      "No independent mathematical audit; the finite verifier checks bounded cases and cannot by itself prove the all-parameter theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING new closure and complexity claim; explicitly poses those as open; excludes reversal closure for different nondeterministic NUFA class",
+        "evidence": [
+          "Kutrib–Malcher–Schneider, Acta Informatica 2021 OA full text, DOI 10.1007/s00236-021-00402-0, §3.1, §4, §6: DUFA binary classification; reversal questions explicitly open for multiple final states."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-021-00402-0",
+        "material_read": "Full open-access HTML article, Sections 2, 3.1, 4, 5, 6; notably the exact statements around Section 4 and Section 6 and references",
+        "method": "Read published complete HTML text with section navigation and targeted terms",
+        "title": "Finite automata with undirected state graphs (journal full text)",
+        "trigger": "Identical DUFA definition, explicit general-reversal open problem"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE of group orbit approach and numerical binomial upper bound, but NOT_COVERING the DUFA closure, involutive sharp witness, or ternary-minimality result",
+        "evidence": [
+          "Hospodár–Mlynárčik 2020, DOI 10.1007/978-3-030-48516-0_10, author-uploaded full text at researchgate.net/publication/341627890_Operations_on_Permutation_Automata, Lemmas 6,7 and Theorems 8,11: PFA closure and binomial bound, binary sharp witness with full cycle generator."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/341627890_Operations_on_Permutation_Automata",
+        "material_read": "Full author-uploaded text via HTML rendering: Lemmas 6,7; Theorem 8; Theorem 11 including proofs, construction and witnesses",
+        "method": "Read author-posted public full text with numbered-theorem and witness comparisons",
+        "title": "Operations on Permutation Automata (full author-posted text)",
+        "trigger": "Broader PFA theorem could imply some or all proposed results"
+      },
+      {
+        "assessment": "2018 proceedings print release 2018-07-11 establishes the earliest verified public source date; conference chapter itself not relied on for negative full-text novelty inference",
+        "evidence": [
+          "Kutrib–Malcher–Schneider, DCFS 2018, DOI 10.1007/978-3-319-94631-3_18, Springer print-date 2018-07-11 and eBook 2018-07-14."
+        ],
+        "identifier_or_url": "https://link.springer.com/book/10.1007/978-3-319-94631-3",
+        "material_read": "Springer conference-volume bibliographic metadata and chapter listing, plus 2021 full expansion of the same work",
+        "method": "Inspect original proceedings release dates and chapter DOI; full-text comparison from openly available expanded journal version",
+        "title": "Finite Automata with Undirected State Graphs (2018 conference version and public date)",
+        "trigger": "Earliest public source and identity with later journal article"
+      },
+      {
+        "assessment": "NOT_COVERING: counts accepting states after operations; this theorem counts total minimal states for involutive-transition automata and the minimal alphabet for the central extremum",
+        "evidence": [
+          "Rauch and Holzer arXiv:2208.14731, abstract and reversal-related sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.14731",
+        "material_read": "Full accessible arXiv HTML article material on reversal and accepting-state counts",
+        "method": "Read arXiv full-text treatment and compare definitions of accepting-state complexity with total state complexity",
+        "title": "On the accepting state complexity of operations on permutation automata",
+        "trigger": "Potential overlapping reversal invariant in a closely related permutation automaton class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0061cd25-80af-4887-b7cd-b5b4a1184586",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Kutrib–Malcher–Schneider expressly posed DUFA reversal closure and state complexity as open in the 2021 full article. The theorem resolves both for all minimal n-state DUFA, gives a usable exact orbit invariant for each automaton, and establishes a sharp qualitative 3-vs-2 input-letter difference from the previously known general PFA reversal bound. The distinction has an infinite family, sharp all-n claims and motivated complexity interpretation, not a renamed special case.",
+    "status": "PASS"
+  }
+}
