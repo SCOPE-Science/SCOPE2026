@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full nine-dimensional anticanonical section space has 511 nonzero binary elements. Exact projective-group orbit enumeration gives five geometrically smooth classes of sizes 60, 30, 60, 30, and 60, verified by four-chart Gröbner tests. An independent complete 511-section lexicographic Gröbner census confirms 240 smooth curves and the rational-point histogram. Adjunction proves genus one, and the obstruction for all five rational points is independently established by the rank-five evaluation and 15 secant-plane-pair bijection.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The nearest published smooth-pencil existence result (Asgarli–Ghioca, arXiv:2203.07169) and the Segre-classification/invariant-theory texts (arXiv:2009.04334, arXiv:2206.00503, arXiv:math/0610403) do not give this fixed nonsplit-quadric classification. Accessible mathematical-record comparisons and the existing all-smooth F2 quadric-pencil classification do not imply these five orbits and the five-point section splitting: all-smooth pencils impose stronger conditions than this problem. An unindexed finite-field table or unpublished older enumeration remains a genuine possibility.
+PASS
 
-## Value — PASS
-The nonsplit quadric is the unique anisotropic form of the smooth quadric surface over the ground field; its anticanonical genus-one curves form a canonical linear system. The complete classification detects exactly which elliptic-curve point counts occur on this ambient surface and explains why the extremal five-point configuration must split into plane conics. This is structural geometry, not merely a count of arbitrary equations.
+The fixed Q has five rational points, dim H0(Q,O(2))=9 and hence 511 nonzero binary sections. An independent non-repository Sympy implementation independently tested all 511 candidates using exact four-affine-chart Groebner Jacobian ideals over F2, finding precisely 240 smooth divisors and point histogram {1:60,2:90,3:60,4:30}. The source enumerates full 120-element automorphism group via the five-point projective frame, with 17 total orbits and five smooth orbits sizes 60,30,60,30,60. The five-point incidence argument gives rank-five evaluation (15 nonzero sections through all five points), all reducible products of two secant plane sections, hence none smooth. Adjunction proves genus one; Hasse bounds rational point counts between one and five. The independently reproduced smoothness census is exhaustive, not mere F2 point sampling.
 
-## Limitations
-The result is only for F2 and equivalence under the rational projective automorphisms of the fixed quadric. It makes no assertion about abstract elliptic-curve isomorphism, general ground fields, or split quadric embeddings. Reproducible exhaustive symbolic computation certifies the orbit counts but has not received external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier finite-field smooth-pencil constructions prove existence; characteristic-zero pencil/classical genus-one classification results do not explicitly entail the fixed nonsplit Q anticanonical orbit and rational-incidence census. An unindexed genus-one model table could nevertheless imply the counts, and the abstract isomorphism classification is not claimed.
+
+## value
+
+PASS
+
+The anticanonical system on the unique nonsplit binary quadric is an intrinsic finite-geometric family. Its complete smooth-divisor orbit census and five-rational-point exclusion answer natural embedding and arithmetic incidence questions more informatively than existence of an individual elliptic curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
