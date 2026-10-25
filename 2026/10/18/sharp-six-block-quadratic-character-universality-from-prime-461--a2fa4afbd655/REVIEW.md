@@ -1,15 +1,21 @@
-# Scientific review: six-block quadratic-character universality
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement distinguishes nonwrapping positive representatives from cyclic blocks and quantifies over all 64 sign words and all primes at least 461. The indicator expansion is exact, including its correction at six excluded positions. Singleton sums are zero, quadratic two-shift sums are exactly minus one, and the Weil estimates for the remaining squarefree subset products yield the uniform inequality \(64N_p(\boldsymbol\varepsilon)\ge p-114\sqrt p-207\). The polynomial on the right is positive for all \(p\ge16384\). A complete deterministic enumeration checks every prime below that bound, using all admissible starts rather than sampling; its independent Euler-criterion cross-check agrees through prime 1009. It verifies complete 64-word support for all 1812 primes from 461 through the bound and absence of the all-residue word at prime 457. This is a finite proof plus a separate infinite argument, not a numerical extrapolation.
+## correctness
 
-## Originality — PASS (with residual risks)
-Davenport/Weil and Wright (arXiv:1111.2236) establish asymptotic quadratic-character pattern occurrence; Conrad's Theorem 2.1 gives a general length-dependent bound and works out shorter cases. Carella (arXiv:2011.11054) discusses general long patterns and asymptotics without the evaluated six-block last-exception threshold. Bennett (1926) studied five consecutive residues, not the 64 mixed six-word problem. Buchaev–Tsfasman (arXiv:2607.17418), Sections 1–4, evaluate arbitrary words of lengths four and five and recall the general expression for any length, but do not supply the six-block exact cutoff. None of these establishes the specific universal threshold 461 or the last obstruction at 457 without substantial further explicit finite work. Related research-record and accessible prior-claim searches revealed no dominating result. Residual risk: a table, computation, or stronger unindexed theorem might already establish the same cutoff. The Bennett full text was inaccessible during this comparison; its readily verifiable scope is shorter and homogeneous.
+PASS
 
-## Value — PASS
-The last prime failing to realize every prescribed block of six consecutive quadratic signs is a canonical arithmetic cutoff. Length six is the first length after the detailed all-word classifications for lengths four and five in Buchaev–Tsfasman. It also strengthens the classical study of homogeneous runs by proving simultaneous occurrence of all 64 mixed words. The result identifies the exact boundary, an explicitly reproducible 61-prime exception set, and an effective analytic tail, which are not provided by asymptotic equidistribution alone. This is a motivated global completeness classification, not an arbitrary sample statistic.
+Indicator-product expansion yields 64N_p(eps)>=p-114 sqrt(p)-207 for p>=16384, using exactly 15 quadratic pair correlations -1, 42 higher degree subsets and at most 192 excluded-block correction. The bound is positive at sqrt(p)>=128. The remaining finite prime range is exhausted with deterministic trial division and square-residue bitmasks: independent replay found 1899 odd primes <16384, including 1812 >=461 all supporting 64 words, exactly 61 exceptions with latest 457 and unique missing word six positive residues. 181 first successful prime; nonwrapping starts and excluded zero handled explicitly.
 
-## Closest sources and limitations
-Relevant primary references are Wright (2011 preprint), Conrad's full expository argument for generic patterns, Carella (2020 preprint), and Buchaev–Tsfasman (2026 preprint). Existing general indicator formulas and Weil bounds are antecedents, not new contributions. The certificate is finite for primes below 16384; the infinite range relies on the classical Weil estimate. No formula for each six-word frequency at an arbitrary prime is claimed. Independent audit and independent originality validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Weil/Conrad bounds prove eventual positive occurrence for fixed words but do not supply the last exceptional prime simultaneously over all 64 six-bit sign words. Recent Buchaev--Tsfasman explicitly studies lengths four and five, so no direct six-block cutoff is established by its accessible abstract; inability to inspect its full text retained as risk.
+
+## value
+
+PASS
+
+The first eventual universality cutoff is a sharply defined natural arithmetic threshold for all six-bit Legendre patterns, distinguished from first successful prime. Exhaustive finite classification plus uniform analytic tail resolves it exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
