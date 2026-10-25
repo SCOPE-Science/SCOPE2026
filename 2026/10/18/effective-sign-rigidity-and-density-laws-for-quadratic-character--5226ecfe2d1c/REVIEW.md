@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The root-of-unity filter for the Legendre sequence is exact. Pairing conjugate roots and evaluating the quadratic Gauss sum gives equation (1). The uniform spectral-gap inequality \(\cos(\pi/p)-\cos(2\pi/p)\ge6/p^2\), the integer-grid sine/cosine lower bounds, and the explicit logarithmic cutoff together ensure strict dominance of the first pair. Odd-character skew symmetry proves zeros at multiples of the prime without any cutoff. Direct exact-integer computation confirms small primes but is not used as proof.
+## correctness
 
-**Originality — PASS within checked evidence.** Dresden and Li (2022 preprint; 2023 full journal text), especially their Theorems 1 and 2 and the original preprint's character-weighted examples, examine periodic weights in *centered* binomial sums. The present object uses \(\binom nk\) with character applied to the summation index; no full sign law, explicit uniform cutoff, or density classification is stated in the inspected work. Accessible related indexed records concern other Fourier-character spectra or different binomial transforms and do not imply the assertion. Generic Fourier filters explain the method but do not alone supply the quantified all-prime sign conclusion. Residual risk: independently discovered equivalents and unindexed general spectral-asymptotic theorems.
+PASS
 
-**Value — PASS.** This provides a complete asymptotic sign and zero-frequency classification for a natural all-prime family of signed binomial transforms, distinguishes the character parity classes sharply, and supplies an effective uniform stabilization index rather than a numerical conjecture. The exact densities and forced zero structure are intrinsic, not arbitrary slices.
+For odd p, the positive-exponent quadratic Gauss sum gives the exact paired Fourier expression T_p(n)=(2/sqrt(p)) sum_{1<=j<= (p-1)/2} chi(j)(2cos(j*pi/p))^n times cos(nj*pi/p) if p=1 mod4 and sin otherwise. For p>=5 the j=1 coefficient is positive; cos(pi/p)-cos(2pi/p)>=6/p^2 bounds relative harmonic decay by exp(-6n/p^2). Nonzero leading cos/sin has magnitude >=1/p, so the tail ratio is strictly <1 for n>=1+floor((p^2/6)log(p(p-3)/2)). The p=3 sum has only one harmonic. For p=3 mod4 and p|n, k<->n-k cancels the integer binomial sum exactly. The 2p sign cycle contains (p,p,0) or (p-1,p-1,2), proving densities. An independent integer Pascal/Legendre check covered all odd primes p<=23 through N_p+2p. Infinite validity follows from the inequalities, not finite tests.
 
-Closest literature: Dresden–Li, arXiv:2210.04322 and Journal of Integer Sequences 26 (2023), 23.8.7. The inherited Gauss evaluation is classical. The cutoff is not asserted optimal and small exceptional zeros are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A classical Gauss sum and periodic root-of-unity filter establish the spectrum, but the explicit full-prime cutoff, eventual sign and exact zero density are not statements of the inspected centered-binomial primary theorem. Best-of-knowledge original quantitative harmonic domination, with general-filter literature risk.
+
+## value
+
+PASS
+
+Provides an effective, fully uniform stabilization cutoff and exact sign/zero frequency laws for a natural quadratic-character-weighted ordinary binomial transform; the p mod4 zero dichotomy is a meaningful arithmetic invariant distinct from standard Gauss-sum evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

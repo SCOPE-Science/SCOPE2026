@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd p, the positive-exponent quadratic Gauss sum gives the exact paired Fourier expression T_p(n)=(2/sqrt(p)) sum_{1<=j<= (p-1)/2} chi(j)(2cos(j*pi/p))^n times cos(nj*pi/p) if p=1 mod4 and sin otherwise. For p>=5 the j=1 coefficient is positive; cos(pi/p)-cos(2pi/p)>=6/p^2 bounds relative harmonic decay by exp(-6n/p^2). Nonzero leading cos/sin has magnitude >=1/p, so the tail ratio is strictly <1 for n>=1+floor((p^2/6)log(p(p-3)/2)). The p=3 sum has only one harmonic. For p=3 mod4 and p|n, k<->n-k cancels the integer binomial sum exactly. The 2p sign cycle contains (p,p,0) or (p-1,p-1,2), proving densities. An independent integer Pascal/Legendre check covered all odd primes p<=23 through N_p+2p. Infinite validity follows from the inequalities, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Fourier filter implies an expansion but no quantified leading-character domination or exact cutoff N_p as stated"
+        ],
+        "reasoning": "A general spectral theorem could make the asymptotic qualitative conclusion routine, but no inspected dominating cutoff and full sign-density theorem were found.",
+        "searches": [
+          "Dresden Li 2023 periodic weighted sums of binomial coefficients",
+          "quadratic Gauss sum root of unity periodic binomial filter"
+        ]
+      },
+      "checked_sources": [
+        "Dresden–Li, JIS 26 (2023), Article 23.8.7, Theorems 1-2 (primary PDF inspected)",
+        "arxiv:2210.04322",
+        "OEIS A117611/A117980 (comparison indices)",
+        "Resultary semantic search on Legendre-symbol ordinary binomial transforms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gauss identity yields spectral expression; Dresden–Li centered weighted binomial transforms have different variables"
+        ],
+        "reasoning": "The prior statements cover the standard algebraic ingredient, not imply an explicit N_p with the asserted signs without proving strict harmonic domination.",
+        "searches": [
+          "arxiv:2210.04322 Dresden Li Theorems 1 and 2",
+          "Gauss and Jacobi Sums Berndt Evans Williams"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dresden–Li centered coefficients binom(2n,n+k), not binom(n,k)"
+        ],
+        "reasoning": "Transformation from ordinary to centered sums is not a tautological parameter substitution; the cited centered identities do not give sign T_p(n) at each n.",
+        "searches": [
+          "Resultary semantic: Legendre symbol ordinary binomial transform sign periodic eventual positive negative zero density quadratic characters roots unity",
+          "Dresden Li arxiv:2210.04322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A117611/A117980 apply a quadratic symbol to a binomial coefficient or center it; different summand and indexing"
+        ],
+        "reasoning": "Sequence overlap or small cases cannot identify the theorem for each odd prime p.",
+        "searches": [
+          "OEIS A117611 A117980",
+          "Resultary semantic Legendre ordinary binomial transform"
+        ]
+      },
+      "rationale": "A classical Gauss sum and periodic root-of-unity filter establish the spectrum, but the explicit full-prime cutoff, eventual sign and exact zero density are not statements of the inspected centered-binomial primary theorem. Best-of-knowledge original quantitative harmonic domination, with general-filter literature risk.",
+      "residual_risks": [
+        "Unindexed general theorems on periodic binomial transforms could already state a comparable sharp sign law.",
+        "The displayed explicit N_p is not optimal and exceptional small n are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CENTERED_NOT_COVERING",
+          "evidence": "Their theorems use binom(2n,n+k), a different coefficient family than binom(n,k).",
+          "identifier_or_url": "arxiv:2210.04322; Journal of Integer Sequences 26 (2023), Article 23.8.7",
+          "material_read": "Published PDF introduction, Theorems 1-2, examples and distinction of centered binomial weights",
+          "method": "web opened complete article and PDF theorem pages, PDF page screenshots",
+          "title": "Periodic Weighted Sums of Binomial Coefficients",
+          "trigger": "Closest apparent same-character binomial transform"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_NOVELTY",
+          "evidence": "Correct positive-exponential convention tau=sqrt(p) or i sqrt(p).",
+          "identifier_or_url": "Berndt–Evans–Williams (1998)",
+          "material_read": "Classical Gauss evaluation used as known premise; book not inspected in full",
+          "method": "indirect via referenced exact standard lemma",
+          "title": "Gauss and Jacobi Sums",
+          "trigger": "Standard quadratic Gauss-sum evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an effective, fully uniform stabilization cutoff and exact sign/zero frequency laws for a natural quadratic-character-weighted ordinary binomial transform; the p mod4 zero dichotomy is a meaningful arithmetic invariant distinct from standard Gauss-sum evaluation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dresden–Li, JIS 26 (2023), Article 23.8.7, Theorems 1-2 (primary PDF inspected)",
+    "arxiv:2210.04322",
+    "OEIS A117611/A117980 (comparison indices)",
+    "Resultary semantic search on Legendre-symbol ordinary binomial transforms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One finite verifier and individual Git source proofs were directly inspected, with independent finite/exact calculations specific to the claim; no inference of an infinite theorem from finite checks.",
+    "Claims are best-of-knowledge based on the named accessible source material; literature not directly inspected remains a noted risk."
+  ],
+  "residual_risks": [
+    "Unindexed general theorems on periodic binomial transforms could already state a comparable sharp sign law.",
+    "The displayed explicit N_p is not optimal and exceptional small n are not classified."
+  ],
+  "schema_version": 1
+}
