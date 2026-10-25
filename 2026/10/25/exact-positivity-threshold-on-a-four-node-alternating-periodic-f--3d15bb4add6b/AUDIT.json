@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "For \\(a,b>0\\) and \\(\\tau\\ge0\\), \\(M\\) is positive definite and \\(K\\) is positive semidefinite. The displayed denominator factors are all positive. Direct symbolic multiplication verifies \\(A_\\tau P_\\tau=M\\); all diagonal and adjacent entries have positive numerators for \\(\\tau>0\\), and the opposite-node entries are exactly \\(6\\tau q(\\tau)/D_\\tau\\). Since \\(q(0)<0\\), \\(q'(\\tau)>0\\), and \\(q\\) has one positive root, the claimed iff threshold follows. At \\(\\tau=0\\), \\(P_\\tau=I\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 heat-equation article's accessible abstract specifies homogeneous Dirichlet boundary conditions and discusses several finite-element discretizations.",
+        "The arXiv paper discusses threshold existence and sufficient conditions for nonnegativity preservation, not the exact formula for a four-node periodic mesh with edge lengths a,b,a,b."
+      ],
+      "reasoning": "The broader results motivate the question but do not dominate the explicit necessary-and-sufficient threshold in the stated periodic setting. The usual sufficient M-matrix bound \\(\\tau\\ge\\max(a^2,b^2)/6\\) is strictly conservative when \\(a\\ne b\\) for this four-node mesh.",
+      "searches": [
+        "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation Chatzipantelidis Horvath Thomée 2015",
+        "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations arXiv:1510.02825",
+        "Maximum principle for the finite element solution of time-dependent anisotropic diffusion problems DOI 10.1002/num.21784"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1515/cmam-2015-0018 (abstract and metadata; full text inaccessible)",
+      "arXiv:1510.02825 (full HTML text inspected)",
+      "Chalmers publication record for DOI 10.1515/cmam-2015-0018",
+      "Publisher issue metadata for Computational Methods in Applied Mathematics 15(4), 2015"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Setting \\(a=b=h\\) in the proved formula gives \\(\\tau_*=h^2/6\\), the uniform-mesh special case.",
+        "For \\(a\\ne b\\), the formula depends on both lengths and satisfies \\(\\tau_*<\\max(a^2,b^2)/6\\); as \\(b/a\\to0\\) with \\(a\\) fixed, \\(\\tau_*/a^2\\to0\\)."
+      ],
+      "reasoning": "The equal-cell case \\(a=b\\) is a covered specialization and is not claimed as new. The additional claim is the exact contrast-dependent formula for the four-node alternating periodic mesh; a uniform-mesh statement cannot imply that formula for unequal lengths.",
+      "searches": [
+        "uniform periodic one-dimensional piecewise-linear finite-element heat equation consistent mass backward Euler exact threshold tau/ell^2 >= 1/6",
+        "alternating nonuniform periodic finite-element mesh exact positivity threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1515/cmam-2015-0018: accessible abstract and metadata describe heat-equation finite-element positivity with homogeneous Dirichlet boundary conditions.",
+        "arXiv:1510.02825, Sections 3–4 and Theorem 4.3: general nonnegativity-preservation and sufficient matrix-sign/timestep conditions; the inspected text does not state this four-node periodic alternating-mesh formula."
+      ],
+      "reasoning": "No directly equivalent formula was identified in the searched material. The formula is an exact matrix calculation on a different boundary geometry and with two alternating edge lengths. Search failure alone is not treated as proof of novelty.",
+      "searches": [
+        "\"backward Euler\" \"alternating mesh\" \"finite element\" heat equation positivity",
+        "alternating nonuniform periodic one-dimensional finite element mesh heat equation consistent mass matrix exact positivity preservation threshold",
+        "exact backward Euler positivity threshold consistent mass piecewise linear finite element on four-node periodic one-dimensional mesh with alternating cell lengths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No external table or finite database is used as a premise; the threshold follows from the displayed assembled matrices and the exact sign polynomial \\(q(\\tau)\\)."
+      ],
+      "reasoning": "Not applicable as a lookup claim. The result is analytic and self-contained; rational spot checks are supplementary, not the source of the universal conclusion.",
+      "searches": [
+        "exact positivity threshold four-node alternating periodic finite-element mesh consistent mass matrix",
+        "periodic finite-element heat equation alternating cell lengths exact threshold table"
+      ]
+    },
+    "rationale": "Exact-query searches did not locate the same four-node alternating periodic finite-element formula. The equal-cell specialization \\(\\tau_*=h^2/6\\) is explicitly not claimed as new. Related literature establishes broader positivity-threshold phenomena and sufficient bounds, but the accessible material does not imply the contrast-dependent root for this periodic mesh. The full text of one highly relevant 2015 paper was inaccessible; this is recorded as a residual risk rather than treated as proof of novelty.",
+    "residual_risks": [
+      "The full text of DOI 10.1515/cmam-2015-0018 was inaccessible; it may contain a related special-case result not visible in the abstract or metadata.",
+      "Older literature outside the inspected sources may contain an equivalent four-node periodic computation; the searches do not prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant source, but full-text coverage remains unresolved. The accessible abstract specifies homogeneous Dirichlet boundary conditions, whereas the present result concerns a periodic four-node mesh with edge lengths \\(a,b,a,b\\).",
+        "evidence": "Publisher metadata records online publication on 4 August 2015; the accessible abstract describes standard Galerkin, lumped-mass, and finite-volume-element methods under homogeneous Dirichlet conditions.",
+        "identifier_or_url": "doi:10.1515/cmam-2015-0018",
+        "material_read": "Abstract, publication metadata, and online publication date. The author-hosted open PDF timed out and the publisher issue page returned an access error; the full article was not read.",
+        "method": "Searched the exact title and DOI, inspected university and publisher bibliographic records, and attempted the available open-access PDF.",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Closest direct heat-equation finite-element positivity literature."
+      },
+      {
+        "assessment": "Provides general threshold-existence and sufficient-condition context, but the inspected material does not state the exact four-node alternating periodic formula.",
+        "evidence": "The paper discusses standard Galerkin, lumped-mass, and finite-volume-element methods and gives sufficient matrix-sign/timestep conditions; it studies bounded-domain subdiffusion, with heat-equation results as a special case.",
+        "identifier_or_url": "arXiv:1510.02825",
+        "material_read": "Full accessible HTML text, including the introduction and relevant results in Sections 3–4; searches for the terms periodic and nonuniform returned no matches.",
+        "method": "Read the relevant theorem statements and proofs concerning nonnegativity preservation and sufficient timestep conditions.",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Related primary literature on finite-element positivity thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d15bb4a-dd6b-48cf-8144-3e00778789db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold is a mathematically meaningful mesh-contrast result. It is strictly below the usual sufficient maximum-cell bound for unequal \\(a\\) and \\(b\\), and \\(\\tau_*/a^2\\to0\\) as \\(b/a\\to0\\) with \\(a\\) fixed. This precisely quantifies when a standard sufficient restriction is conservative for the smallest alternating periodic mesh; no broader downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
