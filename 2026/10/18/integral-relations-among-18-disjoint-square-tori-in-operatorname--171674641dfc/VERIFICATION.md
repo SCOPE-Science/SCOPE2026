@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite integer proof
+# Independent mathematical audit
 
-Execute `python3 verify_k44_torus.py` with any ordinary Python 3 interpreter supporting integer modular inverses (Python 3.8 or newer). The verifier has no external dependencies, no input files, and performs only exact integer and finite-field computations.
+## correctness
 
-The program builds the full 96-by-72 signed cubical boundary \(B\) and checks that every one of the eighteen torus two-chains is a cycle. It constructs six proposed relation columns and checks each exactly. The rank calculation over \(\mathbb F_3\) gives 60 and, in conjunction with twelve independent kernel columns, determines the **rational** boundary rank. A 12-by-12 integer torus coefficient minor has determinant +1, establishing **integral** saturation; a 6-by-6 integer relation coefficient minor has determinant -1, establishing a full primitive relation lattice. These determinant checks supply information not obtainable from modular ranks alone.
+PASS
 
-The successful verification output terminates with `VERIFY_OK_K44_UNORDERED_TWO_PARTICLE_PRODUCT_TORUS_PRESENTATION`. The computation has been run on the exact standalone program included here. The proof relies on complete finite chain enumeration, not on a probabilistic or truncated search.
+Using a separately implemented oriented Abrams cubical model, obtained 96 one-cells, 72 two-cells for unordered 2 points on K4,4, and signed B_2 (96x72). Constructed 18 antisymmetric four-cycle products T and six relation columns S independently of package code: BT=0, TS=0, rank_F3(B)=60, det of specified 12x12 torus minor = +1 and det of specified 6x6 relation minor = -1. Hence over Q kernel rank=12 and both sublattices are primitive over Z; T spans entire integral kernel and the six S vectors form the entire integral kernel of T. The graph subdivision conditions are met for two particles. Not the ordered configuration space.
 
-Limits: Only this finite graph and ordinary unordered collision-free two-particle model are examined. This check does not assess future applications, external novelty priority, or independent mathematical verification.
+## originality
+
+PASS
+
+Barnett–Farber and Farber–Hanbury study ORDERED configuration and Betti numbers; Prop.22 gives ordered complete-bipartite maturity, not the six primitive unordered product-torus relations. Barnett thesis abstract confirms ordered Betti and generator study, but full thesis was not accessible. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+A full integral relation presentation for the natural 18 geometric tori is a useful finite nonplanar graph-braid invariant; saturated kernel relations are stronger than rational rank. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
