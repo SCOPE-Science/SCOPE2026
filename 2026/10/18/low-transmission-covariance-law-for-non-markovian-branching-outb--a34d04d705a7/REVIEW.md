@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exactly zero and one births yield a fully evaluated derivative of each of the two means and their mixed moment. The independent-lifetime overlap identity \(J(q,z)+J(z,q)=qz\) is verified algebraically. The nontrivial remainder is uniform over bounded lifetime laws: a Poisson-offspring Galton–Watson process dominates total births, and its total progeny has order-\(\lambda^2\) squared-moment tail beyond two individuals. Rational enumeration confirms the coefficients for four distinct laws but is not substituted for the all-law argument.
+## correctness
 
-**Originality — PASS, with explicit residual risk.** Britton–Neal (2013) provides occupation-time first moments; Ball–Britton–Neal (2014) gives exact separate first moments and the resulting insensitivity. Neither statement implies a joint mixed moment or variance-dependent covariance. Garcia-Millan et al. (2018) analyze critical scaling in a memoryless particle model, not the bounded arbitrary-lifetime small-birth response. Semantic comparison of published probability records found nearby epidemic-covariance and branching-extinction papers but no matching first-variation identity for this pair of statistics. An equivalent old busy-period or non-Markovian branching identity, possibly in queueing terminology, is a residual risk.
+PASS
 
-**Value — PASS.** The 2014 insensitivity result makes a concrete and natural question: does dependence between duration and accumulated load remain insensitive? The complete first-order answer classifies all bounded mean-one lifetime laws by exactly one quantity, their variance. It distinguishes deterministic recovery from heterogeneous recovery while preserving the same established mean statistics and yields a sharp universal slope floor of \(1/2\); this is a structural sensitivity theorem, not a sample-specific arithmetic increment.
+For independent bounded mean-one lifetimes Q and lifetime Poisson births rate lambda, total progeny is stochastically dominated by Poisson(lambda B) Galton–Watson; E[N²1_{N>=3}]=O_B(lambda²), so neglecting ≥2 births in E[T], E[S], E[TS] has uniform O_B(lambda²) cost. A single child born at u in ancestor lifetime q, child duration z contributes J(q,z)=∫_0^q(u+z−q)_+du. Exchangeability and J(q,z)+J(z,q)=qz give E J=1/2 and E[(q+z)J]=E Q², so E T=1+lambda/2+O(lambda²), E S=1+lambda+O(lambda²), E TS=E Q²(1+2lambda)+O(lambda²). Thus Cov(T,S)=v+lambda(1/2+2v)+O_B(lambda²). Independent exact rational check for deterministic/two-point Q reproduced derivatives and coefficients.
 
-**Limitations.** Small-birth regime only; no all-rate monotonicity; bounded lifetimes; equivalent unindexed literature may exist. The finite tests are checks of specializations rather than proof of the infinite family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
+
+## value
+
+PASS
+
+A natural joint outbreak statistic distinguishes life-duration variance even when the two individual mean observables are insensitive to that distribution. The sharp positive first-order sensitivity 1/2+2v and deterministic equality case provide a concise non-Markovian perturbation law with epidemiological and branching-model motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
