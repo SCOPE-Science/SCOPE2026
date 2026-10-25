@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,72 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Use Lebesgue measure on
-\[
-\Omega=[0,1]
-\]
-and scalar Hilbert spaces
-\[
-H=K=K_\omega=\mathbb C.
-\]
-Set
-\[
-\Lambda_\omega z=z
-\]
-for every \(\omega\), and set
-\[
-\Theta_0z=0,\qquad
-\Theta_\omega z=-z
-\]
-for \(0<\omega\le1\).
+# Independent mathematical audit
 
-The frame integrals are
-\[
-\int_0^1|\Lambda_\omega z|^2\,d\omega
-=
-|z|^2
-\]
-and
-\[
-\int_0^1|\Theta_\omega z|^2\,d\omega
-=
-|z|^2.
-\]
-Thus both families are Parseval.
+## correctness
 
-In \(L^2([0,1])\),
-\[
-T_\Lambda^*h=[h],
-\qquad
-T_\Theta^*k=[-k],
-\]
-because the exceptional value of \(T_\Theta^*k\) at \(0\) is invisible to the \(L^2\)-class. Their ranges are therefore the same nonzero one-dimensional subspace.
+PASS
 
-For the combined family,
-\[
-\Gamma_0(h\oplus k)=h,
-\qquad
-\Gamma_\omega(h\oplus k)=h-k
-\]
-for \(0<\omega\le1\). Pointwise vanishing for every \(\omega\) forces
-\[
-h=k=0.
-\]
-But
-\[
-\Gamma_\omega(1\oplus1)=0
-\]
-for almost every \(\omega\), so
-\[
-T_\Gamma^*(1\oplus1)=0.
-\]
+The pinned RESULT.md makes a literal, bounded claim about part (v) of Theorem 2.2, not about other clauses. For Omega=[0,1], H=K=K_omega=C with Lebesgue measure, Lambda_omega(z)=z everywhere and Theta_omega(z)=0 at 0, -z otherwise are strongly measurable Parseval continuous g-frames (both squared integrals equal |z|²). As equivalence classes in L2, A(h)=[h] and B(k)=[-k], so their one-dimensional analysis ranges coincide and weak disjointness fails. In contrast Gamma_0(h,k)=h and Gamma_omega(h,k)=h-k off 0, so the literal all-omega kernel is {0}. But Gamma(1,1)=0 a.e.; its L2 analysis kernel is nontrivial. The a.e. correction holds generally because A and B are injective by their frame lower bounds and ker(A+B)={0} iff Ran(A) intersect Ran(B)={0}. Exact independent matrices J_point=[[1,0],[1,-1]] and J_ae=[[1,-1]] have ranks two and one, respectively, with Gram eigenvalues zero and two. Every hypothesis, boundary (exceptional singleton, non-atomic Lebesgue measure), and intended L2 normalization is addressed. Original theorem and proof were checked in full relevant context; no finite sampling extrapolation was used.
 
-This verifies both the false positive in the printed criterion and the exact repair: replacing pointwise vanishing by almost-everywhere vanishing makes the kernel condition equal to
-\[
-\ker T_\Gamma^*=\{0\},
-\]
-which is equivalent to weak disjointness.
+## originality
 
-The primary theorem, its complete proof, the coefficient-space definition, and the weak-equality convention were inspected directly in the open preprint, including rendered PDF pages of the theorem and proof.
+PASS
+
+The specific new statement is a theorem-specific correction and counterexample, not the general fact that L2 functions are defined almost everywhere. The original paper prints a literal all-omega kernel criterion in Theorem 2.2(v) while its proof uses only equality in the Hilbert coefficient space. Fresh checks found no independent erratum or the same singleton witness. Prior discrete g-frame theorems and later continuous-frame operator formulations explain the context but do not state this particular published false-positive and exact repair. The originality judgment is best of knowledge and conditional on the printed literal quantifier.
+
+## value
+
+PASS
+
+This is a narrowly scoped yet mathematically motivated correction of a specifically cited if-and-only-if characterization: a pair of Parseval continuous g-frames satisfies the published kernel test despite failing weak disjointness. The failure makes a claimed decision criterion depend on arbitrary null-set representatives, incompatible with its L2 invariant definition. The exact a.e. repair prevents false positives and supplies a correctly reusable characterization for continuous frame analysis. It is an elementary normalization issue but not an arbitrary cheap type check: it invalidates a stated published theorem under its printed quantifier, identifies the precise logical step and gives a constructive boundary witness. The result does not claim a new general theory or consequences for the other clauses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
