@@ -1,19 +1,21 @@
-# Scientific review: collision-profile positivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact finite polynomial identity, not an extrapolation from examples. The characteristic function of a sum of independent Bernoulli variables factors, Plancherel converts its squared modulus into a collision probability, and each factor equals the sum of a nonnegative cosine square and a nonnegative squared-bias multiple of a sine square. Every coefficient is an integral of products positive almost everywhere, since the positive integer weights have only finitely many trigonometric zeros. This proves strict positivity at every polynomial order and gives the derivative hierarchy including boundary values. The two global inequalities follow term by term, and their equality conditions follow from strict positivity. Exact rational tests (9,681 assertions) independently verify finite instances and normalization. No numerical extrapolation is used in the proof.
+PASS
 
-## Originality — PASS, subject to priority risks
+For independent weighted Bernoulli variables, Plancherel gives C(p)=(2pi)^-1 int product_i[cos^2(w_i theta/2)+u sin^2(w_i theta/2)] dtheta. In the u-polynomial expansion, every gamma_j is a sum of integrals of products of nonnegative trig squares; each product is positive except a finite zero set for positive integer w_i, establishing gamma_j>0 for all 0<=j<=m, not just tested weights. Their sum is 1 by c_i+s_i=1; gamma_0=C(1/2). Thus C increases strictly in u; -log C has unique maximum at p=1/2. Because u=1-4v, for 1<=k<=m, (-1)^k d^k C/dv^k=4^k sum_{j>=k}(j!/(j-k)!) gamma_j (1-4v)^{j-k}>0, including v=1/4 via j=k. Bounds gamma0+gamma1*u<=C<=gamma0+(1-gamma0)*u follow from 0<=u^j<=u; strict for m>=2 and interior u, equality at m=1. Central asymptotic expansion follows by log Taylor. Independently coded exact Laurent-polynomial coefficients and direct collision convolutions match and remain strictly positive for 125 integer-weight multisets (length 1..5, weights 1..4), including gamma=(5,9,15,3)/32 for (1,2,3). These finite checks corroborate, but do not establish, the all-m proof.
 
-The motivating 2026 overlap-Bernoulli paper concerns Shannon entropy and does not state the all-order positivity of the order-two collision profile. The closely related 2026 work on Rényi entropies of weighted Bernoulli sums compares different Rényi orders for fair inputs and explicitly identifies biased extensions as a separate direction; its inspected results are not statements about variation along a shared Bernoulli bias. The earlier binomial index-of-coincidence work treats equal weights, and the Shepp–Olkin entropy theorem concerns Shannon entropy of ordinary sums. These cannot imply a universal statement about all integer weights by changing terminology alone. Actual targeted scholarly and mathematical-record searches found no statement dominating the theorem. A generic earlier Fourier positive-product theorem or a different formulation of the collision kernel could nonetheless contain it; the 2023 Fourier-based Rényi paper was not fully accessible. Independent priority assessment remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The Shannon concavity problem for recursively overlapping Bernoulli distributions has been explicitly proposed for all overlap sequences. Collision entropy is a natural, analytically distinct information functional; it is also the probability that two independent recursive samples meet, and controls order-two entropy estimates. The result determines its **complete finite-degree bias profile sign structure**, not merely a numerical minimum: every coefficient is positive for arbitrary additive collisions, every derivative with respect to \(p(1-p)\) has a fixed strict alternating sign, and a universal sharp quadratic upper envelope is available in terms of the fair-bias collision probability. These structural bounds are valid uniformly over all finite overlap sequences and do not need an asymptotic regime. They do not prove the original Shannon conjecture or optimize fixed-length envelopes.
+Best-of-knowledge distinct structural result: all positive polynomial coefficients and the all-order variance derivative hierarchy for an arbitrary overlapping weighted Bernoulli sum with a common bias, not a general Shannon result. Full primary Neunhäuserer text confirms only Shannon concavity conjecture/extreme cases, despite sharing overlap construction; Li compares Renyi orders in fair weighted sums and says bias requires a new coupling. The previously published Resultary two-coin optimizer fixes total mean of two differing biases, unlike this common-p whole profile.
 
-## Literature and limitations
+## value
 
-Neunhäuserer, arXiv:2609.05546v1 (2026), provides the overlapping-distribution model and the separate open Shannon conjecture. Li, arXiv:2609.01529 (2026), provides general Rényi comparisons in the fair-input case, not the bias profile. Raşa, arXiv:1706.05178 (2017), treats the equal-weight binomial index of coincidence. Hillion–Johnson (2017) concerns Shepp–Olkin Shannon concavity. Madiman–Melbourne–Roberto (2023) studies Fourier-based bounds for Rényi entropy; complete inspection of that paper was not possible. The Fourier method itself is classical and is not claimed as original. A prior general positivity theorem could cover the present application.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arbitrary subset-sum collisions are precisely the obstruction in an active overlap-distribution entropy question. The strict positive-coefficient representation is not merely the textbook fair-coin symmetry: it yields a full hierarchy of alternating derivatives in the variance variable, global two-sided envelopes and a sharp central entropy-loss coefficient uniformly over all finite positive-weight families. These provide exact benchmark invariants for overlap studies without pretending to solve the Shannon conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

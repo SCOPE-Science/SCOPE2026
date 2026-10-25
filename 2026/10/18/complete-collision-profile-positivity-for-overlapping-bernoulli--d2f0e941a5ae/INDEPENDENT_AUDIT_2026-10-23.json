@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:57:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md and check_collision.py",
+        "Neunhäuserer, arXiv:2609.05546v2, Sections 1-4, full six pages read via authorized Oxford PDF retrieval",
+        "Jiange Li, arXiv:2609.01529, Theorems 1.4/1.5, Remark 2.2 and Section 4",
+        "Resultary 2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef"
+      ],
+      "rationale": "For independent weighted Bernoulli variables, Plancherel gives C(p)=(2pi)^-1 int product_i[cos^2(w_i theta/2)+u sin^2(w_i theta/2)] dtheta. In the u-polynomial expansion, every gamma_j is a sum of integrals of products of nonnegative trig squares; each product is positive except a finite zero set for positive integer w_i, establishing gamma_j>0 for all 0<=j<=m, not just tested weights. Their sum is 1 by c_i+s_i=1; gamma_0=C(1/2). Thus C increases strictly in u; -log C has unique maximum at p=1/2. Because u=1-4v, for 1<=k<=m, (-1)^k d^k C/dv^k=4^k sum_{j>=k}(j!/(j-k)!) gamma_j (1-4v)^{j-k}>0, including v=1/4 via j=k. Bounds gamma0+gamma1*u<=C<=gamma0+(1-gamma0)*u follow from 0<=u^j<=u; strict for m>=2 and interior u, equality at m=1. Central asymptotic expansion follows by log Taylor. Independently coded exact Laurent-polynomial coefficients and direct collision convolutions match and remain strictly positive for 125 integer-weight multisets (length 1..5, weights 1..4), including gamma=(5,9,15,3)/32 for (1,2,3). These finite checks corroborate, but do not establish, the all-m proof.",
+      "residual_risks": [
+        "Numerical tests alone cannot prove all integer weights; the analytic positive-a.e. integral is the essential proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li Theorem 1.4 bounds H_alpha(S_w) by H_infty(S_w) for fair bits; Remark 2.2 explicitly notes conditional factorization failure at biased p. Neunhäuserer examines Shannon concavity in two extreme configurations."
+        ],
+        "reasoning": "Neither general entropy comparison supplies the exact common-bias coefficient representation, all variance derivatives or sharp universal chord envelope. A genuinely broader Fourier theorem remains a residual risk.",
+        "searches": [
+          "arXiv:2609.01529 Theorems 1.4/1.5 and Remark 2.2",
+          "arXiv:2609.05546v2 Sections 2-4"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and check_collision.py",
+        "Neunhäuserer, arXiv:2609.05546v2, Sections 1-4, full six pages read via authorized Oxford PDF retrieval",
+        "Jiange Li, arXiv:2609.01529, Theorems 1.4/1.5, Remark 2.2 and Section 4",
+        "Resultary 2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Product MGF/recursion explains sum structure; Shannon entropy and cross-order fair-coin inequalities do not control C_w(p) for all biased p."
+        ],
+        "reasoning": "The new formula implies strict Renyi2 unimodality for the published overlap family; it does not imply Shannon concavity, and the cited stronger-sounding entropy results do not imply the formula.",
+        "searches": [
+          "arXiv:2609.05546v2 Proposition 2.2 and Conjecture 3.1",
+          "arXiv:2609.01529 Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recursion moment generating function is a weighted independent Bernoulli product, but Neunhäuserer Conjecture 3.1 concerns Shannon entropy and his Proposition 3.1 treats binomial/nonoverlap special cases; no polynomial collision expansion on six PDF pages."
+        ],
+        "reasoning": "Rewriting recursion as S_p identifies overlapping instances; the general gamma-positivity profile is a stronger *different-entropy* statement and is not equivalent to the cited Shannon conjecture.",
+        "searches": [
+          "Resultary semantic: collision probability Renyi entropy weighted Bernoulli sums positive coefficient polynomial common bias overlapping subset sums Fourier monotone",
+          "arXiv:2609.05546v2 full sections 1-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary tabulates an exact quadratic two-coin optimizer with independently variable probabilities at fixed sum; source code verifies only length<=6 integer weights as auxiliary checks."
+        ],
+        "reasoning": "The m=2 special profiles and fair binomial cases do not provide all-m arbitrary-overlap polynomial coefficients or derivative hierarchy; finite enumerations do not dominate the universal statement.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef",
+          "pinned check_collision.py and RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct structural result: all positive polynomial coefficients and the all-order variance derivative hierarchy for an arbitrary overlapping weighted Bernoulli sum with a common bias, not a general Shannon result. Full primary Neunhäuserer text confirms only Shannon concavity conjecture/extreme cases, despite sharing overlap construction; Li compares Renyi orders in fair weighted sums and says bias requires a new coupling. The previously published Resultary two-coin optimizer fixes total mean of two differing biases, unlike this common-p whole profile.",
+      "residual_risks": [
+        "Older unnamed Fourier/Plancherel positivity identities may imply some or all coefficients; searching cannot establish absolute novelty.",
+        "The result is exclusively order-two collision entropy with identical p; it does not establish Shannon concavity or order-two concavity in p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING collision/Renyi2 coefficient hierarchy",
+          "evidence": "Conjecture 3.1 explicitly Shannon; Proposition 3.1 only binomial and nonoverlap; Section 4 computational evidence for Shannon.",
+          "identifier_or_url": "arXiv:2609.05546v2",
+          "material_read": "All six text pages, including Proposition 2.2, Conjecture 3.1, Proposition 3.1, Section 4 computations and references",
+          "method": "arXiv and lawful OA unavailable; authorized Oxford retrieval provided complete six-page PDF text",
+          "title": "Recursive overlap Bernoulli distributions and an entropy concavity conjecture",
+          "trigger": "Same recursive overlap object and entropy bias variable"
+        },
+        {
+          "assessment": "NOT_COVERING common-bias entire collision curve",
+          "evidence": "Theorem 1.4 is cross-order H_alpha/H_infty fair-weight inequality; Remark 2.2 says the method fails directly for biased variables.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01529",
+          "material_read": "Theorems 1.4,1.5 and their proofs/arguments, Remark 2.2, Section 4 biased Bernoulli further directions",
+          "method": "arXiv PDF opened and relevant material searched/read",
+          "title": "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums",
+          "trigger": "Same weighted Bernoulli sums and Renyi order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md and check_collision.py",
+        "Neunhäuserer, arXiv:2609.05546v2, Sections 1-4, full six pages read via authorized Oxford PDF retrieval",
+        "Jiange Li, arXiv:2609.01529, Theorems 1.4/1.5, Remark 2.2 and Section 4",
+        "Resultary 2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef"
+      ],
+      "rationale": "Arbitrary subset-sum collisions are precisely the obstruction in an active overlap-distribution entropy question. The strict positive-coefficient representation is not merely the textbook fair-coin symmetry: it yields a full hierarchy of alternating derivatives in the variance variable, global two-sided envelopes and a sharp central entropy-loss coefficient uniformly over all finite positive-weight families. These provide exact benchmark invariants for overlap studies without pretending to solve the Shannon conjecture.",
+      "residual_risks": [
+        "Uses classical Plancherel and finite expansion rather than a new Fourier method; value resides in the organized arbitrary-overlap consequence and derivative hierarchy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
