@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T07:53:31Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read frozen RESULT.md proof steps 1-4, checker.py and VERIFICATION.md; checked exact normalization, quantifiers, equality and degenerate cases.",
+        "Independently computed exact moments: unit coefficients aligned/opposed: M4=36/20 and M6=400/112 by integer convolution.",
+        "Independent 50-digit mpmath mixed-derivative vs integral identity at s=0.15,0.5,0.9,1,1.1,1.5,2.5 with X=.65,Y=2.1; residual 0 to 6.4e-50.",
+        "Independent 100 randomized overlap tests against discretized circle membership passed, tolerance .002.",
+        "Independent 21 sweeps (3 distinct positive amplitude quadruples, seven exponents, nine phases and 192x192 torus mesh) reproduced strict trend away from p=2 and exact numerical phase independence at p=2.",
+        "Verified 7 Git entries, Git tree SHA-1 reconstructed 42ffcaa6b93ebb81d31e525e5ffc600aeaf6e898."
+      ],
+      "rationale": "For positive A,B,C,D, scalar and independent torus rotations fix three coefficient phases and leave theta=arg(ad/bc). Haar integration in z yields Phi_s(X(t),Y_theta(t)) with X=A^2+C^2+2AC cos t and Y=B^2+D^2+2BD cos(t+theta), s=p/2. Generalized binomial coefficient recurrence gives hypergeometric ODE and the exact off-diagonal Phi_XY = s^2/sqrt(XY) E[cos t (X+Y+2sqrt(XY)cos t)^(s-1)], with strict sign of s-1 by monotone covariance; s=1 gives Phi=X+Y. At X=Y, continuity and integrable local diagonal singularity permit finite four-corner super/submodular inequalities without an unwarranted global C2 assertion. Two centered cosine superlevel arcs have overlap L(u)=(alpha+beta-u)_+-(abs(alpha-beta)-u)_+ +(alpha+beta+u-2pi)_+, nonincreasing with phase separation, strictly decreasing at alpha=beta=pi/2 on [0,pi]. Applying finite grid mixed differences and refining yields strict moment ordering for every two distinct separations, and opposite extrema for p below/above 2. Zero coefficient removes essential phase; p=2 is orthogonality. The independent arithmetic and quadrature checks corroborate identities but do not replace the analytic proof.",
+      "residual_risks": [
+        "Numerical tests are finite and may show quadrature effects near singular zero sets; universal proof is the signed derivative and arc-overlap argument.",
+        "Mixed second derivatives need not be finite at X=Y for small s; validity of global strict order relies on continuous super/submodular four-corner approximation rather than pointwise bounded derivatives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rains, 1978, Proposition 2.2: even-integer exponents satisfy unrestricted majorant with constant 1; Theorem 2.3 concerns failure for non-even exponents in noncompact LCA groups (inspected pages 915-922).",
+          "Gressman et al. published abstract: affine independence iff all-exponent strict majorant; dependent supports violate the general property on some exponent intervals.",
+          "Burchard-Hajaiej abstract: nonnegative mixed derivatives characterize one class of supermodular integrands for generalized Hardy-Littlewood/Riesz rearrangement."
+        ],
+        "reasoning": "General all-support majorant failure and even-moment majorization do not imply fixed-support extremizing phases for all p, and unrestricted coefficientwise majorants differ from fixed-magnitude phase optimization. Abstract supermodular rearrangement explains endpoint alignment if Phi_s has the correct sign; the exact p=2 sign change and strict angular monotonicity are additional case-specific facts. No decisive prior coverage identified, but inaccessible full texts leave risk.",
+        "searches": [
+          "Gressman Guo Pierce Roos Yung strict majorant property arbitrary dimensions 2023 DOI 10.1093/qmath/haac021",
+          "Rains 1978 upper majorant property locally compact abelian groups Proposition 2.2 Theorem 2.3",
+          "Burchard and Hajaiej rearrangement inequalities monotone integrands JFA 2006",
+          "Riesz rearrangement circle supermodular cosine shift integral monotone angle arc overlap"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2106.12538",
+        "https://doi.org/10.4153/CJM-1978-079-3",
+        "https://doi.org/10.1016/j.jfa.2005.08.010",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c/RESULT.md",
+        "Resultary three exact semantic queries (October 25, 2026 UTC), including four-character rectangle, Fourier parallelogram and strict-majorant formulations",
+        "Web majorant and rearrangement searches October 25, 2026 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rains Theorem 2.3 is existential negative on broad groups and cannot force fixed-rectangle phase ordering.",
+          "Gressman general dependency theorem gives that a 4-point parallelogram fails the strict majorant property at some p, consistent with reversal for 0<p<2; the accessed material is insufficient to exclude further specialized results hidden in the full article.",
+          "A rearrangement inequality for any supermodular F gives endpoint order provided supermodularity is known, but does not alone imply the strict order for every phase distance or the sign of the concrete angular-average Phi_s."
+        ],
+        "reasoning": "The specific mixed derivative of Phi_s has the sign of p-2 off the diagonal and its continuous extension yields strict four-corner differences; the sliding-circular-arc joint-survival probabilities decrease strictly at some thresholds for every phase-distance comparison. Neither property is explicitly included in the accessed prior statements, so no source shown to dominate the complete claim. Priority remains best of knowledge.",
+        "searches": [
+          "Rains 1978 Theorem 2.3 and Proposition 2.2; DOI 10.4153/CJM-1978-079-3",
+          "Gressman et al. 2023 published strict-majorant abstract and arXiv:2106.12538",
+          "Burchard and Hajaiej 2006 supermodular rearrangement DOI 10.1016/j.jfa.2005.08.010",
+          "Full published Resultary phase-only rectangle zero-spectrum and cyclic-prime L4 support-geometry RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The self-listed Resultary hit is the assigned record and is not an independent priority source.",
+          "The previously published four-point rectangle zero-count theorem uses the same cross-phase eta=ad/(bc), but its target is discrete Fourier zero counts rather than continuous Lp moments (full RESULT.md inspected).",
+          "Burchard-Hajaiej establishes an abstract rearrangement inequality for supermodular integrands, not in the material accessed a signed p-dependent four-character phase-distance ordering."
+        ],
+        "reasoning": "Aliases checked: bilinear torus polynomial, Fourier parallelogram, cross phase, relative character phase and supermodular circular rearrangement. The zero-spectrum invariant does not determine continuum Lp-norm monotonicity. General supermodular integral inequalities may yield endpoint alignment after the sign is derived, but no inspected statement automatically determines sign or strict phase dependence for this specific Phi_s.",
+        "searches": [
+          "Resultary search: Fourier polynomial rectangle a+bz+cw+dzw two torus Lp moments maximize aligned phase p>2 minimize anti-aligned p<2 monotonic phase exact all exponents",
+          "Resultary search: four frequencies parallelogram coefficients four point affine relation strict majorant phase rearrangement p 2 circular arcs",
+          "Web search: four term polynomial a+bz+cw+dzw Lp norm phase monotonicity cross phase all real p",
+          "arXiv:2106.12538 and Burchard-Hajaiej JFA 2006 supermodular rearrangement abstracts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete finite cyclic product zero-spectrum result enumerates zero counts for equal magnitudes on Z_m x Z_n, using eta; it contains no continuous real-p moments.",
+          "Complete prime-cyclic four-support fourth-moment result gives the values 19, 20, 24, 28 by difference profile for p>=11 (where p is prime modulus, not norm exponent); a distinct one-variable finite problem.",
+          "The assigned result is itself listed by Resultary, and self-matching is excluded from prior evidence."
+        ],
+        "reasoning": "The listed tables compare Fourier zeros or finite-group L4 phase minima, rather than an all-real-exponent two-torus ordering. No independently prior exact table was found; failed search is not novelty proof.",
+        "searches": [
+          "Resultary query: four frequencies parallelogram coefficients four point affine relation strict majorant phase rearrangement p 2 circular arcs",
+          "Resultary: 2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+          "Resultary: 2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c",
+          "Web search: four point rectangle Lp phase threshold tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the precise all-positive-real-exponent fixed-modulus rectangle theorem: neither the inspected global UMP results nor the fully inspected finite-support publications furnish the exact strict phase-distance order for every p>0 and every strictly positive quadruple. Classical supermodular rearrangement is directly relevant to the endpoint optimizers, but the case-specific signed mixed derivative, strict intermediate angular order and sharp reversal across p=2 still require a nontrivial implication not located in an inspected primary statement. Full Gressman and Burchard texts were not available in this run; treat them as explicit priority risks, not decisive whole-document exclusions.",
+      "residual_risks": [
+        "Gressman et al. complete arXiv/publisher article not readable in this run; institutional attempt blocked by disconnected VPN, and theorem-level abstract alone cannot exclude specialized full-paper lemmas.",
+        "Burchard-Hajaiej full rearrangement paper inaccessible; a general angular-shift monotonicity corollary may be encoded there or in older circle rearrangement literature.",
+        "Older Bachelis/Hardy-Littlewood/Boas literature might contain equivalent rectangle formula under convolution/rearrangement terminology.",
+        "Searching Resultary and indexed web cannot certify historical priority; self-listed assigned Resultary record is not external evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General group-level majorant results, with universal even-integer bound and failure for non-even p; no inspected exact four-rectangle angular monotonicity.",
+          "evidence": [
+            "Proposition 2.2, p. 917: even exponent p or infinity gives upper majorant with constant 1.",
+            "Theorem 2.3, p. 917: failure for non-even p on noncompact LCA groups.",
+            "Theorem 5.5, p. 921: failure on integers using general finitely supported examples."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1978-079-3",
+          "material_read": "Public 11-page PDF available; examined text of introduction and Sections 2-5 through p. 922, including Propositions 2.2, 3.1 and Theorems 2.3, 5.5; rendered p. 917 visually.",
+          "method": "Web PDF text and page screenshot",
+          "title": "On the Upper Majorant Property for Locally Compact Abelian Groups",
+          "trigger": "Historical universal majorant theorem potentially stronger than a four-frequency model"
+        },
+        {
+          "assessment": "Classifies finite discrete zero-count spectrum for equal amplitudes, not continuum fixed-modulus phase ordering for Lp.",
+          "evidence": [
+            "Its theorem gives zero counts {0,2,m,n,m+n-1} or {0,1,m,n,m+n-1} by parity, and defines eta=ad/(bc)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe/RESULT.md",
+          "material_read": "Entire published RESULT.md including theorem, proof, examples, limitations and references",
+          "method": "Read public Resultary GitHub source document at main revision",
+          "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+          "trigger": "Exactly the same four-character rectangle support and cross-ratio phase"
+        },
+        {
+          "assessment": "One-dimensional prime-cyclic fixed L4 and support-geometry classification, not the two-dimensional continuous all-exponent theorem.",
+          "evidence": [
+            "The paper tabulates minima 19,20,24,28 by repeated-difference profiles in Z_p, p prime >=11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c/RESULT.md",
+          "material_read": "Entire published RESULT.md including autocorrelation proof and four-row table",
+          "method": "Read public Resultary GitHub source document",
+          "title": "Four-point support geometry quantizes the phase-only fourth Fourier moment",
+          "trigger": "Four-frequency unimodular phase optimization, exact fourth moment"
+        },
+        {
+          "assessment": "Its advertised general all-exponent affine-dependence/failure statements do not by themselves imply this exact phase monotonicity; full-document not-covering is NOT asserted.",
+          "evidence": [
+            "Published abstract states strict majorant property for all exponents iff affine independence; dependent sets fail on some non-even exponent intervals.",
+            "DOI 10.1093/qmath/haac021; arXiv 2106.12538."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.12538",
+          "material_read": "Publisher abstract, preprint abstract, publication metadata; full preprint HTML and lawful OA routes attempted but unavailable during this run.",
+          "method": "Public web indexed abstracts and arXiv access attempt; authorized institutional request returned VPN disconnected.",
+          "title": "On the strict majorant property in arbitrary dimensions",
+          "trigger": "Most directly relevant dependent-frequency general majorant and counterexample theorem"
+        },
+        {
+          "assessment": "Strong conceptual overlap through supermodularity; may imply aligned endpoint extrema after a case-specific sign lemma, but inaccessible full text could conceal equivalent strict phase-shift ordering. Priority risk retained.",
+          "evidence": [
+            "Abstract asserts generalized Hardy-Littlewood/Riesz inequalities for Borel supermodular integrands and discusses equality cases. DOI 10.1016/j.jfa.2005.08.010."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2005.08.010",
+          "material_read": "Abstract and indexed introduction/first-page material; author-hosted PDF gave HTTP 403 and preprint full-text retrieval unavailable.",
+          "method": "Public search/metadata and attempted author PDF; no claim to full-text inspection",
+          "title": "Rearrangement inequalities for functionals with monotone integrands",
+          "trigger": "General supermodular rearrangement is the closest potential broader abstract theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All-positive-amplitude theorem includes continuum of phases/exponents, not just p=4 or p=6.",
+        "Signed hypergeometric mixed derivative plus circular overlap establishes a general analytic mechanism with sharp threshold and strict equality rigidity.",
+        "Published broader majorant literature treats different unrestricted supports; discrete Fourier-zero table has a different invariant."
+      ],
+      "rationale": "The frequency rectangle {(0,0),(1,0),(0,1),(1,1)} is a canonical minimal non-affinely-independent two-variable Fourier support. For arbitrary prescribed positive amplitudes, the theorem resolves the exact sharp cross-phase optimizer at every positive real Lp exponent, proves strict monotonicity for all intermediate phase shifts, pinpoints universal sign change at p=2 and classifies equality and zero-amplitude boundaries. This motivated structural phase-selection law is a nontrivial all-exponent sharpening of routine even-moment convolution and of general existence-of-failure theorems; it can serve as a quantitative benchmark in the majorant problem without requiring downstream conjectures.",
+      "residual_risks": [
+        "Classical rearrangement literature may reduce some endpoint conclusions to a general theorem; remaining value is full strict phase curve and exact exponent switch, subject to originality priority risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2106.12538",
+    "https://doi.org/10.4153/CJM-1978-079-3",
+    "https://doi.org/10.1016/j.jfa.2005.08.010",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c/RESULT.md",
+    "Resultary three exact semantic queries (October 25, 2026 UTC), including four-character rectangle, Fourier parallelogram and strict-majorant formulations",
+    "Web majorant and rearrangement searches October 25, 2026 UTC"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only exactly four characters 1,z,w,zw on continuous T2 under normalized Haar measure.",
+    "Fixed magnitudes and nonzero coefficients for strict phase monotonicity; p positive and finite.",
+    "Does not imply arbitrary-support or coefficientwise unrestricted majorants, or finite cyclic sampling, or p=infinity.",
+    "General circular rearrangement primary-text access incomplete; historical priority remains best-of-knowledge."
+  ]
+}
