@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the difference body to an intersection of fourteen explicit halfspaces. It gives all vertices of that intersection, realizes every vertex as a difference of truncation vertices, proves the unique centrally symmetric-hexagon parameter, and supplies a six-segment zonotope representation at that parameter. The inball calculation proves the complete minimum-width function and equality directions, including endpoint and transition cases. The exact checker independently verifies seven rational test parameters and the special zonotope representation; these finite checks are supplementary, not a substitute for the all-real proof.
+## correctness
 
-**Originality — PASS, qualified by bibliographic uncertainty.** Winter's classification identifies the zonotopal truncated octahedron and the standard symmetric-face test but does not calculate the difference bodies of uniformly truncated tetrahedra or the sharp width transition. Public indexed statements on the cube–cross-polytope interpolation establish other quantities on the *resulting* family, but the inspected statements do not cover the truncated-tetrahedron correspondence and unique zonotope parameter. A historical polyhedral Minkowski-sum discussion is weaker and does not supply the all-parameter result. Full-text coverage remains unverified for an inaccessible indexed result and possibly earlier differently termed literature.
+PASS
 
-**Value — PASS.** The difference body is the canonical carrier of every directional width of a convex body; identifying the entire symmetrized truncation family is a structural result rather than a single numerical invariant. The proof isolates precisely one zonotopal truncation, gives its six-generator representation, and finds a distinct, sharp Euclidean thickness transition with all equality directions. These are natural geometric classifications, not arbitrary parameter sampling.
+Each truncation vertex is a signed/permuted (1,a,a), a=1−2t. Supports give ||D_t||∞≤2 and all diagonal halfspaces sum|x_i|≤2+2a. The 24 signed permutations of (2,2a,0) are exactly the vertex set of their intersection for 0<a<1 and each occurs as a pairwise difference of actual truncated tetrahedron vertices; merged endpoint vertices treated separately. A diagonal hexagonal facet is centrally symmetric only when opposite-pair sums coincide, i.e. a=1/2, and the six explicit segment generators yield that zonotope. Endpoints contain triangular faces, so not zonotopes. The closest facet distance to 0 gives min width, with equality facet normals only axis or diagonal; transition algebra gives t0. Independent exact rational vertex/containment checks for t=0,1/8,1/4,3/8,1/2 verified vertex sets and inclusions, not a substitute for all-real proof.
 
-**Closest work and limits.** Martin Winter, *Classification of Vertex-Transitive Zonotopes* (2019 preprint, 2021 journal), provides classical zonotope structure. Related studies of cube–octahedron intersections analyze different geometric functionals. The result is restricted to Euclidean regular tetrahedra with uniform edge truncation; no independent validation or comprehensive unpublished-literature census has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compared mathematical objects, parameter ranges, equivalent transforms, prior stronger results and available exact tables; the specific final theorem is not known to follow from the inspected primary and Resultary findings. Winter characterizes zonotopes by centrally symmetric 2-faces and identifies A3 permutahedral families, providing the iff tool and special zonotope classification, but not the map T_t→D_t and all-parameter width-normal minimizers. Given D_t description and Winter criterion, t=1/4 follows by elementary diagonal facet central symmetry, but the all-parameter identity is the nontrivial new geometric step. Known central symmetry of D_t alone is insufficient for zonotopality.
+
+## value
+
+PASS
+
+Difference bodies encode width and symmetry; uniform tetrahedron truncation is canonical convex-geometric deformation. A complete global difference-body identification, unique zonotopal deformation point and a distinct sharp width-normal transition provide a motivated structural classification of a natural family, beyond recognising the regular truncated octahedron.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
