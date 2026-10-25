@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:00:52Z",
+  "axes": {
+    "correctness": {
+      "checked_source_blobs": {
+        "RESULT.md": "f56bd9c835dbe47d6cd81b5826ce211f08292070",
+        "verify.py": "f6d84065dfbffdc187debf83009410a529140d6d"
+      },
+      "rationale": "Reconstructed two-stage dynamic programming: full path is covered iff both boundaries have been visited; after the first hit the minimum crossing expectation C_n is independent of which endpoint. For target-right hitting, Bellman H_x=1+p H_(x+1)+q H_(x-1) (H_0=1+H_1, H_n=0), with q=2^-c and p=1-q; H decreases so selecting best offered target-neighbor minimizes the full Bellman equation. For first endpoint, nearest-end distance d has reflected/holding midpoint recurrence, value E_d increasing; exact even/odd formulas solve respective recurrences and satisfy Bellman inequalities. Independent exact rational checks for all c=1..5 and n=1..17 independently enumerated two-outcome offer probabilities and confirmed target and first-exit recurrences; source verify.py evaluates larger finite samples. The strong Markov property extends stagewise optimality to randomized history-dependent policies; c=1 gambler-ruin gives n^2+i(n-i). For fixed c>=2, positive drift delta=p-q, bounded reflection visits O_P(1), martingale functional CLT for hitting distance L_n~ell n gives variance 4pq ell/delta^3; first stage ell=eta and opposite crossing ell=1 are conditionally independent, hence total variance 4pq(1+eta)/delta^3, especially 9 for c=2, eta=1/2. Finite checks do not prove infinite CLT; the stopped-walk coupling does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05170",
+          "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2020.76"
+        ],
+        "reasoning": "Published bounded-degree tree results prove linear order upper bounds (including paths); their constants and existence claims are weaker than exact c-dependent Bellman optimal values and fluctuation constants.",
+        "searches": [
+          "Resultary semantic query: power of two choices random walk path exact optimal cover time path gaussian central limit offers neighbors controller",
+          "Resultary semantic query: optimal power two choices walk interval path cover times exact Bellman central limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05170",
+        "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+        "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05170",
+          "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2020.76"
+        ],
+        "reasoning": "General O(n) adaptive-walk bounds imply only a rate and do not identify the optimal feedback or explicit Gaussian law. Standard biased-walk hitting-time CLT is an ingredient but optimal two-stage decomposition and midpoint boundary recurrences require proof.",
+        "searches": [
+          "Resultary semantic query: power of two choices random walk path exact optimal cover time path gaussian central limit offers neighbors controller",
+          "Resultary semantic query: optimal power two choices walk interval path cover times exact Bellman central limit theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05170",
+          "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2020.76"
+        ],
+        "reasoning": "The two-choice model is identical in sampling for c=2, modulo boundary degree-one convention. For c>2 the theorem extends number of offers; unbiased c=1 is classical gambler ruin. Elephant walk Resultary hits have reinforcement/memory, not adaptive offered neighbors.",
+        "searches": [
+          "Resultary semantic query: power of two choices random walk path exact optimal cover time path gaussian central limit offers neighbors controller",
+          "Resultary semantic query: optimal power two choices walk interval path cover times exact Bellman central limit theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05170",
+          "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17"
+        ],
+        "reasoning": "No known exact finite-path offered-neighbor cover-time table or variance profile for all n,c discovered in the targeted Resultary and primary-source searches; plain gambler-ruin tables fix a static drift instead of adaptive two-stage coverage.",
+        "searches": [
+          "Resultary semantic query: power of two choices random walk path exact optimal cover time path gaussian central limit offers neighbors controller",
+          "Resultary semantic query: optimal power two choices walk interval path cover times exact Bellman central limit theorem"
+        ]
+      },
+      "rationale": "Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. General O(n) adaptive-walk bounds imply only a rate and do not identify the optimal feedback or explicit Gaussian law. Standard biased-walk hitting-time CLT is an ingredient but optimal two-stage decomposition and midpoint boundary recurrences require proof.",
+      "residual_risks": [
+        "Other formulations of controlled random walks or stochastic shortest-path policies may include the path case.",
+        "Random-index CLT requires the reflected overshoot visits be tight uniformly over starting fractions; proof provided a geometric-return argument, not quantitative Berry-Esseen bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general O(n) cover bounds on bounded-degree trees for two offers but does not supply the exact interval worst-start formula for all c or centered path-cover CLT variance in material inspected",
+          "evidence": [
+            "Georgakopoulos-Haslegrave-Sauerwald-Sylvester, CPC (2022), main cover-time theorem for bounded-degree trees"
+          ],
+          "identifier_or_url": "arXiv:1911.05170; published CPC 31 (2022), 73-100",
+          "material_read": "Open author manuscript PDF, introduction, main linear bounded-degree tree cover theorem and key model definitions; checked for exact interval closed form and Gaussian fluctuation claim",
+          "method": "Warwick lawful OA complete 28-page PDF, theorem-by-theorem comparison",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Introduces exactly the adaptive choice random walk with two independent neighbor offers and cover time"
+        },
+        {
+          "assessment": "Describes model and broad complexity, no validated exact path optimality/CLT implication from the read material",
+          "evidence": [
+            "ITCS 2020 Article 76 bibliographic abstract"
+          ],
+          "identifier_or_url": "doi:10.4230/LIPIcs.ITCS.2020.76",
+          "material_read": "Bibliographic abstract and cited relationship, not full proceedings proof",
+          "method": "DOI/ITCS 2020 public metadata and research-package reference",
+          "title": "Choice and Bias in Random Walks",
+          "trigger": "Earlier proceedings treatment of the same general choice-walk model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05170",
+        "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+        "https://doi.org/10.4230/LIPIcs.ITCS.2020.76"
+      ],
+      "rationale": "A natural adaptive-cover stochastic control model on the elementary path acquires an exact finite-horizon optimal strategy and value for any offer count, including the transition from quadratic to linear worst-start cover cost and full centered fluctuation theorem. This materially refines existing general linear bounds for bounded-degree trees and provides a precise benchmark for choice random walks.",
+      "residual_risks": [
+        "Other formulations of controlled random walks or stochastic shortest-path policies may include the path case.",
+        "Random-index CLT requires the reflected overshoot visits be tight uniformly over starting fractions; proof provided a geometric-return argument, not quantitative Berry-Esseen bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

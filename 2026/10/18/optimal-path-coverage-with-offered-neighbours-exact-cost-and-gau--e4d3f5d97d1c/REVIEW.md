@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cover time is exactly the first hit of either endpoint plus crossing to the opposite endpoint; reflection symmetry makes the crossing value independent of which endpoint was visited first. Explicit Bellman potentials are strictly monotone and satisfy the full adaptive-control recurrences, establishing global all-policy optimality. Central-boundary recurrences distinguish even and odd paths. The \(c=1\) formula follows from unbiased finite-difference equations. For the Gaussian limit, biased hitting-time martingale CLTs apply after a tight number of reflecting-boundary corrections; fresh offer sequences make the two stages independent. The actual packaged checker covers 3600 exact rational identities and independent second-moment asymptotic tests. A numerical test alone is not an infinite proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-The 2019 arXiv/2021 openly available primary manuscript of Georgakopoulos–Haslegrave–Sauerwald–Sylvester proves a linear upper bound for bounded-degree-tree choice-random-walk cover times and describes general path hitting estimates, but the inspected body and conclusions do not supply the all-start exact path-cover optimum, sharp two-offer constant \(3\), or the path-cover Gaussian constant \(9\). The ITCS 2020 predecessor likewise provides general-order and complexity results, not the stated complete path theorem. The known one-dimensional biased-walk calculations are used, not asserted new. Searches of published mathematical findings and exact-model literature revealed no covering statement; this is not absolute priority proof. A related 2008 empirical controlled-walk study was identified, but its full text was not accessible; it uses a different heuristic and no decisive contrary claim is known. Classic gambler's-ruin treatments and possible unindexed adaptive-walk literature remain residual priority risks.
+PASS
 
-## Value — PASS
-The path is the simplest nontrivial tree and the natural benchmark for a full-history controller offered independent candidate moves; the literature gives only a linear order for its cover time. The theorem replaces that bound with the exact optimum at every finite size, precisely locates the worst start, quantifies the phase shift from quadratic to linear at the first extra choice, and supplies a sharp distributional performance benchmark (Gaussian variance \(9\) for two offers). These answers concern the natural entire path family and not a chosen numerical instance.
+Reconstructed two-stage dynamic programming: full path is covered iff both boundaries have been visited; after the first hit the minimum crossing expectation C_n is independent of which endpoint. For target-right hitting, Bellman H_x=1+p H_(x+1)+q H_(x-1) (H_0=1+H_1, H_n=0), with q=2^-c and p=1-q; H decreases so selecting best offered target-neighbor minimizes the full Bellman equation. For first endpoint, nearest-end distance d has reflected/holding midpoint recurrence, value E_d increasing; exact even/odd formulas solve respective recurrences and satisfy Bellman inequalities. Independent exact rational checks for all c=1..5 and n=1..17 independently enumerated two-outcome offer probabilities and confirmed target and first-exit recurrences; source verify.py evaluates larger finite samples. The strong Markov property extends stagewise optimality to randomized history-dependent policies; c=1 gambler-ruin gives n^2+i(n-i). For fixed c>=2, positive drift delta=p-q, bounded reflection visits O_P(1), martingale functional CLT for hitting distance L_n~ell n gives variance 4pq ell/delta^3; first stage ell=eta and opposite crossing ell=1 are conditionally independent, hence total variance 4pq(1+eta)/delta^3, especially 9 for c=2, eta=1/2. Finite checks do not prove infinite CLT; the stopped-walk coupling does.
 
-## Scientific limits
-Fixed offer count for the limit; uniform independent offered neighbours with replacement; no weighted graphs or sampling without replacement. Novelty is supported by inspected documents and searches, not an independent audit. The checker does not establish the stopping-time CLT on its own.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. General O(n) adaptive-walk bounds imply only a rate and do not identify the optimal feedback or explicit Gaussian law. Standard biased-walk hitting-time CLT is an ingredient but optimal two-stage decomposition and midpoint boundary recurrences require proof.
+
+## value
+
+PASS
+
+A natural adaptive-cover stochastic control model on the elementary path acquires an exact finite-horizon optimal strategy and value for any offer count, including the transition from quadratic to linear worst-start cover cost and full centered fluctuation theorem. This materially refines existing general linear bounds for bounded-degree trees and provides a precise benchmark for choice random walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
