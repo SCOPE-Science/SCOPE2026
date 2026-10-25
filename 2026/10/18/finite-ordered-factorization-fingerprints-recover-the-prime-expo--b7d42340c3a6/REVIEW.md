@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial transform is exact because unit positions are selected independently of each ordered nonunit factorization. The Euler product count distributes each prime exponent among the ordered factor positions. Therefore the consecutive ratio gives the value of a monic polynomial of degree \(r\) at \(r\) distinct points. Two such monic polynomials agreeing there coincide; their negative roots are precisely the prime exponents. Conversely the binomial transform is triangular and invertible. The four concrete pairs, checked by exact arithmetic, show insufficiency of \(r\) coefficients only when \(1\le r\le4\). The finite script is a regression check, not the universal proof.
+PASS
 
-## Originality — PASS, with residual risk
+For n>1 with r=ω(n) known, d_t(n)=Σ_{j=1}^t binom(t,j)c_j(n) by placement of nonunit factors, while exact Euler/stars-and-bars count d_t=∏_{i=1}^r binom(t+a_i−1,a_i). Therefore H_n(T)=∏(T+a_i), monic degree r, satisfies H_n(t)=t^r d_{t+1}/d_t at t=1,…,r. Equality of c_1,…,c_{r+1} forces equality at r points of two monic polynomials, hence identical H and negative integer roots a_i; converse follows from invertible binomial transform. Checked small-support sharpness pairs (1)/(2), (1,5)/(2,3), (1,6,8)/(2,2,13), and (3,7,11,74)/(4,4,17,63), with equality only through r counts. No general optimality asserted for r>4.
 
-The 2026 motivating paper supplies definitions, Dirichlet series and special-value identities rather than the finite-prefix inverse statement. Earlier work on nontrivial divisor functions gives the fundamental binomial transform and counting formulas from which the present argument begins; those formulas alone do not state the exact support-size fingerprint. A 2026 work on c-polynomial factorisations concerns factorization properties of different generating polynomials. Similarity searches and the surveyed mathematical statements did not show an equal-or-stronger theorem. Since the proof uses classical tools, an implicit or unindexed earlier equivalent result remains a material originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A precise inverse question about a recently investigated multiplicative-factorization polynomial receives a uniform answer independent of the total number of prime factors with multiplicity. Rather than requiring the full polynomial of degree \(\Omega(n)-1\), only \(r+1\) coefficients reconstruct the multiplicative exponent shape, with concrete evidence the cutoff cannot be decreased for support sizes one through four. The primes themselves remain undetermined; higher-support optimality is not established.
+Earlier nontrivial divisor polynomial work establishes definitions, binomial transforms and Euler counting formula. The constrained inverse theorem from only r+1 samples is not displayed by inspected primary formulas; the interpolation and explicit sharpness witnesses are the incremental claim. Since the proof uses standard algebra and prior identities, a mathematically implicit or unindexed equivalent inverse statement is a material risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural ordered-factorization polynomial encodes the prime-exponent partition of n; an exact short fingerprint of length r+1 independent of Ω(n) solves a motivated finite-data inverse problem with constructive recovery and meaningful optimality witnesses for r≤4. The result is elementary but an exact identifiability boundary, not merely restating divisor formula or a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

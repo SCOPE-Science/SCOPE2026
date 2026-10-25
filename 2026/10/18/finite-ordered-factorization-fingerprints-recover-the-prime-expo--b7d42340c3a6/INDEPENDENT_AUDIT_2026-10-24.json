@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:17:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>1 with r=ω(n) known, d_t(n)=Σ_{j=1}^t binom(t,j)c_j(n) by placement of nonunit factors, while exact Euler/stars-and-bars count d_t=∏_{i=1}^r binom(t+a_i−1,a_i). Therefore H_n(T)=∏(T+a_i), monic degree r, satisfies H_n(t)=t^r d_{t+1}/d_t at t=1,…,r. Equality of c_1,…,c_{r+1} forces equality at r points of two monic polynomials, hence identical H and negative integer roots a_i; converse follows from invertible binomial transform. Checked small-support sharpness pairs (1)/(2), (1,5)/(2,3), (1,6,8)/(2,2,13), and (3,7,11,74)/(4,4,17,63), with equality only through r counts. No general optimality asserted for r>4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huxley–Lettington–Schmidt 2026 gives divisor function polynomial and Dirichlet-series identities; Hill et al. supply general ordered factorization transforms."
+        ],
+        "reasoning": "The identities supply ingredients but do not in the inspected text assert recovery for r fixed from just r+1 c_j or list all sharpness pairs; the implication requires the consecutive ratio polynomial interpolation argument.",
+        "searches": [
+          "https://arxiv.org/html/2610.13864v1",
+          "Hill Huxley Lettington Schmidt 2020 non-trivial divisor functions",
+          "Resultary semantic search: ordered multiplicative factorization count first r+1 prime exponent multiset interpolation divisor polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md baf6d0baae770b4d6c04f9b69a31176fafa37587",
+        "Git CHECKER.py f19fefd0c62ad1583095557d8be133d7c2fb5a60",
+        "Huxley–Lettington–Schmidt full arXiv HTML 2610.13864v1",
+        "Hill et al. 2020 cited abstract; Resultary query 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known d_t product implies H_n(t)=t^r d_(t+1)/d_t, but extracting H from exactly r values uses the monic-degree bound and known support r."
+        ],
+        "reasoning": "This is a short deduction from classical formulas rather than a new general algebraic tool. No inspected prior primary theorem declares the identical finite r+1 statement; priority is qualified, and small-r optimality is separately shown.",
+        "searches": [
+          "Huxley Lettington Schmidt 2026 stars and bars formula and inverse ordered factorizations",
+          "Resultary semantic search: ordered multiplicative factorization count first r+1 prime exponent multiset interpolation divisor polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordered factorizations c_j are the known nontrivial divisor counts; a monic ratio polynomial built from d_t recovers exponent multiset from only a short prefix."
+        ],
+        "reasoning": "Equivalence to a reconstruction of the multiset of exponents, not recovery of distinct primes; matching full divisor polynomial is too weak to imply the sharp finite-prefix length explicitly.",
+        "searches": [
+          "Resultary semantic search: ordered multiplicative factorization count first r+1 prime exponent multiset interpolation divisor polynomial",
+          "Huxley Lettington Schmidt non-trivial divisor function polynomial inverse recover prime exponents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit collisions in first r counts for r=1..4 and separation at r+1 show noninjectivity below the claimed cutoff; source checker handles exact large integer products."
+        ],
+        "reasoning": "Existing tables of c_j or Dirichlet coefficients alone are not the uniform known-r recovery theorem; independent witness comparisons are a distinct constructive exact boundary.",
+        "searches": [
+          "Resultary semantic search: ordered multiplicative factorization count first r+1 prime exponent multiset interpolation divisor polynomial",
+          "prime exponent tuples equal ordered factor counts r=4 3 7 11 74 4 4 17 63"
+        ]
+      },
+      "rationale": "Earlier nontrivial divisor polynomial work establishes definitions, binomial transforms and Euler counting formula. The constrained inverse theorem from only r+1 samples is not displayed by inspected primary formulas; the interpolation and explicit sharpness witnesses are the incremental claim. Since the proof uses standard algebra and prior identities, a mathematically implicit or unindexed equivalent inverse statement is a material risk.",
+      "residual_risks": [
+        "Elementary interpolation may have appeared implicitly or explicitly in older unindexed ordered-divisor-function literature; partial source inspection.",
+        "Sharpness only r≤4; support r must be given, no noise robustness or prime identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_CLASSICAL_IDENTITIES_NOT_SHORT_INVERSE",
+          "evidence": "Finite support-sample inverse interpolation and sharpness not found in inspected full text.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13864v1",
+          "material_read": "Complete available arXiv HTML with theorem statements, multiplicative formulas and related divisor-function discussions",
+          "method": "Lawful OA arXiv HTML close reading",
+          "title": "On Divisor Function Polynomials and Dirichlet Series",
+          "trigger": "Same divisor polynomial and nontrivial ordered factorization coefficients"
+        },
+        {
+          "assessment": "RELATED_PRIMARY_PARTIAL",
+          "evidence": "Classical nontrivial factorization transform credited; possible implicit inverse not definitively excluded.",
+          "identifier_or_url": "https://doi.org/10.1007/s11139-018-0105-4",
+          "material_read": "Bibliographic and cited theorem description; primary complete article not read",
+          "method": "Citation tracing and mathematical implication check",
+          "title": "Some properties and applications of non-trivial divisor functions",
+          "trigger": "Earlier ordered divisor function and binomial transform methods"
+        },
+        {
+          "assessment": "CLAIM_PROOF_RECONSTRUCTED",
+          "evidence": "Monic polynomial interpolation + four exact collision pairs.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/finite-ordered-factorization-fingerprints-recover-the-prime-expo--b7d42340c3a6",
+          "material_read": "Full RESULT.md, REVIEW.md, CHECKER.py and tree at assigned commit",
+          "method": "Immutable GitHub read only",
+          "title": "Finite ordered-factorization fingerprint source",
+          "trigger": "Actual final claim, examples and checker"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural ordered-factorization polynomial encodes the prime-exponent partition of n; an exact short fingerprint of length r+1 independent of Ω(n) solves a motivated finite-data inverse problem with constructive recovery and meaningful optimality witnesses for r≤4. The result is elementary but an exact identifiability boundary, not merely restating divisor formula or a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md baf6d0baae770b4d6c04f9b69a31176fafa37587",
+    "Git CHECKER.py f19fefd0c62ad1583095557d8be133d7c2fb5a60",
+    "Huxley–Lettington–Schmidt full arXiv HTML 2610.13864v1",
+    "Hill et al. 2020 cited abstract; Resultary query 4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Elementary interpolation may have appeared implicitly or explicitly in older unindexed ordered-divisor-function literature; partial source inspection.",
+    "Sharpness only r≤4; support r must be given, no noise robustness or prime identities."
+  ],
+  "schema_version": 1
+}
