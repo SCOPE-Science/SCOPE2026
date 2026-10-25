@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Closed recurrence follows by solving the exact source MPLM linear system with MPE denominators. Direct differentiation yields the two roots; endpoint signs prove the exact local stability window. Implicit differentiation and Descartes prove unique optimal step; symbolic identity checker and 392 rational updates pass. Finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Torlo–Öffner–Ranocha 2021 already cover qualitative oscillation in related Patankar methods; Zhu–Huang–Yang 2022 use a different three-step formula."
+      ],
+      "reasoning": "Qualitative oscillation is broader motivation, but does not mathematically determine this rational local factor or the unique finite optimum. No inspected stronger theorem implies those constants.",
+      "searches": [
+        "Patankar multistep positivity preserving conservative two step slow relaxation stiff limit eigenvalue minus one",
+        "modified Patankar linear multistep equilibrium Jacobian nonoscillatory stationary asymptotic convergence two-step 2024",
+        "arxiv:2108.07347",
+        "arxiv:2211.05600"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2407.12540v1",
+      "https://arxiv.org/abs/2108.07347",
+      "https://arxiv.org/abs/2211.05600"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source proves all-step positivity, mass preservation and fixed-mesh order; it does not logically bound the large-step local relaxation rate.",
+        "General MPRK counterexamples concern different update maps."
+      ],
+      "reasoning": "Prior positivity and consistency theorems allow, but do not imply, a fixed rational equilibrium Jacobian with spectral optimum. The claimed exact factor follows only from specializing the published update and performing a new local spectral/optimization analysis.",
+      "searches": [
+        "Modified Patankar linear multistep MPLM-2 second-order leapfrog scalar symmetric exchange stiff limit parasitic negative eigenvalue convergence rate 2024 Izzo Messina Pezzella Vecchio",
+        "Patankar multistep positivity preserving conservative two step slow relaxation stiff limit eigenvalue minus one",
+        "MPLM-2(2) Patankar sigma embedding balanced two species exchange steady state eigenvalue spectral radius optimal stepsize stiff limit",
+        "arxiv:2407.12540v1 Theorems 2.2–2.3, 3.6",
+        "arxiv:2108.07347 exchange-model sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's own equations specify the exact map; general Patankar oscillation examples do not exhibit this embedded two-step formula."
+      ],
+      "reasoning": "A matching title or parameter is insufficient. Comparing actual updates shows MPRK and other Patankar schemes have distinct denominators and cannot imply the displayed MPLM Jacobian without further calculation.",
+      "searches": [
+        "Modified Patankar linear multistep MPLM-2 second-order leapfrog scalar symmetric exchange stiff limit parasitic negative eigenvalue convergence rate 2024 Izzo Messina Pezzella Vecchio",
+        "MPLM-2(2) Patankar sigma embedding balanced two species exchange steady state eigenvalue spectral radius optimal stepsize stiff limit",
+        "arxiv:2407.12540v1 §2–§3",
+        "arxiv:2108.07347 §1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Izzo et al. Table 1 explicitly lists the two-step order-two coefficients, which are treated as prior input. No table inspected lists the equilibrium Jacobian or optimal step."
+      ],
+      "reasoning": "Coefficient recovery is not claimed original. New calculation concerns an invariant and its optimization not tabulated by these sources; search nonmatch does not establish uniqueness.",
+      "searches": [
+        "two step modified Patankar sigma embedding Euler predictor spectral stability oscillatory transient",
+        "MPLM-2(2) Patankar sigma embedding balanced two species exchange steady state eigenvalue spectral radius optimal stepsize stiff limit",
+        "arxiv:2407.12540v1 Table 1"
+      ]
+    },
+    "rationale": "The original method, nonnegative coefficient pair, MPE embedding, positivity/conservativity and second-order convergence are acknowledged source results. Other Patankar oscillation results are acknowledged. The specific sharp local spectral contraction, unique optimizer and stiff-step asymptotics were not found in inspected full primary texts or mathematical-record queries; possible equivalent formulations remain a residual risk.",
+    "residual_risks": [
+      "Some specialized stability analysis of MPLM schemes may contain an equivalent result under different notation.",
+      "The theorem only addresses local equilibrium relaxation and cannot be read as global nonlinear convergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitive method and embedding prior; provides positivity/conservation and order, but no identified exact two-state local spectral factor or unique fastest-step theorem.",
+        "evidence": [
+          "Equation (2.8) is MPLM; Table 1 gives alpha=(0,1), beta=(2,0); equations (3.19)–(3.20) prescribe MPE embedding; Theorem 3.6 concerns order convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.12540v1",
+        "material_read": "Sections 1–3, equations (2.7)–(2.10), (3.19)–(3.20), Table 1 and conclusions/experiments",
+        "method": "Full accessible HTML inspected for formulas and whether a two-state equilibrium spectrum or optimal step is proved",
+        "title": "Modified Patankar Linear Multistep methods for production-destruction systems",
+        "trigger": "Exact originating algorithm, coefficients, and possible prior stability coverage"
+      },
+      {
+        "assessment": "Establishes prior oscillation phenomena and relevant conceptual caveat, but its MPRK, MPDeC and allied methods are not the source two-step MPE-embedded MPLM formula.",
+        "evidence": [
+          "Section 1.1 uses two-state mass exchange; later stability analysis examines Patankar schemes other than MPLM-2(2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.07347",
+        "material_read": "Full accessible scientific text, including introductory two-component exchange example and method-specific oscillation/stability discussion",
+        "method": "Full accessible arXiv text and comparison of scheme identities",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Closely related Patankar exchange-system oscillation and stiffness literature"
+      },
+      {
+        "assessment": "Contains distinct multi-step schemes (including second-order three-step coefficients), not the claimed two-step embedded-MPE Jacobian and step optimizer.",
+        "evidence": [
+          "Section 2.2 presents a three-step second-order configuration with distinct coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.05600",
+        "material_read": "Full accessible arXiv text, particularly the multistep construction in Section 2.2",
+        "method": "Compared published multistep coefficients and denominators, not just titles",
+        "title": "Bound-preserving discontinuous Galerkin methods with modified Patankar time integrations for chemical reacting flows",
+        "trigger": "Earlier multistep Patankar construction and possible dominating results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04b80b9f-be4d-4269-8e6d-99f533c88174",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The step-size optimization and large-step contraction degeneration are a quantitative algorithm-design frontier on a natural conservative exchange benchmark. They show why unconditional positivity and conservation must not be confused with effective stiff relaxation. The exact constants supply reproducible tests for choosing time steps and comparing embedding schemes.",
+    "status": "PASS"
+  }
+}
