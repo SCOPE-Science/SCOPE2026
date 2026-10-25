@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:04:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For q,r≥2 and n≥r let vertices be legal length n−1 words and edges legal length n factors avoiding linear a^r. The overlap graph is strongly connected via a non-a letter. Its imbalance is indicator(initial a^{r−1}) minus indicator(final a^{r−1}); sources are terminal-but-not-initial, sinks initial-but-not-terminal. The integer potential φ=leftmost start of a^{r−1}, or sentinel if absent, drops by ≤1 on each legal edge, so balancing extra edges needs at least Σ_sources φ. The explicit path s=P Q→Q reverse(P) from first a^{r−1} to a sink is legal, length φ, and the inverse based on last a^{r−1} proves a source–sink bijection, so the augmentation attains the lower bound and is Eulerian. The generating function for weighted prefix and remaining suffix multiplies to (q−1)Σ_{i=1}^{r−1} i z^i / [D_{r−1}(z)D_r(z)]. Independent Python enumerated graph imbalances, actual path legality, source–sink bijection, potential costs and generating coefficients for several q=2,3,4,r=2,3 parameter cases, matching binary r=3 excess 0,1,4,9,21,45,93,188. The general theorem relies on combinatorial proof, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Eulerization of directed overlap graphs models minimum repetitions.",
+          "The audited theorem provides closed-form optimum with explicit integral dual and bijection for this entire q,r,n family."
+        ],
+        "reasoning": "An algorithmic framework could compute individual instances; it does not alone imply the uniform exact GF without the custom structure.",
+        "searches": [
+          "optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization",
+          "Bernardini Chen Loukides Pissis Stougie Sweering CPM2022 Making de Bruijn Graphs Eulerian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2510.16545",
+        "https://arxiv.org/abs/2403.01454",
+        "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d",
+        "Resultary:optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior ucycle construction covers a stricter cyclic-window language and can be Eulerian without repeats.",
+          "Audited construction shows exact repetitions for all linearly forbidden a^r windows and uses a nontrivial weighted-source potential identity."
+        ],
+        "reasoning": "The prior scope cannot specialize to this problem without adding words it excludes; generic graph augmentation needs fresh explicit computation.",
+        "searches": [
+          "optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization",
+          "Sawada Gabric 2510.16545 Theorem and section 4.5",
+          "Bernardini et al 2022 Eulerization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A linear window such as 00100 for binary r=3 is accepted here but its cyclic closure has a forbidden 000 run and is excluded by prior cyclic-window languages."
+        ],
+        "reasoning": "Different edge languages and original-graph degree imbalance prevent direct equivalence with prior de Bruijn sequences; the known r=2 specialization is credited.",
+        "searches": [
+          "optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization",
+          "Sawada Gabric 2510.16545 section 4.5 forbidden consecutive zero cyclic windows",
+          "maximum run-length-limited de Bruijn graph arxiv:2403.01454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary strongest semantic matches were unrelated permutation-cover and automaton-rank records, not a table of all q,r,n excesses.",
+          "Distinct published maximum-length RLL sequence results do not tabulate minimum full-language cyclic-cover repetitions."
+        ],
+        "reasoning": "No exact database/table identified; no global novelty claim from search absence.",
+        "searches": [
+          "optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization",
+          "Resultary run-limited cyclic covers rational excess",
+          "Chee et al arxiv:2403.01454 sequence lengths",
+          "arxiv:2510.16545"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Sawada–Gabrić 2025 construct universal cycles for the cyclically restricted per-window language (all cyclic rotations avoid the forbidden run), whereas here the required length-n windows are only LINEARLY a^r-free and the containing cycle must avoid a^r cyclically. The larger linearly legal edge set can be non-Eulerian and requires repeated edges. General shortest Eulerization algorithms (Bernardini et al.) yield methods but not this exact all-q,r symbolic excess rational GF and explicit optimal bijective augmentation. Earlier binary r=2 Fibonacci specialization is already known and not claimed new.",
+      "residual_risks": [
+        "A generic Eulerization source was not read in entirety, so implicit structural specializations remain a priority risk.",
+        "The cyclic host forbids a^r across its wrap and the required windows are linearly admissible; conflating these languages reverses claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A different cyclic window constraint, not the claimed linear admissibility and repeated-edge optimum",
+          "evidence": [
+            "Section 4.5 circular restriction on forbidden run"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "Full PDF accessible with screenshot of page 12 containing section 4.5 and the cyclic-window condition",
+          "method": "PDF web text and page-image read",
+          "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+          "trigger": "Restricted words avoiding long runs; same arXiv 2025 family"
+        },
+        {
+          "assessment": "Provides general methods; priority risk of special structure not ruled out without complete paper",
+          "evidence": [
+            "General Eulerization formulation; no all-q,r exact excess formula seen"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+          "material_read": "Open abstract and relevant theorem/result descriptions; continuous full PDF not completed",
+          "method": "web abstract/result page",
+          "title": "Making de Bruijn Graphs Eulerian",
+          "trigger": "General graph Eulerization potentially dominates shortest cyclic cover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact shortest single-cycle cover of an entire natural constrained language across every alphabet and forbidden-run size is a substantive combinatorial optimization invariant. Explicit optimal path routing, matching integer dual potential and rational multivariate-parameter series go substantially beyond a routine transfer-matrix count of admissible words or generic Eulerization existence; meaningful for sequence-cover algorithms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2510.16545",
+    "https://arxiv.org/abs/2403.01454",
+    "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d",
+    "Resultary:optimal shortest cyclic universal cover avoiding forbidden repeated letter run a^r q-ary excess generating function Eulerization"
+  ],
+  "disposition": "passed",
+  "limitations": "Exactly one forbidden constant-letter run, q,r≥2, n≥r; not arbitrary regular-language covers or number of all minimizers.",
+  "residual_risks": [
+    "A generic Eulerization source was not read in entirety, so implicit structural specializations remain a priority risk.",
+    "The cyclic host forbids a^r across its wrap and the required windows are linearly admissible; conflating these languages reverses claims."
+  ],
+  "schema_version": 1
+}
