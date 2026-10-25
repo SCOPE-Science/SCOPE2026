@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge-orbit Lefschetz formula is derived from oriented simplex signs including the reduced empty face. Shellability of loopless graphic-matroid independence complexes and rank \(13\) prove concentration in degree \(12\), while direct 336-symmetry orbit enumeration gives all character entries. The separate 2,097,152-mask implementation checks 1,469,920 forests and eight representative traces independently. The full and subgroup character averages are exactly \(14\) and \(18\); the index-two duality statement follows.
+## correctness
 
-## Originality
-PASS, with unindexed-literature risk. The closest general references establish matroid shellability (Ardila--Castillo--Samper, arXiv:1410.3870) and equivariant matroid-homology frameworks (Moci--Pezzoli, arXiv:2001.03760), but the inspected material does not state the eight evaluated Heawood forest traces or the \(14/18/4\) invariant dimensions. Nearest indexed Heawood *matching* and graph-*vertex-independence* results concern different complexes. The earlier accessible findings concern other objects, including a Petersen graphic-forest character, and do not imply the Heawood character. Exhaustive bibliographic uniqueness is not asserted.
+PASS
 
-## Value
-PASS. The Fano incidence graph is a canonical highly symmetric 3-regular graph; its cycle-free edge-set complex is the natural independence complex of its graphic matroid. The complete automorphism character and the exact discrepancy between full and incidence-preserving invariant homology measure topological effects of Fano point-line duality that no Betti-number calculation reveals. The exact \(14\) full invariants and four duality-odd subgroup invariants are intrinsically defined, rather than arbitrary graph samples.
+The forest complex is the independence complex of the rank-13 graphic matroid of connected bridgeless 14-vertex Heawood graph and hence a pure shellable 12-dimensional sphere wedge. For a 21-edge permutation, fixed oriented faces are exactly unions of edge orbits with no graph cycle, and the reduced Lefschetz trace equals -sum of (-1)^(number of included edge orbits). The examined exhaustive checker constructs all 168 GL(3,2) incidence-preserving automorphisms and their 168 dualities and computes the eight (duality flag, edge-cycle) trace rows for all 336; independent DSU/orbit enumeration corroborated every row. The identity trace 3152 is the top Betti rank. Summing traces yields 4704/336=14 full-group fixed classes and 3024/168=18 incidence-preserving fixed classes; index-two duality thus has exactly four negative eigenclasses in the latter 18-dimensional space.
 
-## Boundaries
-The result evaluates the rational group character and integral nonequivariant homology, not an integral equivariant module. Its topological concentration rests on a published general matroid theorem; computational witnesses are finite. Related unindexed sources might exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit 336-element character of the Heawood graphic-matroid forest complex and its full/duality invariant dimensions refine general matroid shellability/equivariant methods. Prior Heawood matching and graph-vertex independence module calculations apply to face sets with different predicates and much smaller homology; no implication of this forest table.
+
+## value
+
+PASS
+
+The 3152-dimensional natural Heawood graphic-matroid top homology has a non-obvious eight-type full character; exact 14/18 invariant counts and a 4D duality-negative subspace are natural Fano incidence duality invariants, not generic shellability deductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

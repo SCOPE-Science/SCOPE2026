@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-## Reproducible checks
-`python3 verify_heawood.py` constructs the seven Fano lines, the Heawood incidence graph and all 336 induced edge permutations, then directly evaluates the alternating sum over invariant forest unions for every automorphism. The exact expected multiplicity/trace table is asserted, as are 14 full-group invariants, 18 subgroup invariants and four negative duality directions within that subgroup-fixed space.
+# Independent mathematical audit
 
-`g++ -std=c++17 -O2 heawood_forest_crosscheck.cpp -o heawood_check && ./heawood_check` independently scans every one of the 2,097,152 edge masks, counts 1,469,920 forests and computes the eight representative alternating signed fixed-forest traces. Both programs were executed from the actual source files supplied here.
+## correctness
 
-The topological deduction uses the published theorem that matroid independence complexes are shellable; finite enumeration verifies the Heawood-specific traces, not that general theorem. The literature overlap comparison is reasoned but cannot establish the absence of unindexed equivalent results. No independent audit was performed.
+PASS
+
+The forest complex is the independence complex of the rank-13 graphic matroid of connected bridgeless 14-vertex Heawood graph and hence a pure shellable 12-dimensional sphere wedge. For a 21-edge permutation, fixed oriented faces are exactly unions of edge orbits with no graph cycle, and the reduced Lefschetz trace equals -sum of (-1)^(number of included edge orbits). The examined exhaustive checker constructs all 168 GL(3,2) incidence-preserving automorphisms and their 168 dualities and computes the eight (duality flag, edge-cycle) trace rows for all 336; independent DSU/orbit enumeration corroborated every row. The identity trace 3152 is the top Betti rank. Summing traces yields 4704/336=14 full-group fixed classes and 3024/168=18 incidence-preserving fixed classes; index-two duality thus has exactly four negative eigenclasses in the latter 18-dimensional space.
+
+## originality
+
+PASS
+
+The explicit 336-element character of the Heawood graphic-matroid forest complex and its full/duality invariant dimensions refine general matroid shellability/equivariant methods. Prior Heawood matching and graph-vertex independence module calculations apply to face sets with different predicates and much smaller homology; no implication of this forest table.
+
+## value
+
+PASS
+
+The 3152-dimensional natural Heawood graphic-matroid top homology has a non-obvious eight-type full character; exact 14/18 invariant counts and a 4D duality-negative subspace are natural Fano incidence duality invariants, not generic shellability deductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
