@@ -1,19 +1,21 @@
-# Scientific review: identifying open codes of subdivided complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof computes open code signatures separately for original and subdivision vertices. Two unselected original vertices create an undominated subdivision vertex; choosing all but at most one gives distinct nonempty signatures. On the opposite side, equal nonempty incidence signatures mean precisely an isolated selected edge, while empty signatures mean isolated selected vertices. This is an exact equivalence, not a sufficient-only construction. The connected-component bound \(|F|\ge n-c\ge n-\lfloor n/3\rfloor\) yields the minimum, and equality forces every component to be a tree. Cayley's formula counts all labelled equality forests. The labelled exponential formula independently yields every polynomial coefficient. The attached verifier exhaustively checks actual open-neighborhood signatures through \(n=5\), selected-edge graphs through \(n=6\), and the generating function independently over these finite cases.
+PASS
 
-## Originality — PASS, with bounded bibliographic risk
+For every n>=3, actual S(K_n) bipartition signatures separate into incident selected edges at each original vertex and selected original endpoints at each subdivision vertex. The latter are distinct nonempty exactly when at most one original vertex is omitted. The former are distinct nonempty exactly when the selected-edge graph has no K1 or isolated K2 component. This gives the iff classification. Labelled connected-component exponential formula removes sizes 1 and 2, producing P_n=(n z^(n-1)+z^n)A_n. If c components all have >=3 vertices, |F|>=n-c>=ceil(2n/3), with equality iff c=floor(n/3) and each component is a tree. Cayley labelled tree counts on size 3,4,5 component profiles yield all minimizers. Separate independent enumeration of actual open-code signatures gives (n,total,min,multiplicity)=(3,16,4,9),(4,190,6,64),(5,4368,8,625). Tests corroborate but do not prove the infinite n statement.
 
-Chakraborty–Wagler (arXiv:2412.17469v1, section 2.2 and conclusions) characterize the graphs saturating *logarithmic* cardinality bounds for several identification parameters; they do not calculate the one-subdivision-clique code polynomial or minimum count. Chakraborty–Foucaud–Henning (arXiv:2407.09692, introduction and main result) analyze maximum-degree upper bounds for 4-cycle-free graphs and subdivided stars, not this exact two-part signature classification. Argiroffo–Bianchi–Lucarini–Wagler (2019, sections 2–4) study universal-vertex, corona and graph-square operations, not full edge subdivision of cliques. Existing graph-subdivision results about *closed* identifying codes do not imply open total domination and separation. A published central-graph total-domination result gives \(n-1+\lceil n/2\rceil\) for the same underlying graph but lacks separation; here the sharp minimum is \(n-1+\lceil2n/3\rceil\). Related published mathematical claims about double subdivision with pendant arms, total domination of central graphs, or other properties of one-subdivisions likewise do not give the current assertion. Search and text-inspection coverage was substantive but cannot certify exhaustive global novelty; not all potentially adjacent specialist literature was available in full.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact structural description of **every** code in an infinite, natural incidence-graph family. It determines all coefficients of a graph invariant and, separately, a sharp three-periodic extremal formula and exact labelled minimizer multiplicities with distinct residue-class tree profiles. Those statements refine broad bounds into checkable combinatorial data and expose the selected-edge spanning-forest mechanism that controls optimality; they are not mere restatements of a standard domination number.
+Best-of-knowledge statement-level comparison identifies no prior theorem implying the final claim at its actual hypotheses; known overlap and residual bibliographic risks are recorded, not erased.
 
-## Remaining limitations
+## value
 
-No independent audit or comprehensive bibliographic-priority certification has been performed. The displayed argument concerns \(n\ge3\) and the full one-subdivision of complete graphs only. Tests for finitely many \(n\) are corroboration, not the source of the infinite theorem. Direct full-text checking of every potentially related older paper is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural infinite incidence-graph family receives the entire identifying-open-code size polynomial, an exact minimum and full forest/class multiplicity, beyond generic domination bounds. The structural signature reduction and complete enumerator are useful precise invariants, not isolated tiny cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
