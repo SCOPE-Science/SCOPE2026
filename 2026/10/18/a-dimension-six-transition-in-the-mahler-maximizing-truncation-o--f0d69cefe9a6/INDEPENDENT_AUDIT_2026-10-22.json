@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:57:23.016917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c170c39ccb0f42378a991bb9f751d2cd072e70b7",
+        "verify.py blob 007326721ac1fa273c10c2e0769e13fdc8384649",
+        "Independent SymPy derivative identity, d6 endpoint and H_d(2) classification",
+        "Published 2026/9/9 SCOPE101 primary same-slab d4 local formula"
+      ],
+      "rationale": "For d≥3, 0≤t≤2, the slab |sum x_i|≤d−t cuts exactly two disjoint corner simplices of volume t^d/d! from [-1,1]^d. The polar is conv(±e_i,±(1,…,1)/(d−t)); exactly the positive/negative cross-polytope facets are visible for 0<t<2, adding two equal pyramids of volume t/[d!(d−t)]. Hence Q_d=(1−t^d/(2^(d−1)d!))(1+t/[2^(d−1)(d−t)]). Independently verified symbolically in SymPy that derivative Q′=d/[2^(d−1)(d−t)^2]*(1−H_d(t)/d!) with H_d=t^(d−1)*[(d−t)^2+t(d−t+1)/2^(d−1)]. H′_d positive for t∈(0,2), d≥3; H_d(2)=2^(d−1)(d−2)^2+2(d−1) exceeds d! at d=3,4,5 and falls below d! at d=6, with elementary factorial induction for all larger dimensions. Thus exactly one interior optimum in d3..5 and strictly increasing Q for d≥6; independently checked exact Q_6(2)=4667/4608. Source verify.py checks rational nodes and facet signs but analytic induction supplies all dimensions. No theorem for t>2 or arbitrary convex bodies.",
+      "residual_risks": [
+        "The polar-facet geometry is valid throughout the vertex-disjoint cutoff range; t>2 changes combinatorics and is not covered.",
+        "Independent exact algebra is corroborative of the geometric proof and induction, not an infinite enumerative certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen–Dubovski abstract optimizes apices added to CUBE facets at fixed total height, which under polarity is a different primal operation; full text not read.",
+          "Published all-dimensional cube∩scaled CROSS-POLYTOPE theorem uses sum_i|x_i|≤t and hence cuts ALL sign corners, unlike |sum_i x_i| slab removing only the opposite pair."
+        ],
+        "reasoning": "Compared under polarity and face visibility, not merely title. Neither available mathematical statement provides an immediate specialization yielding this single-pair max t, though the unseen Shen–Dubovski body of text leaves risk.",
+        "searches": [
+          "two opposite cube corners truncate cube Mahler volume product optimal cut dimension six",
+          "arXiv:2610.11014",
+          "Resultary all-dimensional cube-cross-polytope intersection"
+        ]
+      },
+      "checked_sources": [
+        "Resultary full SCOPE101 d4 exact diagonal shadow path RESULT.md",
+        "Resultary full 2026/10/11 cube-cross-polytope intersections RESULT.md",
+        "Shen–Dubovski arXiv:2610.11014 abstract and bibliographic data",
+        "Resultary additional simplex-difference/Mahler and crosspolytope search results",
+        "Classical Nazarov–Petrov–Ryabogin–Zvavitch cube local minimality context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-slab d4 local formula permits differentiation on its small-t domain only; it neither includes t>1/2 nor higher dimensions.",
+          "Shen–Dubovski external abstract discusses MINIMUM cube-facet apex bodies at fixed heights, not the MAXIMUM of two-corner cube truncation over 0≤t≤2."
+        ],
+        "reasoning": "No demonstrated parameter reduction from that minimization to the all-dimensional maximum is given by available texts; local 4D formula alone does not imply the strict d6 transition. Any full-text polar equivalence in unread preprint remains named risk.",
+        "searches": [
+          "2026/9/9/SCOPE101",
+          "arXiv:2610.11014",
+          "two opposite cube corners truncate cube Mahler volume product optimal cut dimension six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact 4D diagonal-shadow body K_s=[-1,1]^4 intersect {|sum x_i|≤4−s} is the identical d=4 slice, and its RESULT.md gives the same two volume formulas on 0≤s≤1/2.",
+          "Polar equivalence is adding ±ones/(d−t) apices beyond opposite facets of the CROSS-POLYTOPE, not beyond cube facets."
+        ],
+        "reasoning": "Explicitly recognized polar-apex duality, slab opposite-corner truncation, d4 local path and Mahler normalization. Prior d4 formula is a covered special case, but it does not assert t max classification through all d.",
+        "searches": [
+          "two opposite cube corners truncate cube Mahler volume product optimal cut dimension six",
+          "2026/9/9/SCOPE101",
+          "arXiv:2610.11014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full d4 SCOPE101 published RESULT.md proves 4D local exact formula and linear Mahler deficit on 0≤t≤1/2, not global t up to2.",
+          "All-sign family primary RESULT.md has another all-dimensional product, and at d3 two local maxima, not this single-pair d6 optimizer."
+        ],
+        "reasoning": "An exact partial prior table does cover part of the general product; the whole new maximizing-depth theorem cannot be claimed original merely by adding a numeric dimension, but its strict all-dimension threshold was not found covered.",
+        "searches": [
+          "two opposite cube corners truncate cube Mahler volume product optimal cut dimension six",
+          "Resultary 2026/9/9 SCOPE101",
+          "Resultary 2026/10/11 cube-cross-polytope volume product"
+        ]
+      },
+      "rationale": "The exact four-dimensional small-cut product is already published and NOT new; the accepted claim is the complete all-dimension maximizing-depth classification with a strict d=6 boundary. The all-sign cube–cross-polytope intersection uses a different constraint. Shen–Dubovski 2026 facet-apex optimization has different original body/optimization but its full text remains a real priority risk.",
+      "residual_risks": [
+        "Shen–Dubovski 2026 full text unavailable via checked arXiv/OA and Oxford vpn_disconnected, job a061be5f0644bb4cfdbf7913b3f203ed; could contain a polar dual variant or stronger result.",
+        "The d4 small-cut product formula is definitely covered and excluded from new priority; possible older all-dimensional paired-corner max theorem not found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers d4 local formula on 0≤s≤1/2; does not cover complete optimizer or varying dimensions",
+          "evidence": "Its K_s definition matches ours at d4, P(s)=(16−s^4/12)(2/3+s/[12(4−s)]), domain s≤1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE101",
+          "material_read": "Complete primary published RESULT.md including formula, proof and s interval",
+          "method": "Retrieved actual Resultary GitHub primary RESULT.md",
+          "title": "Exact linear Mahler-deficit rate on the 4D diagonal shadow path",
+          "trigger": "Literally identical d4 truncated cube family"
+        },
+        {
+          "assessment": "Its sum|x_i| constraint is different from the single signed diagonal slab",
+          "evidence": "K=[-1,1]^d∩{sum_i|x_i|≤t}; all sign corners cut, rather than only two antipodes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mahler-products-for-cube-cross-polytope-intersections-and--afc1f44d4eb2",
+          "material_read": "Complete primary RESULT.md, support-function chamber integration and 3D extrema proof",
+          "method": "Fetched full published GitHub RESULT.md",
+          "title": "Exact Mahler products for cube–cross-polytope intersections and their three-dimensional phase diagram",
+          "trigger": "Strong looking all-dimensional Mahler formula"
+        },
+        {
+          "assessment": "Different explicitly stated cube-facet apices at fixed height and minimum; full body/appendix unread and priority risk preserved",
+          "evidence": "2026-10-07 abstract studies added apices to cube facets under a total-height constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11014",
+          "material_read": "Primary arXiv abstract, submission date and problem statement; full PDF not available",
+          "method": "Public arXiv/lawful OA attempted, authorized Oxford returned vpn_disconnected",
+          "title": "A sharp minimum for cube-apex bodies in every dimension",
+          "trigger": "Contemporary closest titled cube-apex optimization, polar duality possible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md all-dimensional proof",
+        "Full 4D earlier overlapping RESULT.md and different cube–crosspolytope RESULT.md"
+      ],
+      "rationale": "Two antipodal cube-corner truncations form a canonical centrally symmetric deformation of the cubic Hanner body, with t=2 the natural combinatorial boundary where further cube vertices would be removed. The optimal Mahler cut depth changes sharply from a unique interior value in dimensions 3–5 to the boundary in all d≥6. Proving the exact global one-parameter optimizer across every dimension is a motivated complete phase classification not supplied by the known 4D local expansion or broad Mahler inequalities.",
+      "residual_risks": [
+        "Family-restricted maximization, not a global Mahler extremum across all symmetric convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only d≥3, 0≤t≤2, two antipodal corner cuts, origin polar; complete source Shen–Dubovski unavailable."
+  ],
+  "schema_version": 1
+}

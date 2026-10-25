@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two removed cube neighborhoods are disjoint simplices throughout the domain. The polar is a cross-polytope with two added apices, each strictly beyond exactly one opposite facet for interior cut depth. The pyramid-volume formula gives a closed product, and exact differentiation reduces the optimizer to a strictly increasing scalar function. Its endpoint evaluation and a factorial induction prove the sharp dimension-six threshold for all integer dimensions. Exact rational checks and separate small-dimensional hull integrations corroborate each normalization; no finite sample is used as an infinite proof.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-The published four-dimensional local shadow formula covers one special slice of the present volume formula, and is explicitly credited. The new assertion is the global cut-depth maximizer and strict dimension-six phase transition for the entire family. The all-dimensional cube–cross-polytope intersection theorem instead cuts every sign corner and does not imply a single signed-diagonal slab classification. The 2026 cube-apex preprint optimizes additions over cube facets, not opposite vertex truncations; its full manuscript was unavailable and remains a genuine historical priority risk. Neither lack of hits nor partitioning establishes absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-Cutting two antipodal cube vertices is a canonical symmetric deformation of a Mahler-extremal Hanner body. The **largest admissible cut** changes from non-optimal to optimal at dimension six, a complete exact extremal classification rather than a local expansion, isolated numerical gain, or parameter relabeling. The endpoint is the natural combinatorial transition at which the corner simplices reach adjacent cube vertices. The result is not a claim about universal Mahler minimizers.
+For d≥3, 0≤t≤2, the slab |sum x_i|≤d−t cuts exactly two disjoint corner simplices of volume t^d/d! from [-1,1]^d. The polar is conv(±e_i,±(1,…,1)/(d−t)); exactly the positive/negative cross-polytope facets are visible for 0<t<2, adding two equal pyramids of volume t/[d!(d−t)]. Hence Q_d=(1−t^d/(2^(d−1)d!))(1+t/[2^(d−1)(d−t)]). Independently verified symbolically in SymPy that derivative Q′=d/[2^(d−1)(d−t)^2]*(1−H_d(t)/d!) with H_d=t^(d−1)*[(d−t)^2+t(d−t+1)/2^(d−1)]. H′_d positive for t∈(0,2), d≥3; H_d(2)=2^(d−1)(d−2)^2+2(d−1) exceeds d! at d=3,4,5 and falls below d! at d=6, with elementary factorial induction for all larger dimensions. Thus exactly one interior optimum in d3..5 and strictly increasing Q for d≥6; independently checked exact Q_6(2)=4667/4608. Source verify.py checks rational nodes and facet signs but analytic induction supplies all dimensions. No theorem for t>2 or arbitrary convex bodies.
 
-## Constraints and remaining uncertainty
-The critical root must be solved separately in dimensions three through five, but existence, uniqueness, and location are proved. The full text of the recent cube-apex study could not be accessed, although its abstract and MSC were checked; an earlier equivalent calculation of the paired-vertex family cannot be absolutely excluded. The scope excludes cut depths above two and bodies not in the family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact four-dimensional small-cut product is already published and NOT new; the accepted claim is the complete all-dimension maximizing-depth classification with a strict d=6 boundary. The all-sign cube–cross-polytope intersection uses a different constraint. Shen–Dubovski 2026 facet-apex optimization has different original body/optimization but its full text remains a real priority risk.
+
+## value
+
+PASS
+
+Two antipodal cube-corner truncations form a canonical centrally symmetric deformation of the cubic Hanner body, with t=2 the natural combinatorial boundary where further cube vertices would be removed. The optimal Mahler cut depth changes sharply from a unique interior value in dimensions 3–5 to the boundary in all d≥6. Proving the exact global one-parameter optimizer across every dimension is a motivated complete phase classification not supplied by the known 4D local expansion or broad Mahler inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
