@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-The mathematical argument is presented in RESULT.md. Its essential checks are: (i) interpolate from two distinct complex nodes and compute the **exact** operator norm by independently selectable unimodular input phases; (ii) obtain the midpoint and exterior-point lower bounds; (iii) show symmetric nodes attain the lower envelope; (iv) minimize the maximum of one strictly increasing and one strictly decreasing function; and (v) exclude asymmetric nodes through a strict exterior test.
+## correctness
 
-The executable `arc_two_node_checker.py` uses only the Python 3 standard library, a fixed pseudorandom seed, six real arc parameters, and direct complex chord lengths. It passed 4,539 finite diagnostic assertions on the stored package. Run with `python3 arc_two_node_checker.py`. Its finite grids and finite pair samples are **not** proofs of an all-angle optimization. The proof does not depend on floating-point output, computer algebra, exhaustive finite enumeration, or an unavailable external certificate.
+PASS
 
-The result is limited to closed proper circular arcs, two distinct complex sampling nodes, and the subspace of affine analytic polynomials in the sup norm. No independent audit was performed.
+For each 0<theta<pi, the input space is complex C(K_theta) and the projection range is span_C{1,z}; optimization is only over two distinct sampling nodes, not all projections. For fixed u<v the two Lagrange functions yield the exact operator norm max_t (|e^{it}-e^{iu}|+|e^{it}-e^{iv}|)/|e^{iv}-e^{iu}|, since arbitrary unit node phases extend continuously to C(K_theta). Set m=(u+v)/2, d=(v-u)/4. Piecewise chord identities give the midpoint bound sec(d) and the farther exterior test bound sin(theta/2)/sin(d). For symmetric nodes the two bounds equal the exact maximum; one strictly increases with d and one decreases, so the unique optimum solves tan(d)=sin(theta/2). Any asymmetric midpoint admits a farther test point with strictly larger sin-quotient, proving the uniqueness assertion. Endpoint norm sec(theta/2), open-arc limits, and small-angle expansion follow. Independently computed direct complex chord values on six arcs and all midpoint/endpoint bounds; all passed. The finite test is corroborative; the exact chord envelope and monotonicity prove continuum quantifiers.
+
+## originality
+
+PASS
+
+The exact all-angle arc family is in the operator-space literature, but the two-node interpolation projector norm and unique inward optimizer are different invariants. The interval Lebesgue minimax, full-circle Chebyshev/Riesz polarization, and high-degree open-arc asymptotics do not entail this closed-form two-sample arc minimax. The proof is elementary but the arc-dependent sharp node placement is a new, nonmechanical parameter optimization among arbitrary node pairs.
+
+## value
+
+PASS
+
+Sharp conditioning for arbitrary continuous complex measurements on a circular subarc is a natural sampling invariant. The unique inward optimal configuration and strict contrast with diverging endpoint conditioning as theta approaches pi diagnose a genuine numerical-stability boundary, not a normalization or textbook inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

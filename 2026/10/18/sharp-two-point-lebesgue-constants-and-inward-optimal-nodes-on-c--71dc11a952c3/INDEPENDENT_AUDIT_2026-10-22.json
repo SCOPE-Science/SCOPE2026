@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:17:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-two-point-lebesgue-constants-and-inward-optimal-nodes-on-c--71dc11a952c3/RESULT.md",
+        "2026/10/18/sharp-two-point-lebesgue-constants-and-inward-optimal-nodes-on-c--71dc11a952c3/arc_two_node_checker.py"
+      ],
+      "rationale": "For each 0<theta<pi, the input space is complex C(K_theta) and the projection range is span_C{1,z}; optimization is only over two distinct sampling nodes, not all projections. For fixed u<v the two Lagrange functions yield the exact operator norm max_t (|e^{it}-e^{iu}|+|e^{it}-e^{iv}|)/|e^{iv}-e^{iu}|, since arbitrary unit node phases extend continuously to C(K_theta). Set m=(u+v)/2, d=(v-u)/4. Piecewise chord identities give the midpoint bound sec(d) and the farther exterior test bound sin(theta/2)/sin(d). For symmetric nodes the two bounds equal the exact maximum; one strictly increases with d and one decreases, so the unique optimum solves tan(d)=sin(theta/2). Any asymmetric midpoint admits a farther test point with strictly larger sin-quotient, proving the uniqueness assertion. Endpoint norm sec(theta/2), open-arc limits, and small-angle expansion follow. Independently computed direct complex chord values on six arcs and all midpoint/endpoint bounds; all passed. The finite test is corroborative; the exact chord envelope and monotonicity prove continuum quantifiers.",
+      "residual_risks": [
+        "Finite numerical/modular experiments corroborate but do not substitute for analytic or integer-exact proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chui–Zhong study degree-n Fejér points on complex arcs and asymptotic logarithmic growth, not the degree-one global node minimum.",
+          "Ambrus–Ball–Erdélyi optimize reciprocal-distance potentials on the full circle, not Lagrange sums of chord lengths on an arc."
+        ],
+        "reasoning": "Neither degree-asymptotic interpolation nor potential theory has a stronger theorem with assumptions encompassing this exact projector norm and its unique inward pair.",
+        "searches": [
+          "arXiv:2209.07101 full PDF first pages, principal stated objectives",
+          "arXiv:1006.5153 full PDF main definitions",
+          "Springer: Lebesgue functions and Lebesgue constants in polynomial interpolation (2016) §3.7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04608v1",
+        "https://arxiv.org/pdf/2209.07101",
+        "https://arxiv.org/pdf/1006.5153",
+        "https://link.springer.com/article/10.1186/s13660-016-1030-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ray: complete contractivity and unitary dilation for two-dimensional operator spaces.",
+          "Chui–Zhong: high-degree n interpolation stability bounds.",
+          "Ambrus–Ball–Erdélyi: minimax of inverse power distances on unit circle."
+        ],
+        "reasoning": "These other extremal problems vary the operator-space metric, polynomial degree, or potential, respectively; none mathematically bounds both chord-ratio terms tightly enough to yield the asserted unique minimizer.",
+        "searches": [
+          "Ray arXiv:2610.04608v1 §3 Theorem 6, §4",
+          "Chui and Zhong arXiv:2209.07101v3 abstract and introduction",
+          "Ambrus Ball Erdelyi arXiv:1006.5153v2 Definition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent Lagrange Lebesgue function equals a sum of two chord distances divided by the node chord.",
+          "Ray arXiv:2610.04608 studies E_theta as Banach/operator space, but the compared Theorem 6 is a dilation/contractivity statement, not sampling."
+        ],
+        "reasoning": "Searched optimal complex two-point projection, node conditioning, and Lagrange interpolation aliases. Neither range-space geometry nor generic interpolation estimates imply the exact minimax or unique angles.",
+        "searches": [
+          "Resultary: two-point Lebesgue constants inward optimal nodes circular arc C(K theta) span(1,z)",
+          "Web: sharp Lebesgue constants interpolation circle arc two nodes optimal e it t theta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the same E_theta Hilbertian-metric result with Banach–Mazur objective; no returned table of continuum theta values or exact sampling minimizers."
+        ],
+        "reasoning": "The requested continuously parametrized function is not an entry in a finite graph/database table; search alone does not prove absence.",
+        "searches": [
+          "Resultary: two-point Lebesgue constants inward optimal nodes circular arc C(K theta) span(1,z)",
+          "Web: complex arc optimal two interpolation nodes Lebesgue constant"
+        ]
+      },
+      "rationale": "The exact all-angle arc family is in the operator-space literature, but the two-node interpolation projector norm and unique inward optimizer are different invariants. The interval Lebesgue minimax, full-circle Chebyshev/Riesz polarization, and high-degree open-arc asymptotics do not entail this closed-form two-sample arc minimax. The proof is elementary but the arc-dependent sharp node placement is a new, nonmechanical parameter optimization among arbitrary node pairs.",
+      "residual_risks": [
+        "Potential older degree-one complex-arc interpolation minimax under alternative terminology remains unlocated.",
+        "The long Chui–Zhong paper was examined through material principal passages, not every appendix; absence in uninspected sections is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same range family but not two-sample Lagrange norm",
+          "evidence": "Theorem 6 addresses operator dilation; inspected §§3–4 concern complete contractivity and isometries.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04608v1",
+          "material_read": "Open full arXiv HTML: definitions, main dilation/contractivity theorem, isometric classification statements and proofs",
+          "method": "Primary HTML theorem/section comparison",
+          "title": "Unique operator space structures on a family of two dimensional Banach spaces",
+          "trigger": "exact same E_theta circular-arc function planes"
+        },
+        {
+          "assessment": "No covering conclusion in inspected statements; partial text limitation",
+          "evidence": "Abstract defines ||A_{z_n}|| on C(X) but goals concern asymptotic growth in n and adjusted Fejér arrays, not optimum of exactly two nodes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.07101",
+          "material_read": "Primary 32-page manuscript: detailed abstract and introduction, principal Fejér-point/high-degree objectives; no claim of exhaustive whole-document scan",
+          "method": "Primary arXiv PDF text, screenshot attempt timed out",
+          "title": "Order of uniform approximation by polynomial interpolation in the complex plane and beyond",
+          "trigger": "same Lebesgue functional on complex arcs"
+        },
+        {
+          "assessment": "Distinct inverse-chord-power potential, not the Lagrange chord-sum ratio",
+          "evidence": "Definition 1 maximizes min_z sum |z-z_k|^{-p} on entire circle; present problem minimizes max_z (|z-z_1|+|z-z_2|)/|z_1-z_2| on a subarc.",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.5153",
+          "material_read": "Primary PDF: abstract, definitions, Proposition 1 and leading theorem setup on pp. 1–2",
+          "method": "arXiv PDF text and page-one screenshot",
+          "title": "Chebyshev constants for the unit circle",
+          "trigger": "potentially related two-point circle extremal geometry"
+        },
+        {
+          "assessment": "Confirms interval results but no arc conclusion in inspected material",
+          "evidence": "Section 3.7 discusses interval [-1,1] and low degrees; not equivalent to the complex circular arc norm.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-016-1030-3",
+          "material_read": "Publisher §3.7 on optimal nodes for real intervals",
+          "method": "Open publisher article text",
+          "title": "Lebesgue functions and Lebesgue constants in polynomial interpolation",
+          "trigger": "potential full-strength classical node minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04608v1"
+      ],
+      "rationale": "Sharp conditioning for arbitrary continuous complex measurements on a circular subarc is a natural sampling invariant. The unique inward optimal configuration and strict contrast with diverging endpoint conditioning as theta approaches pi diagnose a genuine numerical-stability boundary, not a normalization or textbook inequality.",
+      "residual_risks": [
+        "Value assessment is confined to the exact claimed object/family and is not a claim of general classification beyond its scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent assessment based on explicitly reconstructed mathematics and actual package files; repository script outputs are corroboration, not proof.",
+    "No worldwide novelty guarantee; inaccessible plausible primary source was recorded where applicable.",
+    "No complete sanitized public-file replacements were staged; publication must remain withheld."
+  ],
+  "schema_version": 1
+}

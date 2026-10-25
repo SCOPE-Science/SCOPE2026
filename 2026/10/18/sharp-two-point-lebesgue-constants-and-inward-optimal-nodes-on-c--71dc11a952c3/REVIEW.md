@@ -1,19 +1,21 @@
-# Scientific assessment: sharp two-point interpolation on circular arcs
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The definition of the complex interpolation operator and the norm from \(C(K_\theta)\) to itself are explicit. Formula (1) is the exact norm, rather than only an upper estimate, because arbitrary prescribed unimodular values at the two nodes extend continuously inside the closed unit disk. The chord identity gives an exact three-interval Lebesgue function for all \(0<\theta<\pi\), including arcs longer than a semicircle. At the pair midpoint and an exterior test point this yields a universal two-branch lower envelope. Symmetric sample pairs attain that envelope; opposing strict monotonicities locate the unique crossing. A strictly improved exterior test excludes all asymmetric node pairs at the crossing. Every domain restriction and endpoint behavior is accounted for. The Python standard-library checker reproduces 4,539 finite diagnostic assertions, which support but do not replace these analytical steps.
+PASS
 
-## Originality (O): PASS, with literature risk
+For each 0<theta<pi, the input space is complex C(K_theta) and the projection range is span_C{1,z}; optimization is only over two distinct sampling nodes, not all projections. For fixed u<v the two Lagrange functions yield the exact operator norm max_t (|e^{it}-e^{iu}|+|e^{it}-e^{iv}|)/|e^{iv}-e^{iu}|, since arbitrary unit node phases extend continuously to C(K_theta). Set m=(u+v)/2, d=(v-u)/4. Piecewise chord identities give the midpoint bound sec(d) and the farther exterior test bound sin(theta/2)/sin(d). For symmetric nodes the two bounds equal the exact maximum; one strictly increases with d and one decreases, so the unique optimum solves tan(d)=sin(theta/2). Any asymmetric midpoint admits a farther test point with strictly larger sin-quotient, proving the uniqueness assertion. Endpoint norm sec(theta/2), open-arc limits, and small-angle expansion follow. Independently computed direct complex chord values on six arcs and all midpoint/endpoint bounds; all passed. The finite test is corroborative; the exact chord envelope and monotonicity prove continuum quantifiers.
 
-Ray's manuscript (arXiv:2610.04608v1) introduces the same function-space family, but its main results concern completely contractive operator maps and isometric classification, not minimal-norm two-point interpolation. The closest separately indexed circular-arc study treats optimal Euclidean/Hilbertian norm distortion, a logically distinct invariant. Chui–Zhong's complex-arc interpolation paper (arXiv:2209.07101) addresses high-degree growth, and Nevskii's interpolation work (arXiv:2405.01254) treats real-affine projectors on convex bodies with a different number and type of sample nodes. Searches for the formula, its inward-node parameterization, and equivalent norm-minimization formulations did not identify a theorem whose conclusion implies the exact two-complex-node minimax here. Search absence alone is not a novelty proof. The earlier theory of complex-arc interpolation remains a genuine residual priority risk, particularly where full text was not available for all sources.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The optimization answers a natural exact conditioning question for a newly studied family of complex Banach function spaces, with no arbitrary finite parameter slice. The result gives a sharp constant uniformly for a continuum of arc lengths and a unique, explicit, strictly inward optimizing node pair. More importantly, it proves that naive endpoint sampling is strictly suboptimal and becomes arbitrarily ill-conditioned as the arc tends to a full circle, while the optimal interpolation remains uniformly bounded by \(\sqrt2\). This identifies a precise and practically relevant sampling geometry, rather than merely re-evaluating a known constant.
+The exact all-angle arc family is in the operator-space literature, but the two-node interpolation projector norm and unique inward optimizer are different invariants. The interval Lebesgue minimax, full-circle Chebyshev/Riesz polarization, and high-degree open-arc asymptotics do not entail this closed-form two-sample arc minimax. The proof is elementary but the arc-dependent sharp node placement is a new, nonmechanical parameter optimization among arbitrary node pairs.
 
-## Limits and closest literature
+## value
 
-This is a theorem about two-node **complex Lagrange interpolation**, not about all bounded projections, all methods of information recovery, or higher-degree polynomial interpolation. Source inspection and comparison cannot guarantee publication priority; relevant older methods might contain the same formula under a different notation. No independent assessment or external certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp conditioning for arbitrary continuous complex measurements on a circular subarc is a natural sampling invariant. The unique inward optimal configuration and strict contrast with diverging endpoint conditioning as theta approaches pi diagnose a genuine numerical-stability boundary, not a normalization or textbook inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
