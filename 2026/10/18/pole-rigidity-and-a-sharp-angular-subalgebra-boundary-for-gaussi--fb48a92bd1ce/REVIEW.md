@@ -1,19 +1,21 @@
-# Scientific review: finite Fock dilation rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial-basis diagonal moments are exactly a bounded radial symbol's Gamma moments. Their ordinary generating function must extend holomorphically throughout the left half-plane of the Laplace variable, whereas finite sums of dilations produce a rational function with distinct, noncanceling poles. This excludes every forbidden parameter, and the negative-real asymptotic excludes the zero dilation. Explicit Gaussian symbols attain all allowed parameters; Gaussian Berezin-transform injectivity proves uniqueness. Equidistribution, periodic residue counting, and doubled-phase witnesses establish every polynomial-density and multiplicative-closure statement. These arguments cover complex coefficients, the closed parameter boundary, and every strict contraction for the polynomial claim. The included Python checker passed 49,830 diagnostics, which corroborate but cannot replace the proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+Diagonal monomial moments of C_lambda are lambda^k. For T_f with bounded symbol, angular radial mean h(t) is bounded, and F(z)=int_0^infty h(t)e^{-(1-z)t}dt is holomorphic on Re z<1, equals sum_j c_j/(1-lambda_j z) for |z|<1. Distinct nonzero lambda yield distinct nonremovable poles; holomorphy forces Re(1/lambda)>=1 equivalent Re lambda>=|lambda|², and F(-R)->0 eliminates nonzero coefficient of lambda=0. Conversely f_lambda=lambda^-1 exp[(1-lambda^-1)|z|²] is bounded exactly under condition and its Gaussian monomial moments equal lambda^k; uniqueness follows Gaussian Berezin convolution injectivity on tempered distributions. For lambda=r e^{i theta}, 0<r<1, all nonzero polynomial coefficient powers require cos(n theta)>=r^n. Irrational theta equidistributes giving eligible density 1/2; rational theta=2pi p/q gives density (1+2floor((q-1)/4))/q by residues with strictly positive cosine. For q<=4 only multiples of q eligible, so algebra closure; for q>=5 or irrational find infinitely many n with cos(n theta)>0 and cos(2n theta)<=0, so admissible C_lambda^n has inadmissible square. Independently enumerated reduced rational residues for q=1..100, counting densities and witnessing lack of closure q>=5; checked analytic pole locations and formula algebraically, finite residue tests are corroboration only.
 
-Lin–Lu–Zu, arXiv:2607.04102, already establishes the general Fourier recognition criterion and the individual weighted-composition disk condition. Bauer–Fulsche–Rodriguez Rodriguez, arXiv:2405.20792, addresses individual sufficient formulas and generated C*-algebra membership; such membership does not imply a representation as a single bounded-symbol Toeplitz operator. Their accessible full texts do not state the finite-sum no-cancellation theorem, angular density or exact order-four subalgebra boundary. Published mathematical-record searches for equivalent formulations, finite sums, power calculus and broader coverage revealed nearby Fock Toeplitz zero-divisor results, not these claims. Choe–Izuchi–Koo (2010) and Hai (2022) address related finite sums, but only their abstracts were accessible; full-text priority risk is retained. General recognition criteria could imply these special results after further proof; no claim is made to originate recognition itself.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite-sum cancellation obstruction closes a natural gap between individual composition-operator representability and the behavior of their span. The power calculus has a sharp arithmetic phase diagram: asymptotic good-power density is computable for every angle, and bounded-symbol Toeplitz representability ceases to be stable under multiplication outside angular orders at most four. The theorem supplies both a classification and an explicit strong obstruction rather than a routine renaming of a known bound.
+Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Individual single-dilation recognition does not imply explicit finite-sum no-cancellation and angular phase classification, nor does algebra membership imply a bounded single Toeplitz symbol.
 
-## Limitations
+## value
 
-Only the one-variable Gaussian Fock space, finite centered dilations, and polynomials of one strict contraction are covered. Infinite sums, affine compositions, other weights, unbounded symbols and discrepancy rates for irrational angles are not established. The two inaccessible older full texts and possible equivalent Laplace/moment formulations remain publication-priority risks. Independent scientific and priority audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifies precisely when individually forbidden centered Fock dilations cannot hide inside a finite Toeplitz sum, and identifies an angular arithmetic phase transition of the polynomial functional calculus: linear Toeplitz representability fails multiplicative closure except rotations of order 1–4. Natural boundary between a single bounded-symbol Toeplitz operator and the larger generated Toeplitz algebra, with explicit symbol and density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
