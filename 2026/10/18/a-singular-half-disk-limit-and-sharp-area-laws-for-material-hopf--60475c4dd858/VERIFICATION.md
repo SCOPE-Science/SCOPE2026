@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later. The checker uses only Python standard-library modules and must report `PASS: 78 independent finite consistency assertions; standard-library Python`.
+## correctness
 
-The checks compare a divergence-theorem boundary quadrature against an independently evaluated algebraic area expression for four geometric regimes at four times each; measure boundary speeds by a separate parametric derivative; compare late-time lengths with the proved limiting values; test the first asymptotic area terms; evaluate five nontrivial points of the critical parameter boundary layer in both planar coordinates; and sample radial derivative/Jacobian formulas.
+PASS
 
-**Scope of verification:** Float quadrature and sample tests cannot certify all parameter choices or any infinite-time claim. The analytic differentiation, divergence theorem, winding/tangent geometry, boundary-layer limit, and Taylor expansions in `RESULT.md` constitute the proof. No independent external audit has been performed.
+The exact co-rotating Hopf flow F_t(z)=e^t z/sqrt(1+(e^{2t}-1)|z|²) is a finite-time radial diffeomorphism with Jacobian e^{2t}(1+s|z|²)^-2. Divergence theorem on D_{a,R} produces the stated explicit area formula. If a≠R, uniform radial projection on the initial boundary gives boundary C1 limits and limits of 2π or twice the arc angle; if a=R, radial segments show the image sets converge to a filled right half-disk, while two narrow monotone radial endpoint layers add 2 to the semicircle perimeter π. Scaling θ=π+ue^-t gives the limiting diameter profile -iau/sqrt(1+a²u²). Taylor expansion of the area formula gives e^-t tangency correction versus e^-2t off tangency. Independent numerical boundary-flux quadrature matched exact area to <7e-16 for (a,R,t)=(0,.8,2),(.6,.6,3),(1.4,.8,2). Independent perimeter values at t=6: 6.283174 (disk), 5.099552 (half disk; limit π+2≈5.141593), and 2.432981 (arc; limit 4 asin(.8/1.4)≈2.433). Finite numerics corroborate, not prove the limits.
+
+## originality
+
+PASS
+
+The identified 2026 dynamics manuscript uses the same Hopf normal form and plots exactly the tangent a=R=.6 and disjoint a=.9,R=.6 circles, but accessible abstract discusses diffeomorphism-equivariant numerical representation, not the precise asymptotic area/perimeter/diameter formulas. The full paper was inaccessible via arXiv/OA and authorized institutional access; this is explicitly a high-priority uncertainty, not evidence that it lacks the theorem. Standard radial Hopf flow is prior knowledge and credited.
+
+## value
+
+PASS
+
+Classifies a natural transported material region at the critical collision of initial boundary and a repelling equilibrium, showing a singular dimension-changing Hausdorff limit, extra diameter length, double-traversed arc and a slower e^-t area correction. The boundary-layer geometry provides meaningful material-curve information beyond the textbook scalar Hopf radial solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

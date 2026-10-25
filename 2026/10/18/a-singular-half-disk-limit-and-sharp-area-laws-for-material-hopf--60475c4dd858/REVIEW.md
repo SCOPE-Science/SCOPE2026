@@ -1,11 +1,21 @@
-# Review of exact material-circle evolution
+# Independent mathematical audit
 
-**Correctness — PASS.** The radial solution is obtained by solving the scalar logistic equation for squared radius and preserves the angular rotation exactly. Its two radial eigenvalues give the Jacobian and the flux integral yields the explicit finite-time area without approximation. The distinct geometrical limits are established by radial projection away from the origin and, at tangency, by monotone radial boundary-layer variation. Perimeter limits are proved by upper and lower arclength bounds, not inferred from Hausdorff convergence. The three asymptotic area expansions are algebraic consequences of the exact expression. The enclosed verifier independently compares flux quadrature and length integrals and checks the diameter profile.
+## correctness
 
-**Originality — PASS, with explicit risk.** Beyn–Kavousanakis–Kevrekidis, arXiv:2607.06536v1, Section 5.1, numerically follow the *same* origin-tangent material circle but study parameterization methods over finite time, not its limit set or its area/perimeter singularity. Related indexed reports on Filiptsov algebraic-cycle area divergence and exact angular returns of homogeneous flows address different dynamical objects and do not imply the half-disk transport theorem. Broad transport and Hopf-normal-form literature could contain an equivalent derivation; this is a nontrivial bibliographic risk. The classical explicit Hopf solution is not claimed as new.
+PASS
 
-**Value — PASS.** The source's exactly tangential example displays severe material reparameterization distortion and is therefore an independently motivated natural singular case. The new theorem identifies its actual limiting **filled** geometry, explains why the apparent image of the limit-cycle arc misses a diameter, and quantifies the singular difference in area convergence rates. It also classifies both sides of the parameter boundary, including doubling of perimeter in the arc regime; these are useful benchmarks for material-curve discretization beyond a routine radial-solution exercise.
+The exact co-rotating Hopf flow F_t(z)=e^t z/sqrt(1+(e^{2t}-1)|z|²) is a finite-time radial diffeomorphism with Jacobian e^{2t}(1+s|z|²)^-2. Divergence theorem on D_{a,R} produces the stated explicit area formula. If a≠R, uniform radial projection on the initial boundary gives boundary C1 limits and limits of 2π or twice the arc angle; if a=R, radial segments show the image sets converge to a filled right half-disk, while two narrow monotone radial endpoint layers add 2 to the semicircle perimeter π. Scaling θ=π+ue^-t gives the limiting diameter profile -iau/sqrt(1+a²u²). Taylor expansion of the area formula gives e^-t tangency correction versus e^-2t off tangency. Independent numerical boundary-flux quadrature matched exact area to <7e-16 for (a,R,t)=(0,.8,2),(.6,.6,3),(1.4,.8,2). Independent perimeter values at t=6: 6.283174 (disk), 5.099552 (half disk; limit π+2≈5.141593), and 2.432981 (arc; limit 4 asin(.8/1.4)≈2.433). Finite numerics corroborate, not prove the limits.
 
-The work is for the isotropic normalized cubic field; it is not asserted to be stable under general vector-field perturbations. Numerical checks are finite corroboration, not proof. Equivalent non-indexed results remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identified 2026 dynamics manuscript uses the same Hopf normal form and plots exactly the tangent a=R=.6 and disjoint a=.9,R=.6 circles, but accessible abstract discusses diffeomorphism-equivariant numerical representation, not the precise asymptotic area/perimeter/diameter formulas. The full paper was inaccessible via arXiv/OA and authorized institutional access; this is explicitly a high-priority uncertainty, not evidence that it lacks the theorem. Standard radial Hopf flow is prior knowledge and credited.
+
+## value
+
+PASS
+
+Classifies a natural transported material region at the critical collision of initial boundary and a repelling equilibrium, showing a singular dimension-changing Hausdorff limit, extra diameter length, double-traversed arc and a slower e^-t area correction. The boundary-layer geometry provides meaningful material-curve information beyond the textbook scalar Hopf radial solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
