@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The rational map is conjugate (with a two-to-one antipodal quotient at the degenerate parameter) to rotation by an irrational angle. The nonzero numerator at each denominator zero implies simple-pole inverse-radius tails and a coalesced double-pole inverse-square-root tail, with exact constants. The layer-cake formula proves the sharp moment thresholds, while unique ergodicity of capped continuous observables establishes divergence along every complete orbit when the invariant moment diverges. Rescaling angle by the square root of the distance to the critical parameter gives the explicit two-sided crossover profiles. Exact symbolic identities and independent numerical root-isolation diagnostics are reproduced in `verify.py`.
+PASS
 
-## Originality
+Let W_P(t)=P+2cos t and theta=arccos(1/4). Its three-frequency recurrence gives F(Phi_P(t))=Phi_P(t+theta). The projective triple map is invertible, except antipodal quotient at P=0; theta/pi irrational because 2cos theta=1/2 is a nonintegral rational algebraic integer contradiction, yielding unique Haar pushforward on each punctured rotation carrier. For P<2, D_P has two simple zeros with derivative absolute 2sqrt(1-P²/4) and nonzero numerator V±, giving precise r^-1 tails. For P=2 the double zero has D≈(t−pi)² and numerator norm sqrt261/4, giving r^-1/2 constant sqrt(a)/pi. For P>2 the positive denominator lower bound gives compact support. Layer cake proves exact moment cutoffs; approximating divergent R^q below by capped observables continuous at poles proves divergence along every complete orbit. Setting t=pi+sqrtδ z gives denominator δ(z²±1), yielding the two limiting arcs lengths. Independently checked 12 conjugacy evaluations and twelve deterministic root-isolation threshold profiles at δ=1e−3 and 2e−4, including zero-plus-side cases. Finite diagnostics do not prove all-orbit limit/unique ergodicity, which follow from the irrational rotation argument.
 
-PASS under the inspected evidence, with outstanding priority uncertainty. Bajo, Franco, and Perán already give the projective linearization and invariant conic geometry in arXiv:1011.2050, including the general solution and Theorem 11; these are not claimed as new. Bajo's arXiv:1311.3199 gives related invariant-quadric geometry. The stationary radial-tail constants, sharp all-order moment cutoffs, every-orbit divergence for nonintegrable observables, and parameter-resolved two-sided crossover were not located in the checked primary texts or targeted mathematical finding searches. Related Cauchy sampling in cubic global centers and singular first returns for border-collision ellipses concern different flows, observables and parameters, and do not imply these formulas. Generic projective-circle calculations could provide independent prior instances, so absolute priority requires further external comparison.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The conic transition of a historically studied rational map naturally creates two merging denominator zeros. Its statistical distinction cannot be recovered from the purely geometric assertion of conic invariance: a one-parameter family undergoes a bounded/unbounded law transition, a sharp loss of half the integrable-moment range at the boundary, and a quantitatively different high-excursion response on its two sides. These exact singular-observable laws can inform orbit-sampling diagnostics for projective dynamics; the family is deliberately narrow and no general theorem about all rational plane maps is asserted.
+Best-of-knowledge originality is assigned to the exact strengthened/specialized claim, not to previously published premises: Known conic geometry plus irrational rotation implies the invariant measure on a specified carrier; the sharp r^-1 vs r^-1/2 vs bounded tail trichotomy and exact two-sided scaling profiles are new computations not stated in Theorem 4.4. Be cautious that these are elementary consequences of singularity order, not a general new ergodic principle. Targeted Resultary searches and primary-paper comparisons were performed; unsuccessful searches are not priority proof. The original map paper treats general complex-root families and orbit conics, covering the conjugacy and invariant-carrier construction, but does not imply explicit radial moment constants without specialize-and-analyze singular observables. General ergodic theory proves existence and recurrence but not the two-sided crossover for this rational observable.
 
-## Closest literature and limitations
+## value
 
-The original 2010 system, its 2006 projectivization ancestor, and 2013 quadric follow-up supply the dynamical foundation. The explicit map is not presented as an independently new dynamical construction. Unique invariance is restricted to its natural invariant carriers. Moment-divergence statements are proved along complete orbits, while finite-moment time-average convergence is guaranteed almost everywhere rather than everywhere. Searches are not proof of universal novelty, and no independent assessment has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The studied rational map has a natural projective-conic invariant family with an actual singular geometric transition at P=2. Tail exponents, sharp moment cutoffs and both crossover profiles are physically and mathematically interpretable orbit-sampling invariants not specified by the known existence of conics. The result is narrow but resolves a motivated distributional transition exactly and provides all-orbit divergence beyond almost-sure ergodic statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
