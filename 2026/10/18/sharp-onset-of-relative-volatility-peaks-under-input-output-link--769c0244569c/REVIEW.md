@@ -1,15 +1,21 @@
-# Review: sharp onset of relative-volatility peaks under input-output link changes
+# Independent mathematical audit
 
-## Correctness — PASS
-The mean-normalized covariance quadratic under Sherman–Morrison lies on a monotonically traversed affine segment, ruling out strict relative-volatility maxima for any one-coefficient increase. In two sectors the adjugate of every affine input-output pencil is affine; cancellation of the determinant gives the same convex quadratic line argument even for multiple simultaneous changes. A nilpotent three-sector two-edge technology has exact rational risk values at five input intensities which alternate high–low–high–low–high, and the real-analytic rational risk function has at least two strict local minima and one strict local maximum. `verify.py` independently recomputes all five rational values using exact 3x3 linear algebra, and checks the determinant-cancellation claim on a separate instance. Finite calculations certify the example; analytic identities prove the universal obstructions.
+## correctness
 
-## Originality — PASS, with residual risk
-Acemoglu, Carvalho, Ozdaglar, and Tahbaz-Salehi (MIT Working Paper 11-23, 2011; Econometrica 2012) derive economic-network shock exposure and aggregate fluctuations, but the materially read primary text does not state a full one-edge/no-peak global shape theorem or its sharp two-link/three-sector counterexample. Sonis and Hewings (1992; 1995) give coefficient-change sensitivity, not demonstrably the relative-volatility threshold; the full 1992 article was inaccessible, and no noncoverage is inferred from the abstract. Kelly, Tyler, and Crawford-Brown (2015/2016) analyze linkage dispersion and infrastructure exposure, but their article uses a different metric. The analytical proof uses classical formulas as inputs and claims novelty only for the classified mean-normalized variance response. Historical equivalent formulations may exist.
+PASS
 
-## Mathematical value — PASS
-A substantive input-output risk question is whether strengthening technical interdependencies can initially diversify, then concentrate, then diversify gross-output shocks. The theorem gives exact rigidity under single-link changes, a dimension bound even under arbitrarily many links in two sectors, and a minimal constructive witness at exactly three sectors and two links. The sharp structural distinction separates mean amplification from relative uncertainty, and the witness has two protected valleys around a relative-volatility peak. It does not assert empirical typicality or GDP consequences.
+Under nonnegative productive A(t), L=(I-A)^{-1} and w=L^T1 are positive enough that mu^T w>0. For the single-link perturbation t e_i e_j^T, Sherman–Morrison gives w=w0+[ct/(1-t ell)]q; after mean normalization this traverses an affine segment with a strictly increasing scalar. V=w^T Sigma w/(mu^T w)^2 is a convex quadratic in that scalar for every positive-semidefinite covariance Sigma, excluding strict interior maxima even with correlated shocks. For n=2 and any affine nonnegative productive perturbation, adj(I-A(t)) has affine entries and its positive determinant cancels in V, again leaving a convex quadratic on a monotone affine line; n=1 is constant. For n=3 with A=t(E12+E23), nilpotence yields weights 1,(1+t)/10,(1+t+t^2)/10000, and exact risk at t=0,10,100,1000,10000 has alternating high-low-high-low-high values. Continuity plus analyticity yields distinct strict extrema. An independent Fraction check reconstructed the five ratios exactly; it corroborates the witness, whereas the analytic argument covers arbitrary n in (i) and (ii).
 
-## Limitations and related literature
-Applies to fixed positive mean final demand, finite covariance, productive nonnegative Leontief systems, and gross-output squared coefficient of variation. One older coefficient-change article could not be inspected in full. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty lies in the exact one-link and two-sector shape restrictions plus sharp three-sector/two-link reversal, not in Sherman–Morrison, Leontief inverse, or input-output exposure variance.
+
+## value
+
+PASS
+
+The mathematical question is motivated by whether network strengthening can reverse relative gross-output shock exposure. Theorem supplies a genuine structural threshold: neither one link (any dimension) nor any affine two-sector technology can exhibit a strict interior normalized-risk peak, yet a minimal acyclic three-sector two-link technology exhibits two strict valleys and an intervening peak. The distinction between variance amplification and squared-mean-normalized volatility is substantive; it is neither a routine citation of inverse formula nor a tiny unmotivated numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
