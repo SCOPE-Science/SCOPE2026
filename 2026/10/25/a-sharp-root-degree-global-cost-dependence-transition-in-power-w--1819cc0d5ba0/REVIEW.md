@@ -1,0 +1,15 @@
+# Research review: root degree and global tree cost
+
+## Correctness — PASS
+The parent-choice model, path-depth normalization and joint limiting variables are defined in `RESULT.md`. The proof starts from the original martingale-innovation representation, computes the exact covariance with a root indicator by conditioning on the arrival filtration, and checks that only same-arrival terms contribute. It treats the two asymptotic regimes \(\alpha<-1\) and \(\alpha\ge-1\) separately when taking the linear covariance limit: the former retains a nonvanishing Cesàro term. It derives the dichotomy from independent Bernoulli root indicators, Lindeberg convergence, and finite-filtration approximation, and establishes the explicit linear-weight constant by absolutely convergent series. The attached standard-library program passed 259 exact-rational checks. These finite checks support but do not establish the infinite argument.
+
+## Originality — PASS, with recorded historical priority risk
+Gałązka–Wdowicka (arXiv:2610.00614v1, original 2026-09-30) proves the centered *univariate* path-length limit and provides the innovation identity. Lyon–Mahmoud (2020) studies linear-weight degree and insertion-depth marginals; Sénizergues (arXiv:1904.07115) provides broader weighted-tree geometry and profile theory. The closest published uniform-recursive-tree result already proves the \(\alpha=0\) *finite covariance*, which is not presented as new. Its complete text was unavailable, and a broader joint degree/profile theorem elsewhere remains possible. Compared claims do not directly cover the full power-weight independence threshold or the positive-power limiting dependence with its explicit regression constant. The four statement/implication comparisons and primary source inspections are recorded in `AUDIT.json`.
+
+## Mathematical value — PASS
+Root outdegree is a natural measure of hub formation, while total root-to-vertex path length is a global search and transmission cost. Distinguishing their limiting dependence across the power-weight family resolves a non-marginal question: for nonpositive powers the standardized degree loses all limiting dependence on the path-length martingale, while for positive powers the limiting finite degree remains negatively correlated. The theorem classifies an entire natural parameter family, identifies the exact linear-order covariance, and gives a closed zeta-value regression coefficient in the linear-weight model. These are not routine rephrasings of known marginal limits.
+
+## Boundaries and unresolved priority risks
+The result assumes fixed power \(\alpha\), independent parent choices, and a two-observable joint limit; it asserts no functional convergence or rate of asymptotic independence. A historical multivariate degree/profile theorem may imply a portion of this claim, and the directly overlapping uniform special-case record was available only through its scientific summary. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
