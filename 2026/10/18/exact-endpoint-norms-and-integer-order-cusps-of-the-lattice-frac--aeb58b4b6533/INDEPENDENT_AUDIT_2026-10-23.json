@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L=2I-S-S^-1 on ℤ and real α>0, the absolutely summable symmetric coefficients a_k=(-1)^k Γ(2α+1)/(Γ(α-k+1)Γ(α+k+1)) obey a_(k+1)=a_k(k-α)/(k+α+1) and their Fourier sum at zero vanishes. In α between integers m and m+1, recurrence forces sign (-1)^k through k=m+1 and constant tail sign thereafter; hence ℓ1/ℓ∞ convolution norms are exactly the finite positive/negative gamma sums in the finding. At integers m they reduce to 4^m. Evaluating the Fourier multiplier at θ=π and applying Wiener inversion shows spectral radius 4^α on ℓ1 and ℓ∞. Comparing alternating Fourier sum with absolute sum isolates the strictly positive wrong-sign tail for noninteger α; at every positive integer the derivative from zero tail coefficients has jump 4Σ_{j>=0} B(j+1,2m+1)=2/m. Near zero the negative off-origin mass tends to one, giving norm discontinuity and ℓ1 failure, while pointwise small coefficients plus uniform ℓ1 bound imply strong convergence on c0 and interior ℓp; the constant function witnesses ℓ∞ failure. Independently checked sign strips and l1 expressions for α=0.3,1.25,2.6,4.1 with analytically evaluated tails, and cusp beta identity m=1..4. These bounded tests supplement the gamma and Wiener proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciaurri heat-semigroup and positivity methods cover smaller 0<α<1 regime; Michelitsch formulas yield a_k for all α.",
+          "The new norm results require a sign-tail selection and summing infinitely many beta derivatives."
+        ],
+        "reasoning": "Kernel derivations are broader as explicit coefficients but their stated estimates do not give a sharper all-positive-order norm/cusp classification. A full Fourier-algebra norm treatise under different terminology remains potential prior coverage.",
+        "searches": [
+          "Discrete fractional Laplacian on integers all-order l1 l∞ operator norm integer derivative cusp normaloid",
+          "Ciaurri et al arXiv:1401.2091",
+          "Michelitsch et al arXiv:1511.01251"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 69fe677f17a5a6bddf20116c0f05b6363c3f4552, RESULT.md verify.py AUDIT METADATA REVIEW SLOGAN VERIFICATION",
+        "arXiv:1401.2091",
+        "arXiv:1412.5904",
+        "arXiv:1507.04986",
+        "arXiv:1511.01251",
+        "Ortigueira DOI 10.1155/IJMMS/2006/48391 partial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 0<α<1, positive kernel known and N=2a0 follows immediately; this simple subcase is not claimed new.",
+          "At integer orders a_k terminate, giving N(m)=4^m as textbook finite binomial identity."
+        ],
+        "reasoning": "Prior coefficients imply the trivial first order strip and integer values, but do not imply without further nonstandard analysis the strict tail gap and every integer cusp jump 2/m, nor the zero-order topology distinctions. These are the claims being evaluated.",
+        "searches": [
+          "Discrete fractional Laplacian on integers all-order l1 l∞ operator norm integer derivative cusp normaloid",
+          "arXiv:1507.04986 Theorem 1.2",
+          "arXiv:1511.01251 §1.3",
+          "arXiv:1412.5904"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gamma coefficient expression is classical lattice Riesz/centered-difference kernel; Fourier-algebra norm equals ℓ1-coefficient sum.",
+          "The candidate computes exact α-profile and derivative jumps of that Wiener algebra norm."
+        ],
+        "reasoning": "Equivalence to a Fourier Wiener A(T)-norm formulation is recognized. Earlier all-order kernel derivations make that norm in principle computable, but no inspected earlier source states or directly yields the joint finite norm profile, normaloidity criterion, integer cusp coefficient and ℓp zero-order strong-limit dichotomy.",
+        "searches": [
+          "Discrete fractional Laplacian on integers all-order l1 l∞ operator norm integer derivative cusp normaloid",
+          "arXiv:1412.5904v1",
+          "arXiv:1511.01251v1",
+          "arXiv:1507.04986v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hits concern cyclic Riesz transforms and decimation Fourier projections, not symmetric L^α all-order cusps.",
+          "Older sources tabulate/derive gamma coefficients rather than absolute-sum derivative jumps."
+        ],
+        "reasoning": "Not merely recomputation of a known table of coefficients. The exact new invariant is the all-order operator norm and m-indexed cusp sequence; no checked database entry tabulates those quantities.",
+        "searches": [
+          "Discrete fractional Laplacian on integers all-order l1 l∞ operator norm integer derivative cusp normaloid",
+          "Resultary top-12 fractional lattice endpoint query",
+          "arXiv:1412.5904v1 coefficients"
+        ]
+      },
+      "rationale": "The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.",
+      "residual_risks": [
+        "Gamma coefficient identity and α in (0,1) norm are prior art, not new.",
+        "Potential earlier classical Fourier-algebra exact norm identity was not excluded by the partial 2006 Ortigueira source.",
+        "Finite sign checks cannot certify all α; proof uses recurrence and beta-tail identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_KERNEL_NOT_OPERATOR_CUSPS",
+          "evidence": "Derives all-order lattice coefficients and localization; not sharp ℓ1/ℓ∞ cusp sequence.",
+          "identifier_or_url": "arXiv:1511.01251v1",
+          "material_read": "Primary PDF, coefficient section and appendices",
+          "method": "full primary PDF",
+          "title": "Lattice fractional Laplacian and its continuum limit kernel on the finite cyclic chain",
+          "trigger": "Same gamma coefficients and integer power crossover"
+        },
+        {
+          "assessment": "COVERS_LOW_ORDER_KERNEL_ONLY",
+          "evidence": "Treats 0<α<1 and pointwise convergence; does not establish full endpoint norm profile or ℓp dichotomy.",
+          "identifier_or_url": "arXiv:1507.04986v1",
+          "material_read": "Primary full text and Theorem 1.2",
+          "method": "full primary PDF",
+          "title": "Fractional discrete Laplacian versus discretized fractional Laplacian",
+          "trigger": "Nearest-neighbor fractional discrete Laplacian with order-zero limits"
+        },
+        {
+          "assessment": "RELATED_SUBRANGE",
+          "evidence": "Restricted semigroup/maximum-principle setting, not all-order cusp norm formula.",
+          "identifier_or_url": "arXiv:1401.2091v1",
+          "material_read": "Primary full text, introductory theorem and core semigroup analysis",
+          "method": "full primary text",
+          "title": "Harmonic Analysis associated with a discrete Laplacian",
+          "trigger": "General discrete fractional power methods"
+        },
+        {
+          "assessment": "FULL_NOT_EXAMINED",
+          "evidence": "Possibility of a hidden Fourier-algebra norm identity retained as residual risk.",
+          "identifier_or_url": "DOI:10.1155/IJMMS/2006/48391",
+          "material_read": "Introductory/abstract material only",
+          "method": "partial published source",
+          "title": "Riesz potential operators and inverses via fractional centred derivatives",
+          "trigger": "Potential older synonym fractional centered difference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full sharp ℓ1/ℓ∞ operator-norm profile of all fractional powers of the simplest infinite lattice Laplacian is a natural harmonic-analysis invariant. The exact integer-only normaloidity, infinite universal sequence of nonzero first-derivative cusp jumps 2/m, and strong-order-zero endpoint asymmetry locate genuine structural boundaries. The fractional centered-difference coefficients were known; the new contribution is a motivated global operator-norm and topology classification rather than renaming those coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 69fe677f17a5a6bddf20116c0f05b6363c3f4552, RESULT.md verify.py AUDIT METADATA REVIEW SLOGAN VERIFICATION",
+    "arXiv:1401.2091",
+    "arXiv:1412.5904",
+    "arXiv:1507.04986",
+    "arXiv:1511.01251",
+    "Ortigueira DOI 10.1155/IJMMS/2006/48391 partial"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Gamma coefficient identity and α in (0,1) norm are prior art, not new.",
+    "Potential earlier classical Fourier-algebra exact norm identity was not excluded by the partial 2006 Ortigueira source.",
+    "Finite sign checks cannot certify all α; proof uses recurrence and beta-tail identities."
+  ],
+  "residual_risks": [
+    "Gamma coefficient identity and α in (0,1) norm are prior art, not new.",
+    "Potential earlier classical Fourier-algebra exact norm identity was not excluded by the partial 2006 Ortigueira source.",
+    "Finite sign checks cannot certify all α; proof uses recurrence and beta-tail identities."
+  ],
+  "schema_version": 1
+}
