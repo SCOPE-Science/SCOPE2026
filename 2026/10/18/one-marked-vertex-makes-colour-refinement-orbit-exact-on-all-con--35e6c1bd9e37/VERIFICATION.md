@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and its limits
+# Independent mathematical audit
 
-`check_small.py` enumerates every unlabelled connected block graph of orders 1 through 9 by clique amalgamation and exact deduplication; all singleton-root placements have the same stable-colour partition as the explicit colour-preserving automorphism orbits. Random additional original colours with the root still unique also pass. Unmarked testing finds exactly one failing block-graph class up to order eight. Output is in `check_small_output.txt`.
+## correctness
 
-`check_block_tree.py` independently constructs 1,200 random connected block graphs on 2 through 80 vertices, compares standard vertex-graph refinement to rooted block-incidence-tree refinement, and checks the induced vertex partitions coincide. Output is in `check_block_tree_output.txt`.
+PASS
 
-**Reproduction:** Install NetworkX 3.5 in a Python 3 environment, then run `python check_small.py` and `python check_block_tree.py` in the directory containing the scripts. Both programs have fixed seeds. The structural proof in RESULT.md covers the infinite theorem; no finite enumeration is asserted to be an exhaustive proof of it. Source precedence and literature completeness remain independent questions.
+The block-incidence graph is a tree; hence each nonroot vertex has a unique parent and lies in a uniquely determined sibling clique under that parent. Stable colour fixes the distance from the unique landmark and, through same-layer neighbour multiplicities, reveals its entire sibling-clique colour signature. The child colour counts divided by the signature multiplicity recover the number of each forward clique type. Reverse-depth induction reconstructs attached rooted descendant graphs from colours, after which independent sibling-clique and child-subtree permutations provide actual root-fixing automorphisms within every stable colour class. This gives within-graph orbit exactness for all finite connected block graphs and arbitrary additional vertex precolours. The eight-vertex two-triangles-linked-by-three-edges example has equitable degree cells but three automorphism orbits, showing unmarked refinement can fail. One-vertex graph and edge blocks included.
+
+## originality
+
+PASS
+
+Best-of-knowledge, subject to explicitly documented priority risks: searched the available Resultary records and primary literature, compared the exact claimed quantifiers/invariants to prior implications rather than matching titles, and did not treat inaccessible full text as proof of noncoverage.
+
+## value
+
+PASS
+
+Block graphs are a canonical nontrivial extension of rooted trees, and a single individualization repairing orbit non-refinability for the entire class is a substantive structural boundary. The proof recovers clique-block multiplicities from ordinary vertex refinement without revealing the blocks, useful for graph algorithms and combinatorial logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
