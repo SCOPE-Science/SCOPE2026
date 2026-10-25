@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and normalization are fixed: n interior nodes, n+1 arbitrary positive lengths, unit diffusion and homogeneous Dirichlet; M_ii=(h_i+h_(i+1))/3 and K_i,i+1=-1/h_(i+1). Exact diagonal dominance and Schur complements imply adjacent coefficients stay strictly positive for tau>0. Usmani tridiagonal inverse identity then produces a negative distance-two entry for every positive offdiagonal of M+tau K. This proves necessity, while the Stieltjes inverse argument gives sufficiency including equality. n<=2 is handled separately. A standalone Fraction-based solver passed 618 rational tests, which do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schatz--Thomée--Wahlbin (2010), Theorem 5.7 and text after it: sufficient offdiagonal sign criterion and maximum ratio m_ij/|s_ij| for backward Euler.",
+        "Li--Huang (arXiv:1209.5657), Theorem 3.1: sufficient diffusion-metric and time-step bounds in arbitrary dimension; the paper explicitly notes sufficient conditions need not be necessary in general.",
+        "Thomée--Wahlbin (2008), accessible abstract: standard semidiscrete and lumped-mass positivity questions."
+      ],
+      "reasoning": "The target does not assert a universal d-dimensional criterion; its additional statement is exact necessity for every arbitrary graded 1D Dirichlet grid. General published sufficient theorems do not dominate that necessity. Full 2008 predecessor could not be inspected; its recorded scope is semidiscretization/lumped mass, and 2010 successor distinguishes fully discrete questions.",
+      "searches": [
+        "\"On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations\"",
+        "\"Maximum principle for the finite element solution of time dependent anisotropic diffusion problems\"",
+        "\"On the existence of maximum principles in parabolic finite element equations\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.5657v1 (full accessible later revision used to compare mathematical content)",
+      "doi:10.2478/cmam-2010-0025 (material Section 5 full text)",
+      "doi:10.1090/S0025-5718-07-02021-2 (abstract only; full inaccessible)",
+      "Published semantic findings on positivity of time-stepping and finite-element lattices; top retrieved records compared by mathematical object and implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schatz--Thomée--Wahlbin 2010 Theorem 5.7 covers tau >= max interior edge h^2/6 as sufficient, not necessity.",
+        "Li--Huang 2012 Theorem 3.1 gives a sufficient lower timestep and highlights the distinction between sufficient and necessary multidimensional mesh conditions.",
+        "The new proof forces negative (P_tau)_(i,i+2) whenever c_i>0 and supplies the reflected last-edge case."
+      ],
+      "reasoning": "Prior sufficient bounds imply one direction only; no inspected theorem gives the positive-nearest-neighbor structural lemma for an arbitrary graded Dirichlet grid and its consequent if-and-only-if cutoff. The exact two-dimensional-array sign witnesses make failure below the bound unavoidable on each mesh, not merely possible in a constructed example.",
+      "searches": [
+        "Exact necessary and sufficient time-step threshold entrywise positivity consistent mass finite element 1D Dirichlet heat equation arbitrary nonuniform interval mesh backward Euler: maximum squared interior element length divided by six",
+        "Sharp backward Euler finite element nonuniform 1D Dirichlet mesh positivity iff mass-plus-step-stiffness is a Stieltjes M matrix, nearest neighbor propagator always positive, length squared over six",
+        "Thomee Wahlbin discrete positivity fully discrete 1d backward Euler 2008 theorem inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target statement is equivalent (for n>=3 and positive step) to: positivity of (M+tau K)^(-1) M forces every offdiagonal of M+tau K to be nonpositive.",
+        "Schatz--Thomée--Wahlbin 2010, Theorem 5.7 establishes the reverse implication in a broad setting; the theorem does not assert necessity for each one-dimensional graded mesh."
+      ],
+      "reasoning": "A sufficient M-matrix argument is not logically equivalent to positivity implying the M-matrix sign pattern. The latter is established for tridiagonal Dirichlet FEM by the two-step entry identities and independent adjacency strictness. Other temporal schemes and periodic boundary settings lack this exact equivalence.",
+      "searches": [
+        "Exact necessary and sufficient time-step threshold entrywise positivity consistent mass finite element 1D Dirichlet heat equation arbitrary nonuniform interval mesh backward Euler: maximum squared interior element length divided by six",
+        "Sharp backward Euler finite element nonuniform 1D Dirichlet mesh positivity iff mass-plus-step-stiffness is a Stieltjes M matrix, nearest neighbor propagator always positive, length squared over six",
+        "\"backward Euler\" \"nonuniform\" \"consistent mass\" positivity \"if and only if\" finite element one dimensional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic research record treats a backward-Euler-filtered Crank--Nicolson update on infinite/periodic uniform lattices, not the unfiltered Dirichlet P1 finite-element map.",
+        "Earlier investigated periodic-grid cutoffs are for uniform periodic meshes or restricted alternating periodic meshes, not arbitrary Dirichlet length vectors.",
+        "No exact Dirichlet graded-mesh table or classification appeared in the inspected principal source sections."
+      ],
+      "reasoning": "No retrieved database or table establishes the target general quantifiers or the necessary side; this is a bounded search result rather than a proof of universal absence. Exact-periodic cases cannot simply be used as an implication for arbitrary Dirichlet boundary rows.",
+      "searches": [
+        "Dirichlet one-dimensional nonuniform finite element consistent mass matrix backward Euler positivity criterion necessary and sufficient for any mesh, adjacent nodal entries positive all step sizes, max interior cell h squared / 6",
+        "Exact necessary and sufficient time-step threshold entrywise positivity consistent mass finite element 1D Dirichlet heat equation arbitrary nonuniform interval mesh backward Euler: maximum squared interior element length divided by six",
+        "sharp necessary sufficient time step positivity 1D finite element consistent mass matrix backward Euler mesh"
+      ]
+    },
+    "rationale": "The assessed novelty is an exact necessary-and-sufficient positivity cutoff for every positive nonuniform Dirichlet interval mesh with at least three interior nodes, not the already-known sufficient Stieltjes bound. The new backward implication follows from an unconditional strict adjacent-entry lemma and explicit negative two-hop witnesses. Full-text material for Li--Huang (2012) and Schatz--Thomée--Wahlbin (2010) supplies the closest broader numerical-analysis comparisons; their displayed theorems provide sufficient criteria or nonuniform small-step obstructions, not this all-mesh equivalence. Semidiscrete/lumped-mass predecessor (2008) is a residual full-text risk.",
+    "residual_risks": [
+      "Full 2008 predecessor was unavailable; a stronger specialized assertion could occur outside its accessible abstract.",
+      "A highly specialized tridiagonal-inverse lemma or older one-dimensional positivity classification not indexed by the searches could preempt the novelty claim.",
+      "Published result search and inspected sections do not certify absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives sufficient general-dimensional lower-step criteria; no all-graded-Dirichlet exact necessity result in examined material.",
+        "evidence": [
+          "arXiv:1209.5657, pages 1, 6--9, 13--16, Theorem 3.1; explicit nonnecessity caveat for generic meshes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Full open-access PDF; abstract/definitions, equations for M+theta dt A and lower step bound, Theorem 3.1, numerical discussion and conclusion.",
+        "method": "PDF rendered and selected pages visually inspected; textual lines compared for necessity/sufficiency.",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "General mesh-dependent positivity bound potentially implying the target."
+      },
+      {
+        "assessment": "Theorem 5.7 gives a sufficient Stieltjes criterion; Theorem 5.5 only rules out sufficiently small steps under assumptions. Not an iff characterization for any fixed arbitrary graded Dirichlet mesh.",
+        "evidence": [
+          "2010 primary text: Theorems 5.5, 5.7; text describing sufficient backward Euler bound after Theorem 5.7."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/266952795_On_Positivity_and_Maximum-Norm_Contractivity_in_Time_Stepping_Methods_for_Parabolic_Equations",
+        "material_read": "Full text available as HTML extraction; Section 5, Theorems 5.5, 5.7 and their proofs, and Section 6 distinction between lumped-mass and standard Galerkin.",
+        "method": "Read substantive primary-paper sections and surrounding proofs in full-text HTML.",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Closest statement on backward-Euler fully discrete positivity, possibly stronger than target."
+      },
+      {
+        "assessment": "Abstract concerns semidiscrete and lumped-mass positivity, but missing full material prevents excluding any related stronger statements.",
+        "evidence": [
+          "Thomée--Wahlbin 2008 abstract, Mathematics of Computation 77:11--19; 2010 successor explicitly discusses previous semidiscrete work."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "material_read": "Accessible publisher/repository abstract; full PDF retrieval unavailable.",
+        "method": "Checked Chalmers and abstract records, attempted publisher/OA full PDF and institutional access; institutional access unavailable.",
+        "title": "On the existence of maximum principles in parabolic finite element equations",
+        "trigger": "Potential earlier treatment by authors of 2010 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b75689e-09e8-4a09-9cfa-114048407cb4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes the logical gap between known sufficient M-matrix timesteps and their necessity in one dimension on any fixed graded Dirichlet mesh. Its explicit sharp cutoff is independent of the boundary cell sizes, and it settles the minimal-grid distinction n=2 vs n>=3. This guides positivity-preserving time-step choice for arbitrary spatial grading and provides a falsifiable sharp benchmark; it is a complete natural class, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
