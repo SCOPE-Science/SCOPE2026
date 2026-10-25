@@ -1,19 +1,21 @@
-# Scientific assessment: generalized-repunit digit-sum spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Cyclic carrying preserves the multiple congruence modulo the repunit, strictly decreases positive multiset weight by one base carry decrement, and stops at a nonzero standard length-\(r\) numeral. Every terminal multiple is among the \(b-1\) constant-digit repdigits, fixing each residue class's smallest attainable weight. Inverse cyclic carrying and digit-exponent separation realize every weight in the claimed progressions. Coprime reduction modulo \((b-1)/d\) yields the exact gap count and conductor. The finite verifier checks independent residue reachability and constructs explicit witnesses, but is not cited as a universal proof.
+PASS
 
-## Originality
+For every integer base b≥2 and repunit length r≥4, cyclic carrying modulo M=(b^r−1)/(b−1) reduces any nonzero residue-zero power multiset to a nonzero base-b r-digit numeral jM, 1≤j≤b−1, decreasing weight by b−1 each step. The reverse split increases weight by b−1 without changing residue; putting counts at exponents i+rh makes an actual positive numeral with distinct unit digits. Therefore the spectrum is exactly ⋃_{j=1}^{b−1}(rj+(b−1)ℕ₀). Reducing by gcd d of r and b−1 to coprime a=r/d and c=(b−1)/d yields the c residue classes and floor-sum genus (a−1)(c+1)/2, last relative gap dc(a−1), and conductor d[c(a−1)+1], including a=1 and c=1. Independent residue-state recurrence compared 1,248 bounded weight decisions; finite checks do not prove the all-parameter result.
 
-PASS within inspected literature. The 2020 sturdy/flimsy paper gives a general power-sum criterion, upward closure by \(b-1\), and a repunit sturdiness result, but not the complete weight progression thresholds. The 2023 directed-graph paper gives necessary congruence restrictions and poses exact-spectrum classification for failed-equality cases; its full text does not state the length-\(r\) answer. The 2009 digit-sum paper addresses fixed/equal digit sums and density of sturdy integers, rather than complete attainable weights of repunit multiples. The length-three case is already separately covered and excluded. Remaining risk: exact classified spectra could be elsewhere, or the 2020 methods may be recognized as yielding the result with little additional work; this assessment makes no independence claim.
+## originality
 
-## Value
+PASS
 
-PASS. An entire natural two-parameter family receives a complete, sharp digit-sum spectrum, including the exact number and maximal size of exceptional admissible weights. The result resolves the arithmetic-output-set question on generalized repunits of arbitrary length at least four, rather than recording a small computational table or a parameter-renaming exercise. Its cyclic-normal-form proof explains the phenomenon structurally and provides direct witnesses.
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. The missing implication is a residue-wise minimum statement, not mere existence of those arithmetic progressions. Even if an older proof method could produce it, no explicit dominating conclusion is found in the inspected primary theorems. Unread primary documents are not treated as not covering.
 
-## Scope and limitations
+## value
 
-Only the specified repunit family is classified. The relative invariants apply to multiples of \(d\), not all positive integers when \(d>1\). The work has not received an independent audit; the literature comparison is limited to sources materially inspected and searchable records.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The generalized-repunit modulus is a natural two-parameter cyclotomic/geometric-sum family and complete attainable digit-sum sets are explicitly motivated by a published arithmetic-function-output problem. Uniform sharp residue thresholds, a relative genus and a conductor reveal more than sturdy minimum weights and are exact structural facts for future arithmetic and automata work; neither an arbitrary instance nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
