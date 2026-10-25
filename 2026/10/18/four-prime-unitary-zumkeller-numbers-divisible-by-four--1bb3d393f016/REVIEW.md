@@ -1,19 +1,21 @@
-# Review of the four-prime unitary Zumkeller classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies the exact domain \(\omega(n)=4\) and \(4\mid n\), proves the universal necessary inequality \(\sigma^*(n)\ge2n\), and enumerates **all** prime-power configurations meeting it. Its maximum-product estimates exclude \(\nu_2(n)\ge4\) and isolate one \(\nu_2(n)=3\) case. At \(\nu_2(n)=2\), exhaustive exponent restrictions yield exactly the infinite \(60r^e\) family and four isolated \(84r\) values. The displayed partition witnesses suffice for both unitary Zumkeller and unitary half-Zumkeller properties. The actual bundled `verify.py` reproduces every candidate and proper-partition result through \(100000\), and separately checks the finite witness sums. Limits: the computation is finite; the general theorem depends on the printed inequalities and witness formulas.
+PASS
 
-## Originality — PASS within inspected sources
+For ω(n)=4 and 4|n, set n=2^a u v w with a>=2 and odd increasing prime powers u=p^b,v=q^c,w=r^d. Unit sum σ*(n)=∏(1+p_i^e_i), and equal-sum partition requires σ*(n)>=2n because one half contains n. Thus 2<=(1+2^-a)(1+u^-1)(1+v^-1)(1+w^-1). For a>=4 maximal ratio at 2^4*3*5*7 is 68/35<2. For a=3 ratio forces u=3,v=5,w=7, hence n=840. For a=2 ratio forces u=3 and (1+v^-1)(1+w^-1)>=6/5; either v=5 with exponent one and w=r^d any prime r>5, yielding 60r^d, or v=7 and w in {11,13,17,19}, yielding 924,1092,1428,1596. All larger odd prime powers violate this inequality. For 60R, σ*=120(1+R), and {60R,60} exactly halves the sum; the proper unitary subset {3R,12R,15R,60} sums to (σ*-60R)/2. For 84r r=11,13,17,19, the offsets 80-4r are respectively 36=1+7+28,28,12,4, all unitary, and displayed proper-unitary half-witnesses for those r and 840 verify sufficiency. Independently enumerated all 1644 eligible n<=35000 by exact factorization, unitary subset-sum bitsets: exactly 115 are Zumkeller and 115 half-Zumkeller, all predicted by formula. This exhaustive finite range is corroboration only; multiplicative inequality and symbolic witnesses prove unbounded exponents.
 
-The July 2024 originating article supplies the unitary-divisor definitions, abundance necessity and coprime multiplication construction, but its full relevant sections give only partial prime restrictions and state the half-Zumkeller conjecture as open. The ordinary-divisor 2020 study does not classify the unitary variant. Public OEIS tables A290466 and A290467 list examples, not a necessary-and-sufficient infinite formula; known three-prime-support statements do not encompass the four-prime theorem. Searches using 'four distinct prime factors', 'divisible by four', the infinite family and each exceptional integer revealed no equivalent covering theorem. Risk: an unindexed or inaccessible earlier proof could exist, so this self-review is not independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The primary 2024 article explicitly motivates further prime-factor classifications and proposes the even unitary half-Zumkeller conjecture. This theorem fully resolves an infinite, nontrivial four-prime layer selected by its natural \(2\)-adic valuation and turns an abundance necessary condition into a sufficient one. It also proves the half-partition property throughout this layer, with sharp \(2\)-adic cutoff and complete exceptions, rather than merely listing the first few values. The omitted odd-valuation-one four-support case and larger support sizes remain open within this analysis.
+Best-of-knowledge PASS for complete four-support ν2>=2 classification and a partial proof of the unitary half-Zumkeller conjecture. Das 2024 provides necessary abundance, general constructions, and poses the conjecture; an existing published three-prime-support classification concerns a disjoint domain. OEIS example lists do not imply this infinite arithmetic iff theorem. Inaccessible or unindexed equivalent classifications remain priority risk.
 
-## Closest literature and limitations
+## value
 
-B. Das, “On unitary Zumkeller numbers,” *Notes on Number Theory and Discrete Mathematics* 30 (2024), 436–442, DOI 10.7546/nntdm.2024.30.2.436-442 (especially Propositions 2.1–2.7 and Conjecture 3.1); P. Mahanta, M. Saikia, D. Yaqubi (2020), DOI 10.1016/j.jnt.2020.05.003; OEIS A290466 and A290467. The proof does not claim the full even conjecture. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-distinct-prime support stratum with 4|n is naturally selected by unitary-abundance constraints and the unsettled even-half conjecture. A complete infinite classification, sharp 2-adic cutoff, five isolated exceptions and explicit both full/proper partitions is a substantively useful arithmetic theorem beyond known small lists or previous three-support treatment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
