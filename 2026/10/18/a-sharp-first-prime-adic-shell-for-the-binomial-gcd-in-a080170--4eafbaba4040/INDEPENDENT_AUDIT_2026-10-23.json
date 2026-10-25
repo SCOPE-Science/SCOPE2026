@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T10:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA fd9a58da020b083dc83a5f6e02a60208e44fae80",
+        "verify.py SHA 80a18daf48b375794490d0648f4fc54ff6aab995",
+        "Guo et al arXiv:2606.22997 Lemmas 4,9",
+        "Independent Kummer factorial test 91 cases"
+      ],
+      "rationale": "For p^a=A and A/p<m<A with p∤m, Lucas digit conditions force q≡1 mod A for any p-nondivisible binomial in the defining family. Writing q=1+At with 1<=t<=m−1 then the high digit segments (m−1)+(t k) have a base-p carry because their residues modulo A sum to at least A, proving p divides every binomial. For s=A/p−1, q*=1+As is admissible, and sk=A(sm−1)+(A−s). The low a digits A−s have a 1 in units and p−1 at position a−1; since p∤m, no unit carry, exactly one carry from position a−1, and no propagated carry because (sm−1) mod p<=p−2. Kummer therefore gives exact valuation1. Separately, polynomial forward differences show any prime r|D(k) divides k+1=n, and Guo et al Lemma 9 asserts r|D(n−1) iff n/r^e<=r^e for r^e||n. For r!=p one has r^e<=m<A<=n/r^e so r cannot divide D. Independent factorial valuation computations for 91 admissible small shell cases reproduce valuation1; they are corroboration, not universal proof.",
+      "residual_risks": [
+        "The other-prime exclusion relies on Guo et al published local prime support lemma, whose assumptions were checked, not independently reproved here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 9 states r|D(n−1) iff n/r^e<=r^e; it does not determine ν_r(D(n−1)) beyond nonzero. Theorem1 addresses D=1."
+        ],
+        "reasoning": "A support criterion implies p|D and all other primes are absent on this shell, but allows p^j with j>=1; hence it cannot yield the exact equality p without an additional bounded valuation witness.",
+        "searches": [
+          "Guo et al arXiv:2606.22997 Lemma 9 and Theorem 1",
+          "Resultary published finding semantic search: Binomial gcd D(k)=gcd_{2<=q<=k+1} binomial(qk,k), prime powers exact valuation on first shell p^a m, OEIS A080170"
+        ]
+      },
+      "checked_sources": [
+        "Guo–Qiu–Cao–Feng–Gao (2026) arXiv:2606.22997",
+        "OEIS A080170 original 2003-01-31",
+        "Resultary 2026-10-23 p-adic binomial exact-valuation retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior necessary-and-sufficient prime support gives divisibility only; Kummer explicit q* achieves exponent one."
+        ],
+        "reasoning": "Formally, prime support {p} is consistent with gcd p, p², etc. The candidate q* is the missing implication needed for exact p.",
+        "searches": [
+          "arXiv:2606.22997v1 Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170",
+          "Resultary published finding semantic search: Binomial gcd D(k)=gcd_{2<=q<=k+1} binomial(qk,k), prime powers exact valuation on first shell p^a m, OEIS A080170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-lower-index moving-upper-argument binomial gcd, p-adic gcd valuation, Lucas/Kummer addition carries all describe the same D(k) invariant."
+        ],
+        "reasoning": "The search compared exact multiplicity ν_p(D(p^a m−1))=1 and constructive minimal multiplier, not merely the prime-support congruence or arbitrary binomial gcds.",
+        "searches": [
+          "Resultary published finding semantic search: Binomial gcd D(k)=gcd_{2<=q<=k+1} binomial(qk,k), prime powers exact valuation on first shell p^a m, OEIS A080170",
+          "OEIS A080170",
+          "Guo et al arXiv:2606.22997 Lemma 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A080170 indexes k satisfying D(k)=1, while the present family has D(k)=p>1.",
+          "Numerical small shell valuations independently reproduced but no relevant published infinite exact valuation shell table found."
+        ],
+        "reasoning": "The exact p-adic shell is not a recomputation of the OEIS zero/nonzero indicator; database absence is not a proof of priority.",
+        "searches": [
+          "https://oeis.org/A080170",
+          "arXiv:2606.22997 Tables",
+          "Resultary published finding semantic search: Binomial gcd D(k)=gcd_{2<=q<=k+1} binomial(qk,k), prime powers exact valuation on first shell p^a m, OEIS A080170"
+        ]
+      },
+      "rationale": "Published Guo et al 2026 establishes whether a prime divides the gcd, not the positive exponent. The explicit Kummer single-carry multiplier shows valuation exactly1 in a natural first p-adic shell; OEIS A080170 records unit-gcd indices only. Source relation is a genuine quantitative strengthening not identical to a rephrased support theorem, subject to a residual risk of older valuation formulae.",
+      "residual_risks": [
+        "A broader unpublished or unindexed binomial-gcd valuation theorem could already imply the shell exponent.",
+        "No general classification of D(k) outside p^(a−1)<m<p^a is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIME_SUPPORT_ONLY_NOT_EXACT_VALUATION",
+          "evidence": "Lemma 9 gives r-divisibility iff n/r^e<=r^e; no claim that ν_r(D)=1 throughout the shell.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22997",
+          "material_read": "Full accessible 13-page primary preprint with equation and lemma comparisons; Lemmas 4 and 9, Theorem 1, local prime-support proof and surrounding statements. PDF page screenshots inspected as well as extracted text.",
+          "method": "Lawful arXiv full PDF, technical theorem reading, p-adic hypothesis check.",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Exact same binomial-gcd defining family and its prime-divisor theorem"
+        },
+        {
+          "assessment": "DATABASE_DIFFERENT_QUESTION",
+          "evidence": "Sequence identifies k for which gcd equals one, while the theorem determines gcd p>1.",
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Public entry definition, sequence purpose and citation; no claim all comments exhaust historical research.",
+          "method": "Checked whether index enumerates exact valuations or merely gcd-one cases.",
+          "title": "OEIS A080170",
+          "trigger": "Archived motivating gcd sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Guo et al published prime-support lemma",
+        "OEIS A080170 natural arithmetic invariant"
+      ],
+      "rationale": "Exact prime-adic exponent in a natural first-shell family of the archival binomial gcd invariant fills a genuine gap between known prime support and numerical gcd. An explicit uniform one-carry multiplier is a structural witness, not a table recomputation or arbitrary substituted parameter. The restricted family is motivated by the published prime-support boundary and deliberately avoids extrapolating to all k.",
+      "residual_risks": [
+        "The exact family is a subset of the full gcd problem; no comprehensive closed formula is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The other-prime exclusion relies on Guo et al published local prime support lemma, whose assumptions were checked, not independently reproved here.",
+    "A broader unpublished or unindexed binomial-gcd valuation theorem could already imply the shell exponent.",
+    "No general classification of D(k) outside p^(a−1)<m<p^a is asserted.",
+    "The exact family is a subset of the full gcd problem; no comprehensive closed formula is claimed."
+  ],
+  "schema_version": 1
+}

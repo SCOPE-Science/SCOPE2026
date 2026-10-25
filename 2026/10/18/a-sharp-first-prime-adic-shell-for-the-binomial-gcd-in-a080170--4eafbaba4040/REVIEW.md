@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quantifiers are all prime \(p\), all \(a\ge2\), and all \(m\) in the displayed first shell. Step 1 forces one carry for every multiplier, Step 2 constructs one admissible multiplier with exactly one carry, and Step 3 excludes every other prime using the published exact local prime-support criterion. Boundary inequalities and termination of the carry are explicit. Exact finite verification supports, rather than substitutes for, the proof.
+## correctness
 
-**Originality — PASS, qualified.** The archived A080170 sequence asks for gcd equal to one, not gcd values. The closest 2026 proof establishes prime-factor support and unit gcd, not the asserted valuation-one witness or exact nonunit gcd. The latter requires a separate single-carry construction. Targeted mathematical research records and accessible prior claim texts yielded no equivalent; implicit or unlocated stronger valuation results remain possible.
+PASS
 
-**Value — PASS.** The initial nontrivial \(p\)-adic shell of an established arithmetic gcd problem has a complete, exact answer. It distinguishes support from multiplicity in an infinite family and gives an explicit sharp Kummer witness; this is not a numerical-table restatement or mere relabeling of the known unit-gcd criterion. No claims about other shells are made.
+For p^a=A and A/p<m<A with p∤m, Lucas digit conditions force q≡1 mod A for any p-nondivisible binomial in the defining family. Writing q=1+At with 1<=t<=m−1 then the high digit segments (m−1)+(t k) have a base-p carry because their residues modulo A sum to at least A, proving p divides every binomial. For s=A/p−1, q*=1+As is admissible, and sk=A(sm−1)+(A−s). The low a digits A−s have a 1 in units and p−1 at position a−1; since p∤m, no unit carry, exactly one carry from position a−1, and no propagated carry because (sm−1) mod p<=p−2. Kummer therefore gives exact valuation1. Separately, polynomial forward differences show any prime r|D(k) divides k+1=n, and Guo et al Lemma 9 asserts r|D(n−1) iff n/r^e<=r^e for r^e||n. For r!=p one has r^e<=m<A<=n/r^e so r cannot divide D. Independent factorial valuation computations for 91 admissible small shell cases reproduce valuation1; they are corroboration, not universal proof.
 
-**Closest literature and limits.** OEIS A080170 (first entered 2003-01-31); Guo–Qiu–Cao–Feng–Gao, arXiv:2606.22997v1 (2026), particularly Lemma 9. The result depends on that lemma, uses a restricted natural interval, and awaits independent priority and mathematical audits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Guo et al 2026 establishes whether a prime divides the gcd, not the positive exponent. The explicit Kummer single-carry multiplier shows valuation exactly1 in a natural first p-adic shell; OEIS A080170 records unit-gcd indices only. Source relation is a genuine quantitative strengthening not identical to a rephrased support theorem, subject to a residual risk of older valuation formulae.
+
+## value
+
+PASS
+
+Exact prime-adic exponent in a natural first-shell family of the archival binomial gcd invariant fills a genuine gap between known prime support and numerical gcd. An explicit uniform one-carry multiplier is a structural witness, not a table recomputation or arbitrary substituted parameter. The restricted family is motivated by the published prime-support boundary and deliberately avoids extrapolating to all k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
