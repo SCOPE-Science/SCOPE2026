@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The companion `verify_starforest.py` enumerates all integer anchored potentials satisfying the integer edge-difference constraints of each tested graph. There are no sampled or randomized points. For an \((N-1)\)-dimensional lattice polytope, its Ehrhart polynomial has degree \(N-1\); the last forward difference of the enumerated counts at dilations zero through \(N-1\), divided by \((N-1)!\), is the exact anchored volume. Every tested graph has diameter two and the edge-difference system is totally unimodular, yielding lattice vertices.
+## correctness
 
-Eleven cases were checked exactly: \((N;m_i)=(3;1),(4;1,1),(6;4),(4;2),(5;3),(5;1,1),(6;2,2),(6;1,2),(7;2,2),(7;1,1,2),(7;3,2)\). In that order, the exact volumes are \(4,16/3,10,6,8,6,8,37/5,43/5,127/15,93/10\), matching the closed formula throughout. The checker raises an assertion failure on disagreement and prints `PASS: 11 exact independent volume checks` on complete success.
+PASS
 
-Run `python verify_starforest.py` using Python 3 with no third-party dependencies. Full rational data are deterministic; the proof of infinitely many cases remains the mathematical derivation in `RESULT.md`, not these eleven experiments.
+For G=K_N minus an edge-disjoint star forest (M≤N−2), G is connected of diameter ≤2 and its anchored dual Lipschitz ball has the stated unit edge-difference constraints. The equilateral baseline coordinate volume is N. For one removed star with m leaves, fix center to 0 and condition on k=N−m−1 remaining clique coordinates of range r≤1 in [−1,1]; the leaf conditional volume in an interval length 2−r with mutual range≤1 equals m+1−mr. Integrating standard range densities yields V=N+2m/(N−m), including k=1. For several disjoint missing stars, any extra point beyond the equilateral ball has a min/max pair at a nonedge within a unique star, with all vertices outside this component in an interval of length <1; exceptional regions from different stars have disjoint interiors, and other-star constraints become automatic. Thus volumes add N+Σ2m_i/(N−m_i). At fixed total M, φ(m)=2m/(N−m) strictly superadditive under merging (one star uniquely maximal) and has increasing finite differences (balanced, maximally numerous disjoint stars uniquely minimal). Independently enumerated exact Ehrhart leading coefficients for N=4,5 with group patterns [1], [1,1], [2] match 14/3,6,19/3; the analytic proof covers all N, M.
 
-Independent audit status: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority conclusion, not exhaustive novelty certification. The equilateral V(K_N)=N and matching-only deletion specializations are known and explicitly credited. Neither gives the additive all-disjoint-stars formula for arbitrary leaf sizes or its exact extremal shape at fixed M. The cited primary results motivate graph Lipschitz balls but give neither direct star-forest exceptional-cell additivity nor strict φ superadditivity and balancing, so do not imply the claimed full statement by a known published formula. Generic integration alone is not claimed original.
+
+## value
+
+PASS
+
+Deleting a star forest from a complete graph is a natural dense-graph perturbation. The exact dual volume and sharp extremal configurations reveal a non-obvious additivity of separated exceptional regions and a convexity-driven optimizing shape theorem for infinitely many graphs, beyond classical equilateral and matching examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

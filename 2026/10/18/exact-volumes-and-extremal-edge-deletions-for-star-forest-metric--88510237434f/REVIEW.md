@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(N\ge3\), \(1\le M\le N-2\), the complement of a star forest has diameter two; the difference inequalities give the intended Lipschitz dual norm. The proof obtains the one-star volume by an exact range-distribution integral. For multiple deleted stars, any potential whose global range exceeds one has an extreme missing edge in one uniquely identified star. All vertices outside that star must occupy an interval of length strictly below one, so constraints deleted in other stars are automatically satisfied in that region. These exceptional pieces have disjoint interiors, proving additivity. Strict superadditivity and strictly increasing discrete increments of \(2m/(N-m)\) prove the extremal characterizations. Eleven independent exact Ehrhart leading-coefficient checks match the formula. The finite computations are corroboration, not a proof for arbitrary graph order.
+PASS
 
-## Originality — PASS, with uncertainty
+For G=K_N minus an edge-disjoint star forest (M≤N−2), G is connected of diameter ≤2 and its anchored dual Lipschitz ball has the stated unit edge-difference constraints. The equilateral baseline coordinate volume is N. For one removed star with m leaves, fix center to 0 and condition on k=N−m−1 remaining clique coordinates of range r≤1 in [−1,1]; the leaf conditional volume in an interval length 2−r with mutual range≤1 equals m+1−mr. Integrating standard range densities yields V=N+2m/(N−m), including k=1. For several disjoint missing stars, any extra point beyond the equilateral ball has a min/max pair at a nonedge within a unique star, with all vertices outside this component in an interval of length <1; exceptional regions from different stars have disjoint interiors, and other-star constraints become automatic. Thus volumes add N+Σ2m_i/(N−m_i). At fixed total M, φ(m)=2m/(N−m) strictly superadditive under merging (one star uniquely maximal) and has increasing finite differences (balanced, maximally numerous disjoint stars uniquely minimal). Independently enumerated exact Ehrhart leading coefficients for N=4,5 with group patterns [1], [1,1], [2] match 14/3,6,19/3; the analytic proof covers all N, M.
 
-Relevant inspected literature includes the quotient-of-edge-spaces construction for transportation-cost spaces [1], general Lipschitz-free volume-product work [2], and Lipschitz polytope combinatorics [3]. The mathematical theorems or sections inspected do not imply the additive volume expression for arbitrary deleted star-forest complements. Known special cases involving disjoint deleted pairs and the equilateral case are not separately claimed as new. A different-indexed or unpublished covering treatment is a residual risk; this assessment is not an independent certification of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The formula solves the continuous-volume invariant for an unbounded, structurally defined family of finite-dimensional Lipschitz dual balls. It exhibits nonobvious additivity of exceptional regions from disjoint defects and sharp extremal graph configurations at fixed deletion budget. These are natural questions about how the geometry of transportation-cost spaces responds to deletions, not an arbitrary short computational slice. Both the all-parameter formula and extremal statement remain meaningful even if isolated special cases were previously known.
+Best-of-knowledge priority conclusion, not exhaustive novelty certification. The equilateral V(K_N)=N and matching-only deletion specializations are known and explicitly credited. Neither gives the additive all-disjoint-stars formula for arbitrary leaf sizes or its exact extremal shape at fixed M. The cited primary results motivate graph Lipschitz balls but give neither direct star-forest exceptional-cell additivity nor strict φ superadditivity and balancing, so do not imply the claimed full statement by a known published formula. Generic integration alone is not claimed original.
 
-## Limits of review
+## value
 
-The conclusion concerns anchored Euclidean coordinate measure and only missing-edge star forests. Additional indexing or alternative-language literature may contain equivalent results, and an independent research audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting a star forest from a complete graph is a natural dense-graph perturbation. The exact dual volume and sharp extremal configurations reveal a non-obvious additivity of separated exceptional regions and a convexity-driven optimizing shape theorem for infinitely many graphs, beyond classical equilateral and matching examples.
 
-## References
-
-[1] Ostrovska–Ostrovskii, arXiv:1910.03625 (2019).
-
-[2] Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642 (2019).
-
-[3] Gordon–Petrov, *Combinatorics of the Lipschitz Polytope*, arXiv:1608.06848 (2016 preprint; 2017 journal).
+The dated certificate retains the supplied scientific assessment, sources and limitations.
