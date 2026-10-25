@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The cyclic gaps of an independent set in \(C_L^r\) have size at least \(r+1\), forcing \(\alpha(C_L^r)=m\) for \(L=(r+1)m+s\) and \(0\le s\le2\). Rooted weak-composition counting yields the exact configuration numbers. Deleting the exchanged token exposes a unique insertable gap with at most three consecutive replacement sites. This proves every legal exchange is local and gives the degrees. Unit-slack circulation connects the surplus-one and surplus-two classes. The Johnson-graph triangle classification and the count of length-two exchanges prove exactly \(L\) triangles in the surplus-two case. Direct and gap-based enumerations verified 36 and 162 parameter cases, respectively. Their limits are finite; the proof is all-parameter.
+
+## Originality — PASS, with stated residual risk
+The known independence number, independence polynomial and generic equality of maximum-set token jumping and token sliding are explicitly credited. The new statement is the exact phase classification of the maximum-set exchange graphs, including a connected four-regular regime with a determined triangle count. The inspected full-text sections of Kamiński–Medvedev–Milanič (arXiv:1008.4563), Avis–Hoang (arXiv:2203.16861), and the antiprism background account did not provide these conclusions or a theorem that implies them as a stated special case. Targeted literature and mathematical-record queries for cycle powers, antiprisms, optimal independent sets, local exchanges, and triangles did not reveal a covering result. A missed equivalent treatment of cyclic exclusion processes is a genuine remaining risk; indexed-search absence is not a uniqueness certificate.
+
+## Value — PASS
+The problem asks whether optimum independent configurations can be moved through valid single-vertex changes without dropping optimum cardinality. These configurations are classical dense cyclic packings, so the smallest amounts of spare space \(s=0,1,2\) are natural rather than arbitrary slices. The finding establishes a sharp qualitative change from complete freezing to a single cycle to a connected four-regular graph with exactly known triangle inventory, throughout a two-parameter infinite family. This is structural information not supplied by independence polynomials. It also specializes to a complete connectivity classification for all antiprism graphs. The result does not assert a diameter formula or cover larger surplus.
+
+## References and limitations
+Closest inspected sources: Kamiński, Medvedev and Milanič, arXiv:1008.4563 (2010); Avis and Hoang, arXiv:2203.16861 (2022/2023), particularly structural sections and appendix; Weisstein, *Antiprism Graph*, MathWorld. Sources give general reconfiguration frameworks and pre-existing graph/independence facts but no identified coverage of the asserted phase and triangle theorem. An indexed or inaccessible source may nonetheless contain an equivalent; no external independent scientific assessment has been completed.
+
+Self-review: passed. Independent audit: not yet performed.
