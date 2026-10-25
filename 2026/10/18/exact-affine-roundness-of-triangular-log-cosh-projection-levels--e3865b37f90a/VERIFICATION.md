@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Analytic checks: the facet prefactor is \(2V/3\); the three normal cosines have sum zero and power sums \(P_2=3/2\), \(P_6=2(3/4)^3+3(\cos3\theta/4)^2\). Every even power sum is a polynomial with nonnegative coefficients in the square of the triple product parameter, establishing all-radius angular extrema. The sixfold symmetry and quadratic-form averaging prove globally optimal John and Löwner ellipses and affine Banach–Mazur distance.
+## correctness
 
-The reproducibility program `check.py` is Python standard-library only. It passed the exact rational recurrence identities, all positive-level inversion tests, and 16,209 numerical angular checks across nine scales. Maximum positive excursion beyond the proven two-sided angular envelope was approximately \(7.11\times10^{-15}\). Finite tests do not imply the continuum theorem; the proof is written in RESULT.md.
+PASS
 
-The Taylor coefficients in RESULT.md give the first nontrivial anisotropy coefficient \(2/405\) exactly. The 2026 primary paper proves the convergence theorem only for \(C^3\) bodies; the separate geometric surface-measure continuity argument is used for triangular limits. Independent audit has not been performed.
+The triangle facet weights reduce Φ_K, by affine covariance and centering, to the equilateral angular logcosh sum F_t(θ)=sum_{j=0}^2 logcosh(t cos(θ-2πj/3)). For x_j the three cosines, x_j^3=(3/4)x_j+(cos(3θ))/4. Newton power sums obey P_m=A P_{m-2}+B P_{m-3} with nonnegative polynomial coefficients and even P_{2m} containing only even B powers. P6=2A^3+3B^2 forces strict cosh-series monotonicity in B² for t>0; hence maxima exactly at |cos3θ|=1 and minima at cos3θ=0. Their radial inverses give sharp reference John radius 2τ(c) and Loewner radius 4 arcosh(e^{c/2})/sqrt(3). Sixfold symmetry and uniqueness imply those extremal ellipses are disks. For arbitrary candidate ellipses, averaging the positive quadratic-form matrices over rotation and convexity of u^T A^-1 u preserve both inclusions, showing BM optimality of the concentric disks, not just a bound. The explicit sixth-order expansions establish 1+(2/405)c²+O(c³) and large c limit 2/sqrt(3)(1-log2/c+O(c^-2)). No polygonal direct covariogram convergence is assumed; smooth-body approximants give only convergence of the facet-defined functional under positive support distances. Independent numerical angular envelope and inverse-level tests at five levels confirmed all formulas within tolerance; the recurrence, not the finite grid, proves all angles and β>0.
+
+## originality
+
+PASS
+
+The 2026 smooth-covariogram paper establishes the logcosh functional in smooth settings but does not give an all-level exact affine-triangle John/Löwner and BM contact profile; the present result makes the specific polygonal facet case mathematically explicit without claiming the invalid nonsmooth covariogram limit. No identical triangular angular theorem or sharp c² coefficient was identified in relevant Resultary/literature checks, with older Orlicz projection-body paper only partially inspected.
+
+## value
+
+PASS
+
+The first nontrivial three-facet-normal instance of a natural Orlicz/projection-body transition is a canonical geometric test case; complete all-level affine ellipsoid contact geometry and the exact quadratic onset of anisotropy are nonroutine shape invariants. The all-triangle reduction and extremal contacts give a usable benchmark for convex-body asymptotics, without pretending it proves broad nonsmooth convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
