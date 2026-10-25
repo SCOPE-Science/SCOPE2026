@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Exact verification instructions
+# Independent mathematical audit
 
-From a directory containing the embedded files, execute:
+## correctness
 
-```text
-python3 certificate.py
-python3 independent_check.py
-```
+PASS
 
-Both programs use only exact integers, standard-library fractions, primality by full trial division, and integer divisor enumeration. The first prints \(21\) prefixes and \(6\) live residuals at length seven; \(18564\) prefixes and \(74\) live residuals at length eight; and zero valid completions for both. The second checks the same nonexistence by a separate depth-first denominator-bound recursion and reports terminal-node counts \(6\) and \(74\). Exact evaluation also verifies the displayed nine-term identity. The proof's finite-reduction step, not a computer timeout or imposed maximum on the last denominators, makes the output exhaustive.
+PASS. The six smallest squarefree semiprimes sum to 115/231<1/2. The first four/five maximally contribute 17/42 and 19/42; for length 7, denominator five must be <=31; for length 8, denominator six <=63. For each of the 21 or 18564 prefixes, reduced remainder a/b has all possible last integer pairs parametrized exactly by (ax-b)(ay-b)=b^2, no upper cutoff on x,y. Independent Fraction/SymPy divisors of b^2 checked 6 and 74 live residual prefixes, zero valid semiprime terminal pairs. The nine listed denominators were independently verified distinct, squarefree-semiprime and summing exactly 1/2.
 
-The ordinary arithmetic checks were executed successfully. No independent audit has been performed, and no machine-checked proof formalization is claimed.
+## originality
+
+PASS
+
+PASS best of knowledge. Li 2026 proves existence for rational targets with squarefree denominator, not the sharp number of unit fractions for 1/2. Martin–Shi enumerate solutions only within a prescribed finite multiset, not all unrestricted denominators at fixed length; the divisor-square parametrization provides a full global bound. Related published Resultary records concern prime reciprocal or fixed two-prime support, not the varying-semiprime target. Full specialist manuscripts were not accessible to independent reading; residual exact-table risk remains.
+
+## value
+
+PASS
+
+PASS. The least representation length for 1/2 is a canonical quantitative invariant of Erdős semiprime Egyptian-fraction problem, supplies a sharp natural small-target benchmark after a general existence theorem, and has a nontrivial unrestricted lower bound using Diophantine divisor exhaustiveness; it is not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

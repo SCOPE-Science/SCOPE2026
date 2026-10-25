@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-smallest-denominator bound excludes lengths at most six. Elementary positivity bounds force the fifth or sixth denominator into explicit complete small lists for lengths seven and eight. The exact last-pair equation \((ax-b)(ay-b)=b^2\) exhausts arbitrarily large final denominators. The included rational-arithmetic certificate checks \(21\) and \(18564\) prefixes, respectively, and finds zero completions; independent depth-first search reaches the same result. The nine-term reciprocal identity and factorization conditions are checked by exact arithmetic. This is an exhaustive finite proof, not a heuristic search with a hidden cutoff.
+## correctness
 
-**Originality — PASS, with residual risk.** Full text of Li's 2026 semiprime existence theorem and earlier partial rational theorem was inspected; their existence/covering statements do not imply a sharp nine-term minimum. Martin and Shi's full 2025 finite-denominator algorithm treats a specified finite input, not the unrestricted minimum length. Related published-record searches were made for target, prime-support, rank, smallest number of terms, and equivalent final-pair Diophantine descriptions. The closest records concern three-term representations of prime reciprocals and two-prime-support rank bounds; neither covers the varying-prime-set target \(1/2\). Residual risk: an older specialized numerical table or computation not indexed by the searches could contain the same value.
+PASS
 
-**Mathematical value — PASS.** This is a sharp natural invariant—the least number of summands for the simplest nonintegral rational target of the recently resolved semiprime Egyptian-fraction theorem. It supplies a reproducible small-instance benchmark for quantitative refinements of the existence problem. The value is not claimed as a general optimal-length theorem for other targets.
+PASS. The six smallest squarefree semiprimes sum to 115/231<1/2. The first four/five maximally contribute 17/42 and 19/42; for length 7, denominator five must be <=31; for length 8, denominator six <=63. For each of the 21 or 18564 prefixes, reduced remainder a/b has all possible last integer pairs parametrized exactly by (ax-b)(ay-b)=b^2, no upper cutoff on x,y. Independent Fraction/SymPy divisors of b^2 checked 6 and 74 live residual prefixes, zero valid semiprime terminal pairs. The nine listed denominators were independently verified distinct, squarefree-semiprime and summing exactly 1/2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge. Li 2026 proves existence for rational targets with squarefree denominator, not the sharp number of unit fractions for 1/2. Martin–Shi enumerate solutions only within a prescribed finite multiset, not all unrestricted denominators at fixed length; the divisor-square parametrization provides a full global bound. Related published Resultary records concern prime reciprocal or fixed two-prime support, not the varying-semiprime target. Full specialist manuscripts were not accessible to independent reading; residual exact-table risk remains.
+
+## value
+
+PASS
+
+PASS. The least representation length for 1/2 is a canonical quantitative invariant of Erdős semiprime Egyptian-fraction problem, supplies a sharp natural small-target benchmark after a general existence theorem, and has a nontrivial unrestricted lower bound using Diophantine divisor exhaustiveness; it is not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
