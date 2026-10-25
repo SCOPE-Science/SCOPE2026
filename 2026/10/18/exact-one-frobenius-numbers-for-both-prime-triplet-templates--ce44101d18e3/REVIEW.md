@@ -1,15 +1,21 @@
-# Scientific review: prime-triplet template one-Frobenius numbers
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof establishes a second-baseline lemma, then exhausts the possible second-minimal coin costs in each residue class for both infinite template families. Congruence classes are represented without collisions because the smallest generator is odd. The fixed-parameter cost increases are positive and strictly larger than the first internal alternative, so no later residue lift is omitted. Direct comparison gives the full polynomial expressions, including both \(k=0\) transitions. The standalone checker independently confirms 72 parameter instances by both residue enumeration and coin-change counting, but this finite check is not used as a universal proof.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** Robles-Pérez and Rosales, *A Frobenius problem suggested by prime k-tuplets*, arXiv:2112.05501, establish the classical \(p=0\) invariants for exactly these two template families and identify the \(p\)-Frobenius question as future work (Remark 2.4). Komatsu and Ying, arXiv:2206.13052, prove generalized Frobenius formulas for **equal-gap** three-term arithmetic progressions, which neither template is. Liu and Xin, arXiv:2303.07149, treat the zero-representation Frobenius problem. Searches of formulas, equivalent names and published-finding corpus mathematical records found no covering published claim. Generic exact algorithms and \(p\)-Apéry reductions are not evaluated expressions for these families. Unindexed equivalent work remains a risk.
+PASS
 
-## Mathematical value
-**PASS.** The theorem completes the natural first positive representation threshold in both prime-triplet numerical-semigroup families, a specific problem motivated by the source paper, with uniform all-parameter proofs and meaningful boundary exceptions. It distinguishes the first from the second representability threshold rather than restating a classical coin-problem formula.
+PASS. Rebuilt the generalized one-Frobenius definition (largest N with <=1 nonnegative ordered triple representation), including p=1 convention and the k=0 exceptions. For each residue r modulo smallest generator a, the second y,z baseline s_2(r) gives the sharp threshold g_1=max s_2-a. In A, the auxiliary q=y+3z makes all same-q alternatives increase by 2a and both f(q+a)-f(q) increments exceed 2a; maximization across q>=3 versus q=0,1,2 produces 24 at k=0 and 12k²+40k+23 at k>=1. In B, q=2y+3z, the six-row minimum table, same-q increment a, and exceptional residues 0..5,7 yield 45 at k=0 and 12k²+50k+56 at k>=1. These are symbolic all-k arguments; independently computed denumerant DP for 50 concrete parameter triples corroborated, not substituted for proof. Verified RESULT and executable blob SHAs in frozen Git tree.
 
-## Closest literature and limitations
-Closest references: arXiv:2112.05501, arXiv:2206.13052, and arXiv:2303.07149. The result concerns \(p=1\) only, makes no prime-infinitude assertion, and is not an independent validation or an exhaustive search of all mathematical publications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the evaluated infinite p=1 formulas. The original prime-template article supplies the families and p=0 invariants while explicitly flagging p-Frobenius as future work; the positive-p arithmetic-progression theorem's equal-gap hypothesis fails here. Generic residue principles alone do not evaluate both all-k maxima. Indexed non-coverage is not proof of global novelty.
+
+## value
+
+PASS
+
+PASS. The two template families were previously singled out as a natural p-Frobenius challenge; the first nontrivial representation multiplicity threshold measures a mathematically distinct semigroup invariant from classical p=0. Closed all-k quadratics and sharp k=0 transitions solve a motivated infinite family rather than arbitrary finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

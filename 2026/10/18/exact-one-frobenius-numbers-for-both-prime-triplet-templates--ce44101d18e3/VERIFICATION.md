@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The published proof is a complete symbolic argument for both infinite families and both exceptional small cases. Reproduction of the independent finite checks requires Python 3 only:
+## correctness
 
-```bash
-python3 verify_prime_triplet_g1.py
-```
+PASS
 
-The program uses two independent algorithms: listing the two cheapest \(b y+c z\) costs for every residue class modulo the smallest generator, and dynamic-programming coin-change counts capped at three. It checks every integer \(k\) with \(0\le k<36\) in each of the two families (72 cases). Each trial confirms that the stated endpoint has at most one representation and that all integers in the following range of two smallest-generator lengths have at least two. It also verifies the second-residue formula. Expected output:
+PASS. Rebuilt the generalized one-Frobenius definition (largest N with <=1 nonnegative ordered triple representation), including p=1 convention and the k=0 exceptions. For each residue r modulo smallest generator a, the second y,z baseline s_2(r) gives the sharp threshold g_1=max s_2-a. In A, the auxiliary q=y+3z makes all same-q alternatives increase by 2a and both f(q+a)-f(q) increments exceed 2a; maximization across q>=3 versus q=0,1,2 produces 24 at k=0 and 12k²+40k+23 at k>=1. In B, q=2y+3z, the six-row minimum table, same-q increment a, and exceptional residues 0..5,7 yield 45 at k=0 and 12k²+50k+56 at k>=1. These are symbolic all-k arguments; independently computed denumerant DP for 50 concrete parameter triples corroborated, not substituted for proof. Verified RESULT and executable blob SHAs in frozen Git tree.
 
-```
-PASS 72 parameter instances; every residue has two baselines and DP confirms final gaps
-```
+## originality
 
-This finite computation is not a proof for arbitrary \(k\); the symbolic residue-case argument in `RESULT.md` supplies that proof. The verification does not cover higher generalized Frobenius thresholds, primality of all generators, or exhaustive literature originality. Independent mathematical audit has not been performed.
+PASS
+
+PASS on the evaluated infinite p=1 formulas. The original prime-template article supplies the families and p=0 invariants while explicitly flagging p-Frobenius as future work; the positive-p arithmetic-progression theorem's equal-gap hypothesis fails here. Generic residue principles alone do not evaluate both all-k maxima. Indexed non-coverage is not proof of global novelty.
+
+## value
+
+PASS
+
+PASS. The two template families were previously singled out as a natural p-Frobenius challenge; the first nontrivial representation multiplicity threshold measures a mathematically distinct semigroup invariant from classical p=0. Closed all-k quadratics and sharp k=0 transitions solve a motivated infinite family rather than arbitrary finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
