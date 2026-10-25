@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Legendre/Kummer implies exactly 2s_2(n)-s_2(3n) because 2n+1 is odd. The transfer matrix enumerates every input bit and terminal carry; exact inversion yields numerator (1+z)(1-uz) and denominator 1-(1+u)z-(1-u+u^2)z^2+(u+u^2)z^3. Binary forbidden-pattern counts prove both extremal Fibonacci frequencies. Differentiation proves exact means at all L, and the characteristic cubic has simple eigenvalue 2 with derivatives lambda_u=1, lambda_uu=4/3, giving Gaussian variance 11/12. Standalone verifier checks 120 exact integers, 8191 factorial-valued index evaluations, 13 histograms, 24 recurrences, and 13 first-moment/edge assertions. Limits: finite tests are not infinite proof; the analytic eigenvalue argument supplies the actual CLT.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aval 2007 Proposition 2.1 and Section 2 enumerate ordered ternary trees by combinatorial parameters, not prime-adic valuation.",
+        "Luca--Young 2010 investigates p^q-Catalan numbers at the matching prime p; order 3 with p=2 does not meet that hypothesis.",
+        "General finite-state additive-function theory can imply qualitative rationality or a Gaussian limit after an explicit automaton is supplied; the checked specific sources do not supply this automaton, denominator or constant."
+      ],
+      "reasoning": "The main precise result is a specialized explicit spectrum and parameters. Broad Kummer/digital-sum tools explain existence of an automaton but no inspected result states the explicit parameterized generating function or sharp multiplicity. A missing stronger general theorem with worked-out equivalent specialization remains a recognized risk.",
+      "searches": [
+        "\"Fuss-Catalan\" \"valuation\" \"Gaussian\" binary",
+        "\"ternary Catalan\" \"2-adic\" valuations Fibonacci",
+        "published-finding corpus: three-ary Fuss-Catalan numbers 2-adic valuations at dyadic blocks exact distribution and Gaussian",
+        "arxiv:0711.0906v1",
+        "https://youngp.people.charleston.edu/pq-catalan.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0711.0906v1",
+      "Kummer (1852), J. Reine Angew. Math. 44, 93--146",
+      "Luca--Young, Some p-adic congruences for p^q-Catalan numbers (2010-06-14)",
+      "J. Cera Da Conceição, J. Integer Seq. 26 (2023), Article 23.9.7",
+      "OEIS A001764",
+      "Published semantic research-index queries quoted in search fields"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aval treats multivariate ternary Fuss-Catalan path/tree refinements, with no two-adic valuation theorem.",
+        "Luca--Young 2010 analyzes congruences and p-adic limits for the p-power order at the same prime.",
+        "Cera Da Conceição 2023 uses a multinomial quotient ((l+1)n)!/[n!^(l+1)(n+1)^l], a different object for l=2; its Kummer treatment is general background.",
+        "The three-central-binomial sequence from (1-9x)^(-1/3) differs from binomial(3n,n)/(2n+1) already at n=2 (two-adic valuations 1 and 0, respectively)."
+      ],
+      "reasoning": "None of these examined statements logically implies a specific claimed formula without a nontrivial new carry automaton and terminal-state analysis. The method (Kummer plus transfer matrix) is standard; originality is limited to explicit evaluated distribution and its sharp consequences, not a general-method invention.",
+      "searches": [
+        "arxiv:0711.0906v1",
+        "https://youngp.people.charleston.edu/pq-catalan.pdf",
+        "jis:2023:26:23.9.7",
+        "published-finding corpus: 2s2(n)-s2(3n) weight enumerator generating function variance 11/12 central trinomial Fuss Catalan"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kummer (1852): the pointwise two-adic valuation equals the number of carries in n+2n.",
+        "Legendre digit-sum identity: valuation is 2s_2(n)-s_2(3n), verified algebraically for this quotient.",
+        "No explicit H_L(u) formula or variance 11/12 appeared in the searched source statements."
+      ],
+      "reasoning": "The carry-defect statistic is exactly equivalent to the pointwise valuation by Legendre/Kummer. Knowing each value in principle permits a brute-force histogram but does not state the rational bivariate generating function, exact dyadic extrema and limit normalization; the distinct formulated target was compared rather than merely its title.",
+      "searches": [
+        "\"2s_2(n)-s_2(3n)\" distribution variance",
+        "\"Fuss Catalan\" \"2-adic valuation\" binary carry",
+        "published-finding corpus: binary digit sum defect 2s_2(n)-s_2(3n) finite state distribution normal limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001764 defines a(n)=binomial(3n,n)/(2n+1) and lists coefficients and ternary-tree interpretations.",
+        "No indexed table in the inspected entry provides the coefficients of H_L(u) for arbitrary L or the cubic rational generating function."
+      ],
+      "reasoning": "The database records underlying integer terms, not a valuation-frequency table or a parameterized theorem. The familiar Fibonacci count of odd terms is a corollary and is not presented alone as the novelty.",
+      "searches": [
+        "OEIS A001764 2-adic valuation distribution",
+        "https://oeis.org/A001764",
+        "\"ternary Fuss Catalan\" \"Fibonacci\" \"odd\""
+      ]
+    },
+    "rationale": "Classical Kummer and the earlier Fuss-Catalan papers give the object and individual valuation mechanism, while the checked statements do not supply the full explicit dyadic valuation histogram with its cubic rational denominator, sharp extremal multiplicity and 11/12 Gaussian variance. Search negatives are not treated as proof of uniqueness; an equivalent general digital-carry specialization is a residual risk.",
+    "residual_risks": [
+      "A specialized theorem on sum-of-digits defects of multiplication by three might supply an equivalent bivariate distribution or the same 11/12 variance under different notation.",
+      "A general finite-state carry-statistic theorem can imply qualitative rationality and normality, but may give stronger explicit coverage in material not located.",
+      "Full texts outside the inspected sources were not exhaustively screened; database silence is not a proof of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers ternary-tree enumeration, not dyadic two-adic valuation histograms; no valuation or divisibility term found in extracted full text.",
+        "evidence": [
+          "ArXiv v1 dated 2007-11-06; page 1 and page 6 Proposition 2.1 define C_3(n).",
+          "The paper studies B_3(n,k,l), a combinatorial refinement of tree counts."
+        ],
+        "identifier_or_url": "arxiv:0711.0906v1; https://arxiv.org/pdf/0711.0906",
+        "material_read": "Full-text extracted introduction, Section 2 definition and Proposition 2.1 with proof, Section 3 heading and full-document text searches for valuation/divisibility. Original first-submission timestamp inspected on arXiv record and PDF cover.",
+        "method": "Open-access arXiv PDF text and page images; searched full extracted text for exact mathematical terminology.",
+        "title": "Multivariate Fuss-Catalan numbers",
+        "trigger": "Same sequence C_3(n) and ternary trees; primary archival starting literature."
+      },
+      {
+        "assessment": "The studied prime p matches the prime-power order p^q; the present order-three/p=2 pairing falls outside its main statements. No full histogram at dyadic lengths appears in inspected material.",
+        "evidence": [
+          "June 14, 2010 manuscript date on page 1.",
+          "Theorems/remarks give prime-matched congruences and p-adic interpolation rather than the explicit claimed two-adic spectrum."
+        ],
+        "identifier_or_url": "https://youngp.people.charleston.edu/pq-catalan.pdf",
+        "material_read": "Cover abstract, introduction and Theorem 1, Corollary 4 and valuation discussion around page 4, Theorem 5 and corollaries, full-text keyword matches; 8-page primary document accessible.",
+        "method": "Lawful openly posted author PDF, extracted text and page images.",
+        "title": "Some p-adic congruences for p^q-Catalan numbers",
+        "trigger": "Same general Fuss-Catalan quotient and p-adic arithmetic."
+      },
+      {
+        "assessment": "Treats a distinct multinomial Catalan quotient and integrality, not the exact dyadic spectrum of the ternary Fuss-Catalan numbers.",
+        "evidence": [
+          "Definition C_l(n)=multinomial((l+1)n;n,...,n)/(n+1)^l is not binomial(3n,n)/(2n+1) when l=2.",
+          "Generalized Kummer rule controls valuations of multinomial coefficients but does not provide the claimed histogram."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Cera/cera4.pdf",
+        "material_read": "Abstract, first two pages defining C_l(n), generalized Kummer theorem in Section 2, integrality argument in Section 3, references and MSC on final page. The full 29-page paper was not examined line by line.",
+        "method": "Open-access journal PDF with extracted text and page images; search within document.",
+        "title": "Multinomial Catalan Numbers and Lucas Analogues",
+        "trigger": "Kummer carry methods for related generalized Catalan quotients."
+      },
+      {
+        "assessment": "Database records the ternary Fuss-Catalan sequence but not the claimed dyadic valuation distribution.",
+        "evidence": [
+          "OEIS A001764 gives a(n)=binomial(3n,n)/(2n+1) and many combinatorial interpretations."
+        ],
+        "identifier_or_url": "https://oeis.org/A001764",
+        "material_read": "Definition, integer sequence values, comments and references in the accessible database entry.",
+        "method": "Primary OEIS entry HTML text.",
+        "title": "OEIS A001764",
+        "trigger": "Check for an exact existing sequence/table of the ternary Fuss-Catalan valuation frequencies."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02997d82-d076-4eaf-9e34-235033a31777",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact frequencies of every two-adic valuation in all initial dyadic families of ternary-tree counts form a natural unbounded parameter classification. The rational generating denominator, exact block mean, sharp Fibonacci maximum multiplicity and nontrivial Gaussian variance describe global divisibility that is not supplied by the classical pointwise carry formula or a tiny enumeration. The future comparison to other Fuss-Catalan orders and digital multiply-by-three statistics is motivated but not claimed as an established theorem.",
+    "status": "PASS"
+  }
+}
