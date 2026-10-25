@@ -1,16 +1,15 @@
-# Review
+# Mathematical review
 
 ## Correctness
-**PASS.** The comparison is scale-invariant and exact. For sectors with \(\theta\le\pi/3\), the radius is the diameter, giving the stated perimeter, area, and \(q=A/P^2\). For the rounded-equilateral family, the diameter and parallel-body formulas give exact quadratic expressions for perimeter and area. The derivative
-\[
-q'(t)=\frac{t(\pi\sqrt3-9)}{2p(t)^3}
-\]
-is strictly negative. Matching normalized perimeter defines \(t_s\); the area defect has a strictly positive derivative and its unique zero is the displayed \(\theta_*\). An intermediate-value argument then produces the unique family parameter with exactly the sector's \(q\)-value and strictly larger normalized perimeter, which is equivalent after homothety to strictly smaller diameter at equal perimeter and area. The supplied checker independently replays representative instances. Risk: none in the stated interval beyond reliance on standard planar parallel-body formulas.
+The sector and rounded-equilateral models have exact diameter, perimeter, and area formulas. With unit diameter, the rounded-family perimeter is $p(t)=\pi-(\pi-3)t$ and its area is $a(t)=\pi/4+(3-\pi)t/2+(\pi+\sqrt3-6)t^2/4$. The normalized area $q(t)=a(t)/p(t)^2$ strictly decreases for $t>0$. At the parameter matching the sector perimeter, the exact area defect has a unique zero at the stated $\theta_*$. For every $1\le\theta<\theta_*$, the intermediate-value theorem selects a unique rounded triangle with the sector's normalized area and a strictly larger normalized perimeter. Common-perimeter rescaling proves the claimed strict diameter improvement. The boundary $\theta=\theta_*$ is not included in the strict inequality.
 
 ## Originality
-**PASS.** The 2013 primary source proposes sectors as the likely low-area minimizers but gives no proof. The closest modern diagram source records the classical exact lower boundary only through normalized perimeter \(3\), and treats the continuation beyond \(3\) numerically; it does not state the rounded-equilateral comparison or the threshold \(\theta_*\). The sharp prescribed-perimeter/diameter theorem of Pan--Sun--Wang concerns the opposite, upper-area boundary. Targeted exact-form, object, parameter, and implication searches found no source that implies the counterinterval. Residual risk: an older unindexed note may contain the same explicit parallel-body calculation.
+The rounded-family formula and the exact angle interval are not stated by the inspected primary sources. Ftouhi's 2025 Blaschke–Santaló-diagram study establishes continuity of the fixed-diameter area envelopes and describes numerical lower-envelope work beyond perimeter/diameter $3$; such abstract results may already imply a qualitative nonoptimality neighborhood, but not this exact threshold or the specific rounded comparator. Pan–Sun–Wang (2008) address the upper-area branch. The published regular disk-triangle Steiner optimization fixes a different width constraint. Older unindexed literature and the full text of Nandakumar's original preprint remain priority risks, so the claim is best-of-knowledge.
 
-## Value
-**PASS.** The finding gives a continuum of rigorous counterexamples to a published minimization proposal rather than a single numerical exception. Its strict part penetrates the \(P/D>3\) region that the modern Blaschke--Santaló literature still describes through numerical lower-boundary computations, and it provides a closed analytic transition angle. The construction is canonical--the outer parallel family interpolating from an equilateral triangle to a disk--rather than an arbitrary parameter slice.
+## Mathematical value
+An exact continuum of equal-area, equal-perimeter strict-diameter counterexamples bears directly on a natural proposed minimum-diameter sector regime. This is a bounded defeating construction, not a solution of the global minimization problem. Numerical calculation is not used to claim proof beyond the analytic interval.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Primary references
+- R. Nandakumar, *A Set of Questions in Combinatorial and Metric Geometry*, arXiv:1307.3472 (original full text not accessible in this review).
+- I. Ftouhi, *Improved Description of Blaschke–Santaló Diagrams via Numerical Shape Optimization*, DOI:10.1007/s00245-025-10250-w, Theorem 2 and Section 4.1.
+- S. Pan, X. Sun, Y. Wang, *A variant of the isoperimetric problem, Part I*, DOI:10.1007/s11425-008-0043-x.

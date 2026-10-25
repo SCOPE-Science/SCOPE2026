@@ -1,113 +1,127 @@
 {
   "correctness": {
-    "rationale": "The proof normalizes by diameter, derives exact sector and parallel-body formulas, proves strict monotonicity of the rounded-equilateral scale invariant \\(q=A/P^2\\), identifies the exact unique zero of the perimeter-matched area defect, and then uses the intermediate-value theorem plus homothety to obtain equal perimeter and area with strictly smaller diameter. The critical formulas and representative roots are replayed by `verify.py`. The numerical replay is not used as proof of the continuum statement.",
+    "rationale": "For sectors with 1<=theta<theta_star<pi/3, diameter equals radius, so at diameter 1: perimeter 2+theta, area theta/2. For K_t=tT+(1-t)B/2, Steiner and diameter addition give D=1, p=pi-(pi-3)t, a=pi/4+(3-pi)t/2+(pi+sqrt(3)-6)t^2/4. Exact symbolic differentiation confirms q=a/p^2 has q′=t(pi*sqrt(3)-9)/(2p^3)<0. At t_s=(pi-2-theta)/(pi-3), the area defect simplifies EXACTLY to g=[4-pi-(6-pi-sqrt(3))t_s^2]/4, increasing with theta, negative at theta=1 and zero only at theta_star. Hence q(t_s)<q_sector<q(0) for every theta in [1,theta_star), so a unique t_theta in (0,t_s) has equal q. Since p decreases in t, p(t_theta)>2+theta, and scaling to any common P yields equal area and strictly smaller diameter. All domain conditions t_s in (0,1], theta_star<pi/3 and endpoint strictness were checked. The proof holds on a continuum by elementary monotonicity/IVT; finite numerical samples are only corroboration.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Ftouhi, DOI:10.1007/s00245-025-10250-w, records the classical exact lower boundary only for diameter-one normalized perimeter in (2,3] and treats the lower boundary beyond the equilateral triangle numerically.",
-        "Pan--Sun--Wang, DOI:10.1007/s11425-008-0043-x, solve the upper-area branch for prescribed perimeter and diameter, not the lower branch relevant to diameter minimization at fixed area and perimeter."
+        "Ftouhi Theorem 2 shows continuous strictly increasing extremal area envelopes phi and psi at fixed diameter one, but supplies no explicit rounded triangle comparison or threshold.",
+        "Ftouhi Section 4.1 credits Kubota with the exact lower envelope only for 2<p<=3, and treats the missing branch above p=3 numerically.",
+        "Pan–Sun–Wang maximize area at fixed perimeter and a contained segment, yielding the opposite (upper-area) boundary."
       ],
-      "reasoning": "A complete analytic lower boundary for normalized perimeter above 3 would dominate the claim, but the inspected modern diagram paper explicitly presents that continuation as numerically investigated rather than analytically known. The upper branch is inapplicable.",
+      "reasoning": "Theorem 2 together with Kubota and the upper envelope may imply qualitative non-optimality on some unspecified neighborhood of theta=1 by continuity of the attainable diagram; this partial implication is not claimed new. It does not give the explicit endpoint theta_star, a canonical one-parameter rounded-triangle competitor for every theta in [1,theta_star), or its unique parameter. The 2008 upper-bound theorem cannot dominate a lower-boundary construction.",
       "searches": [
-        "convex regions maximize minimize diameter specified area perimeter exact rectangle stadium",
-        "Nandakumar diameter area perimeter convex region maximum minimum fixed area perimeter",
-        "fixed perimeter area minimum diameter sector circle counterexample rounded triangle",
-        "Improved Description of Blaschke Santalo Diagrams perimeter area diameter lower boundary"
+        "web: Ftouhi Improved Description Blaschke Santalo Diagrams diameter perimeter area lower boundary 2025",
+        "web: planar convex body fixed perimeter fixed area minimum diameter conjecture sector counterexample 2026",
+        "Ftouhi 2025 full text, Theorem 2 and Section 4.1 (p in (2,3] and p>3)",
+        "Pan–Sun–Wang 2008 PDF opening and Section 3"
       ]
     },
     "checked_sources": [
-      "arXiv:1307.3472v1",
-      "DOI:10.1007/s00245-025-10250-w",
-      "DOI:10.1007/s11425-008-0043-x",
-      "Kubota 1924 lower-boundary result as characterized in the inspected 2025 diagram paper"
+      "https://doi.org/10.1007/s00245-025-10250-w",
+      "https://cdn.sciengine.com/doi/pdf/194a370c21f9408b826d62a967124abf",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577",
+      "https://arxiv.org/abs/1307.3472",
+      "Kubota (1924) lower perimeter-area boundary, as characterized in Ftouhi (2025)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Nandakumar states the sector behavior as a proposal, not a theorem.",
-        "Ftouhi identifies Kubota's exact lower boundary only through normalized perimeter \\(3\\); the strict counterinterval here uses defeating bodies with normalized perimeter greater than \\(3\\).",
-        "Pan--Sun--Wang concerns maximal area at fixed perimeter and diameter and therefore does not imply a lower-area counterexample."
+        "The assigned exact area-defect simplifies to g(theta)=[(4-pi)-(6-pi-sqrt(3))*t_s(theta)^2]/4. Its unique crossing is theta_star, and the equal-q unique rounded parameter lies strictly below t_s.",
+        "Ftouhi gives existence and continuity of area-envelope curves and numerical continuation above normalized perimeter 3, not the strict rounded-comparator calculation.",
+        "Pan–Sun–Wang establish largest area for fixed segment/perimeter (symmetric lens), mathematically opposite to the requested strict lower-area competitor at fixed diameter.",
+        "The similarly named disk-triangle outer-offset theorem fixes minimal width and optimizes an unrelated family parameter."
       ],
-      "reasoning": "Neither the source conjecture, the classical \\(P/D\\le3\\) lower boundary, nor the known upper boundary entails the new strict comparison.",
+      "reasoning": "The elementary Steiner formula and the scale-invariant reformulation are classical, as are basic continuity facts for the diameter-one diagram. Their combination in the inspected sources does not force the exact displayed interval with the explicit K_t witness; no dominating published statement was found. Qualitative sector non-optimality near theta=1 may already follow from the older diagram theory and is not asserted to be newly discovered.",
       "searches": [
-        "arXiv:1307.3472v1 full-text pages containing the area-perimeter-diameter question",
-        "DOI:10.1007/s00245-025-10250-w full-text Blaschke--Santalo diagram discussion",
-        "DOI:10.1007/s11425-008-0043-x full-text prescribed perimeter and diameter theorem",
-        "sector minimum diameter fixed area perimeter rounded triangle parallel-body implication comparison"
+        "Nandakumar arXiv ID 1307.3472, abstract and v1 full-text retrieval attempt: https://arxiv.org/abs/1307.3472",
+        "Ftouhi 2025, Theorem 2 and Section 4.1: https://doi.org/10.1007/s00245-025-10250-w",
+        "Pan–Sun–Wang 2008, full primary PDF text: https://cdn.sciengine.com/doi/pdf/194a370c21f9408b826d62a967124abf",
+        "Resultary independent fixed-width disk-triangle result: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Nandakumar, arXiv:1307.3472v1, asks the fixed-area/fixed-perimeter diameter problem and proposes circular sectors in the low-area regime.",
-        "No retrieved scientific record states the exact threshold or an equivalent rounded-equilateral counterinterval."
+        "The equal-perimeter/equal-area diameter comparison is equivalent to equal q=A/P^2 and larger normalized P/D; the pinned proof establishes this equivalence explicitly.",
+        "Ftouhi 2025 defines the diameter-one (P,A) diagram and its lower and upper envelopes: https://doi.org/10.1007/s00245-025-10250-w.",
+        "The nearby published disk-triangle result fixes minimal width and circular offset while varying disk-intersection radius; it does not compare sector diameter at equal perimeter and area: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577."
       ],
-      "reasoning": "The searches covered the direct minimization wording, the scale-invariant equal-area/equal-perimeter formulation, and the natural parallel-body aliases of the competitor. No equivalent statement was found.",
+      "reasoning": "Aliases include the diameter-one Blaschke–Santaló diagram, isoperimetric ratio A/P^2 and outer parallel equilateral triangles. No inspected independent statement gives the exact sector-angle counterinterval or unique rounded-triangle equal-q comparator. The published disk-triangle Steiner optimization fixes width instead of diameter/perimeter and does not imply this claim.",
       "searches": [
-        "\"Nandakumar\" \"sector of a circle\" minimum diameter fixed area perimeter",
-        "\"minimum diameter\" \"area and perimeter\" convex sector isosceles triangle",
-        "\"same area and perimeter\" \"smaller diameter\" sector triangle convex",
-        "\"rounded equilateral triangle\" perimeter area diameter convex",
-        "\"parallel body\" equilateral triangle perimeter area diameter fixed diameter",
-        "fixed area perimeter minimum diameter rounded equilateral triangle outer parallel body sector Nandakumar exact threshold"
+        "Resultary semantic: minimum diameter fixed perimeter area convex shape circular sector low area comparison rounded triangle outer parallel",
+        "Resultary semantic: exact perimeter area diameter tradeoff rounded equilateral triangle Steiner outer parallel threshold",
+        "web: Nandakumar minimum diameter convex shape given area perimeter circular sector counterexample rounded equilateral triangle",
+        "web: minimum diameter fixed perimeter area non circular sector 2026 counterexample Steiner rounded triangle"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Indexed scientific-result searches returned no entry containing the threshold or the exact rounded-equilateral comparison.",
-        "The nearest indexed results concern different convex-geometry functionals such as triangle fatness and width-area quotients."
+        "Resultary top hit reproduces the assigned finding itself; it is not independent coverage.",
+        "The nearest independent indexed scientific finding is the width-constrained disk-triangle Steiner phase theorem, which has a different parameter and extremal problem.",
+        "No indexed exact table or independently verified source containing the angle formula was located."
       ],
-      "reasoning": "The claimed threshold is not a recomputation of a tabulated invariant; no exact record or table covering this family was located.",
+      "reasoning": "The threshold is an analytic crossing of two continuous shape-normalization curves, not a standard tabulated constant. Negative search results support only a best-of-knowledge assessment, not proof of absolute priority.",
       "searches": [
-        "minimum diameter same area perimeter circular sector triangle exact comparison",
-        "Nandakumar low-area sector conjecture rounded equilateral triangle parallel body diameter area perimeter",
-        "fixed area perimeter minimum diameter rounded equilateral triangle outer parallel body sector Nandakumar exact threshold"
+        "Resultary: rounded triangle counterinterval low area sector extremal packing perimeter geometry",
+        "Resultary: Blaschke Santalo P A D lower boundary diameter one rounded equilateral triangle Kubota subequilateral",
+        "web: \"1.0179838247780255\" rounded triangle convex",
+        "web: \"sqrt(4-pi)\" \"6-pi-sqrt(3)\" diameter sector"
       ]
     },
-    "rationale": "The 2013 source proposes circular sectors as likely low-area minimizers. The closest modern full diagram treatment states that the exact classical lower boundary is known only up to normalized perimeter \\(3\\) and handles the continuation beyond \\(3\\) numerically; it does not state the rounded-equilateral threshold. The prescribed-perimeter/diameter theorem of Pan--Sun--Wang concerns the upper-area branch. Exact-form and implication-level searches found no covering statement.",
+    "rationale": "Best-of-knowledge: the exact rounded-triangle counterinterval and its explicit transition angle were not found independently. The 2025 (P,A,D) diagram theory already gives abstract continuity and numerical lower-envelope evidence, so qualitative nonoptimality near theta=1 may not be new. What remains noncovered is the canonical Steiner rounded-equilateral witness for every theta in the explicit nontrivial interval with unique equal-q parameter and exact threshold for this mechanism. The inspected 2008 theorem solves the upper-area branch, and the neighboring published disk-triangle Steiner theorem fixes a different width/offset problem. Inaccessible Nandakumar full text and Kubota original remain documented risks.",
     "residual_risks": [
-      "An older unindexed source may contain the same explicit outer-parallel equilateral comparison under different terminology.",
-      "The classical lower-boundary literature predates modern indexing; the comparison against it relies in part on the scope characterization in the inspected 2025 diagram paper rather than direct inspection of every historical source."
+      "The complete original preprint could not be inspected; no whole-document noncoverage inference is made.",
+      "Kubota 1924 and other classical lower-boundary texts were not inspected directly; the 2025 full-text survey characterizes them. An older unindexed equivalent rounded-triangle counterexample may exist.",
+      "The 2025 area-envelope continuity theorem can already imply qualitative sector nonoptimality near the equilateral endpoint, so originality is claimed only for the explicit rounded-family comparison and displayed exact counterinterval, not for existence of some unspecified nonoptimality neighborhood."
     ],
     "source_inspections": [
       {
-        "assessment": "SUPPORTING_NOT_COVERING: supplies the conjectural target but no proof or counterexample.",
-        "evidence": "The source states that for perimeter pi and sufficiently small area the minimum-diameter shape is probably a circle sector, with the sector angle decreasing below pi/3 as area decreases.",
-        "identifier_or_url": "arXiv:1307.3472v1",
-        "material_read": "Full open-access PDF, with the relevant consecutive pages containing the diameter question and the sector proposal inspected directly.",
-        "method": "Open-access full-text and page-image inspection.",
+        "assessment": "ACCESS_LIMITED: this primary paper motivates the problem, but its complete text is not independently characterized or asserted noncovering.",
+        "evidence": "The public abstract includes the fixed-area and fixed-perimeter extremal diameter question; the sector passage was not checked directly in full text.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.3472",
+        "material_read": "Author/title/abstract and original July 2013 arXiv record; PDF full text could not be accessed in this execution.",
+        "method": "Public arXiv metadata; complete primary text unavailable for inspection.",
         "title": "A Set of Questions in Combinatorial and Metric Geometry",
-        "trigger": "Primary source posing the fixed-area/fixed-perimeter diameter problem and proposing sectors in the low-area regime."
+        "trigger": "Origin of the fixed-area fixed-perimeter minimum-diameter sector proposal."
       },
       {
-        "assessment": "NOT_COVERING: it does not give this counterinterval or threshold and treats the relevant continuation above normalized perimeter 3 numerically.",
-        "evidence": "The paper attributes the exact lower boundary for p in (2,3] to Kubota and numerically studies the missing branch between the equilateral and Reuleaux endpoints.",
-        "identifier_or_url": "DOI:10.1007/s00245-025-10250-w",
-        "material_read": "Open-access full text around the diameter-one (P,A) diagram, the description of the known lower boundary through perimeter 3, the numerically treated missing continuation, and the Steiner parallel-body formula.",
-        "method": "Material full-text inspection.",
-        "title": "Improved Description of Blaschke--Santaló Diagrams via Numerical Shape Optimization",
-        "trigger": "Potentially dominating modern treatment of the complete perimeter-area-diameter diagram."
+        "assessment": "PARTIAL_PRIOR_IMPLICATION, NOT_EXACT_COVERAGE: continuity and partial lower-boundary theory imply some local information; the explicit rounded-triangle counterinterval is absent.",
+        "evidence": "Theorem 2 states phi,psi continuous strictly increasing; Section 4.1.1 credits Kubota only for 2<p<=3; Section 4.1.2 optimizes missing lower boundary above p=3 numerically.",
+        "identifier_or_url": "https://doi.org/10.1007/s00245-025-10250-w",
+        "material_read": "Full open-access HTML, particularly Introduction, Theorem 2, Sections 4.1.1–4.1.2, comparison with Kubota and Fig. 5–11 discussion.",
+        "method": "Direct HTML full-text inspection.",
+        "title": "Improved Description of Blaschke–Santaló Diagrams via Numerical Shape Optimization",
+        "trigger": "Potentially dominating comprehensive 2025 (P,A,D) diagram theorem with identical geometric functionals."
       },
       {
-        "assessment": "NOT_COVERING: determines the upper-area branch, not the lower branch or sector comparison.",
-        "evidence": "The paper lists MSC 52A38, 52A40 and solves the maximum-area problem with fixed perimeter and a prescribed diameter segment.",
-        "identifier_or_url": "DOI:10.1007/s11425-008-0043-x",
-        "material_read": "Publisher full text, including the opening theorem/classification material.",
-        "method": "Material publisher-PDF inspection.",
+        "assessment": "NOT_COVERING: the paper maximizes area of regions containing a prescribed segment and characterizes lens maximizers.",
+        "evidence": "The introduction states greatest enclosed area at prescribed perimeter and segment length; Section 3 shows the symmetric-lens maximizing construction.",
+        "identifier_or_url": "https://cdn.sciengine.com/doi/pdf/194a370c21f9408b826d62a967124abf",
+        "material_read": "Open-access PDF parsed text: abstract and Section 1 (pages 1–2), Section 3 upper-area proof (pages 4–6).",
+        "method": "Direct primary PDF text inspection.",
         "title": "A variant of the isoperimetric problem, Part I",
-        "trigger": "Closest exact prescribed-perimeter/diameter theorem and source for the primary convex-geometry classification."
+        "trigger": "Sharp prescribed-perimeter, fixed-diameter work possibly dominating claimed tradeoff."
+      },
+      {
+        "assessment": "NOT_COVERING: fixed minimal width with regular disk-triangle parameter varies; no sector comparisons at equal area and perimeter.",
+        "evidence": "Result minimizes area(T_{w,r}+tB) over r>=w, for fixed minimal width w and offset t; its sharp thresholds are t/w=1/3 and approximately 0.63886.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577",
+        "material_read": "Complete publicly available RESULT.md including full theorem, proof, scope, and limitations.",
+        "method": "Direct GitHub primary result inspection.",
+        "title": "A sharp Steiner-area phase diagram for regular disk triangles",
+        "trigger": "Similar Steiner parallel-body family and a nearby published mathematical finding."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "31a34fe2-9f8f-4c62-8795-d379b3fa9fcf",
+  "scope": "The exact interval and comparison are conditional on Euclidean convex bodies and the rounded-equilateral family; no global minimizer outside the interval or exact global endpoint is determined.",
   "value": {
-    "rationale": "The theorem supplies a continuum of exact counterexamples to a published convex-geometric minimization proposal and gives a closed transition angle. Its strict part enters the normalized-perimeter-above-\\(3\\) region that the modern Blaschke--Santaló diagram literature still treats numerically. The competitor family is canonical, interpolating by outer parallel bodies from the equilateral triangle to the disk, and the result is stronger than a one-off numerical counterexample.",
+    "rationale": "The fixed-area fixed-perimeter minimum-diameter question is a natural, published geometric extremal problem. A rigorous interval of genuine equal-P equal-A strictly lower-diameter counterexamples is mathematically substantive, especially because the modern exact lower boundary for normalized perimeter above 3 is unavailable. The exact threshold and canonical rounded-equilateral family are reproducible, while a narrow affected area interval is acceptable for a motivated counterexample. The result does not solve the minimization problem or claim its interval is globally maximal.",
     "status": "PASS"
-  }
+  },
+  "verification_scope": "Symbolic differentiation and selected high-precision examples corroborate a proof based on Steiner formula and monotonicity, not exhaustive computation."
 }
