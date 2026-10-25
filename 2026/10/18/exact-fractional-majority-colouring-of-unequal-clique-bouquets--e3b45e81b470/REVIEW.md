@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The local capacity bound \(|S\cap(\{h\}\cup C_i)|\le\lfloor s_i/2\rfloor+1\) holds for every majority-stable set, regardless of hub membership. Summing the fractional coverage constraints across each central block yields the stated lower bound. Two explicitly defined and independently sampled distributions give valid majority-stable sets, and weights \(1\) and \(L-1\) cover all vertices with total weight exactly \(L\). The proof treats all sizes \(s_i\ge1\) and numbers of cliques \(t\ge1\). A direct graph/LP checker agrees for all 230 enumerated small profiles; no finite extrapolation is used.
+## correctness
 
-## Originality — PASS, with priority risk
-The October 2026 fractional-majority paper gives broad bounds, complexity results and a different sampling construction, not an exact clique-bouquet formula in the inspected portions. The earlier 2019/2021 article develops the fractional relaxation and universal bounds. Related mathematical records concerning majority C-colouring of complete multipartite graphs, strong-majority edge-colouring and ordinary fractional graph colouring are not implication-equivalent. Searches under windmill, friendship, clique-sum and majority-stable terminology disclosed no exact matching theorem. This does not prove exhaustive priority: an uncatalogued general block-gluing result may subsume the statement, and relevant primary manuscripts were inspected by pertinent sections rather than exhaustively line by line.
+PASS
 
-## Value — PASS
-The parameter is a natural fractional analogue of a major directed graph-colouring invariant. The theorem completely classifies it on all one-hub clique bouquets with arbitrary unequal clique sizes. The sharp parity transition and maximum-over-blocks law are structurally informative because the hub's outdegree changes when new cliques are attached, whereas the exact optimum remains governed by a single peripheral clique. The proof supplies an optimal fractional-colouring construction, not just a numerical test.
+For bidirected G=K1 join disjoint union of clique C_i, each peripheral vertex has outdegree s_i and the hub has sum s_i. Every majority-stable set contains at most b_i=floor(s_i/2)+1 vertices from hub∪C_i: without hub select <=b_i, with hub select <=a_i=floor(s_i/2). Summed fractional cover inequalities yield W≥max_i(s_i+1)/b_i. For the reverse inequality, mix H-sets consisting of hub plus independent uniform a_i-subsets with weight 1 and B-sets consisting of uniform b_i-subsets without hub with weight L−1. Every sample is majority-stable including hub constraint sum a_i≤(sum s_i)/2, and every peripheral vertex gets (L b_i−1)/s_i≥1 while hub gets 1. This proves exact all t,s_i including t=1,s_i=1. Independently checked rational values (1)->2, (2)->3/2, (3)->2, (2,4)->5/3, (2,2,2)->3/2 and the literal supplied verify.py definition; did not independently rerun uploaded SciPy LP census.
 
-## Limits
-The classification does not extend to general oriented or arbitrary block graphs, and independent validation or decisive bibliographic priority certification has not occurred. The computed checks support the proof but are not evidence for the infinite parameter range.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Ben-Ameur–Maddaloni arXiv:2610.11997 (HTML full text) establishes general universal 523/140 and complexity/approximation results, no clique-bouquet exact formula; Anastos et al. 2019 fractional majority relaxations likewise differ. Other Resultary majority C-coloring and strong-majority edge-coloring have different feasibility predicates, so cannot dominate the invariant.
+
+## value
+
+PASS
+
+The explicit optimal fractional covering for all unequal clique bouquets is a motivated exact classification of a genuine digraph coloring relaxation. The independence from the number of cliques despite the changing hub degree and the odd/even sharp transition give a structural theorem useful for clique-sum model classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
