@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(n\ge4\), the face classification follows from the induced-component bound by checking the numbers of vertices in the two bipartition classes. The two pure simplices and \(\binom n2\) four-vertex mixed simplices give a cover by complexes with contractible nonempty intersections. Its nerve is a suspension of an edge-star complex; a second good-cover nerve reduces the latter to the one-dimensional complete graph. Hence the claimed integral sphere bouquet follows, without extrapolation from finite examples. Natural augmentations of the Čech double complexes prove the full integral homology action, with a sign on exchanging suspension poles. The exterior-square formula gives the rational character. An exhaustive, independent induced-graph and simplicial-chain computation verifies ranks and all available symmetry traces for the stated finite ranges.
+## correctness
 
-## Originality — PASS, qualified
-The relevant full texts are Deshpande–Singh (arXiv:2001.05448v1) and Abdelmalek–Deshpande–Goyal–Roy–Singh (arXiv:2106.10863v1). Their theorems cover complete multipartite, fully whiskered, path, cycle, tree, and chordal cases, not the matching-deleted complete bipartite family. A later broader discussion of co-connected complexes (arXiv:2510.25710v1) was also compared for possible implication; its inspected classifications do not give this crown-graph claim. Searches for crown graph aliases, bounded induced-component complexes, matching-deleted bicliques, suspension and symmetry modules produced no equivalent complete-family theorem. Related crown graph neighborhood and ordinary independence constructions do not have the same faces. Unindexed equivalent results and uninspected literature remain plausible limitations; absence of search hits is not itself a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The exact all-parameter integral homotopy type and complete symmetry module settle a natural topological invariant of a familiar symmetric family. The bouquet multiplicity grows quadratically while homology stays in dimension two even as maximal simplex dimensions grow with \(n\). The two successive nerve reductions explain that stabilization structurally, and the rational character distinguishes the full automorphism action rather than supplying only Betti numbers. This is a genuine whole-family classification, not a renamed parameter or single routine small calculation.
+PASS. For G_n=K_{n,n} minus the n matched edges, Ind_2 means induced connected components of vertex subsets have <=2 vertices. The mixed maximal simplices are T_ij on {a_i,a_j,b_i,b_j}, and the two all-one-side simplices ΔA,ΔB complete the facet list. Their intersections are simplices, so the simplicial nerve is the suspension of the complex P of common-endpoint edge families; P itself has a good cover by n simplices C_i whose pair intersections are single vertices and triple intersections empty, giving nerve K_n^(1). Consequently X_n~ΣK_n^(1)~wedge^(choose(n-1,2)) S2 for all n>=4, integrally and without torsion. Both covers are permutation invariant with connected contractible intersections; the natural Cech chain quasi-isomorphisms yield integral H2 module H1(K_n)⊗epsilon under Sn×C2. Over Q this is wedge² of Sn standard module U_n and trace (-1)^e([(f(sigma)-1)^2-(f(sigma²)-1)]/2). Independently enumerated all 2^(2n) vertex subsets and component sizes n=3,4,5,6, checked exact maximal facets, and signed Lefschetz traces for all 12, 48, 240 group elements n=3,4,5 and four n=6 samples. General proof is the two-stage nerve argument, not finite enumeration.
 
-## Limits and follow-up
-Other higher-independence stages and arbitrary incomplete bipartite graphs are not treated. The equivariant statement is about integral homology modules, not equivariant homotopy. The results depend on independently checkable all-parameter combinatorial cover arguments; finite verification only stress-tests them. Accessible indexing and sources do not guarantee priority over unpublished or unindexed work. Independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, not historical-priority certification): Independently compared mathematical statements and implications with the identified highly relevant literature and Resultary entries, distinguishing earlier counts/classifications from the newly assessed exact claim. Inaccessible/plausibly broader sources are disclosed rather than falsely excluded.
+
+## value
+
+PASS
+
+PASS. Crown graphs are a canonical matching-deleted complete bipartite family; their higher-independence complexes and full integral symmetry modules are natural invariants not recovered by known complete multipartite/chordal classifications. The two good covers reveal a reusable graph-cycle homology mechanism, and the complete all-n character is a meaningful equivariant refinement rather than a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
