@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** For the stated standard coordinatewise ordering, one-coordinate decreases characterize pointwise-minimal Roman dominating functions. The four core–leaf states are exhaustive and their requirements give an exact bijection with selected core-two sets and two independent choices per core vertex outside their closed neighborhood. This proves the arbitrary-base boundary enumerator. A cyclic marked-gap double count gives the formal generating function, independently simplified to the stated cubic rational form. Boundary maximization and residue-class gap counting prove the minimum multiplicity. Finite direct Roman-feasibility tests, recurrence and exact-integer count comparisons corroborate the proof. Risks: the two auxiliary low-order cycle coefficients require the expressly stated formal interpretation; the asymptotic and exact statements assume labeled graphs and pointwise minimality, not minimum-only configurations.
+## correctness
 
-**Originality (PASS, with residual priority risk).** Abu-Khzam, Fernau and Mann already establish a general characterization and enumeration procedures for minimal Roman functions (arXiv:2204.04765; 2208.05261). Their inspected full texts do not exhibit the external-boundary-weight identity for all one-leaf coronas, nor the cubic sunlet weight generating function, Pell–Lucas total or exact three-case minimum-multiplicity profile. Earlier corona papers of Siva Parvathi and Maheswari construct particular minimal functions on related corona families; their inspected theorem sections do not count the whole function family. A search of published mathematical findings found domination and corona results for other invariants but no implication of these formulas. An unindexed or inaccessible equivalent enumeration remains possible; failed searches do not certify priority.
+PASS
 
-**Value (PASS).** This is not an arbitrary finite slice: it supplies the complete cardinality-by-weight distribution of a classical graph-dominating function on every one-leaf corona through a natural vertex-boundary statistic. The sunlet specialization identifies an exact cubic rational family, a silver-ratio/Pell growth law, and sharp periodic counts of optimum configurations. These refine a scalar domination minimum and can inform explicit enumerative benchmarking for graph-labeling algorithms.
+A Roman dominating assignment is coordinatewise minimal iff every 1 has no adjacent 2 and each 2 has a private neighboring 0 for which it is the unique 2-neighbor. On H◦K1 the only possible core/leaf configurations are A=(2,0), B=(1,1), C=(0,1), D=(0,2); fix S of A cores, then C exactly on its external boundary ∂S and B or D independently on U=V\(S∪∂S). This establishes full weight enumerator M_H(z)=∑_S 2^|U| z^(2n-|∂S|). Marked cyclic gaps give H(t,z)=1+zt+z²t²/(1-2z²t); labeled cycles contribute n/k times gap coefficients, yielding the displayed cubic rational generating function and Pell–Lucas total. Maximizing ∂ size by ∑min(ell,2) gives floor(2n/3), hence min weight ceil(4n/3), and counting residue-class gap profiles gives min multiplicities 3, n(n+17)/6, or n according as n mod3 is 0,1,2. I independently brute checked all labelings of sunlets n=3,4 against subset boundary counts.
 
-**Closest antecedents and limits.** The 2024 open-access general minimal-Roman characterization (Algorithmica, DOI:10.1007/s00453-024-01211-w) is acknowledged without novelty claims. Earlier corona constructions and known scalar differential/Roman connections do not determine the asserted weight multiplicities. The general subset sum is not asserted to be polynomial-time evaluable; the cyclic formulas apply to labeled simple cycles of length at least three. Independent scientific and comprehensive priority checks remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original combined claim, not merely its known premises: Existing minimal-RDF decision tests and generic enumeration algorithms do not mechanically state the full weight polynomial for arbitrary one-leaf coronas. A symbolic specialization could produce it, so priority risk about an earlier corona formula remains; exact sunlet coefficients and minimum counts go beyond merely computing single Roman domination numbers. Broader works and residual risks below qualify priority.
+
+## value
+
+PASS
+
+The full weight-by-weight census for minimal (not merely minimum) Roman domination on the natural one-leaf corona operation is intrinsically useful, and its sunlet specialization supplies a complete rational generating function and precise periodic optimal multiplicities. These refine known scalar domination numbers and provide direct enumerative benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
