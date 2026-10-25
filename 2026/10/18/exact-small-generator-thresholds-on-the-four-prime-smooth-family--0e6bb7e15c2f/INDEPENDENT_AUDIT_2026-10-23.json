@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:06:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 5532fa7bc23db56ce7d26228b952137e2ff1aff3",
+        "Pinned code/verify.py 90acc32a20c3f921c64996869d0483ac1bd244c5",
+        "Independent_checks.py: primitive logs, 24 rank patterns and six subgroup cases"
+      ],
+      "rationale": "For all a,b,c,d>=1, n=2^a3^b5^c7^d, least B generating all units from coprime integers t<=B is controlled by CRT and finite-abelian Frattini quotients. Reduction to exponents min(a,3),min(b,2),min(c,2),min(d,2) kills only local Frattini subgroups, hence the all-exponent family reduces to finite elementary character coordinates modulo 4,8,9,25,49. Primitive roots 2 (9,25) and 3 (49) yield exact discrete-log rows for 11,13,17,19,23. Three 2-character rank matrices for a=1,2,>=3 have determinants 1,-1,-3 (odd); the 3-character 2x2 minor has determinant -2 modulo3, and the 5/7 coordinates of 11 are nonzero. Thus B<=19 for a<=2, B<=23 for a>=3. Conversely 2-rank dimensions 3,4,5 force bounds; at a=1 the first 3 rows are dependent, so <=17 fails. Independently computed all 24 reduced exponent rank cases and exact subgroups at cutoff and immediately below on n=210,420,840,22050,44100,88200. These finite checks support local certificates, while Frattini reduction proves the unbounded-exponent quantifier.",
+      "residual_risks": [
+        "Requires the standard cyclic structure of odd prime-power unit groups and the noncyclic 2-power unit-group decomposition, both explicitly invoked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellotti abstract states an almost-all bound O((log n)^2) and average improvements rather than exact four-prime-threshold equality.",
+          "Older Bach–Huelsbergen and Burthe works give general bounds/heuristic small generators; complete 1993 article inaccessible."
+        ],
+        "reasoning": "The general estimates do not dominate an exact 19/23 dichotomy for every exponent quadruple. An inaccessible plausible older original is recorded as historical risk, not grounds to invent a negative or positive coverage result.",
+        "searches": [
+          "Bellotti Improved average and almost-all bounds for G(n) 2026",
+          "Bach Huelsbergen Statistical Evidence for Small Generating Sets 1993",
+          "least unit-group generator cutoff G(n) four primes 2 3 5 7 exact 19 23"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.10177",
+        "https://doi.org/10.1090/S0025-5718-1993-1195432-5",
+        "https://doi.org/10.4064/aa-80-4-311-326",
+        "https://oeis.org/A232928",
+        "Resultary semantic query: least unit-group generator cutoff G(n) four primes 2 3 5 7 exact 19 23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bellotti 2026 claims average and almost-all asymptotic bounds on G(n).",
+          "Here all 4-prime support moduli satisfy G(n)=19 or 23, with a sharp 2-adic exponent transition."
+        ],
+        "reasoning": "The exact equality on this thin family is not implied by asymptotic statements, and the elementary Frattini reduction alone needs concrete coupled discrete-log matrices. The theorem is not just an arbitrary one-modulus numerical test.",
+        "searches": [
+          "least unit-group generator cutoff G(n) four primes 2 3 5 7 exact 19 23",
+          "Chiara Bellotti G(n) October 2026 theorem average almost all"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bellotti 2026 defines least unit-generator cutoff G(n) and gives average/almost-all bounds.",
+          "CRT+Frattini formulation reduces exact threshold to simultaneous local character rank on the fixed prime set 2,3,5,7."
+        ],
+        "reasoning": "This is the same least generating-set function, not a different invariant. A general almost-all estimate does not imply exact G(n) on a zero-density fixed-radical family.",
+        "searches": [
+          "least unit-group generator cutoff G(n) four primes 2 3 5 7 exact 19 23",
+          "least integer G(n) generating unit group Frattini radical smooth numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A232928 gives finite initial examples for this type of least-generator cutoff.",
+          "Current theorem uniformly handles all a,b,c,d>=1, not a finite census."
+        ],
+        "reasoning": "A table of finite n does not imply Frattini stabilization over all powers or explain the sharp transition between a=2 and a=3. No located exact infinite table covered the statement.",
+        "searches": [
+          "OEIS A232928 generating cutoff G(n) for n=210 420 840",
+          "G(2^a3^b5^c7^d) all positive exponents 19 23"
+        ]
+      },
+      "rationale": "This is the same least generating-set function, not a different invariant. A general almost-all estimate does not imply exact G(n) on a zero-density fixed-radical family.\n\nThe general estimates do not dominate an exact 19/23 dichotomy for every exponent quadruple. An inaccessible plausible older original is recorded as historical risk, not grounds to invent a negative or positive coverage result.\n\nA table of finite n does not imply Frattini stabilization over all powers or explain the sharp transition between a=2 and a=3. No located exact infinite table covered the statement.\n\nThe exact equality on this thin family is not implied by asymptotic statements, and the elementary Frattini reduction alone needs concrete coupled discrete-log matrices. The theorem is not just an arbitrary one-modulus numerical test.",
+      "residual_risks": [
+        "Full texts of Bellotti 2026 and Bach–Huelsbergen 1993 were not available via lawful access (Oxford VPN disconnected for the former); potential embedded exact tables remain an unexcluded historical-priority risk.",
+        "OEIS or older group-theory tables outside indexed sources may cover special cases, not established here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible material concerns average/almost-all bounds; without full text cannot exclude special appendix or tabulated four-prime cases.",
+          "evidence": [
+            "Bellotti 7 Oct 2026 arXiv:2610.10177 abstract describes (log n)^2 almost-all bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10177",
+          "material_read": "Public abstract and cited theorem descriptions; complete full article not obtained",
+          "method": "Public arXiv/OA attempts then Oxford status vpn_disconnected (job 158c7b578464934428fd3c5c9c9dff2a)",
+          "title": "Improved average and almost-all bounds for G(n)",
+          "trigger": "Identical invariant and most recent published analytic result"
+        },
+        {
+          "assessment": "Potential related small-generator data, no reliable full-document NOT_COVERING conclusion.",
+          "evidence": [
+            "Bach–Huelsbergen Math. Comp. 61 (1993) article record"
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1993-1195432-5",
+          "material_read": "Bibliographic metadata, title and related paper citations; full text unavailable",
+          "method": "Scholarly indexed metadata and reference comparison",
+          "title": "Statistical Evidence for Small Generating Sets",
+          "trigger": "Historical exact tables or general least-generating-cutoff theory"
+        },
+        {
+          "assessment": "No exact four-prime family formula observed in accessible record; full-text risk retained.",
+          "evidence": [
+            "Burthe 1997 Acta Arithmetica reference"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa-80-4-311-326",
+          "material_read": "Bibliographic title and abstracts/references, not complete text",
+          "method": "Published reference metadata",
+          "title": "Upper bounds for least witnesses and generating sets",
+          "trigger": "Potential general upper bound dominating fixed-radical case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bellotti G(n) problem and general bounds",
+        "Frattini exact local character ranks and lower bounds in pinned RESULT.md"
+      ],
+      "rationale": "Least unit-group generating cutoffs are a motivated classical arithmetic invariant. The exact 19/23 threshold on an unbounded natural four-prime-support family exhibits a genuine 2-adic character-rank jump and a reusable finite local criterion; it is not a single tiny modulus computation or a known-table copy. Uniformity in arbitrary exponents gives a precise benchmark for the least-generator function.",
+      "residual_risks": [
+        "No statement for prime supports omitting 2,3,5,7 or adding further factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

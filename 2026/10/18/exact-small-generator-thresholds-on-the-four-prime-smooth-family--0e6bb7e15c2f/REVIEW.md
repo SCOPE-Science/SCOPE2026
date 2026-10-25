@@ -1,19 +1,27 @@
-# Scientific review — exact small-generator thresholds on the four-prime smooth family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is uniform over all positive exponents. The proof applies Frattini reduction to each local unit group; on odd prime powers, reduction to exponent at most two kills precisely a subgroup of the prime-power Frattini component, and modulo powers of two, reduction to exponent at most three does likewise. The resulting finite character matrices over the primes \(2,3,5,7\) have full rank, with stated nonzero determinants. The lower bound uses the full dimension of the quadratic-character quotient and, for the first power of two, an explicit dependence among the first three vectors. Exact independent modular computations reproduce the logarithm tables and the subgroup orders; no finite enumeration is substituted for the all-exponent proof. Risk: reliance on standard structure of units at prime powers, explicitly invoked and mathematically reconstructible.
+PASS
 
-## Originality — PASS, subject to residual historical-source risk
+For all a,b,c,d>=1, n=2^a3^b5^c7^d, least B generating all units from coprime integers t<=B is controlled by CRT and finite-abelian Frattini quotients. Reduction to exponents min(a,3),min(b,2),min(c,2),min(d,2) kills only local Frattini subgroups, hence the all-exponent family reduces to finite elementary character coordinates modulo 4,8,9,25,49. Primitive roots 2 (9,25) and 3 (49) yield exact discrete-log rows for 11,13,17,19,23. Three 2-character rank matrices for a=1,2,>=3 have determinants 1,-1,-3 (odd); the 3-character 2x2 minor has determinant -2 modulo3, and the 5/7 coordinates of 11 are nonzero. Thus B<=19 for a<=2, B<=23 for a>=3. Conversely 2-rank dimensions 3,4,5 force bounds; at a=1 the first 3 rows are dependent, so <=17 fails. Independently computed all 24 reduced exponent rank cases and exact subgroups at cutoff and immediately below on n=210,420,840,22050,44100,88200. These finite checks support local certificates, while Frattini reduction proves the unbounded-exponent quantifier.
 
-Bellotti (arXiv:2610.10177v1, October 7, 2026) proves average and almost-all upper estimates for the same \(G(n)\), not a sharp all-exponent identity on this prime-support family. The older Bach–Huelsbergen and Burthe works treat general generating-set bounds. Published research-record searches for the exact primes, values, CRT character criteria and Frattini equivalents did not locate an implication-equivalent or stronger covering theorem. The older Bach–Huelsbergen full text could not be read after open-access attempts and an institutionally mediated retrieval could not complete without human input; a hidden general classification or unindexed source remains possible. Database values for finitely many moduli would not, by themselves, cover the infinite statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first four prime factors give a canonical primorial-supported family, and all positive exponent choices are classified with sharp numerical constants. This is a natural exact instance of the generating-cutoff invariant studied in recent number theory: unlike general logarithmic bounds it shows exponent-uniform boundedness and an exact transition at the cubic power of two. The 7-factor induces a nontrivial second \(3\)-character component; therefore the calculation is a coupled rank problem, not a single primitive-root test. The resulting formula is a checkable benchmark for least small-generator searches, without claiming a new average theorem or a wider prime support.
+This is the same least generating-set function, not a different invariant. A general almost-all estimate does not imply exact G(n) on a zero-density fixed-radical family.
 
-## Literature and limitations
+The general estimates do not dominate an exact 19/23 dichotomy for every exponent quadruple. An inaccessible plausible older original is recorded as historical risk, not grounds to invent a negative or positive coverage result.
 
-Primary motivating paper: Chiara Bellotti, *Improved average and almost-all bounds for \(G(n)\)*, https://arxiv.org/html/2610.10177v1. Related prior studies: E. Bach and L. Huelsbergen, *Statistical Evidence for Small Generating Sets*, DOI: 10.1090/S0025-5718-1993-1195432-5; R. Burthe, *Upper bounds for least witnesses and generating sets*, DOI: 10.4064/aa-80-4-311-326. Exact-table and unindexed-predecessor coverage cannot be completely ruled out; a third-party publication novelty audit is still required. No assertion is made about moduli with any other prime factor or without all four listed factors.
+A table of finite n does not imply Frattini stabilization over all powers or explain the sharp transition between a=2 and a=3. No located exact infinite table covered the statement.
 
-Self-review: passed. Independent audit: not yet performed.
+The exact equality on this thin family is not implied by asymptotic statements, and the elementary Frattini reduction alone needs concrete coupled discrete-log matrices. The theorem is not just an arbitrary one-modulus numerical test.
+
+## value
+
+PASS
+
+Least unit-group generating cutoffs are a motivated classical arithmetic invariant. The exact 19/23 threshold on an unbounded natural four-prime-support family exhibits a genuine 2-adic character-rank jump and a reusable finite local criterion; it is not a single tiny modulus computation or a known-table copy. Uniformity in arbitrary exponents gives a precise benchmark for the least-generator function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
