@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Computational verification
-The standalone `verify.py` directly enumerates all pairs \((u,S)\) over the specified finite fields, reconstructs the original Lie brackets, checks the bilinear weight-zero Rota–Baxter equation on basis pairs, and checks the graph-restricted \(p\)-power equation for every element of the Lie algebra. The point counts are then compared with the independently implemented Gaussian-binomial formula. The extension field \(\mathbb F_4\) uses the polynomial \(t^2+t+1\), not integer arithmetic modulo four.
+# Independent mathematical audit
 
-Executed checks returned:
+## correctness
 
-```
-PASS n=1 q=2 p=2 T=[1] ordinary=2 restricted=2 rank_distribution={0: 2}
-PASS n=2 q=2 p=2 T=[1, 1] ordinary=16 restricted=10 rank_distribution={0: 4, 1: 6}
-PASS n=3 q=2 p=2 T=[1, 1, 1] ordinary=176 restricted=92 rank_distribution={0: 8, 1: 84}
-PASS n=2 q=4 p=2 T=[1, 1] ordinary=256 restricted=76 rank_distribution={0: 16, 1: 60}
-PASS n=2 q=3 p=3 T=[1, 2] ordinary=81 restricted=81 rank_distribution={0: 9, 1: 72}
-PASS n=2 q=5 p=5 T=[1, 2] ordinary=625 restricted=625 rank_distribution={0: 25, 1: 600}
-VERIFY_OK
-```
+PASS
 
-The code tests finitely many cases. The unrestricted all-field proof is the bracket and semidirect-power calculation in `RESULT.md`; the finite tests cannot establish arbitrary-dimensional or infinite-field correctness by themselves. Historical priority and independent review remain unperformed.
+PASS: Reconstructed Lie identity, exact graph-restricted p-map, characteristic dichotomy, and Gaussian-binomial rank count without imposing finiteness until enumeration. Tested p=2 instances independently; argument covers arbitrary fields of characteristic p>0, n≥1 and T^p=T invertible. No claim about non-ideal-valued operators or different restricted conventions.
+
+## originality
+
+PASS
+
+Best-of-knowledge full-claim comparison: Characteristic-two deficit for graph-restricted Rota–Baxter operators on toral almost-abelian restricted Lie algebras. Combining general graph formula, nilpotent adjoint action, and image-in-V condition yields sharp STu restriction only in p=2, then rank-sum counts; this is a natural restricted-class specialization not explicitly established in the accessible papers. Full Li–Ou may contain it, retained as risk. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: The precise distinction at characteristic two for a natural toral almost-abelian family and the full rank-stratified finite-field census quantify when ordinary RB operators fail restricted graph compatibility; the deficit is structural, not a recoding of generic square-zero enumeration. An independently motivated restricted-Lie classification with exact q-dependent counts is useful despite classical counting factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
