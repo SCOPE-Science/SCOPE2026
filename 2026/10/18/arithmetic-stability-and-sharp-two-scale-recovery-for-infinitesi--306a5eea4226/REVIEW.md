@@ -1,19 +1,21 @@
-# Scientific review: arithmetic stability of infinitesimal chord tomography
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed first variation is derived from the implicit equations for the two radial intersections of each noncentral chord. Transversality follows from \(0<\alpha<\pi/2\), and smooth small perturbations remain strictly convex. Fourier diagonalization gives the exact weights, so all first-order injectivity and \(L^2\) stability questions reduce without approximation to an integer-frequency problem. The general finite-family criterion follows from the closed-cyclic-subgroup character test on a torus, whose separating-character argument is stated in the proof. In the rational case the exact zero modes and the dyadic intersection criterion follow by elementary divisibility. The two-scale lower coefficient comes from an explicit nonnegative square, with sharpness for irrational angles by density of rotations; the upper coefficient is attained by constants. Exact rational arithmetic and geometric finite differences provide independent checks of the displayed examples. No finite computation is treated as an infinite proof.
+PASS
 
-## Originality — PASS with stated residual risk
+For disk radial perturbation, the two chord endpoints at polar angles θ±α remain transverse since sinα>0; implicit differentiation of the line intersection gives D_α f=(f(θ+α)+f(θ-α))/sinα. Thus λ_m=2cos(mα)/sinα, and combined data have squared Fourier multiplier W_m=Σ_j4cos²(mα_j)/sin²α_j. The closure H of the integer orbit of a=(α_j/π) in T^k contains b=(1/2,...,1/2) iff every annihilating integer character h·a in Z has h·b in Z; so the infimum W_m>0 iff some integer relation has odd sum. Rational common zeros satisfy m=(q_j/2)(odd) for each even denominator; intersection exists iff all v_2(q_j) agree, and exact indices are odd multiples of lcm(q_j/2). For two offsets α and 2α with 0<α<π/4, substitute z=cos²(mα) to get W=1+csc²α+(2z-sin²α)^2/(sin²α cos²α), giving uniform lower bound and exact irrational sharpness by dense rotation; convexity in z makes upper coefficient attained at m=0. Check rational (π/6,π/4) table gives min4 and max24. Finite examples supplement analytic character theorem and the square identity.
 
-The motivating 2026 section-function paper was examined beyond its abstract: its principal noncentral determination statement, Theorem 6.2, assumes infinitely many offsets accumulating in an interval and gives global equality of bodies. It neither states the finite-offset first-variation frame criterion nor the universal two-scale sharp bounds. The May 2026 noncentral-sections study investigates a four-dimensional symmetry-restricted constant-section rigidity theorem, not this planar stability problem. The September 2026 hedgehog article proves polygonal nonlinear uniqueness rather than disk-derivative conditioning. The established Santaló planar-disk result already gives nonlinear uniqueness in a special setting; it is acknowledged, but nonlinear uniqueness does not imply the uniform spectral estimate. Searches for noncentral chord transforms, circular Fourier resonance, equivalent multiplier and torus-character criteria, and exact two-offset constants found no demonstrably dominating statement. The original 2001 Barker--Larman article and some older chord-function works could not be read in full, leaving meaningful residual risk of prior equivalent formulations. This review does not certify global novelty or independent validation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated by an actual ambiguity between injectivity and noise-stable reconstruction in geometric tomography. A single irrational chord offset is infinitesimally injective but arbitrarily ill-conditioned. The theorem completely characterizes which *finite* collections overcome that failure, gives a simple universal pair of geometric distances, identifies its exact best lower bound at irrational angles, and classifies all rational nullspaces by denominator valuations. This is a structural measurement-design result rather than an arbitrary numerical evaluation. It makes no unsupported nonlinear reconstruction or practical error-rate claim beyond the first-variation setting.
+PASS only for the multi-offset stability classification and sharp universal two-scale recovery. A published Resultary theorem on the Barker–Larman tangent-chord transform already gives, after rescaling outer disk radius R to 1 and tangent distance 1 to t=1/R, precisely the present single-offset derivative multiplier 2cos(mα)/sinα and the even-denominator kernel classification. Those subclaims are NOT new. The prior source does not give the torus odd-relation criterion for arbitrary finite offset collections or the sharp α,2α uniform frame bounds; those are the surviving substantive contribution.
 
-## Scope and outstanding comparisons
+## value
 
-The derivative is taken only at a unit Euclidean disk with radial smooth deformations. \(L^2\) bounded inversion pertains to its continuous linear extension, not a finite-deformation inverse. The displayed two-scale lower coefficient can exceed the true sharp rational coefficient only in the nonsharp direction, as explicitly qualified. Possible older circular-transform or finite-rotation spectral literature may contain equivalent results; the inaccessible Barker--Larman primary text remains a specific comparison risk. Self-review is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete finite-offset stability classification and explicit universally stable *two*-measurement design (with a sharp irrational lower bound) solve a motivated inverse problem: injectivity of each single chord view can fail or be ill-conditioned, whereas paired views can be uniformly reconstructive. The multi-offset frame bound is a meaningful new design principle even though the single-offset Fourier multiplier is already published.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
