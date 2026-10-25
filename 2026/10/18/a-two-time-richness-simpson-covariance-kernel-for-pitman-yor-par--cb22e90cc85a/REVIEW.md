@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result's exact domain is \(0\le\alpha<1\), \(\theta> -\alpha\), \(n,m\ge2\). The proof checks normalization and boundaries by the customer-two Bernoulli indicator, derives the exact first and second predictive coincidences for all future labels using conditional exchangeability, proves the centered conditional-projection identity, and obtains strict signs. The empty product at \(\(n=2\)\) and admissible negative \(\theta\) are explicitly included. Exact-rational finite enumeration checks both time orderings without purporting to replace the proof.
+PASS
 
-## Originality
+Reconstructed the tagged-coincidence Bernoulli argument p=(1−α)/(θ+1), K2=2−H and affine conditional K recursion: Cov(K_n,H)=−p(1−p)∏_{j=2}^{n−1}(θ+j+α)/(θ+j). Exchangeability proves all m≤n. For m>n, old–future and future–future coincidence probabilities cancel K_n and give E(Q_m−p|Π_n)=n(n−1)(θ+m)(θ+m+1)/[m(m−1)(θ+n)(θ+n+1)](Q_n−p). Signs follow θ+α>0, n=2/m=2 and α=0 boundaries checked. Independent exact rational CRP joint enumeration (α=2/3,θ=−1/3, n=2,3,4 and m=2,3,5,7, 12 tests) agreed and each state mass totaled one; finite tests do not prove the infinite claim. Gamma asymptotic is standard and the product matches its Γ expression.
 
-PASS on inspected sources, with residual bibliographic risk. Pitman–Yor's 1995/1997 partition formulas supply a full partition distribution but no closed bivariate time-indexed richness/Simpson covariance or the prefix-flat/future-separable kernel. Pitman's process treatment supplies prediction rules but not the cancellation for two future customers. Cerquetti treats conditional asymptotic richness, not finite-sample pair-coincidence cross-covariances. The closest published published-finding corpus formula covers fixed-probability iid categorical samples, not the Pitman–Yor random-frequency mixture or unequal times. A recent hierarchical Pitman–Yor diversity treatment supplies related conditional Simpson predictions but not the covariance kernel. Further literature under population-genetic homozygosity notation could overlap and warrants independent investigation.
+## originality
 
-## Value
+PASS
 
-PASS. This is a complete two-index classification of the dependence between two standard and separately motivated diversity statistics in a leading Bayesian nonparametric sampling model. The strict sign, entire prefix-invariance region, future-sample separability, and the transition from constant to fractional-power magnitude distinguish it from merely restating an occupancy moment or checking a small parameter case. It supports joint calibration of sample-richness and pair-collision summaries, without asserting higher-order association or data-analysis guarantees.
+Best-of-knowledge: compared mathematical objects, parameter ranges, equivalent transforms, prior stronger results and available exact tables; the specific final theorem is not known to follow from the inspected primary and Resultary findings. Finite-sample pair-coincidence Q_m is 1 minus unbiased Gini–Simpson. Fixed categorical iid sample results do not yield the PY marginal two-time joint covariance without mixing the conditional means; EPPF determines it as a finite sum but inspected material does not display signed factorized formula. A finite symbolic summation from existing EPPF implies computability, but not immediate formula sign or invariance. The 2026 hierarchical prediction computes diversity quantities without asserting this joint kernel; need the tagged H and two-future cancellation.
 
-## Limitations
+## value
 
-The model excludes negative discount, does not address arbitrary exchangeable partitions, and studies empirical rather than population Simpson concentration. The presence of an older equivalent closed kernel has not been logically ruled out by database searching. The asymptotic assertion is pointwise at fixed parameters. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dependence of observed richness and empirical Simpson concentration is a natural species-sampling inference question; a complete signed two-time covariance kernel, exact prefix invariance and nontrivial conditional cancellation are reusable finite-sample information unavailable merely from univariate laws. The Dirichlet boundary and discount growth clarify quantitative behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
