@@ -1,19 +1,21 @@
-# Review of the two-thirds binomial log-concavity classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding specifies an integer trial count \(n\ge1\), an interior success probability \(0<p<1\), the integer floor map, and ordinary (not ultra-) log-concavity. Its normalized masses follow directly from the binomial formula. Equation (1) is the exact first log-concavity gap. The finite cases are complete because their support has at most four occupied atoms, and the only second gap for \(n=5\) factors positively. At six trials, two necessary inequalities demand disjoint odds intervals. Above six trials, the exact discriminant of the first-gap polynomial is negative, with a strictly positive shifted quartic proving the statement for **all** larger integers. The attached checker reproduced every nonstandard identity and 1,200 additional exact-rational cases. The finite checks are supporting evidence rather than a substitute for the infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For t=p/(1-p)>0, stripping the factor (1-p)^n produces b_j=sum_{floor(2k/3)=j} choose(n,k)t^k on contiguous support. The first gap factors as t^3[C(n,2)^2t-(1+nt)(C(n,3)+C(n,4)t)]. At n=3 and n=4 the first gap is the only interior one; at n=5 the remaining gap factors as 5t^6(5t^2+18t+20)>0. Solving the first three low-n polynomials and converting odds to probabilities yields the stated closed intervals. At n=6 its first gap requires 1/3<=t<=2/3, while the fourth-to-fifth tail gap t^9(21t-20) forces t>=20/21, impossible. At n>=7 the discriminant is -n^2(n-1)^2(5n^4-42n^3+73n^2-36n-12)/192, with its parenthesis equal to a strictly positive polynomial at n=7+m; the downward quadratic is everywhere negative. The argument proves the infinite cutoff, not merely grid evidence. Independently verified the discriminant and 1200 exact rational binomial mass comparisons.
 
-The motivating primary work, Tang and Tang [1,2], treats the same quantized object but establishes failure of real-rootedness and ultra-log-concavity, and studies related transport and root-location questions. None of those conclusions forces **failure of ordinary log-concavity**. Relevant sections of the full available preprint (including its appendix) and the published article were inspected for the same coefficients and possible dominating inequalities. Equivalent searches using log-concavity, binomial rounding, rational fractions, grouped coefficients, and exact algebraic cutoffs found no claim equivalent to the full sharp phase diagram. Previously established properties of equal-block rounding or nearest-integer rounding address different maps. A separately published supplement was not accessible in full; its possible stronger treatment is an explicit residual risk, alongside unindexed equivalents. Absence of a search hit alone is not regarded as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The object \(\lfloor2X/3\rfloor\) is singled out by an existing research problem on rational fractions of Poisson-binomial variables. Log-concavity is a natural intermediate property between unimodality and the previously studied real-rootedness/Newton conditions. Determining exactly when that intermediate property survives is not a textbook substitution: the three-, four-, and five-trial boundaries are different nontrivial algebraic windows, whereas at six trials every parameter fails. The uniform higher-trial obstruction is structural and exhaustive, not a finite census or tiny numerical gain. The fact delineates when shape-based reasoning can even begin for this canonical rational quantizer.
+Tang–Tang studies the exact rationally quantized variable but proves nonreal-rootedness/strong-Rayleigh obstruction in a p=1/2 subsequence, not the ordinary log-concavity phase diagram. Ultra-log-concavity failure does not imply ordinary log-concavity failure. The complete n<=5 parameter windows and first universal failure at n=6 are not dominated by the primary theorem read.
 
-## Literature, scope, and remaining risks
+## value
 
-[1] Tang and Tang, *The Poisson binomial distribution -- Old & New*, arXiv:1908.10024v1 (2019), Section 4, Appendix A. [2] Tang and Tang, *Statistical Science* 38 (2023), 108–119, DOI: 10.1214/22-STS852, Section 4. The proof does not classify heterogeneous Bernoulli sums, other rational maps, or strong-Rayleigh/real-rootedness properties. Independent external mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Log-concavity is a natural discrete shape property tied to unimodality, estimation and negative-dependence hierarchies. A rational floor quantizer can destroy it despite binomial ultra-log-concavity; the finding gives an exact full phase diagram, algebraic boundary windows and a sharp six-trial universal obstruction. This completes a motivated natural classification for a quantizer singled out in prior work; it is not just a table of a few examples or a trivial failure of real-rootedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

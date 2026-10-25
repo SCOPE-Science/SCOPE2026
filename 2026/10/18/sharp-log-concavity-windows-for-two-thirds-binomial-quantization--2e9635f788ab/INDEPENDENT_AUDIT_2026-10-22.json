@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:13:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 9fbe289185396b7ae7bfb68b7cabb1efde0612c7",
+        "pinned VERIFY.py blob e529307f22fcb31a8487a50633ba4d9a0b931606",
+        "independent_checks.py R3"
+      ],
+      "rationale": "For t=p/(1-p)>0, stripping the factor (1-p)^n produces b_j=sum_{floor(2k/3)=j} choose(n,k)t^k on contiguous support. The first gap factors as t^3[C(n,2)^2t-(1+nt)(C(n,3)+C(n,4)t)]. At n=3 and n=4 the first gap is the only interior one; at n=5 the remaining gap factors as 5t^6(5t^2+18t+20)>0. Solving the first three low-n polynomials and converting odds to probabilities yields the stated closed intervals. At n=6 its first gap requires 1/3<=t<=2/3, while the fourth-to-fifth tail gap t^9(21t-20) forces t>=20/21, impossible. At n>=7 the discriminant is -n^2(n-1)^2(5n^4-42n^3+73n^2-36n-12)/192, with its parenthesis equal to a strictly positive polynomial at n=7+m; the downward quadratic is everywhere negative. The argument proves the infinite cutoff, not merely grid evidence. Independently verified the discriminant and 1200 exact rational binomial mass comparisons.",
+      "residual_risks": [
+        "Only ordinary log-concavity of the exact floor map, not ultra-log-concavity or the whole Poisson-binomial class.",
+        "Degenerate endpoint probabilities p=0,1 are excluded and would be trivially log-concave."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Tang Theorem 4.3 treats floor(X/k) with equal-sized blocks for integer k; floor(2X/3) groups (0,1), (2), (3,4), (5), ... alternately."
+        ],
+        "reasoning": "Integer division preservation does not imply the mixed 2:1 quantizer. The source disproves stronger structure for some examples but leaves ordinary log-concavity undetermined.",
+        "searches": [
+          "arxiv:1908.10024 Theorem 4.3 and 4.4",
+          "2023 Statistical Science doi:10.1214/22-STS852 rational fractions",
+          "integer coarsening floor(X/k) preserves strong-Rayleigh"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1908.10024",
+        "https://doi.org/10.1214/22-STS852",
+        "Resultary mathematical research records (targeted semantic search)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang and Tang explicitly distinguish Newton ultralogconcavity from ordinary logconcavity (Theorem 4.1 context). The present n=6 tail gap gives a necessary inequality incompatible with the first gap, a different conclusion."
+        ],
+        "reasoning": "Known nonreal-rootedness can coexist with ordinary log-concavity. No implication to the complete if-and-only-if probability windows is valid.",
+        "searches": [
+          "Tang–Tang arxiv 1908.10024 theorem 4.4 and Section 4/Appendix A",
+          "Resultary binomial log concavity semantic query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Tang Theorem 4.4 considers roots of PGF of floor(2 Bin(3m,1/2)/3), not ordinary log-concavity for arbitrary n,p."
+        ],
+        "reasoning": "Failure of Newton/strong-Rayleigh constraints is strictly weaker than failure of the local pmf inequalities under review; no equivalent statement found.",
+        "searches": [
+          "Resultary: log concavity floor two thirds binomial distribution n=6 ordinary log-concavity loss quantization",
+          "Tang and Tang 1908.10024 Section 4 floor 2X/3",
+          "ordinary log concavity rational binomial group coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed quantized-Poisson-binomial results involve roots, transport or ultra-logconcavity. No exact ordinary-log-concavity classification table with the sqrt(33),sqrt(41) windows was found."
+        ],
+        "reasoning": "The particular n=6 threshold is not contained in the checked primary theorem; negative search is not proof that it was never published elsewhere.",
+        "searches": [
+          "Resultary mathematical search: 2/3 binomial quantizer ordinary log concavity cutoff six",
+          "Tang and Tang Appendix A supplementary rational fractions"
+        ]
+      },
+      "rationale": "Tang–Tang studies the exact rationally quantized variable but proves nonreal-rootedness/strong-Rayleigh obstruction in a p=1/2 subsequence, not the ordinary log-concavity phase diagram. Ultra-log-concavity failure does not imply ordinary log-concavity failure. The complete n<=5 parameter windows and first universal failure at n=6 are not dominated by the primary theorem read.",
+      "residual_risks": [
+        "Separate published supplemental DOI was not independently inspected in full; an equivalent quantizer classification there would override novelty.",
+        "No theorem for arbitrary heterogeneous Bernoulli success probabilities is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_PROPERTY_ONLY",
+          "evidence": "Theorem 4.4 addresses nonreal generating-function roots for special n and p=1/2; not all-n,p ordinary logconcavity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.10024",
+          "material_read": "Full available primary PDF, Section 4 Theorems 4.3-4.4, pages 9-11, and discussion of Appendix A",
+          "method": "Open arXiv PDF, textual sections plus PDF screenshots",
+          "title": "The Poisson binomial distribution—Old & New",
+          "trigger": "Same rational fraction floor(2X/3)"
+        },
+        {
+          "assessment": "POSSIBLE_SUPPLEMENT_UNREAD",
+          "evidence": "No directly implied ordinary log-concavity classification was found; supplement remains a priority risk.",
+          "identifier_or_url": "https://doi.org/10.1214/22-STS852",
+          "material_read": "Theorem and article index checked; arXiv preprint provides full primary Section 4; separate published supplementary file not fully read",
+          "method": "Public DOI bibliographic record and author preprint",
+          "title": "The Poisson Binomial Distribution—Old & New (published version)",
+          "trigger": "Possible published revision with extra results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tang–Tang 2019 Section 4",
+        "complete finite-and-discriminant proof"
+      ],
+      "rationale": "Log-concavity is a natural discrete shape property tied to unimodality, estimation and negative-dependence hierarchies. A rational floor quantizer can destroy it despite binomial ultra-log-concavity; the finding gives an exact full phase diagram, algebraic boundary windows and a sharp six-trial universal obstruction. This completes a motivated natural classification for a quantizer singled out in prior work; it is not just a table of a few examples or a trivial failure of real-rootedness.",
+      "residual_risks": [
+        "Scope fixed to homogeneous binomial and slope 2/3; extension to other rational slopes would require fresh arguments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V rests on independently reconstructed analytical arguments, not solely on scripts or self-review.",
+    "Originality is a best-of-knowledge primary-source comparison, not worldwide priority certification.",
+    "No public replacement bytes staged; publication is withheld pending verified sanitization."
+  ],
+  "schema_version": 1
+}
