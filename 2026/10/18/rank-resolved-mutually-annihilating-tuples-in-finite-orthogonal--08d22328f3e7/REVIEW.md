@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim follows from four complete steps: the product relations force the joint image to be totally isotropic; skew-adjoint maps supported on a fixed isotropic space are precisely alternating forms on the dual; Möbius inversion counts tuples spanning that subspace; and orthogonal isotropic-flag counts give the three Witt-type product factors. An independently implemented prime-field enumerator verifies actual skew-adjoint matrices, products, and joint ranks for six parameter sets; a separate six-dimensional hyperbolic witness verifies the possible odd joint rank. Finite checks do not certify the unrestricted theorem; the proof supplies the all-parameter argument.
+PASS
 
-## Originality — PASS within reviewed literature
+PASS: For odd-characteristic nondegenerate B and ordered Xi with all XiXj=0, skew-adjointness implies B(X_i v,X_j w)=0, so joint image U is totally isotropic and each Xi annihilates U^perp. Fixing isotropic U, Xi factors through V/U^perp≅U* and is exactly an alternating map U*→U, with q^binom(r,2) choices per Xi, and all supported products vanish automatically. Möbius inversion on the subspace lattice gives the spanning-image factor A_{r,k}(q), then the classical isotropic extension-line/flag counts yield the three Witt-type I_V(r) formulas. The rank-zero tuple is counted once, rank one impossible, n=1 and k=1 included. Independently enumerated all actual 4x4 skew-adjoint squarezero matrices over F3 and all pairwise zero-product ordered pairs, obtaining rank profile {0:1,2:64}; the source explicit n6 hyperbolic two-generator rank-three witness follows from independent block multiplication. Proof, not prime-field finite test, covers odd prime powers and all n,k.
 
-Boos–Cerulli Irelli's 2021 paper gives the motivating self-dual quiver setting but investigates degeneration and extensions. Brouwer–Gow–Sheekey (2014) counts single symmetric nilpotents. Fulman–Guralnick (2018) counts commuting pairs under different constraints. Durán Díaz and collaborators (2020) discuss square-zero Lie-algebra bases and isotropy; these known structural ingredients are not claimed as newly discovered. Huang (2021) counts unrestricted mutually annihilating pairs. No checked source supplies the complete odd-field, Witt-type and joint-image-rank formula for ordered k-tuples. Equivalent formulas under other labels or in unindexed material remain possible, and the full Durán Díaz article was not accessible.
+## originality
 
-## Value — PASS
+PASS
 
-Self-dual square-zero quiver modules are natural representations, and radical-image dimension is a canonical module statistic. The formula gives a complete rank distribution over an infinite family of fields, dimensions and loop numbers, sharply distinguishes split/nonsplit orthogonal forms, and displays the rank-three joint-image phenomenon for two individually even-rank maps.
+PASS best-of-knowledge: Unrestricted mutually annihilating matrix pairs, single symmetric nilpotents, and commuting Lie pairs do not determine joint-image-rank counts for skew-adjoint zero-product k-tuples in both Witt types. Boos–Cerulli work over C on degeneration orders of self-dual quiver representations and does not tabulate such finite-field point counts. The critical isotropic-map/alternating-form calculation is elementary but the combined exact type-resolved stratum distribution was not covered in the inspected primary texts. Residual possibility of equivalent results in Hall-polynomial/alternating-pencil or self-dual quiver count literature.
 
-## Limitations and closest sources
+## value
 
-Odd characteristic only; nondegenerate symmetric spaces; labeled tuples with all ordered products zero, not general commuting pairs or isometry orbits. Relevant primary literature is arXiv:2106.08666v1, DOI: 10.37236/3810, DOI: 10.1007/s00026-018-0390-4, DOI: 10.3390/math8061032, and arXiv:2110.15566v1. The last two had incomplete full-text inspection, as detailed in the structured review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Joint-image dimension is a canonical rank invariant for self-dual representations of the radical-square-zero loop algebra. The complete labeled distribution across every odd finite field, tuple size, dimension and orthogonal Witt type distinguishes split/nonsplit forms and reveals odd joint-image rank possible for k=2 even though individual alternating maps have even rank. This is a meaningful structural enumeration beyond a tiny parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
