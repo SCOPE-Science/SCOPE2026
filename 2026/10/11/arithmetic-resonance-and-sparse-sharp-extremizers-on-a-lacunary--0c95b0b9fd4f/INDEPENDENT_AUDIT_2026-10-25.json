@@ -1,0 +1,232 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T15:46:13.526260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (blob b4d38181dec0b1fc96ecfde6d75a3617ce545db0): proof and exact normalization",
+        "Frozen artifacts/verify.py (blob b261c90e1e2a8c06d5db20bad45a6edad7f84743): inspected algorithm only, no reliance on VERIFY_OK",
+        "Fresh independent Python field/pair-fiber enumerator and energy calculations in 9 fields, including two quadratic extensions",
+        "Frozen SLOGAN.txt, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json"
+      ],
+      "rationale": "For any nontrivial additive character, summing fourth powers over F_q^3 with probability output gives the exact ordered-pair energy Q=Σ_{γ(a)+γ(b)=γ(c)+γ(d)}f(a)f(b)conj(f(c)f(d)), with no q prefactor. In characteristic >=5, set s=a+b. When s≠0, a^3+b^3=s^3−3sab recovers ab and therefore the unordered pair; no nontrivial collisions remain. When s=0, pairs are (a,−a) with fourth-coordinate sum 2a^4. Since F_q^× is cyclic, fourth roots are exactly ±1 when q≡3(mod4) and ±1,±i when q≡1(mod4). In the first case Q=2S²−Σ_t|f(t)|⁴≤(2−1/q)S², with equality for every and only constant positive magnitude on all q points; any phases. In the second, distinct nonzero fourth-root orbits are disjoint four-point sets O; the exact correction is +8Σ_O Re[f(a)f(−a) overline(f(ia)f(−ia))]. Let α=|f(0)|²,w_O=Σ_{t∈O}|f(t)|². By AM–GM and Cauchy each orbit's net correction to −Σ|f|⁴ is ≤w_O²/4, with equality only at four equal magnitudes and aligned opposite-pair products. Thus Q≤2S²−α²+(1/4)Σw_O²≤2S²−α²+(S−α)²/4≤(9/4)S². For S>0 equality forces α=0, exactly one orbit of positive mass, equal four magnitudes, U=V; conversely each such f attains 9/4. Hence exact operator norm fourth powers and the complete complex phase classification hold for every prime-power q of characteristic >3. Independently rebuilt additive pair-sum fibers and fourth-moment energies for p=5,7,11,13,17,19,23 and F25/F49, with 4 seeded Gaussian-integer complex vectors per field plus equality witnesses: every fiber was single or exactly a 2-pair zero-sum fiber, and counts were 1,0,0,3,4,0,0,6,12 in the listed order. These finite tests corroborate, not prove, the all-q algebraic claim. Canonical Git tree SHA independently reproduced.",
+      "residual_risks": [
+        "No assertion for characteristic 2 or 3; these can have different collision geometry.",
+        "No higher even moments or alternative surface/ambient normalizations; finite checks cannot establish the all-field theorem without the algebraic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mockenhaupt–Tao develops representation-count control and endpoint nonsharp estimates; it does not give this polynomial-specific weighted constant and equality cases.",
+          "Koh–Shen Theorem 1.1 concerns an iff range/boundedness criterion for curves in F_q², not a sharp numerical norm for this curve in F_q³.",
+          "Published single-defect result proves fourth power 9/4 and four-point localization only with exactly one repeated unordered pair sum; current curve has (q−1)/4 distinct repeated sums when q≡1(mod4), so for q≥13 that hypothesis fails.",
+          "Full moment-curve source uses consecutive t,t²,…,t^d and an L^{2d} endpoint; current curve has missing quadratic coordinate and L^4."
+        ],
+        "reasoning": "The one-defect theorem is a stronger abstraction for its one-defect domain, but it does not dominate the multi-defect polynomial family or prove q≡3/1 classification across field extensions. The planar theorem's codimension and qualitative conclusion prevent it from covering the exact sharp constant. Hence identified prior machinery materially narrows the novelty scope but does not entail the complete submitted theorem.",
+        "searches": [
+          "arxiv:math/0204234v4 finite-field restriction and additive representation-count framework",
+          "arxiv:1003.4240v3 Theorem 1.1 planar algebraic curve extension bounds",
+          "arxiv:2508.08377v1 main theorems and §3.3",
+          "Resultary: exact L4 extension operator norm for disjoint proper parallelogram additive defects, Sidon except disjoint collisions, sharp 9/4",
+          "Resultary/2026 2026/10/11/SCOPE-sharp-fourth-extension-constants-for-a-single-pair-sum-defect--2223b69bf3b9 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Mockenhaupt–Tao arXiv:math/0204234v4",
+        "Koh–Shen arXiv:1003.4240v3",
+        "Biswas et al. arXiv:2508.08377v1 and IMRN rnaf379",
+        "Lewko–Lewko arXiv:1003.4561v4",
+        "Resultary published single-pair-sum defect 2026/10/11 2223b69bf3b9",
+        "Resultary published quartic-graph additive energy 2026/10/4 235f10989b3f",
+        "Resultary published cubic-graph sharp norm 2026/10/4 2db777d1e47b",
+        "Resultary published identical claim 2026/10/11 0c95b0b9fd4f, excluded as independent prior art",
+        "Biswas et al. moment curve Part II arXiv:2609.29882 abstract only; arXiv full text inaccessible, residual risk marked"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general one-defect formula indeed implies the q=5 instance: exactly one four-point orbit and one exceptional sum, but not q=13 (3 exceptional sums) or q=25 (6 exceptional sums).",
+          "Koh–Shen planar L²→L⁴ boundedness does not include numerical extremizer identification, while the full moment curve sharp theorem requires a different collision sum system.",
+          "Lewko–Lewko investigate additive doubling and Λ(4) structural decomposition without a full sharp weighted four-root orbit theorem."
+        ],
+        "reasoning": "Tested actual hypothesis–conclusion containment rather than title overlap. Earlier algebraic energy and single-collision estimates cover pieces but no inspected result implies the total full-field sharp endpoint and both equality classes. A general lemma for pairwise-disjoint defects could imply the current energy optimization, and absence of such a source is a genuine residual risk, not a proof of absolute novelty.",
+        "searches": [
+          "arxiv:2508.08377v1 §§1.3, 2, 3.3; PDF inspected",
+          "Resultary/2026 single-pair-sum-defect published RESULT.md, theorem and proof inspected",
+          "Resultary/2026 cubic-graph and quartic-graph published RESULT.md, theorem and proofs inspected",
+          "arxiv:1003.4561v4 §§1–1.1 additive B2[g], Λ(4) geometry",
+          "Web: sharp L2 L4 extension set with disjoint parallelogram additive relations exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation is sharp weighted additive pair-energy for A={(t,t³,t⁴):t∈F_q}, not simply constant-input energy. Its collision graph is a disjoint family of fourth-root quadrilaterals plus all generic unique unordered sums.",
+          "Biswas et al., arXiv:2508.08377v1 pp. 14–15 §3.3, require uniqueness of relevant d-fold power sums for their transferred moment-curve sharp inequality and explicitly discuss different lacunary γ=(t,t³,t⁵) as outside this regime.",
+          "The only Resultary search hit with exact current 9/4/mod-4/full support wording is the mirror of the assigned claim itself."
+        ],
+        "reasoning": "Fourier inversion/Plancherel recasts the result as a weighted Λ(4)-energy extremal problem. Relevant aliases, finite-field extension norms, additive quadruple energies and Sidon sets were searched. The inspected consecutive-monomial moment-curve theorem works with d-fold collisions at exponent 2d and does not imply this lacunary 2-fold collision classification. The same assigned mirror is not independent prior evidence; no independently covering equivalent was located.",
+        "searches": [
+          "Resultary: Sharp finite field Fourier extension L2 to L4 norm of lacunary curve (t,t^3,t^4), additive energy fourth roots, 9/4 equality on four point orbit",
+          "Resultary: Weighted additive energy degree 3 degree 4 finite field polynomial parametrized curve q 1 mod 4",
+          "Web: finite field lacunary curve t t cubed t fourth Fourier restriction L4 norm",
+          "arxiv:2508.08377v1 Section 3.3 related curves",
+          "Resultary/2026 2026/10/11/SCOPE-arithmetic-resonance-and-sparse-sharp-extremizers-on-a-lacunary--0c95b0b9fd4f (identical finding, excluded)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-04 quartic-graph published record gives the unweighted energy of (t,t⁴) and depends on q mod3; it omits the cubic coordinate and does not maximize over arbitrary complex weights.",
+          "The 2026-10-04 cubic-graph record gives sharp 3−6/(2q+1) and full-support nonuniform extremizers for (t,t³); zero-sum cubic fibers have (q+1)/2 unordered pairs, not the one or two pairs for (t,t³,t⁴).",
+          "No independently sourced exact table/matching formula for the lacunary three-coordinate object was located; matching Resultary record is identical to the assignment."
+        ],
+        "reasoning": "The exact database comparisons have different energy fibers: quartic planar graph has a quartic involution for nonzero pair sums, and cubic planar graph merges every antipodal pair. Neither recorded numerical invariant or optimizer set implies the three-coordinate mod-four dichotomy. Search failure alone is not novelty proof.",
+        "searches": [
+          "Resultary: finite-field polynomial curve (x,x^3,x^4) additive energy extension q mod four",
+          "Resultary: additive B2 set with multiple disjoint repeated pair sums disjoint 4-point circuits fourth moment weighted extremizers",
+          "Resultary/2026 2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f full RESULT.md",
+          "Resultary/2026 2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b full RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the full all-characteristic>=5, all-prime-power two-regime sharp L²→L⁴ constant and complete extremizer classification for γ(t)=(t,t³,t⁴) is supported, but foundational tools and some slices are prior. Direct inspection of Mockenhaupt–Tao, Koh–Shen, Biswas et al. (Sections 1,2,3.3), Lewko–Lewko, and three published Resultary research results revealed no theorem implying all field sizes and the complete mod-four phase/support dichotomy. General additive-energy orthogonality, Sidon flat extremizers, and a single parallelogram defect's 9/4 extremizer are established/independently published mechanics, not claimed new. A published same-date one-defect result implies q=5 as a special case; it explicitly assumes only one double pair-sum fiber, whereas current q=13,17,25,... has 3,4,6,... disjoint nontrivial fibers, and it does not classify the curve/field progression. The published q≡3 branch is a standard Sidon equality case. The submitted new combination is the polynomial fiber classification and exact global sparsity/equality geometry across arbitrary extension fields. The close Resultary identical record is the assigned finding and is excluded as independent prior priority. Priority conclusions remain qualified: generalized Λ(4) or additive-energy results could imply the disjoint-fiber estimate, and same-day priority between independent records was not established.",
+      "residual_risks": [
+        "A general theorem for several disjoint equal-sum four-cycles could entail the 9/4 weighted optimum even if the exact curve is absent; no full covering theorem found in searched primary sources.",
+        "Single-defect 9/4 result on the same publication date establishes q=5 special case; exact timestamp priority within date unknown.",
+        "The 2026-09 follow-up moment-curve Part II was identified by abstract but full arXiv PDF/HTML returned unavailable in this environment. It treats consecutive monomials and L^{2d}, yet complete related-curve implications could not be excluded.",
+        "Exact-title matching Resultary record is a mirror of the assigned claim; not proof of novel priority. No search proves global nonexistence of equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general restriction and energy mechanism but no specified exact lacunary three-dimensional norm and extremizer classification.",
+          "evidence": [
+            "PDF p.2 finite-field extension setup; PDF pp. 1–8 finite-field restrictions and additive pair representations."
+          ],
+          "identifier_or_url": "Mockenhaupt–Tao, arXiv:math/0204234v4, https://arxiv.org/pdf/math/0204234",
+          "material_read": "Full-text PDF accessed; introductory restriction formulation, notation and representation-count/Sidon-relevant portions inspected with PDF page image of p.2.",
+          "method": "Open-access arXiv full-text PDF and page screenshot",
+          "title": "Restriction and Kakeya phenomena for finite fields",
+          "trigger": "Foundational finite-field even-exponent restriction, representation-count and normalization machinery"
+        },
+        {
+          "assessment": "Theorem 1.1 classifies existence of bounded L²–L⁴ estimates on planar curves, not exact sharp constants/equality on 3D lacunary curve.",
+          "evidence": [
+            "arXiv:1003.4240v3 p.2 Theorem 1.1 requires V⊂F_q² and gives necessary/sufficient bound criterion."
+          ],
+          "identifier_or_url": "Koh–Shen, arXiv:1003.4240v3; https://arxiv.org/pdf/1003.4240",
+          "material_read": "Accessible full PDF introduction, Theorem 1.1 on p.2 and main two-dimensional hypothesis; inspected screenshot p.2.",
+          "method": "Open-access arXiv full-text PDF text plus p.2 screenshot",
+          "title": "Sharp extension theorems and Falconer distance problems for algebraic curves in two dimensional vector spaces over finite fields",
+          "trigger": "Plausible theorem covering polynomial algebraic curves"
+        },
+        {
+          "assessment": "Sharp endpoint involves full consecutive-power curve γ=(t,t²,…,t^d), L^{2d}, and multiset-uniqueness; §3.3 explicitly flags lacunary systems as distinct, and does not supply the current exact L⁴ weighted energy.",
+          "evidence": [
+            "arXiv:2508.08377v1 pp.1–3 Eq.(1.2), p.15 §3.3 conditions for related curves."
+          ],
+          "identifier_or_url": "Biswas et al., arXiv:2508.08377v1, https://arxiv.org/pdf/2508.08377; IMRN rnaf379 (published January 15, 2026)",
+          "material_read": "Accessible full PDF, pp.1–5 theorem/normalization and pp.14–15 §3.3 related curves, including page images p.2 and p.15.",
+          "method": "Open-access full arXiv PDF text and page screenshots",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields",
+          "trigger": "Modern sharp equality theorem for possibly dominating polynomial moment curves"
+        },
+        {
+          "assessment": "Structural Λ(4) and additive-doubling results; not a sharp particular finite-field weighted fourth-moment/phase extremizer theorem.",
+          "evidence": [
+            "arXiv:1003.4561v4 pp.1–3 focus on B₂[g], Λ(4) decomposition and repeated sums."
+          ],
+          "identifier_or_url": "Lewko–Lewko, arXiv:1003.4561v4, https://arxiv.org/pdf/1003.4561",
+          "material_read": "Accessible full PDF p.1–3 introduction, sets B₂[g] and Λ(4), construction goals, p.3 screenshot.",
+          "method": "Open-access full arXiv PDF and page screenshot",
+          "title": "On the Structure of Sets of Large Doubling",
+          "trigger": "Standard B₂[g], Λ(4), and repeated-sum additive-combinatorial route to equivalent formulation"
+        },
+        {
+          "assessment": "Covers precisely one nontrivial pair-sum fiber; entails q=5 slice but not general q≡1 with (q−1)/4>1 disjoint repeated fibers; chronology within the same calendar date not established.",
+          "evidence": [
+            "RESULT.md Finding: exactly one unordered double fiber, 9N/(4m²) in alternate normalized form; Limitations explicitly exclude multiple collisions."
+          ],
+          "identifier_or_url": "Resultary/2026 published record 2026/10/11/SCOPE-sharp-fourth-extension-constants-for-a-single-pair-sum-defect--2223b69bf3b9/RESULT.md",
+          "material_read": "Entire 7,686-byte RESULT.md: definition, two cases, proof of sharp constants and equality, limitations.",
+          "method": "Read full published primary GitHub research result file through GitHub connector",
+          "title": "Sharp fourth-extension constants for a single pair-sum defect",
+          "trigger": "Very close 9/4 local four-point collision and exact equality result"
+        },
+        {
+          "assessment": "Only C4=(t,t⁴)⊂F² constant-input energy q mod3; no current 3-coordinate arbitrary-weight norm.",
+          "evidence": [
+            "RESULT.md Finding E(C4)=3q²−q−1−(q−1)(1+χ(−3))²; explicitly not a full operator norm."
+          ],
+          "identifier_or_url": "Resultary/2026 published record 2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f/RESULT.md",
+          "material_read": "Full RESULT.md including pair product involution derivation and scope limitation.",
+          "method": "Read complete published research result primary file via GitHub connector",
+          "title": "Exact additive energy of the finite-field quartic graph",
+          "trigger": "Relevant exact q-dependent fourth moment on a related polynomial curve"
+        },
+        {
+          "assessment": "Cubic graph has an entire merged antipodal zero-sum fiber and sharp 3−6/(2q+1), fundamentally unlike adding quartic coordinate which splits the fiber by fourth power.",
+          "evidence": [
+            "RESULT.md Finding and Q=2S²−P4−2R+|g(0)|⁴+|B|² proof."
+          ],
+          "identifier_or_url": "Resultary/2026 published record 2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b/RESULT.md",
+          "material_read": "Full RESULT.md including algebraic pair-sum proof and equality classification.",
+          "method": "Read complete published research result primary file via GitHub connector",
+          "title": "Exact sharp finite-field cubic-graph L² to L⁴ extension norm and extremizers",
+          "trigger": "Same t and t³ coordinates with sharp fourth moment, plausible implication through adding t⁴"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full frozen RESULT.md and proof",
+        "Biswas et al. 2025/2026 §3.3 related polynomial curves and sharp endpoint theme",
+        "Published cubic and quartic finite-field graph results showing coordinate-sensitive collision geometry",
+        "Published one-defect fourth-moment result demonstrating a meaningful local but not complete prior subcase"
+      ],
+      "rationale": "The curve γ(t)=(t,t³,t⁴) is a simple natural lacunary polynomial moment curve. Unlike consecutive-monomial moment curves, removing the quadratic coordinate leaves arithmetic fourth-root collision classes, a genuine structural feature. The theorem determines a sharp normalized Fourier extension invariant for every finite field in characteristic>=5 and classifies all complex extremizers, with a sharp transition between flat full support (q≡3 mod4) and sparse four-point support plus a nontrivial product-phase constraint (q≡1 mod4). These exact equality and norm facts could be used to compare restriction/equality mechanisms and concentration under added/missing coordinates. Though its optimization uses elementary inequalities once the pair fibers are found, identifying the complete arithmetic fibers and global optimizer geometry is a motivated infinite-family exact classification, not a mere numerical table or arbitrary slice. No more general Lacunary curve theorem is asserted.",
+      "residual_risks": [
+        "Scope is restricted to characteristic>3 and the stated counting/probability normalization; no higher moments/general lacunary exponents.",
+        "Existing general single-collision methodology reduces novelty breadth, although it does not remove the natural full-field classification value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md (blob b4d38181dec0b1fc96ecfde6d75a3617ce545db0): proof and exact normalization",
+    "Frozen artifacts/verify.py (blob b261c90e1e2a8c06d5db20bad45a6edad7f84743): inspected algorithm only, no reliance on VERIFY_OK",
+    "Fresh independent Python field/pair-fiber enumerator and energy calculations in 9 fields, including two quadratic extensions",
+    "Frozen SLOGAN.txt, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json",
+    "Mockenhaupt–Tao arXiv:math/0204234v4",
+    "Koh–Shen arXiv:1003.4240v3",
+    "Biswas et al. arXiv:2508.08377v1 and IMRN rnaf379",
+    "Lewko–Lewko arXiv:1003.4561v4",
+    "Resultary published single-pair-sum defect 2026/10/11 2223b69bf3b9",
+    "Resultary published quartic-graph additive energy 2026/10/4 235f10989b3f",
+    "Resultary published cubic-graph sharp norm 2026/10/4 2db777d1e47b",
+    "Resultary published identical claim 2026/10/11 0c95b0b9fd4f, excluded as independent prior art",
+    "Biswas et al. moment curve Part II arXiv:2609.29882 abstract only; arXiv full text inaccessible, residual risk marked",
+    "Full frozen RESULT.md and proof",
+    "Biswas et al. 2025/2026 §3.3 related polynomial curves and sharp endpoint theme",
+    "Published cubic and quartic finite-field graph results showing coordinate-sensitive collision geometry",
+    "Published one-defect fourth-moment result demonstrating a meaningful local but not complete prior subcase"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Proof covers all prime-power finite fields of characteristic >=5, not char 2 or 3; input counting and output probability measures are necessary to stated constants.",
+    "Finite exact pair-fiber checks validate nine small fields, not an independent exhaustive proof for every q; theorem relies on displayed algebra.",
+    "Originality is best-of-knowledge, not absolute priority; single-defect case and Sidon machinery are prior, and disjoint-defect broad theorem is a residual risk.",
+    "No formal Lean proof, third-party expert attestation, or independent certificate is asserted.",
+    "Publication is blocked by privacy-sensitive unchanged source administrative metadata; this is transport, not scientific failure."
+  ],
+  "residual_risks": [
+    "No assertion for characteristic 2 or 3; these can have different collision geometry.",
+    "No higher even moments or alternative surface/ambient normalizations; finite checks cannot establish the all-field theorem without the algebraic proof.",
+    "A general theorem for several disjoint equal-sum four-cycles could entail the 9/4 weighted optimum even if the exact curve is absent; no full covering theorem found in searched primary sources.",
+    "Single-defect 9/4 result on the same publication date establishes q=5 special case; exact timestamp priority within date unknown.",
+    "The 2026-09 follow-up moment-curve Part II was identified by abstract but full arXiv PDF/HTML returned unavailable in this environment. It treats consecutive monomials and L^{2d}, yet complete related-curve implications could not be excluded.",
+    "Exact-title matching Resultary record is a mirror of the assigned claim; not proof of novel priority. No search proves global nonexistence of equivalent statements.",
+    "Scope is restricted to characteristic>3 and the stated counting/probability normalization; no higher moments/general lacunary exponents.",
+    "Existing general single-collision methodology reduces novelty breadth, although it does not remove the natural full-field classification value."
+  ],
+  "schema_version": 1
+}
