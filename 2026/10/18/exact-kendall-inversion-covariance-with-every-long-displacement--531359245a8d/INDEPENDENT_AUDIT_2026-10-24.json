@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:47:10Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent supplementary finite and symbolic checks, not substituted for proofs in RESULT.md.",
+      "rationale": "Conditioning on pi(i)=j in a uniform S_n gives E[I|pi(i)=j]-E[I]=-2(i-(n+1)/2)(j-(n+1)/2)/(n-1). The covariance against H_{n,t}=sum_i 1{|pi(i)-i|>=t} reduces to a diagonal-distance polynomial sum. Independently symbolic subtraction confirms c(n,t+1)-c(n,t)=(t-n)(2t^2+2nt-n^2+1)/[3n(n-1)]; exact summation of c(n,t) gives the previously published total-footrule covariance (n+1)(n^2+1)/30. Exhaustive independent rational permutation enumeration n=2,...,7 reproduced EVERY threshold (sum 21 cases); this is corroboration only. Each denominator positive and 2nt-n+t^2-t+1=n(2t-1)+t(t-1)+1>0; layer-cake increments prove strict nonconstant nondecreasing f positivity. The unique root alpha=(sqrt(3n^2-2)-n)/2 of the first-difference quadratic proves the exact threshold maximizers, including integer tie and n=2 boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dimitrov–Khare supply general moments of pattern counts, not an explicitly evaluated |pi(i)-i| >= t covariance in inspected material",
+          "Jiang 2011 studies asymptotic relationships of permutation metrics, not sharp finite n all thresholds"
+        ],
+        "reasoning": "General tools permit derivation but do not dominate an explicit formula with sign and exact discrete maximizer without further mathematics. Historical formula could be hidden, so priority is best knowledge.",
+        "searches": [
+          "Dimitrov Khare arXiv:2109.09183v1 permutation bivincular pattern moments",
+          "Jiang arXiv:1110.0807v1 Spearman uniform metric asymptotic independence",
+          "Diaconis Graham 1977 Spearman footrule as a measure of disarray"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.14089v2 full original PDF §7",
+        "arXiv:1110.0807v1 primary PDF relevant sections",
+        "Diaconis–Graham 1977 bibliographic/abstract",
+        "Resultary 12 hits exact Kendall inversion displacement cutoff query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit identity c(n,t) positive for every t and sum_t c(n,t)=(n+1)(n²+1)/30",
+          "An example n=4 has same inversion and total footrule for two permutations but different H_{n,2} (source demonstration)"
+        ],
+        "reasoning": "Previously evaluated aggregate follows as a corollary of the new theorem but does not imply the theorem conversely; a direct conditional projection and diagonal polynomial evaluation are needed.",
+        "searches": [
+          "Ekhad Zeilberger 2021 (inv, total footrule) covariance",
+          "Diagonal summation of conditioning pi(i)=j",
+          "Resultary permutations inversion indicator profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ekhad–Zeilberger 2021 explicitly evaluate E[inv * total absolute displacement] covariance as (n+1)(n²+1)/30",
+          "The layer-cake identity sums c(n,t) over thresholds; distinct threshold profiles can have identical total footrule"
+        ],
+        "reasoning": "An aggregate covariance is not equivalent to a threshold-by-threshold profile. The submitted full family and maximizing t cannot be recovered from one scalar aggregate.",
+        "searches": [
+          "Resultary: Covariance Kendall inversion number and long displacement count threshold in random permutations, all nondecreasing displacement penalties, maximizing threshold",
+          "Ekhad Zeilberger arXiv:2109.14089v2 §7 bivariate inversion total displacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related record is covariance/precision for inversion INDICATORS, not covariance with position-displacement cutoff",
+          "Ekhad–Zeilberger enumerates total footrule joint moments, not H_{n,t} tables"
+        ],
+        "reasoning": "A distinct exact-table target was checked; nearby random permutation statistics do not imply per-threshold covariance.",
+        "searches": [
+          "Resultary search Kendall inversion displacement >= t threshold covariance",
+          "Resultary 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "Ekhad Zeilberger arXiv:2109.14089v2 bivariate enumeration tables"
+        ]
+      },
+      "rationale": "The new parameter is the full family of individual long-displacement indicator counts H_{n,t}; the joint inversion/total-footrule covariance has long been computed (Ekhad–Zeilberger 2021), but aggregating all threshold covariances loses the scale profile and cannot logically recover these terms. Jiang 2011 concerns asymptotic rank-metric relations and Dimitrov–Khare supplies a general combinatorial moment technology without an evaluated finite formula for this threshold family in the inspected passages. Original Ekhad–Zeilberger §7 full PDF explicitly gives (n+1)(n²+1)/30 but only for SUM of |displacements|. Direct conditioning supplies a new exact all-threshold law and its maximizing scale; possible general unindexed moment identities remain a residual risk.",
+      "residual_risks": [
+        "Diaconis–Graham 1977 full primary text not read; a buried finite displacement-profile identity would change priority assessment.",
+        "A general permutation moment formula might specialize to threshold indicators, requiring comparison of exact implications rather than matching names.",
+        "Only uniform S_n and population covariances, not nonuniform ranking models or stochastic monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_AGGREGATE_CREDITED_EXACT",
+          "evidence": [
+            "§7 gives covariance (n+1)(n²+1)/30 for inv and sum_i|pi(i)-i|, and mixed moments up to degree 8; no separate H_{n,t} evaluated there"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14089",
+          "material_read": "Full 10-page arXiv v2 PDF read, especially §7 pp6-8 bivariate generating function and covariance",
+          "method": "Read page image and text of bivariate moment section",
+          "title": "An Experimental (yet fully rigorous!) Study of a Certain Measure of Disarray",
+          "trigger": "Primary source explicitly publishing total-footrule/inversion covariance"
+        },
+        {
+          "assessment": "ASYMPTOTIC_METRIC_SCOPE_NOT_EXPLICIT_THRESHOLD",
+          "evidence": [
+            "Jiang studies comparisons of global distance metrics and asymptotic independence, not a stated finite cutoff-indexed covariance in inspected sections"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0807",
+          "material_read": "21-page arXiv v1; read intro, metric definitions and index/selected statistical sections",
+          "method": "Read PDF page image and relevant text",
+          "title": "Asymptotic independence of Spearman’s uniform metric with other metrics",
+          "trigger": "Same uniform random permutation metric comparison and ranking distances"
+        },
+        {
+          "assessment": "FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Diaconis and Graham, JRSS B 39 (1977) 262–268; original specialized threshold formulas not excluded"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1977.tb01624.x",
+          "material_read": "Bibliographic citation and accessible abstract only; full 1977 paper not read",
+          "method": "Limit comparison to classical full-footrule aggregate and inequality",
+          "title": "Spearman’s Footrule as a Measure of Disarray",
+          "trigger": "Foundational relationship of total displacement and Kendall inversions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting displacements beyond t probes location-dependent rank disagreement at a resolvable scale, unlike classical summed Spearman footrule. Exact strictly positive covariance for ALL nonconstant monotone displacement penalties is an informative robust cone-wide dependency law, while a maximizing macroscopic threshold identifies the strongest scale. These facts are not a trivial rephrasing of the known total-footrule covariance. No stochastic positive association or correlation-maximization is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2109.14089v2 full original PDF §7",
+    "arXiv:1110.0807v1 primary PDF relevant sections",
+    "Diaconis–Graham 1977 bibliographic/abstract",
+    "Resultary 12 hits exact Kendall inversion displacement cutoff query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Thresholds t integers 1,...,n-1; not correlation optimum and no positive association theorem.",
+    "Exhaustive n=2..7 finite checks corroborate the symbolic all-n proof."
+  ],
+  "residual_risks": [
+    "Diaconis–Graham 1977 full primary text not read; a buried finite displacement-profile identity would change priority assessment.",
+    "A general permutation moment formula might specialize to threshold indicators, requiring comparison of exact implications rather than matching names.",
+    "Only uniform S_n and population covariances, not nonuniform ranking models or stochastic monotonicity."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditioning on one permutation value produces an exact centered bilinear projection of inversion count. Summing its covariance against diagonal displacement indicators gives the stated all-threshold polynomial, whose positivity holds at every integer boundary. The layer-cake identity proves the cone-wide strict sign, and the finite-difference formula proves the sharp threshold maximizer. Exhaustive exact-fraction enumeration through order eight plus algebraic difference checks through order 500 corroborate the proof; none of these finite calculations replaces the general argument.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Conditioning on pi(i)=j in a uniform S_n gives E[I|pi(i)=j]-E[I]=-2(i-(n+1)/2)(j-(n+1)/2)/(n-1). The covariance against H_{n,t}=sum_i 1{|pi(i)-i|>=t} reduces to a diagonal-distance polynomial sum. Independently symbolic subtraction confirms c(n,t+1)-c(n,t)=(t-n)(2t^2+2nt-n^2+1)/[3n(n-1)]; exact summation of c(n,t) gives the previously published total-footrule covariance (n+1)(n^2+1)/30. Exhaustive independent rational permutation enumeration n=2,...,7 reproduced EVERY threshold (sum 21 cases); this is corroboration only. Each denominator positive and 2nt-n+t^2-t+1=n(2t-1)+t(t-1)+1>0; layer-cake increments prove strict nonconstant nondecreasing f positivity. The unique root alpha=(sqrt(3n^2-2)-n)/2 of the first-difference quadratic proves the exact threshold maximizers, including integer tie and n=2 boundary.
 
-The classical Kendall–Spearman comparison and distribution of total displacement were investigated by Diaconis–Graham (1977), Jiang (2011), and Petersen–Guay-Paquet (2014). The exact covariance of inversion count with *total* absolute displacement is explicitly given by Ekhad–Zeilberger (2021) and is excluded from the new claim. Dimitrov–Khare (2021) provides a general moment framework. The inspected full texts do not give the individual long-displacement threshold covariances, the all-increasing-penalty consequence, or the optimizing threshold. The full 1977 article could not be inspected and general formulas may permit an implicit derivation; absence from searchable material does not prove historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Thresholded displacement profiles retain a natural scale dimension discarded by the classical footrule aggregate. The closed form identifies an exact robust positive-dependence law between two inequivalent permutation distances, and the maximizing threshold selects a characteristic macroscopic displacement scale. These results support distance-sensitive rank disagreement comparisons and cannot be inferred from the already published covariance with the sum of all thresholds.
+The new parameter is the full family of individual long-displacement indicator counts H_{n,t}; the joint inversion/total-footrule covariance has long been computed (Ekhad–Zeilberger 2021), but aggregating all threshold covariances loses the scale profile and cannot logically recover these terms. Jiang 2011 concerns asymptotic rank-metric relations and Dimitrov–Khare supplies a general combinatorial moment technology without an evaluated finite formula for this threshold family in the inspected passages. Original Ekhad–Zeilberger §7 full PDF explicitly gives (n+1)(n²+1)/30 but only for SUM of |displacements|. Direct conditioning supplies a new exact all-threshold law and its maximizing scale; possible general unindexed moment identities remain a residual risk.
 
-## Limits and sources
+## value
 
-The theorem concerns population covariance under the uniform permutation null and does not assert stochastic order, general nonuniform permutation laws, or correlation-optimal thresholds. Primary material examined: full arXiv HTML versions 1110.0807v1, 1404.4674v1, 2109.14089v2, 2109.09183v1; publication abstract of Diaconis–Graham (1977). Related earlier implicit coverage remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting displacements beyond t probes location-dependent rank disagreement at a resolvable scale, unlike classical summed Spearman footrule. Exact strictly positive covariance for ALL nonconstant monotone displacement penalties is an informative robust cone-wide dependency law, while a maximizing macroscopic threshold identifies the strongest scale. These facts are not a trivial rephrasing of the known total-footrule covariance. No stochastic positive association or correlation-maximization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
