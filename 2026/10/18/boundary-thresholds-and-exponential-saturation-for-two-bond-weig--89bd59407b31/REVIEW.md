@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof matches the finite left recurrence and the square-summable right tail exactly, obtaining the strictly increasing spectral equation \(F_k(\lambda)=0\) for \(\lambda>2\). Its limit at the spectral edge proves the sharp threshold; finite-path resolvents prove location monotonicity; uniform derivative convergence and a mean-value argument prove the exponential correction. The half-boundary case is correctly excluded as an eigenvector. The packaged standard-library checker verifies the rational polynomial identity, one exact eigenvalue, finite threshold tests, and numerical asymptotic ratios. Those tests do not substitute for the infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The directly relevant 2015 Electronic Journal of Linear Algebra full text derives a general polynomial criterion for finite exceptional weight sequences and gives the first boundary examples. The present claim is not the general criterion, nor a value for a fixed sequence: it gives a position-uniform strict phase transition and an exact exponentially small boundary coefficient as the pair is translated through infinitely many positions. The 2014 paper on two adjacent large weights treats finite nilpotent matrices; the 2013 paper handles simpler perturbations. The 2015 determinantal-polynomial paper is a plausible source but was available only through an abstract, so an implication remains possible. The full comparison and risks are itemized in `AUDIT.json`. Lack of a database hit does not certify independent priority.
+PASS
 
-## Mathematical value — PASS
-The sharp threshold determines exactly when two locally enhanced hopping links create a bound state outside the free spectral band. The asymptotic coefficient quantifies the interaction between that state and the Dirichlet boundary, and detects which of the two links is closer to the boundary. These are natural operator/spectral invariants, with a strict transition and a nontrivial asymptotic law rather than an arbitrary finite numerical slice.
+For adjacent exceptional positive bonds a,b>1 of a half-line weighted unilateral shift, unitary phase conjugation gives w(S)=sup sigma(S+S*)/2. Essential spectrum of the finite-rank perturbed free Jacobi matrix is [-2,2]. At lambda>2 the left Dirichlet polynomial ratio p_(k-1)/p_k and right decaying root t=(lambda-sqrt(lambda²-4))/2 produce the exact bound-state condition F_k=lambda-a² p_(k-1)/p_k-b²t=0. It strictly increases with lambda; F_k(2+)=2-[k/(k+1)]a²-b² yields if-and-only-if threshold and explains edge resonance at equality. Ratio p_(k-1)/p_k increases with k, giving nondecreasing radii (strict when next >1). Its t-expression tends to t; G=lambda-(a²+b²)t has root lambda*=sqrt(s)+1/sqrt(s), s=a²+b²-1, G_prime(lambda*)=2s/(s-1). The mean-value theorem on the exponentially small remaining term gives lim s^(k+1/2)(r∞-r_k)=a²(s-1)²/(4s²). Independently verified k=1 a=b=5/3 root 5/2, three finite location scans and two asymptotic coefficients; general proof uses exact recurrence.
 
-## Remaining limitations
-A general Jacobi theorem may imply the leading coefficient under a different name. Publication priority is not certified. The formula applies to two adjacent fixed real enhancements; it is not a theorem for arbitrary defects or a uniform near-critical limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary scientific comparisons concern same objects, parameters, reductions and stronger-coverage possibilities; no inspected statement decisively covers the complete final claim. Best-of-knowledge originality with explicit remaining access/priority risks.
+
+## value
+
+PASS
+
+An exact boundary-defect phase transition and the leading exponentially small location correction are natural spectral observables for a two-bond Jacobi impurity. The monotone saturation and orientation-specific prefactor characterize real finite-position effects not conveyed by a mere radius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
