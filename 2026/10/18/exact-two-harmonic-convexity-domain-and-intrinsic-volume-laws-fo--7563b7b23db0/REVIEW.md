@@ -1,15 +1,21 @@
-# Scientific review: two-mode zonal support bodies
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-parameter theorem is proved from the radial Hessian of the homogeneous support extension. The meridional and parallel eigenvalue formulas are reconstructed by direct differentiation, and an integrating-factor identity proves that meridional nonnegativity automatically gives parallel nonnegativity. The remaining global inequality is exactly one quadratic on a closed interval. Its fixed-angle bounds, interior stationary value, discriminant, rational phase changes, and endpoint equality cases are all evaluated explicitly. The surface-area and volume identities are exact polynomial integrations; a strictly positive-curvature approximation handles boundary parameters. The packaged script independently reconstructs these identities and tests the resulting domain. A sampling check alone is not used to justify a continuum conclusion.
+## correctness
 
-## Originality — PASS, within inspected evidence
-The exact two-parameter phase diagram is not a renaming of a prior one-parameter perturbation: it features distinct rational transition points \(-24/679\) and \(-1/21\), two algebraic arcs, and nonpolar degeneracy circles. The 2015 Piastra–Virga manuscript provides general convex-body curvature and volume machinery for axial shapes and Legendre-expanded excluded-volume functionals, but no exact parameter positivity classification for \(P_2+P_4\) support bodies. Garboczi–Bullard's 2013 spherical-harmonic particle representation is radial rather than a convex support representation; available material describes numerical convexity diagnostics, not the coefficient-domain theorem. Nearby published exact results concern a **single odd zonal harmonic** and an **octahedral degree-four harmonic**, neither covering this even two-parameter axial family. Database searches used synonyms, exact coefficient values, and parameter-boundary tests. Since not all literature is indexed and one source was inspected from its abstract only, ultimate historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-The first two nonconstant even Legendre modes form the minimal nontrivial two-dimensional zonal harmonic truncation for centrally symmetric smooth bodies of revolution at normalized mean width. The exact feasibility region answers which formal finite-mode shape models actually define convex solids, without imposing only an unspecified small-amplitude bound. Its partly flat, partly algebraic boundary and three geometrically different degeneracy types have intrinsic shape significance. Closed exact surface and volume formulas make the result directly usable in comparisons of such anisotropies, but novelty/value does not rely on mere numerical polynomial evaluation.
+From the actual RESULT.md reconstructed meridional curvature Q(x)=1+(5-9x)a/2+(-525x²+510x-57)b/8, x=cos²(theta), and parallel G(x)=1-(3x+1)a/2+(-105x²+30x+3)b/8. The identity Q=G-2(1-x)Gprime and integral from x to 1 prove Q>=0 implies G>=0; both necessary. The vertex/endpoint tests classify b in [-27/217,6/49], radical branches meeting linear branches at -24/679 and -1/21; all endpoint pairs verified algebraically. Exact independent SymPy integration of h Q G gives S=4pi(1-2a²/5-b²) and V=4pi/3[1-6a²/5-3b²+4a³/7+18a²b/35+300ab²/77+2448b³/1001]. Semidefinite endpoints follow continuity. Finite tests do not establish continuum theorem; the quadratic minimization does.
 
-## Remaining scope limitations
-The coefficient-domain classification is restricted to two specified zonal modes in dimension three. The standard general support-function Hessian criterion and classical Gauss-map integrals are acknowledged. No claim is made about optimality over all harmonic expansions, all bodies of revolution, or independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp two-dimensional convexity region and degeneracy classification not a direct special case of the odd-degree single-mode constant-width theorem or planar dihedral two-mode theorem. General support-radius and mixed-volume formulas are prior art; attribution retained.
+
+## value
+
+PASS
+
+An exact necessary-and-sufficient parameter domain for a natural finite-dimensional deformation class, with nontrivial algebraic branch switches and curvature degeneracy geography, is a useful geometric feasibility and intrinsic-volume reference; the results are neither mere evaluation at a chosen parameter nor standard one-mode substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
