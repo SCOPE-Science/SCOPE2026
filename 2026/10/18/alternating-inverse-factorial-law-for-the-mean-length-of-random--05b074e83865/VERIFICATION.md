@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact expectation follows analytically from Cauchy's perimeter formula, a triangular-cap survival probability, Tonelli's theorem, beta integrals, and a signed Taylor remainder for \((1+x)^{-3/2}\). The latter controls every finite-series truncation and its limit, not just selected numerical parameters.
+# Independent mathematical audit
 
-Reproduction: install Python 3.10 or later with SciPy and run `python CHECK.py`. It checks direct independent support quadrature at eight sample counts, the signed inequalities, two exact base cases (including a separate one-point edge-length integral), deterministic convex-hull Monte Carlo benchmarks with fixed seeds, and large-sample asymptotic consistency. Random sampling and numerical quadrature support but cannot replace the infinite analytic proof.
+## correctness
 
-The earliest motivating manuscript was publicly submitted in October 2025. An independent audit of the present result has not been performed. Unindexed prior calculations, especially alternative formulations of mean lower-chain length, remain an originality risk.
+PASS
+
+Reconstructed the support-function identity: only the southwest normal quadrant contributes to the deficit; the triangular-cap probability is (1-t^2/(ab))^n on its exact support; Tonelli and a beta integral reduce the expectation to the stated one-variable kernel. Taylor’s signed remainder for (1+x)^(-3/2) gives strict alternating truncation inequalities and a summable coefficient tail, including n=0. The gamma-ratio expansion yields the stated n^-1/2, n^-3/2 and separate n^-2 terms. The numerical checker is corroborative, not the infinite proof.
+
+## originality
+
+PASS
+
+None of the read results directly implies the stated expected perimeter expansion or its all-order enclosures. An unindexed prior perimeter formula remains possible.
+
+## value
+
+PASS
+
+PASS: This is a natural Euclidean boundary observable on a canonical random-chain model, complementary to the known area and vertex-count statistics. The exact all-n expectation plus systematically improvable strict finite-sample bounds and a geometrically distinct corner correction are useful rigorous benchmarks; this is not an arbitrary low-order slice or numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
