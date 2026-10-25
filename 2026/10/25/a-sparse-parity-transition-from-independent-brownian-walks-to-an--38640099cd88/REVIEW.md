@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The independent coefficient-level construction admits the exact parity mean \(m_n=(1-2p_n)^{2^{(n-X_n)/2}}\). Uniformly integrated bracket comparison, a binomial local estimate and bounded-jump martingale convergence establish all three functional limits. The critical cross bracket is Brownian positive-occupation time, hence has an arcsine law. The finite parity identities were independently checked through 122 exact-rational assertions; these checks are not treated as an infinite proof.
+
+**Originality — PASS, qualified.** The motivating 2026 paper's inclusion-induced normality theorem requires a uniform lower bound on coefficient probabilities, whereas this claim uses exponentially decaying probabilities and locates an exact critical non-Gaussian phase. Its unrelated totally-unordered Bernoulli model and its one-factor results do not imply the \(2^{|S_n|}\) parity threshold. The 2020 general-bootstrap paper already treats non-Gaussian sign transforms, so novelty is claimed only for the random coefficient ensemble's phase diagram. Three previously recorded bootstrap-walk results concern deterministic masking, symmetric scenery and dyadically sparse active supports, not the full independent-subset thinning model. The possibility of other specialized stochastic-integral limit results remains a priority risk.
+
+**Value — PASS.** The model exhibits qualitatively distinct independent, identical and occupation-switching Brownian regimes under a single natural sparsity control, while keeping each coordinate exactly a simple symmetric random walk at every finite horizon. At criticality its random cross variation has an explicit nondegenerate arcsine distribution. This identifies a concrete boundary to uniform-ellipticity Gaussian normality, rather than a routine numerical refinement.
+
+**Limits and closest sources.** Hamza–Tournier (2026) covers positive-density coefficient randomization; Collevecchio–Hamza–Shi–Williams (2021) covers general bootstrap criteria and non-Gaussian predictable-sign examples. The contribution is annealed only, does not claim a general quenched theorem, and independent priority review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
