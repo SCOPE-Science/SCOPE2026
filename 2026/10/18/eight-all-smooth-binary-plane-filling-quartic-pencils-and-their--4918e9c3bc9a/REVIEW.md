@@ -1,11 +1,21 @@
-# Review of the all-smooth plane-filling quartic-pencil theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** Each geometric smoothness decision uses the degree-ten ideal-piece rank test, proven equivalent to absence of geometric singular points. All \(256\) plane-filling quartics, all compatible triples and all \(168\) projective transformations are examined by exact binary arithmetic. An independently written matrix-conjugation implementation reproduces the \(24\)-curve, \(8\)-pencil, single-orbit and order-\(21\) stabilizer results. The ten-point intersection support and multiplicities are derived by Singer action, rational transversality and Bézout; a finite field count is not mistaken for scheme multiplicity.
+## correctness
 
-**Originality: PASS, with material remaining historical risk.** Asgarli--Ghioca's full 2022 smooth-pencil and 2023 plane-filling-curve papers do not give an exact binary all-smooth quartic-pencil classification. Homma--Kim already give the individual smooth plane-filling quartic matrix theory; individual curve counts and Singer-curve automorphisms are *not* claimed as new. The new statement is compatibility of all three members, one orbit of eight, uniqueness of pencil membership and precise nonreduced base-scheme intersection. The complete Homma--Kim paper and Homma's 2019 sequel were not fully accessible, so a pre-existing implicit formula cannot be excluded; accessible abstracts are not used as proof of noncoverage.
+PASS
 
-**Value: PASS.** This is a complete classification of a natural extremal subfamily at the smallest field and least possible smooth plane-filling degree. The uniform Singer-group structure and seven-plus-three base support with multiplicities provide genuine intersection-theoretic and projective-geometric content beyond enumerating individual quartics.
+Plane-filling degree-4 forms over F2 constitute 8-dimensional evaluation kernel (256 quartics); F_A=det(AX,X,X^[2]) has kernel precisely scalar matrices. Geometric smoothness is equivalently rank 66 for the degree-10 Macaulay map (H,Hx,Hy,Hz) and corresponds to irreducible characteristic cubic of A. Exact enumeration yields 48 irreducible matrices modulo scalar pair=24 distinct smooth forms; over F2 three nonzero members of W are F,G,F+G, giving eight pencils, a single GL3(F2)=168 orbit, stabilizer 21. An independent matrix-bitmask calculation reproduced 168/24/8 and checked the displayed representative triplet; inspected standalone Macaulay-rank and conjugacy programs independently encode the full checks. Common stabilizer C7 is a Singer group, transitive on seven rational points with three algebraic eigenpoints over F8. Base rational intersections are transverse since F,G,F+G have nonzero distinct gradients at F2-points. Bezout length 16; any remaining non-eigenpoint has a 7-element orbit, too large for 16-7-3=6 remainder; three conjugate eigenpoints each contribute multiplicity (16-7)/3=3. This is a finite exact classification coupled to a geometric proof.
 
-There is no claim of publication priority or independent validation; an external mathematical and full-bibliography review remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Homma–Kim classify individual smooth minimal plane-filling quartics and their automorphisms; Asgarli–Ghioca study existence of smooth pencils for larger fields and higher-degree plane-fillers. The examined primary statements do not cover exact eight binary smooth quartic pencils plus scheme-theoretic eigenpoint triple intersections. Homma–Kim full text remained unavailable, so priority risk is preserved.
+
+## value
+
+PASS
+
+Classifies natural simultaneous plane-filling and smoothness compatibility over the minimal field, resolving a finite exact pencil census and producing an informative nonreduced Singer base-intersection geometry; not merely recounting known 24 individual smooth quartics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

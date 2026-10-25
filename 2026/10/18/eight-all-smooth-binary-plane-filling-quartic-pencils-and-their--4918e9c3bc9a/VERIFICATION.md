@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The program `verify_fano_pencils.py` enumerates all \(512\) binary three-by-three matrices and exactly \(256\) distinct corresponding plane-filling quartic forms. A \(66\)-row binary rank computation on the degree-ten homogeneous ideal component finds exactly \(24\) geometrically smooth forms. It checks the equivalence with absence of a binary eigenvector for every matrix representative, lists all \(8\) compatible pencils, and computes the \(168\)-element projective group orbit, order-\(21\) pencil stabilizer and coincident order-\(7\) member stabilizers. The full observed output is `OUTPUT_MAIN.txt`.
+## correctness
 
-The independent C++ program `verify_singer_matrix.cpp` uses a direct irreducible-characteristic-polynomial test, matrix addition modulo binary scalars and projective matrix conjugation to reproduce \(48\) irreducible matrices, \(24\) individual forms, \(8\) compatible pencils and a single eight-element orbit with stabilizer \(21\). The observed output is `OUTPUT_MATRIX.txt`.
+PASS
 
-To replay, run `python3 verify_fano_pencils.py`; compile the C++ source with `g++ -std=c++17 -O2 verify_singer_matrix.cpp -o verify_singer_matrix` and run `./verify_singer_matrix`. No external libraries beyond Python's standard library and the C++ standard library are required.
+Plane-filling degree-4 forms over F2 constitute 8-dimensional evaluation kernel (256 quartics); F_A=det(AX,X,X^[2]) has kernel precisely scalar matrices. Geometric smoothness is equivalently rank 66 for the degree-10 Macaulay map (H,Hx,Hy,Hz) and corresponds to irreducible characteristic cubic of A. Exact enumeration yields 48 irreducible matrices modulo scalar pair=24 distinct smooth forms; over F2 three nonzero members of W are F,G,F+G, giving eight pencils, a single GL3(F2)=168 orbit, stabilizer 21. An independent matrix-bitmask calculation reproduced 168/24/8 and checked the displayed representative triplet; inspected standalone Macaulay-rank and conjugacy programs independently encode the full checks. Common stabilizer C7 is a Singer group, transitive on seven rational points with three algebraic eigenpoints over F8. Base rational intersections are transverse since F,G,F+G have nonzero distinct gradients at F2-points. Bezout length 16; any remaining non-eigenpoint has a 7-element orbit, too large for 16-7-3=6 remainder; three conjugate eigenpoints each contribute multiplicity (16-7)/3=3. This is a finite exact classification coupled to a geometric proof.
 
-The geometric base-locus claim is established algebraically: seven reduced rational intersection points, three Frobenius-conjugate Singer eigenpoints, absence of other seven-element orbits by Bézout, and total multiplicity \(7+3\cdot3=16\). It is not asserted to follow from a bounded finite-extension search.
+## originality
 
-The two checks are independently written but not independently peer reviewed. Inaccessible historical full papers may conceal equivalent results. No external audit has been performed.
+PASS
+
+Homma–Kim classify individual smooth minimal plane-filling quartics and their automorphisms; Asgarli–Ghioca study existence of smooth pencils for larger fields and higher-degree plane-fillers. The examined primary statements do not cover exact eight binary smooth quartic pencils plus scheme-theoretic eigenpoint triple intersections. Homma–Kim full text remained unavailable, so priority risk is preserved.
+
+## value
+
+PASS
+
+Classifies natural simultaneous plane-filling and smoothness compatibility over the minimal field, resolving a finite exact pencil census and producing an informative nonreduced Singer base-intersection geometry; not merely recounting known 24 individual smooth quartics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
