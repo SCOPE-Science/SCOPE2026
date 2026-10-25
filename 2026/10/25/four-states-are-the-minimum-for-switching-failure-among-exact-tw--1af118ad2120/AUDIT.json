@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The identity P squared equals J and row stochasticity imply J P=J (column stochasticity). A deterministic row cannot occur, because it would force the target row to be uniform while already exhausting the target column. On at most three states every two row supports then intersect; the Dobrushin coefficient is strictly below one and attains a uniform maximum below one by compactness. Four-state forward/backward fair-bit shifts have P squared=Q squared=J but PQ is a nonuniform idempotent preserving one bit. With P_e=(1-e)P+e J, the centered alternating product scales by (1-e)^t; each relevant row has total variation one-half before scaling. The package verifier reproduces 280 exact rational switching cases and 14 feasible three-state rational kernel instances, but these finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1712.02614v1 Section 1 discusses Wolfowitz universal-product criterion and Section 2 defines scrambling and SIA classes.",
+        "https://arxiv.org/abs/2102.08002 Proposition 1.1 assumes irreducible aperiodic reversible common-stationary kernels.",
+        "https://arxiv.org/abs/2203.09468 Section III.4 defines ergodicity of varying bistochastic kernels."
+      ],
+      "reasoning": "General product convergence theory explains why a failure is possible, and the scrambling result supplies a related sufficient condition, but the inspected statements do not imply the smallest n=4 boundary for P squared=J nor compute the exact family of switching rates. Reversibility results do not cover these matrices.",
+      "searches": [
+        "\"two-step\" \"alternating\" \"nonreversible\" Markov chain stationary",
+        "Sets of Stochastic Matrices with Converging Products: Bounds and Complexity Section 2 and 3",
+        "Reversible Random Walks on Dynamic Graphs Proposition 1.1 and Theorem 1.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.08002",
+      "https://arxiv.org/html/1712.02614v1",
+      "https://arxiv.org/abs/2203.09468",
+      "https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2102.08002 assumes reversibility; our P is non-symmetric and centered nilpotent.",
+        "https://arxiv.org/html/1712.02614v1 uses universal SIA products and scrambling; it contains the general mechanisms but not our sharp support-cardinality classification.",
+        "https://arxiv.org/abs/2203.09468 analyzes time-varying doubly-stochastic probability dynamics without the prescribed exact-square condition."
+      ],
+      "reasoning": "A direct implication would require additional facts: square-to-uniform forces scrambling in 2/3 states but not in four, plus the special forward/reverse bit-shift idempotent and perturbation rate. These are proved directly. The classical product-of-nilpotents mechanism itself is not attributed as new.",
+      "searches": [
+        "Reversible Random Walks on Dynamic Graphs 2021 full article Proposition 1.1",
+        "Sets of Stochastic Matrices with Converging Products 2017 full article Definitions 2-4 and Theorem of Wolfowitz",
+        "Markov chains with doubly stochastic transition matrices 2022 full article section III.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The centered matrices P-J and Q-J are square-zero; their mixed product has a nonzero idempotent component. This identifies the classic product-of-nilpotents equivalence. https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices",
+        "The concrete kernels have four states, whereas https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices exhibits a three-state nilpotent centered fixed kernel without the switched nonmixing claim."
+      ],
+      "reasoning": "The abstract product of square-zero operators yielding a nonzero product is classical and is not claimed as new. The nonnegative bistochastic realization with sharp minimal state size and the exact perturbed switching profile require extra stochastic constraints; those are the assessed claim.",
+      "searches": [
+        "\"P^2=J\" \"PQ\" stochastic matrices mixing",
+        "\"square root\" \"uniform matrix\" \"alternating products\"",
+        "nonconvergent products of individually scrambling stochastic matrices nilpotent alternating"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/1712.02614v1 Table 1 enumerates automata SIA indices, not square-to-uniform bistochastic kernel pairs.",
+        "https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices supplies explicit bistochastic fixed-kernel examples but no dynamic four-state table."
+      ],
+      "reasoning": "No inspected exact parameter table states the minimal n or the epsilon-dependent total-variation profile. Absence in searched tables is not a proof of uniqueness.",
+      "searches": [
+        "\"P^2=J\" \"PQ\" stochastic matrices mixing",
+        "square roots of van der Waerden matrix random transition mixing 4 by 4",
+        "stochastic square root of rank one stochastic matrix doubly stochastic 4",
+        "Chevalier et al. 2017 Table 1 SIA-index"
+      ]
+    },
+    "rationale": "In Shimizu–Shiraga (2021), the dynamic common-stationary mixing bounds explicitly require reversible kernels; our counterexample is nonreversible. Chevalier et al. (2017) give broader Wolfowitz/SIA product frameworks and the scrambling class, not the sharp minimum state count for exact-square-to-uniform kernels or their positive-perturbation switched profile. Vourdas (2022) treats general time-dependent bistochastic chains and entropy/ergodic examples, not this boundary. Speyer (2011) already constructs nondiagonalizable 3-state bistochastic matrices, so a square root of uniform by itself is classical, and nilpotent-centered product phenomena are credited. The exact four-state sharpness is the narrow novelty assessed. Historical priority remains a risk, not an independence assertion.",
+    "residual_risks": [
+      "A classical joint-spectral-radius or stochastic-products theorem might have an equivalent explicit minimal-dimensional square-root-to-uniform counterexample that keyword searches missed.",
+      "General nilpotent matrix product constructions underlie the four-state witness; priority claims are limited to the sharp bistochastic dimension boundary and perturbed mixing profile.",
+      "No independent external priority or correctness assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the proposed counterexample because reversibility is imposed.",
+        "evidence": [
+          "https://arxiv.org/abs/2102.08002 sections 1.1 and 3, Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.08002",
+        "material_read": "Abstract, introduction, statements Proposition 1.1 and Theorem 1.2, and proof-appendix discussions of reversible spectra",
+        "method": "Accessible full HTML text; compared theorem hypotheses with exact-square nonreversible kernels",
+        "title": "Reversible Random Walks on Dynamic Graphs",
+        "trigger": "2021 study of dynamic common-stationary mixing motivating the reversibility boundary"
+      },
+      {
+        "assessment": "Provides general background and a related scrambling sufficient mechanism, but not the exact-square-to-uniform minimal four-state switching classification.",
+        "evidence": [
+          "https://arxiv.org/html/1712.02614v1 Sections 1-3 and Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1712.02614v1",
+        "material_read": "Full HTML article with Sections 1, 2, 3 and Table 1, focusing Wolfowitz, scrambling, SIA and index bounds",
+        "method": "Read relevant definitions, equivalence propositions, index results, and tabulated cases",
+        "title": "Sets of Stochastic Matrices with Converging Products: Bounds and Complexity",
+        "trigger": "Potentially dominating general stochastic-product convergence result"
+      },
+      {
+        "assessment": "Treats varying bistochastic chains and entropic polytopes; no exact square-to-uniform minimal switching example identified.",
+        "evidence": [
+          "https://arxiv.org/abs/2203.09468 Sections II and III.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.09468",
+        "material_read": "Abstract, Sections I-II and III including III.4 ergodic criteria, and searched for alternating and two-step",
+        "method": "Accessible full HTML text and targeted sections",
+        "title": "Markov chains with doubly stochastic transition matrices and application to a sequence of non-selective quantum measurements",
+        "trigger": "Potential same-object time-dependent bistochastic Markov paper"
+      },
+      {
+        "assessment": "Establishes earlier three-state nontrivial nilpotent centered bistochastic fixed kernel, not the nonconverging switched four-state pair.",
+        "evidence": [
+          "https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices answer by David E. Speyer dated 2011-01-13"
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/51887/non-diagonalizable-doubly-stochastic-matrices",
+        "material_read": "Full question and all displayed answers, especially David Speyer 2011 answer and comments",
+        "method": "Full accessible MathOverflow page; compared algebraic example with switching dimension theorem",
+        "title": "Non-diagonalizable doubly stochastic matrices",
+        "trigger": "Potential prior exact square root of uniform and centered nilpotency"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1af118ad-2120-46db-a489-62542e97ba7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise condition that a homogeneous chain perfectly forgets its start after two steps is a natural maximal static mixing guarantee. The proof identifies the exact smallest state count where deterministic switching defeats that guarantee, rather than choosing arbitrary parameter slices. The perturbation family is strictly positive and still has exact static two-step mixing but exhibits mixing times diverging inversely in its perturbation size, making the obstruction quantitatively stable and relevant to dynamic common-stationary Markov theory.",
+    "status": "PASS"
+  }
+}
