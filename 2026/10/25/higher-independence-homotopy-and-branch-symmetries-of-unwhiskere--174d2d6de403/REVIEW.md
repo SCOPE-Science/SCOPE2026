@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The link of the center is characterized by an exact weighted component-count inequality. Its subcomplex with a missing intermediate vertex has a full-simplex good-cover nerve, hence is contractible. When every intermediate vertex is present, the complementary cone-on-truncated-simplex model meets it in the join of a simplex boundary and a skeleton. Two homotopy pushouts yield the claimed sphere-wedge dimensions and ranks. Natural Mayer–Vietoris maps and the integral top-cycle kernel of a simplex skeleton prove the sign-twisted exterior-power lattice. The contractibility bounds and the empty-face case are explicit. The complete finite checker independently confirms 45 mod-two Betti vectors and 1436 signed Lefschetz characters; these are corroborative only.
+
+**Originality — PASS with residual bibliographic uncertainty.** Deshpande–Singh arXiv:2001.05448 was inspected in its complete accessible HTML, in particular Theorems 3.8, 3.10 and 5.6. The nearest general exact theorem assumes every nonleaf has an adjacent leaf, which fails at the unwhiskered center. The perfect-ary-tree theorem also excludes this family. Sawant arXiv:2605.25150 proves tree vertex-decomposability, not the exact homotopy ranks or integral branch action. Prior finite \(r=2\) cases and ordinary Morse complexes of spiders are acknowledged without claiming them. An unindexed equivalent formula remains possible.
+
+**Mathematical value — PASS.** Removing a *single* whisker from the center of a fully whiskered star takes the graph outside the published exact family theorem. The complete infinite-parameter answer exhibits a sharp contractible-to-spherical-to-contractible transition, a binomial multiplicity profile, and an integral symmetry lattice. These are natural quantitative refinements for a simple nontrivial boundary family of the 2026 all-trees theorem, not an arbitrary finite parameter slice.
+
+**Scope and limitation.** No general-tree formula or equivariant homotopy equivalence is claimed. The theorem is for equal two-edge arms and \(r\ge3\), with all integral homotopy claims proved by decomposition rather than inferred from finite experiments. The closest sources and material-read limitations appear in the originality assessment.
+
+Self-review: passed. Independent audit: not yet performed.
