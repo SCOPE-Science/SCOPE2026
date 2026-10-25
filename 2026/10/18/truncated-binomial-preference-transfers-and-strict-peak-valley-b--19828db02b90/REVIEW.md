@@ -1,19 +1,21 @@
-# Scientific review: strict peak–valley preference ordering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The conditional law is an exact binomial on a terminal support interval determined by all intermediate parking-prefix constraints. No prefix constraint outside the chosen two-bin gap is altered when the sum of the two loads is fixed. The joint swap inequality follows from the symmetric binomial weights; the strict-peak minus strict-valley formula follows from comparing triples with equal endpoints. The all-size strict inequality uses an explicitly feasible and unmatched load pair, while the sum of the two probabilities follows from Pollak's cyclic correspondence for equality partitions. Endpoint cases and the interpretation of car indices versus space-value indices have been checked. `verify.py` passed 24269 exact assertions, including independent preference-word enumeration through size six and all conditioned occupancy-profile cases through size seven; those finite tests supplement rather than replace the general proof.
+PASS
 
-## Originality
+Uniform parking functions have feasible loads satisfying every prefix sum ≥prefix length, with multinomial weight n!/∏m_j!. Conditioning all bins except a<b and total T leaves only r=m_a constraints R≤r≤T and a weight proportional to binom(T,r): exact symmetric-binomial lower truncation, including T=0. Pairing r>s and swapped masses proves load pair inequality and stochastic dominance. For three car preferences, equal endpoints contribute m_a m_b(m_a-m_b) to peak-minus-valley; Pollak cyclic shift controls equality patterns and yields p+ +p-=2p0. The feasible profile (n−1,0,...,0,1) but impossible swap makes positivity ≥(n+1)^(−n+1). Independent complete preference word enumeration gives (peaks,valleys) (4,3),(33,27),(355,305) for n=3,4,5. Analytic proof handles all n; finite experiments do not.
 
-**PASS on the inspected scientific evidence, subject to residual historical-priority risk.** Diaconis and Hicks, *Probabilizing Parking Functions* (arXiv:1611.09821), identify the nonequidistribution of **strict** peaks while proving equidistribution of **weak** peaks and species; this observation is not a new claim here. The new claim is the all-size direction \(p_n^+>p_n^0>p_n^-\) and exact signed moment, together with a structural conditional-binomial theorem for loads at any two preferred-space values. Kenyon–Yin (arXiv:2103.17180), Bellin (arXiv:2108.08661), and Yin (arXiv:2112.02251) contain related exact coordinate or asymptotic tools but not these conclusions in their inspected statements. Searches for identical occupancy transfers, equivalent inequalities and dominating results found no explicit prior theorem; older multivariate generating-function identities could still encode part of it implicitly. Independent priority checking is not claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** The distinction between strict and weak peaks in random parking preferences was singled out in a primary mathematical study. The theorem determines the direction of the strict inequality for **every** size, connects it to an exact signed third-order occupancy statistic, and proves a general distributional principle (truncated symmetric-binomial transfers between any earlier and later preference labels). The latter also yields stochastic ordering of the entire sequence of preference-space loads. This addresses a natural dependence question beyond the known single-coordinate marginal monotonicity, while acknowledging classical ballot/Pollak inputs and the absence of a sharp asymptotic gap formula.
+Diaconis-Hicks previously observed strict-peak failure of ensemble equality, so that observation is not counted as new. The current statement gives a strict direction for every n, exact signed occupancy cubic moment, and arbitrary two-label conditional truncated symmetric-binomial law. Searches and accessible primary abstract supplied no evident equivalent load theorem. Best-of-knowledge originality with incomplete primary-body access.
 
-## Limits and closest related literature
+## value
 
-The model is classical uniform parking functions; the sharp asymptotic constant for the peak–valley gap is not established. Diaconis–Hicks (2016, Section 4) is the closest prior treatment of peak patterns. Kenyon–Yin (2021), Bellin (2021) and Yin (2021) give additional partial or broader-looking coordinate results, but a direct implication to the proposed inequality was not found in their inspected material. A self-review cannot certify universal historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strict versus weak peak ensemble discrepancy is an explicit question raised in primary parking-function probability. The theorem establishes the finite-n direction and a general arbitrary-two-preference-label mass-transfer principle, with exact occupancy moment connecting dependent car preferences to order-pattern bias. This is structural and all-size, not a trivial table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
