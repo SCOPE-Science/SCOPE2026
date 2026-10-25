@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T08:07:40.429208Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_pressure_bound.py and other four source files at seven audited Git blob SHAs",
+        "G. Alkauskas, The Minkowski ?(x) function and Salem's problem. II, arXiv:2609.39181v1 (2026), https://arxiv.org/html/2609.39181v1 , Proposition 1, its proof and final Fourier comparison (full five-page primary article inspected).",
+        "Independent 60-decimal-digit outward interval endpoint enclosures for N=2000 and N=4000 cells"
+      ],
+      "rationale": "Independently reconstructed the claimed finite certificate from the seven assigned frozen Git blobs (tree SHA exactly matched). For s=847/1000 and g(x)=1+(127/120)x, K_s^(12)g(x)-g(x) is the sum for a=1..12 of 4^(-a)[(a+x)^(1.694)+(127/120)(a+x)^(0.694)] minus 1-(127/120)x. Both exponents are positive, so on each cell [j/N,(j+1)/N] each positive summand is bounded below by its value at left endpoint while the subtracted linear g is bounded above at right endpoint. Independently performed this 60-digit mpmath.iv outward-enclosed endpoint proof for all N=2000 cells: worst lower endpoint >0.000051512874938653, attained at j=1005, exceeds 1/25000=0.00004; an independent N=4000 run also passed. This is an exhaustive finite interval proof of the CONTINUUM inequality, not samples; it differs from the source verifier which propagates intervals through the whole expression. Since every a>=13 summand is positive, full K_s g > g+1/25000. With g(x)<=247/120 it gives K_s g >= (1+3/154375)g. Iterating positivity and bounding operator norm gives r(K_s)>=1+3/154375>1. The directly inspected source Proposition 1 supplies strictly increasing P(s)=log r(K_s), unique zero D_2, so D_2<0.847. The source Fourier comparison eta_*<=D_2/2 yields eta_*<0.4235. No conclusion from a merely truncated finite numerical sum is used.",
+      "residual_risks": [
+        "Computer-assisted step relies on arithmetic library's outward rounding, not a formal proof assistant or exact symbolic Taylor bound.",
+        "Existence, uniqueness and monotonicity of the pressure zero and Fourier exponent comparison are imported from the inspected primary 2026 theorem; their full ergodic-theoretic theory is not reproven.",
+        "Original RESULT.md contains a literal control/form-feed character corrupting one displayed \\frac{247}{120}; mathematical statement independently reconstructed, but public source requires typographical cleanup before publication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pollicott 2026 Proposition 3.4 and Example 5.2 develop rigorous spectral estimates using positive functions for a TWO-BRANCH Farey operator and Hausdorff dimension near 0.874716, not the current countable Gauss-branch K_s and its correlation dimension below 0.847.",
+          "A dimension inequality D_2 <= dim_H(mu) combined with dim_H(mu) ~0.874716 is numerically weaker than D_2 < 0.847; it cannot imply the claimed bound.",
+          "Jordan-Sahlsten 2016 Theorem 1.3 and Corollary 1.5 prove existence of Fourier power decay for suitable Gauss-map Gibbs measures including Minkowski question mark, but no stated bound eta_*<0.4235.",
+          "Alkauskas 2010 develops period functions, moments, and a Hausdorff-dimension estimate, not the September 2026 correlation dimension pressure sign."
+        ],
+        "reasoning": "General positive-operator techniques, older Hausdorff estimates and qualitative Fourier-decay theorems do not automatically yield the numerical correlation-dimension threshold. The particular operator, norm and parameter were compared rather than relying on matching paper titles.",
+        "searches": [
+          "Alkauskas Minkowski Salem problem II correlation dimension pressure exact rigorous numerical bound Fourier coefficients",
+          "Correlation dimension Minkowski measure transfer operator bound Collatz-Wielandt interval arithmetic",
+          "Minkowski measure numerical Fourier decay upper bound correlation dimension twelve branches",
+          "M. Pollicott, The Hausdorff dimension of the set where the Minkowski question mark function has infinite derivative, arXiv:2606.12196v1, https://arxiv.org/pdf/2606.12196 (full ten-page primary paper, Proposition 3.4 and Example 5.2 inspected).",
+          "T. Jordan and T. Sahlsten, Fourier transforms of Gibbs measures for the Gauss map, arXiv:1312.3619v3, https://arxiv.org/pdf/1312.3619 (full 29-page primary paper, Theorem 1.3, Corollary 1.5 and introduction inspected).",
+          "G. Alkauskas, The Minkowski question mark function: explicit series for the dyadic period function and moments, arXiv:0805.1717v4, https://arxiv.org/pdf/0805.1717 (full 39-page primary paper, main results, introduction and Appendix A.3 inspected)."
+        ]
+      },
+      "checked_sources": [
+        "G. Alkauskas, The Minkowski ?(x) function and Salem's problem. II, arXiv:2609.39181v1 (2026), https://arxiv.org/html/2609.39181v1 , Proposition 1, its proof and final Fourier comparison (full five-page primary article inspected).",
+        "M. Pollicott, The Hausdorff dimension of the set where the Minkowski question mark function has infinite derivative, arXiv:2606.12196v1, https://arxiv.org/pdf/2606.12196 (full ten-page primary paper, Proposition 3.4 and Example 5.2 inspected).",
+        "T. Jordan and T. Sahlsten, Fourier transforms of Gibbs measures for the Gauss map, arXiv:1312.3619v3, https://arxiv.org/pdf/1312.3619 (full 29-page primary paper, Theorem 1.3, Corollary 1.5 and introduction inspected).",
+        "G. Alkauskas, The Minkowski question mark function: explicit series for the dyadic period function and moments, arXiv:0805.1717v4, https://arxiv.org/pdf/0805.1717 (full 39-page primary paper, main results, introduction and Appendix A.3 inspected).",
+        "Four current exact-source/semantic Resultary queries; only direct close hit was same record (excluded as independent prior)",
+        "Additional exact identifier, bound and correction/erratum web literature searches; no covering independent primary result found"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source establishes P(s)=log r(K_s), its strict increase and unique zero, and eta_*<=D_2/2; its decimal alone does not establish P(0.847)>0.",
+          "The new result certifies P(0.847)>0 via g=1+(127/120)x, twelve positive terms and 2000 exhaustive outward-enclosed continuum intervals, then yields D_2<0.847 and eta_*<0.4235.",
+          "An older upper obstruction at half the Hausdorff dimension 0.4373581525... is weaker (larger) than the new upper bound 0.4235.",
+          "A separate positive operator proof for a Hausdorff-dimension statistic does not entail a bound for this correlation-pressure statistic."
+        ],
+        "reasoning": "Using the exact premises, the prior results determine a function and a numerical approximation but not the claimed rigorous sign. The claimed explicit positive test function supplies the missing strict certified implication. Scope is a rigorous certificate, not the numerical discovery of D_2 nor novelty of the Collatz-Wielandt principle.",
+        "searches": [
+          "G. Alkauskas, The Minkowski ?(x) function and Salem's problem. II, arXiv:2609.39181v1 (2026), https://arxiv.org/html/2609.39181v1 , Proposition 1, its proof and final Fourier comparison (full five-page primary article inspected).",
+          "M. Pollicott, The Hausdorff dimension of the set where the Minkowski question mark function has infinite derivative, arXiv:2606.12196v1, https://arxiv.org/pdf/2606.12196 (full ten-page primary paper, Proposition 3.4 and Example 5.2 inspected).",
+          "T. Jordan and T. Sahlsten, Fourier transforms of Gibbs measures for the Gauss map, arXiv:1312.3619v3, https://arxiv.org/pdf/1312.3619 (full 29-page primary paper, Theorem 1.3, Corollary 1.5 and introduction inspected).",
+          "G. Alkauskas, The Minkowski question mark function: explicit series for the dyadic period function and moments, arXiv:0805.1717v4, https://arxiv.org/pdf/0805.1717 (full 39-page primary paper, main results, introduction and Appendix A.3 inspected).",
+          "Minkowski question mark measure correlation dimension rigorous upper bound D2 less than 0.847 Fourier decay exponent less than 0.4235 transfer operator pressure certificate",
+          "Alkauskas Minkowski Salem problem II correlation dimension pressure exact rigorous numerical bound Fourier coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this positive transfer operator, the strict rational inequality D_2<847/1000 is equivalent (using the source's strictly increasing P and unique zero) to P(847/1000)>0 and r(K_{847/1000})>1; the displayed positive-subeigenfunction condition is a sufficient explicit certificate of this sign.",
+          "Alkauskas 2026 Proposition 1 determines pressure-zero characterization and gives a non-certified numerical D_2/2=0.4223047..., not the positive linear certificate or strict rational bound.",
+          "Four semantic Resultary searches retrieved the exact SAME result record 2026/10/11/SCOPE-a-twelve-branch-pressure-certificate-for-the-minkowski-correlati--b44ea98f52df; this same record is not independent evidence of priority.",
+          "Earlier published Minkowski Fourier-decay results give qualitative power decay or half-Hausdorff-dimensional obstruction; they do not imply the 0.4235 certified corollary."
+        ],
+        "reasoning": "Checked pressure sign, correlation dimension, spectral-radius Collatz-Wielandt positivity, and Fourier exponent variants. None of the independently inspected primary statements gives the strict numerical certificate or mathematically dominates it. The source numerical approximation signals the expected answer but is not an exact proof at a rational threshold.",
+        "searches": [
+          "Minkowski question mark measure correlation dimension rigorous upper bound D2 less than 0.847 Fourier decay exponent less than 0.4235 transfer operator pressure certificate",
+          "Question mark function pressure operator spectral radius positive subeigenfunction twelve branches 127 over 120 correlation dimension",
+          "Correlation dimension Minkowski measure transfer operator bound Collatz-Wielandt interval arithmetic",
+          "arXiv:2609.39181 0.847 rigorous upper bound pressure Minkowski",
+          "Minkowski question mark correlation dimension 0.4223047 certified pressure bound",
+          "arXiv:2609.39181v1, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 source gives an approximate decimal D_2/2=0.4223047... without a stated rigorous error enclosure; the claimed inequality is not an already proved table entry.",
+          "The 2010 paper's numerical tables concern moments/Hausdorff dimension, not the 2026 correlation-pressure sign.",
+          "The current certificate proves a continuum-wide interval inequality and transfers it to an infinite positive operator; it is not a mere recomputation of published decimal digits."
+        ],
+        "reasoning": "Searches included the exact rational 0.847, Fourier 0.4235, slope 127/120, twelve branches and published paper identifier. A numerical estimate consistent with the threshold is explicitly credited but, lacking certified error bounds, does not logically establish the strict inequality. An unindexed stronger certified table is an acknowledged residual risk.",
+        "searches": [
+          "Minkowski question mark measure correlation dimension rigorous upper bound D2 less than 0.847 Fourier decay exponent less than 0.4235 transfer operator pressure certificate",
+          "Question mark function pressure operator spectral radius positive subeigenfunction twelve branches 127 over 120 correlation dimension",
+          "arXiv:2609.39181 0.847 rigorous upper bound pressure Minkowski",
+          "Minkowski question mark correlation dimension 0.4223047 certified pressure bound",
+          "Alkauskas 2026 numerical D2/2=0.4223047",
+          "Alkauskas 2010 Appendix A.3 moment/dimension numerical tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel content is an explicit, rigorous, rational pressure-sign certificate K_{847/1000}g >= (1+3/154375)g, hence the provable D_2<0.847 and eta_*<0.4235. Alkauskas 2026 supplies the operator, uniqueness of the pressure zero, Fourier comparison, and a numerical evaluation D_2/2=0.4223047..., not a proof of that rational sign. Pollicott 2026 explicitly uses positive-transfer-operator certification on a different Farey/Hausdorff-dimension problem; so no novelty is attributed to the positivity technique itself. The independent Resultary queries returned the identical record as their nearest hit; it was excluded as priority evidence. Checked broader and older primary results do not supply the correlation-pressure numerical sign. No inference that absent search results prove priority; residual risk of unindexed bounds retained.",
+      "residual_risks": [
+        "An unindexed or otherwise inaccessible rigorous correlation-dimension pressure bound might contain the same or a dominating inequality; the finite sources inspected cannot prove universal priority.",
+        "Positive subeigenfunction/Collatz-Wielandt spectral bounds are established techniques (explicitly illustrated by Pollicott 2026). Only the particular certificate is new on the checked record, not the method.",
+        "The paper's reported numerical 0.4223047... already predicts the stronger numerical answer, so originality must not be described as a new numerical discovery or improvement over that approximation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PREMISES_NOT_EXPLICIT_RIGOROUS_CERTIFICATE. Claims the numerical D_2/2=0.4223047... without a certified 0.847 sign bound; supplies strict P monotonicity and Fourier comparison used in proof.",
+          "evidence": "Proposition 1 and its proof identify pressure P(s)=log r(K_s), unique zero and monotonicity; final section reports D_2/2=0.4223047... numerically and compares with Hausdorff bound.",
+          "identifier_or_url": "arXiv:2609.39181v1 https://arxiv.org/html/2609.39181v1",
+          "material_read": "Complete five-page primary preprint, including Proposition 1 and proof, transfer operator definition, pressure uniqueness and increase, Fourier mean-square/decay comparison and concluding reported decimal; rendered PDF pages four and five inspected.",
+          "method": "Full primary HTML reading and primary PDF page rendering.",
+          "title": "The Minkowski ?(x) function and Salem's problem. II",
+          "trigger": "Same object, identical countable transfer operator, primary theorem furnishing all imported premises and the claimed numerical dimension."
+        },
+        {
+          "assessment": "RELATED_METHOD_DIFFERENT_INVARIANT. Certifies a Hausdorff dimension with a two-branch Farey transfer operator, not the correlation dimension of the countably branched operator and not D_2<0.847. Positive-operator method is established prior art.",
+          "evidence": "Proposition 3.4 applies positive spectral comparison to the different L_t; Example 5.2 reports Hausdorff-dimension numerics near 0.874716, which alone are too weak to imply 0.847.",
+          "identifier_or_url": "arXiv:2606.12196v1 https://arxiv.org/pdf/2606.12196",
+          "material_read": "Full ten-page primary PDF with explicit close review of Proposition 3.4 and Example 5.2 and the spectral formula, pages 4 and 8 rendered.",
+          "method": "Primary full-text PDF and page rendering.",
+          "title": "The Hausdorff dimension of the set where the Minkowski question mark function has infinite derivative",
+          "trigger": "Highly relevant same measure, recent rigorous numerical dimension result and seemingly equivalent positive-subeigenfunction methodology."
+        },
+        {
+          "assessment": "COVERS_QUALITATIVE_DECAY_NOT_NUMERICAL_OBSTRUCTION. Theorems provide existence of some power Fourier decay, no implication of eta_*<0.4235 via September 2026 correlation pressure.",
+          "evidence": "Theorem 1.3 obtains a positive Fourier-decay exponent under Gibbs and dimension hypotheses; Corollary 1.5 explicitly includes the question-mark measure.",
+          "identifier_or_url": "arXiv:1312.3619v3 https://arxiv.org/pdf/1312.3619",
+          "material_read": "Full 29-page primary PDF, Theorem 1.3, Corollary 1.5, section 1.3 and introduction; PDF pages 1 and 6 rendered.",
+          "method": "Primary full-text reading and PDF page rendering.",
+          "title": "Fourier transforms of Gibbs measures for the Gauss map",
+          "trigger": "Closest earlier primary Fourier-decay theorem applying to the same Minkowski question-mark measure."
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETERS. Moments and Hausdorff dimension, not the 2026 countable correlation-dimension transfer operator or its pressure sign.",
+          "evidence": "Appendix provides numerical Hausdorff dimension near 0.874716 and moments, not a certified D_2<0.847.",
+          "identifier_or_url": "arXiv:0805.1717v4 https://arxiv.org/pdf/0805.1717",
+          "material_read": "Full 39-page primary PDF; introduction, main results and Appendix A.3 concerning numerical moments and Hausdorff dimension, with pages 1 and 35 rendered.",
+          "method": "Full primary PDF text inspection and relevant page rendering.",
+          "title": "The Minkowski question mark function: explicit series for the dyadic period function and moments",
+          "trigger": "Earlier full primary investigation of same measure by same author, including numerical quantities that might dominate the new bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "G. Alkauskas, The Minkowski ?(x) function and Salem's problem. II, arXiv:2609.39181v1 (2026), https://arxiv.org/html/2609.39181v1 , Proposition 1, its proof and final Fourier comparison (full five-page primary article inspected).",
+        "M. Pollicott, The Hausdorff dimension of the set where the Minkowski question mark function has infinite derivative, arXiv:2606.12196v1, https://arxiv.org/pdf/2606.12196 (full ten-page primary paper, Proposition 3.4 and Example 5.2 inspected).",
+        "T. Jordan and T. Sahlsten, Fourier transforms of Gibbs measures for the Gauss map, arXiv:1312.3619v3, https://arxiv.org/pdf/1312.3619 (full 29-page primary paper, Theorem 1.3, Corollary 1.5 and introduction inspected).",
+        "Exact 1/25000 positive-operator certificate and Fourier comparison"
+      ],
+      "rationale": "The 2026 primary theorem advances Salem's problem using a previously unquantified-in-proof correlation pressure zero, but reports D_2/2=0.4223047... only as a numerical evaluation. Converting the pressure sign at a natural three-decimal rational threshold to a replayable exhaustive continuum certificate yields a genuine proved Fourier-decay exponent obstruction eta_*<0.4235, strictly stronger than the older half-Hausdorff upper obstruction approx 0.4373581525. The particular certificate is short (12 branches, positive linear g), pertinent to a named research question, and supplies a precise rigor gap a future researcher may need to cite without trusting unquantified numerical approximation. Value is the explicit certified threshold rather than novelty of the general positive-operator method. It does not determine exact D_2 or eta_* and is not claimed numerically optimal.",
+      "residual_risks": [
+        "The threshold 0.847 is deliberately weaker than the source's numerical estimate D_2≈0.8446094 and may be superseded by stronger rigorous computations.",
+        "Provides an upper Fourier-exponent obstruction only, not any Fourier decay lower bound or exact spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Reliance on outward finite interval certification for one uniform functional inequality, plus published ergodic-theoretic pressure and Fourier premises; this is rigorous computer-assisted evidence but not Lean or an expert attestation.",
+    "No claim of exact correlation dimension, exact Fourier exponent, the optimal rigorous rational threshold, or priority for the general positive-subeigenfunction method.",
+    "The source reported an unvalidated decimal estimate already more precise; the claim adds a mathematically certified inequality, not discovery of a new numerical value.",
+    "Explicit mathematical presentation typo in a displayed 247/120 fraction, not part of the independently checked proof.",
+    "Potential unpublished/unindexed equivalent or stronger numerical pressure certificate remains an originality risk."
+  ],
+  "schema_version": 1
+}
