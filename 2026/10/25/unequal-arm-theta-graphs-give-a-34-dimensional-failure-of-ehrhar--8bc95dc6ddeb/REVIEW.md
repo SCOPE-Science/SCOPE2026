@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim concerns the type-A symmetric edge polytope of a graph having five paths of even lengths \((6,8,8,8,8)\), not an unoriented graph edge polytope. The graph has 35 vertices and the polytope has dimension \(34\). More generally, paths with common length parity yield a bipartite graph. For its facets, the parity argument forces all edges tight, giving independent potential sign words constrained by one common signed endpoint height. The planar-dual arborescence construction selects one intact primal path and one deleted edge on each other path, with a prescribed sign. Counting edges directed away from the root yields exactly the displayed binomial sums. Applying the established activity identity is sufficient to obtain the Ehrhart numerator, including normalization. Exact integer evaluation gives \(\gamma_{15}=-236544\). Direct sign-word enumeration independently matches the binomial calculation and recovers Ferroni's published equal-arm value \(\gamma_{16}=-9799680\). The all-parameter formula rests on the dissection argument, not on finite enumeration.
+
+## Originality — PASS subject to historical priority limitations
+Ferroni, arXiv:2607.02424, Sections 1 and 2, derives an equal-arm formula and explicitly records a dimension-36 witness. That full text remarks that arbitrary-arm formulas should be possible, but does not state or tabulate the all-common-parity formula here, the length vector \((6,8,8,8,8)\), or a dimension-34 negative coefficient. Kálmán–Tóthmérész, DOI:10.5802/alco.318, supplies the more general spanning-tree activity theorem, but not this evaluated negative coefficient. Topical and exact-parameter literature searches found no equivalent prior value. A generic algorithm's availability is not treated as an explicit prior value. Remaining risk: alternate nomenclature, independently computed tables, and unpublished or unindexed refinements. No assertion of worldwide priority or global minimal dimension is made.
+
+## Value — PASS
+Failure of gamma-positivity for symmetric edge polytopes is a recently settled question whose smallest explicit dimensions remain mathematically meaningful. An exact 34-dimensional witness improves the 36-dimensional equal-arm construction, while the natural unequal-arm formula addresses a parameter extension explicitly identified by the cited work and supports systematic study beyond this one instance. The counterexample is a graph-polytope phenomenon, not an arbitrary parameter substitution: the negative gamma coefficient requires a nontrivial exact evaluation and is not implied by the equal-arm theorem.
+
+## Scope and validation limitations
+The result neither proves no lower-dimensional witness exists nor classifies all graph families; results for mixed-parity paths are not asserted. Foundational combinatorial dissection facts are attributed to their authors. Independent scientific audit remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
