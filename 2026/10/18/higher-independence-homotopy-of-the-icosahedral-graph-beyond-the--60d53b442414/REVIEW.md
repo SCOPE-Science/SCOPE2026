@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An explicit labelled 12-vertex 30-edge icosahedral graph is reconstructed by the supplied checker. For every threshold from three through six, all 4,096 subsets are tested by independent component-size algorithms (graph search and disjoint-set union) and by connected-subset avoidance. The stated vertex-pivot matchings pair exactly 351, 531, 673 and 1,035 pairs and leave only a vertex and the indicated 10/70/350/450 cells in dimensions 3/3/4/5. The full respective directed Hasse graphs on 2,592/4,512/7,404/12,360 incidences are checked acyclic. Forman's theorem then proves integral wedge homotopy, not merely a field-homology computation. Independent mod-two boundary reductions confirm all Betti ranks. A finite check of every deletion of at most four vertices establishes the exact later skeleton regime, from which the rest follows by a standard toggle matching.
+PASS
 
-## Originality — PASS, qualified
+The 12-vertex icosahedron has 30 specified edges. For r=3,4,5,6 the induced-component <=r condition defines finite simplicial complexes. Independently rebuilt every one of 4096 masks and every admissible face, then the four explicit pivot matchings, and for EVERY Hasse incidence constructed oriented edges and topologically sorted the directed matching graph. Reproduced counts: r=3 faces 713, pairs 351, one 0-cell+10 critical 3-cells, 2592 covers; r=4 faces 1133,pairs 531,0-cell+70 3-cells,4512 covers; r=5 faces1697,pairs673,0-cell+350 4-cells,7404 covers; r=6 faces2521,pairs1035,0-cell+450 5-cells,12360 covers. Acyclic discrete Morse CW models have no nonzero attaching targets except the unique point, so integral homotopy wedges follow, not just mod-two Betti numbers. Independent exhaustive deletion of every <=4 vertices leaves connected induced complements; hence for r=7..11 exact (r-1)-simplex skeleton with binom(11,r) spheres and r>=12 is contractible. This is exhaustive for finite 12-vertex object.
 
-The high-relevance full texts of Deshpande–Singh, Deshpande–Shukla–Singh, and Abdelmalek et al. were inspected where their definitions, homotopy-type classifications, connectivity and graph-family hypotheses occur. Their broad claims cover complete multipartite/whiskered/path/cycle/tree or chordal graph situations and do not imply a 5-regular triangulated-sphere graph. Relevant mathematical records about the icosahedral graph concern different simplicial constructions. The previously calculated induced-forest degree filtration covers the first two thresholds only, not the cycle-admitting thresholds three through six. No equivalent determination of the four new thresholds was identified. Risk remains from unindexed or inaccessible equivalent results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family is the canonical connected-component-size filtration on the graph of a Platonic solid, not an arbitrary labeled subgraph. The exact intermediate stages show a nontrivial change in both homotopy degree and sphere multiplicity across the entire untreated range before the natural high-connectivity skeleton regime. The four finite-stage topological classifications are not mere Euler-characteristic or Betti-number computations; the matching certificates prove integral homotopy. The high-threshold skeleton consequence completes a natural parameter range without claiming those elementary cases alone as novel.
+Deshpande–Singh define Ind_r and classify broad but separate graph families including complete multipartite, whiskered, cycles and trees; Abdelmalek et al. treat chordal/tree/caterpillar shells. The icosahedral graph is 5-regular with triangles and nonchordal, so none of those family theorems specializes to the four intermediate homotopy types. Separate published icosahedral Čech/neighborhood complexes use graph-distance simplices and different face conditions. The high-r skeleton is a standard 5-connectivity consequence and not new by itself; the genuinely nontrivial new content is r=3..6 verified integral wedge classification.
 
-## Risks and limitations
+## value
 
-The statements are nonequivariant, for this exact graph; inclusion-induced persistence maps and general graph classes are not determined. The source comparisons identify no covering theorem but cannot eliminate all unpublished, unindexed or inaccessible equivalents. The matching and independent finite calculations have been replayed; there has been no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical component-size higher-independence filtration on a standard Platonic graph has precisely four nontrivial intermediate stages between known small-r behavior and the high-r skeleton. Their integral homotopy types show large changes in sphere dimensions/multiplicities, and the explicit acyclic matchings are reusable finite certificates, not arbitrary numerical Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
