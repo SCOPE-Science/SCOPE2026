@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Sherman–Morrison rank-one resolvent identity yields a positive-weight sum of rank-one outer products for finite positive-residue rational functions. Cauchy nonsingularity, including a constant column for a linear term, proves the exact rank rather than an upper bound. Classical Stieltjes formulas produce sign-definite integral Gram forms; partial-fraction uniqueness proves strict definiteness on the full active eigenspace and exact nullity off it. Both update and downdate cases are handled by strict positivity of the secular denominator. The first-power and inverse-first-power exceptions follow by direct formulas. An independently runnable symbolic/high-precision checker passed 27 exact and 54 numerical instance checks; universal validity rests on the written proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-Shmueli–Drineas–Avron establish approximate low-rank corrections and spectral decay for square roots, already noting generic exact full rank. Bernstein–Van Loan and Beckermann–Cortinovis–Kressner–Schweitzer establish rational rank upper bounds and Krylov exactness. Fasi–Higham–Liu solve the scaled-identity case. The present single claim is the exact active-spectrum rank formula and positive-residue pole-budget saturation together with the sharp fractional-power endpoint boundary. Neither the abstract-level Bernstein–Van Loan statement nor the inspected portions of the remaining full texts establishes that combined equality. A detailed theorem-level comparison against inaccessible portions of Bernstein–Van Loan remains a priority risk; a negative database search is not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The exact rank of a square-root or inverse-square-root update determines when an exact low-rank representation is algebraically impossible despite a rank-one change to the original SPD matrix. The sharp pole budget identifies the exact rank mechanism within commonly used positive-residue rational approximants, and the active spectral grade explains why the scaled-identity case is exceptional. This refines the distinction between exact and approximate low rank that motivates matrix-function updating. The statement is structural and dimension-independent; it makes no claim of improved numerical convergence or computational cost.
+For real SPD A with u!=0 and nonzero admissible update B=A+tau uu^T still SPD, define r as the number of distinct eigenspaces P_lambda u!=0. Sherman-Morrison gives (f(B)-f(A))/tau=b uu^T+sum_j c_j t_j v_tj v_tj^T/(1+tau*s_tj), all positive coefficients for the specified positive-pole/residue class; even for tau<0 the denominator is positive by the SPD downdate test and monotonicity s_t<s_0. Cauchy determinants for distinct active lambda and distinct positive shifts (including an optional constant column when b>0) give span dimension min(r,m+1_{b>0}). The Stieltjes integrals for x^p and x^-p, 0<p<1, are integrals of positive outer products v_t v_t^T; a nonzero vector in the active Krylov subspace has a nonidentically-zero rational partial-fraction pairing with v_t, giving strictly positive quadratic form and rank r. Outside the Krylov space all terms vanish. At exponent 1 direct Sherman-Morrison and B-A give rank one. Independent SymPy exact-rational matrices with 3 active eigenvalues and 4-dimensional A confirmed 12 independent cases including positive and negative tau, zero to three poles and optional linear term; finite tests do not prove arbitrary dimension or fractional continuum.
 
-## Closest literature and residual limits
-Relevant full/partial inspections: Shmueli–Drineas–Avron (arXiv:2201.13156; published open access), Beckermann–Cortinovis–Kressner–Schweitzer (arXiv:2008.11501), Fasi–Higham–Liu (Manchester preprint), Beckermann–Kressner–Schweitzer (arXiv:1707.03045). Bernstein–Van Loan, DOI:10.1137/S0895479898333636, was compared via its abstract and the explicit account of Theorem 3 in the 2020 primary paper; its original full text was not accessed. Publication priority is therefore not independently established. The theorem requires positive-definite matrices, admissible rank-one updates, and strictly positive residues for its exact finite-pole rank statement. Numerical rank may be smaller.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS is for the exact active spectral grade equality in fractional powers and the positivity-based *lower bound* saturating the rational pole rank ceiling. Shmueli-Drineas-Avron recognize that square-root correction can be algebraically full rank and focus on fast numerical approximation; no inspected exact projective grade formula. Beckermann-Cortinovis-Kressner-Schweitzer and Bernstein-Van Loan already give general rational update rank upper bounds and Krylov exactness; an upper bound for arbitrary signs does not force exact saturation, which depends on strictly positive residues/Cauchy independence. Fasi-Higham-Liu covers scaled-identity active grade one. Original Bernstein–Van Loan full paper remained inaccessible despite permitted retrieval attempt; any hidden equivalent specialization remains an explicit material priority risk.
+
+## value
+
+PASS
+
+The question is intrinsic in numerical linear algebra: a rank-one SPD change can induce an exactly full-rank square-root/inverse-square-root correction while still being numerically well approximated by low rank. The active grade identifies precisely which eigenvalues participate and the positive-residue pole budget gives a sharp dimension-independent algebraic criterion to distinguish exact representation from approximation; the exponent-one discontinuity and grade-one special case are natural boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

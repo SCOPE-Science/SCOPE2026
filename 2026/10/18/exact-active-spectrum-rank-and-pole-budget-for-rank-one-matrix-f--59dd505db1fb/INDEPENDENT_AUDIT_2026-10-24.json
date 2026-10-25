@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:42:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real SPD A with u!=0 and nonzero admissible update B=A+tau uu^T still SPD, define r as the number of distinct eigenspaces P_lambda u!=0. Sherman-Morrison gives (f(B)-f(A))/tau=b uu^T+sum_j c_j t_j v_tj v_tj^T/(1+tau*s_tj), all positive coefficients for the specified positive-pole/residue class; even for tau<0 the denominator is positive by the SPD downdate test and monotonicity s_t<s_0. Cauchy determinants for distinct active lambda and distinct positive shifts (including an optional constant column when b>0) give span dimension min(r,m+1_{b>0}). The Stieltjes integrals for x^p and x^-p, 0<p<1, are integrals of positive outer products v_t v_t^T; a nonzero vector in the active Krylov subspace has a nonidentically-zero rational partial-fraction pairing with v_t, giving strictly positive quadratic form and rank r. Outside the Krylov space all terms vanish. At exponent 1 direct Sherman-Morrison and B-A give rank one. Independent SymPy exact-rational matrices with 3 active eigenvalues and 4-dimensional A confirmed 12 independent cases including positive and negative tau, zero to three poles and optional linear term; finite tests do not prove arbitrary dimension or fractional continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2008.11501 Theorem3.5 recounting Bernstein–Van Loan; DOI:10.1137/S0895479898333636"
+        ],
+        "reasoning": "Broader rational-function rank inequalities admit signed coefficients, matrices outside SPD, and approximation. They yield an upper bound without positive-residue lower bound; Cauchy nonsingularity is an independent necessary argument for equality. Bernstein–Van Loan original full text was not obtained; more detailed coverage remains unresolved risk.",
+        "searches": [
+          "Resultary semantic search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy",
+          "arxiv:2008.11501 Theorem3.5 recounting Bernstein–Van Loan; DOI:10.1137/S0895479898333636"
+        ]
+      },
+      "checked_sources": [
+        "Beckermann et al arxiv:2008.11501 original paper mathematical Section3",
+        "Shmueli et al arxiv:2201.13156 original PDF",
+        "Bernstein–Van Loan DOI:10.1137/S0895479898333636, abstract/secondary original citation only",
+        "Fasi–Higham–Liu DOI:10.1137/22M1471559, scaled-identity manuscript intro",
+        "Resultary search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2008.11501 Section3 rational rank bound; DOI:10.1137/22M1471559 scaled-identity special case"
+        ],
+        "reasoning": "The special case A=alpha I gives r=1, so it cannot imply the positive-residue min(r,m+delta) formula for all r. The general rank≤m ceiling is necessary but does not imply a positive lower bound; source fractional root approximation results do not imply rank equals the number of active eigenspaces.",
+        "searches": [
+          "Resultary semantic search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy",
+          "arxiv:2008.11501 Section3 rational rank bound; DOI:10.1137/22M1471559 scaled-identity special case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2201.13156 square-root exact versus low-rank; arxiv:2008.11501 rational Krylov"
+        ],
+        "reasoning": "The potentially equivalent theorem is that the difference f(A+tau uuT)-f(A) is positive/negative semidefinite with exact rank equal to the active rational Krylov dimension or pole count. Low numerical rank or eigenvalue decay do not imply an exact rank classification at zero tolerance.",
+        "searches": [
+          "Resultary semantic search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy",
+          "arxiv:2201.13156 square-root exact versus low-rank; arxiv:2008.11501 rational Krylov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01; arxiv:2201.13156"
+        ],
+        "reasoning": "The indexed nilpotent-shift resolvent singular spectra concern nonsymmetric finite shifts rather than SPD rank-one matrix-function corrections; approximate root-update numerical spectra are not exact grade/pole-budget tables. No negative search proves priority.",
+        "searches": [
+          "Resultary semantic search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy",
+          "Resultary 2026/10/11/SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01; arxiv:2201.13156"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS is for the exact active spectral grade equality in fractional powers and the positivity-based *lower bound* saturating the rational pole rank ceiling. Shmueli-Drineas-Avron recognize that square-root correction can be algebraically full rank and focus on fast numerical approximation; no inspected exact projective grade formula. Beckermann-Cortinovis-Kressner-Schweitzer and Bernstein-Van Loan already give general rational update rank upper bounds and Krylov exactness; an upper bound for arbitrary signs does not force exact saturation, which depends on strictly positive residues/Cauchy independence. Fasi-Higham-Liu covers scaled-identity active grade one. Original Bernstein–Van Loan full paper remained inaccessible despite permitted retrieval attempt; any hidden equivalent specialization remains an explicit material priority risk.",
+      "residual_risks": [
+        "The original Bernstein–Van Loan rational-update full text was inaccessible; a hidden exact-sign specialization remains a material priority uncertainty.",
+        "Potential equivalent old Loewner/Stieltjes active-subspace theorem under different functional-calculus terminology.",
+        "Only exact algebraic rank under real SPD and positivity assumptions; numerical rank can be much smaller."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERAL_UPPER_BOUND_AND_KRYLOV; DOES_NOT_BY_ITSELF_PROVE_SATURATION",
+          "evidence": [
+            "Beckermann, Cortinovis, Kressner, Schweitzer, arxiv:2008.11501, Theorem3.5 and Section3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.11501",
+          "material_read": "Original PDF introduction and Section3, including rational Krylov exactness and restated Bernstein–Van Loan degree rank bounds",
+          "method": "Read mathematical rank theorem and compare hypothesis, equality vs upper bound and pole sign conditions",
+          "title": "Low-Rank Updates of Matrix Functions II: Rational Krylov Methods",
+          "trigger": "Most relevant general rational-function update theorem"
+        },
+        {
+          "assessment": "ACKNOWLEDGED_QUALITATIVE_GENERIC_FULL_RANK; no inspected exact active grade classification",
+          "evidence": [
+            "Shmueli, Drineas, Avron, arxiv:2201.13156, introductory and main decay results"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.13156",
+          "material_read": "Accessible original PDF results on square-root update spectral decay, numerical low-rank approximation, introductory discussion of generally full-rank corrections",
+          "method": "Compare approximate numerical rank and generic full-rank observation to exact active-grade formula",
+          "title": "Low-Rank Updates of Matrix Square Roots",
+          "trigger": "Exact algebraic rank versus numerical approximation"
+        },
+        {
+          "assessment": "GENERAL_BOUND_PRIOR; ORIGINAL_FULL_TEXT_NOT_READ",
+          "evidence": [
+            "Bernstein and Van Loan, SIAM J Matrix Anal Appl 22 (2000), 145-154, later 2020 paper"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895479898333636",
+          "material_read": "Original publisher abstract and cited restatement in the accessible 2020 paper; original complete article unavailable and authorized institutional access disconnected",
+          "method": "Compare established general rank bound to exact equality; retain hidden-original-theorem risk",
+          "title": "Rational Matrix Functions and Rank-1 Updates",
+          "trigger": "Strongest possible older exact rational-function coverage"
+        },
+        {
+          "assessment": "COVERS_ACTIVE_GRADE_ONE_ONLY",
+          "evidence": [
+            "Fasi, Higham and Liu, SIAM J Matrix Anal Appl, DOI:10.1137/22M1471559"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/22M1471559",
+          "material_read": "Accessible preprint introduction and abstract; arbitrary SPD case not inspected as a theorem",
+          "method": "Check scaled-identity restriction A=alpha I hence r=1",
+          "title": "Computing the Square Root of a Low-Rank Perturbation of the Scaled Identity Matrix",
+          "trigger": "Exact root update specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question is intrinsic in numerical linear algebra: a rank-one SPD change can induce an exactly full-rank square-root/inverse-square-root correction while still being numerically well approximated by low rank. The active grade identifies precisely which eigenvalues participate and the positive-residue pole budget gives a sharp dimension-independent algebraic criterion to distinguish exact representation from approximation; the exponent-one discontinuity and grade-one special case are natural boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Beckermann et al arxiv:2008.11501 original paper mathematical Section3",
+    "Shmueli et al arxiv:2201.13156 original PDF",
+    "Bernstein–Van Loan DOI:10.1137/S0895479898333636, abstract/secondary original citation only",
+    "Fasi–Higham–Liu DOI:10.1137/22M1471559, scaled-identity manuscript intro",
+    "Resultary search: Rank one SPD perturbation fractional matrix functions exact correction rank active distinct eigenvalues positive residue rational Cauchy"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The original Bernstein–Van Loan rational-update full text was inaccessible; a hidden exact-sign specialization remains a material priority uncertainty.",
+    "Potential equivalent old Loewner/Stieltjes active-subspace theorem under different functional-calculus terminology.",
+    "Only exact algebraic rank under real SPD and positivity assumptions; numerical rank can be much smaller.",
+    "Independent finite computations confirm only stated bounded examples; all unrestricted statements were assessed analytically from the source proof, not inferred from code or logs."
+  ],
+  "residual_risks": [
+    "The original Bernstein–Van Loan rational-update full text was inaccessible; a hidden exact-sign specialization remains a material priority uncertainty.",
+    "Potential equivalent old Loewner/Stieltjes active-subspace theorem under different functional-calculus terminology.",
+    "Only exact algebraic rank under real SPD and positivity assumptions; numerical rank can be much smaller."
+  ],
+  "schema_version": 1
+}
