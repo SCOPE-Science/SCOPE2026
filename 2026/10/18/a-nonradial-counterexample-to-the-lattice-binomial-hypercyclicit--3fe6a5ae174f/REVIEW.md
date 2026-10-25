@@ -1,11 +1,21 @@
-# Scientific review: A nonradial counterexample to the lattice binomial hypercyclicity test
+# Independent mathematical audit
 
-**Correctness — PASS.** The weight, all ambient norms and the shift are explicit. Uniform neighbor ratios prove boundedness for the entire stated Banach-space range. The central binomial summand proves divergence of the published necessary test at every fixed vertex and every conjugate exponent. A third-order finite-difference functional has coefficient polynomial \((1-z)^3(1+z)^n\). Parseval and an exact beta/gamma evaluation give square-sum decay; Cauchy–Schwarz controls its central ridge and binomial concentration controls the angularly penalized tails. The resulting dual norm tends to zero, contradicting any dense orbit. Finite integer arithmetic was used only to corroborate exact coefficient identities, not to infer infinite conclusions.
+## correctness
 
-**Originality — PASS, with residual risk.** Baranov–Lishanskii–Papathanasiou (arXiv:2312.13934), Proposition 5.1 and the discussion directly following it, expressly leave sufficiency of the single-vertex binomial condition open on the infinite quadrant. Their Theorem 2.3 cannot imply nonhypercyclicity here: the weight has neither an exponential upper rate strictly below two nor a global positive lower bound proportional to the critical exponential. Chen–Wang–Zhou (arXiv:2609.34308) publicly describe their infinite-quadrant equivalence as requiring radial weights on weighted \(\ell^2\), whereas this weight varies exponentially across antidiagonals and works for all \(\ell^p\) and \(c_0\). Related finite-width and directed-tree shift classifications do not contain the two-coordinate, angularly varying case. The complete 2026 manuscript was inaccessible, leaving a nonzero risk that a distinct example is mentioned outside its abstract. Search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** The theorem gives an explicit negative answer to a published natural sufficiency question. It identifies collective Pascal-row cancellation as information missing from every individual binomial-divergence check and demonstrates that even bounded local weight distortion does not remedy this deficiency. This counterexample narrows the search for a joint-matrix criterion for nonradial infinite lattice shifts; it is neither a parameter substitution nor a finite computation without operator-theoretic interpretation.
+The positive weight has uniformly bounded edge ratios, so both coordinate backward shifts are bounded. At every fixed vertex a central binomial summand yields the full-sequence lower bound asymptotic to 2^{-i-j} sqrt(2n/pi). The continuous third-difference functional has coefficients of (1-z)^3(1+z)^n. Parseval/beta gives the exact squared-coefficient sum 120 C(2n,n)/[(n+1)(n+2)(n+3)], producing an O(n^{-1/4}) weighted dual norm on the central cone; the complementary cone is exponentially negligible via Hoeffding. Therefore the functional applied to every orbit converges to zero, preventing a dense orbit on all claimed spaces. Independently tested coefficient identity and numerical dual norm at n=16,64,256; this finite test is supplemental.
 
-Scientific limits: the new theorem establishes nonhypercyclicity and failure of one proposed sufficiency implication, not a full nonradial characterization. Earlier equivalent unpublished or unindexed examples remain possible; independent bibliographic and mathematical scrutiny is recommended.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.
+
+## value
+
+PASS
+
+Substantive counterexample to a specific open sufficiency question: demonstrates that large individual binomial rows do not control a collective cancellation mode, and sharply separates single-coordinate necessary tests from joint hypercyclicity. Nonradiality is essential, not a cosmetic perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

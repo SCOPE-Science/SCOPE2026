@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:59:46Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 2e46005612db61d8455640370fea5956cd2a76bf",
+        "Frozen verify.py blob 8208ba526c5edf3cb558eb20b362c8bfe07434d8",
+        "Own exact coefficient calculation and norms 0.41637,0.19476,0.09514 for n=16,64,256"
+      ],
+      "limitations": [
+        "The claim refutes sufficiency of the single-vertex test only, not a joint criterion. Infinite failure is analytic, not inferred from finite computations."
+      ],
+      "rationale": "The positive weight has uniformly bounded edge ratios, so both coordinate backward shifts are bounded. At every fixed vertex a central binomial summand yields the full-sequence lower bound asymptotic to 2^{-i-j} sqrt(2n/pi). The continuous third-difference functional has coefficients of (1-z)^3(1+z)^n. Parseval/beta gives the exact squared-coefficient sum 120 C(2n,n)/[(n+1)(n+2)(n+3)], producing an O(n^{-1/4}) weighted dual norm on the central cone; the complementary cone is exponentially negligible via Hoeffding. Therefore the functional applied to every orbit converges to zero, preventing a dense orbit on all claimed spaces. Independently tested coefficient identity and numerical dual norm at n=16,64,256; this finite test is supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 excludes weights with exponential rates uniformly above/below the critical threshold; this weight is critical in a central cone and exponentially variable outside it. Chen et al describe a radial Hilbert-space setting. The Resultary spectral decomposition assumes distinct binomially adjusted weights."
+        ],
+        "reasoning": "The named stronger radial/special-weight theorems do not imply nonhypercyclicity of this explicitly nonradial critical weight.",
+        "searches": [
+          "Baranov et al Theorem 2.3, doi:10.1007/s13398-026-01868-8",
+          "Chen-Wang-Zhou arXiv:2609.34308",
+          "Resultary 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.13934",
+        "https://doi.org/10.1007/s13398-026-01868-8",
+        "https://arxiv.org/abs/2609.34308",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source explicitly leaves sufficiency open on the infinite quadrant; the constructed bounded B has every individual row large and yet a nonzero functional collapsing its scalar orbit."
+        ],
+        "reasoning": "The new example gives a negative answer to the earlier sufficiency question, except for any as-yet-unread nonradial result in the newer manuscript.",
+        "searches": [
+          "Baranov et al Proposition 5.1 (sufficiency question), Theorem 2.3",
+          "Chen-Wang-Zhou arXiv:2609.34308 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original necessary condition concerns each fixed vertex; the present witness annihilates a third finite difference across four vertices, not one binomial row."
+        ],
+        "reasoning": "The coefficient/dual-functional obstruction is genuinely collective and cannot be relabeled as one vertex test.",
+        "searches": [
+          "Resultary: hypercyclic weighted backward shift directed lattice infinite quadrant binomial necessary condition nonradial counterexample critical weight cancellation functional",
+          "Baranov et al arXiv:2312.13934 Proposition 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite tabulation would settle bounded nonhypercyclicity on the infinite quadrant or divergence for every n; published Proposition 5.1 is a necessary test rather than a counterexample table."
+        ],
+        "reasoning": "No exact database/table known that contains the asserted collective cancellation counterexample; searches are not proof of historical uniqueness.",
+        "searches": [
+          "Resultary semantic search for nonradial lattice binomial criterion",
+          "Baranov article sections 2 and 5"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.",
+      "residual_risks": [
+        "Full recent arXiv:2609.34308 manuscript inaccessible; possible specialized nonradial remark is unchecked.",
+        "Broader literature may encode equivalent difference-functional obstruction under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: proposition states necessity and explicitly asks about sufficiency; its exponential cases do not treat the critical angular weight",
+          "evidence": "Proposition 5.1 and Theorem 2.3",
+          "identifier_or_url": "https://doi.org/10.1007/s13398-026-01868-8",
+          "material_read": "Opened full OA article; read theorem 2.3, Proposition 5.1 and ensuing explicit sufficiency question",
+          "method": "full-text HTML",
+          "title": "Hypercyclic shifts on lattice graphs",
+          "trigger": "The focal necessary-condition question and threshold regimes"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: abstract says infinite-quadrant result for radial weighted ell^2; possible additional remarks unknown",
+          "evidence": "Abstract identifies radial and Hilbert hypotheses",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34308",
+          "material_read": "Read accessible abstract only; full arXiv PDF retrieval blocked",
+          "method": "abstract and unsuccessful full-PDF attempt",
+          "title": "F-Transitivity of Backward Shifts on Lattice Graphs",
+          "trigger": "Very recent potentially stronger lattice result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Original paper asks whether Proposition 5.1 is sufficient; exact explicit weight, cancellation functional and full-sequence divergence answer it negatively."
+      ],
+      "limitations": [],
+      "rationale": "Substantive counterexample to a specific open sufficiency question: demonstrates that large individual binomial rows do not control a collective cancellation mode, and sharply separates single-coordinate necessary tests from joint hypercyclicity. Nonradiality is essential, not a cosmetic perturbation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
