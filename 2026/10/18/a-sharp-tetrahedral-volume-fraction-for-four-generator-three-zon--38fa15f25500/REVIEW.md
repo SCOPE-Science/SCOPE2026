@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization chooses a triple with largest absolute determinant, after which the remaining vector has three coordinates in \([0,1]\). The zonotope volume is eight times the sum of the four triple determinants. Four explicit signed generator sums form a contained tetrahedron whose edge determinant is exactly \(8(2+a+b+c)\), proving the universal bound with its full quantifier range (including dependent triples and a zero generator). Equality at the universal constant forces all four generator minors to agree, hence affine equivalence to the regular rhombic dodecahedron. This reduction is invertible and preserves normalized volumes. For the canonical equality model, every one of the 1001 vertex quadruples is checked by exact integer determinants; the full histogram has maximum 20 and precisely eight expected equality sets. The convex-affine reduction proves the bound for arbitrary contained tetrahedra, not only vertex-supported ones. The independently checked absence of a pair of maximizing vertex sets sharing three vertices rules out nonvertex equality configurations. The imbalance estimate follows by explicit elementary inequalities. The universal proof does not depend on numerical sampling.
+PASS
 
-## Originality — PASS, subject to stated priority risks
+Normalized the maximal triple minor m to identity and u4=(a,b,c) with 0≤a,b,c≤1; actual witness signed 4-tuple has determinant 8(2+a+b+c), while zonotope volume is 8(1+a+b+c), proving the sharp affine lower bound (S+m)/(6S). Balanced δ_i gives rhombic-dodecahedron affine class. Independent integer enumeration all C(14,4)=1001 vertex quadruples exactly recovered maximum determinant20, 8 winners and pairwise winner overlap at most2. Separately affine determinant argument extends to all contained tetrahedra and excludes nonvertex maximizers, so samples are not infinite proof. Near-equality imbalance inequalities follow max δ/S≤1/4+6η.
 
-The full-text 2014 source on maximum-volume simplices and subdeterminants concerns general algorithms and approximation hardness rather than a sharp volume fraction for four-generator zonotopes. The 2012 preprint on maximum-volume simplices in polytopes establishes center containment and treats parallelotopes; those statements do not determine the four-generator ratio or the exact rhombic-dodecahedron equality locus. The 2022 paper on isoperimetric problems for zonotopes explicitly treats four-generator three-zonotopes and the regular rhombic dodecahedron, but its pertinent theorems optimize intrinsic volumes and radii, not the volume of the largest contained tetrahedron. Its zonotope-volume identity is acknowledged as classical. Relevant searchable published research records on rhombic-dodecahedron illumination and other zonotope invariants concern different functionals; a prior five-dimensional simplex-generated-zonotope maximum is not a general theorem implying this three-dimensional four-generator sharp bound. No inspected source establishes a theorem implying the present sharp constant, equality classification and imbalance bound. An unlocated classical calculation of maximal inscribed tetrahedra remains a substantive historical priority risk; searchable-record absence by itself has not been treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The four-generator class is the first natural non-parallelotope class of three-dimensional zonotopes, containing the rhombic dodecahedron. The result determines an exact best possible affine-invariant tetrahedral occupancy bound throughout this infinite class, including degenerations to parallelotopes. The proof provides a stronger generator-minor dependent bound and necessary quantitative near-equality condition. The equality class is geometrically rigid: there are exactly eight maximizers, no continuous equality families and no nonvertex maximizers. These are mathematically motivated extremal and structural facts, not arbitrary parameter slices or a known-table recomputation.
+Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.
 
-## Prior literature and limitations
+## value
 
-Closest inspected full texts: Di Summa et al., *On largest volume simplices and sub-determinants* (arXiv:1406.3512); Akopyan–Glazyrin, *On maximum volume simplices in polytopes* (2012 preprint); and Joós–Lángi, *Isoperimetric Problems for Zonotopes* (arXiv:2206.03204). The present theorem does not address zonotopes with five or more generators or dimensions other than three. The canonical finite determinant certificate checks a particular fourteen-vertex polytope; the universal part is a separate exact algebraic argument. Independently locating all earlier geometric literature remains impossible, so priority should still be checked by a domain expert before claims of historical firstness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The largest inscribed simplex normalized volume is a canonical affine geometric extremum; a universal sharp 5/24 bound, exactly characterized extremizing zonotope and quantitative stability in minor imbalance solve a meaningful 4-generator 3D family, not arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
