@@ -1,13 +1,21 @@
-# Mathematical assessment: products of two simplices
+# Independent mathematical audit
 
-**Correctness — PASS.** The polytope skeleton is the rook graph; for generic hyperplanes, section vertices are in bijection with cut edges. The additive functional on product vertices forces a Ferrers sign matrix, and every Ferrers matrix is realizable. The exact identity \(V(D)=\sum_{(i,j)\in D}(m+n+2-2i-2j)\) makes all positive-weight cells mandatory for maximization and all negative ones forbidden. The antidiagonal equality classification and closed formula follow. The supporting/nongeneric case is bounded by a small generic perturbation. Independent exact-rational finite experiments agree with the proof; they are corroborative only.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Seacrest–Su [1] analyze triangulation complexity of products; Hibi–Li [2] analyze hyperplane separations without new vertices; Padrol–Pfeifle [3] analyze host complexity for prescribed sections; De Loera–Lopez-Campos–Torres [4] obtain general section bounds and discuss other special families. The inspected claims do not imply the exact product-specific maximum or full equality patterns. Searches also considered the equivalent Ferrers/rook-graph and graph-cut descriptions. A possible older extremal identity expressed as an additive-threshold rook-graph cut remains a historical-priority risk, not an identified implication.
+PASS
 
-**Value — PASS.** Maximizing section complexity of a fixed natural polytope family is a canonical extremal geometric question. The theorem gives a sharp closed formula for every pair of positive simplex dimensions, all generic optimizers, and a quantified gap between graph-theoretic and hyperplane-realizable cuts; neither a small case table nor a restatement of an unconstrained graph bound suffices for these conclusions.
+PASS: for every m,n>=2 the product of two simplices has rook-graph one-skeleton K_m square K_n. An affine functional takes additive values a_i+b_j; reordering each axis gives exactly Ferrers positive-sign diagrams D with descending row lengths, and every Ferrers diagram can be realized by explicit strict additive values. Generic section vertices are precisely crossed graph edges. For lengths lambda_i and column heights k_j, the count V=Σ lambda_i(n−lambda_i)+Σ k_j(m−k_j) telescopes using square increments to Σ_(i,j) in D(m+n+2−2i−2j). Thus every positive-weight antidiagonal cell is compulsory for equality and every negative-weight cell excluded; zero-weight cells are mutually incomparable, giving 1 generic maximizing Ferrers pattern if m+n odd and 2^min(m,n) if even. Summing positive row weights yields Σ_{i=1}^{min(m,n)}(floor((m+n+1)/2)−i)(ceil((m+n+1)/2)−i). Nongeneric or supporting sections admit generic perturbations with at least as many section vertices; the all-affine maximum follows. For square q, count q(q²−1)/3 vs unrestricted rook cut 2q floor(q²/4), ratio→2/3. Independently enumerated Ferrers lengths and maxima in small m,n and checked combinatorial identities; finite experiments are not used to infer the all-parameter theorem.
 
-**Closest literature and limits.** The review compared full or materially relevant portions of [1]–[4]. The theorem concerns affine hyperplane sections and two simplex factors; it does not classify nongeneric equality cases or establish historical priority beyond sources inspected. The standalone checker uses only finite instances, not exhaustive all-dimensional enumeration.
+## originality
 
-**References.** [1] arXiv:0910.1134; [2] arXiv:1402.3805; [3] arXiv:1404.2443; [4] arXiv:2412.12419.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: published simpotope triangulations, separating hyperplanes avoiding new cut vertices, polygonal section host problems and arbitrary-polytope section bounds are logically different. The exact all-(m,n) Ferrers-weight maximum, equality antidiagonal and 2/3 realizability gap were not contained in inspected primary text; prior extremal Ferrers/rook threshold cut identity could overlap and remains an explicit priority risk.
+
+## value
+
+PASS
+
+PASS: hyperplane section complexity of Δ_(m−1)×Δ_(n−1), a natural polytope family, is completely solved for two positive-dimensional factors including all generic maximizers. The exact finite formula and 2/3 gap distinguish geometric realizability from abstract graph max-cut; this is a meaningful all-parameter polyhedral classification, not a tiny special instance or old-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:52:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: for every m,n>=2 the product of two simplices has rook-graph one-skeleton K_m square K_n. An affine functional takes additive values a_i+b_j; reordering each axis gives exactly Ferrers positive-sign diagrams D with descending row lengths, and every Ferrers diagram can be realized by explicit strict additive values. Generic section vertices are precisely crossed graph edges. For lengths lambda_i and column heights k_j, the count V=Σ lambda_i(n−lambda_i)+Σ k_j(m−k_j) telescopes using square increments to Σ_(i,j) in D(m+n+2−2i−2j). Thus every positive-weight antidiagonal cell is compulsory for equality and every negative-weight cell excluded; zero-weight cells are mutually incomparable, giving 1 generic maximizing Ferrers pattern if m+n odd and 2^min(m,n) if even. Summing positive row weights yields Σ_{i=1}^{min(m,n)}(floor((m+n+1)/2)−i)(ceil((m+n+1)/2)−i). Nongeneric or supporting sections admit generic perturbations with at least as many section vertices; the all-affine maximum follows. For square q, count q(q²−1)/3 vs unrestricted rook cut 2q floor(q²/4), ratio→2/3. Independently enumerated Ferrers lengths and maxima in small m,n and checked combinatorial identities; finite experiments are not used to infer the all-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Loera–Lopez-Campos–Torres offers general upper bounds for any polytope with mn vertices; Padrol–Pfeifle optimizes a host polytope realizing prescribed polygonal sections, rather than fixed two-simplex product max."
+        ],
+        "reasoning": "The general O((mn)^2) bound has no exact dependence on m,n or anti-diagonal equality classification, and minimizing complexity of a host polytope is not maximizing vertices in a fixed product.",
+        "searches": [
+          "Resultary semantic query: product of two simplices maximum vertices hyperplane section Ferrers sign matrices rook graph graph cut",
+          "arxiv:2412.12419",
+          "arxiv:1404.2443"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1402.3805 Introduction",
+        "arxiv:2412.12419 general upper-bound theorems and perturbation",
+        "arxiv:0910.1134 abstract only",
+        "arxiv:1404.2443 reference/title",
+        "Resultary: Complete simplex-volume spectrum in simplex–parallelogram products"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hibi–Li's definition requires the cutting hyperplane meet each edge only at an original vertex (zero new crossing vertices). Here optimum has many crossed edges counted by positive/negative Ferrers cells."
+        ],
+        "reasoning": "Their theorem cannot imply sharp number of newly created intersection vertices. Existing graph-cut estimates without the additive-hyperplane sign restriction give larger 2q floor(q²/4) and so cannot imply nu(q,q)=q(q²−1)/3. Source Seacrest–Su full text could not be retrieved from arXiv; treat as priority limitation, not proof of noncoverage.",
+        "searches": [
+          "Resultary semantic query: product of two simplices maximum vertices hyperplane section Ferrers sign matrices rook graph graph cut",
+          "arxiv:1402.3805",
+          "arxiv:2412.12419"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section maximization corresponds to maximum rook-graph cut whose sign matrix must be an additive-threshold Ferrers diagram; Hibi–Li's 'separating hyperplane' instead requires no new cut vertices."
+        ],
+        "reasoning": "Checked both the geometric and Ferrers/rook formulation; separating without new vertices is the opposite regime from counting new vertices, and general Ferrers enumeration alone is not the weighted all-parameter section maximum unless the exact cell-weight identity is supplied.",
+        "searches": [
+          "Resultary semantic query: product of two simplices maximum vertices hyperplane section Ferrers sign matrices rook graph graph cut",
+          "arxiv:1402.3805",
+          "arxiv:2412.12419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published simpotope work concerns triangulation lower bounds, and Resultary's simplex-parallelogram paper concerns contained simplices' volume spectra; neither tabulates the section maximum formula nu(m,n)."
+        ],
+        "reasoning": "No matching exact table was found in searched records; a classical ordered Ferrers max-cut identity could yield the same formula and remains an unexcluded equivalent formulation.",
+        "searches": [
+          "Resultary semantic query: product of two simplices maximum vertices hyperplane section Ferrers sign matrices rook graph graph cut",
+          "Resultary: 2026/10/11/SCOPE-complete-simplex-volume-spectrum-in-simplex-parallelogram-produc--33fe969659a5",
+          "arxiv:0910.1134"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: published simpotope triangulations, separating hyperplanes avoiding new cut vertices, polygonal section host problems and arbitrary-polytope section bounds are logically different. The exact all-(m,n) Ferrers-weight maximum, equality antidiagonal and 2/3 realizability gap were not contained in inspected primary text; prior extremal Ferrers/rook threshold cut identity could overlap and remains an explicit priority risk.",
+      "residual_risks": [
+        "Seacrest–Su arxiv:0910.1134 full text inaccessible during authorized attempts; bibliographic assessment of this plausibly same-family source remains incomplete, not automatic O failure.",
+        "An earlier additive-threshold Ferrers rook-graph maximum cut theorem could prove this exact formula as a corollary.",
+        "Generic-only equality classification and exactly two positive-dimensional factors; no claim for multifactor products or higher codimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CUT_DEFINITION",
+          "evidence": [
+            "cuts require no new polytope vertices on crossed edges; cannot establish max newly created section vertices"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.3805",
+          "material_read": "full accessible 16-page PDF introduction/definition of separating hyperplanes and theorem scope concerning order, chain, Birkhoff and unit cube polytopes",
+          "method": "PDF text and rendered first-page inspection",
+          "title": "Cutting convex polytopes by hyperplanes",
+          "trigger": "The same hyperplane-cut vocabulary and product/cube neighboring families"
+        },
+        {
+          "assessment": "GENERAL_INEQUALITY_ONLY",
+          "evidence": [
+            "generic perturbation principle and universal N-vertex bound, not exact simpotope nu(m,n) in material inspected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+          "material_read": "full accessible arXiv PDF theorem, bounding method, relevant family examples and perturbation lemma",
+          "method": "PDF text and rendered page inspection",
+          "title": "On the Number of Vertices in a Hyperplane Section of a Polytope",
+          "trigger": "Potential stronger all-polytope hyperplane-section theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_PRIORITY_RISK",
+          "evidence": [
+            "Available abstract reports triangulation lower bounds, but full-document noncoverage is NOT asserted; priority uncertainty retained"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.1134",
+          "material_read": "arXiv bibliographic abstract and accessible secondary snippets; direct arXiv PDF and HTML retrieval both denied, no full theorem/proof read",
+          "method": "arXiv/open-access attempts without bypass; no Oxford visit possible in available research window",
+          "title": "A lower bound technique for triangulations of simplotopes",
+          "trigger": "Title names same products of simplices, a plausible source for overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: hyperplane section complexity of Δ_(m−1)×Δ_(n−1), a natural polytope family, is completely solved for two positive-dimensional factors including all generic maximizers. The exact finite formula and 2/3 gap distinguish geometric realizability from abstract graph max-cut; this is a meaningful all-parameter polyhedral classification, not a tiny special instance or old-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1402.3805 Introduction",
+    "arxiv:2412.12419 general upper-bound theorems and perturbation",
+    "arxiv:0910.1134 abstract only",
+    "arxiv:1404.2443 reference/title",
+    "Resultary: Complete simplex-volume spectrum in simplex–parallelogram products"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Seacrest–Su arxiv:0910.1134 full text inaccessible during authorized attempts; bibliographic assessment of this plausibly same-family source remains incomplete, not automatic O failure.",
+    "An earlier additive-threshold Ferrers rook-graph maximum cut theorem could prove this exact formula as a corollary.",
+    "Generic-only equality classification and exactly two positive-dimensional factors; no claim for multifactor products or higher codimension."
+  ],
+  "residual_risks": [
+    "Seacrest–Su arxiv:0910.1134 full text inaccessible during authorized attempts; bibliographic assessment of this plausibly same-family source remains incomplete, not automatic O failure.",
+    "An earlier additive-threshold Ferrers rook-graph maximum cut theorem could prove this exact formula as a corollary.",
+    "Generic-only equality classification and exactly two positive-dimensional factors; no claim for multifactor products or higher codimension."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_CUT_DEFINITION",
+      "evidence": [
+        "cuts require no new polytope vertices on crossed edges; cannot establish max newly created section vertices"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1402.3805",
+      "material_read": "full accessible 16-page PDF introduction/definition of separating hyperplanes and theorem scope concerning order, chain, Birkhoff and unit cube polytopes",
+      "method": "PDF text and rendered first-page inspection",
+      "title": "Cutting convex polytopes by hyperplanes",
+      "trigger": "The same hyperplane-cut vocabulary and product/cube neighboring families"
+    },
+    {
+      "assessment": "GENERAL_INEQUALITY_ONLY",
+      "evidence": [
+        "generic perturbation principle and universal N-vertex bound, not exact simpotope nu(m,n) in material inspected"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+      "material_read": "full accessible arXiv PDF theorem, bounding method, relevant family examples and perturbation lemma",
+      "method": "PDF text and rendered page inspection",
+      "title": "On the Number of Vertices in a Hyperplane Section of a Polytope",
+      "trigger": "Potential stronger all-polytope hyperplane-section theorem"
+    },
+    {
+      "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_PRIORITY_RISK",
+      "evidence": [
+        "Available abstract reports triangulation lower bounds, but full-document noncoverage is NOT asserted; priority uncertainty retained"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/0910.1134",
+      "material_read": "arXiv bibliographic abstract and accessible secondary snippets; direct arXiv PDF and HTML retrieval both denied, no full theorem/proof read",
+      "method": "arXiv/open-access attempts without bypass; no Oxford visit possible in available research window",
+      "title": "A lower bound technique for triangulations of simplotopes",
+      "trigger": "Title names same products of simplices, a plausible source for overlap"
+    }
+  ]
+}
