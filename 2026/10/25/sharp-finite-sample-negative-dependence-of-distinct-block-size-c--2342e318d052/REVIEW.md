@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The two-variable generating function counts blocks of two distinct sizes; differentiating a Lagrange coefficient produces exactly \(M_{a,b}=n\binom{2n-a-b-2}{n-a-b}\) in the admissible region. Factoring the ratio of adjacent normalized cross-moments leaves the sign numerator \(n-b(n-1)-a\), nonpositive on the required integer domain. The sharp maximum is \((n-1)(2n-1)/((n+1)(2n-3))<1\). Empty joint-support boundaries, \(n=2\), and attainment by \(\{a,b\}=\{1,2\}\) are handled separately. An independent exact Dyck-path enumeration checks cases through \(n=10\). The unrestricted result relies on symbolic proof.
+
+**Originality — PASS on inspected evidence, with explicit residual risk.** Kargin, arXiv:1907.00632v1, Theorem 2.4, derives negative asymptotic covariance for **fixed distinct sizes**, not the global sharp finite-size bound or its equality characterization. The 2011 Bergerson–Miller–Pliml–Reiner–Shearer–Stanton–Switala paper, *Note on 1-Crossing Partitions*, gives *one-tagged-block* counts and exact refinements, but does not state an all-pairs mixed-covariance sign/optimal bound. Its complete five-page primary text was inspected. The 2012 Arizmendi paper refines one-block statistics; only its abstract was inspected. Public-record searches on noncrossing block-count mixed moments, finite negative covariance, and hypergeometric tagged-block distribution showed adjacent but not dominating summaries. An equivalent older ratio inequality might exist; this is not a certified historical-priority claim.
+
+**Value — PASS.** A fixed-size asymptotic sign does not control growing block sizes or finite samples. This proves strict sign for every distinct pair and supplies the optimal universal normalized dependence deficit, identifying the unique extremal unordered pair. The bound supplies uniform finite-sample control relevant to covariance matrices of block-profile statistics and is not merely a table entry or a numerical census.
+
+**Scientific limits.** Full negative association is not established; pairwise covariance does not imply it. No independent audit has been completed. Published first- and two-way moment formulas are not claimed as novel in isolation.
+
+Self-review: passed. Independent audit: not yet performed.

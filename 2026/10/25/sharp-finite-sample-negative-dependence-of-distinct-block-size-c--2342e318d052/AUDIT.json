@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The two-variable root-block equation and Lagrange inversion give E[B_a B_b]=n*binom(2n-a-b-2,n-a-b)/C_n for a+b<=n and zero otherwise. The exact ratio step minus its denominator is n-b(n-1)-a<=0, yielding a universal sharp factor (n-1)(2n-1)/((n+1)(2n-3))<1 when n>=3. n=2 and a+b>n are explicitly treated. Exact code independently enumerated 23712 Dyck paths and passed 50619 assertions; unrestricted proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kargin (2019) derives fixed-size covariance asymptotics but not uniform finite bounds in sizes that may increase with n.",
+        "Arizmendi (2012), abstract, discusses expected number of specified-size blocks under fixed total block counts; full text not inspected."
+      ],
+      "reasoning": "A global negative association theorem would dominate this claim, but none was established in the inspected material. A fixed-size asymptotic does not imply the all-finite-size theorem; a marginal one-marked enumeration does not itself supply the cross-moment comparison and sharp extremizer.",
+      "searches": [
+        "Fixed-size block statistics in random noncrossing partitions exact covariance negative dependence asymptotic",
+        "arXiv:1201.6576 Statistics of blocks in k-divisible non-crossing partitions",
+        "Kargin 2019 noncrossing fixed-size block count covariance asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.00632v1",
+      "Bergerson et al. Ars Combinatoria 99 (2011) pp.83-87 PDF",
+      "arXiv:1201.6576 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.4 (2019) explicitly supplies leading covariance for fixed sizes, with an O(1) remainder.",
+        "Bergerson et al. (2011) counts individual marked block distributions; the present proof uses two-variable derivatives and factorial-ratio monotonicity."
+      ],
+      "reasoning": "The O(1) remainder in fixed-size asymptotics does not control sign for all n, nor for sizes growing with n. Two-marked differentiation plus the sharp ratio monotonicity gives a strictly stronger quantified inequality not stated in the inspected prior papers. The same generating-function technology makes possible an implicit earlier derivation, recorded as a risk.",
+      "searches": [
+        "Kargin 1907.00632 Theorem 2.4 block sizes covariance formula",
+        "noncrossing partition block of size k number total blocks binomial n r m-1 r-1",
+        "published index: Uniform random noncrossing set partition joint moments block size counts finite n covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kargin (2019), Theorem 2.4: covariance has negative leading term for two fixed distinct block sizes as n grows.",
+        "Bergerson et al. (2011), Theorem 1: precise tagged one-block and total-block enumeration; all five pages inspected."
+      ],
+      "reasoning": "The exact moment formulas follow from marked combinatorial enumeration and are prior-background-level formulas. The assessed theorem instead has new universal quantifiers over arbitrarily n-dependent distinct sizes, a strict sign, and a best constant with extremizers. Neither inspected article states that finite sharp inequality.",
+      "searches": [
+        "Uniform random noncrossing set partition joint moments block size counts finite n covariance",
+        "noncrossing partitions block of size k number total blocks binomial n r m-1 r-1",
+        "arXiv:1907.00632v1 Theorem 2.4",
+        "combinatorialpress.com/ars Volume 99 Note on 1-Crossing Partitions Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2011 primary article provides exact counts for one marked block and a fixed total number of blocks, not an exact table of sharp two-size covariance ratios.",
+        "An exact single-parameter count is credited rather than repackaged as novel."
+      ],
+      "reasoning": "No inspected database or table gives this all-pair sharp normalized covariance inequality. Any numerical table of small cases cannot entail strictness at all n.",
+      "searches": [
+        "noncrossing partitions size biased number of blocks under marking a block of size k hypergeometric Narayana distribution likelihood ratio stochastic order",
+        "Note on 1-Crossing Partitions Theorem 1 2011 Bergerson Miller Pliml Reiner Shearer Stanton Switala",
+        "noncrossing partition number of blocks covariance block size tagged block length hypergeometric coupling"
+      ]
+    },
+    "rationale": "The assessed new statement is strict finite negative covariance for ALL distinct block sizes and the sharp universal normalized-moment bound with equality exactly at {1,2}. Kargin (2019, Theorem 2.4) establishes a negative fixed-size large-n asymptotic, and Bergerson et al. (2011, Theorem 1) one-tagged-block counts, neither of which states this all-pairs sharp finite bound. The mixed moment formula is not treated by itself as the novel claim; the monotone ratio inequality is separately proved. A possibly implicit older inequality is the principal priority risk.",
+    "residual_risks": [
+      "An earlier exact two-marked block enumeration or a full negative-association result could imply the same bound; none was identified in inspected material.",
+      "Arizmendi (2012) was inspected only at abstract level; full text could contain an equivalent inequality.",
+      "Semantic-search summaries do not certify absence of a stronger published result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIXED-SIZE ASYMPTOTIC, NOT SHARP FINITE UNIFORM CLAIM",
+        "evidence": [
+          "Theorem 2.4 reports covariance = -n[2+(a-1)(b-1)]/2^(a+b+3)+O(1) for distinct fixed indices.",
+          "Theorem 2.2 gives a single-size block marker equation."
+        ],
+        "identifier_or_url": "arXiv:1907.00632v1",
+        "material_read": "Abstract, introduction, Section 2.2 Theorems 2.2 and 2.4, coefficient-extraction derivation and asymptotic statements",
+        "method": "Open-access PDF text inspection, equations and theorem comparison",
+        "title": "Limit theorems for statistics of non-crossing partitions",
+        "trigger": "Directly studies negative covariance between block size counts"
+      },
+      {
+        "assessment": "ESTABLISHES EXACT ONE-MARKED COUNTS; DOES NOT STATE SHARP CROSS-COVARIANCE BOUND",
+        "evidence": [
+          "Theorem 1 counts noncrossing partitions with one distinguished a-block and exactly t blocks by binom(n,t-1)binom(n-a-1,t-2).",
+          "Paper also proves rotational q-analogues."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%2099/volume-99-paper-9.pdf",
+        "material_read": "All five pages, including Theorem 1 and proof on pp.83-87",
+        "method": "PDF rendered page-by-page inspection",
+        "title": "Note on 1-Crossing Partitions",
+        "trigger": "Newly identified exact enumeration of marked blocks with total block count"
+      },
+      {
+        "assessment": "INSUFFICIENT TO EXCLUDE IMPLICIT FULL-TEXT COVERAGE",
+        "evidence": [
+          "Abstract describes block-size expectations conditional on total block count and k-divisible generalizations."
+        ],
+        "identifier_or_url": "arXiv:1201.6576",
+        "material_read": "Public abstract only, not the full paper",
+        "method": "Abstract and citation metadata comparison",
+        "title": "Statistics of blocks in k-divisible non-crossing partitions",
+        "trigger": "Potential exact fixed-block refinements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2342e318-d052-4abc-832b-79a825fe0808",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp factor resolves a natural finite-sample dependence question for every pair of distinct block sizes, including sizes increasing with n. It provides uniform control for block-profile covariance matrices, sharp worst case {1,2}, and strict negativity even for small n; previous fixed-size O(1) asymptotics do not provide this. No claim of full negative association is made.",
+    "status": "PASS"
+  }
+}
