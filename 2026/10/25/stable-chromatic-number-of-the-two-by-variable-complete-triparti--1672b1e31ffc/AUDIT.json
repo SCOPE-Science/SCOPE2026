@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The upper bound orients the size-n part towards both other parts and the size-2 part towards the size-m part; every reachable set has ≤m+3 vertices. For a core obstruction on s-1 colors, the paired-level preference rankings force the i-th level to use colors ≥i, and core vertices to avoid all q lower colors, using actual neighbor witnesses and improperness/2-cycle dichotomy. A stable coloring would contradict the core obstruction. The explicit six-vertex core obstruction has a complete 96-coloring checker with 92 directed 2-cycles and four directed 3-cycles. Additional exhaustive constructed-profile checks at m=3,4 yield 2,940 and 165,360 obstructed assignments; only the quantified proof establishes all m and n. The paper definitions, quantifiers, named-color conventions and boundary m=2 were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koana, Oh, Yoneda, arXiv:2609.00569v1, 2026-09-01, §§2–3, Appendix A (16-page PDF)",
+        "Theorem 3.1 of arXiv:2609.00569 supplies upper bounds via acyclic reachability; Proposition 3.4 supplies subgraph monotonicity; Appendix A gives a triangular-prism lower obstruction. The paper finds no \"tripartite\" or \"multipartite\" terms in full-text search.",
+        "Published research record, 2026-10-04, Stable chromatic number of K_(2,3,3), indexed title and abstract, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305"
+      ],
+      "reasoning": "The broad graph-theoretic upper bound covers the ≤m+3 half, and the prism already implies \\(K_{2,2,2}\\)≥5. Neither alone gives an unbounded m≥4 lower bound. The new lemma forces q additional unavailable colors by placing a witness in each of two parts at every level. The indexed published \\(K_{2,3,3}\\) result specializes only to m=3; we do not claim its inaccessible whole text was cleared.",
+      "searches": [
+        "published-finding corpus: preference stable chromatic number K_{2,m,n} m+3 for m>=4 complete tripartite double witness pumping envy graph",
+        "published-finding corpus: Koana Oh Yoneda stable colouring complete multipartite sharp reach bound triangular prism obstruction",
+        "Web: \"stable chromatic number\" \"complete multipartite\" 2026 exact"
+      ]
+    },
+    "checked_sources": [
+      "Koana, Oh, Yoneda, arXiv:2609.00569v1, 2026-09-01, §§2–3, Appendix A (16-page PDF)",
+      "Published research record, 2026-10-04, Stable chromatic number of K_(2,3,3), indexed title and abstract, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+      "Web search for K_(2,m,n), stable complete multipartite, and preference envy-cycle coloring; no matching m≥4 theorem found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koana, Oh, Yoneda, arXiv:2609.00569v1, 2026-09-01, §§2–3, Appendix A (16-page PDF)",
+        "Published research record, 2026-10-04, Stable chromatic number of K_(2,3,3), indexed title and abstract, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+        "Theorem proof constructs a new general level-induction forcing any stable coloring on \\(K_{2,m,m}\\) with m+2 colors to restrict the \\(K_{2,2,2}\\) core to four colors, contradicting an independently verified four-color obstruction."
+      ],
+      "reasoning": "\\(K_{2,2,2}\\) is already implied by the published triangular-prism result and \\(K_{2,3,3}\\) is already separately reported. For m≥4, neither isolated case entails \\(\\chi_{\\mathrm{stable}}\\ge m+3\\) under induced-subgraph monotonicity alone; one needs a new two-part amplification. General reachability supplies only the matching upper bound. The current result contains all m≥4 cases as an infinite, sharp new extension.",
+      "searches": [
+        "published-finding corpus: stable chromatic number complete multipartite graph all sizes N minus max part plus one",
+        "Web/full-text PDF: find \"multipartite\"; find \"tripartite\"; inspect Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koana, Oh, Yoneda, arXiv:2609.00569v1, 2026-09-01, §§2–3, Appendix A (16-page PDF)",
+        "The paper §2 defines stability equivalently as absence of a directed cycle in the envy digraph, including directed two-cycles. The search record for \\(K_{2,3,3}\\) uses the same preference-stable invariant."
+      ],
+      "reasoning": "The claim uses the identical preference-based stability definition, not anti-coordination Nash equilibrium, proper conflict-free coloring, or Pareto-optimal coloring. The source explicitly distinguishes those alternative definitions in its related-work section. No equivalent m≥4 theorem was identified; a negative search is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: stable chromatic number preference stable graph colouring cycles paths stars complete bipartite exact 2026 Koana Oh Yoneda",
+        "published-finding corpus: envy-free cycle-free stable graph coloring complete tripartite K_{2,4,4} K_{2,5,5} exact",
+        "Web: \"Graph Coloring with Color Preferences\" \"stable chromatic number\" paths trees cycles complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record, 2026-10-04, Stable chromatic number of K_(2,3,3), indexed title and abstract, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+        "The published record states \\(K_{2,3,3}\\) has value 6 and a complete test of 2,940 proper five-colorings. Our standalone checker independently reproduces that 2,940 count with a different lifted profile.",
+        "The original arXiv paper Table 1 lists paths, cycles, and complete bipartite graphs, but no complete tripartite exact formula."
+      ],
+      "reasoning": "The original table and the indexed exact record account for m=2 (through the appendix) and m=3, and neither gives the parameter regime m≥4. Actual record was read as indexed abstract, not full source, so its unseen content is an explicit risk.",
+      "searches": [
+        "published-finding corpus: stable chromatic number complete tripartite K2,2,2 K2,m,n optimal colors",
+        "published-finding corpus: stable chromatic number K233 complete tripartite published-finding corpus publication October 2026",
+        "Web: \"stable chromatic number\" \"K_{2,m,n}\"",
+        "Web: \"Graph Coloring with Color Preferences\" \"complete tripartite\""
+      ]
+    },
+    "rationale": "The claim is the exact formula \\(\\chi_{\\mathrm{stable}}(K_{2,m,n})=m+3\\) uniformly for unbounded m≥4, as well as earlier credited m=2,3 cases. Its new two-part envy-obstruction amplification is not asserted by the inspected 2026 primary paper (which gives the reachability theorem, monotonicity, and a triangular-prism seed) or by the indexed published record proving only \\(K_{2,3,3}\\). The special cases already covered are explicitly distinguished. Unindexed equivalent work and inaccessible fuller database text remain residual risks.",
+    "residual_risks": [
+      "Full-text content of the published \\(K_{2,3,3}\\) record was unavailable, so unseen broader implications cannot be excluded.",
+      "Older equivalently phrased preference-cycle/house-allocation literature and unindexed work might contain the general two-part amplification.",
+      "A finite exhaustive certificate validates the six-vertex seed; independent external validation of the new infinite proof is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same invariant, gives upper theorem and already covers the six-vertex lower seed via prism subgraph; it does not state the infinite \\(K_{2,m,n}\\) classification or a paired obstruction amplification.",
+        "evidence": [
+          "Theorem 3.1 and Proposition 3.4, PDF pp.5–6; Table 1, p.3; Appendix A, pp.15–16."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.00569v1",
+        "material_read": "16-page primary PDF, abstract, definitions in §2, reachability and Grundy bounds and monotonicity in §3, explicit graph-class results and table, Appendix A triangular-prism obstruction; full-PDF text searches for tripartite and multipartite.",
+        "method": "Direct primary PDF inspection with extracted text and page screenshots.",
+        "title": "Graph Coloring with Color Preferences",
+        "trigger": "Foundational definition and potential broader coverage of stable chromatic numbers."
+      },
+      {
+        "assessment": "Specific \\(K_{2,3,3}\\) value 6 is prior, so no novelty claimed for m=3. The accessible statement neither proves nor refutes uniform m≥4 coverage in unseen technical material.",
+        "evidence": [
+          "Indexed title and summary identify the 6-value and 2,940 five-color assignments; accessible abstract is narrower than new theorem."
+        ],
+        "identifier_or_url": "Published research record, 2026-10-04, Stable chromatic number of K_(2,3,3), indexed title and abstract, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+        "material_read": "Indexed record title, summary, stated exact value and 2,940 coloring count; full GitHub text could not be fetched in this environment.",
+        "method": "Semantic published-record search and attempted full-page open.",
+        "title": "Stable chromatic number of the complete tripartite graph K_(2,3,3)",
+        "trigger": "Closest published matching graph family and parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1672b1e3-1ffc-45d6-bbd5-23f8e5181e63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes the entire sharp reachability gap for a natural two-parameter class of complete tripartite graphs with arbitrarily large parts. Its paired-level obstruction amplification is a reusable structural principle for preference-stable coloring, not a single tiny instance or a routine use of the reachability upper theorem. The new cases m≥4 grow unboundedly, despite m=2,3 being known from independent earlier results; that precise parameter distinction is documented.",
+    "status": "PASS"
+  }
+}
