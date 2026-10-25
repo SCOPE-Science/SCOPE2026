@@ -1,12 +1,13 @@
-# Self-review
+# Mathematical assessment
 
-## Correctness
-PASS. The full \(96\)-word constant-GC ambient set is reconstructed. Two equivalent compatibility formulations agree on all eligible pairs, two exact clique searches independently give maximum \(6\) and exactly \(512\) maxima, and a separate ordinary constant-GC census proves the \(128\), \(16\), \(8\), and \(64\)-transversal parent counts. The explicit \(256\)-element symmetry action is verified on the entire graph before orbit counting.
+## Correctness of the finite equality classification
 
-## Originality
-PASS. The 2003 primary full text already gives the optimal values \(6\) and \(12\), so those are treated as prior. The inspected source and targeted searches do not state the \(512\)-code equality census, the distinction between \(16\) reverse-complement-invariant and \(8\) viable ordinary parents, the exact \(8\times64\) lift, or the four symmetry orbits. Residual risk remains for an obscure unindexed finite census.
+The source-defined DNA model has 96 words of length four and GC-content two; exactly 72 pass the required self reverse-complement distance of three. In the constrained compatibility graph, complete maximal-clique enumeration finds clique number six and 512 labeled maximum cliques. The independent ordinary minimum-Hamming-distance-three graph has clique number twelve with 128 labeled maxima. Exactly 16 of those parents are invariant under reverse-complement; eight are fixed-point-free, and their six two-element pairs give 64 admissible transversals per parent. Each constrained maximum has a unique ordinary closure parent. The exhibited 256-element symmetry action preserves all edges and partitions the 512 maxima into four orbits of size 128. These are exhaustive finite calculations for the stated parameters.
 
-## Value
-PASS. The classification explains the complete equality mechanism behind the classical halving bound at a canonical smallest parameter: only half of the reverse-complement-invariant ordinary optima are viable, and each viable parent contributes every transversal. This is a structural equality theorem rather than a recomputation of the known optimum.
+## Relationship to earlier mathematics
 
-Self-review: passed. Independent audit: not yet performed.
+King, *Bounds for DNA codes with constant GC-content* (2003), proves the halving bound and records the optimal sizes six and twelve in its parameter tables. Those numerical optima are established prior work. Chee and Ling, *Improved Lower Bounds for Constant GC-Content DNA Codes* (2008), use the equivalent maximum-clique formulation and enumerate optimum codes for other parameter triples. The additional claim here is the complete labeled equality layer, its fixed-point-free parent structure and orbit decomposition. Searches did not find an equivalent published census; full-text access to some later construction papers was incomplete, so historical priority cannot be asserted absolutely.
+
+## Mathematical significance and scope
+
+The result explains exactly how equality in the classical halving bound occurs at the smallest sharp constant-GC reverse-complement cell. It does not claim novelty for the optimum cardinalities, a general DNA-code classification, or optimality of the chosen symmetry subgroup.

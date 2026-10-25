@@ -1,99 +1,134 @@
 {
+  "checked_sources": [
+    "Oliver D. King, Electronic Journal of Combinatorics 10 (2003), R33, arXiv:math/0306197",
+    "Y. M. Chee and S. Ling, IEEE Transactions on Information Theory 54 (2008), 391–394, arXiv:0803.3657",
+    "P. Gaborit and O. D. King, Theoretical Computer Science 334 (2005), 99–113, DOI:10.1016/j.tcs.2004.11.004",
+    "N. Aboluion, D. H. Smith, S. Perkins, Discrete Mathematics 312 (2012), 1062–1075, DOI:10.1016/j.disc.2011.11.021"
+  ],
   "correctness": {
-    "rationale": "The full 96-word constant-GC ambient set is reconstructed. The 72 eligible vertices are obtained by the self reverse-complement condition. Two independent compatibility formulations agree exactly. Complete Bron--Kerbosch enumeration and an independent fixed-size clique census both give maximum 6 and exactly 512 maxima, with no seven-clique. A separate complete search of the ordinary constant-GC graph gives maximum 12 and 128 maxima; filtering and direct reconstruction prove the 16 invariant, 8 viable-parent, and 64-transversal statements. The explicit 256-element symmetry group is generated and verified against the full compatibility graph before orbit counting.",
+    "rationale": "For the 96 length-four words of GC-content two, exactly 72 satisfy the self reverse-complement restriction. The direct constrained compatibility graph has 1,168 undirected edges, and the ordinary distance-three graph has 3,312 edges. Complete maximal-clique enumeration independently gives constrained clique number six with 512 labeled maximum cliques and ordinary clique number twelve with 128 labeled maximum cliques. Of the latter, 16 are reverse-complement invariant, eight contain no fixed words, and each of those eight contains exactly six complement pairs with all 64 transversals valid. The stated 256 transformations preserve the constrained graph and have four code orbits, each of size 128. These finite checks enumerate the entire finite parameter space rather than sample from it.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "All enumerations concern length four, GC-content two, and distance three; no generalization to longer sequences or alternative DNA constraints is claimed.",
+    "Finite enumeration is exhaustive only because the entire 96-word ambient set and both graphs are enumerated.",
+    "The order-256 action is a specified constraint-preserving subgroup; no assertion is made that it is the entire automorphism group."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "King 2003 develops general upper and lower bounds for constant-GC and reverse-complement codes and gives parameter tables.",
-        "Gaborit--King 2005 develops linear/additive constructions and updated tables for DNA codes with the same families of constraints."
+        "King 2003 Theorem 7 establishes the halving bound A^{GC,RC}<=A^{GC}/2.",
+        "King Table 1 gives 6 and Table 2 gives 12 at (4,3,2); the bound does not count optimizers.",
+        "Chee–Ling 2008 Table I lists numbers of maximum cliques only for constrained (5,3,2), (5,4,2), (6,4,3), (7,5,3), (7,6,3) and weak (5,3,2), (6,5,3), not (4,3,2).",
+        "Gaborit–King 2005 describes linear/additive constructions and parameter tables; full text was not accessible in this assessment."
       ],
-      "reasoning": "These broader sources determine or construct optimal-size codes, but the inspected statements do not imply a complete census of all labeled equality cases or the viable-parent classification.",
+      "reasoning": "Extremal size bounds and constructions can coexist with many different equality layers. The earlier general halving theorem implies the 12-word closure of every size-6 optimizer but does not determine how many parent optima are reverse-complement invariant, how many are viable, or the number and orbits of transversals. The inaccessible 2005 full text is retained as priority risk rather than declared not covering.",
       "searches": [
-        "Bounds for DNA codes with constant GC-content King 2003",
-        "Linear constructions for DNA codes Gaborit King 2005",
-        "reverse complement DNA codes GC content exact small parameters"
+        "King 2003 full text, Theorems 2, 4, 7, and Tables 1–4",
+        "Chee and Ling 2008 full text, Section IV and Tables I–II",
+        "Gaborit and King 2005, DOI:10.1016/j.tcs.2004.11.004, public abstract",
+        "Aboluion–Smith–Perkins 2012, DOI:10.1016/j.disc.2011.11.021, institutional public abstract"
       ]
     },
     "checked_sources": [
-      "arXiv:math/0306197",
-      "Electronic Journal of Combinatorics 10 (2003), R33",
-      "DOI:10.1016/j.tcs.2004.11.004"
+      "Oliver D. King, Electronic Journal of Combinatorics 10 (2003), R33, arXiv:math/0306197",
+      "Y. M. Chee and S. Ling, IEEE Transactions on Information Theory 54 (2008), 391–394, arXiv:0803.3657",
+      "P. Gaborit and O. D. King, Theoretical Computer Science 334 (2005), 99–113, DOI:10.1016/j.tcs.2004.11.004",
+      "N. Aboluion, D. H. Smith, S. Perkins, Discrete Mathematics 312 (2012), 1062–1075, DOI:10.1016/j.disc.2011.11.021"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The halving bound and the optimal values 6 and 12 show only that a constrained optimum can at most occupy half of an ordinary optimum.",
-        "The complete search finds 128 ordinary optima, but only 16 are reverse-complement invariant and only 8 are viable; these distinctions are not supplied by the cardinality bounds.",
-        "Each viable parent has six reverse-complement pairs, and all 64 transversals are valid; this extra equality structure is established directly by the package."
+        "King 2003 halving theorem forces a size-six constrained optimizer to induce a size-twelve ordinary parent.",
+        "The counts of invariant ordinary maximum sets (16), self-free invariant ordinary maxima (8), and labeled constrained optima (512) were verified independently by complete finite clique enumeration.",
+        "Chee–Ling 2008 explicitly restricts its number-of-optima table to distinct cells, and does not imply the (4,3,2) equality census."
       ],
-      "reasoning": "Knowing both optimum cardinalities does not imply how many ordinary optima are invariant, which invariant optima avoid self-reverse-complement words, how many constrained optima exist, or their symmetry orbits.",
+      "reasoning": "The former result implies the parent map and its maximum cardinality, but not the parent classification nor 8-by-64 count; the parent-transversal argument plus the complete ordinary graph enumeration supply the missing information. The orbit formula additionally depends on a checked order-256 action and is not entailed by known scalar optima.",
       "searches": [
-        "A_4^GC,RC(4,3,2) 512",
-        "GC RC 4 3 2 DNA code classification",
-        "reverse-complement invariant optimal GC code length 4"
+        "King 2003 Theorem 7, Table 1 and Table 2",
+        "Chee–Ling 2008 Section IV, Table I",
+        "Gaborit–King 2005 abstract; Aboluion–Smith–Perkins 2012 abstract",
+        "Published-record searches for exact four-orbit reverse-complement DNA code equality cases"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "King 2003 defines the same constant-GC and reverse-complement Hamming constraints, with the reverse-complement condition imposed for not-necessarily-distinct codewords.",
-        "The verifier checks the direct two-inequality compatibility relation against the equivalent four-word ordinary-Hamming formulation for every eligible word pair."
+        "King 2003 §1 defines exactly the self-inclusive reverse-complement distance condition and uses the same alphabet and GC-content convention.",
+        "Chee and Ling 2008 §IV identify feasible DNA libraries with cliques in a graph on self-eligible words.",
+        "The candidate additionally applies reverse-complement closure, obtaining a 12-word ordinary parent for every 6-word optimum."
       ],
-      "reasoning": "The candidate is expressed in the standard DNA-code convention and independently reduced to an ordinary Hamming condition on reverse-complement closures, preventing a convention mismatch.",
+      "reasoning": "The clique and reverse-complement-closure descriptions are equivalent formulations of the original feasibility problem, not different code families. Their use in earlier papers establishes the reduction, but neither general reduction implies the numerical equality-case counts or orbit decomposition without the new exhaustive classification.",
       "searches": [
-        "DNA code reverse complement constant GC content length 4 distance 3 exact classification",
-        "A_4^GC,RC(4,3,2) DNA code",
-        "constant GC-content reverse-complement code length four"
+        "arXiv:math/0306197, definitions of A_4^{GC,RC}(n,d,w) and Theorem 7",
+        "arXiv:0803.3657, Section IV, GC/RC compatibility clique graph",
+        "Published-record search: complete classification or equality census optimal DNA codes length four GC content two Hamming three reverse complement distance three"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "King 2003 Table 1 gives the optimal value 6 for reverse-complement constant-GC codes at n=4,d=3,w=2.",
-        "King 2003 Table 2 gives the optimal ordinary constant-GC value 12 at the same n,d,w.",
-        "Targeted searches did not locate a table entry or database statement giving 512 equality cases or eight viable parents."
+        "King 2003 gives optimal constrained size 6 and ordinary size 12 with decimal points marking exact optima.",
+        "Chee–Ling 2008 Table II repeats constrained size 6; its Table I maximum-clique counts concern other length/distance cells.",
+        "No inspected table or published mathematical finding gives the 512 equality-case count, 16/8 parent counts or four orbits."
       ],
-      "reasoning": "The exact prior table covers only the extremal cardinalities. The new census and structural multiplicities are not consequences of the table entries.",
+      "reasoning": "Earlier tables solve the maximum-cardinality question, not the complete enumerative invariant. The mere absence of a search hit is not treated as proof of historical novelty, and unindexed finite databases remain possible.",
       "searches": [
-        "A_4^GC,RC(4,3,2)",
-        "length 4 GC-content 2 reverse-complement distance 3 DNA code 6",
-        "A_4 GC RC 4 3 2 512"
+        "King 2003 Table 1 and Table 2, n=4,d=3,w=2",
+        "Chee–Ling 2008 Tables I and II, n=4,d=3,w=2",
+        "Web exact string searches: DNA code 4 3 2 512; GC RC 4 3 2 classification; viable reverse-complement parent census",
+        "Published-record searches: constant GC-content reverse complement DNA code A_4^{GC,RC}(4,3,2) max six optimal codes parent"
       ]
     },
-    "rationale": "King's 2003 full text explicitly covers the exact parameter and marks the optimum 6, while also giving the ordinary optimum 12; these values are therefore prior. The accepted claim is narrowed to equality enumeration and structure. Exact-parameter literature searches did not locate the counts 512, 16, or 8, the 8-by-64 parent decomposition, or the four-orbit classification.",
+    "rationale": "The known optimum 6 and the ordinary optimum 12 are not new. The surviving exact claim is the complete labeled equality census, the reverse-complement-invariant ordinary-parent classification, and the orbit decomposition under the explicitly stated order-256 action. King 2003 supplies only parameterwise optimal cardinalities; Chee–Ling 2008 enumerates maximum cliques at other parameters. No inspected complete source states this equality census. Full text of Gaborit–King 2005 remains a priority uncertainty.",
     "residual_risks": [
-      "An obscure or unindexed historical finite census could contain the same 512-code equality count or parent decomposition.",
-      "The 2005 construction paper was inspected at abstract level rather than full text; the decisive 2003 exact-parameter source was inspected in full."
+      "The full Gaborit–King 2005 and Aboluion–Smith–Perkins 2012 papers were not materially inspected; an equality-case appendix remains possible.",
+      "Unindexed or obscure finite-census tables could contain the numerical classification under another equivalence convention.",
+      "The orbit decomposition is explicitly relative to the specified order-256 symmetry subgroup, not asserted for the full automorphism group of the compatibility graph."
     ],
     "source_inspections": [
       {
-        "assessment": "COVERS_OPTIMUM_NOT_EQUALITY_CENSUS",
-        "evidence": "Table 1 marks value 6 optimal at n=4,d=3,w=2 and Table 2 gives ordinary value 12; no inspected statement enumerates equality cases or the eight viable parents.",
-        "identifier_or_url": "arXiv:math/0306197 / Electronic Journal of Combinatorics 10 (2003), R33",
-        "material_read": "Full 13-page paper, including definitions, the halving bound, and Tables 1 and 2; the table page was visually inspected.",
-        "method": "Lawful public full-text inspection.",
+        "assessment": "COVERS_BOTH_OPTIMAL_SIZES_NOT_EQUALITY_LAYER",
+        "evidence": "Theorem 7 gives A^{GC,RC}<=A^{GC}/2; Tables 1 and 2 give 6 and 12 at (4,3,2), without enumerating all optimal labeled codes.",
+        "identifier_or_url": "arXiv:math/0306197; https://rothlab.csb.pitt.edu/publications/King_EJCombinatorics_2003.pdf",
+        "material_read": "Complete 13-page public manuscript, especially definitions §1, Theorem 7 with proof, Tables 1 and 2, and parameter-specific table row.",
+        "method": "Full text and visually examined table page.",
         "title": "Bounds for DNA codes with constant GC-content",
-        "trigger": "Exact object, notation, reverse-complement convention, and target parameter table."
+        "trigger": "Exact coding convention, self-pair condition, halving bound, target parameter (4,3,2)."
       },
       {
-        "assessment": "CONSTRUCTION_FOCUSED_NO_DECISIVE_COVERAGE_FOUND",
-        "evidence": "The abstract describes additive/linear constructions and updated tables through length 20, not an all-code equality census.",
+        "assessment": "ALGORITHM_AND_ENUMERATIONS_FOR_DIFFERENT_PARAMETERS",
+        "evidence": "§IV explains maximum clique reduction. Table I lists numbers of maximum cliques for other parameter triples, not (4,3,2); Table II repeats the optimum cardinality 6.",
+        "identifier_or_url": "arXiv:0803.3657; https://arxiv.org/pdf/0803.3657",
+        "material_read": "Complete four-page article, including §IV, Tables I–II and their parameter rows, viewed as text and page images.",
+        "method": "Open-access full text.",
+        "title": "Improved Lower Bounds for Constant GC-Content DNA Codes",
+        "trigger": "Same constraints and explicit prior enumeration of maximum cliques for DNA-code graphs."
+      },
+      {
+        "assessment": "FULL_TEXT_ACCESS_RISK",
+        "evidence": "Abstract describes constructions and updated optimal-size tables, not an explicit equality census; abstract alone cannot exclude one.",
         "identifier_or_url": "DOI:10.1016/j.tcs.2004.11.004",
-        "material_read": "Abstract and bibliographic description of the construction and table scope.",
-        "method": "Public abstract inspection.",
+        "material_read": "Public bibliographic abstract describing additive/linear constructions and updated parameter tables; complete fifteen-page paper not read.",
+        "method": "Public abstract; open-access full-text searches unsuccessful.",
         "title": "Linear constructions for DNA codes",
-        "trigger": "Direct later work by King on the same DNA-code constraints and updated tables."
+        "trigger": "Direct sequel of King by one of the same authors, dealing with both GC and reverse-complement constraints."
+      },
+      {
+        "assessment": "FULL_TEXT_ACCESS_RISK",
+        "evidence": "Abstract discusses involutions, linear/additive constructions and new best codes, not an explicit complete equality classification; no whole-paper absence is inferred.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2011.11.021",
+        "material_read": "Institutional public abstract and bibliographic description; full text not read.",
+        "method": "Public abstract.",
+        "title": "Linear and nonlinear constructions of DNA codes with Hamming distance d, constant GC-content and a reverse-complement constraint",
+        "trigger": "Later primary work for exactly the code constraints."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "self_review",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "2ef0e138-5e6b-4958-aad2-4353be6bc48b",
-  "self_review_status": "passed",
   "value": {
-    "rationale": "This resolves the complete equality layer at the smallest nontrivial parameter where the classical table has a sharp reverse-complement optimum and a sharp ordinary constant-GC parent optimum. The 8-by-64 decomposition explains exactly how the halving bound is realized and separates viable reverse-complement-invariant parents from the eight invariant ordinary optima obstructed by self-reverse-complement words. The result is therefore a natural structural classification rather than a routine recount of the known optimum.",
+    "rationale": "The (n,d,w)=(4,3,2) cell is a natural smallest sharp test of the classical constant-GC reverse-complement halving bound. The equality classification reveals exactly which ordinary optima induce admissible reverse-complement codes and exhausts the labeled and symmetry-reduced maxima. It is a structural refinement beyond the already known optimal cardinality, not a purported improvement to bounds.",
     "status": "PASS"
   }
 }

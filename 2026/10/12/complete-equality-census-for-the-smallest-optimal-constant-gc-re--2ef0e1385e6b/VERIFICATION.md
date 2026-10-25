@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier uses only the Python standard library and performs complete finite checks:
+## correctness
 
-1. Generate all \(96\) length-four DNA words of GC-content \(2\).
-2. Retain the \(72\) words whose self reverse-complement distance is at least \(3\).
-3. Build constrained compatibility in two independent formulations and require exact equality.
-4. Enumerate all maximal cliques and obtain maximum size \(6\) with exactly \(512\) maxima.
-5. Independently enumerate all six-cliques and require exact agreement with the \(512\)-code set; independently require that no seven-clique exists.
-6. Build the ordinary constant-GC Hamming graph on all \(96\) words and enumerate its \(128\) maximum twelve-word codes.
-7. Identify exactly \(16\) reverse-complement-invariant ordinary maxima, exactly \(8\) without self-reverse-complement words, and verify that these \(8\) are exactly the parents of all constrained maxima.
-8. Enumerate all \(64\) transversals of each viable parent and require their union to equal the direct \(512\)-code census.
-9. Generate all \(256\) stated symmetries, verify graph preservation, and reproduce the four \(128\)-element orbits and stabilizer order \(2\).
+PASS
 
-The expected terminal line is:
+For the 96 length-four words of GC-content two, exactly 72 satisfy the self reverse-complement restriction. The direct constrained compatibility graph has 1,168 undirected edges, and the ordinary distance-three graph has 3,312 edges. Complete maximal-clique enumeration independently gives constrained clique number six with 512 labeled maximum cliques and ordinary clique number twelve with 128 labeled maximum cliques. Of the latter, 16 are reverse-complement invariant, eight contain no fixed words, and each of those eight contains exactly six complement pairs with all 64 transversals valid. The stated 256 transformations preserve the constrained graph and have four code orbits, each of size 128. These finite checks enumerate the entire finite parameter space rather than sample from it. The independent checker reconstructed and enumerated both finite graphs without executing verify.py; it verified full closure of the 256-element symmetry group under composition, all 512 optimizers and four equal code orbits.
 
-`VERIFY_OK maximum=6 labeled_maxima=512 parents=8 children_per_parent=64 orbits=4 orbit_sizes=128,128,128,128 stabilizers=2,2,2,2`
+## originality
 
-The computation is exhaustive only for the stated finite parameter.
+PASS
+
+The known optimum 6 and the ordinary optimum 12 are not new. The surviving exact claim is the complete labeled equality census, the reverse-complement-invariant ordinary-parent classification, and the orbit decomposition under the explicitly stated order-256 action. King 2003 supplies only parameterwise optimal cardinalities; Chee–Ling 2008 enumerates maximum cliques at other parameters. No inspected complete source states this equality census. Full text of Gaborit–King 2005 remains a priority uncertainty.
+
+## value
+
+PASS
+
+The (n,d,w)=(4,3,2) cell is a natural smallest sharp test of the classical constant-GC reverse-complement halving bound. The equality classification reveals exactly which ordinary optima induce admissible reverse-complement codes and exhausts the labeled and symmetry-reduced maxima. It is a structural refinement beyond the already known optimal cardinality, not a purported improvement to bounds. This is a complete natural equality-invariant census at a known-sharp smallest constant-GC/RC parameter, not a novel optimal-size bound; its exact orbit and viable-parent counts are mathematically usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
