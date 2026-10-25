@@ -1,19 +1,21 @@
-# Scientific review: exact edge-count residues given degree parities
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The characteristic function is derived by exact Fourier inversion on the incidence-matrix syndrome, with the conditioning normalization \(\Pr(D=d)=2^{-(n-1)}\) and all feasible vectors counted. The even-order Krawtchouk sum vanishes exactly in the nonconstant cases; the odd-order sum evaluates to a signed nonzero power of two. Triangle symmetric difference proves conditional edge-parity balance, closing the four-root inversion. The critical formulas are checked independently with exact integer Gaussian arithmetic for 45 parameter values, and exhaustively on 33,864 graphs through order six. The proof, not the bounded checks, supports the all-order claim.
+PASS
 
-## Originality
+Fix n>=3, fair independent edges of labeled K_n and feasible even-weight binary degree syndrome d. Its binary incidence matrix has rank n-1, so every parity fiber has 2^(M-n+1) graphs, M=C(n,2). Apply character expansion of 1_{Bx=d} and independent edge products to obtain Z=(1+i)^M/2^(M+1)*sum_{k=0}^n K_k(w;n)(-i)^{k(n-k)}, where K_k are coefficients of (1-t)^w(1+t)^(n-w). For even n, the k-phase takes only its even/odd constants; F(1)=F(-1)=0 for 0<w<n, while w=0 or n gives explicit nonzero endpoints. For odd n the trigonometric roots of unity and even w evaluate to the stated nonzero phase and magnitude. Symmetric difference with any fixed triangle on >=3 vertices preserves every degree parity but reverses parity of E, so conditional E[(-1)^E]=0; four-root inversion gives P(E≡a mod4|D=d)=[1+2 Re(i^(-a) Z)]/4 and uniformity iff Z=0. Independently enumerated all graphs on n=3,4,5,6 and verified all 4 residue counts and characteristic-function closed forms for every feasible syndrome, total 8+64+1024+32768=33864 graphs. The all-order argument uses exact algebra and the triangle involution, not exhaustive finite extrapolation.
 
-**PASS on inspected evidence; residual historical-priority risk.** Ferber–Hardiman–Krivelevich analyze degree-congruence patterns and induced subgraphs. Balister–Powierski–Scott–Tan analyze the number of induced-partition patterns. Lengler and colleagues give edge-total residue constraints as examples for connectivity and dependence, not their full conditional law given vertex syndromes. Cameron gives a general weight-enumerator framework, which could imply parts of the computation after new specialization but does not state the evaluated all-syndrome zero classification. Actual semantic searches of published mathematical findings and primary-literature queries did not identify a stronger same-object implication. Old cycle-code coset or Ising evaluations could cover the statement; this remains a genuine risk, and the search itself does not establish priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Degree parities are a natural coarse observation of a graph, and their interaction with the global number of edges cannot be inferred from marginal degree-parity uniformity. The theorem gives an exact conditional independence regime, an exhaustive exception classification, and exact finite-order biases outside it. In particular, the parity of the graph order acts as a sharp qualitative boundary, relevant to parity-constrained random graph models and their possible global congruence leakage.
+The exact all-fiber conditional edge-count residue law was compared with degrees-congruence and partition results, plus generic graph-cycle-code weight enumerators. Fourier/MacWilliams methods as such are classical and not newly claimed; the exact K_n all-syndrome sign, vanishing criterion and uniformity exceptions require evaluation. No inspected primary theorem was found whose statement already classifies the same conditional all-degree-pattern mod-four law. Residual coverage risk of an older evaluated Ising/cycle-coset enumerator is genuine, so originality is best-of-knowledge.
 
-## Scope and limitations
+## value
 
-The result is confined to independent fair-edge labeled graphs of order at least three and conditioning on feasible degree-parity vectors. No claim is made about arbitrary edge probabilities, general moduli, or complete integer degree sequences. A potential equivalent older statement under cycle-code coset enumerators remains unresolved by the literature inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Degree parities are the natural F2 syndrome of a labeled graph, and the global edge count is an intrinsically interesting second statistic. The theorem proves a sharp exact conditional independence regime for every even graph size with nonconstant feasible parity syndrome, classifies all exceptional and odd-order cases, and evaluates finite-sample complex biases. Such a qualitative complete zero/nonzero boundary is not implied by marginal parity uniformity and is relevant to parity-constrained graph sampling and code-coset probabilities. The named object/invariant are motivated before calculation; the result is not a one-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
