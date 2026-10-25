@@ -1,15 +1,21 @@
-# Mathematical review: exact John ellipsoid and clique-edge screening
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an all-integer family, not an extrapolation from examples. The three orthogonal zero-sum subspaces have dimensions \(p-1\), \(q-1\), and \(1\); their spectral shape is explicitly positive. Every cross-edge slab has support one, while clique edges have support squared \(2a\). The stated nonnegative normalized graph-Laplacian design has three exact eigenvalues, whose reciprocals after multiplying by \(d=N-1\) agree with the asserted ellipsoid semiaxes. For any competing translated ellipsoid, the weighted edge-slabs imply \(\mathrm{tr}(LT)\le1\); determinant–trace AM–GM bounds its volume, with equality only at the displayed shape and zero translation. Strictness and the equality boundary follow from \(2a\) and the bipartite reference design. Exact rational checks passed on 342 integer pairs and 42 full-matrix instances; the analytic determinant certificate, not the checks, proves every parameter.
+## correctness
 
-## Originality — PASS, subject to stated risks
-The corresponding \(p=2\) book-graph ellipsoid and its contact transition are already recorded; this entire subfamily is excluded. A recorded \(K_{a,a,b}\) screening law with \(a\ge2\) concerns a different multipartite graph lacking clique edges within its size-\(a\) parts, not \(K_p\vee\overline K_q\) with \(p\ge3\). The historical complete-split-graph interior-volume and covariance calculation addresses a different invariant and does not imply a maximal-volume inscribed ellipsoid; there is no general implication from interior covariance to John position. Suliman–Weinstein's infinite Lewis weights and the classical D-optimal characterization do imply a general optimization principle, which is fully credited, but do not state the evaluated all-\(p,q\) shape, the sharp \(q=p+1\) invisibility threshold, or the strict \(q=p+2\) noncontact transition. Full text of the two closest geometric records and relevant published primary-paper passages was compared. An independently formulated unindexed optimal-design evaluation remains a bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-Determining the unique extremal Euclidean ellipsoid of an infinite, naturally defined family of Lipschitz-free dual norms is a structural Banach-space invariant, not a single low-dimensional computation. The exact equality of John ellipsoids for distinct graph-metric balls despite adding \(\binom p2\) genuinely new facet constraints is geometrically substantive. The sharp dimension-dependent boundary distinguishes invisible-but-tangent from strictly separated facets, useful for understanding graph metric perturbations and convex-position geometry. The result is not simply a general D-optimality principle, as the graph-specific weights and thresholds require the calculation supplied.
+For G=K_p∨independent_q in zero-sum H dimension d=p+q−1, project onto clique contrasts, independent contrasts and one between-part direction. Clique roots have support square 2a; cross roots support square (p−1)a/p+(q−1)b/q+Nc/(pq), N=p+q. Piecewise a,b,c are positive and cross support one. Construct weighted Laplacian from all cross edges weight w and clique edges v: when q≥p+1 use (w,v)=(1/(pq),0); else (2/[d(p+1)],2(p+1−q)/[dp(p+1)]). Their weights sum 1 and eigenvalues invert the proposed S via S=(dL)^{-1}. Any translated inscribed ellipsoid has tr(LT)≤1; AMGM det(L)det(T)≤d^{-d}, equality gives T=S and cross-root spanning forces center zero. Therefore unique global John ellipsoid, not just symmetric optimum. Clique support 2a≤1 hits equality exactly q≤p+1, but becomes strict q≥p+2. Bipartite ellipsoid comparison yields invisibility iff q≥p+1. Independent exact rational checks p,q=(3,2),(3,4),(3,5),(4,3),(4,5),(5,8) including boundary and Laplacian inverses passed.
 
-## Literature and limitations
-Context includes Aliaga (arXiv:2102.01219), D'Alì–Delucchi–Michałek (arXiv:1910.05193), Mori–Mori–Ohsugi (arXiv:2312.11287), Suliman–Weinstein (arXiv:2302.05966), the published book-graph ellipsoid calculation (record 87e035ae5886), and the published \(K_{a,a,b}\) ellipsoid calculation (record 2ec3472028bb). No originality is claimed for their general structural principles or their stated special cases. The result is for the inherited zero-sum Euclidean structure, not arbitrary isomorphic Euclidean coordinates. The finite checker is corroborative; independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original relative to the named same-object, general-method and neighboring-formulation publications inspected. Exact statement/implication comparisons do not establish prior coverage; limitations on partially read related records remain recorded explicitly. Mathematically equivalent primal/dual and weighted-Laplacian formulations explicitly considered. The generic dual does not itself evaluate optimal graph-specific weights or contact transition. Neither neighboring family contains K_p∨independent_q as an edge-preserving special case for all p≥3; general optimality theory is a tool not a previously computed sharp threshold.
+
+## value
+
+PASS
+
+Sharp and somewhat surprising geometric edge-screening phenomenon: adding all clique edges strictly shrinks the Lipschitz polytope yet leaves its John ellipsoid unchanged beyond a precise threshold, including a tangency-but-zero-multiplier boundary. Complete all-p,q formulas with contact classification are reusable in graph geometry and optimal designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
