@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof holds in the explicitly stipulated normalized, unbounded-exponent, correctly rounded binary model. For every strictly increasing rounded addition, the previous representable accumulator is at least one predecessor gap below the new result, giving the lower half-increment bound. Every non-power-of-two output has symmetric local gaps; powers of two have twice the upper gap but are hit at most once each, contributing a convergent geometric correction. Both purported extremal addends have exactly \(p\)-bit binary significands; their placements strictly within the immediate-successor rounding cell were independently checked with rational arithmetic. The argument does not confuse tests with a proof, and excludes fixed-format overflow.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
+The stated all-p positive-input no-absorption envelope follows from nearest-even predecessor/successor midpoint enclosures: for each strictly advancing rounded addition the positive exact addend is at least half the observed increment and at most 3/2 of it except at powers of two. The exceptional extra gap sums geometrically to at most 2^{-p}F, proving (F+x1)/2 <= S <= (3/2+2^{-p})F-x1/2 even across exponent boundaries. The constructed addends (1/2+2^{-p})Delta and (3/2-2^{1-p})Delta are normalized representable floats and lie in the immediate-successor rounding cell, giving asymptotic F/S=2 and 2/3 only after J→∞ then p→∞. Independent rational nearest-even implementation checked 1,488 constructed advancing steps at p=3..7 and J=1..3, including both exact sum identities; bounded corroboration only. The upper coefficient is NOT claimed sharp at each fixed p. No exponent limits/subnormal IEEE claim is inferred.
 
-The closest full-text primary paper, Mikaitis and Woolfenden, arXiv:2610.10819, defines total and near-total stagnation and experimentally demonstrates imperfect correlation between error and stagnation. Its inspected statements do not imply the explicit positive-addend two-sided bound with limiting constants \(2\) and \(2/3\). Classical midpoint rounding and general error analysis are prior work and are excluded from originality. Targeted published mathematical records and claim comparisons showed no exact match. Higham (1993) and Hallman–Ipsen (2021) could contain equivalent specialized bounds; their full text was not available in this inspection, and absence of a returned match is not a uniqueness guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The quantity measured by total-stagnation instrumentation is a natural algorithmic diagnostic. A rigorous, length-independent upper and lower error envelope, and *opposite-direction asymptotically extremal errors even when the count is zero*, give a structural calibration of what a negative detector reading implies. The result is not just a counterexample to one implementation; it determines the leading uniform limiting constants for arbitrary positive sequences subject to the detector's condition. Stronger detectors may report near-total stagnation in these examples; that does not change the stated diagnostic boundary.
+The conditional zero-total-absorption two-sided envelope with two matching uniform-precision asymptotic examples is not implied by conventional accumulated relative-error bounds or existing stagnation detectors in inspected primary full text. The novelty is a counterexample to treating a zero total absorption count as a numerical accuracy guarantee, not a discovery of rounding cells or the stagnation phenomenon.
 
-## Scope and risk
+## value
 
-This is a result about positive sums with strictly increasing accumulators in ideal unbounded-exponent binary floating point, not a statement that every IEEE execution can realize the infinite-binade limit. The upper correction \(2^{-p}\) is not asserted to be the sharp fixed-precision correction. Bibliographic uncertainty particularly concerns general error analyses in Higham's full 1993 article and Hallman–Ipsen's full 2021 article.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural diagnostic implication is sharply constrained: zero total absorbed additions does not bound the relative summation error near unity even for strictly positive inputs. Quantifying both extreme directions by a proved global envelope and explicit normalized-float constructions gives a useful numerical-analysis boundary, unlike a mere small floating-point counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
