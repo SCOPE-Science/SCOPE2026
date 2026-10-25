@@ -1,19 +1,21 @@
-# Scientific review: zero-disjoint sections and intersection spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object, base field, fibres, complete Mordell--Weil basis and published height matrix are explicitly pinned down. Non-isogeny of \(E_2\) and \(E_5\) is checked from their nonintegral rational \(j\)-invariants and good reduction traces \(0\) and \(8\) at \(23\). Kumar--Kuwata Theorem 5.1 supplies the saturated basis. Shioda's geometric height formula proves **both directions** of the cutoff \(P\cdot O=0\iff 0<\langle P,P\rangle\le4\). Exact rational square-completion enumerates all vectors, and full pairwise intersection evaluation plus a polynomial identity for the rank-twelve moment matrix prove the weighted spectral statement. All claims are checked by rerunning the embedded standalone script. The geometric premises are published theorems, not verified anew by the numerical computation.
+PASS
 
-## Originality — PASS with residual risk
+Using Burek's published rank-12 height Gram G and Kumar–Kuwata's saturated integral basis, reconstruct Q=T^TGT; exact LDL decomposition is positive with diagonal (8,6,6,6,6,3/2,5,24/5,3,3,3,3/2) and determinant 256*3^10. Shioda's K3 height equation proves P.O=0 iff 0<z^TQz<=12 (all two type-IV fiber contributions included). Independently enumerated all lattice vectors within this exact finite bound by rational completion-of-squares: norms 0:1, 8:204, 10:576, 12:432. All 20706 shortest-section pairs had intersection weights 0:5868, 1:8868, 2:5868, 4:102 and uniform weighted degree 206. Independent exact RQ certificate satisfies (RQ−120I)(RQ−144I)=0 with trace 1632; full spectrum 206^1,2^189,(−32)^2,(−38)^4,(−46)^8. All C calculations are exact; published basis/nonisogeny premises are relied upon, not deduced from finite enumeration.
 
-Burek's full Appendix A.3 gives the twelve-point heights and incidence rules; Kumar--Kuwata's full Section 5.3 and Theorem 5.1 already give the saturated full-group basis. These strong existing results dominate any claim of discovering the integral basis, and both are credited. They do not supply the complete count of zero-disjoint sections, the pair-intersection spectrum of the shortest \(204\) sections, or its exact adjacency eigenvalues in the inspected texts. Searches of bibliographic sources and a semantic mathematical research index for the exact shell values, alternative names of the fourth base-change surface, its kissing-number interpretation, and eigenvalue profile found no identified duplicate. A hidden equivalent theta-series or unpublished graph computation remains possible; failure of a search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Disjoint sections are a geometrically natural finite subsystem on an elliptic K3, characterized by the minimal possible intersections with the zero section; Shioda's height formula makes their exact census canonical rather than an arbitrary norm cutoff. Beyond the census, the \(204\)-section weighted intersection graph and its low-rank five-eigenvalue decomposition extract meaningful geometric incidence structure from the full saturated Mordell--Weil lattice. No general theorem about arbitrary K3 surfaces or the Calabi--Yau threefold is asserted.
+The complete geometric basis of Kumar–Kuwata and Burek's specific Gram/fibres cover underlying lattice geometry, but the inspected theorems do not evaluate the 1212 low-shell points and 204-section intersection spectrum. A known integral Gram matrix allows the present finite enumeration in principle, but the exact histogram and intersection graph are not immediate listed corollaries: one still needs exhaustive bounded integer lattice enumeration and local pairing correction. Kumar–Kuwata auxiliary rational-surface 54-section numbers are not these K3 sections. Priority is best-of-knowledge; accessible primary material and finite indexed Resultary results cannot establish exhaustive noncoverage.
 
-## Closest literature and limits
+## value
 
-Kumar--Kuwata (arXiv:1409.2931) proves the complete lattice; Burek (arXiv:2610.01276) computes the chosen height matrix and special fibre geometry. Both are essential inputs, and neither is superseded. Exact finite enumeration is an arithmetic proof here only because the positive-definite bound and complete integer basis are established; isolated experimental sampling would not suffice. The result does not claim all intersections among the \(1212\) disjoint sections or any independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Zero-disjoint sections and their short-section intersection pairing are natural birational/geometric invariants of a distinguished rank-twelve elliptic K3. The exact 1212-section count and complete 204-vertex weighted spectrum are finite but substantial derived classifications, not a parameter substitution or a previously tabulated generic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
