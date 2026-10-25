@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:56:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 3ae36f091deadda7cd2335666d40fd793c68915a",
+        "Frozen verification.py blob 8fce2e13e9f07f9b2e6859e21c512a088213fed9",
+        "Independent parity-state dynamic programming n=1..36"
+      ],
+      "rationale": "At every clique vertex, all path color classes have odd global multiplicity, while path-neighbor parity forces unequal colors at distance two; properness forces distance one. Clique colors are distinct and disjoint from path colors. Thus a strong-odd coloring is exactly a path word with gaps ≥3 between identical symbols and every used class odd, plus r clique colors. For 1≤n≤6 a repeated class would require at least three occurrences spanning ≥7 positions, so all letters distinct. For n≥7, three colors force ABCABC… and are all odd precisely at n≡3(mod6); color-class oddness forces palette parity to agree with n. Explicit admissible seeds of lengths 3,4,5,7,8,12 and prefix block 012012 supply the sharp 3/4/5 upper bounds for every residue class. Independently checked parity-state minimal word palettes for path orders 1..36; finite checks corroborate the all-length combinatorial argument.",
+      "residual_risks": [
+        "Formula is for clique–path joins with r,n≥1, not general graph joins.",
+        "Finite enumeration cannot prove the unbounded six-periodic theorem independently of constructions and lower bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caro et al. prove one sharp F_6=7 example and broad outerplanar bounds; later papers improve bounded class estimates."
+        ],
+        "reasoning": "A general upper bound and one isolated equality do not determine all fan graph orders, particularly the decrease at n=7,8,9 or the period-six minima.",
+        "searches": [
+          "Caro et al. arXiv:2410.02336 §3 Proposition 3.2",
+          "Goetze et al., arXiv:2505.02736",
+          "Pilipczuk arXiv:2505.15288"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.02336 Proposition 3.2",
+        "arXiv:2401.11653",
+        "arXiv:2602.03259 Theorem 1",
+        "Resultary: strong odd coloring fan graph K_1 join path P_n odd neighbor color count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One known equality at n=6 and a known wheel formula do not yield six-periodic optimal clique–path coloring."
+        ],
+        "reasoning": "The all-size formula uses the odd-multiplicity path-word characterization, parity lower bounds and explicit six-block extension. The clique r contribution is elementary once the fan path obstruction is known; no standalone novelty is claimed for adding r.",
+        "searches": [
+          "Caro et al. arXiv:2410.02336 Proposition 3.2",
+          "Manattu et al. arXiv:2602.03259 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K1∨P_n is a fan and a universal-vertex path join; K1∨C_n is a wheel, with cyclic boundary constraints."
+        ],
+        "reasoning": "Canonical aliases and parity-word reductions were checked. The wheel classification has an extra wrap-around condition, so its exact formula is not a relabeling of fan results.",
+        "searches": [
+          "Resultary: strong odd coloring fan graph K_1 join path P_n odd neighbor color count",
+          "Caro et al., arXiv:2410.02336 Proposition 3.2",
+          "Manattu et al., arXiv:2602.03259 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a fan dissociation polynomial, whose vertex-set constraint has no strong-odd neighborhood color parity requirement; strong-odd crown results concern another graph."
+        ],
+        "reasoning": "No exact fan K_r∨P_n strong-odd minimum table was found in the searched records; absence from a database is not proof of originality.",
+        "searches": [
+          "Resultary: strong odd coloring fan graph K_1 join path P_n odd neighbor color count",
+          "Resultary fan dissociation polynomial record 2026/10/4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full exact K_r∨P_n spectrum, excluding the already published fan n=6 value χ_so(K1∨P6)=7. Prior bounds on outerplanar graph families and exact wheel coloring concern different statements and do not imply this nonmonotone six-periodic fan profile.",
+      "residual_risks": [
+        "Other unindexed fan or graph-join strong-odd classifications might subsume this formula.",
+        "An exact wheel theorem is mathematically close, but cyclic and path word constraints differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same isolated boundary value but not entire fan family",
+          "evidence": "Proposition 3.2 states χ_so(K1∨P6)=7.",
+          "identifier_or_url": "arXiv:2410.02336v1",
+          "material_read": "Complete accessible arXiv HTML, especially Proposition 3.2 and nearby outerplanar bounds",
+          "method": "Read primary HTML",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Directly contains the fan K1∨P6 example"
+        },
+        {
+          "assessment": "Foundational only; no exact six-periodic fan family",
+          "evidence": "Strong odd condition and sparse graph results.",
+          "identifier_or_url": "arXiv:2401.11653v2",
+          "material_read": "Complete accessible arXiv HTML and definitions/results on sparse classes",
+          "method": "Read primary HTML",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Foundational strong-odd coloring notion and sparse bounds"
+        },
+        {
+          "assessment": "Different cyclic vs path boundary, not covering fan formula",
+          "evidence": "Theorem 1 concerns cycle–hub joins.",
+          "identifier_or_url": "arXiv:2602.03259",
+          "material_read": "Accessible primary PDF including Theorem 1 for wheels",
+          "method": "Read primary PDF relevant theorem",
+          "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+          "trigger": "Exact strong-odd wheel numbers could imply a near-alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Caro et al. arXiv:2410.02336 known n=6 example",
+        "Frozen complete six-residue constructions and lower bounds"
+      ],
+      "rationale": "Fan graphs are canonical outerplanar test cases and already contain a published sharp seven-color example. The complete infinite-family minimum and constructive parity profile reveal a nonmonotone drop 7→6→5→4 and a sharp six-periodic regime; these are natural chromatic invariants, not an arbitrary tiny table.",
+      "residual_risks": [
+        "Counts of all colorings are not supplied; result is the chromatic minimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only K_r∨P_n, no wheel or arbitrary join classification.",
+    "Known n=6 value correctly credited."
+  ],
+  "schema_version": 1
+}

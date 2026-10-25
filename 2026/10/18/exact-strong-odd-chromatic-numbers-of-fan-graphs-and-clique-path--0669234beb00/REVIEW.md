@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Reduction of strong odd colorings on the join to distance-two-valid path words of odd color multiplicity follows by checking clique, internal path, and endpoint neighborhoods. Lengths up to six are forced rainbow; the three-color periodicity criterion and parity of the used color count prove all lower bounds. Six explicit seed words and a parity-preserving six-letter extension meet those bounds for every path length. `verification.py` supplies a direct graph exhaustive check for \(1\le n\le12\), a separately implemented parity-state DP for \(1\le n\le80\), and seed construction checks for \(1\le n\le200\). The proof itself, not these finite checks, supports all integer parameters.
+## correctness
 
-**Originality — PASS with residual literature risk.** The known isolated \(K_1\vee P_6\) equality (Caro et al., arXiv:2410.02336, Proposition 3.2) is a special case, not claimed anew. Their outerplanar general bounds, Goetze et al.'s improvements (arXiv:2505.02736), and the bounded-expansion theorem do not entail the exact fan sequence. Manattu et al.'s wheel classification (arXiv:2602.03259, Theorem 1) has a similar parity idea, but cyclic rather than path boundary conditions. An exact strong odd fan family was not found in mathematical record searches for aliases and stronger covering theorems. One recent complexity paper was only abstract-accessible, and literature completeness cannot be certified.
+PASS
 
-**Value — PASS.** A published example with seven required colors becomes a complete natural family classification; immediately larger fans have strictly smaller sharp chromatic numbers. A simple invariant evolves into a six-periodic exact regime, supplying explicit optimal constructions and sharp limits in a canonical outerplanar family, rather than an arbitrary finite sample.
+At every clique vertex, all path color classes have odd global multiplicity, while path-neighbor parity forces unequal colors at distance two; properness forces distance one. Clique colors are distinct and disjoint from path colors. Thus a strong-odd coloring is exactly a path word with gaps ≥3 between identical symbols and every used class odd, plus r clique colors. For 1≤n≤6 a repeated class would require at least three occurrences spanning ≥7 positions, so all letters distinct. For n≥7, three colors force ABCABC… and are all odd precisely at n≡3(mod6); color-class oddness forces palette parity to agree with n. Explicit admissible seeds of lengths 3,4,5,7,8,12 and prefix block 012012 supply the sharp 3/4/5 upper bounds for every residue class. Independently checked parity-state minimal word palettes for path orders 1..36; finite checks corroborate the all-length combinatorial argument.
 
-**Limitations and closest literature.** The result concerns minima, not all optimal-coloring counts. It does not supply exact wheel numbers (already separately studied) or general join formulas. Independent scientific assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full exact K_r∨P_n spectrum, excluding the already published fan n=6 value χ_so(K1∨P6)=7. Prior bounds on outerplanar graph families and exact wheel coloring concern different statements and do not imply this nonmonotone six-periodic fan profile.
+
+## value
+
+PASS
+
+Fan graphs are canonical outerplanar test cases and already contain a published sharp seven-color example. The complete infinite-family minimum and constructive parity profile reveal a nonmonotone drop 7→6→5→4 and a sharp six-periodic regime; these are natural chromatic invariants, not an arbitrary tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

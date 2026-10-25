@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-The mathematical proof in RESULT.md is self-contained and applies to every positive integer clique order and path length. This file records supplementary finite checks, not independent validation.
+## correctness
 
-Running `python verification.py` from the same directory completes three tests without dependencies beyond the Python standard library:
+PASS
 
-1. For each \(1\le n\le200\), verify the explicit seed construction has the asserted number of symbols, proper distance-two separation, and odd count for every nonempty symbol class.
-2. For each \(1\le n\le80\), run a dynamic program over the final two colors and the parity mask of all color counts; check the least feasible palette equals the proposed formula.
-3. For each \(1\le n\le12\), exhaust unlabelled color partitions of the path and evaluate the actual star-join graph directly. Test all graph edges for properness and every color on every open neighborhood for oddness. The resulting minimum numbers of path colors are \(1,2,3,4,5,6,5,4,3,4,5,4\), respectively. These computations do not appeal to the path-word characterization.
+At every clique vertex, all path color classes have odd global multiplicity, while path-neighbor parity forces unequal colors at distance two; properness forces distance one. Clique colors are distinct and disjoint from path colors. Thus a strong-odd coloring is exactly a path word with gaps ≥3 between identical symbols and every used class odd, plus r clique colors. For 1≤n≤6 a repeated class would require at least three occurrences spanning ≥7 positions, so all letters distinct. For n≥7, three colors force ABCABC… and are all odd precisely at n≡3(mod6); color-class oddness forces palette parity to agree with n. Explicit admissible seeds of lengths 3,4,5,7,8,12 and prefix block 012012 supply the sharp 3/4/5 upper bounds for every residue class. Independently checked parity-state minimal word palettes for path orders 1..36; finite checks corroborate the all-length combinatorial argument.
 
-The direct search is exhaustive only for the specified finite lengths; the parity DP is also finite. Neither establishes an all-integers assertion. No external audit or validation has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full exact K_r∨P_n spectrum, excluding the already published fan n=6 value χ_so(K1∨P6)=7. Prior bounds on outerplanar graph families and exact wheel coloring concern different statements and do not imply this nonmonotone six-periodic fan profile.
+
+## value
+
+PASS
+
+Fan graphs are canonical outerplanar test cases and already contain a published sharp seven-color example. The complete infinite-family minimum and constructive parity profile reveal a nonmonotone drop 7→6→5→4 and a sharp six-periodic regime; these are natural chromatic invariants, not an arbitrary tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
