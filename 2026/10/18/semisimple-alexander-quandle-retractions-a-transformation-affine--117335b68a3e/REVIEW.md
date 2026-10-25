@@ -1,11 +1,21 @@
-# Assessment of the semisimple Alexander-quandle retraction theorem
+# Independent mathematical audit
 
-**Correctness (C): PASS.** A completely general quandle homomorphism must act independently on the connected-component labels and by a common affine map on the connected module. The proof establishes this from the operation rather than assuming linearity; it then derives idempotency and exact image multiplicities by invariant direct complements and coset representatives. Exact enumerations of *all* quandle endomorphisms in seven finite cases tested both rank and individual-image multiplicity coefficients. Finite checks supplement, not replace, the arbitrary-dimension proof.
+## correctness
 
-**Originality (O): PASS within examined coverage.** The closest articles are Iijima–Murao (2017, component decomposition), Higashitani–Kurihara (2022, isomorphism classification), Higashitani et al. (2024, broader isomorphism classification), and Singh (2023, residual/profinite endomorphism-monoid properties). Each concerns a distinct level of structure and does not provide the explicit nonlinear-label/affine-factor product or the full specified-image retraction census. Existing finite Gaussian-submodule and transformation-map counts are prior ingredients. Published-result searches for synonyms, stronger results, and exact tables were carried out; similar results under older terminology remain possible and some published database records could only be checked by summary.
+PASS
 
-**Value (V): PASS.** Nonconnected Alexander quandles have nonlinear endomorphisms that cannot be enumerated by module projections alone. The theorem completely classifies them in the semisimple case and yields exact image counts and multiplicities in every prime characteristic and all finite dimensions, including irreducible extension-field components. The maximum proper rank is also characterized sharply whenever the fixed subspace is nonzero.
+The semisimple decomposition V=ker(1−T)⊕im(1−T) gives component fibers U×W, with connected operation on W. For any set-theoretic quandle homomorphism, fiber transitivity makes the U output a map φ:U→U. Substituting 0 and using invertibility of T and 1−T on W makes each fiber W map additive, hence F_p-linear commuting with T. Cross-fiber preservation forces one common linear part A and translation b: F(u,w)=(φ(u),Aw+b). Idempotency is exactly φ²=φ, A²=A, Ab=0. On the pairwise distinct irreducible F_{p^{e_i}} blocks the commuting endomorphisms have product matrix algebras, and idempotents correspond to invariant images S_i, invariant complements N_i and b_i∈N_i, giving Gaussian(d_i,r_i;q_i)q_i^{(r_i+1)(d_i-r_i)} affine maps. A fixed affine coset gives one b for each complement, yielding the claimed image-refined multiplicities and exhaustive cardinality polynomial. Boundary W=0, Q=1, constants and rank-(Q−1)|W| (Q≥2; q_i≥4 in borderline Q=2) were checked.
 
-Limitations: no arbitrary nonsemisimple Jordan blocks or general finite abelian-group modules, no exhaustive global novelty certificate, and no independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.
+
+## value
+
+PASS
+
+For nonconnected finite Alexander quandles, the component labels can evolve by genuinely arbitrary nonlinear set maps, so a linear-only calculation misses most homomorphisms. The semisimple theorem gives a uniform structural decomposition of the whole monoid and exact image-class multiplicities, across all finite prime-field dimensions and nonsplit simple extension blocks. The intrinsic classification can inform quandle algebraic actions, retracts, and image ranks; it is a motivated complete census rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
