@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The consecutive-sum characterization is proved constructively for both odd and even possible lengths, and its converse excludes powers of two. The largest-term inequality transfers all non-power-of-two values up to twice the cycle length into standard arcs. An exhaustive analysis of wrap arcs shows that, below twice the cycle length, representation of the next power of two is equivalent to a triangular offset. The exceptional-count formula follows from a bijection with triangular numbers in each dyadic block. The existence of some missing value for every order considered uses the cited incompleteness theorem. Finite arithmetic tests are supplementary.
+## correctness
 
-## Originality — PASS, with residual risk
-Marotti and Needleman's full manuscript treats representability and eventual incompleteness but does not state this least-unrepresented-value dichotomy or the asymptotic distribution of its exceptional orders. The classical sum-of-consecutive-integers characterization implies the standard-arc step, not the wrapping-arc criterion and enumeration without further argument. Targeted searches for first missing cyclic sums, triangular offsets, and dyadic gaps found no direct covering theorem. The possibility of an earlier implicit or unindexed derivation remains.
+PASS
 
-## Value — PASS
-The first missing connected-set sum is an intrinsic arithmetic measure of failure of sum-completeness in a natural labeled graph. Identifying it exactly on a density-one set, and giving a sharp square-root order and explicit leading constant for exceptional orders, answers a motivated structural question more strongly than a finite table or isolated construction.
+On the naturally labelled cycle, all cyclic connected sets are nonempty cyclic intervals. Classical consecutive-integer proof shows every s not a power of 2 is a sum of at least two positive consecutive integers; for s<=2n this representation terminates at b<=(s+1)/2<=n, hence is a standard arc. Powers 2^k<=n are singleton arcs, so every value below P(n)=2^(1+floor log2 n) is represented. For n not a power of two, P(n)<2n and a wrapping arc of sum P(n) must use vertex n followed by prefix 1..j: it exists exactly when P(n)-n=j(j+1)/2. If n is a power of two, wrapping arc (n-1,n,1) has sum P(n)=2n. Thus mu(n)=P(n) precisely off those exceptional families. Each open dyadic block has exactly one exceptional n per positive triangular t<2^(m-1); endpoints add one; this gives the exact M-2+sum_m floor((sqrt(2^(m+2)-7)-1)/2), asymptotic (2+sqrt2)2^(M/2)+O(M), and E(X)=O(sqrt X). The previously published incompleteness theorem supplies that mu exists n>=8. Independently enumerated every cyclic interval for each n=8..512, verified exact first-gap criterion and 69 exceptions in that range.
 
-## Scope and risk
-The exceptional first-gap values remain undetermined. The theorem concerns the natural cyclic ordering only. Independent mathematical verification and a comprehensive historical priority search have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Marotti–Needleman establish eventual incompleteness for natural cyclic labels; Sylvester identifies numbers representable as nonwrapping consecutive positive sums. The present additional wrap-around criterion and its exact dyadic exceptional census are not a direct statement of either. The first-gap invariant and density-one next-power law are compared by their actual implication content.
+
+## value
+
+PASS
+
+The smallest missing connected-subset sum is the canonical arithmetic obstruction to sum-completeness of consecutively labelled cycles. Locating it for density one of all cycle sizes and exactly classifying rare exceptional orders with square-root scale and leading constant is a meaningful natural invariant, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

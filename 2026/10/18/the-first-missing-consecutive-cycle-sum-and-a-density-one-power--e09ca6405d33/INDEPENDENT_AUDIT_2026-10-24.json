@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T09:09:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-first-missing-consecutive-cycle-sum-and-a-density-one-power--e09ca6405d33/RESULT.md",
+        "2026/10/18/the-first-missing-consecutive-cycle-sum-and-a-density-one-power--e09ca6405d33/verify.py",
+        "/mnt/data/scope_worker_08_20261024T0854_delivery/audit08_independent_checks_output.json"
+      ],
+      "rationale": "On the naturally labelled cycle, all cyclic connected sets are nonempty cyclic intervals. Classical consecutive-integer proof shows every s not a power of 2 is a sum of at least two positive consecutive integers; for s<=2n this representation terminates at b<=(s+1)/2<=n, hence is a standard arc. Powers 2^k<=n are singleton arcs, so every value below P(n)=2^(1+floor log2 n) is represented. For n not a power of two, P(n)<2n and a wrapping arc of sum P(n) must use vertex n followed by prefix 1..j: it exists exactly when P(n)-n=j(j+1)/2. If n is a power of two, wrapping arc (n-1,n,1) has sum P(n)=2n. Thus mu(n)=P(n) precisely off those exceptional families. Each open dyadic block has exactly one exceptional n per positive triangular t<2^(m-1); endpoints add one; this gives the exact M-2+sum_m floor((sqrt(2^(m+2)-7)-1)/2), asymptotic (2+sqrt2)2^(M/2)+O(M), and E(X)=O(sqrt X). The previously published incompleteness theorem supplies that mu exists n>=8. Independently enumerated every cyclic interval for each n=8..512, verified exact first-gap criterion and 69 exceptions in that range.",
+      "residual_risks": [
+        "Existence of a missing sum for n>=8 relies on the cited Marotti–Needleman theorem; the explicit first-gap characterization follows directly from the displayed consecutive-arc reasoning.",
+        "No formula claimed for mu(n) in the exceptional orders, and no arbitrary reordering of labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source proves no sum-complete cycles for n>=8, which is weaker than describing the smallest missing value on density one or the exact number of exceptional n."
+        ],
+        "reasoning": "General impossibility of full coverage does not imply a location of first gap, nor square-root exceptional asymptotic; no stronger theorem found in the read primary source.",
+        "searches": [
+          "consecutive cycle sums first missing integer labelled 1 to n next power two triangular exceptional",
+          "arXiv:2610.08889 main incompleteness theorem"
+        ]
+      },
+      "checked_sources": [
+        "Marotti–Needleman, arXiv:2610.08889v1",
+        "Sylvester, standard theorem",
+        "Resultary semantic search: consecutive cycle sums first missing integer labelled 1 to n next power two triangular exceptional"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonwrapping sums alone leave powers of two unrepresented except singleton powers<=n; wrapping arcs can represent P(n) exactly for triangular offsets."
+        ],
+        "reasoning": "The wrap criterion is a substantive additional implication not supplied by the cited consecutive-integer theorem alone, and the sharp count follows from a bijection of triangular offsets with exceptional n.",
+        "searches": [
+          "consecutive cycle sums first missing integer labelled 1 to n next power two triangular exceptional",
+          "arXiv:2610.08889",
+          "Sylvester theorem consecutive sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arXiv work studies connected interval sums in the same naturally labelled cycles; the classical theorem says non-powers of two admit a consecutive positive sum."
+        ],
+        "reasoning": "Both are the correct original mathematical objects; a first-gap condition requires analyzing wrapping intervals, not mere graph incompleteness or an existence of consecutive representations.",
+        "searches": [
+          "consecutive cycle sums first missing integer labelled 1 to n next power two triangular exceptional",
+          "Marotti–Needleman arXiv:2610.08889",
+          "Sylvester consecutive integer representations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked paper focuses on incompleteness and chord completion, without an exact first-gap/dyadic table in the material read."
+        ],
+        "reasoning": "No matching exact database/table was located; this is not a universal priority certificate.",
+        "searches": [
+          "consecutive cycle sums first missing integer labelled 1 to n next power two triangular exceptional",
+          "arXiv:2610.08889",
+          "cycle sums triangular power two first gap"
+        ]
+      },
+      "rationale": "Marotti–Needleman establish eventual incompleteness for natural cyclic labels; Sylvester identifies numbers representable as nonwrapping consecutive positive sums. The present additional wrap-around criterion and its exact dyadic exceptional census are not a direct statement of either. The first-gap invariant and density-one next-power law are compared by their actual implication content.",
+      "residual_risks": [
+        "Earlier computations of first omitted cycle sum in OEIS or informal literature may reproduce the same dyadic criterion.",
+        "Direct arXiv PDF unavailable, though transformed full manuscript text was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "the incompleteness theorem is PRIOR but exact first omitted value and exceptional counts are distinct",
+          "evidence": "For n>=8 naturally labelled cycles are not sum-complete; their analysed chord additions do not give the stated first-gap formula in the read material.",
+          "identifier_or_url": "Marotti–Needleman, arXiv:2610.08889v1",
+          "material_read": "Accessible transformed full manuscript Sections 1–5, including main incompleteness theorem and chord extensions; direct arXiv PDF unavailable",
+          "method": "read full accessible HTML-rendered paper text and section statements",
+          "title": "Consecutive Cycle Sums",
+          "trigger": "same graph, same natural consecutive labels and sum-completeness predicate"
+        },
+        {
+          "assessment": "known theorem used rather than claimed novel",
+          "evidence": "If s=2^e u with odd u>1, choosing u or 2^(e+1) consecutive positive terms represents s; odd-divisor obstruction excludes powers two.",
+          "identifier_or_url": "Sylvester, standard theorem",
+          "material_read": "The theorem and both parity cases reconstructed directly in current proof; bibliographic original not independently consulted",
+          "method": "independent elementary reconstruction",
+          "title": "Classical theorem on representations by consecutive positive integers",
+          "trigger": "powers of two are the only nonrepresentable positive integers as sums of >=2 consecutive positives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-first-missing-consecutive-cycle-sum-and-a-density-one-power--e09ca6405d33/RESULT.md",
+        "Marotti–Needleman, arXiv:2610.08889v1",
+        "Sylvester, standard theorem"
+      ],
+      "rationale": "The smallest missing connected-subset sum is the canonical arithmetic obstruction to sum-completeness of consecutively labelled cycles. Locating it for density one of all cycle sizes and exactly classifying rare exceptional orders with square-root scale and leading constant is a meaningful natural invariant, not an arbitrary small example.",
+      "residual_risks": [
+        "The result does not compute the first missing value in the exceptional family or the complete unrepresented spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
