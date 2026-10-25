@@ -1,15 +1,21 @@
-# Scientific review — exact positive-residue three-mode barrier
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar representation of every admissible rational approximant yields a probability distribution on \([0,1]\) whose first moment and convex transform are the second and third spectral samples. Strict Jensen convexity gives an inequality applying uniformly to every finite number of positive shifted solves, including optional nonnegative constant mass. The error-budget argument produces a strictly increasing scalar quadratic with one positive root; a single pole attains all three alternating errors. Implicit differentiation proves the unique spacing maximum. Shifting the spectrum by \(1/4\) keeps the attaining pole strictly positive and produces the stated condition-number-\(9\) SPD witness. An executable, local, standard-library checker confirmed the algebra and 2,000 feasible-mixture examples. Those tests are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The motivating 2026 real-pole exponential approximation study and its two inspected public computational scripts investigate parallel rational evaluation but use unconstrained coefficients; the exact nonnegative-residue minimax problem is not implied by the inspected material. Comparisons to prior real-pole and unrestricted rational approximation research, and targeted search of corresponding mathematical claims, found no inspected result containing this three-mode closed-form sharp bound, its one-pole equality characterization, or the conditioned SPD witness. This is a best-knowledge judgment, not proof of global novelty. Full manuscript access was unavailable, and appendix-level or unindexed overlap remains possible; the incomplete inspection must not be mistaken for a determination that the uninspected portions lack the theorem.
+PASS
 
-## Mathematical value — PASS
-Nonnegative coefficients in simple shifted inverses give an easily parallelizable, nonnegativity-preserving rational evaluation for Stieltjes-type systems, but the sign restriction changes achievable approximation accuracy. The exact error floor above five percent persists for arbitrarily many parallel solves, and the positive-definite witness quantifies a floor near four percent at a moderate condition number. This is a nontrivial structural diagnostic when deciding whether to relax the sign restriction or change approximation architecture. The sharp spectral spacing and unique optimal pole are part of the same complete accuracy obstruction, not incidental numerical examples.
+For nonnegative c,w_j and positive s_j, weights proportional to the first sample r(0) form a probability distribution of u=s/(s+h) together with u=1 for c. The sample ratios obey r(h)/r(0)=E[u], r(2h)/r(0)=E[u/(2-u)]. Strict Jensen gives r(2h)>=r(0)r(h)/(2r(0)-r(h)); monotonicity in the first two samples then forces F(eps,q)=4eps^2+(3-2q+3q^2)eps-q(1-q)^2>=0. The unique positive root E(q) is attained by one positive pole with alternating errors, and the stationary q=1/3 gives E*=(2sqrt(3)-3)/9. Independent SymPy checked root, alternate errors and derivative sign; direct shifted pole s*−1/4>0 establishes SPD example cond=9. Zero approximant, c>=0, arbitrary finite m, 0<q<1 all handled. Not a claim for signed or continuous-spectrum approximants.
 
-## Closest literature and limitations
-The primary contextual study is Güttel–Shao (2026), arXiv:2607.18018; related real-pole and older unrestricted rational approximation references are listed in `RESULT.md`. Accessible companion scripts were materially inspected, while the complete 2026 manuscript and some earlier full texts were inaccessible. The statement covers finite simple shifted-inverse mixtures with nonnegative coefficients and particular three-point spectra; it does not rule out signed-residue sums, compositions, other rational families, or accurate schemes on other spectra. The analytical proof provides universal scope within its class. Independent external assessment has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact mathematical implications, not titles. Prior shared-pole approximants are a different admissible set; their results neither forbid >95% accuracy for positive-residue sums on the specified triple nor identify equality cases. The Jensen lower bound and exact SPD witness are additional mathematical statements, not just a change of algorithm name.
+
+## value
+
+PASS
+
+Positive-residue shifted inverses are spectrally nonnegative and form a natural parallel matrix-exponential approximation primitive, with entrywise positivity for suitable Stieltjes matrices. The sharp ~5.16% error barrier on an explicit 3-mode PSD spectrum, and ~3.92% on an SPD matrix of condition 9, is a quantitative limitation for every number of positive solves. Exact optimal one-pole and unique worst spacing are structural, not a routine numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

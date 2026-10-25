@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:16:06.104066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonnegative c,w_j and positive s_j, weights proportional to the first sample r(0) form a probability distribution of u=s/(s+h) together with u=1 for c. The sample ratios obey r(h)/r(0)=E[u], r(2h)/r(0)=E[u/(2-u)]. Strict Jensen gives r(2h)>=r(0)r(h)/(2r(0)-r(h)); monotonicity in the first two samples then forces F(eps,q)=4eps^2+(3-2q+3q^2)eps-q(1-q)^2>=0. The unique positive root E(q) is attained by one positive pole with alternating errors, and the stationary q=1/3 gives E*=(2sqrt(3)-3)/9. Independent SymPy checked root, alternate errors and derivative sign; direct shifted pole s*−1/4>0 establishes SPD example cond=9. Zero approximant, c>=0, arbitrary finite m, 0<q<1 all handled. Not a claim for signed or continuous-spectrum approximants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.18018 Section 2 Theorem 2.1, Section 3 Algorithm 2",
+          "https://arxiv.org/abs/2511.21858"
+        ],
+        "reasoning": "The broader real-pole rational families allow signed linear-combination coefficients, arbitrary numerator polynomials or higher pole orders; upper-error results on a larger approximation class do not imply a lower bound for the nonnegative residue cone. The examined 2026 paper optimizes shared real poles and solves an unrestricted residue linear system.",
+        "searches": [
+          "uniform-in-time rational approximation matrix exponential real poles positive residues Güttel Shao",
+          "https://arxiv.org/abs/2511.21858"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.18018",
+        "https://arxiv.org/abs/2511.21858",
+        "https://github.com/nla-group/uniform-in-time-exponential",
+        "https://doi.org/10.1137/0719077",
+        "Resultary: positive-residue resolvent sums minimax approximation exponential three eigenvalues Jensen Stieltjes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.18018 eq. (1.1) and Algorithm 2 residue linear system",
+          "https://github.com/nla-group/uniform-in-time-exponential"
+        ],
+        "reasoning": "Prior shared-pole approximants are a different admissible set; their results neither forbid >95% accuracy for positive-residue sums on the specified triple nor identify equality cases. The Jensen lower bound and exact SPD witness are additional mathematical statements, not just a change of algorithm name.",
+        "searches": [
+          "https://arxiv.org/abs/2607.18018 Sections 2–4",
+          "https://github.com/nla-group/uniform-in-time-exponential partial fraction coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.18018",
+          "https://github.com/nla-group/uniform-in-time-exponential"
+        ],
+        "reasoning": "The claim is equivalently a sharp moment-cone inequality for completely monotone Stieltjes simple-pole sums at three equally spaced nodes, plus an exact Chebyshev alternation. Related published positivity barriers concern other numerical maps/constraints; none of the inspected assertions is the same cone minimax claim.",
+        "searches": [
+          "Resultary: positive-residue resolvent sums minimax approximation exponential three eigenvalues Jensen Stieltjes",
+          "Stieltjes rational interpolation three spectral nodes Jensen convex exact minimax error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.18018",
+          "https://doi.org/10.1137/0719077"
+        ],
+        "reasoning": "No inspected table/certificate quotes this sharp 3-node nonnegative-cone error or the condition-9 SPD lift. Failure to locate a table does not establish absolute novelty; older rational approximation sources remain possible.",
+        "searches": [
+          "three-point nonnegative rational exponential approximation closed-form error floor (2sqrt3-3)/9",
+          "Resultary: positive-residue resolvent sums minimax approximation exponential three eigenvalues Jensen Stieltjes"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing exact mathematical implications, not titles. Prior shared-pole approximants are a different admissible set; their results neither forbid >95% accuracy for positive-residue sums on the specified triple nor identify equality cases. The Jensen lower bound and exact SPD witness are additional mathematical statements, not just a change of algorithm name.",
+      "residual_risks": [
+        "Potential earlier equivalently formulated three-point Stieltjes-cone minimax result, including unindexed numerical-analysis literature.",
+        "Full technical details of related 2025 rational approximation and 1982 classical paper were not exhaustively read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_APPROXIMATION_CLASS",
+          "evidence": "Eq. (1.1) permits real residues; Algorithm 2 computes residue vector by solving Cauchy linear system, no imposed w_j>=0; its time-uniform bounds do not prove a lower bound for this cone.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.18018",
+          "material_read": "arXiv accessible extracted full paper: Introduction, concentrated real pole Theorem 2.1, Section 3 Algorithm 2, Section 4 residue/stability analysis and conclusion; compared sign constraints",
+          "method": "Read accessible full-text rendering and relevant displayed formulas",
+          "title": "Uniform-in-time rational approximation of the matrix exponential with real poles",
+          "trigger": "Same application, same negative real poles, partial fractions"
+        },
+        {
+          "assessment": "PARTIALLY_INSPECTED_PRIORITY_RISK",
+          "evidence": "Related uniform real-pole approximation, not enough accessed technical content for whole-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.21858",
+          "material_read": "Abstract and linked bibliographic/theorem context only, not entire PDF",
+          "method": "arXiv record, cross references in 2026 paper",
+          "title": "Concentrated real-pole uniform-in-time approximation",
+          "trigger": "Earlier related real-pole work"
+        },
+        {
+          "assessment": "UNINSPECTED_TECHNICAL_RISK",
+          "evidence": "Unrestricted rational approximation can dominate a different accuracy question; no direct cone implication established from material read.",
+          "identifier_or_url": "https://doi.org/10.1137/0719077",
+          "material_read": "Bibliographic identification; full original paper not inspected",
+          "method": "Publisher metadata and modern citing contexts",
+          "title": "Rational Approximation to e^{-x}",
+          "trigger": "Classical stronger unrestricted rational approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive-residue shifted inverses are spectrally nonnegative and form a natural parallel matrix-exponential approximation primitive, with entrywise positivity for suitable Stieltjes matrices. The sharp ~5.16% error barrier on an explicit 3-mode PSD spectrum, and ~3.92% on an SPD matrix of condition 9, is a quantitative limitation for every number of positive solves. Exact optimal one-pole and unique worst spacing are structural, not a routine numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.18018",
+    "https://arxiv.org/abs/2511.21858",
+    "https://github.com/nla-group/uniform-in-time-exponential",
+    "https://doi.org/10.1137/0719077",
+    "Resultary: positive-residue resolvent sums minimax approximation exponential three eigenvalues Jensen Stieltjes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only nonnegative constants and finite nonnegative sums of simple positive shifted inverses, finite symmetric spectra; no signed residues, rational products or global continuous-spectrum minimax.",
+    "Best-of-knowledge priority subject to identified uninspected earlier literature.",
+    "Potential earlier equivalently formulated three-point Stieltjes-cone minimax result, including unindexed numerical-analysis literature.",
+    "Full technical details of related 2025 rational approximation and 1982 classical paper were not exhaustively read."
+  ],
+  "schema_version": 1
+}
