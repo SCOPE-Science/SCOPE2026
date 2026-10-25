@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Two combinatorially independent enumerations agree on all complete matchings for five ladder sizes. At n=5 the eight concepts have unique four-of-eight coordinate V3, proving no VC-shattered triple; T1,T4 shatter two. An explicit depth-three tree realizes eight distinct leaves, saturating the log2(8) upper bound. Smaller cases have cardinality upper bounds and explicit witnesses. Each chain bridge crosses a cut with 10k vertices on one side, so no perfect matching uses bridges. Therefore all product decompositions and VC/Ldim formulas for arbitrary positive s follow by proof, not finite extrapolation. Graph properties are checked constructively. Replayed standalone verifier checks the exact local traces and all 24 certificate constraints.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manurangsi and Rubinstein, arXiv:1705.09517v1, abstract, introduction, definitions and reduction: general dimension hardness for explicitly supplied classes.",
+        "Brezovnik et al., DOI 10.46793/match.90-2.453B, Theorems 1–4: structural statements about resonance graph isomorphism and daisy-cube encodings.",
+        "The investigated sources do not contain an assertion for complete perfect-matching incidence on connected planar subcubic bipartite graphs; the existing graph-coding invariant records face flips instead of edge-membership tests."
+      ],
+      "reasoning": "Generic VC-versus-online dimension separation or product additivity alone does not exhibit the exact 2-by-5 perfect-matching base class. The older matching variants have different constraints or graph families. A binary encoding of resonance graphs need not preserve the edge-membership query map. No inspected theorem with broader quantifiers and the same graph/hypothesis-query structure subsumes the two stated claims.",
+      "searches": [
+        "unbounded gap VC Littlestone dimensions perfect matchings connected planar bipartite maximum degree three",
+        "perfect matchings bipartite ladders connected by parity forbidden bridges exact shattering capacities",
+        "VC dimension Littlestone dimension of interval orders and partial order linear extensions",
+        "connected planar bipartite subcubic perfect matching concept classes VC dimension 2s Littlestone dimension 3s"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.09517v1",
+      "arxiv:1901.07847v1",
+      "doi:10.46793/match.90-2.453B",
+      "doi:10.1016/j.dam.2020.03.036 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1705.09517v1 gives general algorithmic hardness and uses a random matching of reduction indices on page 8; it does not define the matching-incidence concept class.",
+        "arXiv:1901.07847v1 gives tiling recurrences; cardinality eight yields the upper bound Ldim<=3 but does not supply the depth-three witness or static obstruction.",
+        "DOI 10.46793/match.90-2.453B constructs hypercube labels for resonance graphs, while the theorem explicitly compares those coordinates with original ladder edge queries."
+      ],
+      "reasoning": "Counting eight tilings alone yields only an information upper bound and cannot determine whether three online rounds can be shattered or whether static dimension is two. Resonance-cube isomorphism does not preserve the specified physical-edge tests. Connected amplification additionally requires identifying bridge-forbidden perfect matchings. The comparisons therefore do not logically entail the claim.",
+      "searches": [
+        "perfect matchings edge membership VC dimension shattering online Littlestone dimension graph",
+        "VC dimension matchings concept class incidence perfect matchings ladder graph",
+        "Resonance Graphs and a Binary Coding of Perfect Matchings of Outerplane Bipartite Graphs",
+        "Inapproximability of VC Dimension and Littlestone Dimension perfect matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1901.07847v1 Section 2 and Theorem 8: physical grid tilings and counts; no shattering ranks.",
+        "DOI 10.46793/match.90-2.453B Section 3 Algorithm 1: binary hypercube coding of resonance graphs, not original edge-membership query coordinates.",
+        "The five-column ladder horizontal-only coding equals independent sets of a four-vertex path, with VC=Ldim=2, whereas the full edge-coordinate class has Ldim=3 by the explicit V3/T2/V1/V4 tree."
+      ],
+      "reasoning": "The closest equivalence is the Fibonacci-cube/independent-set coding of ladder tilings. Its coordinates are horizontal-pair or face bits. A vertical rung tests the NOR of adjacent horizontal bits. Littlestone dimension depends on the available query domain, so a cube-code theorem or graph isomorphism cannot imply the full physical-edge-query rank without a further argument not present in the inspected results.",
+      "searches": [
+        "perfect matchings of two by five ladder graphs eight tilings Littlestone dimension three VC dimension two",
+        "Fibonacci cube no-consecutive-one binary strings enriched by adjacent NOR features online Littlestone dimension three static VC dimension two",
+        "Domino tilings monomer dimer interval compositions local tile membership first VC versus Littlestone dimension difference at five columns",
+        "physical edge-incidence VC dimension and Littlestone dimension of perfect matchings of 2 x 5 ladder graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Oh, arXiv:1901.07847v1, supplies grid tiling enumeration but no VC/Littlestone table.",
+        "Che, DOI 10.1016/j.dam.2020.03.036, abstract associates cube-free resonance graphs with Clar number at most two, not the adaptive dimension of physical edge memberships.",
+        "The exact five-column dimension triple is established from an explicitly listed eight-element concept matrix and matching/shattering certificates in the delivered proof.",
+        "An additional research-record search using the literal 2-by-5 ladder and physical edge incidence located matching-complex homology results, none giving the two shattering dimensions."
+      ],
+      "reasoning": "Enumeration tables for domino counts and maximum cubes in a resonance graph are distinct from the table of two shattering dimensions on original edge queries. No inspected exact database or table provides the triple (8,2,3) under the specified physical-edge domain. This is bounded evidence, not a universal claim of database absence.",
+      "searches": [
+        "online shattering of domino tilings of ladder graphs VC dimension",
+        "VC dimension domino tilings ladder graph perfect matching edges shattered",
+        "Clar number VC dimension of perfect matching edge-incidence families induced cube resonance graph",
+        "arxiv:1901.07847v1",
+        "doi:10.1016/j.dam.2020.03.036"
+      ]
+    },
+    "rationale": "Targeted database searches, accessible own deduplication records and primary-source implication comparisons found related domino enumeration and resonance-graph codings but not the physical-edge membership shattering claim. The key gap between face-code coordinates and derived rung NOR queries prevents coverage by known coding theorems. A closely related 2020 resonance graph paper was only abstract-accessible and is a disclosed residual risk.",
+    "residual_risks": [
+      "Full text of Che (2020), DOI 10.1016/j.dam.2020.03.036, was not accessible; its abstract alone does not imply the new online claim, but its detailed statements have not been exhaustively compared.",
+      "Unindexed or differently phrased publications may exist; record searches and accessible corpus do not establish universal novelty.",
+      "Face-code/cubical formulations in broader literature require caution because the physical-edge query set includes local NOR functions; no equivalent stronger result was identified in the inspected texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The matching is a random pairing of constraint indices in a complexity reduction, not a graph perfect-matching concept class. General dimension hardness does not cover the graph-specific formulas.",
+        "evidence": [
+          "PMLR 65 (2017), Theorems 1–2 address hardness of approximation; page 8 random-matching argument is in Label Cover construction."
+        ],
+        "identifier_or_url": "arxiv:1705.09517v1 / https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+        "material_read": "Abstract, Introduction, Definitions 3–4, related-work discussion, reduction description near page 8 (PDF pages 1 and 8 visually inspected).",
+        "method": "Publisher-hosted open-access PDF text and two PDF page images.",
+        "title": "Inapproximability of VC Dimension and Littlestone's Dimension",
+        "trigger": "General VC/Littlestone dimension results and a search result containing the phrase perfect matching."
+      },
+      {
+        "assessment": "The paper counts matchings and gives state-matrix partition functions; it does not study edge-membership concept classes or online shattering.",
+        "evidence": [
+          "Section 2 defines grid dimers and generating functions; Section 8 Theorem 8 counts Aztec-octagon tilings; no VC/Littlestone discussion in the checked full text."
+        ],
+        "identifier_or_url": "arxiv:1901.07847v1 / https://arxiv.org/html/1901.07847v1",
+        "material_read": "Full accessible HTML article with Introduction, Sections 2–8, Theorems 1, 4, 8–9, and reference scope reviewed.",
+        "method": "arXiv full-text HTML, with in-document checks for VC, shatter and Fibonacci terminology.",
+        "title": "State matrix recursion method and monomer–dimer problem",
+        "trigger": "Direct primary study of square-grid monomer/dimer coverings and domino counts."
+      },
+      {
+        "assessment": "Theorem supplies isometric resonance-graph codes, evenly homeomorphic invariance and daisy-cube characterizations. The proposed theorem is about physically named edge coordinates; in the ladder such coordinates include derived NOR tests absent from the face coding. No dimension formula is given.",
+        "evidence": [
+          "Algorithm 1 pp. 459–462 extends face-label binary codes; Theorems 1–4 pp. 465–467 concern resonance graph isomorphism, CERS and daisy cubes."
+        ],
+        "identifier_or_url": "doi:10.46793/match.90-2.453B / https://www.researchgate.net/publication/369873132_Resonance_Graphs_and_a_Binary_Coding_of_Perfect_Matchings_of_Outerplane_Bipartite_Graphs",
+        "material_read": "Author-provided full-text HTML rendering of the 2023 paper, including preliminaries, Section 3 algorithm, Sections 4–5 and all principal theorems.",
+        "method": "Full author-provided article text; checked definitions, Algorithm 1, Theorems 1–4, and topic searches for VC/Littlestone.",
+        "title": "Resonance Graphs and a Binary Coding of Perfect Matchings of Outerplane Bipartite Graphs",
+        "trigger": "Highly relevant binary encoding of precisely the perfect matchings of outerplane bipartite graphs, including ladder-like examples."
+      },
+      {
+        "assessment": "Abstract proves cube-free resonance iff Clar number at most two; it does not state online dimension. Full-text implications remain a residual priority risk but no strong competing theorem was exposed.",
+        "evidence": [
+          "University-hosted abstract identifies equivalence of cube-free resonance graph and Clar number <=2; it does not mention Littlestone or edge-query shattering."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2020.03.036 / https://pure.psu.edu/en/publications/cube-free-resonance-graphs",
+        "material_read": "Authoritative publisher/institutional abstracts and bibliography only; primary full text unavailable through the accessible routes.",
+        "method": "University repository and open bibliographic/abstract pages; full text not obtained.",
+        "title": "Cube-free resonance graphs",
+        "trigger": "Same perfect-matching objects and cube/Clar invariant potentially related to static shattering."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "406db640-ea5f-4bfe-9e80-3a37d3e72328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first threshold at five ladder columns is motivated by classic domino tilings, rather than an arbitrary small hypergraph. Only eight matchings already separate static and adaptive shattering, and the reason is a derived vertical-edge NOR query that boosts adaptive but not static dimension. Parity-forbidden bridges then amplify the exact 2-versus-3 dimensions to an unbounded gap on connected planar subcubic bipartite perfect-matching classes; this is a substantive structural learning phenomenon not supplied by the tiling count alone.",
+    "status": "PASS"
+  }
+}
