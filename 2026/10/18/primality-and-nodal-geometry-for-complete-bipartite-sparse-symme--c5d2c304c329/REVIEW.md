@@ -1,15 +1,21 @@
-# Scientific review: prime rank-defect locus for a complete bipartite support graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is made over algebraically closed fields of characteristic zero for every integer \(m\ge3\), with **all** submaximal minors. On the open set of nonzero leaf diagonals, the Schur complement identifies the rank-defect scheme with a single irreducible bilinear hypersurface after eliminating two independent parameters. The decisive boundary lemma stratifies by exactly \(t\) zero leaf diagonals. It proves that every such stratum inside the rank-defect locus has ambient codimension at least four, through explicit small \(2\)-by-\(t\) rank calculations, including the cases \(t=1,2,3\) separately. Published radicality, Cohen--Macaulayness and height three for connected-graph sparse symmetric submaximal minors (Deng–Kretschmer, arXiv:2211.07020, Theorem 1) then turn dense-open irreducibility into ideal-theoretic primality. Connected-graph determinant irreducibility comes from their Proposition 15; the normality and generic nodal assertions follow from the adjugate-gradient test and local Schur complement. Reproducible exact-arithmetic consistency tests in `verify.py` returned `VERIFY_OK`. Finite checks were not used in place of the all-parameter proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The historically earlier sparse-determinantal framework of Boocher (arXiv:1111.0279) concerns rectangular matrices with independent nonzero entries and does not cover this graph-supported symmetric corank-two rank locus. Conca–Welker (arXiv:1801.07916) obtain general connections with orthogonal representation ideals; the explicit forest zero-pattern primality criterion in Theorem 7.8 does not cover the complement of \(K_{2,m}\), namely the disjoint union of a clique on \(m\ge3\) vertices with an edge. Deng–Kretschmer's radicality/Cohen–Macaulay theorem is weaker than primality, and their Question 16 expressly asks for primality under two-vertex-connectivity and reports testing only up to six vertices. This result proves that requested conclusion for the infinite family \(K_{2,m}\). Separate graph-pattern theorems for cycles and stars do not yield this new graph family without further argument. Targeted semantic-record and published-literature searches did not identify a stronger covering theorem; this negative search is not a uniqueness proof. Equivalent coverage in other recent graph-supported determinantal literature remains a risk.
+PASS
 
-## Mathematical value — PASS
-The result settles a naturally motivated, specifically published primality question for a structurally distinctive infinite subfamily of two-connected graphs, including arbitrarily large examples beyond the previously tested orders. Primality is a stronger geometric assertion than the known radicality and equidimensionality: it identifies a single integral rank-defect component. The boundary argument also produces a rational model and the generic transverse node of its normal determinant hypersurface. No result is claimed for all two-connected graphs, and the nonreduced Jacobian singular scheme is not computed.
+Over characteristic-zero algebraically closed k and m>=3, invert all leaf z_i: exact Schur congruence reduces all submaximal minors to u=v=w=0 with w=-sum b_i*d_i/z_i; this rank-m bilinear polynomial is primitive and irreducible, giving a dense domain of affine dimension 3m-1. On a stratum with t zero z_i the residual M=[C B; B^T 0_t] has rank<=t. For t=1 the two B entries and det C vanish (ambient codim>=4); t=2 requires rank B<=1 plus a further scalar C condition (codim>=4); t=3 requires rank B<=1 (codim>=5); t>=4 leaf vanishing already gives codim>=4. The published Deng–Kretschmer theorem gives radical/unmixed codimension three, excluding any boundary component, so the ideal is prime. Rationality follows on b_j nonzero, dimension 3m-2, degree from the published resolution. The full determinant is irreducible by their Proposition 15; its singular set is exactly rank<=m via derivatives w.r.t. present diagonal entries, and S2+R1 gives normality; generic transverse Schur parameters give uv-w^2. Independent exact rational block checks for m=3,4 confirmed the congruence/determinant identity, not a general proof.
 
-## Sources and remaining checks
-Primary full-text comparison included Boocher's introductory definitions and maximal-minor theorem, Conca–Welker's general results and forest criterion, and Deng–Kretschmer's Theorem 1, Proposition 15 and Question 16. The earliest cited historical starting point is the 2011-11-01 initial arXiv posting of Boocher's paper; the symmetric submaximal-minor specialization and explicit published question are later. No exhaustive literature catalogue or independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+The two-vertex-connected K_{2,m} family is an infinite natural test of the published sparse-symmetric submaximal-minor primality question. The all-m positive result, together with rational singular locus and its generic transverse node, gives new structural geometry beyond finite computational checks and provides a motivated boundary for the general conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
