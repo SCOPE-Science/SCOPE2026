@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md af9ede2b12c6dc55a5972cc57c6ba7e1c237ac69, 5-step proof including all 4 charts",
+        "code/count_singular.cpp 593a615b7575698738c8609a8e0fab9f7a4c544e compiled and rerun with independent fields",
+        "code/verify_positive.py 0b3d47be3ef89c8d0c61fc23d6c375e8b7739cae reimplemented with 1008 Groebner unit ideals",
+        "code/group_orbits.py 19070ea068fbfc363db06d3352c8a18b98114908 recreated via 72 actions",
+        "data/census.json Git blob 9c84e771abcee5acdf65468bea820b8c8b07989f, 252 representatives and six strata",
+        "Generated binary files have exact Git blob SHA1 identities matching both assigned binaries"
+      ],
+      "rationale": "The 16 coefficients of bidegree (3,3) over F2 encode all 65535 nonzero sections. A rational base fibre is a rational triple point iff its binary cubic mask is 1,8,15 (cubes of linear forms); this directly computes t_1,t_2. The obstruction to t_1+t_2>=4 enumerates 1128 masks: 1110 rationally singular; remaining 18 form one order-18 orbit represented by mask 6854 with an explicit singularity at (alpha,alpha+1) in F4. For full smoothness, finite-extension rational singular witnesses through degree six cover exactly 49515 masks; the remaining 16020 candidates split into 252 orbits of the 72-element split-quadric automorphism group. Each representative satisfies Groebner unit ideal (f,df/dx,df/dy) on each of 4 affine charts, establishing geometric smoothness beyond bounded-point tests. Audited C++ nullspace and Python orbit/Groebner code and recompiled/reproduced finite-field enumeration: smooth counts after degrees 1..6 were 18674,17984,16524,16308,16164,16020, and 252 orbits. All 1008 local Groebner unit-ideal checks passed. Independently reconstructed both binary outputs with exact matching Git blob IDs SHA1 ad56f5a... and ac915ea..., and matched all six weighted orbit census totals (5856/103,6912/96,1224/19,48/2,1620/27,360/5). The degree-4 zeta count derivation from Newton sums and reciprocal functional equation is valid and supported by the separate exact F2^d point checks for masks 6335 and 10685.",
+      "residual_risks": [
+        "The computation is an exhaustive finite certificate on 2^16-1 masks, not a general theorem about all genus-four curves or nonsplit quadrics.",
+        "All 1008 Groebner computations used an independent local script after source inspection; no Lean/human attestation was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xarles gives a census of all genus-four curves over F2, broader in curve objects, and extension-field rational point data, but not the bivariate t1,t2 invariant.",
+          "Looijenga studies genus-four trigonal pencils/discriminants in different characteristic and does not state six finite-field paired strata."
+        ],
+        "reasoning": "A classification of underlying curves is not logically a classification of the joint rational total-ramification counts unless the corresponding ramification statistic is computed; geometric generality alone does not imply exact 16020/252 breakdown.",
+        "searches": [
+          "Resultary: Genus four curves over F2 smooth (3,3) split quadric trigonal totally ramified rational fibres two projections 252 orbits",
+          "arxiv:2007.07822 Xarles 2020 genus 4 F2 census",
+          "arxiv:2211.09941 trigonal genus4 curves"
+        ]
+      },
+      "checked_sources": [
+        "Xarles arXiv:2007.07822 primary full-text relevant tables/method",
+        "Xarles public computational census project",
+        "Looijenga arXiv:2211.09941 abstract/primary context",
+        "Resultary search exact paired ramification spectra of binary split bidegree (3,3) curves"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xarles genus-four census includes underlying smooth curves and PGL orbit machinery; none of those aggregate totals forces this six-stratum joint t1,t2 table or sharp t1+t2>=4 singular obstruction.",
+          "Classical canonical genus-four split-quadric has two g^1_3 maps, but existence of the maps does not imply their rational total-ramification profile histogram."
+        ],
+        "reasoning": "Prior existence/classification and generic trigonal geometry are premises, not the exact finite-field branch census. Novelty assessment limited to the additional specified invariant and extremal/boundary statements.",
+        "searches": [
+          "arxiv:2007.07822",
+          "arxiv:2211.09941",
+          "Resultary: Genus four curves over F2 smooth (3,3) split quadric trigonal totally ramified rational fibres two projections 252 orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a bidegree (3,3) smooth curve each ruling yields a g^1_3; counts of rational totally ramified base fibres are a different invariant from Jacobian zeta/point counts.",
+          "An explicit equal-Weil-numerator pair has profiles (0,2) and (0,0), proving the invariant is not a function of the zeta data alone."
+        ],
+        "reasoning": "Aliases checked: trigonal pencils, rational triple-fibre branch points, ramification sequence 3, split-quadric canonical genus-four, two-ruling branch statistics.",
+        "searches": [
+          "Resultary: Genus four curves over F2 smooth (3,3) split quadric trigonal totally ramified rational fibres two projections 252 orbits",
+          "Xarles genus four F2 trigonal curves ramification totally ramified split quadric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Xarles genus-four tables record isomorphism classes and rational-extension point counts, including the split-quadric branch; submitted data/census.json groups into six paired total-ramification categories with 252 representatives.",
+          "Two masks 6335 and 10685 share N1..N4=(2,8,17,20) but distinct t-pairs; no zeta-only table can determine their types."
+        ],
+        "reasoning": "The old numerical orbit/point census is acknowledged; its tables are not the exact joint paired-fibre table. Existing raw forms allow postprocessing, which does not make the derived distribution automatically a stated prior theorem.",
+        "searches": [
+          "Resultary: Genus four curves over F2 smooth (3,3) split quadric trigonal totally ramified rational fibres two projections 252 orbits",
+          "Xarles Censusforgenus4curvesoverF2 Magma code point count database"
+        ]
+      },
+      "rationale": "The mathematical object (smooth split (3,3) canonical genus-four curves over F2) is already classified by Xarles 2020, so counting 252 is not new by itself. The claimed new invariant is joint numbers of rational scheme-theoretic triple fibres for BOTH natural trigonal projections, exact six-pair histogram, sharp combined bound t1+t2<=3, and distinct profiles for a pair with identical Weil numerator. Xarles primary PDF and public Magma project concerns classification/field point counts and does not state this paired ramification distribution; Looijenga complex-characteristic trigonal pencils do not furnish the finite-field arithmetic census. Best-of-knowledge PASS with potential unpublished computation residual.",
+      "residual_risks": [
+        "A subsequent unindexed analysis of the existing Xarles orbit list could tabulate the same two-ruling rational triple-fibre counts.",
+        "Potential equivalence under characteristic-two branch-discriminant terminology not captured by semantics search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING reported pairwise rational total-ramification classification",
+          "evidence": "Provides underlying 2020 census and N_n point-count data, not six t1/t2 pair tables, sharp t1+t2<=3 or equal-zeta branch separation.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07822",
+          "material_read": "Open full-text PDF: Introduction, Section 2 smooth genus-four cases, trigonal split/non-split quadrics, published tables of point counts and census method; not just abstract",
+          "method": "Full PDF opened and relevant pages/screenshots checked; statements/implications compared",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Same field/genus and explicit split canonical quadric curve census"
+        },
+        {
+          "assessment": "CONTEXT only; no whole-paper noncoverage assertion",
+          "evidence": "Characteristic-zero ball quotient trigonal moduli; no exact F2 rational triple-fibre statistics in read material.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09941",
+          "material_read": "Abstract and main-theorem descriptions available; not claimed complete full-text reading",
+          "method": "Bibliographic and abstract comparison, specific statement check",
+          "title": "A ball quotient parametrizing trigonal genus 4 curves",
+          "trigger": "Both g1_3 structures and trigonal genus-four geometric relation"
+        },
+        {
+          "assessment": "PRIOR underlying curve census only",
+          "evidence": "The original code computes smooth genus-four curves and extension point counts; newly audited postprocessing computes rational total-fibre pairs.",
+          "identifier_or_url": "https://github.com/XavierXarles/Censusforgenus4curvesoverF2",
+          "material_read": "Public repository description and scripts as referenced by research; no claim entire project code read",
+          "method": "Public code navigation and comparison to t1,t2 invariant",
+          "title": "Xarles public Magma project: Censusforgenus4curvesoverF2",
+          "trigger": "Potential exact database reuse/coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xarles 2020 original census (recognized as prior); current RESULT.md exact differential/census proof"
+      ],
+      "rationale": "Joint rational total-ramification for the two intrinsic degree-three projections of a split canonical genus-four curve is a natural arithmetic-geometric invariant. Six exhaustive strata, a sharp ≤3 obstruction and a same-zeta/different-ramification example provide a motivated independent refinement of a previously known F2 genus-four census, not a meaningless re-tabulation of previously known point counts. The complete positive and negative smoothness certificate makes a finite exact classification mathematically usable.",
+      "residual_risks": [
+        "Only the split smooth (3,3) F2 family and rational triple fibres, not all genus-four curves or branch points over extensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite classification rigor relies on exact binary nullspace witness and 1008 chartwise Groebner calculations; these were independently reproduced, not formal Lean verification.",
+    "The orbit/point-count framework is prior (Xarles 2020), not claimed new.",
+    "Census restricted to smooth split-quadric curves and rational total ramification.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id operational identifiers. Their complete, semantically sanitized replacement public file contents, fresh blob guards and checked UTF-8 SHA-256 have not been prepared. Withhold publication despite completed scientific PASS; no public file operation was submitted."
+  ],
+  "schema_version": 1
+}
