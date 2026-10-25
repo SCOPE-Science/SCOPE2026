@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard libraries. The included complete script first performs exact symbolic enumeration of all seven cut families and their complements, obtaining twelve rational-polynomial profiles in each parity. It then verifies for every pair of different profiles that at least one coordinate difference retains a nonzero sign on the full real half-line \(h\ge4\), by expanding in \(h-4\) and checking coefficient signs. This is a finite exact-algebra certificate of the no-collision step, not sampling at finitely many dyadic lengths.
+## correctness
 
-Next, the program directly counts all allowed non-adjacent selected index pairs in all four families of substituted-word cuts at lengths \(8,16,32,64,128\), and agrees exactly with the symbolic candidates. Finally it enumerates consecutive factors of longer Thue–Morse prefixes at lengths \(8,16,32,64\) and agrees with the cuts. The last two checks are finite checks, not an infinite proof. The infinite argument also requires the mathematical exhaustiveness and reachability proof stated in `RESULT.md`. No independent audit or formal proof certification has occurred.
+PASS
+
+Every length n=2^m factor of the Thue–Morse fixed point is a cut suffix of φ^m(0) or its complement followed by a prefix of either block, since all four adjacent block-label pairs occur. For length-n factor w, the one-gap ordered-pair vector equals ordinary all-ordered-pair counts minus adjacent-digram counts; the explicit formulas for c=|w|_1, I=#01 ordered pairs, and E adjacency give the five P coordinates. φ morphism recurrences establish block I=h²/2 and parity-dependent E(T). The seven exhaustive block-cut parity parameter families and bit complements yield at most twelve polynomial profiles for both parities. An independently written SymPy rational-polynomial implementation reconstructed these symbolic families, found exactly 12 distinct vectors for e=0 and e=1, and certified pairwise noncollision for every h≥4 via a coordinate difference having one strict sign after h=4+t. The original proof realizes all relevant choices for m≥5 by occurrence of every digram in φ^{m−2}(0) and checks m=3,4 directly. Separately enumerated every four-pair-block cut at m=3..6 and independently scanned long Thue–Morse fixed-point prefixes: both yielded exactly the same 12 gap profiles. Finite checks do not replace the all-m realization proof.
+
+## originality
+
+PASS
+
+Rigo–Stipulanti–Whiteland (ISIT 2023) explicitly conjecture a stronger 2-regular formula for the (1,2)-binomial complexity and state as an unproved implication exactly b_t^(1,2)(2^m)=12 for m≥3. Prior conjecture records the numerical conjectured value but does not establish it; this package supplies an all-m proof of that specified consequence, not the full 2-regular conjecture. Ordinary k-binomial complexity or 2-abelian complexity are different equivalence relations because adjacent pairs are included or local statistics differ. No stronger proved gapped-all-m classification was identified from primary reviewed material.
+
+## value
+
+PASS
+
+This settles a natural and explicitly documented dyadic slice of an open conjecture about a named combinatorial complexity function. The proof gives an exhaustive parametric structural mechanism and infinite-length symbolic noncollision, not merely a finite census. Exact twelve-class stabilization at all dyadic lengths is a substantive mathematical answer even without proving the whole 2-regular conjecture or extending beyond dyadic lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
