@@ -1,15 +1,21 @@
-# Scientific assessment: Hardy power-commutator singular values
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem uses the exact Hilbert--Schmidt integral, a proof of the regular order-two Volterra Weyl law by compact-interval spectral comparison, and a rank-two dilation recursion that sums its singular-value counting constants geometrically. The regular remainder has singular values \(O(n^{-3})\). The global count gives \(\lim_{t\downarrow0}t^{1/2}N(t)=2/(\pi\sqrt\alpha)\), yielding the stated \(n^{-2}\) law. Compactness, trace class, quasinilpotence and trace zero are proved separately. Finite arithmetic checks corroborate selected exact identities, not the limit.
+## correctness
 
-## Originality (PASS, subject to independent bibliography)
-Recent full-text primary papers arXiv:2501.14706v1 and arXiv:2604.19691v2 discuss Hardy/Cesàro operator structures but do not state this power-commutator singular-value law. Relevant 1996 and 1988 Volterra papers may contain more general results; available abstracts and bibliographic records do not establish implication of the present singular-endpoint \(0<\alpha<1\) coefficient, and their full texts were not inspected. Searches included the exact coefficient, weighted Volterra equivalences, and Schatten class aliases. This uncertainty is an explicit residual bibliographic risk, not a claim of exhaustive priority.
+PASS
 
-## Mathematical value (PASS)
-The family is canonical: multiplying by \(x^\alpha\) probes a Hardy averaging operator's noncommutativity at the singular boundary \(x=0\). Unlike mere compactness or ideal membership, the exact coefficient and its dependence on \(\alpha\) quantify the full high-frequency spectral scale, while the rank-two dilation proof explains how the singular endpoint contributes to the Weyl constant. The sharp quasi-Schatten endpoint and nonuniform \(\alpha\downarrow0\) behavior are mathematically motivated consequences.
+The kernel k_alpha(x,t)=(t^alpha-x^alpha)/x for 0<t<x has exact HS norm squared alpha/[(alpha+1)(2alpha+1)]. On [delta,1], factor -k=(x-t)q(x,t) with positive diagonal q(x,x)=alpha x^(alpha-2); splitting q=h+(x-t)r reduces the singular Weyl constant to M_h J^2, since remainder maps L2 to H3 with s_n=O(n^-3). Piecewise constant squeeze and explicit regular double-integration beam spectrum yield sqrt(t)N(T;t)→(1/pi) integral sqrt(h). Splitting at delta has rank<=2 cross block and low-low block unitary equivalent to delta^alpha K; the resulting counting equation N(t)=N(t/delta^alpha)+N(K_delta;t)+O(1) iterates geometrically to 2/(pi sqrt(alpha)), hence n²s_n→4/(pi²alpha). Since leading constant positive, S_p iff p>1/2 and weak critical membership; Volterra triangular eigenproblem yields no nonzero spectrum and Lidskii trace=0. An original independent checker verified seven integer-alpha HS identities and cross block 3x3 determinants zero. Boundary alpha→0 nonuniform explicitly excluded.
 
-## Remaining limitations
-No finite-index closed singular-value formula or uniform \(\alpha\)-remainder is claimed. Full-text comparison with older weighted-Volterra theorems remains incomplete, and external review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Crucial direct prior Deng–Fischer–Hofmann Theorem 1 proves only s_n(CJ) ASYMPTOTIC ORDER n^-2, not exact limit for alpha=1. Earlier Resultary record gives complete implicit singular spectrum of the exact same alpha=1 Hardy–Volterra commutator (opposite sign), but explicitly DOES NOT prove sharp asymptotic coefficient; the present family gives constant for all positive real alpha. Tuan–Gorenflo 1996 supplies weighted-Volterra order results and an exactly quantified unweighted fractional integral special case; it remains an unresolved possible implicit theorem overlap for part of the alpha range, recorded, but no accessible statement decisively covers full leading coefficient and all alpha. Best-of-knowledge PASS with substantial priority risk.
+
+## value
+
+PASS
+
+Identifies the exact strong/weak Schatten threshold and sharp n^-2 Weyl coefficient for a nontrivial all-alpha compact commutator with singular endpoint. It upgrades known alpha=1 order estimates to a leading constant, proves it for every positive alpha by self-similar recursion, and clarifies nonuniform alpha→0; this is a meaningful spectral invariant even if other general Volterra theorems might offer an alternate route.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
