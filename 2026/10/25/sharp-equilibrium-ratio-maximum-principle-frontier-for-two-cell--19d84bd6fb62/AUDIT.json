@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The two-component MPRK stages yield exact positive rational expressions. For delta != 0, output error delta^+=delta*N/D where E>0, B>=E>0 and D>0. Exact coefficientwise polynomial multiplication proves N'D-ND'=-H with all positive coefficients of H; this proves strict step monotonicity and the negative limiting factor. Maximizing this factor over the two possible initial-order branches yields p^2+p-1=0 and the sharp necessity/sufficiency. The standard-library verifier proves the derivative polynomial identity and checks 5920 exact-rational parameter cases plus an interior witness; finite cases are not substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2108.07347v5 studies oscillation-free restrictions and shows sharp uniform time bound 2 for no-crossing; it does not derive the weighted maximum contractivity phase frontier.",
+        "arXiv:2202.11649 establishes local stability for MPRK family under different invariant notions."
+      ],
+      "reasoning": "A known sufficient bound for no equilibrium crossing is stronger than no weighted maximum violation for short steps but is not a statement about all steps at skew stationary mass. Local stability does not yield a nonlinear global maximum-norm invariant-region theorem.",
+      "searches": [
+        "Issues with Positivity-Preserving Patankar-type Schemes full text Sections 3-4 and supplementary Section 2",
+        "On Stability of Unconditionally Positive and Linear Invariants Preserving Time Integration Schemes MPRK local",
+        "modified Patankar Runge Kutta maximum bound principle two components skew equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.07641v1/v3",
+      "arXiv:2108.07347v5",
+      "arXiv:1702.04589v1",
+      "arXiv:2202.11649 abstract",
+      "Targeted mathematical literature searches on MPRK weighted maximum and asymmetry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2108.07347v5 provides an exact two-state rational endpoint and its no-overshoot-equilibrium criterion, from which further algebra can derive other invariants.",
+        "The present bound requires optimizing a different relative-error inequality over all input ratios and positive steps, resulting in p^2+p-1=0."
+      ],
+      "reasoning": "The original method equations and broad rational solution are established, so neither is new. Those prior claims do not themselves assert or logically provide as a stated corollary the sharp weighted maximum threshold; it follows from a separate monotonicity and two-parameter extremal argument. Stronger as-yet-unseen literature could subsume the classification.",
+      "searches": [
+        "arXiv:2108.07347v5 Theorem 4.7 general rational N D and sign polynomial",
+        "arXiv:1702.04589v1 original two-stage MPRK",
+        "arXiv:2404.07641v1 and v3 modified Patankar equations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Torlo–Öffner–Ranocha, arXiv:2108.07347v5, Theorem 4.7 and Appendix: two-state general endpoint polynomial and first-step oscillation criteria; no stationarity-weighted upper maximum threshold stated.",
+        "The MPRK predictor-corrector in arXiv:1702.04589v1, Section 1 agrees with the input update."
+      ],
+      "reasoning": "Equilibrium overshoot, nonoscillation, component positivity and relative-density maximum contractivity are mathematically different: the first asks for nonnegative signed amplification; the last permits sign reversal only up to an asymmetric mass-dependent limit. Existing general rational endpoint formulas are acknowledged inputs, but no corresponding golden-ratio uniform-in-step-and-input classification was identified.",
+      "searches": [
+        "modified Patankar Runge Kutta two-state asymmetric Markov max principle stationary ratio overshoot golden ratio nonmonotone",
+        "MPRK equilibrium overshoots monotonicity two species weighted maximum principle",
+        "arXiv:2108.07347v5 Sections 3-4, Theorem 4.7 and Appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant source papers contain numerical comparisons and exact rational formulas, not a table or asserted exact threshold for the equilibrium-ratio maximum property."
+      ],
+      "reasoning": "No table was located giving the sharp stationary mass frontier, and the mathematical result is a quantified continuum classification rather than a finite tabulation. Search absence is not proof of worldwide uniqueness.",
+      "searches": [
+        "modified Patankar Runge Kutta overshoot maximum principle invariant domain two species 2024",
+        "modified Patankar Runge Kutta maximum bound principle two components skew equilibrium",
+        "arXiv:2404.07641v1 Section 3 Fokker Planck MPRK"
+      ]
+    },
+    "rationale": "The exact original MPRK stage formula, positivity/conservation and known two-state oscillations are attributed to prior literature. The new assessed claim is the global equilibrium-relative upper maximum classification uniformly over all strictly positive starts and steps with the exact inverse-golden-ratio stationary mass cutoff. The most relevant prior full text gives a general rational endpoint and oscillation-free step restriction but not this stronger/different global invariant-range classification. Equivalent specialized formulations remain a residual priority risk.",
+    "residual_risks": [
+      "A previously published general rational endpoint formula permits this theorem to be derived algebraically, and a separate paper may already have optimized the same weighted invariant.",
+      "Full body of arXiv:2202.11649 could not be inspected and is not described as not covering.",
+      "The method is older than its 2024 Chang–Cooper application; the motivating first-public source date identifies the Fokker–Planck application, not priority of the underlying algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes positivity, conservation and stationary motivation; no equilibrium-relative maximum-mass phase diagram",
+        "evidence": [
+          "arXiv:2404.07641v1, equations (2.3)-(2.4), (3.7)-(3.8), Sections 3-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.07641v1",
+        "material_read": "Full accessible HTML including flux definition, no-flux spatial semidiscretization, Section 3 MPRK schemes, numerical and discussion sections",
+        "method": "Read complete arXiv HTML, cross-checked clarified v3 stage notation",
+        "title": "Structure-Preserving Numerical Methods for Fokker–Planck Equations",
+        "trigger": "Originating Chang–Cooper plus MPRK application, earliest public version"
+      },
+      {
+        "assessment": "Closest prior: establishes rational endpoint, equilibrium overshoot and step restrictions, but not the equilibrium-weighted maximum classification or golden-ratio mass cutoff",
+        "evidence": [
+          "arXiv:2108.07347v5, equations (11)-(18), Theorem 4.7, equations (29)-(30), supplementary Example 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.07347v5",
+        "material_read": "Full accessible HTML including Sections 2-4, Theorem 4.7, tables and supplementary two-component example",
+        "method": "Read arXiv HTML and compared explicit rational endpoint and no-oscillation inequalities",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Direct potential stronger coverage through two-state Patankar oscillation analysis"
+      },
+      {
+        "assessment": "Positivity, conservation and order conditions; no stationary-weighted maximum boundary theorem",
+        "evidence": [
+          "arXiv:1702.04589v1, Section 1 and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1702.04589v1",
+        "material_read": "Accessible full HTML, Introduction through method construction and order-conditions sections",
+        "method": "Read primary arXiv HTML and checked original Heun MPRK formula",
+        "title": "On order conditions for modified Patankar–Runge–Kutta schemes",
+        "trigger": "Foundational original method and possible pre-existing invariant-region results"
+      },
+      {
+        "assessment": "Local stability for MPRK families; unresolved risk if a specialized result is in unreadable sections",
+        "evidence": [
+          "arXiv:2202.11649, abstract: center-manifold stability and local convergence to steady states"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.11649",
+        "material_read": "Title, abstract and scope from arXiv listing; full text unavailable through current retrieval",
+        "method": "Abstract-level scope comparison, not a full-text exclusion",
+        "title": "On the Stability of Unconditionally Positive and Linear Invariants Preserving Time Integration Schemes",
+        "trigger": "Potential broad stability or invariant principle coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19d84bd6-fb62-4c00-bdc5-7d491cde216e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An equilibrium-relative density maximum is a natural invariant of finite-state diffusion and the exact Chang–Cooper Markov semigroup, stronger than positivity or mass conservation. The complete necessary-and-sufficient stationary-imbalance frontier for all inputs and steps reveals where using an otherwise unconditionally positive time method sacrifices that comparison property. The two-cell case is the smallest natural spatial discretization and the result distinguishes two non-equivalent notions of overshoot without an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
