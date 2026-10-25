@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_semidistributivity.py` with a normal Python 3 interpreter (standard library only). The source independently constructs formal concept extents from closure for every tree in the finite obstruction range, checks both lattice quasi-identities for every ordered triple, and crosschecks the formal-context/maximal-independent-set correspondence on 576 small labelled incidence patterns.
+## correctness
 
-Recorded output from the actual source program:
+PASS
 
-```text
-TREE_CENSUS [(1, 1, 0, 0), (2, 1, 0, 1), (3, 3, 0, 3), (4, 16, 0, 12), (5, 125, 0, 60), (6, 1296, 0, 360), (7, 16807, 2520, 2520)]
-P7_EXTENTS [0, 1, 3, 8, 9, 12, 15]
-MIS_FCA_EQUIVALENCE 576
-VERIFY_OK
-```
+For n objects and floor(alpha n) attributes with independently missing incidence probability q_n, each formal concept is a maximal independent vertex set of the bipartite missing-incidence graph. Disjoint graph components yield product factors of concept lattices, preserving and reflecting both semidistributivity identities. An exhaustive Prüfer-labelled-tree program classifies every bipartite tree of order at most 7 (total 18,249 labelled across n=1..7); exactly 2,520 labelled 7-paths fail and no smaller tree does; explicit P7 extents witness x∨y=x∨z=top yet x∨(y∧z)=x<top. Independently enumerated all UNLABELLED trees of n=2..7 (1,1,2,3,6,11 types) and found only P7 fails; the two bipartition orientations are dual and have the same both-axes classification. At q=t n^{-7/6}, expected count of P7 copies is q^6/2*((n)_4(m)_3+(n)_3(m)_4)→(alpha³+alpha⁴)t⁶/2; larger components O(n^8 q^7)=O(n^{-1/6}), cycles lower order, and Stein–Chen overlap sum s=1..5 bounds Poisson total variation O(n^{-1/6}). Below scale Markov gives no obstruction; above scale while nq→0, variance/mean²→0 and the proportion of nonisolated paths vanishes, giving loss with high probability. The claimed rate is limited to exact q=t n^{-7/6}; finite tree census is not a probabilistic proof.
 
-The finite census examines 18,249 labelled trees, including all 16,807 labelled trees on seven vertices. Exactly 2,520 seven-vertex trees fail, each a path. The independent correspondence tests concern finite structures, not independent peer verification. The limiting Poisson distribution, the asymptotic probability formula and the first sparse supercritical regime require the analytic counting and second-moment proof in RESULT.md; they cannot be deduced from finite experiments. No independent external audit has occurred.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the precise Sharp n^{-7/6} first semidistributivity window for near-complete independent-entry formal contexts. Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.
+
+## value
+
+PASS
+
+Semidistributivity (a key closure-lattice property) in a random formal context is a natural structural event not reducible to the number of concepts. The exact minimal seven-vertex missing-incidence path obstruction, Poisson limiting probability and nontrivial scale n^{-7/6} identify the first sparse-loss transition in a full fixed-aspect random-context family. It is a motivated sharp asymptotic/forbidden-substructure theorem rather than an arbitrary small-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

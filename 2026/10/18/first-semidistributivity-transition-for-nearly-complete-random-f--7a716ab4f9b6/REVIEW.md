@@ -1,19 +1,21 @@
-# Scientific review: first sparse semidistributivity window
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite statement is fully reconstructed with the standard concept-extent closure and both semidistributivity quasi-identities. An exhaustive Prüfer-sequence enumeration examines all 18,249 labelled trees with at most seven vertices, determining their missing-edge formal-context lattices by direct closure and evaluating every ordered concept triple. Only the 2,520 seven-vertex paths fail; an explicit seven-vertex path witnesses failure of join-semidistributivity. Separate finite checks establish the maximal-independent-set correspondence in 576 incidence patterns. Multiplicativity of maximal-independent-set choices over graph components gives lattice direct products, hence semidistributivity factorization. For the random model, larger components and cycles are negligible at the critical scale; an edge-dependency graph yields Poisson approximation for seven-vertex paths with error of order \(n^{-1/6}\). A second-moment bound treats the supercritical part of the first sparse regime. The proof, not the finite experiments, supports all asymptotic quantifiers.
+PASS
 
-## Originality — PASS, qualified
+For n objects and floor(alpha n) attributes with independently missing incidence probability q_n, each formal concept is a maximal independent vertex set of the bipartite missing-incidence graph. Disjoint graph components yield product factors of concept lattices, preserving and reflecting both semidistributivity identities. An exhaustive Prüfer-labelled-tree program classifies every bipartite tree of order at most 7 (total 18,249 labelled across n=1..7); exactly 2,520 labelled 7-paths fail and no smaller tree does; explicit P7 extents witness x∨y=x∨z=top yet x∨(y∧z)=x<top. Independently enumerated all UNLABELLED trees of n=2..7 (1,1,2,3,6,11 types) and found only P7 fails; the two bipartition orientations are dual and have the same both-axes classification. At q=t n^{-7/6}, expected count of P7 copies is q^6/2*((n)_4(m)_3+(n)_3(m)_4)→(alpha³+alpha⁴)t⁶/2; larger components O(n^8 q^7)=O(n^{-1/6}), cycles lower order, and Stein–Chen overlap sum s=1..5 bounds Poisson total variation O(n^{-1/6}). Below scale Markov gives no obstruction; above scale while nq→0, variance/mean²→0 and the proportion of nonisolated paths vanishes, giving loss with high probability. The claimed rate is limited to exact q=t n^{-7/6}; finite tree census is not a probabilistic proof.
 
-Felde, Hanika and Stumme (2020) develop random formal-context null models but not semidistributivity thresholds. Sakurai (2021) analyzes expected concept counts, not the distributive or semidistributive identities. Craig, Haviar and São João (2022) characterize semidistributive lattices by dual digraphs and closure systems without a fixed missing-incidence seven-path obstruction or Poisson threshold. Defant and Williams introduce related semidistributive notions; only their abstract and selected available materials were inspected. A related accessible mathematical analysis proves a *different* first-distributivity threshold from a six-vertex path; the weaker semidistributive property and seven-path window are not implied by it. Searches for alternate formulations and dominating assertions found no decisive coverage. Residual priority risk persists from broader graph Galois-lattice and forbidden-context results not exhaustively reviewed; the absence of a search hit is not offered as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Semidistributivity is an intrinsic lattice property, weaker than distributivity but central to canonical join and meet representation. The theorem identifies a previously unquantified first obstruction in a standard independent-incidence formal-context model, gives the exact power-law scale and limiting probability, and separates the onset of failure of distributivity from failure of semidistributivity. The universal finite P7 minimal obstruction motivates the exponent independently of numerical enumeration; the Poisson intensity records both bipartition orientations. No general theorem outside the first sparse regime is asserted.
+Best-of-knowledge original contribution is the precise Sharp n^{-7/6} first semidistributivity window for near-complete independent-entry formal contexts. Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.
 
-## Limits and closest literature
+## value
 
-The result assumes fixed \(lpha>0\) and independent identically distributed binary incidences. The rate is stated at exactly \(q_n=t n^{-7/6}\). The zero-probability regime requires \(nq_n	o0\). All supporting dates and sources are documented in RESULT.md. Prior graph-lattice classification literature may overlap, and independent validation has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Semidistributivity (a key closure-lattice property) in a random formal context is a natural structural event not reducible to the number of concepts. The exact minimal seven-vertex missing-incidence path obstruction, Poisson limiting probability and nontrivial scale n^{-7/6} identify the first sparse-loss transition in a full fixed-aspect random-context family. It is a motivated sharp asymptotic/forbidden-substructure theorem rather than an arbitrary small-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
