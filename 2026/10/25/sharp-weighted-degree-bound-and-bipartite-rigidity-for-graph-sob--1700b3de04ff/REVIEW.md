@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The nonlinear map is piecewise linear and its global Lipschitz modulus equals the largest norm of its finitely many diagonal masks; an interior orthant construction attains every mask norm with actual pairs. Block Schur minimization derives the exact spectral cut formula. Weighted edgewise Cauchy–Schwarz and the crossing-degree bound yield the stated sharp envelope. Equality forces a maximizer's positive support to generate a whole weighted-regular bipartite connected component; the converse is witnessed by constant singular vectors. An independent rank-one Schur computation gives the full star formula, and diagnostics reproduce 3,056 mask comparisons plus exact-star regressions. Proof applies to all finite weighted graphs.
+
+## Originality
+PASS under the inspected-literature and accessible-dedup evidence, not an exhaustive priority guarantee. Keller–Lenz (arXiv:0904.2985) and Hinz–Teplyaev (arXiv:1511.08499) treat Dirichlet normal contractions and graph energy forms; Cai–Wang (arXiv:2006.13318, Lemma 3.3) show one-point ReLU energy reduction. These do not give a two-point Lipschitz norm. A previously obtained exact complete-graph formula covers a special graph and does not imply the sharp class-wide maximum-degree envelope or bipartite regularity rigidity. The classical strengthened Cauchy–Schwarz framework (Eijkhout–Vassilevski, 1991) and Kantorovich spectral bounds already imply generic energy-projection upper estimates; these classical ingredients and the Schur identity are not separately claimed novel. The claimed advance is the exact graph modulus together with its weighted-degree equality rigidity and irregular-star comparison. The 1991 primary full text was not read, so equivalence risk is explicitly retained. Residual risk: a classic equivalent result under coordinate-projection norm or canonical-correlation terminology may be unindexed.
+
+## Value
+PASS. The theorem bridges the normal-contraction property and adversarial two-input conditioning by giving both a graph-specific exact spectral invariant and an optimal topology-independent upper bound based only on weighted maximum degree. It identifies precisely which graph geometries saturate the bound rather than merely providing a loose stability estimate. On growing stars the exact modulus remains bounded for fixed coupling although the universal maximum-degree envelope diverges; this quantifies how regularity, not degree alone, drives worst-case two-point amplification. The distinction has direct relevance to stability estimates for clipped graph signals.
+
+## Closest literature and scope
+The three cited primary papers were inspected in their relevant technical sections. The 2020 source uses a normalized energy and proves one-point decay; the present theorem uses the explicitly defined unit-mass energy and controls two-point differences. The complete-graph special case is not claimed as an independent result. Independent priority assessment and validation remain unperformed; general vertex weights and nonquadratic norms are outside scope.
+
+Self-review: passed. Independent audit: not yet performed.
