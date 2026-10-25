@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:50:19Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independently reconstructed all six offset-facet triples using SymPy exact radicals, solved for center/radius, and verified 108 exact primal slack endpoint inequalities plus all six-branch comparisons at each breakpoint (not merely floating samples); both exact r6 and r9 formulas simplified directly.",
+        "Read actual verification script (Git blob 8f7d822...) which additionally symbolically enumerates vertices; independent slack computation was separately implemented, rather than only relying on the package VERIFY_OK/log. The proof of Ehrhart equivalence is from primary 2022 theorem, not from symbolic geometry."
+      ],
+      "limitations": [
+        "Finite computations verify only the stated bounded instances or exact algebraic certificates; all-parameter scope relies on mathematical proof."
+      ],
+      "rationale": "In the affine section x1+x2+x3=t the norm of the projected coordinate normal is sqrt(2/3), of difference normals sqrt2. Offset constraints Li,Ui,Di exactly characterize disks of radius r. Six explicit nonnegative dual combinations of three constraints each yield six affine upper bounds F_i(t); for each branch solve the corresponding three tight inequalities. Independent exact algebra confirms all nine primal inequalities at both endpoints of each claimed branch and F_i minimal among all six at endpoints; affine interpolation covers the continuum. Separately the nine planar halfspaces at heights 6 and 9 give exactly six vertices in each polygon; induced metric 2(dx²+dx dy+dy²) and area factor sqrt3 give matching perimeter/area while evaluating F at 6,9 gives distinct exact radii. Ehrhart equality is correctly imported from the source theorem under integer and 2ell<=min a conditions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed cyclic-interval-barriers theorem gives full chainlink-polytope inradius, whereas this theorem varies plane t and projects normals intrinsic to slices."
+        ],
+        "reasoning": "A radius of the full 3D polytope is not a bound/formula determining each affine 2D slice inradius. If a general section-inradius result were known it could dominate, but no such explicit result was observed in the inspected source statement.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4",
+          "arXiv:2211.08382 sections of chainlink polytopes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2211.08382",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Theorem 1 implies equality of Ehrhart quasipolynomials of integer complementary sections; neither equality of intrinsic inradii nor their inequality follows from Ehrhart counts. Full-body radius alone cannot recover slice radius."
+        ],
+        "reasoning": "The current halfspace LP dual certificates derive a metric invariant not implied by identical lattice point enumerators, area/perimeter and vertex number. The exact example is a motivated test case rather than merely recomputing a known Ehrhart table.",
+        "searches": [
+          "Kantarcı Oğuz–Özel–Ravichandran arXiv:2211.08382 Theorem 1 and Section 6",
+          "Resultary cyclic-interval-barriers full-body chainlink inradius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source polygon description can be converted into nine offset inequalities; no displayed original exact radius profile was found in the reviewed primary text."
+        ],
+        "reasoning": "Compared intrinsic Euclidean Chebyshev-center linear programs, inscribed disk radii, affine height slice and complementary Ehrhart sections. Same polytope definitions are acknowledged, while classified dual active sets and exact metric separation are additional.",
+        "searches": [
+          "Kantarcı Oğuz–Özel–Ravichandran arXiv:2211.08382 Section 6",
+          "Resultary: chainlink polytope section inradius complementary Ehrhart equal polygons phase profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six exact affine functions and five algebraic thresholds extend to all real t, while the original example only enumerates a few integer sections and their combinatorics/Ehrhart identities."
+        ],
+        "reasoning": "A table of 6- and 9-level polygons alone does not contain an entire real-level phase classification. No exact six-phase inradius tabulation found, but unindexed computations remain possible.",
+        "searches": [
+          "arXiv:2211.08382 Section 6 chainlink examples",
+          "Resultary: chainlink polytope section inradius complementary Ehrhart equal polygons phase profile"
+        ]
+      },
+      "rationale": "Primary chainlink paper establishes fixed family, Ehrhart equivalence and example nonisomorphism, not the complete Euclidean slice inradius six-phase law or matched area/perimeter six-vertex counterexample. Closest indexed broader inradius theorem applies to full-dimensional chainlink bodies, not individual height sections; no general full-body radius determines slice radii.",
+      "residual_risks": [
+        "Full underlying text of the indexed chainlink full-body inradius theorem was not inspected; it could contain related sectional calculations not visible in its abstract.",
+        "Only one specified chainlink parameter vector is classified, not a universal theorem for all chainlink sections; result is valuable as a natural original-literature example with a metric counterexample.",
+        "Exact primal/dual certificate proves the continuum inradius formula but not the published Ehrhart theorem, which is explicitly imported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers polytope, Ehrhart equivalence and different polygon combinatorics but not inspected complete real-t inradius six-phase classification",
+          "evidence": "Theorem 1 complementary integer sections with 2ell<=min a; Section 6 finite example and faces/volume.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.08382",
+          "material_read": "Full 21-page OA PDF accessed; introduction, Theorem 1, Definitions and Section 6 example inspected",
+          "method": "Read text and PDF screenshot",
+          "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+          "trigger": "Original definitions, 3-variable (4,5,6;2) family and complementary section Ehrhart theorem"
+        },
+        {
+          "assessment": "Full-dimensional body radius not height-section radius; possible useful method but does not directly dominate stated slice theorem",
+          "evidence": "Summary describes cyclic interval barriers and centers of the full chainlink polytope, not parameterized affine slices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4",
+          "material_read": "Resultary indexed title/abstract only; original complete source not retrieved",
+          "method": "Resultary semantic search",
+          "title": "Cyclic interval barriers determine the Euclidean inradius of every chainlink polytope",
+          "trigger": "Extremely close exact metric invariant on chainlink objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Best-of-knowledge original and valuable in the explicit narrow domain; no claim of universal extension or certified historical priority."
+      ],
+      "rationale": "An exact, self-contained six-phase Euclidean inradius classification of the canonical chainlink example supplies a useful metric invariant not controlled by Ehrhart theory. The complementary level-six and level-nine hexagons have matched Ehrhart quasipolynomial, intrinsic area, perimeter and vertex number yet distinct radii; the five precisely located contact transitions explain the failure geometrically. Although a fixed family, the natural underlying object and invariant and strong comparison motivate this fact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2211.08382",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/six-euclidean-inball-phases-of-complementary-chainlink-sections--c9e534b71133"
+  ],
+  "disposition": "passed",
+  "final_claim": "Six Euclidean inball phases of complementary chainlink sections",
+  "limitations": [
+    "Assigned Git record tree matched the read-only frozen source_tree_sha; exact RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, AUDIT.json, METADATA.json inspected.",
+    "No GitHub mutation or dispatcher scientific closeout performed.",
+    "Source-publication transport is not_ready for confidentiality; scientific assessment remains complete."
+  ],
+  "residual_risks": [
+    "Full underlying text of the indexed chainlink full-body inradius theorem was not inspected; it could contain related sectional calculations not visible in its abstract.",
+    "Only one specified chainlink parameter vector is classified, not a universal theorem for all chainlink sections; result is valuable as a natural original-literature example with a metric counterexample.",
+    "Exact primal/dual certificate proves the continuum inradius formula but not the published Ehrhart theorem, which is explicitly imported."
+  ],
+  "schema_version": 1
+}

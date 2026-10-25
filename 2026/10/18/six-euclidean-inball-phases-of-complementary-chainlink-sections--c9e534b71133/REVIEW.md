@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact inradius of each height section is equivalent to feasibility of nine inward-offset linear inequalities with projected-normal lengths \(\sqrt{2/3}\) and \(\sqrt2\). Six explicitly positive dual combinations give global upper bounds. Each upper bound is realized by the explicit intersection of its three supporting equalities over the corresponding exact algebraic parameter interval. All six complete endpoint feasibility checks, all dual equalities, and all branch comparisons were reconstructed symbolically with the bundled `verify.py`; no sampling is used to prove the continuum statement. Both complementary hexagons are enumerated exhaustively from exact rational halfspace intersections and have the stated intrinsic area, perimeter, and distinct inradii. Risk: transcription, software implementation, or algebraic error remains possible without independent review.
+## correctness
 
-**Originality — PASS, qualified.** The primary 2022 preprint *Chainlink Polytopes and Ehrhart-Equivalence* establishes the exact nine-facet family, complementary-level Ehrhart equality, and nonisomorphism at different levels. Its full 21-page preprint was inspected, including the introduction, definitions, Section 6 and concluding discussion; it does not state the six Euclidean section-radius phases or the equal-area, equi-perimetric hexagon comparison at levels six and nine. The closest published indexed finding, *Cyclic interval barriers determine the Euclidean inradius of every chainlink polytope*, treats the entire full-dimensional chainlink body, not its affine level sections; full-body ball radii do not entail the varying radii of two-dimensional slices. Literature and public mathematical-record searches for equivalent, broader, and tabulated formulas found no statement implying the new claim. Risk: the complete text of this closest indexed finding could not be inspected, and an unindexed special-case calculation may exist.
+PASS
 
-**Mathematical value — PASS.** This is an exact metric classification of all real-level sections of a canonical example chosen in the original literature to demonstrate nontrivial Ehrhart symmetry. The five algebraic contact transitions and complete six-piece radius profile show specifically where combinatorial/lattice symmetry ceases to control a natural Euclidean optimization invariant. The complementary height-six/height-nine hexagons give a particularly strong obstruction: even augmenting Ehrhart equivalence with equal intrinsic area, perimeter, and vertex count does not force the same inradius. This precision is a reusable test case for metric properties of Ehrhart-equivalent planar polytopes, rather than a generic arbitrary slice. Limit: the classification is for this particular three-coordinate example and makes no universal assertion about chainlink slices.
+In the affine section x1+x2+x3=t the norm of the projected coordinate normal is sqrt(2/3), of difference normals sqrt2. Offset constraints Li,Ui,Di exactly characterize disks of radius r. Six explicit nonnegative dual combinations of three constraints each yield six affine upper bounds F_i(t); for each branch solve the corresponding three tight inequalities. Independent exact algebra confirms all nine primal inequalities at both endpoints of each claimed branch and F_i minimal among all six at endpoints; affine interpolation covers the continuum. Separately the nine planar halfspaces at heights 6 and 9 give exactly six vertices in each polygon; induced metric 2(dx²+dx dy+dy²) and area factor sqrt3 give matching perimeter/area while evaluating F at 6,9 gives distinct exact radii. Ehrhart equality is correctly imported from the source theorem under integer and 2ell<=min a conditions.
 
-Closest literature: Ezgi Kantarcı Oğuz, Cem Yalım Özel and Mohan Ravichandran, *Chainlink Polytopes and Ehrhart-Equivalence*, arXiv:2211.08382v1, first public 2022-11-15. Publicly indexed independent full-body calculation titled *Cyclic interval barriers determine the Euclidean inradius of every chainlink polytope*. Neither accessible mathematical statement covers this complete section-specific result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary chainlink paper establishes fixed family, Ehrhart equivalence and example nonisomorphism, not the complete Euclidean slice inradius six-phase law or matched area/perimeter six-vertex counterexample. Closest indexed broader inradius theorem applies to full-dimensional chainlink bodies, not individual height sections; no general full-body radius determines slice radii.
+
+## value
+
+PASS
+
+An exact, self-contained six-phase Euclidean inradius classification of the canonical chainlink example supplies a useful metric invariant not controlled by Ehrhart theory. The complementary level-six and level-nine hexagons have matched Ehrhart quasipolynomial, intrinsic area, perimeter and vertex number yet distinct radii; the five precisely located contact transitions explain the failure geometrically. Although a fixed family, the natural underlying object and invariant and strong comparison motivate this fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
