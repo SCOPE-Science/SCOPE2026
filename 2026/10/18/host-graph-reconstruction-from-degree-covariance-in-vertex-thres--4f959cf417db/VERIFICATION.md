@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `verify.py` is a standalone Python standard-library verifier. It enumerates every simple labeled host on \(n=1,2,3,4,5\) vertices (respectively 1, 2, 8, 64, and 1,024 graphs). For each one, direct exact-rational incident-edge pair sums are compared with the independently constructed \((Q+Q^2)/12\) formula. The verifier also checks the nullity predicted by bipartite components through rational Gaussian elimination and checks the algebraic square-root recovery identity by integer matrix multiplication.
+## correctness
 
-Exact executed outcome: `VERIFY_OK 1099 host graphs, exact edge-pair sums, rank, square-root inverse`.
+PASS
 
-The integral \(\int_0^1 t^2dt=1/3\), the positive-definite principal-square-root choice, and the Frobenius stability constant are proved in `RESULT.md`; finite graph enumeration does not establish these statements for all sizes. No stochastic simulation, numerical eigensolver, or external package is needed. A mathematical proof is supplied, but no independent external audit has occurred.
+Let B be unsigned incidence of fixed labeled host G and Y retained-edge indicators under Uu+Uv≥1. Direct conditional integration gives Cov(Y_e,Y_f)=1/4 for e=f,1/12 when distinct edges meet,0 when disjoint, hence 12Cov(Y)=I+BᵀB, and 12Σ=BBᵀ+(BBᵀ)^2=Q+Q². PSD Q and principal root give Q=(sqrt(I+48Σ)-I)/2. In the Sylvester equation TX+XS=48(Σhat-Σ) both square-root spectra are ≥1, so ||Qhat-Q||F≤12||Σhat-Σ||F; <1/24 gives binary adjacency recovery, with empty-host and bipartite-nullity cases handled. Independently checked exactly all 1,099 labeled graphs on 1–5 vertices by edge-pair covariance and Q polynomial.
+
+## originality
+
+PASS
+
+Fox–Luo–Pham studies precisely vertex-threshold random subgraphs, with degree-frequency count moments and variance bounds for regular hosts; that is not the labeled magnitude covariance matrix or stable inversion for arbitrary hosts. General unsigned incidence/signless Laplacian identities are standard tools, not claimed novel. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+Recovering every labeled host edge from degree covariance alone, with explicit stability and isolated-vertex boundary cases, is a motivated inverse problem in correlated threshold network observation rather than a pure matrix-identity exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

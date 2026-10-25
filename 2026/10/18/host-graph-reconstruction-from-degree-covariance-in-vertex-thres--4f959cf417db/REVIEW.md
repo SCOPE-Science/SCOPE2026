@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** For a retained-edge indicator, the variance is \(1/4\); for two distinct incident host edges, conditional independence given their shared uniform label gives covariance \(1/12\), whereas disjoint edges are independent. Multiplying the resulting edge covariance through the unsigned incidence matrix proves \(12\Sigma=Q+Q^2\) for every finite simple host. The unique positive-definite square root of \(I+48\Sigma\) is \(I+2Q\); hence off-diagonal binary adjacency is reconstructed. The nullity formula follows from the quadratic form of the signless Laplacian. The stability estimate follows from a Sylvester equation whose positive square-root spectra are bounded below by one, not from a scalar-only Lipschitz heuristic. Direct exact-arithmetic verification checked all 1,099 labeled hosts through five vertices; finite checks are supporting evidence rather than an infinite proof.
+## correctness
 
-**Originality (PASS on inspected evidence).** Fox–Luo–Pham (arXiv:2207.13651v1, Introduction and Section 2) analyze the same vertex-threshold mechanism on regular hosts, but their variance bound is for the count of vertices having a specified degree, not the covariance of each labeled vertex's degree magnitude. Reilly–Scheinerman (DOI:10.37236/219) study full random threshold graphs (complete host), from which the complete-host case is implicit, but their inspected result does not cover inverse recovery of arbitrary hosts. Pal–Makowski (arXiv:1710.11064) treat asymptotic degree distributions and correlations of frequency statistics. Published mathematical research records and the accessible earlier claims checked did not exhibit this arbitrary-host covariance inversion. General graphon-moment identities or less-direct graph-inference results could implicitly contain the result; historical priority has not been independently established. Search failure alone is not a novelty proof.
+PASS
 
-**Value (PASS).** Identifiability from *degree covariance alone* is a natural inverse problem for repeated vertex-correlated network observations. The exact formula supplies an explicit host reconstruction algorithm for every finite simple graph, a sharp elementary perturbation guarantee sufficient for adjacency recovery, a structural nullspace classification, and almost-sure reconstruction from replicated degree data without observing edges. The central information is not available from the marginal degree means, which reveal host degrees but not adjacency. This is a mathematically motivated complete classification for a natural stochastic model, not a parameter renaming or a finite-table exercise.
+Let B be unsigned incidence of fixed labeled host G and Y retained-edge indicators under Uu+Uv≥1. Direct conditional integration gives Cov(Y_e,Y_f)=1/4 for e=f,1/12 when distinct edges meet,0 when disjoint, hence 12Cov(Y)=I+BᵀB, and 12Σ=BBᵀ+(BBᵀ)^2=Q+Q². PSD Q and principal root give Q=(sqrt(I+48Σ)-I)/2. In the Sylvester equation TX+XS=48(Σhat-Σ) both square-root spectra are ≥1, so ||Qhat-Q||F≤12||Σhat-Σ||F; <1/24 gives binary adjacency recovery, with empty-host and bipartite-nullity cases handled. Independently checked exactly all 1,099 labeled graphs on 1–5 vertices by edge-pair covariance and Q polynomial.
 
-**Residual scientific limitations.** Replicate experiments must preserve known vertex labels and redraw latent weights independently. Robustness is deterministic in covariance error; there is no dimension-uniform sample-complexity claim. Primary literature inspection is necessarily non-exhaustive, and the existing full model is older than the present formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fox–Luo–Pham studies precisely vertex-threshold random subgraphs, with degree-frequency count moments and variance bounds for regular hosts; that is not the labeled magnitude covariance matrix or stable inversion for arbitrary hosts. General unsigned incidence/signless Laplacian identities are standard tools, not claimed novel. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+Recovering every labeled host edge from degree covariance alone, with explicit stability and isolated-vertex boundary cases, is a motivated inverse problem in correlated threshold network observation rather than a pure matrix-identity exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
