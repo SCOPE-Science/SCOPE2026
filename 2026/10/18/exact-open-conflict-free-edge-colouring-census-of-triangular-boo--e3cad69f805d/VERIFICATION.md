@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite reductions and tests
+# Independent mathematical audit
 
-From the directory containing these files, run `python3 VERIFY.py` using Python 3 and only its standard library. `VERIFY_OUTPUT.txt` is the captured complete expected standard output of the successful execution.
+## correctness
 
-The code evaluates \(4^9=262144\) capped nine-type count vectors and checks exact equality with the 18 hypothesized large-size type patterns. The mathematical reason these finite counts apply to all \(n\ge5\) is the proved clipping invariant: the local singleton tests only subtract at most one from side totals, so all counts at least three remain non-singletons after such subtraction. The finite computation is exhaustive for its reduced state space; it is not just experimental sampling.
+PASS
 
-An independent direct graph-edge implementation enumerates all \(3^{2n+1}\) colourings when \(n=3,4,5\), and two-colour assignments at those sizes. These check the open edge neighbourhood predicate without the nine-type shortcut. A separate multinomial composition implementation confirms counts for \(5\le n\le12\). These finite size checks do not alone establish the infinite result.
+Open edge-neighborhoods of the K2 spine and 2n spokes reduce exactly to singleton multiplicities in the nine ordered spoke-pair types (a,b). For a spoke, side color totals differ by at most one deletion plus the opposite spoke and spine, so clipping each type at 3 leaves equality-to-one predicates invariant. Independent complete enumeration of all 4^9=262144 capped vectors found precisely 18 feasible states with any 3, and none with all entries <=2 and total >=5. For n>=5 these yield six one-exception and twelve two-exception families, giving 3(6n+12n(n−1))=18n(2n−1) named colorings; direct graph enumeration independently found 198,1080,810 for n=3,4,5. The two-color spine singleton argument rules out palettes smaller than 3 for all n>=3. Source theorem, named palette convention and page-index multiplicities match.
 
-No independent audit, external formal verification, source-priority guarantee, or claim concerning larger palettes is provided.
+## originality
+
+PASS
+
+Best-of-knowledge original mathematical contribution after separate comparisons of equivalent formulations, broader known work, exact tables and logical prior implications. Related methods and endpoint results explicitly credited; residual bibliographic uncertainty retained.
+
+## value
+
+PASS
+
+Triangular books are a standard natural graph family and open conflict-free edge coloring has a distinct line-graph neighborhood condition. The proof identifies a sharp constant chromatic index, exact optimized labeled census and strong one/two-exception rigidity for all sizes. The 18-state reduction yields a reusable structural extremal example; it is not simply a small brute-force table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

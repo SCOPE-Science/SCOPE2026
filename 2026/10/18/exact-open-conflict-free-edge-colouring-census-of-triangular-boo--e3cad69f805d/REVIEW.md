@@ -1,11 +1,21 @@
-# Review of the triangular-book edge-colouring result
+# Independent mathematical audit
 
-**Correctness (PASS).** The open-neighbourhood convention is explicit. The three degree-count equalities are both necessary and sufficient, and clipping the nine page-type multiplicities at three preserves every equality-to-one check. The exhaustive finite lemma checks all \(4^9=262144\) clipped vectors, including the precise list of 18 permitted families for large size; this turns a finite computation into a logically complete proof over all \(n\ge5\). An independently implemented direct edge-neighbourhood predicate exhaustively confirms the stated small counts, and a two-colour contradiction proves the chromatic-index statement. The executable reproduces the finite lemma and the direct checks. Limitation: the short finite lemma uses exhaustive integer enumeration rather than a handwritten nine-variable case split.
+## correctness
 
-**Originality (PASS, with residual priority risk).** The inspected 2026 primary works of Kamyczura and Przybyło give general asymptotic and chromatic-number-based upper bounds, not exact three-colour counts for the graph \(K_2\vee\overline{K_n}\). Equivalent line-graph, triangular-book, and other conflict-free formulations were searched. Searches of available published mathematical research records found nearby proper conflict-free colouring and different graph families, but not this statement or a stronger theorem implying the exact count. The ambiguity between triangular and quadrilateral books was explicitly resolved. Absolute priority is not established; differently titled or unindexed exact enumeration remains possible.
+PASS
 
-**Value (PASS).** The graph family is a standard common-edge triangle construction, and the open-neighbourhood constraint is a newly active colouring model. The exact optimum and labelled optimum-colouring count reveal a strong structural rigidity: out of exponentially many three-colourings of \(2n+1\) edges, only \(18n(2n-1)\) survive for \(n\ge5\). The 18-family description explains the polynomial census and gives reusable witnesses and obstructions. Neither the generic colouring bound nor a simple substitution supplies this phenomenon.
+Open edge-neighborhoods of the K2 spine and 2n spokes reduce exactly to singleton multiplicities in the nine ordered spoke-pair types (a,b). For a spoke, side color totals differ by at most one deletion plus the opposite spoke and spine, so clipping each type at 3 leaves equality-to-one predicates invariant. Independent complete enumeration of all 4^9=262144 capped vectors found precisely 18 feasible states with any 3, and none with all entries <=2 and total >=5. For n>=5 these yield six one-exception and twelve two-exception families, giving 3(6n+12n(n−1))=18n(2n−1) named colorings; direct graph enumeration independently found 198,1080,810 for n=3,4,5. The two-color spine singleton argument rules out palettes smaller than 3 for all n>=3. Source theorem, named palette convention and page-index multiplicities match.
 
-No independent proof assessment or definitive bibliographic-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical contribution after separate comparisons of equivalent formulations, broader known work, exact tables and logical prior implications. Related methods and endpoint results explicitly credited; residual bibliographic uncertainty retained.
+
+## value
+
+PASS
+
+Triangular books are a standard natural graph family and open conflict-free edge coloring has a distinct line-graph neighborhood condition. The proof identifies a sharp constant chromatic index, exact optimized labeled census and strong one/two-exception rigidity for all sizes. The 18-state reduction yields a reusable structural extremal example; it is not simply a small brute-force table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
