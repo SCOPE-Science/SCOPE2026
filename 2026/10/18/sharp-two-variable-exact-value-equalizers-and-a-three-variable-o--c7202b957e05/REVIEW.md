@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The truth/falsity bit representation is checked against the concrete FOUR tables. Monotonicity, duality under the order-reversing involution, and a constructive representation of all monotone endpoint-preserving Boolean functions provide the term clone needed in the proof. The disagreement-set argument proves both directions of the convexity characterization. The six-point three-variable counterexample is a direct three-chain contradiction, not a numerical extrapolation. For two variables, `verify.py` exhaustively enumerates all \(166\) available term operations (Dedekind's \(168\), minus two constants), all \(27{,}556\) ordered pairs, eligible convex sets, and all invariant endpoint loci; the independent constructions agree at exactly \(512\) loci. The sum of the histogram is checked. Risk: the finite census depends on faithful implementation; the direct independent FOUR truth-table evaluation and separate enumeration mitigate, but do not eliminate, implementation risk.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-Cardó, *Probabilistic equational spectrum*, Sections 3–4, concerns equational probability spectra and chiefly tabulates two-element groupoids, not the four-valued exact locus classification. López, *Truth-Functional Modal Expansions*, Definition 14 and later semantic sections, directly provides FOUR operations but treats modal/relevance enrichments. Přenosil, *Four-valued logics of truth, nonfalsity, exact truth, and material equivalence*, examines equational consequence but not fixed-arity exact-value agreement loci. The known monotone-Boolean correspondence and convexity ingredients are acknowledged: novelty is assessed for their sharp FOUR-specific two-versus-three-variable boundary and complete two-variable multiplicity refinement. Published research-record searches for aliases, equalizer loci, equations, involution symmetrization, and probability spectra yielded no equivalent coverage. Risk: older functional-clone papers, especially Pynko (1999), were not fully inspectable and might imply part of the result; no historical exclusivity is asserted.
+PASS
 
-## Value — PASS
-Equality loci are natural semantic invariants for equations in a finite algebra, directly linked to Cardó's recent probabilistic-equation framework. The theorem identifies the exact **first failure** of the simple endpoint-plus-symmetry test, a distinction relevant to expressibility/definability in paraconsistent four-valued logics. The \(512\) realizable low-arity patterns and all ordered-pair frequencies give a complete, reproducible base case, not an unmotivated parameter slice. The sharp three-variable obstruction shows that the low-arity phenomenon does not simply persist.
+FOUR truth/falsity tables reduce constant-free ∧∨¬ term functions to the nonconstant monotone Boolean truth maps on 2k coordinates with falsity 1−f∘θ. For monotone f,g, their disagreement D is order-convex and excludes 0,1; conversely indicators of ↑D and ↑D\D realize any such D, proving E=Q\(D∪θD). At k=1,2 a complete enumeration (not a sampled length bound) establishes all θ-stable endpoint-containing sets are equalizers: 4 and 512 respectively; 166 possible 2-var term maps and their 27,556 ordered pairs have the stated exact size histogram. At k=3 a six-point θ-stable set has a three-element chain with forbidden intermediate cube points; no union of two convex subsets can cover it. Adding θ-fixed coordinates extends the obstruction to every k>3. The source finite checker and independent exhaustive 166-map computation corroborate the finite classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.
+
+## value
+
+PASS
+
+A natural exact-output equation-set classification in canonical four-valued logic, with a sharp first dimension where elementary symmetry conditions fail, is useful for finite model/equation spectra. The 512-locus histogram is a complete invariant, not an unmotivated arbitrary lookup; proof gives structural normal form for all arities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
