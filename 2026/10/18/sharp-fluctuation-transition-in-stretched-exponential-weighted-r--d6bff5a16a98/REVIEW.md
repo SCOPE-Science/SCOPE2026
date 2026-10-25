@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The domain and quantifiers are fixed \(1/2<\beta<1\), \(0<c<2^{\beta}\), and integer tree sizes tending to infinity. The proof reconstructs the exact insertion-depth innovation/variance recurrence, proves \(v_n\sim c n^{1-\beta}/(1-\beta)\), integrates the three variance regimes, and gives the separate martingale/Kronecker argument for almost-sure and \(L^2\) convergence above the threshold. The separate verification script exhaustively checks five small finite tree sizes with rational probabilities; those checks are corroboration only. **Correctness: PASS.**
+## correctness
 
-## Originality
-The closest antecedent, Gałązka–Wdowicka (arXiv:2610.00614v1), explicitly proves finite-size path-length identities but its asymptotic linear-limit theorem requires \(p_n=O(1/n)\); the stretched-exponential family here violates that assumption. Its Section 10 asks for relaxations. Sénizergues (arXiv:1904.07115v3) studies the same weighted-tree construction but the inspected profile theorems assume polynomial cumulative-weight growth. Targeted statement/alias/result searches located no directly covering sharp transition. Abstract general martingale coverage remains a priority risk. **Originality: PASS, subject to independent priority assessment.**
+PASS
 
-## Mathematical value
-A concrete, natural superpolynomial-weight family settles a sharp boundary for the motivating paper's open extension direction. The critical \(2/3\) exponent is corroborated by exact powers and constants on both sides, including the logarithmic transition. The result quantifies nonuniform recursive-tree traversal costs and identifies precisely when their linear-scale random correction is square-integrable. **Mathematical value: PASS.**
+From conditional depth martingale innovations ξ_j and their exact recurrence v_{j+1}=(1-p_j²)v_j+p_j(1-p_j), var(T_n)=sum_{j<=n}[1+(n-j)p_j]^2 v_j. Summation yields v_j~c j^(1-β)/(1-β), with sum_j p_j² v_j having exponent 1-3β. Riemann-beta integration for β<2/3 gives coeff 2c³/[(1-β)(2-3β)(3-3β)(4-3β)], critical harmonic sum gives 3c³ n²log n; for β>2/3 orthogonal martingale series converges a.s. and L², Kronecker controls centered remainder. The finite exact enumeration checker over sizes 3..7 validates recurrence for sample weights; independent recurrence numerics at n=20k for β=.6,2/3,.8 show expected scaling trend, not asymptotic proof. Nonzero ξ_3 variance implies σ²>0.
 
-## Limitations
-No weak-limit theorem is asserted below the threshold, and no result is asserted for \(\beta\le 1/2\). Numerical large-size comparisons converge slowly and are not evidence of the infinite theorem. Independent priority and scientific audits remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact hypotheses, invariants, reductions, implicit prior implications, and relevant primary theorem/proof sections. None of the inspected cited primary results implies this final precise statement under its hypotheses; originality is best-of-knowledge only, with named residual risks.
+
+## value
+
+PASS
+
+A sharp phase transition for a natural stretched-exponential cumulative-weight family lying outside the previously treated p_n=O(1/n) regime; identifies when normalized total depth has nontrivial L² martingale limit and separates power, logarithmic, and quadratic variance growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
