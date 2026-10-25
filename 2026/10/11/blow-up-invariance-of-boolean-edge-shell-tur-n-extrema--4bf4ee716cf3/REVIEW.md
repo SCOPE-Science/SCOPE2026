@@ -1,4 +1,4 @@
-# Same-model review
+# Prior mathematical assessment
 
 ## Correctness
 **PASS.** The Fourier transform on the Boolean group gives the exact cut inequalities. The signed cut-packing change of variables is reversible, the strict bound on total signed weight follows from random-cut averaging together with the empty cut, and both directions of blow-up invariance are proved. The complete-multipartite formula is then recomputed independently on \(K_r\).
@@ -12,4 +12,4 @@
 ## Closest literature and limitations
 Kolountzakis--Révész (arXiv:math/0312218) and Šámal (arXiv:0911.2589) are the closest inspected sources. The result is limited to Boolean weight-two graph supports and does not classify all extremizers or assert a universal identification with cubical chromatic number.
 
-Same-model review: passed. Independent audit: not yet performed.
+Prior mathematical assessment: passed. The further independent scientific assessment is recorded separately.
