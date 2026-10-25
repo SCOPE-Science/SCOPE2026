@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The contraction lemma counts every permitted extension of any acyclic three-edge injection as \((n-4)!\), and prohibits all already-closed cycles. Exhaustive inclusion-exclusion over directed cycles on three sources yields an explicit integer polynomial table; the six row sums give the stated conditional first moments. The covariance then follows from the exact single-cycle probability \(1/n\). The standalone code independently tests complete single-cycle populations through \(n=9\) and every relevant injective image triple through \(n=15\), without treating finite checks as proof for all sizes.
+## correctness
 
-## Originality
-PASS subject to literature risks. The full accessible texts of Novelli–Reutenauer–Thibon on generalized pattern codes, Crane–DeSalvo on random-pattern Poisson approximations, and Elizalde–Troyka on cycle/descent-set enumeration were materially compared. Their stated results do not provide the exact six-entry expectation vector conditioned on one group-theoretic cycle. Elizalde–Troyka's descent-set framework can cover monotone triple statistics, but not the nonmonotone comparisons in \(132\), \(213\), \(231\), and \(312\) as mere functions of descent sets. Residual risk: a different older or broader pattern-refined cycle-type identity may imply these means.
+PASS
 
-## Mathematical value
-PASS. Conditioning permutations on having exactly one cycle is a standard random-combinatorial model, and all six consecutive triple patterns constitute the smallest complete order-sensitive local motif spectrum beyond ascents/descents. The exact balanced positive/negative biases are a non-obvious global-to-local dependence law, with a complete all-size classification rather than a selected numerical example. The mean shift is small for large \(n\), but its exact structural cancellation and the nonmonotone asymmetry are the mathematical content; no statistical performance gain is claimed.
+For n>=4, specify an n-cycle as a permutation with one group-theoretic cycle and use non-wrapping triples of values at positions i,i+1,i+2. An injective prescribed three-edge partial map extends to an n-cycle iff it is acyclic, then uniquely by cyclically arranging n-3 path components in (n-4)! ways. Removing the only possible partial directed cycles (loops, 2-cycles, 3-cycles) by inclusion-exclusion yields the six explicit integer Q_tau(i,n) polynomials; summing i and dividing by (n-1)(n-2)(n-3) gives zero shift for 123/321, -1/[2(n-1)] for 132/213 and +1/[2(n-1)] for 231/312. Multiplying shifts by P(one n-cycle)=1/n gives the indicated covariance. Direct independent enumeration of n-cycles at n=4..8 gave 30 exact rational mean checks; source verify_cycles.py and symbolic derive_table.py were read, and their algorithms agree with the proof. Finite checks corroborate but do not prove all n.
 
-## Closest work and limits
-The 2009 generalized-pattern codes concern algebraic encoding, the 2015 probability paper concerns unconditional and Mallows pattern-count bounds, and the 2017 cycle/descent paper treats monotone consecutive-pattern avoidance. Full older literature coverage, particularly potentially stronger generalized cycle-type identities, cannot be guaranteed. No joint law or fluctuation theorem is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the four nonmonotone n-cycle-conditioned means and their complete six-pattern balance, not for descent-set/monotone entries alone. Prior cycle-type/descent-set results are stronger for 123/321 and credited. Generalized k-descent codes do encode these patterns but no inspected theorem evaluates their n-cycle-conditioned nonmonotone means; unconditional pattern Poisson approximation does not imply them. Older higher-order cycle-pattern identities remain a genuine priority risk.
+
+## value
+
+PASS
+
+The uniform n-cycle is a canonical random permutation class; consecutive 3-patterns are the smallest complete local order-sensitive motifs beyond descents. The exact all-n six-way bias and paired cancellation reveal subtle global-to-local dependence not visible under the unrestricted uniform measure, with natural applications to cycle-conditioned local-pattern statistics, even though the shifts vanish asymptotically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

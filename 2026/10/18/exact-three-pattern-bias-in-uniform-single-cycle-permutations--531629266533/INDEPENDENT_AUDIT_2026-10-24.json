@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T23:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4, specify an n-cycle as a permutation with one group-theoretic cycle and use non-wrapping triples of values at positions i,i+1,i+2. An injective prescribed three-edge partial map extends to an n-cycle iff it is acyclic, then uniquely by cyclically arranging n-3 path components in (n-4)! ways. Removing the only possible partial directed cycles (loops, 2-cycles, 3-cycles) by inclusion-exclusion yields the six explicit integer Q_tau(i,n) polynomials; summing i and dividing by (n-1)(n-2)(n-3) gives zero shift for 123/321, -1/[2(n-1)] for 132/213 and +1/[2(n-1)] for 231/312. Multiplying shifts by P(one n-cycle)=1/n gives the indicated covariance. Direct independent enumeration of n-cycles at n=4..8 gave 30 exact rational mean checks; source verify_cycles.py and symbolic derive_table.py were read, and their algorithms agree with the proof. Finite checks corroborate but do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elizalde--Troyka establishes cycle-type/descent-set enumerations and monotone consecutive 123/321 avoidance; these are credited rather than restated as novel.",
+          "Nonmonotone window 132/231 is not determined by only the two adjacent descent indicators."
+        ],
+        "reasoning": "The stronger prior results cover the two monotone entries, but their stated implications do not determine the full four additional nonmonotone mean shifts.",
+        "searches": [
+          "arxiv:1710.05103 Section 6",
+          "arxiv:0911.5615",
+          "conditional three consecutive permutation patterns 132 213 231 312 uniform n-cycles cycle-type descent enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1710.05103",
+        "https://arxiv.org/pdf/0911.5615",
+        "https://arxiv.org/pdf/1509.07941",
+        "published-record:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crane--DeSalvo Poisson/avoidance results concern unrestricted or Mallows pattern counts, not conditioning on a single group-theoretic n-cycle.",
+          "Elizalde--Troyka ordinary descent-set information cannot specify the four nonmonotone pattern counts."
+        ],
+        "reasoning": "The extra partial-injection contraction and 3-edge acyclicity analysis supplies information not logically extracted from the stated prior theorems.",
+        "searches": [
+          "arxiv:1509.07941",
+          "arxiv:1710.05103",
+          "arxiv:0911.5615",
+          "conditional three consecutive permutation patterns 132 213 231 312 uniform n-cycles cycle-type descent enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-window 132/213/231/312 frequencies are equivalent to conditional mixed pattern--single-cycle moments, or covariance of one-cycle indicator and local window statistic.",
+          "NRT generalized descent pattern codes encode local order but do not calculate the six conditional means."
+        ],
+        "reasoning": "The algebraic pattern code is not a theorem equating or evaluating the conditional mixed statistics. Ordinary descent sets miss comparisons between the first and third window entries.",
+        "searches": [
+          "conditional three consecutive permutation patterns 132 213 231 312 uniform n-cycles cycle-type descent enumeration",
+          "arxiv:0911.5615",
+          "arxiv:1710.05103"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest published record concerns fixed-point indicators and adjacent descents rather than n-cycle-conditioned triple-pattern frequencies.",
+          "No complete six-pattern conditional first-moment table was in the inspected primary sections."
+        ],
+        "reasoning": "A potentially unindexed exact cycle-pattern table cannot be excluded by unsuccessful targeted search alone.",
+        "searches": [
+          "conditional three consecutive permutation patterns 132 213 231 312 uniform n-cycles cycle-type descent enumeration",
+          "published-record:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "arxiv:1710.05103"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the four nonmonotone n-cycle-conditioned means and their complete six-pattern balance, not for descent-set/monotone entries alone. Prior cycle-type/descent-set results are stronger for 123/321 and credited. Generalized k-descent codes do encode these patterns but no inspected theorem evaluates their n-cycle-conditioned nonmonotone means; unconditional pattern Poisson approximation does not imply them. Older higher-order cycle-pattern identities remain a genuine priority risk.",
+      "residual_risks": [
+        "An earlier generalized cycle-type/consecutive-pattern exact identity might imply the nonmonotone means without presenting this wording.",
+        "No claim about joint distributions, variances, cyclic wraparound windows, longer patterns, or arbitrary cycle types."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers monotone triple/descent-set dependencies; not a six-way nonmonotone triple conditional mean statement",
+          "evidence": [
+            "The cycle-type/descent-set formulas and 123/321 avoidance theorems concern ordinary descents. Two permutations with the same descent set can differ at the first-versus-third comparison needed for 132/231."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.05103",
+          "material_read": "Original arXiv full PDF introduction, main statements, Section 6 including monotone consecutive pattern theorem and ordinary descent-set conditions",
+          "method": "Direct accessible primary PDF text inspection and first-page image",
+          "title": "Exact and asymptotic enumeration of cyclic permutations according to descent set",
+          "trigger": "Uniform n-cycles and possible stronger cycle-type pattern theorem"
+        },
+        {
+          "assessment": "Encodes windows algebraically; the inspected results are not conditional first moments for uniform single n-cycles",
+          "evidence": [
+            "Generalized descent codes require further mixed cycle-type enumeration to give the explicit six conditional means."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0911.5615",
+          "material_read": "Primary 8-page PDF introduction and generalized code/Hopf algebra construction",
+          "method": "Direct PDF text and first-page inspection",
+          "title": "Generalized descent patterns in permutations and associated Hopf algebras",
+          "trigger": "Generalized descents encode all length-3 patterns"
+        },
+        {
+          "assessment": "Different measure and conclusions: no conditioning on exactly one n-cycle",
+          "evidence": [
+            "Unconditional occurrence bounds and Mallows approximations do not determine E[N_tau|one n-cycle]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07941",
+          "material_read": "Primary PDF introduction and main unconditional/Mallows pattern approximation statement",
+          "method": "Direct primary PDF text and page image",
+          "title": "Pattern avoidance for random permutations",
+          "trigger": "Random-permutation occurrence and Poisson approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform n-cycle is a canonical random permutation class; consecutive 3-patterns are the smallest complete local order-sensitive motifs beyond descents. The exact all-n six-way bias and paired cancellation reveal subtle global-to-local dependence not visible under the unrestricted uniform measure, with natural applications to cycle-conditioned local-pattern statistics, even though the shifts vanish asymptotically.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1710.05103",
+    "https://arxiv.org/pdf/0911.5615",
+    "https://arxiv.org/pdf/1509.07941",
+    "published-record:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=4; non-wrapping length-three windows; one group-theoretic n-cycle; exact first moments only.",
+    "Independent finite test n=4..8 (30 cases) is not an infinite proof."
+  ],
+  "residual_risks": [
+    "An earlier generalized cycle-type/consecutive-pattern exact identity might imply the nonmonotone means without presenting this wording.",
+    "No claim about joint distributions, variances, cyclic wraparound windows, longer patterns, or arbitrary cycle types."
+  ],
+  "schema_version": 1
+}
