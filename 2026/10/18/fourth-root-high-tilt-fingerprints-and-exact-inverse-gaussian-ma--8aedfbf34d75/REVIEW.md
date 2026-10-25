@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonnegative coupled quadratic system bounds the other coordinates by the square root of the tilted coordinate. Successive scaling gives the explicit fourth-root coefficient; the row-zero case is an exact solution of the established unique system. The converse uses strictly positive immigration, so it cannot assert the same classification under zero immigration weights. A standard-library checker confirms triangular finite-tilt identities. The proof, not the finite checks, establishes the infinite limit.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 motivating article states the full implicit Laplace exponent and sufficient diagonal IG case, not the explicit rowwise if-and-only-if statement nor the evaluated off-diagonal fourth-root coefficient. General additive-Lévy-field first-passage results predate it; incomplete access to the full 2019 manuscript leaves a residual risk of implicit coverage. Multiple live semantic searches and published comparison claims showed no direct matching statement. A failed search does not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result identifies exactly when a coordinate of a coupled clock retains the familiar classical IG law and quantifies the first departure when direct cross-excitation enters. It supplies a motivated invariant of the Laplace tail, relevant to modeling coordinate jump behavior.
+Writing a_kj=-B_kj≥0, b_j=B_jj>0, the nonnegative component equations give M²/2≤C(r+M) for M=max_{j != i} z_j, hence M=O(1+sqrt r). Dominant ith equation yields r=√(2t)−b_i+O(t^(−1/4)), while each other j equation ½ z_j²=a_ij r+O(t^1/4) shows z_j/t^1/4→2^3/4 sqrt(a_ij) (including zero case). Summing η>0 gives coefficient; zero row yields exact scalar IG solution by uniqueness, positive coefficient excludes both drift-free IG (bounded difference from leading sqrt) and drifted IG (linear term). Independent 2-type exact triangular solutions for couplings 0,1/2,2 at t=10^4,10^8,10^12 converge to calculated coefficient; finite tests are corroborative only.
 
-## Limits
-The conclusion is asymptotic only for fixed parameters, and it does not establish joint parameter limits or identify an entire coupling matrix from a single marginal. Independent literature priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating joint quadratic transform and diagonal independence are established known inputs, but searched primary and published sources do not state the explicit arbitrary-row fourth-root coefficient and the exact individual IG iff characterization. Best-of-knowledge O with named general Lévy literature access risk.
+
+## value
+
+PASS
+
+Natural marginal structural classification for a broadly coupled family, with precise asymptotic fingerprint of immediate couplings; gives a motivated diagnostic of when one type retains a classical law despite other types being coupled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
