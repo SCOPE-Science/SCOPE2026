@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A conditional Bernoulli point-mass inequality forces each site near a deterministic GC class, and at the first threshold a two-mixed-site point-mass bound forces separation by at least \(w\). The exact spacing polynomial, finite-state recurrence, and capacity root then follow. For general small tolerance, a window-union-bound argument yields both matching resolution-order bounds. An executable independent bin-level dynamic program checked 459 finite-parameter assertions using exact rational arithmetic. Finite computations do not prove the infinite claims; the paper supplies the analytic arguments.
+
+**Originality — PASS, with residual risk.** Bodur–Walter–Wachter-Zeh arXiv:2610.09998 Theorem 15 gives the broad weighted-transfer representation. The existing two-site result 0a044f66 gives a comparable two-position tolerance law. Both are credited; the novelty asserted is limited to \(w\ge3\), especially the explicit full finite-word first-threshold structure and the all-window resolution crossover. A generic transfer formula can compute particular cases but does not explicitly supply these uniform structural evaluations. Nguyen et al. arXiv:2501.10645 concerns deterministic worst-case constrained DNA, not these probabilistic exact-count phase laws. A previously unindexed equivalent long-window derivation is the primary remaining risk.
+
+**Value — PASS.** Increasing composite-symbol resolution gives cubic alphabet growth. The theorem proves that exact local GC success has only a linear-resolution capacity scale at zero tolerance, yet every fixed positive per-window tolerance restores the full cubic scale. At the very first allowed defect probability, the entire word population admits an exact separated-mark characterization and a universal capacity gain. These are motivated capacity effects, not an arbitrary finite table or a claim of biological performance.
+
+**Limits.** The result assumes independent synthesis and individual window compliance; it does not assert joint whole-strand success. Exact prescribed GC counts, not interval counts, are considered. The first-threshold identity assumes \(k\ge3\). No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

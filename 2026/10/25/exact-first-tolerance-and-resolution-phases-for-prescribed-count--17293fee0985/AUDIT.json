@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the other Bernoulli variables proves the sitewise nonextremality bound. Two sites with probability 1/k or 1-1/k in the same window have largest exact-count probability strictly below 1-1/k (k>=3); hence marks are w-separated, while window sums force periodic deterministic labels. This proves a bijection to spaced subsets and the exact weighted census. Finite-state Perron growth yields the root; the union-bound sandwich yields the cross-resolution exponent. Standalone exact-arithmetic checks of 459 small cases passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bodur–Walter–Wachter-Zeh Theorem 15 applies to all window widths and resolutions but requires a finite matrix eigenvalue calculation; no parameter-uniform onset classification/resolution exponent is provided.",
+        "Nguyen et al. §II-B Definition 1 imposes worst-case constraints for all physical realizations, not any positive epsilon window tolerance."
+      ],
+      "reasoning": "The broader fixed-parameter matrix formula does not supply explicit combinatorial classifications or singular high-resolution limits without the new rigidity argument. The older deterministic results cover the epsilon=0 modelling regime but not the sharp epsilon=1/k shift and k-dependent crossover for longer windows.",
+      "searches": [
+        "arxiv:2610.09998 Theorem 15 sliding-window GC capacity",
+        "arxiv:2501.10645 deterministic composite DNA GC constraints",
+        "composite DNA GC two-position probabilistic constraint spectrum spectral radius window length 2 arbitrary resolution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.09998v1",
+      "https://arxiv.org/abs/2501.10645",
+      "earlier two-position result identifier 0a044f66",
+      "mathematical record search: DNA profile rankings 9a35e7b20e23 (not covering)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bodur et al. Theorem 15: weighted walks evaluate C for each (k,w,epsilon). The proof here adds an explicit classification of all finite admissible words at epsilon=1/k and a closed independent-set polynomial.",
+        "The width-two formula 0a044f66 yields lambda_2 but no lambda_w for w>=3.",
+        "Nguyen et al. treat robust, not probabilistic window exact-count constraints."
+      ],
+      "reasoning": "Neither generic Perron-formula substitution nor width-two interpolation alone yields the separation-at-least-w fact and explicit universal root; those require showing two nonextreme positions in one window necessarily lower the peak mass below tolerance. The new claims are strictly longer-window explicit consequences, not novelty claimed for the previously solved width-two case.",
+      "searches": [
+        "\"Probabilistic GC-Constraints for Composite DNA\" \"resolution\" \"window\" exponent",
+        "\"Constrained Coding for Composite DNA: Channel Capacity and Efficient Constructions\"",
+        "first nonzero epsilon 1/k threshold w-window GC with at most one mixed composite site per window"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodur–Walter–Wachter-Zeh, arXiv:2610.09998, §III-C gives a finite weighted transition matrix, not the explicit first-threshold marked-site classification.",
+        "Earlier two-position result 0a044f66 gives the same w=2 exponent and first-threshold capacity, so w=2 is excluded.",
+        "No indexed result directly expressed the w>=3 first-threshold hard-core polynomial in the actual queried records."
+      ],
+      "reasoning": "The independent Bernoulli and locally admissible-word formulations are equivalent by GC-bin aggregation. Generic transition matrices algorithmically encompass numerical specializations, but do not state or directly simplify to the universal longer-window first-tolerance hard-core law. The w=2 instance is already covered and is not part of the novelty claim.",
+      "searches": [
+        "composite DNA probabilistic exact GC count length w sliding window first tolerance 1/k hard core spacing independent mixture",
+        "resolution tolerance phase law probabilistic GC constraints w-window exact prescribed count independent Bernoulli composite alphabet",
+        "A resolution–tolerance phase law for probabilistic two-position composite-DNA GC constraints"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched mathematical-record titles and summaries include DNA profile ranking census id 9a35e7b20e23 but it concerns strict window-two profile ranks, not stochastic exact-count windows.",
+        "The earlier two-position claim (0a044f66) explicitly limits its scope to w=2 and does not include longer windows."
+      ],
+      "reasoning": "No checked accessible database record or paper table provides the n-variable closed census for w>=3. This is a bounded best-knowledge comparison, not proof that no such table exists.",
+      "searches": [
+        "composite DNA probabilistic exact GC count length w sliding window first tolerance 1/k hard core spacing independent mixture",
+        "positive error tolerance vs zero tolerance capacity asymptotic composite DNA windowed GC count bin weight (i+1)(k-i+1)",
+        "GC exact-count sliding windows composite DNA high resolution epsilon tolerance arbitrary window length w polynomial growth exponent 3-2alpha"
+      ]
+    },
+    "rationale": "The parent 2026 manuscript provides the general finite-state representation, while the previous two-position phase theorem already gives w=2. The new contribution is the all-w>=3 marked-site threshold equivalence, exact finite-length count and universal positive-tolerance high-resolution exponent. Direct full-text and claim comparisons found no explicit covering result, although any sufficiently specialized analysis of the generic matrix could potentially reproduce the theorem.",
+    "residual_risks": [
+      "Equivalent full-window phase derivation may exist in unindexed coding-theory literature.",
+      "The general spectral transfer matrix logically contains the first-threshold value as a computable eigenvalue, though not its explicit closed root or full finite-word classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic bin weights, window probability and spectral matrix; does not explicitly evaluate universal first-onset long-window classification or high-resolution exponent",
+        "evidence": "Definitions at lines 69–121, Theorem 15 at lines 180–196, appendix transfer proof at lines 314–320 (arXiv HTML).",
+        "identifier_or_url": "https://arxiv.org/html/2610.09998v1",
+        "material_read": "Definitions 1–5, Proposition 11, Theorem 13, Theorem 15, Remarks 14–16, Appendices A/B and the capacity-proof passages",
+        "method": "Full available HTML text, targeted passages and proof sections",
+        "title": "Probabilistic GC-Constraints for Composite DNA",
+        "trigger": "Same physical independent mixture model and general window capacity theorem"
+      },
+      {
+        "assessment": "Its deterministic worst-case GC constraints do not assert any positive-tolerance exact-count sliding-window law",
+        "evidence": "Definition 1 (ii) requiring every synthesized strand to be epsilon-balanced and §III matrix models RLL; arXiv parsed lines 47–56, 78–129.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.10645",
+        "material_read": "Available full parsed text including introduction, definitions in II-B, RLL adjacency capacities, and construction sections",
+        "method": "Full accessible arXiv parsed text with section searches",
+        "title": "Constrained Coding for Composite DNA: Channel Capacity and Efficient Constructions",
+        "trigger": "Earlier composite DNA GC-capacity literature"
+      },
+      {
+        "assessment": "Already covers w=2,m=1 uniform exponent and first onset; claims for that subcase are explicitly excluded from novelty",
+        "evidence": "Explicit scope w=2,m=1 and epsilon<1/2; capacity jump formula and exponent 3-2min(alpha,1).",
+        "identifier_or_url": "0a044f66",
+        "material_read": "Recoverable prior scientific claim and Finding/Assumptions text",
+        "method": "Direct claim-level comparison of the accessible source statement",
+        "title": "A resolution–tolerance phase law for probabilistic two-position composite-DNA GC constraints",
+        "trigger": "Closest existing two-position scientific statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17293fee-0985-4ace-9c3e-898c11bba5b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first physically nonzero tolerance has an exact all-blocklength code-space census and universal gap depending on window width; the resolution theorem identifies a sharp switch in normalized capacity from one-third at zero tolerance to one at any fixed positive tolerance, and quantifies every intermediate power-law tolerance scale. This answers natural capacity-versus-synthesis-resolution questions not settled by fixed-parameter transfer matrices.",
+    "status": "PASS"
+  }
+}
