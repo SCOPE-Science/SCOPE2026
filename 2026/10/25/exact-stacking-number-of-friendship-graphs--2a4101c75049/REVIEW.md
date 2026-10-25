@@ -1,0 +1,11 @@
+# Review of the friendship-graph stacking theorem
+
+**Correctness — PASS.** The two-way proof is constructive for every \(k\ge1\). The upper bound reduces configurations to parity residues and handles the sole equality case using a two-step exchange in one triangle; the lower bound tracks actual directed hub/outer move counts, proves a permanent debt after each pair activation, and rules out any final stack. The universal-threshold monotonicity and \(k=1\) boundary are handled explicitly. The stand-alone exhaustive verifier checks all automorphism orbits through four triangles; finite computations do not stand in for the infinite argument.
+
+**Originality — PASS (same mathematical model literature comparison, not independent certification).** The undirected source arXiv:2604.22341v1 proves \(\operatorname{stack}(K_n)=n+1\), \(\operatorname{stack}(K_{m,n})=3\alpha+1\), and complete multipartite formulas, but these only imply the singleton \(k=1\) case or a weaker \(3k+1\) lower bound on the friendship graph. Its full text does not state the friendship/windmill/triangle-bouquet result. The related directed source arXiv:2606.04659v1 treats directed cycles and existence conditions, not these undirected graph values. Searches using these aliases and available mathematical-record results did not identify a covering statement. A result under another synonym could still exist.
+
+**Value — PASS.** This gives an exact unbounded-family result for an explicitly recent invariant on a natural block graph that is neither a complete multipartite graph nor a path. The linear gap between the proved threshold \(4k\) and the published independence-bound \(3k+1\) persists as \(k\) grows. The proof isolates a useful activation-credit mechanism for graph pebbling on graph bouquets; no extension to other block sizes is claimed.
+
+**Closest literature and limits.** Csernák–Soukup, arXiv:2604.22341v1, Sections 1, 5, 8; Csernák–Soukup, arXiv:2606.04659v1, available abstract. The directed source full text was not accessible through the inspected route. The result has not undergone independent mathematical or priority verification. It does not determine clearing numbers.
+
+Self-review: passed. Independent audit: not yet performed.
