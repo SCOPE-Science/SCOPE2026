@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete coefficient-comparison argument proves the odd-characteristic pair lemma; its mixed-center consequence excludes exactly two equal centers. For all-distinct centers, a normalized three-parameter model and the three exact coefficient equations force characteristic five or thirteen. Eight independently checkable polynomial square identities exhibit both exceptional characteristics. For good primes, the complete common-center parameterization reduces existence to the cubic \(G(T)=16T^3+55T^2-64T+16\); the calculated square discriminant and irreducibility modulo three give its cyclic splitting field. Frobenius and Chebotarev supply precisely the finite-field extension criterion and prime densities. The algebra was separately reconstructed and the executable checks passed; finite enumeration is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The final claim treats pairwise distinct quadratic polynomial entries over arbitrary fields of characteristic at least five; polynomial squares, not pointwise residues. Leading-coefficient square extraction and the pairwise square lemma force either shared center (b=t²a+2t) or explicitly constrained different centers. A mixed-center pair contradicts 2t≠0; the all-distinct normalized coefficient equations reduce to characteristics exactly 5 or 13 with supplied explicit square identities. For all p≥17, common-center coefficient comparison yields the cubic G(k)=16k³+55k²−64k+16 and an explicit converse with P,Q and four polynomial square roots. Integer discriminant 728² and irreducibility mod 3 yield cyclic cubic Galois group, so Frobenius splitting gives the F_(p^m) iff (root mod p or 3|m) condition, and Chebotarev gives density 1/3. Checked normalization G(0)≠0,G(1/2)≠0, distinct entries and exceptional witness centers. Finite prime checks only corroborate symbolic coefficient reasoning.
 
-The motivating October 2026 source addresses quadratic polynomial triples over \(\mathbb R\), \(\mathbb Q\), and \(\mathbb Z\), not characteristic-dependent exceptional centers, the finite-field extension threshold, or the prime density. An earlier mathematical note on exactly the same cubic already establishes its cyclic cubic Galois field and explicit Galois generator. Accordingly neither that cubic arithmetic nor the Chebotarev splitting-prime density alone is claimed as new; the new contributions are the field-valid polynomial-triple equivalence and sharp exceptional characteristic-5/13 center classification. The earlier Jurasić source concerns real constructions; its accessible abstract and available excerpt did not assert the present finite-characteristic theorem, but its entire text was not readable. The Kim–Yip–Yoo finite-field results concern triples or tuples of *elements*, not triples of nonconstant *polynomials* with four simultaneous polynomial square identities. Semantic published-results searches and accessible historical claim comparisons revealed no covering theorem, although classical cubic-field reductions could conceal an implicit earlier implication. No absence-of-search-result is presented as a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The property was recently classified in characteristic zero but loses rigidity after reduction. The exact exceptional-characteristic set \(\{5,13\}\), explicit sharp witnesses, and a complete unramified extension-degree dichotomy answer a natural structural/arithmetic question, with a concrete Chebotarev prime-density consequence. This is materially more informative than a single modular example or a direct finite-field root count.
+The prior characteristic-zero four-square quadratic classification and earlier exact arithmetic of the same cyclic cubic are explicitly antecedents, not independently novel. The all-characteristic center obstruction (with exceptional 5/13 identities) and the equivalence of actual polynomial-triple existence to G splitting are additional content; no checked primary statement proved these implications. This is best-of-knowledge with incomplete access to a directly related 2026 primary.
 
-## Scientific limitations
+## value
 
-There is no uniqueness or equivalence-class count over finite fields. Characteristics two, three and the exceptional low odd primes are not fully classified for extension degrees; prime densities are asymptotic. Earlier implicit coverage remains an originality risk. All proof and checker assessments are same-model only, without external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp exceptional characteristics with explicit witnesses and a complete good-prime finite-extension/density dichotomy answer a motivated transfer-to-positive-characteristic classification problem; they are substantially stronger than numerical finite-field examples or a bare Chebotarev corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
