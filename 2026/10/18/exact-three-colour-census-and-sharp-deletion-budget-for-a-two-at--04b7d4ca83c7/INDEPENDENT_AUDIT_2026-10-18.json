@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:06:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a split into dep(x,z) and dep(y,z), each x-row has fixed color r or s and each column y has a fixed right-end color; all assignments covered iff each edge agrees with one incident endpoint. For column pair (a,b), if a=b right endpoint covers both; otherwise no deletion needed exactly when a=r or b=s; if neither, one deletion necessary/sufficient. Hence min formula. Nine allowed alphabet sets A_(r,s) sizes 7 for r=s (3 cases), 6 otherwise (6). Independent exhaustive 511-subset inclusion-exclusion yields signed intersection differences 7:3,6:6,5:-21,4:18,3:-5; proves N_n for all n. Testing all 9^n colorings for n<=5 reproduces N_0..N_5=1,9,81,717,6057,48669. Three diagonal r=s strategies collectively charge at most n mismatches; balanced (0,1),(1,2),(2,0) columns force floor(n/3) deletions for every r,s, including n=0. Exact finite template proof is exhaustive and independent of n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic NL-completeness and approximate functional-dependency complexity are qualitative, not labelled K2,n counts."
+        ],
+        "reasoning": "Algorithmic complexity upper/lower bounds do not imply exact counts or maximal deletion distance for fixed full labelled two-row graph.",
+        "searches": [
+          "Fröhlich–Kolaitis–Meier CSL 2026 Thm 13, Lemma 15",
+          "Fröhlich et al arXiv:2608.16570"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+        "https://arxiv.org/abs/2608.16570"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-color satisfiable support classification only implies n<=2 acceptance and n>=3 some failure, not N_n, worst deletion distance floor(n/3)."
+        ],
+        "reasoning": "Neither same-language model checking theorem nor support robust threshold gives numeric labelled enumeration as corollary.",
+        "searches": [
+          "CSL 2026 Thm 13 and Lemma 15",
+          "Prior pseudoforest support criterion cited in original RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent endpoint-colour cover of a bipartite edge-coloured graph follows from flat/downward-closed dependence atoms."
+        ],
+        "reasoning": "Inspected equivalent graph cover and two-atom formula; no full polynomial or exact deletion-distance implied solely by correspondence.",
+        "searches": [
+          "Resultary: team semantics dependence disjunction dep(x,z) OR dep(y,z) K_2,n three colour deletion distance exact counting",
+          "Fröhlich–Kolaitis–Meier DOI 10.4230/LIPIcs.CSL.2026.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mask signed intersection differences are 3,6,-21,18,-5 at intersection sizes 7,6,5,4,3 respectively."
+        ],
+        "reasoning": "No matching published database/formula located; the finite nine-template table was derived independently, not read as preexisting table.",
+        "searches": [
+          "Resultary same-formula semantic/three-colour census query",
+          "Current exact 511-mask table"
+        ]
+      },
+      "rationale": "Fröhlich, Kolaitis and Meier classify model-checking complexity for disjunctions of two dependence atoms; their same-formula results do not count labelled three-colour K2,n assignments or exact minimum assignment deletions. A previously known pseudoforest all-colour robust-support criterion gives a yes/no threshold, not these exact enumerators. No dominating all-n census in inspected sources.",
+      "residual_risks": [
+        "A general cover-polynomial or team-repair theorem, not found in targeted searches, may imply the particular 9-template count.",
+        "The 2026 approximate-dependency paper was not fully read, so unobserved exact specialization possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No stated all-n labelled 3-colour census or deletion budget",
+          "evidence": "Thm13 NL model checking for same disjunction; Lemma15 adjacent structural case, not enumerator.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "Public full HTML, relevant sections/theorems 13 and 15 and supporting model-checking discussion",
+          "method": "read lawful Dagstuhl open-access HTML",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exact disjunction semantics and prior complexity classification"
+        },
+        {
+          "assessment": "Limited comparison; no whole-text negative coverage asserted",
+          "evidence": "General implication/approximation, distinct from exact K2,n team deletion metric.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.16570",
+          "material_read": "Abstract and bibliographic context; full paper not read",
+          "method": "read public abstract only",
+          "title": "Approximate Functional Dependencies—Implication Problem Revisited",
+          "trigger": "Deletion distance semantics and approximate dependencies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise fixed-support acceptance distribution and sharp Hamming-like deletion distance are natural quantitative invariants of team semantics. Exact all-size exponential enumeration and optimal repair budget improve substantially on qualitative all-color robust satisfiability and worst-case model-checking complexity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+    "https://arxiv.org/abs/2608.16570"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general cover-polynomial or team-repair theorem, not found in targeted searches, may imply the particular 9-template count.",
+    "The 2026 approximate-dependency paper was not fully read, so unobserved exact specialization possible.",
+    "Scientific assessment is best-of-knowledge, not mathematical proof certification or external attestation. Independent published-source priority cannot be guaranteed.",
+    "Publication is not_ready for package-wide provenance privacy clearance."
+  ],
+  "residual_risks": [
+    "A general cover-polynomial or team-repair theorem, not found in targeted searches, may imply the particular 9-template count.",
+    "The 2026 approximate-dependency paper was not fully read, so unobserved exact specialization possible."
+  ],
+  "schema_version": 1
+}
