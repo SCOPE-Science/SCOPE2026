@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:47:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent-bond percolation tail at threshold k is the exact Bernstein sum over open edge subsets grouped by size j; one uniform coefficient sign for every k,j proves a common stochastic ordering for all 0<p<1. Prüfer words enumerate every labeled tree for n=2..6, and every root pair, edge subset, threshold and j is checked. Separate independent exact BFS/union-root implementation covered 1441 labeled trees, 20796 unordered source pairs and 609408 coefficient differences, with ZERO conflicting signs. On the seven-vertex (3,2,1) spider, exact open-subset calculations give root 2 versus leaf 6 tails: +p(1-p) at k2, 0 at k3, -p^4(1-p) at k4, +p^4(1-p)^2 at k5, +p^5(1-p) at k6, 0 at k7. The opposite signs persist for every interior p; summing gives positive expected difference p(1-p). No extrapolation to larger trees or dependent SIR is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The network SIR equivalence theorems distinguish distribution models and do not imply a source-pair tail ordering.",
+          "Bucur–Holme compare outbreak influence centralities, but do not derive this sharp first-order stochastic-order threshold for trees."
+        ],
+        "reasoning": "Existing larger epidemic modeling frameworks use different hypotheses and do not dominate the finite all-source exact stochastic comparison. The new theorem is restricted to homogeneous undirected bond transmission; no general SIR conclusion is asserted.",
+        "searches": [
+          "Kenah Robins Second look at the spread of epidemics on networks arXiv:q-bio/0610057",
+          "Bucur Holme Beyond ranking nodes predicting epidemic outbreak sizes DOI:10.1371/journal.pcbi.1008052"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/q-bio/0610057",
+        "https://arxiv.org/abs/1708.06456",
+        "https://arxiv.org/abs/1909.10021",
+        "https://doi.org/10.1371/journal.pcbi.1008052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Prüfer completeness permits finite proof, and probability generating functions permit root distributions. None asserts the universal coefficientwise ordering on all trees <=6 or strict reversal for the stated 7-tree."
+        ],
+        "reasoning": "Counting method is classical and not claimed new; substantive claimed boundary follows from exhaustive tree-specific comparisons plus exact sign-polynomial witness, rather than being an immediate corollary of known average-spread rankings.",
+        "searches": [
+          "Kenah Robins arXiv:q-bio/0610057",
+          "Bucur Holme arXiv:1909.10021",
+          "Prüfer labeled tree bijection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact signed Bernstein-coefficient family gives comparison of every tail, which is stronger than comparing expectations or spectral centralities.",
+          "Kenah–Robins independent-bond representation concerns epidemic-model equivalence, not ordering individual roots."
+        ],
+        "reasoning": "No inspected primary theorem for root/reliability stochastic comparison on all <=6 trees or minimal all-p 7-vertex witness. Renaming final epidemic size as rooted percolation component size is an equivalence explicitly searched; possible specialized predecessor remains risk.",
+        "searches": [
+          "Resultary: tree percolation epidemic outbreak source stochastic dominance sharp seven vertices incomparable at all transmission probabilities",
+          "rooted cluster-size reliability polynomial source stochastic order trees",
+          "Holme arXiv:1708.06456"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The certificate’s 1441 complete labeled trees and 609408 exact integer comparisons support the six-node minimality cutoff.",
+          "No matching table of sign-compatible Bernstein coefficients for every root pair at orders <=6 was retrieved."
+        ],
+        "reasoning": "Small-graph distribution tables alone would not imply minimality without complete exhaustiveness or a general structural theorem; independent algorithm explicitly covers the finite domain and may coincide with an unindexed table.",
+        "searches": [
+          "Rooted tree percolation size distributions 7 nodes 3-arm spider exact table",
+          "Resultary semantic query tree epidemic source stochastic ranking",
+          "Holme 2017 three faces node importance exact small graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge no covering exact stochastic-tail ranking result found. Kenah and Robins define independent bond versus correlated SIR epidemic representations; Holme and Bucur-Holme analyze small-graph node importance/mean outbreak and estimators, not the universal pairwise first-order stochastic dominance theorem on all at-most-six trees. The new small sharp threshold and all-p counterexample answer a different distributional question. Rooted reliability/tree-branching polynomial terminology remains a priority risk.",
+      "residual_risks": [
+        "Graph-reliability or rooted-subtree-polynomial literature indexed under stochastic rooted-component orders could contain an equivalent sharp threshold.",
+        "Independent bond percolation does not automatically represent general stochastic-duration SIR transmissions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_SCOPE_PREDECESSOR_NOT_ROOT_ORDER",
+          "evidence": "Models bond versus SIR and their epidemic percolation structures, not all fixed-tree root tail ranking.",
+          "identifier_or_url": "https://arxiv.org/pdf/q-bio/0610057",
+          "material_read": "Available original PDF, introductory model comparisons and discussion distinguishing undirected independent edge retention from correlated-transmission general SIR",
+          "method": "ArXiv full primary PDF text with page-image inspection",
+          "title": "Second look at the spread of epidemics on networks",
+          "trigger": "Same exact epidemic-percolation correspondence"
+        },
+        {
+          "assessment": "MEAN_INFLUENCE_NOT_STOCHASTIC_ORDER",
+          "evidence": "Source ranks and predicts average outbreak sizes; no checked all-root coefficientwise comparison or minimal seven-node universal tail reversal.",
+          "identifier_or_url": "DOI:10.1371/journal.pcbi.1008052",
+          "material_read": "Publisher open abstract, methods descriptions and accessible selected material; complete original full body not confirmed read",
+          "method": "Publisher abstract/accessible excerpts",
+          "title": "Beyond ranking nodes: Predicting epidemic outbreak sizes by network centralities",
+          "trigger": "Same fixed-node final outbreak distributions"
+        },
+        {
+          "assessment": "RELATED_METRIC_DIFFERENT_QUESTION",
+          "evidence": "Metrics for epidemiological node importance differ from necessary/sufficient order in every final-size tail.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06456",
+          "material_read": "Primary paper abstract and indexed method summary; full text not independently re-read in this audit",
+          "method": "Primary indexed record",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Closest small-network node importance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Smallest-possible counterexample delineates when choosing a fixed source by mean influence can disagree with strict-majority outbreak risk, uniformly in bond probability. The complete six-vertex lower bound makes the boundary exact rather than anecdotal numerical graph simulation; relevant to risk-based selection of seed nodes and stochastic-order graph invariants.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/q-bio/0610057",
+    "https://arxiv.org/abs/1708.06456",
+    "https://arxiv.org/abs/1909.10021",
+    "https://doi.org/10.1371/journal.pcbi.1008052"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The sharp lower bound is only over trees n<=6; the witness is a specific tree n=7, not a uniqueness/classification of all bad trees.",
+    "Each edge retained independently with common p; no cyclic graphs, heterogeneous p, or correlated transmission assumptions."
+  ],
+  "residual_risks": [
+    "Graph-reliability or rooted-subtree-polynomial literature indexed under stochastic rooted-component orders could contain an equivalent sharp threshold.",
+    "Independent bond percolation does not automatically represent general stochastic-duration SIR transmissions."
+  ],
+  "schema_version": 1
+}
