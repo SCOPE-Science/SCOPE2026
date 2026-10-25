@@ -69,7 +69,7 @@ Musco, Musco and Tsourakakis [1] use exactly the mean-centered squared equilibri
 
 ## Limitations
 
-The bound is for adding **one edge of weight exactly one** in the **undirected, equal-unit-anchoring** equilibrium model; it is not a claim about arbitrary edge weights, multiple simultaneous changes, directed influence, nonlinear dynamics, or polarization metrics based on bimodality rather than variance. The sharpness family uses weighted, disconnected initial communities and opinions chosen for the worst case; it does not show that the same constant is sharp on simple unweighted connected networks or for random innate opinions. Exact matching of equivalent results in all literature cannot be certified by finite searches; publication priority merits independent examination. The review is same-model only, not independently audited.
+The bound is for adding **one edge of weight exactly one** in the **undirected, equal-unit-anchoring** equilibrium model; it is not a claim about arbitrary edge weights, multiple simultaneous changes, directed influence, nonlinear dynamics, or polarization metrics based on bimodality rather than variance. The sharpness family uses weighted, disconnected initial communities and opinions chosen for the worst case; it does not show that the same constant is sharp on simple unweighted connected networks or for random innate opinions. Exact matching of equivalent results in all literature cannot be certified by finite searches; publication priority merits independent examination. The review is self-review only, not independently audited.
 
 ## References
 

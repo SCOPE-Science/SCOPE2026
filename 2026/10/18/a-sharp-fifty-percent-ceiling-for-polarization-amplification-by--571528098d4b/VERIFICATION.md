@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limitations
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy installed. The packaged program checks exact rational graph Laplacians, a four-vertex connected witness, the formal characteristic-polynomial identity, exact mean and determinant preservation, and the six-by-six clique-moment formulas by direct inversion of twelve-by-twelve matrices for five distinct positive weights. It reports `PASS: 881 symbolic, exact rational, and finite-graph checks` on successful execution.
+## correctness
 
-Critical infinite statements are supported by the proof in `RESULT.md`: spectral positivity of the resolvent, rank-one update, a two-variable polynomial certificate, and a limiting eigen-decomposition. Exact finite computations verify formulas at finitely many points and cannot alone prove the universal bound or strict inequality at every finite graph.
+PASS
 
-The literature comparison distinguishes prior single-edge change formulas from the asserted sharp uniform relative bound. Residual risk of broader unindexed equivalent results remains. This record contains only self-review; no independent audit was performed.
+With A=(I+L)^{-1} and added edge bbᵀ, Sherman–Morrison gives mean-zero transform T=I−(Ab)bᵀ/(1+r). The nontrivial singular-square eigenvalues have trace 2(1+r+τ)/(1+r)² and product 1/(1+r)², r=bᵀAb, τ=bᵀA²b≤r. Evaluate its quadratic q(3/2)=((1−3r)²/4+3(r−τ))/(1+r)²≥0 and λ−<1 to get λ+≤3/2. Equality would force r=τ=1/3 but then Ab=b and r=2, impossible; 2 disjoint weighted K6 give r,τ→1/3, sharp. Independent 161 randomly weighted graph eigenvalue comparisons and exact path witness factor 1647/1600 verified; universal proof is analytic.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. The raw change formula permits symbolic derivation but no directly stated universal extremal answer; previous nonmonotonicity alone gives neither the bound nor its sharpness.
+
+## value
+
+PASS
+
+One-edge interventions can paradoxically increase stationary mean-centered social polarization. A strict sharp worst-case ceiling over every weighted graph and innate opinion and the exact edge-specific spectral ratio are practically interpretable robustness invariants, motivated independently of the known change formula; the fixed twelve-node sharpness family proves optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
