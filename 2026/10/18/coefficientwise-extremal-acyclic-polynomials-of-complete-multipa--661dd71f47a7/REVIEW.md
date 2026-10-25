@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The induced-forest coefficient formula follows from a necessary-and-sufficient triangle/four-cycle exclusion condition. The vertex-transfer difference is a sum of two nonnegative binomial differences; strictness in the cubic (at least three parts) or quartic (two parts) coefficient proves both unique extremizers. The log-concavity deficit is computed symbolically and is strictly increasing for the specified infinite family from the boundary. The first sixteen orders are closed by a complete exact integer-partition enumeration over 898 isomorphism types, with direct adjacency checking for 183 types up to order eleven; the sole failure is order sixteen with profile \((1^{12},4)\). A full finite census is not an infinite proof; the separate algebra supplies the infinite claims.
+## correctness
 
-## Originality — PASS, with residual risks
-Theorem 1.3 of Barton, Brown and Pike is stronger than the proposed base polynomial formula: that formula is already implied by their general join recursion and is **not** asserted to be original. Their full accessible paper was compared at Theorem 1.3, Lemma 2.21 and Section 3.1: it establishes nonunimodality for a different high-order join family, not fixed-number-of-parts coefficientwise extremality or the sixteen-vertex log-concavity cutoff. The accessible complete published result about dissociation-polynomial extremality concerns a stricter family of admissible vertex sets, hence does not entail the induced-acyclic extremality. Existing historical induced-forest results on rook graphs concern distinct underlying graphs. Searches of mathematical records under induced-forest/acyclic/feedback-vertex/forest-complex descriptions identified no covering result. Residual risks include differently indexed polynomial inequalities and unindexed exact finite enumerations; searches alone do not certify novelty.
+PASS
 
-## Value — PASS
-The sharp coefficientwise extremal order supplies all-at-once bounds for a natural hereditary induced-subgraph counting polynomial at fixed size and multipartite chromatic class, with a quantified strict transfer mechanism. The complete smallest-order obstruction to coefficient log-concavity gives a meaningful exact finite threshold and an explicit infinite counterexample family, clarifying how acyclic f-vectors differ from the strongly log-concave matroid setting. Exact maximal-face multiplicities aid independent reproduction. These conclusions are motivated independently of the already-known join identity.
+For k>=3 an induced forest of complete multipartite graph lies in one part or has a unique one-vertex center in a second part; this yields exact coefficients. A transfer from part size b>=2 to a>=b gives q(C(a,k-2)-C(b-1,k-2)) + a(b-1)/(k-2)(C(a-1,k-3)-C(b-2,k-3)) >=0, with strict third/fourth coefficients as claimed. The explicit K_(4,1^s) cubic defect is (4s^3-43s^2-41s-20)/2, positive for every s>=12. Independent integer-partition generator exhaustively checked all 898 multi-part profiles for 2<=N<=16: the unique non-log-concave type is N=16 and (1^12,4), coefficients [1,16,120,76,49,12] and deficit 104. Independently checked coefficientwise majorization for all 898 profiles. These finite results are exhaustive only through N=16; infinite family uses algebra.
 
-## Limitations
-The exhaustive boundary is only within complete multipartite graphs, not among arbitrary graphs. The base acyclic polynomial is prior knowledge, and independent expert or full bibliographic priority review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for fixed-(N,r) coefficientwise extremal order and first log-concavity failure in complete multipartite graphs, not for the acyclic graph polynomial or cograph join recurrence. Barton-Brown-Pike already proves the latter and separately supplies larger-order nonunimodality, which is weaker/different from log-concavity failure.
+
+## value
+
+PASS
+
+A complete coefficientwise extremal theorem at fixed N and r, together with an exact first log-concavity failure over an entire natural graph family, are meaningful combinatorial structural results. The finite cutoff has a complete finite certificate and the infinite obstruction has a separate algebraic proof; no vague larger conjecture is required for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
