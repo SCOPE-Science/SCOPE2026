@@ -1,11 +1,21 @@
-# Scientific assessment: Clebsch dominance-complex homotopy
+# Independent mathematical audit
 
-**Correctness (PASS).** The graph is fixed by the Cayley generators \(\{1,2,4,8,15\}\) on \(\mathbb F_2^4\), eliminating ambiguity with its complement. Two independent membership predicates agree on every subset. The package enumerates \(53730\) nonempty simplices, provides \(26799\) disjoint Hasse-matching pairs, and checks acyclicity on all \(401088\) Hasse incidences by complete topological sorting. There are exactly one critical zero-cell and \(131\) critical nine-cells. The finite CW conclusion and absence of nontrivial attaching maps follow from Forman's theorem. The checker and complete certificate are supplied for replay.
+## correctness
 
-**Originality (PASS, qualified).** The 2023 Matsushita–Wakatsuki Alexander-duality paper, inspected in its mathematical introduction, definition, and worked classifications, does not determine this Clebsch case. Matsushita's 2020 vertex-cover theorem gives bounds, not the asserted homotopy type. The forest/chordal results have inapplicable graph hypotheses. Searches of published mathematical records under Clebsch, folded five-cube, complement, closed-neighborhood hypergraph, dominance complex, the exact rank, and the analogous neighborhood and independence complexes did not reveal an equivalent or stronger covering claim. Full texts of closely related Clebsch independence- and neighborhood-complex notes concern distinct simplicial functors, and the latter uses \(\mathcal N(C)\), not the complement's complex \(\mathcal N(\overline C)\) relevant to dominance duality. The possibility of an unindexed prior calculation is residual.
+PASS
 
-**Mathematical value (PASS).** The Clebsch graph is a canonical vertex-transitive strongly regular graph with parameters \((16,5,0,2)\), outside the forest/chordal families with previously classified dominance complexes. The exact integral homotopy type resolves a natural missing benchmark at a well-studied symmetric graph and supplies the full degree and multiplicity, not merely an Euler characteristic or a mod-two table. The gap between its dimension eleven and homotopy dimension nine is topologically substantive, and the certificate is independently replayable.
+The degree-five Clebsch folded cube is the Cayley graph on F_2^4 with jumps 1,2,4,8,15 (not the ten-regular alternate Clebsch graph). A face of the dominance complex is exactly a subset containing no closed neighborhood N[v] entirely; enumeration of all 65,536 masks yields 53,730 nonempty faces, with f-vector through dimension 11 matching source. Independent deterministic toggle matching in vertex order 0..15 yields 26,799 pairs and exactly 132 critical faces: one 0-face and 131 9-faces. Independently oriented all 401,088 nonempty Hasse cover incidences, with paired edges reversed; complete Kahn topological sort visits every face. Forman's theorem gives a CW complex with a point and 131 nine-cells and no intermediate cells, hence wedge of 131 S^9, free integral homology and trivial fundamental group. Exhaustive check is finite for this specific graph, not a family-wide formula.
 
-**Limits and closest context.** This does not classify larger folded cubes or supply equivariant homotopy information. The computation is exhaustive for one finite object, not an infinite-family theorem; independence, certification by an external reviewer, and priority against unindexed literature are not asserted. Primary context: Matsushita–Wakatsuki (arXiv:2312.02639), Matsushita (arXiv:2009.04145), and Ehrenborg–Hetyei (2006).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The dominance complex is Alexander dual to a complement open-neighborhood complex; Matsushita–Wakatsuki general duality and graph-family calculations are relevant but do not state a Clebsch wedge of 131 nine-spheres. Results for the same Clebsch graph's ordinary independence complex (wedge^9 S3) and open-neighborhood/Lovász complex (wedge^31 S2) concern different simplicial functors and cannot be substituted. Resultary searches for 131 and dominance/Clebsch found no exact previous classification; O PASS best of knowledge.
+
+## value
+
+PASS
+
+This gives a complete integral homotopy invariant of a canonical strongly regular, vertex-transitive folded cube for a natural domination-theoretic simplicial complex. The large 131 multiplicity and concentration at dimension nine, despite dimension eleven, is a nonroutine exact finite benchmark for combinatorial topology and graph-complex duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
