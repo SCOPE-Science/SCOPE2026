@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3196e7f98794e8767665bb03a2bf12082e735b9e",
+        "verify_ped_chain.cpp blob ee74fdf8a08d0c2fd1f2c46b361bc2caee67d561",
+        "verification_output.txt blob 5a89b4893267b2d04d083e735877cc24ae3a2433"
+      ],
+      "rationale": "The proof reconstructs the PED condition for every unselected edge uv as d_F(u)+d_F(v)=1, since uv itself is not selected and selected edges incident at u and v are disjoint. Thus W={v:d_F(v)=0} is independent and F is exactly the edge set induced by V\\W. If W is nonempty on one side, the universal twin class forces exactly one nonwhite vertex on the other side, yielding precisely a star centered in A_p or B_1. If W meets both sides, only the universal centers remain nonwhite, forcing a singleton edge; independence of the remaining vertices rules this out for p>=3 and forces p=2, alpha_2=beta_1=1. The p=1 complete-bipartite formulas deduplicate stars that coincide with E. The C++ checker and stored output were inspected at their actual package paths; its finite mask census is corroboration only, not the infinite proof.",
+      "residual_risks": [
+        "The exhaustive checker was inspected, not rerun during this audit; its stated finite limits do not certify the theorem independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The P6-free algorithm applies to a strictly broader graph class and counts all PED-sets; the Resultary hit on minimum perfect dominating sets is a different vertex problem."
+        ],
+        "reasoning": "Broader algorithmic coverage does not logically supply the explicit structural classification or the exact singleton exception. The claim does not assert a new counting algorithm.",
+        "searches": [
+          "arXiv:2509.04598v2, full PDF, definition and Section 6",
+          "Resultary semantic queries on chain-graph domination"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches on perfect edge domination and chain graphs",
+        "arXiv:2509.04598v2 full PDF",
+        "arXiv:2607.03894v1 abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2025/2026 paper states a general PED 3-color characterization and a P6-free counting algorithm, not the chain-class polynomial. The 2026 preprint abstract concerns extremal counts on trees, forests and chordal graphs and algorithms on GSP/chordal graphs; its full text was not obtained."
+        ],
+        "reasoning": "The exact list is not explicitly implied by the inspected statements, though the short chain-specific deduction may be an easy corollary of the generic coloring framework. The inaccessible preprint is retained as a residual risk, not used to force failure.",
+        "searches": [
+          "arXiv:2509.04598v2, §2.1 and Section 6",
+          "arXiv:2607.03894v1 abstract; OA mirror/abstract search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary chain-graph hit concerns perfect vertex domination, not edge domination. arXiv:2509.04598v2 gives the white/yellow/black characterization and a cubic-time algorithm counting all PED-sets on P6-free graphs."
+        ],
+        "reasoning": "The generic 3-coloring is an equivalent description of PED-sets, and every chain graph is P6-free. That prior work covers general countability, but the inspected theorem/algorithm does not state the exact chain-graph list of edge sets or its closed polynomial.",
+        "searches": [
+          "Resultary query: perfect edge dominating sets chain graphs exact classification edge cardinality polynomial twin classes Ferrers graphs",
+          "Resultary query: perfect edge domination all PED-sets chain graph twin classes",
+          "arXiv:2509.04598v2, §§2.1 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact PED chain-graph table/formula was returned; the only close chain-graph hit described a vertex-domination minimum. The package census covers only 1,049 profiles of order <=12 and <=19 edges."
+        ],
+        "reasoning": "The finite enumeration is a check, not a prior database and not a proof of infinite novelty. No table-based coverage was found.",
+        "searches": [
+          "Resultary query: perfect edge dominating sets chain graphs exact classification edge cardinality polynomial twin classes Ferrers graphs",
+          "Resultary query: perfect edge domination all PED-sets chain graph twin classes"
+        ]
+      },
+      "rationale": "The all-PED counting algorithm on P6-free graphs already covers the broader class algorithmically, so countability and the generic white/yellow/black reduction are not claimed as new. The reviewed statement adds the explicit full family of edge sets, the sparse size polynomial and the singleton DIM exception. Targeted Resultary searches found related chain-graph vertex-domination results but no matching PED classification. A recent relevant preprint is accessible only by abstract in this run, so best-of-knowledge PASS retains that explicit residual risk.",
+      "residual_risks": [
+        "The 2026 extremal-counting preprint was not fully read; its accessible abstract does not settle whether an appendix contains an equivalent chain-graph lemma.",
+        "Unindexed Ferrers-graph/difference-graph terminology may conceal an equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all-PED counting on P6-free graphs, a broader class containing chain graphs; does not state the explicit chain-graph family or polynomial in the inspected sections.",
+          "evidence": "The paper states the white/yellow/black characterization and adapts the algorithm to count all PED-sets; PDF pp. 2 and 17-19 (source ID /).",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.04598",
+          "material_read": "Full 26-page PDF text; definitions in §2.1, valid 3-coloring characterization and Section 6 algorithm inspected",
+          "method": "Primary full-text theorem/algorithm comparison",
+          "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+          "trigger": "Same object and general PED characterization/counting result"
+        },
+        {
+          "assessment": "Abstract emphasizes extremal counts for trees, forests, chordal graphs and linear-time algorithms for generalized series-parallel/chordal graphs; it does not indicate a chain-graph closed classification. Full-text overlap remains unresolved as a residual risk.",
+          "evidence": "Abstract states the graph classes and algorithmic scope; no full-text passage is claimed.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+          "material_read": "Abstract and accessible secondary abstract only; arXiv PDF fetch failed and full text was not obtained",
+          "method": "Abstract-level scope comparison; no claims based on unread sections",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "Highly relevant newer PED enumeration preprint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, complete theorem and proof",
+        "arXiv:2509.04598v2, broader counting problem"
+      ],
+      "rationale": "A connected chain graph is a natural nested-neighborhood class. The exact list of every PED-set and the full edge-cardinality polynomial expose an unusually sparse solution family and settle the precise boundary where an efficient edge dominating set exists. This is a self-contained structural classification, not merely a finite table or a new algorithm claim.",
+      "residual_risks": [
+        "The classification may be a short corollary of the general coloring characterization, but the explicit all-solution structure and exception remain mathematically useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The full PED family on a connected chain graph with canonical nonempty twin classes is E(G), the alpha_p stars centered in A_p, the beta_1 stars centered in B_1, plus the unique singleton edge exactly when p=2 and alpha_2=beta_1=1; the p=1 complete-bipartite case has the stated deduplicated polynomial.",
+  "limitations": [
+    "Finite simple connected chain graphs with positive canonical twin-class sizes only.",
+    "The result gives an explicit structural classification; it does not claim a new algorithm for all P6-free graphs."
+  ],
+  "residual_risks": [
+    "The 2026 extremal-counting preprint was not fully read; its accessible abstract does not settle whether an appendix contains an equivalent chain-graph lemma.",
+    "Unindexed Ferrers-graph/difference-graph terminology may conceal an equivalent result.",
+    "The exhaustive checker was inspected, not rerun during this audit; its stated finite limits do not certify the theorem independently."
+  ],
+  "schema_version": 1
+}

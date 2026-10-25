@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-An independent C++17 edge-mask enumerator was built from `verify_ped_chain.cpp` using `g++ -std=c++17 -O2 verify_ped_chain.cpp -o verify_ped_chain`, then executed with `./verify_ped_chain`. It builds each canonical chain graph and tests **every edge subset** (for the finite bounded profiles specified by its code) directly against the PED condition, not against a structural characterization; it separately predicts masks from the theorem and checks equality of the full collections, including deduplication of the complete-bipartite one-level boundary.
+## correctness
 
-The output of the independently run checker is in `verification_output.txt`: 1,049 profiles, 137,303,442 edge subsets, 4,524 valid PED-sets; all classifications matched. The profiles have at most 12 vertices and 19 edges. These are bounded observations; no finite run establishes the theorem over arbitrarily large graphs. The proof uses the identities and universal twin-class arguments reproduced in `RESULT.md` and does not depend on the observed numerical tallies.
+PASS
 
-The broad \(P_6\)-free polynomial-time counting algorithm is prior published mathematics (arXiv:2509.04598v2), and access to the full later arXiv:2607.03894v1 manuscript was not achieved; the latter introduces residual originality uncertainty. No independent scientific audit or external validation is claimed.
+The proof reconstructs the PED condition for every unselected edge uv as d_F(u)+d_F(v)=1, since uv itself is not selected and selected edges incident at u and v are disjoint. Thus W={v:d_F(v)=0} is independent and F is exactly the edge set induced by V\W. If W is nonempty on one side, the universal twin class forces exactly one nonwhite vertex on the other side, yielding precisely a star centered in A_p or B_1. If W meets both sides, only the universal centers remain nonwhite, forcing a singleton edge; independence of the remaining vertices rules this out for p>=3 and forces p=2, alpha_2=beta_1=1. The p=1 complete-bipartite formulas deduplicate stars that coincide with E. The C++ checker and stored output were inspected at their actual package paths; its finite mask census is corroboration only, not the infinite proof.
+
+## originality
+
+PASS
+
+The all-PED counting algorithm on P6-free graphs already covers the broader class algorithmically, so countability and the generic white/yellow/black reduction are not claimed as new. The reviewed statement adds the explicit full family of edge sets, the sparse size polynomial and the singleton DIM exception. Targeted Resultary searches found related chain-graph vertex-domination results but no matching PED classification. A recent relevant preprint is accessible only by abstract in this run, so best-of-knowledge PASS retains that explicit residual risk.
+
+## value
+
+PASS
+
+A connected chain graph is a natural nested-neighborhood class. The exact list of every PED-set and the full edge-cardinality polynomial expose an unusually sparse solution family and settle the precise boundary where an efficient edge dominating set exists. This is a self-contained structural classification, not merely a finite table or a new algorithm claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

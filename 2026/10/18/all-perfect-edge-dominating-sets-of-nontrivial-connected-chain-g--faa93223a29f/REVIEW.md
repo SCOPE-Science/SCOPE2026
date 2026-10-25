@@ -1,19 +1,21 @@
-# Review: perfect edge domination in nontrivial connected chain graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument is an exhaustive, two-sided case split on the set of zero selected-degree vertices \(W\). Every unselected edge \(uv\) obeys \(d_F(u)+d_F(v)=1\), and the selected edge set is exactly the subgraph induced by nonwhite vertices. Universality of \(A_p\) and \(B_1\) forces all possible nontrivial sets to be either complete stars, or the unique exceptional central edge. The complete-bipartite one-level case is separately deduplicated. In addition to the unrestricted proof, an independent implementation tested 137,303,442 edge subsets across 1,049 profiles, without disagreement. The finite test is not an infinite proof.
+PASS
 
-## Originality — PASS (with documented access risk)
+The proof reconstructs the PED condition for every unselected edge uv as d_F(u)+d_F(v)=1, since uv itself is not selected and selected edges incident at u and v are disjoint. Thus W={v:d_F(v)=0} is independent and F is exactly the edge set induced by V\W. If W is nonempty on one side, the universal twin class forces exactly one nonwhite vertex on the other side, yielding precisely a star centered in A_p or B_1. If W meets both sides, only the universal centers remain nonwhite, forcing a singleton edge; independence of the remaining vertices rules this out for p>=3 and forces p=2, alpha_2=beta_1=1. The p=1 complete-bipartite formulas deduplicate stars that coincide with E. The C++ checker and stored output were inspected at their actual package paths; its finite mask census is corroboration only, not the infinite proof.
 
-The inspected full HTML of Grippo–Lin–Vera, arXiv:2509.04598v2, already provides a cubic-time **algorithm to count PED-sets for all \(P_6\)-free graphs**, including chain graphs, as well as the general white/yellow/black structural encoding. That general computational result **covers countability** and is explicitly credited. It does not state the complete chain-graph optimizer classification or the sparse exact polynomial. The 2026 Grippo–Lin–Moyano–Vera abstract describes extremal and counting methods for other named classes, but its full text could not be inspected; an equivalent chain specialization hidden there is a residual risk. Targeted searches for chain graphs, Ferrers graphs and \(2K_2\)-free bipartite graphs and semantic research-record comparisons found no covering closed form.
+## originality
 
-## Value — PASS
+PASS
 
-Every individual PED-set is characterized for arbitrary positive twin-class sizes and arbitrarily many levels. The theorem also gives all edge-cardinality coefficients, a closed numerical count, minimum sizes/optimizer counts, and the exact existence/uniqueness boundary for dominating induced matchings. The unexpectedly sparse polynomial and sharp two-level exception offer structural information not supplied by a generic polynomial-time counting routine.
+The all-PED counting algorithm on P6-free graphs already covers the broader class algorithmically, so countability and the generic white/yellow/black reduction are not claimed as new. The reviewed statement adds the explicit full family of edge sets, the sparse size polynomial and the singleton DIM exception. Targeted Resultary searches found related chain-graph vertex-domination results but no matching PED classification. A recent relevant preprint is accessible only by abstract in this run, so best-of-knowledge PASS retains that explicit residual risk.
 
-## Literature and limitations
+## value
 
-A general black/yellow/white PED-set encoding is prior (Grippo–Lin–Vera, arXiv:2509.04598v2, §2.1). The general counting routine is prior (§6). The 2026 paper arXiv:2607.03894v1 was available in abstract only. The present contribution does not assert a new broad complexity result or independent validation. Finite enumeration supports, but does not replace, the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A connected chain graph is a natural nested-neighborhood class. The exact list of every PED-set and the full edge-cardinality polynomial expose an unusually sparse solution family and settle the precise boundary where an efficient edge dominating set exists. This is a self-contained structural classification, not merely a finite table or a new algorithm claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
