@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The stage tableau forces \\(\\widetilde b=((1-v)/2,(1-v)/2,v)\\), and its polynomial is exactly \\(R_v(\\zeta)=1+\\zeta+\\zeta^2/2+v\\zeta^3/4\\). The two-state Markov projector identity covers all nonnegative rates and steps. The three-state output matrix entries give the incompatible necessary bounds for \\(z>4\\) and explicit simplex weights for every \\(z\\le4\\). At \\(z=4\\) those bounds force the unique identity map. Exact rational checks are supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth defines a fixed RK(A,b) scheme and derives worst-case positivity-radius bounds.",
+        "Higueras--Ketcheson--Kocsis use different operator perturbations, not varying the endpoint weight vector under the same stage evaluations."
+      ],
+      "reasoning": "No inspected broader theorem implies the adaptive existential/all-input claim: the varying parameter \\(v\\) is chosen after fixing step and generator, whereas the fixed-scheme radius selects coefficients before all instances. The sharp three-state contradiction also holds without weight nonnegativity, beyond generic SSP-radius statements.",
+      "searches": [
+        "three-state sequential mass transfer Markov chain Runge Kutta SSP33 second-order weight adaptation positivity maximal step 4",
+        "matrix positivity of explicit Runge Kutta polynomials off diagonal derivative p prime Jordan block birth process",
+        "Horvath 2005 \"On the positivity step size threshold of Runge-Kutta methods\" theorem pure birth",
+        "Horváth (2005), Theorem 8 and Sections 2--4, doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2005.06268v1 (arXiv full-text HTML)",
+      "doi:10.1016/j.apnum.2004.08.026 (authorized 2005 PDF text, inspected pp. 1-12)",
+      "arxiv:1505.04024 (arXiv full-text HTML)",
+      "published-finding corpus id 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 (complete public RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper explicitly cautions that its LP may be infeasible but does not classify a sharp threshold for the 3-state pure-birth generator.",
+        "The exact inequalities \\(B_z\\ge0\\Rightarrow v\\ge4(z-1)/(3z^2)\\) and \\(C_z\\ge0\\Rightarrow v\\le1/z\\) give impossibility for \\(z>4\\); at \\(z=4\\) they force \\(v=1/4\\) and identity.",
+        "A separate method has the same dimensional minimality and cutoff but a different rational map; no implication of the present polynomial feasibility follows."
+      ],
+      "reasoning": "Generic statements that LPs can fail, or that fixed Runge--Kutta schemes have finite absolute-monotonicity radius, do not establish which steps are feasible when weights are allowed to change. The original Example I is a special two-state step, not a universal two-state result. The new three-state necessary-and-sufficient feasibility classification and unique stagnant endpoint are not covered by any inspected implication.",
+      "searches": [
+        "adaptive Runge Kutta weights positivity order two exact one-step equilibrium projection two-state exchange third order SSPRK",
+        "Nusslein Ranocha Ketcheson positivity-preserving adaptive RK weights Markov chains infeasible",
+        "\"Positivity-Preserving Adaptive Runge-Kutta Methods\" \"65L06\" primary",
+        "arxiv:2005.06268, Example I and Section 3.1",
+        "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Same three-stage SSPRK tableau and exact order-two weights are given in Nüßlein--Ranocha--Ketcheson Example I (eqs. 2.15, 2.18).",
+        "The independently derived cubic stability family \\(R_v(z)=1+z+z^2/2+vz^3/4\\), unlike the distinct rational midpoint-square map."
+      ],
+      "reasoning": "Searched aliases including adaptive weights, embedded SSPRK33, positive Markov/birth chains, and feasibility LP. The source shares the parametrization and its single two-state example but not the quantified cross-dimension feasibility theorem. The close public result concerns a distinct implicit method and thus is not logically equivalent despite the same threshold.",
+      "searches": [
+        "SSPRK(3,3) positivity adaptive weights three state pure birth equal rates endpoint order two feasible if and only if timestep h less than 4 two state unconditional",
+        "\"adaptive Runge Kutta\" \"three-state\" \"order\" \"positivity\" infeasible",
+        "Runge Kutta free weights order preserving Markov positivity exact feasibility LP continuous-time birth chain",
+        "published-finding corpus search ID: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hit gives an implicit SSP-SDIRK2(2) threshold, not the SSPRK(3,3) adaptive-weight table.",
+        "The 2020 source has an SSPRK33 two-state illustration, not a three-state pure-birth feasibility table."
+      ],
+      "reasoning": "No exact database/table record of the \\(0\\le z\\le4\\) feasibility interval for these adapted weights emerged. Similar numbers in a different rational scheme do not constitute exact-table coverage.",
+      "searches": [
+        "\"SSPRK(3,3)\" \"pure birth\" \"4\" positivity weight",
+        "\"SSPRK33\" \"weight\" \"three-state\" positivity 4",
+        "SSPRK3 adaptive weights one-step exact mixing for two-state exchange finite step",
+        "published-finding corpus: SSPRK(3,3) positivity adaptive weights three state pure birth equal rates endpoint order two feasible if and only if timestep h less than 4 two state unconditional"
+      ]
+    },
+    "rationale": "Full relevant primary text and the strongest recovered fixed-tableau positivity papers, a downwind perturbation paper, a closely related public SSP-SDIRK result, own-slot ledgers and published-finding corpus semantic matches were compared by implication. The primary source contains only a particular two-state example and general LP feasibility caveat; neither it nor the other inspected sources gives the sharp adaptive-weight three-state feasibility theorem. Residual literature risk remains.",
+    "residual_risks": [
+      "Older positivity-threshold and strong-stability literature could contain an unindexed identical adaptive-weight Markov specialization despite the inspected fixed-tableau analysis.",
+      "No priority or independent certification is claimed; equality of the numerical threshold with a separate implicit method is explicitly disclosed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source derives the admissible weight direction and notes that positivity LPs can be infeasible, but does not prove the uniform two-state feasibility or the sharp three-state adaptive-weight obstruction, nor identity at its boundary.",
+        "evidence": [
+          "arXiv HTML Example I eqs. (2.15)-(2.19)",
+          "Section 3.1 rank/order constraints and LP discussion",
+          "Section 4.3 variable stability polynomial",
+          "Section 5.1 observation of stepsize/stability limitations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+        "material_read": "Full-text HTML: Section 2.1, equations (2.10)-(2.19) including weights, Sections 3.1-3.4 feasibility, Sections 4.1-4.3 and 5.1; introduction and abstract.",
+        "method": "Full-text HTML sections and displayed equations inspected, not an abstract-only comparison.",
+        "title": "Positivity-Preserving Adaptive Runge-Kutta Methods",
+        "trigger": "Identical SSPRK(3,3) stages, same adaptive endpoint-weight construction, and Markov-like two-state example."
+      },
+      {
+        "assessment": "Fixed Runge--Kutta scheme and broad problem-class positivity thresholds; no adaptive endpoint-weight existential quantifier, three-state pure-birth test, or SSPRK(3,3) adaptive feasibility boundary found in the inspected material.",
+        "evidence": [
+          "p. 3 fixes a scheme RK(A,b)",
+          "Theorem 8 treats fixed (A,b), irreducibility and positivity radius",
+          "Section 4 studies invariant cones under fixed discretization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Authorized PDF text for pages 1-12, with targeted inspection of the fixed-scheme definition (p.3), positivity-radius sections 2.3-3 (pp. 4-10), and discrete invariance section 4 (pp. 11-12); searched these pages for adaptive, Markov, and birth.",
+        "method": "Authorized full-text institutional extraction and targeted theorem/equation inspection.",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Plausibly stronger old positivity thresholds that might subsume an explicit boundary."
+      },
+      {
+        "assessment": "Downwind operator evaluations and bivariate stability polynomials; not step-adaptive endpoint weights holding this SSPRK stage matrix fixed.",
+        "evidence": [
+          "eq. (8a) introduces downwind operator perturbation",
+          "eqs. (10)-(12) optimize bivariate absolute monotonicity radius"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.04024",
+        "material_read": "Full-text HTML Sections 1.1 and 2.1, including perturbation definition and absolute-monotonicity optimization objectives.",
+        "method": "Original accessible arXiv HTML, substantive equation-level inspection.",
+        "title": "Optimal monotonicity-preserving perturbations of a given Runge-Kutta method",
+        "trigger": "Potentially stronger method-perturbation and monotonicity feasibility coverage."
+      },
+      {
+        "assessment": "Uses the square of an implicit-midpoint rational map with fixed tableau rather than an explicit cubic polynomial with adjustable b. Its h=4 coincidence does not imply the existence/infeasibility inequalities for the present family.",
+        "evidence": [
+          "Rational map \\([(I+hQ/4)(I-hQ/4)^{-1}]^2\\)",
+          "Two-state scalar factor \\(((1-hs/4)/(1+hs/4))^2\\)",
+          "Three-state off-diagonal term \\(16h(4-h)/(h+4)^3\\) versus the present \\(z-z^2+3vz^3/4\\)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7/RESULT.md",
+        "material_read": "Complete published RESULT.md statement, assumptions, proof, verification, relationship and limitations.",
+        "method": "Full public repository file retrieved and compared by formulas.",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "Very close two-state/three-state contrast and coincident numerical threshold 4."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1180efbb-c2f7-4a90-9750-353f13349490",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The free-weight LP feasibility question is central to an established positivity-preserving time-integration method. The theorem locates a sharp necessary step-rejection/order-reduction frontier on the shortest irreversible transfer chain and proves it is not an artifact of constraining weights to be nonnegative. Complete two-state immunity identifies minimal dimension, and unique identity at the boundary reveals a previously unstated coarse-step stagnation mechanism. This is not a scalar textbook monotonicity check or arbitrary data slice.",
+    "status": "PASS"
+  }
+}
