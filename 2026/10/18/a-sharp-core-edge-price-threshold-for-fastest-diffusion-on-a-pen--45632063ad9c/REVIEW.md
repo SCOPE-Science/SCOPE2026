@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed positive-semidefinite certificate has the exact required edge lengths and supplies a global cost lower bound for every independently assigned edge conductance. An explicit Laplacian eigenvalue calculation attains it. Complementary slackness, a codimension-one rank argument, and the absent pendant-to-core edges establish global uniqueness even at the threshold. The complete checker reproduced 1,960 exact-symbolic/rational and numerical assertions. The finite computations supplement, but do not replace, the universal proof.
+## correctness
 
-## Originality — PASS, subject to stated residual risk
-The closest primary source [1] formulates the continuous-time problem and its dual, and gives path/cycle cases; it does not state this family-specific three-class price transition in the inspected text. Source [2] gives group reduction and an explicit two-clique-bridge example, but studies discrete-time spectral modulus with stochastic constraints, not the objective here. Fiedler's tree result [3] pertains to the star support appearing only above threshold. Prior mathematical-results records on transitive pendant coronas, priced wheels and two-community fastest diffusion concern different edge sets or distributions of leaves; none implies the precise one-pendant-clique theorem without a new argument. A specialized or unindexed equivalent may exist. The abstract of [3], not its full primary text, was accessible.
+PASS
 
-## Value — PASS
-A clique with a single bottleneck leaf is a natural extreme of highly connected networks. The theorem shows precisely when spending on redundant dense-core links increases the worst diffusion rate, gives a sharp size-dependent price threshold and an explicit square-root allocation law, and proves a surprising rigidity statement: no asymmetric optimizer appears, including at threshold. This is a complete nontrivial infinite-family resource-design classification, not a single instance or an unsupported numerical gain.
+For a K_{m+1} core plus one leaf, all edge weights independently variable subject to m spokes+leaf price 1 and inner edges price t, the submitted PSD certificate Y=alpha P_U+uu^T/(m+2)^2 has squared edge lengths 1,1,2alpha<=t. If L>=Pi (lambda2>=1) it implies budget>=trY. In mixed regime choose q=sqrt(1-t(m-1)/(2m)), alpha=t/2, x0=(2+1/q)/(m+2), y0=(m-1/q)/(m(m+2)), z0=(m+1+mq)/(m+2), attaining eigenvalues 0,1 mult m, and (m+2)x0z0>1 with cost C=m+1-(mq-1)^2/(m+2). At t>=2(m+1)/m the unit star attains cost m+1. Equality forces any rival Laplacian difference to be supported on one top eigendirection; absence of leaf-core nonedges forces difference zero, even at threshold. Independent symmetric Laplacian spectra and expenditure checks at m=2,4,7 and both price regimes agreed. Full proof is dual/equality, not sampled graphs.
 
-## Limitations
-Only one pendant vertex, two relative edge prices, a fixed linear budget, and the unnormalized continuous-time Laplacian spectral gap are covered. The theorem is not a claim about the continuous-time energy Gramian or discrete-time SLEM. Originality is assessed against searched, accessible evidence, not established by absence of hits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General fastest-mixing SDP and its dual exist (Sun–Boyd–Xiao–Diaconis 2006), and group symmetry reduction exists (Boyd et al 2007); latter optimizes discrete-time SLEM. The natural single-leaf priced clique has an explicit cost-induced edge-deletion frontier and global uniqueness not stated in these inspected theorems. Fiedler tree limit accounts for high-price star support only. Possible prior specialist formula remains risk.
+
+## value
+
+PASS
+
+Optimization on a clique with a single pendant bottleneck and priced redundant edges is a natural graph-design problem. The full size-dependent sharp price threshold, explicit nontrivial mixed allocation and unique optimizer at transition give reusable exact data beyond generic SDP solvability or a routine tree bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
