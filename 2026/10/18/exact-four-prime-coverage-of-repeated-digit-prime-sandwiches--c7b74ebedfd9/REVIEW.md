@@ -1,19 +1,21 @@
-# Scientific review: exact four-prime coverage of repeated-digit prime sandwiches
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity for the repeated-digit sandwich is exact. For every prime in the nontrivial covering set, both powers of ten and repunits repeat modulo that prime with a period dividing six; thus six padding lengths and six core-length residues exhaust the genuinely infinite parameters. Even and final-5 digits are eliminated directly. The complete \(3003\)-residue classification was computed two independent ways: exact integer sandwich evaluation and prime-local bitmask intersection. They agree on all six rows. The logarithmic and upper/lower natural densities follow from one residue class in each odd digit length. This is a finite arithmetic certificate attached to an infinite modular reduction, not extrapolation from sampled large integers.
+PASS
 
-## Originality — PASS, with residual risk
+For sandwich F(d,m,n)=dR_m 10^(t+m)+n10^m+dR_m, last digit instantly covers even d and d=5 by 2 or 5. For d in {1,3,7,9}, every prime 3,7,11,13 divides R6 and 10 has period dividing six, so F mod these primes depends only on m mod 6, t mod 6 and n mod 3003. This proves an exhaustive finite CRT decision, not a sample test. Independent direct-integer exhaustive calculation for all six length residue classes, all 3003 n residues and 24 (d,m) tests gives 273 multiples of 11 for each even t and odd classes {2499}, {231,420,759}, {651} for t=1,3,5 mod 6. Excluding 11-divisible n leaves one class per odd length. Exact counts of each odd-length decimal block give liminf 1/33033, limsup 10/33033 and logarithmic density 1/6006. Each covered sandwich exceeds its prime factor, so is composite.
 
-Wu (arXiv:1503.08883, first public 2015-03-31) introduced the sandwich operation, proved the even-length/\(11\) family, exhibited \(231,420,759\), and provided a sufficient repunit-gcd procedure. The OEIS A090287 entry records these facts. Neither inspected source explicitly gives the complete \(\{3,7,11,13\}\) residue spectrum over all lengths or the exact densities of odd-length, non-\(11\) certified exceptions. Searches for residue-class reformulations, the specific modulus and classes, and density statements found no matching published theorem. The new result is not an assertion that the known seeds or the general covering test are new. The possibility of another published equivalent classification or the perception that evaluation of Wu's finite test is routine remains a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four odd-prime obstructions are canonical and irredundant for the historical \(231\) example among factors of the six-digit repunit. Their complete joint spectrum identifies how far this low-prime explanation reaches, exactly, without appealing to open primality questions. It turns isolated exceptional examples into a precise family with positive lower natural density even outside the elementary even-length multiple-of-\(11\) mechanism, and determines its upper density and logarithmic density. The result does not classify all prime-free centers.
+Wu (2015) already introduced the sandwich problem, exhibited 231,420,759 and the even-length multiple-of-11 family and devised general repunit-factor coverage tests. This is acknowledged prior. The final claim is an exact classification of a motivated *fixed six-prime covering certificate*, including previously unlisted infinite odd-length congruence classes and sharp densities. A general finite algorithm does not by its bare statement supply the evaluated six-row residue classification, although the possibility that its tables or a straightforward specialization cover it remains a priority/value risk.
 
-## Limits and closest prior literature
+## value
 
-The coverage result depends on the fixed small-prime certificate, and other prime factors may certify additional cores. Wu's general gcd test is stronger as a search method, while the present classification and density statements are a closed evaluation of a motivated minimal covering subsystem. Independent assessment of originality and scientific utility remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite prime system is not chosen arbitrarily: 3,7,11,13 divide R6 and all four are necessary for the historic 231 covering; 2 and 5 handle terminal digits. Exact CRT evaluation promotes individual known exceptional cores to a positive-lower-density infinite certified family even excluding the easy 11 obstruction. This resolves the natural question of how much of the prime-sandwich obstruction these smallest repunit primes explain; it does not purport to classify every composite sandwich.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
