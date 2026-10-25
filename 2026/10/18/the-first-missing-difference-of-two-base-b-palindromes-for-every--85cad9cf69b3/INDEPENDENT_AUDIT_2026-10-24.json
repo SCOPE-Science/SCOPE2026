@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T09:09:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-first-missing-difference-of-two-base-b-palindromes-for-every--85cad9cf69b3/RESULT.md",
+        "2026/10/18/the-first-missing-difference-of-two-base-b-palindromes-for-every--85cad9cf69b3/verify.py",
+        "/mnt/data/scope_worker_08_20261024T0854_delivery/audit08_independent_checks_output.json"
+      ],
+      "rationale": "Let P_b denote positive base-b palindromes and D_b all positive differences of two of them. For each integer b>=5, T=b^3-(b-1)^2, whose base-b digits are ((b-1),1,(b-1)). Two- and three-digit palindrome families J_a=a(b+1), P_{a,c}=a(b^2+1)+cb yield consecutive intervals [W-(b-1),W-1] of differences from one-digit palindromes; between gaps are filled by exact identities J_a=J_(a+1)-J_1, J_a+1=(111)_b-J_(b-a), P_{a,c}=P_(b-1,c)-P_(b-1-a,0), P_{a,b-1}+1=(1111)_b-P_(b-a,1), and P_(b-1,0)=(1111)_b-P_(2,0). Therefore all 1<=d<T are differences. To rule out T, the quantitative large-palindrome reduction in the PROOF of Pongsriiam–Saito Theorem 12 implies smaller palindrome u<b^5 for this three-digit difference; v=u+T then has at most six base-b digits. Within equal lengths the leading/trailing-digit difference cannot be b-1 mod b; unequal lengths 3/2,4/<=3,5/4,6/5 are excluded by leading digits, modulus and two coefficient identities. Independent finite checks construct differences for every d<T in bases 5..12 and test all positive palindromes u<b^5 for forbidden T, none found. The symbolic case analysis plus the cited reduction, not the finite search, establishes every b>=5.",
+      "residual_risks": [
+        "The universal nonrepresentation relies on the precise quantitative bound extracted from the proof of Theorem 12, not merely on its published infinitude statement.",
+        "The claim excludes bases 2,3,4 and makes no assertion about later gaps, full difference sets or their densities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The larger published lemma bounds the lengths of possible representations of a fixed three-digit difference, permitting a finite remaining length analysis."
+        ],
+        "reasoning": "The lemma covers a necessary premise but does not construct all d<T nor eliminate all small-length pairs with difference T. The uniform b formula needs both new steps.",
+        "searches": [
+          "least positive missing difference of two palindromes base b b cubed (b-1) squared",
+          "Pongsriiam–Saito Theorem 12 proof Lemmas 9–11"
+        ]
+      },
+      "checked_sources": [
+        "P. Pongsriiam and K. Saito, J. Integer Sequences 26 (2023), Article 23.9.5, https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://oeis.org/A290393",
+        "Resultary semantic search: least positive missing difference of two palindromes base b b cubed (b-1) squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper leaves broad difference-set questions open. Theorem 12 restricts infinitely many representations, not all finite representations."
+        ],
+        "reasoning": "If a stronger fully classified difference set were known it would imply the first missing element, but that stronger coverage was not located; independent constructive interval filling and bounded length exclusion establish the asserted claim.",
+        "searches": [
+          "least positive missing difference of two palindromes base b b cubed (b-1) squared",
+          "Pongsriiam–Saito 2023 Question 25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 12 concerns differences attainable by infinitely many pairs, whereas this claim quantifies over existence of any pair; Question 25 studies properties of the entire difference set."
+        ],
+        "reasoning": "An exceptional finite representation could exist for a d outside an infinitude theorem, so determining the smallest missing d is not logically equivalent to classifying infinitely represented differences.",
+        "searches": [
+          "least positive missing difference of two palindromes base b b cubed (b-1) squared",
+          "Pongsriiam–Saito JIS 26 (2023) 23.9.5 Theorem 12 and Question 25",
+          "OEIS A290393"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS covers binary first-gap data; decimal 919 appears in base-specific discussion. Neither tabulates or proves the general b^3-(b-1)^2 for all b>=5 in inspected evidence."
+        ],
+        "reasoning": "A single base or a finite table cannot prove a formula for all bases; residual unindexed base-specific sequences remain a priority risk.",
+        "searches": [
+          "least positive missing difference of two palindromes base b b cubed (b-1) squared",
+          "OEIS A290393",
+          "base b palindrome difference least omitted number 919"
+        ]
+      },
+      "rationale": "Pongsriiam–Saito prove which fixed differences have infinitely many palindrome representations and provide the large-length lemma; that is logically distinct from the least positive missing difference among *all* finite representations for every base. The digit-filling construction plus exact short-length exclusion determine a new uniform invariant. The pre-existing decimal value 919 and binary OEIS information are explicitly credited.",
+      "residual_risks": [
+        "Unindexed recreational first-gap sequences for specific bases or a general folklore identity could overlap.",
+        "A new publication extending the 2023 source might cover this formula, but none appeared in checked records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "paper provides crucial length reduction but not least missing formula for all bases",
+          "evidence": "Theorem 12 classifies gaps with infinitely many representations; quantitative argument in its proof forces u<b^5 for the targeted three-digit T.",
+          "identifier_or_url": "P. Pongsriiam and K. Saito, J. Integer Sequences 26 (2023), Article 23.9.5, https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+          "material_read": "Accessible complete 28-page primary PDF, with Theorem 12/proof, Lemmas 9–11 pp10–12 and Question 25 p26 examined and page screenshots inspected",
+          "method": "full PDF text inspection and rendered primary pages",
+          "title": "Palindromes and Antipalindromes in Short Intervals",
+          "trigger": "same base-b palindrome difference set, exact three-digit large-length reduction"
+        },
+        {
+          "assessment": "different base; not evidence of all-b classification",
+          "evidence": "Binary palindrome difference first omissions are a separate base regime, excluded by b>=5 in current statement.",
+          "identifier_or_url": "https://oeis.org/A290393",
+          "material_read": "Sequence metadata/discovery description for binary setting; complete entry not independently analysed",
+          "method": "web bibliographic/description search",
+          "title": "OEIS A290393",
+          "trigger": "base-specific first missing palindrome differences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-first-missing-difference-of-two-base-b-palindromes-for-every--85cad9cf69b3/RESULT.md",
+        "P. Pongsriiam and K. Saito, J. Integer Sequences 26 (2023), Article 23.9.5, https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://oeis.org/A290393"
+      ],
+      "rationale": "Uniformly identifies the first omitted element of a natural base-dependent arithmetic difference set for every b>=5. It extends base-by-base observations into a complete family theorem, requiring nontrivial interplay of explicit coverage and long-palindrome rigidity, a useful exact invariant independently of full difference-set classification.",
+      "residual_risks": [
+        "Only the least missing gap is obtained; no density or complete characterization of palindrome differences follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
