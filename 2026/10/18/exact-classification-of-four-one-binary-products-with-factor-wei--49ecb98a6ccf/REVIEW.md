@@ -1,11 +1,21 @@
-# Review of the complete binary weight-four two-by-three product classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed six-term expansion is exact. The only possible first exponent collisions are \(u=v\), \(u=w\), and \(w=u+v\). In each case the proof explicitly carries the duplicate exponent, exhausts the new coincidences, and treats extra cascades at the small boundary values. Each of the five resulting families has weight exactly \(4\), and all remaining exponent triples have different weights. Direct evaluation by `VERIFY.py` agrees with the theorem for the complete finite grid \(1\le u,v<w\le80\), including the four lower-weight exceptions. This finite check is not used to infer completeness.
+## correctness
 
-**Originality — PASS within the inspected evidence.** Kaneko and Stoll, arXiv:2112.03077, formulate the fixed-three-weight Diophantine product problem and prove general weight-\(4\) results, but their Theorems 2.3–2.4 do not classify all \((2,3,4)\) triples: Theorem 2.3 supplies existence for different variable factor weights and Theorem 2.4 assumes both factors have weight at least \(3\). A published mathematical-record theorem on the same factor weights classifies product **weight \(3\)**, not weight \(4\); it therefore neither contains nor implies the present infinite five-family classification. Searches for equivalent sparse-binary-product descriptions found no covering theorem. Residual risk is an unindexed elementary classification or general carry criterion that makes this a corollary. Priority remains uncertain.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete classification at the first genuinely infinite product-weight level for the smallest asymmetric factor weights. In contrast to isolated examples, it settles all exponents without cutoff, identifies precisely five unbounded families (including families with both factors unbounded), and identifies the exact exceptional carry cascades. It also identifies precisely why Kaneko–Stoll's bounded-minimum theorem needs to exclude input weight two: the unbounded families give a sharp counterexample if that hypothesis is weakened. It provides the missing sharp boundary case alongside the general theorems rather than an arbitrary finite slice.
+Expanded ab as six powers at 0,u,v,w,u+v,u+w. Binary carrying reduces multiset size by one per carry, so weight four needs exactly two merges. The initial equalities are precisely u=v, u=w, w=u+v. Reconstructed the exhaustive three-case proof, checking all subsequent collisions, including exceptional weight 2/3 triples (1,1,2),(1,1,3),(2,1,2),(2,2,3). Wrote an independent exhaustive verification over 252,800 exponent triples with 1≤u≤80 and 1≤v<w≤80 using Python integer bit_count; every predicted membership agreed with actual s₂(ab), with 349 weight-four triples and four low-weight exceptions. This finite test corroborates, but only the complete symbolic coincidence/carry case analysis proves the unbounded infinite families.
 
-**Limits.** The result concerns only base \(2\), exact factor weights \(2\) and \(3\), and exact product weight \(4\). No generalization to other weights is established, and independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kaneko–Stoll established bounded-minimum conclusions for output weight four when both factor weights are ≥3, a hypothesis violated by weight-two a; thus their bound does not imply or contradict these unbounded families. Their broader methods do not present five specific (2,3,4) families in the inspected complete relevant sections. The published (3,2,3) result for the same factors exhausts target weight three, not four. There was no discovered equivalent complete target-four classification, subject to unindexed literature.
+
+## value
+
+PASS
+
+This is the natural first factor-weight boundary where the established minimum-factor bound ceases to hold. The explicit five families, no-sporadic completeness and simultaneous unboundedness provide a motivated qualitative sharpness result, not a cosmetic reparameterization of the weight-three finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

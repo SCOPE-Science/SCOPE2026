@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:02:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanded ab as six powers at 0,u,v,w,u+v,u+w. Binary carrying reduces multiset size by one per carry, so weight four needs exactly two merges. The initial equalities are precisely u=v, u=w, w=u+v. Reconstructed the exhaustive three-case proof, checking all subsequent collisions, including exceptional weight 2/3 triples (1,1,2),(1,1,3),(2,1,2),(2,2,3). Wrote an independent exhaustive verification over 252,800 exponent triples with 1≤u≤80 and 1≤v<w≤80 using Python integer bit_count; every predicted membership agreed with actual s₂(ab), with 349 weight-four triples and four low-weight exceptions. This finite test corroborates, but only the complete symbolic coincidence/carry case analysis proves the unbounded infinite families.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theorem for k=4 bounds min(a,b) only for input weights both at least three; the current examples have exactly (2,3)."
+        ],
+        "reasoning": "The stronger-looking prior theorem has a hypothesis not met here, so no coverage for target (2,3,4).",
+        "searches": [
+          "Resultary semantic query: binary products weight two and three product Hamming weight four classification Kaneko Stoll",
+          "https://arxiv.org/abs/2112.03077"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2112.03077",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For u=v≥3,w=u+1, both factors tend to infinity and product weight is four, contradicting any naive extension of prior weight≥3 bounded-minimum condition."
+        ],
+        "reasoning": "The current result pinpoints a necessary premise in the source theorem; prior k=4 result cannot imply an affirmative or complete classification for the omitted ℓ=2 case.",
+        "searches": [
+          "Resultary semantic query: binary products weight two and three product Hamming weight four classification Kaneko Stoll",
+          "https://arxiv.org/abs/2112.03077",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaneko–Stoll input weights ℓ,m≥3 exclude weight-two factors, and an earlier published (3,2,3) finding has target product weight three rather than four."
+        ],
+        "reasoning": "The current infinite five-family classification is not equivalent to the previously finite weight-three family.",
+        "searches": [
+          "Resultary semantic query: binary products weight two and three product Hamming weight four classification Kaneko Stoll",
+          "https://arxiv.org/abs/2112.03077",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search found (3,2,3) exact small-factor table, with only (3,7),(5,7); current product-weight-four has five unbounded families."
+        ],
+        "reasoning": "A table listing all target-three products is inapplicable to target-four, even though factors have same input Hamming weights.",
+        "searches": [
+          "Resultary semantic query: binary products weight two and three product Hamming weight four classification Kaneko Stoll",
+          "https://arxiv.org/abs/2112.03077",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+        ]
+      },
+      "rationale": "Kaneko–Stoll established bounded-minimum conclusions for output weight four when both factor weights are ≥3, a hypothesis violated by weight-two a; thus their bound does not imply or contradict these unbounded families. Their broader methods do not present five specific (2,3,4) families in the inspected complete relevant sections. The published (3,2,3) result for the same factors exhausts target weight three, not four. There was no discovered equivalent complete target-four classification, subject to unindexed literature.",
+      "residual_risks": [
+        "Unindexed older recreational/combinatorial binary carry classification may predate five-family listing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem assumes ℓ,m≥3 in the min-factor-bound regime and does not enumerate all (2,3,4) exponent triples.",
+          "evidence": "The five current families all have ℓ=2 and hence fall outside the cited weight-four boundedness theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.03077",
+          "material_read": "Theorem statements and full relevant Sections 2–6 of publicly accessible text, including bounds and constructive cases",
+          "method": "lawful open primary full-text reading",
+          "title": "Products of integers with few nonzero digits",
+          "trigger": "Same binary product Hamming weights and k=4 threshold"
+        },
+        {
+          "assessment": "Target output weight three, mathematically distinct from complete weight-four family.",
+          "evidence": "Published cases (a,b)=(3,7),(5,7) do not include weight-four unbounded families.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+          "material_read": "Resultary title, published summary and claimed finite pair set",
+          "method": "Resultary semantic search",
+          "title": "Exact (3,2,3) binary-weight product classification",
+          "trigger": "Nearest exact published product family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the natural first factor-weight boundary where the established minimum-factor bound ceases to hold. The explicit five families, no-sporadic completeness and simultaneous unboundedness provide a motivated qualitative sharpness result, not a cosmetic reparameterization of the weight-three finite case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2112.03077",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Factors are odd base-two numbers with exactly weights 2 and 3, product target weight exactly 4; no assertion for higher weight profiles."
+  ],
+  "residual_risks": [
+    "Unindexed older recreational/combinatorial binary carry classification may predate five-family listing."
+  ],
+  "schema_version": 1
+}
