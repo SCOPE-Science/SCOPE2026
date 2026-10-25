@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each fixed leaf set and nonleaf core, the Prüfer multinomial degree count and a product of formal leaf-allocation series give the exact coefficient formula. Differentiating at y=1 gives explicit Stirling ratios for both conditional factorial moments. A core path realizes exactly every prescribed leaf-load vector with at least two positive entries. Strict boundary cases m=1 and n=3 are handled separately. The standalone exact checker independently reproduces all joint coefficients and support for n=3 to 8 (90 finite assertions). The infinite claim rests on the analytic bijection, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1912.09838 Section 2 covers many locally specified Cayley-tree patterns asymptotically but not exact finite joint distributions.",
+        "arXiv:2002.12643 Section 3 Theorem 3.3 derives a different exact cherry law for degree-three internal nodes and labelled leaves only.",
+        "The classical degree-refined Prüfer formula counts trees by each vertex degree, but sibling-leaf collisions depend on adjacency, not only degrees."
+      ],
+      "reasoning": "More general pattern central-limit theorems do not imply the exact finite support or coefficients. The binary phylogenetic exact count applies to a different sample space, so it cannot subsume the arbitrary-degree fully labelled result. A general labelled-tree two-sort attachment enumerator, if previously published, could imply the claim; priority in that class is not exhaustively resolved.",
+      "searches": [
+        "Cayley tree exact number of cherries and leaves generating polynomial factorial Bell polynomials",
+        "random labelled trees joint distribution cherries leaves phylogenetic random trees",
+        "Generating Functions for Multi-labeled Trees",
+        "arxiv:1912.09838",
+        "arxiv:2002.12643"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1912.09838",
+      "arxiv:2002.12643",
+      "arxiv:2101.07488",
+      "Prüfer degree-sequence formula (classical)",
+      "published-finding corpus searches for Cayley cherry/leaf joint counts and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Isaev–Southwell–Zhukovskii, arXiv:1912.09838, Sections 1–2 and Theorem 2.1: asymptotic normality statements with limiting mean/variance, not an exact distribution conditioned on random leaf count.",
+        "Choi–Thompson–Wu, arXiv:2002.12643, Section 2.1 and Theorem 3.3: only leaf-labelled binary phylogenetic trees.",
+        "Choi–Kaur–Wu, arXiv:2101.07488, Section 2 and introduction: YHK and PDA growth laws for binary phylogenetic trees."
+      ],
+      "reasoning": "The prior methods can motivate considering cherries, but the combination of arbitrary internal degrees, labels on all vertices, and conditioning on a random leaf count changes the objects and statistics. None of the cited theorems yields the complete finite polynomial as a special case without performing the new leaf-core enumeration. Stronger unknown older enumerators are a residual risk.",
+      "searches": [
+        "arxiv:1912.09838 fully labelled trees pattern CLT exact law",
+        "arxiv:2002.12643 unrooted phylogenetic cherry distribution",
+        "arxiv:2101.07488 asymptotic joint distributions cherries pitchforks",
+        "Cayley labelled tree joint distribution number of leaves and cherries sibling leaf pairs generating function full bivariate enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1912.09838 Sections 1–2 studies arbitrary local pattern counts in fully labelled Cayley trees; its stated results are asymptotic CLTs.",
+        "arXiv:2002.12643 Section 2.1 explicitly restricts to binary phylogenetic trees, so a neighbour of three or more leaves is outside that model."
+      ],
+      "reasoning": "Alias formulations include adjacent leaf-pairs, sibling-leaf collisions, two pendant neighbours of one vertex, and a cherry count generalized to nonbinary trees. The law includes the number of leaves and the entire polynomial of colliding leaf-neighbour pairs; none of the inspected equivalent-name searches returned that joint Cayley distribution.",
+      "searches": [
+        "Cayley labelled tree joint distribution number of leaves and cherries sibling leaf pairs generating function full bivariate enumerator",
+        "random labeled tree conditional on number of leaves number of sibling leaf pairs Stirling ratio mean variance",
+        "cherries Cayley trees leaves joint distribution random labelled",
+        "distribution leaf sibling pairs uniform random Cayley tree joint number leaves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved standard Prüfer counts recover \\(n^{n-2}\\) and degree sequences, with no displayed table indexed simultaneously by leaf count and sibling-neighbour pair count.",
+        "The available binary phylogenetic cherry table/formula in arXiv:2002.12643 Theorem 3.3 has degree-three internal vertices and does not enumerate fully labelled trees."
+      ],
+      "reasoning": "No inspected exact database or table matches the coefficient array \\(\\#\\{T:L(T)=\\ell,C(T)=c\\}\\). This is a bounded evidence statement, not a completeness claim about all archives.",
+      "searches": [
+        "cherry Cayley tree Stirling numbers generating function",
+        "labeled tree enumeration number pairs leaves same neighbor generating function",
+        "random Cayley trees number cherries given number leaves expectation",
+        "nonleaf core deletion generating polynomial leaf multiplicities cherry pairs uniform labelled trees"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and literature searches identified closely related uniform-tree degree and local-pattern results, but no matching all-size joint distribution conditioned on the leaf count. The strongest inspected primary comparison on fully labelled Cayley trees proves asymptotic normality of pattern counts, not this finite bivariate polynomial. The other primary studies use binary trees with leaf-only labels and different measures. Unsearched older general-purpose tree-generating formulas remain a priority risk; absence of a match is not a proof of uniqueness.",
+    "residual_risks": [
+      "An unidentified general labelled-tree two-sort or attachment generating function might already imply the finite polynomial, even without using sibling-leaf terminology.",
+      "Not every indexed or older graph-enumeration database or textbook was exhaustively searched; priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the finite conditional sibling-pair polynomial; covers asymptotic patterns and the leaf CLT",
+        "evidence": "Section 2 develops CLTs for induced and degree-matching subtree patterns; no displayed joint leaf-count/sibling-pair coefficients in material examined.",
+        "identifier_or_url": "https://arxiv.org/html/1912.09838v2",
+        "material_read": "Abstract, Sections 1–2 including the model, Corollary 1.2, Theorems 2.1–2.2 and discussion of exact versus asymptotic pattern distributions",
+        "method": "Primary arXiv HTML full-text, targeted reading and phrase search for leaf/cherry/pattern; earliest arXiv version confirmed as 2019-12-20",
+        "title": "Distribution of tree parameters by martingale approach",
+        "trigger": "same uniform fully labelled Cayley tree distribution and local pattern statistics"
+      },
+      {
+        "assessment": "NOT_COVERING for a demonstrably different sampling object; all internal vertices degree three, only leaves labelled",
+        "evidence": "Section 2.1 states every internal degree is three; Theorem 3.3 enumerates its model’s cherries, with no variable random leaf count.",
+        "identifier_or_url": "https://arxiv.org/abs/2002.12643",
+        "material_read": "Introduction, Section 2.1 sample-space definition, Section 3 cherry recurrence and Theorem 3.3, relationships to previous cherry formulas",
+        "method": "Primary full-text accessible through arXiv text representation; targeted reading of definitions, theorem and proof",
+        "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+        "trigger": "exact cherry distribution appears close in terminology"
+      },
+      {
+        "assessment": "NOT_COVERING the exact finite Cayley joint leaf/sibling-pair polynomial",
+        "evidence": "Section 2.1 requires rooted binary trees with only leaf labels; the main results treat asymptotic cherry/pitchfork counts in two different models.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.07488",
+        "material_read": "Introduction, Section 2 binary tree definitions and YHK/PDA process, main result descriptions",
+        "method": "Primary arXiv full-text accessible in textual form with targeted reading",
+        "title": "On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees",
+        "trigger": "joint cherry statistics and possible broader asymptotic results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0fa7304e-ba95-46b0-850e-308e3f059dfc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It is a complete finite-sample joint law for two standard structural aspects of uniform fully labelled trees: endpoint abundance and shared-neighbour clustering. The exact conditional mean and variance and full attainable-value support permit nonasymptotic tree-shape null calibration. The statistic depends on leaf adjacencies, so it is not just a renaming of the classical Prüfer degree count or a cherry table for degree-three binary phylogenetic trees; scope is natural and no artificial parameter slices are introduced.",
+    "status": "PASS"
+  }
+}
