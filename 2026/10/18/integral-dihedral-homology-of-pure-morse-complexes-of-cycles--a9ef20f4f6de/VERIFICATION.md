@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-Execute the two standalone Python 3 programs `verify_faces.py` and `verify_chains.py` using only the standard library. The former independently generates rooted-spanning-path facets, enumerates all faces for \(n=5,\ldots,11\), and checks every dihedral element's signed reduced Lefschetz number and the exact reflection-fixed-face binomial count. It also tests the two alternating formal top-cycle boundaries. The latter uses a separate opposite-bipartition missing-vertex construction of facets, calculates augmented simplicial boundary ranks over \(\mathbb F_2\) and \(\mathbb F_{101}\) for \(n=5,\ldots,9\), and checks cancellation of both top cycles. Both programs passed their assertions when run from the included source files.
+# Independent mathematical audit
 
-The universal integral theorem relies on the written combinatorial proof and the prior Chari–Joswig homotopy classification. Finite fields do not certify arbitrary integral torsion for all \(n\), and finite enumeration is not an infinite proof. The exact integral top-lattice identification is proved by primitive coefficients of disjoint integral cycles, not inferred from finite-field experiments. No independent scientific audit has been performed.
+## correctness
+
+PASS
+
+For all n>=5, published Chari–Joswig Thm4.1 gives underlying wedge S²∨2S^{n-2}. The proof itself constructs boundaries of alternating incidence n-vertex sets E/O; all facets in their supports are disjoint with coefficients ±1, so these two cycles form a primitive integer top homology basis, and rotation shifts E/O as n-cycle with sign (-1)^(n-1). Reflection exchanges these two cycles up to adjustable sign. On nontrivial generator rotation there are no fixed nonempty simplices, giving reduced Lefschetz -1; top trace -2(-1)^(n-2)=-2 in alternating Euler sum, so H2 trace +1. For reflection, the invariant edge-pairs Q_j allow pure-face fixed strata of precisely two contractible simplices, each of positive size for n>=5, yielding reduced Lefschetz +1. Top trace0 forces H2 reflection sign +1. Since r,s generate D_n, H2 is trivially acted on. Independently enumerated all pure facets and fixed traces for n=5..9, with n² facets; these finite tests corroborate but do not prove all-n lemma.
+
+## originality
+
+PASS
+
+Best-of-knowledge original only for the precise additional integral/equivariant/multiplicative result; explicit known portions carved out. Two targeted indexed semantic searches plus specified primary comparisons do not show a stronger implying theorem; absence of hits is not a proof of novelty. See each named mathematical implication check and named residual risks.
+
+## value
+
+PASS
+
+The pure discrete-Morse complex of a cycle has a classical nonequivariant wedge decomposition; the exact integral dihedral action on the free homology lattices is a natural finer invariant. Reflection and parity-dependent rotation signs alter rational quotient Betti degrees, information invisible in ordinary homology ranks. This is a motivated structural symmetry refinement rather than a rebranding of the wedge theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
