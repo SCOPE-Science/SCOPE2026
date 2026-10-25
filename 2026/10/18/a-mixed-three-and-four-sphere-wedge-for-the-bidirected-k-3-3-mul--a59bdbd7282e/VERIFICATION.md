@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_bidirected_k33.py` followed by `python3 verify_symmetry.py` with SymPy installed. Their expected complete outputs are in `multipath_check.txt` and `symmetry_check.txt`.
+## correctness
 
-The first program enumerates all nonempty arc subsets on exactly eighteen arcs and proves via the explicit face predicate that precisely 714 are multipaths. It constructs 341 discrete-Morse face pairs, tests the exact directed Hasse graph for cycles, and computes all signed four-to-three critical incidence coefficients. The second independently constructs the exact integral fourth simplicial boundary and computes all automorphism traces using rational linear algebra. Together they establish the stated finite theorem; they make no claim about any larger family.
+PASS
 
-The SymPy calculation uses exact arithmetic, not floating point or probabilistic rank estimates. The separate mod-two calculation checks homology dimensions but is not used to infer the integral attaching maps. The verification does not constitute independent external review.
+Fresh exact 2^18-mask enumeration gave 714 nonempty directed-linear-forest simplices in dimensions 0..4: 18,108,264,252,72, with 2376 covers. Independent matching reproduced 341 pairs and only critical cells (one 0, nineteen 3, twelve 4); Hasse DAG checked acyclic and integral Morse d4=0. With no 1/2 critical cells, Hurewicz proves wedge 19 S³ vee 12 S⁴. Independently mod2 boundary ranks (17,91,173,60) and rational signed 252x72 top boundary rank60; 72 full automorphisms yield character class values matching RESULT and top invariant0, H3 invariant1. Source scripts inspect both independent pivot construction and 72-element signed action.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact claim over the stated object and quantifiers after comparing equivalent functors, stronger theorems, literature and relevant indexed findings. Search failure alone is not proof; see material_read and residual_risks.
+
+## value
+
+PASS
+
+K3,3 is the first balanced thick complete bipartite graph beyond thin K2,n; bidirectionality introduces forbidden directed cycles and produces mixed-degree homotopy. The exact integral wedge and full 72-element symmetry character give a natural benchmark beyond one-way chessboards and non-equivariant rank tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
