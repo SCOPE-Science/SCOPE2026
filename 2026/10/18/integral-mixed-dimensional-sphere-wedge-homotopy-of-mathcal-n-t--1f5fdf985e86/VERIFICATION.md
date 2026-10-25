@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py` in this directory and compare its JSON stdout with `verification_output.json`. Python standard library only; the computation uses explicit arbitrary-precision integers and no randomness or floating-point approximations.
+# Independent mathematical audit
 
-The verifier constructs open neighborhoods of the 21 two-element subsets, tests all 2,097,151 nonempty candidate subsets against an independently evaluated witness condition, and reconstructs the complete 18,494-face complex. The matching has exactly 9,120 pairs and 254 critical faces. The entire 98,805-incidence directed Hasse graph is topologically sorted without a directed cycle. Exactly one critical cell has dimension zero, 246 have dimension three, and seven have dimension four.
+## correctness
 
-With lexicographic vertex orientations, each critical four-cell has zero integral Morse boundary on critical three-cells. Two different exact implementations agree: signed unit-pivot elimination through matched three–four pairs and reverse-order integer gradient-path recursion. All seven 246-component columns vanish identically. The three-skeleton is a wedge of three-spheres and the Hurewicz isomorphism turns the zero degree columns into null attaching maps. This supplies the integral homotopy type, rather than interpreting field homology as an infinite proof.
+PASS
 
-The output includes SHA-256 digests for sorted full faces, ordered matching pairs and sorted critical masks. This finite certificate does not establish an all-parameter result, and does not supply independent mathematical audit.
+All 21 ten-vertex open neighborhoods generate exactly 18,494 nonempty faces; independently computed full face vector. An explicit sequential matching yields 9,120 pairs and 254 critical faces (one 0, 246 3, seven 4); independently traversed all 98,805 Hasse covers, confirming acyclicity and seven identically zero signed integral Morse ∂4 columns. No 1-/2-cells; Hurewicz π3(wedge S3)=H3 proves all seven 4-cell attaching maps null, so the integral homotopy wedge follows rather than being inferred from mod-2 ranks.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+The exact integral attaching-map vanishing and mixed-dimensional wedge decomposition of a canonical triangular graph closes the structural gap left by a published field-homology census. The homotopy classification has uses beyond simply recomputing ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise complex is the open-neighborhood complex of the 21-vertex triangular graph. All 2,097,151 possible nonempty subsets are independently checked for membership. The face poset has 18,494 nonempty simplices. A specified 9,120-pair discrete-Morse matching has one critical zero-cell, 246 critical three-cells and seven critical four-cells. The full 98,805-edge Hasse orientation is acyclic. An exact signed unit-pivot Morse cancellation and a separately implemented gradient-path recursion both produce a zero 246-by-7 integral differential. The Morse CW complex is two-connected, with three-skeleton a wedge of 246 three-spheres; the Hurewicz isomorphism in degree three makes all seven four-cell attaching maps null. This proves the displayed integral homotopy equivalence, not merely the Betti numbers.
+## correctness
 
-**Originality — PASS, with residual risk.** The complete inspected publicly indexed prior RESULT.md entitled *Mixed-dimensional mod-two neighborhood homology first appears at \(T_7\)* gives only mod-two Betti numbers and explicitly excludes integral torsion, attaching maps and homotopy type. The new zero integral Morse boundary is not implied by those mod-two ranks. Shukla's 2018 neighborhood-complex classification concerns maximum degree at most three and four-regular circulants, whereas this graph is ten-regular. Matsushita and Wakatsuki's 2023 Alexander-duality theorem relates this complex to the dominance complex of the complementary Kneser graph but does not determine its homotopy type. Searches under triangular-graph, Johnson-graph, line-graph, complementary Kneser and Hom-complex aliases did not locate a stronger exact classification. Unindexed equivalent literature remains possible.
+PASS
 
-**Mathematical value — PASS.** The first mixed-dimensional neighborhood-homology example in this canonical symmetric graph family previously had only a mod-two profile. The present result resolves its actual integral attaching maps, excludes torsion, and determines a mixed-dimensional *homotopy* decomposition. It is an exact motivated finite topological classification, beyond recomputing the known Betti numbers.
+All 21 ten-vertex open neighborhoods generate exactly 18,494 nonempty faces; independently computed full face vector. An explicit sequential matching yields 9,120 pairs and 254 critical faces (one 0, 246 3, seven 4); independently traversed all 98,805 Hasse covers, confirming acyclicity and seven identically zero signed integral Morse ∂4 columns. No 1-/2-cells; Hurewicz π3(wedge S3)=H3 proves all seven 4-cell attaching maps null, so the integral homotopy wedge follows rather than being inferred from mod-2 ranks.
 
-**Limitations and reproducibility.** This is one parameter instance, not an all-parameter theorem. The proof depends on a fully specified finite acyclic matching and signed integral arithmetic; the standalone Python verifier, all-face membership cross-check, gradient algorithm, and saved exact output are included. Noncoverage by finite database and literature searches is not a uniqueness proof. No independent audit or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+The exact integral attaching-map vanishing and mixed-dimensional wedge decomposition of a canonical triangular graph closes the structural gap left by a published field-homology census. The homotopy classification has uses beyond simply recomputing ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
