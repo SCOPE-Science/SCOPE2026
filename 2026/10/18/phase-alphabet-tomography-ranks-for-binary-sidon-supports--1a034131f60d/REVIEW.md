@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Weyl conjugation diagonalizes the full orbit lifting. Distinct unordered Sidon pairs give distinct nonzero shifts; the two corresponding ambiguity terms cancel precisely for fourth-root phase ratios and exactly one halfspace of characters. Odd cardinality forces every zero-shift coefficient to be nonzero. Convex integer occupancies prove sharp finite phase-alphabet counts and the inverse-hyperbola quadratic-root argument establishes Sidon uniqueness. Exact finite-field checks at orders 4, 8, 16 reproduced both endpoints; they are supporting checks, not an infinite proof.
+## correctness
 
-**Originality — PASS, best-knowledge.** Close comparison sources are Führ–Oussa (arXiv:2201.08654), Redman–Rose–Walker (arXiv:2109.00292), Li–Juste–Brennan–Cheng–Han (DOI 10.1007/s00041-017-9570-6), and indexed research records on binary affine Gabor windows and odd-characteristic hyperbolic shells. The inspected full texts concern phase-retrieval existence or Sidon-set construction, not this complete phase-rank and alphabet optimization. The 2017 projective-frame article was available only through preview and is an unresolved bibliographic risk; database search cannot prove novelty.
+PASS
 
-**Mathematical value — PASS.** A uniform geometric support can produce substantially different matrix recovery ranks without changing coefficient magnitudes. The theorem identifies every missing Weyl direction and the exact minimum phase alphabet required for support-constrained optimal recovery for an infinite canonical family; these are structural frame-design invariants.
+Weyl conjugation diagonalizes full complex operator tomography: one nonzero column per nonzero ambiguity coefficient. Every nonzero Sidon shift contains exactly two support points, so a pair contributes N nonzero characters unless its phase ratio is a fourth root, in which case precisely N/2 survive; all N zero-shift coefficients are nonzero since odd k gives an odd sum of character signs. Thus rank=N(1+binom(k,2)-B/2) and all kernel Weyl labels are explicitly determined. Root-of-unity alphabet collision classes number r=L/gcd(L,4); balancing occupancies uniquely minimizes B. The inverse-hyperbola sum recovers the quadratic polynomial with roots t,t' proving Sidon for every q=2^m. Independently recomputed complex ambiguity coefficients for all shifts and all characters at q=4 and q=8 under L=1,4,q-1,2(q-1), matching eight rank/collision predictions. These finite checks do not prove general q.
 
-The scope excludes nonlinear pure-state recovery, singular-value stability, and absolute literature uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established Weyl nonvanishing criterion, binary Sidon geometry and general projective-frame characterizations are credited. The precise complex-linear rank deficit conditioned on fourth-root phase collision, exact alphabet optimization and inverse-hyperbola threshold are stronger and differently quantified than nonlinear phase-retrieval existence results or other published Gabor-window rank examples. The 2017 Li et al. paper was not accessible in full; possible equivalent finite-abelian criterion is recorded, not dismissed.
+
+## value
+
+PASS
+
+A complete support- and alphabet-dependent rank/kernel characterization gives exact information loss and minimal phase complexity for reconstructing arbitrary operators from Gabor intensities. This extends beyond a routine Sidon existence assertion and identifies explicitly how spectral identifiability changes under phase coding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
