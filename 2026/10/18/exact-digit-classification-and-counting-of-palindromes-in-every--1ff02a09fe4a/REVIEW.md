@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof handles canonical leading digits and all remainder classes in the division of the digit length by the block width. The full-block case follows from two block-reversal equalities. In the short-leading-block case the last base-power digit forces a zero-padded suffix; reversal forces the first full block to have the same padding; removing paired width-\(k\) ends proves the entire repeated payload structure by induction on the number of full blocks. The counting formulas follow from independent palindromic payload positions, and geometric summation yields the exact generating function. The cumulative estimate is two-sided, with a full-length subsequence giving the lower bound. Verification tests by independent arithmetic conversion and by union/find constraints passed; no finite test is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with risk
-Bérczes–Ziegler, *On Simultaneous Palindromes* (arXiv:1403.0787v1, 2014), was examined in full: its power-related-base discussion notes infinitely many examples and excludes that case from the finiteness problem, but does not provide the universal exact length count, structural characterization, or rational generating function. The full text of Bašić's *On very palindromic sequences*, especially Theorem 1's zero-padding construction and its later fixed-digit theorems, addresses a different varying-multiple-base existence question, and OEIS A056145 only lists prime examples in a specific pair of bases. Searches for equivalent fixed-base counting formulas, dependent-base reductions, and existing exact sequence tables found no dominating universal statement. The cubic-power special case is not separately claimed. An unindexed elementary proof or an undetected stronger theorem remains a residual originality risk.
+PASS
 
-## Value — PASS
-Dependent bases furnish an infinite simultaneous-palindrome family explicitly distinguished in prior work; enumerating all such integers, not merely constructing one sparse subfamily, is a mathematically natural gap. A uniform exact pattern theorem over every block width and base gives all length counts and a rational generating function. The parity change in the cumulative exponent is a structural consequence not apparent from the elementary existence examples. It is a complete natural classification, rather than a chosen numerical slice or a routine finite test.
+PASS. For canonical positive integers simultaneously palindromic in bases b and b^k, b,k>=2, the proof separates L=kq (q>=1) into palindromic k-blocks in palindromic block order, giving (b-1)b^{ceil(k/2)ceil(q/2)-1}, from L=kq+r (q>=0,1<=r<k), where base-b^k and base-b palindromicity force a width-r palindromic payload A_0, repeated zero prefixes of length k-r before further width-r palindrome payloads A_i, and palindromic payload list. The recursive stripping argument is valid for internal padded blocks without imposing canonical leading-digit restrictions after the first. Count is (b-1)b^{ceil(r/2)ceil((q+1)/2)-1}; independent geometric-pair summation gives the stated rational generating function. The largest free dimension ceil(k/2) per two full blocks yields Theta(X^{ceil(k/2)/(2k)}); picking a full-block length multiple of 2k below log_b(X) supplies the lower bound, and uniform geometric bounds across residues the upper. Independent arithmetic direct base conversion and count checked 92 bounded base/k/length profiles; inspected symbolic dimension checker. Infinite validity rests on block reasoning.
 
-## Scope and limitations
-The theorem does not address nonnested power pairs, multiplicatively independent bases, prime-only subclasses or a normalized cumulative leading constant. The two most relevant primary papers were inspected in their available full texts, with detailed comparison of existence constructions against the exact fixed-pair census; bibliographic search is not proof of novelty. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
+
+## value
+
+PASS
+
+PASS. Multiplicatively dependent bases are an explicitly separated natural regime in the simultaneous-palindrome literature. Beyond the elementary fact that infinitely many exist, this result characterizes *all* simultaneous palindromes for every integer power pair, gives exact counts by digit length and a complete rational generating function, plus the growth exponent. These are natural counting invariants of a fundamental numeral condition, not isolated trivially tiny values, even if the counting techniques are elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
