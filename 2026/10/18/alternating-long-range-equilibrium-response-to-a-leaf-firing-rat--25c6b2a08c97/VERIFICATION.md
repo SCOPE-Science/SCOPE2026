@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks
 
-Run `python3 verify_tree_sensitivity.py` with Python 3 and no third-party packages. The program returns a nonzero exit status if any assertion fails. It checks nonlinear minimizer stationarity, positive tree-response recursions, a direct Hessian solve, finite-difference derivatives, finite (30 percent) leaf-rate perturbations, and mass conservation for 180 deterministic finite tree instances (paths, stars, balanced, irregular; up to ten vertices). The observed output was `PASS: 1440 independent derivative, conservation and tree-response checks`.
+# Independent mathematical audit
 
-Proof-level critical step: for every child vertex \(v\), completion of squares in the local quadratic minimizes \(w_v(a+\sum_f x_f)^2+\sum_f C_fx_f^2\); all \(C_f,w_v\) are strictly positive, so every child coefficient multiplying \(-a\) is strictly positive. Strict convexity independently proves that the minimizer is the actual derivative of the equilibrium. The checker's finite samples do not establish general validity, and its numerical Newton stopping tolerance does not furnish an exact arithmetic certificate. Generality is proved algebraically in RESULT.md. No independent audit was conducted.
+## correctness
+
+PASS
+
+From z_e=μ_e^α derive strictly convex potential α∑z_e^(1/α)-∑_v p_v log S_v, Hessian D_e δef +∑_{v incident both}w_v, D_e,w_v>0. Coercivity, nonzero S_v at minimizer and negative boundary one-sided derivatives give unique positive optimum and smoothness. Differentiating wrt leaf rate gives Hx=e_root/z_root; exact positive subtree Schur-complement C_e=D_e+w_child/(1+w_child Σ_child C_f^-1) and negative child transfer show strict sign alternation for every edge in a finite tree. Finite changes inherit strict derivative sign; α=0 is correctly excluded. Formula is derived, not inferred from saved numeric logs.
+
+## originality
+
+PASS
+
+Qin's cited model establishes existence/uniqueness of an equilibrium, not sensitivity sign propagation. The new result determines every cross-edge derivative's sign and magnitude via a tree Green-vector elimination. Full Qin preprint inaccessible due authorization, named as priority risk; no clear stronger or equivalent comparison was found in actual Resultary searches.
+
+## value
+
+PASS
+
+Strict alternating response to a single leaf firing rate in every finite tree, at all positive rates and 0<α<1, is a structural comparative-statics theorem for a natural weakly reinforced urn equilibrium; the exact positive cavity recursion is independently useful and nonlocal, not a textbook restatement of equilibrium uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
