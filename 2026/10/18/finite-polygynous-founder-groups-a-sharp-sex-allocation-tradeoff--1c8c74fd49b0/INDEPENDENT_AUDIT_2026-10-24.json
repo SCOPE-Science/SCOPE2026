@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:17:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let F~Bin(n,p), g(k)=min(k,h(n−k)), n≥3,h≥2. Discrete slopes of g are nonincreasing with at least one strict decrease, so Bernstein second derivative R″=n(n−1)E Δ²g(Bin(n−2,p))<0 for all 0<p<1 and endpoint slopes have opposite signs. Reflection around p=1/2 shows R′(1/2)>0 exactly for n≥3,h≥2, so unique output optimum p*>1/2 whereas S=1−p^n−(1−p)^n maximizes uniquely at 1/2; boundaries n=2 or h=1 share optimum. Lipschitz binomial concentration gives uniform R/n→min(p,h(1−p)) and linear asymptotic gain. For n divisible h+1, slope jump at q=hn/(h+1) makes exact CDF quantile equation; binomial CLT and quantile inversion prove √n(p0−p*)→(√h/(h+1))Φ⁻¹(h/(h+1)). For h≥n−1, g(k)=k except g(n)=0, so R=np−np^n and p*=n⁻¹/(n−1), giving n(1−p*)~log n and no mating ~1/n. Representative exact n=3,h=2 and finite differences independently checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 full article modelling/expected births and extinction contexts; 2010 directly related mating function article only abstract available; institutional full-text access blocked by disconnected VPN."
+        ],
+        "reasoning": "General population dynamics and extinction risk are not stronger analytic statements for a one-episode optimum; 2010 full proof could nonetheless contain similar optimization and cannot be pronounced noncovering.",
+        "searches": [
+          "doi:10.1111/j.1461-0248.2004.00632.x",
+          "doi:10.1016/j.actao.2010.02.010",
+          "Resultary semantic search: finite two sex binomial stochastic sex ratio polygyny mating capacity unique optimal female probability binomial quantile"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md baa39537d5cd76352089b176e81bdf25333fb939",
+        "Git verify_polygynous_founders.py 3a0ccddb33d62680d4324d2d2a0b01df272bd612",
+        "Bessa-Gomes et al. 2004 DOI:10.1111/j.1461-0248.2004.00632.x Eq9 accessible via OA PDF indexed text",
+        "Bessa-Gomes et al. 2010 DOI:10.1016/j.actao.2010.02.010 abstract only, Oxford VPN disconnected",
+        "Resultary query 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expectation is existing input; strict concavity, rightward optimum, quantile inversion and logarithmic reserve follow by additional Bernstein and asymptotic analysis."
+        ],
+        "reasoning": "Claimed novelty is not the mating model or female-biased effect; a universal closed characterization with sharp regimes is a substantive implication requiring new derivation. Unread 2010 source remains potential stronger antecedent.",
+        "searches": [
+          "Bessa-Gomes 2004 binomial mating function expectation Eq. 9",
+          "Resultary semantic search: finite two sex binomial stochastic sex ratio polygyny mating capacity unique optimal female probability binomial quantile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The precise expectation E[min(F,h(n−F))] occurs as mating function in 2004 paper and so is not independently new."
+        ],
+        "reasoning": "Same objective but different mathematical statement: source model formula or graphs do not directly establish unique argmax for every n,h, exact boundary h=1/n=2 and quantile/CLT/log-reserve.",
+        "searches": [
+          "Resultary semantic search: finite two sex binomial stochastic sex ratio polygyny mating capacity unique optimal female probability binomial quantile",
+          "Bessa-Gomes Legendre Clobert 2004 Eq 9 binomial sex ratio mating minimum h"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For saturated h≥n−1, exact p*=n^(-1/(n−1)) and n(1−p*)~log n; for multiples n=(h+1)t, exact quantile P(Bin(n−1,p*)≤ht−1)=h/(h+1)."
+        ],
+        "reasoning": "Graphs/tabulated simulation optimum values would not independently prove the universal quantile formula and two asymptotics, but exact table antecedents not exhaustively excluded.",
+        "searches": [
+          "Resultary semantic search: finite two sex binomial stochastic sex ratio polygyny mating capacity unique optimal female probability binomial quantile",
+          "Bessa-Gomes 2004 polygynous sex allocation p optimum numerical plot",
+          "n male reserve log n optimal one male mates all females"
+        ]
+      },
+      "rationale": "The binomial expected mating function itself is explicitly Eq. 9 in Bessa-Gomes–Legendre–Clobert (2004), and its sex-ratio effects were already studied; neither is claimed new. The survivor is universal finite-(n,h) strict optimization/feasibility tradeoff, exact binomial optimum quantile and different fixed-h versus h≥n−1 asymptotics. The 2010 directly relevant mating-function paper was inaccessible at full-text level after lawful arXiv/OA attempts and authorized Oxford access returned VPN disconnected; material priority risk retained, not automatic rejection.",
+      "residual_risks": [
+        "Directly related 2010 Bessa-Gomes/Legendre/Clobert full text inaccessible because authorized Oxford VPN disconnected, so originality comparison limited; revisit through permitted access only.",
+        "2004 published mating function and female bias are prior work, not new claim components.",
+        "Only one mating episode, no evolved ESS, spatial limits or multigeneration extinction result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_AND_EXPECTATION_NOT_IDENTIFIED_FINAL_OPTIMIZATION",
+          "evidence": "Exact g(k) binomial expectation already published. Current theorem restricts novelty to every-size optimizer and asymptotic quantile/log reserve.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2004.00632.x",
+          "material_read": "Accessible mathematical sections of author-hosted PDF, particularly Eq.9 binomial expectation and surrounding modelling/sex ratio discussion; PDF screenshot retrieval unsuccessful, so not asserted to have visually reviewed all pages",
+          "method": "Web indexed OA PDF text with explicit page/section references",
+          "title": "Allee effects, mating systems and the extinction risk in populations with two sexes",
+          "trigger": "Closest exact objective, female expected reproduction and mating capacity"
+        },
+        {
+          "assessment": "PLAUSIBLE_UNREAD_PRIORITY_RISK",
+          "evidence": "Potential optimizer/derivative results cannot be excluded; OAuth/VPN issue operational, not scientific falsification.",
+          "identifier_or_url": "https://doi.org/10.1016/j.actao.2010.02.010",
+          "material_read": "Title, metadata and abstract via lawful OA search; no full text. Authorized Oxford oxford_paper returned vpn_disconnected; no bypass or fabricated reading",
+          "method": "arXiv/OA attempts then authorized Oxford attempt",
+          "title": "Discrete two-sex models of population dynamics: on modelling the mating function",
+          "trigger": "Plausible same-author direct stronger mating optimization"
+        },
+        {
+          "assessment": "CLAIM_PROOF_RECONSTRUCTED",
+          "evidence": "Bernstein concavity, normal quantile inversion and saturated capacity algebra.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/finite-polygynous-founder-groups-a-sharp-sex-allocation-tradeoff--1c8c74fd49b0",
+          "material_read": "Entire RESULT.md, REVIEW.md, exact verification Python source, metadata and Git tree",
+          "method": "GitHub read-only frozen files",
+          "title": "Polygynous founder allocation frozen source",
+          "trigger": "Claim, boundaries, binomial derivative and verification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two natural biological objective functions (expected realized reproductive females versus probability of any mating) provably have different optimum allocations throughout precisely identified finite-group regimes; quantified CLT male correction and logarithmic reserve explain otherwise unintuitive finite-group effects. Mathematically motivated constrained optimization result, not an unsupported evolutionary or persistence claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md baa39537d5cd76352089b176e81bdf25333fb939",
+    "Git verify_polygynous_founders.py 3a0ccddb33d62680d4324d2d2a0b01df272bd612",
+    "Bessa-Gomes et al. 2004 DOI:10.1111/j.1461-0248.2004.00632.x Eq9 accessible via OA PDF indexed text",
+    "Bessa-Gomes et al. 2010 DOI:10.1016/j.actao.2010.02.010 abstract only, Oxford VPN disconnected",
+    "Resultary query 5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Directly related 2010 Bessa-Gomes/Legendre/Clobert full text inaccessible because authorized Oxford VPN disconnected, so originality comparison limited; revisit through permitted access only.",
+    "2004 published mating function and female bias are prior work, not new claim components.",
+    "Only one mating episode, no evolved ESS, spatial limits or multigeneration extinction result."
+  ],
+  "schema_version": 1
+}

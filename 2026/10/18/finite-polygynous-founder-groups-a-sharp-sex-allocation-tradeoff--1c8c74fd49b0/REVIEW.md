@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The discrete breeding function \(g(k)=\min\{k,h(n-k)\}\) is concave with a genuinely negative second difference, and the binomial Bernstein derivative therefore proves strict concavity, unique optimum, and the boundary cases for all integer \(n\ge2,h\ge1\). A reflection pairing shows that the derivative at a half-female sex ratio is strictly positive exactly when \(n\ge3,h\ge2\). The binomial CDF identity follows by enumerating discrete slopes, and the limiting statements follow from uniform Lipschitz convergence, binomial CLT inversion, and the closed-form saturated-capacity polynomial. A standard-library verification program rechecks selected exact identities; finite tests cannot prove an all-size theorem.
+## correctness
 
-**Originality — PASS, with recorded risk.** The minimum mating function and its binomial expected value are explicitly present in Bessa-Gomes, Legendre, and Clobert (2004), Eq. (9), and are not proposed as original; the same paper already relates sex ratios to population extinction risk. The new statement is the simultaneous *sharp all-size optimization classification*, a fixed-capacity exact binomial-quantile formula with the specific square-root correction, and a logarithmic male-reserve law in the saturated-capacity limit. The relevant sex-ratio and mating-system analyses in Lindström (1998), Engen et al. (2003), Tongen et al. (2016), and Leach et al. (2020) do not provide that combination in examined materials. Indexed findings overlap only in broad two-sex population language; no retrieved claim subsumes these finite allocation conclusions. The full 2010 Bessa-Gomes et al. paper could not be read, so equivalent optimization work there remains a residual risk. Failure to find a statement is not evidence of unique priority.
+PASS
 
-**Mathematical value — PASS.** The sex-ratio decision faces two explicitly opposed, natural biological objectives; a general sharp theorem rather than a numerical example proves their incompatibility. The binomial quantile gives finite-group calibration, and the distinction between \(n^{-1/2}\) correction at fixed capacity and only \(\log n\) expected males at maximal capacity characterizes two mathematically different biologically interpretable regimes. The strict boundaries \(h=1\) and \(n=2\) make the result a natural complete classification rather than a parameter slice.
+Let F~Bin(n,p), g(k)=min(k,h(n−k)), n≥3,h≥2. Discrete slopes of g are nonincreasing with at least one strict decrease, so Bernstein second derivative R″=n(n−1)E Δ²g(Bin(n−2,p))<0 for all 0<p<1 and endpoint slopes have opposite signs. Reflection around p=1/2 shows R′(1/2)>0 exactly for n≥3,h≥2, so unique output optimum p*>1/2 whereas S=1−p^n−(1−p)^n maximizes uniquely at 1/2; boundaries n=2 or h=1 share optimum. Lipschitz binomial concentration gives uniform R/n→min(p,h(1−p)) and linear asymptotic gain. For n divisible h+1, slope jump at q=hn/(h+1) makes exact CDF quantile equation; binomial CLT and quantile inversion prove √n(p0−p*)→(√h/(h+1))Φ⁻¹(h/(h+1)). For h≥n−1, g(k)=k except g(n)=0, so R=np−np^n and p*=n⁻¹/(n−1), giving n(1−p*)~log n and no mating ~1/n. Representative exact n=3,h=2 and finite differences independently checked.
 
-**Closest literature and limits.** Bessa-Gomes et al. (2004), DOI 10.1111/j.1461-0248.2004.00632.x, contains the same binomial mating expectation and graphical sex-ratio dependence; this antecedent requires attributing the entire mating function and expected-birth model. The exact optimization and two asymptotic laws are the claim under assessment. All results concern one mating event, not multigenerational persistence or evolutionarily stable sex allocation. The 2010 paper's full text was inaccessible and could contain stronger coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binomial expected mating function itself is explicitly Eq. 9 in Bessa-Gomes–Legendre–Clobert (2004), and its sex-ratio effects were already studied; neither is claimed new. The survivor is universal finite-(n,h) strict optimization/feasibility tradeoff, exact binomial optimum quantile and different fixed-h versus h≥n−1 asymptotics. The 2010 directly relevant mating-function paper was inaccessible at full-text level after lawful arXiv/OA attempts and authorized Oxford access returned VPN disconnected; material priority risk retained, not automatic rejection.
+
+## value
+
+PASS
+
+Two natural biological objective functions (expected realized reproductive females versus probability of any mating) provably have different optimum allocations throughout precisely identified finite-group regimes; quantified CLT male correction and logarithmic reserve explain otherwise unintuitive finite-group effects. Mathematically motivated constrained optimization result, not an unsupported evolutionary or persistence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
