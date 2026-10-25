@@ -1,11 +1,21 @@
-# Mathematical research review
+# Independent mathematical audit
 
-**Correctness — PASS.** Directly subtracting group payoffs gives the geometric term \(\omega^k\); binomial averaging yields the claimed convex one-dimensional payoff difference. The endpoint signs completely classify the scalar flow. Cauchy–Schwarz gives log-convexity of positive moments, and the strict factor \((G^2-1)/G^2\) makes \(Q_G\) strictly log-convex even for a deterministic environment. Positive mass above one guarantees eventual divergence. Five exact integer comparisons and monotone successive ratios certify all infinitely many group sizes in the displayed two-atom example. The standalone standard-library code independently checks representative identities and all five integers. Risk: the proof is confined to an unchanged bounded positive environmental law and the deterministic mean-field model.
+## correctness
 
-**Originality — PASS (qualified).** Full-text comparison with Zhu et al. (2024), its Eq. (6) and Supplementary Notes 1 and 4 identifies fixed-size payoff and aggregation discussion, but not the universal consecutive unfavorable-band theorem or the all-size rational reentrance example. Hauert et al. (2006) treat deterministic geometric returns; Hauert and McAvoy (2024) treat a distinct return mechanism. Peña (2012) varies group size as a random variable rather than varying fixed size against a fixed random return factor. Searches for moment log-convexity, reentrant group-size cooperation, and stochastic geometric group benefits did not reveal a statement implying the new theorem. Risk: absence from indexed searches is not proof of uniqueness; some related full texts, including later environmentally dynamic extensions, were not read.
+PASS
 
-**Value — PASS.** The well-motivated group-size aggregation question admits an exact universal restriction: defection-only regimes cannot reappear after a return to cooperation-attracting bistability. The finite rational example shows that even a fixed two-point environmental mixture produces a long defection-only window sandwiched between small- and large-group bistability. This yields a sharp structural design constraint rather than an isolated numerical example or a restatement of convexity.
+For r>1, fixed compactly supported positive environmental law µ with µ(ω>1)>0, Fermi mean-field sign is F_G(x)=r/G ∫(1+(ω−1)x)^(G−1)dµ−1. For each integer G>r, F_G(0)<0 and convexity (including the affine G=2 case) proves defection-only iff Q_G=F_G(1)+1≤1, otherwise exactly one interior unstable separatrix and two attracting boundary states. Hölder/Cauchy–Schwarz gives M_G²≤M_{G−1}M_{G+1}; division by G makes Q_G strictly log convex because (G²−1)/G²<1. A fixed positive mass above 1 makes Q_G→∞, so {G:Q_G≤1} is one finite contiguous integer interval or empty. For r=9/2, µ=(4/5)δ_(11/10)+(1/5)δ_(9/10), independently recomputed exact numerator differences at G=5,6,7,17,18: 86125,329277,−1440835,−29132543211735635,346187661271574877. Together with increasing adjacent Q ratios these prove complete G=5,6 bistability, 7..17 defection, G≥18 bistability. Exact independent rational binomial-moment checks were performed; finite checks are not the infinite proof.
 
-**Scientific limits.** Conclusions concern the stated infinite-population Fermi game, not finite fixation, arbitrary payoff distributions evolving with group size, or exogenous higher-order social interactions. Independent validation and specialist exhaustive literature screening remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the claim is a cross-group-size log-convex moment restriction and a complete reentrant threshold example for one fixed return distribution, not an equilibrium formula for a fixed G. Zhu et al. supply the two-environment Fermi setup and qualitative group-size effects; Hauert et al. treat deterministic geometric nonlinear benefits; their statements do not entail a distribution-independent one-window classification under the inspected assumptions.
+
+## value
+
+PASS
+
+The monotonic-boundary question is natural for evolutionary public-goods games: it excludes any sequence of separated defection-only windows under a fixed environment, while an exact rational counterpoint demonstrates genuine loss and recovery of bistability. It is a useful structural theorem and a finite/all-integer phase classification, not a reformulation of one payoff calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

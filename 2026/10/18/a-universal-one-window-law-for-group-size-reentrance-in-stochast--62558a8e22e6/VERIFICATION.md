@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Reproduce the checks with `python3 verify.py`, using only the Python standard library. The script confirms the five exact rational threshold comparisons at group sizes \(5,6,7,17,18\), checks exact strict log-convex inequalities on a finite sample of indices, and independently expands the binomial payoff average for rational cooperation frequencies and several group sizes. The program returned `PASS` for all tests in the prepared package.
+## correctness
 
-The proof, not the finite test, covers *every* admissible distribution and all infinitely many integer group sizes. The critical reasoning is (i) the cooperator-minus-defector increment \(r\omega^k/G-1\), (ii) convexity of the binomially averaged payoff difference, (iii) Cauchy–Schwarz moment log-convexity strengthened by division by group size, and (iv) the positive-synergy tail lower bound. The example's infinite-index tail follows from increasing adjacent moment ratios after its exact threshold crossing. No independent audit or external proof certification is asserted.
+PASS
+
+For r>1, fixed compactly supported positive environmental law µ with µ(ω>1)>0, Fermi mean-field sign is F_G(x)=r/G ∫(1+(ω−1)x)^(G−1)dµ−1. For each integer G>r, F_G(0)<0 and convexity (including the affine G=2 case) proves defection-only iff Q_G=F_G(1)+1≤1, otherwise exactly one interior unstable separatrix and two attracting boundary states. Hölder/Cauchy–Schwarz gives M_G²≤M_{G−1}M_{G+1}; division by G makes Q_G strictly log convex because (G²−1)/G²<1. A fixed positive mass above 1 makes Q_G→∞, so {G:Q_G≤1} is one finite contiguous integer interval or empty. For r=9/2, µ=(4/5)δ_(11/10)+(1/5)δ_(9/10), independently recomputed exact numerator differences at G=5,6,7,17,18: 86125,329277,−1440835,−29132543211735635,346187661271574877. Together with increasing adjacent Q ratios these prove complete G=5,6 bistability, 7..17 defection, G≥18 bistability. Exact independent rational binomial-moment checks were performed; finite checks are not the infinite proof.
+
+## originality
+
+PASS
+
+Best of knowledge: the claim is a cross-group-size log-convex moment restriction and a complete reentrant threshold example for one fixed return distribution, not an equilibrium formula for a fixed G. Zhu et al. supply the two-environment Fermi setup and qualitative group-size effects; Hauert et al. treat deterministic geometric nonlinear benefits; their statements do not entail a distribution-independent one-window classification under the inspected assumptions.
+
+## value
+
+PASS
+
+The monotonic-boundary question is natural for evolutionary public-goods games: it excludes any sequence of separated defection-only windows under a fixed environment, while an exact rational counterpoint demonstrates genuine loss and recovery of bistability. It is a useful structural theorem and a finite/all-integer phase classification, not a reformulation of one payoff calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
