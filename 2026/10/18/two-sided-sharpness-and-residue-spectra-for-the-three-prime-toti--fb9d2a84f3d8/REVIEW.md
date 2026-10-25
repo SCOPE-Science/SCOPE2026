@@ -1,11 +1,21 @@
-# Scientific review: sharpness and residue spectra for the three-prime totient discrepancy
+# Independent mathematical audit
 
-**Correctness: PASS.** The fixed-support formula follows from a partition into odd representative blocks, two disjoint exclusions of the two forbidden classes modulo the new prime, and multiplicativity of Schemmel's function. The exact finite residue counts and both numerical witnesses have been independently recomputed from the defining gcd tests, with the complete finite boundary certificates checked; Dirichlet's theorem supplies infinitely many primes in each coprime residue class, and the fixed-modulus prime number theorem supplies the proportions. Neither finite enumeration nor machine checks are treated as a proof of prime infinitude.
+## correctness
 
-**Originality: PASS, with residual risk.** Renshaw's 2026 paper proves a three-prime discrepancy upper bound but does not state the sharpness classes, their positive-density distribution, or the fixed-support residue law. The published two-prime Corollary 6 addresses two distinct prime factors and does not establish the existence or distribution of three-prime extremizers. Searches for exact aliases, an implied sharper formula, finite tables, and the proposed progression parameters yielded no source covering the combined theorem. Classical CRT and prime-distribution tools are acknowledged. Residual risk: the arithmetic identity could have been derived implicitly from generalized totient character sums or unpublished computations; database nonmatches do not prove novelty.
+PASS
 
-**Mathematical value: PASS.** Sharpness is a natural unresolved qualification to a published uniform three-prime error bound. Showing equality at both endpoints on prime progressions demonstrates that no smaller universal constant can replace six even for squarefree inputs. The full residue spectra and smallest fixed-support witnesses give a structural classification of how extremality arises and reproducible distributions beyond isolated examples.
+For odd P and a coprime odd prime r, the exact count by r consecutive P-blocks gives T(Pr)=(r-1)S(P)/2+T(P)-2B_P(r), while S(Pr)=(r-2)S(P); therefore D(Pr)=(S(P)+1)/2+T(P)-2B_P(r). Direct integer enumeration confirms S(65)=33,T(65)=15,B_65(24)=19 and S(119)=75,T(119)=38,B_119(31)=35, yielding -6 and +6. Exhaustive enumeration of all 48 and 96 reduced residues yields distributions (-6:1,-4:5,-2:18,0:18,2:5,4:1) and (-4:1,-2:10,0:37,2:37,4:10,6:1). Exhaustive semiprime supports below 65 or 119 establish sign-specific minima (not minima of the full three-prime integers). Dirichlet provides infinitely many primes in both classes, and fixed-modulus prime-number theorem yields densities. Finite counts alone do not prove infinitude.
 
-**Scientific limitations.** The proof does not classify all three-prime squarefree integers, higher prime support, or the least full integer attaining either sign. The classical prime-density inputs are not independently reproved. Independent scientific validation has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Renshaw introduced T and proves the three-prime bound abs(D)<=6, but the inspected Section 2 and Theorem 3 do not assert infinite two-sided sharpness, exact residue spectra or minimal two-prime supports. These require the additional fixed-support reduction and finite complete class analysis. Best-of-knowledge PASS with possible implicit-inclusion-exclusion risk.
+
+## value
+
+PASS
+
+Exact extremizers and natural densities answer the immediate mathematical sharpness question for a newly bounded totient discrepancy. The minimal two-prime support problem sharpens both signs and supplies reusable arithmetic-progression certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
