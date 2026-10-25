@@ -1,0 +1,86 @@
+{
+  "claim": "For all coprime integers \\(p,q>1\\) and every integer \\(s>1\\) with \\(\\gcd(s,pq)=1\\), the torus-knot group \\(G_{p,q}=\\langle a,b\\mid a^p=b^q\\rangle\\) embeds in \\(G_{pq,s}=\\langle x,y\\mid x^{pq}=y^s\\rangle\\) via \\(a\\mapsto x^q\\) and \\(b\\mapsto yx^p y^{-1}\\); the groups are nonisomorphic because their quotients by their infinite cyclic centers are \\(C_p*C_q\\) and \\(C_{pq}*C_s\\), respectively.",
+  "correctness": {
+    "rationale": "The defining relation is preserved. The quotient map is injective by reduced-word normal form, and the kernel is forced into the central cyclic subgroup, whose generator maps to an infinite-order element.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Myers, arXiv:math/9901106, Lemma 4.1 states the if-and-only-if only for prime \\(p,q,r,s\\).",
+        "The new formula allows arbitrary coprime \\(p,q>1\\) and composite target exponent \\(pq\\), with \\(\\gcd(s,pq)=1\\)."
+      ],
+      "reasoning": "The source theorem does not cover this parameter regime. The quotient map works because \\(C_p\\) and \\(C_q\\) embed as distinct conjugate subgroups of the same \\(C_{pq}\\) factor, a configuration excluded by the prime-target case when the target factors are distinct primes.",
+      "searches": [
+        "Myers arXiv:math/9901106 §4 Lemma 4.1",
+        "\"subgroups of torus knot groups\" embeddings torus knot groups classification",
+        "\"torus knot groups\" \"free product\" embedding composite exponents"
+      ]
+    },
+    "checked_sources": [
+      "Myers, arXiv:math/9901106, §4 Lemma 4.1 and §5 Theorem 5.1.",
+      "Kurosh subgroup theorem / free-product normal form as background; the proof here uses the explicit reduced-word normal form directly."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Myers, arXiv:math/9901106, lines 131–143 in the public HTML: the prime-parameter lemma and its quotient-by-center proof.",
+        "The new proof explicitly constructs \\(\\phi(a)=x^q\\) and \\(\\phi(b)=yx^p y^{-1}\\), then proves injectivity via the quotient and central kernel."
+      ],
+      "reasoning": "The prime-only lemma neither asserts nor implies that the same parameter-rigidity conclusion holds for composite target exponents. The new family is an explicit counterexample to that natural extension. The general subgroup-classification literature was not exhaustively searched, so the conclusion is restricted to the exact proved family.",
+      "searches": [
+        "Myers arXiv:math/9901106 §4 Lemma 4.1 and §5 Theorem 5.1",
+        "\"subgroups of torus knot groups\" embeddings torus knot groups classification",
+        "\"G_{2,3}\" embeds \"G_{6,5}\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Myers, arXiv:math/9901106, §4, Lemma 4.1: \\(G_{p,q}=\\langle x,y\\mid x^p=y^q\\rangle\\) and the quotient by its central power is \\(C_p*C_q\\)."
+      ],
+      "reasoning": "The embedding can equivalently be described as a central extension of the injective free-product map \\(C_p*C_q\\to C_{pq}*C_s\\). The exact formula found here is not an alias or restatement of the prime-parameter result.",
+      "searches": [
+        "\"torus knot groups\" subgroup embeddings composite parameters G_{p,q} G_{r,s}",
+        "\"G_{2,3}\" embeds \"G_{6,5}\"",
+        "Myers arXiv:math/9901106 §4 Lemma 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite table is applicable to this infinite family of group embeddings; the proof is symbolic and does not use a census."
+      ],
+      "reasoning": "An exhaustive database/table is inapplicable: the parameter family is infinite and the claim is a proof about presentations, not a finite classification or numerical lookup. Search results did not surface the exact formula, but absence from search is not treated as proof of novelty.",
+      "searches": [
+        "\"G_{2,3}\" \"G_{6,5}\" torus knot group subgroup",
+        "\"torus knot group\" \"embeds\" subgroup G(p,q) G(r,s) composite",
+        "torus knot groups embeddings subgroup classification G_pq embeds G_rs composite coprime exponents"
+      ]
+    },
+    "rationale": "Myers, arXiv:math/9901106, Section 4, Lemma 4.1 treats only prime parameters. The explicit composite-exponent family is not stated there; it uses two distinct conjugates of cyclic subgroups in \\(C_{pq}\\). The claim is deliberately limited to this construction, not a classification.",
+    "residual_risks": [
+      "A complete survey of all subgroup-embedding classifications for torus-knot groups was not performed.",
+      "The result is a sufficient family only; other embeddings may exist outside the stated divisibility pattern."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers embedding rigidity when all four parameters are prime; does not state the composite-exponent construction proved here.",
+        "evidence": "Section 4, Lemma 4.1 specifies prime \\(p,q,r,s\\) and uses \\(C_p*C_q\\) as the quotient by the center.",
+        "identifier_or_url": "https://arxiv.org/abs/math/9901106",
+        "material_read": "Public full text, Section 4, Lemma 4.1 and the adjacent proof; Section 5, Theorem 5.1 for the stated use of the lemma.",
+        "method": "Compared the exact parameter hypotheses and quotient-by-center argument against the new family.",
+        "title": "Uncountably many arcs in S^3 whose complements have non-isomorphic, indecomposable fundamental groups",
+        "trigger": "Its Section 4 uses embeddings between torus-knot groups to distinguish groups arising from wild-arc complements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c54c168-eba8-4dd5-b597-64923ea7e894",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit infinite family is a useful boundary counterexample to dropping the prime hypothesis in a published embedding-rigidity lemma. It provides a reusable formula and a precise proof, while making no claim of a full classification.",
+    "status": "PASS"
+  }
+}
