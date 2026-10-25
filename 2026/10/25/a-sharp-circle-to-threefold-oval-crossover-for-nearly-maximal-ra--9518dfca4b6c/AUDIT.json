@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The polar curvature numerator equals (1+eta cos 3theta)(1+10eta cos 3theta)+18eta^2 sin^2 3theta >0 for 0<=eta<1/10. The maximal-area triangle in the containing radius-(1+eta) disk is equilateral, and for eta>0 exactly the three radial bulges lie on its boundary, yielding six labeled maxima. Direct signed-area expansion has eigenvalues a_eta,a_eta,b_eta for the quadratic deficit, all positive when eta>0. Gaussian ellipsoid volume 4pi epsilon^(3/2)/(3a_eta sqrt(b_eta)), six maxima and the exact arclength density give C_eta. When eta/epsilon tends to a finite lambda, localization to the circular equilateral manifold, uniform quadratic expansion and orthonormal Jacobian sqrt(3) yield the positive-part phase integral F(s). The integral has the displayed piecewise evaluation, with limiting circle coefficient 4/(3pi). Numerical finite-difference Hessians, direct triangle area evaluations and low-discrepancy rare-event quadrature reproduce both regimes (verify_trilobe.py); only the analytical argument proves the limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nikitin–Simarova (2020), Theorem 4.1 and Section 3 assumptions A1–A6, treat fixed rotation-invariant circle kernels with nondegenerate angular Hessians.",
+        "Koroleva–Nikitin (2013), Theorem B and main polygon theorems are for points on the round circle."
+      ],
+      "reasoning": "The general 2020 theorem does cover fixed circle area tails, but the triple-area kernel of r=1+eta cos(3 theta) is not rotation-invariant for eta>0. At eta=0 the full Hessian has a rotational zero mode, and the simultaneous eta=O(epsilon) regime is not handled by the fixed-kernel nondegenerate-Hessian formula. A general local Laplace principle can explain the fixed-eta exponent but does not itself give the explicit crossover or the sharp phase cutoff without the new calculations.",
+      "searches": [
+        "maximum area random triangles inscribed noncircular convex curve extreme tail dimension reduction",
+        "arxiv:2010.04460",
+        "arxiv:1301.1360",
+        "random triangles inscribed in non circular oval maximal area tail asymptotic perturbation symmetry"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.1360",
+      "arxiv:2010.04460",
+      "doi:10.1016/j.jmva.2008.02.001 (accessible excerpts only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Lemma B: lim_{epsilon->0} P(A>3sqrt(3)/4-epsilon)/epsilon=4/(3pi) for a circle.",
+        "2020 Example 5.2 derives random inscribed polygon area limits as applications of its circle-kernel theorem, and its explicit hypothesis A1 enforces rotational invariance.",
+        "The new claim includes C_eta for eta>0, exponent 3/2, and the joint limit parameterized by eta/epsilon with a finite phase cutoff."
+      ],
+      "reasoning": "The circle result is strictly contained as the eta=0 boundary, not an originality claim. A nondegenerate fixed-kernel Hessian law would imply only a local epsilon^{3/2} scaling after supplying the oval-specific Hessian; it does not imply the crossover integral or its cutoff at eta/epsilon=1/(3sqrt3). No contrary stronger coverage was identified in inspected relevant primary text.",
+      "searches": [
+        "arxiv:1301.1360",
+        "arxiv:2010.04460",
+        "maximum area random triangles inscribed noncircular convex curve extreme tail dimension reduction",
+        "fixed area-deficit near equilateral triangle on smooth threefold perturbed circle interpolation exponent one three-halves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koroleva–Nikitin (2013), Lemma B, obtains the same linear coefficient for the undeformed unit circle only.",
+        "Nikitin–Simarova (2020), assumption A1, requires rotation invariance of the kernel; a positive third-harmonic radial deformation destroys that symmetry."
+      ],
+      "reasoning": "The undeformed circle limit is a credited special case and is not represented as new. For eta>0, the area kernel depends on absolute angular phase, not just angular differences, and eta/epsilon varying is a changing-kernel limit. Thus neither directly equivalent prior theorem states the explicit two-parameter crossover F(s).",
+      "searches": [
+        "near-maximal area of triangles inscribed in smooth threefold symmetric radial convex curves h=1+epsilon cos(3 theta), cusp crossover Weibull probability",
+        "random inscribed triangle area circle to threefold rounded triangle symmetry breaking small lobe perturbation phase transition",
+        "trilobe curve r(theta)=1+delta cos(3 theta) random inscribed triangle maximal area probability",
+        "Koroleva Nikitin 2013 arxiv 1301.1360 maximum area inscribed triangle circumference Lemma B deformation",
+        "arxiv:1301.1360",
+        "arxiv:2010.04460"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published small-circumradius law concerns uniform points in a planar convex body and the event of small circumradius, not maximal inscribed boundary-triangle area.",
+        "Published regular-polygon triangle moments concern discrete polygon vertices and conditional center containment, not continuously sampled radial boundaries.",
+        "Direct threefold-oval and double-scaling searches did not return a matching recorded coefficient or transition function."
+      ],
+      "reasoning": "No inspected table or searchable publication record yielded the arccosine F(s) for a third-harmonic radial oval. Search absence is limited evidence, not a proof of novelty.",
+      "searches": [
+        "near-maximal area of triangles inscribed in smooth threefold symmetric radial convex curves h=1+epsilon cos(3 theta), cusp crossover Weibull probability",
+        "trilobe curve r(theta)=1+delta cos(3 theta) random inscribed triangle maximal area probability",
+        "fixed area-deficit near equilateral triangle on smooth threefold perturbed circle interpolation exponent one three-halves",
+        "three random boundary points maximal area trifold curve polar radius cos3theta"
+      ]
+    },
+    "rationale": "The known circular upper-tail coefficient and the stronger fixed-circle-kernel literature are explicitly acknowledged. Exact double-scaling novelty was tested against formula-level coverage, not titles, and no inspected primary result states or implies the threefold-oval crossover without additional analysis. Historical priority is provisional.",
+    "residual_risks": [
+      "An unlocated paper on boundary-triangle area laws for noncircular curves might implicitly contain the same crossover; negative searches alone cannot rule it out.",
+      "The 2008 foundational paper was not available as a complete inspectable full-text document in this run; its accessible excerpts were not treated as comprehensive evidence of absence.",
+      "The general fixed-kernel local Gaussian-volume method is standard. Originality and value attach to the concrete sharp phase-transition interpolation, not to Laplace rescaling by itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the eta=0 circle coefficient; does not state a threefold-deformed curve or shape/deficit double-scaling law.",
+        "evidence": [
+          "Theorem B and Lemma B, PDF p.4: coefficient 4/(3pi) for three uniform points on a circumference.",
+          "PDF p.9 integrates ellipsoidal neighborhoods of regular inscribed m-gons on the circle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+        "material_read": "Full-text HTML introduction, Theorem B and Lemma B; PDF pages 4 and 9; searches of complete PDF for ellipse and circular-domain scope.",
+        "method": "Read the mathematical hypotheses and displayed constants, compared the set of maximizing configurations and permissible underlying curves.",
+        "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+        "trigger": "Precisely dated archived primary work giving a near-maximum area probability for inscribed triangles on a circle."
+      },
+      {
+        "assessment": "Rotation-invariant fixed-circle-kernel hypothesis A1 excludes the varying third-harmonic body, and the source does not prove a joint shape/threshold limit.",
+        "evidence": [
+          "PDF p.5: condition A1 states rotation invariance of the kernel.",
+          "PDF p.6: Theorem 4.1 uses the fixed-kernel nondegenerate Hessian.",
+          "PDF p.11: Example 5.2 covers maximal area on a circle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.04460",
+        "material_read": "Full-text HTML sections 1, 3–5 and the relevant examples; PDF pages 5, 6 and 11; complete-PDF keyword checks for ellipse and rotation.",
+        "method": "Checked Conditions A1–A6, Theorem 4.1, and Example 5.2 against the non-rotation-invariant deformed area kernel.",
+        "title": "Generalized Limit Theorems For U-max Statistics",
+        "trigger": "Potential broader theorem covering maximal areas of random inscribed polygons with general sampling densities."
+      },
+      {
+        "assessment": "Establishes foundational U-max context; cannot independently exclude uninspected full-text details.",
+        "evidence": [
+          "Publisher result identifies rotation-invariant circumference-triangle perimeter results and an upper-tail coefficient in Section 6."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmva.2008.02.001",
+        "material_read": "Publisher-search accessible abstract, introductory and displayed Section 6 excerpts; full-text page access was unsuccessful.",
+        "method": "Compared the stated studied kernel family with the deformation-dependent triangle-area kernel; not treated as decisive whole-document exclusion.",
+        "title": "U-max-statistics",
+        "trigger": "Foundational archived literature cited by both relevant primary papers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9518dfca-4b6c-4519-ae22-02112081ed9c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The lowest nontrivial threefold radial perturbation singles out exactly the three vertices of a maximizing equilateral triangle, so it is a natural symmetry-breaking family rather than an arbitrary parameter slice. Its fixed nonzero deformation replaces the classical linear upper-area tail by an epsilon^(3/2) law; the explicitly computed simultaneous limit identifies exactly when all rotational phases cease to contribute and gives a sharp piecewise arccosine profile. This resolves a natural singular-perturbation gap in near-maximal random inscribed polygons and supplies nontrivial geometric constants useful when comparing nearly circular boundaries. It does not rely on a merely small numerical improvement.",
+    "status": "PASS"
+  }
+}
