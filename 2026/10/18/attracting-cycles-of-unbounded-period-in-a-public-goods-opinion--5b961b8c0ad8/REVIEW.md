@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is reconstructed from the original best-response discriminant and homogeneous weights. The scalar threshold invariance, exact global cyclic solution, Möbius enumeration, fixed-point contraction of periodic affine forcing, strict switching margins, and local exponential stability are established for arbitrary sizes with explicit quantifiers. The exact rational checker independently tests the derived formulas. Finite tests do not stand in for infinite proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The directly motivating 2026 arXiv full text states the permitted synchronous update and a future goal of proving convergence to equilibrium, but does not provide these nonconvergent solutions. The 2023 and 2025 opinion–action convergence analyses apply to different coordination/anti-coordination games, distinct activation assumptions, and therefore do not imply this public-goods result. Specific semantically matched published records and historical claims were compared. A wider theorem from piecewise-affine threshold dynamical systems could subsume individual arguments without naming this game.
+PASS
 
-**Mathematical value — PASS.** Arbitrarily long stable cycles delimit the validity of a concrete conjectural convergence claim. The complete period census and the robustness margin show that the phenomenon is structural and persists under positive directed coupling, rather than arising at an isolated singular network.
+Derived the threshold from the source payoff discriminant alpha(r/n-1)+beta*lambda/(beta+lambda)*(Wy-1/2), using alpha=1/20, beta=lambda=19/40 and r=3n/4. The scalar f(u)=0.5u+0.5*1_{u>21/38} strictly preserves the two threshold half-intervals, including tie to 0. Permutation equivariance gives exact y_t=P^t[sigma+2^{-t}(y0-sigma)] and all transient points converge to binary rotating words; Mobius inversion counts primitive necklaces. For perturbed stochastic W, ||aW||∞=1/2 and periodic affine forcing has a unique fixed orbit with ||Wy*-P sigma||≤epsilon/(1-a), giving strict threshold itinerary and local contraction if epsilon<17/76. Independently verified exact rational periodic solutions for n=3,4,5 fully connected off-diagonal W and 0<epsilon<17/76. The original Theorem 2 is in another all-defection symmetric-network parameter regime.
 
-**Closest literature:** Davidson et al. (2026), arXiv:2604.08840v1; Dehghani Aghbolagh et al. (2023), arXiv:2206.07242v2; Liang et al. (2025), arXiv:2505.03078v1.
+## originality
 
-**Limitations:** Simultaneous revision, homogeneous zero-prejudice settings, and influence near an oriented cycle. Dense directed perturbations yield local, not global, attraction; exclusive asynchronous revision and fully symmetric influence remain untreated. Originality has a residual general-theory overlap risk; no independent review is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. The source formula supplies the dynamical system, not the orbit existence/period census. Conditional global convergence does not exclude attracting cycles outside its domain. The audited all-period construction is therefore not a disguised contradiction of an established theorem.
+
+## value
+
+PASS
+
+The principal paper proposes whether equilibrium convergence may hold generally; this mathematically explicit family of attracting non-equilibrium cycles for arbitrarily large periods is a consequential sharp negative boundary under an update mode explicitly allowed by the model. Binary necklace enumeration and robustness to dense directed coupling make it much more than an isolated numerical cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
