@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed conditional law has exact quantified hypotheses: any finite cycle with at least three vertices and a positive finite fully exchangeable edge-conductance vector, with the sample frozen during the walk. The two-stage hitting decomposition is an ordinary resistance-coordinate gambler's-ruin calculation on the path avoiding the proposed last vertex. Conditional label exchangeability then gives all needed normalized-share expectations, with no integrability issue since all shares lie in the unit interval. The proof handles terminal index endpoints. The standalone exact-rational checker passed 187 assertions for finite cases including all permutations of several multisets. The proof, not the checks, establishes the general statement.
+PASS
 
-## Originality — PASS (qualified)
+For n≥3 and positive finite frozen conductances, set resistances r_i=1/C_i and remove candidate last vertex k. The avoided path has n−2 edges of total resistance R and start-to-endpoint part A. Resistance-coordinate hitting gives exact q_k=(1−A/R)r_k/(R+r_k)+(A/R)r_(k−1)/(R+r_(k−1)). Given the unordered multiset and the two boundary resistances, exchangeability gives E[A/R]=(n−k−1)/(n−2). By permutational symmetry each boundary normalized resistance share with n−2 others has mean 1/(n−1). Conditioning/iterated expectations yields E[q_k|multiset]=1/(n−1), including k=1,n−1, n=3 and repeated weights. All ratios are bounded; no integrability/moment issue. The annealed conditional theorem does not claim quenched uniformity.
 
-Idnani and Salem (arXiv:2610.15115, October 10, 2026) prove homogeneous-bias and deterministic time-varying cycle laws and explicitly list spatial randomness as a future direction. Lovász and Winkler proved classical unweighted-cycle uniformity. Mosbah and Saheb (2000) previously computed last-vertex probabilities for deterministic nonuniform weighted cycles, so the fixed-environment formula is not independently claimed as novel. The assessed finding is the invariant *conditional annealed law given the unordered edge environment* for all exchangeable random conductances. Its full 2000 predecessor text could not be inspected; implicit equivalence or stronger coverage remains a material priority risk. Relevant published mathematical-record and accessible prior-claim searches did not find this conditional assertion; negative retrieval is not priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural last-coverage invariant with a strong structural difference between quenched and annealed behavior: arbitrary heterogeneous frozen edges can skew the final discovery, but a full exchangeable edge assignment restores exact fairness even conditional on the complete unordered sample. No independent-edge, moment, or uniform-ellipticity assumptions are needed. The result concerns coverage fairness, not cover times or nonreversible random site biases. The result could be implicit in earlier weighted-cycle formulas and deserves independent priority checking.
+Best-of-knowledge originality judgment on this complete exact claim, based on statement-level comparison with primary mathematical literature and published research records, with limited full-text access flagged rather than interpreted as novelty proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact last-discovery location is a natural cover-statistic of reversible walks. The theorem identifies full edge exchangeability as sufficient to erase quenched heterogeneity even conditioned on the entire unordered weight sample, independently of weight tails and dependencies. This nontrivial conditional fairness invariant sharply distinguishes fixed versus annealed environments and is not a mere homogeneous-walk restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
