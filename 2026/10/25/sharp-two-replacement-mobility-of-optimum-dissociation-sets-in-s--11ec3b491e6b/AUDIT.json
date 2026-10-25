@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The line-graph identification converts dissociation into a packing of isolated edges and two-edge paths. The 2/3 vertex-capacity bound is sharp only for a spanning P3-factor. Bipartition equations force k row centers and k column centers. One replacement cannot change a saturated two-edge star. For two replacements, the complete local classification is leaf exchanges within two stars of one orientation (8 binom(k,2)) or paired recentering across opposite orientations (4k^2). Center-set fibers are connected via leaf transpositions and the quotient realizes the connected tensor product of two nonbipartite Johnson graphs. Two independent executable enumerations give 9 states/degree4 and 8100 states/degree24, with one component for n=3 and n=6; the proof, not computations, covers all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma, Kamiński and Wrochna (2014) Theorem 16 treats reachability among independent sets of claw-free graphs, including line graphs. The 2010/2011 Orlovich preprint proves a general computational hardness and P3-packing reduction for dissociation sets."
+      ],
+      "reasoning": "The independent-set theorem has the wrong feasible objects: each optimum dissociation set here induces 2k edges, hence is not independent. The general dissociation-set hardness result has no two-simultaneous-replacement connectivity theorem. Neither result dominates the stated claim.",
+      "searches": [
+        "optimal dissociation set reconfiguration two simultaneous replacements in line graphs of complete bipartite graphs",
+        "dissociation set reconfiguration token jumping maximum dissociation sets graph",
+        "arXiv:1403.0359v1",
+        "DOI:10.1016/j.dam.2011.04.023"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.0359v1 full HTML sections 1-7 and selected appendix",
+      "Orlovich et al. complete author-preprint HTML (academic source)",
+      "Published mathematical-record findings retrieved for the four recorded scientific queries",
+      "Earlier theorem statements on rectangular rook induced-matching enumerations and triangular-graph dissociation exchanges",
+      "earlier exact rook induced-matching claim 58c2e820 and triangular maximum-dissociation reconfiguration claim 1c0a0495"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior ID 58c2e820 has complete induced matching generating function for rectangular rook graphs, but no reconfiguration statement. Prior ID 1c0a0495 concerns maximum dissociation set reconfiguration of triangular graphs L(K_n), not L(K_{3k,3k}). The 2014 claw-free paper covers independent sets and single-token moves."
+      ],
+      "reasoning": "The new implication is from saturation and paired recentering to a connected regular two-replacement graph. Enumerative and optimum-size facts do not force connectivity of the solution graph (optima can be arbitrarily frozen). Similar exchange phenomena on nonisomorphic underlying complete-graph line graphs neither imply nor specialize to bipartite line graphs.",
+      "searches": [
+        "58c2e820-445f-484a-a3b6-035a5291db15",
+        "1c0a0495-62c4-4b93-93a0-0eef6b4fe331",
+        "optimal dissociation set reconfiguration two simultaneous replacements in line graphs of complete bipartite graphs",
+        "arXiv:1403.0359v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dissociation optima correspond to P3-factors of K_{3k,3k}, equivalently maximum induced matchings in its line graph. Orlovich et al. preprint sections 1-2, Claim 1, and prior enumerator 58c2e820 establish underlying bijection but no optimum-exchange adjacency result."
+      ],
+      "reasoning": "Translated the state space to edge-disjoint 3-vertex path factorizations and searched this alias. The exact path-packing bijection does not imply that two replacements connect all factorizations or determine their degree.",
+      "searches": [
+        "maximum dissociation sets of the square rook graph K_{3k} Cartesian K_{3k} count optimal configurations two-vertex exchange connectivity one-vertex frozen",
+        "edge-disjoint three-vertex paths decomposition bipartite graph reconfiguration stars permutation connectivity",
+        "\"P3-factor\" \"reconfiguration\" \"complete bipartite\"",
+        "58c2e820-445f-484a-a3b6-035a5291db15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier rectangular rook induced-matching result 58c2e820 gives m!n!/(2^(a+b) a! b! r! c!) and the spanning-P3 maximum; specializing m=n=3k, a=b=k recovers N_k exactly. Published mathematical-record hits included general rook homology, neighborhood complexes and complete-multipartite dissociation polynomials, not two-replacement graphs."
+      ],
+      "reasoning": "The previously known enumerator covers the count and optimum cardinality, which are not asserted as new. No matching adjacency/degree/connectedness tabulation was found; absence from returned records is not by itself proof of novelty.",
+      "searches": [
+        "maximum dissociation sets of the square rook graph K_{3k} Cartesian K_{3k} count optimal configurations two-vertex exchange connectivity one-vertex frozen",
+        "rook graph K_m square K_n induced matching bivariate generating function e^u+e^v-1+uv maximum 2-edge paths reconfiguration threshold",
+        "\"dissociation\" \"rook graph\" \"reconfiguration\"",
+        "58c2e820-445f-484a-a3b6-035a5291db15"
+      ]
+    },
+    "rationale": "The new claim is the sharp one-versus-two simultaneous-replacement mobility threshold and the full regular degree for every 3k square rook graph. Orlovich et al. already give the line-graph P3 packing equivalence, and a prior rectangular-rook induced-matching enumeration implies the optimum count, so these are explicitly excluded from the originality claim. Bonsma et al. address independent set token moves in claw-free graphs; the present selected sets induce many adjacent pairs. Prior triangular-graph maximum-dissociation reconfiguration concerns line graphs of complete rather than complete bipartite graphs and does not imply this center-fiber mechanism. Targeted record and primary literature searches found no implication covering the mobility theorem; not a proof of publication uniqueness.",
+    "residual_risks": [
+      "Equivalent two-swap connectivity results may be published under P3-factor, partial star factor, or exact-cover terminology but absent from indexed searches.",
+      "The older preprint is publicly accessible but its actual first-public date is not day-resolved here; the archive anchor uses the earliest independently verified day-resolved public source, arXiv 2014-03-03.",
+      "Search results cannot establish uniqueness; some inaccessible earlier mathematical results may be missing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the dissociation/P3 packing reduction and complexity, not sharp optimum-preserving two-swap reconfiguration",
+        "evidence": "Theorem 1, Claim 1: a graph on 3q vertices has a P3 partition iff its line graph has a dissociation set of size at least 2q. No move graph is defined.",
+        "identifier_or_url": "https://www.academia.edu/12908075/On_the_Complexity_and_Inapproximability_of_Dissociation_Set_Problems_in_Graphs",
+        "material_read": "Publicly accessible complete 15-page preprint text, including definitions, Theorem 1 and Claim 1 in Section 2, concluding remarks and references",
+        "method": "Read accessible HTML rendering of complete preprint",
+        "title": "On the Complexity and Inapproximability of Dissociation Set Problems in Graphs",
+        "trigger": "Direct earlier work on dissociation sets in line graphs and P3-packings"
+      },
+      {
+        "assessment": "Does not cover selected configurations with degree-one induced components; token sliding/jumping considered only for independent sets",
+        "evidence": "Sections 1, 2 and Theorem 16 explicitly require pairwise nonadjacent selected vertices; search for dissociation returned no occurrence.",
+        "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+        "material_read": "Full HTML paper sections 1-7 including Theorem 16, discussion and relevant appendix passages; searched the document for dissociation",
+        "method": "Read arXiv full HTML and inspected theorem statements and proof setting",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Potentially stronger reconfiguration theorem on the larger class of claw-free graphs"
+      },
+      {
+        "assessment": "Directly covers the count and 4k optimum size in this special case, but has no reconfiguration graph theorem",
+        "evidence": "Specialize its coefficient m!n!/(2^(a+b) a!b!r!c!) at m=n=3k, a=b=k, r=c=0.",
+        "identifier_or_url": "58c2e820-445f-484a-a3b6-035a5291db15",
+        "material_read": "Complete recoverable finding claim including exact exponential generating functions, maximum size and inclusion-maximal criteria",
+        "method": "Statement-level implication comparison",
+        "title": "Earlier exact induced-matching enumeration for rectangular rook graphs",
+        "trigger": "Potentially dominating earlier exact row/column P3 packing result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11ec3b49-1e6b-4b13-bd5f-5a0c15d563d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated sharp budget transition in the entire optimum space of a familiar highly symmetric graph family: every optimum is frozen under one selected-square replacement but all are connected under two simultaneous replacements, with explicit regular degree and a constructive path to arbitrary center sets. The 3-vertex path-factor mechanism is structural, not a renaming or a known table count; the exact count is credited as known. It gives a precise repair threshold for locally frozen optimum placements and general k proof, unlike an arbitrary small invariant.",
+    "status": "PASS"
+  }
+}
