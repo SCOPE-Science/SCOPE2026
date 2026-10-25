@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Smoothness and the branch divisor follow from separability and Riemann--Hurwitz, and all eight rational points are counted fibre-by-fibre. The quadratic-character expansion, elliptic Frobenius trace \(U^2+3\), restriction to subfields, and Möbius inversion establish the exact formula. The strict bound on proper subfields proves positive counts for every even degree at least six. Independent finite computations check all admissible monic polynomials through degree twelve, with independent extension-field quadratic-character counts at degrees six and eight. Computations supplement rather than replace the infinite argument.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Faber--Grantham's eight-point hyperelliptic upper bound and constructions are prior; these are not newly asserted. The genus-two special cases of the branch-divisor classification are also known and not separately claimed. The additional joint theorem requires irreducibility of all geometric branch points in *every* genus and computes the exact number of such monic polynomials. The inspected Faber--Grantham, Vermeulen, Gao--Kuttner--Wang and Slavov primary texts do not give this fixed-field Möbius--elliptic trace result. Arithmetic-progression methods could yield equivalent consequences and an unindexed exact formula remains possible; this qualification prevents a claim of global priority proof.
+PASS
 
-**Value — PASS.** A rational-point-maximizing hyperelliptic cover usually permits many arithmetic structures on its branch divisor. Showing maximal point count is compatible with Frobenius transitivity on *all* branch points for every genus provides a natural arithmetic refinement, not merely another construction. The closed formula supplies exact realizations (for example \(12,90,720,5460\) equations in genera \(2,3,4,5\)) and makes this refinement quantitatively explicit across infinitely many genera. The statement does not assert broader Jacobian classifications or isomorphism-class counts.
+For n=2g+2 even ≥6, separable irreducible P gives a single degree-n branch orbit and genus (n−2)/2 by Riemann–Hurwitz. Three rational x-fibers and two infinity points give exactly eight F3-points because P(a)=1 and the leading coefficient is 1. For any even m, expanding the three square-character indicators and using E:y²=x³−x with trace 0 gives |S_m|=(3^m−15−2(−3)^{m/2})/8. Restriction of the degree-n quadratic character to F3^d is trivial for n/d even and nontrivial for odd n/d; Möbius inversion and division by n yield precisely |I_n|=Σ_{d|n} μ(n/d)B_{n,d}/n. The proper-subfield overcount and t=3^{n/2}≥27 inequality prove positive full-degree count for every n≥6, not by finite extrapolation. Independently evaluated n=6,8,10,12 counts 12,90,720,5460, and directly enumerated all matching irreducible monic P at n=6,8,10. Scope strictly monic defining equations over F3, not isomorphism classes.
 
-**Scientific limitations.** Counts are for monic equations rather than isomorphism classes. Priority is limited by potentially unindexed finite-field arithmetic-progression formulas and by the fact that general methods may imply this specialization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The eight-point sharp bound is explicitly acknowledged as established; the distinct claim is an all-even-degree exact count of irreducible monic equations with three prescribed values and one full Frobenius branch orbit. The character-count formula using the trace-zero elliptic curve E:y²=x³−x and Möbius subfield correction is more specific than the generic point-existence theorem. No compelling prior implication identified; arithmetic-progression prime-polynomial theory remains a real residual risk.
+
+## value
+
+PASS
+
+The single Frobenius-transitive branch restriction makes the classical sharp 8-point hyperelliptic extremum arithmetically rigid; the exact all-genus count answers a natural finite-field polynomial existence and enumeration problem with explicit normalization. This is not just the known point bound: it controls the complete Weierstrass Frobenius orbit and yields a reusable character/Möbius expression for future ramification and irreducibility work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
