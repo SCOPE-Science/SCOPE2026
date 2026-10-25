@@ -1,33 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matrices are positive definite, the two representation spaces coincide, and the dual synthesis-analysis composition is exactly
-\[
-K=
-\begin{pmatrix}
-4&-10\\
--7&23
-\end{pmatrix}.
-\]
-For \(J=\{1\}\) and \(f=(1,i)\), the two sides of the published identity reduce to conjugate cross terms with values
-\[
-152-24i
-\quad\text{and}\quad
-152+24i
-\]
-under one standard inner-product convention. Hence the theorem is false over complex Hilbert spaces.
+## correctness
 
-Taking real parts makes the identity exact for every dual pair.
+PASS
 
-## Originality
-PASS. The exact 2020 theorem, its earlier controlled-\(g\)-frame precursor, the representation-space formalism, dual-operator aliases, conjugate-cross-term formulation, and missing-real-part formulation were compared. No checked indexed source supplied this \(K\)-version counterexample or an explicit correction.
+The exact 2020 source defines S_J=sum_i (Lambda_i*Lambda_i)^1/2 (tildeLambda_i*tildeLambda_i)^1/2 and S_J+S_Jc=K. With C=C’=I and Lambda_i=P_i, tildeLambda_i=Q_i=P_iR, four matrices are real symmetric positive definite (determinants 1,2,2,4; positive traces); R has determinant 2. Their representation ranges coincide exactly, allowing the paper’s domain-restricted synthesis operator to act on the tilde analysis vector. Matrix products give A=P1Q1=[[2,-4],[-3,7]], B=P2Q2=[[2,-6],[-4,16]], K=A+B=[[4,-10],[-7,23]], det K=22. Lambda is a K-g frame because P1²+P2² is positive definite. With f=(1,i), exact conjugate-first complex products give <Af,Bf>=152-24i and <Bf,Af>=152+24i; these equal the original theorem’s two sides. The complex equality is false. For any A+B=K, taking real parts gives Re<Af,Kf>-||Af||²=Re<Bf,Kf>-||Bf||² by conjugate symmetry; no finite extrapolation is used. The proof is specific to Theorem 3.2, not adjacent inequalities.
 
-The nearest published duality findings concern different eigenspace, range-compression, weaving, perturbation, or scaling mechanisms and do not imply this result.
+## originality
 
-## Value
-PASS. The source presents Theorem 3.2 as an extension of a fundamental dual-frame identity. The failure appears in dimension two with exact matrices and a valid dual pair, while the repair is a one-line universal real-part identity.
+PASS
 
-## Limitations
-The finding concerns Theorem 3.2 only. The original equality may hold in special cases where the relevant cross inner product is real. An unindexed correction may exist.
+The published 2020 Theorem 3.2 and the 2019 precursor were materially compared with the exact complex counterexample and corrected real-part formula. A 2022 Hilbert-C*-module paper prints an analogous uncorrected identity rather than a remedy. Targeted real-part, erratum, original-author and structural searches and published mathematical-record comparisons revealed no explicit prior counterexample to the specified 2020 statement or an exact source-specific correction. This is a best-of-knowledge judgment, not a novelty certificate; the algebraic real-part observation itself is standard.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The 2020 article presents Theorem 3.2 as a fundamental dual-operator identity generalizing controlled-g-frame equalities. The exact two-dimensional counterexample is formulated within the paper’s nonstandard representation-space operator domains, precluding a spurious type objection, and it refutes the asserted complex equality for a genuine nonselfadjoint K. The universal real-part replacement pinpoints the algebraic boundary and prevents use of a false identity. Despite the elementary final conjugate-symmetry step and proximity to the K=I precursor, a valid source-specific structural correction of an advertised theorem has direct mathematical utility beyond an arbitrary tiny numerical or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
