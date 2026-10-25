@@ -1,15 +1,21 @@
-# Scientific review: sharp boundary-noise deficit for equilibrium exclusion on a cycle
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to \(n\ge3\), \(1\le k,m<n\), \(r>0\), and canonical uniform equilibrium. The one-particle Poisson potential has an explicitly checked periodic gradient, and its lift to the exclusion configuration space solves the exact interacting Poisson equation because the exclusion generator closes on linear occupation observables. The martingale and bounded corrector establish equality between the asymptotic time-integrated variance and its predictable quadratic variation; exact hypergeometric edge activity then supplies every edge weight. The squared-gradient identity proves the total, and strict gradient comparison proves the unique top-two selection. The density cancellation, uniform limit and sharp \(n=12\) all-block majority boundary follow algebraically. Complete finite-state interacting generator inversions were conducted separately from this derivation. The proof requires no infinite-system extrapolation.
+## correctness
 
-## Originality — PASS within the inspected corpus
-Schmandt--Galán (2012) introduced stochastic shielding and Schmidt--Thomas (2013) proved general graph edge-ranking results for OU-type first-order population approximations. Schmidt--Galán--Thomas (2018) already gave general power-spectral edge decompositions and examples where hidden edges dominate; these general ideas are **not** claimed as new. The present result evaluates an interacting fixed-particle-number exclusion chain rather than independent linear population chains and targets the zero-frequency integrated block-occupation variance rather than static edge importance. The exact bond weights, invariant density fraction, best-two bound, and sharp \(n=12\) threshold are not presented in the inspected works. Appert-Rolland et al. (2008) examine integrated displacement current and configuration activity, not this residence-time observable. Relevant historical work could still contain equivalent formulas, and the 2012 primary full text was unavailable: these are genuine originality risks, not evidence that no prior result exists.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete density-uniform classification of the optimal two spatial noise sources for a natural low-frequency transport observable in an interacting lattice gas. The boundary edges really are the largest two, yet keeping only them loses most variance past a universal sharp size threshold. This identifies the distinction between source ranking and total fidelity of a fixed noise budget, and supplies a closed finite-size benchmark. It is not merely a numerical data point or a renamed variance formula.
+For all n>=3, 1<=k,m<n and r>0 the cyclic discrete Poisson equation has periodic increments d_i in (2); the lifted U=sum u_i eta_i/r satisfies -mathcal L U=N_B-km/n for the FULL interacting exclusion generator because exchange exclusion terms cancel on a linear occupation functional. The stationary finite-state martingale M_t=A_t+U(eta_t)-U(eta_0) has predictable bond bracket 2k(n-k)d_i^2/[r n(n-1)] per time, by the hypergeometric adjacent disagreement probability. The bounded corrector contributes o(t) to integrated variance. Squared-gradient identity sum d_i^2=m(n-m)[m(n-m)+2]/(12n) yields exact variance, and strict gradient dominance of two boundary bonds gives the fraction 6m(n-m)/[n(m(n-m)+2)], all-K selection upper bound, n>=12 sharp half-variance cutoff and correlation time. Independent direct construction/inversion of the 10-state full configuration generator for n=5,k=2,m=2,r=3 yielded 0.16, agreeing with the formula; source script independently inspects 94 full SSEP finite systems. The checked finite systems alone cannot prove all n.
 
-## Limitations
-The definition of bond importance is specific to the stationary Poisson-corrector martingale and time-integrated block occupancy. No conclusion is asserted about static fluctuations, pointwise approximation errors, or arbitrary alternative reduced models. Other lattice geometries, asymmetric particle rates, open boundaries, and infinite-volume dynamics remain unproved. Originality is only supported within inspected material; independent bibliographic and scientific review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the exactly evaluated finite interacting canonical-density SSEP noise-budget formula and sharp n=12 geometry, NOT stochastic shielding, OU graph edge importance, general martingale resolvents, or instances where hidden edges dominate (all known).
+
+## value
+
+PASS
+
+A contiguous block in equilibrium lattice-gas SSEP is a natural local transport observable, and bond-wise variance allocation determines principled coarse-graining noise budgets. Exact density independence despite interactions and the sharp universal 12-site half-variance failure are structural and practically meaningful: the locally strongest two sources capture a vanishing share as the ring grows. This is more than re-evaluating a known variance because the exact optimal-source spectrum and geometric cutoff are proven for every particle number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
