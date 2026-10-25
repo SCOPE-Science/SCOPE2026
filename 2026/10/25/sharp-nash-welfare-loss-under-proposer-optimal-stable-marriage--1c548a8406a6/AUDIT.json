@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each changed man, strict men-optimality forces a one-unit-or-greater utility decline, making his utility ratio at most (n-1)/n. Each of the same number of changed women has ratio at most n. Multiplying gives (n-1)^k; cyclic top-ranked-men/ top-ranked-women witnesses attain the bound for every moved-set size. Equality with n>=3 requires all n pairs to change and equality in every factor, giving the exact first/second and first/last rank pattern and n!D_n((n-2)!)^(2n) distinct preference profiles. For n=2 the bound implies equal Nash welfare of every stable matching. Independently constructed exact integer brute enumeration checks all 16 and 46656 profiles at n=2 and n=3, and witnesses n<=14; finite checks are not extrapolated to prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jain–Vaish §2 treats cardinal-valuation two-sided assignments, not comparison of two stable marriage allocations; Desai et al. Theorems 2–3 concern optimization correctness and running time."
+      ],
+      "reasoning": "Optimization over a different feasible family does not dominate a stability-constrained price-of-deferred-acceptance claim. The Nash-optimum existence theorem and rotation algorithm do not imply the sharp ratio without the new inequality and extremizers.",
+      "searches": [
+        "https://arxiv.org/html/2312.09167v1",
+        "price Nash social welfare men-optimal deferred acceptance stable matching",
+        "Gale Shapley geometric mean worst case welfare optimal stable marriage"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02354v1 (Desai et al., 2026)",
+      "arXiv:2312.09167v1 (Jain and Vaish, 2023)",
+      "Gale–Shapley (1962), proposer optimality as cited in 2026 primary",
+      "Relevant publicly indexed small-market stable-marriage extremal and criteria-comparison records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gale–Shapley implies unilateral proposer ordering only; rank utility gives new exact multiplicative comparison upon combining n changed men and women. Main 2026 theorem says an optimal stable solution can be found, not how far male-optimal can be from it."
+      ],
+      "reasoning": "The compared claims do not directly or by parameter dominance establish the quantitative inequality, each-size sharpness, or equality profile classification. The proof makes a new multiplicative comparison using positive integer rank utilities. Historical-priority risk remains for an unknown publication or an unnoticed immediate corollary.",
+      "searches": [
+        "https://arxiv.org/html/2609.02354v1 [model, Theorems 2 and 3, related work]",
+        "https://arxiv.org/html/2312.09167v1 [model and algorithmic results]",
+        "rank-based Nash welfare stability proposer optimal welfare loss n-1 market size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ratio statement is equivalent to a bound of \\((n-1)^n\\) on Nash products or an additive \\(n\\log(n-1)\\) log-welfare regret; §3 of arXiv:2609.02354v1 instead establishes optimal NSW computation via rotations."
+      ],
+      "reasoning": "Checked both product, geometric-mean, log-sum and price-of-proposer-optimality formulations against the primary algorithmic theorem. A polynomial-time optimizer alone gives no quantitative worst-case ratio; the claimed extremal count is additional.",
+      "searches": [
+        "Nash welfare men-optimal tight bound stable marriage",
+        "Nash man-optimal ratio stable matching",
+        "https://arxiv.org/html/2609.02354v1 [NSW definition and Gale-Shapley comparator]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current exact enumerator outputs 12 maximizers among 46656 complete 3-by-3 profiles; the inspected primary empirical evaluations use random profiles and other fairness metrics, not a complete stable-welfare loss census."
+      ],
+      "reasoning": "No inspected exact-table source contains the 3-by-3 equality count or the all-n derangement formula. The 3-by-3 number is a check, not the claimed entire all-n result.",
+      "searches": [
+        "sharp worst case Nash social welfare gap proposer-optimal versus best stable marriage rank-induced utility",
+        "minimal size where men-proposing deferred acceptance fails to maximize Nash welfare stable marriage; exact proportion 3x3 preferences",
+        "https://arxiv.org/html/2609.02354v1 [empirical study and tables]"
+      ]
+    },
+    "rationale": "Verified motivating paper introduces rank-induced Nash welfare and polynomial-time optimization; it does not state the exact proposer-optimal welfare loss, full equality rigidity or profile count. Broader 2023 two-sided Nash-matching work does not impose stable-marriage feasibility. The 1962 proposer-optimality premise is credited. Related public small-market matching classifications optimize different objectives. This is an evidence-based noncoverage judgment, not a claim of exhaustive historical priority.",
+    "residual_risks": [
+      "Equivalent inequality might appear in a source not indexed by the checked public records.",
+      "The upper bound is elementary once the specialized model and motivating gap are recognized; mathematical value is primarily sharp exact cost, stability of extremizers, and all-size classification.",
+      "No independent review and no all-market exhaustive execution beyond n=3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and optimizes the same welfare but its proved main algorithmic claims do not state the worst-case multiplicative loss of men-proposing deferred acceptance, the exact extremizer description or labeled count.",
+        "evidence": [
+          "arXiv:2609.02354v1, §2.1 rank utility; §3.2 Theorems 2 and 3; §4 empirical evaluation, §6 conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.02354v1",
+        "material_read": "Full HTML: abstract, introduction, model, stable-marriage preliminaries, algorithm, Theorems 1–3 and analyses, empirical section, related-work and bibliography headings, conclusions.",
+        "method": "Read mathematical statements and proof targets; compared optimality algorithm and measured comparisons with a universal sharp Gale-Shapley/optimal Nash ratio and equality-structure theorem.",
+        "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+        "trigger": "Exact recent rank-utility stable-matching Nash objective and man-optimal baseline."
+      },
+      {
+        "assessment": "Related objective, different feasibility and stability model; no direct implication of the claimed universal Nash loss and rigidity.",
+        "evidence": [
+          "arXiv:2312.09167v1, §§1–2 and listed approximation and related-work sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.09167v1",
+        "material_read": "Full HTML introduction, section structure, model and welfare definitions, algorithmic/hardness contribution summaries, and relevant related-work subsections.",
+        "method": "Compared many-to-one cardinal utility optimization domain with the two-sided perfect stable marriage + ordinal rank utility + proposer-optimal baseline.",
+        "title": "Maximizing Nash Social Welfare under Two-Sided Preferences",
+        "trigger": "Possible stronger coverage of Nash welfare in two-sided matching."
+      },
+      {
+        "assessment": "Establishes every man weakly prefers his proposer-optimal partner among stable matchings, but supplies no rank-induced Nash-loss extremizer enumeration.",
+        "evidence": [
+          "Desai et al. (2026), introduction and §2.2; classical Gale–Shapley theorem."
+        ],
+        "identifier_or_url": "D. Gale and L. S. Shapley, American Mathematical Monthly 69 (1962), 9–15",
+        "material_read": "Classical proposer-optimality statement as presented and explicitly cited in the modern primary paper, not independently re-read from the original 1962 facsimile.",
+        "method": "Used standard men-optimality theorem as an explicitly credited input, not claimed as a new result.",
+        "title": "College Admissions and the Stability of Marriage",
+        "trigger": "Required proposer-optimality premise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c548a84-06a6-44a9-a3f2-b719fad6dc82",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A newly studied fair-stable-marriage objective motivates asking the worst-case cost of retaining the conventional proposing-side mechanism instead of optimizing Nash welfare. The exact sharp, unbounded sqrt(n-1) efficiency loss quantitatively distinguishes mechanisms; all-n equality rigidity and precise derangement enumeration identify the profiles responsible rather than a routine restatement of proposer-optimality. Exact minimax behavior for n=2 is a meaningful boundary. Scope restrictions to positive rank utilities are explicit.",
+    "status": "PASS"
+  }
+}
