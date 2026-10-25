@@ -1,11 +1,21 @@
-# Scientific review: Catalan commuting nuclei on finite Gödel chains
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-set ceiling normal form yields every finite-chain nucleus and no extraneous map. The proof of the central commuting-versus-laminar criterion checks both crossing orientations and the subtle containment case; it is valid for every chain size. Maximal laminar collections of contiguous intervals have precisely full ordered binary tree node sets; maximality of a commuting family is justified via the individual block-collapse maps. The Catalan count, frontier-cut recurrence, two-state transfer law and eigenvalue solution follow without extrapolating from finite tests. A standalone exhaustive verifier independently confirms all critical combinatorial correspondences within its stated finite range. Boundary cases, including the single-element chain, are handled.
+## correctness
 
-**Originality — PASS, with explicit coverage risk.** The exact fixed-set parametrization and the abstract notion of a nucleus are standard. The classical full Catalan monoid has much more structure than its idempotents; the inspected primary semigroup sources treat multiplication, algebra representations and finite-basis questions, not this maximal commuting-idempotent classification. Published finite-chain preconditional results involve binary operations; the monadic Gödel rounding theorem involves a paired adjunction; and the condensation theorem involves two specific closures on relation spaces. The new laminar fiber equivalence, full binary tree classification of maximal commuting nuclei, and ordered commuting-pair law are not asserted by the inspected sources nor found in targeted searches. An older equivalent phrased as maximal commutative idempotent submonoids, commuting closure maps, or laminar interval partitions may exist; published searches cannot establish absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Mutual commutativity is precisely the criterion for order-independent composition of finite logical closure modalities. The theorem completely classifies inclusion-maximal jointly compatible families for every finite Gödel chain, explicitly counts them, computes individual family sizes from tree topology, and gives an exact rarity exponent for random pairs. The binary-tree correspondence is structural, not a relabelling of an arbitrary finite table or a one-off enumeration.
+Meet preservation follows from order preservation on a total chain. Every nucleus is ceiling to an arbitrary fixed-point subset containing top; hence exactly 2^(n-1) nuclei. Two properly crossing fibers force different composites on a boundary input; nested/disjoint fiber partitions imply equal composites by comparing the blocks containing x and the endpoint. All pairwise compatible intervals form a laminar hierarchy; maximality forces every compatible interval-collapse map, all leaves and root; no internal node may have >=3 children (adjoin two consecutive children), so maximal hierarchies are exactly ordered full binary trees. Frontier cuts are exactly compatible fiber partitions and maximal families. Counting cuts gives q recursion. In ordered-pair scanning, between consecutive boundaries shared by both maps, only one exclusive boundary type may occur; two-state transfer matrix [[2,1],[2,2]] gives characteristic t^2-4t+2 and b recurrence. Fresh independently written mapping enumeration tested commutation against laminar fibers for all pairs at n=1..6 and reproduced counts 1,4,14,48,164,560. Finite tests corroborate; the hierarchy and matrix arguments prove all n.
 
-**Comparison limits.** The accessible full text of Fellin–Schuster (2021), the relevant sections of Sapir–Volkov (2022/2023) and Margolis–Steinberg (2018), and the complete scientific RESULT texts of three adjacent published findings were materially inspected. Some older papers on idempotents of Catalan monoids were located only as abstracts or inaccessible documents; these are residual novelty risks, not proof of a prior result. Independent external mathematical review is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Catalan monoid contains non-idempotent order-preserving extensive maps and its established structure does not by itself classify maximal commuting families of its idempotents, which correspond to Heyting nuclei on the chain. The asserted correspondence to full ordered binary trees, sizes of individual maximal families and rational ordered-pair recurrence are compared at the statement/implication level. No published directly equivalent complete classification was found in checked material; some semigroup literature may have a hidden formulation.
+
+## value
+
+PASS
+
+This is a uniform structural classification of maximal compatible closure modalities on every finite Gödel chain, with a precise Catalan parameterization and a nontrivial pair-commutation probability. It resolves a natural algebraic question for an entire finite family, not a substitution of a pre-existing Catalan number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

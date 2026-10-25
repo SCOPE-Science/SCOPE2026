@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite exhaustive verification and analytic proof boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` (standard Python 3, no dependencies). This is a clean-room enumeration from functions, fixed sets, interval partitions and tree recursion; it does not import a generated theorem table. `VERIFY_OK` means that all programmed exact assertions passed.
+## correctness
 
-The finite tests include exhaustive reconstruction of the original nucleus axioms among all extensive monotone self-maps on chains through five points, all ordered pairs of nuclei through nine points, exhaustive no-crossing/fiber laminar tests through nine points, all binary tree cut recurrences and Catalan tree spectra through nine points, and an independent maximal-clique enumeration of the commuting graph through six points. This last enumeration does not presuppose the binary-tree theorem. Small values: ordered pairs \(1,4,14,48,164,560,1912,6528,22288\) through nine chain points; maximal-family counts \(1,1,2,5,14,42\) through six.
+PASS
 
-No finite experiment proves an all-\(n\) identity. The all-size validity is established by the reconstructed interval-normal-form and crossing lemmas, the binary-tree maximality argument, and the boundary-state transfer recurrence in RESULT.md. Failure of an unbounded computation is neither used nor claimed as an impossibility certificate.
+Meet preservation follows from order preservation on a total chain. Every nucleus is ceiling to an arbitrary fixed-point subset containing top; hence exactly 2^(n-1) nuclei. Two properly crossing fibers force different composites on a boundary input; nested/disjoint fiber partitions imply equal composites by comparing the blocks containing x and the endpoint. All pairwise compatible intervals form a laminar hierarchy; maximality forces every compatible interval-collapse map, all leaves and root; no internal node may have >=3 children (adjoin two consecutive children), so maximal hierarchies are exactly ordered full binary trees. Frontier cuts are exactly compatible fiber partitions and maximal families. Counting cuts gives q recursion. In ordered-pair scanning, between consecutive boundaries shared by both maps, only one exclusive boundary type may occur; two-state transfer matrix [[2,1],[2,2]] gives characteristic t^2-4t+2 and b recurrence. Fresh independently written mapping enumeration tested commutation against laminar fibers for all pairs at n=1..6 and reproduced counts 1,4,14,48,164,560. Finite tests corroborate; the hierarchy and matrix arguments prove all n.
 
-Exact source dates and references are documented in RESULT.md. Mathematical originality has residual uncertainty from inaccessible older Catalan-semigroup literature. No independent external audit has been performed.
+## originality
+
+PASS
+
+The classical Catalan monoid contains non-idempotent order-preserving extensive maps and its established structure does not by itself classify maximal commuting families of its idempotents, which correspond to Heyting nuclei on the chain. The asserted correspondence to full ordered binary trees, sizes of individual maximal families and rational ordered-pair recurrence are compared at the statement/implication level. No published directly equivalent complete classification was found in checked material; some semigroup literature may have a hidden formulation.
+
+## value
+
+PASS
+
+This is a uniform structural classification of maximal compatible closure modalities on every finite Gödel chain, with a precise Catalan parameterization and a nontrivial pair-commutation probability. It resolves a natural algebraic question for an entire finite family, not a substitution of a pre-existing Catalan number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
