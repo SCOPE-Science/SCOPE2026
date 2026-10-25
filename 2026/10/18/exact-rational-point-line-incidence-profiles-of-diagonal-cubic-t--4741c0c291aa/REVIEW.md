@@ -1,15 +1,21 @@
-# Scientific review: diagonal cubic incidence classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The classified domain consists of all smooth diagonal cubic threefolds over \(\mathbf F_7\), modulo projective linear equivalence over that field. Nonzero derivatives establish smoothness; Hessian-factor preservation forces every projective equivalence to be monomial; nonzero cube cosets and five-variable multisets give precisely seven coefficient classes. A complete enumeration of the \(140050\) echelon-represented lines in \(\mathbf P^4(\mathbf F_7)\) supplies every point-degree multiplicity. A second local-polar algorithm computes the multiplicity directly at each rational point and agrees point-for-point. The included Python program was executed from its final scientific file path and all assertions passed. The exhaustive finite computations are proofs of finite cases; there is no extrapolation to other fields.
+## correctness
 
-## Originality — PASS, with bibliographic qualification
-The closest source, de Frutos Fernández–Garai–Isham–Murayama–Smith, arXiv:2111.10976, Section 3, provides random distributions for \(\mathbf F_7\)-rational lines on cubic threefolds, not the complete seven-class incidence classification. Debarre–Laface–Roulleau give the general Galkin–Shinder counting identity and Fermat zeta-function calculations, but total line counts cannot determine the numbers of rational lines through individual rational points. Roulleau's geometric study of the complex Fermat Fano surface addresses a different field-dependent question. Targeted searches for diagonal twists, rational line counts, and incidence profiles found no equivalent or stronger explicit incidence classification. An unindexed incidence treatment or a refined calculation from classical Jacobi sums remains possible; novelty is not an independent certification.
+PASS
 
-## Value — PASS
-Rational lines on smooth cubic threefolds over \(\mathbf F_7\) are an established open-field problem. A complete point-on-line profile for every member of its natural diagonal subfamily provides more geometric information than the number of lines: three forms have all rational points covered, whereas four have respectively \(189,135,135,162\) uncovered points. The two projectively inequivalent classes with \(27\) lines have different coverage profiles. This is a natural and fully reproducible finite geometric classification, rather than an arbitrary coefficient slice.
+PASS. The derivative 3a_i x_i^2 in characteristic seven proves smoothness for all nonzero diagonal coefficients. The diagonal Hessian determinant is proportional to the product of the five coordinates, so projective linear equivalences preserve the five hyperplanes, hence are monomial; scalar/cube-class permutation reduces all coefficient vectors to precisely seven classes. Every F7-rational line in P4 has a unique echelon-reduced two-vector spanning matrix; checking all 140050 2-planes gives the full (points,line-degrees) table. An independent enumeration of every echelon line, its eight normalized F7 points and all seven test cubics reproduced point totals [435,477,288,309,414,498,393], line totals [135,189,27,27,81,270,36], and the exact seven local-degree histograms. The separate source algorithm based on the two mixed cubic polar equations gives an additional independently coded pointwise check. All seven rows obey sum(m_j)=number of points and sum(j m_j)=8 times number of lines. Enumeration exactly covers finite F7 linear incidence, not all smooth cubics or fields.
 
-## Scope and risks
-The general smooth-cubic problem at \(q=7\) remains unsolved by these calculations. The literature comparison includes full-text inspection of the closest finite-field cubic references, but no exhaustive bibliography can be guaranteed. The Fermat total-line count follows from existing zeta-function work; the claimed addition is the seven-class **local rational incidence spectrum**. No claim of third-party or independent audit is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS on the exact final claim after new Git-tree proof and computation reconstruction, Resultary semantic searches, checked primary theorem scopes and explicit source risks. Not a claim of comprehensive historical priority, external certification or entire-paper noncoverage where material was inaccessible. All known special-case antecedents are credited.
+
+## value
+
+PASS
+
+PASS. Rational lines and their incidence through individual rational points on smooth cubic threefolds over the challenging small field F7 are natural geometric invariants. The seven diagonal cubic twists form a canonical closed family, not arbitrarily hand-selected equations. Exact local profiles show three classes where all points lie on rational lines, four with 189/135/135/162 uncovered points, and a pair of 27-line classes with different incidence geometry. This complete classification is strictly richer than a sample or a total-line census while not purporting to solve the arbitrary-cubic existence problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
