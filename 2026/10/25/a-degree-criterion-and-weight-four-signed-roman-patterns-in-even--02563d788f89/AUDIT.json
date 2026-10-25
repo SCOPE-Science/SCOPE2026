@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Identity (1) exactly counts closed neighbors of each two-subset. Four inequalities (2) are necessary and sufficient for the bipartition template, including the distinct minus-one defender requirement. With a=n/2-1,b=n/2+1 and r=n/2+2-floor(b/2), H_A is a C5 for n=12 and an r-edge path for n>=14, while H_B is a maximum matching. Their degrees ensure all neighborhood sums >=1 and total weight 4. All possible smaller integer template weights are excluded by degree constraints, with the T=3 all-degree-two B case failing the internal-B inequality. Cut sizes and label-two edge sets uniquely encode the counted functions. Independent code verified direct neighborhoods for even n=12..40, symbolic identity for even n=12..128, exhaustive pattern equivalence at n=6,8 and random n=12. Finite tests do not prove all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper arxiv:2204.05664v3 proves a larger upper bound 5, not 4, for even n>=12.",
+        "Foundational 2014 results reported in accessible abstract are order/size bounds not an explicit four-weight Kneser witness.",
+        "2025 survey Theorem 2.1 repeats upper bound 5.",
+        "The compared multipartite signed-Roman enumerator has different graph adjacency and its results do not imply the Kneser construction."
+      ],
+      "reasoning": "Compared source conclusions rather than titles: even n=10 exact value 4 does not imply all even n>=12; a general complete-multipartite enumerator does not apply because K(n,2) is not complete multipartite for n>=12. Survey states weaker bounds. Possible unindexed stronger general theorems remain a risk.",
+      "searches": [
+        "On Kneser graph K_{n,2}, for every even n >= 12 a signed Roman dominating function of total weight 4 exists via balanced bipartition, negative cross edges, matching of 2-labels and bounded degree 2 internal graph; improves Zec Grbic 2023 upper bound 5.",
+        "Closed neighborhood signed Roman domination Kneser graph with two element subsets, degree sum criterion and bipartite cut labeling, four weight even order.",
+        "\"signed Roman domination\" regular graph degree gamma bound upper 4",
+        "doi:10.1007/s10878-012-9500-0",
+        "signed Roman multipartite enumerator"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.05664v3 (relevant full primary sections and appendices context)",
+      "doi:10.1080/09728600.2025.2598772 (indexed Section 2.1 only; full-page access denied)",
+      "doi:10.1007/s10878-012-9500-0 (abstract only)",
+      "arxiv:2606.27175 (abstract only)",
+      "published mathematical-record index closest source signed Roman multipartite enumerator (summary only, graph family differs)",
+      "Recoverable earlier claims of graph-invariant results on the same and related graph families (overlap check only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published even-order interval 2<=gamma<=5 (Zec--Grbic 2023, Theorem 3).",
+        "New explicit construction gives a feasible function of weight4 at every even n>=12.",
+        "Survey 2025 retains upper bound5 without producing the stated construction in the accessible section."
+      ],
+      "reasoning": "The earlier inequality gamma<=5 does not logically imply gamma<=4; an even n=10 example likewise does not imply the infinite extension. The structural degree criterion and optimality within the cut-pattern class are additional unasserted statements. Do not infer global exactness from the new upper bound.",
+      "searches": [
+        "arxiv:2204.05664v3 Theorem 3, Remarks 3, Section 3",
+        "Exact signed Roman domination of triangular complement Kneser graphs and edge disjointness graph, Roman signed domination minimum",
+        "doi:10.1080/09728600.2025.2598772 Section 2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Signed Roman closed-neighborhood definition and Kneser pair-disjointness adjacency in arxiv:2204.05664v3 Section 1.",
+        "Graph-incidence identity T-S_u-S_v+2f_uv verified against disjoint neighborhoods by independent code.",
+        "The nearest published mathematical-record comparison concerned multipartite signed Roman functions, but those are not pair-disjointness Kneser graphs."
+      ],
+      "reasoning": "The claim was compared with SRDFs, edge-disjointness labels of K_n, pair-subset Kneser notation K(n,2), and the incidence-sum equivalent condition. Neither nomenclature changes nor the translation to K_n edge labels imply the new four-weight construction; the equivalence was used to detect potential coverage.",
+      "searches": [
+        "Signed Roman domination number of Kneser graph KG(n,2) for even n at least 12, improve upper bound 5 to 4 or determine exact value 3/4 with label weights negative one, one, two",
+        "Exact signed Roman domination of triangular complement Kneser graphs and edge disjointness graph, Roman signed domination minimum",
+        "arxiv:2204.05664v3 signed Roman Section 2.2",
+        "\"signed Roman\" \"Kneser\" \"4\" 2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source exact table only reports finite small n including even n=10 with value 4, not the full n>=12 infinite family.",
+        "Published mathematical-record searches did not identify a formula or table implying four-weight witnesses for all even n>=12."
+      ],
+      "reasoning": "A finite table of gamma values up to n=11 cannot certify an all-orders result or imply the degree-pattern theorem. The current proof supplies a uniform construction and self-contained count.",
+      "searches": [
+        "Signed Roman domination number of Kneser graph KG(n,2) for even n at least 12, improve upper bound 5 to 4 or determine exact value 3/4 with label weights negative one, one, two",
+        "On Kneser graph K_{n,2}, for every even n >= 12 a signed Roman dominating function of total weight 4 exists via balanced bipartition, negative cross edges, matching of 2-labels and bounded degree 2 internal graph; improves Zec Grbic 2023 upper bound 5.",
+        "arxiv:2204.05664v3 Remark 3 and Appendix A",
+        "\"signed Roman domination number\" \"Kneser\" upper bound 4"
+      ]
+    },
+    "rationale": "The 2023 direct Kneser signed-Roman paper explicitly gives even-order upper 5 for n>=12 and invites tighter bounds; its finite value 4 at n=10 does not imply the stated infinite result. A 2025 survey repeats the upper 5. The new one-step universal even improvement is backed by a degree criterion, exact restricted optimality, and many independently counted explicit witnesses; checked published-record statements and comparable known results do not cover that implication. Complete global priority cannot be guaranteed.",
+    "residual_risks": [
+      "Possible unpublished or unindexed exact signed Roman result on K(n,2).",
+      "Only an indexed section of the recent survey and only an abstract of the 2014 foundational paper were inspected.",
+      "Search non-results are not proof of priority or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3 gives upper 5, not upper 4, for every even n>=12. Remark 3 computes n=10 as 4, which does not imply the all-even n>=12 statement. Its construction for even n has weight 5 and differs from the path/cycle-plus-matching witness.",
+        "evidence": [
+          "arxiv:2204.05664v3, Section 2.2 Theorem 3 and even-case proof; Remark 3; Section 3 conclusions."
+        ],
+        "identifier_or_url": "arxiv:2204.05664v3; https://arxiv.org/html/2204.05664v3",
+        "material_read": "HTML full text: definitions in Section 1, Theorem 3 and full odd/even construction and bounds in Section 2.2, small-order Remark 3, conclusions identifying tighter bounds as open, and appendix context.",
+        "method": "Read relevant primary mathematical statements and neighboring proofs in the arXiv HTML version.",
+        "title": "Several Roman domination graph invariants on Kneser graphs",
+        "trigger": "Exact graph and invariant; potential direct coverage by stronger or equivalent claim."
+      },
+      {
+        "assessment": "Its reproduced theorem still gives 2<=gamma<=5 for even n. The accessible part does not report a four-weight construction; inaccessible remainder is a residual priority risk, not certified noncoverage.",
+        "evidence": [
+          "doi:10.1080/09728600.2025.2598772; search-index excerpt Section 2.1, Theorem 2.1."
+        ],
+        "identifier_or_url": "doi:10.1080/09728600.2025.2598772",
+        "material_read": "Search-index extract of Section 2.1 including quoted Theorem 2.1 and references. Full publisher view returned access denied, so rest of paper was not inspected.",
+        "method": "Searched textual search-index extract for Kneser and the displayed theorem; attempted publisher page.",
+        "title": "Varieties of Roman domination IV",
+        "trigger": "Recent survey discusses precisely the Kneser signed Roman bound, potentially subsuming it."
+      },
+      {
+        "assessment": "The accessible statements are general bounds with no graph-specific weight-four witness. Since the full work was not examined, absence of a more specific corollary is not certified.",
+        "evidence": [
+          "doi:10.1007/s10878-012-9500-0, accessible abstract and bibliographic record."
+        ],
+        "identifier_or_url": "doi:10.1007/s10878-012-9500-0",
+        "material_read": "University bibliographic abstract and publicly indexed author-uploaded abstract; no complete proof was inspected.",
+        "method": "Compared stated general order/size/degree bounds with the specific Kneser construction.",
+        "title": "Signed Roman domination in graphs",
+        "trigger": "Foundational general signed Roman results may imply the bound through general inequalities."
+      },
+      {
+        "assessment": "Different invariant (open neighborhoods), and different graph family (complete multipartite rather than pair-disjointness Kneser). No direct implication is exhibited.",
+        "evidence": [
+          "arxiv:2606.27175, abstract."
+        ],
+        "identifier_or_url": "arxiv:2606.27175",
+        "material_read": "ArXiv abstract only.",
+        "method": "Compared open-neighborhood signed total definition and graph family against present closed-neighborhood Kneser problem.",
+        "title": "Signed Total Roman Domination and Domatic Numbers: Degree Three and Complete Multipartite Graphs",
+        "trigger": "Potential terminology collision (signed total rather than closed signed Roman)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02563d78-8f89-4c18-98f3-72f2bd5b2721",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original Kneser paper identifies tighter signed-Roman bounds as future research. The theorem uniformly reduces the even-order gap from [2,5] to [2,4] for infinitely many graphs and gives an exact feasibility/degree characterization of the natural cut-pattern method. It also proves the four-weight threshold cannot be lowered within this method and counts a rapidly growing, explicitly reproducible family (997920 at n=12). Thus the value is not merely a finite check or a small unmotivated parameter adjustment. No global exact invariant is claimed.",
+    "status": "PASS"
+  }
+}
