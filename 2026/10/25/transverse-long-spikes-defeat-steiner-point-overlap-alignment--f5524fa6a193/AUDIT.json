@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact tangent section radius rho_t(z)=(t-z)/sqrt(t²-1), the Hausdorff support bound |s_t-t/2|<=d, and the bounded orthogonal-cylinder body D_d yield explicit positive lower and upper inclusions for the Steiner-centered overlap, converging to the 1/2-dilate of D_d. Symmetry plus Brunn--Minkowski bounds the intersection of arbitrary cylinder translates by vol(D_d), while backward sqrt(t) shifts yield a feasible intersection converging to D_d. This proves numerator and denominator limits for all d>=2. A standalone standard-library verifier checked the planar Steiner formula and rigorous finite-t bounds; it is not a replacement for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.04516v1 Theorem 1 and Corollary 3 give centroid universal bounds, and Question 20 treats general selectors as open.",
+        "The published finding *Cartesian-product submultiplicativity for centroid-alignment efficiency* gives centroid product bounds, not Steiner-point bounds.",
+        "The published finding *Center alignment for Lp-optimal matching of centrally symmetric convex bodies* optimizes a different geometric loss rather than intersection volume."
+      ],
+      "reasoning": "Centroid results apply to a different selector, not a broader theorem implying this witness. The Lp matching result has a different objective and restricts to centrally symmetric shapes, whereas the long-spike bodies are not centrally symmetric.",
+      "searches": [
+        "Steiner point alignment convex bodies maximum intersection volume compared with centroid alignment selector worst-case",
+        "Sharp efficiency of Steiner point centering for intersections of multiple convex bodies translates",
+        "Centroid alignment sharp efficiency convex bodies two body higher dimensions Feldman 2026",
+        "\"Steiner point\" \"translation\" \"overlap\" disks cones"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.04516v1 (relevant primary full text, especially Question 20)",
+      "R. Schneider, On Steiner points of convex bodies, Israel J. Math. 9 (1971), bibliographic/secondary evidence only",
+      "A note on a problem posed by Linderholm, Journal of Geometry (2025), Steiner support integral",
+      "Relevant indexed records: exact offcenter centroid core, Cartesian-product centroid alignment, and Lp center alignment, compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of arXiv:2608.04516v1: every centroid-alignment efficiency exceeds (2/(d+1))^d; planar worst case 4/9.",
+        "Proposition 11 of the same manuscript constructs cones over tangent balls for centroid sharpness, with different family and selector.",
+        "Question 20 explicitly asks about the Steiner selector and alternative selectors.",
+        "Classical Steiner support point formula is a definition and does not assert a maximum-overlap efficiency."
+      ],
+      "reasoning": "Centroid and Steiner centers disagree on each spike (asymptotically near t/(d+1) versus t/2 along the spike). Consequently centroid core inclusions cannot imply Steiner-aligned overlap. The new statement compares asymptotic optimal translations, proves their exact cylindrical limiting volume, and establishes the strict 1/4 versus 4/9 planar separation.",
+      "searches": [
+        "arXiv:2608.04516v1 Theorem 1 Corollary 3 Proposition 11 Question 20",
+        "Steiner point centering of long cones has at most quarter overlap efficiency versus optimal translations in plane",
+        "curvature centroid centering versus barycenter alignment overlap convex bodies; Minkowski additive selector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.04516v1 Question 20 explicitly lists Steiner selector as a test case rather than deriving its efficiency.",
+        "R. Schneider, On Steiner points of convex bodies (1971), is about the selector, not translating intersections.",
+        "Published mathematical-record index search returned a related result, *Exact offcenter centroid core of every convex body*, concerning centroids rather than Steiner selectors."
+      ],
+      "reasoning": "The same claim can be expressed as a two-body planar selector guarantee at most 1/4, as a limit for orthogonal tangent cone/capsule overlaps, or as the asymptotic ratio for support-function-average centers. The cited centroid-core identity does not equate that center to the Steiner point except on special symmetric bodies, and the spikes are individually nonsymmetric.",
+      "searches": [
+        "Steiner point centering of long cones has at most quarter overlap efficiency versus optimal translations in plane",
+        "Steiner selector worst-case efficiency 1/4 centroid alignment convex hull of disk and far apex",
+        "curvature centroid centering versus barycenter alignment overlap convex bodies; Minkowski additive selector",
+        "\"Steiner point\" \"maximum overlap\" convex polygons translation alignment",
+        "\"Steiner point\" \"centroid alignment\" \"intersection\" worst case"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical search results include centroid alignment and Steiner geometry but no tabulated two-body quarter efficiency or dimension-uniform 2^{-d} spike limit.",
+        "arXiv:2608.04516v1 Question 20 is a problem statement rather than a classification table."
+      ],
+      "reasoning": "There is no finite computational table underpinning the statement: it is an all-dimensional asymptotic analysis of a continuous family. Any database entry giving an equivalent selector separation would subsume the result, but none was found in the actual checks.",
+      "searches": [
+        "Steiner selector worst-case efficiency 1/4 centroid alignment convex hull of disk and far apex",
+        "support-function average center, Steiner point strategy worst-case overlap convex cones transverse strips",
+        "selector efficiency comparison centered support functions, two convex bodies, sharp planar ratio 1/4",
+        "\"Steiner point\" intersection convex bodies translates 1/pi"
+      ]
+    },
+    "rationale": "Feldman (arXiv:2608.04516v1) proves the analogous planar 4/9 bound for aligning centroids, and explicitly asks in Question 20 whether a better rigid-motion selector exists, suggesting the Steiner point. The source’s cone construction uses centroid recentering; it does not give the n-orthogonal-spike Steiner-selector 2^{-n} limit. The classical Steiner integral and central symmetry/Brunn--Minkowski ingredients do not, without the derived cross-section and translation bounds, imply the new sharp asymptotic witness. Relevant indexed claims concern centroid cores, product centroid bounds or unrelated selector objectives. Web literature searches for Steiner-point overlap comparisons found no equivalent; unindexed classical prior work remains possible.",
+    "residual_risks": [
+      "Search incompleteness: an unindexed classical Steiner-selector optimization may contain a stronger or equivalent result.",
+      "Schneider (1971) full text was not obtained; its cited scope concerns Steiner points in general, not the contemporary optimization problem.",
+      "The result is a sharp asymptotic witness for its explicit family, not the sharp unrestricted Steiner alignment constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: precise centroid results and an open Steiner question, no Steiner-point asymptotic for mutually orthogonal long spikes",
+        "evidence": [
+          "arXiv:2608.04516v1 introduction, Theorem 1, Corollary 3; §3.2 Proposition 11; §5 Question 20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.04516v1",
+        "material_read": "Full-text HTML: abstract; introductory definitions, Theorem 1 and Corollary 3; central core, Lemma 7; cone construction Proposition 11 and Remark 12; discussion of selector comparison and Questions 19-22; references and appendix contents",
+        "method": "Read original arXiv full-text HTML sections and compared precise selectors, shapes, quantifiers and optimization objectives",
+        "title": "Arranging convex bodies for maximum intersection volume: the sharp efficiency of centroid alignment",
+        "trigger": "Direct motivating paper with identical translative intersection objective and a question naming the Steiner selector"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: establishes notation/normalization but does not address selector overlap",
+        "evidence": [
+          "Journal of Geometry, Preparations §1, support function and Steiner-point integral"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00022-025-00783-4",
+        "material_read": "Accessible primary HTML preparatory section defining support function and Steiner point using (1/pi) angle integral",
+        "method": "Read online open text, focusing on displayed integral definition",
+        "title": "A note on a problem posed by Linderholm",
+        "trigger": "Verify classical support-integral normalization of planar Steiner point"
+      },
+      {
+        "assessment": "NOT_FULLY_INSPECTED: classical selector background; possible overlap risk explicitly retained",
+        "evidence": [
+          "Encyclopedia of Mathematics entry Steiner point lists Schneider 1971; no primary full text inspected"
+        ],
+        "identifier_or_url": "R. Schneider, Israel J. Math. 9 (1971), 241–249",
+        "material_read": "Bibliographic metadata and secondary mathematical encyclopedia description, not the original full article",
+        "method": "Bibliographic verification; no assertion of full-text NOT_COVERING",
+        "title": "On Steiner points of convex bodies",
+        "trigger": "Classical source of Steiner selector properties and terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5524fa6-a193-4fd9-aa30-87f01023f203",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 2026 convex-geometry paper explicitly poses optimization over selector rules and identifies the Steiner point as a natural candidate. This theorem settles an important negative comparison: on a two-body planar family, Steiner alignment has efficiency tending to exactly 1/4 while centroid alignment has a 4/9 universal worst-case guarantee. The dimension-uniform orthogonal-cylinder limit and quantitative bound provide structural content beyond a numerical counterexample. It does not claim the global unrestricted Steiner constant.",
+    "status": "PASS"
+  }
+}
