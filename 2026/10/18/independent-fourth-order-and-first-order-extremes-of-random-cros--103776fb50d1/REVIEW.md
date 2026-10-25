@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies every section vertex, proves the close-pair Poisson limit by disjoint-graph factorial moments, establishes asymptotic independence by conditioning all Gaussian absolute coordinates above \(t/n\), and transfers to the joint geometric extremes via Slutsky. The conditional small-pair probability retains exactly \(4u/(\pi n^2)\) to leading order; connected overlapping edge graphs vanish. The included finite checker tests the exact geometric identities and numerical law but is not substituted for infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest full text is the 11 October 2026 record on diameter: its deterministic pair-radius identity and its exponential **diameter** limit are explicitly preexisting. This claim instead concerns the **joint law** with the smallest-norm section vertex and proves asymptotic independence at the sharp fourth-order scale. Search comparisons included nearest pair/minimum-spacing formulations, Haar cross-polytope section geometry, and the 2017 local-spacing literature. Abstract and accessible material on sample spacing do not state this joint canonical geometric theorem. Classical general point-process results may yield parts of the argument after nontrivial specialization; that is a residual coverage risk, not an assertion of absolute priority.
+PASS
 
-**Mathematical value — PASS.** Diametral vertices are controlled by the smallest and largest absolute normal coordinates, whereas minimum-radius vertices are controlled by **near ties anywhere in the sample**. Their proven asymptotic independence is a structural statement about two opposite geometric extremes of one random section, with strikingly different scalings and limiting shapes. The joint result is not merely a numerical invariant or a renamed marginal formula.
+For a generic Gaussian normal, all crossed-edge hyperplane vertices are ±vij with norm sqrt(Xi²+Xj²)/(Xi+Xj). Thus min vertex radius R=(1/sqrt2)sqrt(1+Z²) for minimum normalized gap Z, while known section diameter is from min and max half-normal Xi. Small-gap pair probability is 4δ/π+o(δ); factorial-moment overlap graphs decay as O(n^-1), proving n²Z converges to Exp(2/π). Conditioning on minimum Xi>t/n retains iid truncated half-normals and the same asymptotic Poisson rate, establishing independence from n minXi. Gaussian max normalization and Taylor/Slutsky yield independently E~Exp(1/sqrtπ) for n sqrt(log n)(2-D) and W²/(2sqrt2) for n^4(R-1/sqrt2), W~Exp(2/π). Checked constants algebraically; no bounded simulation offered as asymptotic proof.
 
-**Limitations.** Results concern central hyperplane sections only. No moment convergence, rates, or other codimensions claimed. Exact comparison with all unindexed historical studies of global minimum spacings is unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Resultary exact diameter result already gives the first marginal and geometry, not smallest section vertex radius or their joint independence. Nagaraja–Bharath–Zhang treats local spacings about an order statistic, not a global relative-gap minimum coupled to the sample minimum. General diameter works supply motivation and bounds, not the two-component joint law. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+A sharp fourth-order geometric vertex-radius extreme and its independence from the diametral first-order fluctuation gives a structurally informative joint limit beyond the prior diameter marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
