@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Markov transitions have positive adjacent rates at every positive flip-mutation probability. Stationary mean drift differentiated at zero selection gives the displayed expectation; the neutral state is beta-binomial, and cooperator–defector size-bias gives closed factorial moments that evaluate the full derivative. The 172 exact rational chain-vs-drift-vs-closed-form checks and independently differentiated detailed-balance products agree. The four-individual opposite-sign example and two-person cancellation are exact. Numerical perturbations are supplementary only.
+## correctness
 
-**Originality — PASS, with limitations.** The 2026 motivating source proves endpoint-only selection in the rare-mutation regime; this theorem holds positive mutation fixed and provides a nonzero interior-return sensitivity for all population sizes and mutation probabilities within scope. Hauert and McAvoy (2024) give a general nonlinear-public-goods finite-state framework and mutating Moran transitions (a different update from the present Fermi process), but not the present explicit rational coefficient, its sign-reversing matched-endpoint pair, or the sharp group-size minimality. McAvoy and Wakeley (2022) give general mutation-selection structure-coefficient methods that might subsume elements of this calculation after model specialization. A literature search did not identify the exact closed form; that absence alone is not a novelty proof. Priority has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** A full-return-only condition is valid in the singular rare-mutation regime, but it ceases to classify the sign of the first-order stationary cooperation response for *every* fixed positive mutation probability in three-person groups. An exact all-population coefficient explains this change and produces strictly increasing return schedules with the same top return but opposite outcomes, at the minimal four-person size. This is a natural boundary of a contemporary general-return theorem rather than an arbitrary numerical slice.
+Detailed-balance birth-death transition q_k+=(N-k)/N[mu+(1-mu)k/(N-1)F(delta Delta_k)], q_k-=k/N[mu+(1-mu)(N-k)/(N-1)F(-delta Delta_k)]. At delta0 stationary neutral beta-binomial with a=2mu(N-1)/(1-mu). Differentiating zero mean drift gives m_N'(0)=(1-mu)/(4mu)E[K(N-K)/(N(N-1)) Delta_K], because derivative of stationary measure multiplies zero tanh. Weighted K(N-K) law yields J=K-1 ~ BetaBinomial(N-2,a+1,a+1), giving exact closed form after quadratic expected payoffs. r2 coefficient (1-mu)(N-3)(N-1)mu/[6(3+(4N-7)mu)(1+(4N-5)mu)]>0 and r1 coefficient = -half of that. Two-player r1 term antisymmetric k↔N-k under neutral symmetric weights. Independent exact Fraction calculations checked N=4,5,8 examples at mu=1/3, plus four-person +/-1/780 and threshold mu=1/3; finite checks corroborate exact algebra not infinite proof.
 
-**Closest prior results and limits.** Wang et al. (2026), arXiv:2607.16809; Hauert and McAvoy (2024), arXiv:2404.13728; McAvoy and Wakeley (2022), arXiv:2010.14566. Conclusions concern weak selection at finite positive symmetric flip mutation under distinct-peer Fermi imitation, not other population protocols. Although relevant full-text papers were inspected, specialized equivalences or an uninspected extension may subsume components.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang et al 2026 claim full-contribution-only weak-selection condition in a rare-mutation regime; positive fixed mutation changes the order of limits, so their parameter result does not imply that the interior coefficients vanish at positive mutation. Hauert/McAvoy 2024 treat related nonlinear returns with different update and numerical stationary results. McAvoy/Wakeley generic structure coefficients could permit specializing to this expression, but no direct same mathematical model formula or sharp N4 contrasting example established. Wang full text remained inaccessible despite arXiv/OA searches and Oxford authorized VPN disconnected; risk recorded without automatic originality failure.
+
+## value
+
+PASS
+
+The mutation-versus-weak-selection order-of-limits effect directly quantifies when interior public-good returns influence stationary cooperation. The exact all-population rational response and smallest admissible four-person sign-changing pair provide a concrete motivated boundary, not a mere algorithmic recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
