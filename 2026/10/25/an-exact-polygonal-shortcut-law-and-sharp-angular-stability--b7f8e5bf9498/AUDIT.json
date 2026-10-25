@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact locality is enforced by a positive polygon-dependent radius. The same-side square integral and adjacent-side area/Jacobian are computed without asymptotic remainder. Uniform circular parameter differences give exact boundary distance law. Euler sine-product coefficient positivity proves f second derivative >1/3, yielding strict convexity and the 1/6 variance bound. Realizable equiangular and alternating-angle tangent polygons certify equality and optimality; verify.py numerical checks are supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full closest published convex-polygon short-pair coefficient text explicitly assumes two area-uniform interior points and derives a quartic polynomial.",
+        "Tokmachev 2024 boundary-pair research describes a mean-distance maximizer, not the local distribution; only its abstract was checked."
+      ],
+      "reasoning": "General point-distance algorithms could in principle be adapted, but a method to numerically compute distributions is not a statement that implies the exact local angle-only coefficient or globally sharp uniform stability. A mean alone does not determine this CDF or its angular curvature.",
+      "searches": [
+        "random distance on perimeter of arbitrary convex polygon probability distribution adjacent sides formula",
+        "\"distance between two points on the boundary\" \"polygon\" probability formula",
+        "Exact local quadratic excess of Euclidean versus intrinsic boundary arclength distance for two uniform random points on convex polygon, coefficient sum beta/sin(beta)-1 and sharp 1/6 angle variance stability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.2707",
+      "arxiv:1602.03407",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+      "doi:10.1007/s10958-024-07543-w"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published interior-coefficient theorem: D_P(rho) = rho^2 - c rho^3 + C4(P) rho^4 for area points; C4(P) contains 1+(pi-alpha) cot(alpha), and its stability coefficient differs.",
+        "Current theorem concerns arclength points and the difference between ambient Euclidean and shorter boundary-arc distances, with coefficient beta/sin(beta)-1 and 1/6 stability."
+      ],
+      "reasoning": "The previously proved area-covariogram result does not identify the boundary-distance measure or intrinsic circular-arclength subtraction. Although the two proofs share locality and convexity ideas, neither theorem is a corollary of the other as stated.",
+      "searches": [
+        "Exact local two-point distance distribution on the boundary of a convex polygon, angle-defect coefficient and extremality by equiangular polygons",
+        "Covariogram or chord-distance distribution near zero for polygon perimeter measure, same side adjacent edge pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bäsel arXiv:1204.2707v2, Introduction and Section 4, uses motion-invariant line law and area-uniform interior-point law.",
+        "Tong–Pan arXiv:1602.03407v1, Abstract and Sections I–II, uses area-uniform polygon points and line-chord machinery."
+      ],
+      "reasoning": "An interior-area pair law concerns a different probability measure and cannot yield the boundary-arclength pair CDF by a parameter substitution; the normalizing dimension and leading powers differ. No exact boundary shortcut coefficient was located in targeted formula and alias searches.",
+      "searches": [
+        "arclength-uniform points on a polygon boundary local Euclidean pair-distance distribution quadratic in radius corner angle sum exterior angle / sine exterior angle",
+        "\"perimeter\" \"distance\" \"beta/sin beta\" polygon boundary",
+        "polygon boundary autocorrelation measure near zero, two point correlation, angular defect energy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published geometric finding ID 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b concerns area-uniform pairs.",
+        "Previously released geometric results with boundary sampling address chord midpoints, triangle penetration, and hull deficits, not this metric-difference coefficient."
+      ],
+      "reasoning": "No checked indexed exact table states or dominates equation (1) and (2). Absence of a result in a database is not proof of global originality.",
+      "searches": [
+        "For two independently uniform arclength points on the boundary of a convex polygon, the short Euclidean-distance cumulative distribution has an exact quadratic expansion with coefficient sum interior angle over sine.",
+        "polygonal curve self proximity short distance pair local expansion, sharp equiangular minimization"
+      ]
+    },
+    "rationale": "The claimed local boundary-pair probability is not an implication of the inspected motion-invariant line chord law or the area-uniform random-point distance laws. The closest published angle-stability result studies the interior-pair quartic coefficient, not the perimeter-pair quadratic shortcut coefficient. Bäsel 2012 and Tong–Pan 2016 primary material and the full closest published result text were inspected; residual historical-equivalence risk remains.",
+    "residual_risks": [
+      "Historic perimeter-point distance calculations under different terminology could imply the local angular coefficient.",
+      "Tokmachev 2024 specialist full text was not read; its abstract does not assert the claimed small-distance law.",
+      "A published formula could imply the result after a nontrivial reduction not recognized in the available searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for claimed boundary-arclength metric difference, due to different random sampling measures.",
+        "evidence": "Section 4 explicitly says points are independently uniform within the polygon; the chord distribution uses motion-invariant lines.",
+        "identifier_or_url": "https://arxiv.org/pdf/1204.2707",
+        "material_read": "Abstract, Introduction, Sections 2–3 sampling and chord definitions, Section 4 Theorem 2 and proof setup",
+        "method": "Open-access arXiv PDF text and first-page image",
+        "title": "Random chords and point distances in regular polygons",
+        "trigger": "Closest older regular-polygon random chord/distance primary source"
+      },
+      {
+        "assessment": "NOT_COVERING for the perimeter-arclength claim as a stated theorem: uses uniformly sampled polygon interiors.",
+        "evidence": "Introduction and triangle algorithm integrate pairs within triangles, with area-based probability normalizations.",
+        "identifier_or_url": "https://arxiv.org/pdf/1602.03407",
+        "material_read": "Abstract, Section I sampling setup and formulas, Sections I–II structure",
+        "method": "Open-access arXiv PDF text and first-page image",
+        "title": "Random Distances Associated with Arbitrary Polygons: An Algorithmic Approach between Two Random Points",
+        "trigger": "Plausible arbitrary-polygon distance-distribution method"
+      },
+      {
+        "assessment": "NOT_COVERING because it treats area-uniform random points and a quartic covariogram coefficient; current theorem uses boundary-uniform points and a quadratic two-metric difference.",
+        "evidence": "Published finding formula is an exact rho^2+rho^3+rho^4 expansion for area pairs; it has no boundary arc metric.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "material_read": "Entire RESULT.md including finding, hypotheses, proof, prior work, and limitations",
+        "method": "Published repository file read",
+        "title": "Sharp uniform angular stability for the short-pair distance coefficient of convex polygons",
+        "trigger": "Nearest published overlap by analytic coefficient and angle stability"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract addresses a mean-value extremal theorem and does not exhibit a local distance CDF coefficient.",
+        "evidence": "Abstract claims fixed-perimeter mean Euclidean distance uniquely maximized by the circle.",
+        "identifier_or_url": "https://doi.org/10.1007/s10958-024-07543-w",
+        "material_read": "Public abstract only, not specialist full text",
+        "method": "Bibliographic and abstract search",
+        "title": "The Mean Distance Between Random Points on the Boundary of a Convex Figure",
+        "trigger": "Relevant boundary-uniform point-pair metric source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7f8e5bf-9498-4bcc-843d-f79a05558fbe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The metric-difference short-range probability is a natural extrinsic/intrinsic discrepancy with an exactly local corner energy. Its value is side-length-independent after perimeter scaling and quantitatively controls angular unevenness with an optimal universal constant and sharp equality conditions. The phenomenon is not a mere fixed-polygon numeric table or minor known-constant improvement.",
+    "status": "PASS"
+  }
+}
