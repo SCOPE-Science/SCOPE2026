@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact Hermite residual is a cubic-polynomial identity; the logarithmic sensitivity of the positive residual integral has the universal strict 4<nu_p<5 pointwise weighted-average bound. Exact unit-modulus Runge–Kutta polynomial arithmetic locates z=−1+i sqrt(w), w(w−3)^2=32, w>53/10, and yields mu>5. The correct 2-by-2 feedback Jacobian has determinant 1+(beta kappa'(1)/4)(mu−nu_p)>1 for all claimed p, gains and limiter slopes; continuity gives the open boundary arc. Rational-identity verifier and numerical consistency checks passed; infinite quantifiers are established analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.12677, primary full-text central Hermite residual and controller-Jacobian analysis",
+        "arXiv:2104.06836, adaptive RK step-size controller optimization and PI/PID methods"
+      ],
+      "reasoning": "The 2023 paper supplies the broader residual-feedback framework and selected-gain examples, not a theorem that all beta>0, all finite p and every smooth positive-slope limiter fail on a common arc. General PI/PID tuning covers a different map and does not dominate the claimed I-only universal negative result.",
+      "searches": [
+        "third order Runge Kutta residual based a posteriori error estimate central cubic Hermite I step-size controller cannot be stabilized by tuning proportional gain any positive gain stability boundary",
+        "Ranocha Giesselmann 2023 RK3 complex scalar 1+z+z^2/2+z^3/6 gain independent instability mu greater estimator log slope",
+        "arXiv:2307.12677 full-text Hermite interpolant I controller linear stability analysis",
+        "arXiv:2104.06836 full-text adaptive stepsize control gain stability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.12677",
+      "https://arxiv.org/abs/2104.06836",
+      "Semantic published-finding queries recorded above",
+      "Accessible historical research claims in own current-week JSONL parts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ranocha–Giesselmann give the p=2 central residual and representative unstable I-controller settings, which establish existence of instability but not nonstabilizability for arbitrary beta/p/smooth limiter",
+        "Our exact location satisfies w(w−3)^2=32, mu>5, and 4<nu_p<5 independently of p; the determinant inequality holds for all positive controller slopes"
+      ],
+      "reasoning": "An example of instability at beta=1 cannot logically imply failure at every beta>0. The new analytic separation mu−nu_p>0 and determinant formula bridge that implication; embedded error estimators and PI/PID schemes in the earlier source differ structurally.",
+      "searches": [
+        "third order Runge Kutta residual based a posteriori error estimate central cubic Hermite I step-size controller cannot be stabilized by tuning proportional gain any positive gain stability boundary",
+        "Ranocha Giesselmann 2023 RK3 complex scalar 1+z+z^2/2+z^3/6 gain independent instability mu greater estimator log slope",
+        "a posteriori residual step size control I controller gain independent stability barrier exponential imaginary complex",
+        "arXiv:2307.12677 stability analysis and Fig. discussion",
+        "arXiv:2104.06836 controller stability optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.12677 sections 2 and 3.3.2: central Hermite interpolant, central residual, I-type controller stability examples",
+        "Closest published mathematical record: classical Fehlberg RK4(5) error estimator vanishes at a real argument"
+      ],
+      "reasoning": "A zero-valued embedded Fehlberg estimator is not a bound on the logarithmic derivative of a cubic-Hermite residual estimator, and its fixed point does not give the asserted all-gain I-controller instability arc. The general central-Hermite setup is common to the source, whereas the quantified gain-independent arc is not supplied by it.",
+      "searches": [
+        "third order Runge Kutta residual based a posteriori error estimate central cubic Hermite I step-size controller cannot be stabilized by tuning proportional gain any positive gain stability boundary",
+        "Ranocha Giesselmann 2023 RK3 complex scalar 1+z+z^2/2+z^3/6 gain independent instability mu greater estimator log slope",
+        "a posteriori residual step size control I controller gain independent stability barrier exponential imaginary complex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record searches returned the explicitly different Fehlberg RK4(5) error-resonance finding and no entry with a central Hermite all-gain p-uniform stability boundary",
+        "Both accessible historical private research-ledger parts were searched for Ranocha, Giesselmann, central Hermite, I-controller and step-size-controller claims; no potentially covering claim was identified"
+      ],
+      "reasoning": "Neither the consulted result records nor checked accessible ledger claims contain an equivalent exact algebraic point, universal logarithmic residual-sensitivity barrier, or full implication. Indexing and search are not an exhaustive uniqueness certificate.",
+      "searches": [
+        "2022 2023 2024 sharp numerical optimization control instability phase diagram rank one spectral conditioning randomized iterative methods",
+        "2023 explicit numerical integration parametric numerical analysis stability exact thresholds splitting projection optimization",
+        "third order Runge Kutta residual based a posteriori error estimate central cubic Hermite I step-size controller cannot be stabilized by tuning proportional gain any positive gain stability boundary"
+      ]
+    },
+    "rationale": "The primary 2023 full-text central-Hermite and I-controller sections supply the estimator, special p=2 case, and selected-gain numerical instability, but do not state or yield the new common all-positive-gain/all-finite-p open-arc obstruction without the exact algebraic witness and universal 4<nu_p<5 proof. The 2021 adaptive RK gain paper treats different embedded error estimators and PI/PID optimization. Focused published-finding searches identify unrelated estimator resonance, not this implication. Residual risk of an equivalent unpublished/uninspected or more general earlier result persists.",
+    "residual_risks": [
+      "An alternative formulation in older controller literature could imply this pointwise spectral determinant criterion without matching titles/keywords.",
+      "The two primary inspected references and bounded search are not exhaustive all mathematical literature.",
+      "The theorem does not extend to memory-based controllers or step rejection; no such extension is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports premises and reports selected-gain instability; does not provide the new explicit simultaneous all-gain finite-p arc theorem",
+        "evidence": [
+          "arXiv:2307.12677v3, sections 2–3 and subsection 3.3.2, equations (3.26), (3.33), (3.35) and controller-Jacobian discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.12677",
+        "material_read": "Full open-access HTML content: source scheme/reconstruction and residual definition; controller Jacobian and stability; third-order central Hermite subsection 3.3.2 with numerical plots and the L2 formula; conclusion",
+        "method": "Read mathematical source exposition and formulae, then independently derived normalized residual identity and Jacobian; compared exact quantified statements",
+        "title": "Stability of step size control based on a posteriori error estimates",
+        "trigger": "The source defining the exact central cubic-Hermite estimator and I-type feedback"
+      },
+      {
+        "assessment": "Different embedded-estimator PI/PID optimization context; neither an all-p central cubic-Hermite instability bound nor this algebraic common arc is covered",
+        "evidence": [
+          "arXiv:2104.06836, section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.06836",
+        "material_read": "Open-access full paper, especially section 4 on controller parameters and stability region optimization",
+        "method": "Compared control recurrence, error estimator, type of gain and scope of stability propositions",
+        "title": "Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD",
+        "trigger": "Possible dominating general theory about gain tuning and step-size-controller stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "271b668d-ba14-4ce4-8d28-338ba772dd29",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-gain instability observations cannot rule out controller-gain retuning or choosing a different residual norm. The new algebraically located common arc proves that these two natural design adjustments, and any ordinary limiter with positive operating-point derivative, all fail together for the specified I-feedback family. This is a meaningful structural step-size-control design obstruction, not a routine computational parameter substitution.",
+    "status": "PASS"
+  }
+}
