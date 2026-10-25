@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(n\ge1\), compatibility with the diagonal forces each upper and lower row to be a contiguous prefix. Conversely, a direct examination of upper–upper, lower–lower, mixed, and diagonal products proves the independence of every allowed prefix digit. Coordinatewise inclusion gives a lattice isomorphism; the cardinality and graded count follow from independent digits, while compatible equivalence relations are precisely the convex interval partitions. The edge case \(n=1\), orientation of lower pairs, and the interpretation of the off-diagonal grading were checked. Exact exhaustive enumeration on \(n\le4\) and exhaustive prefix-code generation on \(n\le5\) corroborate the proof. The verifier does not establish results at untested orders; the all-order claim uses the symbolic argument.
+## correctness
 
-## Originality — PASS, with qualified historical risk
-Barber–Ruškuc, arXiv:2602.17286v2, Sections 3–4, prove formulas for Rees matrix semigroups and a Clifford upper bound \(\chi(S)\le\chi(Y)\), and explicitly leave semilattice values unclassified; neither the meet-chain product lattice nor the squared Mahonian enumeration appears in that inspected text. Their 2025 predecessor studies DSC status and broad semigroup classes rather than this exact count. Fioravanti's work addresses Mal'cev identities on compatible reflexive relations, not the stated finite-chain lattice. Actual searches of published mathematical records and related-terminology queries produced no implication of the full theorem. The main residual risk is an older equivalent combinatorial formulation using meet-closed relations, tolerance-like relations, or subsemilattices of grid products. This is not an independent novelty certification.
+PASS
 
-## Mathematical value — PASS
-The motivating 2026 paper explicitly calls for understanding the semilattice DSC coefficients occurring in its Clifford-semigroup bound. This theorem solves the complete chain case, including the **entire inclusion lattice** and the nontrivial squared Mahonian size distribution, rather than an isolated small example. The formula exhibits an exact infinite family of semilattice coefficients and proves rapid decay along chains. The congruence count is a supporting elementary fact, not the novelty by itself.
+For every n>=1, multiplying any pair (i,j), i<j, by diagonal (k,k) forces all intervening (i,k), and similarly (k,i) for reversed pairs. Conversely, products of two upper pairs, two lower pairs and a mixed upper/lower pair preserve independently selected upper/lower initial prefixes; hence all 2(n-1) reach digits range independently over 0..n-1-i. Relation inclusion is digitwise and yields product_(r=2..n)([r]x[r]), (n!)^2 cardinality and squared Mahonian rank polynomial. Compatible equivalences have interval classes; all interval partitions arise as kernels of nondecreasing min-homomorphisms, giving 2^(n-1) and Stirling asymptotic. The n=1 case gives singleton. Independent n=4 brute force gave 576 relations, eight congruences and the exact palindromic rank distribution; finite test corroborates unrestricted symbolic proof.
 
-## Closest literature and limits
-Barber–Ruškuc, *Comparing Numbers of Diagonal Subsemigroups and Congruences for Semigroups*, arXiv:2602.17286v1 (2026), Section 4 in v2; Barber–Ruškuc, *Semigroup Congruences and Subsemigroups of the Direct Square*, arXiv:2504.02428 (2025); Fioravanti, *Mal'cev conditions corresponding to identities for compatible reflexive relations* (2021). The result is limited to finite meet-chains; it does not settle the arbitrary semilattice case. Equivalent older terminology remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary evidence and published-record searches support best-of-knowledge originality of the precisely isolated mathematical contribution, not unconditional priority. Equivalent-grid/compatible-relation aliases checked; no identified source explicitly gives independent two-direction reach digits. A general DSC theorem parameterized by |Diag(C_n)| requires the new explicit count; proof is direct prefix classification, not renamed known congruence formula.
+
+## value
+
+PASS
+
+Finite meet-chains are the canonical semilattice test family for diagonal subsemigroup versus congruence counts. The explicit entire inclusion lattice (not merely number), squared Mahonian rank polynomial, exact factorial-square count and DSC coefficient answer a natural structural/enumerative question for every n, useful to later Clifford-semigroup bounds even without an arbitrary semilattice classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

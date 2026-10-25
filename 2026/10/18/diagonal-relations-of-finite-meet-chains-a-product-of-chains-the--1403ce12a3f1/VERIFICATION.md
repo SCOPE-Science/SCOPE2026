@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the chain theorem
+# Independent mathematical audit
 
-The associated \(\texttt{verify.py}\) uses only Python's standard library and constructs each tested relation as a set of integer pairs. It checks the original definition, not solely the proposed formula. Specifically, exhaustive filtering of all reflexive relations on \(C_n\) for \(1\le n\le4\) compares exact counts, prefix reconstruction, rank-generating coefficients, and congruence counts. A separately generated family of all prefix-code pairs checks closure, code recovery, and coefficients for \(2\le n\le5\).
+## correctness
 
-The observed counts of diagonal subsemigroups for \(n=1,2,3,4,5\) were respectively \(1,4,36,576,14400\). The brute-force congruence counts for \(n=1,2,3,4\) were respectively \(1,2,4,8\). The actual test run ended with \(\texttt{VERIFY\_OK}\).
+PASS
 
-Only finite orders specified in the script were checked computationally. The uniform theorem and asymptotics depend on the explicit mathematical proof in \(\texttt{RESULT.md}\), including the mixed-product case and the convexity argument. No independent or formal certification was performed.
+For every n>=1, multiplying any pair (i,j), i<j, by diagonal (k,k) forces all intervening (i,k), and similarly (k,i) for reversed pairs. Conversely, products of two upper pairs, two lower pairs and a mixed upper/lower pair preserve independently selected upper/lower initial prefixes; hence all 2(n-1) reach digits range independently over 0..n-1-i. Relation inclusion is digitwise and yields product_(r=2..n)([r]x[r]), (n!)^2 cardinality and squared Mahonian rank polynomial. Compatible equivalences have interval classes; all interval partitions arise as kernels of nondecreasing min-homomorphisms, giving 2^(n-1) and Stirling asymptotic. The n=1 case gives singleton. Independent n=4 brute force gave 576 relations, eight congruences and the exact palindromic rank distribution; finite test corroborates unrestricted symbolic proof.
+
+## originality
+
+PASS
+
+Primary evidence and published-record searches support best-of-knowledge originality of the precisely isolated mathematical contribution, not unconditional priority. Equivalent-grid/compatible-relation aliases checked; no identified source explicitly gives independent two-direction reach digits. A general DSC theorem parameterized by |Diag(C_n)| requires the new explicit count; proof is direct prefix classification, not renamed known congruence formula.
+
+## value
+
+PASS
+
+Finite meet-chains are the canonical semilattice test family for diagonal subsemigroup versus congruence counts. The explicit entire inclusion lattice (not merely number), squared Mahonian rank polynomial, exact factorial-square count and DSC coefficient answer a natural structural/enumerative question for every n, useful to later Clifford-semigroup bounds even without an arbitrary semilattice classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
