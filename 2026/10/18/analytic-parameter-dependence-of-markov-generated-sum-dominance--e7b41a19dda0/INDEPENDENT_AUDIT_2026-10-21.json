@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 565afa9a6e2a6eb5d5fb7c74aa384e077d9fbe0c",
+        "verify.py blob 128f3716e01147ae35cf8bec55d7b5e5fe15c6f1",
+        "CHECKS.txt blob 40eec9a63df245395ccd0aea630685016c223c05",
+        "He-Daniewski-Miller arXiv:2610.08394v1 full PDF, Lemmas 2.3-2.4 and Proposition 2.5"
+      ],
+      "rationale": "For a fixed real (p0,q0) in (0,1)^2, the finite-state chain has stationary distribution pi=( (1-q)/(2-p-q), (1-p)/(2-p-q) ) and second eigenvalue p+q-1 of modulus below one. The cited full-middle lemma identifies the limiting sign probabilities with limits of finite fringe-score probabilities F_K. For each finite K these are rational functions of p,q. On a sufficiently small complex polydisk about the real point, all transition and stationary factors are nonzero and their ratios to the real base-point factors are bounded by e^epsilon, while stationary ratios are bounded by 2. The finite-energy bound delta=m^8/8 for one or two coordinates, conditioned on all others, gives P(Delta_K != Delta_(K-1))<=3(1-delta)^floor((K+1)/2), since a changed increment requires at least one of the three relevant sums to be missing. The complex weight comparison then gives |F_K-F_(K-1)|<=12 exp(2 epsilon K)(1-delta)^floor((K+1)/2). Choosing epsilon < -1/4 log(1-delta) makes this geometric. Local uniform convergence of rational holomorphic F_K yields a holomorphic extension near each real point, hence real analyticity of each limit. The stored finite verifier checks only selected values; it is not used for the infinite analytic conclusion.",
+      "residual_risks": [
+        "The analytic extension is local at each interior real parameter point; no uniform complex domain or boundary regularity is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Markov paper covers limit existence and positivity for all p,q in the open square, and Do et al. cover continuity for a different three-parameter correlated-pair model. Neither gives a holomorphic extension or real-analytic conclusion for this Markov model."
+        ],
+        "reasoning": "The prior probability limits do not imply analytic dependence without a locally uniform complex convergence argument; the present finite-energy/complex-weight estimate supplies that missing step.",
+        "searches": [
+          "He-Daniewski-Miller, arXiv:2610.08394v1 full PDF",
+          "Do et al., arXiv:1401.2588 full PDF, §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search on analytic Markov MSTD probabilities",
+        "arXiv:2610.08394v1 full PDF",
+        "arXiv:1401.2588 full PDF",
+        "arXiv:0911.2292 background PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Markov paper Lemma 2.4 proves an exponential full-middle probability and Proposition 2.5 proves limits; the paper does not use complex parameters. Do et al. prove continuity and list further analytic properties as an open question."
+        ],
+        "reasoning": "The new theorem is not a corollary of pointwise convergence or continuity alone. It establishes a local holomorphic extension via uniform geometric convergence on a complex neighborhood.",
+        "searches": [
+          "He-Daniewski-Miller, arXiv:2610.08394v1, full PDF search for analytic/complex and §§2-3",
+          "Do et al., arXiv:1401.2588, conclusion and §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 Markov paper identifies the limit with endpoint fringe scores once the middle is full. Do et al. study correlated pairs (A,B), not a single Markov-generated set, and prove continuity."
+        ],
+        "reasoning": "The same fringe-score reduction is the base formulation, but real analyticity is stronger than existence/positivity or continuity and is not stated in either inspected paper.",
+        "searches": [
+          "Resultary query: Markov generated sum dominance analytic parameter dependence sum dominance",
+          "He-Daniewski-Miller, arXiv:2610.08394v1, Lemmas 2.3-2.4, Proposition 2.5, Theorem 1.7",
+          "Do et al., arXiv:1401.2588, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 paper gives numerical estimates for finite n over parameter ranges but no exact derivative or analytic parameter table. Do et al. explicitly ask to investigate further analytic properties of the limit function."
+        ],
+        "reasoning": "No exact database or table of derivatives/analytic expansions was found; finite simulations do not settle real analyticity.",
+        "searches": [
+          "Resultary query: Markov generated sum dominance analytic parameter dependence sum dominance",
+          "He-Daniewski-Miller, arXiv:2610.08394v1, finite-n numerical estimates and open questions",
+          "Do et al., arXiv:1401.2588, §3 and conclusion"
+        ]
+      },
+      "rationale": "The 2026 Markov-MSTD paper proves existence and positivity of limiting sign probabilities by the fringe-middle method but does not establish analytic dependence; the full text contains no analytic/complex-parameter argument. Do et al. prove continuity for a different pair-of-correlated-sets model and explicitly leave further analytic properties open. The present result proves real analyticity for the stationary self-correlated two-state Markov model using local complex uniform convergence. Resultary searches returned no exact analytic theorem.",
+      "residual_risks": [
+        "The exact regularity question is directly motivated by the correlated-set paper; an unpublished proof for the Markov model could exist, but no inspected primary source states it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the full-middle bound and existence/positivity of three limiting sign probabilities. The inspected text contains no analytic or complex-parameter theorem.",
+          "evidence": "Lemma 2.4 gives exponential full-middle probability; Proposition 2.5 proves the limits; the paper reports finite-n numerical estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08394",
+          "material_read": "Full 17-page PDF text obtained from an OA mirror; Lemmas 2.3-2.4, Proposition 2.5, Theorem 1.7, and the later expectation section read",
+          "method": "Primary full-text theorem comparison and text search for analytic/complex",
+          "title": "Generating and generalizing MSTD sets through Markov processes",
+          "trigger": "Same stochastic model and limiting probabilities"
+        },
+        {
+          "assessment": "Proves continuity for a correlated pair-of-sets model, not real analyticity for the stationary single-chain model. The conclusion explicitly asks for further analytic properties.",
+          "evidence": "Conclusion lines 928-932 state that further analytic properties of P are an open question; Section 3 proves continuity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.2588",
+          "material_read": "Full 19-page PDF; Section 3 continuity proof and conclusion/open questions read",
+          "method": "Primary full-text scope comparison",
+          "title": "Sums and Differences of Correlated Random Sets",
+          "trigger": "Closest prior analytic-regularity question for sum-difference limit functions"
+        },
+        {
+          "assessment": "Establishes the importance of endpoint fringes for MSTD limits; it does not cover the Markov analytic claim.",
+          "evidence": "The abstract states that middle elements are nearly unrestricted and endpoint fringes control missing sums/differences.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.2292",
+          "material_read": "Full PDF abstract and introduction inspected for context; no analytic parameter theorem relied on",
+          "method": "Background/source-context check",
+          "title": "Sets Characterized by Missing Sums and Differences",
+          "trigger": "Classical fringe-middle framework underpinning the limit method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "He-Daniewski-Miller, arXiv:2610.08394v1",
+        "Do et al., arXiv:1401.2588"
+      ],
+      "rationale": "Real analyticity is a meaningful regularity upgrade for a natural two-parameter stochastic-combinatorial limit and directly supports future derivative and local-parameter analysis of MSTD, difference-dominant and balanced probabilities. The result supplies a substantive local complex-convergence argument beyond numerical estimates or the known existence theorem.",
+      "residual_risks": [
+        "No explicit derivative formula, global analytic radius, or boundary extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the stationary two-state Markov model with P(0,0)=p and P(1,1)=q, each limiting probability of sum-dominant, difference-dominant and balanced sets is real analytic throughout (0,1)^2.",
+  "limitations": [
+    "Local real analyticity on the open square only; no uniform complex radius, derivative formula, or boundary extension is claimed."
+  ],
+  "residual_risks": [
+    "The exact regularity question is directly motivated by the correlated-set paper; an unpublished proof for the Markov model could exist, but no inspected primary source states it.",
+    "The analytic extension is local at each interior real parameter point; no uniform complex domain or boundary regularity is claimed."
+  ],
+  "schema_version": 1
+}
