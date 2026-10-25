@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T12:51:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 348619fc24e2b6f5cd1c4c5700544064773a8d0d",
+        "Pinned verify.py blob c8f2a7d9c30f60ba8b93de602b5f8cbfc96702d0",
+        "Independent exact affine polygon clipper and its full 11-cell output",
+        "Bárány–Hug–Schneider planar face-pair sweep proof"
+      ],
+      "rationale": "For a nondegenerate affine image of a regular pentagon, every generic diameter is a unique edge-to-opposite-vertex chord, so the multiplicity equals the sum of five triangle-family indicators outside a finite union of exceptional chords. The 5 internal pentagram diagonals are each shared by two swept triangle boundaries, making generic multiplicity odd; the maximum is five and a boundary-near cell has multiplicity one. Independently split the entire explicit affine-model polygon by all five diagonal lines, generating exactly eleven positive-area open cells: five count-one, five count-three, one count-five. Exact Q(sqrt(5)) polygon clipping gives total area 5/2, each triangle sqrt(5)/2, central fivefold cell area (35-15 sqrt(5))/4 and hence probabilities 5-2 sqrt(5), (7 sqrt(5)-15)/2, (7-3 sqrt(5))/2. Direct exact moment recomputation gives E=sqrt(5), Var=20-8 sqrt(5). All fivefold-cell vertices and 11 cell measures are recovered independently of the package verify.py. Finite exceptional diagonals have Lebesgue measure zero; this exact planar arrangement exhaustion verifies the claimed a.e. distribution, not claims about boundary multiplicity or arbitrary pentagons.",
+      "residual_risks": [
+        "Exceptional diagonal points and vertex-to-vertex chords were excluded by the almost-everywhere scope.",
+        "Independent sign decisions use SymPy exact sign where available and 40-digit high precision when undecidable, with nonzero guard; all final computed areas are exact algebraic identities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martini–Soltan, A theorem on affine diameters of convex polytopes (Acta Sci. Math. 69 (2003)), Theorem 1 and proof: a.e. odd affine-diameter count for convex polytopes, subsuming the oddness-only step here.",
+          "Bárány–Hug–Schneider, Affine diameters of convex bodies, Theorem 1.1 and planar proof: general mean/multiplicity integration; specializes to mean sqrt(5), not the full distribution.",
+          "Published constant-width parity record covers a distinct class and does not give a pentagon distribution; affine regular pentagons are not constant-width bodies."
+        ],
+        "reasoning": "The broad 2003 parity theorem covers a core structural subclaim and must be credited; general 2014/2016 mean formula supplies another. Neither dominates the complete 1/3/5 area-distribution claim, because those two moments/constraints do not identify p5. No stronger prior exact distribution was found.",
+        "searches": [
+          "Martini and Soltan 2003 theorem on affine diameters of convex polytopes parity",
+          "arXiv:1403.7158 affine diameters planar polytope mean integral",
+          "2026/10/4 Resultary odd affine-diameter multiplicity for constant-width bodies"
+        ]
+      },
+      "checked_sources": [
+        "https://acta.hu/download.phtml?id=2728",
+        "https://arxiv.org/abs/1403.7158",
+        "https://www.researchgate.net/publication/233759200_Affine_diameters_of_convex_bodies_-_a_survey",
+        "https://doi.org/10.1007/s00022-020-00535-6",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-affine-diameter-multiplicity-almost-everywhere-for-every-pla--bf16ddb3ccce",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-affine-diameter-multiplicity-law-for-affine-regular-pentagons--79c71e04b203",
+        "https://doi.org/10.1016/j.exmath.2005.01.019",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/affine-diameter-multiplicity-law-for-affine-regular-pentagons--79c71e04b203"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known parity: p1+p3+p5=1 and N_a takes odd values for a generic pentagon, 2003 theorem. Known mean: p1+3p3+5p5=sqrt(5), 2014/2016 formula or direct five-triangle area. These two linear equations leave one undetermined parameter p5.",
+          "New independent exact polygon dissection identifies 11 chambers and p5=(7-3 sqrt(5))/2, closing the system and yielding the exact variance.",
+          "The 2020 publisher preview concerns concurrency and equiangular affine diameter families; its inaccessible full text was not judged to exclude any hidden overlap computation."
+        ],
+        "reasoning": "The statement-level implication test is decisive: from earlier oddness and mean there is still a one-dimensional family of potential (p1,p3,p5). The concrete geometry of the fivefold pentagram cell and exact area is needed. Prior published figures may make the computation accessible but no earlier equivalent measurement was verified.",
+        "searches": [
+          "Martini Soltan 2003 general a.e. oddness convex polytopes and pentagon consequences",
+          "Bárány Hug Schneider 2014 polygon opposite vertex triangle average affine diameters",
+          "Berele Catoiu 2020 regular pentagon Fermat Ceder affine diameters preview"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary semantic searches for the pointwise overlap distribution and the pentagram-cell area returned the assessed record as an indexed copy, alongside unrelated pentagon results; no independently earlier equivalent distribution was identified.",
+          "Bárány–Hug–Schneider 2014, Section 3 and planar polytope remark, computes swept-triangle contributions to a mean rather than the complete multiplicity-region areas.",
+          "Martini–Soltan 2003 Theorem 1 establishes odd multiplicity a.e. for convex polytopes but not regular-pentagon level-set measures."
+        ],
+        "reasoning": "The claim is equivalent to exact areas of the 1/3/5 overlap cells, to the law of N_a(P,Z), or to the one-pentagram-core calculation combined with the known mean and oddness. Earlier parity and mean leave p5 undetermined; computing its area is a substantive additional geometric step. No independently earlier equivalent statement was identified in the inspected material.",
+        "searches": [
+          "affine diameter multiplicity regular pentagon distribution one three five central pentagram area",
+          "affine diameters convex pentagon point multiplicity overlap triangles exact probability distribution",
+          "affine diameters of convex bodies pentagon areas pentagram formula",
+          "\"regular pentagon\" \"affine diameters\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a single exact matching finding with the same research record identifier 79c71e04b203 and publication date, not evidence of independent priority.",
+          "The inspected 2003 parity paper, 2014 full-text article, and 2005 survey contain no table of 1/3/5 regular-pentagon multiplicity areas; text searches and statement inspection found no relevant exact radical table."
+        ],
+        "reasoning": "An independent exact table of the three probabilities would cover the claim even without matching wording. The actual searches and inspected published texts found none; unsuccessful retrieval cannot prove an exhaustive novelty claim. The radical values are arithmetic consequences once the pentagram core is determined, but the table itself is not a direct tabular specialization of the identified prior sources.",
+        "searches": [
+          "affine diameters convex pentagon point multiplicity overlap triangles exact probability distribution",
+          "affine diameters of convex bodies pentagon areas pentagram formula",
+          "\"regular pentagon\" \"affine diameters\"",
+          "\"7-3 sqrt(5)\" affine diameter pentagon",
+          "\"7 sqrt(5)-15\" pentagon affine diameters",
+          "Resultary indexed regular-pentagon affine diameter multiplicity distribution"
+        ]
+      },
+      "rationale": "The original complete three-level probability law and pentagram-region measure are not implied by the inspected earlier parity and first-moment theorems. Critically, Martini–Soltan (2003) already proves almost-everywhere odd affine-diameter multiplicity for ALL convex polytopes; parity by itself is not a new contribution. Bárány–Hug–Schneider (2014/2016) already proves the edge/opposite-vertex triangle sweep mechanism and mean. The surviving claim requires computing which polygonal overlap cell has multiplicity five and its exact area; this supplies the missing parameter in the three-level distribution. Search and relevant full-text inspection found no independent earlier table/theorem giving that distribution. The same-result Resultary hit is a mirror of the assessed research record, not an independent earlier source. Publisher-access limitations and possible unindexed classical pentagram exercises remain residual risks.",
+      "residual_risks": [
+        "The regular pentagram intersection geometry is classical; an unindexed geometric problem or table might record the same 1/3/5 area law.",
+        "The full Berele–Catoiu 2020 paper was unavailable; publisher preview alone cannot certify its entire content. Authorized retrieval reported vpn_disconnected.",
+        "The 1990 Soltan–Nguyên affine-diameter article was accessible through abstract/metadata rather than full text; its scope appeared different but uninspected material remains a risk.",
+        "The earlier polytope parity theorem makes generic oddness wholly prior art, leaving exact distribution/area—not parity—as the surviving contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ODDNESS_ONLY; does not give the three area probabilities for a regular pentagon.",
+          "evidence": "Theorem 1 establishes odd affine-diameter multiplicity a.e. under the convex-polytope conditions; full-text search for pentagon-specific probability/table did not reveal such a result.",
+          "identifier_or_url": "Martini–Soltan, Acta Scientiarum Mathematicarum 69 (2003), 431–440; https://acta.hu/download.phtml?id=2728",
+          "material_read": "Full lawful open-access article including Theorem 1 and its parity proof using cells and crossing arguments; relevant statement and technical lemmas inspected, including the PDF page image.",
+          "method": "Full PDF text and page inspection.",
+          "title": "A theorem on affine diameters of convex polytopes",
+          "trigger": "Broad earlier convex-polytope theorem possibly dominating the pentagon parity statement."
+        },
+        {
+          "assessment": "SUPPORTS_PREMISE_AND_MEAN, not independently covering the area distribution.",
+          "evidence": "Published planar proof computes mean by face-pair swept-triangle areas; no explicit 1/3/5 cell-area distribution for pentagons.",
+          "identifier_or_url": "Bárány–Hug–Schneider, arXiv:1403.7158 (2014); Proc. Amer. Math. Soc. 144 (2016), 797–812; DOI:10.1090/PROC12746",
+          "material_read": "Lawful arXiv full-text PDF: introduction, Theorems 1.1–1.2, proof/remark for planar polytopes; associated PDF page image inspected.",
+          "method": "Primary full-PDF and image inspection.",
+          "title": "Affine diameters of convex bodies",
+          "trigger": "Original published mean-multiplicity formula and generic edge/opposite-vertex swept regions."
+        },
+        {
+          "assessment": "SUPPLIES_PRIOR_ODDNESS_REFERENCE, no identified exact pentagram probability law.",
+          "evidence": "Survey reports Martini–Soltan convex-polytope parity; relevant sections do not state the specific 1/3/5 area fractions.",
+          "identifier_or_url": "Valeriu Soltan, Expositiones Math. 23 (2005), 47–63, DOI:10.1016/j.exmath.2005.01.019",
+          "material_read": "Author-posted accessible full-text HTML, introductory definitions and classical theorem discussion, with section discussing 2003 Martini–Soltan parity result; searched for pentagon.",
+          "method": "Lawful author-posted full text HTML section inspection.",
+          "title": "Affine diameters of convex bodies—a survey",
+          "trigger": "Historical terminology and possible older pointwise multiplicity classifications."
+        },
+        {
+          "assessment": "PREVIEW_NOT_COVERING; cannot conclude from preview that uninspected full text lacks the distribution.",
+          "evidence": "Accessible statements concern affine Fermat–Ceder concurrency/nonuniqueness rather than distribution of all pointwise diameter counts; full-text novelty risk preserved.",
+          "identifier_or_url": "Berele–Catoiu, Journal of Geometry 111 (2020), 22, DOI:10.1007/s00022-020-00535-6",
+          "material_read": "Publisher preview/abstract, regular pentagon figure caption and nearby discussion only; full text unavailable.",
+          "method": "Lawful preview inspection and attempted arXiv/OA alternatives; authorized Oxford institutional retrieval returned vpn_disconnected, no bypass.",
+          "title": "The Fermat–Torricelli theorem in convex geometry",
+          "trigger": "Explicit regular-pentagon affine diameters diagram, highly plausible geometric overlap prior."
+        },
+        {
+          "assessment": "DISTINCT_OBJECT_CLASS; theorem does not imply the pentagon distribution and parity already had older polytope coverage.",
+          "evidence": "Constant-width theorem uses a Möbius diameter-sweep argument; affine-regular pentagons are not of constant width.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-affine-diameter-multiplicity-almost-everywhere-for-every-pla--bf16ddb3ccce",
+          "material_read": "Complete published RESULT.md (theorem, proof, assumptions, prior-work comparison, limitations).",
+          "method": "Read primary result file from published Git repository.",
+          "title": "Odd affine-diameter multiplicity almost everywhere for every planar body of constant width",
+          "trigger": "Relevant earlier published mathematical record matching parity vocabulary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary regular-pentagon result and exact pentagram geometry",
+        "Martini–Soltan 2003 parity theorem",
+        "Bárány–Hug–Schneider 2014/2016 mean theory"
+      ],
+      "rationale": "The average number of affine diameters is a recognized invariant, and the natural affine-regular pentagon is a canonical convex polygon beyond the triangle where its generic pointwise multiplicity is nonconstant. An exact classwise area distribution has intrinsic geometric meaning: it completely answers the generic random-point count for this object, identifies the full fivefold central cell, and yields a second moment and variance not determined by existing mean and oddness results. The finding is a motivated finite classification, not an arbitrary slice or a mere rephrasing of the known parity theorem. It gives no all-polygon generalization and does not determine exceptional-point counts.",
+      "residual_risks": [
+        "The numerical radical fractions are elementary once the fivefold cell is identified; novelty/value concern the complete natural multiplicity classification, not arithmetic difficulty.",
+        "This theorem is restricted to the affine class of regular pentagons and does not classify general pentagons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://acta.hu/download.phtml?id=2728",
+    "https://arxiv.org/abs/1403.7158",
+    "https://www.researchgate.net/publication/233759200_Affine_diameters_of_convex_bodies_-_a_survey",
+    "https://doi.org/10.1007/s00022-020-00535-6",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-affine-diameter-multiplicity-almost-everywhere-for-every-pla--bf16ddb3ccce",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-affine-diameter-multiplicity-law-for-affine-regular-pentagons--79c71e04b203"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is Lebesgue-almost-everywhere only; all generic counting is by distinct geometric diameter segments.",
+    "The results depend on affine regularity and do not extend automatically to arbitrary pentagons or larger odd polygons.",
+    "The 2003 general convex-polytope oddness theorem already covers the parity assertion; the area distribution is the new candidate.",
+    "The 2020 publisher paper was not fully accessible."
+  ],
+  "residual_risks": [
+    "The regular pentagram intersection geometry is classical; an unindexed geometric problem or table might record the same 1/3/5 area law.",
+    "The full Berele–Catoiu 2020 paper was unavailable; publisher preview alone cannot certify its entire content. Authorized retrieval reported vpn_disconnected.",
+    "The 1990 Soltan–Nguyên affine-diameter article was accessible through abstract/metadata rather than full text; its scope appeared different but uninspected material remains a risk.",
+    "The earlier polytope parity theorem makes generic oddness wholly prior art, leaving exact distribution/area—not parity—as the surviving contribution."
+  ],
+  "schema_version": 1
+}
