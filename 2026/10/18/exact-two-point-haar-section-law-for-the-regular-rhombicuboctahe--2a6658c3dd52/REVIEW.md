@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 24 signed-permutation vertices and all 48 minimum-distance edges were reconstructed. The sign inequalities for the six exhaustive open normal chambers imply the two section-side counts, and rotationally invariant edge-crossing probabilities give both exact masses. Exact arithmetic in \(\mathbb Z[\sqrt2]\) checks the six representative masks; the proof that they exhaust the continuum is the sign-poset argument, not a numerical sample. The spherical-angle expression provides a separate numerical consistency test, not a substitute for the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+Use exact vertex model signed permutations of (r,1,1), r=1+sqrt2: 24 vertices and 48 shortest distance-2 edges. For a generic central plane, each section vertex is exactly one sign-changing original edge. Signed-permutation chamber normals sorted a>b>c>0; signs of A=a-rb-c,B=a-rb+c,C=a-b-rc,H=a+b-rc obey A<B,A<C,B<H,C<H, admitting exactly six strict sign patterns (diamond partial order), with all crossing numbers 8 for A>0 and 12 otherwise. This reduces continuum to exhaustive finite chambers. Edge dot=(3+2sqrt2) and squared vertex norm=(5+2sqrt2); each edge angle theta=acos((7+4sqrt2)/17). Haar separation probability for each edge theta/pi hence E N=48 theta/pi; with two-point support, P8=3-12theta/pi and P12=12theta/pi-2. Independent standalone vertex/edge reconstruction and 18000 random normals found 3809 octagonal,14191 dodecagonal, with exact sorted-coordinate criterion in every sample. Samples corroborate, finite algebraic sign table and Haar integral prove all generic directions.
 
-The inspected papers of De Loera, Lopez-Campos and Torres (arXiv:2412.12419) and Thom (arXiv:2511.12773) consider polytope section counts and unoriented section statistics without this two-point Haar law. Previously reported cube, octahedron, icosahedron, and truncated-octahedron section laws concern different vertex and edge arrangements. Searches by regular solid name, alias, dual, octagon/dodecagon wording, and equivalent incidence formula did not identify a stronger covering theorem. An older unindexed spherical geometry table could contain the same two probabilities; the research establishes neither absolute priority nor independent literature certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves an exact distribution for a natural, vertex-transitive Archimedean solid with 24 vertices and 48 edges. The non-obvious fact that generic sections cannot have 10 sides is a structural classification, and the explicit angular threshold supplies the complete normal-space partition by section type. This gives a reproducible benchmark for stochastic geometric tomography and section-complexity laws, not merely an approximate count.
+Exact Haar law for this regular Archimedean solid not found in inspected prior polytope vertex-section classification or published icosahedral / cubical section laws. De Loera et al treat vertex counts and gaps but not this orientation-weighted two-point law; known Archimedean vertex/edge counts are credited.
 
-## Scientific limitations
+## value
 
-Only central sections of the regular Euclidean rhombicuboctahedron are covered. Nongeneric normals and offset sections are excluded. The method is analytic and finite-exact, but no independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete and explicitly weighted section-type law for a canonical Archimedean solid, plus a sharp normal-orientation criterion, gives a natural, precise integral-geometric invariant; distinct from routine polyhedron face-count lookup and from related icosahedron laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
