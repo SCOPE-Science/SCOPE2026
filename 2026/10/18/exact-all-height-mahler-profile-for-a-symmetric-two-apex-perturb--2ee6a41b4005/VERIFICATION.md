@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact symbolic certificate is `verify_profile.py`; invoke `python verify_profile.py` with Python 3 and SymPy available. It checks all 25 planar vertex differences against each proposed hull edge, including the two parameter chambers, and performs all displayed polynomial polar integrals and gap factorizations. A successful execution emits `TWO_APEX_4D_EXACT_PROFILE_OK`.
+# Independent mathematical audit
 
-The proof of the four-dimensional fiber formula and the polar interval-overlap reduction is given in RESULT.md. The program independently re-evaluates their resulting finite algebra. It does not certify arbitrary four-dimensional convex bodies, infer the result from sampling, or constitute an independent audit.
+## correctness
+
+PASS
+
+Read complete RESULT.md fiber/mixed-area argument and polar positive-part integral decomposition. Recomputed symbolic products/factorizations: volumes match at t=2 (104/3,79/216), Phi(2)=1027/81, derivatives -433/972 and 515/972; both gap polynomials match the stated expressions. Each chamber gap has a nonnegative polynomial certificate, with N_+(t-2) strictly positive and N_- dominated on 0<t<=2. The assertion is for this one family, not universal Mahler.
+
+## originality
+
+PASS
+
+The full Shen–Dubovski primary HTML explicitly covers this same apex family only at heights 0<t<=12/7 via a bound, not an exact volume-product formula for all t, and its product-compatible minimum does not apply to two positive corner apices. The all-height exact primal/polar profile and cusp are not implied by that limited certificate.
+
+## value
+
+PASS
+
+An exact all-height profile for a natural non-product-compatible four-dimensional deformation, with a sharp combinatorial cusp, provides a useful benchmark beyond the previously certified restricted height range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

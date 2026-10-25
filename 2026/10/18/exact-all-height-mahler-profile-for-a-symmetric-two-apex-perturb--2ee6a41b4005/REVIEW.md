@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is exactly the two-piece volume and polar-volume formula for the explicitly identified four-dimensional two-apex family, with strict positive-height Mahler gap. The proof reconstructs the full convex hull through nested fibers; the planar difference-body hull is certified by checking every generating difference against every proposed oriented boundary edge. The polar is integrated over its true intersection of an \(\ell_1\)-ball and two symmetric slabs, rather than relying on the separate-cap lower bound. Both chamber integrations, all exact rational identities, and the gap factorizations were evaluated from `verify_profile.py` in the supplied package. The checker prints `TWO_APEX_4D_EXACT_PROFILE_OK`. It supplies finite exact algebra checks; the universal parameter conclusions follow from the analytic chamber geometry and nonnegative polynomial certificates. No assertion extends to arbitrary symmetric bodies.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest paper is Shen–Dubovski, *A sharp minimum for cube-apex bodies in every dimension*, arXiv:2610.11014v1, whose complete five-page source was inspected. Its Theorem 1 requires product compatibility, which this two-apex family violates at every positive height; its Theorem 2 and Corollary 4 establish lower bounds only over bounded height ranges, the latter through \(12/7\). It does not provide the present exact global primal/polar profiles, the strict inequality for all positive heights, or the cusp at height \(2\). The published mathematical-record searches returned only different Mahler shadow families and unrelated geometric profiles. Kim's local minimality near Hanner polytopes and Barthe–Fradelizi's reflection-group inequalities do not state this exact one-parameter formula. There remains a literature risk from unindexed special-polytope calculations and incomplete access to the full symmetry-based paper.
+PASS
 
-**Value — PASS.** The same two-apex family is an explicit test case singled out in the recent literature precisely because standard product compatibility fails. Determining its exact Mahler profile globally, beyond the existing certificate, supplies a nontrivial positive answer for all heights and exposes a genuine combinatorial transition of the difference body and a nonsmooth positive-gap cusp at a natural geometric threshold. The fact is a full, natural, analytically soluble benchmark in dimension four, not an arbitrary decimal evaluation or an infinitesimal recomputation. It does not solve the unrestricted four-dimensional Mahler conjecture.
+Read complete RESULT.md fiber/mixed-area argument and polar positive-part integral decomposition. Recomputed symbolic products/factorizations: volumes match at t=2 (104/3,79/216), Phi(2)=1027/81, derivatives -433/972 and 515/972; both gap polynomials match the stated expressions. Each chamber gap has a nonnegative polynomial certificate, with N_+(t-2) strictly positive and N_- dominated on 0<t<=2. The assertion is for this one family, not universal Mahler.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full Shen–Dubovski primary HTML explicitly covers this same apex family only at heights 0<t<=12/7 via a bound, not an exact volume-product formula for all t, and its product-compatible minimum does not apply to two positive corner apices. The all-height exact primal/polar profile and cusp are not implied by that limited certificate.
+
+## value
+
+PASS
+
+An exact all-height profile for a natural non-product-compatible four-dimensional deformation, with a sharp combinatorial cusp, provides a useful benchmark beyond the previously certified restricted height range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
