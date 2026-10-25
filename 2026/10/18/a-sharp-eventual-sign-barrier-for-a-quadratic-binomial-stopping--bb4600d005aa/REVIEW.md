@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The quadratic inversion and derivative identity were checked directly. The coefficientwise factorization establishes strictly positive masses on \(0<\theta\le2/5\), and the normalization follows from analyticity at one. The root locations give a unique positive inverse-square-root dominant singularity through the algebraic cutoff; at equality, competing simple numerator zeros contribute a lower power of the coefficient index. Above it, the actual smaller radius consists of nonreal algebraic branchpoints, so two applications of Vivanti–Pringsheim establish infinitely many coefficients of each sign. Exact finite rational computations confirmed the formulas at sample parameters, but are not treated as infinite proofs. The special identity at \(\theta=1\) is excluded from the stated phase transition.
+## correctness
 
-## Originality
-**PASS, subject to ordinary literature uncertainty.** The closest primary papers are Valero and Ginebra's 2024 study, Section 6.2, Example 6.5, and their September 2026 study, Section 6.2, Example 7; these explicitly construct this same family only on \(0<\theta\le1/4\), while the latter asks for criteria describing larger maximal parameter spaces. The new comparison is not a parameter renaming: it proves admissibility through \(2/5\) and an exact algebraic barrier at which infinitely many Taylor coefficients become negative. Published findings on stopping-model dispersion concern moments of admissible families, not this coefficient-sign question. Targeted mathematical-record and web searches found no theorem implying these precise statements. An implicit consequence of classical compositional-semigroup or algebraic-generating-function results remains possible.
+PASS
 
-## Value
-**PASS.** Determining which Koenigs-parametrized analytic functions actually have nonnegative coefficients is an explicit gap in recent stopping-model theory. The result gives a rigorously enlarged composition-closed family, a sharp transition for *eventual* positivity, and a finite-obstruction reduction below that transition. These are parameter-admissibility and proof-certification facts about a natural finite-support conjugating law; the residual gap in the full pgf endpoint is acknowledged rather than called solved. This exact quadratic family is a motivated test case for the more general characterization problem.
+Verified h^{-1}(v)=sqrt(1+3v)-1 and derivative G'_theta=theta(1+z)(1+ct(z))^{-1/2}(1-dt(z))^{-3/2}, t(z)=z²+2z, c=(4theta−1)/3, d=(1−theta)/3. If theta≤1/4 then c≤0 and factors have positive coefficients; if 1/4<theta≤2/5, 0<c≤d, derivative factorizes as (1-dt)^{-1}(1-(d-c)t-cdt²)^{-1/2} and is coefficientwise positive. G(1)=1, radicands nonsingular on unit disc, semigroup via Mobius conjugacy. Denominator positive branch singularity r=sqrt((4−theta)/(1−theta))−1; numerator conjugate singularities modulus rho=sqrt(3/(4theta−1)); crossing unique theta*. Pole r gives positive n^{-1/2} asymptotic, numerator branch zeros give O(n^{-3/2}) at equality. Beyond crossing positive-radius point rho analytic, while radius rho finite; Pringsheim on both eventual signs excludes either, giving infinitely many of each. Independent exact rational coefficients through n=80 for theta=1/10,1/4,2/5,1/2 positive; theta=11/20 first negative index39. Finite tests cannot prove infinite claims.
 
-## Scope and limitations
-The exact pgf-admissibility endpoint between \(2/5\) and the cubic cutoff is unresolved. The phase transition excludes the isolated identity at \(\theta=1\), and asymptotics are pointwise in the parameter. Classical analytic-combinatorics machinery is used without claims of novelty for those general tools.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same Valero–Ginebra stopping models with this binomial conjugacy are established at least through theta≤1/4. Their general composition theorem does not independently prove coefficientwise positivity through 2/5 or the complex-singularity eventual sign cutoff. Originality is specifically the extended positivity interval and exact asymptotic sign phase, not the semigroup or general Koenigs conjugacy. A 2026 same mathematical model current preprint could cover more in unread sections; retain risk.
+
+## value
+
+PASS
+
+Provides a mathematically motivated enlargement of a natural closed stopping family and an exact asymptotic obstruction determined by competition of real pole and complex branchpoints, with honest separation of eventual from full pgf positivity. The unfinished pgf endpoint does not negate value of exact phase barrier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
