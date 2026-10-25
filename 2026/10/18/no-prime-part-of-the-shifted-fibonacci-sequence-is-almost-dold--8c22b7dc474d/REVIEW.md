@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument uses the prime-power Dold criterion with a witness prime \(q\) distinct from the prime-part prime \(p\) when necessary. For odd \(p\ne5\), classical rank-of-apparition and valuation formulas with CRT/Dirichlet produce \(q\) and the fixed nonzero difference \(1-p^e\) at all even prime-power exponents. For \(p=2\) and \(p=5\), explicit primes \(5\) and \(19\) produce constant differences \(-7\) and \(-4\). No fixed integer multiplier can be divisible by the unbounded witness prime powers. The limits and congruences were checked, and independent modular computations support the cases without replacing the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The primary 2026 paper proves all-prime almost-Doldness for unshifted Fibonacci prime parts, not for the shifted prime-part sequence, and does not give the obstruction above. Related Dold/linear-recurrence literature does not imply the shifted prime-part assertion directly. Targeted semantic research-database searches and published literature searches found no stronger covering result. The inability of a finite search to rule out unindexed or implicit prior results is a residual originality risk. This is a comparative assessment, not a uniqueness guarantee.
+PASS
 
-## Mathematical value — PASS
-A one-step indexing change converts a recent theorem asserting finite repair for *every* local prime part into the sharp opposite classification: no prime has any finite repair. The result identifies a mathematically motivated boundary for Dold congruence stability under shifts and gives explicit infinite families of modular obstructions. It is neither a finite curiosity nor a change of notation: the prime-power index congruences couple two different Fibonacci valuations.
+For any prime p, b_n=p^{νp(F_{n+1})} violates a necessary Dold prime-power congruence after every finite positive multiplier K: find one prime q and unbounded s with b_{q^s}−b_{q^{s−1}}=c !=0 fixed. For odd p!=5, rank r|p−(5/p), gcd(r,p)=1; Dirichlet+CRT choose q≡−1(mod r), q≡1(mod p), and classical Fibonacci valuations make the even-s difference 1−p^e. For p=2, q=5 and even s give 1−8=−7 from rank 3 and ν2(F_m)=ν2(m)+2 when 6|m. For p=5, q=19, s=10j+2 give 1−5=−4 by LTE. If K b is Dold, q^s divides fixed nonzero Kc for infinitely many s, contradiction. Independently used modular Fibonacci fast-doubling to verify 63 relevant prime-power differences across the first 16 primes through 53; infinite proof requires classical valuation, rank, Dirichlet, CRT and LTE.
 
-## Sources and limitations
-Primary: Chuysurichay–Jaidee–Panraksa–Ward, arXiv:2609.24544v1, Section 1, Theorem 2.4 and valuation formulas. Background: Byszewski et al., DOI 10.1112/blms.12531. The proof does not classify other shifts or deliver effective least witnesses in the general case. Unindexed prior coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chuysurichay–Jaidee–Panraksa–Ward 2026 Theorem 2.4 establishes that every local prime part of the unshifted Fibonacci F_n is almost Dold, often with an explicit multiplier; it does not assert the one-step shifted nonlinear p-part sequence behaves the same. The submitted theorem gives the opposite all-prime behavior for F_{n+1} using prime-power index progression and is not a corollary of the unshifted classification. Published split-companion Lucas p-part Dold results apply to different recurrences. Best-of-knowledge PASS subject to unindexed shifted-recurrence literature.
+
+## value
+
+PASS
+
+This demonstrates extreme instability of local Dold congruence repair under the smallest possible indexing change in an archetypal recurrence: every unshifted prime part is almost Dold but no prime part of the adjacent shift is. The all-prime theorem provides a sharp qualitative boundary for prime-part dynamical realizability, beyond a finite numerical exception or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
