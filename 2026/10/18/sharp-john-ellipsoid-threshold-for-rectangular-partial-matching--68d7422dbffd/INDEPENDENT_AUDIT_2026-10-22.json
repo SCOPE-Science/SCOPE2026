@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 371a004943ecff1b75498685eb7c00605e035209",
+        "verify.py blob e094847528b8e776531a20fea5219b763b6d6835",
+        "Independent exact row/contact/column feasibility for 144 rectangular pairs"
+      ],
+      "rationale": "PASS. In Frobenius R^{ab}, the product of a row simplices has center 1/(b+1) and independent b-by-b shape blocks S_b=((b+1)I−J)/[b(b+1)^2]. Its n_j=−e_j and n_{b+1}=ones support contacts, with weights b/(b+1), satisfy both John moment conditions in every row, hence certify the unrestricted product John ellipsoid. A column cap has exact support (a+√a)/(b+1), so Q_ab retains the same ellipsoid iff b+1≥a+√a, equivalent to b≥a+ceil√a−1. At equality all column facets tangent (a must be square). Below threshold the candidate is infeasible; if the actual John ellipsoid had slack column caps, column-symmetry makes all slack and moving its center and positive-definite shape toward the row John ellipsoid would preserve feasibility for small epsilon while strictly increasing logdet, contradiction. Spectrum and volume follow from S_b eigenvalues and determinant. Independent exact rational supports and thresholds checked 144 (a,b) cases; analytic John certificate and logdet establish the unrestricted integers.",
+      "residual_risks": [
+        "For b+1<a+√a the theorem proves only mandatory column contact, not full unknown John shape/volume.",
+        "No nonuniform margins, incomplete bipartite graphs or weighted Frobenius metrics claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known exact John ellipsoid of square doubly substochastic matrices gives radical three-eigenspace shape and all column/row contacts for a=b.",
+          "John contact theorem gives a criterion, not this rectangular b+1=a+√a feasibility threshold."
+        ],
+        "reasoning": "Square theory does not imply the rectangular threshold; general symmetric John theorem plus explicit row support and convex interpolation yields a further result.",
+        "searches": [
+          "John ellipsoid complete bipartite matching partial permutation doubly substochastic rectangular threshold row simplex column constraints",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "John 1948 contact criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+        "Heuer--Striker arxiv:2012.09901",
+        "John 1948 classical contact characterization",
+        "Resultary query John ellipsoid complete bipartite matching partial permutation doubly substochastic rectangular threshold row simplex column constraints"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heuer and Striker supply the inequalities/vertices of partial permutation polytopes, not the Euclidean maximum-volume ellipsoid of a rectangular product constrained by column caps.",
+          "The known square John ellipsoid is subcritical and is not the candidate row-product ellipsoid."
+        ],
+        "reasoning": "John optimality of product Δ_b^a and column support (a+√a)/(b+1) are additional exact calculations; the below-threshold all-column-contact result needs symmetry and strict determinant increase.",
+        "searches": [
+          "John ellipsoid complete bipartite matching partial permutation doubly substochastic rectangular threshold row simplex column constraints",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "arxiv:2012.09901"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rectangular doubly substochastic matrices are the full complete bipartite matching polytope, and row-only relaxation is a Cartesian product of simplices.",
+          "The existing square equal-bipartition formula fixes a=b, entirely below the new threshold for a≥2."
+        ],
+        "reasoning": "The same polytope has a square special case, but that full John operator is different from the row-product ellipsoid and does not classify the rectangular survival transition.",
+        "searches": [
+          "John ellipsoid complete bipartite matching partial permutation doubly substochastic rectangular threshold row simplex column constraints",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "arxiv:2012.09901 Heuer Striker"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact table is square John spectrum and unrelated rectangular one-skeleton vertex degree counts, neither a family-wide row survival cutoff."
+        ],
+        "reasoning": "No equivalent rectangular ellipsoid table was recovered, but database search absence alone does not prove novelty.",
+        "searches": [
+          "John ellipsoid complete bipartite matching partial permutation doubly substochastic rectangular threshold row simplex column constraints",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "Resultary exact rank-stratified rectangular matching polytope degrees"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the sharp rectangular threshold and subcritical contact transition. The very same square partial-matching polytope John ellipsoid is published, and the facet description is known, but these do not logically give the new rectangular survival threshold.",
+      "residual_risks": [
+        "Heuer--Striker full journal text could not be accessed because the authorized Oxford VPN was disconnected; its abstract alone cannot establish whole-paper noncoverage.",
+        "A broad unpublished rectangular John ellipsoid theorem under another name remains possible.",
+        "Published square case a=b is not novel and is explicitly acknowledged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square John ellipsoid covered; every square size lies on subcritical side, not a rectangular row-product survival classification",
+          "evidence": "Its domain is D_n=Q_n,n; 3-eigenspace formula, all n²+2n facets tangent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "material_read": "Entire pinned Resultary RESULT.md: theorem, KKT derivation for a=b, shape spectrum, contact points, proof and limitations",
+          "method": "Read full GitHub RESULT.md blob 66a70d5d8674d7958c7cbb48152794defa26c6ff",
+          "title": "Exact John ellipsoid of the doubly substochastic matrix polytope",
+          "trigger": "Same Q_a,b object in square case, strongest plausible dominating published finding"
+        },
+        {
+          "assessment": "Facets and vertices established; no whole-paper NOT_COVERING based solely on abstract",
+          "evidence": "2012.09901 Section 3, Proposition 3.4 and Corollary 3.5 as identified by reviewed source.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "ArXiv abstract, article metadata and source cited facet proposition; primary complete PDF not obtained",
+          "method": "Open arXiv/OA routes checked without a complete readable article",
+          "title": "Partial Permutation and Alternating Sign Matrix Polytopes",
+          "trigger": "Foundational polytope facet description; potentially generalized John theorem"
+        },
+        {
+          "assessment": "Access limitation is a residual risk, not scientific failure",
+          "evidence": "Protected Oxford tool reported vpn_disconnected; no human authorization bypass attempted.",
+          "identifier_or_url": "https://doi.org/10.1137/21M1417958",
+          "material_read": "Authorized institutional retrieval returned vpn_disconnected, no full paper material read",
+          "method": "Oxford institutional access attempted after arXiv and OA routes",
+          "title": "Partial Permutation and Alternating Sign Matrix Polytopes, journal version",
+          "trigger": "Potential primary full text after OA attempts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob 371a004943ecff1b75498685eb7c00605e035209",
+        "Independent statement-and-implication comparison documented in originality"
+      ],
+      "rationale": "PASS. A natural whole matching polytope changes Euclidean John-ellipsoid structure when column constraints cross a sharp arithmetic threshold, with exact surviving shape, volume, boundary facet incidence and subcritical contact necessity. This is a motivated convex-geometric phase transition not implied by knowing the facet list.",
+      "residual_risks": [
+        "Does not classify the entire subcritical John ellipsoid."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For b+1<a+√a the theorem proves only mandatory column contact, not full unknown John shape/volume.",
+    "No nonuniform margins, incomplete bipartite graphs or weighted Frobenius metrics claimed.",
+    "Heuer--Striker full journal text could not be accessed because the authorized Oxford VPN was disconnected; its abstract alone cannot establish whole-paper noncoverage.",
+    "A broad unpublished rectangular John ellipsoid theorem under another name remains possible.",
+    "Published square case a=b is not novel and is explicitly acknowledged.",
+    "Does not classify the entire subcritical John ellipsoid."
+  ],
+  "schema_version": 1
+}

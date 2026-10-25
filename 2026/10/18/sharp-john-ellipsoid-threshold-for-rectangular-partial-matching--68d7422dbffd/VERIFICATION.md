@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof uses exact facet support, an explicit John contact certificate, matrix eigenvalues, and a strict log-determinant comparison. The file `verify.py` is a standalone Python-standard-library exact-rational check of these identities for \(2\le a\le12\), \(a\le b<a+12\). Running `python3 verify.py` yields:
+## correctness
 
-```
-VERIFY_OK cases=132 stable=110 changed=22 boundary=[(4, 5), (9, 11)]
-```
+PASS
 
-The checker reconstructs the row-block inverse, the weights/moment conditions for coordinate and row-cap contacts, the squared support radii, the integer threshold (including non-square and square cases), and the eigenvalues; it separately checks the two boundary cases and selected subcritical/supercritical cases. These finite calculations do not replace the infinite-family analytic proof. The program does not attempt an independent numerical solution of the subcritical ellipsoid or a complete literature-priority certificate.
+PASS. In Frobenius R^{ab}, the product of a row simplices has center 1/(b+1) and independent b-by-b shape blocks S_b=((b+1)I−J)/[b(b+1)^2]. Its n_j=−e_j and n_{b+1}=ones support contacts, with weights b/(b+1), satisfy both John moment conditions in every row, hence certify the unrestricted product John ellipsoid. A column cap has exact support (a+√a)/(b+1), so Q_ab retains the same ellipsoid iff b+1≥a+√a, equivalent to b≥a+ceil√a−1. At equality all column facets tangent (a must be square). Below threshold the candidate is infeasible; if the actual John ellipsoid had slack column caps, column-symmetry makes all slack and moving its center and positive-definite shape toward the row John ellipsoid would preserve feasibility for small epsilon while strictly increasing logdet, contradiction. Spectrum and volume follow from S_b eigenvalues and determinant. Independent exact rational supports and thresholds checked 144 (a,b) cases; analytic John certificate and logdet establish the unrestricted integers.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the sharp rectangular threshold and subcritical contact transition. The very same square partial-matching polytope John ellipsoid is published, and the facet description is known, but these do not logically give the new rectangular survival threshold.
+
+## value
+
+PASS
+
+PASS. A natural whole matching polytope changes Euclidean John-ellipsoid structure when column constraints cross a sharp arithmetic threshold, with exact surviving shape, volume, boundary facet incidence and subcritical contact necessity. This is a motivated convex-geometric phase transition not implied by knowing the facet list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
