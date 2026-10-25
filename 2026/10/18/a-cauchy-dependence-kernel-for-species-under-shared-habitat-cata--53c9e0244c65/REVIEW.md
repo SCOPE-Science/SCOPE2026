@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The stationary age distribution follows from Poisson regeneration; conditional species occupancies are solved from independent two-state chains. Their joint covariance is obtained from a Laplace transform and corroborated by an independently solved four-state exact Markov generator. The full Cauchy minor identity establishes nonnegative minors and recovery-rate rank, and the Bernoulli normalization yields the sharp correlation bound. A strictly decreasing logarithmic-derivative function proves the unique interior disturbance optimum and its boundary cases. Exact-rational code and a reproducible certificate support the finite checks without replacing the proof.
+## correctness
 
-**Originality: PASS (same-model, provisional).** Hastings (2003) and Leibold et al. (2004) supply patch-disturbance and metacommunity motivation; Hamelin et al. (2019) and Calcagno et al. (2022) establish the common-age mechanism and positive apparent association without biological interaction. The 2022 article is the closest coverage: its age-mixture covariance is a general precursor but does not state the new ordered Cauchy-minor/rank classification, sharp half ceiling, or unique hazard optimum for heterogeneous recovery/loss rates. A classical Cauchy determinant is used with attribution. The 2022 technical appendix could not be inspected; equivalent older statements, including within epidemiological literature, remain a bibliographic risk.
+PASS
 
-**Value: PASS.** The exact recovery-rate rank shows that one environmental clock can masquerade as arbitrarily many covariance directions; the half ceiling is a sharp falsifiability bound for a well-defined neutral ecological null; and the unique peak demonstrates that greater catastrophe pressure does not monotonically increase spurious pair association. The deterministic-delay counterexample marks the boundary of applicability and prevents causal overinterpretation. These are structural and directly interpretable restrictions on ecological co-occurrence inference, not merely a recalculation of positive dependence.
+For finite noninteracting species with fixed immigration lambda_i>0, local loss mu_i>=0 and a common Poisson clearing clock gamma>0, stationary patch age is Exp(gamma) and the conditional occupancy solves a two-state ODE. Its two exponential Laplace moments yield L_ij=gamma*lambda_i*lambda_j/[(gamma+s_i)(gamma+s_j)(gamma+s_i+s_j)]. Diagonal scaling reduces L to the symmetric Cauchy matrix, so its minors, rank by distinct s_i and stated determinant follow from the exact Cauchy double alternant. Bernoulli variance normalization gives Pearson rho_ij as claimed and strict rho<1/2, sharp as gamma->0 in the identical zero-loss pair. Gamma derivative of log rho is strictly decreasing after multiplying by gamma if local loss is positive, giving exactly one positive cubic root; zero-loss case is strictly decreasing. Deterministic common recovery delay gives rho=1 outside model. Independently solved 48 exact-rational stationary four-state generators, matching marginals/covariances and half bound; finite checks are corroboration only.
 
-**Scientific limits.** Conclusions require independent memoryless local transitions, homogeneous Poisson total resets, and stationary patches. Raw occupancy covariance differs from the latent environmental covariance on its diagonal. An observed correlation above one-half rules out only this restricted null and cannot demonstrate interaction. Independent bibliographic or mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage of the specific new claim: A natural ecological null model has only one shared stochastic age variable yet produces arbitrarily high-rank environmental dependence; the complete Cauchy minor/rank law and sharp one-half observable correlation discriminator are concrete nontrivial structural and quantitative facts, not just generic positive-association observations. Prior overlapping premises and historical-priority caveats are explicitly credited and scoped.
+
+## value
+
+PASS
+
+A natural ecological null model has only one shared stochastic age variable yet produces arbitrarily high-rank environmental dependence; the complete Cauchy minor/rank law and sharp one-half observable correlation discriminator are concrete nontrivial structural and quantitative facts, not just generic positive-association observations. The unique optimal catastrophe hazard and nonexponential counterexample sharpen its meaningful physical boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
