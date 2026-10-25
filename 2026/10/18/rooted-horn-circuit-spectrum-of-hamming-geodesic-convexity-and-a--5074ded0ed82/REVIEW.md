@@ -1,19 +1,21 @@
-# Review of the Hamming geodesic rooted Horn-circuit spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the shortest-path geodesic convexity operator on Hamming graphs. Its interval hull is a Cartesian rectangle; minimal rooted stems are characterized exactly by one private matching coordinate per premise row. Weighted inclusion-exclusion counts those stems without duplicate rows and gives the stated rank polynomial. The one-pass necessity argument follows from taking each minimal stem itself as input. A separate pair-interval rule system yields the stated polynomial-size chained basis. The written proof derives the exponential quadratic size bounds. An executable independent finite checker reports PASS for seven small (dimension, alphabet)-pairs and 984 test subsets, but is not evidence for an infinite theorem on its own.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed the Hamming geodesic rectangle identity and characterized a minimal rooted premise B via coordinate-matching row sets M_i: every M_i is nonempty and each row a has a private coordinate with M_i={a}. Singleton patterns are pairwise private, so 2<=r<=d; inclusion-exclusion counts all labeled rows with these singleton types, and private coordinates force distinct rows and prohibit x as a premise, justifying division by r!. For r=d each coordinate has one unique singleton and yields (q-1)^(d(d-1)). A one-pass unit rule deriving x from a minimal stem can have no smaller premise, proving forced canonical basis. The lower bound fixes r~d/2 private columns and varies remaining nonempty matching patterns to get exp(Omega(d^2)), while a pairwise interval-rule system repeatedly reaches hull in O(|V|^3). Independent direct stem/deletion enumeration compared 12 rank cases across (d,q)=(2,2),(3,2),(4,2),(2,3),(3,3),(2,4),(3,4), all matching; d=3,q=3 counts are 36 and 64. Finite checks are not the all-parameter proof.
 
-The binary specialization is **not novel**: its per-root rank counts coincide exactly with classical minimal-set-cover counts (Hearne–Wagner/Devitt–Jackson, the Royle set-cover article, and the MathWorld/A035348 table), except for the trivial one-set cover. The rectangular closure property is established in graph Cartesian-product convexity, and the generic prime-implicate/stem correspondence is established in Wild's survey. No equivalent all-nonbinary-\(q\) weighted-rooted-stem polynomial combined with the direct-vs-chained basis-size separation was identified in the inspected literature or searched mathematical-record index. Because weighted cover enumeration is elementary once the encoding is recognized, and some related originals were inaccessible, prior implicit coverage remains a material risk. This review does not certify publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The directness requirement has concrete mathematical cost in a natural infinite class of geodesic convexities: from at most cubicly many multi-pass rules to \(\exp(\Theta_q(d^2))\) indispensable one-pass unit rules, with every premise arity enumerated. The exact nonbinary spectrum and separation supply a reproducible size benchmark, not just a routine finite recomputation. General results and binary minimal-cover counts are explicitly excluded from the assessed novelty.
+Classical binary-alphabet rank numbers are exactly the previously enumerated minimal-set-cover spectrum, and generic prime rooted implications are established Horn theory; no novelty claimed for either. The surviving scoped original component is the weighted nonbinary all-rank formula on natural Hamming geodesic closures and the explicit quantitative one-pass versus iterated unit-basis representation gap. No source inspected gave their combined statement, but priority margin is modest and equivalent weighted-cover formulations remain possible.
 
-## Scope and limitations
+## value
 
-The finding concerns equal-size alphabet Cartesian powers, one simultaneous pass, and unit conclusions; grouped or arbitrary chain-minimal bases are not classified. The formula and size-growth proof are mathematical; finite checker outcomes are corroboration. The greatest unresolved originality risk is a previously published weighted minimal-cover census or a general Horn/Cartesian-convexity result implying all nonbinary cases. No independent mathematical validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The q-ary Hamming graphs and geodesic hull operation are standard natural objects. Complete weighted root-circuit rank counts expose structural geometry of the closure operator, and the precise exp(Theta(d^2)) one-pass unit representation versus polynomial chained basis makes a concrete nontrivial closure-representation tradeoff. Neither generic correctness nor code alone supplies value; the quantitative natural family separation does.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

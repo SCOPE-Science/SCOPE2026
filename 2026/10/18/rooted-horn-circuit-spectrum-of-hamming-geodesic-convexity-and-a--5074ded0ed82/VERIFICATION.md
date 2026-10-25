@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Computational verification and proof boundaries
+# Independent mathematical audit
 
-Run the standalone Python 3 standard-library program from the same directory:
+## correctness
 
-`python3 verify.py`
+PASS
 
-A successful execution yielded:
+Reconstructed the Hamming geodesic rectangle identity and characterized a minimal rooted premise B via coordinate-matching row sets M_i: every M_i is nonempty and each row a has a private coordinate with M_i={a}. Singleton patterns are pairwise private, so 2<=r<=d; inclusion-exclusion counts all labeled rows with these singleton types, and private coordinates force distinct rows and prohibit x as a premise, justifying division by r!. For r=d each coordinate has one unique singleton and yields (q-1)^(d(d-1)). A one-pass unit rule deriving x from a minimal stem can have no smaller premise, proving forced canonical basis. The lower bound fixes r~d/2 private columns and varies remaining nonempty matching patterns to get exp(Omega(d^2)), while a pairwise interval-rule system repeatedly reaches hull in O(|V|^3). Independent direct stem/deletion enumeration compared 12 rank cases across (d,q)=(2,2),(3,2),(4,2),(2,3),(3,3),(2,4),(3,4), all matching; d=3,q=3 counts are 36 and 64. Finite checks are not the all-parameter proof.
 
-```
-CASE 2 2 per_root {2: 1} direct_unit 4 PASS
-CASE 3 2 per_root {2: 6, 3: 1} direct_unit 56 PASS
-CASE 4 2 per_root {2: 25, 3: 22, 4: 1} direct_unit 768 PASS
-CASE 2 3 per_root {2: 4} direct_unit 36 PASS
-CASE 3 3 per_root {2: 36, 3: 64} direct_unit 2700 PASS
-CASE 2 4 per_root {2: 9} direct_unit 144 PASS
-CASE 3 4 per_root {2: 108, 3: 729} direct_unit 53568 PASS
-VERIFY_OK cases=7 independent_subset_hulls= 984 direct_stem_counts=PASS extremal_counts=PASS
-```
+## originality
 
-The program enumerates candidate row sets, tests matching of every coordinate, independently checks deletion minimality, and compares the counts with the proposed inclusion–exclusion expression. In small configurations it recomputes hulls by iterating graph intervals, rather than assuming their rectangular shape. Those bounded checks do not imply correctness for all parameter values. The general proof relies instead on the private-coordinate characterization, inclusion–exclusion, and a direct necessity argument for unit Horn rules. Classical binary minimal-cover enumerations are prior known results and are not new numerical certificates.
+PASS
+
+Classical binary-alphabet rank numbers are exactly the previously enumerated minimal-set-cover spectrum, and generic prime rooted implications are established Horn theory; no novelty claimed for either. The surviving scoped original component is the weighted nonbinary all-rank formula on natural Hamming geodesic closures and the explicit quantitative one-pass versus iterated unit-basis representation gap. No source inspected gave their combined statement, but priority margin is modest and equivalent weighted-cover formulations remain possible.
+
+## value
+
+PASS
+
+The q-ary Hamming graphs and geodesic hull operation are standard natural objects. Complete weighted root-circuit rank counts expose structural geometry of the closure operator, and the precise exp(Theta(d^2)) one-pass unit representation versus polynomial chained basis makes a concrete nontrivial closure-representation tradeoff. Neither generic correctness nor code alone supplies value; the quantitative natural family separation does.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
