@@ -1,19 +1,21 @@
-# Scientific review: Two marked vertices recover Johnson-graph automorphism orbits
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter proof identifies distances from the two individually coloured anchors within \(k\) refinement rounds. One additional round exposes two simultaneous distance-transition counts. Their difference has coefficient \(2k-n\) on the otherwise hidden four-zone intersection parameter, hence determines it if \(n>2k\). At \(n=2k\), the remaining quadratic ambiguity consists exactly of one complementation-related involution. Actual coordinate permutations and a balanced complement-permutation map act transitively on the proposed classes, proving refinement cannot split them. A generating-function count, Burnside's lemma and independent class-size formulas finish the proof. Two standalone checks passed 62 directly constructed graphs (20,098 vertex occurrences) and 2,008 arithmetic configurations (268,128 signatures), respectively. These finite computations corroborate but do not establish the infinite statement.
+PASS
 
-## Originality — PASS, with priority risk
+For all n>=2k>=6 and distinct k-subset anchors A,B, independently reconstructed the Johnson distance induction and 1-WL statistic. With a=k-b,c=n-k-b, zone variables (t,u,v,z) satisfy p=k-t-u, q=k-t-v, M_--=z(a-t), M_++=t(c-z). Their difference equals a(p+q-k)+(2k-n)t: for n>2k this recovers t; at n=2k the quadratic identifies exactly the complement/swap involution (a-z,b-v,b-u,a-t). Zone-preserving permutations and balanced complementation give actual automorphisms transitive on the predicted classes; hence the partition is both no finer and no coarser than full pointwise-stabilizer orbits by round k+1. Burnside gives the balanced correction (a+1)(b+1). Independently constructed ordinary color-refinement graphs and tested six (n,k,b) instances, including (8,4,2) and (9,4,2). Finite tests do not prove the general theorem, which depends on these identities and automorphisms.
 
-Gavrilyuk–Goryainov (2012, DOI 10.1002/jcd.21327) study perfect two-colour equitable partitions of \(J(v,3)\), not the two-mark refinement orbit partition. Ganesan (2014, arXiv:1412.5055) determines Johnson automorphisms, including balanced complementation, but no refinement-round reconstruction. Arvind–Köbler–Rattan–Verbitsky (2015, arXiv:1502.01255) establish a stronger all-individualizations Tinhofer property for \(J(n,2)\) in their appendix, but do not state the theorem for \(k\ge3\); this theorem deliberately excludes \(k=2\). Arvind and collaborators (2016, DOI 10.4230/LIPIcs.MFCS.2016.13) address the complexity of vertex individualization more broadly. Semantic searches of published mathematical records produced no matching statement, although absence from a search index cannot certify priority. The precise claim is the complete two-anchor orbit profile, class sizes, complement transition and bounded refinement depth over all \(k\ge3\). A specialized prior result under Terwilliger-algebra or coherent-configuration terminology remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Johnson graphs provide a canonical, highly symmetric family distinct from unrestricted Hamming graphs. Two anchors yield a natural four-zone invariant, but distance data alone do not always distinguish all four-zone possibilities. The explicit transition-count argument proves an exact and uniform remedy, pinpoints a sharp balanced-complementation exception and gives closed class-count and class-size formulas. This supplies an interpretable complete refinement invariant for every pair of landmarks throughout an infinite family, without relying on unsubstantiated downstream applications.
+The exact all-k>=3 two-root 1-WL-stabilizer orbit equality, its k+1 bound, balanced involution and class enumerator were not implied by inspected Johnson automorphism, equitable two-colouring, or k=2 Tinhofer statements. In particular, knowing an orbit group cannot prove color refinement attains its orbit partition. A general 2026 hierarchy characterization concerns all possible individualized sets rather than identifying this particular Johnson family. Best-of-knowledge priority; terminology overlap with pointed association schemes remains a risk.
 
-## Limitations and verification status
+## value
 
-No assertion is made about three or more marks, full graph identification against arbitrary competitors, or a sharp universal minimum number of rounds. The observed finite checks are not substitutes for a proof. Independent correctness and priority assessments are not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Johnson graphs are a central distance-regular family and individualization/refinement is a standard invariant in counting logic and graph isomorphism. The exact two-anchor stabilizer partition for all parameters, the symmetry jump at n=2k and explicit polynomial/Burnside orbit enumeration are structural, reusable classifications, not an arbitrary tiny numerical sample. The order-of-refinement bound is a useful uniform logical complexity estimate, without claiming tightness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
