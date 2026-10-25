@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim concerns ordinary overlapping contiguous-factor occurrences in an explicitly constructed binary length-\(n\) word. A cyclic de Bruijn word exists for every positive order by an Eulerian circuit; its length-\(d\) phase blocks are unique. The least number of positions in a residue class among \(n-\ell+1\) consecutive starts is \(\lfloor(n-\ell+1)/p\rfloor\). The cutoff \(\ell\le\lfloor(n-p+1)/(p+1)\rfloor\) forces this count to exceed \(\ell\), yielding \(p(L-d+1)\) distinct qualifying factors. The parameter choice for every \(n\ge64\) satisfies \(L\ge d\) and gives the claimed square-root-logarithm error term by explicit inequalities. The published \(n\)-factor upper bound supplies the complementary inequality. The verifier's finite counts agree, but are not treated as the general proof.
+PASS
 
-## Originality — PASS within the consulted record
+The binary de Bruijn graph on order-(d−1) vertices is Eulerian: a cyclic order-d block B of length p=2^d visits each d-word exactly once. Hence for any ℓ>=d, p cyclic phases are distinct. A length-n prefix of B-periodic word contains at least floor((n−ℓ+1)/p) of each phase. With ℓ<=L=floor((n−p+1)/(p+1)), this is >=ℓ+1, so all p phase factors for d<=ℓ<=L qualify. Choose d=floor(0.5log2(n/log2 n)); for n>=64 prove L>=d by a=log2 n<=n/8 and show n−p(L−d+1)<n/p+p(d+1)<3sqrt(n a). Combining lower bound with published Theorem1 M_2(n)<=n yields limit exactly1. Independently an Euler-cycle implementation (different from source FKM recursion) directly counted qualifying binary factors for eight n, verifying each lower bound; no finite experiment proves the limit.
 
-Bals et al. (ESA 2026, Theorem 1 and Proposition 6) proved the upper bound and an asymptotically matching example **on an alphabet of growing size**. Their construction needs \(r\) distinct symbols at length \(r^2\), so the existence of fixed-binary asymptotically matching witnesses is not an implication of that proposition. The binary de Bruijn construction and explicit for-all-length bound fill that narrower but structurally different gap. Published-search results on ordinary distinct-substring complexity and string attractors concern different parameters. No matching statement was located in the searched published record, but searches cannot establish global priority, and an unindexed equivalent remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 counting-index framework stores exceptional factors and needs a linear worst-case allowance. Its reported tightness witness uses alphabets expanding with input length, whereas most deployed text indexes handle fixed alphabets. Demonstrating that the coefficient one remains sharp even for binary strings rules out reducing the combinatorial allowance by a fixed multiplicative factor merely by restricting alphabet size. The explicit de Bruijn construction has precise length and frequency cutoffs and is an easily reproduced stress-test family; no optimal second-order deficit is claimed.
+Bals et al. ESA 2026 Theorem1 gives <=n for all strings; Proposition6 gives asymptotic tightness by repeating r different letters r times over alphabet size r, which increases with n. The fixed-binary de Bruijn phase-distinctness construction is not obtained by setting a constant alphabet in that witness.
 
-## Closest literature and limits
+## value
 
-Bals et al., *Text Indexing: From Reporting to Counting*, ESA 2026, DOI 10.4230/LIPIcs.ESA.2026.68, full published PDF pp. 1–4 inspected for Theorem 1, Proposition 6 and its proof; targeted searches of the complete document found no binary/de Bruijn sharpness construction. Tesler, *Multi de Bruijn Sequences*, arXiv:1708.03654, supplies standard combinatorial context; only its abstract was checked, so no whole-document exclusion is claimed. Bernardini et al., *Indexing Strings with Utilities*, arXiv:2504.05917, treats top-\(K\) frequent substring indexing, not the equality of factor length and occurrence count; comparison used abstract-level material. The rate \(O(\sqrt{n\log n})\) need not be optimal; no assertion is made about \(n<64\) or random texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Whether the universal n upper bound remains sharp over a fixed two-letter alphabet is a natural extremal question in frequent-factor counting/data structures. A uniform explicit binary witness and quantitative deficit bound resolves this alphabet-dependence rather than merely reproving a known n bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

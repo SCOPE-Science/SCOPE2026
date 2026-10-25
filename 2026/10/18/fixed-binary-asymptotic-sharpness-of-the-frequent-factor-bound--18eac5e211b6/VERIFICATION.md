@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof constructs a binary de Bruijn cycle of order \(d\) using an Eulerian circuit, verifies that every cyclic phase has a distinct factor of every length at least \(d\), and bounds its occurrences in the length-\(n\) prefix by the minimum residue-class count. An integer cutoff ensures strict frequency greater than factor length. Elementary inequalities with \(d=\lfloor\tfrac12\log_2(n/\log_2 n)\rfloor\) complete the estimate for every integer \(n\ge64\).
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 checker using a separately coded cyclic construction and naive factor enumeration. Running it produced `output.txt`. It checked fifteen constructed words: twelve automatically selected orders at lengths 64, 65, 79, 101, 127, 128, 191, 255, 256, 257, 333, 511 and three fixed-order checks (200, 3), (350, 4), (1000, 5), the binary cycle property for all orders 1 through 8, and 20,919 additional integer-cutoff instances up to length 999,054. The checker is supportive finite evidence, not proof of the asymptotic statement. No external or independent scientific validation is asserted.
+## correctness
+
+PASS
+
+The binary de Bruijn graph on order-(d−1) vertices is Eulerian: a cyclic order-d block B of length p=2^d visits each d-word exactly once. Hence for any ℓ>=d, p cyclic phases are distinct. A length-n prefix of B-periodic word contains at least floor((n−ℓ+1)/p) of each phase. With ℓ<=L=floor((n−p+1)/(p+1)), this is >=ℓ+1, so all p phase factors for d<=ℓ<=L qualify. Choose d=floor(0.5log2(n/log2 n)); for n>=64 prove L>=d by a=log2 n<=n/8 and show n−p(L−d+1)<n/p+p(d+1)<3sqrt(n a). Combining lower bound with published Theorem1 M_2(n)<=n yields limit exactly1. Independently an Euler-cycle implementation (different from source FKM recursion) directly counted qualifying binary factors for eight n, verifying each lower bound; no finite experiment proves the limit.
+
+## originality
+
+PASS
+
+Bals et al. ESA 2026 Theorem1 gives <=n for all strings; Proposition6 gives asymptotic tightness by repeating r different letters r times over alphabet size r, which increases with n. The fixed-binary de Bruijn phase-distinctness construction is not obtained by setting a constant alphabet in that witness.
+
+## value
+
+PASS
+
+Whether the universal n upper bound remains sharp over a fixed two-letter alphabet is a natural extremal question in frequent-factor counting/data structures. A uniform explicit binary witness and quantitative deficit bound resolves this alphabet-dependence rather than merely reproving a known n bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

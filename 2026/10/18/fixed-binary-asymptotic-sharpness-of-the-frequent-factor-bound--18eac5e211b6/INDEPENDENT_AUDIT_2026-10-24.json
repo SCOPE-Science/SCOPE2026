@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:52:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and deBruijn verify.py inspected",
+        "Independent Eulerian deBruijn implementation and direct frequent-factor counts for n=64,79,101,128,256,333,512,1000",
+        "Bals et al. ESA2026 DOI full PDF Theorem1/Proposition6 page 68:4",
+        "Tesler arXiv:1708.03654 abstract/background",
+        "Resultary semantic search"
+      ],
+      "rationale": "The binary de Bruijn graph on order-(d−1) vertices is Eulerian: a cyclic order-d block B of length p=2^d visits each d-word exactly once. Hence for any ℓ>=d, p cyclic phases are distinct. A length-n prefix of B-periodic word contains at least floor((n−ℓ+1)/p) of each phase. With ℓ<=L=floor((n−p+1)/(p+1)), this is >=ℓ+1, so all p phase factors for d<=ℓ<=L qualify. Choose d=floor(0.5log2(n/log2 n)); for n>=64 prove L>=d by a=log2 n<=n/8 and show n−p(L−d+1)<n/p+p(d+1)<3sqrt(n a). Combining lower bound with published Theorem1 M_2(n)<=n yields limit exactly1. Independently an Euler-cycle implementation (different from source FKM recursion) directly counted qualifying binary factors for eight n, verifying each lower bound; no finite experiment proves the limit.",
+      "residual_risks": [
+        "Other classical periodic sequence constructions might already yield a fixed-binary asymptotic extremal result under alternative terminology.",
+        "Second-order deficit O(sqrt(n log n)) is only an achievable upper bound, not shown optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem1 bounds <=n for arbitrary alphabets; Proposition6 asymptotically meets n via r distinct symbols for a word of length r²."
+        ],
+        "reasoning": "The broad upper bound and growing-alphabet lower bound do not imply binary lower bound; the latter needs de Bruijn phase-distinguishability.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.ESA.2026.68 Theorem1 and Proposition6",
+          "frequent factors occurs more than length binary de Bruijn asymptotically n upper bound"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and deBruijn verify.py inspected",
+        "Independent Eulerian deBruijn implementation and direct frequent-factor counts for n=64,79,101,128,256,333,512,1000",
+        "Bals et al. ESA2026 DOI full PDF Theorem1/Proposition6 page 68:4",
+        "Tesler arXiv:1708.03654 abstract/background",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each old example requires r unique symbols for r phases; a binary de Bruijn period has 2^d distinct order-d phase windows at price of d symbol length."
+        ],
+        "reasoning": "Combining classical de Bruijn existence with source upper bound is nontrivial quantitative reasoning balancing d and p, and the old example does not already imply fixed-binary sharpness.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.ESA.2026.68 Proposition6",
+          "arXiv:1708.03654 de Bruijn sequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A frequent factor means a distinct nonempty substring U with |U|<|Occ_T(U)|; Theorem1 of Bals et al. uses precisely this strict inequality."
+        ],
+        "reasoning": "Comparison is on identical invariant, not total number of distinct substrings without a frequency restriction.",
+        "searches": [
+          "frequent factors occurs more than length binary de Bruijn asymptotically n upper bound",
+          "DOI:10.4230/LIPIcs.ESA.2026.68 Theorem1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary random-word entry counts all distinct substrings, an invariant without the occ>|U| cutoff; paper Proposition6 is an extremal table for changing alphabet."
+        ],
+        "reasoning": "No identified fixed-binary exact or asymptotic frequent-factor table; no priority claim from absence of hits.",
+        "searches": [
+          "frequent factors occurs more than length binary de Bruijn asymptotically n upper bound",
+          "Resultary: 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b"
+        ]
+      },
+      "rationale": "Bals et al. ESA 2026 Theorem1 gives <=n for all strings; Proposition6 gives asymptotic tightness by repeating r different letters r times over alphabet size r, which increases with n. The fixed-binary de Bruijn phase-distinctness construction is not obtained by setting a constant alphabet in that witness.",
+      "residual_risks": [
+        "Other classical periodic sequence constructions might already yield a fixed-binary asymptotic extremal result under alternative terminology.",
+        "Second-order deficit O(sqrt(n log n)) is only an achievable upper bound, not shown optimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: <=n bound and alphabet-growing sharpness prior; no fixed binary lower sequence",
+          "evidence": "Proposition6 explicitly sets Σ={a1,…,ar} with |Σ|=r and length n=r²; theorem1 gives <=n for every n.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol388-esa2026/LIPIcs.ESA.2026.68/LIPIcs.ESA.2026.68.pdf",
+          "material_read": "Read complete open 20-page conference PDF, especially Theorem1 and Proposition6 on printed page 68:4 with page image, and applications",
+          "method": "Dagstuhl licensed full PDF, searchable text and inspected screenshot",
+          "title": "Text Indexing: From Reporting to Counting (ESA 2026)",
+          "trigger": "Exact same frequent-factor inequality, upper bound and previous tightness construction"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: existence of cyclic de Bruijn sequences; not frequent-factor sharpness",
+          "evidence": "De Bruijn cycle has all order-d words as phase windows, supplying only one classical ingredient.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+          "material_read": "Read bibliographic/abstract and de Bruijn cycle background cited by assigned work; no exact frequent-factor theorem asserted",
+          "method": "arXiv accessible abstract-level comparison",
+          "title": "Multi de Bruijn Sequences",
+          "trigger": "Cyclic coverage existence for fixed alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md and deBruijn verify.py inspected",
+        "Independent Eulerian deBruijn implementation and direct frequent-factor counts for n=64,79,101,128,256,333,512,1000",
+        "Bals et al. ESA2026 DOI full PDF Theorem1/Proposition6 page 68:4",
+        "Tesler arXiv:1708.03654 abstract/background",
+        "Resultary semantic search"
+      ],
+      "rationale": "Whether the universal n upper bound remains sharp over a fixed two-letter alphabet is a natural extremal question in frequent-factor counting/data structures. A uniform explicit binary witness and quantitative deficit bound resolves this alphabet-dependence rather than merely reproving a known n bound.",
+      "residual_risks": [
+        "Other classical periodic sequence constructions might already yield a fixed-binary asymptotic extremal result under alternative terminology.",
+        "Second-order deficit O(sqrt(n log n)) is only an achievable upper bound, not shown optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and deBruijn verify.py inspected",
+    "Independent Eulerian deBruijn implementation and direct frequent-factor counts for n=64,79,101,128,256,333,512,1000",
+    "Bals et al. ESA2026 DOI full PDF Theorem1/Proposition6 page 68:4",
+    "Tesler arXiv:1708.03654 abstract/background",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=64 there exists an explicit binary length-n text with more than n−3 sqrt(n log_2 n) distinct factors whose occurrence count exceeds factor length. Thus fixed-binary maximum M_2(n)/n tends to 1, saturating the published universal <=n bound.",
+  "limitations": [
+    "Uniform explicit bound only n>=64, limiting statement for fixed alphabets >=2.",
+    "No exact M_2(n), optimal deficit, or typical random-word result."
+  ],
+  "residual_risks": [
+    "Other classical periodic sequence constructions might already yield a fixed-binary asymptotic extremal result under alternative terminology.",
+    "Second-order deficit O(sqrt(n log n)) is only an achievable upper bound, not shown optimal."
+  ],
+  "schema_version": 1
+}
