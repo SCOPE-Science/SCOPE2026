@@ -1,0 +1,103 @@
+{
+  "claim": "Let \\(k\\) be an algebraically closed field of characteristic \\(0\\), and let \\(\\Gamma\\) be a finite group. With \\(\\mu(\\Gamma)=\\min\\{n\\ge0:\\Gamma\\hookrightarrow S_n\\}\\) and \\(S_0=\\{1\\}\\), the minimum embedding dimension of a finite-dimensional monomial \\(k\\)-algebra \\(A\\) satisfying \\(\\pi_0\\operatorname{Aut}_k(A)\\cong\\Gamma\\) is exactly \\(\\mu(\\Gamma)\\); an explicit orbit-monomial ideal attains the bound and has \\(\\operatorname{Aut}_k(A)\\cong\\operatorname{Aut}_k(A)^0\\rtimes\\Gamma\\) with solvable identity component.",
+  "correctness": {
+    "rationale": "The lower bound is proved by the action of the component group on the standard Levi blocks: the kernel of the block action is exactly the subgroup of variable permutations lying in the identity component, so the component group embeds in S_r for r no greater than the embedding dimension. The construction uses the orbit of a vector with distinct coordinates and pure powers of degree N=s+1. For every i≠j, an explicit generator shows that x_i∂/∂x_j does not preserve the ideal. Thus the degree-zero-sum root groups vanish, the identity component is connected-unipotent-by-torus and solvable, and the component group is exactly Γ. The proof is algebraic and does not rely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper gives the general automorphism-group structure and a realization for every finite group, but uses a Frucht graph whose vertex count is not optimized.",
+        "The 2024 paper gives a broader reconstruction theorem from the identity component, but does not compare component groups by minimum embedding dimension."
+      ],
+      "reasoning": "Neither broader result implies the matching upper bound in μ(Γ) variables; the orbit-monomial construction supplies that bound, while the Levi-block action supplies the lower bound.",
+      "searches": [
+        "arXiv:2609.13741v1, Proposition 2.5, Proposition 2.7, Theorem 3.4",
+        "arXiv:2409.15081v2, Theorems 1.1–1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.13741v1, https://arxiv.org/abs/2609.13741",
+      "arXiv:2409.15081v2, https://arxiv.org/abs/2409.15081"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 theorem realizes Γ using a graph H with Aut(H)≅Γ, but does not assert that |V(H)| equals μ(Γ).",
+        "The 2026 Levi structure yields the lower bound through the action on blocks. The orbit-monomial ideal provides the matching upper bound in μ(Γ) variables.",
+        "For Γ=C_3, the orbit construction uses three variables, while no simple graph on three vertices has automorphism group C_3."
+      ],
+      "reasoning": "The prior existence theorem does not by itself optimize the number of variables. The exact equality follows from a separate lower-bound argument and a direct construction whose variable-permutation stabilizer is Γ and whose degree-zero-sum root groups are absent.",
+      "searches": [
+        "arXiv:2609.13741v1, Theorem 3.4 and §2.2",
+        "arXiv:2409.15081v2, Theorem 1.2",
+        "\"minimal faithful permutation degree\" automorphism group monomial algebra component group"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 3.4 of arXiv:2609.13741v1 realizes every finite group as a component group by using a graph with that automorphism group.",
+        "Propositions 2.5 and 2.7 of arXiv:2609.13741v1 describe the connected linear part and standard Levi blocks, but do not state the exact minimum μ(Γ) or the orbit-monomial construction.",
+        "Theorem 1.2 of arXiv:2409.15081v2 reconstructs a monomial algebra from its identity component, rather than minimizing the embedding dimension for a prescribed component group."
+      ],
+      "reasoning": "The same object and exact parameter—embedding dimension for a prescribed component group—were compared. Prior work covers existence and identity-component reconstruction; the matching orbit-monomial upper construction and exact minimum are not stated in the inspected sources.",
+      "searches": [
+        "\"minimal faithful permutation degree\" \"monomial ideal\" automorphism group",
+        "\"The structure of automorphism groups of zero-dimensional monomial algebras\" \"component group\" \"minimal number of variables\"",
+        "arXiv:2609.13741v1, §§2.2–3",
+        "arXiv:2409.15081v2, Theorem 1.2 and §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact primary source is arXiv:2609.13741v1, Theorem 3.4; it states existence via a graph construction, not an exact minimum. The general minimal-faithful-degree literature defines μ(Γ) but addresses a different parameter."
+      ],
+      "reasoning": "A finite table is specifically inapplicable to this uniform theorem over all finite groups. Public exact-phrase and primary-source searches were used as a bounded supplement; absence of a table is not treated as proof of novelty.",
+      "searches": [
+        "\"minimum number of variables\" \"component group\" \"monomial algebra\" finite group",
+        "site:arxiv.org \"component group\" \"monomial algebra\" finite group",
+        "arXiv HTML phrase searches for \"minimal number\" and \"variables\" in arXiv:2609.13741v1"
+      ]
+    },
+    "rationale": "The closest same-object source proves existence of arbitrary finite component groups by a Frucht-graph construction, but does not state the sharp minimum μ(Γ) or the orbit-monomial construction. The new upper construction meets the structural lower bound. Targeted public searches found no equivalent exact-minimum statement; search absence alone is not treated as proof of originality.",
+    "residual_risks": [
+      "An unindexed source could contain an equivalent sharp minimum statement; the targeted searches and inspected primary sources did not reveal one.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers arbitrary-group existence and the structural facts used for the lower bound; it does not state the exact μ(Γ) minimum or the orbit-monomial construction.",
+        "evidence": [
+          "Proposition 2.5 and Proposition 2.7 give the connected linear-part and Levi-block structure.",
+          "Theorem 3.4 realizes every finite group via Frucht graphs and states a split extension with solvable identity component."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.13741",
+        "material_read": "Official arXiv HTML: introduction; §2.2, especially Propositions 2.5 and 2.7; §3, especially Lemmas 3.2–3.3 and Theorem 3.4.",
+        "method": "Read the relevant primary full-text sections and reconstructed the quotient map, Levi-block structure, graph construction, and the precise gap in variable-count optimality.",
+        "title": "The structure of automorphism groups of zero-dimensional monomial algebras",
+        "trigger": "Closest same-object primary source on component groups of zero-dimensional monomial algebras."
+      },
+      {
+        "assessment": "The paper concerns reconstruction from the identity component and does not imply the exact minimum embedding dimension for a prescribed component group.",
+        "evidence": [
+          "Theorem 1.2 identifies monomial algebras from isomorphic identity components; it does not optimize the dimension needed to realize a finite component group."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.15081",
+        "material_read": "Official arXiv HTML: abstract and introduction; Theorem 1.2 and the relevant part of §3 on recovery of the monomial ideal.",
+        "method": "Compared the exact theorem statement and its object/parameter with the component-group minimum claimed here.",
+        "title": "Finite-dimensional monomial algebras are determined by their automorphism group",
+        "trigger": "Related primary literature on automorphism groups of finite-dimensional monomial algebras."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10ecafe8-b2b0-4a42-a3c9-8bb7649ad922",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum embedding dimension is a natural resource invariant for constructing algebras with prescribed discrete symmetry. The theorem gives both a sharp lower bound and an explicit construction attaining it. The C_3 case shows a concrete gain over the graph-based construction: three variables suffice although no simple graph on three vertices has automorphism group C_3.",
+    "status": "PASS"
+  }
+}
