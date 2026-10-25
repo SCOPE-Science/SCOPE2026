@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The exact affine map \\(F(y)=1+(1-2^{-q})y\\) and binary precision grids \\(p\\) and \\(p+r\\) give an increasing finite-state chain. For \\(r<q\\), its first accessible absorbing state is \\(B=2^q-(2^{q-r}-1)2^{q-p}\\); the monotone map prevents bypassing \\(B\\). For \\(r\\ge q\\), every state below the exact limit has positive upward probability. These yield almost-sure absorption in finite time and finite expected absorption time. The exact last-step probability is \\(2^{-r}\\) below the threshold or \\(2^{-q}\\) above it. A standalone rational checker enumerated 224 complete reachable finite-state transition graphs and tested these algebraic facts; finite checks are not substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.1 in the 2026 Horner paper gives a finite-degree high-probability forward-error bound for separately rounded multiplication/addition.",
+        "The 2026 survey discusses probabilistic upper bounds and general bias, not a terminal state of FMA Horner.",
+        "The 2025 few-bit source treats rounding-mode bias and its mitigation, rather than the all-one geometric polynomial."
+      ],
+      "reasoning": "A broad bias estimate, finite-horizon probabilistic bound or alternative-mode implementation does not imply the exact sharp bit threshold and almost-sure terminal value, particularly with a different number of roundings per Horner stage. No dominating exact theorem identified in inspected sources.",
+      "searches": [
+        "arXiv:2603.24161 Theorem 3.1 Section 5.1 Remark 3",
+        "arXiv:2603.06060 Sections 1-2",
+        "arXiv:2504.20634 Sections I-III",
+        "contraction affine fixed point quantization stochastic rounding truncated random bits sharp resolution limit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.24161 (2026-03-25) full accessible relevant sections",
+      "arXiv:2408.03069 (2024-08-06) full accessible relevant sections",
+      "arXiv:2504.20634 (2025-04-29) full accessible relevant sections",
+      "arXiv:2603.06060 (2026-03-06) full accessible introduction and notation",
+      "Published mathematical finding search results for fused Horner, geometric series, affine quantization and rounding"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim computes one deterministic terminal value for every valid triple and the geometric final holding time.",
+        "The 2026 paper reports finite-degree Horner bounds and numerical stagnation but explicitly excludes FMA.",
+        "The 2024/2025 source concerns accumulated probabilistic error estimates, while Fitzgibbon–Felix analyze different biased/unbiased few-bit variants."
+      ],
+      "reasoning": "Finite-degree error bounds or empirical plateaus do not imply almost-sure infinite-degree absorption; different rounding variants and independent sequential product/addition rounding alter transition probabilities. The exact terminal and bit iff remain unmatched, subject to historical priority uncertainty.",
+      "searches": [
+        "fused multiply-add Horner infinite geometric polynomial positive all-one coefficients finite precision stochastic rounding absorbing limit threshold",
+        "contraction affine fixed point quantization stochastic rounding truncated random bits sharp resolution limit",
+        "limited precision stochastic rounding FMA geometric series stagnation random-bit precision r",
+        "arXiv:2603.24161 §3, Remark 3, §5.1",
+        "arXiv:2408.03069 §§4 and 6.1",
+        "arXiv:2504.20634 §§II-III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 full-text source describes limited-precision SR but explicitly leaves FMA Horner unanalysed in Remark 3.",
+        "The 2024/2025 full text gives the same rounding model and general probability-bias formula but analyzes summation and inner products, not this FMA affine map.",
+        "Published research search returned no theorem identifying the absorber for this geometric-polynomial contraction."
+      ],
+      "reasoning": "The exact candidate is an almost-sure, infinite-degree absorbing-state law for a single-rounding FMA map. Equivalent affine-contraction or quantized fixed-point formulations were searched; general one-step bias identities do not characterize the visited absorber or its bit threshold.",
+      "searches": [
+        "fused multiply-add Horner infinite geometric polynomial positive all-one coefficients finite precision stochastic rounding absorbing limit threshold",
+        "contraction affine fixed point quantization stochastic rounding truncated random bits sharp resolution limit",
+        "limited precision stochastic rounding FMA geometric series stagnation random-bit precision r",
+        "arXiv:2603.24161 Remark 3",
+        "arXiv:2408.03069 Sections 2.3 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned generic finite-precision, quantization and positivity results rather than a tabulated FMA geometric-Horner absorber.",
+        "Accessible same-slot ledger contains a finite-bit two-state quantized gradient-descent stationary-bias theorem, a different affine map and rounding domain; no fused Horner result was found."
+      ],
+      "reasoning": "The proposed formula is over all integers q,p,r, not merely a listed finite table. Checked matching algorithm/object/parameter aliases and the accessible local scientific claims; the closest finite-bit quantized-gradient result does not cover an increasing p-float FMA Horner chain.",
+      "searches": [
+        "fused multiply-add Horner infinite geometric polynomial positive all-one coefficients finite precision stochastic rounding absorbing limit threshold",
+        "limited precision stochastic rounding FMA geometric series stagnation random-bit precision r",
+        "limited-precision stochastic rounding accumulation unit positive increments almost surely absorbing plateau hitting time geometric sum p+r binary precision",
+        "current accessible same-slot ledger claims searched for Horner, geometric series, FMA, rounding, limited precision"
+      ]
+    },
+    "rationale": "After full-text comparison of the 2026 finite-bit Horner source (explicitly excludes FMA in Remark 3), predecessor truncation/error-analysis paper, few-bit bias-variant paper, and survey, no statement was found implying an exact infinite-degree absorbing value and sharp \\(r=q\\) bit transition under single-rounding FMA. Actual published research record searches for FMA/geometric/quantized contraction aliases showed only distinct objects. Residual priority risk: older specialized quantization/stochastic fixed-point literature could imply the same exact special case.",
+    "residual_risks": [
+      "Historical priority has not received an independent audit; specialized stochastic-quantization/fixed-point literature may contain a stronger implication.",
+      "The result is specific to downward truncation of the FMA result to p+r bits; other finite-random-bit schemes can behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: separate multiply/add rounding error bounds, explicit FMA exclusion, no absorber or sharp infinite-degree \\(r\\) threshold",
+        "evidence": [
+          "Definition 2 (lines 41-51) uses truncated \\(p+r\\) intermediate",
+          "Theorem 3.1 (lines 90-96) is finite-degree forward error",
+          "Remark 3 (lines 117-119) excludes fused multiply-add",
+          "Section 5.1 (lines 152-161) finite experiments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.24161",
+        "material_read": "Definitions 1-2, Section 3 theorem/proof and Remark 3, Section 5.1 finite-degree experiments",
+        "method": "Read accessible arXiv HTML mathematical text and statements, compared exact algorithm and quantifiers",
+        "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding: Horner's Algorithm and Pairwise Summation",
+        "trigger": "Direct source on finite-bit Horner and explicit FMA research gap"
+      },
+      {
+        "assessment": "NOT_COVERING: general truncation bias and recursive summation/inner-product results, no FMA Horner or this fixed point",
+        "evidence": [
+          "MSC 65G50 in lines 47-49",
+          "Section 5 error tradeoff at lines 576-584",
+          "Section 6.1 recursive summation at lines 588-595",
+          "Section 6.2 low-precision gradient updates at lines 596-611"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.03069",
+        "material_read": "Sections 1, 2.3, 4, 5, 6.1 and 6.2; related theorem and computational examples",
+        "method": "Read publicly accessible arXiv full HTML and compared bounds to infinite iteration",
+        "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding",
+        "trigger": "Prior full formulation of same limited-precision stochastic rounding model"
+      },
+      {
+        "assessment": "NOT_COVERING: per-rounding bias and variant comparisons, no Horner or exact affine-contraction absorber",
+        "evidence": [
+          "Introduction and scope lines 13-54",
+          "Distinct implementations and bias correction lines 119-152",
+          "No occurrence of Horner in searched full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+        "material_read": "Sections I–III including variants SRFF, SRF and SRC, and experiments section opening",
+        "method": "Read accessible arXiv HTML and searched full text for Horner",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Potential stronger prior result on finite random bits, bias and stagnation"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant material: general SR framework and bias, no sharp exact FMA geometric-polynomial absorbing-state theorem",
+        "evidence": [
+          "Lines 63-90 discuss previous general bounds and practical bit guidelines",
+          "Lines 165-200 define normal floats and truncated rounding"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.06060",
+        "material_read": "Introduction, floating point notation and limited-bit roundoff definitions, literature overview",
+        "method": "Read accessible arXiv HTML early sections and statements",
+        "title": "Limited-Precision Stochastic Rounding",
+        "trigger": "Broad survey for possible stronger general limited-bit results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "318ffe89-4a67-4394-85ac-bcf666956d8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper singles out FMA Horner as omitted, and its finite-degree experiments identify low-bit stagnation. The theorem gives an exact nonperturbative infinite-degree classification on the canonical near-one geometric polynomial: it determines whether additional random bits entirely remove permanent stagnation, the precise deficit when not, and an exact final-step holding-time penalty when they do. This is a mathematically motivated stability/quantization cutoff rather than a generic exercise or table recomputation.",
+    "status": "PASS"
+  }
+}
