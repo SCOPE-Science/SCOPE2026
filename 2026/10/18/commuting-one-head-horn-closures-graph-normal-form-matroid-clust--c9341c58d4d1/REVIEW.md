@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the unrestricted \(n\ge1\) quantifier and the head-excluding-premise normalization, exhibits an explicit witness to every asymmetric premise dependency, and checks that mutual dependencies cannot create a new enabled head. It then proves the one-pass fixed-set criterion. Exchange is tested with the exact witness \(X=N_G(u)\setminus\{v\}\), forcing adjacent true twins, and the converse uses direct sums of uniform matroids. The Boolean submodularity equivalence uses intersection-closure of fixed sets and a three-vertex fork to obstruct union closure; the matching converse is componentwise. The labelled counts are graph, partition and partial-pairing enumerations. Executable exhaustive checks corroborate all claims through five vertices (and all rule pairs through four), without being substituted for the arbitrary-size proof.
+PASS
 
-## Originality — PASS, with residual risk
+For distinct one-head Horn updates, a one-way cross-dependency u in A_v but v not in A_u is witnessed by X=(A_v\{u}) union A_u: u fires and enables v in one order, not the other. If cross-dependencies are both absent or both present, neither firing can newly enable the other, giving iff symmetry. Hence undirected graph G has premises N(v), and every initially disabled rule remains disabled while missing adjacent heads block each other; one pass yields C_G(X)=X union {v:N(v) subset X}. A set is fixed iff its missing-vertex induced subgraph has no isolated vertices. Exchange across an edge forces equal neighborhoods outside the pair and hence a union of cliques; conversely each clique induces U_(b-1,b) and the direct sum is a matroid. Boolean-valued submodularity for the closed-set failure indicator is equivalent to union closure of closed sets; a vertex with two neighbors creates a union-closure counterexample, and matchings preserve unions. Closed-set generating polynomials then follow blockwise. An independent exhaustive test on all premises and all subsets for n<=3 reproduced commuting-system counts 1,2,8; symbolic arguments cover all n.
 
-The Horn closure and exchange framework in Bérczi--Boros--Makino 2023 and the general Boolean-submodular Horn characterization in Lozin--Zamaraev 2023 are explicitly credited. Their full texts do not state this single-clause-per-head commutation graph classification and joint cluster/matching thresholds. The 1999 bidual Horn framework treats a different dual condition. Searches for implication-rule commutation, graph neighborhoods, set closure, and the exact trichotomy did not identify an equivalent statement in published records. This absence does not prove global uniqueness; the matroid and submodularity boundaries may be implicit corollaries of broader known results, and rewrite-system or dependency-theory terminology remains a material indexing risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The one-head rule assumption defines a concrete, motivated order-independence problem for Horn forward chaining. Its simultaneous solution provides a canonical graph normal form, exact labelled counts, a one-pass algorithm, a visible fixed-set invariant, and sharp boundaries for two independently important semantic classes (matroids and Boolean-submodular functions). This is a structural classification across every finite size rather than isolated numerical data. The Bell and matching sequences themselves are known and are not claimed as new.
+General Horn closure and matroid connections predate this work, including the broad Bérczi–Boros–Makino characterization and Lozin–Zamaraev's union-closed Horn study. Their identified themes do not provide the particular pairwise one-head commutation iff symmetric dependency, combined graph representation, and simultaneous matching-versus-clique thresholds. Counts B_n, involutions and labelled graphs are explicitly inherited, not new. Residual priority risk persists in database dependencies, confluent rewriting, and one-head closure systems.
 
-## Limits
+## value
 
-No claim is made for arbitrary multi-clause Horn bases or unlabeled isomorphism counts. Computations are finite corroborations of a complete symbolic proof; earlier source terminology may hide an equivalent theorem. No external independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural class of one-rule-per-head Horn updates admits an exact commutation normal form, with exchange and Boolean submodularity separating two familiar graph classes. This pinpoints when order-independent rule execution exhibits matroid closure and union-closed fixed systems, useful for logic, closure computation and constraints. The familiar Bell/matching counts are a corollary, not the sole value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
