@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For the stated SSPRK(3,3) tableau and fixed k=(2,-1,-1), direct multiplication yields R_e(z)=1+z+(1/2−3e/2)z²+(1/6−e/4)z³. For real skew modes r=1,7, |R_e(i√r)|²−1 gives Q1 and Q7 with positive modewise discriminants 67/16 and 5341/16. Orthogonal decomposition makes the exact total energy defect Q_w=wQ1+(1−w)Q7, with positive leading coefficient (2107−2070w)/16 and discriminant (9216w²−14490w+5341)/16. Solving this discriminant gives w±. The sign argument yields the exact iff root condition and strict positive gap on the excluded interval. At w=2/3 the completed-square exact minimum is 223/2908 at e=422/2181. The code reproduces symbolic identities and direct stages; universality is proven algebraically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quasi-orthogonal RK methods use a different search direction (arxiv:2409.18328v1).",
+        "Time-relaxation RK uses an adaptive effective step (arxiv:2107.11408v1).",
+        "General RF-RK discriminant statement in arxiv:2401.14508v1 §2.3."
+      ],
+      "reasoning": "The original quadratic formula covers algebraic assessment of any specified stage data, and is credited; it does not contain the concrete 4D noninheritance phenomenon and exact energy-fraction window. Other broadly invariant-preserving methods change admissible correction directions or effective step lengths and thus do not imply that the specific one-parameter RF-SSPRK(3,3) correction exists.",
+      "searches": [
+        "\"RF-RK energy correction quadratic discriminant multi-frequency skew oscillator SSPRK3 2024 feasibility mixture spectral direct sum\"",
+        "arxiv:2409.18328v1 §§1--2",
+        "arxiv:2107.11408v1 §2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.14508v1: primary text, §§2.3--4 and conclusion",
+      "arxiv:2409.18328v1: primary text, abstract, §§1--1.1 and projection construction",
+      "arxiv:2107.11408v1: primary text, abstract and §§1--2.1",
+      "Targeted searches of publicly available mathematical literature and equivalence aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior accessible two-stage SSPRK analysis concerns k=(1,-1) rather than third-order k=(2,-1,-1), and its high mode may already fail in isolation.",
+        "In the present theorem, Δ(0)=5341/16>0 and Δ(1)=67/16>0 while Δ(2/3)=−223/16<0.",
+        "Original RF paper proves sufficiently-small-step solvability; h=1 lies outside that guarantee.",
+        "A related three-stage SSPRK(3,3) result concerns endpoint positivity of Markov transition matrices under a distinct symmetric two-weight family; it does not compare squared norms of skew generators or imply the present mixed-mode discriminant."
+      ],
+      "reasoning": "The closest known two-stage example does not cover simultaneous per-mode feasibility plus mixture infeasibility with third-order SSPRK. The source general discriminant rule can be specialized but is not a stated quantification of w±; the additional noninheritance comparison and strict gap require analyzing coupled spectra. Small-step existence and alternative projection methods do not imply the opposite of this claim. A separate three-stage positivity result deals with stochastic-matrix entrywise signs, not energy preservation or the present nonsymmetric fixed k-vector; it does not subsume the claim.",
+      "searches": [
+        "\"Finite-step loss of an energy-conserving Runge-Kutta correction on skew oscillators\"",
+        "\"SSPRK(2,2) Runge Kutta relaxation free stage weight correction loses real root on independent planar rotations when two modes have different frequencies\"",
+        "arxiv:2401.14508v1 §§2.3,3.1,4.1",
+        "arxiv:2409.18328v1 §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.14508v1 general RF-RK quadratic has discriminant B²−4AC; exact direct-sum condition here is Δ(w)=(9216w²−14490w+5341)/16."
+      ],
+      "reasoning": "Equivalent interpretations include a rank-one affine line in the stage-span missing the fixed-energy sphere and a convex combination of modewise squared-amplification quadratics. The original scalar discriminant implies that such an example can be tested, but does not assert the existence or classify the mixed-mode gap; here exact frequencies and phase boundaries plus a positive gap certificate are new deductions. No equivalent full statement identified.",
+      "searches": [
+        "\"SSPRK(3,3) relaxation-free Runge Kutta skew symmetric matrix two frequencies 1 sqrt 7 energy fractions 2/3 1/3 discriminant\"",
+        "\"RF-RK energy correction quadratic discriminant multi-frequency skew oscillator SSPRK3 2024 feasibility mixture spectral direct sum\"",
+        "\"Relaxation-Free Runge Kutta RF-SSPRK(3,3) [2,-1,-1] simultaneous energy conservation two independent skew oscillators no real quadratic correction discriminant despite separately feasible\"",
+        "arxiv:2401.14508v1 §§2.3,4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original paper numerical §4.1 discusses Fourier modes and RF-RK(4,4) experiments, but no Q1,Q7 weighted discriminant table or w± threshold.",
+        "Targeted published-literature searches returned distinct oscillator/RK/energy-stability statements, but no statement of this exact four-dimensional SSPRK3 energy-fraction frontier."
+      ],
+      "reasoning": "No exact published database, lookup table, or publicly indexed mathematical statement with the same weights, frequencies, and real-root window was found. The 4D result is analytic rather than a recomputation of a listed coefficient. An incomplete search is not a proof of global absence.",
+      "searches": [
+        "\"SSPRK(3,3) relaxation-free Runge Kutta skew symmetric matrix two frequencies 1 sqrt 7 energy fractions 2/3 1/3 discriminant\"",
+        "\"Relaxation-Free Runge Kutta RF-SSPRK(3,3) [2,-1,-1] simultaneous energy conservation two independent skew oscillators no real quadratic correction discriminant despite separately feasible\"",
+        "\"Finite-step loss of an energy-conserving Runge-Kutta correction on skew oscillators\"",
+        "\"SSPRK(2,2) Runge Kutta relaxation free stage weight correction loses real root on independent planar rotations when two modes have different frequencies\"",
+        "arxiv:2401.14508v1 §4.1"
+      ]
+    },
+    "rationale": "The known original RF-RK work supplies the general quadratic discriminant, not the explicit non-closure of solvability under an orthogonal sum of separately solvable oscillator blocks. This result is the exact nonempty energy-fraction feasibility gap for the fixed third-order SSPRK(3,3) correction family. Published mathematical record and primary-literature searches did not identify an equivalent theorem; this is best-knowledge only with acknowledged priority risks.",
+    "residual_risks": [
+      "A previously indexed or unindexed general theorem could establish non-closure under direct sums for this exact RF-SSPRK(3,3) direction without citing the same parameter values.",
+      "The semantic database and literature searches are not exhaustive proofs of priority.",
+      "A general enough result in a source not inspected in full could dominate the concrete exact mixed-mode discriminant; no decisive such source was identified.",
+      "The claimed value is limited to global scalar coefficient feasibility at a fixed, not necessarily small, step; other algorithms might succeed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper contains the RF framework, general quadratic feasibility criterion, small-step existence proof, and possible failure for large steps, but the examined treatment does not give the stated exact two-frequency weighted phase diagram or prove noninheritance of feasibility under direct sums with separately feasible blocks.",
+        "evidence": [
+          "arxiv:2401.14508v1, §§2.3 (2.7)--(2.15), 3.1, 4.1, pp.5--12",
+          "https://arxiv.org/pdf/2401.14508"
+        ],
+        "identifier_or_url": "arxiv:2401.14508v1; https://arxiv.org/pdf/2401.14508",
+        "material_read": "Introduction; complete methodology §2.3, discriminant and small-step analysis §3.1, stability analysis §3.2, numerical multi-mode discussion §4.1, and conclusions.",
+        "method": "Read primary preprint text and inspect screenshots of pages 5 and 10, with explicit comparison to the exact mixed-mode discriminant.",
+        "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+        "trigger": "Same RF endpoint-weight method and actual SSPRK(3,3) correction; decisive prior-art check."
+      },
+      {
+        "assessment": "Projection onto an invariant manifold with selected search directions is a different update family; it does not state the exact fixed RF-SSPRK(3,3) energy-fraction discriminant.",
+        "evidence": [
+          "arxiv:2409.18328v1, abstract and §1.1",
+          "https://arxiv.org/pdf/2409.18328"
+        ],
+        "identifier_or_url": "arxiv:2409.18328v1; https://arxiv.org/pdf/2409.18328",
+        "material_read": "Abstract, introduction, §1.1 (pp.1--3) describing projection directions and contrasts with relaxation.",
+        "method": "Read primary preprint text and page-3 screenshot, comparing correction search space to the fixed k-direction family.",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Same authors and nearby energy-preservation problem; potentially more general correction."
+      },
+      {
+        "assessment": "Treats step-size relaxation, adjoint consistency, and time symmetry; its step multiplier differs from the fixed-step perturbed endpoint weights of the current claim.",
+        "evidence": [
+          "arxiv:2107.11408v1, abstract, §1, §2.1",
+          "https://arxiv.org/pdf/2107.11408"
+        ],
+        "identifier_or_url": "arxiv:2107.11408v1; https://arxiv.org/pdf/2107.11408",
+        "material_read": "Abstract, introduction, §2.1 definition of standard RK and discussion of effective-step relaxation, pp.1--4.",
+        "method": "Read primary preprint text and front-page screenshot.",
+        "title": "Discrete adjoint computations for relaxation Runge-Kutta methods",
+        "trigger": "Linear skew-symmetric ODE analysis for a closely named relaxation Runge--Kutta method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b42437d-7ecb-4e54-9a5f-ffa6202f5e4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated non-closure result for a structure-preserving integrator, not just a low-dimensional arithmetic example. Two individually energy-correctable skew modes can destroy the existence of any global scalar endpoint-weight correction when combined, and a complete nonempty interval of physical mode energy fractions and strict rational excess-energy certificate quantify the obstruction. It bears directly on multimode discretizations where assessing the highest or each individual frequency is not enough. Dimension four is the minimal natural orthogonal direct sum of two nontrivial real planar oscillators. It makes no general claim for unrelated integrators or tiny steps.",
+    "status": "PASS"
+  }
+}
