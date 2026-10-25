@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is analytic. Reconstruct the positive spectral criteria from [1, Theorem 2.2 and Corollary 2.17]; for a pure point operator verify directly that continuous \(f\) maps every eigenvector for \(A\) to an eigenvector for \(f(A)\). Check that strict increase/decrease of image eigenvalues forces the corresponding strict orientation of preimages when \(f\) is weakly monotone.
+## correctness
 
-For the converse, choose any scalar crossing \(f(a)>f(b)\) with \(a<b\), fix \(\ell\in(f(b),f(a))\), and construct the first undercrossing and last overcrossing levels as in the proof. Directly verify \(x_n\downarrow c\), \(f(x_n)\uparrow\ell\) and \(y_n\uparrow d\), \(f(y_n)\downarrow\ell\), with every inequality strict and the respective extremal image value unattained. The reverse crossing \(f(a)<f(b)\) supplies the two exchanged-class failures. For nonstrict monotone \(f\), select any nondegenerate flat interval and exhibit one increasing and one decreasing diagonal ladder: both become scalar under \(f\) although their original extremal attainment fails in the appropriate orientation.
+PASS
 
-No auxiliary code, finite experiment, computer-assisted proof, external certification or numerical tolerance is required. Independent audit has not been performed; the 2023 related article's unavailable full material remains a publication-priority limitation.
+Read and checked the exact spectral premises in Golla–Osaka–Sequeira Theorem 2.2 and Corollary 2.17: complete orthogonal pure-point eigenbasis with no infinite strictly increasing distinct eigenvalues characterizes the norm-attaining-every-reducing-subspace positive class, and no infinite strictly decreasing sequence characterizes the minimum-attaining class. A nondecreasing scalar map preserves both sequence exclusions; nonincreasing swaps them. Strict monotonicity has a continuous inverse on f([0,R]), so functional calculus reflects each class. Necessity: every violation of oriented monotonicity yields strictly monotone bounded diagonal eigenvalue sequences with unattained extremal f-level by a continuity crossing construction; flat nondegenerate intervals yield f(A) scalar while A fails reflection. Counterexamples live on l2, never finite truncations. No external computation or mere samples are taken as proof.
+
+## originality
+
+PASS
+
+The primary 2026 spectral classification and its special affine duality A->delta I-A are correctly prior. The complete universal continuous scalar map classification and all strict reflection converses are not an immediate restatement of affine duality; explicit crossing/flat-map witnesses establish sharp necessity. Prior paper on functional calculus of the smaller absolutely norm-attaining class may overlap in methods, but does not establish coverage of this operator class in accessible material.
+
+## value
+
+PASS
+
+Sharp functional-calculus stability and rigidity classification for two natural complementary reducing-subspace attainment classes, including all continuous nonsmooth functions and necessary direction/exchange. This is a reusable structural theorem rather than a known spectral equivalence relabeled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
