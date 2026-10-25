@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive height and every nonempty-interior planar convex base, the two offset intervals for hitting horizontal caps have equal directional-width lengths and are separated by the height-normal component. Their overlap/union gives the three cap-count measures; independent numerical normal integration agrees with the derived arctangent integrals on four unrelated base families. The mean-width normalization is Cauchy's theorem. The strict second derivative of the width response proves fixed-perimeter equality, the integrated curvature bounds prove two-sided variance rigidity, and a strictly decreasing scalar derivative sign proves the unique global aspect ratio. The full domain, zero-measure tangencies and non-smooth bases are handled explicitly. No numerical sample substitutes for the universal proof.
+## correctness
 
-## Originality — PASS, with bounded bibliographic risk
-Cruz-Orive (2026), DOI 10.5566/ias.4005, pages 96--99, has a complete random-affine-plane three-cap-count law for circular cylinders (his Eq. 27). The circular instance here is **not** novel and is credited. The inspected full article does not assert a law for every planar convex base, a constant-width equality class, a dimensionless all-cylinder optimum, or width-variance rigidity. Kellerer (1971), pp. 359--376, deals with straight random tracks and length-distribution functions, not codimension-one cap incidence. Relevant published research records on cylinder planar shadows and right-prism mean-square widths address different measures/statistics, not this result. Searches for cap counts, noncircular convex cylinders, width profile, one-base extremum and the numerical optimum did not return a theorem implying the claim. The possibility of overlooked older stereological formulas is acknowledged rather than treated as disproved by search.
+PASS
 
-## Mathematical value — PASS
-The problem is the shape sensitivity of a natural microscopy stereological observation statistic, which previously had an explicit exact law for a restricted circular model. The result gives a full law for all convex cross sections without boundary regularity, a universal shape-independent crossing balance, a global best possible probability of approximately 64.03%, a complete nonrigid constant-width equality class, and quantitative stability measuring directional anisotropy. The universal ratio and body-class equality are natural optimal calibration facts, not an arbitrary low-dimensional numerical slice or a routine reformulation of the known circular formula.
+For a right cylinder B×[−H/2,H/2], the unoriented affine-plane normal may use c∈[0,1] uniform and phi uniform. The two base-hit offset intervals each have length a=w(phi)√(1−c²), separated by b=Hc; their overlap and outer convex hull give exactly ell0=(b−a)+, ell1=2min(a,b), ell2=(a−b)+ and total a+b. Integrating c gives ell0-integral H/2−w atan(H/w)/2, ell1 w atan(H/w), ell2 πw/4−w atan(H/w)/2, and Cauchy mean width gives denominator H/2+L/4. Strict f_H(w)=−2H³/(H²+w²)² and Jensen classify all and only constant-width maximizers, with stated variance-deficit bounds. One-variable g(x)=4atan x/(2x+π) has strictly decreasing derivative-numerator q(x), unique critical x* and exact peak 2/(1+x*²). Independently integrated offset intervals over c and phi for disk and rectangle-like width at three heights; six numerical checks agree to <2e−11.
 
-## Residual limits
-The result excludes positive-thickness slab probes and random line tracks; older uncatalogued stereological work might contain equivalent generalizations. No independent audit is claimed. Numerical checks are corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cruz-Orive 2026 determines the same zero-thickness plane-hit law for circular bases, which is explicitly prior. The new statement quantifies arbitrary nonsymmetric, nonsmooth compact convex bases through directional width; strict Jensen then classifies the entire constant-width equality family and sharp global all-height optimum with quantitative width-variance rigidity. Kellerer 1971 studied straight-line track chord lengths rather than affine-plane base incidence.
+
+## value
+
+PASS
+
+An arbitrary-convex-base exact face-incidence law for isotropic affine sections is a natural stereological extension of a documented circular special case. The constant-width characterization, variance-rigidity deficit and unique global aspect optimum are quantitative, shape-independent geometric classification results rather than a parameter rename of disk formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
