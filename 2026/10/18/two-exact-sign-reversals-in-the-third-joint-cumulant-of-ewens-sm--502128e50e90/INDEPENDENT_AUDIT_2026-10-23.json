@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T03:02:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct Ewens factorial-moment extraction for distinct sizes 1,2,3 gives E[product C_j]=θ^r/(product j) W_sum j, with W_k=(n)_k/(n+θ-1)_k, and inclusion–exclusion gives the five-term cumulant. An independent symbolic computation verified the COMPLETE rational identity in formal n,θ: five-term expression equals 6n(n-1)(n-2)(θ-1)Q_n(θ) divided by the displayed strictly positive product of ten linear factors. Since Q_n(0),Q_n(2)<0 for all integer n>=6, Q_n″>0 on θ>=0 and Q_n′(2)>0, Q_n has precisely one zero above 2; Q_n(3)=-n(n-6)(n-3)(2n+1). Expansion at θ=(2/5)n+d gives n^3 coefficient 7(35d-24)/25, hence d=24/35 and O(n^-1) by a simple implicit root. Symbolic identity also tested at n=6,7,9,11; finite tests are corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poisson approximations address component-count convergence at fixed or limited θ, not a globally exact all-θ sign-change theorem with θ~0.4n.",
+          "Crane surveys Ewens law, partitions and multiple applications."
+        ],
+        "reasoning": "A general generating function encodes all cumulants algebraically but does not automatically furnish a published all-parameter sign chart; searched for explicit equivalent sign-root results.",
+        "searches": [
+          "Ewens sampling third joint cumulant C1 C2 C3 two sign changes theta roots",
+          "Arratia–Barbour–Tavaré Poisson process approximations 1992",
+          "Crane Statistical Science 2016"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md blob 1c9563fa404891c1f24d74b11c35922870d21d89",
+        "Crane 2016 author-uploaded full-text transcription, Section 1 Eq.(1) and Section 2",
+        "Arratia–Barbour–Tavaré 1992 bibliographic primary record",
+        "Independent formal sympy n,θ rational factorization and derivative identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crane Eq.(1) states exact Ewens block-count probability and discusses mean/number of alleles; paper search for “cumulant” yielded no match.",
+          "Arratia et al study approximation in probabilistic regimes rather than the exact third cumulant two-root theorem."
+        ],
+        "reasoning": "The Ewens formula gives the input to the independent derivation but its published statement by itself does not explicitly imply the positivity classification without nontrivial rational factorization and root analysis; no stronger compared theorem settles it.",
+        "searches": [
+          "Ewens sampling third joint cumulant C1 C2 C3 two sign changes theta roots",
+          "Crane The Ubiquitous Ewens Sampling Formula 2016",
+          "Arratia Barbour Tavare 1992 Ewens Poisson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block-count distribution and mixed factorial moments are equivalent to the classical Ewens law; their cumulant can be obtained algebraically.",
+          "The new assertion is the exact two-zero sign classification and its moving asymptotic threshold."
+        ],
+        "reasoning": "The expression is a specialization of known factorial-moment calculus, but the universal cubic root count for all n>=6 and θ>0 and its asymptotic transition do not appear in inspected primary discussion.",
+        "searches": [
+          "Ewens sampling third joint cumulant C1 C2 C3 two sign changes theta roots",
+          "Crane 2016 The Ubiquitous Ewens Sampling Formula, Section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact universal table or phase diagram for the C1,C2,C3 joint cumulant surfaced in focused Resultary search and published survey."
+        ],
+        "reasoning": "This claim is all-n with explicit variable-θ phase boundary rather than recomputation of a single finite Ewens sample. Earlier implicit results remain a residual risk.",
+        "searches": [
+          "Ewens sampling third joint cumulant C1 C2 C3 two sign changes theta roots",
+          "Ewens small blocks third cumulant tables formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The Ewens formula gives the input to the independent derivation but its published statement by itself does not explicitly imply the positivity classification without nontrivial rational factorization and root analysis; no stronger compared theorem settles it. Source reading, explicit four comparisons and priority risks detailed below.",
+      "residual_risks": [
+        "Earlier Ewens cumulant literature, implicit multivariate generating-function formulae or unpublished appendices may contain the same phase diagram.",
+        "The entire 1992 Poisson-process paper was not obtained; no whole-document noncoverage inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DISTRIBUTION_NOT_SAME_SIGN_RESULT",
+          "evidence": [
+            "Equation (1) gives the sampling law and C_j interpretation; inspected material does not derive two thresholds for kappa(C1,C2,C3)."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/280311472_The_Ubiquitous_Ewens_Sampling_Formula",
+          "material_read": "Author-uploaded full-text transcription: page 1 equation (1), section 1 and section 2 overview; targeted text search for cumulant",
+          "method": "Read public author-uploaded 2016 paper transcription",
+          "title": "The Ubiquitous Ewens Sampling Formula",
+          "trigger": "Same exact Ewens distribution and its applications"
+        },
+        {
+          "assessment": "MATERIAL_INSUFFICIENT_FOR_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": [
+            "Document concerns Poisson process approximation; complete appendices not inspected, so implicit cumulant formulas remain a risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005647",
+          "material_read": "Bibliographic entry and abstract/indexed description; accessible full text not obtained",
+          "method": "Primary bibliographic record and open-access retrieval attempt",
+          "title": "Poisson Process Approximations for the Ewens Sampling Formula",
+          "trigger": "Relevant component-count asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-sample joint dependence of the three smallest Ewens block counts has an exact nontrivial two-transition sign phase diagram, including a second zero on the θ=Θ(n) scale where fixed-θ Poisson approximations are insufficient. This gives a natural exact higher-cumulant dependence invariant not determined by pairwise correlations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md blob 1c9563fa404891c1f24d74b11c35922870d21d89",
+    "Crane 2016 author-uploaded full-text transcription, Section 1 Eq.(1) and Section 2",
+    "Arratia–Barbour–Tavaré 1992 bibliographic primary record",
+    "Independent formal sympy n,θ rational factorization and derivative identities"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier Ewens cumulant literature, implicit multivariate generating-function formulae or unpublished appendices may contain the same phase diagram.",
+    "The entire 1992 Poisson-process paper was not obtained; no whole-document noncoverage inference is made."
+  ],
+  "residual_risks": [
+    "Earlier Ewens cumulant literature, implicit multivariate generating-function formulae or unpublished appendices may contain the same phase diagram.",
+    "The entire 1992 Poisson-process paper was not obtained; no whole-document noncoverage inference is made."
+  ],
+  "schema_version": 1
+}

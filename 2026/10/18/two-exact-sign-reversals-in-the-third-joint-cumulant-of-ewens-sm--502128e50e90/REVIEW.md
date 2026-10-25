@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Ewens formula yields exact mixed factorial moments for distinct size indices. The third cumulant expands into the four two-point/three-point moments and three one-point moments stated in the proof. Rational symbolic reduction gives the factored expression, with a strictly positive denominator for \(n\ge6,\theta>0\). The cubic is strictly convex on \([0,\infty)\), negative on \([0,2]\), and strictly increasing after 2; the additional positive zero is therefore unique. Its order-\(n\) asymptotics follow from a simple positive root of the scaled polynomial. The standalone checks reproduce all symbolic identities and 49 independent exact integer-partition enumerations.
+## correctness
 
-## Originality — PASS, with limitations
-The base partition law and Poisson approximations are classical. Full-text inspection of the 2016 review found no all-parameter classification of the sign of the mixed third cumulant for sizes one, two and three. Search comparisons against recorded findings, aliases and published literature did not identify an equivalent or stronger phase diagram. The exact extra root and its asymptotic location go beyond a raw moment formula. This is a best-knowledge originality assessment, not priority certification; earlier implicit coverage in joint generating functions remains possible.
+PASS
 
-## Mathematical value — PASS
-Singleton, doubleton and tripleton counts are the three smallest allele-frequency components; their third-order dependence is a natural next statistic after marginal Poisson approximations and pairwise covariances. The sharp second sign reversal, its global uniqueness and scale \(2n/5\) give a complete nontrivial phase classification rather than just a computable cumulant. The result is not presented as a theorem about arbitrary block-size triples.
+Direct Ewens factorial-moment extraction for distinct sizes 1,2,3 gives E[product C_j]=θ^r/(product j) W_sum j, with W_k=(n)_k/(n+θ-1)_k, and inclusion–exclusion gives the five-term cumulant. An independent symbolic computation verified the COMPLETE rational identity in formal n,θ: five-term expression equals 6n(n-1)(n-2)(θ-1)Q_n(θ) divided by the displayed strictly positive product of ten linear factors. Since Q_n(0),Q_n(2)<0 for all integer n>=6, Q_n″>0 on θ>=0 and Q_n′(2)>0, Q_n has precisely one zero above 2; Q_n(3)=-n(n-6)(n-3)(2n+1). Expansion at θ=(2/5)n+d gives n^3 coefficient 7(35d-24)/25, hence d=24/35 and O(n^-1) by a simple implicit root. Symbolic identity also tested at n=6,7,9,11; finite tests are corroboration, not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: The Ewens formula gives the input to the independent derivation but its published statement by itself does not explicitly imply the positivity classification without nontrivial rational factorization and root analysis; no stronger compared theorem settles it. Source reading, explicit four comparisons and priority risks detailed below.
+
+## value
+
+PASS
+
+The finite-sample joint dependence of the three smallest Ewens block counts has an exact nontrivial two-transition sign phase diagram, including a second zero on the θ=Θ(n) scale where fixed-θ Poisson approximations are insufficient. This gives a natural exact higher-cumulant dependence invariant not determined by pairwise correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
