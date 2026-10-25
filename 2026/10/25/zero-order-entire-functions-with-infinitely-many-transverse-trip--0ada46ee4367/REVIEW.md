@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite seed polynomial has exactly three nondegenerate equimodular global maxima, confirmed by the rational identity in RESULT.md, and a transverse gap derivative \(27\). Analytic implicit-function arguments give a robust local three-peak switch under real-symmetric perturbations. The lacunary induction uses the strict exponent inequality \(m_j>2d_{j-1}\) to dominate the previous polynomial at the next scale while keeping future blocks uniformly tiny on every protected earlier annulus. The disjoint coefficient blocks and growth condition \(R_j\ge(m_j+3)^j\) prove order zero. Finite code checks support the seed algebra, not the infinite induction.
+
+**Originality — PASS under documented access limits.** Published work establishes generic maximum-count bounds, finite polynomial exceptional configurations, finite-order transcendental examples, and unbounded maximum counts in a different setting. The present result combines infinitely many *transverse exactly-three* circles, zero-order growth and first Taylor gap one. Direct claim-level comparisons against those results and semantic index searches located no result implying that conjunction. The 2026 Li full text could not be inspected, and older unindexed constructions could cover the statement; priority is not independently certified.
+
+**Value — PASS.** Recent generic maximum-point bounds permit isolated exceptional radii but do not quantify how sparsely grown an entire function can be while having infinitely many. Order zero is a natural extremal growth condition, and the theorem gives an exact three-point global classification on each selected circle, with strict one-to-two phase switching. Its finite cubic crossing is a robust structural building block; the conclusion is not a mere parameter substitution. This does not settle the separate order-zero discontinuity question.
+
+**Residual risks.** Inaccessible full text of Li's closely related 2026 preprint; historical Herzog–Piranian constructions without growth control in inspected summaries; recursive scale choices are not explicitly numerical; no component-level claim.
+
+Self-review: passed. Independent audit: not yet performed.
