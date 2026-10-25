@@ -1,11 +1,21 @@
-# Scientific review
-## Correctness
-**PASS.** A finite-local-ring idempotent is a projection onto a free direct summand; the number of its lifts is computed from an explicit first-order equation. Nilpotence of a matrix over the square-zero extension is exactly nilpotence of its reduction. The proof counts every possible idempotent rank separately, solves all rank-one equations for primitive targets, and handles radical/zero targets. Transposition gives equality of the two product orders. Exact enumerations at field sizes \(2\), \(3\), and \(4\) check every target and both orders, but the uniform argument proves the entire family.
+# Independent mathematical audit
 
-## Originality
-**PASS, subject to stated literature risk.** The primary source gives the **image set** and its total size, not an ordered fiber law in its accessible abstract. The published finite-field fiber theorem does not cover rings with a nonzero radical; its full mathematical statement and proof were inspected and distinguish the two scopes. A 2024 existence theorem for integral domains does not cover dual numbers. Relevant indexed claims on nilpotent lifts, nil-clean *sums*, and nilpotent–involution products neither state nor imply the current eight-stratum counting law. The motivating preprint's full text was unavailable, so a potentially equivalent uninspected calculation remains possible.
+## correctness
 
-## Value
-**PASS.** Counting exact ordered fibers refines the natural multiplication map from idempotent–nilpotent pairs into matrices. The complete family displays a nonuniform multiplicity spectrum and a distinction between singular primitive targets with nilpotent and nonnilpotent residue, as well as between determinant-zero and determinant-nonzero lifts. These features are not visible from the established cardinality of the image. The result is a closed classification across all finite field sizes, not a chosen finite example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Over R=F_q[epsilon]/(epsilon^2), nilpotence of a 2x2 matrix is equivalent to nilpotence of its residue and there are q^6 nilpotent matrices. Rank-one idempotents number q^3(q+1), including q^2 lifts per field projection. Conditioning on rank of the residue and determinant in R partitions target matrices exhaustively into eight cases. For primitive determinant-zero targets the residue constraints y=s x-a and (a s-b)x=a^2 give q or q-1 choices of s and q^3 lifts, yielding q^4+1 or (q-1)q^3. Radical and zero cases follow by rank-one projection geometry. Transposition preserves invariants and swaps order EN/NE. Independent FULL enumeration over F_2 dual numbers finds 26 idempotents, 64 nilpotents, 1664 pairs in each order, 112 positive targets and exact fiber multiplicities matching all predicted cases. This is one finite-field check, not an unrestricted proof.
+
+## originality
+
+PASS
+
+The 2026 Dolzan finite-local-ring theorem proves coincidence of IN/NI image sets and their sizes, but its inspected general image-cardinality theorem does not give ordered factorizations for each target. An earlier published F_q 2x2 fiber census is over a field without radical; it does not imply the dual-number determinant and radical strata. Algebraic calculation independently establishes a genuinely finer ring-valued distribution. Risk: an unindexed ring-fiber identity or a calculation buried in the earlier source.
+
+## value
+
+PASS
+
+The ordered fiber cardinalities of the canonical product map are a natural multiplicity refinement of the known support classification. The first nonreduced finite chain ring supplies meaningful new strata invisible over finite fields, with uniform all-prime-power formulas that can be used for exact random factorization laws and ring-matrix enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
