@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:48:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m,n>=2 and 0<epsilon<1 with self-weight 1+epsilon, integer neighbor sums of either part at most -2 or at least +2 overwrite its opposite part unanimously; sums -1,0,1 preserve the original spins. Hence exactly the low/central/high trichotomy, its nine pair cases, frozen central+central, alternating low+high, all-plus high/no-low and all-minus low/no-high. By step 2 the system is on its final orbit; no tie ambiguity arises. Independent literal synchronous spin updates (not reuse of supplied checker) matched outcomes on all 16+128+256+1024+1024 assignments for (m,n)=(2,2),(3,4),(4,4),(5,5),(6,4). Independence of initial binomial counts implies the four rational finite basin probabilities; unbiased central binomial mass has parity factors 1 or 2 and the triangular-array CLT at p=.5+u/sqrt(m+n) yields the displayed Phi Gaussian crossover. The 2-step bound is only for these complete bipartite and exact self-weight assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The NCO mean-field theorem treats network correlation and survival of coexistence; broad binary majority period-2 general bounds imply at most possible cycle periods, not thresholds and four exact basin laws."
+        ],
+        "reasoning": "A stronger general majority-convergence bound has weaker quantitative implications; opposite update rules do not dominate this exact model.",
+        "searches": [
+          "Liu--Achterberg--Kooij 2024 full article DOI 10.1007/s41109-024-00656-w",
+          "Fedrigo 2024 Theorems 3-4 DOI 10.3390/g15060041"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s41109-024-00656-w",
+        "https://www.mdpi.com/2073-4336/15/6/41",
+        "https://arxiv.org/abs/1101.3447"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A mean-field coexistence result does not imply samplewise basin classification; the related threshold game has an overlap in outcome types only, not in exact update or Gaussian initial-state probability law."
+        ],
+        "reasoning": "Credited the common synchronous NCO rule, possible 2-cycles and graph geometry; surviving content is exact dynamics and distribution for this precise rule.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s41109-024-00656-w",
+          "https://www.mdpi.com/2073-4336/15/6/41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al Equation (1) is the same NCO update; Fedrigo studies a threshold protocol game with distinct neighbor-fraction adoption rules, though some endpoints are 2-periodic."
+        ],
+        "reasoning": "Compare exact update operators, not merely their graph and 2-cycle terminology: Fedrigo's theorem cannot be substituted for NCO retention cases without an equivalence proof, which was not found.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s41109-024-00656-w",
+          "https://www.mdpi.com/2073-4336/15/6/41",
+          "Resultary: synchronous non-consensus opinion majority dynamics complete bipartite graph K_mn exact basins frozen two cycle Gaussian transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an all-m,n symbolic basin formula rather than a finite table; none of checked sources gives the exact central counts c_k and four binomial products for NCO K_mn."
+        ],
+        "reasoning": "No exact probabilistic lookup table in the investigated sources supplies Gaussian crossover, so a table-match search is supplementary and not novelty proof.",
+        "searches": [
+          "Resultary search above",
+          "Liu 2024 section with NCO update",
+          "Fedrigo 2024 article indexed theorem 3"
+        ]
+      },
+      "rationale": "The primary Liu--Achterberg--Kooij 2024 article supplies precisely the NCO self-inclusive update but analyzes mean-field behavior on network ensembles, not the full K_mn all-state outcome partition. Fedrigo 2024 Theorem 3 supplies complete bipartite phase cases in a related but different threshold-protocol adoption rule, where central spin self-retention is not this NCO field. Its general 2-periodic outcome possibility does not imply the present exact four binomial probabilities, parity correction or Gaussian critical window. No Resultary query hit with that combination. These are statements/implication comparisons, not a title novelty claim; threshold-automaton equivalents elsewhere remain a risk.",
+      "residual_risks": [
+        "The full Fedrigo 2024 article was rate-limited at the HTML endpoint; although the dynamics differ, broader threshold-automata literature may contain an equivalent special case.",
+        "No extensions to random bipartite graphs, asynchronously updated networks or independent-but-heterogeneous initial probabilities are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR",
+          "evidence": [
+            "Eq. (1) uses self-weight for ties; results focus on mean-field low degree correlation, without explicit K_mn all-state partition."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41109-024-00656-w",
+          "material_read": "Complete accessible web article with original NCO definition, mean-field derivations and discussion of network assumptions.",
+          "method": "Web full-text HTML read",
+          "title": "Mean-field dynamics of the non-consensus opinion model",
+          "trigger": "Identical self-inclusive update equation and possible dominating same mathematical model theorem"
+        },
+        {
+          "assessment": "RELATED_BUT_NONIDENTICAL_MODEL",
+          "evidence": [
+            "Theorem 3 allows static and period-2 endpoints in a different threshold adoption game, not the NCO 1+epsilon update; complete text unresolved."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2073-4336/15/6/41",
+          "material_read": "Available indexed abstract and Theorem 3/4 excerpt; attempted HTML full open returned HTTP 429, so full article not claimed read.",
+          "method": "Web indexed article and source result; full article blocked",
+          "title": "End Behavior of the Threshold Protocol Game on Complete and Bipartite Graphs",
+          "trigger": "Closest complete bipartite binary-state theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY",
+          "evidence": [
+            "Line dynamics do not give a K_mn basin partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.3447",
+          "material_read": "Published primary abstract and bibliographic scope identifying the one-dimensional line model; complete original text not inspected in this run.",
+          "method": "Open bibliographic text",
+          "title": "Exact solution of the nonconsensus opinion model on the line",
+          "trigger": "Same update model with different network geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete bipartite networks are canonical two-community interacting models and the NCO self-retention rule makes frozen disagreement mathematically distinct from the two-cycle. The exact all-initial-condition classification and finite-size probability formulas show a nonzero limiting 1/2 chance of bipartition alternation at unbiased initialization, parity-dependent frozen fractions and a sharp sqrt(N) bias window. This is a motivated full classification and nontrivial probabilistic scaling law, not a random tiny case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s41109-024-00656-w",
+    "https://www.mdpi.com/2073-4336/15/6/41",
+    "https://arxiv.org/abs/1101.3447"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Critical window requires both part sizes grow proportionally and epsilon remains in (0,1).",
+    "Finite literal transition tests are bounded corroboration, not proof of all m,n."
+  ],
+  "residual_risks": [
+    "The full Fedrigo 2024 article was rate-limited at the HTML endpoint; although the dynamics differ, broader threshold-automata literature may contain an equivalent special case.",
+    "No extensions to random bipartite graphs, asynchronously updated networks or independent-but-heterogeneous initial probabilities are established."
+  ],
+  "schema_version": 1
+}
