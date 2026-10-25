@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is the five-step analytical argument in `RESULT.md`, not a numerical extrapolation. Run `python3 schwarzian_check.py` with `mpmath` installed to reproduce the five high-precision comparisons. Its most delicate identity, the exact negative-Schwarzian formula, was independently checked at five positive parameter/state configurations by 50-digit numerical differentiation, with relative residual below \(10^{-44}\). The strict analytical estimate uses \(0<R_\gamma(t)<1/2\), so it holds for every permitted parameter, not just the sampled values.
+## correctness
 
-Running `python3 opacity_map_verify.py` using only the Python 3 standard library returned:
+PASS
 
-`PASS 306 diagnostics; gamma=3,p2=30: critical p2=28.343173521868, p1-window=(1.149551999920,4.045507637619)`
+For γ>1 the physical map F is positive, strictly decreasing, bounded, with one fixed point x* and a strictly increasing p1↔x* correspondence. The multiplier |F’(x*)|=p2 Φγ(γx*), and log derivative Φ’/Φ=1/t−1+(5/4)R(t) is strictly decreasing, gives unique maximizer tγ∈(1,8/3) and two critical p1 values when p2>1/max Φ. The Schwarzian identity SF=γ²[−1/2+15R²/32]−p2² h’²/2<−49γ²/128 makes Q=( (F²)’ )^{−1/2} strictly convex. It ensures at most three F² fixed points; a primitive two-cycle forces |F’(x*)|>1, excluding both multiplier -1 endpoints. If multiplier>1, H=F²−id has opposite signs near x* and at 0,∞, forcing the other two fixed points and their attraction. Monotone F² guarantees convergence of all even iterates, establishing global basin classification. Numerically rederived γ=3 p2crit 28.34317352186779 and p2=30 thresholds 1.14955199992004,4.04550763761918; illustrative numerics are not proof.
 
-The verifier checks the map derivative at a range of parameters and states, computes the unique slope maximum, checks the fixed-point parametrization, locates both critical \(p_1\) values, and compares direct iteration with the predicted fixed-point/cycle phase. The example values are floating-point diagnostics, not certified enclosing intervals. The proof covers uncountably many parameter values and all nonnegative initial states through the exact calculus and interval arguments, not enumeration. No independent external audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. The originating physical-model paper exhibits monotone nonchaotic behavior and numerical fixed/cycle regimes, but does not establish explicit sharp γ-dependent p2 threshold, complete re-entrant p1 window, global uniqueness and neutral endpoint convergence as a theorem. Classical negative Schwarzian techniques are known and expressly credited; applying them here with analytic sharp thresholds is the asserted advance.
+
+## value
+
+PASS
+
+Sharp global phase classification of a concrete published physical recurrence converts phenomenological numerical transitions to an all-parameter theorem, with exact neutral endpoints and re-entrant two-cycle window. Distinct from reiterating linear stability or simulating a few initial values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

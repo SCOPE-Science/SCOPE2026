@@ -1,15 +1,21 @@
-# Self-review: global phase diagram for the constant-opacity map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map is precisely Bromley and Chiang's Eq. (6) with constant \(\gamma>1\). All parameters and state ranges are explicitly quantified. A unique fixed point is obtained by monotonicity; its derivative magnitude is \(p_2\Phi_\gamma(\gamma x_*)\). The logarithmic derivative of \(\Phi_\gamma\) is strictly decreasing, yielding one maximum and zero or two sharp multiplier crossings. The exact Schwarzian formula gives \(SF<-49\gamma^2/128<0\), and the increasing second iterate therefore has a strictly convex inverse-square-root derivative. Rolle's theorem bounds its fixed-point census by three and proves that a two-cycle exists exactly for a repelling fixed point. The global basin argument uses bounded monotone even iterates, including the neutral endpoints. A standalone Python verifier passed 306 derivative, fixed-point and orbit diagnostics. The continuum proof does not rest on finite experiments.
+PASS
 
-## Originality — PASS, with residual historical uncertainty
+For γ>1 the physical map F is positive, strictly decreasing, bounded, with one fixed point x* and a strictly increasing p1↔x* correspondence. The multiplier |F’(x*)|=p2 Φγ(γx*), and log derivative Φ’/Φ=1/t−1+(5/4)R(t) is strictly decreasing, gives unique maximizer tγ∈(1,8/3) and two critical p1 values when p2>1/max Φ. The Schwarzian identity SF=γ²[−1/2+15R²/32]−p2² h’²/2<−49γ²/128 makes Q=( (F²)’ )^{−1/2} strictly convex. It ensures at most three F² fixed points; a primitive two-cycle forces |F’(x*)|>1, excluding both multiplier -1 endpoints. If multiplier>1, H=F²−id has opposite signs near x* and at 0,∞, forcing the other two fixed points and their attraction. Monotone F² guarantees convergence of all even iterates, establishing global basin classification. Numerically rederived γ=3 p2crit 28.34317352186779 and p2=30 thresholds 1.14955199992004,4.04550763761918; illustrative numerics are not proof.
 
-Bromley and Chiang already defined the map, noted the single fixed point, presented numerically a \(\gamma\)-driven stable-to-two-cycle transition, and stated the fixed-point slope test. Those facts are antecedents. The present model-specific result sharpens their account to a complete \(p_1\)-parameter diagram with two thresholds, an explicit response criterion \(p_{2,\mathrm{crit}}(\gamma)\), unique globally attracting two-cycle when present, and global convergence at the neutral endpoints. The 2024 Schwarzian review supplies known general mathematical tools but no calculation for this atmospheric family. No equivalent model-specific theorem was found in the inspected primary text, related searches, or available mathematical records. An unindexed follow-up or alternate argument could still imply it, requiring independent priority assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper asks why delayed optical-depth feedback settles or oscillates and explores the phase transition numerically. A sharp, parameter-complete answer provides a natural nonlinear-dynamics invariant for an explicitly physically motivated family. The previously unreported re-entrant equilibrium–cycle–equilibrium behavior as the post-clear-skies parameter increases occurs within the paper's illustrative physical parameter range: for \(\gamma=3\), \(p_2=30\), both critical \(p_1\) values fall between 1 and 5. The result does not model evolving dust opacity, stochasticity, or full hydrodynamics, and its analytical Schwarzian mechanism belongs to standard interval dynamics; the valuable content is the nontrivial family-specific threshold and global classification.
+Best-of-knowledge PASS. The originating physical-model paper exhibits monotone nonchaotic behavior and numerical fixed/cycle regimes, but does not establish explicit sharp γ-dependent p2 threshold, complete re-entrant p1 window, global uniqueness and neutral endpoint convergence as a theorem. Classical negative Schwarzian techniques are known and expressly credited; applying them here with analytic sharp thresholds is the asserted advance.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp global phase classification of a concrete published physical recurrence converts phenomenological numerical transitions to an all-parameter theorem, with exact neutral endpoints and re-entrant two-cycle window. Distinct from reiterating linear stability or simulating a few initial values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
