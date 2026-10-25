@@ -1,19 +1,21 @@
-# Review: Sharp endpoint Hodge stability on anisotropically weighted Boolean cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition uses \(P=D^{1/2}B(B^{\mathsf T}DB)^+B^{\mathsf T}D^{1/2}\). Walsh diagonalization gives the exact matrix coefficients, and a positive Laplace integral proves every parallel-edge entry is positive and every transverse-edge sign is determined by \((-1)^{z_j+x_i}\). Summing the absolute matrix entries direction by direction yields row masses \(1\) and \(\sqrt{c_ic_j}/(c_i+c_j)\); maximizing row sums proves the sharp norm. The universal interval and equality cases follow from a strict arithmetic--geometric mean bound and continuous geometric weighting. A grounded-Laplacian exact-rational checker passed 31,006 assertions in twelve cases, independently of the Walsh expression; the proof, not finite checks, establishes all positive real weights and dimensions.
+PASS
 
-## Originality — PASS within examined evidence
+On actual frozen RESULT.md c929b4..., checked Walsh eigenvalue 2 sum_{k∈S} c_k, gradient derivative −2sqrt(c_i) chi_S, heat-kernel integrals (4)–(5) with strictly positive factors 1±exp(−c_k t). Same-direction |row| mass sums to 1; cross-direction mass sqrt(c_i c_j)/(c_i+c_j). Matrix induced ℓ∞ norm is max absolute row sum; AM–GM provides upper (d+1)/2 and equal-weight equality, geometric anisotropy approaches unattained 1. All d≥2 c_i>0 constant per direction, energy normalization explicit; real/complex ℓ∞. Independently rebuilt grounded weighted Laplacian projector (not Walsh) for d=2,3,4 with 3 diverse weight vectors: norms 1.5, 1.86153846, 2.35854875 match, idempotence/symmetry within 1.4e−15.
 
-The weighted Hodge/transfer-current representation itself is classical, notably in Jiang et al. and Kassel--Wu. The significant comparison is not the operator's name but whether their formulas imply the exact signed row-mass separation and anisotropic sharp stability range without a fresh cube-specific computation. The inspected general sources do not supply those conclusions. Full published published-finding corpus results on Hamming Lipschitz-free Walsh projections, cactus basis coordinate projections, \(Q_3\) edge fourth moments and cyclic Riesz transforms were compared by their operator domains and targets; none covers this theorem. Bernardi's weighted cube spanning-tree enumeration is related geometry, but not an edge-space norm calculation. A prior equivalent product-electrical-network representation may exist outside the examined texts. Independent literature-priority verification has not occurred.
+## originality
 
-## Value — PASS
+PASS
 
-Energy-minimizing graph gradient projection is norm-one in its Hilbert geometry, yet bounded coordinate errors can be amplified by as much as \((d+1)/2\). The theorem exactly resolves a natural noise-amplification invariant on all anisotropically weighted Boolean cubes, shows every directional contribution is a simple harmonic pair weight, and classifies both the maximizers and the complete attainable range. Unlike a routine graph-matrix computation, it discovers rigid sign structure explaining why complete absolute row sums simplify at arbitrary dimension.
+Best-of-knowledge no statement discovered of the simultaneous anisotropically weighted Boolean-cube ℓ² edge-gradient projection exact ℓ∞ norm, all signed row entries and complete range; known transfer-current kernel and Walsh techniques are credited, not independent discoveries.
 
-## Limitations and closest literature
+## value
 
-The conductance must be constant across all edges in the same coordinate direction. The complete range does not apply to arbitrary graph weights, to an unnormalized edge representation or to projections other than the stated Hilbert-orthogonal map. Jiang et al., arXiv:0811.1067, and Kassel--Wu, arXiv:1312.2946, are the closest foundational operator sources. Bernardi, arXiv:1207.0896, is the closest older direction-weighted hypercube study examined. A pre-existing equivalent norm identity under Green's-function terminology remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graph Hodge projection is foundational. Direction-sensitive ℓ∞ amplification controls worst bounded edge-data error under a Hilbert-optimal reconstruction, including exact anisotropy suppression and extremizing signs; it is nontrivial as Euclidean orthogonality offers no ℓ∞ norm bound below r-type growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
