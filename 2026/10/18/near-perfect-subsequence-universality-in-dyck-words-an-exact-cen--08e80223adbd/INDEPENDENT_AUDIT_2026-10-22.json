@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:53:12Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Source tree cc65214c4fb2c57f04671d193fd426f0656c4cc3 RESULT.md 6a7337f2a2b16df741b6c0a494589aca3cef8a3f and verify.py 28c679a74d5dd793759511a0aeec5f7d442bab3f read.",
+        "Independently enumerated all Dyck words up to semilength 7, directly tested missing words, and matched class/maxima.",
+        "Primary 2108.13968 full text studied for arch and gluing; use as lemma source, not an independent proof of Dyck restriction."
+      ],
+      "rationale": "The number of greedy complete binary arches equals the subsequence universality index. A Dyck word length 2n with n−1 arches has length surplus 2 over 2(n−1). Balance and nonnegative heights exclude rest of length2 and rest0 (one length4 arch or balanced length3 001/110 pair would cross below zero). Thus rest is exactly one final 1, exactly one exceptional 001 arch, preceding 2-letter arches all 01, following ones 01/10 arbitrarily. The distinct family count is sum_{j=1}^{n−1}2^(n−1−j)=2^(n−1)−1. Exact shortest-absent gluing via 2x2 forbidden-pair matrices gives row transformations (x,y)A=(x+y,y), (x,y)B=(x,x+y) and the exceptional 001 reset. The last 011 gives x+y and 101 gives x; Fibonacci coordinate induction shows max F_n, with one equality at n2,3 and exactly two alternating choices for n≥4. Independent exhaustive direct subsequence computation for n=2..7 checked counts, F_n maxima and number of maximizers; all-n follows from arch and transfer arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted maximum at length 2n is F_(n+3) and general binary arch counts have GF (1+z)/(1−z−2uz²). Neither counts Dyck-balanced near-perfect words nor forces maximum F_n in that subset."
+        ],
+        "reasoning": "Bounds on all words do not specialize to a sharp constrained bound unless Dyck prefix restrictions and equality cases are separately proved.",
+        "searches": [
+          "Resultary Fibonacci extremals for shortest absent subsequences of binary words, full RESULT.md",
+          "Resultary Closed-form law for binary subsequence universality, full RESULT.md",
+          "Kosche et al 2108.13968 full source"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2108.13968",
+        "https://arxiv.org/abs/1303.3785",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2^(n−1)−1 class and exactly two Dyck-constrained Fibonacci extremizers for n≥4 are absent as explicit implications of the inspected unrestricted statements."
+        ],
+        "reasoning": "The general gluing lemma supplies a tool but no specialized structure; the Dyck height exclusion of 110 and exceptional arch placement are essential new constraints.",
+        "searches": [
+          "Kosche et al Absent Subsequences in Words full PDF arch decomposition and gluing lemma",
+          "Resultary two published unrestricted RESULT.md files",
+          "Bernini et al Dyck pattern poset"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary SAS source establishes greedy arch and shortest-absent gluing framework, not the restricted Dyck classification in the inspected content."
+        ],
+        "reasoning": "Dyck scattered binary patterns differ from the Dyck subword-pattern poset where the pattern itself must be a Dyck word.",
+        "searches": [
+          "Resultary: Dyck paths subsequence universality shortest absent subsequences Fibonacci extremizers count",
+          "Kosche–Koß–Manea–Siemer arXiv:2108.13968 primary full PDF",
+          "Bernini–Ferrari–Pinzani–West arXiv:1303.3785"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full alphabet words have tabulated counts and universal formulas, while the Dyck class uses a different prefix-constrained enumeration; a finite n≤12 census is not all-n proof."
+        ],
+        "reasoning": "Known unrestricted tables are not exact tables for this restricted family. The current proof enumerates all n via arch budget.",
+        "searches": [
+          "Resultary exact source titles and Dyck universality query",
+          "Full general binary distribution and Fibonacci extremals published results"
+        ]
+      },
+      "rationale": "The unrestricted binary SAS Fibonacci bound and exact binary universality distribution are already published; neither implies the Dyck-restricted penultimate-index class, its 2^(n-1)−1 exact enumeration and F_n extremizers. Full primary arch/SAS source was inspected. Best-of-knowledge originality PASS with bounded-search caveat.",
+      "residual_risks": [
+        "A differently phrased Dyck-specific subsequence extremality result may exist outside the bounded literature and published-record search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and unrestricted bounds previously known; restricted Dyck exact class and extrema not found in inspected results",
+          "evidence": [
+            "Primary PDF discussion of greedy arch and SAS gluing; lemma numbering differs between cited versions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Full 42-page PDF, focused on arch decomposition and shortest absent gluing propositions",
+          "method": "Compared actual arch/SAS transfer lemma statements with the Dyck-constrained new theorem",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Original greedy-arch and SAS gluing characterization"
+        },
+        {
+          "assessment": "Not covering constrained optimum; gives a known upper bound and proof tool",
+          "evidence": [
+            "Full RESULT.md: M_(2n)=F_(n+3)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Full published RESULT.md and transfer proof",
+          "method": "Compared universal max at length 2n, F_(n+3), with Dyck restricted F_n and equality patterns",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "High-similarity published result gives stronger unrestricted ambient word set"
+        },
+        {
+          "assessment": "Not an equivalent Dyck count without new restriction argument",
+          "evidence": [
+            "Full RESULT.md: F(z,u)=(1+z)/(1-z-2uz²)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Full published RESULT.md and generating function",
+          "method": "Compared total all-binary enumeration to Dyck prefix restriction",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Known exact unrestricted binary universality count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Unrestricted Fibonacci theorem yields only looser bound F_(n+3), while the restricted family attains F_n and has precisely described maximizers."
+      ],
+      "rationale": "The class is a natural sharp boundary of subsequence universality under Dyck prefix balance; the exact enumeration and constrained Fibonacci extremum/equality cases are complete nontrivial combinatorial information.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2108.13968",
+    "https://arxiv.org/abs/1303.3785",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥2, binary ambient alphabet and Dyck prefix balance; class with index exactly n−1, not all Dyck words."
+  ],
+  "residual_risks": [
+    "A differently phrased Dyck-specific subsequence extremality result may exist outside the bounded literature and published-record search."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Framework and unrestricted bounds previously known; restricted Dyck exact class and extrema not found in inspected results",
+      "evidence": [
+        "Primary PDF discussion of greedy arch and SAS gluing; lemma numbering differs between cited versions"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+      "material_read": "Full 42-page PDF, focused on arch decomposition and shortest absent gluing propositions",
+      "method": "Compared actual arch/SAS transfer lemma statements with the Dyck-constrained new theorem",
+      "title": "Absent Subsequences in Words",
+      "trigger": "Original greedy-arch and SAS gluing characterization"
+    },
+    {
+      "assessment": "Not covering constrained optimum; gives a known upper bound and proof tool",
+      "evidence": [
+        "Full RESULT.md: M_(2n)=F_(n+3)"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "material_read": "Full published RESULT.md and transfer proof",
+      "method": "Compared universal max at length 2n, F_(n+3), with Dyck restricted F_n and equality patterns",
+      "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+      "trigger": "High-similarity published result gives stronger unrestricted ambient word set"
+    },
+    {
+      "assessment": "Not an equivalent Dyck count without new restriction argument",
+      "evidence": [
+        "Full RESULT.md: F(z,u)=(1+z)/(1-z-2uz²)"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "material_read": "Full published RESULT.md and generating function",
+      "method": "Compared total all-binary enumeration to Dyck prefix restriction",
+      "title": "Closed-form law for binary subsequence universality",
+      "trigger": "Known exact unrestricted binary universality count"
+    }
+  ]
+}

@@ -1,15 +1,21 @@
-# Scientific review: near-perfect Dyck subsequence universality
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is forced by the two-symbol surplus over \(n-1\) binary arches and Dyck height zero. The only possible exception is one \(001\) arch followed by a terminal \(1\); the word construction is both necessary and sufficient. Pair-absence transfer matrices then count shortest absent scattered subsequences exactly. Their Fibonacci coordinate bound identifies the maximum and the one/two equality cases, with all \(n\ge2\) boundaries separately treated. A next-occurrence implementation independently checks each classified word through semilength twelve, and direct subsequence enumeration provides a second finite implementation through semilength eight.
+## correctness
 
-## Originality — PASS against inspected sources
-The 2013 Dyck pattern-poset paper counts embeddings where the pattern itself is Dyck, rather than universality against all binary words. The 2021 absent-subsequence paper proves the arch gluing lemma and an unrestricted extremal theorem but gives no Dyck-restricted near-perfect enumeration. The closest accessible published Fibonacci-extremal note determines an unrestricted \(2n\)-letter maximum \(F_{n+3}\), not the conditioned \(F_n\), and its proof does not imply the Dyck equality cases. The accessible all-binary universality generating function does not retain the path-height condition. Searches for Dyck/shortest-absent and alternative expressions did not find the stated theorem. An unindexed equivalent formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-Near-perfect scattered-subsequence universality is the natural one-unit deficit immediately below the maximal index for a balanced binary word. The theorem gives an all-size exact structural classification and count, and identifies sharp Fibonacci growth of unavoidable missing-pattern ambiguity and the complete extremizer set under a Catalan constraint. It is a substantive conditioned extremal phenomenon rather than simply computing familiar Fibonacci numbers in an arbitrary finite slice.
+The number of greedy complete binary arches equals the subsequence universality index. A Dyck word length 2n with n−1 arches has length surplus 2 over 2(n−1). Balance and nonnegative heights exclude rest of length2 and rest0 (one length4 arch or balanced length3 001/110 pair would cross below zero). Thus rest is exactly one final 1, exactly one exceptional 001 arch, preceding 2-letter arches all 01, following ones 01/10 arbitrarily. The distinct family count is sum_{j=1}^{n−1}2^(n−1−j)=2^(n−1)−1. Exact shortest-absent gluing via 2x2 forbidden-pair matrices gives row transformations (x,y)A=(x+y,y), (x,y)B=(x,x+y) and the exceptional 001 reset. The last 011 gives x+y and 101 gives x; Fibonacci coordinate induction shows max F_n, with one equality at n2,3 and exactly two alternating choices for n≥4. Independent exhaustive direct subsequence computation for n=2..7 checked counts, F_n maxima and number of maximizers; all-n follows from arch and transfer arguments.
 
-## Limits
-The result does not treat larger universality deficits, all multiplicity cells, or larger alphabets. Finite checks support but do not prove the all-size claim; the proof uses the documented shortest-absent gluing lemma. Originality remains conditional on accessible indexing and inspected full texts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unrestricted binary SAS Fibonacci bound and exact binary universality distribution are already published; neither implies the Dyck-restricted penultimate-index class, its 2^(n-1)−1 exact enumeration and F_n extremizers. Full primary arch/SAS source was inspected. Best-of-knowledge originality PASS with bounded-search caveat.
+
+## value
+
+PASS
+
+The class is a natural sharp boundary of subsequence universality under Dyck prefix balance; the exact enumeration and constrained Fibonacci extremum/equality cases are complete nontrivial combinatorial information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
