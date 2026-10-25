@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted package directory (Python 3 standard library). It checks the exact closure of the two-sided context-state transition, counts the complete 37-state automaton and its 32 two-letter states, verifies all 30 square signatures and 16 cube signatures, tests power stabilization on each representative, and validates a canonical complete transition certificate. The general stabilization proof for every exponent at least three is symbolic and appears in `RESULT.md`.
+## correctness
 
-The program independently enumerates all literal roots through the proved sharp length bounds, verifies both minimum-length histograms, and implements the two-round Ehrenfeucht--Fraisse game for pairwise distinct output signatures. The state-closure argument, not this finite literal enumeration, proves global completeness. Successful local execution printed:
+PASS
 
-```text
-VERIFY_OK states=37 mixed=32 word_types=90 square_types=30 cube_types=16
-SQUARE_MIN_ROOT_HIST={2:2,3:6,4:10,5:10,6:2}
-CUBE_MIN_ROOT_HIST={2:2,3:6,4:6,5:2}
-POWER_STABILIZATION=3 SHARP_WITNESS=01
-```
+PASS: For first-order quantifier rank <=2 over strict order < and two unary letter predicates (no successor), the complete pointed rank-one profile is (letter, left-letter-set, right-letter-set), and a full rank-two sentence theory is the set S(w) of realized pointed profiles. The exact decomposition of S(w²) into the first/last copy and addition of (a,A,A) in all powers >=3 proves same-root stabilization at exponent three. The witness 0101 vs 010101 separates exponent two and three. The append-letter recurrence for state (used-letter-mask,left-pair-mask,right-pair-mask) has a finite complete reachable closure of 37 states (32 mixed-letter states). Independently constructing this closure, not merely enumerating bounded roots, yields exactly 30 square signatures, 16 cube signatures and the sharp minimal-root histograms: squares 2:2,3:6,4:10,5:10,6:2; cubes 2:2,3:6,4:6,5:2. A separate full-word closure has 90 mixed-letter rank-two theories. Closure and BFS shortest paths provide all-root completeness; small root enumeration is corroboration.
 
-The empirical verification is specific to the included code and certificate. No independent audit or general automated proof beyond the stated mathematical recurrence is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.
+
+## value
+
+PASS
+
+PASS: The FO rank-two theory of powers is a natural recognizable-word/finite-model-theory construction, and the exact 90→30→16 hierarchy, per-root exponent-three collapse, and sharp minimal representative lengths describe a genuine structural phenomenon with usable finite-state certificates. General ranker expressivity theory does not simply supply these numeric power-image distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

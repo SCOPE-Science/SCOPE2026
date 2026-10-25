@@ -1,15 +1,21 @@
-# Scientific assessment: rank-two power hierarchy of binary words
+# Independent mathematical audit
 
-## Correctness — PASS
-A word's rank-two first-order sentence theory is completely determined by the realized pointed rank-one context triples (letter, set of letters to its left, set to its right). The square and cube signatures follow by separating the first, final, and interior copies of a root. Their deterministic prefix transition is mathematically exact, and closure over both possible appended letters exhausts all finite roots. The accompanying plain-Python verifier reconstructs all 37 reachable states and 32 two-letter states; confirms 30 square images, 16 cube images, and both root-minimum histograms; directly recomputes actual word signatures; and checks pairwise separations with the two-round game. The conceptual proof of stabilization for every power at least three is independent of enumeration.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest inspected full text is Weis and Immerman's ranker structure theorem for two-variable logic on words (arXiv:0907.0616v2, especially Theorem 8). It characterizes the **logic** but does not tabulate the exact images of the binary square and cube maps or sharp shortest roots. The 1997 temporal-logic equivalence is similarly a general expressive-power theorem. The 2015 paper on 2-binomial squares concerns a different word equivalence. Searches did not locate the precise numerical power-image classification, but absence of matches is not a uniqueness proof; older or unindexed tabulations remain possible, and only summary-level access was available for a separate one-red-word rank-profile result.
+PASS
 
-## Value — PASS
-Power words are a standard natural test family for finite traces and logical periodicity. The theorem classifies which bounded-depth properties can be realized by a repeated binary motif, separates the genuinely distinct square and stable higher-power regimes, and gives exact shortest motifs sufficient to realize every possible rank-two theory in each regime. The figures 30, 16, six, and five are not forced by the generic finite-index assertion alone, and are useful as complete reproducible benchmarks in finite-model logic over periodic words.
+PASS: For first-order quantifier rank <=2 over strict order < and two unary letter predicates (no successor), the complete pointed rank-one profile is (letter, left-letter-set, right-letter-set), and a full rank-two sentence theory is the set S(w) of realized pointed profiles. The exact decomposition of S(w²) into the first/last copy and addition of (a,A,A) in all powers >=3 proves same-root stabilization at exponent three. The witness 0101 vs 010101 separates exponent two and three. The append-letter recurrence for state (used-letter-mask,left-pair-mask,right-pair-mask) has a finite complete reachable closure of 37 states (32 mixed-letter states). Independently constructing this closure, not merely enumerating bounded roots, yields exactly 30 square signatures, 16 cube signatures and the sharp minimal-root histograms: squares 2:2,3:6,4:10,5:10,6:2; cubes 2:2,3:6,4:6,5:2. A separate full-word closure has 90 mixed-letter rank-two theories. Closure and BFS shortest paths provide all-root completeness; small root enumeration is corroboration.
 
-## Scientific scope and limits
-This is not an unrestricted-word or higher-rank classification; the exact result applies to words containing both named colours, under linear order without a successor relation. The full statement and code-derived finite-state proof are in `RESULT.md`, `verify.py`, and `certificate.json`. Literature priority is provisional pending independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.
+
+## value
+
+PASS
+
+PASS: The FO rank-two theory of powers is a natural recognizable-word/finite-model-theory construction, and the exact 90→30→16 hierarchy, per-root exponent-three collapse, and sharp minimal representative lengths describe a genuine structural phenomenon with usable finite-state certificates. General ranker expressivity theory does not simply supply these numeric power-image distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

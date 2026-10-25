@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T02:52:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For first-order quantifier rank <=2 over strict order < and two unary letter predicates (no successor), the complete pointed rank-one profile is (letter, left-letter-set, right-letter-set), and a full rank-two sentence theory is the set S(w) of realized pointed profiles. The exact decomposition of S(w²) into the first/last copy and addition of (a,A,A) in all powers >=3 proves same-root stabilization at exponent three. The witness 0101 vs 010101 separates exponent two and three. The append-letter recurrence for state (used-letter-mask,left-pair-mask,right-pair-mask) has a finite complete reachable closure of 37 states (32 mixed-letter states). Independently constructing this closure, not merely enumerating bounded roots, yields exactly 30 square signatures, 16 cube signatures and the sharp minimal-root histograms: squares 2:2,3:6,4:10,5:10,6:2; cubes 2:2,3:6,4:6,5:2. A separate full-word closure has 90 mixed-letter rank-two theories. Closure and BFS shortest paths provide all-root completeness; small root enumeration is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Weis--Immerman article Theorem 3.8 gives a broad characterization of rank-n two-variable equivalence.",
+          "The earlier temporal-logic equivalence characterizes definability, not the 30/16 powers classification."
+        ],
+        "reasoning": "A general effective equivalence test allows calculation of the numbers but does not itself state the all-root 37-state transition closure or sharp minimum roots. Thus the asserted contribution is not the general FO² ranker theorem.",
+        "searches": [
+          "Weis Immerman Structure Theorem Strict Alternation Hierarchy FO2 on Words Theorem 3.8 2009",
+          "Etessami Vardi Wilke First Order Logic with Two Variables and Unary Temporal Logic 1997"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query on FO rank-two binary word powers 30/16; 8 unrelated hits",
+        "Weis--Immerman 2009 LMCS 5(3), Theorem 3.8, full PDF primary",
+        "Etessami--Vardi--Wilke 1997 LICS (partial)",
+        "Independent finite transition closure and shortest-root BFS; 37 states, 32 mixed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad ranker theorem implies decidability of equality, but extracting the finite power-image classification requires an additional explicit two-sided state recurrence and exhaustive closure.",
+          "The 0101/010101 two-round game witness independently confirms the lower bound k=3."
+        ],
+        "reasoning": "The new result is a fully quantified subclass theorem and exact finite-type image count, not a renaming of earlier logical equivalence or an arbitrary cutoff computation.",
+        "searches": [
+          "Theorem 3.8 FO2 words rankers n=2 Weis Immerman powers",
+          "repeated concatenation words quantifier rank two stabilization exponent three"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weis--Immerman 2009 Theorem 3.8 characterizes FO²[<] quantifier-depth equivalence using ranker existence/order.",
+          "At quantifier rank <=2 over binary order, the candidate pointed left/right alphabet profile is an explicit equivalent special-case invariant; repeating a word maps these profiles by equations S(w²),S(w³)."
+        ],
+        "reasoning": "Equivalent 2-round games and rankers were compared; the particular power-constrained image sizes and sharp exponent are not separately tabulated in the inspected ranker paper.",
+        "searches": [
+          "Resultary: FO first order rank two binary words strict linear order powers w^k 30 16 equivalence classes threshold k=3",
+          "two round Ehrenfeucht Fraisse rankers repeated word powers FO2(<)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of 30 square and 16 cube rank-two theories identified; the published Weis--Immerman paper has no matching power-constrained census in inspected sections.",
+          "Independent transition closure and BFS reproduced both complete shortest-root distributions."
+        ],
+        "reasoning": "A preexisting finite automata table could cover the exact counts; no such precise table was located via relevant research/publication and Resultary searches.",
+        "searches": [
+          "FO two round word powers 37 states 30 square 16 cube root lengths six five",
+          "binary two variable order logic word-power equivalence class count"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.",
+      "residual_risks": [
+        "Earlier unpublished or unindexed finite-state tables might contain 30/16 exact type counts.",
+        "No claim for successor predicates, rank-three or more, or alphabets beyond binary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_EXACT_CENSUS",
+          "evidence": "Theorem 3.8 characterizes FO²[<] rank-n equivalence using rankers; does not in inspected text calculate power-restricted 30/16 image or universal exponent-three root stabilization.",
+          "identifier_or_url": "Weis and Immerman, LMCS 2009 / https://people.cs.umass.edu/~immerman/pub/FO2_on_words.pdf",
+          "material_read": "Open primary 24-page PDF; abstract/introduction and p.7 Theorem 3.8 and ranker equivalence conditions materially inspected, with page images verified",
+          "method": "Author-hosted PDF, text and page-image inspection",
+          "title": "Structure Theorem and Strict Alternation Hierarchy for FO² on Words",
+          "trigger": "Most directly dominating general theorem for binary word rank-two logic"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL",
+          "evidence": "Expressivity equivalence is more general in language but not a stated exact finite image census of word powers.",
+          "identifier_or_url": "Etessami, Vardi and Wilke, LICS 1997 / https://lics.siglog.org/archive/1997/EtessamiVardiWilke-FirstOrderLogicwith.html",
+          "material_read": "Primary bibliographic page and available abstract/subject description; full text not inspected",
+          "method": "Primary archive overview",
+          "title": "First-Order Logic with Two Variables and Unary Temporal Logic",
+          "trigger": "Could imply alternate temporal description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The FO rank-two theory of powers is a natural recognizable-word/finite-model-theory construction, and the exact 90→30→16 hierarchy, per-root exponent-three collapse, and sharp minimal representative lengths describe a genuine structural phenomenon with usable finite-state certificates. General ranker expressivity theory does not simply supply these numeric power-image distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Mixed-letter binary words, strict linear order and first-order quantifier rank two only, without successor and with fixed letter names. State closure 37 is complete for the proved transition, not proof of arbitrary higher-rank logic properties.",
+  "schema_version": 1
+}
