@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Matroid-polytope facets were reconstructed from the connected-flat criterion, with hypotheses of rank and corank at least three and sparse paving used to ensure coordinate facets and precisely circuit-hyperplane extras. At each basis, the coordinate rays span the *saturated* normal lattice, excluding hidden torsion in both local and global toric divisor class groups. Requiring the canonical support to pair to one with those rays forces a unique sign vector. Its zero-sum equation gives the balanced condition, and its circuit-hyperplane evaluation is exactly \(r-2\), leaving only the stated rank-three exception. The independent exact-arithmetic checker verifies the Vámos counts and Cartier equations, plus multiple other parameter cases. Its finite tests do not establish the universal proof; the structural argument does.
+PASS
 
-## Originality — PASS, qualified
+Sparse paving rank r≥3 and corank≥3 has exactly the coordinate 2n facets plus one facet per circuit-hyperplane, by connected-flat facet conditions; the coordinate facets are active at all bases, and precisely t(B) hyperplane facets join them. The primitive normals live in N=Z^n/Z·1 and the signed coordinate rays span it saturately, giving torsion-free Cl(X)=Z^(n+h+1) and Cl(U_B)=Z^(1+t(B)). At every vertex n>n−1 rays make U_B singular and non-Q-factorial. Local rational Cartier equations require the unique sign vector a_i=1 for i∈B, −1 otherwise to descend, imposing n=2r; each active H pairs to r−2 so imposes t(B)=0 or r=3. The vector is then integral, hence rational Cartier iff Cartier, no finite nontrivial index. With h>0 some B has t>0; global criterion follows. Exhaustively recomputed Vámos 65 bases, counts t=0,1,2 of 17,16,32; 6 automorphism orbits sizes 1,16,16,8,8,16 with claimed t. These finite checks corroborate, but the universal proof rests on matroid facets and toric divisor sequences.
 
-The facet description, toric divisor sequence, and Vámos circuit-hyperplanes are known ingredients and are not claimed individually. The inspected Feichtner–Sturmfels and Joswig–Schröter manuscripts concern matroid polytopes and split/facet combinatorics, not this normal-fan canonical/class-group classification. Karn–Nasr–Proudfoot–Vecchi compute Vámos Kazhdan–Lusztig invariants, not the \(17/48\) toric Cartier dichotomy. The graphic-matroid semigroup-ring notion of Gorensteinness treated by Hibi and collaborators differs from the normal-fan projective toric criterion. A previous one-circuit-hyperplane toric singularity classification is subsumed on that restricted subfamily but does not imply the arbitrary sparse-paving phase transition or the Vámos distribution. Searches for normal-fan, matroid Cartier, \(\mathbb Q\)-Gorenstein, Vámos and hypersimplex variants returned no covering claim. Residual risk: implicit results in broad toric geometry or unindexed literature could express an equivalent classification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a uniform, sharp distinction between Cartier, rationally Cartier and non-rationally Cartier canonical divisors across a natural infinite family of potentially non-representable matroid polytopes, while simultaneously determining integral local Weil class groups. The unusual boundary \(r=3\) gives a genuine phase change. The natural eight-element Vámos example exhibits coexisting Gorenstein and non-\(\mathbb Q\)-Gorenstein torus-fixed charts, with exact distribution and symmetry orbits; this arithmetic-geometric stratification is not obtainable from vertex count alone. No claim about every nongeneric local analytic germ or the nonreduced singular scheme is made.
+Feichtner–Sturmfels Proposition 2.6 and Joswig–Schröter Proposition 7 give matroid-polytope facet frameworks; Karn–Nasr–Proudfoot–Vecchi §5 states the specific Vámos 5 circuit-hyperplanes and D4×D4 automorphism generators but computes equivariant Kazhdan–Lusztig polynomials, not canonical normal-fan Cartier status. Hibi et al study Gorenstein semigroup rings and a classification in graphic matroids: semigroup-cone Gorensteinness must not be equated to local canonical Cartier status on a normal-fan projective variety. The frozen theorem supplies full arbitrary sparse-paving class-rank and Cartier criteria plus Vámos six-orbit distribution; the inspected primary sources do not logically cover that same result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a uniform classification of canonical Cartier/Q-Gorenstein behavior at all torus-fixed charts of a large natural matroid class, with a sharp n=2r and r=3 dichotomy, plus an exact nonrepresentable Vámos test case. Integral class-group ranks and no-Q-factorial consequences are natural singularity invariants that distinguish polytope geometry from matroid semigroup-ring conditions. Their application to a nonrepresentable matroid is not an arbitrary narrow calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
