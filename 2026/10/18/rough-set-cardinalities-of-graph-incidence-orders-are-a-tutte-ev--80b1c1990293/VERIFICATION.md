@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. It requires no third-party packages and uses integer arithmetic throughout. The checker constructs the order neighborhoods explicitly, enumerates each candidate source subset, creates the actual ordered approximation pairs, and deduplicates them. It compares the result with the independently evaluated height-two monochromatic-neighborhood formula. It also compares graph-incidence counts with two separate representations (vertex-spin sums and connected-component edge-subset sums), deletion–contraction including loops, and closed forms for standard graph families.
+## correctness
 
-Observed result:
+PASS
 
-```
-VERIFY_OK height_two_hypergraphs=689 hypergraph_subsets=37477 simple_graphs=76 multigraph_deletion_contraction=108 paths_cycles_complete_n_le_8=PASS
-```
+Fixing T=S intersection maximal elements B is determined by their lower/upper statuses; for each minimal a, membership bit s gives two distinct statuses iff all members of N(a) have identical T status, including empty neighborhood; such bits vary independently. This yields the exact height-two formula. For graph incidence a minimal edge has exactly its two endpoints and contributes factor two iff monochromatic. Expanding 2^[equal colours] =1+[equal] over edges gives sum_{F subset E}2^{# components}; Tutte subset expansion at (3,2) proves equality. Deletion/contraction and trees/cycles/complete graphs are exact consequences. #P membership is a nondeterministic witness (vertex colouring, chosen monochromatic edges) and hardness/planar tractability are explicitly cited prior theorems, not inferred from computation. Independent enumeration directly deduplicated all lower/upper pairs and compared spin and FK expressions for each of the 75 simple graphs on 1..4 vertices; all agreed. Infinite graph statement rests on the symbolic local/FK proof.
 
-The height-two enumeration includes empty neighborhoods. The simple-graph enumeration covers all undirected simple graphs on at most four vertices; there are additional exactly enumerated families through eight vertices. Exhaustive finite comparisons do **not** certify the theorem for arbitrary finite size, do not independently establish the cited graph-complexity classifications, and do not certify bibliographic novelty. The universal identities are proved in `RESULT.md`, with externally established complexity theorems cited there.
+## originality
+
+PASS
+
+Fortuin–Kasteleyn expansion, Tutte-polynomial complexity and planar Ising algorithms are classical, as is the general rough-set representation framework. The specifically defined distinct-rough-pair count for upward-neighborhood height-two orders and its exact dual graph-incidence Tutte evaluation were not provided by the inspected sources. A stronger general representation theorem might encode this as an implicit corollary, residual risk.
+
+## value
+
+PASS
+
+The count of distinct realized rough approximation pairs is a natural information-system invariant. Establishing its exact relationship to a classical Tutte evaluation transfers full deletion–contraction and graph-family counts and gives a sharp general/planar complexity boundary. This family-wide structural bridge is substantively useful, not a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
