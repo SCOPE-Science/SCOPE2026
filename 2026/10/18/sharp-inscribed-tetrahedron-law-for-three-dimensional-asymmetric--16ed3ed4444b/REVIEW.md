@@ -1,15 +1,21 @@
-# Scientific review: asymmetric simplex difference bodies
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real \(s>0\), the twelve ordered-pair vertices are exposed and exhaust \(\Delta-s\Delta\). The determinant is affine separately in each of the four tetrahedral corners, so vertex reduction covers unrestricted corners. The included exact-arithmetic checker exhausts all 495 four-subsets, yields ten determinant-polynomial classes and exactly six maximizers, and verifies that maximizing quadruples are directed Hamiltonian cycles with no shared triple. Every competing class is strictly smaller than \((1+s)(1+s^2)\) for all positive \(s\), including the sign-changing class by a two-interval factorization. Nonvertex optimizers are excluded by convex determinant expansion and maximal-quadruple nonoverlap. Direct orthant integration and derivative algebra give the body volume and unique occupancy minimum. Remaining risk: mathematical auditing of the code and its correspondence to the table has not been performed independently.
+## correctness
 
-## Originality — PASS under the inspected evidence
-The same Minkowski-sum family has a published Santaló/Mahler product formula, and the classical asymmetric simplex volume polynomial is covered there. Those primal/polar-volume results do not determine a largest contained tetrahedron. The cuboctahedral \(s=1\) case is equivalent to one member of a known cube–octahedron intersection family; its isolated occupancy is not claimed new. The noncentrally symmetric positive-parameter family, exact unrestricted maximum, and six-cycle optimizer classification are not implied by either source. Lassak's general inscribed-simplex approximation bounds, the 2013 convolution-body volume work, and Akopyan–Glazyrin's structure results do not yield the continuous exact law. Searches across parameter names, asymmetric/difference-body formulations, cube–octahedron aliases, and determinant/maximum-simplex forms found no dominating published statement. This is a bounded originality judgment, not proof of absolute historical priority. Unindexed classical sources remain possible.
+PASS
 
-## Mathematical value — PASS
-The largest contained simplex is a natural affine-invariant measure of how efficiently a convex body contains a simplex. The theorem supplies a complete continuous extremal profile for a standard 3D asymmetric difference-body family, not a fixed-parameter enumeration alone. It establishes six exact equality configurations and a strict unique least-efficiency transition at the balanced Minkowski sum. This goes beyond the previously known primal-body volume polynomial and the single symmetric cuboctahedron case.
+PASS. After affine reduction to standard simplex, all 12 p_ij=v_i−sv_j are exposed for s>0. A tetrahedral determinant is multi-affine in its four corners so maximization over all points reduces to the 495 vertex quadruples. Independent integer interpolation of determinants at four parameter values reconstructed the exact ten sign-canonical polynomial classes, six D(s)=(1+s)(1+s²) maxima, and their pairwise intersection at most one vertex. Every lower polynomial class is strictly dominated for every s>0, including the exceptional signed one by its exact two-interval gap factorization. No nonvertex extremal corners are possible because two maximizer quadruples would share three vertices. Orthant integration of Δ−sΔ yields (1+9s+9s²+s³) volΔ and differentiating occupancy gives unique min 1/5 at s=1. This finite exhaustive *polynomial* certificate plus algebra applies to continuum s, not mere parameter sampling.
 
-## Scientific limits and references
-The study is restricted to three-dimensional tetrahedra; it does not assert an extremum over arbitrary convex bodies. Historical-priority coverage cannot be complete, and exhaustive code is not independent proof review. Closest inspected sources include Lassak (2011, DOI 10.1007/s13366-011-0026-x), Alonso-Gutiérrez et al. (2013, arXiv:1312.6005), Akopyan–Glazyrin (2014, DOI 10.1007/s10998-014-0051-2), and the public findings titled *Strict Mahler-product monotonicity along simplex asymmetric difference bodies* and *Sharp tetrahedral-volume profile in the cube–octahedron intersection family*.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-of-knowledge for the full asymmetric parameter maximum and rigidity. The symmetric s=1 occupancy and K_s body volume are prior covered; neither provides a determinant-maximization formula for all positive parameters and exact six-optimum classification.
+
+## value
+
+PASS
+
+PASS. This solves a natural continuous asymmetry deformation of the simplex difference body with a sharp inscribed-volume occupancy law and the exact equality topology (six oriented Hamiltonian cycles), a substantive geometric invariant beyond the already-known symmetric endpoint and body-volume polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

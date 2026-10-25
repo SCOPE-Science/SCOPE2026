@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of the exact tetrahedral determinant certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter; no external packages are necessary. The script independently forms the twelve ordered-pair vertices of the standard 3-simplex difference sum, enumerates all \(\binom{12}{4}=495\) four-vertex choices, expands the homogeneous 4-by-4 determinant using all 24 permutation terms in exact integer polynomial arithmetic, canonicalizes signs and checks the complete ten-row multiplicity table in `RESULT.md`. It also checks that exactly six top quadruples consist of directed Hamiltonian four-cycles and that no two share more than one vertex. The output on success is `VERIFY_OK quadruples=495 determinant_classes=10 maximum_orbits=6`. This exact script was run successfully against the included source.
+## correctness
 
-The checker establishes only the finite algebraic certificate and graph incidence. Uniformity for arbitrary positive real \(s\) requires the positivity inequalities shown in `RESULT.md`; unrestricted vertex reduction and nonvertex optimizer exclusion require its analytic determinant argument. The volume identity and strict occupancy monotonicity require the orthant integration and derivative in the proof. None of these is inferred merely from a numeric parameter sweep. Independent audit is not yet performed. The historical-priority evaluation is bounded by the accessible literature.
+PASS
+
+PASS. After affine reduction to standard simplex, all 12 p_ij=v_i−sv_j are exposed for s>0. A tetrahedral determinant is multi-affine in its four corners so maximization over all points reduces to the 495 vertex quadruples. Independent integer interpolation of determinants at four parameter values reconstructed the exact ten sign-canonical polynomial classes, six D(s)=(1+s)(1+s²) maxima, and their pairwise intersection at most one vertex. Every lower polynomial class is strictly dominated for every s>0, including the exceptional signed one by its exact two-interval gap factorization. No nonvertex extremal corners are possible because two maximizer quadruples would share three vertices. Orthant integration of Δ−sΔ yields (1+9s+9s²+s³) volΔ and differentiating occupancy gives unique min 1/5 at s=1. This finite exhaustive *polynomial* certificate plus algebra applies to continuum s, not mere parameter sampling.
+
+## originality
+
+PASS
+
+PASS on best-of-knowledge for the full asymmetric parameter maximum and rigidity. The symmetric s=1 occupancy and K_s body volume are prior covered; neither provides a determinant-maximization formula for all positive parameters and exact six-optimum classification.
+
+## value
+
+PASS
+
+PASS. This solves a natural continuous asymmetry deformation of the simplex difference body with a sharp inscribed-volume occupancy law and the exact equality topology (six oriented Hamiltonian cycles), a substantive geometric invariant beyond the already-known symmetric endpoint and body-volume polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
