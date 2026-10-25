@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-## Analytic checks
-The entire claim follows from the two exact displayed identities in `RESULT.md`: the geometric-sum expression minimized on the disk boundary for a homogeneous kernel, and the support-function Bellman recurrence for horizon-specific adaptive control. The second-order stationary asymptotic is justified by uniform localization near \(t a=\log t\). The adaptive limit follows from exact reciprocal increments tending to \(r/2\). The corner \(a=b=0\) and the strict stochasticity radius bound are included explicitly.
+# Independent mathematical audit
 
-## Standalone finite checks
-Run `python verify.py` using Python 3; no third-party packages are needed. The script verifies direct finite Markov propagation at horizons 1–10 against the analytic stationary formula, and a fine angular-grid support maximization for the first six adaptive recursions. For \(r=1/4\), the output at \(t=10000\) and \(t=100000\) is:
+## correctness
 
-```
-t=10000:  stationary gap=0.00189660127;  t*gap-2*log(t/2)=1.931626332; adaptive gap=0.00079447463; t*adaptive gap=7.944746314
-t=100000: stationary gap=0.00023628594;  t*gap-2*log(t/2)=1.989037862; adaptive gap=0.00007992789; t*adaptive gap=7.992789271
-```
+PASS
 
-The numerical values are approximations and **do not** certify limits for all horizons or all radii. The proof, not these finite checks, establishes the quantifiers in the theorem. No independent external review has yet been performed.
+The stochasticity condition follows from max(a+b)=r(1+sqrt(2))<1. For a fixed kernel, success by t is a geometric sum; for fixed a, failure probability is minimized on the lower disk boundary beta(a). The minimizer is localized to a~(log t)/t, where a uniform expansion of the deficit gives the +1 constant and log(2rt). The adaptive Bellman step is the disk support function; rationalization gives the exact deficit recursion, and reciprocal increments tend to r/2, proving 1-D_t~2/(rt). The ratio follows. For every fixed kernel, positive failure probability or a=0 gives infinite expected hitting time, while the eventual success supremum tends to one as a approaches zero along the boundary. Finite script tests are not used for the asymptotic proof.
+
+## originality
+
+PASS
+
+The closest full primary sources establish qualitative eventual-hit nonattainment and general imprecise-chain hitting-time characterizations, but not the smooth disk family or the sharp finite-horizon stationary/adaptive rates. Searches found no exact covering table or theorem; unindexed equivalent asymptotics remain a risk.
+
+## value
+
+PASS
+
+The example quantifies a meaningful policy-class penalty that is invisible from the common infinite-horizon upper hitting value: commitment to one kernel costs a logarithmically larger finite-horizon deficit than horizon-dependent control. The exact leading constants and the explicit three-state disk make a useful boundary example for robust reachability, not merely a routine expectation counterexample or finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

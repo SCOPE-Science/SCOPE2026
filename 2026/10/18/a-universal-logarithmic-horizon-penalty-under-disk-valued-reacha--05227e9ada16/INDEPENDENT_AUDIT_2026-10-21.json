@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T22:46:49.541000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stochasticity condition follows from max(a+b)=r(1+sqrt(2))<1. For a fixed kernel, success by t is a geometric sum; for fixed a, failure probability is minimized on the lower disk boundary beta(a). The minimizer is localized to a~(log t)/t, where a uniform expansion of the deficit gives the +1 constant and log(2rt). The adaptive Bellman step is the disk support function; rationalization gives the exact deficit recursion, and reciprocal increments tend to r/2, proving 1-D_t~2/(rt). The ratio follows. For every fixed kernel, positive failure probability or a=0 gives infinite expected hitting time, while the eventual success supremum tends to one as a approaches zero along the boundary. Finite script tests are not used for the asymptotic proof.",
+      "residual_risks": [
+        "The proof gives asymptotics for each fixed admissible radius but no quantified uniform error term in r; no universal claim for arbitrary convex uncertainty sets is made."
+      ],
+      "sources": [
+        "RESULT.md blob 126a22440fbad14535f1e5c93b5dd29d17d1c570",
+        "verify.py blob 86d309883aef6f4669461b90b822e2211bfdc4a4",
+        "VERIFICATION.md blob 2b6626b7dfbd08ec570f62b6e149890476c90eab"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 counterexample uses transition probabilities 1/n and 1/n^2 in a convex hull with identity; it does not state the disk-family finite-horizon rates.",
+          "The 2019 paper compares infinite-horizon quantities and semantics; no optimized stationary/adaptive finite-horizon asymptotic is stated in the inspected text."
+        ],
+        "reasoning": "Neither primary source dominates the specific disk support function, homogeneous boundary-layer minimization, or constants. Search results are bounded and do not establish priority.",
+        "searches": [
+          "arXiv:2603.16675v1 Example 1 and Section 3",
+          "PMLR 103:krak19a Sections 2-3",
+          "Resultary query: stationary versus adaptive reachability smooth disk finite-horizon logarithmic asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.16675v1 full PDF",
+        "PMLR 103:krak19a full PDF",
+        "Resultary semantic searches for disk-valued reachability and stationary/adaptive finite-horizon gaps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 example proves eventual upper-hit nonattainment using a convex hull of matrices with success/failure probabilities 1/n and 1/n^2.",
+          "The 2019 paper gives infinite-horizon operator characterizations; it does not provide the logarithmic stationary finite-horizon penalty or the 2/(rt) adaptive deficit."
+        ],
+        "reasoning": "The smooth disk and its quadratic contact with zero failure probability are essential to the boundary-layer asymptotic; the adaptive policy uses the disk support function. Neither conclusion follows from qualitative eventual-hit nonattainment alone.",
+        "searches": [
+          "arXiv:2603.16675v1 full PDF Example 1",
+          "PMLR 103:krak19a full PDF Introduction and Section 3",
+          "homogeneous Markov versus nonstationary policies finite horizon reachability log t over t gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sangalli–Quaeghebeur–Krak, arXiv:2603.16675v1, Section 3 Example 1: a convex-hull three-state family has upper eventual hitting probability one without attaining it and infinite lower expected hitting time.",
+          "Krak–T’Joens–De Bock (PMLR 103, 2019), full PDF: general characterizations of infinite-horizon hitting probabilities and expected hitting times across imprecise-chain semantics."
+        ],
+        "reasoning": "Eventual nonattainment and the general Bellman/fixed-point principle do not compute the finite-horizon optimal stationary deficit or the adaptive disk recurrence. The audited claim adds sharp leading constants and a logarithmic ratio for a smooth continuous-action disk.",
+        "searches": [
+          "Sangalli Quaeghebeur Krak disk uncertainty hitting probability finite horizon stationary adaptive logarithmic gap",
+          "Resultary query: imprecise Markov chains compact disk transition uncertainty finite horizon stationary versus adaptive hitting probability logarithmic horizon penalty"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary records were tangential (for example, an unrelated finite-horizon e-test plateau and other logarithmic asymptotics); no three-state disk deficit table appeared.",
+          "The primary hitting-time sources contain general characterizations and a different nonattainment example, not an exact table of stationary/adaptive deficits."
+        ],
+        "reasoning": "No exact published database or table for the displayed constants was found; this is not treated as a novelty proof.",
+        "searches": [
+          "Resultary query: disk-valued reachability uncertainty logarithmic horizon penalty",
+          "arXiv:2603.16675v1 Example 1",
+          "PMLR 103:krak19a hitting-probability characterization"
+        ]
+      },
+      "rationale": "The closest full primary sources establish qualitative eventual-hit nonattainment and general imprecise-chain hitting-time characterizations, but not the smooth disk family or the sharp finite-horizon stationary/adaptive rates. Searches found no exact covering table or theorem; unindexed equivalent asymptotics remain a risk.",
+      "residual_risks": [
+        "An unindexed smooth-credal-set finite-horizon asymptotic may predate this result.",
+        "The asymptotic error term is not quantified uniformly over the allowed radii."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source proves upper eventual hit probability one despite infinite lower expected hitting time, using a convex-hull family with success 1/n and failure 1/n^2; it does not state disk-specific finite-horizon rates.",
+          "evidence": [
+            "Example 1, PDF pp. 6-7, defines the three-state convex hull and states that the converse of the expected-hitting-time implication fails."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.16675",
+          "material_read": "Full PDF: abstract/introduction, definitions in Section 2, Section 3 including the converse counterexample and Example 1.",
+          "method": "Direct primary full-text PDF reading with model comparison",
+          "title": "Relation between Hitting Times and Probabilities for Imprecise Markov Chains",
+          "trigger": "Closest primary source for eventual hitting nonattainment in a three-state uncertainty model"
+        },
+        {
+          "assessment": "Provides infinite-horizon characterization across several semantics, not the finite-horizon disk boundary-layer rate or its leading constants.",
+          "evidence": [
+            "Abstract and Section 3 describe equality of lower/upper hitting quantities across semantics and general characterizations, not a log(t)/t stationary deficit."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v103/krak19a/krak19a.pdf",
+          "material_read": "Full 11-page PMLR PDF, introduction, definitions of homogeneous and inhomogeneous imprecise chains, and Sections 2-3 on hitting probabilities and fixed-point characterizations.",
+          "method": "Direct primary full-text PDF reading",
+          "title": "Hitting Times and Probabilities for Imprecise Markov Chains",
+          "trigger": "Potential general theorem relating stationary and nonstationary semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example quantifies a meaningful policy-class penalty that is invisible from the common infinite-horizon upper hitting value: commitment to one kernel costs a logarithmically larger finite-horizon deficit than horizon-dependent control. The exact leading constants and the explicit three-state disk make a useful boundary example for robust reachability, not merely a routine expectation counterexample or finite numerical slice.",
+      "residual_risks": [
+        "The result is specific to the disk and fixed radius; it does not assert a universal law for arbitrary credal sets or a single policy optimal for every horizon."
+      ],
+      "sources": [
+        "RESULT.md homogeneous minimization and adaptive Bellman recursion; arXiv:2603.16675 Example 1 as the motivating nonattainment precedent"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

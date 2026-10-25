@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three transition probabilities are nonnegative and sum to one under the strict radius bound. The homogeneous formula is a finite geometric sum; minimization over the disk reduces to the lower boundary. The optimizer's localization to the logarithmic scale justifies the uniform exponential expansion and the explicit second-order constant in the deficit. The adaptive Bellman equation maximizes the exact support function of the disk, with a positive decreasing deficit; its reciprocal increments converge to \(r/2\). These are proofs for every fixed admissible radius, not extrapolations from finite samples. The independent angular-grid and direct propagation checks in `verify.py` agree with the formulas. No computation is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest directly relevant result is Sangalli–Quaeghebeur–Krak (2026, arXiv:2603.16675v1, Example 1), which shows three-state nonattainment of eventual upper hitting probability but gives neither the disk construction nor finite-horizon stationary and adaptive asymptotics. Krak–T'Joens–De Bock (2019) give general operator characterizations; those imply the form of an adaptive Bellman *principle*, not the evaluated disk recurrence or sharp logarithmic comparison. The 2026 upper-operator convergence paper of De Bock–Erreygers–Persiau features a related quadratic transition curve but concerns qualitative convergence on a different network; no sharp rate of this claim is stated. The 2020 long-horizon MDP work assumes finitely many actions. Searches for quadratic tangency, absorbing three-state Markov uncertainty, stationary/nonstationary reachability, and exact asymptotic constants did not identify a covering published statement. Unindexed earlier asymptotics remain possible and warrant independent review.
+PASS
 
-## Mathematical value — PASS
-Under smooth convex uncertainty with a quadratic failure-risk tangency, the infinite-horizon upper hitting value alone masks a diverging finite-horizon policy-class penalty. The explicitly proved \((\log t)/4\) ratio, full leading constants, and elementary three-state witness provide a calibrated boundary example for robust finite-horizon reachability and clarify why optimization before versus during evolution cannot be interchanged uniformly in horizon. This is not merely a rescaled expectation counterexample or a numerical instance; the nontrivial boundary-layer minimization and parabolic Bellman asymptotics are both required.
+The stochasticity condition follows from max(a+b)=r(1+sqrt(2))<1. For a fixed kernel, success by t is a geometric sum; for fixed a, failure probability is minimized on the lower disk boundary beta(a). The minimizer is localized to a~(log t)/t, where a uniform expansion of the deficit gives the +1 constant and log(2rt). The adaptive Bellman step is the disk support function; rationalization gives the exact deficit recursion, and reciprocal increments tend to r/2, proving 1-D_t~2/(rt). The ratio follows. For every fixed kernel, positive failure probability or a=0 gives infinite expected hitting time, while the eventual success supremum tends to one as a approaches zero along the boundary. Finite script tests are not used for the asymptotic proof.
 
-## Scope and reservations
-Only fixed-radius disk uncertainty is covered. Literature screening is not a guarantee of priority, and the analytic review is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest full primary sources establish qualitative eventual-hit nonattainment and general imprecise-chain hitting-time characterizations, but not the smooth disk family or the sharp finite-horizon stationary/adaptive rates. Searches found no exact covering table or theorem; unindexed equivalent asymptotics remain a risk.
+
+## value
+
+PASS
+
+The example quantifies a meaningful policy-class penalty that is invisible from the common infinite-horizon upper hitting value: commitment to one kernel costs a logarithmically larger finite-horizon deficit than horizon-dependent control. The exact leading constants and the explicit three-state disk make a useful boundary example for robust reachability, not merely a routine expectation counterexample or finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
