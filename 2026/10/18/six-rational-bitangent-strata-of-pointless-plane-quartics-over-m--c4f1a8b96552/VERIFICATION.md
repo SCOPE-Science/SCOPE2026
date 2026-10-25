@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `curves_f5.txt` contains the 31 published source equations in order. From this directory run:
+## correctness
 
-```
-python census.py
-python bitangent_crosscheck.py
-```
+PASS
 
-The first script checks geometric evenness of the line-intersection divisor by exact squarefree polynomial factorization and the order at infinity. The second checks normalized binary quartic coefficients against all degree-two-form squares over the field of five elements. The second script independently verifies there are exactly 31 projective lines and prints the Fermat bitangents. Both scripts produced the same vector of 31 individual counts, same six-stratum histogram, same sharp value, and same maximizer. `verification_output.txt` records full outputs.
+For any smooth plane quartic C/F5, a rational line L is a rational bitangent (counting hyperflex degenerations by even divisor) exactly when the binary quartic F|L is a nonzero scalar times the square of a homogeneous binary quadratic over F5. There are 31 rational lines in PG(2,5). The input 31 plane quartic equations were checked entry-by-entry against the original source repository blob 684ea266a0a862882fb8412572efa652889be49b in RationalPoint/excessive's AllGenus3.magma: all 31 expressions match exactly, with no missing/altered entries. Independent SymPy modular polynomial restrictions enumerate all 31 lines on each of all 31 curves, compare normalized coefficient 5-tuples with all 31 projective quadratic-square coefficient signatures, producing 961 fully checked decisions. The exact bitangent numbers in source order are 0,1,1,2,1,2,1,1,2,1,0,2,2,2,2,1,6,1,1,1,1,1,4,2,4,1,1,4,4,0,16. Therefore six distinct realized counts {0,1,2,4,6,16} with frequencies (3,14,8,4,1,1); the unique 16 class is the Fermat x^4+y^4+z^4, with lines (1,b,c) for b,c nonzero. The Faber–Grantham–Howe 31-class input exhaustivity is a named dependency, not newly proved here, and the bitangent scan is exhaustive conditional on it.
 
-The finite computation is exhaustive because published work supplies all 31 isomorphism classes and there are exactly 31 rational projective lines over the field. Smoothness and source-list completeness are established in the cited original classification; they are not reproved by these scripts. The geometric-square criterion is independently justified in `RESULT.md`. No independent external audit has occurred.
+## originality
+
+PASS
+
+Faber–Grantham–Howe arXiv:2207.14307v2 already give complete isomorphism classes of 31 pointless smooth genus-three curves over F5, and the source input is literally their public code. This assessment never treats the base curve census as a new result. The original paper's relevant §8 curve enumeration and companion original code include equations and zeta data but do not tabulate rational bitangents, and text search found no bitangent theorem. The six-value rational bitangent spectrum and extremal optimizer within that natural exhaustive catalogue is additional contact geometry. Classical Fermat-quartic automorphisms may separately imply its 16 bitangents; novelty of the individual 16 count is lower confidence, but the full six-stratum distribution is not a known-table recomputation in inspected sources.
+
+## value
+
+PASS
+
+An exact arithmetic incidence invariant evaluated on a natural complete moduli census, with realized spectrum, multiplicities, and distinguished maximum, is a meaningful finite-field classification. Rational bitangents relate to plane quartic contact geometry and odd theta characteristics. This has a clear invariant motivation beyond executing a numerical loop, though novelty depends on crediting the previously complete 31-class input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
