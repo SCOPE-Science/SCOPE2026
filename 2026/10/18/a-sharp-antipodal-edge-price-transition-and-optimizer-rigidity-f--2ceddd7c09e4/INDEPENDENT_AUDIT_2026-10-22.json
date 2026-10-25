@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:00:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For d>=2, M=2^(d-1), budget sum_j S_j+tT=B, singleton Walsh characters have Rayleigh quotients 2(S_j+T)/M; two-coordinate Walsh characters have 2(S_i+S_j)/M. Family averages give global bounds A(T)=2[B+(d-t)T]/(Md) and C(T)=4(B-tT)/(Md) for every asymmetric assignment. Crossing at T=B/(d+t) if t<d and A monotonic for t>d gives the piecewise optimum; constant class weights attain it by full Walsh spectrum 2a|J|+2b 1_{|J|odd}. At optimum, equal averages imply each relevant Walsh character is an actual lambda2-eigenvector, so pointwise equations force w_j(x)=v(x)=lambda2/4 for t<d; t>d forces T=0 and w_j(x)=lambda2/2. At t=d singleton-eigenvector conditions force w_j(x)+v(x)=constant, edge symmetry and connectedness force v(x), hence all ordinary edges, constant; the critical optimum face is a+b=B/(Md), 0<=b<=a. The d=2 separate algebra is sound. Independent weighted Laplacian eigenvalue calculations for d=2,3,4, B=7, t=0.5,d,d+1 reproduce predicted lambda2; finite examples only corroborate the global Rayleigh proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al provide the convex/spectral framework with graph-independent duality; Boyd et al use symmetry reduction for discrete chains and ordinary hypercube characters."
+        ],
+        "reasoning": "Framework existence/convexity does not imply the exact t=d kink or that every optimum is class-uniform. Equality eigenvector equations are the indispensable new argument. Symmetry averaging produces one symmetric optimizer, never by itself proves absence of asymmetric optima.",
+        "searches": [
+          "Sun Boyd Xiao Diaconis 2006 fastest mixing Markov process theorem semidefinite",
+          "Boyd Diaconis Parrilo Xiao 2009 fastest mixing chain with symmetries"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 00a0485f1245f7dbc0dd7130fcccd3d53f0fa04a",
+        "Sun et al 2006 SIAM Review 48(4):681-699, author-hosted PDF",
+        "Boyd et al 2009 SIAM Journal on Optimization 20(2):792-819",
+        "Resultary fastest mixing folded hypercube semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two distinct Rayleigh family averages A(T),C(T) and saturation of every character establish global bound and equality classifications."
+        ],
+        "reasoning": "General optimization duality may be specialized by an expert to re-derive the theorem, but the reviewed sources do not themselves cover weighted antipodal matching at price t, exact threshold, or nonexistence of asymmetric optimizers. A logically stronger general dual theorem is an algorithmic framework, not a table/formula already implying the result without solving the example.",
+        "searches": [
+          "Sun et al SIAM Review 48(4) 2006 paths and cycles",
+          "Boyd Diaconis Parrilo Xiao SIAM J Optimization 20(2) 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted algebraic-connectivity maximization equals fixed-budget fastest-mixing continuous-time reversible uniform-stationary process; opposite matching edges are folded-hypercube generators."
+        ],
+        "reasoning": "Matched weighted Laplacian, continuous-time Markov process, symmetric Cayley graph and spectral SDP aliases, not the discrete-time SLEM variant. The claim solves a one-parameter price-constrained SDP with equality rigidity.",
+        "searches": [
+          "Resultary: fastest mixing continuous-time weighted Laplacian folded hypercube antipodal matching variable edge costs spectral optimizer rigidity",
+          "Sun Boyd Xiao Diaconis fastest mixing Markov process graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known folded-cube spectra for uniform/unweighted edge classes yield lambda2=min(2(a+b),4a) when weights are class-constant, but not the unrestricted allocation optimum."
+        ],
+        "reasoning": "No published table of the entire price-dependent optimal face identified; uniform spectral table is acknowledged as prior and merely supplies attainability, not rigidity.",
+        "searches": [
+          "folded hypercube Laplacian eigenvalue spectra Chen Chen 2011",
+          "weighted folded cube fastest mixing antipodal matching"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the continuous-time fastest-mixing optimization/Semidefinite framework, Walsh spectrum of hypercubes, and unweighted folded-hypercube eigenvalues predate this work. The contribution is the price threshold at t=d and equality-case characterization ruling out *all* asymmetric optimizers under freely assigned weights, not symmetry reduction alone. Neither primary Sun et al general framework and examples nor Boyd et al discrete-time symmetry treatment supplies this precise dual-certificate rigidity or critical optimal face as an explicit result.",
+      "residual_risks": [
+        "General semidefinite duality literature could contain an implicit special case with the same sharp thresholds.",
+        "This is weighted combinatorial Laplacian continuous-time diffusion, not discrete-time chain SLEM or total effective resistance.",
+        "Finite d=2..4 matrices corroborate only those cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad convex/SDP problem; no explicit freely weighted folded-hypercube antipodal matching price transition or full critical-face equality classification",
+          "evidence": "General fastest-mixing Markov process formalism and example paths/cycles; prior optimization framework credited.",
+          "identifier_or_url": "DOI:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Author-hosted full PDF; abstract, continuous-time formulation and example sections, including paths and cycles",
+          "method": "Public full-text PDF with relevant page inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same objective weighted Laplacian diffusion/fastest-mixing duality"
+        },
+        {
+          "assessment": "Discrete-time SLEM chain and symmetries; does not state continuous-time independent-price antipodal-edge optimizer rigidity",
+          "evidence": "Prior Walsh diagonalization and symmetry averaging alone do not rule out nonclass-constant optimizers.",
+          "identifier_or_url": "DOI:10.1137/080715771; https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Abstract and source RESULT bibliography characterization of the ordinary-hypercube example; independent full-paper examination not completed",
+          "method": "Author-hosted PDF identified; abstract and cited summary compared, not read in full",
+          "title": "Fastest Mixing Markov Chain on Graphs With Symmetries",
+          "trigger": "Potential stronger orbit-based hypercube optimizer theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An exact topology-specific edge-price transition and a rigorous description of the full optimizer face under unrestricted edge heterogeneity are meaningful structural spectral optimization results. The critical degeneracy and strict off-critical rigidity are not a mechanical restatement of a standard Walsh eigenvalue table; identifying deletion threshold for expensive shortcuts can inform related network design problems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 00a0485f1245f7dbc0dd7130fcccd3d53f0fa04a",
+    "Sun et al 2006 SIAM Review 48(4):681-699, author-hosted PDF",
+    "Boyd et al 2009 SIAM Journal on Optimization 20(2):792-819",
+    "Resultary fastest mixing folded hypercube semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact common prices within each edge class; changing individual edge prices not covered.",
+    "No claim of novel SDP formulation or general hypercube spectrum."
+  ],
+  "residual_risks": [
+    "General semidefinite duality literature could contain an implicit special case with the same sharp thresholds.",
+    "This is weighted combinatorial Laplacian continuous-time diffusion, not discrete-time chain SLEM or total effective resistance.",
+    "Finite d=2..4 matrices corroborate only those cases."
+  ],
+  "schema_version": 1
+}
