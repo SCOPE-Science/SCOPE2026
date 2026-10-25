@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact Bellman recursion from common additive valuations and max envy = absolute load difference. Backward suffix induction proves monotonicity and exceptional state bounds for every finite word on {1,2}; these certify optimal greedy moves from all reachable imbalances 0,1,2. Explicit four-item costs and a monotone two-stage continuation prove the sharp failure and minimal length. CHECK.py passed 8191 binary words, 2047 suffix-invariant words, 820 three-item integer words, and 18 four-item witnesses. No finite search is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.09843, Sections 3–5 and Appendix 0.B.1",
+        "arXiv:2505.22174, public abstract",
+        "arXiv:2608.20033, public abstract"
+      ],
+      "reasoning": "Generic exact dynamic programming covers these numerical instances algorithmically, but it does not prove that the myopic path is optimal. Prefix-EF1/MMS existence guarantees do not imply minimum total cumulative envy. No stronger searched theorem was found that implies the new claim.",
+      "searches": [
+        "Minimizing Cumulative Envy in Allocating a Sequence of Items binary identical greedy",
+        "Online Fair Division for Personalized 2-Value Instances",
+        "Temporal Fair Division of Indivisible Mixed Manna Tractable Settings"
+      ]
+    },
+    "checked_sources": [
+      "Goldberg–Robinson–Teh (2026), arXiv:2610.09843, primary full HTML",
+      "Amanatidis–Lolos–Markakis–Turmel (2025), arXiv:2505.22174, abstract/metadata",
+      "Choi–Li–Teh (2026), arXiv:2608.20033, abstract/metadata",
+      "Targeted scholarly keyword and public result searches for signed prefix discrepancy, identical positive two-value cumulative envy, myopic optimality, and four-item counterexample"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.09843 Appendix 0.B.1 proves per-prefix minimum when q_t counts unit-valued goods.",
+        "For (1,1,2), the two feasible imbalance histories (1,0,2) and (1,2,0) have equal total 3 despite different per-stage minima.",
+        "For (1,1,3,1), greedy 6 vs alternate 4, showing the new structural threshold is nontrivial."
+      ],
+      "reasoning": "Binary {0,1} greedy optimality does not transfer by relabeling values: shifting all goods by one changes bundle-sum differences in an assignment-dependent manner. Nor does an existence guarantee for temporal EF1 establish the minimum-area condition. The proofs in the new files explicitly address these gaps.",
+      "searches": [
+        "arxiv.org/html/2610.09843v1 find:binary identical",
+        "\"cumulative maximum envy\" \"1 and 2\" greedy",
+        "Online fair division two positive singleton values time-integrated maximum envy myopic optimality 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldberg–Robinson–Teh arXiv:2610.09843, full HTML Section 4 and Appendix 0.B.1",
+        "Exact reduction E_t=|L_1(t)-L_2(t)| in RESULT.md"
+      ],
+      "reasoning": "Signed prefix discrepancy and two-machine load-difference area are equivalent descriptions for two agents with common additive values. The source paper states the binary {0,1} greedy result, not the strictly positive {1,2} result. The precise signed-prefix version could have appeared under different terminology and is flagged as residual risk.",
+      "searches": [
+        "two agents temporal envy fixed order goods values 1 2 greedy optimal",
+        "minimize sum of absolute prefix sums ±1 ±2 signs optimal greedy",
+        "Goldberg Robinson Teh cumulative envy sum prefix imbalance values {1,2} exact greedy optimality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical-results records were searched by claim, aliases, and defining parameters; no matched statement was recovered.",
+        "Exact finite enumerations in CHECK.py were newly computed, rather than copied from a known table."
+      ],
+      "reasoning": "No exact value-alphabet table or prior claim for the full sequence-length quantification was located. This negative finding is limited by search coverage and is not a proof of uniqueness.",
+      "searches": [
+        "Goldberg Robinson Teh cumulative envy sum prefix imbalance values {1,2} exact greedy optimality",
+        "Greedy cumulative prefix discrepancy two agents goods sequence 1 2 and failure at 1 1 3 1",
+        "\"cumulative maximum envy\" \"1 and 2\" greedy",
+        "fixed-order signed prefix discrepancy 1 2 greedy minimization sum absolute"
+      ]
+    },
+    "rationale": "The 2026 motivating full text proves greedy minimum summed prefix envy for identical {0,1} valuations (Section 4, Proposition 1 and Appendix 0.B.1), not for strictly positive unequal {1,2}. Its generic dynamic program is not an optimality theorem for a myopic rule. The {1,2} proof needs new suffix Bellman inequalities; a per-stage bound fails already at (1,1,2). The 2025 personalized two-value and the 2026 mixed-manna works use MMS/EF criteria rather than minimum summed prefix envy. No directly equivalent statement appeared in the literature records examined. Similarity searches cannot certify worldwide novelty; scheduling/discrepancy aliases remain a risk.",
+    "residual_risks": [
+      "An unindexed equivalent signed-prefix discrepancy theorem in combinatorics, online balancing, or two-machine scheduling is possible.",
+      "The full texts of two secondary comparator papers were not material-read; the accessible stated results do not imply the candidate theorem.",
+      "No independent publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known results cover identical {0,1} and general DP, not the all-length optimality of online greedy for positive {1,2}.",
+        "evidence": [
+          "Section 4 Proposition 1",
+          "Appendix 0.B.1 binary proof",
+          "Section 5 sequencing-variant approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+        "material_read": "Sections 1.1, 3, 4, 5, 6, Appendix 0.B.1 and relevant bibliography (full-text HTML access)",
+        "method": "Read original theorem statements, definitions, proof of Proposition 1, general dynamic program, and related-work comparison",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Same optimization objective, identical valuations, and a stated binary-case greedy theorem"
+      },
+      {
+        "assessment": "Concerns MMS and EF1/EF2 rather than exact cumulative maximum envy; no implication from accessible statements.",
+        "evidence": [
+          "arXiv:2505.22174 abstract, first posted 2025-05-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.22174",
+        "material_read": "Public title, dated abstract and result summary; full text not inspected",
+        "method": "Compare targeted fairness guarantees and valuation domain with claim",
+        "title": "Online Fair Division for Personalized 2-Value Instances",
+        "trigger": "May provide a stronger online two-value result"
+      },
+      {
+        "assessment": "Temporal EF1 does not by itself optimize summed prefix envy; uninspected extensions remain risk.",
+        "evidence": [
+          "arXiv:2608.20033 abstract, first posted 2026-08-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20033",
+        "material_read": "Public title, dated abstract and result summary; full text not inspected",
+        "method": "Compare EF1 after each arrival versus minimization of summed max envy",
+        "title": "Temporal Fair Division of Indivisible Mixed Manna: Tractable Settings",
+        "trigger": "Two item types under temporal fairness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "123d637e-6747-4678-91f6-9b1a96531366",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source introduced cumulative maximum envy as a temporal fairness objective and gave generic complexity and dynamic-programming results. A zero-lookahead irrevocable algorithm that is globally optimal for all fixed-order positive {a,2a} instances materially simplifies deployment, even though stagewise minima cannot all be attained. The exact integer-value and four-item frontiers explain a natural boundary; this is neither an arbitrary finite slice nor merely a renaming of known {0,1} results.",
+    "status": "PASS"
+  }
+}
