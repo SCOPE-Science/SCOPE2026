@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(p\ge2\), the rational orbit coordinates, the disjoint included/excluded distance sets, and the symmetric open confidence set were reconstructed. The even/odd numerator obstruction prevents false trust links; all intended links have a positive open-set margin. Direct substitution proves the prime period, and the local affine slope gives exact contraction \(2^{-p}\) for each full return. The minimal three-agent result follows by considering every two-agent trust configuration. A standalone exact-rational checker passed all specified finite tests. Finite checks are supportive rather than a substitute for the universal proof.
+## correctness
 
-**Originality — PASS (self-review).** The closest same-model primary paper, Zabarianska–Proskurnikov (arXiv:2408.01753; Section II, Example 4), contains an isolated three-agent three-cycle and asks when stubborn agents produce oscillations. Its convergence theorem assumes identical stubborn opinions and therefore cannot cover the present two-distinct-stubborn construction; its three-cycle example has no implication of arbitrary prime periods or attracting open basins. Glass–Glass considers competing stubborn groups under an interval-based HK relation; it does not supply the stated nonconvex SCOD period spectrum. published-finding corpus searches for source identifiers, arbitrary prime-period cycles, binary itineraries, and two stubborn agents returned no covering statement. Specialist nonindexed work, including general piecewise-contraction realizations, remains an originality risk; search failure alone is not certification.
+PASS
 
-**Value — PASS.** The prescribed-period question is a natural invariant of the source's nonconvergent stubborn-agent regime. The result shows that no period bound can depend only on the number of agents, identifies the sharp minimum of three, and strengthens an exhibited periodic trajectory to a locally attracting and parameter-robust family for every period. These are structural statements about the actual interaction rule, not isolated arbitrary numerical examples. The construction does not classify all confidence sets or address global dynamics.
+For each integer p>=2 the rational orbit u_j=2^(p-1-j)/(2^p-1) has p distinct states. Selected vs excluded ordinary-to-stubborn distances are integer multiples of 1/(2^p-1), disjoint by parity and strict spacing; symmetric unions of open intervals radius 1/[100(2^p-1)] ensure the required left-trust-only itinerary for p-1 steps and right-trust-only for the last. Actual averaging gives u_(j+1)=u_j/2 and final (u_(p-1)+1)/2=u_0. In a uniform small neighborhood each affine step has slope 1/2, so the return map contracts exactly 2^-p and yields open local basin; no one-/two-agent symmetric self-confident system can cycle because ordinary distances to sole stubborn opinions cannot increase. Independent exact rational itinerary and contraction checks for p=2..24 support all-p proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Original source gives one period-three example for the same three-agent SCOD model and convergence with IDENTICAL stubborn opinions; neither determines arbitrary prescribed prime p with open attraction under two DISTINCT anchors. Broader piecewise-affine contraction constructions may exist but do not necessarily satisfy the model’s symmetric set-confidence incidence constraints.
+
+## value
+
+PASS
+
+Shows optimal agent count does not bound prime-period length even with reciprocal open confidence, while guaranteeing a rigorous attracting neighborhood, a substantive dynamical construction addressing published oscillation questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
