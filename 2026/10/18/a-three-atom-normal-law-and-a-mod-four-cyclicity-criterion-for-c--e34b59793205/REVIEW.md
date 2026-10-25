@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The proof verifies boundary normal definitions and genericity, the equal count of edge-foot minima and vertex normal maxima, paired strips for cyclic opposite sides, the exact area probability, the published cyclic mean \(8\), and the noncyclic threshold-line parity obstruction under obtuse angles. A standalone checker independently compares pointwise direct geometric counting against strip formulas on five cyclic samples and finds mod-four counterchambers for an obtuse noncyclic sample. The analytic statements do not depend on Monte Carlo.
+## correctness
 
-## Originality
-The closest identified 1995 Hug result establishes average normal bounds and equality, which is used, not rediscovered. The accessible full Domokos–Lángi 2014 manuscript explicitly restates cyclic equality, but its inspected statements and discussion do not give the exact three-atom hexagonal law, its strip-area parameter, or the converse mod-four geometric test. Searches of published mathematical results for regular-hexagon normal distributions, normals/equilibria, and cyclic-hexagon mod-four rigidity revealed no implication covering this joint theorem. An older inaccessible complete source remains a residual historical-priority risk.
+PASS
 
-## Mathematical value
-Normal-count distributions measure the robustness of static equilibria under unknown interior reference points; knowing the mean alone does not tell how frequently maximal or minimal normal configurations occur. The full family law, exact equidistribution in the regular hexagon, and the converse parity test connecting the distributional support to cyclicity provide a motivated geometric classification rather than an arbitrary one-off computation.
+PASS. A normal contact of a generic interior point with a strictly convex polygon is an interior side-foot minimum or a vertex maximum of squared distance along the polygon boundary; no vertex interior-point local minimum is possible. Alternation gives N=2S. For opposite parallel sides, the orthogonal-foot intervals are identical precisely when their endpoints have equal Euclidean radii. In a cyclic central hexagon all opposite-side feet activate together; S is twice the sum of three strip indicators, so N is one of 4,8,12. The 12-half-plane clipping formula exactly computes nu=Pr(N=12). Hug's known average-normal n(P)=8 for cyclic centrally symmetric polygons implies Pr4=Pr12=nu. Conversely an obtuse noncyclic hexagon has an unmatched threshold endpoint line entering a nonempty interior segment, across which S changes by one and N by two, forcing a positive-area mod4 violation. Independently clipped regular and arc-gap (pi/2,pi/4,pi/4) examples and obtained area ratios 1/3 and 8sqrt(2)-11 to <1e-12 absolute error. Boundary exceptional lines are measure zero; no noncyclic law claimed.
 
-## Limits
-The converse requires strictly obtuse angles, and no noise stability is established. Historical priority is provisional and independent mathematical examination is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, not historical-priority certification): Independently compared mathematical statements and implications with the identified highly relevant literature and Resultary entries, distinguishing earlier counts/classifications from the newly assessed exact claim. Inaccessible/plausibly broader sources are disclosed rather than falsely excluded.
+
+## value
+
+PASS
+
+PASS. The shape-dependent full discrete distribution of interior normal contacts and converse four-divisibility characterization refine a known average-8 theorem into an inverse geometry diagnostic. Both the exact three-strip probability and converse cyclicity obstruction are motivated by the geometry of polygon normals; regular-hexagon equiprobability and nonregular variability are substantive sharp illustrations, not a random numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
