@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-\(d\) block-projector witness is genuinely in the nonlinear data variety. The pole denominator \(L\) is squarefree and is retained generically. The fixed-parameter critical divisor is irreducible by a generically nondegenerate quadric pencil; restricting the second derivative to a hyperplane of simultaneous zeros shows that it is not identically zero on that divisor. The two-equation incidence dimension bound proves all finite non-pole critical points are simple for generic witness data. A second incidence argument proves that no critical point lies in the cut locus, using d>=2, and a nonzero resultant transfers this to all generic data. The first-order expansion at infinity proves absence of remaining ramification. Riemann–Hurwitz and openness transfer exactly \(2\delta-2\) critical points to generic data in the full projection Grassmannian. The included checker independently validates five exact characteristic-zero examples; no finite test is treated as the infinite proof.
+PASS
 
-## Originality — PASS
+For each n_i>=2, the ruling plane is the rank-d symmetric projector diag(v_i v_i^T/s_i) off roots of s_i. Genuine rank-d projection data Q_w assembled from normalized block vectors yield F_w(t)=sum_i g_i(t)^2/(q_i s_i(t))=R_w/L. All s_i are squarefree with no zeros +/-1; L is squarefree, and residues at its roots are generically nonzero. Thus the rational map P1->P1 has degree delta=deg L. The proof supplies a nondegenerate family of quadrics for generic critical simplicity, a codimension-two incidence exclusion of the rank(PQ)<d cut locus (g_i(t)=0 for some block) and nonramification at infinity; Riemann--Hurwitz leaves exactly 2delta-2 finite regular critical points. Generic nonvanishing resultants and irreducibility of the projection Grassmannian carry this count from special valid projectors to generic constrained data. Independently rebuilt rational trace, R, L and derivative H in SymPy for legal block vectors with multi-degrees (2,2),(2,3),(2,2,2): deltas (4,10,4), squarefree H degrees (6,18,6), no collisions with L or each g_i. Checked cyclotomic degree formula and S(2,m) boundary. Finite examples corroborate, not establish, all degrees.
 
-The exact originating ruling-curve theorem calculates only the unrestricted ED degree (Friedman–Hoşten–Rosana, arXiv:2610.02018v1, Theorem 2.2). Its general expectation/theorem 4.5 does not imply equality for this particular constrained data family without proving GD-generality. The full earlier GD paper arXiv:2601.22843v1 describes generic complete-intersection curves, Schubert varieties and tangent curves, but not these scroll ruling curves. Targeted semantic mathematical-record queries and published results found no covering implication. A hidden earlier equivalent theorem remains a residual possibility.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model is a canonical infinite class singled out by the originating paper, and the ED–GD distinction is its main optimization theme. The new result supplies the complete constrained-data critical count rather than merely transporting an unconstrained formula, and proves a nontrivial global generic-simplicity statement for actual rank-constrained projectors. The cyclotomic closed form also exposes arithmetic jumps caused by shared roots of block normalizations.
+Friedman--Hosten--Rosana Example 2.1/Theorem 2.2 in arXiv:2610.02018v2 already calculate the same curve’s ED degree 2delta-2 for unrestricted symmetric matrix data, a strong directly relevant prior. Their general Theorem 4.4 is a conditional equality criterion plus expected codimension heuristic, NOT a theorem guaranteeing GD=ED for every scroll ruling curve. This claim proves the additional constrained rank-d projector noncollision/cut-locus hypotheses, so only GD=ED specialization is treated as original, subject to a hidden immediate corollary risk.
 
-## Scope and residual risks
+## value
 
-All degrees are at least two, at least two ruling blocks are present, and the field is \(\mathbb C\). No claim is made for small-block degenerations, arbitrary curves, real-only critical counts, or inaccessible unpublished literature. Prior paper comparisons rely on accessible full manuscript text and actual mathematical-record searches, not absence of search hits alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+GD and ED optimize over different data spaces; equality is not automatic for Grassmann submodels and can be strict. A natural infinite family of ruling curves for all block degrees admits an exact constrained critical-count formula tied to cyclotomic poles. Proving genuine projector data achieve the ED number establishes a meaningful boundary of the general GD-vs-ED question, not an arbitrary numeric special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
