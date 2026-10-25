@@ -1,15 +1,21 @@
-# Review of the Boolean-poset identification boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The sole theorem is the exact threshold \(n\leq3\) for \(C^2\)-identification of finite Boolean posets among finite posets. The positive range is proved by identifying rank levels from strict predecessor/successor counts, then forcing the unique degree-two \(3\)-by-\(3\) incidence complement of a matching. The negative range uses the explicit 16-point partial order with repeated complementary supports and matching four ordered atomic-type incidence counts. Cartesian-product preservation of equitable partitions extends the counterexample to every larger Boolean lattice. The witness has no join for two atoms. The verifier checks order axioms, count profiles, small incidence uniqueness and exact refinement histograms through dimension eight. This does not establish the infinite assertion computationally; the written general proof does.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2015 Kiefer–Schweitzer–Selman classification gives a general criterion for identification among arbitrary relational structures, not the Boolean-family threshold relative to the transitivity-restricted class of finite posets. The 2014 Bova–Ganian–Szeider work treats model-checking complexity of quantified conjunctive queries on posets, not identification in two-variable counting logic. An earlier finite-poset eight-point classification already includes the eight-point positive instance and is expressly not claimed as a new standalone classification. published-finding corpus searches also returned a threshold for finite Boolean algebras in the full operational language; it is not the present order-reduct statement. No inspected text establishes the all-dimension sharp threshold or this poset competitor. Novelty is not proven by an unsuccessful search; a hidden specialized corollary or prior example remains possible.
+PASS
 
-## Value — PASS
-The Boolean lattice is a canonical unbounded family of finite posets; its identification boundary is a natural expressive-power question in finite model theory. The result isolates a sharp four-atom transition, exhibits a 16-point transitive witness rather than merely a nontransitive graph, and proves persistence under Cartesian powers. It explains why degree profiles remain insufficient even when the target poset has Boolean rank statistics, and separates the order signature from the operational Boolean-algebra signature. This is a motivated structural threshold, not a routine numerical lookup.
+In order-only reflexive-poset language, C^2 can count predecessors/successors and block type cardinalities. For B_n degrees (2^r-1,2^(n-r)-1) identify rank r; for n=3 rank sizes 1,3,3,1 and strict comparison counts force a 2-regular simple bipartite 3+3 graph, uniquely a 6-cycle (complement of a perfect matching). n<=2 is forced by degrees. At n=4 construct T with rank sizes 1,4,6,4,1, three copies each of middle supports {1,2} and {3,4}, other supports canonical; partial order via support inclusion across strata. Its all ordered atomic-type block degree counts match B4, hence C^2-equivalent by one-variable counting color refinement, but two atoms have three incomparable minimal upper bounds/no join. Product preserving colored-type counts extends to T×B_{n-4} for every n>=4; no such product is lattice. Independent 16-point block profile and three-minimal-upper-bound checks passed; packaged programs cover n<=8 only, proof gives all n.
 
-## Closest literature and scope limits
-Kiefer–Schweitzer–Selman, arXiv:1503.08792v1, Sections 2 and 5, supplies the general logical framework. Bova–Ganian–Szeider, arXiv:1408.4263v1, Sections 1–2, addresses poset model checking, a different problem. The positive eight-point case follows from an existing exact small-poset census; new content lies in the first Boolean failure and the general product construction. The comparison does not establish uniqueness of the result in the wider literature. The competitors are not lattices, and the claim is deliberately relative to finite posets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general C^2 colored-degree/equitable-partition criterion predates this claim (Kiefer–Schweitzer–Selman 2015), and prior finite eight-point poset census covers the small positive case; the alleged original contribution is the order-reduct finite-poset sharp Boolean threshold and explicit 16-element transitive witness propagated under products. Boolean-algebra functional-language results cannot imply identification among order-only posets. No exact dominating finite-poset theorem located from searched primary sources; a specialized example remains possible.
+
+## value
+
+PASS
+
+Boolean lattices are canonical finite posets; identification by the very weak but expressive C^2 with counting in the order-only signature is an intrinsically motivated recognition boundary. The 16-element nonlattice competitor and its all-dimensional product propagation rigorously explain a stable limitation of two-variable refinement, not a small unmotivated census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

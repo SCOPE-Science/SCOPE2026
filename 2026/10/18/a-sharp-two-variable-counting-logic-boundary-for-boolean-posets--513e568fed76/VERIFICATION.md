@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite checker `verify_boolean_c2.py` (Python 3, standard library only) constructs a sixteen-point partial order by repeating two complementary middle supports, and compares it with the Boolean four-cube. It checks all base order axioms, ordered rank-pair profile counts, and failure of a join. It also enumerates all degree-two bipartite incidence matrices on \(3+3\) labelled points and verifies the unique unlabeled configuration.
+# Independent mathematical audit
 
-For dimensions \(4\) through \(8\), the checker constructs the finite Cartesian-product witnesses and computes canonical joint counting-refinement colour histograms in the complete directed atomic-type encoding. Agreement in these tests is finite supporting evidence. Infinite-dimensional coverage is proved by the coordinate-product preservation argument in `RESULT.md`.
+## correctness
 
-No independent mathematical audit or external proof certification is claimed.
+PASS
+
+In order-only reflexive-poset language, C^2 can count predecessors/successors and block type cardinalities. For B_n degrees (2^r-1,2^(n-r)-1) identify rank r; for n=3 rank sizes 1,3,3,1 and strict comparison counts force a 2-regular simple bipartite 3+3 graph, uniquely a 6-cycle (complement of a perfect matching). n<=2 is forced by degrees. At n=4 construct T with rank sizes 1,4,6,4,1, three copies each of middle supports {1,2} and {3,4}, other supports canonical; partial order via support inclusion across strata. Its all ordered atomic-type block degree counts match B4, hence C^2-equivalent by one-variable counting color refinement, but two atoms have three incomparable minimal upper bounds/no join. Product preserving colored-type counts extends to T×B_{n-4} for every n>=4; no such product is lattice. Independent 16-point block profile and three-minimal-upper-bound checks passed; packaged programs cover n<=8 only, proof gives all n.
+
+## originality
+
+PASS
+
+The general C^2 colored-degree/equitable-partition criterion predates this claim (Kiefer–Schweitzer–Selman 2015), and prior finite eight-point poset census covers the small positive case; the alleged original contribution is the order-reduct finite-poset sharp Boolean threshold and explicit 16-element transitive witness propagated under products. Boolean-algebra functional-language results cannot imply identification among order-only posets. No exact dominating finite-poset theorem located from searched primary sources; a specialized example remains possible.
+
+## value
+
+PASS
+
+Boolean lattices are canonical finite posets; identification by the very weak but expressive C^2 with counting in the order-only signature is an intrinsically motivated recognition boundary. The 16-element nonlattice competitor and its all-dimensional product propagation rigorously explain a stable limitation of two-variable refinement, not a small unmotivated census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
