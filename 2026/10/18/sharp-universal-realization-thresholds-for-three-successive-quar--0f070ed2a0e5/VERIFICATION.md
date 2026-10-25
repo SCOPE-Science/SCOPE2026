@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` using any Python 3 interpreter with its standard library. The program deterministically constructs all primes \(p<6724\), filters to \(p\equiv1\pmod4\), certifies a primitive root for each, and enumerates all three-consecutive quartic coset patterns. A second fourth-power-character implementation validates every label at every finite prime, rather than assuming the discrete-log table. The run completed successfully and printed `VERIFY_OK`, reporting 427 eligible primes, 38 exceptions, and sharp thresholds 733 and 1181. The exceptional list is a complete finite-range census, not a statistical sample.
+## correctness
 
-The uniform infinite-range inequality \(64N_p(e)\ge p-81\sqrt p-48\) was separately proved by character orthogonality and the standard Weil bound for products of up to three distinct linear factors. It guarantees every pattern for \(p\ge6724\). The computation does not establish this analytic inequality or infinite claims by sampling.
+PASS
 
-The definition depends on a choice of primitive root only up to automorphism of \(\mathbb Z/4\mathbb Z\). Consequently all-pattern realization and the zero/nonzero distinction are intrinsic. This verification does not provide individual word frequencies beyond enumerated primes, nor independent audit or exhaustive global priority checking.
+Quartic character orthogonality gives an exact 64-term expression for each triple count N_p(e), with the unique all-zero character contribution p−3, nine one-nonzero terms bounded by 2, 27 two-nonzero terms bounded by sqrt(p)+1 and 27 three-nonzero terms bounded by 2sqrt(p). Thus 64N≥p−81sqrt(p)−48>0 for all eligible p≥6724. In the remaining finite interval, source standard-library sieve, primitive-root enumeration and independent quartic-power classification exhaust **all 427** primes p≡1 (mod4); independent full enumeration recovered exactly 38 exceptional primes, last at p=1153 with sole missing word (0,0,0), and last missing other word p=709. Accordingly all 64 words occur for p≥1181, with sharp predecessor p=1153; all nonzero words occur for p≥733, with sharp predecessor p=709. Bounded enumeration plus proven analytic cutoff together form the proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.
+
+## value
+
+PASS
+
+This answers a natural complete-pattern existence question for fourth-power residue cosets, with two sharply distinct thresholds and an exhaustive finite exceptional list. It extends pair/same-coset literature rather than merely listing a few numerical cases. Exact knowledge is useful for constructing specified consecutive quartic-character configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

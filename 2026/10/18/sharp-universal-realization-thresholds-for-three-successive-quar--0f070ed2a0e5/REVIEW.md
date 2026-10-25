@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each fourth-power character coset the projection formula is exact and includes nonzero-domain exclusions. For nonzero exponent supports of sizes 1, 2, 3, the character-sum bounds are respectively 2, \(\sqrt p+1\), and \(2\sqrt p\); these yield \(64N_p(e)\ge p-81\sqrt p-48\). The inequality is positive for \(p\ge6724\). The supplied deterministic program exhaustively examines all 427 relevant smaller primes; its independent quartic-power-label check confirms the finite classification and two sharp thresholds. The program's finite loop is not treated as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Bierstedt–Mills and Jordan establish two-consecutive and same-coset results, while Dietzel proves existence of short pairs; none of their inspected statements implies the complete 64-word three-consecutive classification. Su–Zhang consider distinct inverse-related quartic configurations. Related cubic triples involve the index-three subgroup and do not force any index-four result. The Lehmer 1983 paper was identified, but full text was unavailable; its abstracts describe least-pattern delays rather than these exact global prime thresholds. Search nonmatches are not presented as proof of novelty; a stronger unindexed result remains possible.
+PASS
 
-**Value — PASS.** All four quartic-power cosets are natural arithmetic classes. Their full three-term correlation gives a complete, nontrivial 64-word existence problem, a 38-prime exception census, and two genuinely distinct sharp universal cutoffs (733 for nonzero words, 1181 for all words). The numerical cutoffs have an intrinsic first-universal-prime meaning and are not arbitrary sample endpoints. The argument combines a uniform analytic guarantee with a complete finite certificate.
+Quartic character orthogonality gives an exact 64-term expression for each triple count N_p(e), with the unique all-zero character contribution p−3, nine one-nonzero terms bounded by 2, 27 two-nonzero terms bounded by sqrt(p)+1 and 27 three-nonzero terms bounded by 2sqrt(p). Thus 64N≥p−81sqrt(p)−48>0 for all eligible p≥6724. In the remaining finite interval, source standard-library sieve, primitive-root enumeration and independent quartic-power classification exhaust **all 427** primes p≡1 (mod4); independent full enumeration recovered exactly 38 exceptional primes, last at p=1153 with sole missing word (0,0,0), and last missing other word p=709. Accordingly all 64 words occur for p≥1181, with sharp predecessor p=1153; all nonzero words occur for p≥733, with sharp predecessor p=709. Bounded enumeration plus proven analytic cutoff together form the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.
+
+## value
+
+PASS
+
+This answers a natural complete-pattern existence question for fourth-power residue cosets, with two sharply distinct thresholds and an exhaustive finite exceptional list. It extends pair/same-coset literature rather than merely listing a few numerical cases. Exact knowledge is useful for constructing specified consecutive quartic-character configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
