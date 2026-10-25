@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Definition 1.2 in Fang et al. gives x_i >= 0, (1-t)x_i <= y_j and y_j+t*x_i <= 1 for all i,j. Taking M=max_i x_i forces 0<=M<=1, (1-t)M<=y_j<=1-tM; the decomposition (x,y)=(1-M)(0,v)+M(u,(1-t)1) with v in the q-cube and u in the union of nonzero cube faces proves the exact 2^q+2^p-1 vertex list. For center (alpha*1_p,1_q/2), alpha=(p-q*t(1-t))_+/(2p), the A-vertex squared distance is p*alpha^2+q/4. A B-vertex with k active lower entries has deficit q*t(1-t)-k*(1-2alpha), which is nonnegative for every k and identifies all equality contacts. For alpha=0, the uniform A-corner distribution has mean the proposed center; for alpha>0, mixing weight alpha on the all-ones B contact and weight (1-alpha) on independently Bernoulli(theta) A-corners, theta=(1/2-alpha*(1-t))/(1-alpha), also has that mean. The identity E||V-z||^2=R^2+||z-c||^2 proves strict global uniqueness. Critical equality and endpoints are covered. The packaged standalone checker gives exact rational corroboration on 126 parameter profiles / 81,618 vertex occurrences, independent halfspace vertex enumeration on 24 small profiles and five independent numerical epigraph optimizations; finite checks are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fang et al. arXiv:1712.01037 Definition 1.2 defines universal marked-poset inequalities, and Section 2.4 treats constant face-lattice type; the inspected mathematical statements are combinatorial/transfer statements, not minimum enclosing Euclidean balls.",
+        "Ahmad--Fourier--Joswig arXiv:2309.01626 Theorem 4.1 concerns an injection between faces of chain-order polytopes of maximal ranked posets, yielding f-vector inequalities, not metric covering radii.",
+        "The published balanced two-layer John result https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7 computes a maximum-volume INSCRIBED ellipsoid at an endpoint, a different optimization, and not a covering ball.",
+        "The published uniform chain interpolant result https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9 gives a Euclidean INRADIUS for a chain, not the outer radius of a complete two-level poset."
+      ],
+      "reasoning": "No identified general statement controls squared Euclidean covering radii and contact transitions of this continuous two-level family; the covering relation is mathematically different from inscribed radii, face vectors and outer combinatorial symmetry.",
+      "searches": [
+        "complete two-level order/chain poset polytopes interpolant circumradius q/4+(p-q*t*(1-t))_+^2/(4p)",
+        "chain polytope complete bipartite order polytope smallest enclosing ball Euclidean radius center all vertices phase threshold",
+        "interpolating marked order chain polytopes continuous parameter Fang Fourier Litza Pegel universal tangential inradius of two layer poset height two",
+        "continuous transfer marked poset polytope Euclidean inradius and facet tangent 0<t<1 bipartite complete poset",
+        "Fang Fourier Litza Pegel intermediate marked order chain polytope Euclidean ball radius",
+        "\"circumradius\" \"order polytope\" \"chain polytope\"",
+        "\"intermediate marked poset\" \"circumradius\"",
+        "arxiv:1712.01037v1 (full text definition, transfer, combinatorial type)",
+        "arxiv:2309.01626v2 (full text Theorem 4.1)"
+      ]
+    },
+    "checked_sources": [
+      "Fang--Fourier--Litza--Pegel, arXiv:1712.01037v1 (2017); Definition 1.2 and combinatorial constancy.",
+      "Ahmad--Fourier--Joswig, arXiv:2309.01626v1, comparison of face vectors.",
+      "Published metric result: balanced two-level order-polytope John ellipsoid, full proof and limitations; https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7",
+      "Published metric result: multipartite stable-set enclosing ball, full proof and two-part exclusion; https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350",
+      "Published-record search summary only: uniform chain interpolant Euclidean inradius; https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claim here specifies the center alpha=(p-qt(1-t))_+/(2p), radius q/4+(p-qt(1-t))_+^2/(4p), a continuous plateau when q>4p and complete contact counts 2^q+1 versus 2^q.",
+        "The original paper [1] has no metric calculation which fixes those quantities; combinatorial constancy cannot fix Euclidean radii.",
+        "The maximal-ranked-poset face-vector theorem has a face-count conclusion, which does not determine Euclidean circumradius, let alone outer contact patterns.",
+        "The three-or-more-part stable-set result assumes a graph class not containing K_{p,q} with two parts; at t=1 the present polytope is exactly the latter, while its intermediate t are not graph stable-set polytopes."
+      ],
+      "reasoning": "Compared hypotheses, exact optimization objectives and conclusions, not just titles or shared parameters. None of the closest sources has a statement implying the entire continuous t-dependent metric plateau. Residual possibility: an unrelated general Euclidean convex-hull theorem could imply this as an application.",
+      "searches": [
+        "complete bipartite two-level marked poset interpolation O_t with x_i>=0, (1-t)x_i<=y_j<=1-t x_i; exact Euclidean circumradius Chebyshev ball of vertices, ratio q t(1-t) and p phase transition",
+        "Fang Fourier Litza Pegel continuous marked poset polytope minimum enclosing Euclidean ball half parameter t, center jumps to lower face when number of upper elements greater than 4 times lower",
+        "complete two-level order/chain poset polytopes interpolant circumradius q/4+(p-q*t*(1-t))_+^2/(4p)",
+        "minimum enclosing sphere circumradius complete bipartite two-level order polytope 0<=x_i<=y_j<=1 exact center",
+        "chain polytope complete bipartite order polytope smallest enclosing ball Euclidean radius center all vertices phase threshold",
+        "continuous family marked poset polytope t two-layer complete bipartite circumradius and farthest vertex stratification",
+        "arxiv:1712.01037 (Definition 1.2; Section 2.4; relevant text)",
+        "arxiv:2309.01626 (Theorem 4.1; relevant text)",
+        "published scientific claim: minimum spheres of complete multipartite stable-set polytopes with >=3 parts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At t=0, K is the order polytope of an ordinal sum of two antichains; at t=1 it is the stable-set polytope of the complete bipartite graph K_{p,q}, since its inequalities are x_i>=0, y_j>=0, x_i+y_j<=1.",
+        "At intermediate t, the exact vertex representation is the convex hull of the q-cube at zero lower coordinates and the nonzero corners of the p-cube at common upper level (1-t).",
+        "The published minimum-sphere theorem for complete multipartite stable-set polytopes (three or more parts) explicitly excludes two parts and supplies no intermediate-parameter identity: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350"
+      ],
+      "reasoning": "The endpoint equivalent graph/poset presentations and the two-coordinate-cube convex-hull presentation were compared in substance, not by titles alone. The published k>=3 stable-set theorem is inapplicable and does not imply the continuous two-level formula. An unlocated generic two-cube-strata covering-ball result remains possible.",
+      "searches": [
+        "complete bipartite two-level marked poset interpolation O_t with x_i>=0, (1-t)x_i<=y_j<=1-t x_i; exact Euclidean circumradius Chebyshev ball of vertices, ratio q t(1-t) and p phase transition",
+        "Fang Fourier Litza Pegel continuous marked poset polytope minimum enclosing Euclidean ball half parameter t, center jumps to lower face when number of upper elements greater than 4 times lower",
+        "minimum enclosing sphere circumradius complete bipartite two-level order polytope 0<=x_i<=y_j<=1 exact center",
+        "continuous family marked poset polytope t two-layer complete bipartite circumradius and farthest vertex stratification",
+        "two-level order-polytope interpolation smallest enclosing Euclidean ball, equivalence to a convex hull of two coordinate-cube strata",
+        "\"minimum enclosing ball\" \"marked poset polytopes\"",
+        "\"two-level\" \"order polytope\" \"enclosing ball\"",
+        "\"complete bipartite\" \"stable set polytope\" \"circumradius\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record hits included a John ellipsoid for balanced two-level order polytopes and a sphere for complete multipartite stable-set polytopes with >=3 parts, but none supplies the family formula q/4+(p-q*t*(1-t))_+^2/(4p).",
+        "Fang et al. 31-page PDF and Ahmad et al. 16-page PDF have no literal radius/circum covering theorem in their inspected sections and targeted full-text searches.",
+        "Accessible prior research ledgers for the current week and preceding week were searched by recoverable claims and IDs for overlap; the closest two-level order-polytope claim concerns mean width, not this minimum enclosing sphere."
+      ],
+      "reasoning": "No exact entry or tabulation of the present invariant was found; this does not imply absence from all literature or databases.",
+      "searches": [
+        "complete bipartite two-level marked poset interpolation O_t with x_i>=0, (1-t)x_i<=y_j<=1-t x_i; exact Euclidean circumradius Chebyshev ball of vertices, ratio q t(1-t) and p phase transition",
+        "complete two-level order/chain poset polytopes interpolant circumradius q/4+(p-q*t*(1-t))_+^2/(4p)",
+        "minimum enclosing sphere circumradius complete bipartite two-level order polytope 0<=x_i<=y_j<=1 exact center",
+        "continuous family marked poset polytope t two-layer complete bipartite circumradius and farthest vertex stratification",
+        "\"minimum enclosing ball\" \"marked poset polytopes\"",
+        "\"circumradius\" \"order polytope\" \"chain polytope\"",
+        "Find `radius` and `circum` in Fang et al. arxiv:1712.01037 full-text PDF",
+        "Find `radius` and `circum` in Ahmad et al. arxiv:2309.01626 full-text PDF"
+      ]
+    },
+    "rationale": "No matching or dominating exact result was identified after inspecting the original continuous-marked-poset definitions/face-type theorems, the maximal-ranked-poset face-vector results, published nearest minimum-sphere and balanced-order-polytope John results, published mathematical search results, and available own prior claims. This assessment concerns the exact minimum enclosing sphere throughout a continuous two-level interpolation, not the old transfer-polytope construction, face-vector theorem, general contact-barycenter criterion, or endpoint John ellipsoid. This is a best-knowledge same-model bibliographic assessment, with explicit alternative-formulation risk.",
+    "residual_risks": [
+      "A general formula for minimum enclosing balls of a convex hull of coordinate-cube strata could subsume the present theorem under an unsearched name.",
+      "Search indexes and accessible published-record coverage are incomplete; mathematical novelty has not been independently established.",
+      "No independent human or external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the fundamental family and constant combinatorial type, not the Euclidean outer-ball calculation. No positive evidence of coverage found in materially read portions.",
+        "evidence": [
+          "arXiv:1712.01037v1, Definition 1.2 at PDF page 4; main theorem at page 3; §2.4 on face lattice at page 10."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.01037",
+        "material_read": "Abstract, introduction and main statements (pages 1-3), Definition 1.2 and inequality (1.1) (page 4), transfer-map and combinatorial-type results (sections 2.1 and 2.4); targeted full-text searches for radius/circum/sphere",
+        "method": "Read arXiv open-access primary PDF with page rendering and inspected relevant defining/theorem passages.",
+        "title": "A Continuous Family of Marked Poset Polytopes",
+        "trigger": "Defining source for the exact continuous transfer polytope and its parameter-face combinatorial constancy"
+      },
+      {
+        "assessment": "The theorem compares face vectors, not Euclidean smallest enclosing spheres, and does not imply the present contact transition.",
+        "evidence": [
+          "arXiv:2309.01626v2, Theorem 4.1 and Corollary 4.2, printed p.8, face-vector inequalities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.01626",
+        "material_read": "Abstract/Introduction, ranked-poset definitions at printed page 2, full Theorem 4.1 context at printed page 8 and face-vector Corollary 4.2; targeted PDF-wide searches for radius/circum/Euclidean.",
+        "method": "Read open-access primary PDF including original theorem statement and proof-topic section, with page rendering.",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Complete two-rank posets are a direct subfamily of maximal ranked posets studied here."
+      },
+      {
+        "assessment": "Minimum-volume enclosing sphere differs from maximum-volume inscribed John ellipsoid; this endpoint result does not imply the current radius and plateau.",
+        "evidence": [
+          "The paper identifies unique maximum-volume contained ellipsoid and specifically disclaims a circumscribed Löwner ellipsoid."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7",
+        "material_read": "Complete publicly published RESULT.md including Finding, shape derivation, contact matrix certificate, scope, proof and limitations.",
+        "method": "Read published primary mathematical result text through repository file access.",
+        "title": "Exact John ellipsoid of balanced two-layer order polytopes",
+        "trigger": "Closest published metric result for exactly two-level order polytopes."
+      },
+      {
+        "assessment": "Explicitly excludes exactly two graph parts and treats only stable sets, not continuous intermediate transfer polytopes; no implication of present theorem.",
+        "evidence": [
+          "Assumptions and Scope states k>=3; excluded two-part case behaves differently and may contact many proper subsets."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350",
+        "material_read": "Complete publicly published RESULT.md, including hypothesis k>=3, formula (2), exact scope exclusion and proof.",
+        "method": "Read published primary mathematical result text through repository file access.",
+        "title": "Large-part screening in minimum spheres of complete multipartite stable-set polytopes",
+        "trigger": "Closest published minimum-sphere calculation for graph stable-set polytopes, possibly covering t=1 endpoint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae964950-c40a-4de2-b881-a7519a25cd06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact metric covering radius of a foundational continuous marked-poset polytope family yields a genuine phase boundary q*t*(1-t)=p inside a single combinatorial face-lattice regime. When q>4p, an open interval has radius sqrt(q)/2 inherited entirely from the 2^q-vertex lower-zero cube, while the other exponentially large class of 2^p-1 vertices becomes strictly internal; the full contact profile and unique center are classified in every dimension. This directly demonstrates that constant face structure does not control Euclidean outer-ball geometry and supplies a natural complete invariant for a continuously deforming combinatorial family. It is not an arbitrary parameter slice or a textbook substitution; the exact vertex decomposition and probability contact-certificate are structural and the threshold is dimension-ratio dependent.",
+    "status": "PASS"
+  }
+}
