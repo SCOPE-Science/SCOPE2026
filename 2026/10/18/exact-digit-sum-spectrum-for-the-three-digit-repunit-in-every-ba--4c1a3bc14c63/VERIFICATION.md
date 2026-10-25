@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the three-digit repunit digit-sum theorem
+# Independent mathematical audit
 
-The precise universal assertion is proved symbolically in `RESULT.md`, using a reversible three-class congruence representation and a sharp small-sum exclusion. The proof applies to every integer base \(b\ge2\) and every positive multiplier; it does **not** infer an infinite assertion from an experiment.
+## correctness
 
-The independently implemented script `verify.py` constructs a finite automaton whose states record used base-\(b\) digit sum, residue modulo \(b^2+b+1\), and the residue class modulo three of the next digit position. Every allowed next digit is traversed, including zeros; reachable states are visited at most once. For each prescribed finite sum bound, this models representations of *arbitrary finite length*. A separate additive-semigroup dynamic program predicts the claimed digit sums. The script compares all sums through \(4b+21\) for bases \(2\) through \(16\), plus \(18\), \(20\), and \(23\).
+PASS
 
-Actual check result: `PASS: 18 bases; 1162 digit-sum membership comparisons; 551625 finite-state visits.` The verifier additionally checks the asserted genus, Frobenius boundary, and the exceptional congruence-one branch within those ranges.
+For m=b²+b+1 and arbitrary b≥2, b³≡1 mod m groups arbitrary numeral digits by exponents modulo 3. Conversely each nonnegative (A,B,C) is realized by disjoint digit-one powers of b, proving no finite-length restriction. Three seed triples produce weighted sum m and digit sums 3,b+2,2b+1. For s≤2b+1 subtract min(A,B,C) and cyclically rotate to C=0; then 0<A+bB<2m and divisibility forces A+bB=m. Integer inequalities give B∈{b,b+1}, hence no smaller unexpected weights. Beyond 2b+1 residue representatives supply all positive members of semigroup <3,b+2,2b+1>. For b≡1 mod3 only positive multiples 3 occur; otherwise Apery set {0,b+2,2b+1} gives Frobenius 2b−2, conductor 2b−1 and genus b. Independent brute force checked 528 finite (base,weight) cases via residue-zero three-count enumeration, not an infinite proof.
 
-To reproduce, save the companion file `verify.py` in the same folder and execute `python3 verify.py` with Python 3 and its standard library. This provides an independent finite-range test of all stated branches, not an independent mathematical proof or a check of all infinite parameters.
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. The exact nontrivial F=2b−2 and genus b require a sharp absence argument for s≤2b+1, not entailed merely by lower bound or the cofinite criterion. Unread primary documents are not treated as not covering.
+
+## value
+
+PASS
+
+The three-digit repunit is a canonical Φ₃(b) family. For the nontrivial coprime branch this exact image, Apéry set, Frobenius number and genus settle the explicitly posed quantitative output-set question, instead of restating the known gcd/cofinite theorem. A complete natural classification remains useful even when a closely related longer-repunit formula exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

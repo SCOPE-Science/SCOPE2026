@@ -1,19 +1,21 @@
-# Mathematical review: three-digit repunit digit-sum spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main equivalence is exact for every integer \(b\ge2\): a digit sum \(s\ge1\) is attained by a positive multiple of \(m=b^2+b+1\) if and only if a nonnegative triple has total \(s\) and satisfies \(A+bB+b^2C\equiv0\pmod m\). One implication groups ordinary digits by exponent modulo three. The other constructs *distinct* powers of \(b\), so no carrying or bounded-length assumption enters. All three generating triples have weighted sum exactly \(m\). For sums at most \(2b+1\), subtracting the minimum coordinate and using cyclic rotation yields a positive two-coordinate weighted sum strictly below \(2m\), hence exactly \(m\). The resulting integer inequalities force exactly the two nontrivial generator sums. For larger sums, the three residue representatives settle the remaining congruence classes. The Apéry calculation yields exact conductor, Frobenius number, and genus; the divisible-by-three branch is handled separately. A standalone finite-state program independently checked \(1,162\) base/sum comparisons across \(18\) bases and visited \(551,625\) states. Finite checks are corroborating evidence, not the infinite proof.
+PASS
 
-## Originality — PASS with residual risk
+For m=b²+b+1 and arbitrary b≥2, b³≡1 mod m groups arbitrary numeral digits by exponents modulo 3. Conversely each nonnegative (A,B,C) is realized by disjoint digit-one powers of b, proving no finite-length restriction. Three seed triples produce weighted sum m and digit sums 3,b+2,2b+1. For s≤2b+1 subtract min(A,B,C) and cyclically rotate to C=0; then 0<A+bB<2m and divisibility forces A+bB=m. Integer inequalities give B∈{b,b+1}, hence no smaller unexpected weights. Beyond 2b+1 residue representatives supply all positive members of semigroup <3,b+2,2b+1>. For b≡1 mod3 only positive multiples 3 occur; otherwise Apery set {0,b+2,2b+1} gives Frobenius 2b−2, conductor 2b−1 and genus b. Independent brute force checked 528 finite (base,weight) cases via residue-zero three-count enumeration, not an infinite proof.
 
-The most relevant published full texts are Phunphayap–Noppakaew–Pongsriiam (2023), arXiv:2303.13017, and Clokie–Lidbetter–Molina Lovett–Shallit–Witzman (2020), arXiv:2002.02731. The 2023 paper establishes the relevant congruence obstruction and cofiniteness, supplies the general attained-multiples observation, and asks for Frobenius numbers (Question 4). The 2020 paper already proves an equivalent three-class power-sum existence criterion and constructions of infinite progressions, and repunit sturdiness. Those known portions are not claimed as novel. Neither inspected paper states, implies by its explicit results, or tabulates the exact \(\langle3,b+2,2b+1\rangle\) equality, sharp exclusion at \(2b-2\), or genus \(b\) for \(b\not\equiv1\pmod3\). Semantic mathematical-record searches for the exact modulus, base-repunit aliases, Apéry formulation, Frobenius formula, and originator names revealed no matching published result. A negative search is not proof of novelty, and a specialized unindexed source could overlap.
+## originality
 
-## Value — PASS
+PASS
 
-The exact attainable digit-sum set is the natural output set explicitly studied by the 2023 source; the cofinite branch yields an exact Frobenius number, answering its Question 4 for the infinite cyclotomic subfamily \(n=b^2+b+1\) across all bases with \(b\not\equiv1\pmod3\). The genus \(b\) and three-generator Apéry description provide more information than a mere existence bound. The three-exponent-class reduction is an explicit structural mechanism and gives a sharp, parameter-uniform classification instead of isolated computations. This is substantive even without any downstream density theorem.
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. The exact nontrivial F=2b−2 and genus b require a sharp absence argument for s≤2b+1, not entailed merely by lower bound or the cofinite criterion. Unread primary documents are not treated as not covering.
 
-## Closest literature and limitations
+## value
 
-The divisible-by-three branch is already implied by Theorems 1 and 2 in Phunphayap–Noppakaew–Pongsriiam and is included solely to make the classification uniform. The general cofinite claim for the other branch was also established there; the new contribution is the **sharp** exceptional set and its invariants. Clokie and coauthors provide general attainable progressions, but not an exclusion theorem for this family. The theorem does not classify minimal multipliers, output multiplicities, or longer repunits. Unindexed exact special-case treatments remain a possible originality risk; independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-digit repunit is a canonical Φ₃(b) family. For the nontrivial coprime branch this exact image, Apéry set, Frobenius number and genus settle the explicitly posed quantitative output-set question, instead of restating the known gcd/cofinite theorem. A complete natural classification remains useful even when a closely related longer-repunit formula exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
