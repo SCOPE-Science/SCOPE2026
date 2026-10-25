@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T06:05:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the first two iid draws and the remaining multinomial counts B_i. When the two match bin i, the increment to W_f is 2Δf(B_i)+Δ²f(B_i); when distinct i,j it is Δf(B_i)+Δf(B_j). Exchangeability of the pair collision indicators gives Cov(T,W_f)=binom(n,2)[(1-s2)sum p_i² EΔ²f(Bin(n-2,p_i))+2sum p_i(p_i-s2)EΔf(Bin(n-2,p_i))]. For convex f, the first term is nonnegative and strictly positive unless f affine (all positive p imply B_i full support). The second is Cov_{I~p}(p_I,g(p_I)) with nondecreasing g by binomial coupling, hence >=0. Uniform p cancels this covariance, and the binomial second difference yields a quadratic sign polynomial P_{n,m}(r), plus exact r=0 and r=1 cases. I independently enumerated all n=5, three-category occupancy vectors with p=(1/2,1/3,1/6) for f(k)=binom(k,2): Cov(T,W_f)=535/162>0. Analytic proof, not finite enumeration, controls all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "High-moment asymptotic normality of frequency counts and finite exchangeable richness laws treat broader sample models but weaker/different statements."
+        ],
+        "reasoning": "Neither entails the strict iid nonuniform convex covariance inequality or exact two-threshold uniform frequency signs.",
+        "searches": [
+          "multinomial occupancy collision count frequency count covariance convex score",
+          "web primary literature search for Convex collision association and two-threshold frequency dependence in multinomial occupancy",
+          "https://arxiv.org/abs/0806.1007"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0806.1007",
+        "https://arxiv.org/abs/2312.04246",
+        "https://arxiv.org/abs/2103.07518",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eaton–Godbole–Sinclair Theorems 1–3 are Poisson approximation bounds for T and tied counts, not this mixed-moment relation."
+        ],
+        "reasoning": "Its bounding errors cannot determine the exact sign of Cov(T,F_r), particularly at equality n=2m; the two-draw first/second-difference identity supplies the missing statement.",
+        "searches": [
+          "multinomial occupancy collision count frequency count covariance convex score",
+          "https://arxiv.org/abs/0806.1007",
+          "https://arxiv.org/abs/2312.04246"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aliases: birthday collision count; Simpson concentration numerator; occupancy frequency-of-frequency F_r; discrete Schur convex separable histogram scores."
+        ],
+        "reasoning": "Earlier work shares the variables, but Poisson approximations to their distributions do not assert finite mixed covariance signs or a universal all-convex-score inequality.",
+        "searches": [
+          "multinomial occupancy collision count frequency count covariance convex score",
+          "Resultary semantic record search: multinomial occupancy collision count frequency count covariance convex score",
+          "https://arxiv.org/abs/0806.1007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite multinomial moments allow isolated tabulations; Resultary has a distinct richness-frequency one-switch sign record."
+        ],
+        "reasoning": "No known exact table establishes the quantified all-n,m,p,f theorem. Computability of individual cases does not imply the uniform convex sign or quadratic classifications.",
+        "searches": [
+          "multinomial occupancy collision count frequency count covariance convex score",
+          "Resultary semantic record search: multinomial occupancy collision count frequency count covariance convex score"
+        ]
+      },
+      "rationale": "Best-of-knowledge the full quantified final claim is not shown covered by the inspected primary statements, including aliases/stronger-theorem comparisons. Earlier work shares the variables, but Poisson approximations to their distributions do not assert finite mixed covariance signs or a universal all-convex-score inequality. Neither entails the strict iid nonuniform convex covariance inequality or exact two-threshold uniform frequency signs. No known exact table establishes the quantified all-n,m,p,f theorem. Computability of individual cases does not imply the uniform convex sign or quadratic classifications. Its bounding errors cannot determine the exact sign of Cov(T,F_r), particularly at equality n=2m; the two-draw first/second-difference identity supplies the missing statement. Inaccessible relevant full text is explicitly a residual risk; absence from a database alone is not novelty proof.",
+      "residual_risks": [
+        "Older multinomial mixed moment identities may imply the sign formula under other language.",
+        "High-moment normality paper and richness paper read only as summaries in this run; no whole-document exclusion made.",
+        "For nonconvex frequency-indicator scores no general covariance positivity is claimed; quadratic law is uniform-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECTS_BUT_POISSON_APPROXIMATION_NOT_EXACT_SIGN",
+          "evidence": [
+            "Studies pair-tie counts and r-way tie frequencies using approximations, not universal finite convex association and quadratic mixed covariance signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.1007",
+          "material_read": "Original 21-page PDF inspected: introductory definitions and Theorems 1–3 on Poisson approximations; first page visually inspected; not a line-by-line proof review",
+          "method": "Original arXiv primary PDF, matched random variables and theorem scopes",
+          "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+          "trigger": "Most directly overlapping pair-collision count T and frequency counts"
+        },
+        {
+          "assessment": "ASYMPTOTIC_CAPACITY_NOT_FINITE_NONUNIFORM_ASSOCIATION",
+          "evidence": [
+            "Capacity constrained normal approximation cannot entail all finite-n positive correlation with arbitrary convex f."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.04246",
+          "material_read": "Primary arXiv bibliographic summary and application statements considered; entire paper not directly inspected in this run",
+          "method": "Original abstract and hypotheses comparison",
+          "title": "Multivariate asymptotic normality determined by high moments",
+          "trigger": "Frequency-of-frequency vector asymptotic prior"
+        },
+        {
+          "assessment": "DISTINCT_COUNT_DISTRIBUTION_NOT_MIXED_COVARIANCE",
+          "evidence": [
+            "Attainable richness laws do not imply covariance of pair collisions and convex occupancy spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.07518",
+          "material_read": "Original abstract and exact problem setup considered; full text not independently read this run",
+          "method": "Primary bibliographic record and variable comparison",
+          "title": "The distribution of the number of distinct values in a finite exchangeable sequence",
+          "trigger": "Nearby richness and occupancy distribution prior"
+        },
+        {
+          "assessment": "DIFFERENT_LEFT_HAND_STATISTIC",
+          "evidence": [
+            "Richness K versus frequency F_r is different from T=sum binom(N_i,2) versus F_r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Title, indexed summary and variables from mathematical result search; full manuscript not re-read",
+          "method": "Resultary semantic search and direct mathematical random-variable comparison",
+          "title": "One-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Published exact frequency sign analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Collision pairs are Simpson concentration, while additive convex occupancy scores quantify clustering; their strict universal finite-sample association under unequal categorical probabilities is a structural sign law. Uniform frequency counts show two exact sign transitions and a sharp zero at n=2m for singletons, meaningful inference invariants rather than arbitrary examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0806.1007",
+    "https://arxiv.org/abs/2312.04246",
+    "https://arxiv.org/abs/2103.07518",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent of the original self-review; no formal Lean/expert attestation is claimed.",
+    "Proof supports all quantified parameters; new bounded finite checks are corroboration only.",
+    "Scientific PASS does not authorize public release; public metadata contains operational provenance and must be sanitized."
+  ],
+  "residual_risks": [
+    "Older multinomial mixed moment identities may imply the sign formula under other language.",
+    "High-moment normality paper and richness paper read only as summaries in this run; no whole-document exclusion made.",
+    "For nonconvex frequency-indicator scores no general covariance positivity is claimed; quadratic law is uniform-only."
+  ],
+  "schema_version": 1
+}
