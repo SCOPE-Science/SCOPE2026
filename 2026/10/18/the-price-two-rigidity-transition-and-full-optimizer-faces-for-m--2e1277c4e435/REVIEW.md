@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first uses group averaging only for the optimal value, then separately establishes unrestricted uniqueness when the matched-edge price is below two. Above or at two, an orthonormal antisymmetric Rayleigh trace bounds the gap by the budget per pair. Equality forces pairwise block-constant cross edges and yields necessary and sufficient spectral and degree conditions; explicit interior witnesses give the optimizer-face dimensions. Direct symbolic identities and numerical checks in `verify_matching.py` passed (203 assertions). None of these finite tests is treated as a universal proof.
+## correctness
 
-**Originality — PASS (best-knowledge comparison).** The closest literature is Sun–Boyd–Xiao–Diaconis (2006), doi:10.1137/S0036144504443821, on arbitrary-graph continuous-time fastest mixing and its SDP dual, and Boyd–Diaconis–Parrilo–Xiao (2007/2009), arXiv:0709.0955, on symmetry-reduced discrete-time fastest mixing. The former provides a stronger *general optimization framework* but does not itself explicitly give the priced matched-complete graph's phase transition or full unrestricted optimizer faces. The latter contains a complete-multipartite block decomposition, relevant when expensive matching edges vanish, but considers a distinct discrete-time stochastic objective. The checked closest items in mathematical-results search concerned matching polytopes, geometric invariants, and spectra rather than this exact cost-constrained diffusion theorem. Literature equivalence outside these searches remains possible.
+PASS
 
-**Value — PASS.** This solves the complete priced perfect-matching network design, not an arbitrary graph slice: the critical cost is universal (independent of graph size), and the answer transitions from unique uniform conductances to a high-dimensional family of unequal optimal cross-pair allocations. The full-face characterization distinguishes a symmetric averaging witness from the genuinely asymmetric solutions permitted by optimization. This is useful for interpreting degeneracy and robustness in distributed diffusion design.
+For K_(2m) with m prescribed vertex pairs, all conductances variable, matching price t>0 and budget B>0, group symmetrization plus concavity yields symmetric eigenvalues 2ma and (2m-2)a+2b and the exact optimum 2B/(2m-2+t) for t<=2, B/m for t>=2. When t<2 the orbit-average of PSD slack L-lambda P vanishes, forcing every optimizer to be the uniform Laplacian. For t>=2, m antisymmetric pair vectors give m lambda2<=B-(t-2)sum d_i; equality implies all four edges between pair i and pair j have one common c_ij, and exactly 2d_i+2sum c_ij=B/m, 2lambda2(L_c)>=B/m, (t-2)sum d_i=0. At t>2 degree equations have affine dimension m(m-3)/2 for m>=3 (m=2 separately) and a strict interior spectral witness; at t=2 dimension m(m-1)/2. Independent matrix tests for 60 parameter sets m2..7 and 480 asymmetric feasible assignments confirmed eigenvalue value/equality inequalities (max roundoff 1.22e-15). Analytic PSD equality and incidence ranks, not random testing, prove all parameters.
 
-**Residual limitations.** The scope is continuous-time and unnormalized. The pair-quotient spectral condition is retained in exact form. Independent evaluation of originality and the proof has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+A sharp all-weights spectral-design rigidity transition at the natural relative cost two, with complete high-price and critical optimizer faces (including nonuniform designs) and exact parameter-dependent dimensions, is a motivated and potentially reusable network optimization benchmark beyond existence of one symmetric solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

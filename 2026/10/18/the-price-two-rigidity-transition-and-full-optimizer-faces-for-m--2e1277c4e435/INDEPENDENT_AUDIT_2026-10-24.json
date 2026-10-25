@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:05:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_(2m) with m prescribed vertex pairs, all conductances variable, matching price t>0 and budget B>0, group symmetrization plus concavity yields symmetric eigenvalues 2ma and (2m-2)a+2b and the exact optimum 2B/(2m-2+t) for t<=2, B/m for t>=2. When t<2 the orbit-average of PSD slack L-lambda P vanishes, forcing every optimizer to be the uniform Laplacian. For t>=2, m antisymmetric pair vectors give m lambda2<=B-(t-2)sum d_i; equality implies all four edges between pair i and pair j have one common c_ij, and exactly 2d_i+2sum c_ij=B/m, 2lambda2(L_c)>=B/m, (t-2)sum d_i=0. At t>2 degree equations have affine dimension m(m-3)/2 for m>=3 (m=2 separately) and a strict interior spectral witness; at t=2 dimension m(m-1)/2. Independent matrix tests for 60 parameter sets m2..7 and 480 asymmetric feasible assignments confirmed eigenvalue value/equality inequalities (max roundoff 1.22e-15). Analytic PSD equality and incidence ranks, not random testing, prove all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al 2006 gives general SDP dual and examples for paths/cycles, not the matched-price exact optimizer-face classification.",
+          "Boyd et al 2009 symmetry block diagonalization is generic, and cannot by itself identify every unsymmetric optimizer."
+        ],
+        "reasoning": "General SDP duality can express this instance but does not immediately supply closed transition t=2, equality rigidity, or dimensions. The classification requires the special antisymmetric trace bound and equality characterization.",
+        "searches": [
+          "matched complete network fastest mixing continuous time Laplacian priced perfect matching conductance optimizer faces; general λ2 semidefinite fastest mixing Markov process"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and exact weighted-Laplacian decompositions",
+        "Pinned verify_matching.py inspected as supporting script; independent fresh symmetric/nonsymmetric matrix tests",
+        "Sun et al 2006 full primary PDF",
+        "Boyd et al 2009 full primary PDF",
+        "Resultary semantic search for matched-price spectral network design"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Concavity gives existence of a symmetric optimizer only.",
+          "The universal pair-antisymmetric trace bound plus PSD equality forces all four interpair conductances to coincide at t>=2."
+        ],
+        "reasoning": "Generic theory implies a convex SDP formulation, not uniqueness in the cheap regime or complete equality faces in the expensive regime. The new group/eigenvector certificate completes the missing step.",
+        "searches": [
+          "Sun et al 2006 fastest mixing λ2 optimization; Boyd et al 2009 graph symmetry reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Boyd–Xiao–Diaconis SIAM Review 48 (2006) formulates weighted continuous-time fastest mixing using λ2; general framework only.",
+          "Boyd–Diaconis–Parrilo–Xiao SIAM J Optim 20 (2009) treats discrete-time SLEM under stochastic constraints."
+        ],
+        "reasoning": "The priced matched complete network is a concrete continuous-time family. Discrete-time stochastic fastest mixing is not equivalent to a free-conductance combinatorial Laplacian at fixed linear price; no matching-price optimizer-face theorem found in either inspected primary paper.",
+        "searches": [
+          "matched complete network fastest mixing continuous time Laplacian priced perfect matching conductance optimizer faces; continuous-time fastest mixing versus discrete-time FMMC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected continuous-time and discrete-time papers use examples involving other graph classes and constraints.",
+          "Resultary semantic search retrieved Laplacian graph-spectrum and fractional matching work, not the explicit priced matching optimal-face tables."
+        ],
+        "reasoning": "There is no examined exact m-parameter table/certificate for these faces; unlike merely recomputing an eigenvalue, the result classifies the entire global optimal allocation set.",
+        "searches": [
+          "matched complete network fastest mixing continuous time Laplacian priced perfect matching conductance optimizer faces; priced matching network FMMC examples and exact optimal face tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.",
+      "residual_risks": [
+        "General-purpose SDP results could encode this family, but the exact face theorem was not located in inspected specializations.",
+        "Model is continuous-time combinatorial Laplacian with exact linear price, not normalized or discrete time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general optimization machinery but not matching-edge price-two rigidity or all global optimizer faces",
+          "evidence": "Sun, Boyd, Xiao, Diaconis (2006), continuous-time spectral gap subject to rate budget.",
+          "identifier_or_url": "doi:10.1137/S0036144504443821",
+          "material_read": "Full accessible PDF, objective, SDP dual and examples, including path/cycle families",
+          "method": "Read downloaded full paper and page screenshot",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact same continuous-time λ2 objective and weighted conductances"
+        },
+        {
+          "assessment": "Discrete-time Markov-chain constraints/objective differ and do not directly cover the present classification",
+          "evidence": "Boyd, Diaconis, Parrilo and Xiao (2009), discrete-time FMMC.",
+          "identifier_or_url": "arXiv:0709.0955; doi:10.1137/070689413",
+          "material_read": "Full accessible paper; SLEM objective, symmetry blocks and graph families",
+          "method": "Full PDF reading and page screenshot",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Broader symmetry reductions and multipartite examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-weights spectral-design rigidity transition at the natural relative cost two, with complete high-price and critical optimizer faces (including nonuniform designs) and exact parameter-dependent dimensions, is a motivated and potentially reusable network optimization benchmark beyond existence of one symmetric solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General-purpose SDP results could encode this family, but the exact face theorem was not located in inspected specializations.",
+    "Model is continuous-time combinatorial Laplacian with exact linear price, not normalized or discrete time.",
+    "Publication transport/privacy is not a scientific failure; original public metadata must be sanitized before any downstream import."
+  ],
+  "schema_version": 1
+}
