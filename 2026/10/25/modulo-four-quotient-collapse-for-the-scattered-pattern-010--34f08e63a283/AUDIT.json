@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The letter-action recurrence is exact. The parity relation z=(x-1)y mod 2 follows by summing i(x-i) across ones; explicit commutator words generate all and only allowable triples. Suffix decomposition z+ay+bx+d classifies right quotients; three feasible parity pairs versus one give the exact exceptional fourfold congruence. Complete finite DFA minimization on moduli 2..14 and exhaustive independent index-triple counting on 4095 words corroborate the proof. The infinite conclusion is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1905.05646, Theorem A and Sec. 2: fixed-count Stanley--Wilf limits and transfer matrices, not modular minimal state counts.",
+        "doi:10.1007/978-3-031-40247-0_10, main theorems: M-equivalence substitution theory, not modular automaton sizes."
+      ],
+      "reasoning": "General pattern-counting machines and generic group-automaton minimization do not themselves determine the reachable parity-constrained triple space nor the quotient-set stabilizer for each target. Their proved statements do not imply the displayed piecewise numerical index without the new commutator and suffix-incidence steps.",
+      "searches": [
+        "2020 2021 finite automata for counting scattered subsequence occurrences modulo m pattern",
+        "binomial equivalence modulo m word counts 2023 automata",
+        "modular binomial coefficients of words Parikh matrix equivalence modulo 2023"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1905.05646; introduction and Section 2",
+      "doi:10.1007/978-3-031-40247-0_10; author PDF Sections 1--4",
+      "arxiv:1804.11175; definitions and main theorem statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior formula for the binary pattern 0^r1 (accessible previous mathematical claim): its update records binomial-zero-prefix counts and one terminal letter; it does not count a repeated endpoint after an intermediate 1.",
+        "The inspected 2023 ternary Parikh-matrix result tracks 01,12,012 with distinct ordered symbols rather than the palindromic pattern 010.",
+        "arxiv:1905.05646 handles asymptotic fixed-occurrence counts, which do not specify the number of right languages in a modular residue class."
+      ],
+      "reasoning": "Different pattern shapes have different update groups. In particular the identity N_010 mod 2 = (N_0-1)N_01 mod 2, essential to the fourfold collapse, is not asserted by the closest works. No cited stronger statement has a specialization implying the three-case formula.",
+      "searches": [
+        "binary modular subsequence count 0^r1 prime p minimal DFA states p^(2+floor log_p r) compared to pattern 010",
+        "Parikh matrix M-equivalence ternary alphabet subsequence 012 010 modulo m right quotients finite-state minimal state count",
+        "Myhill Nerode equivalence number scattered occurrences pattern 010 modulo m for m divisible by four odd accepting residue"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hahn--Cheon--Han 2023, author PDF pp. 1--4 and Sec. 3: Parikh-matrix equality concerns ordered scattered counts and substitutions (doi:10.1007/978-3-031-40247-0_10).",
+        "Mansour--Rastegar--Roitershtein 2019, Secs. 1--2: enumeration of fixed counts and limiting distributions (arxiv:1905.05646)."
+      ],
+      "reasoning": "Exact equality of all Parikh-matrix entries, enumeration of occurrences, and regularity are not equivalent to the Myhill--Nerode quotient of the single repeated-letter count modulo m. No matching formula or equivalent right-congruence classification was found in inspected material; this is bounded evidence, not a proof of global absence.",
+      "searches": [
+        "\"010\" \"subsequence\" \"modulo\" \"automaton\" states",
+        "\"scattered subwords\" \"modulo\" \"minimal\" automata",
+        "Scattered subword 010 modulo m Myhill Nerode index count subsequence palindromic pattern regular congruence automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted web and semantic lookups returned discussions of general subsequence recognition and pattern distributions, not an exact all-modulus state table.",
+        "Recomputed minimal DFA sizes in verify.py for every residue and moduli 2..14, including the separate m=4,8,12 odd-residue cases."
+      ],
+      "reasoning": "No indexed exact database/table for the modular 010 language was identified. The finite checks are independently computed evidence for correctness, not evidence that no previously published table exists.",
+      "searches": [
+        "\"010\" \"mod\" \"subsequence\" \"DFA\" minimization",
+        "counting scattered subword occurrences modulo m automata minimal state complexity 010",
+        "minimum DFA state count 010 subsequences residue modulo 4 8"
+      ]
+    },
+    "rationale": "Targeted semantic and primary-source searches identified related pattern-frequency automata and Parikh-matrix equivalence, but no exact all-modulus minimal DFA count or the modulus-four odd-target quotient collapse. The already recorded modular 0^r1 result concerns a nonpalindromic pattern and does not imply this formula. Remaining risk is unindexed modular automata work.",
+    "residual_risks": [
+      "Search coverage is incomplete: unindexed papers could contain the same exact modular 010 formula.",
+      "A specialized semigroup classification with an explicit target-stabilizer calculation may imply the statement; no such text was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies fixed occurrence counts and distributions/asymptotics; no exact modular 010 Nerode-index theorem located.",
+        "evidence": [
+          "arxiv:1905.05646 pp. 1-4 Theorems A--F; Sections 2.1--2.2 and occurrence-enumerator examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.05646",
+        "material_read": "PDF abstract, introduction, Section 2 definitions and stated occurrence-enumeration results, selected worked enumerations; text searched for modular residue discussion.",
+        "method": "Primary arXiv full PDF read by sections plus first-page visual inspection and keyword comparison",
+        "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+        "trigger": "Closest automata approach to occurrences of scattered patterns"
+      },
+      {
+        "assessment": "Classification of equality of ordered Parikh-matrix entries, not congruence-to-target right languages for pattern 010.",
+        "evidence": [
+          "doi:10.1007/978-3-031-40247-0_10, Definitions 1--3 and stated M-equivalence characterization."
+        ],
+        "identifier_or_url": "https://toc.yonsei.ac.kr/~emmous/papers/corrected_ciaa23.pdf",
+        "material_read": "PDF introduction, preliminaries, Sections 3 and 4 substitution framework, conclusion, page 3 visual inspection; text searched for modulo and minimal automaton claims.",
+        "method": "Lawful author-hosted full PDF inspected by text and page image",
+        "title": "M-equivalence of Parikh Matrix over a Ternary Alphabet",
+        "trigger": "Potential stronger theorem on equivalence under scattered-subword counts"
+      },
+      {
+        "assessment": "Its subword is defined there as a contiguous factor; it compares exact counts of two factors, rather than scattered 010 counts modulo m.",
+        "evidence": [
+          "arxiv:1804.11175 pp. 1--4, definitions and Theorems 3--4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.11175",
+        "material_read": "Abstract, Sections 1--3 and main theorem statements on exact counts of contiguous factors; first page inspected visually.",
+        "method": "Full primary arXiv PDF with textual inspection of theorem statements",
+        "title": "Counting Subwords and Regular Languages",
+        "trigger": "Potentially covering regular-language pattern counting paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34f08e63-a283-40a8-a435-a20909631b9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural single-pattern modular-language complexity problem is completely resolved for all integer moduli and target residues, including an exact factor-four quotient phenomenon at modulus multiples of four with odd targets. This is a qualitative structural threshold, not a small finite gain or routine bound; the statement and its exact quotient classes are useful for reasoning about state complexity of modular subsequence counters.",
+    "status": "PASS"
+  }
+}
