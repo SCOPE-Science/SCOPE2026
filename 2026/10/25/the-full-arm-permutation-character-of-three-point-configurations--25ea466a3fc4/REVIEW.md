@@ -1,0 +1,17 @@
+# Scientific review
+
+## Correctness — PASS
+The radial-tree cubical configuration model is canonically preserved by arm permutations, and its inclusion into the topological configuration space is an equivariant map inducing an isomorphism on homology. Farley–Sabalka's single-essential-vertex result implies connectedness and vanishing rational homology above degree one. On every fixed cubical cell, the sign of a permutation is the parity of its action on edge-coordinate axes. Exactly two exhaustive cases exist: no central edge, and one central edge lying on a fixed arm. Their generating functions yield the explicit character for every permutation of every number of arms. Averaging the first three cycle-count statistics gives zero fixed rational homology. The direct enumerator verifies fixed signed cell traces for all symmetric-group elements for 3–5 arms and all conjugacy classes for 6–7 arms, but finite tests are not relied on as the infinite proof.
+
+## Originality — PASS, with residual risk
+The relevant earliest source, Farley–Sabalka (arXiv:math/0410539, publicly posted 2004-10-25), already determines the free-group rank of the three-particle star configuration space. This existing rank is **not** claimed new. An–Maciazek (arXiv:2006.15256) establish geometric Y-exchange generators and relations for stars, but do not state the complete character of the natural action of all arm permutations on unordered three-particle homology. Lütgehetmann (arXiv:1701.03490) and Wawrykow (arXiv:2401.13821) address representation stability and ordered configurations without an inspected formula covering the present natural unordered character. Searches of published research records, aliases, explicit graph braid group presentations, the complete permutation-character formulation, and accessible historical claims disclosed no covering result. In particular, an earlier metric-star hard-core configuration classification supplies the nonequivariant homotopy type but no arm-symmetry trace. A theorem implying the character indirectly, or equivalent unindexed work, remains a genuine risk; negative searches cannot rule those out.
+
+## Value — PASS
+This is a complete characteristic-zero symmetry classification in an infinite and mathematically canonical family, not a one-graph census or a restatement of a rank formula. Ordinary homotopy type and the freeness of the braid group do not determine the natural action of the arm automorphism group. The formula supplies all traces, not merely dimension, and proves that no nonzero rational braid-homology cycle can be invariant under every arm interchange. It therefore refines the classical radial-tree homotopy computation by a structurally meaningful invariant of graph automorphisms and particle motions.
+
+## Limitations and sources
+Scientific limitations: only three unordered distinct points on an unweighted topological star; no assertion of integral lattice classification, ordered particle symmetry, more particles, or persistence. Originality is assessed against actual accessible primary manuscripts and published searches, not guaranteed against unpublished or otherwise unindexed work. Independent mathematical validation has not been performed.
+
+Sources: Farley–Sabalka, arXiv:math/0410539, Section 4; An–Maciazek, arXiv:2006.15256, Section 3.2; Lütgehetmann, arXiv:1701.03490; Wawrykow, arXiv:2401.13821. The standalone verification source and output accompany this package.
+
+Self-review: passed. Independent audit: not yet performed.
