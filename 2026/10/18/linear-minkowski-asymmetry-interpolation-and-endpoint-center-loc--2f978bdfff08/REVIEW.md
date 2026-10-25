@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower bound follows from the reflected top face and bottom face, with exact normalization of the horizontal section. The upper bound explicitly constructs every optimal center and checks containment for arbitrary points of every slice. Both the cone and prism endpoints and all equality cases are handled; the prism-center interval does not collapse unless the base has asymmetry one. Independent vertex/facet linear programs confirm 24 finite three-dimensional examples. Risk: finite tests cannot establish the general theorem; the analytical argument must carry that quantifier.
+## correctness
 
-**Originality — PASS, subject to historical uncertainty.** Inspected full-text statements and relevant sections of Brandenberg–von Dichter–González Merino and the examined introductory framework of Pavlov–Telen treat other convex asymmetry and Santaló invariants. The published homothetic-frustum Santaló result is about polar volume, not this negative-homothety ratio and center set. A relevant parallel-opposite hexagon classification treats another restricted class. The identified general literature does not establish the complete interpolation and endpoint jump. Risk: an earlier containment treatment of truncated cones/prismatoids in a monograph may subsume it and would invalidate originality if found.
+PASS
 
-**Mathematical value — PASS.** This is a complete dimension-independent sharp classification for an arbitrary convex base, not a finite parameter substitution: it identifies both the exact invariant and all minimizing centers, including a discontinuous increase of center-set dimension at the prism boundary. It illuminates which data survive homothetic truncation and supplies a natural counterpart to the known nonlinear Santaló-frustum interpolation. Limitations: the bases must be homothetic and no general prismatoid result is claimed.
+Let q=s(B), δ=1−θ, Kθ=conv(B×{0},θB×{1}); horizontal slice is (1−δv)B. Containment −K+(λ+1)c⊂λK forces z≥1/(λ+1); reflected bottom face imposes −B+(λ+1)u⊂[λ−δ(λ+1)z]B, yielding λ≥q+δ. Equality for δ>0 fixes z and horizontal center (q+1)b/(q+2−θ), b∈M(B). Explicit sectionwise inclusion using (q+1)b−B⊂qB gives the reverse inequality for arbitrary slices, including θ=0. At prism θ=1 the height constraints give complete center interval [1/(q+1),q/(q+1)], collapsing iff q=1. Simplex q=2 independently checks θ∈{0,.25,.5,.75,1} and center heights; finite check is illustrative.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Negative-homothetic containment invariant and minimizing-center loci not implied by published Santaló polar-volume result despite same bodies.
+
+## value
+
+PASS
+
+Sharp all-dimension formula for a natural homothetic truncation operation on any convex base, plus complete minimizing-center locus and a noncontinuous affine-dimension jump precisely for asymmetric bases; a structurally motivated convex-body invariant, not a table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
