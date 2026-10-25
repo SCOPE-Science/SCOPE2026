@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The Ciani quartic's geometric singular points are exhaustively partitioned by the number of nonzero coordinates. This gives an exact equivalence between smoothness and the three binary quadratics being squarefree, mutually coprime, and linearly independent. A degree-two map of the projective line has a unique deck involution in odd characteristic; counting its reduced rational fibers of the two possible Frobenius types gives the closed formula. Orthogonal similitudes of a nondegenerate ternary form have square multiplier over a finite field, and the adjoint \(\operatorname{PGL}_2\)-action is transitive on Gram presentations. Independent finite enumeration checks several primes, but is not substituted for the proof.
+
+**Originality — PASS, with residual risks.** The motivating 2024 conic-bundle moduli paper describes discriminants and a general degree-63 map, whereas the result concerns the marked diagonal six-term subspace and its exact uniform odd-characteristic count. The 2022 conic-bundle paper fixes an étale discriminant cover when discussing uniqueness; it does not determine the diagonal presentation orbit over a given marked Ciani curve. The 2023 Ciani-pencil paper treats complex bitangent geometry, not all six-term forms over finite fields. The previously known value \(16\) in characteristic three is subsumed but not credited as new. A previously unindexed equivalent point-count formula remains a plausible residual overlap risk.
+
+**Value — PASS.** The six-term Ciani locus is the natural involution-invariant locus of plane quartics appearing as discriminants of diagonal \((2,2)\) conic bundles. The theorem gives the exact arithmetic size of its smooth locus for all odd finite fields and explains the uniform \(\operatorname{PGL}_2\)-torsor of diagonal presentations. This goes beyond computing isolated examples and distinguishes coordinate-marked counts from abstract moduli counts.
+
+**Limits.** Characteristic two, non-diagonal branch surfaces, abstract isomorphism classes, and rationality of the resulting threefolds are not determined. The verification program checks prime fields only, while the proof covers all odd prime powers.
+
+Self-review: passed. Independent audit: not yet performed.
