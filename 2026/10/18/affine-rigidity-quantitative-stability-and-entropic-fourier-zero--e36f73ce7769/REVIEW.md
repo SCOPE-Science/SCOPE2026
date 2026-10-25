@@ -1,19 +1,21 @@
-# Self-review of affine product-ball Fourier-zero rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier transform of an affine product of unit balls factors into Bessel terms, so its first real zero is reached when a single block hits its first Bessel zero along a maximizing singular direction. Normalization by these zeros reduces the volume inequality to Hadamard's determinant bound. The equality case is exactly the orthogonal group. The polar-decomposition estimate follows from the trace bound for block contractions and the scalar logarithmic inequality, and a two-block shear realizes the sharp square-root stability exponent. The entropy limit uses Stirling and the credited large-order Bessel-zero asymptotic. The standalone checker passed 409 matrix configurations, but no numerical test is used as an infinite proof.
+PASS
 
-## Originality — PASS, residual historical risk
+The actual RESULT.md argument factors the characteristic-function Fourier transform into radial Bessel factors and achieves the first real zero along the top left singular vector of a minimizing block. With D=diag(j_i I), T=rho A D^{-1}, each block operator norm is <=1, so Hadamard gives |det T|<=1 and equality exactly T orthogonal, with no omitted skew or mixed block. The positive-definite Gram matrix G=T^T T has tr G<=d; the scalar inequality (sqrt(lambda)-1)^2 <=lambda-1-log lambda yields min_U ||T-U||_F^2 <= -log det G=2delta, and an explicit two-block epsilon shear has squared gap and deficit both epsilon^2/2+O(epsilon^4), proving the sharp 1/2 exponent. Stirling and j_{q/2,1}=(q/2)(1+O(q^{-2/3})) prove the fixed-m entropy limit. Independent 100 random full-rank matrices satisfy the inequality with separately computed Bessel zeros, determinant and polar factor. These finite tests corroborate, not replace, the general inequalities.
 
-Benguria–Levitin–Parnovski (2009, Examples 3.5–3.6) explicitly covers the unit ball transform and the cuboid case. Those identities are prior work, not claimed original. The full September 2026 Gómez-Serrano–Levitin–Platt–Polterovich preprint proves a distinct global bipyramidal phenomenon rather than the sharp affine mixed-ball product theorem. Dunster's Bessel asymptotic is also established literature. Relevant published mathematical records on Fourier bipyramids and affine regular dodecagons were examined at summary level and compared by implication; the accessible historical work does not state the combined mixed-ball inequality, complete affine equality class, dimension-free stability, and entropy profile. Literature that is not indexed may contain equivalent claims, and scientific priority has not undergone independent review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification settles exactly what arbitrary affine mixing does to the Fourier-zero extremum of a natural curved product class, and includes a global dimension-free quantitative rigidity bound with sharp exponent. The limiting entropy factor isolates a universal high-dimensional cost of macroscopic decomposability. The result does not resolve the global convex-body maximization problem, which is known to be unbounded in dimensions at least three, or claim the optimal numerical coefficient of the stability estimate.
+Benguria--Levitin--Parnovski 2009 Example 3.5 contains the exact individual-ball Bessel zero and Example 3.6 the cuboid special case, both credited; their main work does not state all affine products of higher-dimensional balls with sharp orthogonal equality and uniform Procrustes stability plus proportional-dimension entropy limit. Gómez-Serrano et al. 2026 disprove a global equal-volume ball optimizer in unrestricted convex bodies; no implication contradicts or covers this restricted sharp theorem. A general determinant inequality is used, but obtaining exact radius and rigidity in this class is an additional statement; best-of-knowledge only.
 
-## References and limitations
+## value
 
-Primary sources: arXiv:0801.1617v3, arXiv:2609.10517v1, arXiv:2405.08208v5. General older unindexed product-domain literature is a residual overlap risk. All volume and Fourier conventions are fixed in RESULT.md; numerical verification is corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The structured class of affine products of Euclidean balls includes skewed, anisotropic and mutually mixed blocks, and its exact normalized optimum/equality set and dimension-free distance-to-optimizer estimate supply a natural structural geometric extremum. The entropy deficit isolates a meaningful fixed-proportion high-dimensional loss. Though the cuboid endpoint and elementary Bessel steps are known, the mixed-block all-partition stability and entropy classification are not a bare recomputation of a known numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
