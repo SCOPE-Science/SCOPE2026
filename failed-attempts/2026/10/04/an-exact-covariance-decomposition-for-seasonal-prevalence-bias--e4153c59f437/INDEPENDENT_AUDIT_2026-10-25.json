@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T00:42:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each strictly positive period-omega solution, divide Sdot=bK-beta_bar(t)IS-bS by S and integrate Sdot/S over a full period to obtain <beta_bar I>=bK<1/S>-b. Since beta=<beta_bar>>0, split <beta_bar I>=beta<I>+Cov(beta_bar,I), and subtract beta I*=bK/S*-b at each chosen positive averaged equilibrium. This proves the exact first formula and iff condition. Likewise the infected logarithmic derivative gives <beta_bar S>+<lambda_bar R>=alpha+b, and subtraction of beta S*+lambda R*=alpha+b proves companion. Continuity and strict positivity justify all divisions and integration; no uniqueness/equilibrium existence/sign claim is smuggled in. The source verify.py uses exact rationals but tests only algebra; independent actual seasonal positive 1-periodic numerical solution at (b,K,alpha,beta,lambda)=(0.2,1,0.3,1.1,0.2), beta_bar=1.1(1+0.4 sin2pi t), lambda_bar=0.2(1+0.3 cos2pi t) gave meanI-I*=-0.00015141406637547705 versus formula -0.0001514140655416743 (absolute discrepancy 8.34e-13), companion residual 2.51e-12. This is corroboration only, not an unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang and Zhao (2008), doi:10.1007/s10884-008-9111-8, publisher abstract describes reproduction-number/invasion-threshold results and patch dynamics, not positive-orbit mean-prevalence bias.",
+          "Published Resultary record 2026/10/11/fd78dfabf528 proves a mean-variance shell in an oscillatory SI system with different equations and endemic structure.",
+          "Liu et al. (2026) supplies exactly the model equations from which the proposed covariance formula is an immediate integrated-algebra consequence; the prior system is acknowledged, not claimed new."
+        ],
+        "reasoning": "No located published stronger mean-bias theorem mathematically subsumes this specific positive-orbit SIRI identity. General periodic epidemic thresholds and an unrelated nonlinear SI variance law do not yield the formula by parameter substitution. The published model equations plus ordinary calculus already mechanically imply it, a key limitation for value rather than evidence that a prior formulated theorem is identical.",
+        "searches": [
+          "Wang Zhao threshold dynamics compartmental epidemic models periodic environments 2008 pdf",
+          "doi:10.1007/s10884-008-9111-8",
+          "Resultary:exact time average logarithmic derivative periodic nonlinear compartment SIR SIRS susceptible reciprocity prevalence covariance contact rate",
+          "Resultary:2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math14060953 (publisher-indexed Section 3 and abstract; full text inaccessible)",
+        "OpenAlex:W7135025892",
+        "doi:10.1007/s10884-008-9111-8 (publisher abstract, bibliography; full text inaccessible)",
+        "OpenAlex:W2050299562",
+        "Resultary:2026/10/4/SCOPE-an-exact-covariance-decomposition-for-seasonal-prevalence-bias--e4153c59f437 (same claim, not independent evidence)",
+        "Resultary:2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528",
+        "Resultary:2026/10/4/SCOPE-recovered-stage-averaging-is-not-the-disease-free-invasion-thres--f84c5c12a02b",
+        "Assigned pinned Git tree and actual seven file blob identities at 6c379935c2e469fc18959fc6c387e31328c64bcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu et al. (doi:10.3390/math14060953), publisher-indexed averaged system and abstract, establishes equality of basic reproduction numbers, threshold behavior, and numerical mean prevalence comparisons.",
+          "Wang and Zhao (doi:10.1007/s10884-008-9111-8), publisher abstract, treats disease-free invasion and next-infection operators.",
+          "The exact submitted formula uses zero period integral of Sdot/S, which is not a conclusion of the two threshold theorems but follows in two algebraic steps directly from the earlier model equations."
+        ],
+        "reasoning": "A threshold equality does not logically determine Cov(beta_bar,I) or <1/S>. The published differential equation, not a novel structural lemma, entails the formula by averaging Sdot/S; analogous averaging of Idot/I entails the companion. Thus the claim is not shown as an explicit prior theorem, but the computation is a standard elementary deduction and adds no parameter-only criterion or bound.",
+        "searches": [
+          "doi:10.3390/math14060953",
+          "doi:10.1007/s10884-008-9111-8",
+          "periodic solution reciprocal susceptible covariance epidemic",
+          "Resultary:2026/10/4/SCOPE-recovered-stage-averaging-is-not-the-disease-free-invasion-thres--f84c5c12a02b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact target can be rewritten as beta(<I>-I*) = bK(<1/S>-1/S*) - Cov(beta_bar,I); it is also the integrated susceptible logarithmic balance minus its autonomous equilibrium counterpart.",
+          "The Resultary searches returned the same submitted record as closest hit, and a related but different oscillatory SI variance-shell result (record 2026/10/11/fd78dfabf528), not an independent identical endemic SIRI formula.",
+          "Publisher-indexed Section 3 of Liu et al. (doi:10.3390/math14060953) gives averaged System (7), and the abstract explicitly describes numerical comparison between a periodic solution mean and averaged endemic equilibrium."
+        ],
+        "reasoning": "Aliases include stationary logarithmic drift, covariance balance, averaged-versus-seasonal bias, and mean-incidence closure. No independent publication expressly stating the exact same two balances was located in the searches actually performed. Because the motivating article could not be inspected in full, exact earlier statement is not conclusively excluded; the algebra follows routinely from its printed equations.",
+        "searches": [
+          "seasonally forced SIRI endemic equilibrium mean infected prevalence bias covariance of beta I reciprocal susceptible positive periodic orbit time average exact identity",
+          "periodic SIRI mean prevalence endemic equilibrium covariance",
+          "periodic epidemic ODE mean endemic prevalence logarithmic derivative average covariance beta infected reciprocal susceptible exact",
+          "periodic epidemic average incidence covariance identity cycle stationary balance",
+          "Resultary:seasonal SIRI reinfection positive periodic solution mean infected averaged endemic equilibrium correlation covariance bias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OpenAlex:W7135025892 records Liu et al. 2026, published 11 March 2026, and summarizes a numerical constrained comparison of averaged and seasonal prevalence.",
+          "Publisher-indexed article excerpt gives the averaged equations and equilibrium susceptibility S(I*)=bK/(beta I*+b), while indexed source summary reports deviations, not a closed covariance expression.",
+          "The accessible Resultary records include the submitted exact decomposition itself; it is not independent priority evidence."
+        ],
+        "reasoning": "The identified table-like prior material addresses simulated mean deviations, not an identical printed closed form in the portions that were retrievable. This is a conditional best-of-knowledge comparison only: the complete article was not independently read and a table or appendix could contain stronger statements.",
+        "searches": [
+          "doi:10.3390/math14060953",
+          "Threshold Dynamics of a SIRI Model with Reinfection full text html pdf sections 4.4.3",
+          "site:mdpi.com/2227-7390/14/6/953 4.4.3 approximate",
+          "arxiv Threshold Dynamics of a SIRI Model with Reinfection Liu Li Zhang He 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge narrow explicit formula originality only, not novelty of the SIRI model, positivity, covariance definition or averaging of logarithmic derivatives. The 2026 same-model source supplies the ODE and numerical mean-versus-averaged comparisons but the publisher-indexed material retrieved did not explicitly give the two displayed identities. General reproduction-number threshold papers and a published oscillatory SI mean-variance shell do not assert or imply the same model-specific closed form as a stated result. However, the result is a direct routine mathematical consequence of already published source equations; this significantly weakens its scientific value. Full same mathematical model primary text was inaccessible, so any stronger prior occurrence is retained as a material risk; O is not a novelty certification.",
+      "residual_risks": [
+        "Same mathematical model 2026 motivating paper is especially plausible prior: independently retrievable material was an abstract/selected indexed sections only; full 29-page text could contain a stronger or identical identity. MDPI 429 and Oxford VPN disconnected; no full-document noncoverage claim.",
+        "Classic periodic-epidemic averaging arguments may contain equivalent logarithmic balances under different notation; semantic/title searches are not an exhaustive novelty guarantee.",
+        "The submitted equal-prevalence iff condition is only an algebraic rearrangement and requires unknown orbit moments; it provides no coefficient-only test, inequality, sign law, error bound, or existence/uniqueness statement.",
+        "Numerical orbit experiment checks one stable positive parameter setting but does not prove general periodic orbit existence or value; exact rational checker uses chosen moment values that are not certified realizable trajectory data.",
+        "Source tree SHA is copied from dispatcher and seven blob SHAs were fetched at pinned commit, but complete Git tree identity was not rehashed independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The material actually read establishes model identity and an acknowledged source-motivated numerical comparison, but cannot certify that every passage/appendix lacks the submitted algebraic identities. Priority risk is explicit, not asserted as full-text NOT_COVERING.",
+          "evidence": "OpenAlex:W7135025892; web:; web:; web:; DOI:10.3390/math14060953.",
+          "identifier_or_url": "doi:10.3390/math14060953",
+          "material_read": "OpenAlex complete abstract; publisher-indexed Section 3 excerpt including all averaged System (7) equations and equilibrium S(I*) formula; indexed ResearchGate page-5 fragment with periodic reproduction-number calculations; publisher version notes. The 29-page primary full text was NOT read.",
+          "method": "Read-only indexed web search and publisher excerpt (MDPI direct HTML returned HTTP 429); arXiv/title/OA alternative searches found no accessible full manuscript; authorized Oxford request returned vpn_disconnected (job b193215964161e00afb4cda7a9244f69), no retry or bypass.",
+          "title": "Threshold Dynamics of a SIRI Model with Reinfection: Averaged and Periodic Systems and Application to Tuberculosis Data",
+          "trigger": "Same seasonal SIRI equations, same numerical question comparing the positive periodic mean to averaged endemic levels; highest-priority exact source."
+        },
+        {
+          "assessment": "The available primary statements cover next-infection operators, reproduction numbers and invasion threshold; no mathematical route from those reported results alone yields the nonlinear SIRI time-mean identity. Full text not inspected.",
+          "evidence": "web: lines 11-35; OpenAlex:W2050299562; DOI:10.1007/s10884-008-9111-8.",
+          "identifier_or_url": "doi:10.1007/s10884-008-9111-8",
+          "material_read": "Publisher abstract, article bibliographic metadata, and reference list; NOT the complete subscription full text.",
+          "method": "Publisher article landing page with abstract and references, OpenAlex bibliographic record.",
+          "title": "Threshold Dynamics for Compartmental Epidemic Models in Periodic Environments",
+          "trigger": "Broad classical theory of periodic compartment epidemic models named in the package."
+        },
+        {
+          "assessment": "Relates means and variances for a different nonlinear incidence SI model, with different variables/hypotheses and no direct SIRI reinfection substitution; cannot establish coverage of exact submitted identity.",
+          "evidence": "Resultary record id 2026/10/11/fd78dfabf528, summary stating V_X+nV_Y=(n+1)/n(x_+-Xbar)(Xbar-x_-).",
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528",
+          "material_read": "Resultary title and returned research summary only; no claim to have read full manuscript.",
+          "method": "Resultary semantic search with three targeted formulations.",
+          "title": "Finite-amplitude mean-variance shell for an oscillatory SI epidemic model",
+          "trigger": "Nearest published internal mean-orbit balance result, possibly an alias for a broader invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object (seasonal SIRI prevalence versus an averaged equilibrium) is motivated by a real numerical comparison, but the submitted mathematical addition is only the standard periodic identity integral_0^omega Sdot/S dt=0 followed by the definition Cov(X,Y)=<XY>-<X><Y> and subtraction of the already published equilibrium relation; the second boxed formula repeats the identical logarithmic-derivative manipulation for I. The stated iff equality condition merely rearranges the first identity. It yields no independently checkable parameter condition, nontrivial bound/sign, structural classification, boundary example, new dynamical consequence or computed natural invariant not mechanically implied by the published equations. To evaluate the rhs one needs the same full periodic orbit data from which <I> is already directly computed; no useful prediction or reduction is established. Thus this is a textbook balance-equation re-expression rather than a motivated nonroutine mathematical finding; correctness and a specific motivating paper do not suffice to establish scientific value. Rejection is about this final mathematical claim, not about primary-text access or verification effort.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3390/math14060953 (publisher-indexed Section 3 and abstract; full text inaccessible)",
+    "OpenAlex:W7135025892",
+    "doi:10.1007/s10884-008-9111-8 (publisher abstract, bibliography; full text inaccessible)",
+    "OpenAlex:W2050299562",
+    "Resultary:2026/10/4/SCOPE-an-exact-covariance-decomposition-for-seasonal-prevalence-bias--e4153c59f437 (same claim, not independent evidence)",
+    "Resultary:2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528",
+    "Resultary:2026/10/4/SCOPE-recovered-stage-averaging-is-not-the-disease-free-invasion-thres--f84c5c12a02b",
+    "Assigned pinned Git tree and actual seven file blob identities at 6c379935c2e469fc18959fc6c387e31328c64bcf"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "C and O PASS on the exact formulas as written; V FAIL after explicitly evaluating the concrete source motivation, elementary derivation, lack of nonroutine mathematical consequence and standalone diagnostic utility.",
+    "Source self-review PASS is not reused as an independent judgment; user instructions, not source prose, govern axes.",
+    "No inferences about indefinite period existence, uniqueness, stability, universal sign, or formal proof from verifier output.",
+    "Direct MDPI complete text unavailable (HTTP 429); Oxford institutional retrieval VPN disconnected; source-inspections accurately name material read.",
+    "Privacy: METADATA.json and AUDIT.json expose scope_run_id in potentially public material; no verified sanitized relocation prepared."
+  ],
+  "residual_risks": [
+    "Same mathematical model 2026 motivating paper is especially plausible prior: independently retrievable material was an abstract/selected indexed sections only; full 29-page text could contain a stronger or identical identity. MDPI 429 and Oxford VPN disconnected; no full-document noncoverage claim.",
+    "Classic periodic-epidemic averaging arguments may contain equivalent logarithmic balances under different notation; semantic/title searches are not an exhaustive novelty guarantee.",
+    "The submitted equal-prevalence iff condition is only an algebraic rearrangement and requires unknown orbit moments; it provides no coefficient-only test, inequality, sign law, error bound, or existence/uniqueness statement.",
+    "Numerical orbit experiment checks one stable positive parameter setting but does not prove general periodic orbit existence or value; exact rational checker uses chosen moment values that are not certified realizable trajectory data.",
+    "Source tree SHA is copied from dispatcher and seven blob SHAs were fetched at pinned commit, but complete Git tree identity was not rehashed independently."
+  ],
+  "schema_version": 1
+}
