@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The cyclic support recurrence independently reconstructs each facet, and the distance-to-disk maximum reduces to the smallest facet support and largest vertex radius. The positive quadratic root gives the unique transition. Endpoint strictness follows from the positive derivative of the arctangent remainder. Exact transport is witnessed by a matching plan and a distance-function dual potential. The attached finite checker tests independent geometric coordinates but is not relied on to prove the infinite statement.
+
+**Originality: PASS, with residual risk.** The direct 2026 planar Minkowski paper treats the regular grid and a broad transportation bound; it does not contain the explicit periodic-three crossover, its sharp phase root or the thin boundary layer. The published equal-area equiangular result handles two-periodic edge lengths, while Cauchy quadrature concerns centrally symmetric sampling zonogons. Their strongest applicable statements were compared with the exact period-three signed Hausdorff formula, and no dominating explicit classification was located. The broad support-function Fourier representation could in principle be specialized to derive this law; a previously unindexed full specialization cannot be ruled out.
+
+**Value: PASS.** For a natural, balanced discrete family of convex-body reconstructions, the work supplies a sharp and complete parameter classification of which extremal geometric feature determines the Hausdorff error. It also quantifies an exceptional fourth-order boundary layer and exhibits persistent quadratic shape convergence with only first-order transportation control, a meaningful limitation on the predictive sharpness of generic stability inequalities.
+
+**Limitations and closest comparisons.** The family is not all periodically weighted normal grids. A general Fourier inverse formula in An's paper provides implicit reconstruction, but not this exact phase classification. The finite checker samples dimensions and parameters rather than certifying every real parameter. An unindexed equivalent result is the primary remaining originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
