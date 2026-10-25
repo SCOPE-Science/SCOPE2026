@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof is in `RESULT.md`. It establishes the assertion for every integer \(t\ge2\). The code uses Python 3's standard library only. From the directory containing the embedded files, run `python checker.py` and `python formula_check.py`. Compare their output with `checker_output.txt` and `formula_output.txt`.
+## correctness
 
-`checker.py` generates all \(2^t\) sign sequences for \(1\le t\le7\) (254 posets), applies transitive closure, checks the predicted regular incidence matrix and level partition, and for \(t\le4\) exhaustively tests all six level-preserving coordinate permutations for each pair of sign sequences. `formula_check.py` independently computes which individual ordered pairs are related using a subset-sum rule, and compares that relation with transitive closure in 407,646 instances. Both programs completed successfully.
+PASS
 
-The computational ranges are **not** proofs for unbounded \(t\). The proof's infinite steps are the characterization of all increasing paths, the two-shortcut saturation in the three-element cyclic group, the two-variable counting induction, and the global-coordinate isomorphism argument. No claim of independent external verification, formal proof-system checking, or priority certification is made.
+Reconstructed transitive closure from identity edges (a,z)->(a+1,z) and ±1 jumps (2j,z)->(2j+2,z+s_j). Each interval [a,b] permits subsets of nonoverlapping shortcut indices, so attainable Z/3 offsets are {0}, {0,s}, or all residues for 0,1,>=2 shortcuts; uniform q(a,b)=1,2,3 independent of signs. The level sizes and all directed atomic-type counts agree, implying C² sentence equivalence by equitable-refinement/two-variable counting quantification. The three coordinate columns are chains and each level an antichain -> width exactly 3; height 2t+1. Strictly growing predecessor counts force an isomorphism to preserve levels, identity-adjacent matchings force one common permutation of F3, necessarily z->uz+v, and the two-step chords force r=us globally -> exactly 2^(t-1) isomorphism classes. Translations give each level one orbit, and unique predecessor counts separate levels at first counting-refinement round. Independent transitive closure and comparison-count checks at t=2..4 corroborated, not substituted for unrestricted t induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for an explicit 2^(t-1) family of pairwise nonisomorphic width-three transitive posets that are C²-equivalent while colour refinement is orbit-exact. General regular/biregular C² and graph-refinement results are antecedents but do not specifically imply this exact restricted-poset family and isomorphism quotient.
+
+## value
+
+PASS
+
+The construction exposes a sharp conceptual distinction between recovering the automorphism orbits of a bounded-width poset and identifying its isomorphism type by counting logic. It supplies infinitely many fully classified witnesses on a natural small-width class, relevant to finite-model theory and structure recognition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

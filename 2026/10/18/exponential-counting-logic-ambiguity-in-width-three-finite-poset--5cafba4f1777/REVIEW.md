@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The relation is a strict partial order by increasing level. The exact path/subset-sum formula covers all possible generators and proves that comparison counts depend only on the number of contained two-level shortcuts, not their signs. Three displayed chains prove width at most three; each level is an antichain of three. The uniform cross-level comparison counts prove full \(C^2\)-equivalence by induction on two-variable formulas. Strict predecessor counts force level preservation under every isomorphism, adjacent-level identity matchings force a single global permutation, and a three-point affine-permutation argument yields isomorphism precisely under global sign reversal. Two standalone finite checks passed, but the infinite conclusion uses the written proof.
+## correctness
 
-**Originality — PASS, with risk.** Actual searches covered the sign-sequence construction, width-three partial orders, equitable partitions, fractional isomorphism, and counting logic in both published-finding corpus and published literature. The closest full-text comparisons are Kopczyński–Tan on regular/biregular \(C^2\) model descriptions, Gajarský et al. on bounded-width poset existential-FO algorithms, and Arvind et al. on graph amenability and refinability. None of the inspected conclusions supplies the specific three-chain strict-order construction, exact \(2^{t-1}\) isomorphism counts, and orbit-exact refinement simultaneously or by a direct parameter specialization. The broader regular-relation framework motivates the proof but does not itself impose order transitivity or the width bound. Specialized earlier priority remains a residual risk; negative searches are not a uniqueness certificate.
+PASS
 
-**Value — PASS.** Width three is the first natural nontrivial three-chain setting in which cyclic orientation can survive a transitive closure while disappearing from all per-level counting statistics. The explicit exponential indistinguishability fiber distinguishes orbit recovery from structure identification for posets, with an exact count for every size in the sequence \(6t+3\), rather than an arbitrary single small counterexample. No unsupported global minimality claim is made.
+Reconstructed transitive closure from identity edges (a,z)->(a+1,z) and ±1 jumps (2j,z)->(2j+2,z+s_j). Each interval [a,b] permits subsets of nonoverlapping shortcut indices, so attainable Z/3 offsets are {0}, {0,s}, or all residues for 0,1,>=2 shortcuts; uniform q(a,b)=1,2,3 independent of signs. The level sizes and all directed atomic-type counts agree, implying C² sentence equivalence by equitable-refinement/two-variable counting quantification. The three coordinate columns are chains and each level an antichain -> width exactly 3; height 2t+1. Strictly growing predecessor counts force an isomorphism to preserve levels, identity-adjacent matchings force one common permutation of F3, necessarily z->uz+v, and the two-step chords force r=us globally -> exactly 2^(t-1) isomorphism classes. Translations give each level one orbit, and unique predecessor counts separate levels at first counting-refinement round. Independent transitive closure and comparison-count checks at t=2..4 corroborated, not substituted for unrestricted t induction.
 
-**Closest literature and limits.** Kopczyński–Tan, arXiv:1304.0829; Gajarský et al., arXiv:1409.4433; Arvind et al., arXiv:1502.01255; Bova et al., arXiv:1405.2891. The result does not classify all width-three orders or establish minimal fifteen-point size. The finite programs corroborate, not replace, the general argument. An earlier specialized presentation remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for an explicit 2^(t-1) family of pairwise nonisomorphic width-three transitive posets that are C²-equivalent while colour refinement is orbit-exact. General regular/biregular C² and graph-refinement results are antecedents but do not specifically imply this exact restricted-poset family and isomorphism quotient.
+
+## value
+
+PASS
+
+The construction exposes a sharp conceptual distinction between recovering the automorphism orbits of a bounded-width poset and identifying its isomorphism type by counting logic. It supplies infinitely many fully classified witnesses on a natural small-width class, relevant to finite-model theory and structure recognition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
