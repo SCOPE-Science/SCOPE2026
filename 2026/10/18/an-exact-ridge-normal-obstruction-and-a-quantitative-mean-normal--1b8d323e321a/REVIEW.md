@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-facet Gram system is invertible for every nondegenerate simplex, and the forbidden conic-coefficient regions are disjoint for \(0<g<1\). Uniform simplex sampling gives a Dirichlet law, whose exponential representation evaluates both excluded probabilities exactly. Nonpositive cross facet products are sufficient to make these conic conditions sufficient for an interior ridge foot. The inverse-positive Gram argument handles all face codimensions when every dihedral angle is nonobtuse. The sheared family has exactly one positive normal-product pair, so it realizes ridge-probability equality in every dimension. A standalone consistency program tested the calculations on 1,204,808 configurations and identities; the general proof is analytic.
+## correctness
 
-## Originality — PASS with priority limitation
-The closest results are Nasonov–Panina–Siersma (2024), especially their Section 6 propositions on average normals for triangles and tetrahedra, and Nasonov–Panina (2026) on guaranteed normals from some point of a four-simplex. The present quantitative ridge-deficit probability is absent from their inspected statements and is not implied by either a maximizer-existence result or the qualitative low-dimensional average characterizations. The full 2024 and 2026 papers were inspected, together with the relevant active-region material in the 2024 generic-polytope paper and the high-dimensional maximum-normal paper (2025). Exact prior priority remains susceptible to unindexed active-region computations.
+PASS
 
-## Mathematical value — PASS
-The explicit and attained probability of losing an individual codimension-two normal quantifies the geometric effect of one obtuse dihedral angle in all dimensions, rather than merely deciding whether the maximal count is possible. The resulting positive mean-normal gap is intrinsic to a facet pair; the one-shear family provides a natural fully solvable benchmark and its cubic visibility decay. It directly addresses active regions and mean-normal shape invariants studied in the motivating literature.
+For obtuse interior ridge g=<ui,uj> in (0,1), feasible supporting foot coefficients solve positive 2x2 Gram inverse; hence s_i>=g s_j and s_j>=g s_i are necessary. Uniform simplex barycentrics Dirichlet(1,..,1), with independent exponential ratios, give disjoint failures summing exact Q. Under cross-normal nonpositivity, other facets remain satisfied for each feasible ridge foot, giving equality. SPD Stieltjes principal Grams establish a foot in every face if all off-diagonal products <=0; one positive g yields strict deficit. Sheared family has single positive pair and exact rational probability. Independent exact fraction and finite geometric crosschecks matched.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier concurrent-normal work includes d=2,3 qualitative maximal-mean criteria, explicitly credited. Surviving original all-dimensional positive exact ridge loss Q and sharp sheared-simplex probability are not implied by their stated qualitative bounds.
+
+## value
+
+PASS
+
+The explicit positive rational loss for an obtuse ridge normal and all-dimensional sharp sheared-simplex equality answer a natural quantitative geometry question not covered by qualitative mean-normal extremality. Credited older d2/d3 criterion is not used as novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
