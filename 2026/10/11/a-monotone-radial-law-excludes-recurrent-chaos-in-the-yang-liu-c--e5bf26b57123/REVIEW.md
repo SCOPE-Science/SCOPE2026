@@ -1,15 +1,17 @@
-# Same-model review
+# Mathematical review
 
-## Correctness
-PASS. The identity \(\dot R=2ay^2\) for \(R=x^2+y^2\) follows by exact cancellation. Recurrence forces the monotone observable to be constant, hence \(y=0\); positive \(b,c\) then force recurrent \(z=w=0\). For invariant measures, integrating the generator identities for \(R\), \(z^2\), and \(w^2\) gives support on the equilibrium line. The supplied checker reproduces the critical polynomial identity exactly.
+## Correctness — PASS
+For the Yang–Liu polynomial ODE explicitly displayed in `RESULT.md`, the radial observable \(R=x^2+y^2\) obeys the exact identity \(\dot R=2ay^2\). This was reconstructed independently by symbolic differentiation and cancellation. If \(a\ne0\), recurrence forces \(R\) to stay constant, hence \(y=0\) along the recurrent trajectory. On this set the remaining coordinates satisfy \(\dot z=-bz\), \(\dot w=-cw\); with \(b,c>0\), recurrent \(z=w=0\), leaving exactly the equilibrium line \(\{(x,0,0,0)\}\). For every compactly supported invariant probability measure, integrating the generator of \(R\), then \(z^2\) and \(w^2\), gives the same support restriction. Generator tests are justified on a compact invariant support. The supplied `verify.py` checks the polynomial cancellation only; the dynamical conclusions were separately checked analytically. Neither boundedness of arbitrary trajectories nor global flow completeness is assumed in the recurrence/compact-support arguments.
 
-## Originality
-PASS. Equation-level searches of published-finding corpus and the accessible literature found no same-system theorem implying this monotonicity obstruction. The introducing Yang–Liu source reports hyperchaotic/coexisting attractors, while Rech's later same-system study reproduces the equations and analyzes numerical parameter planes without the global recurrence conclusion. Closest structural published-finding corpus findings use different conserved quantities, fiber slaving, or phase-volume laws and do not cover this vector field.
+## Originality — PASS, with material priority risk
+Yang and Liu, *A Novel Simple Hyperchaotic System with Two Coexisting Attractors* (2019), DOI: 10.1142/S0218127419502031, introduce the flow and report compact hyperchaotic interpretations. Rech, *Dynamics of a Four-Dimensional System with Cubic Nonlinearities* (2021), DOI: 10.1142/S0218127421500127, studies parameter planes, Lyapunov diagrams and multistability for the same crossed-cubic model. Their accessible abstracts and publisher-derived preview excerpts do not establish this global sign-definite radial law, and their chaos statements do not imply it. The full 18-page and six-page articles could not be lawfully inspected after open-preprint and lawful full-text retrieval attempts; possible earlier equivalent observations within them remain a priority risk.
 
-## Value
-PASS. The theorem gives a global, source-specific obstruction to compact recurrent chaos throughout the positive-parameter regime rather than a narrow numerical correction. It separates finite-time complicated motion from genuine compact recurrent attractors and therefore materially affects interpretation of the published hyperchaos claims.
+Exact equation and statement searches in the published-finding index returned this same finding, which is not independent prior art. Comparable published obstructions for Lu–Yu–Zhu, a five-dimensional disc dynamo and other flows use distinct first integrals or coboundaries and do not cover the printed Yang–Liu field. Standard Lyapunov/LaSalle recurrence arguments are the analytic mechanism, but by themselves do not supply this specific global identity for this system. No absence-of-prior-work guarantee is asserted.
 
-## Closest literature and limitations
-The closest inspected same-system source is Rech (2021), which explicitly reproduces the Yang–Liu system and summarizes its prior numerical dynamics. The full Yang–Liu article was not available in the inspected lawful public material, so there remains an access-related originality risk. The theorem does not treat \(a=0\), nor does it exclude long transients or unbounded trajectories.
+## Mathematical value — PASS
+The result is a motivated mathematical correction: it rules out non-equilibrium compact recurrent statistics throughout the relevant positive-parameter regime, directly challenging the interpretation of reported hyperchaotic numerical attractors for the exact printed ODE. Its strength is global parameter coverage and the sharp distinction between true compact recurrence and finite-time complicated numerical behavior. The argument is elementary but its mathematical consequence is not a gratuitous type or normalization check.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Limitations and evidence
+The conclusions require \(a\ne0\), \(b>0\), \(c>0\). The case \(a=0\), changed coefficient signs, alternative dynamical models, long transients, unbounded trajectories, and compact invariant sets containing nonrecurrent connecting orbits are not classified. Originality is best-of-knowledge, with both highly relevant full primary papers unread. Symbolic algebra was reproduced independently; neither a formal proof nor an external expert attestation was completed.
+
+Sources: Yang–Liu (2019), DOI 10.1142/S0218127419502031; Rech (2021), DOI 10.1142/S0218127421500127; publisher-preview/abstract records; published mathematical analogues in other flows, compared by differential equations and implication rather than title matching.

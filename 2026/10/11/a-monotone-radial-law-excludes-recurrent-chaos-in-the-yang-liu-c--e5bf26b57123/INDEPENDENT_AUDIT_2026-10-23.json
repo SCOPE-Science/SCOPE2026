@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T10:53:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the displayed polynomial vector field F=(yzw,ay−xzw,−bz+xyw,−cw+xyz), R=x²+y² satisfies L_F R=2x(yzw)+2y(ay−xzw)=2ay² for every state and any real a,b,c. For a≠0, R is strictly monotone along any time interval on which y is not identically zero. If p is positive-time recurrent, the monotone scalar R(φ_t(p)) returns arbitrarily close to its initial value, hence is constant on [0,∞); continuity and the identity imply y(t)=0 throughout the recurrent orbit. There z(t)=z(0)e^{−bt} and w(t)=w(0)e^{−ct}; when b,c>0 recurrence forces z(0)=w(0)=0, and the entire orbit is the equilibrium (x,0,0,0). For a compactly supported invariant probability μ, generator invariance for R yields 0=∫L_FR dμ=2a∫y² dμ; continuity and positivity give supp μ⊂{y=0}. Generator invariance for z² and w² then gives 0=−2b∫z²dμ and 0=−2c∫w²dμ, so supp μ⊂{(x,0,0,0)}. These generator tests are justified for polynomial observables on compact flow-invariant support. Independent SymPy calculation reconstructed L_FR=2ay², (L_F z²)|_{y=0}=−2bz², (L_F w²)|_{y=0}=−2cw², and F(x,0,0,0)=0. The inspected verify.py checks only the first identity, not the recurrence/measure arguments; those latter steps were checked analytically. No assertion concerns a=0, b≤0, c≤0, non-compact measures, infinite-time numerics, or unbounded/non-recurrent orbits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Lyapunov and LaSalle monotonicity principles exclude nontrivial recurrent states once a nonconstant monotone observable has been identified; they do not by themselves exhibit R=x²+y² for this particular printed field.",
+          "Resultary result 2026/10/4/SCOPE-a-conserved-sphere-forces-two-neutral-lyapunov-exponents-in-the--b2f60c622005 concerns the Lu–Yu–Zhu flow with a conserved sphere, not Yang–Liu.",
+          "Resultary result 2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311 concerns a different five-dimensional dynamo and a different polynomial coboundary.",
+          "Resultary result 2026/10/4/SCOPE-exact-fiber-slaving-and-a-no-hyperchaos-theorem-for-a-reported-f--db1c572973a6 concerns a different hidden-attractor model and only a no-two-positive-exponents constraint."
+        ],
+        "reasoning": "General qualitative Lyapunov theory supplies the implication from an exhibited sign-definite derivative to absence of recurrence; the model-specific discovery is the exact global R identity for the same printed system. The stronger-looking published structural obstructions inspected are not applicable to the Yang–Liu equations, and their different assumptions do not entail this finding.",
+        "searches": [
+          "Resultary: four dimensional hyperchaotic system with a line of equilibria nonexistence chaos Lyapunov monotonic radial function",
+          "Resultary: Yang Liu two coexisting attractors critique recurrence invariant probability measure polynomial integral",
+          "Web: \"Yang–Liu\" \"monotone\" \"chaos\" cubic system"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1142/S0218127419502031 — Yang and Liu (2019), publisher preview and abstract (not full text)",
+        "doi:10.1142/S0218127421500127 — Rech (2021), journal abstract and publisher-derived excerpts (not full text)",
+        "https://www.researchgate.net/publication/338177031_A_Novel_Simple_Hyperchaotic_System_with_Two_Coexisting_Attractors",
+        "https://www.researchgate.net/publication/348792718_Dynamics_of_a_Four-Dimensional_System_with_Cubic_Nonlinearities",
+        "https://portal.mardi4nfdi.de/wiki/A_novel_simple_hyperchaotic_system_with_two_coexisting_attractors",
+        "Resultary semantic searches of exact Yang–Liu equations, invariant measures, line equilibria and no-chaos statements",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-conserved-sphere-forces-two-neutral-lyapunov-exponents-in-the--b2f60c622005",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yang & Liu explicitly report two coexisting hyperchaotic attractors with a line of nonhyperbolic equilibria; their preview discusses numerical Lyapunov spectra, routes to chaos and a 0–1 test.",
+          "Rech reports parameter-space regular/chaotic regions and multistability of the same crossed-cubic four-dimensional model, not invariant-measure rigidity in the material accessible.",
+          "For the printed ODE and a≠0,b,c>0, 0=∫2ay²dμ forces equilibrium support, incompatible with genuine positive-measure compact chaotic or hyperchaotic recurrence."
+        ],
+        "reasoning": "The previous numerical-chaos conclusions neither entail nor dominate the new theorem; as mathematical statements applied to the exact ODE they conflict with its compact-recurrence exclusion. The proof is a source-specific refutation of a dynamical interpretation, not a copied numerical parameter value. Full-text priority uncertainty remains explicitly unresolved by access, but does not itself reverse this best-of-knowledge decision.",
+        "searches": [
+          "Yang & Liu (2019), DOI 10.1142/S0218127419502031, publisher-derived first-page preview and abstract",
+          "Rech (2021), DOI 10.1142/S0218127421500127, abstract and accessible publisher-preview excerpts",
+          "Web: \"Yang Liu\" \"hyperchaotic\" \"flawed\" \"2019\" \"Rech\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rech (2021), DOI:10.1142/S0218127421500127, treats the same three-parameter crossed-cubic 4D system and reports parameter-plane bifurcation, multistability and Lyapunov diagrams, rather than a global recurrence exclusion.",
+          "The precise source vector field displayed in the inspected Git RESULT.md has the x-y cubic terms yzw and −xzw, yielding the cancellation independently checked in SymPy.",
+          "Resultary search returned the identical indexed finding; it is self-indexing, not independent earlier scientific priority. Other high-score findings use different vector fields and different invariants."
+        ],
+        "reasoning": "The only identified equivalent system is the same Yang–Liu/Rech crossed-cubic flow. The inspected publication material did not state an equivalent radial monotonicity or measure-rigidity result. The entire full texts of both original articles were inaccessible; this is a material but bounded residual priority risk, not proof of absence.",
+        "searches": [
+          "Resultary: Yang Liu four dimensional cubic yzw ay minus xzw minus bz plus xyw minus cw plus xyz monotone x squared y squared no recurrent chaos",
+          "Web: \"Yang\" \"Liu\" \"yzw\" \"xzw\" \"x^2+y^2\" hyperchaos",
+          "Web: \"xdot=yzw\" \"ydot=ay-xzw\" chaos",
+          "DOI:10.1142/S0218127421500127 / ResearchGate publisher preview"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed record 2026/10/11/SCOPE-a-monotone-radial-law-excludes-recurrent-chaos-in-the-yang-liu-c--e5bf26b57123 is this very finding and is not independent prior literature.",
+          "No external indexed exact same-system radial recurrence theorem was returned in the performed searches.",
+          "The Yang–Liu bibliographic record lists a numerical hyperchaotic system, not an exact invariant/solution database; exact_database_or_table is not a natural object type for this continuous-flow theorem."
+        ],
+        "reasoning": "The database check is principally an exact-statement and equation search, because no finite table would classify the continuous polynomial flow for all parameters. Search non-detection alone is not evidence of novelty.",
+        "searches": [
+          "Resultary exact equation and monotone radial query (self hit score 0.5916, 30 returned)",
+          "Resultary no-recurrent-chaos line-equilibrium query (30 results)",
+          "Web: \"A Novel Simple Hyperchaotic System with Two Coexisting Attractors\" \"error\"",
+          "MaRDI publication metadata: DOI 10.1142/S0218127419502031"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a model-specific global no-recurrence obstruction: the exact algebraic Lyapunov identity and its consequences were independently reconstructed, then compared at statement/implication level with the introducing Yang–Liu paper, the same-system Rech follow-up, Resultary exact-equation searches and stronger analogous results for other flows. The available primary passages report chaos rather than the obstruction; the same-result Resultary hit is self-indexing and not independent earlier priority. Generic monotonicity principles do not identify this R for the printed system. Both full same-system articles remained inaccessible after lawful retrieval attempts; prior equivalent treatment remains a material priority risk and non-detection is not novelty proof.",
+      "residual_risks": [
+        "Both highly relevant original full articles (Yang–Liu 2019, 18 pages; Rech 2021, 6 pages) were unavailable beyond accessible previews/abstracts after arXiv and OA searches; lawful full-text retrieval did not succeed. Equivalent material in sections/appendices not read remains possible.",
+        "Search and index rankings do not establish historical novelty, especially for elementary source-specific polynomial cancellations or unindexed critical commentary.",
+        "The theorem depends on the precise printed signs of all four equations; other normalizations, numerical integrators, discretizations or algebraic variants may behave differently.",
+        "No claim for a=0, b≤0, c≤0, noncompact stationary measures, transient numerical traces, unbounded trajectories, or absence of all compact invariant sets containing nonrecurrent connecting orbits.",
+        "No Lean or expert attestation was performed; the algebraic reconstruction and proof inspection do not constitute formal verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible material asserts hyperchaotic/coexisting attractors and does not itself establish the claimed monotone radial identity. No whole-article noncoverage conclusion is drawn from the preview.",
+          "evidence": "ResearchGate 338177031; article 1950203, International Journal of Bifurcation and Chaos 29(14), Dec 2019; abstract describes two hyperchaotic attractors, Lyapunov/bifurcation/0–1 test.",
+          "identifier_or_url": "doi:10.1142/S0218127419502031",
+          "material_read": "ResearchGate publisher-derived preview containing 2019 article title, authors, abstract and first-page introduction; cross-checked MaRDI bibliographic abstract. The 18-page complete article was not available.",
+          "method": "Read the accessible original preview; attempted arXiv, lawful open-access and publisher PDF routes, then lawful full-text retrieval; no complete text was obtained.",
+          "title": "A Novel Simple Hyperchaotic System with Two Coexisting Attractors",
+          "trigger": "Introducing primary article for this exact named four-dimensional cubic flow and claimed coexistence of hyperchaotic attractors."
+        },
+        {
+          "assessment": "The inspected material discusses the same three-parameter flow and numerically computed regular/chaotic regions, without displaying the global recurrence theorem in the excerpts. Full-text coverage is not excluded.",
+          "evidence": "Rech 2021, article 2150012 in International Journal of Bifurcation and Chaos 31(1); abstract describes crossed cubic terms, Lyapunov spectra, bifurcation diagrams and multistability; publisher-preview citation excerpts attribute the system to Yang–Liu.",
+          "identifier_or_url": "doi:10.1142/S0218127421500127",
+          "material_read": "Full journal abstract and ResearchGate accessible article excerpts reproduced on the introducing article’s citation page; complete six-page journal text could not be obtained.",
+          "method": "Read abstract and quoted same-system discussion; searched exact title for lawful PDF and preprint/OA copies; further lawful full-text retrieval did not yield the complete article.",
+          "title": "Dynamics of a Four-Dimensional System with Cubic Nonlinearities",
+          "trigger": "Highly relevant same-equations 2021 follow-up by Rech; plausible prior global obstruction or equation reformulation."
+        },
+        {
+          "assessment": "Inapplicable: conserved spheres of a different flow imply spectral constraints, not the Yang–Liu measure-rigidity theorem.",
+          "evidence": "Indexed summary: x²+y²+z²+w² invariant in Lu–Yu–Zhu, asymptotic spectrum {λ,0,0,−λ}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-conserved-sphere-forces-two-neutral-lyapunov-exponents-in-the--b2f60c622005",
+          "material_read": "Resultary published finding title, summary, system name and specified conserved-sphere identity; no full result manuscript read.",
+          "method": "Compared the asserted first integral, equation object and implication to the source-specific Yang–Liu radial derivative.",
+          "title": "A conserved sphere forces two neutral Lyapunov exponents in the Lu–Yu–Zhu flow",
+          "trigger": "High-ranked published structural no-hyperchaos analogue in the Resultary semantic search."
+        },
+        {
+          "assessment": "Inapplicable to the Yang–Liu printed field; matching dynamical principle alone does not imply the model-specific cancellation.",
+          "evidence": "Indexed summary: H=z+g(1+m)x²/(2r), derivative −gx² on a special 5D dynamo slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311",
+          "material_read": "Resultary indexed title and substantive summary with special parameter slice and polynomial H; full original text not read.",
+          "method": "Compared vector field dimension, parameter constraints and monotone observable.",
+          "title": "A monotone coboundary excludes recurrent chaos on the line-equilibrium slice of a 5D segmented disc dynamo",
+          "trigger": "Most closely related exact monotonicity/recurrence obstruction by mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS because the compact invariant-state obstruction is not just an arbitrary algebraic check: it contradicts the specifically published interpretation of positive-parameter numerical attractors as hyperchaotic recurrent sets for this exact cubic ODE. One simple global identity rules out all non-equilibrium recurrent points and compact stationary distributions simultaneously over a three-parameter sign domain, with an explicit diagnostic for distinguishing long transients or numerical drift from true bounded recurrent dynamics. The computation is elementary, but its precise source-relevant dynamical correction and parameter scope make it a motivated mathematical obstruction rather than a textbook restatement. Value does not imply a general theorem about other chaotic flows.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1142/S0218127419502031 — Yang and Liu (2019), publisher preview and abstract (not full text)",
+    "doi:10.1142/S0218127421500127 — Rech (2021), journal abstract and publisher-derived excerpts (not full text)",
+    "https://www.researchgate.net/publication/338177031_A_Novel_Simple_Hyperchaotic_System_with_Two_Coexisting_Attractors",
+    "https://www.researchgate.net/publication/348792718_Dynamics_of_a_Four-Dimensional_System_with_Cubic_Nonlinearities",
+    "https://portal.mardi4nfdi.de/wiki/A_novel_simple_hyperchaotic_system_with_two_coexisting_attractors",
+    "Resultary semantic searches of exact Yang–Liu equations, invariant measures, line equilibria and no-chaos statements",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-conserved-sphere-forces-two-neutral-lyapunov-exponents-in-the--b2f60c622005",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Both highly relevant original full articles (Yang–Liu 2019, 18 pages; Rech 2021, 6 pages) were unavailable beyond accessible previews/abstracts after arXiv and OA searches; lawful full-text retrieval did not succeed. Equivalent material in sections/appendices not read remains possible.",
+    "Search and index rankings do not establish historical novelty, especially for elementary source-specific polynomial cancellations or unindexed critical commentary.",
+    "The theorem depends on the precise printed signs of all four equations; other normalizations, numerical integrators, discretizations or algebraic variants may behave differently.",
+    "No claim for a=0, b≤0, c≤0, noncompact stationary measures, transient numerical traces, unbounded trajectories, or absence of all compact invariant sets containing nonrecurrent connecting orbits.",
+    "No Lean or expert attestation was performed; the algebraic reconstruction and proof inspection do not constitute formal verification."
+  ],
+  "residual_risks": [
+    "Both highly relevant original full articles (Yang–Liu 2019, 18 pages; Rech 2021, 6 pages) were unavailable beyond accessible previews/abstracts after arXiv and OA searches; lawful full-text retrieval did not succeed. Equivalent material in sections/appendices not read remains possible.",
+    "Search and index rankings do not establish historical novelty, especially for elementary source-specific polynomial cancellations or unindexed critical commentary.",
+    "The theorem depends on the precise printed signs of all four equations; other normalizations, numerical integrators, discretizations or algebraic variants may behave differently.",
+    "No claim for a=0, b≤0, c≤0, noncompact stationary measures, transient numerical traces, unbounded trajectories, or absence of all compact invariant sets containing nonrecurrent connecting orbits.",
+    "No Lean or expert attestation was performed; the algebraic reconstruction and proof inspection do not constitute formal verification."
+  ],
+  "schema_version": 1
+}
