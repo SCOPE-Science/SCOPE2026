@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim reviewed.** Vanishing disagreement-response ratios preclude geometric consensus on any fixed finite strongly connected influence graph, while reciprocal two-agent exponentially flat responses have the stated three-term logarithmic gap and exact small-tolerance waiting law; the analytic response contrast has geometric or polynomial asymptotics.
+## correctness
 
-## Correctness — PASS
-The same complete hypotheses are imposed in the finding and proof: finite strongly connected digraph, normalized nonnegative influence weights, continuous sign-preserving heterogeneous responses uniformly bounded by \(\theta|s|\) with \(\theta<1/2\), and vanishing response ratio on every edge. Positive self-coefficients yield strict persistence of nonconsensus; propagation along shortest directed paths gives strict contraction of each extremum within at most \(n-1\) steps. Compactness and continuity give asymptotic consensus. The diameter lower bound \(D_{t+1}\ge D_t-2b(D_t)\) gives the ratio limit. For two agents, an explicit variable change to \(y_t=d_t^{-\alpha}\) and the asymptotically constant increments of \(H(y_t)=e^{y_t}y_t^{-(1+1/\alpha)}\) prove the correction term \(\log(2\alpha)\) and the hitting-time constant \(1/(2\alpha)\). The analytic case follows by expansion of inverse powers of the gap. The attached exact-rational and floating-point tests were executed successfully but do not replace these proofs.
+PASS
 
-## Originality — PASS, with residual risks
-The full relevant sections, original statements, illustrative example, and proof appendix of Alvim et al., arXiv:2402.17615v1, were compared directly; their Theorem 3.1 is a qualitative consensus theorem, and their Figure 5 already shows the \(\alpha=1\) slow-convergence example without a quantitative asymptotic theorem. Paz et al., arXiv:2409.10809v1, extend consensus to generalized state-dependent influence and likewise provide no three-term asymptotic or inverse-tolerance equivalent in their theorem, proof and appendix. Alvim et al., arXiv:2112.09542, prove convergence and polarization identities for a different confirmation-bias specialization. Baković et al., arXiv:2403.03913v1, use a different simplex-normalized multipolar update and do not bound the studied scalar recurrence. Published-index comparisons concerning logarithmic graph switching, weighted linear consensus with memory, and critical social-model relaxation have materially different objects and implications; accessible prior claims concerning bounded-confidence dynamics are not equivalent to a smooth disagreement-response law. The novel content is the cross-graph subgeometric obstruction **combined** with the exact tolerance and logarithmic expansion of the explicit published flat response, not the general idea that flat scalar iterations may converge slowly.
+Writing q_ij(s)=beta_ij(s)/s gives convex stochastic update with self-weight ≥1-theta>0. Old extrema remain bounds. Let b(r)=max_edge,max_|s|≤r |beta(s)|≤theta*r; then D_(t+1)≥D_t-2b(D_t)≥(1-2theta)D_t>0. Strong connectivity propagates strict drop from an old max (and rise from old min) in at most n-1 steps; compactness and continuity force limiting diameter 0. Flatness b(D_t)/D_t→0 proves adjacent diameter ratio→1 and Cesaro logarithmic mean gives subgeometric convergence. For d_(t+1)=d_t-2exp(-d_t^-alpha), letting y=d^-alpha gives Delta y=2alpha y^(1+1/alpha)exp(-y)(1+o(1)); H(y)=exp(y)/y^(1+1/alpha) has Delta H→2alpha, so H(y_t)~2alpha t, yielding three-term expansion and overshoot-controlled accuracy time. For analytic beta(s)=a s^m+O(s^(m+2)), reciprocal-power increments give m=1 geometric, m odd>=3 t^-1/(m-1). Examined exact-rational finite graph and scalar source checks, not treating finite runs as proofs.
 
-Residual risk: general nonlinear-recursion/regular-variation literature not indexed under opinion dynamics might contain the scalar asymptotic; related specialist works may be unindexed. This review is not an independent novelty certificate.
+## originality
 
-## Value — PASS
-The 2024 motivating paper expressly illustrates remarkably slow convergence but proves only eventual agreement. Quantifying a prescribed opinion tolerance reveals a practically decisive \(\exp(\varepsilon^{-\alpha})\) time scale. The graph theorem shows that connectivity cannot remedy a vanishing first-order responsiveness even when all individuals continue listening to each other, and the real-analytic comparison identifies a sharp regularity-related divide between geometric, polynomial and inverse-logarithmic relaxation. The result addresses time-to-agreement, not an arbitrary numerical slice; it needs no downstream application theorem for this quantitative fact to be meaningful.
+PASS
 
-## Boundaries
-The graph-wide result is first-order in the diameter and cannot predict a single graph-independent asymptotic equivalent. The sharp logarithmic constants require a reciprocal two-agent graph with identical odd responses. Floating-point tests are preasymptotic and numerical; the mathematical claims rely on the analytical proof. The literature comparison leaves the above specific residual risks. No external independent validation was undertaken.
+The exact flat bias alpha=1 and qualitative slow convergence were ALREADY simulated by Alvim et al 2024; their consensus theorem covers convergence but not uniform ratio→1 for arbitrary heterogeneous flat biases or the three-term inverse-logarithmic law and accuracy time. The quantitative asymptotics may follow abstract scalar slowly varying iteration methods, but full model-specific theorem/comparison is not printed there.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result quantifies a real slow-convergence phenomenon in an explicit published consensus example and shows a structural obstruction to ANY uniform geometric decay under flat receptiveness on an entire class of finite strongly connected graphs, with sharp accuracy-cost scaling and analytic-versus-flat transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

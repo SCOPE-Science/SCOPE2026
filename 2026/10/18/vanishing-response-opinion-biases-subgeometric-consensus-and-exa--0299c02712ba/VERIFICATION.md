@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The standalone script `verify.py` uses only the Python standard library. Run with `python3 verify.py`. In the packaged preparation it printed successful exact-rational checks for a heterogeneous four-node directed influence cycle (three synchronous transitions), successful finite scalar recurrences for the flat two-agent biases at \(\alpha=1\) (20,000 steps) and \(\alpha=2\) (2,000 steps), and two rational transitions each for the analytic responses of degrees \(1\), \(3\), and \(5\). The finite scalar output includes the monitored ratio \(H(d_t^{-\alpha})/(2\alpha t)\); it is far from the asymptotic limit for some parameters, consistent with strong preasymptotic slowing and not a failed test.
+# Independent mathematical audit
 
-The unlimited-time mathematical verification instead consists of (i) the positive self-weight convex-combination argument; (ii) the strong-connectivity propagation of a strict decrease from the old maximum; (iii) continuity and compactness forcing consensus; (iv) the lower diameter inequality and flatness at zero; (v) the exact two-agent recurrence and asymptotically constant increment of \(H\); and (vi) the Taylor leading-order inverse-power recurrence in the analytic contrast. These are derived in `RESULT.md` and do not depend on simulation.
+## correctness
 
-The script does not constitute exhaustive graph enumeration, numerical proof of the infinite-time limits, or independent validation. All claims are restricted to the hypotheses and domains stated in the result.
+PASS
+
+Writing q_ij(s)=beta_ij(s)/s gives convex stochastic update with self-weight ≥1-theta>0. Old extrema remain bounds. Let b(r)=max_edge,max_|s|≤r |beta(s)|≤theta*r; then D_(t+1)≥D_t-2b(D_t)≥(1-2theta)D_t>0. Strong connectivity propagates strict drop from an old max (and rise from old min) in at most n-1 steps; compactness and continuity force limiting diameter 0. Flatness b(D_t)/D_t→0 proves adjacent diameter ratio→1 and Cesaro logarithmic mean gives subgeometric convergence. For d_(t+1)=d_t-2exp(-d_t^-alpha), letting y=d^-alpha gives Delta y=2alpha y^(1+1/alpha)exp(-y)(1+o(1)); H(y)=exp(y)/y^(1+1/alpha) has Delta H→2alpha, so H(y_t)~2alpha t, yielding three-term expansion and overshoot-controlled accuracy time. For analytic beta(s)=a s^m+O(s^(m+2)), reciprocal-power increments give m=1 geometric, m odd>=3 t^-1/(m-1). Examined exact-rational finite graph and scalar source checks, not treating finite runs as proofs.
+
+## originality
+
+PASS
+
+The exact flat bias alpha=1 and qualitative slow convergence were ALREADY simulated by Alvim et al 2024; their consensus theorem covers convergence but not uniform ratio→1 for arbitrary heterogeneous flat biases or the three-term inverse-logarithmic law and accuracy time. The quantitative asymptotics may follow abstract scalar slowly varying iteration methods, but full model-specific theorem/comparison is not printed there.
+
+## value
+
+PASS
+
+The result quantifies a real slow-convergence phenomenon in an explicit published consensus example and shows a structural obstruction to ANY uniform geometric decay under flat receptiveness on an entire class of finite strongly connected graphs, with sharp accuracy-cost scaling and analytic-versus-flat transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

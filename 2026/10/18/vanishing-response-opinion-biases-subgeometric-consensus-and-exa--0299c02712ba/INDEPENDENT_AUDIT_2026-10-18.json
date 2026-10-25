@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T22:01:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing q_ij(s)=beta_ij(s)/s gives convex stochastic update with self-weight ≥1-theta>0. Old extrema remain bounds. Let b(r)=max_edge,max_|s|≤r |beta(s)|≤theta*r; then D_(t+1)≥D_t-2b(D_t)≥(1-2theta)D_t>0. Strong connectivity propagates strict drop from an old max (and rise from old min) in at most n-1 steps; compactness and continuity force limiting diameter 0. Flatness b(D_t)/D_t→0 proves adjacent diameter ratio→1 and Cesaro logarithmic mean gives subgeometric convergence. For d_(t+1)=d_t-2exp(-d_t^-alpha), letting y=d^-alpha gives Delta y=2alpha y^(1+1/alpha)exp(-y)(1+o(1)); H(y)=exp(y)/y^(1+1/alpha) has Delta H→2alpha, so H(y_t)~2alpha t, yielding three-term expansion and overshoot-controlled accuracy time. For analytic beta(s)=a s^m+O(s^(m+2)), reciprocal-power increments give m=1 geometric, m odd>=3 t^-1/(m-1). Examined exact-rational finite graph and scalar source checks, not treating finite runs as proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General receptive-bias consensus theorems cover convergence, not the quantified asymptotics; generalized-bias results concern broader existence assumptions."
+        ],
+        "reasoning": "Broader consensus theorems do not imply these rates; nonlinear parabolic recurrence theory may supply scalar asymptotic tools, but no pre-existing exact statement under these hypotheses located.",
+        "searches": [
+          "arxiv:2402.17615 Theorem 3.1",
+          "arxiv:2409.10809 Theorems 4.1-4.3",
+          "arxiv:2112.09542",
+          "RESULTARY:opinion dynamics vanishing flat response subgeometric consensus inverse logarithmic convergence"
+        ]
+      },
+      "checked_sources": [
+        "Alvim, Gaspar da Silva, Knight, Valencia, A Multi-Agent Model for Opinion Evolution under Cognitive Biases, arxiv:2402.17615 (full primary PDF portions read)",
+        "Paz et al Consensus in Models for Opinion Dynamics with Generalized-Bias, arxiv:2409.10809",
+        "Resultary RESULTARY:opinion dynamics vanishing flat response subgeometric consensus inverse logarithmic convergence",
+        "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theory proves consensus; qualitative Figure 5 exhibits visibly slow rate without formula."
+        ],
+        "reasoning": "The limit D_(t+1)/D_t=1 requires the uniform flatness bound; the precise T(epsilon) follows a nontrivial asymptotic transform, not as a direct corollary of consensus alone.",
+        "searches": [
+          "arxiv:2402.17615 Figure 5 and Theorem 3.1",
+          "arxiv:2409.10809 consensus theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original article already studies the same flat function beta(s)=sgn(s)exp(-1/|s|) and shows slow numerical convergence."
+        ],
+        "reasoning": "The original example is not new. Replacing qualitative observation with exact inverse-log law and universal graph-wide no-geometric-rate bound is the material new claim.",
+        "searches": [
+          "Alvim et al arxiv:2402.17615 Theorem 3.1/Figure 5",
+          "RESULTARY:opinion dynamics vanishing flat response subgeometric consensus inverse logarithmic convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary records concern unrelated logarithmic switching and dissipative flows."
+        ],
+        "reasoning": "No same mathematical model explicit t/log t law found in indexed published findings, not proof of novelty.",
+        "searches": [
+          "RESULTARY:opinion dynamics vanishing flat response subgeometric consensus inverse logarithmic convergence",
+          "Resultary:vanishing opinion response logarithmic slow consensus exact two agent"
+        ]
+      },
+      "rationale": "The exact flat bias alpha=1 and qualitative slow convergence were ALREADY simulated by Alvim et al 2024; their consensus theorem covers convergence but not uniform ratio→1 for arbitrary heterogeneous flat biases or the three-term inverse-logarithmic law and accuracy time. The quantitative asymptotics may follow abstract scalar slowly varying iteration methods, but full model-specific theorem/comparison is not printed there.",
+      "residual_risks": [
+        "Generic regularly-varying or parabolic scalar iteration theorems may cover the two-agent expansion after substitution, even if original opinion article did not write it.",
+        "No universal precise rate for an arbitrary graph claimed; strict receptiveness and theta<1/2 essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same flat example previously simulated, but no precise three-term asymptotic rate or hitting time proved there.",
+          "evidence": "Theorem 3.1 and Figure 5 qualitatively slow flat bias.",
+          "identifier_or_url": "arxiv:2402.17615; https://arxiv.org/pdf/2402.17615",
+          "material_read": "Full PDF available; Theorem 3.1/consensus conditions, Figure 5 and surrounding displayed flat-bias example materially read.",
+          "method": "primary PDF theorem/figure inspection",
+          "title": "A Multi-Agent Model for Opinion Evolution under Cognitive Biases",
+          "trigger": "Exact model and published alpha=1 flat response example"
+        },
+        {
+          "assessment": "Consensus at broader biases shown but no explicit flat two-agent inverse-log law found.",
+          "evidence": "Theorems 4.1–4.3.",
+          "identifier_or_url": "arxiv:2409.10809",
+          "material_read": "Theorem statements 4.1–4.3 and model comparison inspected, not represented as complete line-by-line paper reading.",
+          "method": "arxiv theorem-statement comparison",
+          "title": "Consensus in Models for Opinion Dynamics with Generalized-Bias",
+          "trigger": "Possible stronger rate theorem in generalized model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies a real slow-convergence phenomenon in an explicit published consensus example and shows a structural obstruction to ANY uniform geometric decay under flat receptiveness on an entire class of finite strongly connected graphs, with sharp accuracy-cost scaling and analytic-versus-flat transition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Alvim, Gaspar da Silva, Knight, Valencia, A Multi-Agent Model for Opinion Evolution under Cognitive Biases, arxiv:2402.17615 (full primary PDF portions read)",
+    "Paz et al Consensus in Models for Opinion Dynamics with Generalized-Bias, arxiv:2409.10809",
+    "Resultary RESULTARY:opinion dynamics vanishing flat response subgeometric consensus inverse logarithmic convergence",
+    "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Generic regularly-varying or parabolic scalar iteration theorems may cover the two-agent expansion after substitution, even if original opinion article did not write it.",
+    "No universal precise rate for an arbitrary graph claimed; strict receptiveness and theta<1/2 essential.",
+    "The source Git-tree ancestry was not independently traversed; source content and frozen commit SHA were checked via file blob fetches.",
+    "The original metadata contains operational provenance; no publication or Git write occurred. Scientific acceptance and publication readiness are separate."
+  ],
+  "residual_risks": [
+    "Generic regularly-varying or parabolic scalar iteration theorems may cover the two-agent expansion after substitution, even if original opinion article did not write it.",
+    "No universal precise rate for an arbitrary graph claimed; strict receptiveness and theta<1/2 essential."
+  ],
+  "schema_version": 1
+}
