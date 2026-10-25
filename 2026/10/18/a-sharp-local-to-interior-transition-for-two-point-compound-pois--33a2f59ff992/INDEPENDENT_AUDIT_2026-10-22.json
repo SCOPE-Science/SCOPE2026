@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:59:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting K(t)=lambda E(e^{tJ}-1-tJ), fixed V=lambda(1+24q), the scale condition is exactly sup_{t>0} (1-1/M_q(t))/t; for t>=1/c, comparison Psi<=1/t prevents omission of the domain restriction. Power-series coefficients a_n=2[1+(5^{n+2}-1)q]/[(n+2)!(1+24q)] yield H=M(M-1)-tMprime. Exact b2,b3,b4 rational polynomials and roots were independently recomputed with SymPy. For n>=5, the jump-moment ratios and a1,a2>=3/4 (for q>=q_->1/50) imply b_n/a_n >= (3n^2-26n+86)/50>0, an infinite-coefficient proof. For q_-<=q<qc, H/t^3 has strictly positive derivative and opposite endpoint limits, so one interior optimum with negative second derivative. For qc<=q<=1, all b_n>=0 with b3>0, so strict decrease to the local third-cumulant boundary. Implicit-function theorem gives onset t_q=(b2prime/b3)(qc-q)+O((qc-q)^2), scale excess= (b2prime^2/2b3)(qc-q)^2+O((qc-q)^3). Independent symbolic computations reproduced qc=0.0563620637968 and slope 11.751349368; q=1/40 interior example is a supplementary numerical check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen general variational theorem applies to these jump laws but neither implies uniqueness nor the exact b2=0 phase transition."
+        ],
+        "reasoning": "A more general variational formula is not dominating coverage of the new optimizer classification. General Bernstein concentration bounds are inequalities, not sharp scale identification.",
+        "searches": [
+          "two point compound Poisson optimal sub gamma scale sharp interior optimizer mixture probability transition 1 and 5 jump",
+          "two point compound Poisson jumps {1,5} variational optimal subgamma MGF unique maximizer q_c",
+          "https://arxiv.org/html/2610.00032v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00032v1",
+        "https://doi.org/10.1186/s13660-019-2263-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen §7.2 establishes interior optimization at q=1/40 and says uniqueness is not established; here uniqueness follows from sign pattern for all q in [q_-,qc)."
+        ],
+        "reasoning": "Chen supplies an exact special example and variational identity but does not entail the root uniqueness or threshold asymptotics; no contrary coverage was found.",
+        "searches": [
+          "https://arxiv.org/html/2610.00032v1",
+          "two point compound Poisson optimal sub gamma scale sharp interior optimizer mixture probability transition 1 and 5 jump",
+          "two point compound Poisson jumps {1,5} variational optimal subgamma MGF unique maximizer q_c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen arXiv:2610.00032v1 sections3,6,7.2: exact c*=sup Psi for infinitely divisible laws and particular 1/5 mixture; Section 7.2 expressly notes interior existence but not uniqueness."
+        ],
+        "reasoning": "Equilibrium-transform aliases and moment-generating function order capture the same old variational problem but do not provide a full parameter q optimizer dichotomy.",
+        "searches": [
+          "two point compound Poisson optimal sub gamma scale sharp interior optimizer mixture probability transition 1 and 5 jump",
+          "two point compound Poisson jumps {1,5} variational optimal subgamma MGF unique maximizer q_c",
+          "https://arxiv.org/html/2610.00032v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest responses concern other Poisson-binomial, variance-gamma or stopping laws, not 1/5 jump optimal-scale phase diagram."
+        ],
+        "reasoning": "There is no known exact database/table from the searches for q_-, qc, unique maximizing t, or quadratic onset. Absence of matches is not novelty certification.",
+        "searches": [
+          "two point compound Poisson optimal sub gamma scale sharp interior optimizer mixture probability transition 1 and 5 jump",
+          "two point compound Poisson jumps {1,5} variational optimal subgamma MGF unique maximizer q_c"
+        ]
+      },
+      "rationale": "Chen gives the same optimal-scale variational reduction and one (1,5) interior example, but explicitly leaves uniqueness unresolved; the new analytic coefficient-sign argument gives a genuinely new q-interval uniqueness/phase-boundary/onset theorem. The current work does NOT claim novelty for the variational transform or basic example.",
+      "residual_risks": [
+        "Range starts q_-; q_- is a sufficient analytic-coefficient threshold, not asserted mathematically minimal.",
+        "Other mixture laws, q<q_- and unindexed optimization refinements remain outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_VARIATIONAL_PREMISE_AND_ONE_EXAMPLE_NOT_PHASE_CLASSIFICATION",
+          "evidence": [
+            "§7.2: existence of an interior optimizer, uniqueness not established; §§3/6: variational representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00032v1",
+          "material_read": "Full arXiv HTML: Sections 3,6,7.2, 7.3 including formulas, example and statement about uniqueness",
+          "method": "Lawful arXiv full text read",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "Same centered compound Poisson jump law and optimal scale, strongest plausible covering primary source"
+        },
+        {
+          "assessment": "DIFFERENT_BOUND_NOT_OPTIMAL_SCALE",
+          "evidence": [
+            "General nonoptimal inequalities do not supply exact qc or uniqueness."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-019-2263-8",
+          "material_read": "Published abstract, available mathematical statement of Bernstein-type bounds",
+          "method": "Publisher abstract and bibliographic inspection",
+          "title": "Compound Poisson point processes, concentration and oracle inequalities",
+          "trigger": "Potential more general concentration inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sub-gamma scale calibration is a natural sharp concentration invariant at a fixed true variance. A unique interior optimizer versus an endpoint regime changes which cumulant or finite tilt determines the best constant; resolving the precise q-critical transition and its quadratic onset matters for optimal concentration bounds and tests of the general variational principle. Not merely numerical reoptimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only J in {1,5}, q>=q_- and right sub-gamma with fixed variance proxy, not all mixtures; q_- not claimed optimal uniqueness threshold."
+  ],
+  "schema_version": 1
+}

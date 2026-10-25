@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The centered compound-Poisson law has variance \(\lambda(1+24q)\) and an exact entire exponential transform. The first three decisive coefficients of the optimizer derivative were derived and checked with symbolic arithmetic. A uniform lower bound on **all** higher coefficients produces a rigorous one-crossing argument. The positive branch is a strict global maximum, not just a stationary point, while the other branch has no positive optimizer. The implicit-function calculation supplies exact transition exponents. The program `verify.py` reproduces the identities and numerical benchmark; the infinite proof is analytical.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest primary treatment is Y. Chen (2026), arXiv:2610.00032v1, Section 7.2. It gives the exact variational formula, the illustrative mixture at \(q=1/40\), and an interior numerical optimum, but explicitly does not establish uniqueness. The present theorem extends to an explicit parameter interval, proves unique optimizer or strictly monotone behavior, and determines a critical transition law. The earlier Zhang–Wu compound-Poisson concentration theorem supplies general Bernstein bounds, not the exact tangency classification. Klar–Müller's M-class abstract concerns MGF order, but its complete text was not read. Indexed record and primary-literature searches found no stronger covering statement; differently phrased or inaccessible earlier work remains possible.
+PASS
 
-## Mathematical value — PASS
-This resolves a specifically stated uniqueness gap in the motivating treatment, gives an unambiguous optimizer throughout a continuous family, and identifies a sharp local-to-interior concentration-scale transition with an explicit probability threshold. The linear collapse of the optimizer and quadratic gain describe how the sharp pole separates from the local cumulant obstruction. This does not claim a complete phase diagram for all two-point laws.
+Starting K(t)=lambda E(e^{tJ}-1-tJ), fixed V=lambda(1+24q), the scale condition is exactly sup_{t>0} (1-1/M_q(t))/t; for t>=1/c, comparison Psi<=1/t prevents omission of the domain restriction. Power-series coefficients a_n=2[1+(5^{n+2}-1)q]/[(n+2)!(1+24q)] yield H=M(M-1)-tMprime. Exact b2,b3,b4 rational polynomials and roots were independently recomputed with SymPy. For n>=5, the jump-moment ratios and a1,a2>=3/4 (for q>=q_->1/50) imply b_n/a_n >= (3n^2-26n+86)/50>0, an infinite-coefficient proof. For q_-<=q<qc, H/t^3 has strictly positive derivative and opposite endpoint limits, so one interior optimum with negative second derivative. For qc<=q<=1, all b_n>=0 with b3>0, so strict decrease to the local third-cumulant boundary. Implicit-function theorem gives onset t_q=(b2prime/b3)(qc-q)+O((qc-q)^2), scale excess= (b2prime^2/2b3)(qc-q)^2+O((qc-q)^3). Independent symbolic computations reproduced qc=0.0563620637968 and slope 11.751349368; q=1/40 interior example is a supplementary numerical check.
 
-## Scope and scientific limitations
-Only jump sizes \(1\) and \(5\) and mixture probabilities \(q\ge q_-\) are classified; no optimality assertion is made about the lower cutoff \(q_-\). The exact proof does not depend on numerical sampling. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen gives the same optimal-scale variational reduction and one (1,5) interior example, but explicitly leaves uniqueness unresolved; the new analytic coefficient-sign argument gives a genuinely new q-interval uniqueness/phase-boundary/onset theorem. The current work does NOT claim novelty for the variational transform or basic example.
+
+## value
+
+PASS
+
+Sub-gamma scale calibration is a natural sharp concentration invariant at a fixed true variance. A unique interior optimizer versus an endpoint regime changes which cumulant or finite tilt determines the best constant; resolving the precise q-critical transition and its quadratic onset matters for optimal concentration bounds and tests of the general variational principle. Not merely numerical reoptimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
