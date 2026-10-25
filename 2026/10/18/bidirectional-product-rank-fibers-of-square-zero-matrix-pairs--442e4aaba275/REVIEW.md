@@ -1,19 +1,21 @@
-# Scientific review: bidirectional product ranks of square-zero pairs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every square-zero operator is uniquely encoded by an image–kernel flag and an isomorphism between its quotient and image. The proof counts the first image subspace against the nested image–kernel flag of the second operator, then counts the second kernel against the first image. The two independently determined intersection dimensions are exactly the two ordered-product ranks. The Gaussian coefficients and graph-of-map factors have explicit, nonoverlapping inverse constructions. The claimed support follows from an exact set of linear inequalities, and the balanced specialization has a second direct incidence proof. Exhaustive checks for five small field/dimension pairs include \(\mathbb F_4\); the general proof does not rely on them.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+Each square-zero rank-a operator is determined by a flag U=im X subset K=ker X of dimensions a,n-a and an isomorphism V/K→U, giving Z_a=[n a]_q[n-a a]_q |GL_a(q)|. For Y use flag S⊂W and an isomorphism V/W→S. Because X,Y inject on quotients, r=rank(XY)=b−dim(S∩K) and s=rank(YX)=a−dim(U∩W). With c=dim(S∩U), d=b−r−c, e=n−2b−a+s+c, subspace intersection counts and graph-of-map lifts yield the formula in RESULT.md; no overlap of flag choices. Nonempty integer index set reduces exactly to |r−s|≤n−a−b, and for n=2h,a=b=h enforces r=s. Independently evaluated Gaussian coefficients giving F_(3,2)(1,1;r,s)=[105,84,84,168] in lexicographic (r,s), F_(4,2)(2,2;r,r)=[1260,22680,20160], and exact all-fiber normalization for 1≤n≤7 at q=2. Arbitrary-field statement follows from flag counting, not these finite cases.
 
-Schröer (arXiv:math/0211293) and Oblak (arXiv:math/0612300) study mutually annihilating pairs, a proper sublocus restricted to \(XY=YX=0\). Huang (arXiv:2110.15566) counts that same sublocus but does not provide this four-rank distribution. Bernau and Abian (1988), in the tradition of Flanders (1951), establish Jordan-theoretic compatibility of general \(XY\) and \(YX\), not the finite-field multiplicities with both factors square-zero. Targeted bibliographic and semantic-database searches did not locate the stated joint Gaussian formula. Standard incidence methods and a potentially equivalent older parametrization remain priority risks; absence from a search is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The four-rank profile is a complete natural arithmetic invariant for finite-dimensional representations of the two-generator algebra with relations \(x^2=y^2=0\), **without** a mixed relation. Unlike one-sided product counts, it measures directional asymmetry in a noncommutative representation family. The sharp gap \(|r-s|\leq n-a-b\) and exact diagonal collapse for maximal square-zero ranks are intrinsic structural boundaries, not arbitrary finite slices or reparametrizations. No broader classification or downstream theorem is claimed.
+Schröer, Oblak and Huang address the proper mutually-annihilating XY=YX=0 sublocus, while Bernau–Abian/Flanders address constraints on Jordan invariants of AB and BA without counting ordered square-zero factors by two product ranks over finite fields. The submitted finite q, full joint (a,b,r,s) distribution and exact support are not a corollary of the inspected stated theorems; general finite-field incidence calculus is shared, and an unindexed equivalent old count remains possible.
 
-## Limitations and residual risks
+## value
 
-The formula counts ordered matrices, not orbit classes. It does not recover full Jordan types of \(XY\) and \(YX\). Earlier finite-field incidence counts or special-biserial representation formulas could encode the same result under different terminology; the 1951 elementary-divisor paper was not materially inspected in full. Independent scientific assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete bivariate product-rank profile is a natural invariant of ordered finite-field representations of F_q<x,y>/(x²,y²); the product-rank asymmetry boundary and forced diagonal collapse for maximal square-zero ranks have intrinsic representation-theoretic meaning. It distinguishes noncommuting pairs beyond mutual annihilation and is not a manufactured finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
