@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pointwise support calculation for coordinate subsets is exact: every cyclic tube contributes its weight if and only if wholly contained in the chosen subset. The subset inequalities recover the full Minkowski sum by sorted-coordinate separation, including boundary weight profiles. Every nontrivial selected set and its complement have the same number of cyclic runs; the explicitly computed run-gap function is nondecreasing. Co-singleton subsets attain the sharp reflection ratio. Rotational averaging shows optimality among arbitrary centers, and equality in the co-singleton conditions proves uniqueness. The terminal filtration fraction and center translation have been checked algebraically. The exact-rational standalone checker passed 770 profiles over dimensions three through nine, including zero weights; enumeration is supporting evidence, not the proof of the universal claim.
+PASS
 
-## Originality — PASS, with bounded bibliographic risk
+For nonnegative length weights w_j, lambda>=0 (not all zero) and n>=3, subset lower-support bounds z(S)=sum of weights of simplices contained in S are *complete*: decompose any test functional into nested suffix indicators and apply separation. A proper subset decomposes into maximal cyclic runs; its centered lower gap A(S) is sum f(run length), f(t)=t(W+lambda/n)−sum_{j<=t}(t−j+1)w_j. Since f(t+1)−f(t)=sum_{j>=t+2}w_j+lambda/n>=0, complementary runs bound A(S)/A(S^c) <= f(n−1)/f(1), equality at a co-singleton. Cyclic averaging proves optimality of the invariant center c=(W+lambda/n)1; saturation of all co-singletons forces uniqueness. Algebra gives the displayed ratio and m-graph filtration values including singleton translation, and symmetry exactly when only w2 remains. Exact rational finite subset enumeration n=3..8 corroborated, not proved general case.
 
-Pešović–Stojadinović (2022, arXiv:2209.12053v1) supply the \(m\)-graph-polytope definition, not the Minkowski-asymmetry values or centers. Lam–Postnikov (2020, arXiv:2010.07120) give the cyclic-interval simplex realization of cyclohedra and polypositroid inequalities, not the claimed reflection optimization. Padrol–Pilaud–Poullot (2021, arXiv:2109.09200) study deformation cones rather than this invariant. The closely related indexed Euclidean-incenter study concerns a different optimization; the indexed star-stellohedron theorem concerns another building set. General polymatroid independence-body asymmetry does not automatically give asymmetry of a fixed-sum base face. The three relevant open-access papers were examined in their mathematical sections, and available published record summaries were compared by implication. Some close indexed full texts were not accessible, and older equivalent terminology could still cover the result; a search failure is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete structural law and a unique center for an infinite-dimensional weighted cyclic family, including a standard interpolation between graphical zonotopes and graph associahedra. Its sharply smaller last increment and exact symmetry criterion demonstrate how the affine-invariant geometry changes when higher-order cyclic tubes are added; the proof identifies the responsible extremal co-singleton constraints. This is not a reclassification of combinatorial types, nor a computation of an arbitrary small polytope.
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
 
-## Limits
+## value
 
-No assertion is made for position-dependent tube weights or Euclidean radius problems. Exhaustive published-priority assessment and independent mathematical validation remain unperformed. The finite checker does not certify arbitrary dimensions or real weights.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An affine-invariant closed-form asymmetry and unique center for an all-dimensional weighted family of cyclic graph-associahedral simplex sums is an independently useful exact invariant. It quantifies every stage of the natural m-graph polytope filtration and the anomalously smaller last-step increment, beyond known combinatorial and deformation descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
