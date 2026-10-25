@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python installation. The script independently builds the adjacency lists of the vertex-labelled lexicographic products for each tested path and cycle, enumerates every named palette assignment, and checks that the vertex's own colour is uniquely most frequent among open neighbours. It compares this result with separately implemented path- and cycle-binomial formulas. It does not use the proof's fibre-monochromatic assumption in its brute-force acceptance test.
+## correctness
 
-The executed verifier reported `SUCCESS cases=34 assignments=1969502`: 20 path cases and 14 cycle cases, including clique sizes \(s=2\) and \(s=3\), named palettes \(q=2\) and \(q=3\), and the path singleton case. All comparisons passed. This is exhaustive only within the listed finite parameter cases, not a proof for all \(n,s,q\).
+PASS
 
-The general proof requires no software: adjacent true twins cannot take different colours under unique plurality, strict fibre-neighbour comparisons reduce to weak plurality on the base, and the valid path/cycle colour sequences are counted by non-singleton-run compositions and cyclic boundary markings. Independent review has not been performed.
+PASS. In H[K_s], adjacent vertices within each clique are true twins. If x,y take distinct colors a,b and A,B count their external common neighbors of those colors, strict unique plurality would require A>B+1 and B>A+1, contradiction. Consequently each clique has constant color, and each vertex sees (s-1)+s*t_own same-colored neighbors versus s*t_other of a competing color; for integers and s>=2, strict inequality iff t_own>=t_other, proving size-independent reduction to weak plurality on H. On base degree-one/two paths and cycles weak plurality iff every nonconstant color run length >=2, with endpoints constrained; compositions of n into r lengths>=2 give C(n-r-1,r-1) for paths, and marked cyclic boundaries give (n/r)C(n-r-1,r-1) for cycles; appropriate proper run color factors establish exact formulas, n=1 isolated case q and components product. Independent brute named-color enumeration on eight small path/cycle blowups, including s=3, agrees. General true-twin theorem and unbounded closed sums are deductive, not extrapolated from brute force.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.
+
+## value
+
+PASS
+
+PASS. True-twin rigidity changes strict neighborhood plurality on clique blowups into weak plurality on the quotient for every H, with a surprising exact independence from uniform clique size s>=2. This structural reduction has stand-alone use, and the full closed path/cycle/max-degree-two formulas give natural unbounded-degree graph classes explicitly. The result is not ordinary proper coloring or a direct restatement of the universal partition polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts with an unrestricted adjacent-true-twin argument and independently reconstructs the neighbourhood weights after fibre contraction. The comparison \(s-1+s a>s b\) is equivalent to \(a\ge b\) for integer \(a,b\) and \(s\ge2\). Degree-one and degree-two base-neighbour checks force non-singleton monochromatic runs. The path composition factor, cyclic marked-boundary divisor, cycle chromatic factor, and the special cases \(P_1\) and \(C_3\) are all justified directly. Exhaustive adjacency-based finite verification agrees in 34 cases (1,969,502 named vertex-colour assignments). These finite checks cannot prove an infinite family theorem; the general result rests on the bijective argument.
+PASS
 
-## Originality — PASS, with residual risk
+PASS. In H[K_s], adjacent vertices within each clique are true twins. If x,y take distinct colors a,b and A,B count their external common neighbors of those colors, strict unique plurality would require A>B+1 and B>A+1, contradiction. Consequently each clique has constant color, and each vertex sees (s-1)+s*t_own same-colored neighbors versus s*t_other of a competing color; for integers and s>=2, strict inequality iff t_own>=t_other, proving size-independent reduction to weak plurality on H. On base degree-one/two paths and cycles weak plurality iff every nonconstant color run length >=2, with endpoints constrained; compositions of n into r lengths>=2 give C(n-r-1,r-1) for paths, and marked cyclic boundaries give (n/r)C(n-r-1,r-1) for cycles; appropriate proper run color factors establish exact formulas, n=1 isolated case q and components product. Independent brute named-color enumeration on eight small path/cycle blowups, including s=3, agrees. General true-twin theorem and unbounded closed sums are deductive, not extrapolated from brute force.
 
-The closest paper is Jones–Winkeler, *Counting Strict Gridlock on Graphs* (arXiv:2603.18289v1), especially Theorems 1 and 15 and its illustrative clique-community networks in §4 and Appendix A. It supplies a general partition expansion and recurrence but not the explicit parametric clique-blowup evaluations or invariance shown here. Those examples have sparse inter-clique links rather than complete joins. Other indexed lexicographic-product papers examine nonrepetitive or proper colouring conditions, not open-neighbourhood unique plurality. Indexed comparison searches did not reveal a covering theorem. Full bibliographic priority is not certified: relevant equivalent results under unfamiliar names or unindexed literature may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The exact LO and SG polynomials of every uniform clique blowup of a maximum-degree-two base graph are now explicit through binomial sums and component products. The graph degree grows with clique size while its colouring polynomial stays constant, a structural reduction directly motivated by the recent consensus-gridlock invariant. Exact colour-run counts, degree and leading coefficients add information that the known general enumeration scheme does not evaluate in closed form. This supplies an infinite graph-family classification rather than an arbitrary example.
+Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.
 
-## Limitations and independent status
+## value
 
-The closed formulas require uniform clique size \(s\ge2\) and path/cycle components; nonuniform clique sizes are outside the closed-evaluation claim. Independent mathematical review and definitive literature-priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. True-twin rigidity changes strict neighborhood plurality on clique blowups into weak plurality on the quotient for every H, with a surprising exact independence from uniform clique size s>=2. This structural reduction has stand-alone use, and the full closed path/cycle/max-degree-two formulas give natural unbounded-degree graph classes explicitly. The result is not ordinary proper coloring or a direct restatement of the universal partition polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
