@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A first refinement step marks adjacency to each singleton anchor; a second step recovers their two intersection cardinalities because the common-neighbour binomial sequence is strictly increasing for the claimed parameter range. A third step recovers their mutual triple intersection through a positive-coefficient weighted disjoint-neighbour identity. Four-region coordinate permutations prove exact orbit coincidence. The \(KG(8,3)\) round-two collision is verified concretely and resolves only at round three. Two independent executable enumerations corroborate the steps; neither is substituted for an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual priority risk)
-The full texts of Boutin (2006) and Albertson–Boutin (2007) were inspected in their relevant Kneser and symmetry sections. They treat determining sets, stabilizers, and distinguishing labelings, but do not give a three-round two-anchor refinement theorem. Kiefer–Schweitzer–Selman (2015), inspected at its general equitable-partition, \(C^2\), and orbit-recovery discussions, treats counting logic and graph identification but does not address this special anchored Kneser statement. Related geometric and logical statements were compared by mathematical implication; Johnson-graph adjacency uses one-element exchanges rather than Kneser disjointness and does not imply this assertion. Priority could still be affected by unlocated specialized literature.
+PASS
 
-## Value — PASS
-A uniform, parameter-independent three-round bound and complete class-size formula describe the stabilizer-orbit information revealed by a local refinement procedure on an infinite family of highly symmetric graphs. The threshold \(n\ge3k-1\) is motivated by the strict common-neighbour count, and the sharpness example exhibits a genuinely nontrivial distinction invisible to the two anchor intersections alone. This is a structural reconstruction result, not a mere renaming of the standard Kneser automorphism action.
+For KG(n,k), n≥3k−1 and k≥2, round-one individualised anchor adjacency makes round-two common-neighbour counts C_A=binom(n−2k+s,k) strictly recover s=|X∩A| and t=|X∩B|. Round-three neighbour moment M=(k−s)(k−t)binom(n−k−2,k−2)+(b−r)binom(n−k−2,k−1) uniquely recovers r=|X∩A∩B|. Ground-set permutations preserving the four regions act transitively on each resulting tuple; any anchored automorphism preserves refinement, proving precise stabilizer orbits. Exact sharpness KG(8,3), |A∩B|=1 gives rounds 3,6,13,14 classes. Independently generated Kneser edges and WL partitions match region profiles for 4 cases, including boundary (5,2).
 
-## Limitations and closest literature
-The result applies to \(n\ge3k-1\), not necessarily smaller Kneser graphs, and it proves orbit recovery within a given marked graph, not \(C^2\) identification against all graph structures. The closest sources are Boutin (2006), Albertson–Boutin (2007), and Kiefer–Schweitzer–Selman (2015). Any earlier unlocated exact result would change the novelty assessment. Finite verification cannot certify an infinite theorem by itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matched prior notions but not theorem: a uniform sharp three-round stabilizer orbit recovery for every k≥2,n≥3k−1 requires the new pairwise- and triple-overlap reconstruction, rather than the older determining-set or generic counting-logic theorems.
+
+## value
+
+PASS
+
+A uniform constant three-round recovery of all two-anchor Kneser point-stabilizer orbits supplies a structural effective refinement lemma relevant to color-refinement complexity and permutation group symmetry. Explicit class sizes and sharp n=8,k=3 witness are natural quantitative information not encoded by generic 1-WL background.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

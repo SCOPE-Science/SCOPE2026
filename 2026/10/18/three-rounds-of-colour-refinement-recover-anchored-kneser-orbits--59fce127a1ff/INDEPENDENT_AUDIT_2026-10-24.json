@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:13:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_refinement.py",
+        "verify_moments.py",
+        "independent_checks_output.json"
+      ],
+      "rationale": "For KG(n,k), n≥3k−1 and k≥2, round-one individualised anchor adjacency makes round-two common-neighbour counts C_A=binom(n−2k+s,k) strictly recover s=|X∩A| and t=|X∩B|. Round-three neighbour moment M=(k−s)(k−t)binom(n−k−2,k−2)+(b−r)binom(n−k−2,k−1) uniquely recovers r=|X∩A∩B|. Ground-set permutations preserving the four regions act transitively on each resulting tuple; any anchored automorphism preserves refinement, proving precise stabilizer orbits. Exact sharpness KG(8,3), |A∩B|=1 gives rounds 3,6,13,14 classes. Independently generated Kneser edges and WL partitions match region profiles for 4 cases, including boundary (5,2).",
+      "residual_risks": [
+        "Finite test instances only; universal statement rests on exact binomial moment proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boutin 2006 Kneser determining set results; Kiefer–Schweitzer–Selman 2015 counting-logic identification results."
+        ],
+        "reasoning": "A determining pair would make all orbits singleton; here most orbits are large. Neither general statement bounds the refinement depth for arbitrary marked anchors.",
+        "searches": [
+          "Anchored Kneser graphs two individually coloured vertices 1-dimensional Weisfeiler Leman colour refinement automorphism stabilizer orbits three rounds",
+          "Kneser graph two roots 1-WL orbit refinement three rounds",
+          "Kiefer Schweitzer Selman graphs identified by logics with counting arxiv:1503.08792",
+          "Boutin 2006 identifying graph automorphisms using determining sets Kneser",
+          "https://arxiv.org/abs/1503.08792",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1503.08792",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source round-two common-neighbor binomials distinguish |X∩A|,|X∩B|; round-three mixed moment recovers triple overlap.",
+          "Generic C²/graph-identification theory and Kneser determining sets lack this two-step recovery implication."
+        ],
+        "reasoning": "Proof gives a quantified graph-specific bound that is not an immediate corollary of the prior general definitions or determination numbers.",
+        "searches": [
+          "Anchored Kneser graphs two individually coloured vertices 1-dimensional Weisfeiler Leman colour refinement automorphism stabilizer orbits three rounds",
+          "Kneser graph two roots 1-WL orbit refinement three rounds",
+          "Kiefer Schweitzer Selman graphs identified by logics with counting arxiv:1503.08792",
+          "Boutin 2006 identifying graph automorphisms using determining sets Kneser",
+          "https://arxiv.org/abs/1503.08792",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary 1-WL partitions correspond to C² equivalence and marking anchors gives individualized colours, not graph-identifying colour logic."
+        ],
+        "reasoning": "Equivalent perspective: stabilizer point-orbit partition of KG(n,k) relative to two anchored k-sets; three refinement rounds recover intersection four-tuples by moments.",
+        "searches": [
+          "Anchored Kneser graphs two individually coloured vertices 1-dimensional Weisfeiler Leman colour refinement automorphism stabilizer orbits three rounds",
+          "Kneser graph two roots 1-WL orbit refinement three rounds",
+          "Kiefer Schweitzer Selman graphs identified by logics with counting arxiv:1503.08792",
+          "Boutin 2006 identifying graph automorphisms using determining sets Kneser",
+          "https://arxiv.org/abs/1503.08792",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact three-round anchored KG(n,k) orbit profile found in targeted Resultary semantic search or in checked primary statements."
+        ],
+        "reasoning": "Orbit sizes computed combinatorially from four ground-set regions, not a transcription of a prior table; unindexed specialized cases possible.",
+        "searches": [
+          "Anchored Kneser graphs two individually coloured vertices 1-dimensional Weisfeiler Leman colour refinement automorphism stabilizer orbits three rounds",
+          "Kneser graph two roots 1-WL orbit refinement three rounds",
+          "Kiefer Schweitzer Selman graphs identified by logics with counting arxiv:1503.08792",
+          "Boutin 2006 identifying graph automorphisms using determining sets Kneser",
+          "https://arxiv.org/abs/1503.08792",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/"
+        ]
+      },
+      "rationale": "Matched prior notions but not theorem: a uniform sharp three-round stabilizer orbit recovery for every k≥2,n≥3k−1 requires the new pairwise- and triple-overlap reconstruction, rather than the older determining-set or generic counting-logic theorems.",
+      "residual_risks": [
+        "An obscure specialist orbit-refinement theorem could cover the exact marked Kneser statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give a bounded two-anchor Kneser stabilizer-orbit recovery theorem; graph identification is a different quantifier",
+          "evidence": [
+            "Refinement corresponds to C^2; proof here only identifies within-graph anchor stabilizer orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "Abstract, main theorem discussion of identification vs refinement, and relevant graph characterization sections",
+          "method": "Primary full-text reading of mathematical statements and relevant proof sections",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "general graph two-variable counting/colour refinement backdrop"
+        },
+        {
+          "assessment": "Determining sets can kill automorphisms; not a three-round 1-WL orbit partition theorem",
+          "evidence": [
+            "Boutin develops Kneser determining numbers, not iterative colour-refinement rounds."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r78/pdf/",
+          "material_read": "Title, abstract, introduction, determining-set/stabilizer discussion and Kneser examples in primary article",
+          "method": "Primary full-text reading of mathematical statements and relevant proof sections",
+          "title": "Identifying Graph Automorphisms Using Determining Sets",
+          "trigger": "same Kneser automorphism and fixed-anchor objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md",
+        "Kiefer–Schweitzer–Selman 2015",
+        "Boutin 2006"
+      ],
+      "rationale": "A uniform constant three-round recovery of all two-anchor Kneser point-stabilizer orbits supplies a structural effective refinement lemma relevant to color-refinement complexity and permutation group symmetry. Explicit class sizes and sharp n=8,k=3 witness are natural quantitative information not encoded by generic 1-WL background.",
+      "residual_risks": [
+        "The sharpness example is not a complete parameter-by-parameter optimal-round classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

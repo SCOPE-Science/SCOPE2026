@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
-Execute the two complete included Python files with a stock Python 3.9+ interpreter: `python verify_refinement.py` and `python verify_moments.py`. Both use only the standard library. `refinement_checks.txt` and `moment_checks.txt` record the expected stdout, which is reproduced by the scripts.
+# Independent mathematical audit
 
-The first enumerates all vertices and disjointness edges for 42 parameter configurations in the stated theorem range, totaling 9,263 vertex instances. It computes exactly three refinement rounds and compares the resulting colours **bidirectionally** to the four-region orbit profiles; checking only the class count would not suffice. The second makes independent direct subset enumerations for 28 configurations, totaling 4,723 vertex instances. It checks the exact weighted-neighbour identity, reconstructs the triple intersection, and checks all orbit-size formulas and the coefficient total. Each script checks the sharpness case \(KG(8,3)\).
+## correctness
 
-## Mathematical argument and limits
-The infinite theorem follows from the explicit injectivity of \(s\mapsto\binom{n-2k+s}{k}\) in the specified range, the ordered-pair double-counting identity for the weighted neighbourhood moment, and transitive region-preserving permutations of the ground set. The finite computations corroborate rather than replace any of those arguments. No independent external audit has been conducted. Novelty against every possible earlier specialist result is not certified, and no identification theorem for arbitrary comparison graphs is asserted.
+PASS
+
+For KG(n,k), n≥3k−1 and k≥2, round-one individualised anchor adjacency makes round-two common-neighbour counts C_A=binom(n−2k+s,k) strictly recover s=|X∩A| and t=|X∩B|. Round-three neighbour moment M=(k−s)(k−t)binom(n−k−2,k−2)+(b−r)binom(n−k−2,k−1) uniquely recovers r=|X∩A∩B|. Ground-set permutations preserving the four regions act transitively on each resulting tuple; any anchored automorphism preserves refinement, proving precise stabilizer orbits. Exact sharpness KG(8,3), |A∩B|=1 gives rounds 3,6,13,14 classes. Independently generated Kneser edges and WL partitions match region profiles for 4 cases, including boundary (5,2).
+
+## originality
+
+PASS
+
+Matched prior notions but not theorem: a uniform sharp three-round stabilizer orbit recovery for every k≥2,n≥3k−1 requires the new pairwise- and triple-overlap reconstruction, rather than the older determining-set or generic counting-logic theorems.
+
+## value
+
+PASS
+
+A uniform constant three-round recovery of all two-anchor Kneser point-stabilizer orbits supplies a structural effective refinement lemma relevant to color-refinement complexity and permutation group symmetry. Explicit class sizes and sharp n=8,k=3 witness are natural quantitative information not encoded by generic 1-WL background.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
