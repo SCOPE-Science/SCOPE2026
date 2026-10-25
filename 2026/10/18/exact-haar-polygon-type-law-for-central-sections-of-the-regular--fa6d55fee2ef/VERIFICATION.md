@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact spherical chamber census
+# Independent mathematical audit
 
-Execute `python3 check_truncated_tetra_sections.py` with a standard Python 3 installation. No packages, network access, or external data are needed. This program regenerates all twelve integer vertices and all eighteen edges, verifies that every triple of vertex normals has nonzero determinant, constructs the \(528\) sign witnesses surrounding \(132\) spherical great-circle crossings, and deduplicates them to \(134\) convex spherical sign cells. It finds every cell corner by testing all pairwise great-circle intersections against all hemisphere signs, computes each cell's exact area coefficient vector in the basis \((\pi,\arccos(1/11),\arccos(5/11),\arccos(7/11),\arccos(9/11))\), and checks the expected complete six-class census. It verifies that the three aggregated section-count areas sum to \(4\pi\) and that their first moment matches the independent eighteen-edge formula.
+## correctness
 
-The final stdout line must be `EXACT_CHAMBERS_OK 134_cells 18_edges 3_support_values`. The `math.acos` calculations print only decimal approximations for orientation; the exact-check assertions use integer arithmetic exclusively.
+PASS
 
-The certificate is a finite exhaustive computation for the specified coordinates; its completeness depends on the proved arrangement characterization and spherical excess formula in RESULT.md. A finite checker is not a proof of a broader theorem about arbitrary polytopes. No independent audit has been performed.
+The 12 truncated tetrahedron vertices V_ij=2A_i+A_j have norm²=11, exactly 18 edge pairs with squared distance 8, and no three vertex rays coplanar. Twelve normal great circles with pairwise transverse intersections give 134 cells. Exhaustive integer sign enumeration of 528 local crossing-quadrant witnesses produces all 134 unique sign masks, classifies six chamber types and their spherical-angle coefficient vectors. The resulting P4,P5,P6 sum to one and E N=18 acos(7/11)/π, independently from common edge angle. Independent implementation reconstructed all six class multiplicities and probabilities.
+
+## originality
+
+PASS
+
+A natural complete Haar central-section polygon-count law for the regular truncated tetrahedron: three possible planar section vertex counts, six spherical chamber classes and their exact angle-sum areas. Prior published general polytope section-vertex attainable-count and combinatorial directional function results do not imply the six area values or probability vector for this Archimedean solid.
+
+## value
+
+PASS
+
+The complete three-point Haar section-side law and six detailed normal-cell classes for a regular Archimedean solid are a natural self-contained exact finite geometric invariant. The transition between 4-,5-,6-gonal sections and the nontrivial exact angular fractions are not determined by known set of attainable vertex numbers or simple mean, so this classification has independent reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
