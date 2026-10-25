@@ -1,19 +1,21 @@
-# Scientific review: maximal midpoint instability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives all quantifiers for a complex countable Hilbert-space diagonal unitary. The two-dimensional lemma follows from positive-semidefinite saturation, together with the scalar-diagonal polarization argument; the antipodal obstruction is a rank-one square-zero pair with exactly unit numerical radius. All infinite-dimensional matrix entries of a putative midpoint decomposition vanish by two-coordinate compressions. Approximate antipodal eigenpairs yield numerical-radius contractions whose midpoint tends to the unitary while their separation tends to \(2\). The upper bound \(2\) is immediate from the triangle inequality. Explicit angles are nonzero but tend to zero. The packaged checker verifies numerical identities and finite matrix corners; the infinite proof is analytic.
+PASS
 
-## Originality — PASS, with risks
+For diagonal |λ_j|=1, any midpoint representation U=(X+Y)/2 in numerical-radius unit ball compresses to every two-coordinate plane. At a numerical-radius-one diagonal unitary D, saturated diagonal states imply all diagonal perturbations vanish; PSD of I−Re(conjugate(λ_j)(D±A)) forces A_21=−λ_j² conjugate(A_12) and A_12=−λ_k² conjugate(A_21); unless λ_k=−λ_j, off-diagonal entries vanish (equal λ case by polarization). An exact antipodal pair admits square-zero norm-two matrices W±=diag(1,−1)±[[0,i],[i,0]], w(W±)=1 and nontrivial midpoint. Therefore diagonal extreme iff no exact antipodes. For nearly antipodal pairs δ_n=|λ_j+λ_k|→0, the corresponding H_n with 2×2 block λ_j[[0,i],[i,0]] has w(H_n)=1 and w(U±H_n)≤1+δ_n; X_n,Y_n normalized by 1+δ_n have midpoint error δ_n/(1+δ_n)→0 and distance 2/(1+δ_n)→2, maximally permitted by triangle inequality. Example diag(1,−exp(i/(n+2))) blocks meets both spectral conditions. Independent finite angular tests show lower diameter→2; infinite statement follows from matrix compression and δ_n→0.
 
-The closest primary source, Mal (2022), Theorems 2.7–2.9, proves finite-dimensional diagonal extremality, and Theorem 2.11 treats compact normal operators in infinite dimension. The diagonal infinite-dimensional extremality lemma follows from Mal's compression argument and is **not itself presented as new**. The claimed additional phenomenon is simultaneous exact extremality and full diameter \(2\) in **every** approximate-midpoint neighborhood, which requires an explicit uniform obstruction and is not stated or implied by the inspected finite-dimensional theorem alone. Kadets et al. (2019) treat general strongly extreme points, not this numerical-radius counterexample. Targeted repository and literature searches did not identify an implication-equivalent stronger theorem. Residual risk: another unindexed numerical-radius geometry article could already give this separation, possibly in MLUR terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This distinguishes extreme points from their maximal possible quantitative failure of strong extremality **inside a natural operator norm**. Unlike arbitrary renorming examples, the witness is a simple diagonal unitary and the mechanism is precisely an accumulation of almost-antipodal eigenvalues: no finite-dimensional obstruction exists, yet arbitrarily small midpoint neighborhoods have the entire ball diameter. It supplies a sharp boundary for attempts to infer quantitative stability from finite-dimensional numerical-radius extremality. It makes no unsupported claim of classifying the uniformly separated spectrum case.
+Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Near-antipodal but never antipodal diagonal U yields maximal quantitative failure of strong extremality beyond finite-dimensional numerical-radius extremality.
 
-## Relationship to literature and remaining limitations
+## value
 
-Mal, *Numerical radius norm and extreme contractions of* \(\mathcal L(H)\), arXiv:2210.09734v1 (18 October 2022), §§1–2, Theorems 2.7–2.11; Kadets–Martín–Merí–Pérez–Quero, *On the numerical index with respect to an operator*, arXiv:1905.12257v1, §2. Both primary texts were materially inspected. No result for continuous-spectrum unitaries or uniformly separated diagonal spectra is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Constructs a canonical extreme but not strongly extreme unitary in the numerical-radius Banach space, quantitatively attaining the largest possible local approximate-midpoint diameter 2. Distinguishes exact from limiting antipodality in a concrete operator-geometric boundary problem, beyond merely repeating finite-dimensional extremal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

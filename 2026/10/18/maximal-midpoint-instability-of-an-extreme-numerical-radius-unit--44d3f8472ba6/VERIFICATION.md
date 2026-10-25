@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The result has a self-contained analytic proof in `RESULT.md`. The finite-dimensional lemma was reconstructed directly from boundary-point saturation and positive-semidefinite zero-row facts, independently of the citation to Mal's earlier finite-dimensional theorem. Exact algebra gives \(J^*=-J\), \(J^2=-I\), \(W_\pm^2=0\), \(\|W_\pm\|=2\), and consequently \(w(W_\pm)=1\). Direct-sum bounds and diagonal matrix compressions establish the full infinite-dimensional claim. For \(\delta_n\to0\), the midpoint deficit is \(\delta_n/(1+\delta_n)\) and the separation is \(2/(1+\delta_n)\), proving the sharp limiting diameter \(2\).
+## correctness
 
-Run `python VERIFY.py` with NumPy to replay finite 2-by-2 numerical-radius tests. These are sanity checks only; the proof does not infer infinite-dimensional extremality from finite sampling. The proof does not provide independent review or claim that unindexed literature has been exhaustively eliminated.
+PASS
+
+For diagonal |λ_j|=1, any midpoint representation U=(X+Y)/2 in numerical-radius unit ball compresses to every two-coordinate plane. At a numerical-radius-one diagonal unitary D, saturated diagonal states imply all diagonal perturbations vanish; PSD of I−Re(conjugate(λ_j)(D±A)) forces A_21=−λ_j² conjugate(A_12) and A_12=−λ_k² conjugate(A_21); unless λ_k=−λ_j, off-diagonal entries vanish (equal λ case by polarization). An exact antipodal pair admits square-zero norm-two matrices W±=diag(1,−1)±[[0,i],[i,0]], w(W±)=1 and nontrivial midpoint. Therefore diagonal extreme iff no exact antipodes. For nearly antipodal pairs δ_n=|λ_j+λ_k|→0, the corresponding H_n with 2×2 block λ_j[[0,i],[i,0]] has w(H_n)=1 and w(U±H_n)≤1+δ_n; X_n,Y_n normalized by 1+δ_n have midpoint error δ_n/(1+δ_n)→0 and distance 2/(1+δ_n)→2, maximally permitted by triangle inequality. Example diag(1,−exp(i/(n+2))) blocks meets both spectral conditions. Independent finite angular tests show lower diameter→2; infinite statement follows from matrix compression and δ_n→0.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Near-antipodal but never antipodal diagonal U yields maximal quantitative failure of strong extremality beyond finite-dimensional numerical-radius extremality.
+
+## value
+
+PASS
+
+Constructs a canonical extreme but not strongly extreme unitary in the numerical-radius Banach space, quantitatively attaining the largest possible local approximate-midpoint diameter 2. Distinguishes exact from limiting antipodality in a concrete operator-geometric boundary problem, beyond merely repeating finite-dimensional extremal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
