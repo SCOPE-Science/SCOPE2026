@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The graph is fixed by the sixteen four-bit words and Hamming-distance-one adjacency. The face rule is equivalent to induced components of size at most two, since it enforces induced degree at most one. The standalone exact checker enumerates the entire 3054-simplex complex, finds 1518 disjoint facet incidence pairs, and topologically sorts the entire 13568-cover reversed matching digraph without a cycle. It leaves exactly one critical 0-cell, sixteen 3-cells, and one 4-cell. Explicit signed integer elementary cancellations on the actual critical four-cell boundary produce the zero 16-entry Morse differential. The Hurewicz isomorphism then forces the top attaching map to be nullhomotopic, establishing the integral wedge, without inferring it from field homology.
+## correctness
 
-## Originality: PASS, with bibliographic uncertainty
-Sawant's arXiv:2605.25150 (full paper inspected) proves a tree-only vertex-decomposability theorem, not the higher independence homotopy type for a graph with four-cycles. Deshpande–Singh arXiv:2001.05448 (full paper inspected) treats different specified graph families; no theorem there directly includes the four-cube. The chordal and Alexander-dual sources do not provide this exact four-cube calculation. Closest published mathematical records concern ordinary independence, total cut, or Čech complexes of the four-cube, each with different face conditions. An accessible older finding about two-independence of crown graphs has no implication for the four-cube because crown graphs are not four-cube graphs. Actual semantic and phrase searches were compared on objects, hypotheses, and implications. Search failure cannot establish global uniqueness; unindexed calculations remain a risk.
+PASS
 
-## Mathematical value: PASS
-The four-cube is the first sixteen-vertex Cartesian square of two four-cycles, a canonical toroidal-grid test object outside tree and chordal regimes. The exact integral classification shows nonzero homology in two adjacent dimensions, with a nontrivial topological attaching question resolved by a signed Morse certificate. An exact homotopy type, rather than Betti numbers alone, is valuable for comparisons and testing proposed higher-independence graph-class extensions. No claim of a general hypercube formula is made.
+Define vertices of Q4 as 16 four-bit strings, edges Hamming distance 1, and Ind2 faces as induced subgraphs of maximum degree at most 1 (equivalently components of size at most 2). Independent brute-force examination of all 65,535 nonempty subsets found 3,054 simplices, f-vector (16,120,464,964,960,440,80,10), and 1,518 pairs from the specified 16-pivot sequence. The entire oriented 13,568 Hasse-incidence graph topologically sorted all 3,054 nonempty simplices: exactly one critical vertex, sixteen critical 3-simplices and one critical 4-simplex. An independently implemented exact signed integral Morse-boundary projection of the critical 4-cell onto the sixteen 3-cells returned zero (not just mod 2). Thus the 3-skeleton of the Morse CW model is ∨16S3, which is 2-connected; Hurewicz π3≅H3 makes zero cellular degree imply the 4-cell attaches nullhomotopically, yielding (∨16S3)∨S4. This is a particular finite Q4 statement, not a general hypercube formula. C4□C4 graph isomorphic to Q4.
 
-## Scope and limitations
-The conclusion is restricted to \(\operatorname{Ind}_2(Q_4)\) under the induced-component-size-at-most-two convention. The computer-assisted finite proof uses only provided source code and exact integer calculations; its result is not an independent audit. There may be bibliographically unindexed previous results, and the complete text of a recent complete-multipartite path-free paper was inaccessible, but its advertised family does not include the four-cube.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after reconstructed proof and actual published/literature search; an inaccessible or not-fully-inspected primary source is not a proof of noncoverage and remains a recorded risk. The checked earlier statements do not imply the exact final claim.
+
+## value
+
+PASS
+
+Two-independence is a natural established graph-complex functor, and the smallest nontrivial toroidal 4×4 hypercube is a canonical finite benchmark beyond tree, cycle, chordal and complete multipartite classes. The genuinely mixed 16S3+S4 integral homotopy type requires an exact integer attaching-degree check; a mod-two Betti table alone would not supply it. This exact invariant is motivated and potentially reusable for larger periodic-grid comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
