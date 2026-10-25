@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:48:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With T independent stale-snapshot picks, N~Binomial(T,z), z=u²/(u²+v²), and error becomes ((1-βN)u,(1-β(T-N))v). Exact binomial second moments give (1-βT)²+z(1-z)βT[4-β(3T-1)], affine in z(1-z) in [0,1/4]. Endpoint z=0,1 and balanced z=1/2 realize max of A=(1-βT)² and B=1-βT+β²T(T+1)/4. Quadratic crossing βc=4/(3T-1), B minimizer 2/(T+1), A increasing above βc; comparison yields unique β*=2/(T+1), R*=1/(T+1) T≤3, and β*=4/(3T-1), R*=(T+1)²/(3T-1)² T≥3, agreeing at T=3. Uniform fixed half/half sample factor B reaches 1/(T+1), hence strict adaptive disadvantage at T≥4 and limiting 1/9 plateau; contraction iff β∈(0,2/T). Independent Fraction/comb enumeration confirmed 510 binomial identity checks, T=4 exact rate 25/121 and limit 1/9; all-integer proof rests on algebra, not grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The averaging in prior parallel Kaczmarz changes collision amplification: a duplicate selection does not accumulate unaveraged βN in same manner.",
+          "Steinerberger’s sequential residual weighting updates residuals after a single selected row, excluding simultaneous stale collisions."
+        ],
+        "reasoning": "General Kaczmarz convergence rates in these models do not dominate the worst-direction full-batch β minimax with this collision mechanism.",
+        "searches": [
+          "Resultary: synchronous residual-squared weighted Kaczmarz stale snapshot unaveraged parallel row collisions optimal batch relaxation 2 rows concurrency",
+          "https://arxiv.org/abs/2002.04126",
+          "https://arxiv.org/abs/2007.02910"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2607.08313",
+        "https://arxiv.org/abs/2002.04126",
+        "https://arxiv.org/abs/2007.02910",
+        "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior works do not state the bifurcation between βb=2/(T+1) and βc=4/(3T-1) in this exact stale independent simultaneous model.",
+          "The nonzero 1/9 minimax plateau is caused by adaptive duplicate-count amplification and contrasts with vanishing uniform-sampling worst ratio."
+        ],
+        "reasoning": "Neither an empirical concurrency cliff nor averaged-update convergence implies the audited exact all-T minimax and adaptive-vs-uniform inequality.",
+        "searches": [
+          "Resultary: synchronous residual-squared weighted Kaczmarz stale snapshot unaveraged parallel row collisions optimal batch relaxation 2 rows concurrency",
+          "https://arxiv.org/abs/2607.08313",
+          "https://arxiv.org/abs/2002.04126",
+          "https://arxiv.org/abs/2007.02910"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coleman’s asynchronous experiments use real-time stale writes/row selection rather than T conditionally independent draws at one common frozen error vector.",
+          "Moorman et al average corrections under fixed row probabilities, whereas here updates are unaveraged and squared-residual state-dependent."
+        ],
+        "reasoning": "Compared stochastic coordinate descent, minibatch importance sampling, duplicate row collisions, parallel Kaczmarz and stale-snapshot synonyms with explicit update equations.",
+        "searches": [
+          "Resultary: synchronous residual-squared weighted Kaczmarz stale snapshot unaveraged parallel row collisions optimal batch relaxation 2 rows concurrency",
+          "https://arxiv.org/pdf/2607.08313",
+          "https://arxiv.org/abs/2002.04126"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed R_T formulas are all positive integer worker counts, not a small numerical reference table.",
+          "Published two-row cyclic Kaczmarz concerns nonorthogonal sweep order; random Gauss-Seidel delay has a different recursion."
+        ],
+        "reasoning": "Searched published exact small-row spectra, batch laws, and concurrency thresholds; related tabulated settings have different state transition operators.",
+        "searches": [
+          "Resultary: synchronous residual-squared weighted Kaczmarz stale snapshot unaveraged parallel row collisions optimal batch relaxation 2 rows concurrency",
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "Resultary 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Coleman 2026 analyzes real asynchronous adaptive row sampling empirically with scheduling and stale reads, not an independent frozen-snapshot T-pick mathematical envelope. Moorman/Tu/Molitor/Needell analyze averaged parallel Kaczmarz with fixed sampling; Steinerberger focuses on sequential residual-weighted row choice. Same components do not imply unaveraged state-dependent duplicate-count worst-direction minimax, as verified by equation-level comparison. Resultary yields related cyclic two-row and delay-law results but not this exact shared-snapshot residual-weighted frontier.",
+      "residual_risks": [
+        "A specialized parallel coordinate or minibatch importance-sampling paper may contain an equivalent two-coordinate collision minimax; searched claims but not exhaustively ruled out.",
+        "Full text of Moorman averaging paper not obtained; abstract/model alone cannot justify whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit comparison is not a theorem of unaveraged shared-snapshot worst-direction envelope",
+          "evidence": "Asynchronous worker progression/stale delays differs from simultaneous independent choices from a single e.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.08313",
+          "material_read": "Complete original 15-page arXiv PDF with model and experiments read for scheduling and adaptation; visually inspected algorithm and definitions",
+          "method": "Lawful arXiv PDF, page inspection",
+          "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+          "trigger": "Nearest recent adaptive concurrency study"
+        },
+        {
+          "assessment": "Different averaging and state-independent sampling in examined statement; cannot declare full paper NOT_COVERING",
+          "evidence": "Averaged, fixed-probability workers differ from additive βN residual-proportional common snapshot.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04126",
+          "material_read": "Original arXiv abstract/metadata and identified averaged-update model; full PDF retrieval failed",
+          "method": "Open arXiv abstract; attempted full PDF",
+          "title": "Randomized Kaczmarz with Averaging",
+          "trigger": "Parallel same algorithm family potentially stronger coverage"
+        },
+        {
+          "assessment": "Establishes prior residual-weighted selection, not simultaneous T-worker collision formula",
+          "evidence": "Sequential updates select a row per step, with residual refresh.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.02910",
+          "material_read": "Original arXiv metadata and method-summary description inspected",
+          "method": "Open arXiv abstract/metadata",
+          "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Residual-proportional row sampling prior"
+        },
+        {
+          "assessment": "Different cyclic nonorthogonal sweep, no matching simultaneous sampled batch",
+          "evidence": "Finite sweep matrix powers versus binomial pick-count risk.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "Published title, summary and model hypotheses",
+          "method": "Resultary semantic result",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Published two-row sharp Kaczmarz result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The sharp concurrency=3 switch and nonzero best worst-batch plateau expose a genuine sample-collision mechanism where adaptive squared-residual importance sampling is provably worse than uniform sampling from T=4 onward. The exact motivated two-row benchmark is a useful stress test for parallel adaptive solvers; no general runtime theorem or large-system result is needed for this focused boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2607.08313",
+    "https://arxiv.org/abs/2002.04126",
+    "https://arxiv.org/abs/2007.02910",
+    "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely orthogonal 2x2 rows, T conditionally independent with-replacement picks, same frozen snapshot, no averaging or sequential refresh; does not represent asynchronous scheduler performance.",
+    "The worst-direction guarantee is per batch, not equality at every repeated horizon."
+  ],
+  "residual_risks": [
+    "A specialized parallel coordinate or minibatch importance-sampling paper may contain an equivalent two-coordinate collision minimax; searched claims but not exhaustively ruled out.",
+    "Full text of Moorman averaging paper not obtained; abstract/model alone cannot justify whole-document noncoverage."
+  ],
+  "schema_version": 1
+}
