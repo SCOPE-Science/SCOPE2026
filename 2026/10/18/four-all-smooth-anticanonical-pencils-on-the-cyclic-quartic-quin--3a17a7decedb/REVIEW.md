@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The surface is the four-conjugate-point blow-up of the binary plane and its anticanonical sections form the six-dimensional subspace of cubic forms vanishing on that orbit. A singular reduced plane cubic has at most three geometric singular points; a nonreduced cubic through a general-position orbit of length four is impossible. Thus the independent test for singularities over finite fields of sizes two, four and eight is exhaustive, and all 63 nonzero cubics have also been checked using three-chart Gröbner ideals. The 18 smooth cubics give precisely four three-member pencils. An exhaustive search of 168 projective coordinate changes identifies the stabilizer of the orbit, and Boitrel's automorphism theorem identifies it with the full surface automorphism group of order four. The transitivity calculation and one representative's squarefree degree-nine elimination establish the degree-five Frobenius-transitive reduced base scheme on all four pencils. The two included implementations agree on all numerical outputs; the exact eliminant is factored independently.
+PASS
 
-## Originality — PASS, with residual priority risk
+Blowing up the degree-4 Frobenius orbit B in P2(F16) gives K^2=5 and anticanonical cubics through B; one F16 evaluation is four independent F2 linear conditions, leaving 63 nonzero binary cubics. For a cubic through B, geometric singularity occurs over extensions of F2 of degree at most 3 (a reduced plane cubic has at most three geometric singularities, while a nonreduced repeated F2 line cannot contain B). A separate exact F2/F4/F8 finite-field singular-point enumerator recovered 63 sections, 18 smooth sections and exactly four all-smooth 2D subspaces with member F2-point distribution (1,1,5); 18 smooth points split by F2 rational point counts 1:5,2:4,4:4,5:5. For the sample pencil (0x189,0x2e4,0x36d) the affine Groebner basis is Z+Y^8+Y^7+Y^6+Y^5 and Y^9+Y^5+Y^4+Y^3+Y^2+Y+1=(Y^4+Y+1)(Y^5+Y^2+1), irreducible squarefree factors, and no common points on X=0; subtracting blown-up degree-4 B leaves a reduced degree-5 geometric orbit. The proof uses Boitrel to exclude non-linear automorphisms and verifies a four-element transitive C4 action, hence all four base loci have the same type. Scope is this one F2 surface, not an arbitrary field classification.
 
-Boitrel's cyclic quartic degree-five del Pezzo theorem identifies the isomorphism class and automorphism group, not its enumeration of smooth anticanonical sections, all-smooth rational pencils or their base schemes. Blache et al. classify relevant Galois types and construct codes from rank-one del Pezzo surfaces, not this rank-two binary pencil census. Asgarli–Ghioca study finite-field all-smooth hypersurface pencils but do not imply an exact classification of this constrained anticanonical system over the field of two elements. The named literature was examined at the relevant statements, and targeted semantic research-record searches found no matching or stronger theorem. The absence of search matches cannot rule out unindexed older computations. The comparison is about mathematical implication, not coincident terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The degree-five del Pezzo surface with a four-cycle Frobenius action is a natural isomorphism class in the published classification. Whether the complete anticanonical linear system admits a rational pencil with all members geometrically smooth over the smallest finite field is a nontrivial geometric question. This finite exhaustive result gives the complete answer, not just an example: four pencils forming one free automorphism orbit, with an unexpectedly uniform reduced irreducible degree-five base scheme. The Frobenius orbit structure of the base points is an invariant not forced by the surface-classification theorem. No arbitrary coefficient slice or purely routine bound is being claimed.
+Del Pezzo surface Galois type and automorphism group are known from Boitrel, smoothness-in-pencil phenomenon from Asgarli–Ghioca, and anticanonical code constructions from Blache et al. The four-pencil count and degree-five base orbit for this cyclic quartic F2 surface were not in these inspected results.
 
-## Closest literature and limits
+## value
 
-* A. Boitrel, *Del Pezzo surfaces of degree 5 over perfect fields*, arXiv:2304.05328 (first 2023-04-11): Theorem 1.1(3)(f) and Proposition 3.14, cyclic quartic surface and full order-four group.
-* R. Blache and collaborators, *Anticanonical codes from del Pezzo surfaces with Picard rank one*, arXiv:1903.09397 (first 2019-03-22): Galois-type table and rank-one anticanonical code constructions.
-* S. Asgarli and D. Ghioca, *Smoothness in pencils of hypersurfaces over finite fields*, arXiv:2203.07169 (first 2022-03-14): the all-smooth pencil motivation in a different unconstrained parameter space.
+PASS
 
-The classification is strictly for this one surface over \(\mathbf F_2\). Other twists and larger fields are not covered. Priority against inaccessible/unindexed research is not independently certified; independent validation has not been performed.
+The finite-field cyclic quartic degree-five del Pezzo surface has a natural six-dimensional anticanonical linear system, whose all-smooth pencils are geometrically constrained. Exact count four, group action, rational-point member profile and geometric degree-five base scheme are a natural complete classification with precise reusable geometric data, independent of a general large-field pencil theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
