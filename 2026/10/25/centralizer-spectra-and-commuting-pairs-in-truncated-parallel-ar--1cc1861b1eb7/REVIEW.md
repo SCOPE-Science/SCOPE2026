@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The quiver path basis gives independent length-two coefficient equations, each equal to a tensor identity. Nonzero-neighbor tensor rigidity, isolated-site freedom, and an exact disjoint decomposition of nonzero blocks prove the centralizer spectrum and commuting-pair generating function in arbitrary characteristic. Finite-field direct linear algebra and brute-force pair enumeration provide independent computational checks, not an infinite proof.
+
+**Originality — PASS (provisional priority).** The published sources inspected concern Hochschild cohomology of truncated quivers, commuting full-matrix similarity classes, or quotienting a path algebra by relations between parallel paths. None of their inspected statements supplies a centralizer distribution inside the radical of a truncated parallel-arrow chain, or the stated sequence of commuting-pair counts. Hennecart–Perry (2022) explicitly counts commuting pairs in radicals of quiver projective endomorphism algebras, and their no-long-path computations cover the three-vertex untruncated aggregate subcase. That subcase is not novel. Their inspected statements do not yield the support-refined elementwise radical-centralizer spectrum for arbitrarily long length-three-truncated parallel-arrow chains. Targeted published-record and semantic searches were performed; equivalent implicit reductions may still exist. Historical completeness is not asserted.
+
+**Value — PASS.** The centralizer of each radical element and the commuting probability are canonical internal invariants of a noncommutative algebra. The support-run formula classifies **all** centralizer sizes, including multiplicities, uniformly in the field size, chain length and number of parallel arrows; the rational recurrence yields exact commuting probabilities and a finite transfer description. This goes beyond computing an isolated small example or changing a known rank parameter.
+
+**Limits.** The centralizer is inside the radical. Truncation length is three. The special case with one arrow per step has elementary path-determinantal interpretations; the added parallel-arrow dependence is essential to the claimed contribution. Full historical-priority certification and independent audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
