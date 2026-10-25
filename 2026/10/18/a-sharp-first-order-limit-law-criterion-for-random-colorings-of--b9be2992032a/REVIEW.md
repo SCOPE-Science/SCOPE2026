@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact existence sentences yield the necessary extended-mean convergence. A \(q\)-round Ehrenfeucht--Fraïssé strategy with doubly truncated colored-class profiles provides an all-sentence sufficient statistic; multinomial generating functions and concentration prove its limit. The limiting zero-one boundary follows from the same statistic, and the unique-critical-index property follows from an exact adjacent binomial-mean ratio. A standard-library program independently checks the finite probability and profile formulas; that computation does not certify the infinite argument.
+PASS
 
-## Originality
+For fixed j, FO theta_j asserts an E-class with exactly j P-points. Its probability is 1−(1−2^(−s_n) binom(s_n,j))^c_n, and because the per-block event probability vanishes, the uniform exponential approximation makes sentence convergence equivalent to an extended limit of λ_n,j. For quantifier rank q, a q-move Ehrenfeucht–Fraïssé strategy matches color populations truncated at q within classes and numbers of classes of each profile truncated at q; for s_n>=2q, profiles reduce to 2q minority-color categories and a typical class. Joint rare-category multinomial-to-Poisson convergence and concentration for diverging means give limits for the finite q-profile, hence for every FO sentence. Critical θ_j forces a nontrivial limit, while no critical λ yields a deterministic rank-q profile. The adjacent ratio (s_n−j)/(j+1)→infinity excludes two distinct finite positive means. Inspected verify.py enumerates small colorings and exact profile probabilities; the infinite theorem is the EF + probability argument.
 
-**PASS, subject to historical-priority risk.** Koponen (arXiv:2610.16163v1, Introduction, Example 2.12, Remark 2.15 and Theorem 3.1) addresses general logical convergence and finite-model criteria, not this colored-equivalence exact if-and-only-if criterion. Kruckman's 2015 equivalence-relation work is on generic theories and pseudofiniteness rather than this independent coloring probability model. Related published record on Poisson behavior of overlaps of random partitions has a different object and event. The accessible prior local complete-theory invariant for two-variable colored equivalence logic is deterministic and cannot yield full first-order convergence probabilities. The theorem does not claim novelty for Ehrenfeucht--Fraïssé games, Poisson convergence, or the binomial ratio. Remaining risk: older or poorly indexed finite-model limit-law literature could subsume the result.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2026 motivating source expressly emphasizes the difficulty of selecting deterministic finite bases for random-expansion logical convergence. Here a natural base sequence always has the same uncolored eventual theory, yet its expansions exhibit the three qualitatively different behaviors: a zero-one law, a nontrivial Poisson limit law, or failure of all-sentence convergence. A single exact and necessary-and-sufficient scalar condition distinguishes these regimes for arbitrary growth schedules, which is structurally more informative than isolated existence-probability calculations.
+Best-of-knowledge distinction: the 2026 primary source on random expansions gives necessary baseline structural conditions and ω-categorical finite-model property, but does not derive this exact sequence-specific iff rare-binomial-means criterion for full first-order probability limits. Generic equivalence/pseudofinite theory addresses deterministic theories rather than these coloring probabilities. Classical EF and Poisson steps are acknowledged and historical general-theorem coverage remains a risk.
 
-## Sources and limitations
+## value
 
-Primary source inspected in HTML full text: Koponen, arXiv:2610.16163v1, especially Introduction, Sections 2.2 and 3. Kruckman, arXiv:1510.03539, abstract and bibliographic description inspected. Kruckman thesis table of contents and available indexed material were reviewed; Chapter 5.4 full text was not materially inspected. Independent priority validation is still needed; the mathematical claim is strictly about independent fair unary colors, identical class sizes, and first-order sentences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a precise necessary-and-sufficient first-order convergence criterion and the exact zero-one/critical Poisson boundary for a minimal but natural random expansion of equivalence structures. It distinguishes identical eventual uncolored theories with convergence and nonconvergence after independent coloring, a concrete limit-law phenomenon; not merely applying a Poisson formula to a single event.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
