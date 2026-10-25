@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction to i.i.d. binomial batch counts proves all zero-multiplier events, and inclusion-exclusion gives the full first-hitting tail/mean for any integer q>=2 and resonant alpha=q/j. Conditional binomial second moments give the exact risk multiplier. At q=4, alpha=19/5, the explicit rational product is strictly between zero and one, so the strong law gives a negative almost-sure logarithmic rate, while the exact risk factor is 137/80>1. Nonzero multipliers make the strict sign separation continuous locally. The standalone Fraction-based checker verifies 352 exact-rational assertions including enumerated finite-horizon distributions. Universal and infinite-time claims are proved analytically, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tondji and Lorenz (2022): generalized sparse averaged update, expected Bregman convergence, and upper relaxation restrictions; the zero-shrinkage case supplies the present numerical method.",
+        "Moorman et al. (2020): mean-square contraction-factor analysis and numerical high-relaxation MSE divergence; no pathwise finite-time or nonresonant negative-Lyapunov classification in the inspected relevant text.",
+        "Published records on cyclic two-row Kaczmarz overrelaxation address deterministic ordered projection products rather than independent minibatch count multipliers."
+      ],
+      "reasoning": "The source convergence guarantees are in a different mode (expected quadratic error within a safe parameter region). Those bounds neither establish exact almost-sure finite termination at far larger relaxation nor rule it out when their mean-square factor exceeds one. Standard orthogonal-row unrelaxed coupon collection does not imply the full resonant family or the nonresonant open separation.",
+      "searches": [
+        "Mini-batch Kaczmarz exact finite termination via multinomial counts, coupon collector hitting time, divergent mean square despite almost sure finite termination",
+        "Random matrix products stochastic projection with singular factors, finite time convergence almost surely yet divergent moments, coordinate descent overshoot relaxation",
+        "Literature search: averaged randomized Kaczmarz convergence almost surely mean square divergence overrelaxation resonances",
+        "arxiv:2203.10838, Equation (1.8), Section 4 and Remark 4.16"
+      ]
+    },
+    "checked_sources": [
+      "Tondji and Lorenz, arXiv:2203.10838, first posted 2022-03-21, primary MSC 65F10, open-access journal HTML.",
+      "Moorman, Tu, Molitor and Needell, arXiv:2002.04126 (2020), primary full-text PDF.",
+      "Published mathematical finding: Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation (2026), title/summary comparison.",
+      "Published mathematical finding: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz (2026), title/summary comparison.",
+      "Published mathematical finding: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz (2026), title/summary comparison.",
+      "Earlier public mathematical literature searches for stochastic multiplicative moment-versus-pathwise divergence and Kaczmarz finite termination."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moorman et al. (2020), Corollary 2 contains a broader mean-square bound; the present mean-square multiplier can be obtained as its identity-matrix specialization and is explicitly excluded from independent novelty claims.",
+        "The exact finite-resonance hitting laws follow from discrete binomial count annihilation; Tondji–Lorenz and Moorman do not state or establish such laws in their relevant theoretical sections.",
+        "Closest published mathematical record: \"Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation\" studies cyclic nonorthogonal projections and a defective spectral optimum, not the randomized independent-with-replacement averaged update."
+      ],
+      "reasoning": "The known expectation bounds imply neither the absorbing-event characterization nor the almost-sure versus L2 reversal; conversely, the present calculation is an exact specialization of the averaging algorithm, not an extension to general matrices. The full theorem is not covered by the identified comparison statements, although its moment-only component is covered and general random-product theory informs the proof.",
+      "searches": [
+        "arxiv:2203.10838 \"almost surely\" \"finite termination\"",
+        "arxiv:2002.04126 \"almost sure\" \"finite termination\"",
+        "Published mathematical record search: Kaczmarz finite horizon and overrelaxation, averaged minibatch sampled rows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moorman et al. (2020), Section 3 and Corollary 2: the averaged shared-iterate update and a general mean-square error bound; no exact first-hitting law in inspected sections.",
+        "The specialized diagonal update has two correlated within-batch counts, unlike sequential randomized projections; its event types are K=j and K=q-j."
+      ],
+      "reasoning": "The algorithm is equivalent to minibatch stochastic gradient descent on an identity quadratic and to parallel averaged row projection. These aliases were considered rather than used as separate novelty claims. The statement concerns exact almost-sure absorption and an open pathwise/L2 contrast, not just the known one-step expectation polynomial.",
+      "searches": [
+        "Parallel averaged randomized Kaczmarz with replacement on orthogonal two-row system, resonant overrelaxation alpha=batchsize/j gives finite-time absorption almost surely but expected squared error diverges",
+        "Published literature search: randomized Kaczmarz almost sure finite convergence divergent expected squared error overrelaxation batching",
+        "arxiv:2002.04126, Section 3 (uniform weights)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Moorman et al. (2020), Section 4 and Fig. 3: finite-sample empirical MSE comparisons and overrelaxation; these do not tabulate first-hit times or exact nonresonant Lyapunov products.",
+        "The 2022 averaged sparse Kaczmarz paper gives theoretical expected-error upper bounds, not a classification table for batch-count absorption."
+      ],
+      "reasoning": "The exact rational value of the logarithmic product, the first-hitting distribution, and the full rational resonance set were not found in the directly inspected primary literature or published mathematical-record searches. A negative search cannot establish uniqueness; this is limited best-knowledge originality rather than independence certification.",
+      "searches": [
+        "Literature search: \"randomized Kaczmarz with averaging\" \"finite termination\" \"orthogonal\"",
+        "Literature search: \"Kaczmarz\" \"diverges in expectation\" \"almost surely\"",
+        "mini batch randomized Kaczmarz on identity A=I two equations batch 4 relaxation 19/5 negative Lyapunov exponent positive mean-square exponent"
+      ]
+    },
+    "rationale": "The full claim combines the exact absorption-resonance and stopping-time classification with a robust nonresonant almost-sure/mean-square reversal for a published parallel-averaged Kaczmarz update. The earlier Moorman mean-square expression already implies the risk polynomial, and this component is explicitly not claimed separately new. Relevant published mathematical-record and full-text source comparisons found no statement that covers the combination, subject to residual priority risk.",
+    "residual_risks": [
+      "Unindexed exact orthogonal-row analyses could already state the same resonance or Lyapunov product under another optimization/sampling terminology.",
+      "General products-of-random-matrices results provide a generic logarithmic convergence criterion; what is assessed as not covered is the concrete published-method hitting-time and robust sign calculation, not a new strong law.",
+      "The result is intentionally limited to two orthogonal rows and exact real arithmetic; extension to nonorthogonal systems remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the more general averaged method and assesses expectation/Bregman convergence, but not the exact batch-count resonance or pathwise/L2 separation proved here.",
+        "evidence": [
+          "Equation (1.8): with-replacement minibatch averaging; uniform weights allow alpha>1.",
+          "Corollary 4.14 and Remark 4.16: expected-convergence optimal relaxation and overrelaxation discussion."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-022-01473-x",
+        "material_read": "Open-access HTML, introductory update (1.8), Sections 3–4 including Assumption 1, Lemma 4.8, Theorem 4.12, Corollary 4.14, Remark 4.16, and Sections 5–6.",
+        "method": "Read full-text HTML relevant equations, theorem statements, proofs/discussion, and searched for almost-sure finite termination.",
+        "title": "Faster Randomized Block Sparse Kaczmarz by Averaging",
+        "trigger": "Source method and claim of faster parallel averaged randomized sparse Kaczmarz with overrelaxation."
+      },
+      {
+        "assessment": "Provides the mean-square polynomial framework that covers the moment-only identity, but inspected theoretical results and experiments do not establish the almost-sure finite hitting distribution or the nonresonant Lyapunov sign calculation.",
+        "evidence": [
+          "Page 8: uniform-weight update and Corollary 2 mean-square operator bound.",
+          "Pages 11–13: overrelaxation experiments and risk curve; no first-hit classification."
+        ],
+        "identifier_or_url": "https://ephesosx.github.io/research/2020bit.pdf",
+        "material_read": "The original 23-page primary PDF: especially pages 5–13 containing the common-iterate error recurrence, Section 3 uniform weights, Corollary 2, overrelaxation analysis and experiments; relevant pages checked against rendered page images.",
+        "method": "Read PDF extracted text plus visual inspection of pages 8 and 12 and targeted whole-document term searches.",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "An earlier general method with the same averaging update when the shrinkage threshold is zero, so a particularly strong possible covering result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29b111de-8146-4c1b-91cb-4df7f772efe3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean-square convergence bounds are central to relaxation selection in parallel randomized linear solvers. The complete resonance classification and exact finite-mean hitting law demonstrate an operationally consequential boundary: at batch size four a solver reaches the exact solution almost surely while the mean-square risk grows as 2^n. The explicit nearby nonresonant parameter has exponentially decaying sample paths and exponentially increasing squared-error expectation on an open relaxation interval, so the divergence between metrics is not an isolated zero-multiplier trick. This provides a clear benchmark for avoiding inference about individual trajectories from unstable second moments.",
+    "status": "PASS"
+  }
+}
