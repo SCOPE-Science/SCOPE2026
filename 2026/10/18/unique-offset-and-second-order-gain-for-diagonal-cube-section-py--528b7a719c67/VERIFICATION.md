@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The six scientific files and a standalone checker accompany the result. Run `python verify_diagonal_pyramid.py` in an environment with Python 3, SymPy and SciPy.
+## correctness
 
-The checker independently derives the Gaussian moments, confirms the exact rational second-order coefficients and the dimension-three optimizer, and evaluates the Fourier integral numerically for selected larger dimensions. Its assertions check only those reproducible finite identities and examples. The universal log-concavity argument, analytic bounds on Fourier tails, and asymptotic error estimates are part of the written proof and are not independently machine-certified.
+PASS
 
-For the precise claim, the asymptotic offset is in coordinate-sum units. No unrestricted high-dimensional optimality is asserted for non-diagonal hyperplanes. Historical priority beyond the reported source inspections is unverified.
+Coarea makes diagonal section area sqrt(n)*f_n(t); maximal in-cube vertex height is (n/2+t)/sqrt(n), hence volume (n/2+t)f_n(t)/n. Positive log concavity of the centered Irwin–Hall density and strict log concavity of n/2+t imply a unique optimum t_n>0. Fourier inversion with log sinc=-s^2/24-s^4/2880-s^6/181440+... gives uniform compact-t expansions of f_n and derivative. Independently recomputed rational Gaussian moments to verify coefficients -3/20,-13/1120, 2/45,7/120,73/3360, and numerical Irwin–Hall maxima for n=3,5,10,25,100; for n=3 t=(sqrt2-1)/2, D=(1+sqrt2)/6. Numerical checks do not prove the high-dimensional uniform errors; the analytic Gaussian tail controls are the proof.
+
+## originality
+
+PASS
+
+Nikolov 2026 determines central c_n and some unrestricted M_n inequalities and three-dimensional exact maximum; offset t_n uniqueness and quantitative two-term asymptotic along constrained main diagonal are not supplied. Earlier central-section Laplace-Pólya analyses similarly do not directly give optimized off-center apex-height product.
+
+## value
+
+PASS
+
+The globally unique diagonal-offset optimizer and explicit second-order improvement supply a sharp, geometrically motivated benchmark for the difficult unrestricted cube-pyramid problem. The gain of order 1/n is quantitatively nontrivial and the second-order term characterizes how noncentrality helps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

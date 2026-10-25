@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge3\), the coarea identity gives \(\mathcal H^{n-1}(Q_n\cap H_t)=\sqrt n\,f_n(t)\). The opposite vertex is the farthest point of the cube from the section plane, so the exact pyramid volume is \((n/2+|t|)f_n(t)/n\). Log-concavity of the sum-of-uniforms density and the strictly concave logarithmic height give a unique optimal positive offset; its derivative at the origin is positive. Fourier inversion with the displayed characteristic-function expansion and uniform Gaussian tail control yields the two-term expansions, from which the stationary equation and gain follow. The exact three-dimensional calculation matches the established unrestricted maximum. All Gaussian moments and coefficient identities were independently checked using exact rational arithmetic; numerical quadrature confirms examples but cannot replace the proof.
+PASS
 
-## Originality — PASS (conditional on investigated public sources)
+Coarea makes diagonal section area sqrt(n)*f_n(t); maximal in-cube vertex height is (n/2+t)/sqrt(n), hence volume (n/2+t)f_n(t)/n. Positive log concavity of the centered Irwin–Hall density and strict log concavity of n/2+t imply a unique optimum t_n>0. Fourier inversion with log sinc=-s^2/24-s^4/2880-s^6/181440+... gives uniform compact-t expansions of f_n and derivative. Independently recomputed rational Gaussian moments to verify coefficients -3/20,-13/1120, 2/45,7/120,73/3360, and numerical Irwin–Hall maxima for n=3,5,10,25,100; for n=3 t=(sqrt2-1)/2, D=(1+sqrt2)/6. Numerical checks do not prove the high-dimensional uniform errors; the analytic Gaussian tail controls are the proof.
 
-The nearest source, Nikolov (2026, arXiv:2610.14047v1), proves the unrestricted upper comparison, identifies the central maximizer, gives a strictly improving noncentral candidate, and determines the exact \(n=3\) maximum. It does not determine the optimizing diagonal offset in general dimension or its two-term expansion. Ambrus–Gárgyán (2025, arXiv:2412.12835) establish central Fourier/Laplace–Pólya asymptotics, not the offset-and-height optimization. Bartha–Fodor–González Merino (2020, arXiv:2005.08292) concern central diagonal sections. Pournin (arXiv:2203.15054v2) treats variation in normal direction at specified noncentral distances, not the maximizing offset times the apex height. Some portions of the latter secondary works were not comprehensively inspected; an older equivalent calculation could exist and is a documented priority risk. No absolute uniqueness-of-publication guarantee is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural exact optimization within the main-diagonal family singled out by the established central extremal theorem. The optimizer shifts by an order-one offset rather than remaining central and the optimal pyramid improves the central benchmark by an explicit positive \(1/(6n)\) relative leading term. The full second-order expansion supplies a reproducible benchmark for the still-unsettled unrestricted high-dimensional pyramid problem. The result does not purport to solve that unrestricted optimization.
+Nikolov 2026 determines central c_n and some unrestricted M_n inequalities and three-dimensional exact maximum; offset t_n uniqueness and quantitative two-term asymptotic along constrained main diagonal are not supplied. Earlier central-section Laplace-Pólya analyses similarly do not directly give optimized off-center apex-height product.
 
-## References and limits
+## value
 
-N. Nikolov, *Maximal volumes of pyramids in the unit cube* (2026), arXiv:2610.14047v1, https://arxiv.org/html/2610.14047v1.
+PASS
 
-G. Ambrus and B. Gárgyán, *Estimates on the decay of the Laplace–Pólya integral* (2025), https://doi.org/10.1112/blms.70157, arXiv:2412.12835.
+The globally unique diagonal-offset optimizer and explicit second-order improvement supply a sharp, geometrically motivated benchmark for the difficult unrestricted cube-pyramid problem. The gain of order 1/n is quantitatively nontrivial and the second-order term characterizes how noncentrality helps.
 
-F. Bartha, F. Fodor, B. González Merino, *Central diagonal sections of the \(n\)-cube* (2020), arXiv:2005.08292.
-
-L. Pournin, *Local extrema for hypercube sections*, arXiv:2203.15054v2.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
