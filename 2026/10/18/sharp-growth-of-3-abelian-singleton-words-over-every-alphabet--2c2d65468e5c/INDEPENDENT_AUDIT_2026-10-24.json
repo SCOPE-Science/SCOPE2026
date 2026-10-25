@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:00:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define R=q(q+1)/2 length-two necklaces and H=q(q−1)/2 two-cycles in the order-two de Bruijn directed graph. The explicit pivot/star ordering begins at (0,0), covers q singleton loops and H ordered 2-cycles exactly once, and consecutive classes have one-way connector triples. For arbitrary positive traversal counts t_i, each class cycle is traversed δ_i+ℓ_i t_i before its unique exit connector. Any word with identical length≤3 factor counts starts in the same length-two vertex and traverses the same edge multiset: the directed acyclic ordering of connector classes forces exhaustion before exit; each necklace cycle has unique internal successor, hence a unique Euler trail and 3-abelian singleton. Injectivity in t_i follows from cycle-edge multiplicities. Σδ_i=binom(q−1,2), Σℓ_i=q², giving n0=2q²−q+2 and subfamily generating function z^n0/[(1−z)^q(1−z²)^H]. Near z=1 pole order R dominates any z=−1 pole (order H<R), yielding coefficient n^(R−1)/(2^H(R−1)!)+O_q(n^(R−2)). Karhumäki et al Theorem 6.1 independently supplies O_q(n^(R−1)) for ALL singleton words, so Θ fixed q≥2. Independent separately coded necklace-connector graph and saturated Euler trail recursion verified q=2,3,4; minima lengths 8,17,30 and offsets 0,1,3. This is neither an exact total count nor an all-k theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 supplies only O(n^{N_q(k−1)−1}), and the source conjectures the matching Ω generally. The later rationality title covers enumerative structural regularity but was not materially examined in full."
+        ],
+        "reasoning": "A rational-language theorem does not automatically produce sharp polynomial degree without additional analysis; the plausible 2017 source remains a residual risk, not proof of priority. The 2016 upper bound alone cannot imply Ω.",
+        "searches": [
+          "Resultary semantic query: 3-abelian singleton words sharp polynomial growth alphabet necklaces k=3",
+          "arXiv:1605.03319 Theorem 6.1, Conjecture 7.8",
+          "Cassaigne et al 2017 k-Abelian Equivalence and Rationality DOI:10.3233/FI-2017-1553"
+        ]
+      },
+      "checked_sources": [
+        "Karhumäki–Puzynina–Rao–Whiteland 2016 arXiv:1605.03319 §§4–7",
+        "Cassaigne et al 2017 DOI:10.3233/FI-2017-1553 citation only",
+        "Karhumäki–Whiteland 2018 DOI:10.1007/978-3-319-98355-4_4 bibliographic identification",
+        "Resultary Resultary semantic query: 3-abelian singleton words sharp polynomial growth alphabet necklaces k=3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source explicitly labels sharpness a conjecture and gives an upper bound. The submitted lower-bound family has a pole of exact order R at z=1 and size Ω(n^{R−1})."
+        ],
+        "reasoning": "Together these imply θ; neither the original upper bound nor the cycle-decomposition correspondence alone yields the construction. The result is only k=3 fixed q; no false claim that general conjecture is solved.",
+        "searches": [
+          "arXiv:1605.03319 Theorem 6.1 p12 and Conjecture 7.8",
+          "Resultary semantic query: 3-abelian singleton words sharp polynomial growth alphabet necklaces k=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim that 3-abelian singleton words correspond to unique Euler trails of order-two de Bruijn transition multigraphs is the source authors’ established characterization. The actual novelty is an all-alphabet chain of all length-two necklace classes with independent free traversals."
+        ],
+        "reasoning": "The novel exponent should not be double-counted as a new characterization of 3-abelian equivalence or of necklaces; the explicit ordered one-way connectors construct enough distinct singleton classes to saturate the known upper exponent.",
+        "searches": [
+          "Resultary semantic query: 3-abelian singleton words sharp polynomial growth alphabet necklaces k=3",
+          "arXiv:1605.03319 de Bruijn Euler-trail/necklace singleton characterizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical necklace count R=(q²+q)/2 supplies exponent parameter but says nothing about existence of a unique-trail family of order n^{R−1}."
+        ],
+        "reasoning": "Known necklace counts, finite lists, and q-specific enumeration cannot mechanically imply the all-q θ-law; construction demonstrates simultaneous independent parameter freedom.",
+        "searches": [
+          "Resultary semantic query: 3-abelian singleton words sharp polynomial growth alphabet necklaces k=3",
+          "arXiv:1605.03319 known necklace counts N_q(2)",
+          "published OEIS A000031 necklace values cited by 2016 paper"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: a constructive lower bound resolving the sharp exponent for fixed factor length k=3 and every fixed alphabet q≥2, using the published upper bound. Conjecture 7.8 of Karhumäki et al explicitly proposes the missing sharp growth generally; the submitted all-q length-two necklace chain and enumerated singleton subfamily contribute the missing half at k=3.",
+      "residual_risks": [
+        "The 2017 rationality and 2018 fixed-cardinality articles were not read in full; an implicit all-q k=3 construction may exist there.",
+        "An alternate Gray-code or necklace-decomposition theorem could imply the lower bound even without explicitly presenting the generating function; no direct coverage found in inspected primary 2016 sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper exponent known; stated conjectural matching Ω for general k and q; no all-q explicit k=3 ordered necklace chain in inspected relevant sections",
+          "evidence": "Theorem 6.1 n^{N_q(k−1)−1} upper, Section 7 sharpness conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+          "material_read": "Abstract; §§4–7 especially Theorem 6.1 PDF page 12 and Conjecture 7.8; source model of de Bruijn necklaces",
+          "method": "arXiv primary 21-page PDF parsed text and p12 screenshot, plus relevant theorem/conjecture extracted passage",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Original theorem and conjecture directly defining sharpness"
+        },
+        {
+          "assessment": "Plausible stronger source left as named residual risk; cannot classify entire article as noncovering",
+          "evidence": "Known DOI 10.3233/FI-2017-1553; no unverified theorem assertion.",
+          "identifier_or_url": "https://doi.org/10.3233/FI-2017-1553",
+          "material_read": "Title, citation/bibliographic metadata; no full text read in this execution",
+          "method": "bibliographic pointer only",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Potentially more general counting mechanism for singleton growth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies the all-alphabet case k=3 of an explicit published sharp-growth conjecture via a mathematically transparent family of uniquely reconstructable words. The independent necklace traversal parameters create the exact exponent and a reusable generating function; that is substantially more than reusing the known upper bound or tabulating a few words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed q and k=3 only; exact product generating function counts a selected subfamily, NOT all 3-abelian singleton words.",
+    "No claim of sharp leading coefficient of the total population; independent finite Euler checks do not establish arbitrary q.",
+    "Originality is best-of-knowledge with individually stated material-read limitations; failed search does not establish historical priority.",
+    "Independent finite tests corroborate, and do not substitute for, general-parameter proofs.",
+    "The frozen full Git tree SHA-1 was independently rehashed; no scientific publication, GitHub writes, Lean/expert attestation or external certification occurred."
+  ],
+  "schema_version": 1
+}
