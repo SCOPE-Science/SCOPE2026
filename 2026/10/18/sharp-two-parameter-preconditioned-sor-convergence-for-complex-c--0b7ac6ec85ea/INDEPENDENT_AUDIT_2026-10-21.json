@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T01:55:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nonreal conjugate pair, spectral mapping Z=(θI+S)^{-1}(θS−I) yields modal polynomial (λ−a)^2=−ω²τ²λ. The invariant c=|(τ−i)/(τ+i)|=|(μ−i)/(μ+i)|, together with 0<Im τ≤2√r/(1+r) when r=ρ(L)<1, implies q=(1−c)/(1+c)≤2√r/(1+r), so r≥(1−sqrt(1−q²))/(1+sqrt(1−q²)). Equality forces τ=iq and ω=1+R*, with uniquely prescribed nonzero θ for u≠0. For u=0,v≠1, τ=iq only at θ boundary 0 or infinity and minimum is a nonattained infimum. Direct example u=1,v=2 has θ=√5−2 and rate ≈0.03940575785, while unpreconditioned SOR has no convergent real relaxation for v≥1. This is a spectral, not transient-norm, theorem and needs no diagonalizability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hocking–Greif optimize ω on prescribed complex line-segment spectra, not θ jointly.",
+          "Louka–Missirlis explicitly restrict their spectral optimization to real eigenvalues and point to complex spectra as future work."
+        ],
+        "reasoning": "Potentially stronger general circle-based SOR minimax results would imply this single-pair theorem, but none of the inspected primary statements supplies simultaneous θ,ω minimization. Retain risk rather than infer novelty from absent wording.",
+        "searches": [
+          "Resultary semantic query: joint optimal preconditioned block SOR complex conjugate eigenvalues real parameter two spectral modes Cayley transform optimal spectral radius convergence",
+          "arXiv:2508.02052v1 full HTML",
+          "DOI 10.1002/nla.70068 §3.2"
+        ]
+      },
+      "checked_sources": [
+        "M. A. Louka and N. M. Missirlis, The Block Preconditioned SOR Method for Solving Indefinite Complex Linear Systems, Numer. Linear Algebra Appl. 33 (2026) e70068, DOI 10.1002/nla.70068, §3.2",
+        "L. R. Hocking and C. Greif, Convergence Analysis of Optimal SOR for a Class of Consistently Ordered 2-Cyclic Matrices with Complex Spectra, arXiv:2508.02052v1",
+        "E. F. F. Botta and A. E. P. Veldman, On Local Relaxation Methods and Their Application to Convection-Diffusion Equations, J. Comput. Phys. 48 (1982), §2",
+        "Resultary search Resultary semantic query: joint optimal preconditioned block SOR complex conjugate eigenvalues real parameter two spectral modes Cayley transform optimal spectral radius convergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source theorem claims inf_{θ≠0,ω∈R} ρ(L)=R* under one conjugate-pair spectrum without diagonalizability.",
+          "Prior BPSOR theory establishes formulation and real-spectrum parameter optimization, and complex SOR theory covers fixed complex spectra."
+        ],
+        "reasoning": "Source uses established block iteration and ellipse concepts; its Cayley invariant, lower bound and equality conditions provide a distinct missing joint bound in the inspected sources. Global equality conditions merit independent checking; they were reconstructed from modal polynomial.",
+        "searches": [
+          "Resultary semantic query: joint optimal preconditioned block SOR complex conjugate eigenvalues real parameter two spectral modes Cayley transform optimal spectral radius convergence",
+          "M. A. Louka and N. M. Missirlis, The Block Preconditioned SOR Method for Solving Indefinite Complex Linear Systems, Numer. Linear Algebra Appl. 33 (2026) e70068, DOI 10.1002/nla.70068, §3.2",
+          "L. R. Hocking and C. Greif, Convergence Analysis of Optimal SOR for a Class of Consistently Ordered 2-Cyclic Matrices with Complex Spectra, arXiv:2508.02052v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SOR mode equation (λ−1+ω)^2=−ω²τ²λ; τ=(θμ−1)/(θ+μ)",
+          "Known fixed-spectrum complex Jacobi SOR ellipse does not itself optimize θ over the Cayley circle."
+        ],
+        "reasoning": "The same target could be expressed as an SOR minimax problem on a preconditioner-induced hyperbolic/Cayley orbit; the inspected real-spectrum BPSOR result and fixed-complex-spectrum SOR results do not state the joint orbit optimum R* or the finite-versus-boundary θ attainment.",
+        "searches": [
+          "Resultary semantic query: joint optimal preconditioned block SOR complex conjugate eigenvalues real parameter two spectral modes Cayley transform optimal spectral radius convergence",
+          "Complex SOR ellipse and Cayley transformed Jacobi spectrum; Louka–Missirlis §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit optimizer depends continuously on real u,v and has separately classified u=0 limiting cases.",
+          "8,000 sampled nonoptimal parameters in source verifier are only checks, not a table covering all u,v."
+        ],
+        "reasoning": "A numerical parameter table cannot entail a global continuum optimum or unique analytic minimizer; checked relevant Resultary records concern different iterative optimizers.",
+        "searches": [
+          "Resultary semantic query: joint optimal preconditioned block SOR complex conjugate eigenvalues real parameter two spectral modes Cayley transform optimal spectral radius convergence",
+          "frozen RESULT.md and reproduce.py at Git commit 7950194252196f55438640b78f7ae65dc98a35fb"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.",
+      "residual_risks": [
+        "A classical optimal-SOR-over-Cayley-circle theorem might imply the formula without using BPSOR terminology.",
+        "Asymptotic spectral radius alone does not control transient norms under nonnormal Jordan structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": "Real-spectrum assumption excludes nonreal μ=u±iv; §3.2 identifies complex case separately.",
+          "identifier_or_url": "https://doi.org/10.1002/nla.70068",
+          "material_read": "Available complete HTML and §3.2 derivations and assumptions",
+          "method": "Read publisher HTML including real-spectrum optimization and complex-spectrum qualification",
+          "title": "The Block Preconditioned SOR Method for Solving Indefinite Complex Linear Systems",
+          "trigger": "Same iteration family, plausible dominating published 2026 source"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": "Fixes complex line-segment Jacobi spectrum and varies relaxation, without the studied θ-preconditioner.",
+          "identifier_or_url": "https://arxiv.org/html/2508.02052v1",
+          "material_read": "HTML abstract, main spectral minimax statements and relevant setup",
+          "method": "Read accessible primary HTML",
+          "title": "Convergence Analysis of Optimal SOR for a Class of Consistently Ordered 2-Cyclic Matrices with Complex Spectra",
+          "trigger": "Likely broader complex-SOR parameter result"
+        },
+        {
+          "assessment": "PRIOR_TOOL_USED_NOT_NEW",
+          "evidence": "Real semiaxis one ellipse supports original non-convergence claim; historical priority of general joint minimax remains open.",
+          "identifier_or_url": "https://pure.rug.nl/ws/files/3427889/1981JCompPhysBotta.pdf",
+          "material_read": "Source-described Section 2 ellipse criterion; independent proof used modal polynomial",
+          "method": "Supporting classical result; not used as complete exclusion of entire paper",
+          "title": "On Local Relaxation Methods and Their Application to Convection-Diffusion Equations",
+          "trigger": "Classical SOR convergence ellipse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This fills the explicitly motivated complex-spectral optimization case of the 2026 BPSOR formulation, gives a universal sharp **joint** preconditioner/relaxation rate, a nonattainment dichotomy, and a convergence-restoration phenomenon. It is more than a fixed-θ SOR exercise, albeit restricted to one conjugate spectral pair.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "M. A. Louka and N. M. Missirlis, The Block Preconditioned SOR Method for Solving Indefinite Complex Linear Systems, Numer. Linear Algebra Appl. 33 (2026) e70068, DOI 10.1002/nla.70068, §3.2",
+    "L. R. Hocking and C. Greif, Convergence Analysis of Optimal SOR for a Class of Consistently Ordered 2-Cyclic Matrices with Complex Spectra, arXiv:2508.02052v1",
+    "E. F. F. Botta and A. E. P. Veldman, On Local Relaxation Methods and Their Application to Convection-Diffusion Equations, J. Comput. Phys. 48 (1982), §2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One conjugate-pair spectrum only; not a multimode minimax theorem.",
+    "Spectral convergence does not bound short-run transient amplification or preconditioner assembly costs."
+  ],
+  "residual_risks": [
+    "A classical optimal-SOR-over-Cayley-circle theorem might imply the formula without using BPSOR terminology.",
+    "Asymptotic spectral radius alone does not control transient norms under nonnormal Jordan structure."
+  ],
+  "schema_version": 1
+}
