@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every Roman dominating labeling of a thin or thick spider is partitioned according to whether a label two occurs in its clique and, if not, in its head. The three cases are exhaustive and disjoint. The potentially delicate thick-spider restriction is precise: with exactly one core two, only its non-neighbor foot may not be zero, producing the correction \(nz^2 E^{n-1}\). The other thick-spider subtlety, a single foot two with no core/head two, forces its one unmatched core to be positive. Exact arbitrary-head and join/union rules follow from the same zero-defense definition. The correctness argument works for every finite head and \(n\ge2\); experiments on 264 instances and 8,244,702 functions independently corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+Ordinary Roman domination requires each zero-labeled vertex adjacent to at least one label two. The graph is a clique C_n, independent matched/co-matched feet S_n, and arbitrary head H of order r joined to all core vertices. For thin spiders, partition labelings by existence of core twos and of head twos. In the core-two class each index contributes X=z²(1+z+z²) if core=2 or D=z(1+z)² if core !=2 and foot >0; exclude the no-core-two case. Head labels then unrestricted, Q^r. In the no-core-two/head-two class the head must be Roman valid with at least one two, giving (R_H-z^r)D^n. In the no-two class head all-one and each matched pair contributes 2z²+z³. This yields Q^r((X+D)^n-D^n)+(R_H-z^r)D^n+z^r(2z²+z³)^n. The thick case core-two class excludes all no-two cores E^n and the n unique-core-two configurations with its unmatched foot zero, nz²E^(n-1); the no-two-core/head-two class is same D term. In no-head/core-two class feet-two count 0,1,>=2 yields exactly K_n=B^n((z+z²)^n-z^n-nz^(n+1))+n z^(n+2) B^(n-1)+z^(2n). Resulting thick formula is Q^r(Q^(2n)-E^n-nz²E^(n-1))+(R_H-z^r)D^n+z^r K_n. Disjoint-label partitions prove full coefficients for all n>=2 and arbitrary H, including empty. Union multiplicativity and join four-class identity were independently checked. Applying established P4-sparse decomposition gives finite recursion. Independent complete coefficient enumeration verified ten n/head/type instances; these tests are finite corroboration.
 
-The closest direct source, Das–Santra (2026, arXiv:2609.19240v1), provides minimum Roman weights and a decomposition algorithm for \(P_4\)-tidy graphs; the material inspected does not provide these complete weight distributions or the dependence solely on head order and head polynomial. Abu-Khzam–Fernau–Mann (MFCS 2023, DOI:10.4230/LIPIcs.MFCS.2023.6) counts minimal Roman labelings and hence does not imply counts of all Roman labelings. General weighted MSO/clique-width methods can already guarantee polynomial-time coefficient computation on a bounded-clique-width class; algorithmic existence alone is not claimed as new. The algebraic identities and head-substitution principle give strictly more explicit, structurally interpretable information. Searches compared chain-graph and multipartite Roman polynomials, the alternate meaning of spider as a tree, Roman variants, and general polynomial computation. No implication of the explicit spider formulas from an inspected primary theorem was found. Unindexed and inaccessible specialized literature remains a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The full degree-\(2|V|\) polynomial encodes exponentially many Roman assignments by their weights rather than only one optimum. The universal head-substitution laws are a nontrivial graph-composition invariant and give direct exact coefficient formulas across all \(P_4\)-sparse graphs, a natural hereditary class. The thick-spider exception with one core defender and one unmatched foot is a genuine local combinatorial obstruction, not a renamed complete-multipartite counting exercise. The result gives reusable algebraic machinery independently of new complexity bounds.
+Compared mathematical implications against primary literature, Resultary semantic findings, aliases and broader formulations. Best-of-knowledge priority only. Known numerical minima do not logically determine the full distribution for arbitrary heads; the core/head-two partition and corrections provide extra explicit information. However the inaccessible Das–Santra full manuscript remains a genuine unresolved bibliographic risk, not a fabricated absence of coverage.
 
-## Limitations and closest coverage
+## value
 
-The primary 2026 source already determines minimum-weight cases; the 2023 census counts minimal functions; a general fixed-clique-width logical counting theorem covers generic computability. Those claims are excluded from priority assertions. Specialized full-text coverage may be incomplete. No external or independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A naturally recursively decomposable graph class has exact Roman weight distribution, stronger than its known optimization parameter. Both closed spider transforms depend on head only through r and R_H, enabling head substitution without graph isomorphism; this is explicit structural arithmetic useful for enumeration and symbolic combinatorics, not a claim that general bounded clique-width computability was unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
