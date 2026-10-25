@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The survivor set is exactly a left-branch inverse interval, not a heuristic approximation. For positive surviving states the change \(u=x^{-\alpha}\) has the one-step expansion \(u\mapsto u-\alpha2^\alpha+O(u^{-1})\), with error uniformly bounded by \(C n h_n^\alpha\) after \(n\) steps; this yields the uniformly valid inverse-cutoff formula. The normalized LSV invariant density has a rigorous leading \(x^{-\alpha}\) singularity with positive coefficient (Korepanov–Wei–Wormell, §6, especially (6.3) and Lemma 6.3). Conditional regular variation gives a beta initial law; the path limits follow by uniform estimates on high-probability compact subsets of the beta parameter. The singular point of the infinite-crossover path occurs only at the beta endpoint of probability zero. Finite computations were not used as infinite proofs.
+
+## Originality — PASS, subject to residual priority risk
+Wang–Su's arXiv:2610.21175v1 treats fixed holes away from zero and conditioned Birkhoff sums, not a shrinking retained interval or arbitrary cutoff sequences. Froyland–Murray–Stancevic (arXiv:1012.2149v1) provides related small-neighborhood survival geometry and estimates but not the simultaneous boundary/horizon \(C([0,1])\) weak laws or the crossover parameter. Demers–Todd's three thermodynamic regimes concern a family of reference measures with fixed holes, not the present path-level limit. Bonanno–Tikekar (arXiv:2601.15908v1) treats the opposite hole orientation. The published-finding corpus searches and accessible related findings disclosed no same implication; searches are not a guarantee of priority. A related earlier inverse-branch argument might make an unindexed version already implicit; this is recorded rather than dismissed.
+
+## Mathematical value — PASS
+The natural observation time \(n\) and local intermittent departure time \(h_n^{-\alpha}\) compete, so the ratio \(n h_n^\alpha\) is a mathematically motivated dimensionless parameter rather than an arbitrary slice. The theorem identifies every finite crossover law and the distinct infinite-aging law for the entire conditioned path, not only escape exponents. It sharpens the distinction between fixed-hole conditional asymptotics and small-neighborhood metastability by exposing a functional limit across their joint boundary. The result makes no claim of a paper-sized generalization or a bound for unrelated systems.
+
+## Closest literature and limitations
+The strongest comparison is Froyland–Murray–Stancevic, §3, where inverse iterates of an arbitrary small fixed retention interval are already central. What is assessed here is the *simultaneous two-scale conditional process limit* and the explicit interpolation between frozen and aged profiles; it is not novelty of the inverse-branch lemma. The established invariant-density leading term is an input, not a new claim. Literature-priority risk persists outside the sources inspected. No independent audit has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
