@@ -1,15 +1,21 @@
-# Scientific review: asymmetric book-metric John ellipsoids
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim fixes the canonical zero-sum Euclidean realization, strictly positive unequal spoke lengths, strict triangle inequalities, and every integer \(m\ge3\). The edge-resistance formulas follow from an explicit Schur complement of the weighted Laplacian. In each phase, the displayed nonnegative conductances give a connected graph, feasible covariance, and equality at every positively weighted edge constraint. The strict log-determinant support inequality proves global John optimality even against arbitrary nonsymmetric and off-center ellipsoids. The matrix-tree polynomial establishes the intrinsic volume normalization; direct differentiation gives both nonzero curvature jumps and the high-dimensional transition scale. The attached standard-library checker passed 102 reproducible checks, including one exact-fraction matrix case, and separate unrestricted covariance optimizations were consistent with the formula. Finite experiments are corroborative only.
+## correctness
 
-## Originality
-**PASS within the inspected literature, with residual risk.** Aliaga's molecular extremal description concerns Lipschitz-free balls rather than these optimal inscribed ellipsoids. Alexander and collaborators establish volume/geometry methods, not this asymmetric book computation. Suliman and Weinstein already provide the general graph effective-resistance/optimal-design framework and are explicitly credited; a general optimization principle is not presented as novel. The closest published book-graph ellipsoid calculation concerns an **unweighted symmetric edge polytope**. Its polar symmetry case neither gives the unequal-spoke parameters nor implies the two distinct contact thresholds, strict volume plateau, or exact curvature jumps. Existing weighted-book volume/covariance and graph cycle-projection results target distinct invariants. The searched mathematical record contains no direct matching three-regime statement. An alternative equivalent formulation, especially in optimal-design terminology, remains a material bibliographic uncertainty.
+PASS
 
-## Mathematical value
-**PASS.** A common-edge deformation of a book metric is a natural continuously weighted family within finite-dimensional Lipschitz-free geometry, not an arbitrary parameter slice. The exact John ellipsoid is a meaningful intrinsic Euclidean invariant; its screening of whole orbits of active facets occurs twice, at computable nontrivial algebraic thresholds. The sharp \(C^1\) but not \(C^2\) transitions and \(1/m\)-scale disappearance of the intermediate phase connect local contact geometry with a dimension-asymptotic law. The plateau is not a generic deduction from a single unweighted calculation, and it shows how a strictly expanding ball can retain a fixed extremal ellipsoid.
+Read complete parameter-domain proof. Every edge length is metrically essential under B−A<t<A+B; constraints b_e^TQb_e≤edge² characterize centered ellipsoid covariance Q. Strict concavity of logdet Q and complementary-slackness certificate Q^-1=L(a,b,c) with nonnegative weights on tight edges establish global unique optimizer even among nonsymmetric covariances and translated ellipsoids (positive weighted spanning contacts force center 0). Weighted book graph effective-resistance identities R_uv=S/(mab+cS), R_uz=1/S+(b/S)²R_uv, R_vz=1/S+(a/S)²R_uv exactly yield three phases a=A^-2,b=0,c=t^-2 before t1; a=Y/(tU),b=X/(tU),c=(U−mXY)/(Ut²) for t1..t2; and c=0 with positive spoke weights after t2. Derived c decreases across middle phase and vanishes once, establishing strict threshold order. Matrix-tree determinant det_H L=(m+2)S^{m−1}(mab+cS) yields intrinsic volume κ_{m+1}tA^m/√(m+2), κ_{m+1}tU^{m/2}/√(m+2), then exactly constant at t2; derivative checks establish C¹ but not C² and m(t2−t1)→A²/√(B²−A²). Independent grounded inverse calculations for m=3,5,9 and three t regimes reproduced active/slack squared edge resistances and plateau. This all-parameter conclusion is proven analytically, not by the finite numerical tests.
 
-## Sources and limitations
-Primary functional-analytic setting: Aliaga, arXiv:2102.01219 (first publicly posted 2021-02-01, primary MSC2020 46B20). Closest general design method: Suliman–Weinstein, arXiv:2302.05966, especially Appendix A.3. Other inspected material: Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642; D'Alì–Delucchi–Michałek, arXiv:1910.05193; Mori–Mori–Ohsugi, arXiv:2312.11287; and the published unit-edge book graph Löwner ellipsoid result cited in RESULT.md. Finite checks do not establish literature uniqueness or constitute an independent audit. Equal spoke lengths, arbitrary per-edge weights, complex scalars, and metric-degenerate triangle endpoints are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published book-graph symmetric edge-polytope Löwner ellipsoid is the symmetric unit-edge polar counterpart and explicitly classifies only m-dependence and hub screening at A=B; the assigned result has strict A<B, variable metric hub distance t and two continuous contact thresholds. Suliman–Weinstein supply general D-optimal/effective-resistance framework, already credited as prior; the weighted asymmetric family has a new evaluated 3-phase exact contact/volume expression not found in checked primary theorems.
+
+## value
+
+PASS
+
+A geometrically natural deformation of a finite metric/Lipschitz polytope has a complete global John-ellipsoid classification with unexpected strict plateau before metric degeneracy, exact contact screening, smoothness transitions and dimension-dependent boundary-layer scale. These precise parameter transitions are motivated invariants, not mere application of the optimization definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
