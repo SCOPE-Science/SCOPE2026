@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All definitions quantify over two agents, an integer T>=1 and every ordered pair of perfect matchings. At optimal T, exact coverage by utility-contributing disjoint pairs forces whole alternating-cycle assignments, and each removed item destroys exactly one of the evaluator’s opposite-color pairs. This proves the necessary/sufficient near-balanced subset condition for both EF1 and EFX. If absent, a maximum-length component L>=2 is split into L−1 disjoint recipient-valued pairs and two leftover goods, with pair-count difference at most one after greedy assignment of the other components. Giving the two leftovers to the lower-count recipient makes EFX follow from floor((bundle_size−1)/2) upper bounds. The resulting T−1 welfare matches the universal upper bound in that case; DP reconstructs either case. Separate exhaustive enumeration of 11,260 matching-pair instances with 2–8 goods checks construction and EFX inequalities. Finite checks are corroborative and do not replace the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.15801 Theorem 4.6 gives 1/3 of maxUSW under general SPOC_2, not T−1 for two complete perfect pair lists.",
+        "arXiv:2610.15801 Theorem 4.7 constructs different approximately-EF lower-bound instances; the second agent complement list there is not a perfect matching of all items.",
+        "arXiv:2301.10354 concerns two-agent EFX computation and complexity, not this exact utilitarian optimum."
+      ],
+      "reasoning": "The broader general class guarantees do not dominate the sharp objective and iff condition, and the negative family is outside the symmetrical perfect-covering domain. Potential yet-unseen specialized results remain a residual risk.",
+      "searches": [
+        "Pyne Viswanathan Yang Zick 2610.15801 Fair Allocation with Dichotomous Preferences over Item Complements",
+        "Goldberg Hogh Hollender Frontier of Intractability EFX two agents complementary matching",
+        "EFX price of fairness for two agents disjoint complementary pairs matched matching graph alternating cycles exact two"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.15801v2 (complete accessible primary HTML)",
+      "https://arxiv.org/abs/2301.10354 (accessible main text)",
+      "https://arxiv.org/abs/2607.17811 (accessible scope/results)",
+      "Semantic results corresponding to distinct stable matching, pair-matching spectrum and stochastic-dominance titles; mathematical statement and domain comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Proposition 2.1 implies an example of a one-pair fair-welfare gap at T=2, not a theorem for every union of perfect matchings.",
+        "Generic 1/3 EFX lower bound does not imply T−1 additive guarantee, nor subset-balance characterization.",
+        "Submodular results do not apply to the non-submodular indivisible-good complement valuations."
+      ],
+      "reasoning": "Logical comparison isolates a genuinely stronger positive exact structural result in a special domain, while expressly excluding the already proved example from the new contribution.",
+      "searches": [
+        "Pyne Viswanathan Yang Zick 2610.15801 Fair Allocation with Dichotomous Preferences over Item Complements",
+        "Two agents each value completed pairs forming their own perfect matching over a common set of items; exact EF1 EFX utilitarian social welfare equals all pairs or all but one according to subset-sum balanced alternating cycle lengths.",
+        "EFX price of fairness for two agents disjoint complementary pairs matched matching graph alternating cycles exact two",
+        "Goldberg Hogh Hollender Frontier of Intractability EFX two agents complementary matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two covering complement lists are graph-theoretic perfect matchings; alternating components are the only degrees of freedom at full welfare.",
+        "Semantic mathematical-results searches returned stable marriage, matching spectra and two-preference-type assignment results, which are distinct from complementary-item fair allocation."
+      ],
+      "reasoning": "Translated to 2-colored cycle factors, subset sum of half-lengths, and EF1/EFX utilitarian welfare. No retrieved equivalence states the exact T vs T−1 welfare law; no search absence is treated as a proof of absolute priority.",
+      "searches": [
+        "Two agents each value completed pairs forming their own perfect matching over a common set of items; exact EF1 EFX utilitarian social welfare equals all pairs or all but one according to subset-sum balanced alternating cycle lengths.",
+        "EF1 EFX optimum equal for two agents with partition into disjoint pairs, complementary pairs matching cycles",
+        "SPOC two players pair complement perfect matching alternating cycles unit gap EFX efficiency subset partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper includes the four-item instance (Proposition 2.1) but no all-even-size exact table or cycle profile theorem.",
+        "Small-size counts 1,9,225,11025 matching-pair instances and cycle-profile multiplicities were generated independently, not sourced as published tables."
+      ],
+      "reasoning": "Known four-item example explicitly prior. No consulted table or indexed complete classification covered the arbitrary-size cycle-length formula or both EF1/EFX optimum equalities.",
+      "searches": [
+        "SPOC two players pair complement perfect matching alternating cycles unit gap EFX efficiency subset partition",
+        "Two agents each value completed pairs forming their own perfect matching over a common set of items; exact EF1 EFX utilitarian social welfare equals all pairs or all but one according to subset-sum balanced alternating cycle lengths.",
+        "EF1 EFX optimum equal for two agents with partition into disjoint pairs, complementary pairs matching cycles"
+      ]
+    },
+    "rationale": "The assessed all-scale equivalence of complete EF1 and EFX maximum welfare, the alternating-cycle balanced-subset iff test, and the universal one-pair EFX construction were compared with the primary article, relevant two-agent and submodular literature, semantic searches of published mathematics, and own accessible historical claim summaries. The 2026 source explicitly already supplies the four-item obstruction, which is acknowledged as prior. No inspected result states or implies the complete dichotomy on two perfect-matching lists. Residual priority uncertainty from unindexed equivalent papers remains; independent audit has not been performed.",
+    "residual_risks": [
+      "An unindexed paper could have proved the same or a dominating two-perfect-matching subset-sum characterization.",
+      "Publication priority has not been independently adjudicated.",
+      "General complement lists and higher-agent extensions are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 2.1 exactly covers the four-good example, which is excluded from the originality claim. Theorem 4.6 gives a generic approximate EFX welfare guarantee, and 4.7 supplies a distinct many-agent/incomplete-list lower-bound family. No all-size subset-balance iff criterion or exact T vs T−1 two-perfect-matching EFX/EF1 welfare classification was found in the inspected material.",
+        "evidence": [
+          "Proposition 2.1: complementary lists {{g1,g2},{g3,g4}} and {{g1,g3},{g2,g4}}, all max-welfare outcomes fail EF1.",
+          "Theorem 4.6: complete EF-X at least 1/(k+1) times maximum USW for general purely complementary SPOC_k.",
+          "Theorem 4.7: upper bound about one half for approximately envy-free solutions in a different family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15801v2",
+        "material_read": "Full HTML text: Sections 1–4, particularly Section 2 definitions and Proposition 2.1 and Section 4 Theorems 4.6–4.7; relevant proofs/appendix.",
+        "method": "Full-text primary-source reading; direct statement and implication comparison, not snippet inference.",
+        "title": "Fair Allocation with Dichotomous Preferences over Item Complements",
+        "trigger": "The same valuation class, a four-good alternating complement-pair obstruction, and EF-X welfare guarantees."
+      },
+      {
+        "assessment": "Two-agent EFX existence/computational frontiers do not supply the exact utilitarian optimality criterion for two covering matchings of complementary pairs.",
+        "evidence": [
+          "Two-agent EFX computational/existence results have general valuation and algorithmic questions, not the particular all-size perfect matching welfare dichotomy."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.10354",
+        "material_read": "Accessible full-text introduction and relevant EFX algorithms/complexity sections.",
+        "method": "Primary text comparison of valuation classes, objectives and implication.",
+        "title": "The Frontier of Intractability for EFX with Two Agents",
+        "trigger": "Potentially dominating two-agent EFX existence/complexity theorem."
+      },
+      {
+        "assessment": "Submodular valuation premises do not encompass positive completed-pair complementarities in the present model; no exact matching-cycle welfare criterion was identified.",
+        "evidence": [
+          "Submodularity of goods-valuations is essential to the related results and fails for a completed-pair valuation on individual goods."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.17811",
+        "material_read": "Accessible introduction and relevant valuation-scope/results sections.",
+        "method": "Primary full-text scope and theorem comparison.",
+        "title": "When One Good Is Not Enough: On the Compatibility of Fairness and Efficiency under Submodular Valuations",
+        "trigger": "Potential stronger claim relating EF1 or EFX and efficiency for two agents."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a5bcf8e-126f-42e2-b41c-bb32d3c59fdf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pairwise complements are a central example motivating the 2026 fair-allocation model. A finite four-item impossibility alone was previously known, but it left the efficiency behavior of two fully covering complement lists at arbitrary size unresolved in the inspected source. The cycle-decomposition theorem supplies a complete exact decision criterion for zero fairness cost versus the unavoidable single-unit loss, a witnessing efficient construction, an O(T²) algorithm and quantitative near-total welfare. This is a motivated structural classification of a natural class rather than an arbitrary fixed-size enumeration or cosmetic restatement of the known example.",
+    "status": "PASS"
+  }
+}
