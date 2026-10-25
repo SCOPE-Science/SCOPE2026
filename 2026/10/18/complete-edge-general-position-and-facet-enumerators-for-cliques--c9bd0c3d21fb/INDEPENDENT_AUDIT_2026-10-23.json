@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:16:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/complete-edge-general-position-and-facet-enumerators-for-cliques--c9bd0c3d21fb/RESULT.md blob bad8187d2266b10aec5ddbbc0db4c735671e41e7",
+        "Actual verified package Git tree 09fdc4b805bd634404c96c922d540a201840069a",
+        "Independent exact combinatorial/finite check"
+      ],
+      "rationale": "All geodesics in a clique with length-one pendant leaves have length <=3. A triple of selected edges is on a geodesic exactly when it comprises two pendant edges at distinct hubs i,j and the clique edge ij. Active pendant hubs P therefore uniquely partition all EGP sets, with nonempty leaf-edge factors ((1+x)^b_i-1) and free clique edges outside choose(P,2). Inclusion maximality forces every active pendant edge and permissible clique edge, giving one facet for each nonempty P and 2^n-1 facets. The max formula follows by optimizing sum b_i - choose(s,2); singleton, pair, triple facet comparisons force nonpurity for all n>=3 and b_i>=1. One-leaf facet sizes give all n-3 consecutive missing sizes. Independent BFS shortest paths/direct subset enumeration yielded 45/7 sets/facets for b=(1,1,1), 79/7 for b=(1,2,1), 915/15 for b=(2,1,1,1); all maxima and formulas matched.",
+      "residual_risks": [
+        "n>=3 complete core and all b_i positive; pendant edges length one, no general arbitrary core assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian et al prove scalar bound for clique plus at most one pendant path on chosen hubs, a special case of this family.",
+          "Hamed-Labbafian et al (2026) study edge general position numbers of corona/edge-corona products; the abstract and DOI are available but full text not."
+        ],
+        "reasoning": "Older scalar result does not determine all maximal subsets. A 2026 graph-product theorem may dominate some parameters; present verdict retains this uninspected risk.",
+        "searches": [
+          "DOI:10.1016/j.dam.2026.01.008",
+          "Graph and Combinatorics 40 (2024) Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Manuel–Prabha–Klavžar, Edge general position problem, arXiv:2105.04292",
+        "Tian–Klavžar–Tan, Extremal Edge General Position Sets in Some Graphs, Graphs and Combinatorics 40 (2024), Theorem 3.2",
+        "Hamed-Labbafian–Henning–Tavakoli, Edge general position in graphs: Graph products, integer linear programming and some applications, DOI:10.1016/j.dam.2026.01.008",
+        "Resultary edge-general-position search (spider tree versus pendant clique)",
+        "Frozen Git RESULT.md: 2026/10/18/complete-edge-general-position-and-facet-enumerators-for-cliques--c9bd0c3d21fb@bad8187d2266b10aec5ddbbc0db4c735671e41e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing gp_e=choose(n,2)+1 for one leaf per hub does not determine 2^n-1 maximal sets nor their size gaps.",
+          "The 2026 abstract asserts edge general position number of corona products, not full counting distributions."
+        ],
+        "reasoning": "The prior numerical theorem is strictly weaker; the inaccessible 2026 source cannot be classified as NOT_COVERING. No decisive known stronger consequence identified.",
+        "searches": [
+          "Graphs and Combinatorics 40 (2024) Theorem 3.2",
+          "DOI:10.1016/j.dam.2026.01.008"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-leaf-per-hub case is the corona K_n◦K1, but variable b_i allows multiple leaves per hub.",
+          "A vertex-general-position polynomial of K_n corona is not the edge-general-position edge-subset polynomial."
+        ],
+        "reasoning": "Explicitly reduce one special case to familiar corona nomenclature, then compare edge-set feasibility and bivariate distributions; vertex and edge general position are not interchangeable.",
+        "searches": [
+          "arXiv:2105.04292",
+          "Graph and Combinatorics 40 (2024) Theorem 3.2",
+          "Resultary:edge general position clique pendant leaves corona maximal sets facet enumerator polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted exact facet count 2^n-1 and one-leaf unbounded facet-size gaps are not the numerical maximum in prior 2024 work.",
+          "Finite checks identify exact small-profile counts, not a previously published full table."
+        ],
+        "reasoning": "No retrieved genuine exact facet table or weighted polynomial for heterogeneous pendant bundles; search limitation is documented, not taken as novelty proof.",
+        "searches": [
+          "Resultary:edge general position clique pendant leaves corona maximal sets facet enumerator polynomial",
+          "arXiv:2105.04292",
+          "DOI:10.1016/j.dam.2026.01.008"
+        ]
+      },
+      "rationale": "Previously known scalar gp_e of some pendant cliques is explicitly excluded from priority. A full two-variable all-subset polynomial, complete distinct facet census, heterogeneous positive leaf multiplicities, universal nonpurity and arbitrary gap lengths are mathematically stronger and not implied by the full-text 2024 scalar maximum theorem. 2026 corona paper remains a named high-priority full-text risk.",
+      "residual_risks": [
+        "The 2026 corona and edge-corona graph product paper closely matches the one-leaf corona special case; its complete full text was unavailable by lawful arXiv/OA routes and authorized Oxford access reported disconnected VPN, so it might contain overlapping formulas. Abstract concerns scalar maximum, not a decisive detailed absence proof.",
+        "Earlier edge-general-position work already gives scalar max for selected one-pendant clique cases; any claim that number is independently new is rejected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves known scalar extremum for one-pendant arrangements, not the proposed full polynomial or heterogeneous facets",
+          "evidence": [
+            "Theorem 3.2 compares clique plus at most one pendant path, and gives gp_e=binom(n,2)+1."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00373-024-02770-z",
+          "material_read": "Accessible full scholarly HTML, Section 3 Theorem 3.2 and its proof/sharpness construction",
+          "method": "Full primary article HTML",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Exactly same clique-pendant core structure"
+        },
+        {
+          "assessment": "Material priority risk remains; no full-document noncoverage conclusion",
+          "evidence": [
+            "University of Johannesburg abstract states maximum cardinalities for hierarchical, corona, edge-corona products and integer programming."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.dam.2026.01.008",
+          "material_read": "Full institutional abstract and bibliographic metadata; not paper body; arXiv and open-access full-text searches unsuccessful",
+          "method": "Publisher metadata and authorized access attempt (VPN disconnected)",
+          "title": "Edge general position in graphs: Graph products, integer linear programming and some applications",
+          "trigger": "Corona product is the closest possible generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Manuel–Prabha–Klavžar, Edge general position problem, arXiv:2105.04292",
+        "Tian–Klavžar–Tan, Extremal Edge General Position Sets in Some Graphs, Graphs and Combinatorics 40 (2024), Theorem 3.2",
+        "Hamed-Labbafian–Henning–Tavakoli, Edge general position in graphs: Graph products, integer linear programming and some applications, DOI:10.1016/j.dam.2026.01.008",
+        "Resultary edge-general-position search (spider tree versus pendant clique)",
+        "Frozen Git RESULT.md: 2026/10/18/complete-edge-general-position-and-facet-enumerators-for-cliques--c9bd0c3d21fb@bad8187d2266b10aec5ddbbc0db4c735671e41e7"
+      ],
+      "rationale": "The full two-weight polynomial and entire facet census of a natural heterogeneous leaf-bundled clique graph are useful beyond scalar edge-general-position number; the universal nonpurity and unbounded facet-size gaps give a structural boundary for related simplicial complexes. This is a complete family classification rather than an arbitrary tiny computation.",
+      "residual_risks": [
+        "Undiscovered stronger classification or equivalent table could affect novelty and hence value; stated best-of-knowledge significance only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Manuel–Prabha–Klavžar, Edge general position problem, arXiv:2105.04292",
+    "Tian–Klavžar–Tan, Extremal Edge General Position Sets in Some Graphs, Graphs and Combinatorics 40 (2024), Theorem 3.2",
+    "Hamed-Labbafian–Henning–Tavakoli, Edge general position in graphs: Graph products, integer linear programming and some applications, DOI:10.1016/j.dam.2026.01.008",
+    "Resultary edge-general-position search (spider tree versus pendant clique)",
+    "Frozen Git RESULT.md: 2026/10/18/complete-edge-general-position-and-facet-enumerators-for-cliques--c9bd0c3d21fb@bad8187d2266b10aec5ddbbc0db4c735671e41e7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 complete core and all b_i positive; pendant edges length one, no general arbitrary core assertion.",
+    "Exact priority against inaccessible 2026 corona paper not resolved.",
+    "The 2026 corona and edge-corona graph product paper closely matches the one-leaf corona special case; its complete full text was unavailable by lawful arXiv/OA routes and authorized Oxford access reported disconnected VPN, so it might contain overlapping formulas. Abstract concerns scalar maximum, not a decisive detailed absence proof.",
+    "Earlier edge-general-position work already gives scalar max for selected one-pendant clique cases; any claim that number is independently new is rejected."
+  ],
+  "schema_version": 1
+}
