@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:58:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md a3281a321556ca162f74365e13e08770d0dabfba",
+        "source verify.py 462416fe06046b01a3076fe5619120d206ec8717",
+        "private independently implemented clique enumeration n=1..5",
+        "verification_output.txt 0cb5c20eb69a9b0f6222bc7547fb81130efa365d"
+      ],
+      "rationale": "The domain is 0,1,2 multiplicities; parity is of total coordinate sum and pairwise multiset intersection sum min(x_i,y_i), excluding diagonal pairs. Initial-segment embedding Φ(x) subset [n]x[2] preserves sums and pairwise min-intersections and gives F_2-orthogonal odd self-pair vectors, hence universal upper O2(n)<=2n, not n. Independent direct graph enumeration over all odd vectors (3^n-1)/2 with every increasing clique visited exactly once recomputed counts: n1 [1,1,0], n2 [1,4,2,0], n3 [1,13,30,14,0], n4 [1,40,332,744,450,72,8,0], n5 [1,121,3300,27020,73200,68874,24640,3040,0], proving exact maxima (1,2,3,6,7) with the forbidden next-size zero. The displayed 10 six-coordinate odd words have all 45 min-intersections even; disjoint-support union gives 10q+r when n=6q+r, so liminf O2(n)/n >=5/3. Independently checked enumerator and source verify.py predicate agree; finite n<=5 count is exhaustively proved, not extrapolated.",
+      "residual_risks": [
+        "Exact O2(n) for n>=6 (including n=6), asymptotic optimum constant and extremal uniqueness remain unproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banerjee–Dewan Theorem 1 has EVEN self-parity; Zou m_{2,2n}(1,0)<=2n general bound."
+        ],
+        "reasoning": "Broader general theorems cover the already acknowledged upper bound and even-parity analogue, not the odd-family 10-block lower construction. The full relevant Eventown source was examined.",
+        "searches": [
+          "Oddtown families multisets bounded multiplicity 2 coordinatewise minimum parity intersections extremal n 4 5",
+          "arXiv:2610.21636",
+          "arXiv:2606.03613"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query Oddtown families multisets bounded multiplicity 2 coordinatewise minimum parity intersections extremal n 4 5",
+        "arXiv:2610.21636 complete HTML",
+        "arXiv:2606.03613",
+        "arXiv:2607.23117",
+        "classical Berlekamp Oddtown 1969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eventown theorem does not allow odd self intersection; ordinary Oddtown in 2n only bounds size; lattice-path shared edges is a different meet."
+        ],
+        "reasoning": "No displayed prior implication yields O2(4)=6 or the repeated block of ten at n=6, so best-knowledge O PASS for those nontrivial exact facts and bound; historical priority not certified.",
+        "searches": [
+          "Oddtown families multisets bounded multiplicity 2 coordinatewise minimum parity intersections extremal n 4 5",
+          "arXiv:2610.21636",
+          "arXiv:2606.03613",
+          "arXiv:2607.23117"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Φ(x) initial-segment subsets in 2n-point ground set are equivalent for parity, but original 2-bounded constrained family is a strict subset of all subsets."
+        ],
+        "reasoning": "The ordinary Oddtown family theorem upper bounds size by 2n in the expanded ground set; it does not force O2(n)=n or classify constrained clique extrema. Explicit min-intersection formulation is recognized, so novelty not based on wording.",
+        "searches": [
+          "Oddtown families multisets bounded multiplicity 2 coordinatewise minimum parity intersections extremal n 4 5",
+          "arXiv:2610.21636",
+          "arXiv:2606.03613"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact odd-family data (1,2,3,6,7) and 10/6 lower block from exhaustive graph, unlike E_2(n)=2^n table with even members."
+        ],
+        "reasoning": "This check is applicable: exact finite database values and a 10-word amplifier were searched using object aliases, min intersection and initial segment. Neither checked paper nor top semantic records provides a matching odd-family table; literature outside indexing remains possible.",
+        "searches": [
+          "Oddtown families multisets bounded multiplicity 2 coordinatewise minimum parity intersections extremal n 4 5",
+          "arXiv:2610.21636"
+        ]
+      },
+      "rationale": "Best-of-knowledge contribution is odd-self-cardinality bounded-multiset case (minimum intersections), exact first cutoff n<=5, and 10-word six-coordinate block, not Oddtown linear independence or Eventown. Closely matching multiset Eventown paper was read in full and self-parity is opposite, so it does not imply this odd-member family result.",
+      "residual_risks": [
+        "Uncatalogued initial-segment/ideals literature could encode the exact 10-block or small maxima.",
+        "Resultary semantic results did not return the specific 2-bounded odd self-parity table; failed search alone is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hypothesis requires every member even; for m=2 Theorem 1 yields E_2(n)=2^n and unique all-even-multiplicity family. It does not cover odd-member O2(n), whose self-intersection parity is odd.",
+          "evidence": [
+            "Banerjee–Dewan 2026, arXiv:2610.21636, abstract and Thm 1 (m-bounded multiset Eventown)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21636v1",
+          "material_read": "Full arXiv HTML sections 1 (definitions/main theorem), 2 (proof of maximum), 3 (extremal-family characterization), references.",
+          "method": "primary full HTML reading",
+          "title": "An Eventown Result for Multisets",
+          "trigger": "Same min-intersection of bounded multiplicity vectors, potentially stronger theorem"
+        },
+        {
+          "assessment": "Applied to Φ(x) in ambient size 2n, gives O2(n)<=2n only; not the exact initial profile or six-coordinate amplifier.",
+          "evidence": [
+            "Zou arXiv:2606.03613 n-point subset family upper bound with a≠b."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.03613",
+          "material_read": "ArXiv abstract/main stated theorem m_{k,n}(a,b)<=n when a != b, for ordinary subsets of an n-point ground set; no full proof attributed.",
+          "method": "arXiv abstract / theorem statement",
+          "title": "On the maximum size of (a,b)-town (mod k) families",
+          "trigger": "General modular intersection theorem could dominate via initial-segment set embedding"
+        },
+        {
+          "assessment": "Lattice-path shared edges differ from coordinatewise minimum for 2-bounded multisets; no demonstrated implication of the new exact profile.",
+          "evidence": [
+            "Shankar arXiv:2607.23117 lattice-path intersection setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23117",
+          "material_read": "Title, abstract and bibliographic framing of path common-edge intersection; no claim that article full text was read.",
+          "method": "arXiv bibliographic abstract",
+          "title": "Oddtown and eventown theorems for lattice paths",
+          "trigger": "Possible combinatorial alias based on path encoding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Berlekamp classical Oddtown",
+        "Banerjee–Dewan multiset parity model",
+        "independent finite exact enumeration and ten-word block"
+      ],
+      "rationale": "Multiplicities two are the first natural relaxation of classical odd-cardinality set systems. The first failure of old n-bound occurs at the meaningful smallest dimension four, and a verified reusable six-coordinate family guarantees asymptotic linear growth at least 5n/3 while the known universal 2n upper remains separated. The exact initial profile and amplifier are natural combinatorial extremal facts even without a complete n>=6 census.",
+      "residual_risks": [
+        "Asymptotic optimal constant unknown; an earlier constrained Oddtown table could compromise novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact n<=5 only; block produces lower bound but O2(6) not proved optimal."
+  ],
+  "schema_version": 1
+}

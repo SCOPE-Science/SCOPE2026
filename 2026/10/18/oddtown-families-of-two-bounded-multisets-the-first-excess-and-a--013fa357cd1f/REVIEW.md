@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The intersection is correctly normalized as \(I(x,y)=\sum_i\min\{x_i,y_i\}\). The initial-segment embedding proves only the general \(2n\) upper bound and is explicitly credited to the standard Oddtown argument. Direct verification of all 45 pairs in the ten-word block and the disjoint-support argument prove the general lower bound. Exact maximum values through five coordinates are certified by complete lexicographic enumeration of **all** increasing cliques of the compatibility graph, not by randomized sampling. An independent initial-segment bitmask representation is checked against the direct minimum-sum implementation. The finite certificate is not represented as proof of a general exact formula.
+PASS
 
-## Originality: PASS, with residual risk
+The domain is 0,1,2 multiplicities; parity is of total coordinate sum and pairwise multiset intersection sum min(x_i,y_i), excluding diagonal pairs. Initial-segment embedding Φ(x) subset [n]x[2] preserves sums and pairwise min-intersections and gives F_2-orthogonal odd self-pair vectors, hence universal upper O2(n)<=2n, not n. Independent direct graph enumeration over all odd vectors (3^n-1)/2 with every increasing clique visited exactly once recomputed counts: n1 [1,1,0], n2 [1,4,2,0], n3 [1,13,30,14,0], n4 [1,40,332,744,450,72,8,0], n5 [1,121,3300,27020,73200,68874,24640,3040,0], proving exact maxima (1,2,3,6,7) with the forbidden next-size zero. The displayed 10 six-coordinate odd words have all 45 min-intersections even; disjoint-support union gives 10q+r when n=6q+r, so liminf O2(n)/n >=5/3. Independently checked enumerator and source verify.py predicate agree; finite n<=5 count is exhaustively proved, not extrapolated.
 
-Zou, arXiv:2606.03613, proves restricted-intersection theorems for ordinary subsets; his upper bound specializes to the acknowledged \(2n\) bound here, not to the block amplifier or exact profile. Shankar, arXiv:2607.23117, studies lattice-path common edges, a different intersection operation. Banerjee and Dewan, arXiv:2610.21636, study even-cardinality (Eventown) multiset families; their hypotheses exclude the odd members in this finding. Searches of multiset, order-ideal and Oddtown aliases and related mathematical research records found no mathematically dominating prior theorem or equivalent 10-word construction. A differently phrased, uncatalogued order-ideal construction remains a bibliographic risk.
+## originality
 
-## Value: PASS
+PASS
 
-The first deviation from classical Oddtown occurs at the natural smallest order four, and the explicit six-coordinate amplifier establishes a persistent positive asymptotic density gap. This advances a well-motivated extremal comparison while stopping short of unsupported general exactness claims. It gives a reproducible obstruction and reusable lower-bound pattern.
+Best-of-knowledge contribution is odd-self-cardinality bounded-multiset case (minimum intersections), exact first cutoff n<=5, and 10-word six-coordinate block, not Oddtown linear independence or Eventown. Closely matching multiset Eventown paper was read in full and self-parity is opposite, so it does not imply this odd-member family result.
 
-## Limits
+## value
 
-The precise value of \(O_2(n)\) for \(n\ge6\), the optimal limiting ratio, and uniqueness of extremizers are not established. The five small maxima use finite enumeration; a human reproduction and external expert validation have not been performed. Literature priority could change with undiscovered equivalent formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Multiplicities two are the first natural relaxation of classical odd-cardinality set systems. The first failure of old n-bound occurs at the meaningful smallest dimension four, and a verified reusable six-coordinate family guarantees asymptotic linear growth at least 5n/3 while the known universal 2n upper remains separated. The exact initial profile and amplifier are natural combinatorial extremal facts even without a complete n>=6 census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

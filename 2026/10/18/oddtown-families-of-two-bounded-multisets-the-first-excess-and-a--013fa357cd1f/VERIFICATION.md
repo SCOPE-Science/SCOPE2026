@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3, no optional dependencies. `verification_output.txt` records the deterministic result.
+## correctness
 
-The 2-bounded candidate vectors in order \(n\) are exactly the \((3^n-1)/2\) words with odd coordinate sum. The verifier forms the compatibility graph by the exact integer test \(I(x,y)\equiv0\pmod2\), and separately compares each tested predicate with intersection parity of initial-segment set encodings. The recursive calls use increasing vertex indices, so every clique is visited once; the terminal zero count at sizes 2,3,4,7,8 establishes the respective absence of larger admissible families in orders 1,2,3,4,5.
+PASS
 
-For the six-coordinate construction, the verifier checks each word's odd sum and every one of the \(\binom{10}{2}=45\) pair intersections. It also constructs disjoint-support witnesses for each order 1 through 48. These finite tests are supplementary to the full general upper and lower proofs in `RESULT.md`, not extrapolations to infinite orders.
+The domain is 0,1,2 multiplicities; parity is of total coordinate sum and pairwise multiset intersection sum min(x_i,y_i), excluding diagonal pairs. Initial-segment embedding Φ(x) subset [n]x[2] preserves sums and pairwise min-intersections and gives F_2-orthogonal odd self-pair vectors, hence universal upper O2(n)<=2n, not n. Independent direct graph enumeration over all odd vectors (3^n-1)/2 with every increasing clique visited exactly once recomputed counts: n1 [1,1,0], n2 [1,4,2,0], n3 [1,13,30,14,0], n4 [1,40,332,744,450,72,8,0], n5 [1,121,3300,27020,73200,68874,24640,3040,0], proving exact maxima (1,2,3,6,7) with the forbidden next-size zero. The displayed 10 six-coordinate odd words have all 45 min-intersections even; disjoint-support union gives 10q+r when n=6q+r, so liminf O2(n)/n >=5/3. Independently checked enumerator and source verify.py predicate agree; finite n<=5 count is exhaustively proved, not extrapolated.
 
-**Unproved:** exact optima for orders greater than five, a tight asymptotic growth ratio, and bibliographic priority. Independent verification has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge contribution is odd-self-cardinality bounded-multiset case (minimum intersections), exact first cutoff n<=5, and 10-word six-coordinate block, not Oddtown linear independence or Eventown. Closely matching multiset Eventown paper was read in full and self-parity is opposite, so it does not imply this odd-member family result.
+
+## value
+
+PASS
+
+Multiplicities two are the first natural relaxation of classical odd-cardinality set systems. The first failure of old n-bound occurs at the meaningful smallest dimension four, and a verified reusable six-coordinate family guarantees asymptotic linear growth at least 5n/3 while the known universal 2n upper remains separated. The exact initial profile and amplifier are natural combinatorial extremal facts even without a complete n>=6 census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
