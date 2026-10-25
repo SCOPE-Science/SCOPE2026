@@ -1,19 +1,21 @@
-# Review: wild-prime diagonal fibres and collision moments
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every prime at least five, the unit-prime-power law is uniform on the Teichmüller classes modulo the square of the prime; the other input branch is a scaled copy with exact subprobability mass. Their four convolution cases give a measure identity, not an extrapolation from sample residue counts. Taking finite quotients proves the complete fibre law; squaring normalized fibres gives every collision recurrence. Exact valuation-shell upper and lower bounds prove the sharp moment threshold. The accompanying standalone integer-only check independently reconstructs 23,793 finite targets for three primes and all relevant moments. A computation does not replace the infinite proof. The endpoint is excluded by an explicitly diverging subseries.
+PASS
 
-## Originality
+For odd p≥5, Z_p^×=μ_(p−1)×(1+p Z_p), so x↦x^p maps Haar-uniform units to the p−1 Teichmüller cosets H_p+p²Z_p with density p on their union. The nonunit input event has probability p^-1 and maps by multiplication p^p. Convolve the one-input distribution: μ=g_p(t mod p²)dt+p^-2(S_p)_*μ, where g_p=m_p+2·1_H and ∫g=1−p^-2, yielding an absolutely continuous density by summable residual mass. At level n≤p the singular contribution is a delta at zero with normalized weight p^{n−2}; at n≥p it is p^{p−2}F_{n−p} on p^p-multiples. Square and average: G_p+2(p−1)/p²+p^{n−4} for 2≤n≤p, and G_p+2(p−1)/p²+p^{p−4} M_{n−p} otherwise. Since p^{p−4}>1, M diverges at rate p^{(p−4)n/p}. On shells v_p(t)=pk+r, F(t) is O(p^{k(p−2)}), while disjoint sets E_k=p^{pk}(H_p+p²Z_p) have mass (p−1)p^{−pk−2} and F(t)≥2p^{k(p−2)}; therefore L^s iff s<p/(p−2). F_{p,n} are conditional expectations and converge in these Ls spaces. Independent exact modular convolution checked H_5={1,7,18,24}, 13 supported residue classes, Σg_5²=52, and finite p=5,7 small-level fibres/moments. These finite observations corroborate, not replace, the measure proof.
 
-**PASS within the inspected literature, with nonzero residual priority risk.** Brüdern–Vaughan's published open-access article analyzes global asymptotic variance for sums of two positive cubes rather than degree equal to its wild prime and all target densities. Ramanujam's early Waring-in-local-rings result concerns representations by bounded numbers of powers, not an exact two-input Haar fibre distribution; a publisher full-text check could not be completed. Skinner's published abstract concerns solvability of many-variable diagonal systems. Bories' explicit local-zeta theorem concerns nondegenerate polynomial maps and is not applicable to the vanishing Jacobian modulo the exponent-prime. The finite-field fifth-power graph two-sum spectrum is in a different ambient group and does not imply any modular prime-power fibre recursion. No equivalent or stronger result was identified in the targeted mathematical-record and accessible prior-claim searches. A differently formulated singular local-zeta theorem could still imply part of the statement; a negative search is not proof of global priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The wild-prime setting defeats the usual nonsingular-mod-prime lifting argument: every variable derivative is divisible by the prime. An exact every-depth target-fibre formula and explicit collision-growth multiplier give a nontrivial, natural arithmetic variance invariant across infinitely many primes and depths. The sharp moment threshold explains why the infinite Haar density has mean one but no finite second moment, while finite collision energies diverge. Dependence of the constant on finite Teichmüller additive coincidences is mathematically intrinsic, not an arbitrary index cutoff.
+Best-of-knowledge PASS: general p-adic congruence-series rationality is known, but Bories explicit Newton-polyhedron formula requires mod-p nondegeneracy, violated because ∂(x^p+y^p−a)/∂x=∂/∂y=0 modulo p. The known cube and high-variable Waring problems use different exponents, variable counts and statistics. No matching full target-fibre or sharp Ls spectrum identified; residual priority risk remains.
 
-## Scope and residual risks
+## value
 
-The result concerns exactly two variables and degree equal to a prime at least five. Generalized Igusa-zeta, singular local-density, or Waring-type results might overlap beyond what could be read. Primary article availability varied: the Brüdern–Vaughan and Bories mathematical texts were read in material part; Ramanujam's publisher-hosted full text was not accessible. No claim is made of absolute priority or independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Explicit target-wise local solution densities for wild diagonal x^p+y^p are natural arithmetic objects: the exact every-depth recursion answers more than total solvability, while divergent collision energy and sharp L^s threshold reveal a non-obvious singular concentration transition. These precise counts and thresholds can be reused in local additive-energy, congruence-lifting and density computations even without a separate downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
