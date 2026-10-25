@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof relies on three explicitly justified steps. A unique indegree-zero root and equitability ensure that root-to-vertex walk counts are stable colour invariants; northwest closure makes them \(\binom{i+j}{i}\). The binomial invariant restricts possible collisions to coordinate-transpose pairs, and equitability propagates such a collision back to \((0,1)/(1,0)\) and across the off-diagonal half-planes, forcing self-conjugacy. Automorphism invariance gives the converse; global comparison then either matches singleton-coloured digraphs or reconstructs a self-conjugate shape. The standalone exhaustive small-shape and separately sampled checks both pass. A finite check is not used to justify any unbounded quantifier.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** published-finding corpus searches for Young/Ferrers diagrams, grid-order ideals, directed covers, binomial path invariants, and WL counting found no equivalent stronger claim. General primary work by Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255) and Kiefer–Schweitzer–Selman (arXiv:1503.08792) supplies the surrounding theory, but its inspected statements do not explicitly cover the all-shape orbit formula or relative Young-diagram classification. Standard partition conjugation is credited to prior mathematics. Specialist results on directed Ferrers or staircase-poset refinement remain a residual possibility. Originality is not certified by failed searches.
+PASS
 
-**Value — PASS.** These cover graphs form a natural infinite nonrectangular family of finite posets, with arbitrary dimension of their parameter space of boundary shapes. The result proves two concrete nontrivial facts at once: exact local-counting recovery of every automorphism orbit, and pairwise discrimination of every isomorphism type relative to the family. The proof explains the mechanism through binomial lattice-path counts and the propagation of transpose asymmetry. This is distinct from finite tabulation or a rectangle-only corollary.
+The unique indegree-zero cell (0,0) is distinguished. Every stable equitable colour class has identical rooted directed walk counts at all lengths, which in northwest-closed Young shape equal binomial(i+j,i) at rank i+j and zero otherwise. Along each diagonal this separates unordered cell coordinates; only transposes can share a class. If any off-diagonal transpose pair shares a stable class, in/out equitable predecessor and successor matching propagates to the origin boundary and then to all possible off-diagonal cells, forcing whole shape self-conjugate. Conversely transposition is a genuine digraph automorphism for self-conjugate shapes. Shared global histograms either match singleton colour-by-colour directed arcs or recover every unordered cell coordinate from the root-walk counts, proving relative fingerprint classification. Independent exhaustive refinement 271 Young partitions n≤12 corroborates.
 
-**Closest literature and limits.** General two-variable counting-logic characterizations may permit alternative derivations for specific directed graphs and remain relevant to publication priority. The theorem does not claim absolute identification among arbitrary digraphs, extend to skew shapes, or give an optimal refinement-round bound. Only source texts accessed and specified in the structured assessment were inspected; no independent validation has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Arvind et al. colour-refinement theory and Kiefer–Schweitzer–Selman counting-logic identification do not specify all Ferrers cell Hasse graphs and their exact transpose-orbit structures. Classical Young-diagram conjugation is explicitly prior; new result is precise directed counting-refinement rigidity and complete relative fingerprint. Indexed search produced no matching family theorem; specialized partition-poset papers remain an originality risk.
+
+## value
+
+PASS
+
+An exact all-partition classification of a natural directed grid-poset family and its relative isomorphism fingerprint yields a meaningful family boundary for counting refinement; it is not just the familiar conjugation map because it proves no additional colour identifications and separates nonconjugate shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

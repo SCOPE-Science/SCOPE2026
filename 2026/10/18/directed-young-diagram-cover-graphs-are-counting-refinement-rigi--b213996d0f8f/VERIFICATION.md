@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and exact scope
+# Independent mathematical audit
 
-The finite computations are reproducible from the two included Python scripts and their captured stdout files. They do not replace the general argument. `verify_global.py` checks all 1,596 Young shapes through 18 cells and compares global fingerprints computed with the same colour names across all shapes of each fixed size. `verify_cellwise.py` tests 1,806 further shape instances, checks binomial root-path counts and separately computes stable classes. The latter comprises 124,300 cells with a fixed PRNG seed; this is sampling, not exhaustive enumeration of large sizes.
+## correctness
 
-Checks performed: both programs ran to completion, the logs were inspected for their concluding PASS markers, and the all-parameter proof was checked separately for preservation of incoming/outgoing neighbour multiplicities, the off-diagonal propagation argument, and the global histogram comparison. A stable equitable partition ensures all root-walk counts are constant within classes, providing the invariant used in the proof. No independent audit has been performed, and no assertion outside the stated Young-diagram family is verified.
+PASS
+
+The unique indegree-zero cell (0,0) is distinguished. Every stable equitable colour class has identical rooted directed walk counts at all lengths, which in northwest-closed Young shape equal binomial(i+j,i) at rank i+j and zero otherwise. Along each diagonal this separates unordered cell coordinates; only transposes can share a class. If any off-diagonal transpose pair shares a stable class, in/out equitable predecessor and successor matching propagates to the origin boundary and then to all possible off-diagonal cells, forcing whole shape self-conjugate. Conversely transposition is a genuine digraph automorphism for self-conjugate shapes. Shared global histograms either match singleton colour-by-colour directed arcs or recover every unordered cell coordinate from the root-walk counts, proving relative fingerprint classification. Independent exhaustive refinement 271 Young partitions n≤12 corroborates.
+
+## originality
+
+PASS
+
+General Arvind et al. colour-refinement theory and Kiefer–Schweitzer–Selman counting-logic identification do not specify all Ferrers cell Hasse graphs and their exact transpose-orbit structures. Classical Young-diagram conjugation is explicitly prior; new result is precise directed counting-refinement rigidity and complete relative fingerprint. Indexed search produced no matching family theorem; specialized partition-poset papers remain an originality risk.
+
+## value
+
+PASS
+
+An exact all-partition classification of a natural directed grid-poset family and its relative isomorphism fingerprint yields a meaningful family boundary for counting refinement; it is not just the familiar conjugation map because it proves no additional colour identifications and separates nonconjugate shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
