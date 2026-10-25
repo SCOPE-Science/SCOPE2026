@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof treats all integers \(m,n\ge2\) and every sliding-block injection, including those that might exchange the two fixed points. A two-defect argument rules out an exchange because varying the distance of the defects through consecutive integers would force consecutive integers to be divisible by \(n\). A second argument using isolated \(1\)'s gives divisibility of \(km+c\) for every large \(k\), forcing \(n\mid m\). Inclusion gives sufficiency, and a finite-to-one right-resolving cover gives the displayed Perron equation and strict entropy separation. The proof establishes infinite quantifiers analytically.
+## correctness
 
-## Originality — PASS, subject to documented residual risks
-The primary 2026 paper gives a general near-Markov embedding characterization via blowups and records the even shift and congruence conditions but does not present this closed-form classification among all pairs of modular gap shifts. The 2025 full-text treatment distinguishes factorizable embeddings and supplies an example showing that notion is stricter than ordinary embedding. Targeted mathematical-record queries and public literature searches found no exact pairwise divisibility classification; they cannot establish universal priority. A general decidability theorem does not by itself evaluate the explicit parameterized criterion. Older \(S\)-gap embedding literature could contain the same statement.
+PASS
 
-## Mathematical value — PASS
-Modular gap shifts constitute a natural infinite near-Markov sofic family. Embedding is a structural problem, and the result provides a complete and efficiently decidable arithmetic answer for every pair. The strict entropy counterexamples isolate an obstruction that survives favorable entropy comparisons, and the argument distinguishes exact embedding from factorizable embedding. This is a family classification rather than a specially selected finite computation.
+The full proof covers every integer m,n>=2 and every continuous injective equivariant map by the Curtis--Hedlund--Lyndon finite-window theorem. Two fixed points must be mapped bijectively. A swap is impossible: a single length-m zero island in 1^Z maps, by locality, to a finite nonempty 1-island S in 0^Z; two far-separated source islands at translate d=m+ell produce disjoint translates S and S+d. Every large consecutive ell would force n to divide the inter-island zero gap m+ell+a-b-1, impossible as n>=2. With fixed points preserved, a single isolated source 1 in 0^Z maps to a finite nonempty 1-island S, and two source 1s separated by km zeros produce two output islands and an inter-island zero gap km+a-b. For every sufficiently large k, n|(km+a-b); subtraction at consecutive k forces n|m. Sufficiency is the canonical inclusion when n|m. For entropy the irreducible right-resolving m-state graph has finite-to-one labeling (all-zero point is its only multiply labeled point), polynomial x^m-x^(m-1)-1 and a unique Perron root >1; the implicit scalar relation 1=x^(-1)+x^(-m) gives strict entropy decrease in m. Direct independent reconstruction of six Git blobs verifies original source tree SHA. Independent exact symbolic characteristic-polynomial checks for m=2..11 and 77 exact cyclic-word vs graph-trace comparisons for m=2..8, p=1..11 corroborate the structural algebra, while the unrestricted conclusion rests on the proof, not enumeration.
 
-## Relationship and scope
-Primary source: Marcus, Meyerovitch and Wu, arXiv:2606.25475v1, introduction and main embedding theorem. Closest broader treatment: Marcus, Meyerovitch, Thomsen and Wu, arXiv:2508.02554v2, sections 1 and 4. The proof is self-contained; an equivalent older theorem cannot be completely excluded by search. No independent review has been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The natural full two-parameter embedding classification Y_m -> Y_n iff n divides m was not located as an independent theorem. Marcus--Meyerovitch--Wu (arXiv:2606.25475, Theorem 7 and Proposition 2) gives broad near-Markov existence and algorithmic criteria; specializing these involves nontrivial verification of blowup and compatibility and it does not state the arithmetic family result. Marcus--Meyerovitch--Thomsen--Wu (arXiv:2508.02554, Section 4) concerns the stricter factorizable-embedding question. Dastjerdi--Jangjoo classify S-gap conjugacy and compute entropy, not arbitrary source-to-target embedding for the modular-gap pairs. Resultary semantic searches returned the exact mirror of THIS record but no distinguishable prior result. The entropy formula is previously covered by the classical S-gap entropy function; the asserted novel contribution is the exact arbitrary-embedding obstruction. This is a best-of-knowledge conclusion, not a claim that every literature source has been examined.
+
+## value
+
+PASS
+
+An explicit pairwise embedding classification for the canonical infinite family of periodic S-gap shifts is a natural exact invariant of the dynamical category, not a tailored finite example. It gives a simple complete arithmetic embeddability poset, accounts for arbitrary sliding block codes rather than inclusions, and isolates a robust finite-island obstruction even when the entropy inequality is favorable. The entropy formula is older, but the unrestricted embedding characterization is a substantive structural conclusion not mechanically replaced by it. The exact invariant and asymptotic island method are plausibly useful for coding theory and symbolic-dynamics embeddings without requiring an overarching general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

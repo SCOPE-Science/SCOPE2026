@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T13:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at pinned Git blob e90c6f8e9987125448ff124994b6a6f953d0a94c",
+        "Assigned VERIFICATION.md at blob 50c96af5c0cc7deafd2d49c079692e0ccac69102",
+        "Independent exact script independent_checks.py and its resulting JSON",
+        "General Curtis--Hedlund--Lyndon coding theorem and finite-state Perron--Frobenius theory"
+      ],
+      "rationale": "The full proof covers every integer m,n>=2 and every continuous injective equivariant map by the Curtis--Hedlund--Lyndon finite-window theorem. Two fixed points must be mapped bijectively. A swap is impossible: a single length-m zero island in 1^Z maps, by locality, to a finite nonempty 1-island S in 0^Z; two far-separated source islands at translate d=m+ell produce disjoint translates S and S+d. Every large consecutive ell would force n to divide the inter-island zero gap m+ell+a-b-1, impossible as n>=2. With fixed points preserved, a single isolated source 1 in 0^Z maps to a finite nonempty 1-island S, and two source 1s separated by km zeros produce two output islands and an inter-island zero gap km+a-b. For every sufficiently large k, n|(km+a-b); subtraction at consecutive k forces n|m. Sufficiency is the canonical inclusion when n|m. For entropy the irreducible right-resolving m-state graph has finite-to-one labeling (all-zero point is its only multiply labeled point), polynomial x^m-x^(m-1)-1 and a unique Perron root >1; the implicit scalar relation 1=x^(-1)+x^(-m) gives strict entropy decrease in m. Direct independent reconstruction of six Git blobs verifies original source tree SHA. Independent exact symbolic characteristic-polynomial checks for m=2..11 and 77 exact cyclic-word vs graph-trace comparisons for m=2..8, p=1..11 corroborate the structural algebra, while the unrestricted conclusion rests on the proof, not enumeration.",
+      "residual_risks": [
+        "No formal proof assistant certificate: proof independently reconstructed but not formalized.",
+        "Finite word-enumeration and matrix computations do not independently establish the infinite-source embedding claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marcus--Meyerovitch--Wu (2026) Theorem 7 gives necessary and sufficient near-Markov embedding conditions involving a compatible blowup, source subshift and periodic constraints and proves decidability for irreducible sofic sources (Theorem 26). The introduction treats the even shift as a special target in Proposition 2.",
+          "Marcus--Meyerovitch--Thomsen--Wu (2025) develops factorizable embeddings with stronger factorization conditions, and Example 4.21 contrasts these with unrestricted embeddings.",
+          "The MacDonald encoding paper develops SFT-cover-factorizing constructions, not the modular pairwise classification."
+        ],
+        "reasoning": "The general near-Markov existence theorem is genuinely broader in the class of targets and logically decides each concrete Y_m,Y_n instance if its blowup conditions are evaluated. It does not supply the closed-form infinite-family divisibility criterion directly; obtaining it requires the nontrivial two-island locality obstruction. This limits breadth/originality but does not mechanically imply the explicit arithmetic classification without further work. Residual danger of an overlooked special-case statement retained.",
+        "searches": [
+          "arXiv:2606.25475 full web text: Theorem 7, Proposition 2, Section 5 decision procedure",
+          "arXiv:2508.02554v2 HTML full text: Section 4, Theorem 4.20 and Examples 4.21--4.22",
+          "arXiv:2507.02717 On the subsystems of certain sofic shifts",
+          "MacDonald (2024), Encoding subshifts through sliding block codes, Cambridge full journal HTML"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search (3 distinct queries, each 20 ranked hits) with exact mirror excluded as independent prior",
+        "arXiv:2606.25475v1, full primary source",
+        "arXiv:2508.02554v2, full relevant primary source",
+        "arXiv:1108.3242, full primary source",
+        "arXiv:1108.3414, full primary source",
+        "MacDonald (2024) publisher full text, selected relevant complete sections",
+        "arXiv:2507.02717, relevant introduction and corollaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S=m*N_0, S-gap entropy identity 1=sum_{k>=0}lambda^{-(mk+1)} is algebraically equivalent to lambda^m=lambda^{m-1}+1, hence this supporting formula follows directly from prior S-gap entropy theory.",
+          "Theorem 4.1 of Dastjerdi--Jangjoo gives nonconjugacy of distinct infinite S-gap sets, but nonconjugacy does not prohibit a proper embedding.",
+          "The newer general near-Markov theorem gives a high-level existence equivalence but no explicit pairwise modulus divisibility rule; the Y_m island argument evaluates an obstruction not available from entropy order or simple periodic counts alone."
+        ],
+        "reasoning": "The entropy component is clearly subsumed; the main embedding theorem is not the mere numerical restatement of the entropy law or the S-gap conjugacy theorem. A broad blowup theorem is a genuine parent framework but needs substantive family-specific evaluation, so the explicit family classification survives at the shared mathematical-value bar.",
+        "searches": [
+          "arXiv:2606.25475 Theorem 7 and Proposition 2 proof, sections 3 and 5",
+          "arXiv:1108.3242 Theorem 4.1",
+          "arXiv:1108.3414 Introduction and entropy characteristic polynomial",
+          "arXiv:2508.02554v2 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Y_m is the S-gap shift X(S) for S=m*N_0, also a generalized-even or modular renewal shift. Dastjerdi--Jangjoo arXiv:1108.3242 Introduction and Theorem 4.1 classify conjugacy, a strictly stronger type of embedding in a different direction.",
+          "For the fixed-point-preserving case, any finite-radius equivariant injection maps each isolated symbol to a finite nonempty output island; the varying input gap km forces n | (km+a-b) for all large k, hence n | m. This obstruction is not limited to 1-block or recoding maps."
+        ],
+        "reasoning": "Aliases S-gap, modulo-even, renewal and finite-to-one sofic presentations were compared as dynamical systems; the literature conjugacy classification does not characterize all non-surjective embeddings. Mathematically the isolated-island invariant forces the claimed divisibility independent of presentation.",
+        "searches": [
+          "Resultary query 1: Embedding between S-gap shifts allowing zeros lengths divisible by integers m and n: arithmetic n divides m necessary sufficient continuous shift commuting injective codes.",
+          "Resultary query 2: Embeddings of modular gap or arithmetic renewal sofic shifts divisibility modulus and periodic-point obstruction; even shift and S-gap shifts.",
+          "Web searches: embedding even shifts m even zero gaps modular gap shifts n divisibility; S-gap shifts embedding partial order S subset T gcd gap eventually periodic necessary sufficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All three Resultary queries returned exact record mirror 2026/10/11/SCOPE-an-exact-divisibility-law-for-embeddings-of-modular-gap-shifts--81decc8aa6a9; the same finding is not independent prior coverage.",
+          "Other high-ranked records concern distinct subjects, and the related geometric S-gap shift record concerns entropy asymptotics, not embeddings.",
+          "Dastjerdi--Jangjoo (arXiv:1108.3414) supplies general entropy function f_S(x)=1-sum_{s in S}x^{-(s+1)}; specializing S=m*N_0 gives the submitted Perron equation, so the entropy FORMULA itself is covered."
+        ],
+        "reasoning": "A natural exact table would give the truth value for every (m,n) pair. No independent pairwise table was found in the checked index or primary material. The entropy formula is an old corollary and is not counted as the original result.",
+        "searches": [
+          "Resultary semantic query 1, 20 ranked hits",
+          "Resultary semantic query 2, 20 ranked hits",
+          "Resultary semantic query 3: Krieger embedding theorem near-Markov sofic systems Marcus Meyerovitch Wu 2026 and explicit congruence gap family embeddings, 20 ranked hits",
+          "arXiv:1108.3414 entropy and zeta formula, Section 2"
+        ]
+      },
+      "rationale": "The natural full two-parameter embedding classification Y_m -> Y_n iff n divides m was not located as an independent theorem. Marcus--Meyerovitch--Wu (arXiv:2606.25475, Theorem 7 and Proposition 2) gives broad near-Markov existence and algorithmic criteria; specializing these involves nontrivial verification of blowup and compatibility and it does not state the arithmetic family result. Marcus--Meyerovitch--Thomsen--Wu (arXiv:2508.02554, Section 4) concerns the stricter factorizable-embedding question. Dastjerdi--Jangjoo classify S-gap conjugacy and compute entropy, not arbitrary source-to-target embedding for the modular-gap pairs. Resultary semantic searches returned the exact mirror of THIS record but no distinguishable prior result. The entropy formula is previously covered by the classical S-gap entropy function; the asserted novel contribution is the exact arbitrary-embedding obstruction. This is a best-of-knowledge conclusion, not a claim that every literature source has been examined.",
+      "residual_risks": [
+        "An older unindexed paper on renewal shifts, generalized even shifts or S-gap embeddings may state an equivalent n|m law.",
+        "The general near-Markov blowup embedding theorem logically covers individual modular instances; a less obvious published specialization or easy corollary may supply this exact condition, and no universal negative novelty proof is possible.",
+        "Only the directly relevant primary-source material listed was compared; indexed search has limited coverage.",
+        "The entropy root identity and its monotonic consequences are already obtainable from classical S-gap entropy theory and are not novel standalone results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader general existence framework and decidability; does not state or directly evaluate exact modular family n|m. Covered generic framework remains major residual risk for family corollaries.",
+          "evidence": [
+            "Theorem 7 characterizes embeddings into near-Markov sofic shifts using compatible blowups and boundary periodic data. Proposition 2 is a special even-shift criterion; Theorem 26 proves finite decidability for irreducible sofic source."
+          ],
+          "identifier_or_url": "arXiv:2606.25475v1; https://arxiv.org/abs/2606.25475",
+          "material_read": "Full arXiv text: Introduction, Proposition 2, Theorem 7 in Section 3 with proof, and Section 5 decidability consequences and blowup construction.",
+          "method": "Opened complete arXiv primary HTML/text and navigated Theorem 7 and Proposition 2, comparing quantified hypotheses and blowup condition with Y_m -> Y_n.",
+          "title": "A Krieger Embedding Theorem for Near Markov Sofic Shifts",
+          "trigger": "Most directly relevant general embedding theorem, with a special even-shift target and broad near-Markov coverage."
+        },
+        {
+          "assessment": "Its claim concerns factorizable embeddings, not arbitrary injective commuting maps; does not establish modulus rule.",
+          "evidence": [
+            "Abstract: all embedding criteria factor through an SFT cover; Section 4 Example 4.21/4.22 distinguishes related embedding notions."
+          ],
+          "identifier_or_url": "arXiv:2508.02554v2; https://arxiv.org/html/2508.02554v2",
+          "material_read": "Full arXiv HTML: introduction, formal factorization definitions, Section 4 theorem and Examples 4.21--4.22 showing conditions differ from arbitrary embeddings.",
+          "method": "Read the full HTML primary article in the relevant embedding sections and compared conclusions.",
+          "title": "Factorizable embeddings and the period of an irreducible sofic shift",
+          "trigger": "Overlapping authors and a stronger structural framework may already cover ordinary modular embedding."
+        },
+        {
+          "assessment": "Classifies conjugacy, a different relationship from existence of a proper embedding; covers S-gap terminology but does not determine modulus embedding poset.",
+          "evidence": [
+            "Theorem 4.1 determines when distinct S-gap shifts are conjugate, with exceptional finite/cofinite S only."
+          ],
+          "identifier_or_url": "arXiv:1108.3242; https://arxiv.org/abs/1108.3242",
+          "material_read": "Complete arXiv article: definitions and Section 4 Theorem 4.1 on conjugacy, and entropy and SFT/sofic characterization.",
+          "method": "Read the full accessible primary article and compared S=m*N_0 and S=n*N_0 to its exact theorem statement.",
+          "title": "Dynamics and Topology of S-gap Shifts",
+          "trigger": "Original S-gap classification of same underlying dynamical objects and possible stronger equivalence statement."
+        },
+        {
+          "assessment": "Already covers entropy equation and invariants, but not existence of arbitrary embeddings between every pair of modular-gap shifts.",
+          "evidence": [
+            "f_S(x)=1-sum_{s in S}x^{-(s+1)}; entropy is log root, yielding x^m=x^{m-1}+1 for S=m*N_0."
+          ],
+          "identifier_or_url": "arXiv:1108.3414; https://arxiv.org/abs/1108.3414",
+          "material_read": "Full arXiv text: introduction, entropy characteristic function, and zeta/Bowen--Franks computations.",
+          "method": "Read primary paper and algebraically specialize its entropy equation to S=m*N_0.",
+          "title": "Computations on Sofic S-gap Shifts",
+          "trigger": "Potential dominating explicit entropy or embedding table for sofic S-gap shifts."
+        },
+        {
+          "assessment": "Treats encoding/factorization through SFT cover; no exact unrestricted pairwise modular divisibility criterion was identified in materially read portions.",
+          "evidence": [
+            "The paper develops sliding-block encodings through SFT covers and an S-gap construction, whereas current theorem considers unrestricted embeddings."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/encoding-subshifts-through-sliding-block-codes/861CDCF1FD91F8CEFD86C9C8C3A448D8",
+          "material_read": "Publisher open full-text article introduction, main construction theorems and S-gap-related Lemma 3.10.",
+          "method": "Inspected HTML article; compared target/covers and the special case of modular-gap embeddings.",
+          "title": "Encoding subshifts through sliding block codes",
+          "trigger": "Natural prior approach to embeddings through covers, includes S-gap constructions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and source definitions of Y_m and embeddings",
+        "Marcus--Meyerovitch--Wu 2026 Theorem 7 general embedding existence framework",
+        "Dastjerdi--Jangjoo 2011 S-gap topology/conjugacy and entropy results"
+      ],
+      "rationale": "An explicit pairwise embedding classification for the canonical infinite family of periodic S-gap shifts is a natural exact invariant of the dynamical category, not a tailored finite example. It gives a simple complete arithmetic embeddability poset, accounts for arbitrary sliding block codes rather than inclusions, and isolates a robust finite-island obstruction even when the entropy inequality is favorable. The entropy formula is older, but the unrestricted embedding characterization is a substantive structural conclusion not mechanically replaced by it. The exact invariant and asymptotic island method are plausibly useful for coding theory and symbolic-dynamics embeddings without requiring an overarching general theorem.",
+      "residual_risks": [
+        "The family-specific criterion may be subsumed by an overlooked application of a broader general theorem.",
+        "The entropy ordering alone, while correctly established, is a known deduction and contributes no independent novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C/O/V acceptance is best of knowledge, not independent formal certification or bibliographic priority proof.",
+    "Purely finite tests corroborate the abstract two-island proof but do not generalize to all m,n without it.",
+    "Originality does not claim novelty of general S-gap entropy formula.",
+    "Publication not ready because public AUDIT.json and METADATA.json contain operational scope_run_id, and REVIEW.md contains operational status and provenance; full guarded privacy-sanitized replacement files were not assembled during this run."
+  ],
+  "schema_version": 1
+}
