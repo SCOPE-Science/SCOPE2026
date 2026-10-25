@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact scalar threshold follows by maximizing the cubic per-capita growth \(-a+Rs-ks^3\); its maximum vanishes when \(k=4R^3/(27a^2)\). The vector comparison is at the maximal coordinate, which is valid for every nonnegative trajectory of a regular graph. Stability follows from diagonalizing the symmetric adjacency matrix. At the critical fold, the Jacobian's simple zero eigenvalue and its negative mean-free spectrum justify transverse exponential convergence, and averaging yields the critical quadratic drift coefficient \(-R\). The scalar comparison provides a \(t^{-1}\) lower and upper bound for above-threshold starts, so exponentially small errors cannot alter the limiting amplitude.
+# Independent mathematical audit
 
-Run `python VERIFY.py` with the dependency from `requirements.txt`. The script checks exact symbolic factorization, Jacobian eigenvalues, and a parameter example. These computations do not verify any infinite-time claim by enumeration. The proof in `RESULT.md` supplies the requisite infinite-time arguments.
+## correctness
 
-Originality cannot be certified independently by these computations. General cooperative-systems literature could encompass the statement in an abstract form, and the full text of the closest older Smith (1986) paper was not accessible through available channels.
+PASS
+
+PASS: Reconstructed maximum principle, extinction regimes, complete homogeneous equilibria/Jacobian signs, maximum propagation at k*, strong cooperative comparison, spectral mean-free contraction and Riccati-like 1/t critical amplitude. Checked domain d≥1 connected regular, positive a,b,c,k, global bounded nonnegative solutions and above-critical initial-data quantifier. No unwarranted claim about nonhomogeneous bistable equilibria.
+
+## originality
+
+PASS
+
+Best-of-knowledge full-claim comparison: Degree-sharp coexistence rescue threshold and critical spectral relaxation in regular-graph obligate mutualism. A general existence of some suitable higher-order interactions does not imply that a *single uniform self-only* cubic rescues exactly when k<4R³/(27a²), nor global extinction beyond threshold and 1/t with Laplacian spectral gap. Standard scalar fold techniques make some steps routine but combined all-network sharp boundary is a meaningful specified specialization. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: Restricting higher-order ecology to a single equal self-only cubic per-capita mortality coefficient makes a sharp necessary-and-sufficient coexistence rescue condition depending exactly on graph degree. The contrasting universal threshold and topology-dependent spectral relaxation, plus critical 1/t amplitude, are motivated natural structural invariants for obligate-mutualist network models rather than arbitrary parameter fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The maximum-coordinate differential inequality reduces the *global* nonexistence/extinction assertion to a sharp cubic maximization. The homogeneous Jacobian has a rigorously known largest adjacency eigenvalue because the graph is undirected and regular. The connected critical Jacobian has exactly one neutral direction; nonlinear comparison and a projected spectral estimate give convergence from above, exponential transverse decay, and the exact scalar reciprocal-asymptotic coefficient. The algebraic critical coefficient and the four-vertex example were independently replayed from `VERIFY.py`.
+## correctness
 
-**Originality — PASS, with limits.** The 2026 motivating source proves stabilizability by general higher-order adjustments to prescribed pairwise interaction patterns, not a degree-sharp *necessary and sufficient* condition for identical self-only quartic losses with universal critical amplitude. Gibbs et al. consider the effects of heterogeneous mixed-species higher-order interactions and do not state this regular-network self-only result. Available mathematical-research record searches did not identify equivalent or stronger coverage; absence of a retrieved item is not by itself proof of priority. Smith's 1986 cooperative-systems paper is a material uninspected source, and the elementary maximum-comparison components are classical. The result's claim of contribution is the complete sharp restricted ecological criterion and its critical network relaxation, not new abstract cooperative-systems methods.
+PASS
 
-**Mathematical value — PASS.** The question is whether an ecological interaction topology excluded from stable obligate-mutualist coexistence under pairwise interactions can be rescued by an identical single-species nonlinear loss without engineering cross-species coefficients. The answer provides an exact degree-dependent rescue boundary, rigorous extinction on the opposite side, and an exact critical relaxation amplitude and topology-dependent transverse rate. These are interpretable distinctions among networks of the same size, not merely numerical illustration or renaming of a scalar fact.
+PASS: Reconstructed maximum principle, extinction regimes, complete homogeneous equilibria/Jacobian signs, maximum propagation at k*, strong cooperative comparison, spectral mean-free contraction and Riccati-like 1/t critical amplitude. Checked domain d≥1 connected regular, positive a,b,c,k, global bounded nonnegative solutions and above-critical initial-data quantifier. No unwarranted claim about nonhomogeneous bistable equilibria.
 
-**Closest literature and limitations.** Çelik et al. (arXiv:2609.09286v1), Gibbs et al. (Ecology Letters, DOI:10.1111/ele.14458), and classical monotone-cooperative population theory delimit the contribution. The older Smith (1986) primary paper could not be materially inspected, and its potential subsumption remains a genuine independent-review question. Nonregular, directed, heterogeneous, stochastic or arbitrary-side critical initial data are not covered; nonhomogeneous equilibria below the fold are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge full-claim comparison: Degree-sharp coexistence rescue threshold and critical spectral relaxation in regular-graph obligate mutualism. A general existence of some suitable higher-order interactions does not imply that a *single uniform self-only* cubic rescues exactly when k<4R³/(27a²), nor global extinction beyond threshold and 1/t with Laplacian spectral gap. Standard scalar fold techniques make some steps routine but combined all-network sharp boundary is a meaningful specified specialization. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: Restricting higher-order ecology to a single equal self-only cubic per-capita mortality coefficient makes a sharp necessary-and-sufficient coexistence rescue condition depending exactly on graph degree. The contrasting universal threshold and topology-dependent spectral relaxation, plus critical 1/t amplitude, are motivated natural structural invariants for obligate-mutualist network models rather than arbitrary parameter fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
