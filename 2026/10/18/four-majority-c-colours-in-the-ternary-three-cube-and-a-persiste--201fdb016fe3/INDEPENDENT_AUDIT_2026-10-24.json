@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:05:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 9e45bce9d4d87b2c9c9da40d03ac34979bdda661",
+        "Pinned verify.py blob bd560c856494cec601aef109e44cae1a5f623e78",
+        "Independent direct six-subset enumeration and vertex-neighbour checks: independent_checks.py and output"
+      ],
+      "rationale": "A class in degree-six H3=K3^3 must have induced minimum degree 3. The neighborhood of each vertex is three disjoint K2 edges; common-neighbor counts for distinct vertices are at most two, and all triangles are coordinate lines. This rules out sizes 1–5 (including parity argument for any hypothetical size-five class), so 27 vertices allow at most floor(27/6)=4 colours. A six-vertex feasible induced subgraph cannot have degree four or five; it is cubic, hence a triangular prism or K3,3. K3,3 would require three common neighbours, impossible, while prism triangles are parallel coordinate lines, yielding exactly 3 choices for full coordinate times 2 for partial coordinate times 3 fixed symbols times C(3,2)=54 rectangles. Fresh independent exhaustive enumeration of all C(27,6)=296010 six-subsets found exactly 54 such sets. The explicit 3x3 four-colour table has at least one same-colour row/column neighbor plus two same-colour third-axis neighbours at each of 27 points, proving 4 colours. Product colouring with H2 factors yields 4*3^r nonempty classes with 3+2r same-colour neighbors out of 6+4r in each dimension 2r+3, all r>=0. The product claim is algebraic for all r; separate checks at dimensions 3,5,7 are only bounded corroboration.",
+      "residual_risks": [
+        "The bound in odd dimensions >=5 is a lower bound only, not optimality or classification of optimal colourings.",
+        "Six-vertex classification concerns only minimal admissible classes, not all classes in a valid partition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2608.27669v2, Bujtas et al., Majority C-coloring in Cartesian products (2026), Theorem 3/Theorem 4/Proposition 5(ii)/Open Problem 3 as reported in accessible source includes Cartesian-product theorems and bounds for even powers and other alphabet sizes; its accessible abstract does not assert ternary three-cube four-colouring.",
+          "A published majority-colouring classification for complete multipartite graphs involves a different graph product and does not cover H3."
+        ],
+        "reasoning": "The known H2 factor colouring combines with a new H3 construction; prior product rules alone give the weaker ternary lower bound unless a four-colour H3 seed is supplied.",
+        "searches": [
+          "Resultary semantic search: majority C-coloring ternary Hamming K3 Cartesian cube four colors minimum six induced-degree three class",
+          "arXiv:2608.27669v2, Bujtas et al., Majority C-coloring in Cartesian products (2026), Theorem 3/Theorem 4/Proposition 5(ii)/Open Problem 3 as reported in accessible source",
+          "Resultary: majority C-colourings of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.27669v2",
+        "https://arxiv.org/abs/2604.20752",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing general product result gives 3^(r+1) for ternary d=2r+3 but not a four-colour base case for H3.",
+          "Six-subset lower bound and the explicit table are the independent missing ingredients."
+        ],
+        "reasoning": "The new local obstruction is not logically entailed by the published dimension-two/even-product theorem; plugging the new four-colour seed into a known multiplicative construction gives the stated strictly improved bound.",
+        "searches": [
+          "arXiv:2608.27669v2, Bujtas et al., Majority C-coloring in Cartesian products (2026), Theorem 3/Theorem 4/Proposition 5(ii)/Open Problem 3 as reported in accessible source",
+          "Resultary semantic search: majority C-coloring ternary Hamming K3 Cartesian cube four colors minimum six induced-degree three class",
+          "arXiv:2604.20752 Majority C-coloring of graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Majority C for degree 6 is equivalently minimum induced degree >=3 in each class, or 3-improper C-colouring under the graph-colouring convention.",
+          "The previous general odd-ternary bound 3^(r+1) is strictly weaker than 4*3^r."
+        ],
+        "reasoning": "Alias terminology was checked. General 3-improper definitions and colourability estimates do not force the exact four-colour construction or minimal-size class obstruction.",
+        "searches": [
+          "Resultary semantic search: majority C-coloring ternary Hamming K3 Cartesian cube four colors minimum six induced-degree three class",
+          "majority C colouring K3^3 improper 3-C-colouring odd dimensional Hamming graphs",
+          "arXiv:2608.27669v2, Bujtas et al., Majority C-coloring in Cartesian products (2026), Theorem 3/Theorem 4/Proposition 5(ii)/Open Problem 3 as reported in accessible source"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent complete census finds 54 six-sets, not a finite table in an inspected earlier result.",
+          "The exact d=3 value is not specified by the accessible cited abstract and reported open problem."
+        ],
+        "reasoning": "A hidden published six-subset table or d=3 solution would cover the claim; failure to find one is not proof of unique priority. The full primary manuscript was not accessible.",
+        "searches": [
+          "Resultary semantic search: majority C-coloring ternary Hamming K3 Cartesian cube four colors minimum six induced-degree three class",
+          "majority C chromatic number H(3,3) exact 4",
+          "Hamming cube minimum degree 3 six vertex subgraphs 54 coordinate rectangles"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: first accessible ternary three-cube exact majority C-value 4 and 54 class geometries; the already established product colouring principle gives improved odd-dimensional bound. Accessible primary abstract and relevant theorem information identify even-power/other-alphabet results, not an exact ternary d=3 theorem. Full originating preprint inaccessible through lawful routes, so a precise unresolved bibliographic risk is retained, not falsely described as completely read.",
+      "residual_risks": [
+        "The highly relevant 2026 initiating manuscript was not available as full lawful text; a covered numerical result in an appendix remains a plausible priority risk.",
+        "An unindexed equivalent result in improper C-colouring terminology might predate the inspected abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No direct coverage established from accessible material; cannot conclude whole manuscript is NOT_COVERING",
+          "evidence": [
+            "Accessible description reports exact even powers and alphabet cases, and an unresolved odd-dimension problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.27669v2",
+          "material_read": "Bibliographic abstract, accessible theorem/open-problem descriptions and version metadata; full manuscript unavailable, so sections not independently read",
+          "method": "ArXiv metadata/abstract; attempted lawful open full text; authorized institutional access remained disconnected",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Same graph invariant and exact K3 Cartesian powers"
+        },
+        {
+          "assessment": "Establishes invariant, not observed to state ternary three-cube classification",
+          "evidence": [
+            "Foundational framing of majority C-colouring as graph partitioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.20752",
+          "material_read": "Accessible abstract, definition/scope metadata; full article not independently read",
+          "method": "Bibliographic preprint inspection",
+          "title": "Majority C-coloring of graphs",
+          "trigger": "Foundational same colouring definition and aliases"
+        },
+        {
+          "assessment": "Concerns complete multipartite graphs rather than Cartesian ternary Hamming cube; not a covering theorem",
+          "evidence": [
+            "The published summary gives a part-parity classification for complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "material_read": "Published summary and Git repository result-file listing; complete theorem body not independently read",
+          "method": "Resultary semantic search and GitHub repository evidence",
+          "title": "Majority C-colorings of complete multipartite graphs",
+          "trigger": "Relevant published same invariant but different graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 9e45bce9d4d87b2c9c9da40d03ac34979bdda661",
+        "Pinned verify.py blob bd560c856494cec601aef109e44cae1a5f623e78",
+        "Independent direct six-subset enumeration and vertex-neighbour checks: independent_checks.py and output"
+      ],
+      "rationale": "This resolves the smallest nonbinary odd Hamming-cube majority C-colouring instance, supplies a complete minimal feasible class geometry and a sharp four-colour value, and strengthens a previously known bound for infinitely many odd dimensions through a standard but nontrivial product seed. It does not claim a solution of all odd-dimensional optimality questions.",
+      "residual_risks": [
+        "The highly relevant 2026 initiating manuscript was not available as full lawful text; a covered numerical result in an appendix remains a plausible priority risk.",
+        "An unindexed equivalent result in improper C-colouring terminology might predate the inspected abstract."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
