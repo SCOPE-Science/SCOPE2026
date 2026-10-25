@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T10:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA 6866ae7327e820d65188e760576044adf0e6d28c",
+        "certify.py SHA 47dc277a37dcdebed03ecf2b66b846e1f6f773ab",
+        "Independent exhaustive tree enumeration: check_independent.py and check_results.json, n=3..10"
+      ],
+      "rationale": "The invariant is the exact outside-neighbor-at-most-one (P3-convexity) condition. The supplied certify.py constructs all rooted tree shapes recursively from multisets of smaller shapes, takes canonical unrooted center encodings, adds every nonedge, and tests all 2^n subsets for each resulting unicyclic graph. A SEPARATE independent enumeration through networkx.nonisomorphic_trees reproduced every rooted-unicyclic instance for n=3..10: 1,6,18,60,165,483,1316,3816 tree-plus-nonedge cases, the unique cycle maximal counts 5,10,17,29,51,90,158,277, and no competing tie. Four-state cyclic forbidden-101 trace has characteristic polynomial λ(λ³−2λ²+λ−1); recurrence yields c11=486. Hub conditioning gives N(Qn)=2^(n−2)+2n−2, with Q11=532, while c_(n+1)<2c_n permits strict induction for all n>=11. The code covers only n<=10; the transfer argument is essential for the infinite family.",
+      "residual_risks": [
+        "The finite proof depends on complete generation/deduplication, independently reconstructed and checked through n=10; no closed-form higher-order global maxima are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 5 bounds unicyclic G below each spanning tree; Theorem 11 global connected extremizers include trees, not an ordering within unicyclic graphs."
+        ],
+        "reasoning": "Stronger connected-graph maxima outside the unicyclic subclass cannot establish the specific sharp within-class first order 11 or cycle uniqueness through 10.",
+        "searches": [
+          "Resultary published finding semantic search: Number of P3-convex sets in unicyclic graphs, cycles unique maximizers through n=10 and cease at 11, C4 with pendant leaves 2^(n-2)+2n-2",
+          "Dourado et al, arXiv:2603.04706v1 Lemma 5 and Theorem 11"
+        ]
+      },
+      "checked_sources": [
+        "Dourado, Grippo, Lin, Protti, arXiv:2603.04706v1",
+        "Carvalho-Dourado-Szwarcfiter (2017) Helly-number abstract",
+        "Resultary 2026-10-23 semantic search on P3-convex unicyclic extremal transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N(G)<N(T) for spanning trees T does not compare N(G1) and N(G2) when both are unicyclic.",
+          "A cyclic forbidden-pattern recurrence alone does not imply its relation to every n-vertex unicyclic graph."
+        ],
+        "reasoning": "Neither mentioned statement has a hypothesis/conclusion chain implying the asserted sharp turnover.",
+        "searches": [
+          "arXiv:2603.04706v1 Section 2 Lemma 5 and connected maximum theorem",
+          "Resultary published finding semantic search: Number of P3-convex sets in unicyclic graphs, cycles unique maximizers through n=10 and cease at 11, C4 with pendant leaves 2^(n-2)+2n-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P3 path convexity = closed sets of threshold-2 vertex bootstrap rule; on C_n = cyclic 101-avoiding binary words.",
+          "Dourado et al use the same P3 convexity definition."
+        ],
+        "reasoning": "Comparisons used the underlying closure condition, cycle binary-word encoding, and unicyclic extremal ordering, not shared keywords alone.",
+        "searches": [
+          "Resultary published finding semantic search: Number of P3-convex sets in unicyclic graphs, cycles unique maximizers through n=10 and cease at 11, C4 with pendant leaves 2^(n-2)+2n-2",
+          "arXiv:2603.04706"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed order-3..10 unicyclic maxima and n11 witness; indexed nearby cycle/path counting records concern different graph statistics."
+        ],
+        "reasoning": "No located exact table contains the 3..10 unicyclic maximizing counts; this is qualified non-detection, not a proof of priority.",
+        "searches": [
+          "Resultary published finding semantic search: Number of P3-convex sets in unicyclic graphs, cycles unique maximizers through n=10 and cease at 11, C4 with pendant leaves 2^(n-2)+2n-2",
+          "Dourado et al 2026 P3-convex set counting tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the closest exact same-invariant 2026 source gives a tree-versus-unicyclic comparison but not ordering among unicyclic graphs. The all-n witness and exact first turnover at n=11 are not logically derived by that source. Resultary did not surface a covering statement; that negative result alone cannot establish historical priority.",
+      "residual_risks": [
+        "Unindexed P3-closure extremal results or structural graph-convexity appendices might contain equivalent enumerations.",
+        "Full technical text of peripheral 2017 Helly paper was not independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_IMPLY_SHARP_UNICYCLIC_TURNOVER",
+          "evidence": "Lemma 5 compares a unicyclic graph to spanning trees, not all unicyclic graphs to the cycle.",
+          "identifier_or_url": "https://arxiv.org/html/2603.04706",
+          "material_read": "Full-text accessible material: introduction, definitions, unicyclic Lemma 5, connected/extremal counting statements, relevant locations for cycles and unicyclic; not a claim to have checked every appendix.",
+          "method": "Lawful primary HTML technical reading and matching exact statement/implication.",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same counted invariant and explicit unicyclic lemmas"
+        },
+        {
+          "assessment": "PERIPHERAL_DIFFERENT_INVARIANT",
+          "evidence": "Abstract concerns Helly numbers, not unicyclic counts.",
+          "identifier_or_url": "https://mc.sbm.org.br/wp-content/uploads/sites/9/sites/9/2021/12/45-12.pdf",
+          "material_read": "Bibliographic abstract and available overview; technical full text not read.",
+          "method": "Compared declared Helly-number invariant, retained full-text uncertainty.",
+          "title": "On the Helly Number in P3-Convexity in Graphs",
+          "trigger": "Same geometric convexity notion, different numerical invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source RESULT.md, explicit finite classification and recurrence",
+        "arXiv:2603.04706 for natural invariant and surrounding problem"
+      ],
+      "rationale": "P3-convex-set counting in a natural one-cycle graph class asks a motivated extremal question distinct from the tree/global graph case. The first order n=11 losing cycle maximality, exact uniqueness at all smaller n and a single infinite witness family provide a sharp structural boundary rather than an unmotivated lookup. The result carefully does not claim to identify the actual maximizing graph for n>=11.",
+      "residual_risks": [
+        "Finite classification relies on transparent exhaustive computation rather than a short symbolic case analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite proof depends on complete generation/deduplication, independently reconstructed and checked through n=10; no closed-form higher-order global maxima are claimed.",
+    "Unindexed P3-closure extremal results or structural graph-convexity appendices might contain equivalent enumerations.",
+    "Full technical text of peripheral 2017 Helly paper was not independently read.",
+    "Finite classification relies on transparent exhaustive computation rather than a short symbolic case analysis."
+  ],
+  "schema_version": 1
+}
