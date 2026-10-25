@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T16:54:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_weighted.py",
+        "verify_bruteforce.py",
+        "METADATA.json",
+        "AUDIT.json"
+      ],
+      "rationale": "Using the exact pair transitions for a cycle a and one collapsing b, branch potentials L and R have componentwise ordered letter counts according to 2(j−i)<n or ≥n. The one-step Bellman inequalities F(px)≥F(p)−weight(x) have exactly one equality letter, a away from upper boundary and a/b at boundary by the gap dichotomy. Positive weights ensure strict descent to merge; any deviation strictly costs more. Cost-ratio invariance gives componentwise letter-count minimality, and unit weights partition all C(n,2) pairs into consecutive distinct distance intervals; the unique worst-pair trajectory visits all pairs. Independent reverse shortest-path computation checks all pairs for n=3..17 at four positive integer cost profiles, strict optimal letter and entire length spectrum; this finite range only corroborates the all-n argument.",
+      "residual_risks": [
+        "Finite tests alone are not a universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vorel arXiv:1403.3972 treats general subset synchronization and complexity.",
+          "Ruszil arXiv:2103.16185 considers weighted synchronization and approximation, a broader class but weaker exact guarantees."
+        ],
+        "reasoning": "Broader algorithmic setting does not mathematically imply this exact unique optimum in the special Černý pair graph; the submitted all-cost closed formulas are structurally stronger for this fixed family.",
+        "searches": [
+          "Cerny automaton pair synchronizing unique shortest merging word weighted letter costs Parikh spectrum",
+          "Ruszil weighted synchronizing automata algorithm subset synchronization Vorel"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.6731",
+        "arXiv:1403.3972",
+        "arXiv:2103.16185",
+        "Resultary:2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gusev supplies transition graph from which costs may be computed, but proves expectations for Bernoulli random inputs.",
+          "The audited construction uses two explicit affine branch potentials with a strictly unique Bellman equality move for every positive cost ratio."
+        ],
+        "reasoning": "The graph permits algorithmic recalculation for any fixed n, but neither closed all-n cost formula nor universal positive-cost uniqueness follows from the cited expectation result without a separate argument.",
+        "searches": [
+          "Cerny automaton pair synchronizing unique shortest merging word weighted letter costs Parikh spectrum",
+          "Gusev section 3 pair automaton transitions expected hitting vs shortest path"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gusev arXiv:1404.6731 Section 3 explicitly represents the Černý pair automaton and analyzes expected merging under random letters.",
+          "The finite pair graph is the same object as in the audited deterministic weighted shortest-word problem."
+        ],
+        "reasoning": "Graph representation itself is prior, while a cost-invariant unique Bellman policy, componentwise minimal Parikh counts, and exact length bijection are not stated in that source.",
+        "searches": [
+          "Cerny automaton pair synchronizing unique shortest merging word weighted letter costs Parikh spectrum",
+          "Cerny pair automaton weighted shortest path unique minimal Parikh vector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 766d362d36d3 is the initial full-state deficiency threshold 3s−2, not the pairwise cost-to-go spectrum.",
+          "Gusev presents a pair automaton graph, but not all weighted pair-length enumerators as a table."
+        ],
+        "reasoning": "A shortest RESET word for all n states and a shortest word merging one chosen pair are distinct problems, so the related exact tables do not cover this claim; search coverage is bounded.",
+        "searches": [
+          "Cerny automaton pair synchronizing unique shortest merging word weighted letter costs Parikh spectrum",
+          "Resultary early deficiency Cerny automaton exact thresholds",
+          "Cerny pair merging length distribution binomial"
+        ]
+      },
+      "rationale": "Statement-and-implication comparisons with primary literature and published Resultary records below support a best-of-knowledge new exact statement or motivated refinement. Prior auxiliary lemmas and special cases are credited; unseen equivalent work is a residual risk.",
+      "residual_risks": [
+        "An older Černý pair-graph exposition could implicitly contain the all-n unweighted spectrum.",
+        "Zero-cost weights are correctly excluded; tie-breaking would fail at zero costs.",
+        "Material inspected from Vorel/Ruszil is less than complete primary full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS pair graph and random expected merging, NOT stated strict weighted shortest-path theorem",
+          "evidence": "Section 3 constructs Černý pair automaton and derives expected synchronization times.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+          "material_read": "Full 11-page primary arXiv PDF, especially Section 3 and pair-state diagram",
+          "method": "Full arXiv PDF and page-image crosscheck",
+          "title": "Synchronizing Automata with Random Inputs",
+          "trigger": "Same Černý pair automaton transitions"
+        },
+        {
+          "assessment": "No demonstrated dominance; incomplete full-text inspection retained as risk",
+          "evidence": "General subset synchronization thresholds versus explicit fixed automaton pair policies.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.3972",
+          "material_read": "Abstract and announced complexity/range, not entire full text",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Subset Synchronization and Careful Synchronization of Binary Finite Automata",
+          "trigger": "Possible general subset theorem dominating pair result"
+        },
+        {
+          "assessment": "No exact fixed-family universal uniqueness established by accessible material",
+          "evidence": "Approximation algorithms do not normally supply a strict all-parameters optimality characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.16185",
+          "material_read": "Abstract and stated approximation objective, not full text",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Approximation Algorithm for Finding Short Synchronizing Words in Weighted Automata",
+          "trigger": "Weighted objective potentially includes the submitted problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1404.6731",
+        "arXiv:1403.3972",
+        "arXiv:2103.16185",
+        "Resultary:2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+      ],
+      "rationale": "A deterministic two-state synchronization law with unique universal optimum under any positive costs and a length bijection 1..C(n,2) is a motivated exact structural property of the classical extremal automaton, rather than just computing Dijkstra once.",
+      "residual_risks": [
+        "No unproved downstream theorem is claimed as motivation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1404.6731",
+    "arXiv:1403.3972",
+    "arXiv:2103.16185",
+    "Resultary:2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+  ],
+  "disposition": "passed",
+  "final_claim": "All pairs of Cerny states: one unique optimal merging word for every positive weight ratio, explicit Parikh and cost spectrum",
+  "limitations": [
+    "Only initial pairs (not whole-automaton reset or larger subsets), positive costs and fixed transition convention. Prior graph representation could make portions of the unweighted spectrum implicit."
+  ],
+  "residual_risks": [
+    "An older Černý pair-graph exposition could implicitly contain the all-n unweighted spectrum.",
+    "Zero-cost weights are correctly excluded; tie-breaking would fail at zero costs.",
+    "Material inspected from Vorel/Ruszil is less than complete primary full text."
+  ],
+  "schema_version": 1
+}
