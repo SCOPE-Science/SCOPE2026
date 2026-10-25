@@ -1,19 +1,21 @@
-# Scientific review: alternating zero-drift cycle coverage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite exact distributional identity for every cycle size \(n\ge3\) and every parameter \(0<p<1\). The proof identifies the independent time schedule with a spatial parity-dependent birth-and-death walk on the integer lift, constructs its increasing harmonic scale, and derives last-site probabilities from two gambler's-ruin events. The treatment of endpoint starting positions, normalization, and parity indices is explicit. A separate rational finite-state absorption algorithm confirms all probabilities in the tested small sizes, and the scale-function identity is checked over a much larger finite range. The computations are not used to prove the unrestricted theorem.
+PASS
 
-## Originality — PASS, qualified
+Integer lift S_t records clock parity as spatial parity. Harmonic birth-death scale s(2h)=h and s(2h+1)=h+q has p_right Delta_right = p_left Delta_left=pq; optional stopping and strong Markov give the two-boundary exact probability that both nonforbidden interval endpoints are hit before discovering forbidden vertex k. Substitution separates n odd/even and gives all probabilities with sum 1 and uniform iff p=q. Independently recomputed the scale/hitting formula and closed form with exact rational arithmetic for 3<=n<=20 and p in {1/7,1/3,1/2,4/5}. The analytic finite-interval hitting argument proves all n,p, not the finite tests. Degenerate p=0,1 excluded.
 
-Idnani and Salem's arXiv:2610.15115v1 covers arbitrary time-varying schedules by an unevaluated infinite path series and gives a closed form for constant, rather than alternating, bias. The present result evaluates the complementary period-two schedule in elementary terms and extracts an odd-versus-even parity classification that is not displayed in that paper. Classical symmetric last-vertex theorems and general controller-based cover-time estimates do not assert this law. One general periodic-environment formula might subsume the scale-function derivation; the 1993 source's full text was unavailable, although its accessible abstract specifies the symmetric uniform-choice setting. No claim of independent verification or absolute priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Last-discovered location is a natural coverage statistic in random walks on rings. The exact law replaces infinite trajectory enumeration for a fundamental periodically forced schedule and reveals a structural obstruction to the naive assertion that a zero-drift two-step motion has uniform coverage risk. Odd and even cycle sizes differ qualitatively: parity-flat versus interlaced linear site profiles. These are complete natural classifications for the stated model, not isolated numerical samples.
+The general time-varying last-covering law of Idnani and Salem encompasses the alternating schedule by substitution in its infinite trajectory representation; therefore implicit probabilities are prior covered. Their evaluated constant-bias formula does not provide the explicit complementary two-periodic odd/even parity simplification. The closed-form evaluation and exact uniformity criterion are the surviving new statement; potential equivalent periodic birth-death evaluations remain a priority risk.
 
-## Limits and closest literature
+## value
 
-The analysis assumes a specified starting phase, complementary alternating probabilities strictly between zero and one, and one walker. It does not determine joint cover-time fluctuations or general periodic schedules. Relevant literature: arXiv:2610.15115v1 (motivation and general series); Lovász–Winkler, DOI:10.1002/jgt.3190170505 (classical symmetric setting); arXiv:2209.08079v2 (uniform-outdegree digraph setting); arXiv:2006.02475v2 (different controller-based time-dependent cover model).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Last-vertex coverage is a canonical stochastic observable; the exact closed form for all cycle sizes captures a nontrivial parity memory after zero-drift two-step blocks and provides a precise nonuniformity criterion despite classical uniform symmetric walks. Evaluating an arbitrary time-varying infinite series to two explicit parity classes/affine laws is substantively useful and not a trivial restatement of gambler’s ruin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

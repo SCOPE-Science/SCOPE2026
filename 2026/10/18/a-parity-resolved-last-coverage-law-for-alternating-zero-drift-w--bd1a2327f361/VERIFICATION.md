@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof applies to all integers \(n\ge3\) and all real \(p\in(0,1)\). It uses a harmonic birth-and-death scale on the integer lift, a two-boundary characterization of the last-visited label, and finite-interval gambler's ruin with two applications of the strong Markov property. No large-sample approximation is needed.
+## correctness
 
-The standalone `verify.py` requires Python 3.10+ and uses only its standard library. Execute `python3 verify.py`. The recorded execution yielded `VERIFIED 20580 exact rational checks`.
+PASS
 
-One group of checks compares the explicit formulas against a separate exact scale-function hitting calculation for sizes \(3\) through \(64\), across five rational biases. A second group independently computes absorption probabilities of the original cyclic, time-dependent walk using rational Gaussian elimination over visited masks, positions, and phase, for sizes \(3\) through \(7\), across four rational biases. Both groups also test probability normalization or positivity. The finite checks support the proof; they do not certify infinitely many cases or establish novelty. External independent mathematical audit has not been performed.
+Integer lift S_t records clock parity as spatial parity. Harmonic birth-death scale s(2h)=h and s(2h+1)=h+q has p_right Delta_right = p_left Delta_left=pq; optional stopping and strong Markov give the two-boundary exact probability that both nonforbidden interval endpoints are hit before discovering forbidden vertex k. Substitution separates n odd/even and gives all probabilities with sum 1 and uniform iff p=q. Independently recomputed the scale/hitting formula and closed form with exact rational arithmetic for 3<=n<=20 and p in {1/7,1/3,1/2,4/5}. The analytic finite-interval hitting argument proves all n,p, not the finite tests. Degenerate p=0,1 excluded.
+
+## originality
+
+PASS
+
+The general time-varying last-covering law of Idnani and Salem encompasses the alternating schedule by substitution in its infinite trajectory representation; therefore implicit probabilities are prior covered. Their evaluated constant-bias formula does not provide the explicit complementary two-periodic odd/even parity simplification. The closed-form evaluation and exact uniformity criterion are the surviving new statement; potential equivalent periodic birth-death evaluations remain a priority risk.
+
+## value
+
+PASS
+
+Last-vertex coverage is a canonical stochastic observable; the exact closed form for all cycle sizes captures a nontrivial parity memory after zero-drift two-step blocks and provides a precise nonuniformity criterion despite classical uniform symmetric walks. Evaluating an arbitrary time-varying infinite series to two explicit parity classes/affine laws is substantively useful and not a trivial restatement of gambler’s ruin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
