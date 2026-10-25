@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The semantic-radius induction proves exact unfolding depth for all valuations and formulae; the path-extremality implication is bidirectional. The edge-agent encoding is a true bijection because an equivalence relation contained in a path graph has only disjoint singleton and adjacent-pair classes. Transfer count, boundary sizes, and primitive-matrix asymptotics follow exactly. The separate executable checker exhausts 7,108 small tuples, 234,098 semantic truth-set steps and 18 direct word-count comparisons. These calculations are supporting tests, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with residual risks.** The motivating 2026 full text was examined in the common-knowledge semantics and classical S5 sections, which establish the known reachability semantics and classical embedding but not the claimed extremal labelled-frame census. Published results indexed under proper multiagent S5 covers and chromatic compression concern a different optimization. Searches for longest common-knowledge approximant paths, equivalence-relation unions, edge colors and exact counts yielded no dominating statement. Equivalents in unindexed combinatorial literature and uninspected contents of less-close sources remain risks. Neither the diameter observation alone nor finite stabilization alone is claimed novel.
+PASS
 
-**Value — PASS.** This is a complete extremal classification for an interpretable and natural common-knowledge resource, not a small arbitrary table: it handles all world counts and all numbers of distinct agents, gives exact numbers and explains their growth using an explicit transfer matrix.
+By induction C_t phi at w is equivalent to phi throughout the union-equivalence graph ball of radius t; common knowledge is truth on the whole connected component. A fresh atom false only at a vertex v at maximal finite distance d proves no smaller t works, so uniform unfolding depth equals maximum component diameter (including singleton zero case). Maximum n-1 forces a spanning shortest path on all worlds with no chords, hence a spanning path. Each E_i-class must be a clique of a path, thus singleton or adjacent pair and its nontrivial edges a matching. Consequently path edges carry nonempty agent subsets S_j with S_j∩S_(j+1)=empty, and conversely these define the unique labelled frame. Count n!/2 undirected labelled paths times disjoint-adjacent nonempty subset words, giving H_(n,k)=(n!/2)u^T B^(n-2)1 for n>=3, H_(2,k)=2^k-1, H_(1,k)=1. For k>=3 each B² entry is positive, so Perron asymptotic holds; lambda3=1+sqrt(2), and k=2 alternation gives n! for n>=3. Independently enumerated disjoint-adjacent words for k=2,3,4 and n=2..6; prior source checker exhaustive small equivalence tuples was inspected, not treated as infinite proof.
 
-Scope: classical S5 (and the discrete intuitionistic-order embedding), labelled worlds/agents, extremal-depth frames. No generalization to all intuitionistic frames, no isomorphism-class census and no claim of an external independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete classification/count of *maximal-depth* classical S5 frames, their path colouring transfer matrix and fixed-k asymptotic, not for reachability semantics or the n-1 upper bound. Exact labels matter; no claim for general intuitionistic preorders or arbitrary depth distributions.
+
+## value
+
+PASS
+
+Uniform unfolding depth is a natural finite-model invariant measuring worst-case modal reasoning iterations. Classifying its extremizers and exact labelled multiplicities by k/n gives a reusable extremal census and asymptotic, substantially beyond the standard easy depth bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

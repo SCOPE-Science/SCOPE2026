@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-Run `python checker.py` with Python 3, without third-party dependencies. The packaged source is complete.
+# Independent mathematical audit
 
-The checker exhaustively generated all agent equivalence-relation tuples for ten pairs of world and agent counts. It independently compared the maximum union-graph component diameter to the structural path-plus-color criterion, then compared exact extremer counts to the stated matrix recurrence. It enumerated 7,108 tuples in total.
+## correctness
 
-For frames with at most four worlds and up to three agents, it tested the finite knowledge-unfolding truth-set semantics by direct iteration of modal preimages against breadth-first graph-radius neighborhoods: 234,098 truth-set steps passed. Direct nonempty disjoint-adjacent-subset word enumeration agreed with transfer counts for 18 parameter combinations, with two to four agents and lengths one to six.
+PASS
 
-Some exact extremal counts are: two agents and three, four, five worlds give 6, 24, 120; three agents and two, three, four worlds give 7, 36, 360; four agents and three worlds give 150.
+By induction C_t phi at w is equivalent to phi throughout the union-equivalence graph ball of radius t; common knowledge is truth on the whole connected component. A fresh atom false only at a vertex v at maximal finite distance d proves no smaller t works, so uniform unfolding depth equals maximum component diameter (including singleton zero case). Maximum n-1 forces a spanning shortest path on all worlds with no chords, hence a spanning path. Each E_i-class must be a clique of a path, thus singleton or adjacent pair and its nontrivial edges a matching. Consequently path edges carry nonempty agent subsets S_j with S_j∩S_(j+1)=empty, and conversely these define the unique labelled frame. Count n!/2 undirected labelled paths times disjoint-adjacent nonempty subset words, giving H_(n,k)=(n!/2)u^T B^(n-2)1 for n>=3, H_(2,k)=2^k-1, H_(1,k)=1. For k>=3 each B² entry is positive, so Perron asymptotic holds; lambda3=1+sqrt(2), and k=2 alternation gives n! for n>=3. Independently enumerated disjoint-adjacent words for k=2,3,4 and n=2..6; prior source checker exhaustive small equivalence tuples was inspected, not treated as infinite proof.
 
-Finite exhaustive testing is not an infinite proof, and a successful execution is not an independent mathematical audit. General quantifiers, the sharp lower-bound valuation, and the eigenvalue asymptotic are supported by the symbolic proof in `RESULT.md`.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete classification/count of *maximal-depth* classical S5 frames, their path colouring transfer matrix and fixed-k asymptotic, not for reachability semantics or the n-1 upper bound. Exact labels matter; no claim for general intuitionistic preorders or arbitrary depth distributions.
+
+## value
+
+PASS
+
+Uniform unfolding depth is a natural finite-model invariant measuring worst-case modal reasoning iterations. Classifying its extremizers and exact labelled multiplicities by k/n gives a reusable extremal census and asymptotic, substantially beyond the standard easy depth bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
