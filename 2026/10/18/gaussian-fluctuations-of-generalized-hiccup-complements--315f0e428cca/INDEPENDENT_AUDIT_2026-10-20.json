@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T18:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cloitre Proposition 4.3 directly establishes the complement word w=0 product_h(W_h^(x-2)1), W_(h+1)=W_h^k 1. The discrepancy k*zeros-(k-1)*length has total 1 on every W_h and every prefix lies in [1,1+h(k-1)]. On a uniformly sampled complete word, with probability 1-O(k^(-r)), the first h-r recursive child positions are independent uniform 0..k-1 digits; the remainder is O(r), r=floor(h^(1/3)). Classical i.i.d. CLT yields mean (k-1)h/2 and variance (k^2-1)h/12. The stage partition of a uniform global index discards o(N) letters and replaces every good position by a uniform W_m prefix with bounded O(H^(1/3)) deviation and global stage drift (x-k-1)H. Combining yields center (x-2-(k-1)/2)log_k N and the asserted nonzero Gaussian scale for all fixed k>=2,x>=3. Independently checked the word/sequence equivalence for 5 parameter pairs at lengths 2047-3000; these finite words do not establish the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cloitre Proposition 4.2 gives the recurrence and Proposition 4.3 the tree; Fokkink-Joshi establishes morphic forms. Ruskey-Deugau describes meta-Fibonacci density in the x=k+1 specialization."
+        ],
+        "reasoning": "Known digit-sum formulas may imply the special x=k+1 subcase using standard CLT, but inspected texts do not establish the full arbitrary-x stage-boundary theorem.",
+        "searches": [
+          "Gaussian central limit theorem random index generalized hiccup sequences Cloitre k-ary tree complement discrepancy base k digit sum.",
+          "https://arxiv.org/html/2610.13908v1",
+          "https://link.springer.com/article/10.1007/s11139-025-01305-1",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.html"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.13908v1",
+        "https://link.springer.com/article/10.1007/s11139-025-01305-1",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.html",
+        "Resultary search hiccup central limit theorem",
+        "OEIS:A045412"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The word encoding is explicitly credited; the drift depends on x while known first-order asymptotics in a special family do not give this general centering."
+        ],
+        "reasoning": "New proof requires independent child-digit coupling, negligible root/boundary events and the stage drift, none asserted as a stronger limiting result in inspected primary HTML.",
+        "searches": [
+          "https://arxiv.org/html/2610.13908v1",
+          "https://link.springer.com/article/10.1007/s11139-025-01305-1",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.html",
+          "Gaussian central limit theorem random index generalized hiccup sequences Cloitre k-ary tree complement discrepancy base k digit sum."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cloitre Proposition 4.3 and Fokkink-Joshi Lemma 5 are exact word/morphic encodings of the same hiccup complement; the proposed theorem concerns normalized empirical distribution of prefix-count discrepancy."
+        ],
+        "reasoning": "Exact sequence description determines values but is not equivalent to an already stated/proved Gaussian limit without a new asymptotic analysis.",
+        "searches": [
+          "Gaussian central limit theorem random index generalized hiccup sequences Cloitre k-ary tree complement discrepancy base k digit sum.",
+          "https://arxiv.org/html/2610.13908v1",
+          "https://link.springer.com/article/10.1007/s11139-025-01305-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS and JIS enumerate sequence values and base-k tree identities, not the random-index Gaussian drift/variance law."
+        ],
+        "reasoning": "An exact sequence table is not itself a table of the normalized weak limit; no matching law found in the specific indices checked.",
+        "searches": [
+          "Gaussian central limit theorem random index generalized hiccup sequences Cloitre k-ary tree complement discrepancy base k digit sum.",
+          "OEIS:A045412",
+          "Resultary hiccup Gaussian limit"
+        ]
+      },
+      "rationale": "No dominating equivalent or stronger complete statement identified in the targeted primary-source and Resultary searches; assessment is best-of-knowledge, not exhaustive priority certification. Exact sequence description determines values but is not equivalent to an already stated/proved Gaussian limit without a new asymptotic analysis. Known digit-sum formulas may imply the special x=k+1 subcase using standard CLT, but inspected texts do not establish the full arbitrary-x stage-boundary theorem. An exact sequence table is not itself a table of the normalized weak limit; no matching law found in the specific indices checked. New proof requires independent child-digit coupling, negligible root/boundary events and the stage drift, none asserted as a stronger limiting result in inspected primary HTML.",
+      "residual_risks": [
+        "Ruskey-Deugau full PDF was not read here; special x=k+1 digit-sum CLT may be classical.",
+        "An older theorem for generalized morphic words may imply the same law under another formulation.",
+        "No quantitative Gaussian error bound or varying-parameter convergence is shown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains exact word identification, not the displayed logarithmic CLT.",
+          "evidence": [
+            "Propositions 4.2-4.3, equations (4.3)-(4.5)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13908v1",
+          "material_read": "Full accessible arXiv HTML: Definition 1.1, Proposition 4.2, Proposition 4.3, tree construction and discussion of prior meta-Fibonacci result.",
+          "method": "Compared equation (4.5) and its scope with Gaussian random-index statement; searched the text for Gaussian.",
+          "title": "Counting with Hiccup Sequences",
+          "trigger": "Precisely the same (0,x,1,k+1) family"
+        },
+        {
+          "assessment": "Gives a uniform morphism, not an empirical normal law.",
+          "evidence": [
+            "Lemma 5, Equation (6), Theorem 10"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-025-01305-1",
+          "material_read": "Full open-access article HTML, especially Lemma 5, equation (6), morphic construction and other sections; searched Gaussian and central limit.",
+          "method": "Read proof and compared to Gaussian scaling and arbitrary-x stage analysis.",
+          "title": "On Cloitre's hiccup sequences",
+          "trigger": "Same morphic characteristic word"
+        },
+        {
+          "assessment": "Known first-order density and tree identities; possible special-family deeper results remain risk.",
+          "evidence": [
+            "Abstract, JIS 12 (2009) 09.4.3"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.html",
+          "material_read": "Journal article landing abstract and linked full-text availability only; not full PDF in this execution.",
+          "method": "Read abstract and first-order density summary, did not claim whole-source absence.",
+          "title": "The Combinatorics of Certain k-ary Meta-Fibonacci Sequences",
+          "trigger": "The same complete k-ary family at x=k+1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit second-order logarithmic-drift central limit law at uniformly chosen indices is a motivated statistical refinement of existing exact deterministic tree words and first-order densities, valid for all fixed initial values x and branching k. It isolates the initial-condition drift from universal variance and requires nontrivial control of stage boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.13908v1",
+    "https://link.springer.com/article/10.1007/s11139-025-01305-1",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.html",
+    "Resultary search hiccup central limit theorem",
+    "OEIS:A045412"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ruskey-Deugau full PDF was not read here; special x=k+1 digit-sum CLT may be classical.",
+    "An older theorem for generalized morphic words may imply the same law under another formulation.",
+    "No quantitative Gaussian error bound or varying-parameter convergence is shown.",
+    "Repository tree SHA is copied from the signed dispatcher snapshot; GitHub read-only pinned blob retrieval verified RESULT.md, code, METADATA.json, AUDIT.json, SLOGAN.txt and VERIFICATION.md, but no separate Git tree traversal API was available.",
+    "Operational provenance fields in public-facing METADATA.json and AUDIT.json have not been sanitized; no publication-ready changeset or external attestation is asserted."
+  ],
+  "residual_risks": [
+    "Ruskey-Deugau full PDF was not read here; special x=k+1 digit-sum CLT may be classical.",
+    "An older theorem for generalized morphic words may imply the same law under another formulation.",
+    "No quantitative Gaussian error bound or varying-parameter convergence is shown.",
+    "Repository tree SHA is copied from the signed dispatcher snapshot; GitHub read-only pinned blob retrieval verified RESULT.md, code, METADATA.json, AUDIT.json, SLOGAN.txt and VERIFICATION.md, but no separate Git tree traversal API was available.",
+    "Operational provenance fields in public-facing METADATA.json and AUDIT.json have not been sanitized; no publication-ready changeset or external attestation is asserted."
+  ],
+  "schema_version": 1
+}
