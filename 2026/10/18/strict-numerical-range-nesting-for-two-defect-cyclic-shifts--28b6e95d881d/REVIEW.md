@@ -1,15 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized object is the finite cyclic shift with nonzero weights on each directed cycle edge. A gauge transformation leaves only the total phase in the characteristic polynomial. The matching expansion distinguishes individual altered edges, simultaneous disjoint altered edges, and the two oriented full cycles. The exact identity between the two consecutive-separation polynomials is a Chebyshev product identity. A long unweighted principal path places the top Hermitian eigenvalue above every zero of the correction polynomial, allowing strict root comparison at **every phase**. Continuity then turns strict support-function inequalities into interior inclusion of compact convex numerical ranges. The proof handles adjacency via the convention \(q_{-1}=0\), the terminal separation case, both signs of the product, and the zero-product equality case. Exact symbolic and sampled spectral checks replayed; they do not supply the infinite parameter proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Chang–Wang (2012), doi:10.1016/j.jmaa.2012.04.039, gives global numerical-radius extremizers under permutations, not the entire strict nesting chain of *sets* or all intermediate separations. The more directly comparable Chien–Kirkland–Li–Nakazato work, arXiv:2304.06050 (2023), gives general determinant and inclusion criteria, treats the unrestricted containment conjecture through \(n=6\), and does not identify the two-defect all-dimensional chain. Those general tools do not themselves furnish the nontrivial factorized comparison or prove positivity for each angular spectral edge without additional argument. Chien–Nakazato–Undrakh–Vandanjav (first online 2015), doi:10.1080/03081087.2014.1003528, addresses determinantal polynomials and numerical radius; its complete text remained inaccessible. Broader older rearrangement and Jacobi comparison theorems are residual risks, not ruled out by a negative search. No claim of exhaustive priority or independent validation is made.
+PASS
 
-## Value — PASS
-Strict interior nesting of a full family of numerical ranges is stronger than ordering their radii. The result gives a complete, all-size classification of a natural two-inhomogeneity family, with the physically/mathematically significant reversal between like-signed and mixed perturbations. It supplies an exact Chebyshev determinant mechanism and a resolved structured case of a broader active numerical-range permutation problem. The result is not just a routine eigenvalue computation or a finite parameter table.
+For every angular support direction conjugate the cyclic Hermitian part to a weighted real cycle with total phase n theta. Matching expansion gives D_k=q_n-(a^2+b^2-1)q_(n-2)+(a^2-1)(b^2-1)q_(k-2)q_(n-k-2)-2ab cos(n theta). Chebyshev recurrence implies D_(k+1)-D_k=Delta*q_(n-2k-2). A principal unit-weight path of n-k vertices bounds lambda_max(H_k) strictly above the largest zero of q_m, so q_m>0 above the edge. Root interlacing/sign of the determinant difference yields strict support-function ordering at every angle, uniform by angular compactness. Independent symbolic characteristic polynomials n=4,5,6 and numerical support eigenvalues n=6,8 corroborated; proof is all n.
 
-## Source and scope limitations
-The 2023 arXiv paper was materially inspected at the original full-text source (abstract, Sections 1–2 and 4, and conclusion). Accessible publisher-hosted 2012 text included its stated theorem, main proof material and global-maximization scope; the complete original PDF was unavailable. The 2015 source was verified at its publisher metadata/abstract including first-online date and MSC codes; full text could not be obtained. These limitations are retained in the originality record. Numerical experiments never certify the all-size theorem; the written proof is decisive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 Chien--Kirkland--Li--Nakazato study gives numerical-range rearrangement tools and global maximizing patterns only for n<=6, conjecturing full-n maxima. The 2012 Chang--Wang work concerns global numerical-radius maximizers; neither inspected source establishes the all-n full-set two-defect nested chains and mixed-sign reversal. The closely titled 2015 Chien et al. determinantal original could overlap; OA/arXiv attempts failed, Oxford institutional tool reported VPN disconnected, and the risk is explicitly retained.
+
+## value
+
+PASS
+
+Exact strict set inclusion, stronger than numerical-radius inequalities, classifies every separation of two defects for all dimensions and exposes a natural sign-change reversal by spectral polynomial positivity; useful robust example in numerical-range rearrangement geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

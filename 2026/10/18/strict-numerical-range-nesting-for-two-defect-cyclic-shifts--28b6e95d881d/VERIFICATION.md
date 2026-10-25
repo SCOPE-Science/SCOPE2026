@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy and NumPy. It checks the following from first principles:
+## correctness
 
-- Exact characteristic polynomials for all tested \(4\le n\le10\) and all allowed exceptional-edge separations.
-- Exact Chebyshev product-difference identities for all tested consecutive separations.
-- Independent exact characteristic determinants retaining the symbolic cycle flux for \(4\le n\le8\), with two rational parameter pairs.
-- Hermitian support-function order at 49 angles for six positive-weight pairs (both enhanced, both weakened, and mixed), for dimensions \(4\le n\le12\).
+PASS
 
-Observed replay: `PASSED: 39 exact zero-flux identities; 28 exact flux identities; 7350 numerical support comparisons`.
+For every angular support direction conjugate the cyclic Hermitian part to a weighted real cycle with total phase n theta. Matching expansion gives D_k=q_n-(a^2+b^2-1)q_(n-2)+(a^2-1)(b^2-1)q_(k-2)q_(n-k-2)-2ab cos(n theta). Chebyshev recurrence implies D_(k+1)-D_k=Delta*q_(n-2k-2). A principal unit-weight path of n-k vertices bounds lambda_max(H_k) strictly above the largest zero of q_m, so q_m>0 above the edge. Root interlacing/sign of the determinant difference yields strict support-function ordering at every angle, uniform by angular compactness. Independent symbolic characteristic polynomials n=4,5,6 and numerical support eigenvalues n=6,8 corroborated; proof is all n.
 
-The exact symbolic checks establish only the stated finite cases; the sampled floating-point support inequalities are not interval certificates. The general proof instead relies on the matching-polynomial identity, the Chebyshev recurrence, eigenvalue interlacing, and support-function compactness. Bibliographic originality has not received independent peer assessment.
+## originality
+
+PASS
+
+The 2023 Chien--Kirkland--Li--Nakazato study gives numerical-range rearrangement tools and global maximizing patterns only for n<=6, conjecturing full-n maxima. The 2012 Chang--Wang work concerns global numerical-radius maximizers; neither inspected source establishes the all-n full-set two-defect nested chains and mixed-sign reversal. The closely titled 2015 Chien et al. determinantal original could overlap; OA/arXiv attempts failed, Oxford institutional tool reported VPN disconnected, and the risk is explicitly retained.
+
+## value
+
+PASS
+
+Exact strict set inclusion, stronger than numerical-radius inequalities, classifies every separation of two defects for all dimensions and exposes a natural sign-change reversal by spectral polynomial positivity; useful robust example in numerical-range rearrangement geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
