@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Full infinite proof: odd n has unique least Möbius exponent yielding exact odd 2-adic valuation; even n has strict consecutive square bounds via excluded-subset union count and r<=m/3, with m=1,2 direct. Finite brute force and exact arithmetic verifier returns VERIFY_OK, corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang 2010 JIS 13 Article 10.7.6 Remark 6 excludes squares and cubes for Phi(p) and Phi(pq); not all n.",
+        "Ayad–Kihel 2009 Integers 9 A14 excludes squares for f(n), a distinct counting function.",
+        "Pongsriiam 2016, Theorems 9 and 16, concern sign and log behavior of the same Phi sequence; no all-n power classification was found."
+      ],
+      "reasoning": "The closest prior square-exclusion assertion covers numbers with only one or two prime factors, and only the distinct f(n) function has a general nonsquare theorem. The present claim treats every n, including arbitrary repeated factors; the known nearby theorems do not logically imply it.",
+      "searches": [
+        "web: \"Relatively prime sets and a Phi function for subsets\" \"10.7.6\"",
+        "web: \"Local behaviors of the number of relatively prime sets\" square perfect power",
+        "web: \"number of subsets\" \"relatively prime to n\" \"square\"",
+        "web: \"Phi(n)\" \"perfect square\" \"Nathanson\" Pongsriiam Tang"
+      ]
+    },
+    "checked_sources": [
+      "M. Tang, JIS 13 (2010), Article 10.7.6, Remark 6, full 5 pages.",
+      "P. Pongsriiam, arXiv:1306.4891v1, full HTML, especially Question 3.4.",
+      "M. Ayad and O. Kihel, JIS 11 (2008), Article 08.5.5, full 4 pages.",
+      "P. Pongsriiam, Local Behaviors, Int. J. Number Theory 12 (2016), full accessible author rendering.",
+      "OEIS A038199, A027375, entries and references.",
+      "published-finding corpus semantic searches: exact claim and aliases (see four named checks)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pongsriiam 2013 Question 3.4 explicitly asks whether Phi(n) or D(n) can be a perfect power; only f(n) was cited as nonsquare.",
+        "Tang 2010 Remark 6 proves Phi(p) and Phi(pq) neither square nor cube.",
+        "Ayad and Kihel 2008 gives Möbius-based formulas for subset counts, but no classification of squares.",
+        "The new odd-index exact valuation and even-index consecutive-square inequalities each quantify over all integers in their specified parity ranges."
+      ],
+      "reasoning": "Published general formulas are premises rather than general non-square conclusions. No inspected prior theorem simultaneously supplies both parity exclusions; special prime/semiprime cases cannot imply the composite high-prime-support cases. The proof independently derives missing global bounds.",
+      "searches": [
+        "arXiv:1306.4891v1 (HTML) Question 3.4 and Lemma 1",
+        "Tang, JIS 2010 Remark 6, PDF page 3",
+        "Ayad and Kihel 2008 JIS Article 08.5.5, PDF pages 1-4",
+        "published-finding corpus: number of relatively prime subsets Phi(n) never a perfect square Pongsriiam"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A027375: aperiodic binary words equal Phi(n) for n>1.",
+        "OEIS A038199: same subset enumeration, with the corrected n=1 term.",
+        "Pongsriiam arXiv:1306.4891v1, Comments 1 identifies Phi(n)=A038199 and equality with A027375 when n>1."
+      ],
+      "reasoning": "The claim is equivalently non-square cardinalities for length-n primitive binary words. Searches included this reduction, not only the subset-count terminology. Neither inspected OEIS entry states the all-n nonsquare theorem; their tables cannot establish uniqueness.",
+      "searches": [
+        "published-finding corpus: number of relatively prime subsets Phi(n) never a perfect square Pongsriiam",
+        "published-finding corpus: A038199 primitive binary necklaces n values never perfect square",
+        "web: \"aperiodic binary strings\" \"perfect squares\" number",
+        "OEIS:A027375",
+        "OEIS:A038199"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A038199 and A027375 OEIS descriptions list exact initial values and the Möbius formula.",
+        "No perfect-square statement appeared in the inspected records, while finite listings cannot certify infinitely many non-square values."
+      ],
+      "reasoning": "The theorem concerns an infinite arithmetic property of known sequences, not new sequence terms. Existing tables imply only finitely many cases, so they do not subsume the quantified theorem.",
+      "searches": [
+        "OEIS:A038199",
+        "OEIS:A027375",
+        "web: \"A027375\" \"square\" \"perfect\"",
+        "published-finding corpus: Pongsriiam question 3.4 Phi(n) square perfect power"
+      ]
+    },
+    "rationale": "Tang 2010 Remark 6 handles only Phi(p),Phi(pq), while Pongsriiam 2013 asks globally; no inspected primary, aliases, record search or relevant 2016 work implies the all-index theorem. The proof supplies new parity branches; an unlocated equivalent statement remains possible.",
+    "residual_risks": [
+      "A mathematically equivalent result in unlocated literature or an unpublished source remains possible.",
+      "General primitive-word enumeration literature may contain an equivalent nonsquare consequence not indexed by searched terms.",
+      "No independent proof review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct partial coverage only; explicit two-prime scope in Remark 6",
+        "evidence": [
+          "PDF p.2-3: formula for Phi(n), Remark 6 proves non-squares and non-cubes for Phi(p) and Phi(pq)."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Tang/tang2.pdf",
+        "material_read": "Full 5-page paper, particularly Theorem 1, Remark 6, proof sections and references",
+        "method": "Publisher-hosted PDF textual examination with page screenshot inspection",
+        "title": "Relatively Prime Sets and a Phi Function for Subsets of {1, 2, ..., n}",
+        "trigger": "Same function and earlier non-square assertion for prime and semiprime indices"
+      },
+      {
+        "assessment": "Open perfect-power question provides motivation; formula is established, but global nonsquare theorem not in text",
+        "evidence": [
+          "Lemma 1(ii) and Comment 1: Phi(n) Möbius transform.",
+          "Question 3.4 explicitly asks about perfect powers of Phi(n) and D(n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1306.4891v1",
+        "material_read": "Full HTML, notably Lemma 1, Comments and Open Questions 3.4 and references",
+        "method": "arXiv lawful open HTML full-text reading",
+        "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+        "trigger": "Original open perfect-power question and common subset-count identity"
+      },
+      {
+        "assessment": "Provides counting formulas for arithmetic progressions, not all-index nonsquare classification",
+        "evidence": [
+          "Theorem 2 evaluates subset counts by Möbius inversion; Corollary 3 recovers original interval Phi formulas."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Ayad/ayad3.pdf",
+        "material_read": "All four pages, including Theorem 2 and Corollary 3",
+        "method": "Journal PDF parsed text and pages 1 and 3 screenshot inspected",
+        "title": "On the Number of Subsets Relatively Prime to an Integer",
+        "trigger": "Direct earlier Phi generalization by same referenced authors"
+      },
+      {
+        "assessment": "Studies parity of ordering and local inequalities; its published bounds do not give the claimed square exclusion",
+        "evidence": [
+          "Theorem 9 classifies sign of D(n)-Phi(n); Theorem 16 describes Phi log-curvature and ratios."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+        "material_read": "Full available author text, introduction, Theorems 9, 15-16, proofs and further results",
+        "method": "Lawful author-provided full-text rendering, targeted term and theorem inspection",
+        "title": "Local Behaviors of the Number of Relatively Prime Sets",
+        "trigger": "Closely subsequent paper devoted to same f, Phi and D functions"
+      },
+      {
+        "assessment": "Equivalent sequence aliases and finite samples, not a demonstrated all-index non-square claim",
+        "evidence": [
+          "A038199 gives Phi values and Möbius transform; A027375 counts aperiodic binary strings; no nonsquare theorem stated."
+        ],
+        "identifier_or_url": "https://oeis.org/A038199 ; https://oeis.org/A027375",
+        "material_read": "Full two OEIS entries, sequence formula and comments, links and references",
+        "method": "Read entries including square and power term searches",
+        "title": "OEIS A038199 and A027375",
+        "trigger": "Alias and sequence-table overlap check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28a8b11e-1461-40d6-a529-5b090b522a4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the square-exponent branch of Pongsriiam 2013 Question 3.4 for every n>=2, beyond Tang 2010 Remark 6 for p and pq; gives explanatory parity-resolved global structure for known subset and primitive-binary-word counts, with odd-power/D(n) limitations explicitly stated.",
+    "status": "PASS"
+  }
+}
