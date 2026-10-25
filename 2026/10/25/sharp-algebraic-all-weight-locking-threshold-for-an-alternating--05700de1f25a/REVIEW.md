@@ -1,0 +1,11 @@
+# Scientific review: exact weighted four-cycle onset
+
+**Correctness — PASS.** The current-balance identity forces equal opposite path-edge sines. The strict Hessian requirement forces both of those angles to be acute, leaving exactly two possible branches for the remaining phase; the alternative branch cannot attain the required value above one. On the surviving branch, the scalar derivative has a unique critical point, characterized by the monotone algebraic equation in the result. The complete three-dimensional transverse Hessian is positive exactly to the left of that critical point. Independent finite numerical and rational checks are recorded in `verify_output.txt`; universal statements follow from the proof, not enumeration.
+
+**Originality — PASS under inspected sources.** Manik, Timme and Witthaut (arXiv:1611.09825v2, IV.4) already study **the same network** and describe a Braess increase of its locking threshold. Arches et al. (arXiv:2608.03594v1, IV) revisit the same four-cycle and establish an order-parameter sensitivity away from criticality, while noting the fully degenerate Jacobian at the unperturbed threshold. Neither inspected source provides the exact all-proportional-weight algebraic threshold, its strict all-strength monotonicity, its strong-edge saturation, and the right derivative at the degenerate onset. A published four-node closing-edge computation treats a different frequency vector and graph. The pre-existing qualitative Braess observation is not claimed as new.
+
+**Mathematical value — PASS.** The exact transition curve makes the numerical locking boundary explicit over an entire physical edge-strength parameter, establishes that the paradox never reverses even at infinite reinforcement, and computes an initially singular response beyond applicability of the motivating simple-fold theorem. It resolves a natural, fixed, previously studied model rather than an arbitrary parameter slice.
+
+**Limitations and risks.** General cycle-flow machinery might admit an unpublished or overlooked earlier explicit specialization. The current proof establishes strict linear attraction only, not nonlinear stability exactly at threshold or global basins. No independent priority or correctness assessment has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
