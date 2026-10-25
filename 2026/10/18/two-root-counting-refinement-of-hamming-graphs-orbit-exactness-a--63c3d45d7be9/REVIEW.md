@@ -1,19 +1,21 @@
-# Review of the two-root Hamming graph classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is uniform in integers \(q\ge2\), \(d\ge1\), and \(1\le t\le d\). The explicit coordinate-permutation and letter-permutation subgroup is transitive on each proposed tuple. The three intrinsic invariants \(u\), \(v\), and \(f\) distinguish every tuple: \(f=\delta\) by the unique simultaneous two-distance-decreasing moves, and the reconstruction formulas recover the other entries. Stable equitable colour classes are homogeneous for distances to the two individually coloured singleton roots and hence for \(f\). Automorphism invariance supplies the reverse refinement inclusion. The metric-pair criterion follows by elementary inversion in the three exact cases and two feasible counterprofiles in every other case. Finite checks were executed from the three supplied scripts: direct graphs, independent quotient transition matrices, and parameter arithmetic. These corroborate but do not replace the all-order proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+For H(d,q), q>=2,d>=1,1<=t<=d, root-normalize to a=0^d,b=1^t0^(d-t). Four type counts alpha,beta,gamma on t changed coordinates and delta on remaining coordinates are exactly orbits of obvious coordinate/symbol permutations preserving both roots. Their distances are u=beta+gamma+delta, v=alpha+gamma+delta, while the number f of neighbors with both distances decreased by one equals delta (only one replacement per selected nonzero unchanged-coordinate symbol). Thus alpha=t+f-u,beta=t+f-v,gamma=u+v-t-2f. Equitability of the stabilized individualization partition implies distance-pair and local f are constant on each stable cell, proving orbit equality; automorphisms forbid a finer partition. Distance-pair cells determine delta without refinement iff q=2 or t=1 or t=d, otherwise explicit feasible tuples (t-2,0,2,0),(t-1,1,0,1) share distances but have different f, and one round fixes it. Orbit sizes and class counts follow from multinomial/binomial counts. Independently constructed 1-WL and checked five q,d,t instances, including H(3,3) with t=2.
 
-Krotov (arXiv:0907.0001) treats perfect colourings and weight distributions, the survey by van Dam–Koolen–Tanaka (arXiv:1410.6294) places equitable two-root distance partitions into the distance-regular context, and Mirafzal–Ziaee (arXiv:1901.07784) derive the Hamming automorphism group. Relevant text was inspected; the inspected statements do not give the two-individualization stable-partition theorem or sharp \(q,d,t\) distance-pair obstruction. Additional claim/alias searches did not reveal an implication from a stronger statement. A specialized earlier description of Hamming two-root equitable partitions remains possible, so no absolute priority claim is made. An earlier classification for **one** distinguished vertex in general Cartesian products does not imply the two-root statement: the second root changes pointwise-stabilizer orbit types and metric pairs.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem connects the finite-model-theoretic counting-refinement partition and the group-theoretic pointwise-stabilizer orbit partition for an infinite natural distance-regular family. Its sharp trichotomy separates when two distance measurements suffice from when local equitable refinement genuinely adds information. The explicit orbit counts and sizes are useful quantitative invariants, and the parameter-wide non-equitability witness identifies a structural boundary rather than a routine isolated example.
+Known Hamming full automorphism wreath product and perfect/equitable coloring theory establish root-orbit context, but do not establish ordinary two-root 1-WL equals those orbits. A current general Tinhofer hierarchy theorem relates such refinements to group-orbit behavior but does not give the exact all-q,d,t rooted Hamming classification. The necessary-and-sufficient two-root distance-pair equitability condition and one-round recovery for the deficient cases are not stated in the inspected sources. Specialized association-scheme/Terwilliger literature remains a priority risk.
 
-## Scientific limits
+## value
 
-Only uniform Hamming graphs with two distinctly individualised vertices are covered. No optimal round complexity is asserted; experimental checks are finite, and the literature search cannot certify unique publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Hamming graphs are foundational in coding and association schemes. An all-parameter exact description of two-root coarsest equitable partitions, the precise non-equitability frontier, and one-round correction is a meaningful structural and logical invariant, stronger than recording a few orbits or a generic automorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

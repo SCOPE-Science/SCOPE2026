@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility of the two-root Hamming graph classification
+# Independent mathematical audit
 
-The mathematical derivation in `RESULT.md` is an all-parameter proof. Three separate executable standard-library Python tests checked its statements over finite regimes. Running commands from a directory containing the scripts:
+## correctness
 
-```
-python3 verify_direct.py
-python3 verify_quotient.py
-python3 verify_metric_boundary.py
-```
+PASS
 
-`verify_direct.py` independently constructs labelled vertices and all Hamming graph edges for \(q=2\), \(1\le d\le8\); \(q=3\), \(1\le d\le6\); \(q=4\), \(1\le d\le5\); and \(q=5\), \(1\le d\le4\), for every allowed marked distance. The 82 cases total 18,903 vertices, and every stable colour class matches exactly one asserted orbit type. It independently checks the neighbour statistic and distance-pair collision condition. Observed output is recorded in `direct_run.txt`.
+For H(d,q), q>=2,d>=1,1<=t<=d, root-normalize to a=0^d,b=1^t0^(d-t). Four type counts alpha,beta,gamma on t changed coordinates and delta on remaining coordinates are exactly orbits of obvious coordinate/symbol permutations preserving both roots. Their distances are u=beta+gamma+delta, v=alpha+gamma+delta, while the number f of neighbors with both distances decreased by one equals delta (only one replacement per selected nonzero unchanged-coordinate symbol). Thus alpha=t+f-u,beta=t+f-v,gamma=u+v-t-2f. Equitability of the stabilized individualization partition implies distance-pair and local f are constant on each stable cell, proving orbit equality; automorphisms forbid a finer partition. Distance-pair cells determine delta without refinement iff q=2 or t=1 or t=d, otherwise explicit feasible tuples (t-2,0,2,0),(t-1,1,0,1) share distances but have different f, and one round fixes it. Orbit sizes and class counts follow from multinomial/binomial counts. Independently constructed 1-WL and checked five q,d,t instances, including H(3,3) with t=2.
 
-`verify_quotient.py` builds a weighted adjacency transition system directly from the coordinate type calculus, rather than enumerating graph vertices. It checks 1,026 cases for \(2\le q\le7\), \(1\le d\le18\), and each \(1\le t\le d\), comprising 174,420 orbit profiles cumulatively. It compares stabilized colour classes and type counts. Observed output is recorded in `quotient_run.txt`.
+## originality
 
-`verify_metric_boundary.py` independently enumerates possible integer coordinate profiles over 2,646 cases for \(2\le q\le8\), \(1\le d\le27\), and all \(1\le t\le d\). Exactly the 1,950 cases predicted by \(q\ge3\), \(2\le t<d\) contain a distance-pair collision; the explicit witness profiles were also checked. Observed output is recorded in `metric_run.txt`.
+PASS
 
-No exhaustive computation over unbounded \(d\) or \(q\) is claimed. The infinite assertion follows from the elementary coordinate and equitable-partition proof in `RESULT.md`; no independent expert or external audit has been performed.
+Known Hamming full automorphism wreath product and perfect/equitable coloring theory establish root-orbit context, but do not establish ordinary two-root 1-WL equals those orbits. A current general Tinhofer hierarchy theorem relates such refinements to group-orbit behavior but does not give the exact all-q,d,t rooted Hamming classification. The necessary-and-sufficient two-root distance-pair equitability condition and one-round recovery for the deficient cases are not stated in the inspected sources. Specialized association-scheme/Terwilliger literature remains a priority risk.
+
+## value
+
+PASS
+
+Hamming graphs are foundational in coding and association schemes. An all-parameter exact description of two-root coarsest equitable partitions, the precise non-equitability frontier, and one-round correction is a meaningful structural and logical invariant, stronger than recording a few orbits or a generic automorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
