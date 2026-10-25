@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T15:52:50.119626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/axial-rigidity-of-six-vertex-shadows-of-octahedra--ddf3a826ab64/RESULT.md",
+        "Source verify_octahedron.py (source lines inspected; no reliance on VERIFY_OK)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+        "https://arxiv.org/pdf/1203.2464"
+      ],
+      "rationale": "For invertible A and generic plane normal U, the unique linear dependence of projected opposite vectors has coefficients c=A^{-1}U. An opposite pair drops from the projected hull iff |c_i|>|c_j|+|c_k|, because the projected image lies strictly inside the diamond conv(±q_j,±q_k). These exclusive dominance chambers subdivide into four positive trihedral cones per index and their antipodes, yielding the 1/(2pi) angle sum. Substitution A=diag(1,1,lambda) gives Omega_x=2 atan((sqrt2-1)lambda/(1+h)) and Omega_z=2 atan((h-lambda)^2), h=sqrt(1+lambda^2), hence the displayed p4. Writing t=asinh(lambda), u=tanh(t/2), a=sqrt2-1, the derivative factors as (pi/4) dp4/dt=(1-u^2)(2-sqrt2)(u^2-a^2)(u^2+3+2sqrt2)/((1+a^2u^2)(1+6u^2+u^4)). Independent SymPy simplified both sides to zero identically. Since u increases through a at lambda=1, the strict minimum is unique and endpoints yield p4->1. The standard solid-angle identity and source theorem cover all positive lambda, not a finite experiment; no assertion on arbitrary nonsymmetric affine optimum. Independent high-precision values for lambda=1/10,1/2,1,2,10 also matched the triaxial formula p4=1-p6.",
+      "residual_risks": [
+        "The complete positive-cone solid-angle identity is classical and was not re-proved from first principles; its branch and sign requirements hold for the explicitly used vectors.",
+        "Finite numerical sample checks are diagnostic only and cannot certify the all-parameter statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Triaxial RESULT.md proves global maximum p6(a,b,c)<=4/pi atan(sqrt(2)/5), equality iff a=b=c, for three independently variable positive axis lengths.",
+          "The axial family K_lambda=K(1,1,lambda) is a strict one-parameter subfamily; all its probability and equality conclusions follow directly.",
+          "Box RESULT.md proves an exact three-parameter law and unique cube optimality, which also covers the reciprocal-box dual of every K_lambda.",
+          "Böröczky–Henk Section 4, page 8 (PDF page index 9) gives the regular 3-crosspolytope constant 0.35095, but not alone its deformations."
+        ],
+        "reasoning": "Two published broader families subsume the entire claimed axial result. An unrestricted triaxial optimizer is stronger than axial optimality even when its statement does not use the audited arctangent decomposition.",
+        "searches": [
+          "Resultary: random planar orthogonal projection stretched octahedron cross-polytope 3D silhouette four vertices six vertices probability axis ratio unique regular maximum hexagon",
+          "Resultary: ellipsoid affine octahedron projection vertex count solid angle probabilities convex polytope axial deformation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/axial-rigidity-of-six-vertex-shadows-of-octahedra--ddf3a826ab64/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "arxiv:1203.2464; Section 2.3",
+        "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+        "Resultary semantic query hits: triaxial c544249c351b; box 45d2a55425d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute (a,b,c)=(1,1,lambda) in the triaxial D=Lab Lac Lbc+a^2Lbc+b^2Lac+c^2Lab to obtain D=sqrt(2)(1+2lambda^2)+2sqrt(1+lambda^2). Therefore prior p6(lambda)=4/pi atan(2lambda/D) and p4=1-p6.",
+          "The existing triaxial equality condition a=b=c specializes to lambda=1 exactly.",
+          "The box theorem with side half-lengths (1,1,1/lambda) gives the same six-edge chance by (P_E K)^polar = E cap (K polar), an identity of 2-dimensional polar polygons.",
+          "Independent SymPy verified the audited rational half-angle derivative factorization identically. High precision evaluations at lambda=1/10,1/2,1,2,10 match p4=1-p6_triaxial within numerical error, but finite comparisons are corroboration, not implication proofs."
+        ],
+        "reasoning": "The full statement and sharp unique optimizer are logical corollaries of the stronger triaxial theorem; the box theorem furnishes a second independent route through polarity. The direct substitutions and geometry provide exact implication, with numerical checks merely supplementary. Neither mathematical overlap source establishes which same-day result was earlier chronologically.",
+        "searches": [
+          "Resultary: random planar orthogonal projection stretched octahedron cross-polytope 3D silhouette four vertices six vertices probability axis ratio unique regular maximum hexagon",
+          "Resultary: random shadows octahedron maximal six vertex probability regular octahedron among rectangular crosspolytopes",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "https://arxiv.org/pdf/1203.2464"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triaxial published RESULT.md, Finding and Proof: p6(a,b,c)=(4/pi) arctan(2abc/D) for every a,b,c>0; setting a=b=1,c=lambda gives p4(lambda)=1-(4/pi) arctan(2lambda/[sqrt(2)(1+2lambda^2)+2sqrt(1+lambda^2)]).",
+          "Box published RESULT.md, Finding and Proof: all-positive rectangular-box central sections have exact hexagon probability; polarity (P_E K_lambda)^circ = E intersect K_lambda^circ with K_lambda^circ=[−1,1]^2 x[−1/lambda,1/lambda] makes the same probability an equivalent formulation.",
+          "At lambda=1 these expressions yield 0.3509593121836436 for six vertices, matching the audited arctangent law and classical regular-case value."
+        ],
+        "reasoning": "The triaxial formula is an explicit parameter-generalization containing all axial aspect ratios. The polar-box formula is geometrically equivalent, not a different random model: Haar-uniform E remains unchanged under polarity, and planar polarity exchanges vertex and edge counts. Both already determine the complete function, not just a single value.",
+        "searches": [
+          "Resultary: random planar orthogonal projection stretched octahedron cross-polytope 3D silhouette four vertices six vertices probability axis ratio unique regular maximum hexagon",
+          "Resultary: random shadows octahedron maximal six vertex probability regular octahedron among rectangular crosspolytopes",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned IDs 2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b and 2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4.",
+          "Finch 2012 arXiv:1203.2464, Section 2.3 p.5 records regular p6=0.3509593121; this was explicitly known and not decisive by itself.",
+          "Böröczky–Henk 1997 preprint Section 4 p.8 independently records regular p6 approximately 0.35095."
+        ],
+        "reasoning": "The targeted published mathematical records contain a stronger exact law as well as classical single-value tables; rejection is supported by the former, not by a database search failure or a mere known numerical constant.",
+        "searches": [
+          "Resultary: random planar orthogonal projection stretched octahedron cross-polytope 3D silhouette four vertices six vertices probability axis ratio unique regular maximum hexagon",
+          "Resultary: ellipsoid affine octahedron projection vertex count solid angle probabilities convex polytope axial deformation",
+          "Resultary: random shadows octahedron maximal six vertex probability regular octahedron among rectangular crosspolytopes",
+          "https://arxiv.org/pdf/1203.2464",
+          "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+        ]
+      },
+      "rationale": "Direct mathematical coverage by two complete published 2026-10-11 results. The triaxial-octahedron theorem gives p6(a,b,c)=4/pi atan(2abc/D) for ALL positive orthogonal axis lengths, and uniquely maximizes it at equal axes. Restricting to (a,b,c)=(1,1,lambda) gives the audited full p6(lambda) law and strict lambda=1 optimum, including all lambda>0. Independently, the rectangular-box central-section hexagon theorem gives a complete all-side-length probability formula and the same rigid maximum. Polarity identifies the octahedron shadow with the polar of the central section of the reciprocal-axis box [−1,1]x[−1,1]x[−1/lambda,1/lambda] in the same projection plane, preserving 4/6 face counts. These are substantive prior mathematical implications, not merely similar titles. Both records are dated 2026-10-11, as is the assigned source, so this is a mathematical non-originality assessment and does NOT assert chronological priority, authorship, derivation, or copying. The auxiliary all-affine twelve-cone identity is expressly a proof device, a direct generic angle partition, and not a surviving separately motivated main novelty claim.",
+      "residual_risks": [
+        "The two directly covering public mathematical results bear the same October 11 date as the assigned source; chronology, common provenance, and priority are not established or alleged.",
+        "Potential older unindexed equivalent stereology is immaterial to this rejection; decisive published coverage is already directly inspected.",
+        "The all-affine twelve-cone auxiliary expression is a general angle-partition device; whether a prior published general angle-sum result already gives exactly this expression is not independently resolved, but it is not a surviving motivated main theorem.",
+        "Classical standard trihedral solid-angle formula is accepted as a known lemma; the audit does not claim an independent new proof of that identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING: all-positive three-axis law and unique regular maximizer include entire axial subfamily without a new structural argument.",
+          "evidence": "Finding: p(a,b,c)=4/pi atan(2abc/D) and equality a=b=c. Proof sections Projected-vertex criterion, Exact angular reduction, Sharp global inequality. Direct a=b=1,c=lambda specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+          "material_read": "Complete published RESULT.md: Finding, assumptions, projected-vertex criterion, exact spherical triangle formula, sharp AM-GM inequality and equality, local log-shape expansion, limitations and references.",
+          "method": "Read full GitHub-hosted published mathematical text via authorized GitHub read connector.",
+          "title": "Sharp triaxial octahedron shadow bound and quadratic shape stability",
+          "trigger": "Resultary first targeted query returned a stronger three-axis shadow theorem with the same invariant."
+        },
+        {
+          "assessment": "DECISIVELY COVERING by duality: reciprocal-axis box section 6-gon chance equals K_lambda shadow 6-vertex chance for the SAME Haar plane.",
+          "evidence": "Finding and Proof §§1–5 give p6(box)=4/pi atan(2abc/Q) for all box half-lengths and cube equality iff a=b=c. With (1,1,1/lambda), polarity yields the entire audited axial probability and optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "material_read": "Complete published RESULT.md: full theorem, triangle-chamber criterion, three rays, solid-angle law, cube optimality, full range, limits and bibliographic comparison.",
+          "method": "Read full GitHub-hosted published mathematical text via authorized GitHub read connector and independently checked the polar relation.",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Resultary third targeted query surfaced rectangular-box exact sections, polar to the octahedron projection."
+        },
+        {
+          "assessment": "Regular case p6=0.3509593121 already covered but by itself does not imply deformed axial law.",
+          "evidence": "Section 2.3 p.5 gives P(4)=3(pi-2 arcsec(3))/pi and P(6)=2(3 arcsec(3)-pi)/pi.",
+          "identifier_or_url": "arxiv:1203.2464; https://arxiv.org/pdf/1203.2464",
+          "material_read": "Relevant abstract and introduction, projection model, full Section 2.3 on the regular 3-crosspolytope on PDF page 5, and nearby regular-shadow discussion; 13-page PDF accessible.",
+          "method": "Open-access arXiv PDF text, section search and rendered PDF page 5.",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Explicitly cited regular-octahedron shadow probability may be the known special case."
+        },
+        {
+          "assessment": "Classical regular case and angle sums; the decisive broader coverage comes from two separate complete 2026 findings, not this older regular-only paper.",
+          "evidence": "Section 4 page 8 gives P6=1-6 beta(v,C^3)~0.35095 for the regular octahedron.",
+          "identifier_or_url": "Böröczky Jr.–Henk 1997 Preprint SC 97-21; https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Abstract, introduction, regular crosspolytope framework, selected Section 3 and full relevant Section 4 on PDF page 8; complete 11-page author preprint accessible, not every unrelated page read.",
+          "method": "Author-hosted lawful PDF; rendered pages 1 and 8 and inspected relevant text.",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "Foundational random projection angle-sum formulas and regular 3-crosspolytope probability."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/axial-rigidity-of-six-vertex-shadows-of-octahedra--ddf3a826ab64/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "https://arxiv.org/pdf/1203.2464"
+      ],
+      "rationale": "Shape-dependent silhouette complexity is a motivated geometric probability invariant. An exact entire axial deformation profile and unique regular-case optimizer provide nontrivial information beyond the isolated regular-octahedron probability; both extreme deformations force quadrilateral shadows. The result is scientifically useful as a precise, naturally parameterized geometric benchmark even though the same theorem is mathematically covered by stronger published results. Value does not establish originality.",
+      "residual_risks": [
+        "It is already mathematically covered, so no independent novelty/priority should be asserted.",
+        "The ancillary arbitrary-GL3 cone decomposition alone was not shown to constitute a new motivated standalone contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The accepted C/V assessment concerns the exact stated axial claim only; no unrestricted GL3 affine-optimizer claim.",
+    "Mathematically overlapping same-day findings do not establish historical priority, ownership, copying or authorship.",
+    "Scientific FAIL is from explicit mathematical coverage, not missing access or unsuccessful search.",
+    "Source publishing remains not_ready until complete privacy sanitation is validated."
+  ],
+  "schema_version": 1
+}
