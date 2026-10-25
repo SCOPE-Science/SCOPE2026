@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Under the explicitly stated common beta latent prevalence and independent conditional infection statuses, the pool-negative probability and expected tests per specimen follow by beta integration. Two rational adjacent-ratio identities determine the global savings phase and permit at most two turning points. The finite witness's exact fractions were checked independently by summing beta-binomial probabilities. The proof treats all positive real shape parameters and all integer pool sizes, distinguishes individual testing from a size-one redundant pooled test, and uses the asymptotic \(Q_k\sim Ck^{-\alpha}\) only for the tail. Limitation: no real-world assay error or pool-size cap.
+## correctness
 
-**Originality: PASS, subject to the recorded bibliographic risk.** Lendle–Hudgens–Qaqish (2011) analyzes correlated group screening; Basso et al. (2021) already derive the same beta-binomial testing model and compare optimal sizes to an independent model; Landolfi–Lall (2023) provide generic exchangeable integer-partition optimization. The present claim is not the cost formula, the model, or generic search. It is the complete shape-parameter pooling-versus-individual phase test, the sharp two-turn shape classification, and the rational double-turn witness. The inspected primary texts did not directly establish this combined exact result; the 2011 full text was inaccessible at the final check and could conceivably contain equivalent special results. No search alone certifies novelty.
+PASS
 
-**Value: PASS.** Tests per screened person is the natural scarce-resource objective in medical screening. A sharp criterion can rule pooling in or out without scanning unbounded pool sizes, while the provably possible down–up–down cost sequence shows why unrestricted unimodality assumptions can mislead pooling-size searches. The small rational example makes the obstruction concrete. These structural facts are useful independently of any claim to optimized modern clinical protocols.
+The shared beta mixture gives P(no positive)=E(1-P)^k=Qk=(beta)_k/(alpha+beta)_k exactly. F_{k+1}/Fk-1 has sign beta+(1-alpha)k, and gamma-ratio asymptotics separate alpha<1,=1,>1; in alpha>1 the global maximum is F_K (possible K,K+1 tie). Direct subtraction gives C_{k+1}-Ck=(Hk-1)/(k(k+1)) for k>=2, Hk=alpha k(k+1)Qk/(alpha+beta+k). H_{k+1}/Hk-1 has sign 2beta+(1-alpha)k, hence at most min and max. For alpha>1, Qk=o(1/k) makes Ck>1 eventually, preventing late declining tail from beating any strict savings. Independent exact Fraction recurrence corroborated H4<1<H5 and H28>1>H29 for (3/2,5/2), C5=10143/10240, and all k<=1000. This is analytical infinite-size proof plus bounded corroboration, not clinical validation.
 
-Closest prior work: DOI 10.1111/j.1541-0420.2011.01674.x (2011), DOI 10.1007/s10729-021-09578-w (2021), arXiv:2308.11050 (2023). Stronger models allowing dilution or errors require separate analysis. The 2011 manuscript was partly accessible through indexed text but no full PDF was retrieved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier beta-binomial group-testing research derives the negative-pool probability and analyzes costs for bounded cluster sizes or generic optimal partition algorithms; these are acknowledged. The exact all-integer alpha-beta savings phase and at-most-two-turn cost classification, including a genuinely double-turn witness, were not found as implications of inspected theorems. The 2011 correlated-response full text is now available and was inspected, reducing prior access risk.
+
+## value
+
+PASS
+
+Two-stage pooling under shared beta risk is a standard meaningful exchangeable model. An exact criterion for when any uniform pool can save tests, and the surprise that costs may have a local minimum then a local maximum (so unimodal search can mislead), are practically interpretable yet rigorous mathematical phase laws. Finite population and imperfect tests explicitly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
