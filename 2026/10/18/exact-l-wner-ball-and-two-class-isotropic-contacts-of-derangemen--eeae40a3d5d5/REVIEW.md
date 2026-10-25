@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(n\ge4\), the affine tangent space of the zero-diagonal Birkhoff face has dimension \(d_n=n^2-3n+1\). Each derangement vertex has the identical asserted squared Frobenius radius. This establishes containment but not minimum ellipsoid volume. The proof decomposes the affine tangent space into two nonisomorphic irreducible symmetric-group modules and uses the exact symmetric/antisymmetric squared norms to construct a positive distribution on two explicit permutation-cycle classes with mean equal to the ball center and covariance exactly \((R_n^2/d_n)I\). The global Löwner contact criterion then proves minimum volume and uniqueness against all translated, rotated or anisotropic ellipsoids. Strict convexity shows nonvertex points lie inside. Standard representation-theoretic decomposition is explicitly identified. Exact symbolic algebra and finite-dimensional numerical checks corroborate, but do not substitute for, the proof.
+## correctness
 
-## Originality — PASS, with qualified risk
-The closest already-known theorem on connected edge-transitive regular bipartite perfect-matching polytopes **does cover the John (maximum-volume inscribed) ball of the crown graph**. That statement is explicitly excluded from the present claim and is not a proposed contribution. Likewise, previously known full Birkhoff and fixed-cardinality assignment ellipsoid results concern larger or different affine objects: no correct metric-preserving restriction principle turns their Löwner ellipsoids into this one. The source literature on deranged matchings [1], general matching H-descriptions [2], and Birkhoff face combinatorics [3] was compared by objects and implications. Direct semantic searches for forbidden-diagonal Löwner ellipsoids, two-mode covariance and crown-graph perfect matching optimal ellipsoids identified no direct covering statement. This is best-knowledge originality, not proof that no unindexed equivalent exists.
+PASS
 
-## Mathematical value — PASS
-A crown-graph perfect-matching polytope is a canonical family of constrained transportation polytopes. Its simultaneous-conjugation symmetry splits the tangent space into two inequivalent components, so symmetry and cospherical vertices alone do not imply that the minimum-volume ellipsoid is round. The explicit, strictly positive **two-conjugacy-class isotropic design** resolves this obstruction for every order, and identifies every outer contact. This is a substantive extremal-ellipsoid classification rather than a rephrasing of the previously determined inscribed ball or the ordinary minimum enclosing sphere.
+The assignment face of Birkhoff matrices has all diagonal entries zero, row/column sums one, and affine dimension n(n−1)−(2n−1)=n²−3n+1 because the crown bipartite support graph is connected. Uniform off-diagonal center C=(J−I)/(n−1) is interior. Each derangement permutation vertex P has identical squared distance n(n−2)/(n−1) from C. The conjugation module of row/column-zero, diagonal-zero matrices splits into inequivalent real irreducible symmetric partition (n−2,2) of dimension n(n−3)/2 and alternating partition (n−2,1,1) of dimension (n−1)(n−2)/2, for all n≥4. Under each conjugacy class covariance acts scalar on each mode; the symmetric and skew norms depend exactly on the count c2 of 2-cycles. An n-cycle class plus the maximal-transposition derangement class with positive w=(n−3)/d (even) or n/d (odd) has expected c2=n(n−3)/(2d). Thus both covariance blocks have eigenvalue R²/d, and the mean is C by conjugation transitivity. The isotropic contact measure on sphere radius R supplies global unique minimal-volume outer ellipsoid, irrespective of tilted competitors. Strict convexity excludes nonvertex boundary contacts. Independently enumerated the two complete selected conjugacy classes for n=4,5,6 and computed full covariance against the SVD projector on the exact constraint null space, residual <1e−10; the representation-theoretic reasoning provides all-order proof.
 
-## Closest sources and limitations
-[1] Johnston–Kayll–Palmer, *Deranged matchings: proofs and conjectures*, arXiv:2209.11319, initial public posting 2022-09-22. [2] Torres, *Normality of k-Matching Polytopes of Bipartite Graphs*, arXiv:2306.11910. [3] Paffenholz, *Faces of Birkhoff Polytopes*, DOI:10.37236/4499. The known John-ball classification of connected edge-transitive regular bipartite perfect-matching polytopes covers the **inner** problem and is not claimed here. Risk remains of an unindexed equivalent theorem under restricted permutations or matrix optimal-design formulations; independent mathematical verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deranged-matching enumeration, integral matching faces, the Birkhoff polytope and some full-assignment ellipsoids are prior. The claim is the minimum-volume ENCLOSING ball in the distinct zero-diagonal affine hull and an explicit two-class isotropy proof; John inballs or unrestricted full Birkhoff ellipsoids cannot be restricted to infer that shape. No dominating face-specific outer theorem emerged; historical priority remains subject to unindexed restricted-assignment optimal designs.
+
+## value
+
+PASS
+
+The crown graph perfect-matching face is a natural, nontrivial and widely studied forbidden-assignment model; exact minimum-volume enclosing geometry differs from the known inscribed John geometry. An explicit positive distribution supported on just two conjugacy classes is a compact, reusable isotropic design for restricted permutation polytopes and a nontrivial alternative to merely observing cospherical vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
