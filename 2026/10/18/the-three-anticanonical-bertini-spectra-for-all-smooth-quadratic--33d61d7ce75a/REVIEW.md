@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustive quadratic coefficient enumeration, the exact polar radical criterion, five stabilizer orbits of a fixed smooth quadric, and 31 exact Jacobian/Gröbner tests on each representative establish the complete three-profile classification. The point-incidence sums equal \(7\cdot15=105\) for each surface, and the smoothness and rational-line certificates independently validate representative geometry. The published half-discriminant criterion supplies the critical regularity implication. Reproductions of the packaged C++ and Python code agree on all claimed tables.
+## correctness
 
-**Originality — PASS with priority risk.** The classification of regular characteristic-two quadratic pencils and their three geometric/arithmetic types is not new: Dolgachev--Duncan's theorems cover the underlying pencils. The novel claim here is specifically the refined smooth anticanonical hyperplane-section point-count spectrum with exact frequencies. The inspected primary manuscripts of Asgarli--Ghioca and Dolgachev--Duncan, and Bergvall's anticanonical-section analysis, do not state those exact distributions. Actual searches also sought stronger, equivalent and table-like formulations. An unindexed existing exact census or an arithmetic table remains a residual priority risk; a lack of search hits is not proof of absolute uniqueness.
+PASS
 
-**Value — PASS.** The complete finite-field Bertini spectrum is a natural incidence invariant of the anticanonical embedding, encoding elliptic section arithmetic, not just the already-known isomorphism classes of surfaces. Especially, two degree-four del Pezzo types with the same seven rational surface points and the same half-discriminant factorization support disjoint rational-point ranges on their smooth genus-one sections. The 12/15/9 section counts are a reproducible finite-field boundary case of a substantive Bertini question.
+The objects are two-dimensional pencils W of quadratic forms on F2^5 for which every one of the three nonzero rational members is a geometrically smooth quadric; not every degree-four del Pezzo surface. The polar matrix has alternating rank 4 and a unique projective radical with nonzero quadratic value exactly when each quadric is smooth. An independent Python enumeration of all 32767 nonzero form masks counted precisely 13888 smooth quadrics and, for the designated q0=4144, exactly 5760 ordered other members with q1 and q0+q1 smooth, i.e. 2880 pencils containing q0. The actual quadric_p4.cpp and orbits.cpp sources describe complete finite loops and stabilizer orbit representatives 778,792,793,808,938 with sizes (720,360,360,720,720), giving global pencil counts 9999360 and twice 1666560. Dolgachev-Duncan’s half-discriminant criterion ensures squarefree degree-five half-discriminant makes X smooth; rationally nonsingular three members exclude linear factors and possible degree-five splittings beyond irreducible (5) or (2,3). Separately, independent exact Groebner Jacobian-ideal tests over F2 on all four projective charts for every one of 31 hyperplanes of each five representatives reproduced the full smooth/singular rational-point distributions: A has 12 smooth cuts, B 15, C 9, each surface seven F2 points, with the two other representatives matching A. This geometric singularity test is over algebraic closure via ideal generation, not finite rational-point sampling. The total 13,332,480 pencil count is obtained from the inspected exhaustive code/orbit-count method, not a separate independent all-pairs run.
 
-**Limitations.** No claim is made for larger base fields, for the types of singularities of excluded hyperplanes, or for any independent external verification. Existing general pencil classification is acknowledged, not republished as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published general classification of characteristic-two regular pencils and their half-discriminants is credited; exact 31-hyperplane smooth versus singular section spectra with rational counts and their weighted pencil frequencies do not appear in the inspected foundational source. Best-of-knowledge; unindexed finite-field tables are possible.
+
+## value
+
+PASS
+
+The first exhaustive finite-field Bertini hyperplane-section distribution of a natural class of anticanonically embedded del Pezzo surfaces gives the exact proportions of smooth genus-one sections and shows geometrically different profiles with identical rational surface size. It is a meaningful complete classification of a natural small-field arithmetic geometry question, not a relabelling of the old normal form or an arbitrary finite subsample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
