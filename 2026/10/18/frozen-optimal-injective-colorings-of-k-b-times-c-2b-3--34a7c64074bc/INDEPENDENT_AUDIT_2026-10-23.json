@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T21:54:06.441251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b≥3, two vertices in K_b×C_{2b+3} share a neighbor exactly when the cycle coordinates coincide or differ by ±2, so an injective coloring is a cycle of disjoint consecutive size-b fiber palettes after multiplication by 2. Since every color support is an independent set of size ≤b+1, bn=(2b+1)(b+1)−1 forces at least q=2b+1 colors. With exactly q, one deficient size-b support D and the other 2b supports size b+1 are forced by the unique missed-edge labels on the cycle; the converse construction gives every optimal coloring without multiplicity. A nontrivial one-vertex recolor occurs only where the same deficient color is absent from two adjacent edges, giving degree bΣ_j max(0,g_j−3). The gap lengths satisfy g_j=2+h_j, Σh_j=3, hence only excess compositions (3),(2,1),(1,1,1), degrees 2b,b,0. Ordered cycles of gaps give precisely the three stated counts multiplied by q!(b!)^n; the frozen fraction (b−1)(b−2)/((b+1)(b+2)) tends to 1. Independently enumerated all independent deficient sets and computed direct allowed recolorings for b=3 through 8; exact histograms match. All-b proof is combinatorial, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brewster et al develop general frozen H-homomorphism existence/complexity without enumerating this variable-q family.",
+          "Bonamy et al bound frozen (Δ+1)-colorings; here Δ of conflict graph is 3b−1, q=2b+1, so q≠Δ+1 for b≥3."
+        ],
+        "reasoning": "The general results cover a different palette or existence rather than a count; they do not logically subsume the exact 0,b,2b degree stratification.",
+        "searches": [
+          "https://arxiv.org/abs/1712.00200",
+          "https://arxiv.org/abs/1811.12650",
+          "frozen optimal injective coloring categorical product K_b cycle C_2b+3 chromatic reconfiguration b-fold coloring"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.01488v1 (primary full PDF)",
+        "arXiv:1712.00200 (accessible full primary PDF)",
+        "arXiv:1811.12650 (accessible theorem and assumptions)",
+        "DOI:10.37236/638 (four-clique ring polynomial context)",
+        "Resultary semantic lookup frozen optimal injective coloring categorical product K_b cycle C_2b+3 chromatic reconfiguration b-fold coloring",
+        "pinned RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 treats cycle×cycle numerical chromatic values; it does not give a reconfiguration degree distribution for K_b×C_{2b+3}.",
+          "A graph chromatic polynomial, even one that determines number of q-colorings, does not determine how many are isolated under a single-vertex recolor."
+        ],
+        "reasoning": "The current result strengthens optimality by an exact reconfiguration statistic, whereas prior chromatic/reconfiguration frameworks alone leave that distribution undetermined.",
+        "searches": [
+          "Samadi Theorem 6 injective coloring cycle products",
+          "Bonamy theorem frozen delta+1 coloring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Injective constraints in K_b×C_n reduce to disjoint size-b color subsets on each edge of a reindexed odd cycle.",
+          "A coloring degree equals the number of vertex-color moves in the resulting ring of b-cliques, and a degree-zero coloring is a frozen coloring."
+        ],
+        "reasoning": "Checked the natural aliases of graph product injective coloring, multi-coloring, b-fold cycle coloring, and frozen reconfiguration graph; equivalent reformulation does not imply the partition counts from a chromatic-number statement.",
+        "searches": [
+          "frozen optimal injective coloring categorical product K_b cycle C_2b+3 chromatic reconfiguration b-fold coloring",
+          "b fold colorings odd cycle 2b+3 one unit slack isolated recoloring",
+          "https://arxiv.org/abs/2306.01488"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For b=3, independent histogram of deficient supports is {0:3,b:18,2b:9}; for b=4 it is {0:11,b:33,2b:11}.",
+          "Prior primary papers report chromatic values/polynomials or general theorems, not this all-b combinatorial histogram."
+        ],
+        "reasoning": "We compared exact table outputs to published counts and broader polynomial setups; none materially inspected contains the equivalent all-b reconfiguration-degree table. Indexed nonappearance is a limitation, not a novelty proof.",
+        "searches": [
+          "frozen optimal injective coloring categorical product K_b cycle C_2b+3 chromatic reconfiguration b-fold coloring",
+          "degree zero b 2b n(b-1)(b-2)/6 q factorial b factorial reconfiguration spectra"
+        ]
+      },
+      "rationale": "New quantified statement is the exact three-degree reconfiguration distribution for every b≥3 at the optimal b-dependent palette, a refinement that neither the known injective chromatic number nor general frozen-H results imply. Converted the problem to b-fold proper colorings of an odd cycle, and compared the strongest general recoloring and Δ+1 frozen-fraction theorems with their actual hypotheses. No identified prior result supplies these counts; best-of-knowledge qualification and priority risks remain.",
+      "residual_risks": [
+        "A general exact recoloring theorem for uniform clique rings or optimal b-fold odd-cycle colorings might imply this special parameter family outside inspected indexed papers.",
+        "The result is for one named palette and labeled product-graph vertices, not color-permutation or graph-automorphism quotient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard injective-coloring setup and results for two cycles, not the degree-0,b,2b recoloring distribution for a clique times a 2b+3-cycle.",
+          "evidence": [
+            "Samadi–Soltankhah–Yero, arXiv:2306.01488v1, §§1–2, Theorem 6"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.01488",
+          "material_read": "Accessible 15-page full primary PDF, definitions and two-step graph method §§1–2 and cycle-product results (Theorem 6).",
+          "method": "PDF text and visual page inspection; literal graph-product hypotheses checked",
+          "title": "Injective coloring of product graphs",
+          "trigger": "Same injective-coloring and categorical graph-product framework"
+        },
+        {
+          "assessment": "General complexity and frozen-H existence do not specify numbers of frozen optimal injective colorings in the b-dependent family.",
+          "evidence": [
+            "Brewster et al, arXiv:1712.00200, introduction and main theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.00200",
+          "material_read": "Accessible open-access PDF, introductory frozen definitions and main existence/complexity/dichotomy statements compared.",
+          "method": "Full-text theorem/implication comparison, especially H-fixed versus varying product graphs",
+          "title": "Graph Homomorphism Reconfiguration and Frozen H-Colourings",
+          "trigger": "Closest general frozen-coloring reconfiguration theorem"
+        },
+        {
+          "assessment": "The present clique-ring conflict graph has degree 3b−1 and uses q=2b+1, not Δ+1=3b; the prior sparse-frozen-palette regime does not contradict or entail current result.",
+          "evidence": [
+            "Bonamy–Bousquet–Perarnau, arXiv:1811.12650, Theorem 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.12650",
+          "material_read": "Open-access paper relevant theorem and maximum-degree-plus-one palette hypotheses examined.",
+          "method": "Theorem hypothesis comparison",
+          "title": "Frozen (Delta+1)-colourings of bounded degree graphs",
+          "trigger": "Potential asymptotic theorem opposing fraction of frozen colorings tending to one"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact freezing fraction approaching one at the minimum injective palette is a sharp, structurally motivated reconfiguration phenomenon, contrasting with different general-palette rarity settings. The one-defect support parametrization completely classifies local move degrees for a natural infinite product-graph family, providing exact data for coloring dynamics and combinatorial sampling. Neither a tiny calculation nor a mere chromatic-number substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires b≥3 and optimal q=2b+1 palette; does not classify larger-palette moves or component reachability.",
+    "Named color palette and labeled vertices; quotient counts are not claimed.",
+    "No Lean formalization or external human certification.",
+    "Actual matching Git tree object and blob identities were read, but independent recursive Git tree SHA-1 encoding was not reconstructed locally; this does not invalidate science but source guard must be checked on intake.",
+    "Publication was withheld because public files were not fully sanitized and privacy validated."
+  ],
+  "schema_version": 1
+}
