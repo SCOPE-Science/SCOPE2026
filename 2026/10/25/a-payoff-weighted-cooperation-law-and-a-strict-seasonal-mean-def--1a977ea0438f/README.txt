@@ -1,0 +1,1 @@
+Files RESULT.md, SLOGAN.txt, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md describe one result. Run verify.py with the packages in requirements.txt to reproduce its exact symbolic checks and illustrative seasonal numerical integration. The analytic periodic-orbit existence proof uses a hyperbolic Poincare return-map argument; finite ODE sampling only corroborates it.
