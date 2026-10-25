@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The signed integral cube-cycle certificate cancels in every triangular face and is independent modulo two. The relative incidence calculations have explicit standard-library source and fixed exact rank witnesses in the checker's Gaussian elimination. Connectivity locality forces the same nonzero relative matrix after four graph layers; no unbounded enumeration is assumed. The degree-three long exact sequence proves the rank, and Alexander duality gives the stated field homology. Caveat: no claim about all integral cut-complex homology groups.
+
+**Originality — PASS against examined evidence.** Bayer et al. define ordinary cut complexes and establish induced-subgraph shellability restrictions but do not provide the exact cylinder rank. The published cube four-cut result covers \(m=2\), so it also implies non-shellability of all larger cylinders by the established heredity principle, but not the exact \(3(m-1)\) rank. Results about cubic paths, grids with different cut parameters, and total cut complexes are structurally different and do not imply the claimed formula. Full text of the closest separately indexed cube record was not available here; its exposed statement suffices to recognize the base case, but the possibility of further unpublished or unindexed coverage remains.
+
+**Value — PASS.** The result quantifies a persistent homology obstruction in a canonical infinite series of square-prism cylinders, rather than merely re-proving the known non-shellability consequence. It gives a natural linear exact invariant whose three new homology directions are represented by explicit integral chain cycles carried by each successive cube block. The computation isolates why square-containing products behave differently from known high-girth cut-complex classes.
+
+Self-review: passed. Independent audit: not yet performed.
