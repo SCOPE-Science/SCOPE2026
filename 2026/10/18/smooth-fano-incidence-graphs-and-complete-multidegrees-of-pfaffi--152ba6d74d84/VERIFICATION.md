@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the Pfaffian graph computation
 
-The full mathematical proof is in `RESULT.md`. The executable `verification/check_multidegrees.py` is standard-library-only and contains two independently implemented exact formulas: recurrence \(a_j=\binom{n+1}{j}-2a_{j-1}\) and a full finite binomial sum from the twisted Euler sequence. Both compute the graph multidegrees. The script checks the first four reference sequences, \(a_0=1\), \(a_1=n-1\), \(a_2=(n-1)^2-(\binom n2-1)\) and \(a_{n-1}=(n+1)/2\) for each odd \(5\le n\le101\), inclusive. `verification/check_output.txt` is the actual stdout obtained by running the embedded script. In the first case the sequence is \((1,4,7,6,3)\) and the anticanonical top intersection is \(86\).
+# Independent mathematical audit
 
-This program is an arithmetic checker, not a computational proof of the general graph identification, Bertini smoothness/irreducibility, adjunction or ampleness. Those facts are established by the symbolic geometric argument in the result. The originating source gives the birational parametrization, the degree of the base locus, and the degrees of the map and Pfaffian target; the general full graph class and Fano identification are assessed separately in `REVIEW.md` and `AUDIT.json`. No independent audit is claimed.
+## correctness
+
+PASS
+
+Let dim V=n+1, n odd>=5, L a general projective n-plane in P(Λ²V*) and π=P^{n-1}. For each p∈π contraction of alternating forms onto p^⊥ is surjective of rank n, so universal incidence is a smooth irreducible projective bundle of dimension N-2; general L produces smooth irreducible expected-dimensional Γ by base-point-free Bertini. On a dense open of π the n linear equations A(u)p=0 in projective n-space have a unique u, proving Γ is the closed graph and birational to π. Contraction defines rank-n bundle E=pr1*(Ω^1_P(V)(2)|π)⊗pr2*O_L(1); the twisted Euler sequence gives c(Ω(2))=(1+h)^(n+1)/(1+2h). The regular-section class c_n(E) implies all δ_j=[t^j](1+t)^(n+1)/(1+2t) for j=0..n-1 in the stated orientation. Canonical class via adjunction is KΓ=O(-1,-1), so Γ is Fano. Independently calculated exact coefficients for odd n=5,7,9,11,21,51 (n5: 1,4,7,6,3; n7: 1,6,16,24,22,12,4); those finite arithmetic checks do not replace characteristic-zero Bertini geometry. Generality and bidegree orientation are crucial.
+
+## originality
+
+PASS
+
+The originating Bolognesi–Ciliberto–Verra primary paper, including its Theorem 14 and Section 3.3, establishes the birational Pfaffian map and some endpoint/base-locus degrees; these are not claimed new. Its inspected full source has no stated universal Fano smooth-graph theorem or complete sequence of intersection multidegrees. The formal Chern-class technique is classical, but the full specific incidence-graph classification adds natural complete exact invariants beyond known endpoints. Closely related Fano Grassmannian linear sections have different geometry; priority could be affected by unindexed Palatini resolutions.
+
+## value
+
+PASS
+
+The geometry and Chow class of the actual resolution/closed graph of a foundational Pfaffian parametrization are natural invariants for intersection theory and birational geometry. Showing smooth Fano structure plus every projective multidegree is a complete structural result; even though the method uses standard Euler/Chern/adjunction, existing endpoint degrees do not mechanically list all intermediate classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
