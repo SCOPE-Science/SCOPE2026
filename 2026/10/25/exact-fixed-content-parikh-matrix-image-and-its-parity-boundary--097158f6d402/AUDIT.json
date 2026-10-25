@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Four independently placed cuts parametrize all words, and exactly count each abc subsequence by a hinge overlap. The symmetrized hinge expression reduces to a parity-respecting integer-grid lemma whose monotone strip path proves full interval support. The h=0 case is checked separately. Reversal and explicit finite sums give the global polynomial. Checker.py directly tests 93,024 words and 5,456 complete slices, plus 2,500 seeded larger slices; no extrapolation from finite tests is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published finding Unconditional polynomial sparsity of M-unambiguous words gives an unconditional polynomial sparsity bound, not these fixed-content exact attainable matrices.",
+        "Teh arxiv:1506.06476 Sections 4–6 concern general rewriting systems and equivalence characterizations, not the precise image count."
+      ],
+      "reasoning": "General polynomial-size Parikh-matrix image statements are not sufficient to determine this cubic coefficient, exact finite-m support, or the parity boundary. The fixed-content theorem imposes a stricter enumerative target.",
+      "searches": [
+        "published-finding corpus: Ternary Parikh matrix fixed content two a symbols two c symbols m b letters number of distinct Parikh matrices equal (m+1)(m+2)(2m+1)/2",
+        "published-finding corpus: For ordered ternary alphabet a<b<c fixed multiplicities |a|=|c|=2, |b|=m, distinct Parikh matrices signatures (#ab,#bc,#abc) exactly (m+1)(m+2)(2m+1)/2; slice support abc parity when #ab+#bc=2m",
+        "web: Parikh matrices number distinct words fixed content exact enumeration 2 m 2 2015 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1506.06476v1 (original HTML, inspected specified sections)",
+      "arxiv:1501.07354v2 (original HTML, inspected specified sections)",
+      "doi:10.3233/FUN-2002-49401 (official abstract only)",
+      "published-finding corpus queries about (2,m,2), exact polynomial, equivalent signatures and general coverage",
+      "Earlier fixed-content Parikh-matrix fiber theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier fixed-content (2,m,1) formula counts (m+1)(m²+11m+6)/6 matrix images and includes full individual fibers; it has only one largest letter.",
+        "The present family (2,m,2) has two largest letters and two independent c cut positions, producing a different four-hinge image and a critical parity plane."
+      ],
+      "reasoning": "Adding the second c does not preserve or project fixed (2,m,1) Parikh-matrix fibers: the new c can appear at an independent cut, changing bc and abc simultaneously. A related adjacent theorem neither contains this result as a corollary nor supplies the support classification. General rewriting equivalence decides equality, not image cardinality.",
+      "searches": [
+        "Previously published claim: Exact ternary Parikh-matrix fibers at composition (2,m,1)",
+        "published-finding corpus: Parikh matrices distribution for words two first letter two last letter middle letter arbitrarily many and three scattered subword counts",
+        "arxiv:1506.06476 Sections 2,4–6",
+        "arxiv:1501.07354 Sections 2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parikh matrix entries of a ternary word comprise symbol counts and scattered counts ab, bc, abc (arxiv:1506.06476, Theorem 2.3).",
+        "arxiv:1501.07354 defines strong M-equivalence by variation of alphabet order; its Section 4 treats small abc counts, not this entire fixed-content image."
+      ],
+      "reasoning": "The claimed support is for a fixed ordered matrix, including a parity gap along u+v=2m; neither the strong-order invariant nor equivalence-rewriting rules establish its attainable triples. Queries for alternative image or fiber nomenclature did not return a covering formula.",
+      "searches": [
+        "published-finding corpus: Parikh matrix image cardinality ternary multiset composition (2,m,2) exact polynomial",
+        "published-finding corpus: Parikh matrices distribution for words two first letter two last letter middle letter arbitrarily many and three scattered subword counts",
+        "web: Parikh matrices distinct matrix counts given Parikh vector a2 b m c2",
+        "arxiv:1501.07354",
+        "arxiv:1506.06476"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database matching the polynomial 1,9,30,70,135,231,... or the full three-entry support was found in these targeted queries.",
+        "Direct finite enumerations here are reproduced with checker.py, not imported from an existing table."
+      ],
+      "reasoning": "A failed search does not certify nonexistence. The new exact support and polynomial were compared to reachable records, not asserted absent from all databases.",
+      "searches": [
+        "published-finding corpus: Parikh matrix image cardinality ternary multiset composition (2,m,2) exact polynomial",
+        "web: Parikh matrices number of distinct fixed composition spectra ternary",
+        "web: Parikh matrices distinct matrix counts given Parikh vector a2 b m c2"
+      ]
+    },
+    "rationale": "The all-length fixed-content (2,m,2) image and parity-plane support are not implied by foundational ternary Parikh-matrix rewriting criteria, the separate stronger notion of strong equivalence, an earlier (2,m,1) fixed-content fiber theorem, or a polynomial cardinality upper bound. Exact and alias-focused searches did not locate a covering fixed-content image formula. Historical priority remains uncertain; search silence is not presented as proof of novelty.",
+    "residual_risks": [
+      "Earlier equivalent image enumeration may exist in an unlocated paper, table, or formulation.",
+      "The 2002 foundational paper was accessible only through its abstract and was not used to establish noncoverage.",
+      "More recent general Parikh-matrix literature may contain unlocated higher-generality image theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines all three relevant entries and rewriting criteria; no exact (2,m,2) image or parity boundary in inspected material",
+        "evidence": [
+          "Theorem 2.3 specifies scattered subword entries",
+          "Example 4.10 discusses complete counter set ab,bc,abc"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.06476v1",
+        "material_read": "HTML Definitions 2.2–2.5, Theorem 2.3 and relevant Sections 4–6 including equivalence and binary case-study results",
+        "method": "Read accessible article HTML and compared theorem statements with fixed-composition image claims",
+        "title": "Parikh matrices and Parikh rewriting systems",
+        "trigger": "Same ternary matrix and potential stronger equivalence representation"
+      },
+      {
+        "assessment": "Strong equivalence across alphabet orders differs from ordered matrix images; small-abc structural cases do not enumerate (2,m,2) matrix images",
+        "evidence": [
+          "Definition 3.1 changes the equivalence relation",
+          "Theorem 4.2 restricts to |w|_abc at most 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1501.07354v2",
+        "material_read": "HTML Sections 2–4 including Definition 3.1, Proposition 3.5, Remark 4.1 and Theorem 4.2",
+        "method": "Read accessible original HTML and compared invariants, quantifiers and composition restrictions",
+        "title": "Parikh matrices and strong M-equivalence",
+        "trigger": "Potential dominance by a stronger equivalence classification"
+      },
+      {
+        "assessment": "Describes primarily binary palindromic-amiable families; full-document exclusion is NOT asserted",
+        "evidence": [
+          "Abstract explicitly describes focus mainly on the binary alphabet"
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FUN-2002-49401",
+        "material_read": "Bibliographic abstract only, not full paper",
+        "method": "Read official publication metadata and abstract",
+        "title": "On the Injectivity of the Parikh Matrix Mapping",
+        "trigger": "Foundational injectivity treatment and possible priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "097158f6-d402-481c-81ac-815dfc82222d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural exact image-size and feasibility problem for the Parikh matrix of a fixed-content word, motivated by indistinguishability under scattered-subword measurements. The cubic cardinality quantifies a strong compression from quartically many words; the full image includes a sharp parity-obstruction hyperslice invisible to coarse asymptotic bounds. The result is an all-parameter classification with direct potential use in fixed-content ambiguity studies, not an arbitrary single computation.",
+    "status": "PASS"
+  }
+}
