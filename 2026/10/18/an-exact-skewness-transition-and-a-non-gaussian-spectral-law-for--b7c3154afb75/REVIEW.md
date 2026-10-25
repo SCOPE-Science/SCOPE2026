@@ -1,19 +1,21 @@
-# Scientific review: circular geometric edge-count skewness and spectral law
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-sample theorem follows by first establishing independent edge indicators for every forest (leaf integration under translation-invariant uniform positions). The only nonzero distinct-edge third-cumulant contributions come from triangles. The cyclic gaps of three sampled points have the uniform Dirichlet simplex law, giving the exact triangle probability \(3r^2+(3r-1)_+^2\). The resulting cubic-moment expression factors on the dense-radius branch into a strictly monotone quadratic in \(1-2r\) and has exactly the claimed sign change. For the limiting law, orthogonal Fourier truncation of the degenerate connection kernel and a uniform \(L^2\) tail bound justify the joint complex Gaussian Fourier limit and its independent exponential squares. The limiting third cumulant equals the centered triangle integral and is strictly positive.
+## correctness
 
-The supplied independent finite checker passes 993 tests. The finite-grid calculations are corroboration, not substitutes for the continuous and infinite proofs. Boundary radii \(0\) and \(1/2\), nonuniform locations, and radii varying with sample size are outside the claim.
+PASS
 
-## Originality — PASS on inspected evidence
-Wilsher, Dettmann and Ganesh (arXiv:2202.08044v1) study isolated-node Poisson limits in a soft one-dimensional circular geometric graph with Poisson vertex number, rather than third cumulants for a fixed-size hard graph. Liu and Rácz (arXiv:2103.15249v1, especially Section 4) study signed-triangle detection for high-dimensional spherical geometry; they do not provide the explicit one-dimensional finite-size skewness sign threshold. Bonnet and coauthors (arXiv:2212.12268v1) study sparse high-dimensional Poisson geometric graphs and additive-functionals limit theory. Searches of their primary texts for the exact target and related moments, along with semantic mathematical-record searches for the radius formula, U-statistic aliases, Fourier exponential mixtures, and geometric triangles, revealed no stronger statement implying the full finite-sample classification.
+Iid uniform circle points imply every forest of distinct edge indicators is independent by iterative leaf integration; thus E E_n=C(n,2)*2r and Var E_n=C(n,2)*(2r)(1−2r). For a triangle the Dirichlet(1,1,1) ordered spacings give exact probability 3r²+(3r−1)_+²; subtracting p³ yields delta(r)=r²(3−8r) for r<=1/3 and (1−2r)³ above 1/3. Expanding centered edge sum cube, only one-edge repeated terms and ordered full triangles remain, so E[(E_n−mp)^3]=m p(1−p)(1−2p)+6*C(n,3)*delta(r). Divide by m: p(1−p)(1−2p)+2(n−2)delta. In upper regime with q=1−2r this factors q[−1+3q+2(n−3)q²], giving exact root r_n=1/2−1/(3+sqrt(8n−15)); lower regime strictly positive and n>=3. For fixed r, Fourier eigenvalues a_k=sin(2pi kr)/(pi k) of degenerate connection kernel and joint CLT yield (E_n−mp)/n⇒sum_{k>=1}a_k(Exp_k(1)−1). Degenerate U-stat tail L2 bound by sum_{k>K}a_k², and Parseval gives variance r(1−2r), triangle trace gives third cumulant delta(r)>0, hence non-Gaussian. Independently 20k-term Fourier checks for r=1/5 and 2/5 reproduced third cumulants .056 and .008 to ~5e−15 and limiting variances to <3e−6; truncations do not prove the limit.
 
-The general U-statistic Fourier method and connected-edge cumulant expansion are established mathematical tools, not claimed as new. The original target is the explicit all-radius/all-size skewness classification together with its spectral explanation. **Residual risk:** a prior exact edge-count cumulant on a one-dimensional torus, or a broadly stated random-connection moment theorem that specializes to the same sharp radius, may have escaped the literature search. This assessment does not establish independent historical priority.
+## originality
 
-## Value — PASS
-Geometric edge indicators are pairwise independent and have exactly the Erdős–Rényi edge-count mean and variance; hence third-order dependence is the first place where the latent metric becomes detectable by aggregated edge-count moments. The theorem proves a sharp finite-size sign transition and, when \(n>3\), a nonempty interval of edge densities above one half in which the geometric model has positive skewness while the independent-edge model has negative skewness. It also explains persistent non-Gaussian fluctuations at every fixed nontrivial radius with a fully explicit limiting law. These are natural model-comparison diagnostics, not arbitrary numeric slices.
+PASS
 
-## Sources and limitations
-Primary comparisons: https://arxiv.org/abs/2202.08044 (2022-02-16 first version), https://arxiv.org/abs/2103.15249 (2021-03-28 first version), https://arxiv.org/abs/2212.12268 (2022-12-23 first version). Classical degenerate U-statistic limit principles underpin the spectral step. See RESULT.md for definitions, proof, exact conditions, and unresolved generalization and historical-priority risks.
+Pairwise-independence and classical degenerate U-stat Fourier chaos are known methods, and geometric triangle correction has predecessors. The identified papers address isolated-node Poisson/soft models, high-dimensional signed-triangle detection, or sparse high-dimensional regimes, rather than the exact *hard circle fixed-n edge-count* third-moment sign boundary tied to its explicit fixed-r spectral limit. Best-of-knowledge novelty is the simultaneous specific finite-n and limiting law; broader old U-stat formulas remain risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Uniform-circle hard random geometric graphs are a canonical model. Pairwise-independent edges have exactly binomial variance yet a strong explicitly radius-dependent skewness anomaly with a unique finite-n sign boundary; the explicit non-Gaussian spectral chaos shows how long-range triangle dependence survives order-n scaling. The concrete exact transition and limit jointly motivate this result beyond generic Fourier/U-stat machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

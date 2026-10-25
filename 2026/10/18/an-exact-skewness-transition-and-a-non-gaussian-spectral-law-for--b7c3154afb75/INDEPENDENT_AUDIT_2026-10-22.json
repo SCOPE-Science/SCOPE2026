@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Iid uniform circle points imply every forest of distinct edge indicators is independent by iterative leaf integration; thus E E_n=C(n,2)*2r and Var E_n=C(n,2)*(2r)(1−2r). For a triangle the Dirichlet(1,1,1) ordered spacings give exact probability 3r²+(3r−1)_+²; subtracting p³ yields delta(r)=r²(3−8r) for r<=1/3 and (1−2r)³ above 1/3. Expanding centered edge sum cube, only one-edge repeated terms and ordered full triangles remain, so E[(E_n−mp)^3]=m p(1−p)(1−2p)+6*C(n,3)*delta(r). Divide by m: p(1−p)(1−2p)+2(n−2)delta. In upper regime with q=1−2r this factors q[−1+3q+2(n−3)q²], giving exact root r_n=1/2−1/(3+sqrt(8n−15)); lower regime strictly positive and n>=3. For fixed r, Fourier eigenvalues a_k=sin(2pi kr)/(pi k) of degenerate connection kernel and joint CLT yield (E_n−mp)/n⇒sum_{k>=1}a_k(Exp_k(1)−1). Degenerate U-stat tail L2 bound by sum_{k>K}a_k², and Parseval gives variance r(1−2r), triangle trace gives third cumulant delta(r)>0, hence non-Gaussian. Independently 20k-term Fourier checks for r=1/5 and 2/5 reproduced third cumulants .056 and .008 to ~5e−15 and limiting variances to <3e−6; truncations do not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published high-dimensional sparse RGG limit theorems use different dimension and intensity scalings.",
+          "The classical L2 degenerate U-statistic theory yields centered weighted chi-square/exponential chaos for a known kernel spectrum but not the present finite-n skewness transition on its own."
+        ],
+        "reasoning": "Even a general U-statistic spectral limit supplies only the limiting representation after eigenvalue calculation. It cannot by itself force the exact finite-n skewness sign root without the triangle probability calculation.",
+        "searches": [
+          "arxiv:2212.12268v1",
+          "arxiv:2103.15249v1",
+          "classical degenerate U-statistic spectral limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen hard-circle edge-count RESULT.md/verify.py/METADATA.json and edc49473ca8453d4e4504018999633eaba79c40b tree",
+        "arxiv:2202.08044v1",
+        "arxiv:2103.15249v1",
+        "arxiv:2212.12268v1",
+        "classical Fourier degenerate-U-statistic theorem",
+        "Resultary circle edge-count search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior soft graph and signed-triangle results do not imply this specific hard-circle ordered-gap triangle probability.",
+          "A generic degenerate U-statistic result does imply the form of the limit when the Fourier kernel spectrum is inserted, but does not state the explicit a_k or finite-n crossing."
+        ],
+        "reasoning": "The analytic proof combines standard general tools with an independently calculated circle-kernel spectrum and finite-n triangular correction. The theorem is not wholly the routine restatement of an identified published stronger result.",
+        "searches": [
+          "arxiv:2202.08044v1",
+          "arxiv:2103.15249v1",
+          "circle random geometric graph edge count third cumulant skewness and nonGaussian Fourier exponential spectral limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wilsher–Dettmann–Ganesh use Poisson numbers of vertices and soft random-circle connections and count isolated nodes, rather than fixed-n hard-circle total edges.",
+          "Liu–Rácz signed triangle concerns high-dimensional spherical geometry, not n fixed circle edge-count skewness."
+        ],
+        "reasoning": "Generic degenerate-U spectral limits are equivalent in technique and cover the limit as a general method, but the explicit Fourier coefficients, exact triangular cumulant and finite-n radius root require specialization that the matched models do not display.",
+        "searches": [
+          "circle random geometric graph edge count third cumulant skewness and nonGaussian Fourier exponential spectral limit",
+          "arxiv:2202.08044v1",
+          "arxiv:2103.15249v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated Fourier/spectral and random-graph claims, no exact circle edge-count skewness r_n table.",
+          "ArXiv 2202 paper studies isolated-vertex limits in a Poisson/soft model."
+        ],
+        "reasoning": "No exact table matching m3(r,n), r_n or this Exp-series coefficients in checked records. Negative searches remain nonproof of global priority.",
+        "searches": [
+          "circle random geometric graph edge count third cumulant skewness and nonGaussian Fourier exponential spectral limit",
+          "Resultary circular geometric graph edge count search",
+          "arxiv:2202.08044v1"
+        ]
+      },
+      "rationale": "Pairwise-independence and classical degenerate U-stat Fourier chaos are known methods, and geometric triangle correction has predecessors. The identified papers address isolated-node Poisson/soft models, high-dimensional signed-triangle detection, or sparse high-dimensional regimes, rather than the exact *hard circle fixed-n edge-count* third-moment sign boundary tied to its explicit fixed-r spectral limit. Best-of-knowledge novelty is the simultaneous specific finite-n and limiting law; broader old U-stat formulas remain risk.",
+      "residual_risks": [
+        "Broader classical order-two U-statistic spectral/cumulant literature might already state equivalent hard-circle formulas and radius crossing despite different terminology.",
+        "Fixed-r limit cannot be transferred to r_n windows varying with n without additional uniform control."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic (isolated vertices), vertex count Poisson and soft links, not hard fixed-n total-edge cubic cumulant",
+          "evidence": "Its limits are isolated-node Poisson approximations, not exact E_n moment or non-Gaussian fixed-radius spectral chaos.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.08044",
+          "material_read": "Open arXiv model/abstract, definitions and relevant soft/Poisson asymptotic material; not asserted every section read",
+          "method": "Lawful primary article text comparison",
+          "title": "The Distribution of the Number of Isolated Nodes in the 1-Dimensional Soft Random Geometric Graph",
+          "trigger": "Same base space circle and graph connectivity statistics"
+        },
+        {
+          "assessment": "Different spherical high-dimensional statistic/model; does not display hard-circle edge-count third moment",
+          "evidence": "Their signed triangles are triples of centered adjacency entries, unlike E_n cubed.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.15249",
+          "material_read": "Public model summary and cited signed-triangle section-level description; no exhaustive complete paper reading claimed",
+          "method": "ArXiv paper/result-scope comparison",
+          "title": "Phase transition in noisy high-dimensional random geometric graphs",
+          "trigger": "Signed-triangle geometric detection paper possibly covering triangle cumulant"
+        },
+        {
+          "assessment": "Not the fixed one-dimensional circle and fixed-radius dense n-normalized edge-count chaos regime",
+          "evidence": "Dimension tends to infinity and sparsity changes the scaling compared to this circle fixed-radius model.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.12268",
+          "material_read": "Public abstract and high-dimensional sparse-regime scope; no complete reading claimed",
+          "method": "ArXiv primary abstract/theorem comparison",
+          "title": "Limit theory of sparse random geometric graphs in high dimensions",
+          "trigger": "Potentially dominating random-geometric functional limit result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform-circle hard random geometric graphs are a canonical model. Pairwise-independent edges have exactly binomial variance yet a strong explicitly radius-dependent skewness anomaly with a unique finite-n sign boundary; the explicit non-Gaussian spectral chaos shows how long-range triangle dependence survives order-n scaling. The concrete exact transition and limit jointly motivate this result beyond generic Fourier/U-stat machinery.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual frozen hard-circle edge-count RESULT.md/verify.py/METADATA.json and edc49473ca8453d4e4504018999633eaba79c40b tree",
+    "arxiv:2202.08044v1",
+    "arxiv:2103.15249v1",
+    "arxiv:2212.12268v1",
+    "classical Fourier degenerate-U-statistic theorem",
+    "Resultary circle edge-count search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed n>=3 and 0<r<1/2 hard-circle model; spectral limit takes n→∞ at fixed r.",
+    "No Gaussian assertion in near-complete shrinking window, no extension to nonuniform or Poisson vertex count."
+  ],
+  "residual_risks": [
+    "Broader classical order-two U-statistic spectral/cumulant literature might already state equivalent hard-circle formulas and radius crossing despite different terminology.",
+    "Fixed-r limit cannot be transferred to r_n windows varying with n without additional uniform control."
+  ],
+  "schema_version": 1
+}
