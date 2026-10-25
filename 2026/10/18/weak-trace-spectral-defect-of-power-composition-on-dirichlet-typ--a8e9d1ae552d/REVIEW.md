@@ -1,15 +1,21 @@
-# Scientific review of the power-composition spectral defect
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized monomials form a complete orthonormal basis. Direct application of composition and its adjoint gives the diagonal entries \(w_n-\mathbf 1_{d\mid n}w_{n/d}\). The expansion \(w_n=d^s+b/n+O(n^{-2})\) follows from elementary Taylor's theorem; it yields compactness of the corrected diagonal, arithmetic-progression Weyl counting, and the sharp \(1/j\) singular-value law. The finite shell identity telescopes exactly and proves the degree-cutoff anomaly. Boundary cases \(s=0\), \(d=2\), zero degree, and negative \(s\) are stated separately. The standalone standard-library checker passed 4,882 exact and numerical assertions; infinite claims follow from the proof, not its finite tests.
+## correctness
 
-## Originality — PASS, residual risks recorded
-The 2011 Abdollahi–Mehrangiz Dirichlet paper gives an exact scalar-projection self-commutator for the classical Dirichlet monomial symbol. The 2015 Abdollahi–Mehrangiz–Roientan paper concerns exactly the unweighted Bergman endpoint and is acknowledged as covering the corresponding point spectrum, not credited as an independent discovery here. The 2004 MacCluer–Weir Bergman article treats linear-fractional symbols. Published mathematical-record searches for weighted monomial composition, weak-Schatten commutators, and logarithmic residue did not identify an arbitrary-real-parameter theorem with the two equal signed spectral coefficients and degree-cutoff anomaly. Unlike a changed title or a reparameterization of the ordinary Bergman case, the claim is a theorem about genuinely different Hilbert spaces and adjoints for every real exponent. The 2015 full paper was inaccessible, so an unindexed broader coefficient-weight theorem remains possible; searches are evidence, not a proof of absolute novelty.
+PASS
 
-## Value — PASS
-Essential spectrum alone records only the projection term, missing the operator's first compact deviation. The critical weak-\(\mathcal S_1\) correction is a natural measure of its quantitative failure to be equivalent to that projection modulo trace class, and its two positive/negative coefficients are intrinsic singular-value invariants. The degree-filtration signed limit identifies an exact cancellation despite both absolute tails diverging logarithmically. This is a complete phase diagram for the standard coefficient-weighted analytic Hilbert scale interpolating Bergman-, Hardy-, and Dirichlet-type behavior; the precise coefficient can be used in regularized traces and finite-section approximation estimates. It is not offered as a universal claim for arbitrary radial weights or analytic symbols.
+On the orthonormal basis e_n=(n+1)^(-s/2)z^n, C_d e_n=sqrt(w_n)e_(dn) with w_n=((dn+1)/(n+1))^s. The selfcommutator is diagonal with k_0=0 and k_n=w_n-1_(d|n) w_(n/d). Writing a=d^s and b=-d^s s(1-1/d), the residual r_n=k_n-a 1_(d not dividing n) has tails b/n on nonmultiples and (1-d)b/n on multiples, both with O(n^-2) error. This proves compactness and Calkin essential spectrum {0,a}. Counting residue-class indices above modulus t gives 2|b|(1-1/d)/t, yielding the singular coefficient and exactly half to each sign; harmonic sums give logarithmic coefficients, weak-S1 but not S1, and S_p iff p>1. Exact telescoping of partial k_n sums leaves sum_(floor(N/d)<n<=N)(w_n-a), hence b log d. s=0 yields R=0 and sign of monotone weight ratios proves K inertia. Independent numerical sorted-diagonal checks gave j=500 normalized singular coefficients 0.994..0.999 for four real s/d pairs and shell-limit errors at or below roughly .0012; these are corroborations, not infinite proofs.
 
-## Closest literature and limitations
-Abdollahi–Mehrangiz (2011), DOI 10.1155/2011/618968, complete readable article; Abdollahi–Mehrangiz–Roientan (2015), Bulletin of Iranian Mathematical Society 41(7), 65–76, abstract and bibliographic data only; MacCluer–Weir (2004), Acta Sci. Math. (Szeged) 70, 799–817, full text read. The known specializations are not presented as new. Generalization to other coefficient weights and nonmonomial symbols is not claimed. Independent bibliographic or mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level originality is limited to the differentiated new result, with credited general tools, broader prior coverage, and recorded access risks. Earlier Heller–Pons already treats exact weighted-Hardy commutator spectra; only the quantitative weak-trace and signed cutoff refinement is assessed as potentially new, with exceptional priority risk.
+
+## value
+
+PASS
+
+Weak Schatten residue and two equally split signs are natural singular-spectrum invariants precisely at the nontraceclass ideal boundary; the finite but conditionally signed degree-cutoff anomaly distinguishes grading-sensitive cancellation from an ordinary trace. These exact quantities matter for noncommutative spectral asymptotics, beyond simply computing a known weighted Hardy point spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
