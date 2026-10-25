@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definitions require least period and both cyclic maximality inequalities; the length bound rules out untested longer periods. The binary uniform-subword argument proves the fixed unary-run count, and alternating-window incidence proves exactly two period-two runs. Two independently complete generators produce the same \(2048\) cycles, and two separate run algorithms match on every one. The complete period-three/four six-cell census, orbit classes, exact rational moments, and CSV can be replayed from the included sources.
+## correctness
 
-**Originality — PASS against inspected evidence, with residual risk.** The original published runs results establish bounds and methods for linear words, not exact population frequencies for order-five de Bruijn circles. Classical constant-letter run distributions cover the unary part, which is expressly acknowledged as known background; they do not determine the nonconstant least-period-three/four table. The closest searchable historical entries about BWT runs or Abelian squares are different invariants and do not imply the present maximal-periodic-run census. An earlier unindexed or unexamined numerical census remains possible.
+PASS
 
-**Mathematical value — PASS.** Maximal repetitions are an established invariant of algorithmic string combinatorics. Universal cycles have fixed short-factor multiplicities but nontrivial higher-order periodic-run variation. The result combines a structural all-order period restriction, two forced low-period counts, an exhaustive six-cell spectrum of the remaining periods, exact sharp extrema, and an orbit-level classification, providing a motivated exact benchmark.
+A run is the cyclic interval triple (start,length,least period) with 2p≤length≤32 and strict one-symbol nonextension both sides. Repeated n-bit windows prohibit a periodic factor of length ≥p+n, hence 2p≤L≤p+4 implies p≤4 and L≤8, so no omitted longer periodic intervals. Built a separate complete enumeration of all 65,536 local incoming/outgoing pairings in the order-four de Bruijn digraph, retained precisely 2048 single 32-edge Euler tours, and independently scanned every start and length 2..8 for least periods and both boundary inequalities. Reproduced r1=8,r2=2 for each cycle, all six joint frequency cells and the distribution of 12/13/14 runs, rather than relying only on packaged VERIFY_OK or profiles.csv. The Euler pairing bijection covers every rotation class uniquely via marked edge 00000. Orbit-cell splits and CSV row-by-row checks were examined in the source program but not independently rerun, so these secondary symmetry numbers have less independent computational confirmation; source source-code derivation and group action were checked.
 
-**Sources and limitations.** The closest primary sources inspected were Crochemore et al., arXiv:0907.2157 (general highly periodic runs), and Bannai et al., arXiv:1406.0263 (the linear-word runs theorem); Fillmore et al., DOI 10.1007/s10623-026-01841-x, explicitly treats the different constant-symbol R-2 property. There is no proof of a corresponding order-six spectrum, no comprehensive global priority guarantee, and no external independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Crochemore et al. and Bannai et al. treat generic linear-string run bounds and structural characterization; fixed-weight de Bruijn constructions give existence of cycles, while already known uniform factor counts account for unary runs. None of the inspected statements implies the specific full six-cell frequency law for all 2048 order-five circles or reversal/complement symmetry classes. Searches for de Bruijn run spectra and circular periodicity found only adjacent, not covering, results.
+
+## value
+
+PASS
+
+All de Bruijn order-five rotation classes form a canonical finite family. Their exact joint maximal periodicity profile, sharp attainable run counts, moments, and symmetry reduction are natural reproducible invariants that a subsequent researcher could use as finite benchmark; finite size is intrinsically complete and not an arbitrary subcollection. Background r1 and r2 alone are not the claimed contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

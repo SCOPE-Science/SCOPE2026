@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:02:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A run is the cyclic interval triple (start,length,least period) with 2p≤length≤32 and strict one-symbol nonextension both sides. Repeated n-bit windows prohibit a periodic factor of length ≥p+n, hence 2p≤L≤p+4 implies p≤4 and L≤8, so no omitted longer periodic intervals. Built a separate complete enumeration of all 65,536 local incoming/outgoing pairings in the order-four de Bruijn digraph, retained precisely 2048 single 32-edge Euler tours, and independently scanned every start and length 2..8 for least periods and both boundary inequalities. Reproduced r1=8,r2=2 for each cycle, all six joint frequency cells and the distribution of 12/13/14 runs, rather than relying only on packaged VERIFY_OK or profiles.csv. The Euler pairing bijection covers every rotation class uniquely via marked edge 00000. Orbit-cell splits and CSV row-by-row checks were examined in the source program but not independently rerun, so these secondary symmetry numbers have less independent computational confirmation; source source-code derivation and group action were checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic runs theorem bounds number by length and proves structural Lyndon characterization; fixed-weight sequence construction studies a different subclass."
+        ],
+        "reasoning": "No inspected all-string inequality uniquely determines the histogram among these 2048 cycles.",
+        "searches": [
+          "Resultary semantic query: binary de Bruijn order five runs maximum repetitions period 3 4 exact distribution 2048 cycles",
+          "https://arxiv.org/abs/0907.2157",
+          "https://arxiv.org/abs/1406.0263",
+          "https://doi.org/10.1137/100808782"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0907.2157",
+        "https://arxiv.org/abs/1406.0263",
+        "https://doi.org/10.1137/100808782",
+        "https://doi.org/10.1007/s10623-026-01841-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General linear run bounds apply to the 32-bit linearizations only as bounds, not exact equalities for individual circular cycles.",
+          "The complete local enumeration is a new count in the strongest natural finite order-five family."
+        ],
+        "reasoning": "A bound ≤n cannot recover six distinct cells with multiplicities, so coverage by implication has not been shown.",
+        "searches": [
+          "Resultary semantic query: binary de Bruijn order five runs maximum repetitions period 3 4 exact distribution 2048 cycles",
+          "https://arxiv.org/abs/0907.2157",
+          "https://arxiv.org/abs/1406.0263"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior classical runs theory concerns periodic maximal substrings of arbitrary linear strings; current runs are circular with a de Bruijn constraint and a complete 2048-element distribution."
+        ],
+        "reasoning": "The notion of a run is related, but general upper bounds do not entail these exact per-period joint counts.",
+        "searches": [
+          "Resultary semantic query: binary de Bruijn order five runs maximum repetitions period 3 4 exact distribution 2048 cycles",
+          "https://arxiv.org/abs/0907.2157",
+          "https://arxiv.org/abs/1406.0263"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned no earlier six-cell period-(3,4) histogram or order-five full-cycle listing; known unary symbol run count 2^(n−2) was explicitly excluded from novelty."
+        ],
+        "reasoning": "The complete joint table is distinct from standard de Bruijn cycle counts or one-symbol run properties; a hidden earlier table remains possible.",
+        "searches": [
+          "Resultary semantic query: binary de Bruijn order five runs maximum repetitions period 3 4 exact distribution 2048 cycles",
+          "https://arxiv.org/abs/0907.2157",
+          "https://arxiv.org/abs/1406.0263"
+        ]
+      },
+      "rationale": "Crochemore et al. and Bannai et al. treat generic linear-string run bounds and structural characterization; fixed-weight de Bruijn constructions give existence of cycles, while already known uniform factor counts account for unary runs. None of the inspected statements implies the specific full six-cell frequency law for all 2048 order-five circles or reversal/complement symmetry classes. Searches for de Bruijn run spectra and circular periodicity found only adjacent, not covering, results.",
+      "residual_risks": [
+        "An unindexed explicit 2048-cycle table or unpublished equivalent census could predate this calculation.",
+        "Symmetry orbit splits and CSV per-row correspondence were inspected in verifier logic but not re-executed independently; independently complete period histogram was reproduced."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact order-five de Bruijn rotation-class spectrum in inspected source.",
+          "evidence": "Arbitrary linear strings and extremal maximum bounds, not restricted complete circular word distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.2157",
+          "material_read": "Accessible complete HTML theorem statements and methodological sections on highly periodic runs",
+          "method": "arXiv lawful OA reading",
+          "title": "On the maximal number of highly periodic runs in a string",
+          "trigger": "Generic maximal-run extremal bounds"
+        },
+        {
+          "assessment": "Does not provide the six-cell enumerative spectrum as a stated corollary.",
+          "evidence": "A universal upper bound does not determine the histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0263",
+          "material_read": "Open abstract and relevant principal theorems/Lyndon characterization; not complete appendices",
+          "method": "arXiv/OA result comparison",
+          "title": "The Runs Theorem",
+          "trigger": "Strong general theorem for the same maximal-period notion"
+        },
+        {
+          "assessment": "Different fixed-weight restricted cycle construction, not all B(2,5) rotation classes.",
+          "evidence": "Existence/construction of cycles differs from run statistics across all cycles.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Abstract/constructive result metadata",
+          "method": "published abstract comparison",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Possible family-wide constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All de Bruijn order-five rotation classes form a canonical finite family. Their exact joint maximal periodicity profile, sharp attainable run counts, moments, and symmetry reduction are natural reproducible invariants that a subsequent researcher could use as finite benchmark; finite size is intrinsically complete and not an arbitrary subcollection. Background r1 and r2 alone are not the claimed contribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0907.2157",
+    "https://arxiv.org/abs/1406.0263",
+    "https://doi.org/10.1137/100808782",
+    "https://doi.org/10.1007/s10623-026-01841-x"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only full joint spectrum at binary order five, not higher orders.",
+    "Exact finite census proof requires complete Euler pairing enumeration; independent implementation covers all 65536 candidates, not sampled cases."
+  ],
+  "residual_risks": [
+    "An unindexed explicit 2048-cycle table or unpublished equivalent census could predate this calculation.",
+    "Symmetry orbit splits and CSV per-row correspondence were inspected in verifier logic but not re-executed independently; independently complete period histogram was reproduced."
+  ],
+  "schema_version": 1
+}

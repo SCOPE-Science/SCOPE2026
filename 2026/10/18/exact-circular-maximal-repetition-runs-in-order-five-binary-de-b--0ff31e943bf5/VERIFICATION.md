@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact order-five classification is reproducible using the standard-library program `verify.py` together with `profiles.csv`. Executing `python3 verify.py` reconstructs and compares an Eulerian DFS enumeration and all \(65536\) incoming/outgoing pairing assignments. It checks all \(2048\) distinct cycles and both independent maximal-run enumeration methods, verifies the length-profile table and all \(528\) symmetry orbits, and compares each row with the supplied CSV. Exact integer and rational calculations verify the six cells, the three total-run frequencies, the two period-two run-length distributions, and both reported moments.
+# Independent mathematical audit
 
-Mathematical scope: cyclic factors have length at most the circumference, and maximal runs have least period at most four by the unique five-bit-window lemma. This is a finite classification only at order five. The general bound on least periods and the number of unary runs are proved directly in `RESULT.md`, not extrapolated from finite tests. External independent auditing has not occurred.
+## correctness
+
+PASS
+
+A run is the cyclic interval triple (start,length,least period) with 2p≤length≤32 and strict one-symbol nonextension both sides. Repeated n-bit windows prohibit a periodic factor of length ≥p+n, hence 2p≤L≤p+4 implies p≤4 and L≤8, so no omitted longer periodic intervals. Built a separate complete enumeration of all 65,536 local incoming/outgoing pairings in the order-four de Bruijn digraph, retained precisely 2048 single 32-edge Euler tours, and independently scanned every start and length 2..8 for least periods and both boundary inequalities. Reproduced r1=8,r2=2 for each cycle, all six joint frequency cells and the distribution of 12/13/14 runs, rather than relying only on packaged VERIFY_OK or profiles.csv. The Euler pairing bijection covers every rotation class uniquely via marked edge 00000. Orbit-cell splits and CSV row-by-row checks were examined in the source program but not independently rerun, so these secondary symmetry numbers have less independent computational confirmation; source source-code derivation and group action were checked.
+
+## originality
+
+PASS
+
+Crochemore et al. and Bannai et al. treat generic linear-string run bounds and structural characterization; fixed-weight de Bruijn constructions give existence of cycles, while already known uniform factor counts account for unary runs. None of the inspected statements implies the specific full six-cell frequency law for all 2048 order-five circles or reversal/complement symmetry classes. Searches for de Bruijn run spectra and circular periodicity found only adjacent, not covering, results.
+
+## value
+
+PASS
+
+All de Bruijn order-five rotation classes form a canonical finite family. Their exact joint maximal periodicity profile, sharp attainable run counts, moments, and symmetry reduction are natural reproducible invariants that a subsequent researcher could use as finite benchmark; finite size is intrinsically complete and not an arbitrary subcollection. Background r1 and r2 alone are not the claimed contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
