@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytical derivation uses the orthogonal transverse/uniform-sector decomposition and exact integration of Fourier-mode pairs. No numerical enumeration is used as an infinite-parameter proof.
+# Independent mathematical audit
 
-Execute `python verify.py` from the same directory, with NumPy installed. The script checks weighted joins of complete graphs and cycles at generic and spectrally resonant couplings, verifies projected long-time occupation probabilities against full-matrix eigenvector calculations, and checks the finite-time sinc crossover and exact equal-clique finite-window formula. It contains 1,330 explicit assertions and a single final success report.
+## correctness
 
-The largest infinite-time spectral comparison discrepancy observed in the delivered run was below \(2.3\times10^{-14}\). Exact elementary consistency checks additionally show a return mean of \(17/25\) at the \(K_3\)-to-\(K_2\) unit-weight join and a nonresonant limiting value of \(113/225\), with jump \(8/45\).
+PASS
 
-Tests cover finite sizes, not every graph and real coupling; those are handled by the self-contained invariant-subspace proof. No external mathematical certification or independent audit has been performed. Dependence on coherent, lossless evolution and uniform cross-edges is essential.
+For finite connected r- and s-regular components X and Y, the join decomposes into X transverse, Y transverse, and a two-dimensional uniform block Bγ; its λ± are distinct for γ>0, with λ+ greater than both degrees. Resolving λ−=μ gives exactly γμ=sqrt((r−μ)(s−μ)/(nm)) for X transverse eigenvalues μ<min(r,s); the Cesàro average of the fixed-sector amplitude contributes projector cross term (2β/n)Eμ only at these collisions. Each diagonal jump is nonnegative with strictly positive trace; cross-block average remains 2γ²/Δ² by orthogonality. The single vanishing phase gap derivative λ−′=−2γnm/Δ produces the uniform O_C(T^(-1)) sinc window for γ*=γμ+c/T, without treating finite time as discontinuous. For two equal cliques, independent direct three-phase pair averaging at n=2,3,7, γ=0.4,1,1.3, T=1,7.5,93 exactly reproduced the advertised closed finite-time formula. All-size claims rely on the invariant-sector algebra and isolated-gap estimate, not those samples.
+
+## originality
+
+PASS
+
+Lo et al. give generic join mean mixing with a literal λ− noncollision assumption; their Theorem 5 does not analyze the excluded equality. General average mixing is a sum of squared spectral-projector entries, but the explicit positive-coupling collision locus, spatial projector discontinuity, unchanged mean transfer to Y, and normalized observation-time sinc crossover must be evaluated rather than inferred from a theorem that excludes collisions. These are motivated gap-fillers, with residual risk of unindexed equivalent quantum-walk resonance treatments.
+
+## value
+
+PASS
+
+The prior theorem excluded precisely the non-generic spectral collision, a substantive natural boundary. Resolving the exceptional set tells when coherent quantum localization jumps in the infinite-time averaged observable; a sharp 1/(nT) finite-observation calibration yields a useful physical resolution scale rather than an isolated graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

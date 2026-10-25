@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix is exactly decomposed into the constant-vector sector, with eigenvalues \(\lambda_\pm\), and the transverse eigenspaces of its two regular components. The proof explicitly reconstructs the transition amplitudes, performs the Cesàro average with correct degenerate-frequency cross terms, solves every allowed collision equation, and derives the finite-time sinc window from a uniform gap separation. Exact averaging on two equal cliques gives the full finite-window formula without unproved large-size limits. A standalone program replayed 1,330 spectral and finite-window comparisons, including resonances; maximal observed projector-comparison error was below \(2.3\times10^{-14}\). Tests corroborate rather than replace the proof.
+PASS
 
-## Originality — PASS (self-review)
+For finite connected r- and s-regular components X and Y, the join decomposes into X transverse, Y transverse, and a two-dimensional uniform block Bγ; its λ± are distinct for γ>0, with λ+ greater than both degrees. Resolving λ−=μ gives exactly γμ=sqrt((r−μ)(s−μ)/(nm)) for X transverse eigenvalues μ<min(r,s); the Cesàro average of the fixed-sector amplitude contributes projector cross term (2β/n)Eμ only at these collisions. Each diagonal jump is nonnegative with strictly positive trace; cross-block average remains 2γ²/Δ² by orthogonality. The single vanishing phase gap derivative λ−′=−2γnm/Δ produces the uniform O_C(T^(-1)) sinc window for γ*=γμ+c/T, without treating finite time as discontinuous. For two equal cliques, independent direct three-phase pair averaging at n=2,3,7, γ=0.4,1,1.3, T=1,7.5,93 exactly reproduced the advertised closed finite-time formula. All-size claims rely on the invariant-sector algebra and isolated-gap estimate, not those samples.
 
-The 2005 theorem of Lo et al. explicitly excludes lower join-eigenvalue collisions while deriving the known generic average-mixing law for circulant joins. The 2017 work of Coutinho et al. establishes the general spectral-projector identity; the 2023 paper of Kirkland and Monterde supplies general join propagators and state-transfer theory. These known results provide the underlying tools and imply the generic off-resonance component. The assessed contribution is the exact exceptional-coupling classification on arbitrary connected regular components, the positive return-trace jumps with conservation of cross-component mean mass, and the universal finite-time sinc resolution; it is not a claim to invent join diagonalization or average-mixing matrices. A search of semantically matching published mathematical records and published literature found no statement that subsumes this full collision-and-window claim. Unseen equivalent treatments remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The collision is a naturally motivated, excluded case in the prior mean-mixing theorem, not an arbitrary small-graph calculation. Its precise projector jump explains a measurable change in long-time localization, while the finite-window law quantifies how accurately a junction hopping strength must be tuned to observe that effect. Two equal cliques exhibit a jump of \((n-1)/n^2\), and the exact observation window is \(1/(nT)\), giving a physically interpretable graph-size versus waiting-time tradeoff. The result is a complete structure theorem for all connected regular components and a closed all-time benchmark, not just a numerical curiosity.
+Lo et al. give generic join mean mixing with a literal λ− noncollision assumption; their Theorem 5 does not analyze the excluded equality. General average mixing is a sum of squared spectral-projector entries, but the explicit positive-coupling collision locus, spatial projector discontinuity, unchanged mean transfer to Y, and normalized observation-time sinc crossover must be evaluated rather than inferred from a theorem that excludes collisions. These are motivated gap-fillers, with residual risk of unindexed equivalent quantum-walk resonance treatments.
 
-## Closest literature and limitations
+## value
 
-Lo et al., *Mixing of Quantum Walk on Circulant Bunkbeds* (arXiv:quant-ph/0509059v1), Theorem 5, is the closest direct result; its noncollision hypothesis excludes the distinctive phenomenon here. Kirkland–Monterde, *Quantum walks on join graphs* (arXiv:2312.06906v1), treats the same join geometry but not the resonance-resolved Cesàro window. Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591v1) gives the general projector formalism. The result assumes perfectly coherent, finite, uniformly weighted joins, and neither finite simulation nor a negative literature search proves absolute scientific priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior theorem excluded precisely the non-generic spectral collision, a substantive natural boundary. Resolving the exceptional set tells when coherent quantum localization jumps in the infinite-time averaged observable; a sharp 1/(nT) finite-observation calibration yields a useful physical resolution scale rather than an isolated graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
