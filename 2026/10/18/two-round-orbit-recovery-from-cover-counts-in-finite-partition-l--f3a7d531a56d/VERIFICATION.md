@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-The all-\(n\) theorem is proved by the degree identity, the injectivity of the pair-product code \((2^a-1)(2^b-1)\), the complete pair-multiset inversion, and symmetric-group transitivity. These proof steps do not rely on numerical tests.
+## correctness
 
-`python3 verify_direct.py` enumerates full partition-Hasse digraphs for \(n=1,\ldots,8\), computes two refinement rounds from a uniform initial colour, and confirms that the second colour classes coincide with the integer block-size types. At \(n=8\) this graph has \(4140\) vertices. It verifies the explicit distinct first-round collision at \(n=14\) and checks the two-adic product valuation identity for \(4005\) unordered positive exponent pairs.
+PASS
 
-`python3 verify_types.py` separately builds the weighted directed quotient by block-size type for every \(n=1,\ldots,36\). It computes exact merge counts and exact splitting counts as quotient edge weights and checks that the second refinement round separates every block-size type, including the \(17977\) types at \(n=36\). It also exhaustively verifies that one round separates all types exactly when \(n\le13\) over the tested size range; the proof's explicit collision and singleton-extension argument covers every larger size.
+The source RESULT.md is a complete all-n reconstruction. For a partition of block sizes s_i, outgoing degree C(k,2) recovers k and incoming degree F=sum_i(2^(s_i-1)-1) recovers a first-round signature. A merge of sizes a,b yields 2(F(Q)-F(P))-1=(2^a-1)(2^b-1). The proof distinguishes off-diagonal pairs by v_2(M-1)=min(a,b), diagonal pairs by v_2(M-1)=a+1 and a size bound excludes diagonal/off-diagonal collisions. The second-round multiset of outgoing first-round colours thus recovers all unordered block-size pairs; counting appearances of each size r and dividing by k-1 recovers its multiplicity. The k=1 case is unique. Symmetric-group relabelling proves equality exactly on orbits. For sharpness the distinct 14-element types (1,1,3,3,3,3) and (2,2,2,2,2,4) both have six blocks and F=12; adding singleton blocks preserves collision. The finite n<=13 threshold is checked by exhaustive integer partitions, not extrapolated to all n. The theorem does not identify the lattice among other structures.
 
-Recorded program outputs are stored in `direct_output.txt` and `types_output.txt`. All scripts require Python 3 standard library only. The finite computations do not by themselves certify the unbounded theorem, historical originality or independent validation.
+## originality
+
+PASS
+
+Classical partition-type orbits and colour refinement are known separately, but the two-round directed-cover decoding and exact first-round boundary at n=14 are not stated or logically implied by the sources inspected. Best-of-knowledge PASS, with unindexed directed-lattice literature a genuine risk.
+
+## value
+
+PASS
+
+The exact number of counting-refinement rounds needed to recover symmetry orbits of a natural classical finite lattice is a meaningful uniform structural invariant. The sharp n=14 boundary determines a real algorithmic separation, not a renamed Stirling-count formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

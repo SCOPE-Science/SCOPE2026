@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:20:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source RESULT.md is a complete all-n reconstruction. For a partition of block sizes s_i, outgoing degree C(k,2) recovers k and incoming degree F=sum_i(2^(s_i-1)-1) recovers a first-round signature. A merge of sizes a,b yields 2(F(Q)-F(P))-1=(2^a-1)(2^b-1). The proof distinguishes off-diagonal pairs by v_2(M-1)=min(a,b), diagonal pairs by v_2(M-1)=a+1 and a size bound excludes diagonal/off-diagonal collisions. The second-round multiset of outgoing first-round colours thus recovers all unordered block-size pairs; counting appearances of each size r and dividing by k-1 recovers its multiplicity. The k=1 case is unique. Symmetric-group relabelling proves equality exactly on orbits. For sharpness the distinct 14-element types (1,1,3,3,3,3) and (2,2,2,2,2,4) both have six blocks and F=12; adding singleton blocks preserves collision. The finite n<=13 threshold is checked by exhaustive integer partitions, not extrapolated to all n. The theorem does not identify the lattice among other structures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ehrenborg–Hedmark treat partition-lattice filters and S_n actions; those actions alone do not imply 1-WL reaches block-type orbits after two rounds."
+        ],
+        "reasoning": "General source coverage compared by mathematical implication, not title: Ehrenborg–Hedmark treat partition-lattice filters and S_n actions; those actions alone do not imply 1-WL reaches block-type orbits after two rounds.",
+        "searches": [
+          "Resultary semantic query: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+          "Frozen SCOPE repository GitHub code search: partition lattice cover color refinement orbit"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+        "Frozen repository code search: partition lattice cover color refinement orbit",
+        "Frozen Git RESULT.md and METADATA.json by path/blob",
+        "arxiv:1502.01255",
+        "arxiv:1606.01443",
+        "Git blob 36334fe1219d13d3a4397eb8363bdfddb156f84a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetric-group transitivity implies that colours cannot split an orbit, but not that two rounds separate different block types; pair-product inversion supplies the missing implication."
+        ],
+        "reasoning": "Earlier hypotheses/conclusions checked for logical domination: Symmetric-group transitivity implies that colours cannot split an orbit, but not that two rounds separate different block types; pair-product inversion supplies the missing implication.",
+        "searches": [
+          "Resultary semantic query: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+          "Frozen SCOPE repository GitHub code search: partition lattice cover color refinement orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al. formalize 1-dimensional colour refinement and refinability but do not identify the directed partition-lattice cover graph or give a two-round decoding theorem.",
+          "The property is internal to a fixed directed cover structure, not an FO-counting identification statement."
+        ],
+        "reasoning": "Specific equivalence or non-equivalence: Arvind et al. formalize 1-dimensional colour refinement and refinability but do not identify the directed partition-lattice cover graph or give a two-round decoding theorem. The property is internal to a fixed directed cover structure, not an FO-counting identification statement.",
+        "searches": [
+          "Resultary semantic query: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+          "Frozen SCOPE repository GitHub code search: partition lattice cover color refinement orbit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p(n) orbit count and block-type multiplicity formula are classical; n=14 sharp first-round collision and 2-round signature inversion are different from a partition-number table."
+        ],
+        "reasoning": "Existing table/database precision compared to actual statement: The p(n) orbit count and block-type multiplicity formula are classical; n=14 sharp first-round collision and 2-round signature inversion are different from a partition-number table.",
+        "searches": [
+          "Resultary semantic query: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+          "Frozen SCOPE repository GitHub code search: partition lattice cover color refinement orbit"
+        ]
+      },
+      "rationale": "Classical partition-type orbits and colour refinement are known separately, but the two-round directed-cover decoding and exact first-round boundary at n=14 are not stated or logically implied by the sources inspected. Best-of-knowledge PASS, with unindexed directed-lattice literature a genuine risk.",
+      "residual_risks": [
+        "Full technical text for closest general 1-WL and partition-lattice references was not exhaustively read.",
+        "Possible specialised or unpublished two-round result not indexed by searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mechanism only; no verified statement of the particular directed partition-cover threshold",
+          "evidence": "Criterion of orbit-refinability is not quantitative for this family.",
+          "identifier_or_url": "arxiv:1502.01255",
+          "material_read": "Title/abstract and relevant definitions and criterion described in source; not full article",
+          "method": "arXiv search and source comparison",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Relevant general definition of colour-refinement orbital refinability"
+        },
+        {
+          "assessment": "No affirmative coverage established; not declared globally noncovering",
+          "evidence": "Cover merges and S_n actions are basic inputs rather than two-step WL theorem.",
+          "identifier_or_url": "arxiv:1606.01443",
+          "material_read": "Source summary and cited section description; full technical text not obtained",
+          "method": "arXiv search/source context",
+          "title": "Filters in the partition lattice",
+          "trigger": "Same partition-lattice cover action"
+        },
+        {
+          "assessment": "Internally coherent all-n argument with finite first-round threshold",
+          "evidence": "Explicit 2-adic uniqueness and pair-multiset reconstruction",
+          "identifier_or_url": "Git blob 36334fe1219d13d3a4397eb8363bdfddb156f84a",
+          "material_read": "Entire RESULT.md, including all proof steps, normalization and limitations",
+          "method": "Authenticated read of Git file at frozen commit",
+          "title": "SCOPE frozen RESULT.md (assigned source)",
+          "trigger": "Exact assertion and all proof steps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of counting-refinement rounds needed to recover symmetry orbits of a natural classical finite lattice is a meaningful uniform structural invariant. The sharp n=14 boundary determines a real algorithmic separation, not a renamed Stirling-count formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic search: partition lattice cover digraph equitable color refinement two rounds block sizes orbit types n 14",
+    "Frozen repository code search: partition lattice cover color refinement orbit",
+    "Frozen Git RESULT.md and METADATA.json by path/blob",
+    "arxiv:1502.01255",
+    "arxiv:1606.01443",
+    "Git blob 36334fe1219d13d3a4397eb8363bdfddb156f84a"
+  ],
+  "disposition": "passed",
+  "limitations": "Full technical text for closest general 1-WL and partition-lattice references was not exhaustively read. Possible specialised or unpublished two-round result not indexed by searches.",
+  "schema_version": 1
+}
