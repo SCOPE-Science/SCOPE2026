@@ -1,0 +1,201 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T12:58:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each edge species e, define I_e to indicate that both endpoints lie in the uniformly unselected h=n-k vertices. R_k=(n-1)-X, X=Σ_e I_e. Then E I_e=p2, E I_e I_f=p3 when edges meet and p4 when disjoint; summing m diagonal and 2*C(m,2) offdiagonal terms gives Var(X)=m p2+m(m-1)p4+2W(p3-p4)-m^2 p2^2 exactly. Here p3-p4=P(these 3 vertices unselected, a fourth selected)>0 exactly 1<=k<=n-3, including k=1 where Var(R_1)=(2m+2W)/n-(2m/n)^2. Tree excess degrees t_v=d_v-1>=0 with Σt=n-2 prove W_min=n-2 only for a path and W_max=C(n-1,2) only for a star. Direct small n=4,5 classification gives distinct W on nonisomorphic trees. A/B are six-site trees with the same degree profile (3,2,2,1,1,1) and W=5 but k=2 histograms 5,5,5,0 versus 4,8,2,1 for R=2..5. For each n>=6 attach n-6 leaves to site 0 in both trees: same W=C(n-3,2)+2, distinct high-degree-site leaf neighborhoods, and exactly one extra sample pair gives R2=2 in A (two leaves or a leaf+degree-2 adjacent pair account for all such pairs), so probabilities differ by 1/C(n,2). Boundary k=0,n are degenerate and formula remains valid. Independent implementation, not package verifier logs, exhaustively reproduced all 18,244 labeled trees of n=4..7, 144,358 tree/sample-size combinations and 2,238,496 selected subsets, plus the all-order witness combinatorial count to n=30; this is finite corroboration of the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tittmann et al. Proposition 2: Q distinguishes all nonisomorphic trees through nine vertices; Section 8 recovers induced-component distributions.",
+          "Ugland general formulas cover first and second conditional species-sampling moments for arbitrary incidences.",
+          "Ferrer-i-Cancho Section 2 explicitly gives unique path/star extrema of tree degree second moments.",
+          "Published Resultary zonotope theorem has the same wedge-count-based path/star variance optimization for spherical widths, but a distinct random variable."
+        ],
+        "reasoning": "The general source polynomial Q is strictly richer than the two moment curves; its small-tree discrimination establishes separation of full laws for the n=6 known nonisomorphic degree-sequence pair but does not preclude equal low moments. General indicator moment formulas and degree extrema cover the principal ingredients, not an explicit persistent fixed-size rarefaction-law witness. The zonotope width variance analogue uses the same wedge statistic but does not imply a richness law or sharp ecological six-site ambiguity.",
+        "searches": [
+          "arxiv:0812.4147",
+          "arxiv:1305.4561",
+          "doi:10.1890/03-0557",
+          "Published Resultary 2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+          "web: induced subtree component count first two moments tree degree square variance fixed vertex subset"
+        ]
+      },
+      "checked_sources": [
+        "Ugland, Gray and Ellingsen (2003), J. Animal Ecology 72:888-897, doi:10.1046/j.1365-2656.2003.00748.x",
+        "Colwell, Mao and Chang (2004), Ecology 85:2717-2727, doi:10.1890/03-0557",
+        "Tittmann, Averbouch and Makowsky, arXiv:0812.4147v2 / Eur. J. Comb. 32 (2011), 954-974",
+        "Ferrer-i-Cancho, Random crossings in dependency trees, arXiv:1305.4561",
+        "OEIS A295637, nonisomorphic n-vertex trees with common degree sequence; entry since 2017; cites Samuel Stern thesis (2017)",
+        "Published Resultary 2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+        "Published Resultary 2026/10/11/SCOPE-balanced-edge-configurations-of-simplices-and-the-tree-wiener-en--68e55186437b/RESULT.md",
+        "Four Resultary semantic searches on tree induced-edge moments, rarity ecological incidences, induced subgraph counts and tree-polynomial aliases",
+        "Web exact searches for six-vertex same-degree trees, graph moment coincidences and OEIS A295637; Stern 2017 thesis full text not located"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General rarefaction moments + known W min/max immediately imply the path/star variance envelope: no separate originality credit.",
+          "OEIS known six-vertex equal-degree pair + Q injectivity through nine + the easy R_k/Q relation implies *some-k* full-law ambiguity at six; this strongly covers the onset.",
+          "The submitted explicit six-vertex distributions differ already at k=2, and attaching t leaves to the degree-three vertex preserves W while causing exactly one extra R_2=2 selection for every t>=0."
+        ],
+        "reasoning": "The first six-site threshold and variance extrema are strongly anticipated, indeed nearly immediate corollaries, of the cited existing results. The exact *all-orders* witness is not a literal corollary of the finite n<=9 polynomial injectivity nor a statement of the OEIS table; its proof uses a stable leaf-edge statistic. Originality is limited to this constructive ecological-law statement and explicit comparison; this should not be presented as invention of conditional variance or the first ambiguous tree degree sequence.",
+        "searches": [
+          "doi:10.1046/j.1365-2656.2003.00748.x",
+          "doi:10.1890/03-0557",
+          "arxiv:0812.4147",
+          "arxiv:1305.4561",
+          "OEIS A295637",
+          "Resultary: Random vertex subset tree induced edges first second moments degree sequence equal six vertex trees distinction threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a tree R_k=(n-1)-e_T(U), where U is the uniform (n-k)-vertex unselected set: an exact induced-edge-count formulation.",
+          "Ugland (2003) Appendix I gives unconditional-on-order combinatorial conditional variance via species indicators, but not the specific all-orders structural ambiguity.",
+          "For forests e_T(U)=|U|-components(T[U]); hence Q(T;x,y) determines the full richness laws at all k."
+        ],
+        "reasoning": "The submitted first two moment curves are equivalent to a wedge-count/degree-second-moment fingerprint; the full family of laws is encoded by the induced-component polynomial Q. This makes the degree-sequence collision and Q-distinguishing results unusually relevant prior coverage, not unrelated titles. The submitted all-orders k=2 witness requires additional specific construction/counting that was not identified in these sources.",
+        "searches": [
+          "Resultary: Tree graph induced edge count distribution vertex sampling wedge count two moments smallest nonisomorphic trees six vertices equal degree-square sum but different distributions",
+          "Resultary: Species accumulation rarefaction incidence each species occurs in exactly two sites tree networks fixed-size sampling first two moment curves identical full distributions different",
+          "web: rarefaction variance tree edges two species sites wedge count 6 vertices identical moments different richness distributions",
+          "doi:10.1046/j.1365-2656.2003.00748.x",
+          "arxiv:0812.4147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A295637 states a(6)=2, identifying the precise pair of distinct tree shapes with degree sequence (3,2,2,1,1,1), while a(n)=1 for n<=5.",
+          "Tittmann et al. Proposition 2 distinguishes the full Q polynomials of nonisomorphic trees with n<=9.",
+          "Independent all-subset enumeration found W-values n=4: {2,3}, n=5: {3,4,6}, and the two n=6 shapes A/B have W=5 and different R_2 histograms."
+        ],
+        "reasoning": "The n=6 existence and base degree-sequence coincidence are KNOWN table facts, and Tittmann Q-distinctness implies a full-law difference already at n=6; no standalone novelty is credited for these. The table does not encode the exact R_2 histograms, conditional-variance equivalence, or the constructive fixed-R_2 discrepancy 1/binom(n,2) for every n>=6, which is the substantive remaining part.",
+        "searches": [
+          "OEIS A295637 maximum number of nonisomorphic n-vertex trees with the same degree sequence",
+          "web: smallest pair non-isomorphic trees with same degree sequence six vertices",
+          "web: trees same degree sequence first nonisomorphic order 6 caterpillar graph example",
+          "Tittmann et al. Proposition 2 on trees up to nine vertices"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS restricted to the precise fixed-size ecological conditional moment-information result and, especially, the explicit persistent all-orders counterfamily with an exact sample-two probability gap. The general rarefaction expectation/covariance method (Ugland 2003), the tree degree/wedge extrema (Ferrer-i-Cancho), the first degree-sequence ambiguity at n=6 (OEIS A295637), and the full induced-component polynomial and injectivity through nine vertices (Tittmann et al.) are established and receive no independent novelty credit. In combination those sources already strongly anticipate the six-site base ambiguity, so the six-site number by itself is not independently novel. What remains in the submitted complete claim is the exact specialized equivalence of entire first-two-moment curves to W and a constructive for-all-n>=6 *fixed k=2* richness-law separation with numerator exactly one. The inspected prior texts and relevant published records do not supply this combined all-orders precise conditional-law result. Search cannot exclude equivalence under another name or an unindexed tree-polynomial specialization.",
+      "residual_risks": [
+        "Substantial constituent results are established prior art; in particular the n=6 base degree collision is in OEIS A295637 and the law separation for that base case follows from Tittmann Proposition 2. Novelty is strictly limited to the explicit all-orders ecological moment-law counterfamily and precise fixed-k gap.",
+        "Samuel Stern 2017 thesis cited by OEIS was not recovered in full despite exact-title and author searches; it may offer related constructions.",
+        "A differently indexed graph-subset polynomial or incidence-rarefaction treatment could already imply the leaf-extension construction; lack of a hit is not a novelty proof.",
+        "The conditional sample-order variance is not Colwell et al. estimator uncertainty; conflating them would invalidate the claimed application."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general combinatorial moment method; no exact tree-restricted persistent k=2 law ambiguity identified",
+          "evidence": [
+            "Appendix I indicator-variable variance setup and pair covariances; published 2003-08-15."
+          ],
+          "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/10.1046/j.1365-2656.2003.00748.x",
+          "material_read": "Complete accessible publisher HTML, specifically model introduction, analytical expression discussion and Appendix I indicator/covariance construction",
+          "method": "Web full-text source inspection, comparison to uniform fixed-site sampling and two-site occupancy",
+          "title": "The species–accumulation curve and estimation of species richness",
+          "trigger": "Exact primary conditional sample-order variance for arbitrary species-site incidences"
+        },
+        {
+          "assessment": "Sample-based interpolation methodology and estimator variance are established; their Eq. 6 is not the claimed conditional sample-order variance, and their examples do not classify tree-incidence moment blindness",
+          "evidence": [
+            "Colwell et al. p.2720: contrasts conditional Ugland sample-order variance with the paper’s estimator variance; Table 2 shows incidences with same mean but different individual richness patterns."
+          ],
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/7532.pdf",
+          "material_read": "Complete 11-page lawful author-hosted PDF, with interpolation definitions, Eq. 5-6 and p.2720 discussion; rendered p.2720 inspected",
+          "method": "PDF full-text and rendered-page inspection",
+          "title": "Interpolating, extrapolating, and comparing incidence-based species accumulation curves",
+          "trigger": "Variance identification and conditional-versus-estimator distinction; potential statistical prior coverage"
+        },
+        {
+          "assessment": "Q determines all sample-site richness laws for trees. Proposition 2 proves full Q distinguishes every nonisomorphic tree through order 9. This implies six-site base pair has different full laws but NOT the all-orders k=2 gap, nor that first two moment curves determine Q.",
+          "evidence": [
+            "Section 2 Q=Σ q_ij x^i y^j, Proposition 2 n<=9 discrimination, Section 8 Eq.11 induced-component probability from Q."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+          "material_read": "Full 24-page arXiv v2 PDF: full section/theorem inventory, definition Section 2, Proposition 2/3, Section 8; inspected rendered pp.3 and 18",
+          "method": "Full-text PDF reading with rendered-page spot checks",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Strongest plausible full-distribution graph invariant Q and explicit small-tree discrimination"
+        },
+        {
+          "assessment": "COVERS strict path/star extrema in tree degree square, not tree-incidence richness distributions or the six-site inverse problem",
+          "evidence": [
+            "Section 2 states degree-square moment uniquely minimized at path and maximized at star."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.4561",
+          "material_read": "Complete 12-page original arXiv paper, abstract, Sections 1–3 and Appendix B discussion; rendered p.1 inspected",
+          "method": "Full-text PDF with image inspection of degree moment and extrema",
+          "title": "Random crossings in dependency trees",
+          "trigger": "Known degree-second-moment tree path/star extrema, same W statistic"
+        },
+        {
+          "assessment": "EXACT PRIOR COVERAGE of the first n=6 same-degree tree pair; does not tabulate the rarefaction laws or stable infinite k=2 gap.",
+          "evidence": [
+            "Explicit a(6)=2 with degree sequence [1,1,1,2,2,3]; all preceding values 1."
+          ],
+          "identifier_or_url": "https://oeis.org/A295637",
+          "material_read": "Complete OEIS entry including terms, example, reference to Samuel Stern 2017 thesis and computer enumeration code",
+          "method": "Full public database record inspection, compared to degree multiset of submitted A and B",
+          "title": "A295637 — Maximum nonisomorphic n-vertex trees with the same degree sequence",
+          "trigger": "Exact database for first degree-sequence collision, potential prior exact six-site case"
+        },
+        {
+          "assessment": "COVERS wedge-statistic path/star optimization in a different spherical-width model, not rarefaction distributions or the first six-site inferential failure",
+          "evidence": [
+            "Theorem Eq.1-2 makes directional width variance an affine function of q(G)=Σ C(deg(v),2), with path/star extremizers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, Gaussian proof, extremizers, asymptotics and limitations",
+          "method": "Primary published mathematical claim via GitHub read",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "Published nearby result with identical wedge invariant and path/star variance envelopes"
+        },
+        {
+          "assessment": "Not covering: uses Wiener distance sum rather than incident-edge-pair W and gives a simplex geometric classification, no rarefaction moment law",
+          "evidence": [
+            "Eq.3 relates geometric energy to Σ_{i<j}dist_T(i,j); its W symbol denotes Wiener index, not wedge count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-balanced-edge-configurations-of-simplices-and-the-tree-wiener-en--68e55186437b/RESULT.md",
+          "material_read": "Complete RESULT.md theorem and cut/Wiener-energy argument",
+          "method": "Primary published mathematical comparison via GitHub read",
+          "title": "Balanced edge configurations of simplices and the tree–Wiener energy identity",
+          "trigger": "Possible graph-tree extremal reduction to a different canonical tree invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a finite incidence network with each species on two sites and a fixed tree of possible shared species, the first two uniform sample-order moments are natural observation summaries. The exact six-site information-loss threshold and persistent all-n>=6 fixed-two-site witness show precisely what such summaries cannot recover, even when connectivity and occupancy are fixed; a concrete event probability differs by one out of C(n,2). This is a mathematically motivated sharp inference boundary and constructive family, not an arbitrary enumeration. General covariance identities and path/star degree extrema are old, and the first pair of trees with the same degree sequence is tabulated; neither these old ingredients nor the finite computation alone is counted as the value. Scope strictly tree, uniform fixed-size subset, binary 2-site occupancy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ugland, Gray and Ellingsen (2003), J. Animal Ecology 72:888-897, doi:10.1046/j.1365-2656.2003.00748.x",
+    "Colwell, Mao and Chang (2004), Ecology 85:2717-2727, doi:10.1890/03-0557",
+    "Tittmann, Averbouch and Makowsky, arXiv:0812.4147v2 / Eur. J. Comb. 32 (2011), 954-974",
+    "Ferrer-i-Cancho, Random crossings in dependency trees, arXiv:1305.4561",
+    "OEIS A295637, nonisomorphic n-vertex trees with common degree sequence; entry since 2017; cites Samuel Stern thesis (2017)",
+    "Published Resultary 2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+    "Published Resultary 2026/10/11/SCOPE-balanced-edge-configurations-of-simplices-and-the-tree-wiener-en--68e55186437b/RESULT.md",
+    "Four Resultary semantic searches on tree induced-edge moments, rarity ecological incidences, induced subgraph counts and tree-polynomial aliases",
+    "Web exact searches for six-vertex same-degree trees, graph moment coincidences and OEIS A295637; Stern 2017 thesis full text not located"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All theorems conditional on connected simple tree-incidence, exactly one species per edge and two distinct occupied sites per species, uniform k-subset sampling; not applicable directly to arbitrary incidence matrices.",
+    "Finite exhaustive tests n=4..7 are corroboration only, not a proof for all n.",
+    "Prior general conditional covariance, degree extrema, n=6 same-degree pair and full component polynomial are not newly discovered here.",
+    "Published OEIS n=6 pair and Q injectivity strengthen the prior-implication risk; best-of-knowledge originality is specifically about the constructed persistent conditional-law contrast, not six as a graph size.",
+    "Different data generation or observation estimator variances are out of scope."
+  ],
+  "residual_risks": [
+    "Substantial constituent results are established prior art; in particular the n=6 base degree collision is in OEIS A295637 and the law separation for that base case follows from Tittmann Proposition 2. Novelty is strictly limited to the explicit all-orders ecological moment-law counterfamily and precise fixed-k gap.",
+    "Samuel Stern 2017 thesis cited by OEIS was not recovered in full despite exact-title and author searches; it may offer related constructions.",
+    "A differently indexed graph-subset polynomial or incidence-rarefaction treatment could already imply the leaf-extension construction; lack of a hit is not a novelty proof.",
+    "The conditional sample-order variance is not Colwell et al. estimator uncertainty; conflating them would invalidate the claimed application."
+  ],
+  "schema_version": 1
+}
