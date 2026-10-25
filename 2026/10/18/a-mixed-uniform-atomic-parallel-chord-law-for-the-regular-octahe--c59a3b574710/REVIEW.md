@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The octahedron overlap is represented by eight explicit supporting halfspaces. Exhaustive symbolic intersection of their 56 plane triples gives the twelve candidate affine vertices throughout the entire parameter interval, and shoelace face areas lead to the exact quadratic overlap volume. The directional chord Fubini identity then determines the absolutely continuous part and the nonzero endpoint atom. The exact checker has been executed from the included file and passed.
+## correctness
 
-## Originality — PASS (subject to residual priority risk)
-The closest primary statements are Bianchi's three-dimensional covariogram reconstruction result (arXiv:0805.1605) and Ciccariello's isotropic octahedral chord-length density (arXiv:1401.7950). The former does not evaluate this directional overlap, and the latter averages over directions rather than conditioning on the threefold axis. Searches of related published research covered octahedral width distributions, projected shadow types, and hypercube covariograms. No dominating conditional parallel-chord law was identified. Unindexed older directional formulas remain possible.
+PASS
 
-## Mathematical value — PASS
-This is a complete geometric probability law in a distinguished crystallographic direction, including a positive atom at the longest chord. It supplies a nontrivial exact stereological benchmark that cannot be replaced by the marginal isotropic density. Its scope is narrow but geometrically canonical.
+For unit ℓ1-octahedron and fixed u=(1,1,1)/sqrt3, exactly enumerated all 56 triples of eight translated facet planes symbolically and found 12 affine vertices valid throughout t in (0,2/3); independently convex-hull volume at six interior t verified (2-3t)(4-3t)/6, and examined checker shoelace formulas. Facet-pyramid identities give directional g(r)=4/3−√3r+r²/2 to rmax=2/√3, otherwise zero. Fubini g(r)=∫(L−r)+dy and -g’(r)/projection area yields continuous survival 1−r/√3 and endpoint atom 1/3. Moment integration gives E L=4/(3√3), Var(L)=4/27. Endpoint/zero-offset and selection measure explicit; numeric checks corroborate but do not replace symbolic phase proof.
 
-## Limitations
-Only the threefold symmetry directions (and their affine images under compatible sampling) are treated; the general directional family is not classified. Full independent mathematical and priority assessments remain pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as an exact claim over the stated object and quantifiers after comparing equivalent functors, stronger theorems, literature and relevant indexed findings. Search failure alone is not proof; see material_read and residual_risks.
+
+## value
+
+PASS
+
+Regular octahedron is a canonical tomography test polytope; chords parallel to a threefold symmetry axis use a natural directional conditioning. The exact positive maximal-length atom (1/3), not visible in angularly averaged isotropic chord density, plus closed covariogram is a meaningful sharp exceptional directional geometric fact and calibration for directional chord inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
