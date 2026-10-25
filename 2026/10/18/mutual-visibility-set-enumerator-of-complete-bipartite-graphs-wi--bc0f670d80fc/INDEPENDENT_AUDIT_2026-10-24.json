@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "FROZEN RESULT.md 955626d0ca7654329c446357865dd3cf845024bc",
+        "FROZEN verify_visibility_matching.py cdf4854ff17f4ab910dafccfbb510c8410c1f809",
+        "Fresh BFS checks /mnt/data/scope07_independent_check_results_20261024.json"
+      ],
+      "rationale": "All selected same-part pairs have geodesics of length 2, obstructed only if all unselected opposite vertices are distinct deleted partners of the pair, exactly the predicates p>=2,s<=2,x-c=s and q>=2,r<=2,y-c=r. Selected deleted cross-pairs have geodesic length 3 and need two omitted opposite-class vertices joined by an edge, excluding r=0,s=0 or r=s=e=1. The five occupation parameters x,y,c,u,v partition all subsets and their multinomial weights without duplicates. Exhausting exactly two omitted vertices gives maximum a+b-2 and exact leading coefficient (a-t)(b-t)+1_{t=1}(1+2 1_{a=3}+2 1_{b=3}). Independently rebuilt graphs and BFS for 1984 vertex subsets across five profiles, matching full coefficient distribution and leading counts (51/9,89/2,184/1,422/6,850/4).",
+      "residual_risks": [
+        "Independent check tests only five parameter profiles; all a,b,t conclusion derives from pairwise geodesic cases and multinomial partition.",
+        "a,b>=3, 1<=t<min(a,b), matching deletions only; no arbitrary deletions/crown boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 14 only applies to an undeleted complete bipartite graph.",
+          "General inclusion–exclusion over maximal visibility sets is an algorithmic identity but not a closed five-occupancy classification for partial deletion."
+        ],
+        "reasoning": "Specialized t>=1 graphs are not complete multipartite; covered earlier general algorithms do not themselves supply the new exact family formula.",
+        "searches": [
+          "arXiv:2507.01851v2 Theorem 14",
+          "Bujtas-Klavzar-Tian Proposition 3.5",
+          "Resultary 2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2412.03066v1 (primary Prop 3.2)",
+        "https://arxiv.org/html/2507.01851v2 (primary Thm 14)",
+        "https://oeis.org/A390404 (exact crown table)",
+        "Resultary semantic: mutual visibility polynomial complete bipartite graph K_{a,b} minus partial matching enumerator optimal sets",
+        "Resultary 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Undeleted maximum a+b-2 is known and maintained after deletions.",
+          "Exact leading coefficient depends on t, both untouched class sizes and boundary indicator t=1; missing from endpoint tables."
+        ],
+        "reasoning": "Endpoint polynomial at t=0 and full crown at t=a=b cannot interpolate intermediate matching deletions; new geodesic obstruction classification supplies substantive independent result.",
+        "searches": [
+          "arXiv:2412.03066v1 Proposition 3.2",
+          "arXiv:2507.01851v2 Theorem 14",
+          "OEIS A390404"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown K_nn-M_n is spanning deletion t=n; new theorem requires t<min(a,b).",
+          "Graph family K_ab minus matching is not complete multipartite when t>=1."
+        ],
+        "reasoning": "Aliases searched include visibility polynomial, mutually visible subset count, partial crown and missing-matching biclique; no source covering intermediate t found.",
+        "searches": [
+          "Resultary semantic: mutual visibility polynomial complete bipartite graph K_{a,b} minus partial matching enumerator optimal sets",
+          "arXiv:2412.03066v1 Proposition 3.2",
+          "arXiv:2507.01851v2 Theorem 14",
+          "OEIS A390404"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS Howroyd 2026 provides exact crown polynomial at excluded t=a=b.",
+          "Resultary same-graph record enumerates CIS pairs rather than mutual-visibility subsets."
+        ],
+        "reasoning": "Adjacent exact tables do not give general 1<=t<min(a,b) coefficients; prior crown polynomial explicitly excluded, possible hidden partial-crown table remains.",
+        "searches": [
+          "OEIS:A390404",
+          "Resultary 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+          "Resultary semantic: mutual visibility polynomial complete bipartite graph K_{a,b} minus partial matching enumerator optimal sets"
+        ]
+      },
+      "rationale": "Undeleted K_ab and fully deleted crown graph visibility polynomials are genuine prior endpoints; neither includes the non-spanning deleted-matching case with a and b unmatched vertices. Target all-coefficient occupancy formula, obstruction predicate, leading multiplicity and monotonicity are not covered by inspected original theorem statements. Same graph family Resultary entries count geodesic subpaths or CIS pairs, which are different invariants.",
+      "residual_risks": [
+        "An unpublished or unindexed matching-deleted visibility polynomial may cover intermediate t.",
+        "Resultary same-graph entries were read from summaries; no comprehensive negative assessment of their full unpublished text.",
+        "The t=a=b crown and t=0 undeleted cases remain firmly prior, not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 3.2 explicitly treats undeleted balanced K_nn; its cases and polynomial cannot determine intermediate partial matching-deletion occupancies.",
+          "evidence": [
+            "Proposition 3.2 formula for V(K_nn) only, not K_ab minus M_t with 1<=t<min(a,b)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.03066v1",
+          "material_read": "Primary complete HTML Section 3, Definition 3.1, Proposition 3.2 and proof, properties and section structure",
+          "method": "Read primary open-access HTML, searched its full displayed theorem and surrounding proof text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "First publication defining visibility polynomials and K_nn coefficients"
+        },
+        {
+          "assessment": "Theorem 14 gives visibility polynomial of ordinary complete bipartite K_ab, not the matching-deleted graph. Its graph assumption fails for every t>=1.",
+          "evidence": [
+            "Theorem 14 explicitly assumes G=K_{m,n} (no matching deletions) and gives full coefficient formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.01851v2",
+          "material_read": "Original HTML theorem 13 and 14, cases/proof, section on graph families and definitions",
+          "method": "Read primary open-access HTML, searched its full displayed theorem and surrounding proof text",
+          "title": "On the visibility polynomial of graphs",
+          "trigger": "Full all-coefficient result on arbitrary undeleted K_ab"
+        },
+        {
+          "assessment": "Covers only balanced crown K_nn-M_n, which is excluded because t<min(a,b); it is meaningful prior boundary, not original here.",
+          "evidence": [
+            "Jan 12 2026 comment states full crown visibility polynomial and counts."
+          ],
+          "identifier_or_url": "https://oeis.org/A390404",
+          "material_read": "Whole OEIS entry including Howroyd Jan 2026 visibility polynomial formula, sequence and comments",
+          "method": "Read primary open-access HTML, searched its full displayed theorem and surrounding proof text",
+          "title": "OEIS A390404: Number of mutual-visibility sets in the n-crown graph",
+          "trigger": "Exact adjacent database result for full deleted perfect matching"
+        },
+        {
+          "assessment": "Counts disjoint maximal-clique/maximal-stable-set pairs; not a visibility-set polynomial. No full-text negative assertion.",
+          "evidence": [
+            "Summary exact invariant t((a-1)(b-1)-t+1) concerns CIS pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+          "material_read": "Resultary indexed title/abstract summary only",
+          "method": "Read indexed mathematical abstract only, full proof not retrieved",
+          "title": "Exact non-CIS-pair count for matching-deleted complete bipartite graphs",
+          "trigger": "Same graph family; could imply new result via related invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bujtas–Klavzar–Tian define the visibility polynomial; Tonny–Shikhi compute the intact biclique boundary; OEIS treats crown boundary."
+      ],
+      "rationale": "Deleting a matching from a biclique is a canonical perturbation between complete bipartite graphs and crown graphs. The theorem determines every visibility-polynomial coefficient, exact maximizer multiplicity and coefficientwise deletion behavior from a reusable five-occupancy geodesic obstruction test, not a selected instance or mere n-parameter renaming.",
+      "residual_risks": [
+        "No arbitrary edge-deleted biclique generalization is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent check tests only five parameter profiles; all a,b,t conclusion derives from pairwise geodesic cases and multinomial partition.",
+    "a,b>=3, 1<=t<min(a,b), matching deletions only; no arbitrary deletions/crown boundary.",
+    "An unpublished or unindexed matching-deleted visibility polynomial may cover intermediate t.",
+    "Resultary same-graph entries were read from summaries; no comprehensive negative assessment of their full unpublished text.",
+    "The t=a=b crown and t=0 undeleted cases remain firmly prior, not new.",
+    "No arbitrary edge-deleted biclique generalization is claimed.",
+    "The frozen public AUDIT.json and METADATA.json each contain scope_run_id internal operational identifiers. Exact complete sanitized replacement file bytes with original Git blob guards, UTF-8 SHA-256 and same-claim verification were not prepared. Withhold publication of the completed scientific assessment."
+  ],
+  "schema_version": 1
+}

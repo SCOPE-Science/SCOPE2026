@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact three local geodesic-obstruction tests, proves they are jointly equivalent to mutual visibility, and counts each occupancy class by a multinomial factor. The degree and leading coefficient are proved by the complete two-omission analysis. The included independent graph-based verifier exhaustively tested 49,984 subsets over 40 graph profiles and 210 additional formulas; finite tests are corroborative, not exhaustive over the integer domain.
+PASS
 
-## Originality — PASS (with residual risk)
+All selected same-part pairs have geodesics of length 2, obstructed only if all unselected opposite vertices are distinct deleted partners of the pair, exactly the predicates p>=2,s<=2,x-c=s and q>=2,r<=2,y-c=r. Selected deleted cross-pairs have geodesic length 3 and need two omitted opposite-class vertices joined by an edge, excluding r=0,s=0 or r=s=e=1. The five occupation parameters x,y,c,u,v partition all subsets and their multinomial weights without duplicates. Exhausting exactly two omitted vertices gives maximum a+b-2 and exact leading coefficient (a-t)(b-t)+1_{t=1}(1+2 1_{a=3}+2 1_{b=3}). Independently rebuilt graphs and BFS for 1984 vertex subsets across five profiles, matching full coefficient distribution and leading counts (51/9,89/2,184/1,422/6,850/4).
 
-Di Stefano's 2021 treatment (arXiv:2105.02722, Theorem 4.9) establishes the undeleted biclique maximum. The visibility-polynomial papers arXiv:2412.03066 (Proposition 3.2) and arXiv:2507.01851 (Theorem 14) address the undeleted complete bipartite cases. OEIS A390404 gives the perfect-matching crown case. The intermediate non-spanning deleted-matching family, with its distinct five-occupancy classification and complete coefficient distribution, is not implied by those statements. Other checked relevant mathematical records concern complete multipartite graphs or different geodesic counts. Search cannot prove uniqueness; some full source pages remained inaccessible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Counting all mutual-visibility configurations under a controlled edge-deletion operation refines the established extremal invariant and identifies a nontrivial obstruction mechanism for each matching endpoint. The result includes a full polynomial, a sharp and exactly counted maximum, and a coefficientwise deletion monotonicity property. It is an infinite three-parameter structural classification, not a single computed instance or a renaming of the undeleted formula.
+Undeleted K_ab and fully deleted crown graph visibility polynomials are genuine prior endpoints; neither includes the non-spanning deleted-matching case with a and b unmatched vertices. Target all-coefficient occupancy formula, obstruction predicate, leading multiplicity and monotonicity are not covered by inspected original theorem statements. Same graph family Resultary entries count geodesic subpaths or CIS pairs, which are different invariants.
 
-## Limitations
+## value
 
-The result requires \(a,b\ge3\), \(1\le t<\min\{a,b\}\), and a deleted matching. No conclusion is asserted for arbitrary deletions or other kinds of visibility. Some plausible bibliographic full texts were unavailable. Independent scientific assessment is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting a matching from a biclique is a canonical perturbation between complete bipartite graphs and crown graphs. The theorem determines every visibility-polynomial coefficient, exact maximizer multiplicity and coefficientwise deletion behavior from a reusable five-occupancy geodesic obstruction test, not a selected instance or mere n-parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
