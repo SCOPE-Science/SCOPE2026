@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2nd and 4th isotropic weighted-ball moments produce the displayed exact degree-two reproducing kernel: constants + D<x,y> + D(D+2)/2[(x·y)^2-||x||^2||y||^2/d] + D^2(D+2)/(4dk)(||x||^2-d/D)(||y||^2-d/D), D=d+2k. Radial squared norm has Beta(d/2,k) law; d(1-R_d^2)/2→Gamma(k) in L1 and normalized angular coordinate→N(0,1) independently. Uniform in radius, the kernel divided by d tends in L1 to one-half the absolute value of (1-r²)(G/k-1)+r²(Z²-1). The limiting profile is strictly convex on interior: its maximum is at r=0 or 1 only, even at the tie. Endpoints integrate to k^k e^-k/Gamma(k+1) and sqrt(2/(pi e)), equal at k=1/2; the gamma centered absolute deviation decreases strictly with k by gamma/Beta conditional Jensen. Independent symbolic moment-reproduction and representative finite-weight checks supported normalization. Limit is only for fixed k>0; no finite-d exact maximizer is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Xu develops ball orthogonal expansions and fixed-d approximation; Figueroa derives fixed-d Sobolev errors as degree grows.",
+          "Defant et al. study minimal projection constants on spheres, not a fixed L2-orthogonal weighted-ball projector."
+        ],
+        "reasoning": "The closest broader frameworks have different asymptotic dimension/degree regimes, measure supports or optimization objectives, so do not dominate the radial Gamma endpoint transition.",
+        "searches": [
+          "Li Xu 2013 spectral approximation unit ball asymptotic Sobolev",
+          "Figueroa 2016 orthogonal polynomial projection weighted Sobolev norms unit ball",
+          "Defant Galicer Mansilla Mastylo Muro 2024 minimal projections spheres"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md (blob f446d6b737cc80f5048c988e2a3110043c64914a)",
+        "https://arxiv.org/abs/1310.2283",
+        "https://arxiv.org/abs/1607.00930",
+        "https://arxiv.org/abs/2405.12123",
+        "Resultary published 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected primary theorems emphasize approximation of functions as polynomial cutoff grows or minimal projection constants on spheres.",
+          "The present sharp fixed-degree high-dimensional L∞ orthogonal projector norm requires the Gamma radial contribution."
+        ],
+        "reasoning": "Older kernel decompositions are valid premises of the calculation, but they do not themselves yield a limit of maxima across d or the critical weight k=1/2.",
+        "searches": [
+          "arxiv:1310.2283 weighted ball spectral approximation",
+          "arxiv:1607.00930 weighted Sobolev orthogonal projector",
+          "arxiv:2405.12123 minimal sphere projection constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted degree-2 orthogonal projection norm is the maximum of the integral of the absolute reproducing kernel (Lebesgue function).",
+          "Weight (1-r²)^{k-1} gives Beta radial law and Gaussian/Gamma high-dimensional regime."
+        ],
+        "reasoning": "The weighted-ball Christoffel/Lebesgue function is the equivalent formulation; known orthogonal decompositions provide the kernel but do not, without new asymptotics and optimization, imply the sharp max constant and radial transition.",
+        "searches": [
+          "Li Xu spectral approximation weighted ball degree 2 reproducing kernel Lebesgue constant",
+          "weighted ball orthogonal polynomial projection L infinity high-dimensional norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published Resultary Johnson-scheme primitive projector has the same sqrt(2/(pi e)) Gaussian boundary coefficient.",
+          "The Hamming/Johnson endpoint computations are discrete association schemes, not the Gamma radial mass of weighted continuous balls."
+        ],
+        "reasoning": "A coincident universal Gaussian quadratic coefficient alone is not an exact table or implication for the whole k-dependent weighted-ball transition.",
+        "searches": [
+          "Resultary: weighted Euclidean ball degree two orthogonal polynomial projection L infinity norm high dimension gamma radial transition",
+          "degree two Johnson projection endpoint norm Gaussian quadratic"
+        ]
+      },
+      "rationale": "The Li–Xu and Figueroa primary papers study ball orthogonal polynomials and projection approximation with fixed d and polynomial degree varying; a separate 2024 sphere minimal projection result supplies a related Gaussian constant but not the weighted ball fixed-degree high-d Gamma radial profile. The all-dimension asymptotic norm and exact weight transition are not implied by their inspected theorems. Originality passes with possible obscure Christoffel/Lebesgue-function literature overlap.",
+      "residual_risks": [
+        "Historical equivalent high-dimensional weighted-ball Lebesgue function formula might appear under Christoffel-function terminology.",
+        "At critical k=1/2, no finite-dimensional selector between center and boundary is established; the theorem covers only cluster locations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers orthogonal polynomial decomposition and approximation, not the fixed-degree high-d L∞ limit and maximizer transition.",
+          "evidence": [
+            "Theorems quantify polynomial-degree approximation at fixed ambient dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.2283",
+          "material_read": "Full accessible author HTML; introduction, spectral polynomial expansion and approximation/regularity theorems, appendices and stated parameter regimes.",
+          "method": "Full-text theorem comparison.",
+          "title": "Spectral approximation on the unit ball",
+          "trigger": "Same orthogonal polynomial measure/space might cover endpoint norm."
+        },
+        {
+          "assessment": "Endpoint norm question here is fixed polynomial degree and ambient dimension tending to infinity.",
+          "evidence": [
+            "Results bound Sobolev projection errors, rather than sharp high-dimensional endpoint operator norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.00930",
+          "material_read": "Open abstract, introduction and theorem statements describing fixed-d degree-cutoff error bounds.",
+          "method": "Primary open abstract and theorem-level text.",
+          "title": "Orthogonal polynomial projection error measured in Sobolev norms in the unit ball",
+          "trigger": "Same canonical ball projection with weighted Sobolev norms."
+        },
+        {
+          "assessment": "Related boundary Gaussian coefficient but different sphere measure and minimal-projection optimization.",
+          "evidence": [
+            "Sphere is not the ball with radial Beta-Gamma weight; cannot generate k-dependent center-vs-boundary transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.12123",
+          "material_read": "Primary available results and statements concerning sphere minimal projections and degree-two terms.",
+          "method": "Open theorem and setting comparison.",
+          "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+          "trigger": "Related high-dimensional Gaussian quadratic coefficient could imply coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical degree-two projector has a natural endpoint stability norm; the theorem gives its sharp high-dimensional coefficient and a discontinuous change of extremizer region with the radial weight. This phase transition is a motivated precise invariant, not a numerical fit or a general-fact relabeling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dimension tends to infinity with k=alpha+1 fixed and polynomial degree exactly two.",
+    "Norm of this orthogonal projector, not least projection constant; no uniformity for k varying with d.",
+    "Historical equivalent high-dimensional weighted-ball Lebesgue function formula might appear under Christoffel-function terminology.",
+    "At critical k=1/2, no finite-dimensional selector between center and boundary is established; the theorem covers only cluster locations."
+  ],
+  "schema_version": 1
+}

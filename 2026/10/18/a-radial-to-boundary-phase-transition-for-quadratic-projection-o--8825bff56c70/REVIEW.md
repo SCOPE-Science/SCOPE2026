@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Beta-ball second and fourth moments give the full degree-two reproducing kernel, including the trace-free and radial components. A coupling using independent Gaussian sequences and a Gamma variable gives uniform-in-radius convergence, in expected absolute value, to the convex limiting profile. Gamma additivity proves strict monotonicity of the center constant, and a chi-square-one identity fixes the exact crossing at \(\alpha=-1/2\). The strict interior convexity comparison yields the claimed limit-point classification of maximizing radii. The standalone checker independently verifies 308 exact rational identities, beta-integral calculations, and finite-dimensional diagnostics; the large-dimension theorem is proved analytically rather than inferred from tests.
+PASS
 
-## Originality — PASS, with residual priority risk
+The 2nd and 4th isotropic weighted-ball moments produce the displayed exact degree-two reproducing kernel: constants + D<x,y> + D(D+2)/2[(x·y)^2-||x||^2||y||^2/d] + D^2(D+2)/(4dk)(||x||^2-d/D)(||y||^2-d/D), D=d+2k. Radial squared norm has Beta(d/2,k) law; d(1-R_d^2)/2→Gamma(k) in L1 and normalized angular coordinate→N(0,1) independently. Uniform in radius, the kernel divided by d tends in L1 to one-half the absolute value of (1-r²)(G/k-1)+r²(Z²-1). The limiting profile is strictly convex on interior: its maximum is at r=0 or 1 only, even at the tie. Endpoints integrate to k^k e^-k/Gamma(k+1) and sqrt(2/(pi e)), equal at k=1/2; the gamma centered absolute deviation decreases strictly with k by gamma/Beta conditional Jensen. Independent symbolic moment-reproduction and representative finite-weight checks supported normalization. Limit is only for fixed k>0; no finite-d exact maximizer is claimed.
 
-Full-text arXiv HTML for Li–Xu (arXiv:1310.2283, §§2–4 and appendix) and Figueroa (arXiv:1607.00930, §§1–4) gives the canonical polynomial projectors, orthogonal structures, and Sobolev approximation statements. Neither inspected work states the sharp high-dimensional degree-two \(L^\infty\) norm or the center/boundary transition. Defant–Galicer–Mansilla–Mastyło–Muro (arXiv:2405.12123, introduction and §5) treats polynomial projection constants on spheres; it concerns a different measure/target and does not imply the weighted-ball radial Gamma law. Related published finite-scheme and simplex projection calculations use different moment laws and do not settle this claim. Searches under Jacobi-ball projection, degree-two Lebesgue function, center-versus-boundary phase law, Gaussian–Gamma profile, and projection constant aliases found no dominating statement; lack of retrieval is not a proof of priority.
+## originality
 
-Risk: an earlier Christoffel-kernel or ball polynomial Lebesgue-constant analysis could contain an equivalent formula or implicit consequence not visible in the inspected sources. Bibliographic originality remains provisional pending independent review.
+PASS
 
-## Value — PASS
+The Li–Xu and Figueroa primary papers study ball orthogonal polynomials and projection approximation with fixed d and polynomial degree varying; a separate 2024 sphere minimal projection result supplies a related Gaussian constant but not the weighted ball fixed-degree high-d Gamma radial profile. The all-dimension asymptotic norm and exact weight transition are not implied by their inspected theorems. Originality passes with possible obscure Christoffel/Lebesgue-function literature overlap.
 
-The same natural weighted orthogonal polynomial projection changes its high-dimensional worst amplification location at an exact classical parameter value. The complete sharp coefficient and localization classification explain the competition of a radial Gamma mode and an angular Gaussian quadratic mode, distinguishing dimension growth from fixed-dimension polynomial-degree estimates. This predicts where bounded-data least-squares instability concentrates and quantifies the resulting positivity loss. The result is limited to fixed weight parameter and polynomial degree two, with no claim about finite-dimensional global maximizers.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The canonical degree-two projector has a natural endpoint stability norm; the theorem gives its sharp high-dimensional coefficient and a discontinuous change of extremizer region with the radial weight. This phase transition is a motivated precise invariant, not a numerical fit or a general-fact relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
