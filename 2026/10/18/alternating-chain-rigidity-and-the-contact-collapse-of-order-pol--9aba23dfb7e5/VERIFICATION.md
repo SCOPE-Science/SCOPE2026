@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses exact filter geometry: every antichain supports a free filter subcube; longest-chain ranks partition the ground set into antichains; and signed-chain widths are exactly suffix-walk spans. It applies without finite-size restrictions. The contact comparison uses a separately published facet formula for the enriched chain polytope, not an assumed equivalence of the two polytopes.
+## correctness
 
-The `verify.py` program was executed with Python 3, without third-party packages. It exhaustively checked 407 transitively closed naturally labeled posets on one to five elements, testing 89,794 nonzero ternary directions and counting 1,760 predicted equality witnesses. It also checked the signed suffix-walk formula on every longest chain in each tested poset. The observed terminal message was:
+PASS
 
-```
-PASS: 407 posets, 89794 directional checks, 1760 shortest-unit-direction witnesses
-```
+Reconstructed filter-vertex width W(v)≥∑_(a∈A)|v_a| for each antichain, partition P into h rank antichains, and derive ∥v∥²≤hW(v)². Equality forces exactly one absolute coefficient h^(-1/2) per rank and excludes two incomparable support coordinates; hence support on a longest chain. Its suffix-sum walk has width one only for alternating signs, yielding exactly 2L oriented tangent normals; comparison with 2^h L enriched-chain contacts is correctly parameterized. All finite nonempty posets, standard metric; neither the enriched-chain radius nor tests alone certify the new contact rigidity.
 
-These checks provide finite corroboration only. They are not exhaustive for unbounded dimension and do not replace the general proof. A separate independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Known enriched chain-polytope metric results give radius h^-1/2 and all-sign enriched contacts. This does not entail D(P) exact equality-normal set: only alternating sign sequences survive, and the new contact ratio 2^(1-h) is an implication of proven rigidity, not prior data. Primary signed facet and filter-vertex facts were checked.
+
+## value
+
+PASS
+
+Classifying all minimal-width directions of the difference body of any finite-poset order polytope supplies a sharp rigidity statement and exact exponential contact-collapse ratio relative to the enriched-chain polytope. The known numerical inradius alone does not give equality-normal structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
