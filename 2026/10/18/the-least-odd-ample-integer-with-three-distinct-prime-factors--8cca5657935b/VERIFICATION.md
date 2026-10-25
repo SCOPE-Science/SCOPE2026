@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-From a directory containing the supplied `verify.py`, run `python3 verify.py`. This uses standard-library arbitrary-precision integers. The exact run produced:
+## correctness
 
-```
-support=(3,5,7) eligible=4650 hits=1 smallest_nonample_deficit=79
-support=(3,5,11) eligible=3718 hits=0 smallest_nonample_deficit=139
-support=(3,5,13) eligible=3459 hits=0 smallest_nonample_deficit=169
-witness_N=801204488268064453125 a(N)=841632661765951062016 excess=40428173497886608891
-verified=11827 exponent triples; independent divisor and factorization checks passed
-```
+PASS
 
-The coefficient recurrence is obtained by exact formal-power-series comparison, not fitted to the data. All candidate supports are first proved exhaustive using divisor-sum inequalities. The candidate search uses exponent bounds justified by comparison with the exact witness and exact integer products. The complete independent proper-divisor recurrence cross-check covers the witness divisor box. A separate ordered-factorization inclusion-exclusion computation confirms the terminal value. The code asserts all reported values and exits on a mismatch.
+From a(n)=1+Σ_{proper d|n}a(d), strong induction on divisors proves sigma(n)<2n implies a(n)≤n because divisor abundancy is monotone under divisibility. For at most two odd prime factors, the limiting Euler product is <2; for exactly three, supports outside {3,5,7},{3,5,11},{3,5,13} are likewise excluded. On support p,q,r, the recurrence depends only on exponents. Expanding A(X,Y,Z)=1/[2(1-X)(1-Y)(1-Z)-1] gives an exact seven-neighbor integer recurrence with boundary zeros. Independent Python recomputation over the complete exponent box, filtering p^i q^j r^k ≤ N*=3^20·5^9·7^6, confirmed exactly 4650+3718+3459=11827 eligible triples; only (20,9,6) is ample, with a(N*)=841632661765951062016 and N*=801204488268064453125; among strict smaller candidates minimum deficits are79,139,169. The proof establishes the necessary finite cutoff; no infinite conclusion is drawn from an incomplete search.
 
-Scientific limits: the exhaustive certificate excludes all strictly smaller **odd numbers with exactly three distinct prime factors**; it does not enumerate all larger three-prime numbers or odd ample numbers of four or more distinct prime factors. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Least odd ample integer with exactly three distinct prime factors
+
+## value
+
+PASS
+
+Determining the first odd ample integer at its minimum possible support size of three primes is a canonical sharp natural invariant of the recursive divisor function, separate from the smaller unrestricted odd minimum. The exact minimizer and complete 11827-triple certificate provide a reusable boundary for the classification and a test of support-local abundance principles. It is not arbitrary exponent slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

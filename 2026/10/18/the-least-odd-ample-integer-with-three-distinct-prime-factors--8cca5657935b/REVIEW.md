@@ -1,15 +1,21 @@
-# Scientific review: least odd three-prime-support ample integer
+# Independent mathematical audit
 
-## Correctness — PASS
-The result defines the recursive-divisor function and strict ample inequality, proves deficient integers cannot be ample using divisorwise abundancy monotonicity and strong induction, and reduces any odd three-prime ample candidate to three explicitly listed supports. Its seven-term coefficient recurrence follows from an exact rational formal generating function. The `verify.py` artifact exhaustively checks every positive exponent triple on these supports at or below the proposed witness: 4,650, 3,718, and 3,459 triples, respectively. Exactly one qualifies, and independent proper-divisor and ordered-factorization calculations confirm its exact recursive-divisor count. No finite experiment is used to exclude unbounded candidates without the preceding analytic sieve and strict candidate upper bound.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Fink's 2020 full paper provides a different five-prime-factor odd minimum and no least three-prime-support result; Fink's 2023 full paper gives generating functions and ordered factorizations, not this minimizer. The published finite-support existence theorem does not supply any quantitative minimality bound and explicitly disclaims one. Other published nearby results constrain total prime multiplicity or discuss unrelated almost-practical integers. Actual published research search records and accessible previous claims were compared for implication; no inspected statement provides this minimizer or a stronger covering classification. An equivalent computation in unindexed literature remains possible.
+PASS
 
-## Value — PASS
-The number of distinct prime divisors is the first natural sparsity parameter for odd ample integers. The theorem identifies the exact smallest integer at its minimum possible support, using a rigorous structural sieve and a finite complete certificate rather than an arbitrary numerical slice. It addresses the effective-minimum gap explicitly left open by the finite-support existence theorem; no downstream general theorem is asserted.
+From a(n)=1+Σ_{proper d|n}a(d), strong induction on divisors proves sigma(n)<2n implies a(n)≤n because divisor abundancy is monotone under divisibility. For at most two odd prime factors, the limiting Euler product is <2; for exactly three, supports outside {3,5,7},{3,5,11},{3,5,13} are likewise excluded. On support p,q,r, the recurrence depends only on exponents. Expanding A(X,Y,Z)=1/[2(1-X)(1-Y)(1-Z)-1] gives an exact seven-neighbor integer recurrence with boundary zeros. Independent Python recomputation over the complete exponent box, filtering p^i q^j r^k ≤ N*=3^20·5^9·7^6, confirmed exactly 4650+3718+3459=11827 eligible triples; only (20,9,6) is ample, with a(N*)=841632661765951062016 and N*=801204488268064453125; among strict smaller candidates minimum deficits are79,139,169. The proof establishes the necessary finite cutoff; no infinite conclusion is drawn from an incomplete search.
 
-## Limitations and references
-The result does not imply an elementary closed form for all three-prime-support ample integers. The exact certificate is required for the finite exclusion. Primary references: Fink, arXiv:2008.10398v1 and arXiv:2307.09140v1; the full published “Finite abundant prime supports force ample numbers”; Liyanage–Ranasinghe's 2022 conference abstract; OEIS A067824.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Least odd ample integer with exactly three distinct prime factors
+
+## value
+
+PASS
+
+Determining the first odd ample integer at its minimum possible support size of three primes is a canonical sharp natural invariant of the recursive divisor function, separate from the smaller unrestricted odd minimum. The exact minimizer and complete 11827-triple certificate provide a reusable boundary for the classification and a test of support-local abundance principles. It is not arbitrary exponent slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

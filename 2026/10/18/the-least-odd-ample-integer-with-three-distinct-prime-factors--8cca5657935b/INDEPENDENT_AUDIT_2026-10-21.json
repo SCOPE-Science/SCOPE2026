@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T05:58:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From a(n)=1+Σ_{proper d|n}a(d), strong induction on divisors proves sigma(n)<2n implies a(n)≤n because divisor abundancy is monotone under divisibility. For at most two odd prime factors, the limiting Euler product is <2; for exactly three, supports outside {3,5,7},{3,5,11},{3,5,13} are likewise excluded. On support p,q,r, the recurrence depends only on exponents. Expanding A(X,Y,Z)=1/[2(1-X)(1-Y)(1-Z)-1] gives an exact seven-neighbor integer recurrence with boundary zeros. Independent Python recomputation over the complete exponent box, filtering p^i q^j r^k ≤ N*=3^20·5^9·7^6, confirmed exactly 4650+3718+3459=11827 eligible triples; only (20,9,6) is ample, with a(N*)=841632661765951062016 and N*=801204488268064453125; among strict smaller candidates minimum deficits are79,139,169. The proof establishes the necessary finite cutoff; no infinite conclusion is drawn from an incomplete search.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary theorem guarantees infinitely many ample integers on finite supports with Euler product >2",
+          "Fink establishes deficient non-ample and gives an unrestricted odd ample witness with five prime factors"
+        ],
+        "reasoning": "Existence for a support is strictly weaker than its least element, and a global smallest odd example with five primes is a different extremal problem.",
+        "searches": [
+          "odd ample recursive divisor function least three prime factors 3^20 5^9 7^6",
+          "Resultary SCOPE-finite-abundant-prime-supports-force-ample-numbers--3a5bff12f682",
+          "Fink 2008.10398 conjecture support avoidance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.10398",
+        "arXiv:2307.09140",
+        "Resultary support existence theorem",
+        "OEIS A067824",
+        "Resultary query odd ample recursive divisor function least three prime factors 3^20 5^9 7^6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives deficiency obstruction, supermultiplicativity, and support-local existence",
+          "New statement gives the numerically exact first element among all odd integers with exactly three distinct prime factors"
+        ],
+        "reasoning": "Neither the general identity nor existence yields any least integer; the finite sieve/exponent recurrence computation supplies the decisive additional information.",
+        "searches": [
+          "Fink 2020 Lemma1",
+          "Fink 2023 ordered factorization",
+          "Resultary support existence theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a(n) is the recursive divisor function; ordered factorization counts give an alternative expression",
+          "The three-prime exponent generating function is a specialization of Fink’s global recursive identity"
+        ],
+        "reasoning": "Equivalently one can count ordered multiplicative partitions, but that formula alone does not give the exact minimum, which requires a support sieve and exhaustive bounded comparison.",
+        "searches": [
+          "odd ample recursive divisor function least three prime factors 3^20 5^9 7^6",
+          "Fink arXiv:2008.10398 recursively abundant/ample",
+          "Fink arXiv:2307.09140 ordered factorization relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed sequence supplies values of the recursive divisor function but no displayed 3^20 5^9 7^6 least three-prime witness",
+          "Independent exhaustive 11827-case table yields exactly one qualifying candidate"
+        ],
+        "reasoning": "An indexed table of smaller n cannot replace exact minimization at ~8×10^20; a large unindexed exact computation remains a priority risk.",
+        "searches": [
+          "odd ample recursive divisor function least three prime factors 3^20 5^9 7^6",
+          "OEIS A067824 recursive divisor count",
+          "Resultary query odd ample recursive divisor function least three prime factors 3^20 5^9 7^6"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Least odd ample integer with exactly three distinct prime factors",
+      "residual_risks": [
+        "The exact minimizer could have been tabulated in an unindexed specialist computation.",
+        "The finite exhaustive arithmetic was independently reimplemented but not turned into a formal proof artifact; the recurrence plus cutoff furnish the mathematical guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior deficiency obstruction and odd five-prime witness credited; three-prime exact minimality not established",
+          "evidence": [
+            "Lemma 1 and odd-example discussion"
+          ],
+          "identifier_or_url": "arXiv:2008.10398",
+          "material_read": "Primary PDF main definitions, Lemma 1 and odd examples in Section 3",
+          "method": "Read full accessible PDF and inspected relevant lemma page",
+          "title": "Recursively abundant and recursively perfect numbers",
+          "trigger": "Introduces ample numbers and gives smallest unrestricted odd example"
+        },
+        {
+          "assessment": "General counting identities precede result, but not sharp three-prime minimum",
+          "evidence": [
+            "Dirichlet and factorization identities"
+          ],
+          "identifier_or_url": "arXiv:2307.09140",
+          "material_read": "Primary PDF statements of Dirichlet identity and ordered factorization relation",
+          "method": "Opened accessible PDF text",
+          "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+          "trigger": "Possible general formula dominating recurrence"
+        },
+        {
+          "assessment": "Explicitly existential and without effective minimal witness; cannot imply the current exact threshold",
+          "evidence": [
+            "Z_Q pole proof and limitations"
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/4/SCOPE-finite-abundant-prime-supports-force-ample-numbers--3a5bff12f682",
+          "material_read": "Entire RESULT.md and its proof/limitations",
+          "method": "Fetched full GitHub file",
+          "title": "Finite abundant prime supports force ample numbers",
+          "trigger": "Published relevant stronger existence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the first odd ample integer at its minimum possible support size of three primes is a canonical sharp natural invariant of the recursive divisor function, separate from the smaller unrestricted odd minimum. The exact minimizer and complete 11827-triple certificate provide a reusable boundary for the classification and a test of support-local abundance principles. It is not arbitrary exponent slicing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2008.10398",
+    "arXiv:2307.09140",
+    "Resultary support existence theorem",
+    "OEIS A067824",
+    "Resultary query odd ample recursive divisor function least three prime factors 3^20 5^9 7^6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact minimum at three distinct primes only, not full odd ample classification or least unrestricted odd ample."
+  ],
+  "residual_risks": [
+    "The exact minimizer could have been tabulated in an unindexed specialist computation.",
+    "The finite exhaustive arithmetic was independently reimplemented but not turned into a formal proof artifact; the recurrence plus cutoff furnish the mathematical guarantee."
+  ],
+  "schema_version": 1
+}
