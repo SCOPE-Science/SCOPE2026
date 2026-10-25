@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:00:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob c04418a14638e5a912f812656dbe879171fbc7ce",
+        "Git source verification script 2577ef46bb111320b823e67854e415889795768d",
+        "independently executed /mnt/data/audit07_independent_checks.py bounded numeric/rational tests"
+      ],
+      "rationale": "For n iid uniform circle points, cyclic gaps equal independent Exp(1) variables divided by their sum. In the critical m=log_2(n)+O(1) window, union bounds ensure the m+1 gaps inspected from any vertex span less than a semicircle with probability 1-o(1), so missing clockwise/counterclockwise candidate flags are the exponential inequalities A_i={Z_{i-1}>sum_{r=0}^{m-1} Z_{i+r}} and B_i={Z_i>sum_{r=1}^m Z_{i-r}}. Each has exact probability 2^-m. Same-direction locally overlapping events at cyclic offset 1<=k<=m have joint probability 4^-m(2/3)^k; same-gap reverse events and other opposite orientations are bounded by (4/9)^m after conditioning and exponential Laplace transforms; support disjointness gives dependency graph degree O(m). Consequently Chen–Stein local dependence bounds TV from Poisson(2n2^-m) by O(n m (4/9)^m), which tends to zero in the stated critical window. In the supercritical-coverage regime use a union bound for m<=O(log n), and monotonicity with a capped logarithmic m for larger m; below threshold a pair-covariance variance estimate and Chebyshev give P(no missing flags)->0. When every directional edge is present, greedy descent on the nearest-neighbor bidirectional cycle reaches a nearest stored point for every query and every start; with a missing side, a query immediately beyond the midpoint of that adjacent gap makes a nonoptimal blocked local minimum. Numerical Monte Carlo (400000 independent exponential windows at six pairs m<=3) agrees with the exact same-orientation pair formula within roughly three sampling SD and the source checker is finite. Boundary caveat: the source text additionally claims all-m exact coupling outside the sole event of an individual gap>=1/2. This is stronger than needed and may fail for very large m if an m-gap arc spans a semicircle. The actual theorem follows using the explicitly supplied capped-m monotonicity argument, without relying on an all-m exact coupling. No finite-n all-m identity is accepted as part of the proved final finding.",
+      "residual_risks": [
+        "The 1994 ordered m-spacings primary full text was inaccessible; a matching intermediate Poisson theorem may exist.",
+        "All-m rare-gap coupling phrasing in the source proof should not be used without the critical-window or capped-logarithmic restriction; asymptotic final claim uses the valid restricted argument.",
+        "Finite sampled query intervals cannot prove a universal all-query statement by themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Bhamidi et al. arXiv:2610.12312v1 §3 Main results and §6 proofs",
+          "Arratia–Goldstein–Gordon 1989 Chen–Stein dependency graph theorem"
+        ],
+        "reasoning": "The broader d-dimensional approximate search guarantee does not imply all-query exact convergence with sharp base-two constant, since (1+epsilon) permits failed exact nearest neighbors. The generic dependency-graph theorem requires the original pair-overlap calculations.",
+        "searches": [
+          "\"The Geometry of Hierarchical Navigation\" theorem exact nearest neighbor one dimensional",
+          "Bhamidi Dhara Schroeder Stegehuis logarithmic pool universal greedy navigation Poisson limit"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.12312v1",
+        "https://doi.org/10.2307/3214961",
+        "https://doi.org/10.1214/aop/1176991491",
+        "https://etheses.dur.ac.uk/15244/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cambridge Journal of Applied Probability 31A (1994) 271–281 abstract and references; publisher access page only abstract and references.",
+          "Bhamidi arXiv:2610.12312v1 theorem statements and graph algorithm."
+        ],
+        "reasoning": "Ordered spacing Poisson tools plausibly imply the rare-event limit by a further reduction, but their abstract does not establish this for ratios of adjacent gaps, and it certainly does not state the exact greedy routing iff no directional holes. Mark the full-paper priority comparison open; do not infer noncoverage from snippet.",
+        "searches": [
+          "Glaz Naus Roos Wallenstein Poisson approximations ordered m-spacings 1994 abstract",
+          "\"Huntington\" \"Naus\" nearest neighbor coincidence probabilities 1975"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.12312v1 §§2.2–2.3 and 3.2",
+          "Glaz–Naus–Roos–Wallenstein DOI 10.2307/3214961 abstract"
+        ],
+        "reasoning": "The event can be equivalently described as absence of rare one-gap-vs-m-gap exponential inequalities, or as complete directed cyclic-neighbor coverage. Ordinary ordered m-spacing maxima and the torus directional coverage condition are related but not the asserted exact one-layer all-query navigation event.",
+        "searches": [
+          "random circle nearest neighbor m closest candidate graph exact greedy routing universal all query all starting nodes Poisson window rare gaps",
+          "Poisson approximations ordered m-spacings directed neighbor pool exact routing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches on circular nearest-neighbor and other geometric graph thresholds, no formula for directed missing-selection Poisson(2lambda) identified.",
+          "Bhamidi full primary §3 makes no Poisson(2lambda) exact all-start claim."
+        ],
+        "reasoning": "No checked relevant record/table identifies this exact distributional failure law. Closest other circular graph statements concern different nearest-neighbor functionals; failed search is not a universal novelty certificate.",
+        "searches": [
+          "Resultary: random circle nearest neighbor m closest candidate graph exact greedy routing universal all query all starting nodes Poisson window rare gaps",
+          "\"n2^{-m}\" nearest neighbor greedy circle exact"
+        ]
+      },
+      "rationale": "The full Bhamidi–Dhara–Schroeder–Stegehuis primary paper defines the same directional candidate-pool architecture but proves approximate (1+epsilon) greedy accuracy with unspecified large logarithmic pool constants in general toroidal settings. It does not identify a one-dimensional base-two sharp threshold, the missing directional selection count or universal exact-routing Poisson window. General Chen–Stein and earlier m-spacing theory motivate methods but do not by themselves give the precise directed candidate-pool fault/navigation equivalence. The Glaz et al. 1994 paper is plausible for Poisson spacing subclaim but publisher full text was unavailable; institutional DOI access returned vpn_disconnected, a residual O risk rather than proof of noncoverage.",
+      "residual_risks": [
+        "The 1994 ordered m-spacings primary full text was inaccessible; a matching intermediate Poisson theorem may exist.",
+        "All-m rare-gap coupling phrasing in the source proof should not be used without the critical-window or capped-logarithmic restriction; asymptotic final claim uses the valid restricted argument.",
+        "Finite sampled query intervals cannot prove a universal all-query statement by themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Large logarithmic pool yields approximate (1+epsilon) navigation; no exact one-dimensional Poisson failure count or sharp base-two constant.",
+          "evidence": [
+            "arXiv:2610.12312v1 §§2–3,6"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12312v1",
+          "material_read": "Entire accessible arXiv HTML, model §§2.1–2.3, statements §3.2, proof plan §4 and relevant §§6.1–6.3.",
+          "method": "Read theorem claims, graph definitions and proof quantitative implications.",
+          "title": "The Geometry of Hierarchical Navigation: Accuracy and Query Cost for Point Process Input",
+          "trigger": "Exact same directional pool and greedy navigation model"
+        },
+        {
+          "assessment": "Potentially covers an intermediate spacing Poisson law; cannot assert full-paper noncoverage.",
+          "evidence": [
+            "Journal of Applied Probability 31A (1994), 271–281 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3214961",
+          "material_read": "Full Cambridge abstract and extensive references; full article behind access control.",
+          "method": "Searched arXiv and legal OA; authorized institutional request returned vpn_disconnected, job dc3a073f46a88888c89f33237782a29d.",
+          "title": "Poisson approximations for the distribution and moments of ordered m-spacings",
+          "trigger": "Most plausible older spacing-Poisson result"
+        },
+        {
+          "assessment": "General tool, does not contain this graph-specific exact fault law.",
+          "evidence": [
+            "Annals of Probability 17 (1989), 9–25"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Cited theorem-level dependency-graph Poisson inequality and paper bibliographic description.",
+          "method": "Compared theorem input b1/b2 with event probability and joint-event estimates.",
+          "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+          "trigger": "Standard local-dependence theorem required in correctness proof"
+        },
+        {
+          "assessment": "Investigates other directional graph functionals, not this one-layer all-query exact threshold.",
+          "evidence": [
+            "Thesis abstract and contents"
+          ],
+          "identifier_or_url": "https://etheses.dur.ac.uk/15244/",
+          "material_read": "Accessible thesis abstract and table of contents.",
+          "method": "Compared objectives, dimension and candidate-pool mechanism.",
+          "title": "Random Directional Nearest-Neighbour Graphs",
+          "trigger": "Similar graph title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.12312v1",
+        "https://doi.org/10.2307/3214961"
+      ],
+      "rationale": "The exact candidate-pool size needed for universal exact nearest-neighbor navigation, rather than approximate single-query success, is an intrinsic algorithmic/geometric invariant. A sharp log_2(n) constant plus Poisson(2lambda) critical window converts qualitative logarithmic sufficiency into a quantitative failure probability. The proof connects local directional extreme gap events to a global all-query greedy guarantee; this is mathematically substantive, not a routine rescaling of Chen–Stein.",
+      "residual_risks": [
+        "The 1994 ordered m-spacings primary full text was inaccessible; a matching intermediate Poisson theorem may exist.",
+        "All-m rare-gap coupling phrasing in the source proof should not be used without the critical-window or capped-logarithmic restriction; asymptotic final claim uses the valid restricted argument.",
+        "Finite sampled query intervals cannot prove a universal all-query statement by themselves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 1994 ordered m-spacings primary full text was inaccessible; a matching intermediate Poisson theorem may exist.",
+    "All-m rare-gap coupling phrasing in the source proof should not be used without the critical-window or capped-logarithmic restriction; asymptotic final claim uses the valid restricted argument.",
+    "Finite sampled query intervals cannot prove a universal all-query statement by themselves."
+  ],
+  "schema_version": 1
+}
