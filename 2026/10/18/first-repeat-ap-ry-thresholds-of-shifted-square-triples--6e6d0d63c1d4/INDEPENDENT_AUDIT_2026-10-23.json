@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:53:15.257490Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integer a>=2, N=r+at and y+4z=r+ah with 0<=r<a provide a bijection of every nonnegative representation (x,y,z) to (h,z) with 0<=z<=floor((r+ah)/4) and threshold cost C_{h,z}=r+(a+1)h-3z. For fixed h minimum cost C_h=r+(a+1)h-3floor((r+ah)/4), nondecreasing with h since a+1-3ceil(a/4)>=0. Therefore the second DISTINCT representation is either the second z at h=0 (available iff r>=4, cost C0+3), or the first at h=1 (cost C0+delta); the min yields c_{a,r}. Adding a preserves representations, so each residue's first repeat threshold is exactly T_a(r)=r+a c_{a,r}, with g_1=max T-a and n_1=sum c. For a>=14 (a=4k+d) delta>=3 permits complete four-residue summation and final-residue maximum: displayed g1 and n1 quasipolynomials. At a=13 the g1 extrapolation gives 102 vs exact 89, demonstrating a sharp stability threshold. Independently checked capped generating-function DP for EVERY residue and a=2..29, plus quasipolynomial instances through a=79, all agreeing; infinite proof is the cost comparison and symbolic residue summation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu & Ying arXiv:2206.13052, Theorem1, gives explicit p-Frobenius/genera for arithmetic-progression triples (a,a+d,a+2d).",
+          "(a,a+1,a+4) has adjacent offsets 1 and 3, not common difference, so cannot specialize that arithmetic-progression theorem."
+        ],
+        "reasoning": "Strongest relevant broader results were compared by hypotheses and implication, not matching titles. Komatsu & Ying arXiv:2206.13052, Theorem1, gives explicit p-Frobenius/genera for arithmetic-progression triples (a,a+d,a+2d). (a,a+1,a+4) has adjacent offsets 1 and 3, not common difference, so cannot specialize that arithmetic-progression theorem.",
+        "searches": [
+          "p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial",
+          "https://arxiv.org/abs/2210.02722",
+          "https://arxiv.org/abs/2206.13052",
+          "https://arxiv.org/abs/2111.11021"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.02722",
+        "https://arxiv.org/abs/2206.13052",
+        "https://arxiv.org/abs/2111.11021",
+        "Resultary semantic search: p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu–Xin classical p=0 result cannot count multiplicities and does not imply second-representation thresholds.",
+          "General p-Apéry max/sum corollary yields g1,n1 GIVEN T_a(r), but does not supply the new cost/second-order-statistic formula or quasipolynomial onset."
+        ],
+        "reasoning": "Careful implication check: Liu–Xin classical p=0 result cannot count multiplicities and does not imply second-representation thresholds. General p-Apéry max/sum corollary yields g1,n1 GIVEN T_a(r), but does not supply the new cost/second-order-statistic formula or quasipolynomial onset.",
+        "searches": [
+          "p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial",
+          "https://arxiv.org/abs/2210.02722",
+          "https://arxiv.org/abs/2206.13052",
+          "https://arxiv.org/abs/2111.11021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu & Xin arXiv:2210.02722 treats A=(a,a+1,a+4) as ordinary p=0 Frobenius for square-offset/power sequences.",
+          "p=1 counts N having ≥2 distinct coefficient triples and is not implied by a zero-representation Frobenius formula."
+        ],
+        "reasoning": "Equivalent logical/structural formulations were checked. Liu & Xin arXiv:2210.02722 treats A=(a,a+1,a+4) as ordinary p=0 Frobenius for square-offset/power sequences. p=1 counts N having ≥2 distinct coefficient triples and is not implied by a zero-representation Frobenius formula.",
+        "searches": [
+          "p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial",
+          "https://arxiv.org/abs/2210.02722",
+          "https://arxiv.org/abs/2206.13052",
+          "https://arxiv.org/abs/2111.11021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial",
+          "Independently calculated exact threshold list for each residue a=2..29 and checked a=14..79 quasipolynomials."
+        ],
+        "reasoning": "Generic p-Apéry identities (Komatsu arXiv:2111.11021 Corollary1) are database/formula tools but do not enumerate this exact p=1 family. No pre-existing exact shifted-square p=1 table was retrieved; failed search does not prove novelty.",
+        "searches": [
+          "p Frobenius shifted square triple a a+1 a+4 two representations explicit Apéry quasipolynomial",
+          "https://arxiv.org/abs/2210.02722",
+          "https://arxiv.org/abs/2206.13052",
+          "https://arxiv.org/abs/2111.11021"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution is the precise Complete first-repeat Apéry thresholds and sharp a>=14 quasipolynomial laws for shifted-square triple (a,a+1,a+4). Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.",
+      "residual_risks": [
+        "An unindexed p=1 shifted-square treatment might supply the same exact thresholds; no definitive priority certification.",
+        "The theorem covers exactly a,a+1,a+4 at two representations; no claims about higher p or arbitrary square offsets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_REPRESENTATION_THRESHOLD",
+          "evidence": "Main invariants count nonrepresentability (p=0), not the first repeated representation in every residue (p=1).",
+          "identifier_or_url": "https://arxiv.org/abs/2210.02722",
+          "material_read": "Primary arXiv PDF problem statement and ordinary Frobenius theorem framing for shifted powers",
+          "method": "lawful arXiv PDF content inspected",
+          "title": "On Frobenius Formulas of Power Sequences",
+          "trigger": "Same square-offset integer coin family, possible prior exact result"
+        },
+        {
+          "assessment": "INAPPLICABLE_PARAMETER_PATTERN",
+          "evidence": "Theorem1 p≥0 is for true progressions only; gaps 1 and 3 do not fit.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+          "material_read": "PDF abstract, setup and Theorem1 full hypotheses and formulas for (a,a+d,a+2d)",
+          "method": "lawful arXiv PDF inspected",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "General three-coin p-Frobenius formulas that could dominate"
+        },
+        {
+          "assessment": "KNOWN_METHOD_NOT_CLAIMED_AS_NEW",
+          "evidence": "The general p-Apéry conversion is known; explicit T_a(r) and a>=14 quasipolynomials are the separately assessed contribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.11021",
+          "material_read": "PDF Corollary1 (max/sum rules) and proof orientation",
+          "method": "arXiv PDF relevant full sections inspected",
+          "title": "On the determination of p-Frobenius and related numbers using the p-Apéry set",
+          "trigger": "Most relevant generic Apéry method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-repeat two-representation question for the naturally arising first three squares shifted by a is distinct from classical zero-representation Frobenius. The full a-residue Apéry set, explicit small-base cases, sharp simplification onset at a=14 and two quasipolynomials constitute a complete natural family classification. The special d=3 winning residue and sharp a=13 break are meaningful boundary data; general p-Apéry conversion alone does not give them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed p=1 shifted-square treatment might supply the same exact thresholds; no definitive priority certification.",
+    "The theorem covers exactly a,a+1,a+4 at two representations; no claims about higher p or arbitrary square offsets.",
+    "This is an independent best-of-knowledge assessment of the specified narrow claim; no formal Lean check or independent human attestation.",
+    "The frozen path and exact returned subtree identity are retained; source files were read by pinned commit/actual path, but tree object hash was not locally reconstructed."
+  ],
+  "schema_version": 1
+}

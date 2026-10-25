@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the first integer in every residue class with at least two distinct nonnegative representations. The proof constructs an exact bijection between representations and pairs of height and fourth-offset coefficient, orders the two cheapest costs with a nondecreasing-height lemma, then derives genus and Frobenius number by residue counting. The four-branch simplification and the twelve small-base entries follow from explicit algebra. The independent capped coin-change verifier checks 80,199 residue thresholds through base 400 and both numerical formulas through base 1100. No extrapolation from these finite checks is used in the proof.
+## correctness
 
-## Originality — PASS with residual risk
-The original shifted-square source [1] computes only the classical \(p=0\) Frobenius invariant. The closest \(p\)-numerical-semigroup paper [3] proves arithmetic-progression formulas, not the offset pattern \((0,1,4)\). The broader explicit triple theorem [5] requires divisibility conditions absent for \(a\ge14\); the general Apéry machinery [4] computes invariants only after their residue sets have been independently determined. Related mathematical statements found in literature and database searches were compared for exact implications; inspected results do not imply the second-cost classification. Residual possibility of earlier unindexed equivalent formulas is expressly retained. The preceding facts support originality within the checked scope, not a universal uniqueness assertion.
+PASS
 
-## Mathematical value — PASS
-The natural shifted-square family is already motivated by the classical Frobenius literature, but the first repeated-representation boundary is a different structural problem. The result supplies the complete first-repeat Apéry set, two standard multiplicity invariants, a sharp eventual period-four quadratic law, and the complete smaller-base table. This resolves a motivated infinite family rather than an arbitrary finite slice, trivial renaming, or unmotivated numerical table.
+For integer a>=2, N=r+at and y+4z=r+ah with 0<=r<a provide a bijection of every nonnegative representation (x,y,z) to (h,z) with 0<=z<=floor((r+ah)/4) and threshold cost C_{h,z}=r+(a+1)h-3z. For fixed h minimum cost C_h=r+(a+1)h-3floor((r+ah)/4), nondecreasing with h since a+1-3ceil(a/4)>=0. Therefore the second DISTINCT representation is either the second z at h=0 (available iff r>=4, cost C0+3), or the first at h=1 (cost C0+delta); the min yields c_{a,r}. Adding a preserves representations, so each residue's first repeat threshold is exactly T_a(r)=r+a c_{a,r}, with g_1=max T-a and n_1=sum c. For a>=14 (a=4k+d) delta>=3 permits complete four-residue summation and final-residue maximum: displayed g1 and n1 quasipolynomials. At a=13 the g1 extrapolation gives 102 vs exact 89, demonstrating a sharp stability threshold. Independently checked capped generating-function DP for EVERY residue and a=2..29, plus quasipolynomial instances through a=79, all agreeing; infinite proof is the cost comparison and symbolic residue summation.
 
-## Limitations and closest sources
-Most relevant: Liu–Xin's shifted-power Frobenius manuscript (arXiv:2210.02722v1), Komatsu–Ying's arithmetic progression \(p\)-Frobenius manuscript (arXiv:2206.13052), Komatsu's general \(p\)-Apéry method (arXiv:2111.11021), and Subwattanachai's conditional three-variable theorem (arXiv:2309.09149). General bibliographic coverage may be incomplete. The standalone verifier checks finite instances and cannot replace the infinite proof. The theorem does not cover \(p\ge2\) or longer shifted-square sequences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the precise Complete first-repeat Apéry thresholds and sharp a>=14 quasipolynomial laws for shifted-square triple (a,a+1,a+4). Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.
+
+## value
+
+PASS
+
+The first-repeat two-representation question for the naturally arising first three squares shifted by a is distinct from classical zero-representation Frobenius. The full a-residue Apéry set, explicit small-base cases, sharp simplification onset at a=14 and two quasipolynomials constitute a complete natural family classification. The special d=3 winning residue and sharp a=13 break are meaningful boundary data; general p-Apéry conversion alone does not give them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
