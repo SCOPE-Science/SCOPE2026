@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For every odd b>=3 and k>(b+1)/2, area is (2k-b-1)^2/(16b), and interior lattice point count is exactly sum_{j=0}^{q-1} floor((b j+r)/2). Counting parity yields the stated 2b-periodic defect. Integer interval extrema and strict sign conditions then follow by completing squares. Exact rational checker independently tests b<=121 odd; finite evidence is supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beck–Robins provide general formulas to compute integer points in rational polygons, which include T_{b,k} as a special family."
+      ],
+      "reasoning": "Broad lattice counting implies that each count is algorithmically obtainable, and specialization plus further algebra can in principle rederive our formula. In the inspected source it does not explicitly give the uniform b-dependent sharp bound, exact remainder equality classes or sparse negative sign regime; thus these optimized consequences are the potential new contribution, not ability to count lattice points. Residual covered-corollary risk is acknowledged.",
+      "searches": [
+        "half integral polygon Pick theorem non Delzant singular vertex cyclic lattice triangle Dedekind sum exact defect",
+        "canonical rational triangles half integer facet offsets Ehrhart quasipolynomial quadratic periodic correction",
+        "arXiv:math/0111329v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00696v1 full HTML, Chu–Karshon",
+      "arXiv:math/0111329v2 full HTML, Beck–Robins",
+      "published-finding corpus semantic indexed findings: searches reproduced in originality check records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chu–Karshon: different unimodular class and constant defect 1/8 for triangles.",
+        "Beck–Robins: explicit universal rational polygon lattice count formulas without the stated fixed-fan sharp signed optimization."
+      ],
+      "reasoning": "The main new mathematical assertion is the joint sharp, all-b extremal and negativity classification of a natural nonunimodular family. The general count algorithm is prior; the uniform inequality and equality/sign optimization are derived independently via a one-dimensional parity floor sum. A pre-existing worked specialization remains the main originality risk.",
+      "searches": [
+        "Pick defect quadratic modulo 2b for half integral right triangle x>=1/2 y>=1/2 2x+b y<=k+1/2",
+        "Chu Karshon 2610.00696 halfway lattice polygons index two singular triangles sharp residue sign classification",
+        "arXiv:2610.00696v1",
+        "arXiv:math/0111329v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest recent source establishes a constant defect for unimodular halfway-lattice polygons.",
+        "The present determinants 1,2,b show this case is excluded by its assumptions."
+      ],
+      "reasoning": "The present claim is equivalent to a parity-sensitive rational right-triangle lattice count plus sharp signed remainder optimization; it is not an affine restatement of the unimodular constant-defect result.",
+      "searches": [
+        "halfway-lattice polygons nonunimodular Pick area interior lattice points triangular singular quotient correction residue",
+        "half integral polygon Pick theorem non Delzant singular vertex cyclic lattice triangle Dedekind sum exact defect",
+        "sharp negative one-quarter discrepancy area minus lattice point count for nonunimodular halfway lattice triangles normals (1,0),(0,1),(-2,-b) b odd",
+        "arXiv:2610.00696v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed lattice-hit 2026/9/7/SCOPE004 concerns a finite minimum-area lattice point arrangement, not this infinite triangle family.",
+        "Closest indexed 2026/10/4/SCOPE-exact-lattice-point-covering-radii-for-all-regular-polygons-with--35b1a362e217 concerns Euclidean covering radii rather than lattice-point counts."
+      ],
+      "reasoning": "No searched indexed record or specific table supplied the closed sign spectrum or the complete equality cases for these T_{b,k}. Failure to retrieve does not establish global priority.",
+      "searches": [
+        "halfway-lattice polygons nonunimodular Pick area interior lattice points triangular singular quotient correction residue",
+        "sharp negative one-quarter discrepancy area minus lattice point count for nonunimodular halfway lattice triangles normals (1,0),(0,1),(-2,-b) b odd",
+        "Pick defect quadratic modulo 2b for half integral right triangle x>=1/2 y>=1/2 2x+b y<=k+1/2"
+      ]
+    },
+    "rationale": "The 2026 motivating paper treats unimodular halfway-lattice polygons only, excluding this family. General rational-triangle count formulas cover algorithmic counts but no inspected source stated the sharp signed two-parameter extremal and equality/negative-residue classification. Actual literature and published-finding corpus searches were compared by implication, with remaining priority risk explicitly recorded.",
+    "residual_risks": [
+      "An unindexed published specialization or exercise might already imply the exact optimized defect profile.",
+      "General rational-polygon counting formulas include the family computationally; the claim to novelty is the uniform signed extremal and equality/sign classification, not a new universal count algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The unimodular hypothesis excludes normal determinants 2 and b in the present family; no formula for the current parity-and-remainder spectrum found in the inspected text.",
+        "evidence": [
+          "Chu–Karshon Theorem 5.8, 2026, gives area = interior count - vertices/8 + 1/2 under a unimodularity assumption; this triangle fails that assumption."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00696v1",
+        "material_read": "The full available HTML, including definitions, Theorem 5.8 and its proof, and discussion of nonunimodular examples",
+        "method": "Full-text reading and logical comparison of facet-normal hypotheses and resulting area-minus-count identities",
+        "title": "A Pick-type theorem for halfway-lattice polygons",
+        "trigger": "2026 source treats the same class of halfway-lattice facets, but only under unimodularity"
+      },
+      {
+        "assessment": "General counting machinery encompasses individual triangle counts, but the inspected presentation does not explicitly state the new sharp b-uniform signed extremal profile and residue-window classification. Unexamined alternative simplifications remain a risk.",
+        "evidence": [
+          "Beck–Robins rational-polygon count formulas provide a potential broader computational route for specializing to the present family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0111329v2",
+        "material_read": "Full available arXiv HTML, including its rational triangle count formulas and statement of scope",
+        "method": "Full-text reading, comparison of general count expressions against uniform signed extrema and equality classification",
+        "title": "Explicit and efficient formulas for the lattice point count in rational polygons using Dedekind–Rademacher sums",
+        "trigger": "Broad general prior results can compute the lattice points of every rational triangle, including the present family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e5b8ec4-70ca-4e76-a27c-e8888924839d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicitly motivated nonunimodular deformation of halfway-lattice polygons has a complete signed Pick-defect spectrum. The family displays a sharp universal negative lower bound, linear positive maxima, and O(sqrt(b)) negative residue windows out of 2b classes, showing a structural sharp disparity that does not arise in the unimodular theorem.",
+    "status": "PASS"
+  }
+}
