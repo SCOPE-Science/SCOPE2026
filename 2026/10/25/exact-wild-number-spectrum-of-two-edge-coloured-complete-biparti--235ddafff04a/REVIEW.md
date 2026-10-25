@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every finite simple \(K_{a,b}\) with \(2\le a\le b\), the two-colour component identity is proved using monochromatic component contractions. The rank budget gives the global lower bound; explicit star, tree-plus-path and two-disjoint-tree colourings attain it in the three parameter regimes. A mixed-four-cycle rank obstruction gives the universal upper bound, attained by the one-red-edge colouring. The graph of all nontrivial subsets of the edge set is connected by single-edge flips, each altering the wild number by at most one, proving that the entire integer interval occurs. The crucial cycle-space claim and all constructions are justified in RESULT.md. Exhaustive independent component enumeration agrees for ten tested small orders. No infinite statement rests solely on computation.
+
+## Originality — PASS, with residual risk
+Anders et al., arXiv:2508.06711, Sections 2 and 6, supply the general two-colour component identity and the criterion for wild number zero. Dawkins et al., arXiv:2610.22142, Section 4, determine a sharp upper bound for equitable two-colourings and values under minimum proper colourings of \(K_{a,b}\). These claims do not imply the exact unrestricted interval or prove the sharp upper endpoint and gap-free property for all surjective colourings. Actual targeted published-finding corpus searches identified no equivalent specific claim; nearest records concern other graph-colouring invariants or different graph families. These checks do not establish absolute publication priority. Related graphic-matroid terminology and unindexed sources remain residual risks.
+
+## Value — PASS
+Attainable-value spectra for wild numbers are a natural question explicitly motivating the foundational literature and the recent equitable-colouring study. This theorem settles the unrestricted spectrum uniformly throughout a two-parameter infinite family, distinguishing the exceptional \(K_{2,b}\) and \(K_{3,3}\) cases from graphs admitting two edge-disjoint spanning trees. The exact maximum and the proof that no intermediate value is skipped add information not supplied by a single graph-wise bound. The statement is a complete classification rather than a routine restatement of the component identity, though it is not a claim about all bipartite graphs.
+
+## Sources and limitations
+Primary full-text material inspected: Anders et al., arXiv:2508.06711, Sections 1–3 and 6–7; Dawkins et al., arXiv:2610.22142v1, especially Section 4 and introductory scope. The two-colour component formula and zero-wild-number tree-packing equivalence are attributed to prior work. The new result concerns only unrestricted surjective two-colourings of complete bipartite graphs. The finite verifier checks small instances only, and no independent mathematical audit was performed. A fuller literature search could expose a previously unindexed equivalent matroidal spectrum result.
+
+Self-review: passed. Independent audit: not yet performed.
