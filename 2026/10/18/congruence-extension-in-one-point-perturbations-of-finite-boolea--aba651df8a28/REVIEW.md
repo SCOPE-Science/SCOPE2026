@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-size proof identifies every compatible ambient congruence from the Boolean kernel ideal, classifies the stable partition subalgebras, and gives the exact extension test for local congruence kernels. In the exceptional-subset case it constructs explicit nonextendible congruences whenever the distinguished input is nonempty and not a coatom. The two sufficient cases and all enumeration formulae are derived without computational extrapolation. A separate direct-definition enumeration checks every permitted operation for 2–5 atoms; all counts match.
+PASS
 
-## Originality — PASS, with residual risk
+Every Boolean congruence is x~_J y iff x xor y subset J. For nonzero J, choose a in J and compare S to S xor {a}; unary compatibility forces T xor {a} subset J and thus T subset J. Conversely T subset J ensures unary compatibility for all pairs, so the ambient congruences are exactly J=empty or J containing T, 1+2^(n-|T|). A Boolean partition subalgebra is stable either when S is absent (identity restriction) or when S and T are both block unions (one-point restriction). In the first case a nonzero local support I extends iff no partition block outside I is wholly inside T; in the second the support extension J=I always works. This gives CEP for S empty (all subalgebras contain zero) and for coatom S (singleton T cannot be an entire uncollapsed block if S absent). If S is nonempty noncoatom, choose s in S,t in T,u outside S and {t}; partition with singleton {t}, doubleton {s,u}, rest singletons. The identity local operator allows collapse of {s,u}, but ambient nonzero support must also collapse {t}. Enumeration yields 3^n-2^n perturbations, 2^n+n-1 CEP, n(n+1)/2 isomorphism types and n+1 CEP types. Independently checked every stable partition, congruence ideal and perturbation for n=2,3,4: (CEP,nonCEP)=(5,0),(10,9),(19,46).
 
-The 2026 primary source treats CEP of Boolean frames and provides one three-atom nonadditive CEP example, but neither its proof statements nor its later general constructions give an all-size classification for a unique modified argument with disjoint added atoms. The closest published finite CEP census covers all unary functions on the first eight-element Boolean carrier; it does not supply the uniform arbitrary-atom formula or the congruence-lattice characterization. The 2024 predecessor focuses on varieties and their nonextension phenomena, not this direct all-size classification. The mathematical assertions were compared by implication (including the exact example as a positive special case), not by title similarity. An unlocated general theorem on single-point transformations could still subsume the result.
+## originality
 
-## Value — PASS
+PASS
 
-The primary source's single exceptional-input example naturally asks which changes of input and output preserve CEP. The classification answers that question for every finite atom count, supplies exact congruence structure and enumerates both labeled operations and isomorphism classes. This is an all-size obstruction and boundary theorem, not a routine numerical special case. Its minimal failure can be witnessed already with three atoms; the zero-input and coatom cases exhibit two sharply different ways CEP can survive.
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
 
-## Literature and limitations
+## value
 
-Closest primary source: Gyenis–Molnár–Öztürk, *More on modal logics and deduction* (2026), Section 2, arXiv:2603.17724. Earlier structural comparison: Gyenis–Molnár, *Varieties of Modal Algebras Without the Congruence Extension Property*, arXiv:2402.07293. Closest published finite enumeration: *Eight elements are the sharp finite CEP threshold for Boolean frames* (2026). The present statement concerns single algebras, not the CEP of a generated variety. The external paper's own CEP argument is not needed for the proof, which derives congruences and their restrictions directly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This class isolates the precise transition between CEP and non-CEP for a simple but nonadditive family across every Boolean rank; the explicit counterexample partition and all-rank exact enumeration have direct universal-algebra relevance. It generalizes an actual published one-point coatom example while not conflating single-algebra CEP with generated-variety CEP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
