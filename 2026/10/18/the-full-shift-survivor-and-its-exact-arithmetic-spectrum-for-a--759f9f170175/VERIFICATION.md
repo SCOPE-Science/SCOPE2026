@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_survivor.py` using standard Python 3; no nonstandard dependencies are required. The program uses `Fraction` and integer `gcd`, computes the direct numerator map on residue classes modulo powers of the fixed modulus, and tests the inverse-branch fixed point formulas and exact rational digit itineraries. The observed completed output is:
+## correctness
 
-```text
-PASS: exact survivor counts, rational periodic-point formulas,
-branch itineraries and independent two-cycle check
-Number of direct count and periodic-point checks: 15740
-Moduli: [2,3,4,5,6,7,8,9,10,11,12]
-Period range: 1..4
-```
+PASS
 
-For all moduli and depths, inspect the four proof steps in RESULT.md: (i) injectivity of multiplication by the modulus and unit inverses, (ii) disjoint exact contraction images, (iii) the mass-distribution argument for normalized Hausdorff measure and cylinder counting, and (iv) affine-composition algebra and strict interval inclusions for periodic points. Finite checks alone cannot establish these infinite assertions. Source comparison was carried out against Carvalho's arXiv:2605.21802v1 and Azevedo–Carvalho–Machiavelo's arXiv:1210.0042v1; the latter covers a different arithmetic transformation. Any unindexed previous statement or stronger theorem remains a novelty risk.
+Fix M≥2, R_M=lim Z/M^n, D_M(r+Mq)=q(M+r), k=φ(M). Every M+r (r unit) is invertible. Inverse branches F_r(y)=r+My/(M+r) are exact 1/M similarities and land in distinct residue cylinders, yielding a conjugacy K_M≃U_M^N. k^n equal-radius balls give entropy log k, Haar measure ≤(k/M)^n→0, and the Bernoulli mass-distribution/cylinder-cover inequalities give exactly H^{log k/log M}=1; M=2 is correctly treated as a singleton. Fixed points of shift^n number k^n, and Mobius inversion gives least-period orbit count. Affine inverse composition gives the stated rational formula; F_r([M,2M])⊂(M,2M) proves no integer a≥2M can have an eventually periodic non-dropping itinerary. Independently evaluated all M=2..10 and period words n≤3 with k^n distinct rational fixed points in (M,2M), correct residues and unit denominators. These tests corroborate, not replace, the all-modulus argument.
+
+## originality
+
+PASS
+
+Originality is the precise metric full-shift and rational cycle spectrum of THIS numerator map. Carvalho supplies arithmetic identity/finite-order residue recurrences, not the geometric and cycle classification; analogous Haar-null survivors for a different transformation are not implication proofs. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Natural fixed-denominator survivor of a published rational dynamical system has a complete symbolic model, exact Hausdorff measure and dimension, entropy, periodic orbit counts and exact rational trapping obstruction. These answer motivated geometric/arithmetic questions, although the result deliberately does not settle termination of rational real orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

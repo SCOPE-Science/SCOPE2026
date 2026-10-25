@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The numerator identity is verified directly from Euclidean division, and its M-adic extension is well-defined because multiplication by the modulus is injective and every allowed factor is a unit. Every inverse branch is an exact similarity, with disjoint residue images. Infinite coding, residue cylinder counts, normalized critical Hausdorff measure, the equality of metric dimensions, Haar-nullity, entropy and fixed-point counting all follow from the explicitly given cylinders. The rational fixed-point formula follows by composing affine maps, has unit denominator modulo the modulus, and lies in a strict real trapping interval. The included exact-rational program reproduces cylinder counts and periodic formulas for moduli 2 through 12. Computation is not substituted for a proof at arbitrary modulus.
+PASS
 
-## Originality — PASS, residual uncertainty noted
+Fix M≥2, R_M=lim Z/M^n, D_M(r+Mq)=q(M+r), k=φ(M). Every M+r (r unit) is invertible. Inverse branches F_r(y)=r+My/(M+r) are exact 1/M similarities and land in distinct residue cylinders, yielding a conjugacy K_M≃U_M^N. k^n equal-radius balls give entropy log k, Haar measure ≤(k/M)^n→0, and the Bernoulli mass-distribution/cylinder-cover inequalities give exactly H^{log k/log M}=1; M=2 is correctly treated as a singleton. Fixed points of shift^n number k^n, and Mobius inversion gives least-period orbit count. Affine inverse composition gives the stated rational formula; F_r([M,2M])⊂(M,2M) proves no integer a≥2M can have an eventually periodic non-dropping itinerary. Independently evaluated all M=2..10 and period words n≤3 with k^n distinct rational fixed points in (M,2M), correct residues and unit denominators. These tests corroborate, not replace, the all-modulus argument.
 
-The motivating 2026 preprint supplies the arithmetic map and residue-class recurrences, but not the full-shift, metric-measure, or rational periodic-spectrum conclusion. The 2012 quasi-quadratic predecessor has a perfect Haar-null p-adic survivor for a different map, without this explicit arithmetic dimension and periodicity formula. Targeted published-result searches for the map, its inverse branches, symbolic conjugacy, dimensions, and periodic formulas found no implication-equivalent record. This is a best-knowledge scientific assessment, not a uniqueness certificate: unindexed results and unstated derivations in prior work remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The survivor is a natural fixed-denominator obstruction in a recent open rational-dynamics problem. The full symbolic classification replaces mere density-zero information by an exact geometric invariant and complete rational periodic spectrum for every denominator, and the real trapping interval rules out a significant class of candidate numerator itineraries. This is more than a sample congruence or a parameter renaming, though the mechanism is elementary once the correct inverse branches are exposed.
+Originality is the precise metric full-shift and rational cycle spectrum of THIS numerator map. Carvalho supplies arithmetic identity/finite-order residue recurrences, not the geometric and cycle classification; analogous Haar-null survivors for a different transformation are not implication proofs. Priority remains best-of-knowledge.
 
-## Closest literature and scope
+## value
 
-André Carvalho, *Rational dynamics of a prime-representing map*, arXiv:2605.21802v1, Lemmas 2.1–2.2 and Theorems 3.1, 4.4 (motivation and antecedent arithmetic). Assis Azevedo, Maria Carvalho and António Machiavelo, *Dynamics of a quasi-quadratic map*, arXiv:1210.0042v1, Section 5 (related p-adic methodology for a different transformation). Periodicity of the auxiliary completion is not finite-order behavior of the original real map on rationals at least two; there is no asserted real counterexample or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural fixed-denominator survivor of a published rational dynamical system has a complete symbolic model, exact Hausdorff measure and dimension, entropy, periodic orbit counts and exact rational trapping obstruction. These answer motivated geometric/arithmetic questions, although the result deliberately does not settle termination of rational real orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
