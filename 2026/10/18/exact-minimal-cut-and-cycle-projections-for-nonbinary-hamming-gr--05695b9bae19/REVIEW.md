@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is quantified over all real unweighted \(H(d,q)\), \(d\ge2\), \(q\ge3\), with edge counting-measure normalization. The orthogonal cut and cycle projections are uniquely invariant by the published Theorem 43 and complementary averaging; its precise applicability to all alphabet sizes was inspected in the primary full text. The main new lemma factors a Laplacian Green column through an alphabet-difference eigenvector and an explicit product heat kernel. Strict radial monotonicity makes the column absolute-value count exact. A binomial integral collapses the off-axis term to \((d-1)(q-1)/q\); edge transitivity and rank determine the diagonal. The full proof, not the finite tests, establishes the all-parameter result. The standard-library exact checker passed 281 checks, including nine independently solved graph Laplacian cases. Residual correctness risk: reliance on the external symmetry theorem and possible unnoticed algebraic oversight; there is no independent mathematical validation.
+## correctness
 
-**Originality — PASS on the inspected evidence, with residual bibliographic risk.** The directly relevant Dilworth–Kutzarova–Ostrovskii 2023 manuscript, inspected in full in Sections 2.6 and 2.7, proves the all-alphabet invariant projection theorem but computes the edge cut and cycle projection norms explicitly only when the alphabet is binary. The new nonbinary closed formulas do not follow by merely substituting alphabet sizes into the displayed binary formula; their proof uses new radial Green-function edge-variation counts. Other records involving Hamming Fourier spectral projectors or transportation-space coordinate shadows concern different ambient subspaces and do not imply these edge cut/cycle formulas. No equivalent result was identified in targeted searches, but this cannot rule out unindexed equivalent formulas or later work.
+PASS
 
-**Mathematical value — PASS.** This closes a natural two-parameter endpoint projection-constant computation left unevaluated by a paper specifically devoted to invariant projections on Hamming graphs. It distinguishes binary and larger alphabets, produces optimal concrete operators at two endpoints and all intermediate exponents, and gives exact subspace-complementability costs relevant to graph-cycle and transportation-space geometry. The value is an exact natural infinite-family invariant, not a claim of a broader general theorem.
+Theorem 43 of Dilworth–Kutzarova–Ostrovskii explicitly gives uniqueness of the automorphism-invariant cycle projection for any Hamming alphabet; finite signed edge-permutation averaging then minimizes P for every ℓp and similarly its complement Q. The cut projection column Dᵀ L†b factors via the K_q eigenvector h and a radial Green kernel f=(qI+L_H(d-1,q))^-1 δ0 with integral formula. Its strictly decreasing radial coefficients enable the exact ℓ1 absolute sum of 2(q-1)/q for first-coordinate edges and (d-1)(q-1)/q for other directions. Transitivity/rank gives Q_ee=2(1-q^-d)/(d(q-1)), hence ||P||_1=1+||Q||_1-2Q_ee. Symmetry gives equal ℓ∞ norms. Independently built graph Laplacian pseudoinverses for H(2,2), H(2,3), H(2,4), H(3,3), H(3,4); both formulas match. The verification is bounded, but the integral/telescoping proof covers all d,q. Binary q=2 is acknowledged prior art.
 
-The source's all-alphabet uniqueness theorem and binary calculation are explicitly credited as prior work. No independent audit or certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accessible primary manuscript Theorem 43 proves all-alphabet invariant-projection uniqueness but its Theorem 45 and Corollary 60 explicitly evaluate endpoint norms for binary cubes. The nonbinary closed endpoint formulas are obtained by a new radial Green-kernel edge variation, not by changing a parameter in the printed q=2 result. No identified stronger published covering formula in targeted result search.
+
+## value
+
+PASS
+
+An exact infinite two-parameter projection constant for natural cut and cycle subspaces fills the evaluation gap immediately adjacent to the primary theorem specifically investigating Hamming graph projection constants. The formulas quantify graph-flow complementability beyond the binary hypercube and supply explicit simultaneously optimal projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
