@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a real signed measure on the center and m finite leaves with positive arm lengths rho_i, the unit ball is exactly the constraints |f_j|<=b, |f_i-f_0|<=rho_i t, b+t<=1. Leaf-to-leaf Lipschitz inequalities follow from paths through the center. Optimizing each leaf according to mass sign, introducing x=(b-c)/t and y=(b+c)/t when t>0, gives the exact fractional objective (M(y-x)+2P(x)+2Q(y))/(2+x+y). Ratios of affine functions are monotone or constant between arm-length knots; tail limits are bounded by |M|, also attained by constant potentials when M!=0. This yields the finite max for all masses, zero masses and repeated arm lengths. The fractional inequality against r separates into Phi_+(r)+Phi_-(r)-2r<=0; the two maximizations are concave capped-linear pieces with switchpoints at sorted signed tail masses. Their negative slope plus root interpolation proves the stated O(m log m) real arithmetic comparison complexity, not a bit-complexity bound. Independently I solved 24 direct primal LPs with all original f_i,b,t variables; all agreed with the separately coded knot expression to at most 3.6e-15. This checks bounded examples, not the full theorem; its all-m proof is the preceding exact reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General LP covers computing every finite instance but gives no closed form/near-linear algorithm.",
+          "The Resultary equal-arm, zero-total-mass result covers even countably infinite equal-arm stars, but no heterogeneity or nonzero M."
+        ],
+        "reasoning": "The broad metric-space LP has broader domain but a strictly weaker explicit-complexity conclusion. The published equiradial result has broader cardinality only within its restricted equal-radius/zero-total-mass subfamily. No inspected theorem subsumes the claimed joint new statement.",
+        "searches": [
+          "Exact bounded Lipschitz Dudley dual norm on heterogeneous finite metric stars signed measures piecewise linear knot algorithm",
+          "arXiv:2206.12234v2",
+          "arXiv:2305.08500v1",
+          "Resultary:2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 2fea91d7c619e875e9598916949bdf026187c325, RESULT.md, both check scripts, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+        "arXiv:2206.12234v2",
+        "arXiv:2305.08500v1",
+        "Resultary equiradial full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hille–Theewis Lemma 6.1 obtains general finite-dimensional LP.",
+          "The equiradial result omits unequal arms and nonzero total mass."
+        ],
+        "reasoning": "Existing general LP implies an optimization procedure but not the asserted concrete finite-knot identity and O(m log m) arithmetic bound without the nonstandard cap-variable/switchpoint argument. The new theorem properly credits the known equiradial branch as covered.",
+        "searches": [
+          "Exact bounded Lipschitz Dudley dual norm on heterogeneous finite metric stars signed measures piecewise linear knot algorithm",
+          "Hille–Theewis 2206.12234 §6",
+          "Resultary equiradial RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille–Theewis formulate a bounded-Lipschitz dual LP on arbitrary finite metrics; bounded-Lipschitz on stars also has a KR/mass-cap representation.",
+          "The present claim asserts a finite x,y radius-knot maximum AND sorted O(m log m) evaluation for the sum normalization."
+        ],
+        "reasoning": "The general LP gives an implicit equivalent finite-dimensional optimization problem but does not itself state the explicit radius-knot answer, its nonzero-total-mass boundary or the uniform improved arithmetic algorithm. A maximum-normalized Fortet–Mourier norm is a different primal norm, so simply transferring a formula would be invalid.",
+        "searches": [
+          "Exact bounded Lipschitz Dudley dual norm on heterogeneous finite metric stars signed measures piecewise linear knot algorithm",
+          "arXiv:2206.12234v2 §6 Lemma 6.1 Eq. (39)",
+          "arXiv:2305.08500v1 §§5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed equiradial formula is max{rho/(rho+1)(P+Q),2rho/(rho+2) max(P,Q)}.",
+          "No located Resultary entry lists arbitrary heterogeneous knots with nonzero total mass."
+        ],
+        "reasoning": "The known special-case database formula is explicitly prior art and indeed follows by specializing the new knot objective; its stated hypotheses do not provide a table for unequal arm-length instances or the sorting/root method.",
+        "searches": [
+          "Exact bounded Lipschitz Dudley dual norm on heterogeneous finite metric stars signed measures piecewise linear knot algorithm",
+          "Resultary/2026 Git full RESULT.md equiradial star entry",
+          "Resultary semantic top-12 search"
+        ]
+      },
+      "rationale": "The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.",
+      "residual_risks": [
+        "General bounded-Lipschitz LP can in principle be specialized; an earlier equivalent active-knot algorithm using another language could exist.",
+        "Arithmetic model excludes bit complexity, and finite LP tests do not certify all-size complexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_LP_NOT_EXPLICIT_STAR_FORMULA",
+          "evidence": "Finite-metric LP; no heterogeneous-radius knot plus near-linear exact evaluation statement in inspected section.",
+          "identifier_or_url": "arXiv:2206.12234v2",
+          "material_read": "PDF, especially §6 and Lemma 6.1, equation (39)",
+          "method": "full primary PDF/read section",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Same dual metric and finite measure, possible dominating optimization theorem"
+        },
+        {
+          "assessment": "GENERAL_GEOMETRY_NOT_SAME_FORMULA",
+          "evidence": "Norming/extreme functions, not exact heterogeneous signed-mass knot algorithm.",
+          "identifier_or_url": "arXiv:2305.08500v1",
+          "material_read": "Main theorem and §§5–6",
+          "method": "full primary text inspection",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Potential equivalent extreme-point support theorem"
+        },
+        {
+          "assessment": "COVERS_SPECIAL_CASE_ONLY",
+          "evidence": "Positive equiradial radius rho and M=0; countable-star branch threshold is acknowledged, but no unequal radii/nonzero M.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54",
+          "material_read": "Entire RESULT.md including proof and hypotheses",
+          "method": "full Git blob via connector",
+          "title": "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "trigger": "Published exact same-norm star formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Arbitrary unequal positive arm lengths and nonzero signed total mass are natural finite metric-star inputs for bounded-Lipschitz/Dudley dual optimization. The exact knot support identity reduces an arbitrary finite LP to explicit active cap pairs, while the monotone root algorithm improves a quadratic enumeration to near-linear arithmetic after sorting. This precise structural simplification and its attainers can inform discrete transport and signed-measure stability calculations and is neither just the two-point example nor a normalization substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 2fea91d7c619e875e9598916949bdf026187c325, RESULT.md, both check scripts, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+    "arXiv:2206.12234v2",
+    "arXiv:2305.08500v1",
+    "Resultary equiradial full RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General bounded-Lipschitz LP can in principle be specialized; an earlier equivalent active-knot algorithm using another language could exist.",
+    "Arithmetic model excludes bit complexity, and finite LP tests do not certify all-size complexity."
+  ],
+  "residual_risks": [
+    "General bounded-Lipschitz LP can in principle be specialized; an earlier equivalent active-knot algorithm using another language could exist.",
+    "Arithmetic model excludes bit complexity, and finite LP tests do not certify all-size complexity."
+  ],
+  "schema_version": 1
+}
