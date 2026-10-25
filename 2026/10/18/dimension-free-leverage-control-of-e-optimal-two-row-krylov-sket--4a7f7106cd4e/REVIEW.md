@@ -1,15 +1,21 @@
-# Scientific review: Dimension-free leverage control of E-optimal two-row Krylov sketch distortion
+# Independent mathematical audit
 
-## Correctness — PASS
-For two positive squared singular values, the squared condition number equals the selected squared Frobenius trace divided by the smaller value, minus one. E-optimality orders smaller values. The ratio of the selected traces is at most the row-leverage ratio, yielding the exact theorem. Equal leverage forces a common trace and hence equivalence of optimizers. The explicit orthonormal family and symmetric Krylov realization follow from exact orthogonality and exhaustive algebraic classification of four possible nonsingular pair types. A standalone checker corroborates 231 symbolic family/Krylov identities and 1,320 additional randomized frame inequalities; the infinite theorem follows from the proof, not enumeration.
+## correctness
 
-## Originality — PASS, with residual risks
-Bergermann (arXiv:2604.07158v1) motivates the minimum-singular-value sketch objective and records the link to subspace distortion. The previously published *A sharp-order E-versus-K row-selection gap for two-dimensional orthonormal frames* (identifier c6e6e137-5749-46ec-a56f-965b079a30f5) already establishes an order-square-root ambient-dimensional gap and Krylov realizability. That distinction is prior work and not claimed new. The present dimension-free **leverage-dependent** guarantee and exact uniform-leverage optimizer agreement are not implied by that result. The closest relevant sensor-design work by Uciński and Patan (2022) is only bibliographically accessible; analogous general theorems cannot be excluded. See the exact query comparisons and scope limits in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-A previously established bad worst case makes the motivating minimum-singular-value criterion appear unreliable. The new theorem identifies a natural, verifiable geometric condition under which it is reliable independently of dimension, and pinpoints the precise uniform-leverage compatibility boundary. For leverage ratio \\(1+\\delta\\), the E-optimal distortion is at most \\(\\sqrt{1+2\\delta}\\) times the globally minimum distortion. This is a motivated structural guarantee rather than a routine change of notation; the bounds concern selected-subspace conditioning, not downstream solver convergence.
+From pinned RESULT.md a61db65fdd840e40ab4ceaf0f3920a40619f1112, for two singular values m=sigma_min^2,h=sigma_max^2, ||SQ||_F^2=m+h gives kappa^2=F/m-1. E optimality increases m while maximum/minimum two-row Frobenius mass ratio is <=rho; divide by kappa_D^2>=1 to get sqrt(2rho-1). At rho=1 fixed F makes the objectives equivalent including ties. Constructed u_n,v_n orthonormal with disjoint supports and leverage ratio n; all full-rank selections have diagonal magnitudes (sqrt(n),2),(sqrt(n),1),(1,2),(1,1); unique E pair has kappa sqrt(n)/2, D pair one. A=u v^T+v u^T+2(I-uu^T-vv^T) yields A u=v and a genuine symmetric two-step Krylov basis. Independently checked 150 random frames and the exact family n=5,6,9,15; computation corroborates, does not prove all n.
 
-## Limitations
-Only real two-column orthonormal frames, unweighted selections of precisely two rows, positive row leverage, and spectral condition number are covered. The leading constant in the leverage-dependent estimate is not proved optimal. The strongly nonuniform example confirms order sensitivity but overlaps a known dimensional phenomenon. Some primary technical literature remains inaccessible, notably the 2022 related sensor-design reference. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known global sqrt(n) separation for E versus K row selection is prior published material, explicitly excluded. The new component is deterministic bound depending on local leverage imbalance and equality of solution sets for exactly uniform leverage. Potential source Ucinski/Patan 2022 could contain a general implication and remains inaccessible.
+
+## value
+
+PASS
+
+Leverage imbalance is a natural measurable feature of practical row sketches; the theorem supplies a dimension-free reason when an E-optimal surrogate is distortion-safe, an exact uniform-leverage equivalence, and a genuine Krylov-realizable boundary example. This is a motivated quantitative stability criterion despite its short trace proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

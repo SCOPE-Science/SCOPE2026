@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:50:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From pinned RESULT.md a61db65fdd840e40ab4ceaf0f3920a40619f1112, for two singular values m=sigma_min^2,h=sigma_max^2, ||SQ||_F^2=m+h gives kappa^2=F/m-1. E optimality increases m while maximum/minimum two-row Frobenius mass ratio is <=rho; divide by kappa_D^2>=1 to get sqrt(2rho-1). At rho=1 fixed F makes the objectives equivalent including ties. Constructed u_n,v_n orthonormal with disjoint supports and leverage ratio n; all full-rank selections have diagonal magnitudes (sqrt(n),2),(sqrt(n),1),(1,2),(1,1); unique E pair has kappa sqrt(n)/2, D pair one. A=u v^T+v u^T+2(I-uu^T-vv^T) yields A u=v and a genuine symmetric two-step Krylov basis. Independently checked 150 random frames and the exact family n=5,6,9,15; computation corroborates, does not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drmac–Gugercin bound reciprocal minimum singular value for DEIM interpolation stability, not minimizing kappa; Bergermann motivates E-optimal design; Ucinski/Patan may subsume a trace comparison but accessible abstract cannot decide theorem-level overlap."
+        ],
+        "reasoning": "Any general theorem simultaneously controlling E and K efficiency by heterogeneous row leverage could cover this corollary, but no decisive such equation was confirmed from accessible material; explicitly retain this risk.",
+        "searches": [
+          "Uciński Patan Sensor Selection for Minimizing the Condition Number with Guaranteed E-Efficiency CDC 2022 DOI 10.1109/CDC51059.2022.9992335",
+          "Drmač Gugercin improved DEIM point selection arXiv:1505.00370",
+          "Bergermann Deterministic sketching for Krylov subspace methods arXiv:2604.07158"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md/source tree",
+        "Resultary E-versus-K row-selection search and older c6e6e137 published description",
+        "Bergermann arXiv:2604.07158",
+        "Drmac–Gugercin arXiv:1505.00370",
+        "Uciński–Patan DOI:10.1109/CDC51059.2022.9992335 abstract / Oxford access failure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E-optimality only controls m; condition number additionally depends on Frobenius row mass F; the new bound uses F_E/F_D<=rho not supplied by the generic E-error bound."
+        ],
+        "reasoning": "The inequality is a consequence of an elementary but specifically applicable two-dimensional trace identity; it is not implied just by an E-efficiency certificate unless a leverage/Frobenius bound is added. The inaccessible general sensor comparison prevents absolute priority certification.",
+        "searches": [
+          "Bergermann arXiv:2604.07158v1 objective comparisons",
+          "Drmac Gugercin 2016 inverse sampled singular value control",
+          "Uciński Patan CDC 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior published c6e6e137-5749-46ec-a56f-965b079a30f5 establishes a sqrt(n) gap; source RESULT.md gives a rho-sensitive trace inequality not based on ambient n; Ucinski/Patan abstract relates two design criteria in another sensor setting."
+        ],
+        "reasoning": "Condition number, spectral distortion and K-optimal row selection are equivalent objectives under two-column restriction; E is maximal least singular value. Existing dimension-only gap does not quantify near-uniform leverage, whereas the present theorem does.",
+        "searches": [
+          "Resultary: two row Krylov sketch minimum singular value versus condition number leverage imbalance E-optimal distortion",
+          "A sharp-order E-versus-K row-selection gap for two-dimensional orthonormal frames",
+          "Uciński Patan 2022 condition number guaranteed E-efficiency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing published family demonstrates dimension-dependent separation; source verifies exact four row pair types and their resulting condition numbers."
+        ],
+        "reasoning": "Not a finite table claim; the exact simple four-type family refines a known phenomenon and its exact leverage measure, so originality rests on the general rho inequality, not new tabulation.",
+        "searches": [
+          "Resultary E-versus-K two-dimensional orthonormal frame prior finding c6e6e137",
+          "explicit diagonal row-norm family n>=5"
+        ]
+      },
+      "rationale": "The known global sqrt(n) separation for E versus K row selection is prior published material, explicitly excluded. The new component is deterministic bound depending on local leverage imbalance and equality of solution sets for exactly uniform leverage. Potential source Ucinski/Patan 2022 could contain a general implication and remains inaccessible.",
+      "residual_risks": [
+        "2022 sensor-design comparison inaccessible in full (Oxford VPN disconnected); possible exact or stronger leverage inequality cannot be categorically excluded.",
+        "The sqrt(2rho-1) constant is not proved optimal, only power 1/2.",
+        "The inequality does not measure convergence of a Krylov solver or higher-rank row selections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INDETERMINATE_FULLTEXT",
+          "evidence": [
+            "The paper motivates max sigma_min as a surrogate and assesses sketch conditioning; no inspected exact rho bound."
+          ],
+          "identifier_or_url": "arXiv:2604.07158",
+          "material_read": "Abstract and relevant method/objective statements cited in source; arXiv HTML full-text endpoint unavailable this run",
+          "method": "Accessible abstract and primary source description",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "same Krylov row selection objective"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "DEIM bounds control inverse smallest singular value, a different objective from conditioning."
+          ],
+          "identifier_or_url": "arXiv:1505.00370",
+          "material_read": "Accessible abstract and recorded theorem-level scope of inverse-min-singular-value bounds; not full article in this run",
+          "method": "Abstract and bibliographic comparison",
+          "title": "A new selection operator for the discrete empirical interpolation method",
+          "trigger": "same smallest sampled singular value quantity"
+        },
+        {
+          "assessment": "RESIDUAL_RISK_INACCESSIBLE",
+          "evidence": [
+            "The title explicitly compares the same two criteria; no whole-article NOT_COVERING determination is made."
+          ],
+          "identifier_or_url": "DOI:10.1109/CDC51059.2022.9992335",
+          "material_read": "Abstract / title; full text unavailable after OA attempts; authorized Oxford attempt returned vpn_disconnected",
+          "method": "Abstract and lawful-access result",
+          "title": "Sensor Selection for Minimizing the Condition Number with Guaranteed E-Efficiency",
+          "trigger": "potential broad direct E/K comparison"
+        },
+        {
+          "assessment": "PRIOR_DIMENSION_ONLY",
+          "evidence": [
+            "Previously established sqrt(n) gap is explicitly not claimed new."
+          ],
+          "identifier_or_url": "published identifier c6e6e137-5749-46ec-a56f-965b079a30f5",
+          "material_read": "Prior result title/scope cited in pinned audited proof; no independent full text available this run",
+          "method": "Source text and Resultary query comparison",
+          "title": "A sharp-order E-versus-K row-selection gap for two-dimensional orthonormal frames",
+          "trigger": "prior global counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Leverage imbalance is a natural measurable feature of practical row sketches; the theorem supplies a dimension-free reason when an E-optimal surrogate is distortion-safe, an exact uniform-leverage equivalence, and a genuine Krylov-realizable boundary example. This is a motivated quantitative stability criterion despite its short trace proof.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md/source tree",
+    "Resultary E-versus-K row-selection search and older c6e6e137 published description",
+    "Bergermann arXiv:2604.07158",
+    "Drmac–Gugercin arXiv:1505.00370",
+    "Uciński–Patan DOI:10.1109/CDC51059.2022.9992335 abstract / Oxford access failure"
+  ],
+  "disposition": "passed",
+  "final_claim": "For unscaled selections of exactly two rows from any real orthonormal n x 2 Q with positive row leverage ratio rho, E-optimal and condition-number-optimal restrictions obey kappa_E^2<=rho(kappa_D^2+1)-1 and kappa_E/kappa_D<=sqrt(2rho-1); all optimizing pairs agree when rho=1; an actual two-step symmetric Krylov family attains Omega(sqrt(rho)) separation.",
+  "limitations": [
+    "2022 sensor-design comparison inaccessible in full (Oxford VPN disconnected); possible exact or stronger leverage inequality cannot be categorically excluded.",
+    "The sqrt(2rho-1) constant is not proved optimal, only power 1/2.",
+    "The inequality does not measure convergence of a Krylov solver or higher-rank row selections."
+  ],
+  "residual_risks": [
+    "2022 sensor-design comparison inaccessible in full (Oxford VPN disconnected); possible exact or stronger leverage inequality cannot be categorically excluded.",
+    "The sqrt(2rho-1) constant is not proved optimal, only power 1/2.",
+    "The inequality does not measure convergence of a Krylov solver or higher-rank row selections."
+  ],
+  "schema_version": 1
+}
