@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T06:03:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For the explicitly defined Stern recurrence and Q_k=B_(53*2^k-3), the decomposition Q_k=(1+2 sum_{j=1}^{k-2}t^j)(1+4t+5t^2+3t^3)+(1+t)(t^2+2t^3+2t^4) is verified against recurrence. For all even k>=14, exact differentiation at t=-13/20 gives [80(82203k+108923)(13/20)^(k-2)-1026127]/17424000; the geometric factor is strictly decreasing on even k>=14 and is already negative at k=14. For even k=2,4,6,8,10,12, exact rational Sturm derivative sequences have no real roots and derivative at zero positive, so all are strictly increasing on R. Independently rebuilt polynomial recurrence and exact Sturm checks for each of six finite positive cases, confirmed exact negative witness k=14,16,18,20,22; infinite k>=14 proven by displayed monotone bound. Slice n=3 only, not eventual behavior in n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ulas discusses eventual k-dependent n cutoffs and suggests n=3 for sample even indices; does not prove this fixed-n iff result.",
+          "Earlier paper concerns Stern zeros and recurrence identities rather than global real derivative positivity for 53*2^k−3."
+        ],
+        "reasoning": "Prior eventual conjecture is broader in n but unproved and does not imply the stated false n=3 cases. Recurrences are acknowledged prior.",
+        "searches": [
+          "Ulas arXiv:1909.10844 Conj.4.2",
+          "Dilcher-Kidwai-Tomkins DOI:10.5486/PMD.2017.7620"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md and VERIFY.py",
+        "M. Ulas arXiv:1909.10844 Conj.4.2(1) full relevant PDF sections",
+        "Ulas-Ulas arXiv:1102.5109 (abstract)",
+        "Dilcher-Kidwai-Tomkins DOI:10.5486/PMD.2017.7620 (bibliographic/lemma citation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known decomposition identities yield formula (1) but not the Sturm sign classification and all-k witness threshold.",
+          "Ulas candidate c_(2i)=3 is not an established theorem."
+        ],
+        "reasoning": "The claim gives a strict correction to explicit numerical cutoffs without claiming to disprove eventual behavior; existing identities are tools, not an implication of the threshold.",
+        "searches": [
+          "arXiv:1909.10844 pp. defining p_(k,n), Conj 4.2",
+          "arXiv:1102.5109",
+          "DOI:10.5486/PMD.2017.7620"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At n=3, original p_(k,n)=2^(2n+k)-3*2^(n+k-1)+2^k-3 simplifies to 53*2^k-3.",
+          "Real nondecreasing for a polynomial with derivative everywhere positive is equivalent here due to checked no-zero or negative witness."
+        ],
+        "reasoning": "The index reparametrization is exactly the Ulas family rather than an unrelated numerical slice; the new result gives the iff-k classification at the conjectured bound.",
+        "searches": [
+          "Stern polynomials Ulas conjecture 4.2 monotonicity p_{k,3} n 3 even k threshold 12 rational derivative",
+          "Ulas arXiv:1909.10844 Conj.4.2(1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing printed sample suggests c_(2i)=3 through i=16 but is conjectural and contradicted at k>=14 by exact rational witness."
+        ],
+        "reasoning": "The old candidate list is precisely the object corrected here; no published proven table of the new iff-k threshold was found.",
+        "searches": [
+          "Stern polynomials Ulas conjecture 4.2 monotonicity p_{k,3} n 3 even k threshold 12 rational derivative",
+          "Ulas Conjecture4.2 printed c_(2i)=3 sample"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Ulas’s Conjecture 4.2(1) (2019) proposes cutoffs c_(2i)=3 for a finite sample and eventual monotonicity separately; the submitted sharp fixed n=3 classification shows that sample cutoff false for every even k>=14 and gives a uniform negative-derivative witness, without refuting eventual n-behavior. Standard Stern identities and zero theorems precede the work but do not state this threshold. Later equivalent proofs remain a search risk.",
+      "residual_risks": [
+        "Equivalent negative-derivative witness may have appeared in later unindexed follow-up work.",
+        "Fixed n=3 is not a complete answer to existence of eventual cutoffs as n increases for a fixed k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture gives candidate thresholds, not verified sharp iff result; sample n=3 values directly contradicted",
+          "evidence": [
+            "Conjecture 4.2(1), c_(2i)=3 and special k=34 note"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.10844",
+          "material_read": "Original arXiv PDF definitions of p_(k,n), conjecture 4.2 and neighboring discussion, including the page screenshot with the conjecture",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Strong arithmetic property of certain Stern polynomials",
+          "trigger": "Exactly the indexed family, proposed n=3 cutoff and eventual monotonicity"
+        },
+        {
+          "assessment": "Does not establish originality of the standard identity; no whole-document noncoverage inferred",
+          "evidence": [
+            "Lemma 2.1 is cited source of standard Stern identity"
+          ],
+          "identifier_or_url": "https://doi.org/10.5486/PMD.2017.7620",
+          "material_read": "Referenced theorem description and bibliographic metadata; full text not independently read",
+          "method": "citation and abstract comparison",
+          "title": "Zeros and irreducibility of Stern polynomials",
+          "trigger": "Source of recurrence/decomposition lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Resolves exactly which even-index parameter values satisfy monotonicity at the first conjecturally claimed bound n=3 and supplies an infinite family of counterexamples to the reported sharp cutoff, correcting mathematical expectations without overstating the separate eventual-monotonicity conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and VERIFY.py",
+    "M. Ulas arXiv:1909.10844 Conj.4.2(1) full relevant PDF sections",
+    "Ulas-Ulas arXiv:1102.5109 (abstract)",
+    "Dilcher-Kidwai-Tomkins DOI:10.5486/PMD.2017.7620 (bibliographic/lemma citation)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only even k>=2 and n=3; no claim about odd k or different n.",
+    "Five finite negative samples are not the proof for all k>=14; the ratio monotonicity establishes the infinite branch."
+  ],
+  "residual_risks": [
+    "Equivalent negative-derivative witness may have appeared in later unindexed follow-up work.",
+    "Fixed n=3 is not a complete answer to existence of eventual cutoffs as n increases for a fixed k."
+  ],
+  "schema_version": 1
+}
