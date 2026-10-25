@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With independent Bernoulli favorable patches, the formula for yearly multiplicative fitness is exact in the stated pooled density-independent model. Strict concavity yields the unique optimum. A strict leave-one-out Jensen comparison orders the first derivatives for all consecutive patch counts; this is an infinite family theorem, not a finite search. The optimum satisfies an exact reciprocal-multiplier moment identity, and the all-patches-unfavorable probability \((1-p)^k\) yields the claimed asymptotic prefactor by a binomial large-deviation bound. The two-patch algebra was checked and the supplied program was executed from its actual file path during this self-review. The model's stochastic long-run interpretation requires the iid year assumption, which is explicit.
+## correctness
 
-**Originality — PASS, with residual risk.** Cohen's optimal dormant germination under one random environment and Bascompte et al.'s spatial averaging and persistence thresholds are prior art. The 1987 dispersal/dormancy literature provides qualitative optimization context, and Snyder (2006) shows that temporal autocorrelation changes optimal dispersal length. Neither the inspected source material nor targeted semantic research-index comparisons established the strict optimization for every number of independent pooled patches and the asymptotically exact \((1-p)^k\) optimal dormant fraction. Strong coverage would override novelty, and excerpts are not represented as full-paper checks: Bascompte (2002) and parts of the 1987 joint-dispersal papers remained inaccessible. General Kelly-insurance results may still hide an equivalent corollary.
+PASS
 
-**Mathematical value — PASS.** The all-patch failure event can be extremely rare under spatial diversification, yet it forces an interior germination optimum for every finite number of patches. Quantifying the nonzero optimal seed reserve with a sharp constant separates spatial risk spreading from complete absence of a temporal insurance buffer. The all-integer monotonicity and limiting law form a natural complete result, not an arbitrary numerical slice. The conclusion is not extended to finite-population survival or ecological management outside the defined model.
+The regionally pooled annual multiplier is s(1-g)+(Bg/k)K with K binomial(k,p), and iid years justify L=E log R as the almost-sure growth exponent for g<1. The all-failure atom of probability (1-p)^k makes L strictly concave and sends L(g) to -∞ at g=1. Its derivative at zero equals (Bp-s)/s, proving boundary/interior uniqueness. For fixed interior g, φ_g(x)=(Bx-s)/(s(1-g)+Bg x) has strictly negative second derivative: deleting one of k+1 Bernoulli observations and Jensen shows L′_{k+1}(g)>L′_k(g), hence g_{k+1}>g_k. A law-of-large-numbers argument at every fixed g<1 gives g_k→1, and an admissible near-one trial plus binomial concentration gives optimal growth→log(Bp). At optimum sE[1/R]=1, separating K=0 from K≥1 and applying exponential small-tail estimates yields (1-p)^k/(1-g_k)→(Bp-s)/(Bp). The explicit k=1 and k=2 optimum algebra is correct. Slow convergence at k=40 is consistent with asymptotics, not a counterexample.
 
-Closest literature: Cohen (1966), Klinkhamer et al. (1987), Cohen and Levin (1987), Mathias and Kisdi (1999), Bascompte et al. (2002), Snyder (2006). Relevant literature-access limits and scientific boundary conditions appear in the detailed originality checks and result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cohen 1966 one-environment delayed-germination optimization, Venable–Brown 1988 joint dormancy/dispersal risk substitution, and Bascompte–Possingham–Roughgarden 2002 geometric-mean benefit from independent patches are genuine background. The exact finite-k interior optimizer, strict ordering for every integer k and sharp reserve asymptotic (Bp/(Bp-s))(1-p)^k are the final claim. Accessible primary materials discuss patch-number persistence, tradeoffs and risk spreading but do not establish this all-integer optimization law with prefactor. The closely relevant full Bascompte article, as well as Venable–Brown 1988, is not fully accessible; compare their actual abstracts and state the remaining overlap risk rather than claiming absence. No strong covered theorem has been found, so best-of-knowledge PASS rather than automatic fail for access.
+
+## value
+
+PASS
+
+The classical dispersal-versus-dormancy intuition asks whether spatial risk spreading can eliminate temporal reserve. This analysis isolates a natural fully mixed Bernoulli patch model and proves an exact answer across every patch count: reserve is always positive yet exponentially small, with a physically interpretable prefactor governed by safe and risky returns. The sharp all-failure boundary matters because an approximate mean-field replacement would predict complete germination. The theorem also quantifies a strict all-k monotone optimal response; these are mathematically meaningful natural invariants, without any claim of empirical field validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
