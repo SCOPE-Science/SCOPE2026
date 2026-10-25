@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-\Lambda_nx=\frac{x_n}{n}
-\]
-on \(\ell^2(\mathbb N)\),
-\[
-\sum_n\|\Lambda_nx\|^2
-=
-\sum_n\frac{|x_n|^2}{n^2}
-\le
-\|x\|^2.
-\]
-Thus the family is \(g\)-Bessel.
+# Independent mathematical audit
 
-The synthesis operator and Gram operator are
-\[
-T(c_n)=\left(\frac{c_n}{n}\right),
-\qquad
-G(c_n)=\left(\frac{c_n}{n^2}\right).
-\]
-Because \(T=T^*\), let
-\[
-x=(1/n)_{n\ge1}\in\ell^2
-\]
-and
-\[
-y=Tx=(1/n^2)_{n\ge1}.
-\]
-Then
-\[
-y\in R(T^*).
-\]
-If
-\[
-y=Gz,
-\]
-then coordinatewise
-\[
-z_n=1
-\]
-for every \(n\), contradicting \(z\in\ell^2\). Hence
-\[
-R(T^*)\not\subseteq R(G).
-\]
+## correctness
 
-For the exact repair, the inclusion
-\[
-R(T^*T)\subseteq R(T^*)
-\]
-always holds. Closed range of \(T\) gives the reverse inclusion by decomposing the preimage of \(T^*\) along
-\[
-R(T)\oplus N(T^*).
-\]
-Conversely, Douglas factorization turns
-\[
-R(T^*)\subseteq R(T^*T)
-\]
-into
-\[
-T^*T\le\lambda(T^*T)^2.
-\]
-The spectrum of \(T^*T\) away from zero is therefore bounded below by \(\lambda^{-1}\), so \(T\) has closed range.
+PASS
 
-The complete discrete and continuous lemmas and their proofs were materially inspected in the published full texts. No numerical approximation, truncation, or finite experimental inference is used.
+The source defines Lambda_n x=x_n/n on H=ℓ²(N), V_n=C. Sum ||Lambda_n x||²=Σ|x_n|²/n²≤||x||², and sup||Lambda_n||=1, satisfying the 2019 g-Bessel definition and 2020 sigma-finite counting-measure/uniform-bound assumptions. Synthesis T=diag(1/n)=T* and Gram P=T*T=diag(1/n²). x=(1/n)∈ℓ², y=Tx=(1/n²)∈R(T*); if y=Pz, then z=(1,1,...)∉ℓ². Hence universal reverse inclusion is false in both printed lemmas. For every bounded Hilbert operator T, R(P)⊆R(T*) automatically; if R(T) is closed, H_target=R(T)⊕ker(T*) gives R(T*)⊆R(P). Conversely Douglas range inclusion R(T*)⊆R(P) entails P≤λP², so its positive spectral values are ≥1/λ, and T is bounded below on ker(T)⊥, equivalent to closed range. This is an exact infinite-dimensional argument, not a finite-dimensional truncation. Both original lemma proofs were independently read, confirming they omit the closure in H_target=R(T)+ker(T*). The two downstream frame-sequence results already assume/derive closed range and are not universally declared false.
+
+## originality
+
+PASS
+
+Both primary DOIs and exact lemma proofs were materially read during THIS audit. The classical Douglas equivalence and the papers’ later closed-range frame-sequence criteria are expressly prior; they cover the abstract operator theorem, not an already-documented correction of BOTH false universal lemmas with a common admissible diagonal g-Bessel witness. Source-specific and Resultary searches found no independent published erratum/correction (the target’s own Resultary entry is not counted). Best-of-knowledge original correction narrowly understood, with nonindexed prior correction and elementary nature of the witness clearly retained as priority risks.
+
+## value
+
+PASS
+
+The disputed universal Gram/analysis range lemmas appear in two successive peer-reviewed g-frame studies and the continuous analogue explicitly inherits the discrete proof. A single natural compact diagonal g-Bessel family invalidates both, while exact closed-range characterization tells readers when the step is legitimate and protects correct downstream conditional frame-sequence theorems from overbroad rejection. This is a source-specific repair of a structural lemma, not merely a syntactic typo or unsupported numerical curiosity; no paper-sized theorem claim is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

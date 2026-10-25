@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T02:49:04.995665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Zhang & Li (2019), Numerical Functional Analysis and Optimization 40(11):1268–1290, DOI 10.1080/01630563.2019.1599912; complete Lemma 2.1 and pp.1268–1279 read.",
+        "Zhang & Li (2020), Mathematical Methods in the Applied Sciences 43(7):4257–4271, DOI 10.1002/mma.6191; complete Lemma 2.4 and Theorem 3.2 / Corollary 3.2 read.",
+        "R. G. Douglas (1966) range inclusion theorem, recognized as classical and mathematically used, not claimed new.",
+        "GitHub pinned RESULT.md blob 33e710199f3e0987dfe199461352179ad77bf8b5 and VERIFICATION.md blob 0708bd90e127b052227bd696e9a86306c0a6a067, read fully; independently reconstructed the proof."
+      ],
+      "rationale": "The source defines Lambda_n x=x_n/n on H=ℓ²(N), V_n=C. Sum ||Lambda_n x||²=Σ|x_n|²/n²≤||x||², and sup||Lambda_n||=1, satisfying the 2019 g-Bessel definition and 2020 sigma-finite counting-measure/uniform-bound assumptions. Synthesis T=diag(1/n)=T* and Gram P=T*T=diag(1/n²). x=(1/n)∈ℓ², y=Tx=(1/n²)∈R(T*); if y=Pz, then z=(1,1,...)∉ℓ². Hence universal reverse inclusion is false in both printed lemmas. For every bounded Hilbert operator T, R(P)⊆R(T*) automatically; if R(T) is closed, H_target=R(T)⊕ker(T*) gives R(T*)⊆R(P). Conversely Douglas range inclusion R(T*)⊆R(P) entails P≤λP², so its positive spectral values are ≥1/λ, and T is bounded below on ker(T)⊥, equivalent to closed range. This is an exact infinite-dimensional argument, not a finite-dimensional truncation. Both original lemma proofs were independently read, confirming they omit the closure in H_target=R(T)+ker(T*). The two downstream frame-sequence results already assume/derive closed range and are not universally declared false.",
+      "residual_risks": [
+        "No independent Lean/expert proof attestation; exact functional-analytic verification only.",
+        "The corrected claim is scoped to bounded synthesis operators on Hilbert spaces, not arbitrary unbounded operators or all downstream statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Douglas (1966) already yields the all-bounded-operator equivalence R(T*)=R(T*T) iff R(T) is closed.",
+          "Both original papers themselves prove closed synthesis range for frame sequences, and the 2019 introduction singles out a frame-sequence criterion via Gram/analysis range equality.",
+          "Their universal auxiliary lemmas remain false as printed because no closed range is assumed."
+        ],
+        "reasoning": "The abstract equality is fully prior art and would not be a new result alone. The specific published-error diagnosis across both lemma numbers and the explicit permissible g-Bessel witness have not been located as prior corrections. Novelty is narrowly this error demonstration, not operator theory.",
+        "searches": [
+          "Douglas 1966 On majorization factorization range inclusion operators Hilbert space",
+          "range T* equals range T*T iff closed range continuous g-frame sequence",
+          "Zhang and Li 2019 Corollary 3.2 frame sequence closed range Gram analysis equality",
+          "Resultary: Hilbert space bounded operator range adjoint equals range T*T precisely closed range Douglas lemma frame sequences"
+        ]
+      },
+      "checked_sources": [
+        "Zhang & Li (2019), Numerical Functional Analysis and Optimization 40(11):1268–1290, DOI 10.1080/01630563.2019.1599912; complete Lemma 2.1 and pp.1268–1279 read.",
+        "Zhang & Li (2020), Mathematical Methods in the Applied Sciences 43(7):4257–4271, DOI 10.1002/mma.6191; complete Lemma 2.4 and Theorem 3.2 / Corollary 3.2 read.",
+        "R. G. Douglas (1966) range inclusion theorem, recognized as classical and mathematically used, not claimed new.",
+        "Resultary semantic search IDs: exact Gram-range correction; closed synthesis-range theorem; frame erratum/counterexample. Target indexed record excluded as independent prior; near matches concern K-frame compression, controlled frames, not the two named statements.",
+        "Web exact-source searches for both DOIs plus erratum/correction/counterexample, and Gram/analysis range notation variants; no indexed source-specific correction found.",
+        "General closed range theorem source: https://www.buttenschoen.ca/MATH725/duality/adjoint/ (background, not the source-specific correction)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 paper contains a true later frame-sequence corollary and a false stronger auxiliary universal inclusion; one must not mistake a correct downstream conditional result for a correction of the universal lemma.",
+          "The continuous 2020 paper says it is a continuation of 2019, rather than independent confirmation of the lemma.",
+          "Nearby K-frame findings involve range compression/multipliers, not identifying these two particular printed false lemmas. The current target appears in Resultary index but is the SAME finding and not prior support."
+        ],
+        "reasoning": "The earlier closed-range theorem mathematically implies the precise domain where inclusion holds, so the theorem portion alone is covered. Neither target article or relevant neighboring finding supplies the explicit statement that the two specific published universal lemmas fail with this legitimate g-Bessel sequence; best-of-knowledge source-specific correction survives.",
+        "searches": [
+          "Resultary: Erratum counterexample for g-frame Gram synthesis analysis operator range inclusion",
+          "Resultary nearby published records closed range K-frame reconstruction requires range compression and unbounded diagonal scaling",
+          "R(T*) range T*T closed range theorem for g frame sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2019 Lemma 2.1 asserts R(T*)⊆R(G_K), R(G_K)⊆R(T*); 2020 Lemma 2.4 (10) repeats the first inclusion.",
+          "Both have G=T*T, and for ℕ with counting measure the continuous definitions reduce to discrete definitions.",
+          "Both rely on the invalid decomposition target Hilbert space = R(T) + ker(T*) rather than closure(R(T))⊕ker(T*)."
+        ],
+        "reasoning": "Compare the exact quantifiers (arbitrary g-Bessel), domain/codomain spaces, Gram notation, and counting-measure reduction. These are two source instances of one false operator claim, not two independent phenomena.",
+        "searches": [
+          "Resultary: Incorrect Gram operator range inclusion in g-Bessel sequences: Zhang Li 2019 Lemma 2.1 continuous 2020 Lemma 2.4 counterexample closed range",
+          "10.1080/01630563.2019.1599912 Lemma 2.1 counterexample; 10.1002/mma.6191 Lemma 2.4 correction",
+          "range analysis operator subset Gram matrix g-Bessel sequence false closed range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original DOI metadata and full published PDF locate first claim in 2019 Lemma 2.1, second claim in 2020 Lemma 2.4.",
+          "No exact-source indexed correction, erratum, counterexample, or database entry located in conducted search.",
+          "No numerical lookup or special-value table is germane: this is a universal operator inclusion with a single exact witness."
+        ],
+        "reasoning": "The relevant exact records are DOI/lemma-number identities and indexed erratum notices, rather than an integer sequence or table. Both DOIs and variant titles were checked; absence from searches is residual uncertainty, not a novelty proof.",
+        "searches": [
+          "10.1080/01630563.2019.1599912 erratum correction counterexample",
+          "10.1002/mma.6191 erratum correction counterexample",
+          "\"G-Frame and Riesz Sequences in Hilbert Spaces\" Zhang Li lemma 2.1 pdf",
+          "\"Continuous g-frame and g-Riesz sequences in Hilbert spaces\" lemma 2.4"
+        ]
+      },
+      "rationale": "Both primary DOIs and exact lemma proofs were materially read during THIS audit. The classical Douglas equivalence and the papers’ later closed-range frame-sequence criteria are expressly prior; they cover the abstract operator theorem, not an already-documented correction of BOTH false universal lemmas with a common admissible diagonal g-Bessel witness. Source-specific and Resultary searches found no independent published erratum/correction (the target’s own Resultary entry is not counted). Best-of-knowledge original correction narrowly understood, with nonindexed prior correction and elementary nature of the witness clearly retained as priority risks.",
+      "residual_risks": [
+        "The all-operator closed-range theorem is classical and 2019 Theorem/Corollary already imply the equality criterion for g-frame sequences; any claim of a new abstract theorem would be covered.",
+        "The explicit diagonal example uses familiar compact-operator logic, so mathematical novelty is limited to exposing the precise defects of 2019 Lemma 2.1 and 2020 Lemma 2.4.",
+        "A thesis, informal erratum, unindexed source, or later version of these papers may have pointed out the same flaws; search absence is not priority certification.",
+        "Resultary indexes the SAME target record; it is excluded as independent evidence of earlier discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma 2.1 explicitly asserts BOTH R(T*)⊆R(G) and R(G)⊆R(T*) for every g-Bessel sequence. Equation (2.2) invokes U=R(T)+ker(T*) without the missing closed-range assumption. This is invalid for compact injective diagonal T.",
+          "evidence": "Zhang–Li (2019), pp.1275–1276, Lemma 2.1, equations (2.1)–(2.2). Their later Corollary 3.2 links equality to g-frame sequence and therefore should not be read as validating the universal lemma.",
+          "identifier_or_url": "doi:10.1080/01630563.2019.1599912",
+          "material_read": "Primary full text pp.1268–1279: definitions 1.1, synthesis/Gram equations (1.3)–(1.5), the complete Lemma 2.1 on pp.1275–1276 and proof, Lemmas 2.2–2.5; and its introduction tying Corollary 3.2 to range equality.",
+          "method": "Full published PDF text read through authorized institutional access; surrounding lemmas and original range assumptions examined.",
+          "title": "G-Frame and Riesz Sequences in Hilbert Spaces",
+          "trigger": "Exact discrete predecessor whose universal range assertion is challenged."
+        },
+        {
+          "assessment": "Lemma 2.4 equation (10) universally claims R(T*)⊆R(G). Its proof relies on H=R(T)+ker(T*) in equation (12), without closed range. Counting measure on N is explicitly admitted and uniform sup norm1 in the diagonal witness, so no source hypothesis rules the witness out.",
+          "evidence": "Zhang–Li (2020), p.4261 Lemma 2.4, p.4262 equation (12), p.4258 discrete-counting special case, pp.4265–4267 closed-range Theorem 3.2 and Corollary 3.2.",
+          "identifier_or_url": "doi:10.1002/mma.6191",
+          "material_read": "Full source sections: pp.4258–4259 measure/Bessel assumptions, uniform block norm, counting-measure remark, Gram/synthesis definitions; pp.4260–4262 complete Lemmas 2.2–2.5 including disputed Lemma 2.4; pp.4265–4267 Theorem 3.2 and Corollary 3.2.",
+          "method": "Published full-text PDF read through authorized institutional access; target and downstream results inspected.",
+          "title": "Continuous g-frame and g-Riesz sequences in Hilbert spaces",
+          "trigger": "Exact continuous successor, explicitly acknowledging discrete precursor."
+        },
+        {
+          "assessment": "Douglas domination gives T*T≤λ(T*T)^2 exactly when R(T*)⊆R(T*T), forcing a spectral gap; this entire abstract operator identity is PRIOR and is not claimed novel.",
+          "evidence": "Douglas range inclusion A(H)⊆B(H) iff AA*≤λ BB*, bounded Hilbert operators.",
+          "identifier_or_url": "Douglas, Proc. AMS 17 (1966), 413–415",
+          "material_read": "Classical range-inclusion theorem applied to A=T* and B=T*T; theorem statement and its operator inequality, as independently reconstructed from the target proof. No claim that the historical paper was newly retrieved in complete PDF.",
+          "method": "Mathematical theorem comparison and direct spectral rederivation; bibliographic source identified.",
+          "title": "On majorization, factorization, and range inclusion of operators on Hilbert space",
+          "trigger": "Standard stronger Hilbert-operator lemma needed for exact closed-range boundary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhang & Li (2019), Numerical Functional Analysis and Optimization 40(11):1268–1290, DOI 10.1080/01630563.2019.1599912; complete Lemma 2.1 and pp.1268–1279 read.",
+        "Zhang & Li (2020), Mathematical Methods in the Applied Sciences 43(7):4257–4271, DOI 10.1002/mma.6191; complete Lemma 2.4 and Theorem 3.2 / Corollary 3.2 read.",
+        "R. G. Douglas (1966) range inclusion theorem, recognized as classical and mathematically used, not claimed new."
+      ],
+      "rationale": "The disputed universal Gram/analysis range lemmas appear in two successive peer-reviewed g-frame studies and the continuous analogue explicitly inherits the discrete proof. A single natural compact diagonal g-Bessel family invalidates both, while exact closed-range characterization tells readers when the step is legitimate and protects correct downstream conditional frame-sequence theorems from overbroad rejection. This is a source-specific repair of a structural lemma, not merely a syntactic typo or unsupported numerical curiosity; no paper-sized theorem claim is required.",
+      "residual_risks": [
+        "The counterexample and operator theorem are straightforward for specialists; value is tied to correcting these particular published lemmas, not independent novelty of the abstract formula.",
+        "No downstream theorem is proven false solely from the auxiliary flaw."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The standard closed-range operator identity is prior art; any novelty asserted beyond the two source-specific corrections would be overclaiming.",
+    "No direct formal proof or external expert attestation; current independent mathematical review is not such certification.",
+    "A correction outside indexed bibliographic sources may have priority; targeted searches cannot disprove it.",
+    "Only 2019 Lemma 2.1 and 2020 Lemma 2.4 are refuted; no assertion that all their downstream results fail.",
+    "No GitHub write or dispatcher closeout; change-set is staged for downstream validation."
+  ],
+  "schema_version": 1
+}
