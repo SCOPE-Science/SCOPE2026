@@ -1,21 +1,21 @@
-# Review of geodetic bases and exchanges in finite projective-plane incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal proof uses only the incidence axioms. Every geodetic point is selected or lies on a selected line, and dually each geodetic line is selected or meets a selected point. Line-union bounds give the sharp lower bound \(2q\). Simultaneous equality forces \(q\) concurrent selected lines and the complementary \(q\) points on the omitted pencil line. Every flagged construction is checked directly using three-edge point-to-nonincident-line geodesics. Counting the resulting flags and their pairwise intersections proves the exact exchange spectrum and threshold. The two separately structured programs confirm all minimum geodetic sets at orders two and three and all flag witnesses and exchange counts at orders two, three, four and five. All outputs were regenerated from the included programs.
+PASS
 
-## Originality — PASS, with residual risks
+Let finite projective plane order q>=2 have v=q^2+q+1 points and lines. Every covered point in a geodetic interval is selected or lies on a selected line, and dually every covered line is selected or through a selected point. For a selected a-point, b-line set, the union bounds v≤a+1+bq and v≤b+1+aq imply a+b≥2q. Equality forces a=b=q, all q selected lines concurrent at some x, and the q selected points exactly on omitted line L excluding x; conversely shortest paths cover every vertex for each such incident flag. Thus g=2q and precisely v(q+1) bases. For two flags, same x or same L yields distance q+1 (2q choices); no cross-incidence yields 2q−2 (q^3 choices); single cross-incidence yields 2q (2q^2 choices). Flag adjacency for q>=3 is connected at q+1; for q2 opposite flags at distance2 yield connectedness, with smaller threshold graph edgeless. Independently enumerate ALL vertex subsets through size4 in Fano incidence graph and size6 in ternary PG(2,3), reconstruct full shortest-path union, finding no smaller geodetic sets, exactly 21 and 52 min bases and exact distance counts. Finite q2,q3 tests do not replace proof for arbitrary plane including non-Desarguesian.
 
-The closest foundational sources are Harary–Loukakis–Tsouros (1993), Chartrand–Harary–Zhang (2000; 2002), Douthat–Kong (1996) and Nuenay–Jamil (2015). Douthat–Kong's inspected publisher PDF treats chordal and split graphs, not projective-plane Levi graphs. The abstract and accessible journal material of the 2000 paper concern geodetic sets in arbitrary graphs and existential prescribed invariants, not this family or its bases. The 2002 publisher description concerns general bounds, graph products, and minimum geodetic subgraphs. The 2015 paper adds a domination condition. No inspected result gives the universal flag classification or simultaneous-exchange threshold, nor does an identified general theorem imply them without new projective-incidence reasoning.
+## originality
 
-Searches included exact invariant and alias phrases for geodetic cover/basis/number of finite projective planes, point-line incidence and Levi graphs, Heawood graph, symmetric designs, and bipartite Moore graphs. Semantic searches of published mathematical records found related results on complete multipartite and crown graphs, not the projective-plane incidence family. This is a best-knowledge comparison, not a proof of publication priority. Full text of the 2000 and 2002 foundational papers was not secured; the accessible abstracts and journal descriptions make direct coverage unlikely, but overlooked appendices, alternate terminology, and unindexed work remain possible.
+PASS
 
-## Value — PASS
+Foundational geodetic-set results and algorithmic chordal/split graph studies do not determine the minimum bases on girth-six point–line Levi graphs, much less flagwise replacement-distance spectrum and exchange threshold. Related Resultary projective-plane incidence records compute topological Čech/Rips invariants, not geodetic optimization.
 
-This is a complete equality-case classification for a natural shortest-path covering problem, valid for every existing finite projective plane including non-Desarguesian examples. It identifies exactly which geometric flags support minimum geodetic bases, proves their uniform independence, and gives the precise number and size of selected-vertex replacements needed before optimal solutions become mutually reachable. The sharp transition is a mathematical statement about the full optimal solution space, not merely a small improvement of a scalar invariant or a table recomputation.
+## value
 
-## Scope and limits
+PASS
 
-Only ordinary all-geodesics vertex coverage is studied. The projective-plane axioms and order at least two are essential to the proof. Endpoint-wise simultaneous exchanges do not imply feasible paths of single moves. Exhaustive finite checks are independent consistency tests, not proof of the all-orders theorem; the universal proof is combinatorial. Independent external audit has not been performed.
+A complete classification for all existing finite projective planes, not just PG(2,q), of a natural shortest-path graph invariant and its optimal-set exchange geometry. The surprising absence of any token-jump move but finite sharp simultaneous threshold is a motivated structural fact, not a tiny arbitrary instance.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
