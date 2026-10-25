@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:55:05.862142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Model normalized affine hyperplanes H_{a,b} over F3 with (a,b)~(2a,2b), distinct initially colored point/hyperplane parts and d+1 individually colored affine basis points. For basis {0,e_i}, round1 unique coordinate-zero hyperplanes D_i, round2 distinguishes supports and forces singleton points 2e_i and 2e_i+2e_j using the round1 class with a_i=a_j=1 and other coefficients 0 or 2. The point witness set P has 1+2d+d(d-1)/2 points. Its incidence with e_i/2e_i recovers inhomogeneous hyperplane normals; for homogeneous hyperplanes, incidence with pair points compares signs, yielding normals up to unavoidable global -1. Hence all hyperplanes singleton by round3 and all points by round4. The three points (1,1),(1,2),(2,1) in first two coordinates have the same round2 counts and stay tied in round3, proving sharp 4. Any <=d marked points lie in a proper affine subspace, fixed pointwise by a nontrivial affine automorphism, so cannot give a discrete coloring. Independently built AG(3,3) incidence graph and obtained round color class pairs point/hyperplane (5,1),(5,15),(15,15),(15,39),(27,39), first discrete at round4. Source separately supplies d2..6 refinement tests and witness signatures d2..9; these finite tests are corroboration, not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General complexity classification addresses arbitrarily presented graphs, not a closed-form family G_d with the specified d+1 marked points and exactly four rounds.",
+          "No explicit AG(d,3) hyperplane statement appeared in inspected Arvind full-text searches for affine."
+        ],
+        "reasoning": "P-hardness of deciding discreteness and polynomial-time recognition of amenability do not imply this family-specific first-discrete depth. No extension to finite fields q!=3 claimed.",
+        "searches": [
+          "Arvind et al 2015 §§1–2 amenable/color-refinement graphs",
+          "Arvind et al 2016 Theorem4.2 k-Discrete hardness",
+          "Search: color refinement affine space hyperplanes individualization"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, check_refinement.py, check_witnesses.py, checkpoint hashes",
+        "https://arxiv.org/abs/1502.01255 full arXiv text relevant portions",
+        "https://arxiv.org/abs/1606.04383 full arXiv text relevant portions",
+        "Resultary searches listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-specific witness hyperplane uniqueness and sign-recovery identities require F3 arithmetic; general 1-WL and fixing-number definitions do not entail them.",
+          "Rips-complex affine-plane incidence topological results concern different invariant and d2 objects; not a dominating structural theorem."
+        ],
+        "reasoning": "The explicit quadratic singleton family P and persistent round3 collision are substantive independent inputs; no claim to rediscover 1-WL itself.",
+        "searches": [
+          "Arvind et al 2015 general color-refinement amenability",
+          "Arvind et al 2016 general fixing number and k-Discrete results",
+          "Resultary: affine plane incidence Rips complexes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard 1-dimensional Weisfeiler–Leman/color refinement recurrence is the identical multiset-neighborhood update.",
+          "A graph automorphism fixing marked vertices preserves all future colors, yielding the d+1 lower bound; general fixing-set principles do not determine upper sharp round count."
+        ],
+        "reasoning": "Compared individualization-refinement, discrete color classes, fixing/base size, point–hyperplane geometry, affine basis and normalized dual hyperplane objects. Distinguished affine plane point-line (d2) versus genuine higher-dimensional hyperplanes.",
+        "searches": [
+          "arXiv:1502.01255 Graph Isomorphism Color Refinement Compactness",
+          "arXiv:1606.04383 Fixing Number and Vertex Individualization",
+          "Resultary: color refinement point hyperplane incidence graph AG(d,3) individualize affine basis four rounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent d3 result point/hyperplane color counts rounds0–4: (5,1),(5,15),(15,15),(15,39),(27,39); 27 points,39 hyperplanes.",
+          "Source check_witnesses.py verifies distinct signatures for d<=9; no published exact all-d 4-round profile returned in matched Resultary hits."
+        ],
+        "reasoning": "A finite class-count table is only corroboration. The all-d constant depth and minimal d+1 marks are analytically established, not inferred from these finitely many values.",
+        "searches": [
+          "Resultary: color refinement point hyperplane incidence graph AG(d,3) individualize affine basis four rounds",
+          "Pinned check_refinement.out finite dimensions2..6",
+          "Independent AG(3,3) class-count enumeration"
+        ]
+      },
+      "rationale": "PASS — The notion and complexity of 1-WL color refinement, individualization and fixing number are established; inspected Arvind et al 2015 and 2016 address general amenability/compactness or parameterized complexity. Neither inspected theorem gives the exact AG(d,3) point–hyperplane incidence first-discreteness round 4, minimal point marks d+1, or a quadratic witness set for all d. This is not a statement about arbitrary graph isomorphism identification or general q, and specialization to d>=3 is mathematically structural.",
+      "residual_risks": [
+        "A specialized finite-geometry coherent-configuration paper could contain a more general one-step WL classification, not located among queried sources.",
+        "Only point marks initially; mixed or hyperplane individualization and fields other than F3 are outside scope.",
+        "The full recursive Git tree byte-level recomputation was not done, though Git object tree SHA and blob identities were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FOUNDATIONAL: states global graph classes and known discreteness, no explicit affine point–hyperplane four-round family in relevant inspected material",
+          "evidence": [
+            "pp0–2 introduction, definition of refinement and amenability, complexity/compactness theorem summary"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Full arXiv PDF opened; abstract/introduction and color-refinement definitions, theorems about amenable/compact graphs; searched for affine space",
+          "method": "Full-text mathematical section search with page0 screenshot",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Generic WL stabilization/discreteness and amenability could dominate family"
+        },
+        {
+          "assessment": "RELATED_GENERAL: complexity and fixing-number theory; no all-d AG(d,3) incidence closed form in inspected text",
+          "evidence": [
+            "Theorem4.2 W[P]-hardness of k-Discrete on broad classes; no affine occurrence in PDF search"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.04383",
+          "material_read": "Lawfully accessible 16-page arXiv PDF; intro and Theorem4.2 complexity of k-Discrete and k-Refinable, base/fixing number reduction, full-text search for affine",
+          "method": "PDF inspected with abstract screenshot and theorem/term searches",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Minimal marked-point question closely resembles vertex individualization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — The precise individualization threshold and constant refinement depth on a canonical highly symmetric affine incidence graph form a natural extremal example. Explicit small separating family (quadratic in d) that isolates exponentially many hyperplanes supplies conceptual structure beyond a small computational case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized finite-geometry coherent-configuration paper could contain a more general one-step WL classification, not located among queried sources.",
+    "Only point marks initially; mixed or hyperplane individualization and fields other than F3 are outside scope.",
+    "The full recursive Git tree byte-level recomputation was not done, though Git object tree SHA and blob identities were checked.",
+    "All five Git API tree-object SHA identities and fetched result/verifier blob identities were checked; exact recursive Git tree bytes not recomputed locally.",
+    "Mathematical and literature C/O/V are independent best-of-knowledge assessments, not Lean verification or human/external certification.",
+    "Scientific PASS is separate from file publication authorization: plan remains not_ready until complete privacy sanitization is staged and validated."
+  ],
+  "schema_version": 1
+}
