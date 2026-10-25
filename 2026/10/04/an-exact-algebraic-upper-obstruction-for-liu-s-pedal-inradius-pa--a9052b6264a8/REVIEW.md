@@ -1,15 +1,13 @@
 # Review: An exact algebraic upper obstruction for Liu's pedal-inradius parameter problem
 
 ## Correctness
-PASS. The pedal inradius is derived directly from perpendicular-foot coordinates. The rational parameterization converts the equality claim into polynomial identities. Exact remainder checks certify both the equality and the cubic satisfied by \(\kappa\). The relevant roots are isolated exactly, and strict interiority is certified. Because the defect is affine in \(k\) and has strictly negative slope at the equality configuration, every \(k>\kappa\) is rigorously excluded.
+PASS. For the stated isosceles triangle and interior axial point, perpendicular-foot coordinates determine the pedal-triangle area, semiperimeter, and inradius. Rational half-angle variables reduce the exact equality at the proposed algebraic witness to vanishing polynomial remainders. The defining cubic has one real root and the witness satisfies the strict interior inequalities. Since the affine parameter defect has strictly negative slope at equality, every larger parameter violates the universal inequality. The bound is one-sided: no universal sharpness theorem is claimed.
 
 ## Originality
-PASS, with residual risk. The primary source states only that computer exploration gives a maximum about \(7.88\); it does not state the algebraic cubic, the explicit exact configuration, or a rigorous upper-bound proof. The 2013 full-text follow-up on the same pedal radii was materially inspected and does not cover this parameter problem. published-finding corpus searches for the exact inequality, the approximate endpoint, the cubic, and algebraic-obstruction formulations returned no covering statement. Exact public-web searches for the formula and cubic likewise returned the original problem rather than a solved exact result. Residual risk remains for unindexed or differently phrased literature and for unpublished details behind the source's computer remark.
+PASS, with residual risk. The original 2011 preprint and 2012 journal paper pose precisely this parameter problem and report a numerical computer estimate near 7.88, without the exact cubic witness. Liu's 2013 pedal-radius paper and the subsequent 2018 pedal-triangle analysis study other inequalities and do not give this algebraic upper obstruction. A published index entry for the present finding is a copy of the same theorem, not an independent prior solution. Earlier unpublished computations or unindexed algebraic derivations remain possible.
 
 ## Value
-PASS. The source explicitly poses determination of the maximal parameter and supplies only a decimal heuristic. A closed algebraic witness with a rigorous universal upper bound materially narrows that open problem and explains the reported numerical scale. The claim is not inflated into an unsupported global optimum.
+PASS. The exact constructive obstruction eliminates every parameter above an explicit algebraic number and thereby gives a meaningful theorem toward a natural open maximization problem. It is a testable barrier for any eventual sharp-constant proof, without claiming to complete the original problem.
 
-## Closest literature and limitations
-The closest source is Liu's 2011/2012 Problem 1 itself. Liu's 2013 pedal-triangle paper studies the same geometric objects but different inequalities. The present result proves only \(k_{\max}\le\kappa\); a matching proof of universal validity for \(k\le\kappa\) is not supplied.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Scope
+The result proves only k_max ≤ κ. It supplies neither a matching global lower bound nor an exhaustive extremizer classification. The mathematical conclusion relies on exact polynomial identities, not the approximate decimal expansion.

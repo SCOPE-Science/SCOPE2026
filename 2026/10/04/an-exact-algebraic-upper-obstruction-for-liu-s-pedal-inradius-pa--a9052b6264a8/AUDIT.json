@@ -1,102 +1,124 @@
 {
   "correctness": {
-    "rationale": "Direct coordinate geometry yields the pedal inradius formula. Exact symbolic reduction proves equality at the algebraic configuration, and exact root isolation proves it is admissible. The defect is affine in the parameter and has negative slope because R>2r, so every larger parameter fails at the same interior configuration. The verifier reproduces these polynomial certificates from the packaged source.",
+    "rationale": "Direct orthogonal projection of P=(0,y) onto the three side lines gives D=(0,0) and E,F with coordinates ±h(h−y)/(1+h²), h(1+hy)/(1+h²). Their side lengths and area give the pedal inradius r_p=h(h−y)(1+hy)/[(1+h²)(sqrt((1+h²)(1+y²))+h−y)]. Half-angle variables h=2u/(1−u²), y=2v/(1−v²) yield r=u. Independently derived and exactly reduced the defect R+κr−2(κ+2)r_p, the parameter cubic 27κ³−108κ²−720κ−800 and K=(R−4r_p)/(2r_p−r), all modulo 125u⁶−81u⁴+39u²−11 with remainder zero on the prescribed rational v(u) branch. Cubic discriminants are negative, u∈(0.6405,0.6406) has a unique positive solution, v∈(0,u); hence the witness is a genuine interior point. The exact identity R−2r=(3u²−1)²/(4u(1−u²))>0 and equality imply 2r_p−r>0, so the affine inequality defect is negative for every k>κ. This proves k_max≤κ but does not prove equality for k_max.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Liu 2013 proves and refines R_p<R and poses other pedal-radius conjectures, but its full text has no 7.88 match and no solved occurrence of the Problem 1 parameter formula.",
-        "Public exact-phrase searches led back to Liu's original Problem 1 rather than to a stronger theorem determining or bounding its maximum by the stated cubic."
+        "Liu 2013 studies R_p<R and refinements for the pedal circumradius R_p; its statements inspected do not bound the Liu 2012 parameter by the stated cubic.",
+        "Huang 2018 proves other pedal-triangle conjectures, concerning PO and products of certain radii; its claims do not imply the current exact witness.",
+        "No broader theorem was found that establishes a smaller global bound or this exact algebraic bound for all P."
       ],
-      "reasoning": "A theorem determining the global maximum would dominate this result, but no such statement was found in the inspected directly relevant follow-up or targeted searches.",
+      "reasoning": "A proven global sharp k_max or a stronger upper obstruction would dominate this claim even with different wording. The materially compared theorems involve other radius functionals or different inequalities.",
       "searches": [
-        "published-finding corpus: algebraic obstruction 7.867924 pedal triangle inradius",
-        "web: On inequality R_p<R of pedal triangle maximum value k",
-        "web: pedal triangle 7.88 Liu"
+        "published mathematical finding index: triangle interior point pedal inradius universal inequality algebraic upper bound cubic 27 k^3 -108 k^2 -720 k -800",
+        "Jian Liu 2013 DOI:10.7153/mia-16-53 full text, theorems and conjectures",
+        "Fangjian Huang 2018 DOI:10.1186/s13660-018-1661-7 full text"
       ]
     },
     "checked_sources": [
-      "RGMIA Research Report Collection 14 (2011), Article 35",
-      "Jian Liu, Journal of Mathematical Inequalities 6(2) (2012), DOI 10.7153/jmi-06-20",
-      "Jian Liu, Mathematical Inequalities & Applications 16(3) (2013), DOI 10.7153/mia-16-53",
-      "published-finding corpus semantic search results for four exact-object/alias queries",
-      "Current private ledger through g000032",
-      "Targeted public exact-phrase and exact-polynomial searches"
+      "Jian Liu, Some New Inequalities for an Interior Point of a Triangle, RGMIA Research Report Collection 14 (2011), Article 35, https://rgmia.org/papers/v14/v14a35.pdf",
+      "Jian Liu, Some new inequalities for an interior point of a triangle, Journal of Mathematical Inequalities 6(2) (2012), 195–204, DOI:10.7153/jmi-06-20",
+      "Jian Liu, On inequality R_p<R of the pedal triangle, Mathematical Inequalities & Applications 16(3) (2013), 701–715, DOI:10.7153/mia-16-53",
+      "Fangjian Huang, Two inequalities about the pedal triangle, 2018, DOI:10.1186/s13660-018-1661-7",
+      "Published-result semantic searches on the exact formula, algebraic cubic, endpoint and pedal-triangle aliases, including self-indexed present finding"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 2011/2012 source gives only an approximate computer value and explicitly leaves maximization as a problem.",
-        "The 2013 paper's theorems concern R_p<R and other refinements; targeted full-text checks do not give the present parameter bound."
+        "Liu 2012 has a universal valid inequality corresponding to k=4, and a numerical maximization remark near k=7.88, but does not prove the current upper exclusion.",
+        "The 2013 and 2018 statements inspected concern different functions involving the pedal circumradius R_p or products of other radii."
       ],
-      "reasoning": "The source's approximate remark is evidence that the scale was anticipated, but it does not imply the exact cubic, exact equality configuration, or rigorous exclusion of all larger k.",
+      "reasoning": "A known valid k=4 does not entail an upper obstruction at 7.8679. A heuristic approximate maximum does not entail exact equality or exclude every higher k. The later theorems cannot be algebraically specialized to the submitted R,r,r_p inequality.",
       "searches": [
-        "primary full text: Liu 2011/2012 Problem 1 and Remark 4.1",
-        "primary full text: Liu 2013 On inequality R_p<R of the pedal triangle",
-        "published-finding corpus and public searches for exact formula, endpoint, cubic, and same-object aliases"
+        "Liu 2012 DOI:10.7153/jmi-06-20 §4 Problem 1, Remark 4.1, and Theorem 1.2",
+        "Liu 2013 DOI:10.7153/mia-16-53 full text",
+        "Huang 2018 DOI:10.1186/s13660-018-1661-7 full text"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Liu 2011/2012, Problem 1, asks for the maximum k in the identical inequality and gives only 'about 7.88'.",
-        "No published-finding corpus hit returned an equivalent pedal-inradius parameter theorem; the closest high-ranked hits concerned unrelated triangle roundness or inradius problems."
+        "The original problem states the identical all-triangles/all-interior-points inequality and describes only a numerical computer value about 7.88.",
+        "The returned identically titled published mathematical finding index item indexes the audited source itself, not an earlier independent equivalent proof. Other closely ranked entries address distinct Liu triangle inequalities."
       ],
-      "reasoning": "The new claim is not a relabeling: it supplies a specific algebraic equality configuration and an exact cubic upper obstruction absent from the source statement.",
+      "reasoning": "An explicit exact geometric witness excluding every k above the unique cubic root is a strict theorem-level improvement over a numerical conjectural endpoint. Rewriting the same inequality alone would not be new.",
       "searches": [
-        "published-finding corpus: pedal triangle inradius maximum k 2(k+2) rp R kr",
-        "published-finding corpus: Liu Problem 1 pedal triangle 7.88 maximum k",
-        "web: exact formula 2(k+2) r_p R+kr triangle",
-        "web: exact cubic 27 k^3 - 108 k^2 - 720 k - 800 geometry"
+        "published mathematical finding index: pedal triangle inradius Liu largest parameter inequality 2(k+2) r_p ≤ R + k r exact sharp constant algebraic root 7.88",
+        "Web: \"2(k+2)\" \"r_p\" \"R\" \"k\" pedal triangle",
+        "Jian Liu 2012 DOI:10.7153/jmi-06-20 §4 Problem 1 and Remark 4.1"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The current private ledger through generation g000032 contains no finding with the 7.88 parameter, the Problem 1 formula, or DOI 10.7153/jmi-06-20.",
-        "published-finding corpus returned no exact-table or exact-polynomial record matching the cubic obstruction."
+        "published mathematical finding index indexes this very finding with the cubic; this self-indexing is not external prior art.",
+        "Other retrieved published findings on similar Liu conjectures do not tabulate the same parameter or extremizer.",
+        "The original authors reported an approximate computer endpoint and not an exact table entry or algebraic construction."
       ],
-      "reasoning": "There is no detected published database entry or own-ledger record that tabulates or implies the exact algebraic witness.",
+      "reasoning": "The exact algebraic witness is not certified as novel by a missing table entry; the novelty judgment rests on comparing original published statements. Earlier unpublished numerical calculations may have found essentially the same geometry.",
       "searches": [
-        "published-finding corpus: 27 k^3 108 k^2 720 k 800 pedal",
-        "published-finding corpus: Liu Problem 1 pedal triangle 7.88 maximum k",
-        "own ledger: terms 7.88; 2(k+2); jmi-06-20"
+        "published mathematical finding index: triangle interior point pedal inradius universal inequality algebraic upper bound cubic 27 k^3 -108 k^2 -720 k -800",
+        "Web: \"27k^3\" \"108k^2\" \"720k\" \"800\" pedal",
+        "Web: \"7.867924903656\" pedal inradius Liu"
       ]
     },
-    "rationale": "The primary source poses the identical maximization problem and reports only a computer approximation about 7.88. The exact cubic, exact equality configuration, and rigorous upper-obstruction proof were not found in the materially inspected same-object follow-up, published-finding corpus, current private ledger, or targeted public searches.",
+    "rationale": "Liu’s original 2011/2012 problem asks for exactly the same universal parameter and reports only a computer estimate near 7.88. The presented rigorously excluded half-line and exact cubic witness are not stated by that source. The inspected 2013 same-author pedal-radius paper and 2018 same-topic follow-up address other claims. The published-result search does return the identical present finding as an index entry; this is the same result, not independent earlier priority. No independent covering theorem was identified in bounded searches. Remaining unindexed derivations are a real priority risk.",
     "residual_risks": [
-      "An unindexed or differently phrased prior solution may exist.",
-      "The source's unpublished computer work behind the decimal 7.88 may have contained this exact algebraic extremizer even though no exact form is stated in the inspected public text.",
-      "The RGMIA date is derived from its public preprint stamp 03/05/11 and collection ordering; historical site-posting time itself was not independently timestamped."
+      "The unpublished computation behind the original estimate 7.88 may have identified essentially this exact extremizer; public evidence read does not show it.",
+      "A differently phrased or unindexed prior exact obstruction may exist; search absence is not an originality proof.",
+      "Claim is an upper obstruction only; no matching universal lower bound is established."
     ],
     "source_inspections": [
       {
-        "assessment": "The source asks for the maximum k and provides only an approximate computer value; it does not state the cubic or exact witness proved here.",
-        "evidence": "Problem 1 states 2(k+2)r_p <= R+kr; Remark 4.1 says the computer finds the maximum about 7.88.",
-        "identifier_or_url": "https://rgmia.org/papers/v14/v14a35.pdf; doi:10.7153/jmi-06-20",
-        "material_read": "Definitions needed for the pedal triangle and Section 4, especially Problem 1 and Remark 4.1; the public RGMIA collection page was also read for dating context.",
-        "method": "Primary full-text inspection and targeted text search.",
+        "assessment": "The identical maximization problem remains open there; a computer estimate near 7.88 is not an exact algebraic exclusion certificate.",
+        "evidence": "Problem 1 states 2(k+2)r_p≤R+kr for every triangle and interior point; Remark 4.1 reports the computer-estimated value about 7.88.",
+        "identifier_or_url": "https://rgmia.org/papers/v14/v14a35.pdf",
+        "material_read": "Definition of pedal-triangle radii, relevant inequalities, §4 Problem 1 and Remark 4.1 (PDF page 6), plus problem dating.",
+        "method": "Lawful open full PDF, extracted text and page screenshot",
         "title": "Some New Inequalities for an Interior Point of a Triangle",
-        "trigger": "Primary source containing Problem 1 and the reported numerical maximum about 7.88."
+        "trigger": "Originating paper with identical parameter problem."
       },
       {
-        "assessment": "Studies R_p<R, refinements, and other pedal-radius conjectures; no covering solution of Problem 1 was found.",
-        "evidence": "No 7.88 match; the parameter-k occurrences concern different inequalities, while the paper cites the 2012 source as prior work.",
-        "identifier_or_url": "doi:10.7153/mia-16-53",
-        "material_read": "Introduction and main theorems, later conjecture section, reference list, plus full-text searches for 7.88 and the parameter formula.",
-        "method": "Lawful full PDF inspection, targeted search, and page-image inspection of the concluding conjecture/reference page.",
+        "assessment": "A k=4 inequality is proved; only a numerical suggestion, no exact upper obstruction at the cubic, is supplied.",
+        "evidence": "Section 4 asks for the largest valid k; the numerical remark gives only about 7.88.",
+        "identifier_or_url": "https://files.ele-math.com/articles/jmi-06-20.pdf",
+        "material_read": "Theorem 1.2 and §4 Problem 1 and Remark 4.1, including an actual PDF page image.",
+        "method": "Lawful open full PDF with passage and page examination",
+        "title": "Some new inequalities for an interior point of a triangle",
+        "trigger": "Journal text of same origin problem, DOI:10.7153/jmi-06-20."
+      },
+      {
+        "assessment": "Its R_p-centered theorems and conjectures do not imply the submitted exact bound on Liu’s 2012 R,r,r_p parameter.",
+        "evidence": "The principal inequality is R_p<R with refinements, not the 2(k+2)r_p parameter family.",
+        "identifier_or_url": "https://files.ele-math.com/articles/mia-16-53.pdf",
+        "material_read": "Introduction, principal theorems, relevant proofs, later conjectures and references; searched exact parameter/7.88; examined page images.",
+        "method": "Lawful open complete PDF with section and page inspection",
         "title": "On inequality R_p<R of the pedal triangle",
-        "trigger": "Later paper by the same author on the same pedal-triangle radii."
+        "trigger": "Same author, same pedal radius objects, plausible dominating theorem."
+      },
+      {
+        "assessment": "Establishes different 2013 pedal-triangle conjectures, not the k upper obstruction.",
+        "evidence": "Studies PO≥|R−2R_p| and another product-of-radii inequality, with no parameter κ corresponding to Liu 2012 Problem 1.",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-018-1661-7",
+        "material_read": "Open full article introduction, theorems, proof sections and conclusions, with target-term checks.",
+        "method": "Lawful full HTML scientific article reading",
+        "title": "Two inequalities about the pedal triangle",
+        "trigger": "Later directly same-object article, possible resolution of Liu conjectures."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "reference_scope": [
+    "Liu, J. Math. Inequal. 6(2) (2012), DOI 10.7153/jmi-06-20",
+    "Liu, Math. Inequal. Appl. 16(3) (2013), DOI 10.7153/mia-16-53"
+  ],
+  "review_type": "scientific_review",
   "schema_version": 1,
-  "scope_run_id": "a9052b62-64a8-4c0d-b294-44e3dd78a19a",
+  "scope_of_result": "Exact algebraic upper obstruction for universal k; no global sharpness or matching lower bound claimed.",
   "value": {
-    "rationale": "The result directly advances an explicit published maximization problem: it turns a rough numerical hint into a closed algebraic obstruction with an exact admissible equality configuration and rules out every larger parameter. It is a meaningful bound on the unresolved sharp constant, while explicitly withholding any unsupported matching lower bound.",
+    "rationale": "The exact bound answers a substantive part of Jian Liu’s explicit universal parameter maximization problem for triangle interior-point pedal geometry. A closed algebraic admissible witness gives a rigorous upper obstruction at 7.867924903656… and eliminates the entire half-line of larger k, strengthening a mere reported computer approximation. The natural invariant is the best universal coefficient k, and the precise algebraic obstruction could be used to test any proposed global sharpness proof. It is not represented as a solution of the full optimal-value problem.",
     "status": "PASS"
   }
 }
