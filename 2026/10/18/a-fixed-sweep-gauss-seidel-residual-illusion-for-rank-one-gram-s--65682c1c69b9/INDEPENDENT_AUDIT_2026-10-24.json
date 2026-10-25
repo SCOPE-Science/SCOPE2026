@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:52:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Forward row updates give S_i^(s)=q S_(i-1)^(s)+q d_n^(s-1)+c S_i^(s-1), q=(1+a)^-1, c=a/(1+a), d=1-a sum x. The infinite profile psi_i^(s)=q^i c^(s-1) C(i+s-2,s-1) has generating function qz c^(s-1)/(1-qz)^s and sum 1/a. Uniform errors and geometric-polynomial tails are exponentially small for each fixed s, so the finite vector tends to the squared-summable profile. The coefficient residual entries are d-x_i, giving ||res||²→sum psi_i² and relative squared residual ∼gamma_s/(a n). Exact embedding Q_i=e_i+sqrt(a)e_0, r=e_0/sqrt(a) produces W=Q^TQ, Q^Tr=1 and the identity physical squared relative residual=d²+a||x||²→gamma_s. Pythagorean projection identity gives relative W-energy squared error→gamma_s; optimum physical residual fraction is 1/(1+an). Gamma_1=1/(a+2) and Gamma_2=((1+a)^2+1)/(a+2)^3. Six independent n=2048 sweeps and exact/float comparison reproduce constants. Infinite limits rely on exponential error analysis, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D’Ambra et al: Chebyshev-preconditioned s-step CG, FGS Gram solver, favorable practical conditioning for moderate steps",
+          "Thomas–D’Ambra: inexact Gauss–Seidel and coarse solves in AMG/s-step CG"
+        ],
+        "reasoning": "Broader algorithm analyses do not imply that this crafted coherent rank-one Gram family is a realized Krylov workload; neither inspected source gives universal inner residual reliability. Standard residual-energy bound only yields a nonsharp possibility and does not dominate these asymptotic constants.",
+        "searches": [
+          "arXiv:2603.09790",
+          "arXiv:2512.09642",
+          "Resultary semantic search (2026-10-24): Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+          "GitHub SCOPE2026 file search (2026-10-24): rank one Gram Gauss Seidel"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.09790",
+        "https://arxiv.org/abs/2512.09642",
+        "Resultary semantic query: Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+        "SCOPE2026 GitHub search: rank one Gram Gauss Seidel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: positive empirical convergence of s-step PCG with selected FGS solves; generic inexact-solve analyses",
+          "New: for all fixed sweeps, relative Gram residual tends zero while physical Galerkin fraction tends gamma_s>0 in an equal-column-norm family"
+        ],
+        "reasoning": "The practical methods do not logically assert this limit and, conversely, this counterexample does not refute their observed convergence. The exact Gram-to-physical residual discrepancy and limiting profile are newly evaluated, not direct substitutions into a published numeric table.",
+        "searches": [
+          "arXiv:2603.09790",
+          "arXiv:2512.09642",
+          "Resultary semantic search (2026-10-24): Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+          "GitHub SCOPE2026 file search (2026-10-24): rank one Gram Gauss Seidel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W is an equicorrelation Gram operator after unit diagonal scaling",
+          "Normalized physical least-squares residual equals d²+a||x||² and the Gram residual tends to zero relative to ||1||"
+        ],
+        "reasoning": "Equivalent formulations include coherent-column normal-equation conditioning, fixed-sweep splitting iterations, and false termination of Galerkin inner solves. Generic SPD condition-number inequalities do not calculate the exact all-s profile or demonstrate a concrete physical embedding.",
+        "searches": [
+          "Resultary semantic search (2026-10-24): Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+          "GitHub SCOPE2026 file search (2026-10-24): rank one Gram Gauss Seidel",
+          "arXiv:2603.09790",
+          "arXiv:2512.09642"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent dimension 2048 checks span a=0.5,1,2,3 and s up to3",
+          "No exact rank-one infinite profile table appeared in Resultary results (which instead included GMRES and small Gauss–Seidel bounds)"
+        ],
+        "reasoning": "This is an all-dimension asymptotic with every fixed positive sweep s, not a finite benchmark table. Explicit first two constants are computable from the general generating function, but not cited as previously tabulated.",
+        "searches": [
+          "Resultary semantic search (2026-10-24): Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+          "GitHub SCOPE2026 file search (2026-10-24): rank one Gram Gauss Seidel"
+        ]
+      },
+      "rationale": "Classical residual-vs-error conditioning warns of this qualitative risk, while the 2026 D’Ambra et al Chebyshev s-step PCG paper recommends/analyses forward GS Gram solves in practical regimes, and Thomas–D’Ambra 2025 discuss inexact GS/coarse solvers. Available abstracts and method descriptions do not give this all-fixed-sweep equicorrelation profile or exact physical Galerkin error limits. The methodological gap is narrow and potentially covered by earlier specialized rank-one GS matrix literature; preserve that explicit risk.",
+      "residual_risks": [
+        "Older specialized Gauss–Seidel analysis of equicorrelated/rank-one SPD systems may contain the same exact asymptotic profile; complete bibliography cannot be certified.",
+        "The constructed coherent Gram family has not been demonstrated to arise in a specific Chebyshev Krylov PCG execution.",
+        "The result assumes exact arithmetic with fixed a and fixed s; s growing with n and floating point behavior are unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes algorithm with stabilized Krylov basis and FGS; does not in accessible material state rank-one fixed-sweep asymptotic counterexample",
+          "evidence": "Abstract: FGS reduced Gram solves and practical stability for moderate step sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.09790",
+          "material_read": "Accessible arXiv abstract and publicly available methods/discussion excerpts; attempted arXiv HTML returned disabled, so complete full text not claimed read",
+          "method": "Abstract and accessible paper excerpts compared against explicit theorem",
+          "title": "Scalable s-step Preconditioned Conjugate Gradient with Chebyshev Basis and Gauss-Seidel Gram Solve",
+          "trigger": "Direct motivation: approximate forward Gauss–Seidel Gram solves in s-step methods"
+        },
+        {
+          "assessment": "A general algorithm/inexact-solver source; possible specialized stronger result not excluded without full body",
+          "evidence": "Title and abstract concern multigrid/coarse solvers and s-step CG.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.09642",
+          "material_read": "ArXiv abstract and bibliographic descriptions; full HTML unavailable in this execution",
+          "method": "Abstract-level comparison only",
+          "title": "Inexact Gauss Seidel and Coarse Solvers for AMG and s-step CG",
+          "trigger": "Potential prior inexact solver error bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Motivated by the interpretation of Gram-residual stopping rules for low-synchronization s-step Krylov methods, this natural equicorrelated SPD family proves that any fixed positive sweep budget can falsely pass a dimension-independent residual tolerance while leaving a fixed fraction of optimal Galerkin energy reduction unrealized. The physical embedding, equal column norms and explicit gamma_s for all fixed s give more than a generic condition-number warning; no claim is made about actual Krylov basis realizations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2603.09790",
+    "https://arxiv.org/abs/2512.09642",
+    "Resultary semantic query: Gauss Seidel fixed sweeps rank one Gram matrix residual small relative right hand side but energy error nonzero coherent columns",
+    "SCOPE2026 GitHub search: rank one Gram Gauss Seidel"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed a>0 and every fixed s>=1 forward Gauss–Seidel sweeps on W_n=I+a11^T with RHS 1, the relative coefficient residual is O(n^-1/2) but the relative squared Gram energy error tends to an explicit gamma_s(a)>0; a realizable equal-norm Galerkin embedding retains a positive physical residual gap.",
+  "limitations": [
+    "Older specialized Gauss–Seidel analysis of equicorrelated/rank-one SPD systems may contain the same exact asymptotic profile; complete bibliography cannot be certified.",
+    "The constructed coherent Gram family has not been demonstrated to arise in a specific Chebyshev Krylov PCG execution.",
+    "The result assumes exact arithmetic with fixed a and fixed s; s growing with n and floating point behavior are unproved."
+  ],
+  "residual_risks": [
+    "Older specialized Gauss–Seidel analysis of equicorrelated/rank-one SPD systems may contain the same exact asymptotic profile; complete bibliography cannot be certified.",
+    "The constructed coherent Gram family has not been demonstrated to arise in a specific Chebyshev Krylov PCG execution.",
+    "The result assumes exact arithmetic with fixed a and fixed s; s growing with n and floating point behavior are unproved."
+  ],
+  "schema_version": 1
+}
