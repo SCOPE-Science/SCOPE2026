@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T21:03:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bernoulli four-state joint mass is (1−p−q+τ,q−τ,p−τ,τ) for τ in exact Frechet interval. The population Gram has diagonals u²+h1²p(1−p), v²+h2²q(1−q) and affine cross term uv+h1h2(τ−pq). IID rows and strong law give n^-1 A_n^T A_n→G(τ) a.s.; ordered eigenvalue continuity then gives limiting least singular squared. Fixed-diagonal 2×2 smallest eigenvalue decreases strictly with absolute cross term, hence unique clipped projection τ_spec. Covariance matrix PSD implies |cov12|<=s1s2 and 2Σ0−Σ(τ) PSD, so G(τ) <= 2G(pq) in Loewner order. Midpoint symmetrical L,h>0 gives λmin=h²(1/2−τ), optimum τ=0, ratio exactly 2. Distinct row *rays* have masses (2τ,1/2−τ,1/2−τ); all rows on one ray iff rank<2, yielding exact (2τ)^n+2(1/2−τ)^n for n≥1. Convexity for n≥2 gives unique τ_rank=1/6 and min 3^(1−n), not the spectral optimum. Independently checked 15,000 admissible random parameter samples for τ and spectral inequality plus rational finite-n exact cases; tested limits do not replace strong-law proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior arXiv papers assume independence between coordinate-level roundoff variables and do not optimize covariance over all Bernoulli couplings.",
+          "Fréchet-Hoeffding extremal couplings alone do not compare a.s. spectral limits with finite-n rank-deficiency probability and exhibit the unique 1/6 optimizer."
+        ],
+        "reasoning": "The existing broad independent-noise spectral bounds are not statements encompassing dependent-coordinate noise. General 2×2 covariance min-eigen formulas overlap as tools, not the paired optimizations.",
+        "searches": [
+          "arxiv:2403.12278 full independent stochastic rounding spectral regularization",
+          "arxiv:2606.00312 full independent error-tail spectral theorem",
+          "Fréchet bounds Bernoulli antithetic variates"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2403.12278 Dexter et al original full text, independence hypothesis",
+        "arxiv:2606.00312 Ma–Yu–Drineas full text, Section 2.2",
+        "Resultary Bernoulli/spectral rounding semantic searches and closest titles",
+        "Assigned complete RESULT.md, public package, check.py file identity; independently derived finite checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both main stochastic-rounding papers assume diagonal/error independence that fails when τ differs from pq; their results cannot be specialized to obtain τ=0 or 1/6.",
+          "The rank-optimal 1/6 coupling chooses three equally likely *rays* and differs from covariance minimization at 0."
+        ],
+        "reasoning": "Classical covariance eigenvalue monotonicity and convexity provide an elementary proof, but this conflict for unbiased rounding with fixed marginals and all row counts is not an implication of the compared independent-entry literature.",
+        "searches": [
+          "arxiv:2403.12278 Section 2.2 independence assumptions and theorem",
+          "arxiv:2606.00312 Section 2.2 independence and diagonal error Gram",
+          "Resultary spectral rounding searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dexter et al original small singular value theory analyzes independent rounding entry perturbations.",
+          "Ma–Yu–Drineas broadens aspect ratios but Section 2.2 assumes errors independent across coordinate indices.",
+          "Classical Frechet coupling bounds describe feasible τ but do not by themselves prove the conflicting objectives."
+        ],
+        "reasoning": "Different algebraic framework: allow Bernoulli dependence *within* row while maintaining independent rows. There is no direct equivalence to independent entrywise random matrices; this contrast is explicitly central.",
+        "searches": [
+          "Resultary: coupled Bernoulli stochastic rounding two columns antithetic dependence smallest singular value rank deficiency optimal coupling",
+          "Dexter Boutsikas Ma Ipsen Drineas stochastic rounding implicitly regularizes tall thin matrices arxiv 2403.12278",
+          "Ma Yu Drineas 2026 stochastic rounding increases small singular values arxiv 2606.00312"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published small-singular-value simulations and independent-noise finite experiments do not enumerate the 3-ray probability formula with τ variable.",
+          "The exact {τ_spec,τ_rank} mismatch is a natural two-column model family, not a known numeric table recomputation."
+        ],
+        "reasoning": "The two exact optimizers and sharp factor two were not located as a pre-existing table; exact formulas are derived from the joint row law, not a lookup of independent rounding cases.",
+        "searches": [
+          "Resultary coupled stochastic rounding smallest singular eigenvalue exact rank deficiency",
+          "Dexter stochastic rounded rank recovery experimental tables",
+          "Ma Yu Drineas covariance spectrum regularization"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/statement comparison, not mere keyword or parameter match: Different algebraic framework: allow Bernoulli dependence *within* row while maintaining independent rows. There is no direct equivalence to independent entrywise random matrices; this contrast is explicitly central. The existing broad independent-noise spectral bounds are not statements encompassing dependent-coordinate noise. General 2×2 covariance min-eigen formulas overlap as tools, not the paired optimizations. Classical covariance eigenvalue monotonicity and convexity provide an elementary proof, but this conflict for unbiased rounding with fixed marginals and all row counts is not an implication of the compared independent-entry literature.",
+      "residual_risks": [
+        "Only two columns, repeated nonzero rank-one row input and independent identically distributed rows; no general matrix-algorithm advantage claimed.",
+        "Finite-n rank optimizer requires symmetric midpoint and n>=2; at n=1 no unique optimizer.",
+        "Some classical correlated rounding or antithetic variance optimization may imply partial statements, but a full paired optimizer implication was not found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Assumes independent coordinate errors, not arbitrary correlated within-row Bernoulli outcomes",
+          "evidence": [
+            "Independent entry error assumption in Section 2.2; tall-and-thin rank recovery"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.12278",
+          "material_read": "Primary open arXiv full text at Section 2.2 independence conditions, singular-value theorem and discussion",
+          "method": "Read primary PDF theorem and hypothesis sections, including page image",
+          "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+          "trigger": "Closest established stochastic rounding singular-value regularization"
+        },
+        {
+          "assessment": "Off-coordinate rounding errors independent, so not stronger on dependent-coupling optimization",
+          "evidence": [
+            "Section 2.2 diagonal noise Gram expectation and coordinate-independence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.00312",
+          "material_read": "Open arXiv full PDF Section 2.2 and theorem context, including page rendering",
+          "method": "Primary theorem/hypothesis comparison",
+          "title": "Stochastic Rounding Increases Small Singular Values",
+          "trigger": "Recent broader aspect-ratio extension"
+        },
+        {
+          "assessment": "Parametric identifiability rather than rounding Gram conditioning/rank conflict",
+          "evidence": [
+            "Identifiability of labeled singleton-event probabilities, not Fréchet rounding dependence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-identifiability-boundary-for-singleton-slices-of-bernoulli--452fbc6c21c4",
+          "material_read": "Published semantic index title and statement only, not full paper",
+          "method": "Resultary semantic result",
+          "title": "Sharp identifiability boundary for singleton slices of Bernoulli products",
+          "trigger": "Nearest indexed Bernoulli model result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stochastic rounding is a credible numerical regularization mechanism, but its usual independent-error model hides a design degree of freedom: coupling coordinate decisions while preserving unbiased marginals. The exact spectral optimizer and sharp gain quantify the advantage, while the opposing *unique* finite-sample rank optimizer shows two reasonable rank-recovery objectives cannot be conflated, with a concrete exact floating-point instance. This is a motivated operational boundary/counterexample, not a trivial new parameter name.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2403.12278 Dexter et al original full text, independence hypothesis",
+    "arxiv:2606.00312 Ma–Yu–Drineas full text, Section 2.2",
+    "Resultary Bernoulli/spectral rounding semantic searches and closest titles",
+    "Assigned complete RESULT.md, public package, check.py file identity; independently derived finite checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only two columns, repeated nonzero rank-one row input and independent identically distributed rows; no general matrix-algorithm advantage claimed.",
+    "Finite-n rank optimizer requires symmetric midpoint and n>=2; at n=1 no unique optimizer.",
+    "Some classical correlated rounding or antithetic variance optimization may imply partial statements, but a full paired optimizer implication was not found."
+  ],
+  "residual_risks": [
+    "Only two columns, repeated nonzero rank-one row input and independent identically distributed rows; no general matrix-algorithm advantage claimed.",
+    "Finite-n rank optimizer requires symmetric midpoint and n>=2; at n=1 no unique optimizer.",
+    "Some classical correlated rounding or antithetic variance optimization may imply partial statements, but a full paired optimizer implication was not found."
+  ],
+  "schema_version": 1
+}

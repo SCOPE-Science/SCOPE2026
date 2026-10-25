@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact four-atom Bernoulli joint law gives the population Gram and its affine off-diagonal; eigenvalue monotonicity proves the uniquely optimal coupling. The covariance comparison uses a positive-semidefinite determinant bound and yields the universal sharp factor two, with an explicit attaining family. The symmetric midpoint's three row directions give an exact finite-sample rank-deficiency probability, and strict convexity gives the unique competing optimizer. Each claimed quantifier and positivity condition is present. The independent exact-rational verification program executes 58,566 checks and is not substituted for the strong-law or algebraic proofs.
+PASS
 
-## Originality — PASS (qualified)
+Bernoulli four-state joint mass is (1−p−q+τ,q−τ,p−τ,τ) for τ in exact Frechet interval. The population Gram has diagonals u²+h1²p(1−p), v²+h2²q(1−q) and affine cross term uv+h1h2(τ−pq). IID rows and strong law give n^-1 A_n^T A_n→G(τ) a.s.; ordered eigenvalue continuity then gives limiting least singular squared. Fixed-diagonal 2×2 smallest eigenvalue decreases strictly with absolute cross term, hence unique clipped projection τ_spec. Covariance matrix PSD implies |cov12|<=s1s2 and 2Σ0−Σ(τ) PSD, so G(τ) <= 2G(pq) in Loewner order. Midpoint symmetrical L,h>0 gives λmin=h²(1/2−τ), optimum τ=0, ratio exactly 2. Distinct row *rays* have masses (2τ,1/2−τ,1/2−τ); all rows on one ray iff rank<2, yielding exact (2τ)^n+2(1/2−τ)^n for n≥1. Convexity for n≥2 gives unique τ_rank=1/6 and min 3^(1−n), not the spectral optimum. Independently checked 15,000 admissible random parameter samples for τ and spectral inequality plus rational finite-n exact cases; tested limits do not replace strong-law proof.
 
-The 2026 motivating work analyzes independent entrywise stochastic-rounding errors and a diagonal expected noise Gram; the 2024/2025 precursor likewise explicitly assumes entrywise independence. Their spectral guarantees do not imply how to optimize *within-row* dependence, the sharp twofold coupling advantage, or the finite-row spectral-versus-rank preference reversal. Standard Bernoulli Fréchet coupling feasibility and elementary equal-mass occupancy calculations are not themselves claimed novel. Targeted searches of mathematical findings and bibliographic literature uncovered no earlier equivalent combined theorem, but this is not a proof of absolute novelty. Existing antithetic quantization or random-matrix treatments outside inspected texts could entail a special case.
+## originality
 
-## Value — PASS
+PASS
 
-Finite-sample full column rank and asymptotic least singular value are distinct, practically motivated reliability objectives when rounding a degenerate tall-and-thin design. The sharp and attainable twofold spectral gain and the strict, quantitatively opposite rank-recovery optimization show that correlation design cannot be judged by a single conditioning proxy. The exact two-coordinate benchmark is self-contained and provides explicit design guidance and a testable boundary for broader coupled-rounding analyses.
+Best-of-knowledge source/statement comparison, not mere keyword or parameter match: Different algebraic framework: allow Bernoulli dependence *within* row while maintaining independent rows. There is no direct equivalence to independent entrywise random matrices; this contrast is explicitly central. The existing broad independent-noise spectral bounds are not statements encompassing dependent-coordinate noise. General 2×2 covariance min-eigen formulas overlap as tools, not the paired optimizations. Classical covariance eigenvalue monotonicity and convexity provide an elementary proof, but this conflict for unbiased rounding with fixed marginals and all row counts is not an implication of the compared independent-entry literature.
 
-## Closest literature and limits
+## value
 
-Ma, Yu and Drineas (2026, arXiv:2606.00312) and Dexter et al. (2024 preprint / 2025 publication, arXiv:2403.12278) both require independent entrywise rounding errors in the relevant theorems. No inference is made about models where rows also share randomness, higher-dimensional design matrices, finite-sample expected smallest singular values, floating-point overflow or hardware performance. Residual possibility of an earlier dependent-rounding equivalent remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stochastic rounding is a credible numerical regularization mechanism, but its usual independent-error model hides a design degree of freedom: coupling coordinate decisions while preserving unbiased marginals. The exact spectral optimizer and sharp gain quantify the advantage, while the opposing *unique* finite-sample rank optimizer shows two reasonable rank-recovery objectives cannot be conflated, with a concrete exact floating-point instance. This is a motivated operational boundary/counterexample, not a trivial new parameter name.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
