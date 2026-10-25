@@ -1,15 +1,13 @@
-# Scientific review
+# Scientific review of the corrected finding
 
 ## Correctness
-PASS. The coordinatewise positivity criterion follows from the spectral theorem and the monotone ratio of two exponential differences. The global threshold is a supremum of exact coordinate thresholds; finiteness is asserted only for finite coordinate sets. The finite and infinite realizations have explicit orthogonal projections. The four-spectral gap is established by analytic sign proofs and the cited dimension-four critical-exponent theorem; exact finite algebra confirms the constructions. No finite sample is used to assert a universal statement.
+The orthogonal projections onto a strictly positive normalized vector and the antisymmetric pair directions give an operator with exactly the three eigenvalues 0, -1 and -2. Spectral calculus yields the complete matrix coefficient formula. For each fixed pair the negative term decays; however, for each fixed positive time a sufficiently remote pair has a negative coefficient. Norm convergence to the strictly positive-coefficient rank-one projection is exact. The argument is fully analytic; no finite test establishes the infinite statement.
 
-## Originality
-PASS with explicitly acknowledged residual risk. Daners–Glück–Kennedy derive eventual positivity criteria, whereas this theorem classifies **all** times at which the operator is positive using only three spectral levels. The published critical-exponent theorem has a different hypothesis: positivity of the base matrix and fixed finite dimension, and supplies only the late-time component of the four-spectral example. The 2026 Arnold and Dobrick abstracts address growth bounds and nonuniform eventual positivity, not a complete three-level time-set classification. Original research-record searches of semigroup positivity gaps, spectral levels and aliases found no covering claim; failure to find one is not itself proof of originality. The recent complete manuscripts could not be read, and related elementary finite-spectrum observations might be unindexed.
+## Originality and proper limitation
+The earlier, broader no-gap claim cannot be presented as a novel finite-dimensional spectral-cardinality theorem: Johnson–Lins–Walch (arXiv:1008.3568, Theorem 5.3) already implies its finite-dimensional persistence conclusion. That observation required a substantive narrowing of the claim and its wording, not an explanatory disclaimer. The corrected finding concerns the specific bounded, self-adjoint, three-point-spectral construction on countable coordinate ℓ². Daners–Glück–Kennedy (arXiv:1511.09020, Example 5.7) had shown nonuniform eventual positivity for a bounded three-spectrum generator on C([-1,1]), not in this Hilbert setting; Dobrick (arXiv:2609.00425) treated self-adjoint compact-resolvent generators with unbounded spectrum. A very close adaptation of the earlier Banach-lattice construction may be unindexed and remains a priority risk.
 
-## Value
-PASS. Spectral cardinality produces a sharp topological barrier for semigroup positivity-time sets, independently of matrix dimension. The countable case distinguishes pointwise eventual positivity of every off-diagonal entry from positivity of an operator at any positive time, and realizes the endpoint \(\tau=\infty\). The four-level example demonstrates exactly why the three-level hypothesis is substantive. Exact attainable finite cutoffs and a complete scalar threshold formula make the classification useful for model semigroups.
+## Mathematical value
+This exact example isolates the failure of a uniform positivity time under three unusually strong Hilbert-space constraints: self-adjointness, a bounded three-point spectrum, and norm convergence to a rank-one projection with strictly positive coordinates. It distinguishes pointwise-in-coordinate eventual positivity from global positivity without claiming individual eventual strong positivity for every positive input.
 
-## Scope and limitations
-The generator is real, bounded, self-adjoint and has a simple strictly positive top eigenvector. The claim is about the positive cone on coordinate \(\ell^2\), not arbitrary Banach lattices or orbitwise eventual positivity. The four-point late-time implication explicitly depends on an existing published theorem. No independent audit is claimed.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Historical scope
+The previous version also discussed a finite-dimensional cutoff classification and a four-eigenvalue path-power witness. Those are no longer the asserted new result; the earlier source tree retains them as historical evidence. The accompanying arithmetic verifier remains supplementary and makes no claim to prove a countable-dimensional assertion.

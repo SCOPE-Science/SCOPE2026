@@ -1,61 +1,86 @@
-# A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups
+# A bounded three-level self-adjoint semigroup with no positive operator time on ℓ²
 
 ## Finding
-Let \(I\) be a finite or countably infinite index set, and consider the coordinatewise ordered real Hilbert space \(H=\ell^2(I;\mathbb R)\). For a bounded self-adjoint operator \(A\) on \(H\), put \(\mathcal P(A)=\{t\ge0:e^{tA}\text{ maps }H_+\text{ into }H_+\}\). Assume that the largest spectral value \(\lambda_1\) is simple, with normalized eigenvector \(v\) for which every coordinate \(v_i\) is strictly positive.
+On the real coordinate Hilbert lattice \(H=\ell^2(\mathbb N;\mathbb R)\) there exists a bounded, self-adjoint, nonpositive generator \(A\), with spectrum exactly \(\{0,-1,-2\}\) and a simple dominant eigenvalue \(0\) whose normalized eigenvector has strictly positive coordinates, such that:
 
-**Spectral-cardinality theorem.** If \(A\) has at most three distinct spectral values, then
+1. For every two fixed coordinates \(i,j\), the coefficient \(\langle e^{tA}e_j,e_i\rangle\) is strictly positive for all sufficiently large \(t\) (and every diagonal coefficient is strictly positive for all \(t\ge0\));
+2. For every fixed \(t>0\), at least one coefficient is negative, so \(e^{tA}\) is **not** a positive operator;
+3. Nevertheless \(e^{tA}\to P\) in operator norm, where \(P\) is a rank-one orthogonal projection with every matrix coefficient strictly positive.
+
+Thus \(\{t\ge0:e^{tA}\ge0\}=\{0\}\), despite a three-point spectrum, a strictly positive dominant eigenvector, norm convergence to a strictly positive-coefficient projection, and eventual positivity of every individual matrix coefficient. The theorem is an existence statement on a countable coordinate Hilbert lattice; it does not claim that all positive initial vectors become eventually positive.
+
+## Explicit operator
+For \(k\ge1\), put
 \[
-\mathcal P(A)=\{0\}\cup[\tau,\infty),\qquad \tau\in[0,\infty],
+c_k=\sqrt{\frac32}\,2^{-k},\qquad
+v_{2k-1}=v_{2k}=c_k,\qquad
+q_k=\frac{e_{2k-1}-e_{2k}}{\sqrt2}.
 \]
-where \([\infty,\infty)\) here means the empty set. Thus positivity cannot disappear at a later positive time once it has appeared. All finite cutoffs occur already in dimension three; a bounded three-spectral-value operator on a countable infinite-dimensional space can have \(\tau=\infty\). Four spectral values suffice to break this no-gap conclusion: an explicit symmetric matrix generator has \(\mathcal P(A)=\{0,1\}\cup[2,\infty)\).
-
-## Assumptions and scope
-The matrix of a positive operator relative to the standard basis is entrywise nonnegative, a condition equivalent to cone preservation even for countably infinite \(I\). Self-adjointness, a simple largest eigenvalue, and strictly positive coordinates of its eigenvector are essential hypotheses of the barrier theorem; no compactness of \(A\) or of its resolvent is assumed. The exponentials are bounded operators and form a norm-continuous semigroup. The theorem concerns operator positivity, not individual eventual positivity of positive initial vectors. All statements use the real, coordinatewise order.
-
-## Proof
-**1. Three spectral values.** Write \(\lambda_1>\lambda_2>\lambda_3\), and let \(P_1,P_2,P_3\) be the mutually orthogonal spectral projections, so \(P_1=vv^T\), \(P_1+P_2+P_3=I\), and
+The vector \(v\) is strictly positive and has norm one, since
+\(\sum_{k\ge1}2c_k^2=3\sum_{k\ge1}4^{-k}=1\). The \(q_k\) form an orthonormal family perpendicular to \(v\). Define the orthogonal projections
 \[
-e^{tA}=e^{\lambda_3t}I+(e^{\lambda_1t}-e^{\lambda_3t})P_1+(e^{\lambda_2t}-e^{\lambda_3t})P_2.\]
-For distinct coordinates \(i,j\), define \(a_{ij}=v_iv_j>0\), \(b_{ij}=\langle P_2e_j,e_i\rangle\), \(\alpha=\lambda_2-\lambda_3\), and \(\beta=\lambda_1-\lambda_3\), where \(0<\alpha<\beta\). Then for \(t>0\),
-\[
-\langle e^{tA}e_j,e_i\rangle=(e^{\lambda_1t}-e^{\lambda_3t})[a_{ij}+b_{ij}R(t)],\quad R(t)=\frac{e^{\alpha t}-1}{e^{\beta t}-1}.
+P_1=v\otimes v,\qquad
+P_2=\sum_{k\ge1}q_k\otimes q_k,\qquad
+P_3=I-P_1-P_2,
 \]
-The function \(R\) decreases strictly from \(r_0=\alpha/\beta\) to zero as \(t\) increases from zero to infinity. Indeed, its logarithmic derivative is \(\alpha/(1-e^{-\alpha t})-\beta/(1-e^{-\beta t})<0\), since the function \(x\mapsto x/(1-e^{-xt})\) increases strictly for \(x>0\): differentiating reduces this to \(e^{xt}>1+xt\). If \(b_{ij}\ge0\), the entry is positive at every \(t>0\). If \(b_{ij}<0\), the bracket increases strictly with \(t\); it is already positive for every \(t>0\) when \(a_{ij}+b_{ij}r_0\ge0\), and otherwise has one zero at the unique \(\tau_{ij}>0\) satisfying \(R(\tau_{ij})=-a_{ij}/b_{ij}\). Accordingly the nonnegative time set of each off-diagonal entry is either \((0,\infty)\) or \([\tau_{ij},\infty)\). Every diagonal entry is positive at every positive time because \(\langle e^{tA}e_i,e_i\rangle=\sum_{k=1}^3 e^{\lambda_k t}\|P_ke_i\|^2>0\). Hence the intersection over all pairs gives \(\mathcal P(A)=\{0\}\cup[\sup_{i\ne j}\tau_{ij},\infty)\), with the understood empty tail if this supremum is infinite. For a finite index set this supremum is finite.
-
-If there are precisely two spectral values, \(e^{tA}=e^{\lambda_2t}I+(e^{\lambda_1t}-e^{\lambda_2t})P_1\). Its off-diagonal entries are strictly positive for all \(t>0\), so \(\tau=0\). The one-dimensional case is immediate.
-
-**2. Realization of finite nonzero cutoffs.** Consider
+where the sum converges in the strong operator topology, and put
 \[
-A_*=\frac1{22}\begin{pmatrix}-29&-7&12\\-7&-29&12\\12&12&-8\end{pmatrix}.
+\boxed{A=-P_2-2P_3.}
 \]
-An orthonormal eigenbasis consists of \(v=(1,1,3)/\sqrt{11}\), \(w=(1,-1,0)/\sqrt2\), and \(u=(3,3,-2)/\sqrt{22}\), with eigenvalues \(0,-1,-2\), respectively. The only potentially negative off-diagonal entry is the first-second pair: its spectral coefficients are \(a_{12}=1/11\) and \(b_{12}=-1/2\), while the first-third and second-third entries are positive for all \(t>0\). For these eigenvalues, \(R(t)=1/(1+e^t)\); consequently,
+Here \((x\otimes y)z=x\langle y,z\rangle\). All three mutually orthogonal projections are nonzero: \(P_1\) has rank one, \(P_2\) infinite rank, and \(P_3\) contains symmetric pair vectors perpendicular to \(v\). Thus \(A\) is bounded, real, self-adjoint and nonpositive; \(\|A\|=2\), and \(\sigma(A)=\{0,-1,-2\}\) with the claimed simple top eigenspace.
+
+## Proof of the three assertions
+Functional calculus gives, for every real \(t\ge0\),
 \[
-\mathcal P(A_*)=\{0\}\cup[\log(9/2),\infty).
+e^{tA}=P_1+e^{-t}P_2+e^{-2t}P_3
+=e^{-2t}I+(1-e^{-2t})P_1+(e^{-t}-e^{-2t})P_2.
+\tag{1}
 \]
-Multiplying \(A_*\) by the positive scalar \(\log(9/2)/T\) realizes every prescribed cutoff \(T>0\). For \(T=0\), the tridiagonal path generator \(\begin{psmallmatrix}0&1&0\\1&0&1\\0&1&0\end{psmallmatrix}\) has three distinct eigenvalues and a strictly positive top eigenvector; its exponential is positive for every \(t\ge0\) by the nonnegative power series.
-
-**3. Infinite cutoff with three spectral values.** On \(\ell^2(\mathbb N;\mathbb R)\), set \(c_k=\sqrt{3/2}\,2^{-k}\) and \(v_{2k-1}=v_{2k}=c_k\), so \(\|v\|_2=1\). Put \(P_1=vv^T\), and let \(P_2\) project orthogonally onto the closed span of \((e_{2k-1}-e_{2k})/\sqrt2\), for \(k\ge1\); these two projections are mutually orthogonal. Set \(P_3=I-P_1-P_2\) and \(A_\infty=-P_2-2P_3\). The three eigenvalues \(0,-1,-2\) all occur, and the simple dominant eigenvector \(v\) is strictly positive. For the pair \((2k-1,2k)\), the spectral coefficients are \(a=c_k^2\) and \(b=-1/2\), whence
+For \(i\ne j\) not belonging to the same adjacent pair \(\{2k-1,2k\}\), the \(P_2\) coefficient vanishes and (1) gives
 \[
-\langle e^{tA_\infty}e_{2k},e_{2k-1}\rangle=(1-e^{-2t})\left(c_k^2-\frac1{2(1+e^t)}\right).
+\langle e^{tA}e_j,e_i\rangle=(1-e^{-2t})v_iv_j>0\quad(t>0).
 \]
-At every fixed \(t>0\), this expression is negative for all sufficiently large \(k\), since \(c_k\to0\). Thus \(\mathcal P(A_\infty)=\{0\}\) and \(\tau=\infty\). Each fixed pair nevertheless has its own finite eventual positivity cutoff, as follows from part 1.
+For the paired indices \(i=2k-1,j=2k\), the \(P_2\) coefficient is \(-1/2\), so
+\[
+\langle e^{tA}e_{2k},e_{2k-1}\rangle
+=(1-e^{-2t})\left(c_k^2-\frac{1}{2(1+e^t)}\right).
+\tag{2}
+\]
+For each fixed \(k\), the bracket in (2) increases strictly to \(c_k^2>0\) as \(t\to\infty\). In fact, for \(k\ge2\), it vanishes exactly at
+\[
+\tau_k=\log\left(\frac{1}{2c_k^2}-1\right)
+=\log\left(\frac{4^k}{3}-1\right),
+\tag{3}
+\]
+whereas for \(k=1\) it is already positive for every \(t>0\). The diagonal coefficients in (1) are positive for all times, by the spectral resolution \(\langle e^{tA}e_i,e_i\rangle=\sum_{r=1}^3e^{\lambda_rt}\|P_re_i\|^2>0\). This proves assertion 1.
 
-**4. Four spectral values admit a positivity-time hole.** Let \(J\) be the adjacency matrix of the four-vertex path, set \(B=I_4+J/4\), and let \(A_4=\log B\) by symmetric functional calculus. Since the eigenvalues of \(J\) are \(2\cos(k\pi/5)\), \(k=1,2,3,4\), the matrix \(B\) is positive definite with four distinct eigenvalues. It is entrywise nonnegative and irreducible, so the dominant eigenvector of \(A_4\) is strictly positive. Now \(e^{tA_4}=B^t\). For \(0<t<1\), its entry in positions \((1,3)\) is strictly negative: the even part \(g_t(z)=((1+\sqrt z/4)^t+(1-\sqrt z/4)^t)/2\) of the functional calculus is a decreasing function of \(z\) on the two positive eigenvalues of the odd-block restriction \(J^2|_{\operatorname{span}(e_1,e_3)}=\begin{psmallmatrix}1&1\\1&2\end{psmallmatrix}\), since \(g'_t(z)<0\) for \(0<t<1\). For \(1<t<2\), its entry \((1,4)\) is strictly negative: polynomial interpolation of \(x^t\) on the four positive, distinct eigenvalues of \(B\) has cubic coefficient equal to the third divided difference \(f_t[\xi_1,\xi_2,\xi_3,\xi_4]\), which is strictly negative because \(\frac{d^3}{dx^3}(x^t)=t(t-1)(t-2)x^{t-3}<0\). The lower-degree terms give zero in entry \((1,4)\), while \((B^3)_{1,4}=1/64\), establishing negativity. At integer times \(0,1,2\) positivity follows from \(I\), \(B\), and \(B^2\), and positivity for all \(t\ge2\) follows from the published sharp critical-exponent theorem for powers of \(4\times4\) doubly nonnegative matrices [4]. Thus \(\mathcal P(A_4)=\{0,1\}\cup[2,\infty)\). This last component uses the published critical-exponent theorem rather than claiming it as a new statement.
+At any fixed \(t>0\), \(c_k^2=(3/2)4^{-k}\to0\), while \(1/(2(1+e^t))>0\). Choose \(k\) so that \(c_k^2<1/(2(1+e^t))\); then (2) is strictly negative. Since \(e_{2k}\) is a positive vector, its image has a negative coordinate, so \(e^{tA}\) is not cone-preserving. At \(t=0\) the identity is positive. Equivalently, \(\tau_k\to\infty\), and the pairwise eventual-positivity thresholds admit no uniform finite bound. This proves assertion 2.
 
-## Verification
-All critical steps are analytic and cover infinitely many coordinate pairs, not extrapolations from finite enumeration. The accompanying standard-library script `verify_spectral_times.py` checks the exact eigenvector decompositions and cutoff identities, supplies rational arithmetic checks on the four-vertex path, and independently tests sample matrix powers as consistency checks. The sharp four-eigenvalue construction additionally invokes the established dimension-four critical-exponent theorem. Its use is stated explicitly, rather than being presented as a self-contained new proof of that published theorem.
+Finally (1) and orthogonality yield
+\[
+\|e^{tA}-P_1\|=e^{-t}\quad(t\ge0),
+\]
+while \(\langle P_1e_j,e_i\rangle=v_iv_j>0\) for every pair. The coordinate entries of this strictly positive-coefficient limit have no uniform strictly positive lower bound, which is why operator-norm convergence does not force positivity of the approximants. This proves assertion 3 and the theorem.
 
-## Relationship to prior work
-Daners, Glück and Kennedy [1] developed eventual positivity criteria and finite-dimensional semigroup examples; these do not specify the entire positivity-time set by spectral cardinality on countable coordinate Hilbert spaces. Arnold [2] proves a growth-bound equality for individually eventually positive semigroups on \(L^p\), a different statement. Dobrick [3] gives a compact-resolvent self-adjoint example whose operators fail to be positive at arbitrarily late times; its generator uses a richer spectral structure, while the bounded three-level example above has an explicit coordinatewise obstruction at every positive time. Guillot, Khare and Rajaratnam [4] establish the critical exponent for all doubly nonnegative matrices, used as a cited result in the four-point witness. In finite dimension their theorem also supplies general eventual positivity once a matrix power is entrywise nonnegative; it does not by itself characterize the exact positivity-time set for bounded self-adjoint semigroups with three spectral values in arbitrary countable dimension.
+## Relationship to established mathematics
+Johnson, Lins and Walch [1, Theorem 5.3] proved in 2010 that continuous conventional powers of a **finite** doubly nonnegative matrix with at most three spectral values remain doubly nonnegative at every exponent at least one. Applying their theorem to \(B=e^{t_0A}\) shows that if a finite-dimensional three-spectral self-adjoint exponential is positive at \(t_0>0\), it remains positive for every later time. Consequently a finite-dimensional three-level no-gap law is **not** claimed as new here. The earlier manuscript version of this record included that law and a four-point path-power illustration; those broader claims are excluded from the corrected finding because the relevant finite-dimensional mechanism was already available. The original versions remain in the source history.
 
-## Limitations
-The no-gap theorem requires a strictly positive simple dominant eigenvector, self-adjointness, and a spectrum of cardinality at most three. It does not claim that arbitrary eventually positive semigroups are eventually positive as operators. The infinite-dimensional example has a bounded generator but not compact resolvent. The four-level counterexample is a specific matrix, not a classification of all four-level positivity-time sets. Two highly relevant 2026 manuscripts [2,3] were accessible only through verified abstracts; their complete texts were not inspected, so independent priority checks against those full texts remain advisable. Independent scientific review has not been performed.
+Daners, Glück and Kennedy [2, Example 5.7] already exhibited a **bounded three-spectrum** generator on \(C([-1,1])\) whose semigroup is individually eventually strongly positive but is not uniformly eventually positive; their Example 5.8 treats a compact-resolvent \(C(K)\) space. These examples establish the general phenomenon and motivate the present Hilbert-lattice realization. Their ordered Banach space is different and their generator is not a self-adjoint operator on coordinate \(\ell^2\) with the explicitly prescribed orthogonal pair projections (1)–(3). The phenomenon of nonuniformity itself is **not** claimed as new.
+
+Dobrick [3] constructed self-adjoint, compact-resolvent eventually positive semigroups on coordinate Hilbert spaces; the generators have unbounded spectra. An independently published analysis [4] of Dobrick's construction supplies an all-positive-time nonpositivity witness. Because an infinite-dimensional compact-resolvent generator cannot have this bounded three-point spectrum, these results do not mathematically entail the present spectral-minimal bounded witness. A close unindexed analogue or an elementary adaptation of [2] is nevertheless a genuine priority risk.
+
+Guillot, Khare and Rajaratnam [5] proved the critical exponent for arbitrary doubly nonnegative matrices; its finite-dimensional conclusion and associated path examples are prior work, not a component of this corrected finding.
+
+## Verification and limitations
+The proof uses exact projection identities, the convergent geometric norm formula, and the sign of (2), not a finite experiment. The original accompanying `verify_spectral_times.py` remains as a historical arithmetic consistency check for the original broader package and is **not** a certificate for the new infinity-of-coordinates assertion. The three eigenvalues and exact norm convergence are proved above. This example does not have compact resolvent and no uniform lower bound on the matrix coefficients of its leading projection; the stronger property of individual eventual strong positivity for **every** nonzero positive initial vector is not asserted.
 
 ## References
-[1] D. Daners, J. Glück, J. B. Kennedy, *Eventually Positive Semigroups of Linear Operators*, arXiv:1511.09020 (2015), especially Sections 5–6; https://arxiv.org/abs/1511.09020 .
+[1] C. R. Johnson, B. Lins and O. Walch, *The critical exponent for continuous conventional powers of doubly nonnegative matrices*, arXiv:1008.3568, Theorem 5.3, https://arxiv.org/abs/1008.3568 .
 
-[2] L. Arnold, *Stability of Individually Eventually Positive Semigroups on \(L^p\)-Spaces*, arXiv:2608.15038 (first posted 2026-08-15); https://arxiv.org/abs/2608.15038 .
+[2] D. Daners, J. Glück and J. B. Kennedy, *Eventually positive semigroups of linear operators*, J. Math. Anal. Appl. 433 (2016), 1561–1593, Examples 5.7–5.8; arXiv:1511.09020, https://arxiv.org/abs/1511.09020 .
 
-[3] A. Dobrick, *Individual and Uniform Eventual Positivity of Self-Adjoint Semigroups*, arXiv:2609.00425 (2026); https://arxiv.org/abs/2609.00425 .
+[3] A. Dobrick, *Individual and Uniform Eventual Positivity of Self-Adjoint Semigroups*, arXiv:2609.00425, https://arxiv.org/abs/2609.00425 .
 
-[4] D. Guillot, A. Khare, B. Rajaratnam, *The critical exponent conjecture for powers of doubly nonnegative matrices*, arXiv:1303.4701 (2013); https://arxiv.org/abs/1303.4701 .
+[4] *Only time zero is positive for a compact-resolvent self-adjoint eventually positive semigroup*, published mathematical record (2026-10-11), https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-only-time-zero-is-positive-for-a-compact-resolvent-self-adjoint--a48e4f5dd463 .
+
+[5] D. Guillot, A. Khare and B. Rajaratnam, *The critical exponent conjecture for powers of doubly nonnegative matrices*, arXiv:1303.4701, https://arxiv.org/abs/1303.4701 .

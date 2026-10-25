@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,6 @@
 }
 ---
 
-The spectral-projector formula gives the exact off-diagonal entries for every pair of coordinates and every positive time. The proof of strict monotonicity uses the elementary exponential inequality, with no finite cutoff assumption.
+The corrected theorem is proved by an exact countable orthogonal decomposition of the real Hilbert space. The normalized positive vector has squared norm 3 sum_{k>=1}4^{-k}=1; its orthogonal antisymmetric-pair projection is bounded. The three eigenspaces are all nontrivial. Functional calculus gives equation (1) in RESULT.md, and the paired off-diagonal entry is exactly equation (2). Its threshold tau_k diverges with k, proving that every positive time has a negative operator entry even though every fixed entry becomes strictly positive. The operator-norm error is exactly exp(-t).
 
-The finite cutoff matrix has an exact spectral decomposition over radicals and three distinct eigenvalues; the nonzero entry cutoff is the exact logarithm of a rational number. The infinite construction uses a pairwise antisymmetric projection and a normalized positive vector, with a direct entry formula for arbitrarily distant pairs.
-
-For the four-point path witness, the first sign window follows from the monotonicity of a two-eigenvalue even functional calculus, and the second from the sign of a third divided difference. The all-time positivity at and beyond exponent two uses the published theorem for doubly nonnegative matrices, arXiv:1303.4701. No numerical extrapolation is used for the claimed intervals.
-
-Run the included Python standard-library program `verify_spectral_times.py` for independently reproducible exact finite identities. Its floating-point samples are consistency checks only, not proof. Independent external audit has not been performed.
+No finite or numerical sample is offered as proof of the infinite coordinate assertion. The preserved verify_spectral_times.py checks arithmetic from the historical broader package and does not verify novelty, a formal proof, or external expert attestation. The finite-dimensional three-eigenvalue conventional-power theorem is credited to Johnson, Lins and Walch (arXiv:1008.3568, Theorem 5.3).
