@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For positive edge resistances, each diagonal of the inverse grounded Laplacian is an effective resistance to the two pinned vertices. Tree series-parallel reduction gives \\(h+z(\\ell-z)/\\ell\\), with h the off-path resistance and z the coordinate on the leader path of length ell. All unordered leader pairs reduce to eight orbits; the table in RESULT.md is obtained by explicit sum. Same-side leaf pairs and opposite-side leaf pairs strictly exceed the both-hub cost for \\(p,q\\ge2,\\ t>0\\). A same-side hub-leaf pair is strictly worse than the corresponding cross-hub-leaf pair by \\(t[1+(q+1)t]/(t+1)\\) or \\(t[1+(p+1)t]/(t+1)\\). The remaining lower envelope is \\(N+\\min\\{0,[t(\\min\\{p,q\\}-1)-1]/(t+1)\\}\\), yielding every equality case at the exact boundary. The embedded exact-rational verifier independently evaluates 4700 actual grounded inverses and 15 transition checks; these computations supplement but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fitch–Leonard, arXiv:1407.1569, introduction and explicit-solutions discussion identify paths and cycles, not double stars.",
+        "Patterson–Yi–Zhang, arXiv:1708.06873, Section IV after equation (14) restricts its multi-leader special-graph calculations to unit edge weights; Section IV-C treats perfect M-ary rooted trees.",
+        "Patterson–Bamieh, CDC 2010, formulates the general grounded-Laplacian combinatorial problem and presents heuristics, not an all-\\((\\(p,q,t\\))\\) closed-form classification."
+      ],
+      "reasoning": "The generic problem formulation and exact per-pair formulas have broad theoretical coverage but no previously stated stronger theorem selecting all minimizers and locating the sharp weighted-bistar transition. Perfect rooted regular trees do not include a proper bistar with an arbitrarily weighted central bridge.",
+      "searches": [
+        "\"double star\" \"leader selection\" \"grounded Laplacian\" noise",
+        "\"weighted\" \"double star\" \"leader selection\" minimum variance",
+        "\"two leaders\" \"double star\" \"coherence\" network",
+        "leader selection tree weighted double star center leaf phase transition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.1569 (2014-07-07)",
+      "arXiv:1708.06873 (2017-08-23)",
+      "DOI:10.1109/CDC.2010.5718151 (2010)",
+      "Published mathematical record hits: 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc; 2026/10/11/SCOPE-sharp-euclidean-inballs-and-contact-facet-transitions-for-bistar--b45b50750d2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Patterson–Bamieh, CDC 2010, provides an optimization expression involving the inverse principal Laplacian and greedy methods.",
+        "Fitch–Leonard, arXiv:1407.1569, develops joint centrality and explicitly analyzes paths/cycles.",
+        "Patterson–Yi–Zhang, arXiv:1708.06873, provides the resistance-distance identity and perfect rooted-tree cases, from which part of the proof methodology is adapted."
+      ],
+      "reasoning": "Generic effective-resistance identities allow deriving the bistar cost table, but neither the bridge-strength transition nor full minimizing-pair equality classification is stated in the inspected papers. The new theorem follows by a nontrivial, though elementary, specialized optimization of eight pair classes. The result does not assert new resistance identities or algorithms.",
+      "searches": [
+        "\"Leader Selection for Optimal Network Coherence\" 2010 pdf",
+        "\"double star\" \"leader selection\" \"grounded Laplacian\" noise",
+        "two leader selection double star K_1,p joined K_1,q resistance graph",
+        "noise free leaders bistar p q two hubs versus hub and opposite leaf minimum trace inverse Laplacian when t less than 1/min leaf degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2 and Lemma 7 of Patterson–Yi–Zhang, arXiv:1708.06873, express noisy-leader coherence via effective resistance and two-ground path reduction.",
+        "The two-leader weighted double-star classification requires additional exhaustive pair-orbit comparisons and all equality conditions; none occurs in the inspected specialized tree section of arXiv:1708.06873."
+      ],
+      "reasoning": "Two-ground resistance, joint centrality and grounded-Laplacian trace are mathematically equivalent ways to express the objective. This known equivalence does not by itself supply which two vertices minimize it in the weighted bistar family or the exact threshold. The claimed novelty is only that explicit decision boundary and equality classification.",
+      "searches": [
+        "optimal two noise-free leaders for double-star tree with unequal leaf multiplicities trace grounded Laplacian inverse",
+        "exact leader placement double star bistar tree pair hub leaf minimizing coherence",
+        "\"bistar\" two leaders trace inverse grounded Laplacian optimal",
+        "\"double star\" \"network coherence\" leader",
+        "weighted double star two noise free leaders bridge resistance threshold reciprocal smaller leaf count grounded Laplacian trace exact characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest visible published semantic hit concerned the fort hypergraph and fractional zero forcing of double stars (2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc), a distinct graph invariant.",
+        "An additional semantically close record concerned Euclidean inballs of bistar symmetric-edge polytopes (2026/10/11/SCOPE-sharp-euclidean-inballs-and-contact-facet-transitions-for-bistar--b45b50750d2a), not leader coherence.",
+        "No checked primary article or mathematical-record hit provided an exact table for the present two-leader weighted-grounding optimization.",
+        "A final exact-object search returned a power-domination factorization for proper double stars (2026/10/4/SCOPE-bridge-factorization-of-power-domination-polynomials-for-proper--07845f31faaa); power domination is not the stochastic grounded-Laplacian trace problem."
+      ],
+      "reasoning": "The accessible tables and semantically similar records compare distinct mathematical objects/invariants. Failed retrieval is not uniqueness proof; the statement is restricted to the material actually inspected.",
+      "searches": [
+        "noise-free leader pair weighted bistar bridge resistance threshold 1/(min(p,q)-1) hub opposite leaf",
+        "trace grounded Laplacian inverse two noise free leaders bistar double star weighted bridge all placements",
+        "\"two leaders\" \"double star\" \"coherence\" network",
+        "double star graph optimum leader pair weighted bridge resistance t two leader coherence center leaf equality"
+      ]
+    },
+    "rationale": "Inspected primary works give general coherence/centrality and tree resistance methods, explicit paths and cycles, or unit-resistance perfect M-ary tree cases; they do not state the all-\\((\\(p,q,t\\))\\) weighted double-star optimizer and its sharp boundary. Searches for bistar/double-star/grounded-Laplacian/coherence wording and semantic published-record searches did not reveal an equivalent or stronger specialized classification. A generic matrix-inverse procedure is not asserted to be novel; the exact all-parameter phase theorem is the distinct contribution. Residual possibility of unindexed specialized overlap remains.",
+    "residual_risks": [
+      "Specialized, unavailable or unindexed literature may already contain an equivalent weighted-bistar result; no claim of exhaustive priority is made.",
+      "The 2010 source was inspected through accessible rendered text, not a full independent page-by-page PDF read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General joint centrality and exact path/cycle placement; no bistar parameter classification in the material inspected.",
+        "evidence": [
+          "arXiv:1407.1569, introduction contribution statement: exact special cases are path and cycle graphs.",
+          "arXiv:1407.1569, Sec. II: weighted Laplacian noise-free leader-follower model."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "Full-text title/abstract, introduction with stated contributions, model, and special-case scope; searched PDF for star/tree terms.",
+        "method": "Opened legal arXiv PDF and arXiv HTML full text; inspected introduction, model, contributions and relevant exact-result descriptions.",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Foundational published treatment of the same noise-free two-leader objective and possible explicit family solutions."
+      },
+      {
+        "assessment": "Resistance distance to grounded leaders is foundational prior work, but its specialized multi-leader calculations use unit edges and perfect rooted M-ary trees rather than weighted bistars.",
+        "evidence": [
+          "arXiv:1708.06873, Sec. III-A Theorem 2 and Sec. III-C Lemma 7.",
+          "arXiv:1708.06873, Sec. IV just before IV-A restricts specialized multi-leader calculations to unit weights.",
+          "arXiv:1708.06873, Sec. IV-C Theorems 12-14 concern perfect rooted M-ary trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+        "material_read": "PDF pages 1-6: model, resistance identities, specialized results and Section IV-C on perfect M-ary trees; related full HTML sections.",
+        "method": "Opened and inspected legal arXiv PDF and rendered full text, including Theorem 2, Lemmas 6-7, restriction after equation (14), and Theorems 12-14.",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "Most relevant primary work on resistance distance and optimal two leaders in trees."
+      },
+      {
+        "assessment": "General inverse-grounded-Laplacian objective and computational/greedy approaches; no weighted-bistar all-parameter phase theorem in the examined material.",
+        "evidence": [
+          "Patterson and Bamieh, CDC 2010, Section on leader selection: minimize one-half of grounded inverse trace over binary leader choices.",
+          "Conclusion discusses scalable greedy methods and future weighted generalization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2010.5718151",
+        "material_read": "Publicly rendered article text including abstract, introduction, exact optimization statement, greedy methods and conclusion; entire PDF was not independently examined.",
+        "method": "Read accessible published full-text excerpt and conference metadata.",
+        "title": "Leader Selection for Optimal Network Coherence",
+        "trigger": "Original general optimization formulation might subsume the present explicit classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21774459-d1f0-4ce7-b35e-97e37c555646",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A pair of branching hubs joined by a tunable communication link is a minimal heterogeneous network where the best sensor/leader locations need not coincide with the two high-degree hubs. The theorem provides a complete natural two-parameter family classification over integer leaf multiplicities and positive bridge resistance, a sharp transition at the reciprocal minority leaf count, and all optimizer ties. It explains the counterintuitive regime in which pinning a peripheral leaf is preferable to pinning the second hub, with relevance to placement under changing intercluster connectivity. Its value is the structural threshold and complete classification, not merely correctness of finite matrix inversions.",
+    "status": "PASS"
+  }
+}

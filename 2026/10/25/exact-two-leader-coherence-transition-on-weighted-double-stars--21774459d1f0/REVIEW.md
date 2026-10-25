@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** On a resistive tree, the inverse grounded Laplacian diagonal is a terminal-to-ground resistance. Series--parallel reduction for a pair of grounded leaders gives \(h+z(\ell-z)/\ell\). Exhausting eight leader-pair symmetry types and comparing their exact costs proves the global threshold \(t_c=1/(\min\{p,q\}-1)\) and every tie without assuming convex relaxation, finite enumeration of parameters or numerical extrapolation. A separate exact-rational replay of \(4{,}700\) grounded inverses checks the stated formulas; it is supporting evidence only.
+
+**Originality — PASS, subject to recorded literature risk.** Patterson and Bamieh (CDC 2010) established the grounded-Laplacian coherence optimization and greedy baselines. Fitch and Leonard (arXiv:1407.1569) derived joint centrality and exact path/cycle cases. Patterson, Yi and Zhang (arXiv:1708.06873) derived the grounding-resistance identity and solved perfect rooted-tree cases under unit special-case edge weights. The new assertion is not those tools: it is the complete weighted-double-star minimizing-pair and equality classification, with a sharp threshold and minority-side dependence. Published-record and source searches for bistar/double-star/grounded-coherence aliases found no verified stronger or equivalent classification. An uncatalogued equivalent result remains possible; complete PDF examination of the 2010 conference paper was not performed.
+
+**Value — PASS.** Tuning one physical bridge between two star-like groups causes a genuine switch from leader placement at the two hubs to a hub-plus-peripheral-leaf arrangement. The reciprocal smaller-side-degree threshold is exact, the asymmetry rule is explicit, and ties are fully classified. This is a motivated infinite-family structural answer rather than an arbitrary finite graph table or a generic inversion algorithm.
+
+**Limitations.** Exactly two noise-free leaders, at least two leaves on each hub, identical leaf-edge conductances, and one positive bridge-resistance parameter. There is no claim for arbitrary weighted trees, noise-corrupted leaders or other objectives. Independent mathematical review is still required before treating priority and proof as externally certified.
+
+Self-review: passed. Independent audit: not yet performed.
