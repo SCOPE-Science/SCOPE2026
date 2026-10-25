@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For edges with conditional p+delta<X_i,X_j>, spherical E[X_iX_i^T]=I/d gives E[Z_triangle]=delta³/d², E[Z_triangle²]=s³+c³delta³/d², s=p(1−p),c=1−2p; all monomials of one/two unpaired dot products vanish. Distinct triangles sharing exactly one edge have covariance s delta^4/d³−delta^6/d^4; one-vertex-sharing covariances vanish by conditional rotational symmetry. Ordered shared-edge pairs number 12*C(n,4), so Var(T)=C(n,3)[s³+c³delta³/d²−delta^6/d^4]+12*C(n,4)[s delta^4/d³−delta^6/d^4]. Subtract Var_ER=C(n,3)s³ to obtain difference C(n,3)delta³/d^4*Phi_n with Phi_n=c³d²+3(n−3)s delta d−(3n−8)delta³, strictly increasing slope 3delta(sd−delta²)>0. At p=3/4,delta=1/8,d=2, exact Phi6=−25/256 and Phi7=19/512. Independent rational enumeration of latent ±coordinate axes in d=2 for n=3,4 reproduced E and Var exactly (n3 var27391/4194304; n4 var6865/262144). This discrete latent comparison matches the required moment tensors for the checked low-degree observables, not an infinite or all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both papers treat broad spherical kernels and asymptotic testing thresholds; affine K(t)=p+delta*t is a smooth-kernel special case.",
+          "Proposition 2.1 bounds the variance and the prior proof computes a conditional fourth-trace overlap, not an explicitly evaluated all-p,delta,n,d affine variance comparison with ER."
+        ],
+        "reasoning": "Stronger model coverage does not automatically mean the precise exact variance sign threshold has been proved; it can nevertheless constitute an equivalent specialization of the general covariance identity, a documented residual risk.",
+        "searches": [
+          "arxiv:2610.12765v1",
+          "arxiv:2602.14998v1"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen affine-link RESULT.md/verify.py/METADATA.json and 67a2eba669ff5e4345acb6ed00306825c5755a98 tree",
+        "arxiv:2610.12765v1 §2.1",
+        "arxiv:2602.14998v1",
+        "Resultary spherical signed-triangle search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The underlying pair-overlap counting and conditional expectation are prior mathematical ingredients.",
+          "Specializing to affine link requires deriving E[u^2]=1/d, E[u^3]=0, triangle trace=delta³/d², shared-edge moment=s delta⁴/d³ and subtracting the ER variance; then Phi_{n+1}−Phi_n=3delta(sd−delta²)."
+        ],
+        "reasoning": "Huang–Li general proof substantially shortens the path but does not visibly state the exact evaluated Phi_n nor the reversal classification. If a later inspection shows the general identity is a fully explicit formula directly substitutable without new conceptual work, reassess originality; do not claim independent discovery of overlap decomposition.",
+        "searches": [
+          "arxiv:2610.12765v1#Proposition-2.1",
+          "arxiv:2602.14998v1",
+          "affine inner product spherical random graph signed triangle exact variance compared Erdos Renyi crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang–Li Proposition 2.1 states E[S3]=C(n,3)tau_3,d and Var_P(S3)<=C(n³+n^4 tau_4,d) rather than an exact equality; model normalized Y=(A−p)/sqrt(s).",
+          "Their proof splits diagonal and shared-edge contributions, yielding a comparable general covariance identity, but does not state the affine-kernel finite-n sign reversal."
+        ],
+        "reasoning": "The overall statistic differs only by normalization s^(3/2) from the source, so models are exactly comparable. The exact finite-parameter sign reversal is more specific than the published detection bound, but the overlap identity is directly relevant and may imply it after nontrivial affine moment evaluation.",
+        "searches": [
+          "affine inner product spherical random graph signed triangle exact variance compared Erdos Renyi crossing",
+          "arxiv:2610.12765v1",
+          "arxiv:2602.14998v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search did not surface the Phi_n affine variance polynomial or sample-size crossing; primary model is published independently.",
+          "One earlier paper already contains all-graph signed-triangle mean and variance bound, preventing any claim of originating the signed-triangle technique."
+        ],
+        "reasoning": "No exact tabulated pair Phi6/Phi7 in checked matched sources. This limited search is not a global novelty certificate.",
+        "searches": [
+          "affine inner product spherical random graph signed triangle exact variance compared Erdos Renyi crossing",
+          "Resultary spherical signed-triangle search",
+          "arxiv:2610.12765v1"
+        ]
+      },
+      "rationale": "The general-kernel signed-triangle detection literature, notably Huang–Li Proposition 2.1, identifies mean and bounds variance by n^3+n^4*tau_4 and its proof gives general overlap/covariance forms. Here the complete finite-n polynomial with its negative-to-positive variance reversal for the explicit affine kernel is isolated and simplified. Best-of-knowledge passes the new finite-n sign classification, but the general covariance identity is sufficiently close to leave a serious reduction/prior-implication risk.",
+      "residual_risks": [
+        "Proposition 2.1 and proof in Huang–Li have a general conditional-covariance identity that may mathematically dominate this affine specialization after a short routine calculation; exact implication not exhaustively excluded.",
+        "No result about detection optimality or nonlinear kernel variance follows from this finite-n affine identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers broad model, mean and an upper variance bound; supplies very close overlap identities, but does not present the all-parameter affine exact Phi_n reversal theorem",
+          "evidence": "Proposition 2.1 displays variance <=C(n³+n^4 tau_4,d), not equality. Its normalized statistic S3 differs from T_n by s^(-3/2).",
+          "identifier_or_url": "https://arxiv.org/html/2610.12765v1",
+          "material_read": "Full public HTML model, section 2.1 Proposition 2.1, signed-triangle proof and related technical statements",
+          "method": "ArXiv HTML full-text section reading and exact model normalization comparison",
+          "title": "Detecting Random Geometric Graphs with General Kernel",
+          "trigger": "Identical conditional spherical edge model and signed triangle statistic"
+        },
+        {
+          "assessment": "Gives detection thresholds and variance estimates, no identified finite-n affine variance-order crossing",
+          "evidence": "Bounds and asymptotics do not fix exact finite-sample sign.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.14998",
+          "material_read": "Abstract, relevant displayed signed-triangle variance bound/result description, no complete full-text inspection claimed",
+          "method": "ArXiv primary theorem-scope comparison",
+          "title": "Random geometric graphs with smooth kernels: sharp detection threshold and a spectral conjecture",
+          "trigger": "General smooth-kernel theory potentially dominating affine calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact finite-sample signed-triangle noise comparison is motivated by geometric-graph detection and calibrates which graph size reduces versus increases null-comparison variability. The monotone crossing is a real parameter boundary with concrete rational witness n=6 to7, not merely an upper bound or a small numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual frozen affine-link RESULT.md/verify.py/METADATA.json and 67a2eba669ff5e4345acb6ed00306825c5755a98 tree",
+    "arxiv:2610.12765v1 §2.1",
+    "arxiv:2602.14998v1",
+    "Resultary spherical signed-triangle search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kernel must be strictly affine, 0<delta<min(p,1−p); d>=2 and n>=3.",
+    "Near-identical general overlap identity creates more substantial priority risk than a failed-search nonmatch."
+  ],
+  "residual_risks": [
+    "Proposition 2.1 and proof in Huang–Li have a general conditional-covariance identity that may mathematically dominate this affine specialization after a short routine calculation; exact implication not exhaustively excluded.",
+    "No result about detection optimality or nonlinear kernel variance follows from this finite-n affine identity."
+  ],
+  "schema_version": 1
+}
