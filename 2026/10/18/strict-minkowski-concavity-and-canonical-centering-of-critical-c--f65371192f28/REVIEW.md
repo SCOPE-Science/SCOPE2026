@@ -1,11 +1,21 @@
-# Scientific review: recentering of critical transition bodies
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(C^3\) bodies with positive Gaussian curvature, all admissible support values are positive and the area measure charges every open set of normal directions. The proof first establishes compactness and unique positive radial roots, then uses the strict equality condition for the convex perspective of \(\log\cosh\). Comparing opposite normals rules out joint equality for distinct translations at nonzero endpoint vectors; this is the essential nonstandard rigidity step and makes Minkowski interpolation strictly interior. Brunn–Minkowski proves strict concavity of the level-body volume root. Evenness at a symmetry center, together with the explicitly positive support-variable second derivative, proves radial strict inclusion. Implicit differentiation yields the exact positive-definite translation Hessian; real analyticity and parity justify the \(O(t^4)\) remainder. The self-contained numerical disk test was executed successfully. No finite test substitutes for the proof.
+## correctness
 
-**Originality — PASS with literature risk.** The motivating 2026 primary article defines the critical body and scaling of its levels, but does not derive its parameterized Minkowski interpolation or translation Hessian. The complete 2010 Orlicz projection-body paper contains the *general scalar perspective inequality* and a global shape-optimization inequality. We explicitly credit that known ingredient, and do not claim the convexity trick itself as a discovery; the reviewed paper does not state strict fixed-body origin interpolation, the opposite-normal equality classification, or the positive-definite level-volume Hessian. The examined 2025 higher-order Orlicz work concerns other operators and global Petty inequalities. Published-record and full-text searches did not identify the full theorem; they cannot exclude a broader or unindexed prior theorem. Related mathematical research claims were checked for implication overlap; no stronger covering statement was identified.
+PASS
 
-**Value — PASS.** The newly introduced smooth-covariogram critical body is origin-sensitive even though the classical covariogram is translation invariant. Determining how its *entire convex level body* changes under recentering is a natural geometric gap. Strict Minkowski interpolation is a global, all-dimensional structural result for *every* smooth positively curved body, while the unique symmetric center and explicit positive-definite Hessian give complete qualitative and local quantitative stability at *every* positive level. This is not an arbitrary numerical slice, a known-table recomputation, or a claim of a general downstream breakthrough.
+For h>0, convex scalar perspective h logcosh(z/(2h)) is jointly convex with equality only if the two normalized z/h ratios coincide. The full-support surface-area measure converts equality of integrated F_a at interpolated (a,y) into ratio equality for every normal v. Evaluating at v and −v and subtracting, positive widths imply y0=y1; the remaining equality then forces y=0 or a0=a1. For distinct translations every nonzero Minkowski-interpolation point has F_{aλ}(y)<β, and 0 also lies strictly inside; hence compact strict interior inclusion and Brunn–Minkowski strict nth-root-volume concavity. If K symmetric, F_{tc}(y) is even and strictly convex in t for y,c≠0 since ∂²_h perspective=z² sech²(z/(2h))/(4h³)>0, implying strict radial contraction. Uniform implicit radial differentiation gives ρ_tt(0,u)=−N(u;c)/D(u), D,N>0 and H(c)=∫ρ^{n−1}N/D>0 for c≠0; analytic parity supplies O(t⁴). Domain n≥2, β>0 and C³ positive curvature ensure full normal support and no vanishing h_a; no maximizer existence claimed for nonsymmetric K. Independently confirmed perspective curvature and disk Hessian consistency, not universal numerics.
 
-**Limits and residual risk.** No unrestricted existence theorem for an optimal origin of nonsymmetric bodies is claimed. No singular origin or nonsmooth extension is claimed. Existing general Orlicz methods could conceivably imply the fixed-body conclusion without explicitly stating it, and inaccessible/unindexed work might overlap. Independent scientific verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating critical logcosh transition paper defines the origin-sensitive body but does not in inspected text classify translations. General Orlicz perspective and Petty shape optimization are recognized ingredients; the specific opposite-normal equality classification, strict Minkowski inclusion under every origin interpolation, and positive-definite fixed-body translation Hessian go beyond the inspected cited results. Risk remains of broad Santaló/Orlicz origin variation theorems implying portions.
+
+## value
+
+PASS
+
+The smooth covariogram critical transition body depends on an arbitrary origin even though a classical covariogram does not. Strict set-valued recentering for every positive-curvature shape is a natural global convex-geometric question, with the unique symmetric center and exact positive translation Hessian giving a usable quantitative stability law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

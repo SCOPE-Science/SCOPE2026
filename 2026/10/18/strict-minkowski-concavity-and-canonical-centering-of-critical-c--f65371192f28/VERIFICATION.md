@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytic. For the strictly convex perspective \(P(h,z)=h\log\cosh(z/(2h))\), differentiating twice in \(h\) gives \(z^2\operatorname{sech}^2(z/(2h))/(4h^3)\). The opposite-normal equality test requires positive width in every direction and full support of the surface-area measure. The symmetric-origin Hessian uses \(D(u)>0\) and \(N(u;c)>0\) for all \(u\) and nonzero \(c\). Parity cancels odd powers. These steps, not any finite computation, cover all admissible dimensions, bodies, translations, and levels.
+## correctness
 
-The embedded `verify.py` uses Python 3 standard-library functions only. It was executed from its own file and returned:
+PASS
 
-```
-CRITICAL_TRANSITION_RECENTERING_CHECKS_OK
-disk_beta=1, radius_approx= 1.659084806166
-quadratic_loss_coefficient_approx= 3.170423103194
-finite_difference_losses= [3.1705407218, 3.1708936367, 3.1723061774]
-```
+For h>0, convex scalar perspective h logcosh(z/(2h)) is jointly convex with equality only if the two normalized z/h ratios coincide. The full-support surface-area measure converts equality of integrated F_a at interpolated (a,y) into ratio equality for every normal v. Evaluating at v and −v and subtracting, positive widths imply y0=y1; the remaining equality then forces y=0 or a0=a1. For distinct translations every nonzero Minkowski-interpolation point has F_{aλ}(y)<β, and 0 also lies strictly inside; hence compact strict interior inclusion and Brunn–Minkowski strict nth-root-volume concavity. If K symmetric, F_{tc}(y) is even and strictly convex in t for y,c≠0 since ∂²_h perspective=z² sech²(z/(2h))/(4h³)>0, implying strict radial contraction. Uniform implicit radial differentiation gives ρ_tt(0,u)=−N(u;c)/D(u), D,N>0 and H(c)=∫ρ^{n−1}N/D>0 for c≠0; analytic parity supplies O(t⁴). Domain n≥2, β>0 and C³ positive curvature ensure full normal support and no vanishing h_a; no maximizer existence claimed for nonsymmetric K. Independently confirmed perspective curvature and disk Hessian consistency, not universal numerics.
 
-The test uses 240 deterministic normal directions and 80 target directions on a unit disk. It checks radial contraction for three nonzero translations, positive perspective curvature at three independent points, strict midpoint interpolation of translated level bodies, and convergence of finite-difference area-loss coefficients toward the analytic Hessian integral. It does *not* certify every direction, every body, or infinitely many dimensions; independent audit has not been performed.
+## originality
+
+PASS
+
+The motivating critical logcosh transition paper defines the origin-sensitive body but does not in inspected text classify translations. General Orlicz perspective and Petty shape optimization are recognized ingredients; the specific opposite-normal equality classification, strict Minkowski inclusion under every origin interpolation, and positive-definite fixed-body translation Hessian go beyond the inspected cited results. Risk remains of broad Santaló/Orlicz origin variation theorems implying portions.
+
+## value
+
+PASS
+
+The smooth covariogram critical transition body depends on an arbitrary origin even though a classical covariogram does not. Strict set-valued recentering for every positive-curvature shape is a natural global convex-geometric question, with the unique symmetric center and exact positive translation Hessian giving a usable quantitative stability law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
