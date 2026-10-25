@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact fan-cover radius <=3/4 verified by five rational-surd squared distances. Six vertices force three disjoint adjacent pairs for any radius <=3/4. On each matched disk a+b>=1 implies chord distance squared >=9/4+3(a-1/2)^2; each unmatched edge is inaccessible to the opposite matching disk because sqrt(3)>3/2, so total three edge constraints force sum(a+b)>=3. Combined with per-disk a+b<=1 this forces equality on every disk and uniquely pins its center by a length-3/2 diameter. Two hexagon-cycle perfect matchings give exactly two triples. Pure-standard-library exact arithmetic checks executed successfully; mathematical quantifiers follow from analytic monotonicity, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Birgin–Gardenghi–Laurain 2022 preprint Sections 3 and 5: asymptotic bounds for sufficiently many disks and heuristic finite configurations; regular-hexagon tabulation from m=10.",
+        "Bezdek–Henderschedt 2024, Theorem 2 establishes exact N_n(r) for point sets, not the minimal three-disk covering radius of one specified hexagon.",
+        "The published exact two-disk covering-radius formula for even regular polygons concerns only two disks, not the three-center problem."
+      ],
+      "reasoning": "The known large-disk asymptotic statements lack a finite m=3 equality conclusion; exact two-center results do not imply optimum at three centers. A uniform diameter-one finite-point coverage guarantee does not prohibit covering a particular regular hexagon by smaller disks.",
+      "searches": [
+        "exact regular hexagon 3-center p-center D(H,3) optimal radius three disks global proof",
+        "\"hexagon\" \"3-center\" \"optimal\" radius covering",
+        "\"regular hexagon\" \"3 circles\" \"cover\" \"optimal\""
+      ]
+    },
+    "checked_sources": [
+      "Liu2022 doi:10.1007/s43762-021-00032-9 Section 4.3",
+      "BezdekHenderschedt2024 arXiv:2407.03553v1 Sections 2,5",
+      "BirginGardenghiLaurain2022 author-hosted 18 April 2022 preprint Sections 1,3,5 and appendix",
+      "Published geometric comparisons: exact two-disk covering of regular even polygons and moduli of circular spiral equicoverings (nonimplications for three disks)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bezdek–Henderschedt 2024 v1, proof of Theorem 2, identifies exactly the same upper-bound pentagonal partition.",
+        "Liu 2022 Section 4.3 reports numerical upper and lower bounds for hexagon p=3, not an exact equality or center-classification theorem.",
+        "Birgin–Gardenghi–Laurain 2022 Section 3, large-m estimates; Section 5, numerical multi-start polygon coverings."
+      ],
+      "reasoning": "The old constructive cover implies rho_3(H)<=3R/4, a strictly weaker statement than equality and rigidity. The old numeric bounds provide no exact radius lower proof. The proof supplied here uses forced six-vertex pair matching plus unmatched-edge coverage and exact chord rigidity, neither given nor a formal corollary of the compared results.",
+      "searches": [
+        "exact regular hexagon 3-center p-center D(H,3) optimal radius three disks global proof",
+        "hexagon 3 congruent circle covering minimum radius and uniqueness proof, vertex pairing matching edge midpoint",
+        "Liu hexagon p=3 optimality certificate Borsuk pentagons unique 0.75 R three congruent disks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu 2022 Sections 1 and 4.3: continuous p-center min-max is equivalent to equal-disk full-region covering; the regular hexagon p=3 is among 32 numerical tests.",
+        "Bezdek–Henderschedt 2024 v1, Section 2 and Theorem 2: three pentagons of circumradius √3/4 when the hexagon has opposite-side separation 1; scaling gives radius 3R/4."
+      ],
+      "reasoning": "The exact same objective is the unrestricted Euclidean three-center service radius, or partition into three sets minimizing maximum circumradius. Its old exact construction is not advertised as new. The added claim is its best-possible lower bound and exhaustive equality. Numerical coincidence and a general partition into three pentagons alone do not imply sharpness.",
+      "searches": [
+        "exact regular hexagon 3-center p-center D(H,3) optimal radius three disks global proof",
+        "three-center planar p-center regular hexagon covered by three equal disks sharp radius 3/4 side length unique optimal center locations",
+        "\"regular hexagon\" \"three disks\" \"cover\" \"minimum\"",
+        "Liu hexagon p=3 optimality certificate Borsuk pentagons unique 0.75 R three congruent disks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu 2022 full HTML Section 4.3 and Table 1: only hexagon p=6 is reported to close its numerical gap immediately; p=3 terminated on a time limit.",
+        "Birgin–Gardenghi–Laurain 2022 PDF Appendix hexagon numerical table starts at m=10; Section 5 illustrations use m=10, 50, 100.",
+        "Indexed exact two-disk regular-polygon covering and circular-spiral equicovering results concern different covering invariants."
+      ],
+      "reasoning": "The examined exact formulas/tables do not contain this m=3 sharpness and two-orbit equality classification. Not finding a matching entry is supporting, not definitive, evidence for novelty.",
+      "searches": [
+        "Liu hexagon p=3 optimality certificate Borsuk pentagons unique 0.75 R three congruent disks",
+        "three circle minimum-radius covering regular hexagon uniqueness matching boundary gap",
+        "\"p=3\" \"hexagon\" \"radius\" covering exact"
+      ]
+    },
+    "rationale": "Novelty is confined to sharp global lower bound and complete center rigidity, not the known three-pentagon upper covering. Direct full-text comparisons find only numerical p=3 bounds, asymptotic large-m estimates or finite-point diameter guarantees; no dominating m=3 theorem in examined scientific sources. Residual older-priority risk explicitly retained.",
+    "residual_risks": [
+      "Older geometric covering literature could already contain an exact three-center lower certificate with matching uniqueness; searches cannot exclude nonindexed equivalences.",
+      "The 2022 Birgin–Gardenghi–Laurain PDF was inspected materially in targeted sections rather than exhaustively line by line.",
+      "No external independent priority or proof certification has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Constructive/numerical covering benchmarks are prior; p=3 hexagonal case numerical bounds did not close in the reported runs, no analytic global optimality/rigidity statement located",
+        "evidence": [
+          "Section 4.3 says 32 regular polygon tests with p=3..10, and only hexagon p=6 appears among quickly closed cases; other cases end at time limit.",
+          "First online 24 January 2022."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s43762-021-00032-9",
+        "material_read": "Open-access full-text HTML: abstract, Section 1 problem definition, and Section 4.3 numerical regular-polygon methods, table discussion, and concluding paragraphs",
+        "method": "Full-text open-access HTML inspection and comparison of problem definitions, tables and result implications",
+        "title": "Two lower-bounding algorithms for the p-center problem in an area",
+        "trigger": "Exact same polygonal region and p=3 center count in numerical comparisons"
+      },
+      {
+        "assessment": "Borsuk pentagonal partition and sharp-looking upper radius already appear explicitly. Work establishes finite-point diameter covering bounds, without showing that the hexagon itself resists three smaller disks or enumerating all centers. This paper is a priority source for construction, not for the new lower certificate.",
+        "evidence": [
+          "Section 2: circles from Liu 2022 and Figure 2.",
+          "Theorem 2: three pentagons whose circumradius is √3/4 for opposite side separation 1; exactly the same scaled construction.",
+          "arXiv v1 dated 4 July 2024, primary geometry code 52C15."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.03553v1",
+        "material_read": "Open full HTML, sections 1 through 5 and references; Section 2, Table 1, Theorem 2 proof at lines 120-128",
+        "method": "Version-specific arXiv open-access full-text inspection",
+        "title": "On a generalized hexagonal dart board problem, original arXiv version 1",
+        "trigger": "Same regular hexagon and same three-disk constructive cover, geometric priority risk"
+      },
+      {
+        "assessment": "Global statements are asymptotic in m; finite regular hexagon runs use m=10,50,100 and do not establish exact m=3 sharpness or rigidity. Uninspected appendices create limited residual priority risk.",
+        "evidence": [
+          "Abstract and Sections 3,5 describe large-m bounds and numerical solutions.",
+          "Appendix hexagon table starts at m=10.",
+          "Preprint dated 18 April 2022."
+        ],
+        "identifier_or_url": "https://john.pro.br/papers/bglcovering.pdf",
+        "material_read": "Open 39-page 18 April 2022 preprint; title, introduction and overview, Section 3 asymptotic theorems, Section 5 finite regular-polygon experiments, figures/table description, appendix table entries for hexagon m≥10",
+        "method": "Lawful author-hosted PDF text inspection and visual check of title page and experiment table page",
+        "title": "Asymptotic bounds on the optimal radius when covering a set with minimum radius identical balls",
+        "trigger": "Broader lower/upper covering bound that might imply the proposed exact finite result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77a21ddb-0d8c-4f53-8235-df443f19dd83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Continuous polygonal three-center approximation for a canonical regular hexagon is a natural practical and geometric invariant addressed numerically in published benchmarks. Proving a long-used upper construction genuinely optimal with a complete classification of ALL extremizers yields an exact calibration example with matching-based rigidity, rather than a parameter renaming or table recomputation. Distinguishes entire-region optimization from diameter-bounded point-set pigeonhole results.",
+    "status": "PASS"
+  }
+}
