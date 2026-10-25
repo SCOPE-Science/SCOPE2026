@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python verify.py` (requires `sympy`, see `requirements.txt`). The program enumerates the subdivided-graph cubical model directly, constructs its oriented integral square-boundary presentation, asserts the Smith invariant factors, computes the total-motion projection and the two symmetry generator actions over \(\mathbb F_2\), and solves all equivariance equations. The six input labels are not arbitrary graph instances: they describe this particular five-vertex complete graph. Its checks terminate as finite exact computations and neither prove general nonplanar graph cases nor establish novelty in unindexed literature.
+# Independent mathematical audit
 
-Expected reported values: \(105\) zero-cells, \(260\) one-cells, \(150\) two-cells; Smith factors \(1^{149},2\); \(42\) variables and system rank \(41\); two exact equivariant sections. Assertions verify all values and equations. Any alteration to the cell structure or action must be checked afresh.
+## correctness
+
+PASS
+
+For two unordered particles on the ten-edge K5 with every edge subdivided once, independently reconstructed the cubical cell counts C0=105,C1=260,C2=150, and spanning-tree quotient with 156 cycles. Independently assembled the integral signed 156x150 2-boundary; exact Smith reduction gives 149 ones and one 2 (remaining six free), hence H1=Z^6⊕Z/2. The total-motion projection to H1(K5;Z)≅wedge^2 A4 is surjective since one particle can traverse each triangle while the other stands at another vertex; torsion kernel Z/2 is S5-trivial. Independently recomputed the mod2 projection columns [7,25,42,4,16,1,3], the natural S5 transposition/5-cycle linear maps, and the 42-variable equivariant-section system: consistent rank 41, exactly two binary sections. Since the torsion kernel injects on reduction mod2 and the integral quotient is free, each binary equivariant section uniquely lifts by correcting any integral ordinary section with a Hom(W,Z/2) map; conversely there are no additional integral sections. Sufficient subdivision for 2 particles holds on the subdivided K5; this finite computation is exhaustive for the specified space, not arbitrary graph configurations.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact final statement, including earlier stronger/special-case results and mathematical implications, did not identify decisive coverage of the stated new component; this is not an exhaustive global priority certification.
+
+## value
+
+PASS
+
+Refines an existing abstract H1 graph braid-group calculation to a fully integral S5-equivariant extension and an exact count of two equivariant splittings of the canonical total-motion map. Automorphism-equivariant splitting is not determined by abstract Z^6⊕Z/2 or rational module data, providing a meaningful symmetry-sensitive integral invariant for a fundamental graph configuration space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed cubical chain calculation gives \(105\) vertices, \(260\) edges, \(150\) squares and exact Smith factors \(1\) repeated \(149\) times and \(2\) once. Triangle motions prove the total-motion map onto the rank-six cycle lattice. The mod-two equivariant section equations have coefficient and augmented rank \(41\) among \(42\) unknowns and two explicitly checked solutions. Injectivity of the order-two kernel under reduction shows the solutions lift uniquely to integral equivariant sections.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** Ko–Park's Theorem 3.16 already supplies the nonequivariant \(\mathbb Z^6\oplus\mathbb Z/2\) group and is correctly excluded from the novelty claim. Three completed semantic indexed searches include K5 unordered two-particle homology, permutation symmetry, exchange classes, and integral modules. Their closest Petersen and complete-graph sink-configuration results do not imply the K5 total-motion equivariant section count. Unindexed or inaccessible prior equivariant treatments remain a risk.
+PASS
 
-**Value — PASS.** The question is the canonical natural equivariant refinement for the smallest complete nonplanar graph. Determining both existence and the exact multiplicity of integral sections separates the topology of the canonical motion map from the classical abstract group formula; it is not a generic restatement of its Betti number.
+For two unordered particles on the ten-edge K5 with every edge subdivided once, independently reconstructed the cubical cell counts C0=105,C1=260,C2=150, and spanning-tree quotient with 156 cycles. Independently assembled the integral signed 156x150 2-boundary; exact Smith reduction gives 149 ones and one 2 (remaining six free), hence H1=Z^6⊕Z/2. The total-motion projection to H1(K5;Z)≅wedge^2 A4 is surjective since one particle can traverse each triangle while the other stands at another vertex; torsion kernel Z/2 is S5-trivial. Independently recomputed the mod2 projection columns [7,25,42,4,16,1,3], the natural S5 transposition/5-cycle linear maps, and the 42-variable equivariant-section system: consistent rank 41, exactly two binary sections. Since the torsion kernel injects on reduction mod2 and the integral quotient is free, each binary equivariant section uniquely lifts by correcting any integral ordinary section with a Hom(W,Z/2) map; conversely there are no additional integral sections. Sufficient subdivision for 2 particles holds on the subdivided K5; this finite computation is exhaustive for the specified space, not arbitrary graph configurations.
 
-**Limitations.** Results concern only two indistinguishable particles on \(K_5\); no higher-dimensional or general-graph extension, equivariant space-level splitting, or exhaustive bibliographic uniqueness is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact final statement, including earlier stronger/special-case results and mathematical implications, did not identify decisive coverage of the stated new component; this is not an exhaustive global priority certification.
+
+## value
+
+PASS
+
+Refines an existing abstract H1 graph braid-group calculation to a fully integral S5-equivariant extension and an exact count of two equivariant splittings of the canonical total-motion map. Automorphism-equivariant splitting is not determined by abstract Z^6⊕Z/2 or rational module data, providing a meaningful symmetry-sensitive integral invariant for a fundamental graph configuration space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
