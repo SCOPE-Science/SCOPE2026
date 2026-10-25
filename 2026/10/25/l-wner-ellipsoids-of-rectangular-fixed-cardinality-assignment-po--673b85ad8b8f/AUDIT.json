@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Each vertex has fixed row, column, and doubly centered squared projection energies, calculated directly from its occupied row/column indicator vectors. Group invariance or the explicit four-pattern entry second moments produce the exact three covariance eigenvalues and their multiplicities. The covariance range equals the true affine direction space in all three rank regimes. Averaging constraints of any enclosing ellipsoid and applying positive-matrix arithmetic–geometric mean yields the sharp global determinant bound d^d detΣ; A=dΣ reaches equality at all vertices, proving unique optimality. Comparing the three eigenvalues and exact saturation formulas gives the complete jump direction case split. The standard-library rational checker validated 25 small full polytope instances with 1016 exact vertices plus 110920 mode-order and jump comparisons. Finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Torres 2023 proves a more general normality/H-description statement for bipartite k-matching polytopes; neither normality nor its linear description fixes an intrinsic minimum-volume ellipsoid.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382 full RESULT.md concerns a full-dimensional ALL-cardinality doubly-substochastic polytope and its inscribed John ellipsoid; taking a fixed-sum slice does not give the sought enclosing Löwner ellipsoid.",
+        "published-finding corpus 2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd concerns partial permutohedra (vectors with assigned positive entries), not the matrix k-assignment vertex configuration.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3 concerns arbitrary rank-selected Boolean polytopes (indicator sets without nonattacking-row/column constraints)."
+      ],
+      "reasoning": "Existing graph-theoretic results have broader graph coverage but address different invariants. The known John/inball and orthogonal-box classifications neither subsume the stated Frobenius minimum-volume ENclosing ellipsoid nor imply the sharp last-rank anisotropy comparison. The general covariance-to-enclosing-ellipsoid orbit principle is acknowledged as classical and is not claimed original.",
+      "searches": [
+        "Minimum volume enclosing ellipsoid of all k-assignment polytopes with rectangular partial permutation matrix vertices and Frobenius metric",
+        "Uniform distribution on matchings of K_{m,n}: covariance decomposition and Löwner ellipsoid, anisotropy at saturation",
+        "MVEE of fixed cardinality bipartite matching polytope with three eigenvalues, all vertices contact",
+        "John Loewner ellipsoid of k matching polytope complete bipartite graph uniform fixed-rank partial permutations",
+        "2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382",
+        "2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd",
+        "2026/10/11/SCOPE-exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3"
+      ]
+    },
+    "checked_sources": [
+      "Gill and Linusson, The k-assignment polytope (Discrete Optimization 6, 2009), complete lawful author postprint: https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+      "Juan Camilo Torres, Normality of k-Matching Polytopes of Bipartite Graphs, arxiv:2306.11910v1, full HTML: https://arxiv.org/abs/2306.11910",
+      "2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633",
+      "2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12",
+      "2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382",
+      "2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd",
+      "2026/10/11/SCOPE-exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill–Linusson Theorem 3 fixes which matrices lie in the polytope and its facets but supplies no enclosing spectral optimizer.",
+        "Torres Theorem 3.1 establishes equality to a fractional matching polytope; this yields the object, not its Löwner shape.",
+        "The square fixed-rank John result optimizes inscribed volume and has a sharp facet transition, whereas the new result optimizes enclosing volume and has all vertices in contact.",
+        "The fixed-rank inball/sphere result gives outer radius squared k-k²/(mn) only in its square setting; this is the trace of the proposed shape divided by dimension, not its determinant or componentwise anisotropy."
+      ],
+      "reasoning": "The new theorem is not implied by the strongest same-object published John/inball/sphere results: their primal containment problem or isotropic outer radius leaves the independent row/column/interacting semiaxis information undetermined. Generic orbit covariance optimization alone is classical; the specific exact complete rectangular spectrum and strict reversal classification require the new mode moment calculation. Conversely, the new formula implies a sphere-radius identity but does not claim it as new.",
+      "searches": [
+        "Minimum volume enclosing ellipsoid of all k-assignment polytopes with rectangular partial permutation matrix vertices and Frobenius metric",
+        "Löwner minimum volume enclosing ellipsoid of k-assignment polytope, fixed-cardinality partial permutation matrices; exact semiaxes",
+        "Uniform distribution on matchings of K_{m,n}: covariance decomposition and Löwner ellipsoid, anisotropy at saturation",
+        "MVEE of fixed cardinality bipartite matching polytope with three eigenvalues, all vertices contact",
+        "2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633",
+        "2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12",
+        "2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill–Linusson, The k-assignment polytope (2009), Definition 1 and Theorem 3: the exact same fixed-rank matrix polytope is the convex hull of nonattacking-rook arrays, with a row/column fractional description.",
+        "Torres, arXiv:2306.11910v1, Definition 2.7, section 3, Theorem 3.1: the same object is the k-matching polytope for complete bipartite graphs, with a broader H-description.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633: full RESULT.md was read; it optimizes inscribed John ellipsoid, expressly not an enclosing Löwner ellipsoid.",
+        "published-finding corpus 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12: full RESULT.md was read; it gives inballs and enclosing Euclidean sphere, not minimum-volume enclosing ellipsoid."
+      ],
+      "reasoning": "Nonattacking rook, k-assignment, k-matching, partial permutation, and Birkhoff-slice descriptions are equivalent for complete bipartite graphs and were compared. The new metric quantity is the minimum-volume enclosing ellipsoid, not the previously evaluated inball, enclosing sphere, or inscribed John ellipsoid. No covering same-object formula was found; this is not a proof of absolute novelty.",
+      "searches": [
+        "Minimum volume enclosing ellipsoid of all k-assignment polytopes with rectangular partial permutation matrix vertices and Frobenius metric",
+        "Löwner minimum volume enclosing ellipsoid of k-assignment polytope, fixed-cardinality partial permutation matrices; exact semiaxes",
+        "Covariance spectrum of uniform random partial matching matrix, rook placement, bipartite matching polytope",
+        "Rectangular partial permutation matrix polytope vertex second moments inertia isotropic anisotropy",
+        "\"k-assignment polytope\" \"Loewner ellipsoid\"",
+        "\"partial permutation matrices\" \"Loewner ellipsoid\" \"covariance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gill–Linusson (2009) studies facets, face poset, graph diameter, and ear decompositions, rather than the full ellipsoid metric spectrum.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633 and 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12 are the closest exact same-object metric tables checked, but give different quantities (inscribed ellipsoid and sphere).",
+        "published-finding corpus 2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382 is an exact spectral table for a different all-rank polytope and the opposite (inscribed) optimization."
+      ],
+      "reasoning": "No exact source/table with the claimed three spectral eigenvalues, rectangular all-cardinality formula, and saturation jump classification was found among the recorded searches and full-text comparisons; mathematical databases and bibliographic indexes may omit equivalent older calculations.",
+      "searches": [
+        "Löwner minimum volume enclosing ellipsoid of k-assignment polytope, fixed-cardinality partial permutation matrices; exact semiaxes",
+        "MVEE of fixed cardinality bipartite matching polytope with three eigenvalues, all vertices contact",
+        "Covariance spectrum of uniform random partial matching matrix, rook placement, bipartite matching polytope",
+        "\"k-assignment polytope\" \"minimum-volume\" \"ellipsoid\"",
+        "\"partial permutation\" \"enclosing ellipsoid\""
+      ]
+    },
+    "rationale": "The complete 2009 same-object combinatorial paper, 2023 bipartite normality primary article, and public same-body inscribed-ball and John-ellipsoid work were compared against the **enclosing** Löwner spectrum and rank-dependent sharp saturation reversal. The known universal covariance/ellipsoid AM–GM principle is excluded from the originality claim. None of the read same-object sources or searched mathematical results states or implies the full three-mode all-rectangular formula plus last-rank classification. Broader mathematical sources concern different polytopes or opposite optimization. Bibliographic uncertainty is explicitly retained; novelty is best-knowledge, not absolute priority.",
+    "residual_risks": [
+      "A less-indexed earlier computation might state an equivalent covariance/eigenvalue calculation under transportation-polytope, matrix optimal-design, or nonattacking-rook terminology.",
+      "The orbit-transitive covariance realization of a Löwner ellipsoid is a known general principle; mathematical value and originality lie in the exact three-mode parameter computation and saturation classification, not in that general principle.",
+      "Comparison of differently dimensional ellipsoids at saturation is intrinsic spectral comparison, not global affine-isotropic monotonicity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Object and facet model covered, but paper pursues faces, graph diameter and ear decompositions rather than enclosing ellipsoid or rectangular eigenvalues.",
+        "evidence": "Definition 1 identifies nonattacking-rook matrices; Theorem 3 establishes the H-model; introduction lists face-poset and graph-diameter aims; no ellipsoid/ellipse/covariance hits.",
+        "identifier_or_url": "doi:10.1016/j.disopt.2008.10.003; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "material_read": "Lawful author-postprint PDF: title/abstract, introduction, Section 2 Definition 1/Theorem 3, section scope and following structure; keyword searches for ellipsoid, ellipse, covariance across all pages",
+        "method": "Read searchable PDF text and inspected rendered page 3 (Definition 1, Theorem 3) directly",
+        "title": "The k-assignment polytope",
+        "trigger": "Identical fixed-cardinality matrix polytope, likely coverage of metric invariants"
+      },
+      {
+        "assessment": "Normality and fractional H-description apply; no Euclidean enclosing ellipsoid or covariance spectral formula stated.",
+        "evidence": "Original arXiv public timestamp 2023-06-20; Section 3 Theorem 3.1 is a polytope-description equality; Section 4 proves normality. The primary MSC codes published by the journal are 52B11,52B12,52B20.",
+        "identifier_or_url": "arxiv:2306.11910v1; https://arxiv.org/abs/2306.11910",
+        "material_read": "Accessible full article text including Definitions 2.7–2.8, Theorem 3.1, Sections 3–4, main references and abstract",
+        "method": "Full arXiv HTML read with comparison of hypotheses, objects, and implications",
+        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+        "trigger": "Primary middle-period source establishing general k-matching object and bipartite H-description"
+      },
+      {
+        "assessment": "The previous result is a maximum-volume INscribed ellipsoid, square parameters 1≤k<n, with contact facets; it explicitly excludes outer minimum-volume ellipse, rectangular parameters and saturated affine hulls.",
+        "evidence": "Its Finding describes ellipsoid contained in P_n,k with John contact weights; its Limitations exclude k=n, rectangular assignment polytopes.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633/RESULT.md",
+        "material_read": "Complete available RESULT.md, including all formulas, proofs, relationship to prior work, and limitations",
+        "method": "Read complete public mathematical document; compared optimization direction, dimensional range and eigenvalue claims",
+        "title": "Exact John ellipsoid of square fixed-cardinality assignment polytopes",
+        "trigger": "Most plausible same-body ellipsoid result"
+      },
+      {
+        "assessment": "Computes inradius, incenter locus and enclosing Euclidean ball in square intermediate ranks; the scalar radius does not determine a Löwner shape or anisotropy.",
+        "evidence": "Outer squared radius is k-k²/N² and all square vertices touch; limitations say no volume/John/rectangular endpoints; no Löwner ellipsoid result.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12/RESULT.md",
+        "material_read": "Complete available RESULT.md including Finding, proof, and limitations",
+        "method": "Read full public mathematical result; compared scalar radius and possible induced spectra",
+        "title": "A Birkhoff-polytope family of incenters for partial assignment polytopes",
+        "trigger": "Same-body sharp geometric rank transition and an enclosing sphere"
+      },
+      {
+        "assessment": "Treats maximum-volume INScribed ellipsoid of all cardinalities at once, not fixed-rank minimum-volume enclosing ellipsoid.",
+        "evidence": "Its body is full-dimensional, permits all matchings, center is tJ with t optimized, and the result expressly excludes a minimum-volume enclosing ellipsoid.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+        "material_read": "Complete available RESULT.md including Finding, proof, and limitations",
+        "method": "Read full mathematical document and checked object and containment orientation",
+        "title": "Exact John ellipsoid of the doubly substochastic matrix polytope",
+        "trigger": "Same row/column constraints with different (all-rank) polytope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "673b85ad-8b8f-4369-a818-a0f114d419c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-cardinality bipartite matching polytopes are canonical and already studied as transportation and nonattacking-rook models; the minimum-volume enclosing ellipsoid is a natural geometric invariant complementing their established inball, enclosing sphere, and inner John ellipsoid. Computing its full Frobenius spectrum for every rectangular parameter and its changing affine-hull dimension supplies structural information unavailable from a scalar radius or combinatorial description. The sharp exceptional saturation classification identifies a meaningful boundary phenomenon: anisotropy grows with rank before saturation but frequently falls at the last step, and for each fixed m≥3 with n→∞ the last-step factor tends to 1/(m−1). These natural, infinite-family, non-implied geometric data exceed a routine one-off parameter substitution.",
+    "status": "PASS"
+  }
+}
