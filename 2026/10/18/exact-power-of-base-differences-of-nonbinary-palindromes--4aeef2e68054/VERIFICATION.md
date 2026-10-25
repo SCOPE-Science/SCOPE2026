@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` contains independent direct digit generation and palindrome checks, plus a separate construction of the two proposed pair families. Its output `verification_output.txt` records 21 tested base-exponent pairs, 13,287 enumerated matches, and `VERIFY_OK`. It checks all bases 3–6 with exponents 1–4, base 3 with exponents 5–6, and base 7 with exponents 1–3. Selected additional lengths above the theorem's proved bound were searched as a sanity check.
+## correctness
 
-The computer checks use exact integer arithmetic. They are finite demonstrations, not certificates of the universal statement. The proof of the universal statement is the complete digit-length and carry case argument in `RESULT.md`; its critical divisibility condition is established by polynomial remainders, not empirical pattern matching.
+PASS
 
-The reported self-review passed on correctness, relative originality and mathematical value. There has been no independent external audit or validation.
+The theorem quantifies over all integers b>=3,k>=1, ordered positive canonical base-b palindromes and exact gap b^k. For L(n)<=k, the digit-polynomial palindrome identity gives (X^a-1)D(X)=X^k-1, a=k-L+1, forcing a|k and the unique divisor-spaced digit pattern. For L(n)>k with equal length, the changed carry interval is reflection-invariant; any multi-position interval contradicts reflection of the old endpoint b-1, so L=2k+1 and exactly its middle digit increases, initially <=b-2. Length overflow creates leading 1 but retains final digit b-1, impossible for b>=3. The families are disjoint and give tau(k)+(b-1)^2*b^(k-1); k=1 and nonprime bases are included. Independently reimplemented bounded full pair enumeration for b=3..6 and k<=5 subject to computational grid, plus beyond-cutoff checks; no finite test is used for the unbounded quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact theorem and implications, not title matching. Rewriting as an intersection of palindrome translates or as coefficient of the difference correlation does not make a qualitative finiteness result an exact tau(k)+(b-1)^2*b^(k-1) enumeration. Neither the JIS dichotomy nor cumulative single-palindrome counting implies the exact pair cardinality in the specified infinite power-gap family; an unindexed broader correlation theorem remains possible. An isolated small-gap table would not cover every b>=3 and k>=1, while an exact all-parameter table could; none was identified in the checked material, without claiming exhaustive novelty. The prior statement is entailed by the new formula (finite positive integer) but does not imply the exact formula or pair classification. Thus the main claimed quantitative assertion is not a corollary of Theorem 12.
+
+## value
+
+PASS
+
+Pongsriiam and Saito explicitly ask about the finite counts associated with fixed palindrome gaps. Determining the exact number and every representing pair for all powers b^k across every nonbinary base addresses this precise natural invariant rather than a decorative small parameter. The divisor-spaced and fixed-middle-length decomposition explains why a finite gap family behaves uniformly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

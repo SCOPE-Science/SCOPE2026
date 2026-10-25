@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:53:53.219811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-power-of-base-differences-of-nonbinary-palindromes--4aeef2e68054/RESULT.md",
+        "GitHub tree SHA fe40097a1becf30a36eba6915d03f6bd4b845d71",
+        "GitHub RESULT.md blob 2fb8c08ac9e4f730da1a6d9ba08eacb794f824d5",
+        "Independent bounded checks: /mnt/data/scope_worker03_delivery_20261020T1538Z/independent_checks.py"
+      ],
+      "rationale": "The theorem quantifies over all integers b>=3,k>=1, ordered positive canonical base-b palindromes and exact gap b^k. For L(n)<=k, the digit-polynomial palindrome identity gives (X^a-1)D(X)=X^k-1, a=k-L+1, forcing a|k and the unique divisor-spaced digit pattern. For L(n)>k with equal length, the changed carry interval is reflection-invariant; any multi-position interval contradicts reflection of the old endpoint b-1, so L=2k+1 and exactly its middle digit increases, initially <=b-2. Length overflow creates leading 1 but retains final digit b-1, impossible for b>=3. The families are disjoint and give tau(k)+(b-1)^2*b^(k-1); k=1 and nonprime bases are included. Independently reimplemented bounded full pair enumeration for b=3..6 and k<=5 subject to computational grid, plus beyond-cutoff checks; no finite test is used for the unbounded quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JIS Theorem 12 separates finitely represented gaps from gaps with infinitely many representations. The AIMS work counts cumulative palindromes across bases, not pairs with a fixed gap."
+        ],
+        "reasoning": "Neither the JIS dichotomy nor cumulative single-palindrome counting implies the exact pair cardinality in the specified infinite power-gap family; an unindexed broader correlation theorem remains possible.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+          "P. N. Phunphayap, P. Pongsriiam: A Complete Comparison for the Number of Palindromes in Different Bases (AIMS Mathematics 2023)"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-power-of-base-differences-of-nonbinary-palindromes--4aeef2e68054",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://www.aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-502.pdf",
+        "GitHub fixed-commit RESULT.md blob 2fb8c08ac9e4f730da1a6d9ba08eacb794f824d5",
+        "GitHub fixed-commit AUDIT.json blob be966d5f52914a6ce52efd419ee2bda9f52b33b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "JIS Theorem 12(ii) implies gaps b^k have finitely many b>=3 palindrome representations; Question 26 solicits finite-count information."
+        ],
+        "reasoning": "The prior statement is entailed by the new formula (finite positive integer) but does not imply the exact formula or pair classification. Thus the main claimed quantitative assertion is not a corollary of Theorem 12.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=11",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed set is ordered pairs (n,m) of base-b palindromes with m-n=b^k, or equivalently number of n in P_b intersection (P_b-b^k). JIS Theorem 12 addresses infinite vs finite representation of a fixed difference."
+        ],
+        "reasoning": "Rewriting as an intersection of palindrome translates or as coefficient of the difference correlation does not make a qualitative finiteness result an exact tau(k)+(b-1)^2*b^(k-1) enumeration.",
+        "searches": [
+          "Resultary query: exact cardinality palindromic pairs difference b^k fixed base b binary classification divisor count (limit 12)",
+          "GitHub published Resultary code query: palindromic gap count",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "JIS Question 26 asks for bounds or statistics on finite representation counts; the inspected discussion does not tabulate tau(k)+(b-1)^2*b^(k-1). Search results were semantically unrelated."
+        ],
+        "reasoning": "An isolated small-gap table would not cover every b>=3 and k>=1, while an exact all-parameter table could; none was identified in the checked material, without claiming exhaustive novelty.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=26",
+          "Resultary query: exact cardinality palindromic pairs difference b^k fixed base b binary classification divisor count (limit 12)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact theorem and implications, not title matching. Rewriting as an intersection of palindrome translates or as coefficient of the difference correlation does not make a qualitative finiteness result an exact tau(k)+(b-1)^2*b^(k-1) enumeration. Neither the JIS dichotomy nor cumulative single-palindrome counting implies the exact pair cardinality in the specified infinite power-gap family; an unindexed broader correlation theorem remains possible. An isolated small-gap table would not cover every b>=3 and k>=1, while an exact all-parameter table could; none was identified in the checked material, without claiming exhaustive novelty. The prior statement is entailed by the new formula (finite positive integer) but does not imply the exact formula or pair classification. Thus the main claimed quantitative assertion is not a corollary of Theorem 12.",
+      "residual_risks": [
+        "An unindexed older or unpublished explicit count for palindrome differences b^k might duplicate the result.",
+        "Finite verification does not certify the all-base/all-exponent claim; correctness relies on the three-case symbolic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects and difference statistic, but qualitative infinitude/finitude and open finite-count bounds, not all-power exact number.",
+          "evidence": "Theorem 12(ii) and Question 26.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+          "material_read": "Original full-text PDF: the statement/proof discussion of Theorem 12 around pp. 10–12, the numbered Question 26 and context near p. 26, definitions of representations.",
+          "method": "Rendered/opened arXiv-independent published JIS PDF, inspected page images and extracted sections.",
+          "title": "Palindromes and Antipalindromes in Short Intervals",
+          "trigger": "Theorem 12 directly addresses the same fixed-gap palindrome pairs, and Question 26 asks for finite counts."
+        },
+        {
+          "assessment": "Different invariant: cumulative P_b(X), no direct implication for fixed b^k pairs.",
+          "evidence": "Main comparison concerns P_b(x) rather than R_b(k).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-502.pdf",
+          "material_read": "Title/abstract and comparison of cumulative counting functions, not fixed-gap pair correlation.",
+          "method": "Published OA source citation and relevant description examined.",
+          "title": "A Complete Comparison for the Number of Palindromes in Different Bases",
+          "trigger": "Another palindrome-counting paper in different bases cited by the submission."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://www.aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-502.pdf"
+      ],
+      "rationale": "Pongsriiam and Saito explicitly ask about the finite counts associated with fixed palindrome gaps. Determining the exact number and every representing pair for all powers b^k across every nonbinary base addresses this precise natural invariant rather than a decorative small parameter. The divisor-spaced and fixed-middle-length decomposition explains why a finite gap family behaves uniformly.",
+      "residual_risks": [
+        "An unindexed older or unpublished explicit count for palindrome differences b^k might duplicate the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only b>=3 and gaps b^k; not binary or arbitrary gaps.",
+    "Not an external mathematical certificate or an exhaustive priority search.",
+    "Access and transport limitations are recorded separately from mathematical correctness, originality and value."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: exact power-of-base differences of nonbinary palindromes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim includes all integer bases \(b\ge3\) and exponents \(k\ge1\), with positive canonical digit expansions. The proof partitions by the original length and whether adding \(b^k\) changes length. In the short-length case, an exact digit-polynomial identity forces a spacing parameter dividing \(k\). In the fixed-length long case, reflection symmetry of the carry interval forces a single central-digit change. In the overflow case, the leading and trailing digits of the proposed new palindrome would be \(1\) and \(b-1\), impossible for \(b\ge3\). These cases are exhaustive and the two families are disjoint. The finite checker supplies independent integer-arithmetic spot tests, not a substitute for the proof.
+PASS
 
-## Originality — PASS relative to inspected literature
+The theorem quantifies over all integers b>=3,k>=1, ordered positive canonical base-b palindromes and exact gap b^k. For L(n)<=k, the digit-polynomial palindrome identity gives (X^a-1)D(X)=X^k-1, a=k-L+1, forcing a|k and the unique divisor-spaced digit pattern. For L(n)>k with equal length, the changed carry interval is reflection-invariant; any multi-position interval contradicts reflection of the old endpoint b-1, so L=2k+1 and exactly its middle digit increases, initially <=b-2. Length overflow creates leading 1 but retains final digit b-1, impossible for b>=3. The families are disjoint and give tau(k)+(b-1)^2*b^(k-1); k=1 and nonprime bases are included. Independently reimplemented bounded full pair enumeration for b=3..6 and k<=5 subject to computational grid, plus beyond-cutoff checks; no finite test is used for the unbounded quantifiers.
 
-The closest source is Pongsriiam–Saito (2023), Theorem 12 and Question 26. The former classifies **infinitely represented gaps**, not the cardinality of finite representation sets. It establishes finiteness at the power-of-base gaps, whereas the current theorem counts all such pairs and explicitly classifies them. The 2023 Phunphayap–Pongsriiam article on counting palindromes in different bases concerns \(A_b(x)\) and its comparisons, not prescribed-gap pair counts. The separately known binary pattern has a distinct overflow phenomenon and does not entail the nonbinary count. Source checks did not find an equivalent or stronger covering statement. The residual risk is unindexed or unpublished equivalent literature.
+## originality
 
-## Value — PASS
+PASS
 
-Question 26 of Pongsriiam–Saito asks for information on finite fixed-gap representation counts. The theorem gives an exact answer uniformly over all nonbinary bases and all power gaps and supplies a complete structural classification, including an arithmetic divisor-function term and a separate exponentially growing term. This is more than a small finite census: the underlying base-dependent carry obstruction establishes a natural sharp scope boundary.
+Best-of-knowledge comparison of exact theorem and implications, not title matching. Rewriting as an intersection of palindrome translates or as coefficient of the difference correlation does not make a qualitative finiteness result an exact tau(k)+(b-1)^2*b^(k-1) enumeration. Neither the JIS dichotomy nor cumulative single-palindrome counting implies the exact pair cardinality in the specified infinite power-gap family; an unindexed broader correlation theorem remains possible. An isolated small-gap table would not cover every b>=3 and k>=1, while an exact all-parameter table could; none was identified in the checked material, without claiming exhaustive novelty. The prior statement is entailed by the new formula (finite positive integer) but does not imply the exact formula or pair classification. Thus the main claimed quantitative assertion is not a corollary of Theorem 12.
 
-## Evidence and limitations
+## value
 
-The proof is elementary and complete under the stated hypotheses. `verify.py` and `verification_output.txt` provide reproducibility for 21 parameter instances and 13,287 pairs. They do not establish unbounded assertions by themselves. Sources include the fully available primary gap paper and the relevant sections of the base-comparison paper; bibliographic coverage cannot establish absolute priority. No external independent assessment or publication is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pongsriiam and Saito explicitly ask about the finite counts associated with fixed palindrome gaps. Determining the exact number and every representing pair for all powers b^k across every nonbinary base addresses this precise natural invariant rather than a decorative small parameter. The divisor-spaced and fixed-middle-length decomposition explains why a finite gap family behaves uniformly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
