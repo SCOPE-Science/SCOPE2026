@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** For every finite projective plane of order \(q\ge2\), the proof bounds the union of \(r\) lines by \(rq+1\), characterizes equality by concurrency, and applies the dual bound to partition each bipartition side into openly dominated color classes. The mandatory \(q\) off-center points in every minimum class force a unique support line, so precisely one center on each side is mobile. This gives exact counts and the Cartesian-product component decomposition. An exhaustive partition enumerator and a separate pencil-construction exchange checker confirm the formulas at orders two and three; the general theorem rests on the written proof, not on extrapolation.
+## correctness
 
-**Originality (PASS, with stated risk).** Merouane–Haddad–Chellali–Kheddouci prove the dominated-coloring/total-domination equality for triangle-free graphs. Héger–Nagy supply the classical covering/blocking-set rigidity used here. The simple minimum-color numerical corollary is therefore prior-implied and is explicitly disclaimed as a novel contribution. The retained claim is a full classification and exact reconfiguration theorem that is not contained in the inspected source statements. Targeted mathematical searches and semantic-record comparisons found no exact coverage; undocumented equivalences in other literature remain a risk.
+PASS
 
-**Value (PASS).** This all-orders, non-Desarguesian-inclusive classification answers a natural structural question not answered by an optimal color count: which optimal dominated colorings can be transformed into one another without a temporary extra color? It identifies two frozen geometric centers, the exact number of disconnected components, and universal diameter-two mobility inside each component. This is a structural extremal classification rather than a small numerical improvement.
+Correct for every existing finite projective plane of order q>=2, including non-Desarguesian. A proper color class dominated by an open neighborhood must lie entirely in one incidence bipartition side. Each point-side color class has supporting line, so an m=q+1 cover of points is minimum by union ≤rq+1; equality forces the entire concurrent pencil. Dually line classes supported by all points on ℓ. For q>=2, every point-side class contains at least two off-center points identifying its unique supporting line, and the center P chooses exactly one m class. Dual geometry gives independent ℓ and one chosen point X*. Thus unlabeled optima v²m² and named optima (2m)!v²m², v=q²+q+1. Under one-vertex optimum recoloring, only P and ℓ can move; each (P,ℓ) fixed component is K_m □ K_m; named classes further separate label associations. Independent q=2 exhaustive direct dominated partitions give 21 one-side optima, 441 two-side, 49 components, agreeing with theorem. The q=3 original package additionally supplies independent exhaustive/constructive programs; finite tests do not prove all-order result.
 
-Independent publication priority and independent scientific verification remain unestablished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: The inspected primary statements and closest published mathematical findings are compared by exact objects, quantifiers and implications, not titles. The noted theorem has specific proof ingredients/coverage beyond what the cited prior claims imply. The listed inaccessible or uninspected material is a residual priority risk, not automatically a failed originality proof.
+
+## value
+
+PASS
+
+PASS: The full optimum partition spectrum and exact reconfiguration component structure are natural classification and connectivity invariants for dominated colorings on incidence graphs. Numerical minimum 2(q+1) is already known, but sharp all-optima pencil rigidity, labeled/unlabeled counts and disconnected Cartesian-product components go materially beyond a textbook total-domination equality, for non-Desarguesian planes as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
