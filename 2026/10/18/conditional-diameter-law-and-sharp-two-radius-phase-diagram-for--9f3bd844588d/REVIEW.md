@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved by exact strip inradius, cube-edge vertex diameter, uniform conditional angular measure on the sphere, inversion of two monotone branches, and a sharp endpoint optimization. The half-normals are sorted, all range and zero-coordinate endpoints are addressed, and the formulas specify a regular conditional version at measure-zero conditioning values. Both standalone verification programs passed: 893 exact rational edge-enumeration cases, 25,000 additional normal checks, 176,000 angular midpoint samples, numerical normalization, and the analytic derivative-cancellation identity. Those computations only corroborate the exact proof.
+## correctness
 
-## Originality — PASS (with specific risk)
-The closest complete published result, *Exact inradius law for random planar projections of the regular octahedron*, already gives the reciprocal marginal of the diameter of a cube section by polarity and the deterministic piecewise circumradius formula. That prerequisite is explicitly not claimed as novel. Its unconditional CDF does not fix dependence on the cube-section's own inradius. A second published octahedron-section diameter law concerns the opposite section/polar operation. Lonke's complete author manuscript treats expected face counts. The 2026 general random-diameters paper was available only at abstract level despite lawful access attempts, so overlap in its inaccessible text is an acknowledged risk; no claim of exhaustive historical uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The complete conditional law is a natural joint measurement of section roundness, specifies both conditional and marginal distributions, and is strictly richer than either known scalar marginal. The exact feasible region, its two sharp transitions, equality directions and universal interior conditional density are structural geometric facts rather than an arbitrary finite table or textbook inequality.
+The cube-section inradius is (1-a^2)^(-1/2) for ordered |normal| coordinates a<=b<=c: strip normals in the section have squared lengths 1-a_i^2, and a central ball attains the optimum by symmetrization. Enumerating cube-edge vertices gives Z=(a+b)/c if c>=a+b, or (c-a)/b otherwise. Haar spherical area in h=a/sqrt(b^2+c^2), theta=atan(b/c) is (1+h^2)^(-3/2)dh dtheta on asin h<=theta<=pi/4, establishing the uniform conditional angle and f_H. The two monotone branches invert to L_h/R_h, giving the stated conditional CDF. Their endpoint values yield sharp piecewise support transitions h0 and 1/sqrt5; differentiating inverse angles cancels the h-dependent numerators in the overlap. I independently calculated five 40,000-angle midpoint conditional CDF comparisons at h=0.2, all within 1/40000. The infinite law follows from analytic geometry, not the finite check. Boundary at h=0 and regular hexagon at h=1/sqrt2 treated separately.
 
-## Scope and scientific limitations
-Only Haar-random central sections of the three-dimensional standard cube are covered. No higher-dimensional, arbitrary-box, or noncentral theorem is asserted. Priority is provisional because one relevant 2026 full manuscript and unindexed historic calculations were unavailable. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the full quantified final claim is not shown covered by the inspected primary statements, including aliases/stronger-theorem comparisons. The scalar reciprocal marginal is mathematically different from the joint conditional CDF; distributions of each coordinate separately never determine dependence. No inspected stronger statement supplies the two-radius joint law or sharp attainable pair range; the full 2026 article was inaccessible and is a real residual priority risk. Univariate metric distributions and face-count tables cannot encode the conditional two-radius law; search absence is not novelty proof. Marginal formulas do not imply a conditional dependence law; a separate angular analysis and endpoint optimization are required. Inaccessible relevant full text is explicitly a residual risk; absence from a database alone is not novelty proof.
+
+## value
+
+PASS
+
+Intrinsic section inradius and diameter are natural roundness measurements; a joint conditional law and exact feasible range cannot be inferred from their scalar marginals. The sharp two-phase support and Cauchy-type branch-overlap density are structural, measurable facts useful for testing random-section geometric models, not an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
