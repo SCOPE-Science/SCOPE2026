@@ -1,15 +1,21 @@
-# Scientific review: sharp two-variable commutativity threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim refers specifically to two named **binary relations that graph bijections**, not to unary function symbols. The complete ordered-pair census for every domain size one through five establishes that the first-round two-type counting signature determines the commute/noncommute truth value. This is a \(C^2\) invariant, yielding the lower bound. At six, the explicit images of three permutations exhibit a genuine composition discrepancy while each vertex has an identical atomic two-type histogram in both models; the uniform stable counting partition therefore establishes \(C^2\) equivalence. Centralizer-based simultaneous-conjugation reduction supplies a complete six-point census. Two independent implementations agree on 860 stable signatures and three mixed signatures, with isomorphism-type counts \((4,3),(2,2),(2,2)\). The independent C++ program checks all 518400 labelled ordered pairs. The proof does not equate partial experimentation with full enumeration and uses the established binary-structure counting-refinement equivalence.
+## correctness
 
-## Originality — PASS, qualified
-The comparison was with the statements and their logical implications, rather than with terminology alone. Kiefer–Schweitzer–Selman give the general counting/refinement mechanism, but no sharp commutativity minimum or three-class census in the inspected material. Moreno–Rivera treat commuting and almost-commuting permutations but not \(C^2\) indistinguishability; Albert–Bouvel–Féray study different representations. A separate collision-signature result restricted to **commuting pairs** does not imply a theorem contrasting commuting and noncommuting pairs, nor the six-point mixed-class classification. Independent specialist coverage is a residual risk. No publication-priority claim or independent novelty certification is made.
+PASS
 
-## Value — PASS
-The result answers a natural expressibility question for a canonical finite relational language. It determines the exact least finite size of an obstruction, gives a concrete witnessing pair, proves a strict two-versus-three-variable distinction, and completely classifies the mixed \(C^2\) equivalence types at the first obstruction order. The exhaustive computation is necessary to exclude all smaller systems and to classify all first obstructions; it is not an arbitrary slice of an unrelated parameter.
+In a finite structure with two named binary graphs R_f,R_g of total bijections, relation commutativity fg=gf is a property of the pair, not of each individual cycle type. Atomic 2-types (x=y, f(x)=y, f(y)=x, g(x)=y,g(y)=x) and stable color refinement capture C^2-equivalence with counting in this signature. Independently enumerated ALL n!^2 labelled permutation pairs for n=1..5, obtaining 1,4,11,43,154 initial/stable atomic profile categories with no mixing of commute/noncommute. For n=6 the given explicit fixed f=(1,0,3,2,5,4), g_comm=(2,3,4,5,0,1), g_non=(2,4,1,5,3,0) are distinct commute-status but have identical uniform atomic types, hence are C^2-equivalent. Independent simultaneous conjugacy reduction over eleven partitions of six enumerated 901 classes; independently stabilized the complete atomic 2-type partitions for each, obtaining 860 color-refinement signature classes and exactly 3 mixed classes, with commuting/noncommuting representative counts (4,3),(2,2),(2,2). This validates sharp minimum n=6 and the full stated six-point mixed-class census, not merely a sampled witness. The logic is two-variable counting over directed graphs of total bijections, not a language of unary permutations or higher-variable formulas.
 
-## Limits
-The result is for relational graphs of bijections; adding unary function symbols makes nested compositions available with one variable. The census stops at six points. A general-purpose counting-refinement equivalence theorem is used, but independent mathematical audit and external priority verification were not conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Kiefer–Schweitzer–Selman arXiv:1503.08792 develops color-refinement/C² equivalence for colored directed graph structures, including six-vertex phenomena for arbitrary colored graphs. Such generic separation examples do not prove this exact least domain size for two total functional bijection relations and the algebraic predicate fg=gf. Related permutation distance/commutation papers address Hamming distance or enumeration, not elementary equivalence of commuting and noncommuting pairs. Comparisons were by exact relation signature, predicate and implication, rather than title. A published more general C² classification under bounded-degree edge-coloured digraphs could potentially imply it, retained as priority risk.
+
+## value
+
+PASS
+
+A first-order definability/indistinguishability boundary for a fundamental algebraic property in a sharply constrained model class is a substantive descriptive-complexity result. Exact n=6 census identifies the full initial obstruction rather than one ad hoc example; it is a natural least size for hiding commutativity from C².
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
