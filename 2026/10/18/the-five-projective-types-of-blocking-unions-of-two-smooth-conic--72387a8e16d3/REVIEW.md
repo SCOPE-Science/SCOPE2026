@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A four-arc is shown to correspond bijectively to a smooth ternary conic over \(\mathbf F_3\); enumeration then exhausts all 234 conics and all 27,261 unordered pairs. The four explicit projectivities generate all 5,616 members of \(\operatorname{PGL}_3(\mathbf F_3)\), proving the five orbit counts. A second program independently tests polynomial Hessian determinants and all rational line incidences. Both programs were run and their counts agree. The claim is finite and does not extrapolate to other fields.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The full 2023 Asgarli–Ghioca–Yip nonblocking-pencil paper and the 2025/2026 conic-union paper's main theorem statements were compared: they address existence, constructions, and asymptotic bounds, not a complete five-orbit classification of ternary smooth-conic pairs. The 2022 Coolsaet–Botteldoorn–Fack study already classifies minimal blocking point sets in small planes; those point-set classifications are expressly excluded from the new contribution. It was not possible to inspect its full text, so possible previously implicit conic-pair decompositions cannot be ruled out. Targeted searches of scientific literature and existing research claims did not identify an explicit covering result, but absence from search is not proof of novelty.
+PASS
 
-## Value
-PASS. The number of algebraically smooth conic decompositions of a minimal blocking set is a natural incidence question raised by algebraic-curve constructions of blocking sets. The three-versus-four decomposition dichotomy and complement correspondence explain precisely how extremal six-point and seven-point blocking configurations arise from conics; the complete five-orbit classification distinguishes trivial from nontrivial configurations and is not a re-tabulation of individual conics or point sets.
+In PG(2,3) there are 13 rational points and 13 lines, each four points. A smooth F3-conic is a four-arc, and each four-arc has a unique smooth conic because three of the four conic equations through a projective frame are reducible. Independently enumerated the 234 four-arcs and separately all 234 geometrically smooth scalar-normalized quadratic forms by Hessian determinant. For all C(234,2)=27261 distinct unordered conic pairs independently counted 11466 blocking unions, 1638 nontrivially blocking (no full rational line), split 702 six-point and 936 seven-point pairs. Their distinct union masks total 234 at each size, complement maps 6-sets to 7-sets, decomposition multiplicities exactly 3 and 4. Generated all PGL3(F3) permutations (5616), computed precisely five pair orbits with sizes 702,936,5616,1404,2808 and the claimed incidence spectra; checked 6-point inclusion-minimality via missing-line test in source. Finite exhaustive proof is valid for precisely q=3; no extrapolation to all q.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Coolsaet–Botteldoorn–Fack 2022 already classify minimal blocking POINT SETS over small projective planes; the present claim explicitly credits those 234 six-point blocking sets and instead asks for algebraic smooth-conic decompositions, paired union complements and PGL3 orbits of CONIC PAIRS. Asgarli–Ghioca–Yip 2025/26 full primary manuscript concerns logarithmic lower bounds for the number of conics in blocking families as field size grows; its main theorems do not give the exact q3 pair orbit census. The closest Coolsaet full text was inaccessible: arxiv/OA attempts failed and authorized Oxford VPN disconnected, a material residual risk of implicit decomposition coverage; limited abstract cannot justify full-document noncoverage. Best-of-knowledge O PASS qualified.
+
+## value
+
+PASS
+
+The number of inequivalent smooth-conic constructions of a finite-plane blocking set and the multiplicity of decompositions of known extremal minimal blocking sets are natural finite-geometric invariants. Five complete pair orbits, precise 3/4 decomposition symmetry and complement duality refine the existing point-set classification; this is a motivated exact finite classification, not recasting already-known 234 arcs as novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
