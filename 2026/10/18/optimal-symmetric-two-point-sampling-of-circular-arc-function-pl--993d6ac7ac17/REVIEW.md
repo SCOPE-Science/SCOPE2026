@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The two-dimensional inverse sampling norm is reduced to a single peak-phase variable by differentiating \((1+rA)/(1+rB)\) in the balance parameter \(r\). A piecewise trigonometric maximization gives all three sharp boundary terms, and opposite monotonicity uniquely balances the two active terms. The third term is controlled because the optimal angle lies above half the arc width. Applying scalar estimates to all matrix coefficients proves complete boundedness with no larger constant. The proof covers every \(0<\theta<\pi\), \(0<s\le\theta\), and every positive matrix size. Finite diagnostics are supplementary.
+## correctness
 
-## Originality (O): PASS, with priority risk
-Ray's 2026 paper supplies the arc planes and operator-space motivation but classifies isometries rather than the conditioning of two chosen evaluations. The closest identified published claim for the same planes concerns an optimal *Hilbertian metric*, not point-sampling inversion; its implication does not determine the two-node conditioning law. Tikhonov and Yuditskii solve full-circle and positive-length-arc Remez problems; their results do not directly evaluate the two-point-normed inverse or optimize discrete reflection-symmetric node positions. A general polynomial-mesh paper was compared at abstract level only. Searches for aliases, symmetric sampling, operator-space amplification and two-point norming did not reveal a directly covering theorem; search absence is not novelty proof. Classical discrete norming inequalities remain the main residual priority risk.
+PASS
 
-## Mathematical value (V): PASS
-The new arc planes have a natural two-dimensional reconstruction problem: exactly two samples are necessary and sufficient for injectivity. The full sharp conditioning law permits an exact sensor-design optimization, and shows why apparently natural endpoint sampling becomes arbitrarily ill-conditioned as the arc approaches a full circle while the optimal symmetric two-sample design stays bounded by \(\sqrt2\). The matrix-level identity makes the same design valid for all operator-valued coefficient matrices. This is a motivated, complete restricted classification rather than an arbitrary finite constant. It does not assert globally optimal asymmetric placement.
+For scalar a+bz, write H=|a|²+|b|² and r=2|a||b|/H; since maximal arc cosine A is at least maximal two-node cosine B, squared reconstruction ratio (1+rA)/(1+rB) increases in r, so extremizers may be balanced |a|=|b|. A peak phase eta∈[0,pi] has exact piecewise ratio sec(|eta-s|/2) for eta<=theta and cos((eta-theta)/2)/cos((eta-s)/2) otherwise; the latter is increasing, leading to three sharp terms. The first increases and third decreases in s and meet only at tan(s/2)=sin(theta/2); the second is subdominant at the crossing, giving the unique minimizer. Matrix-coefficient scalarization for A+zB with unit vectors proves every amplification is bounded by scalar norm, and n=1 attains equality. Independent angular-grid phase maxima across five arc widths and three node schedules confirmed profiles and optimizers; finite grids do not establish analytical all-parameter uniqueness or cb bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The newly published Ray function-plane theorem concerns nonisometric operator-space structures, and the full Resultary Hilbertian-metric phase theorem concerns optimal quadratic Hilbertian distortions of the same planes, not two isolated evaluation nodes. Classical Remez bounds control positive-length arc subsets and need not determine the symmetric two-node inverse norm. The sharp node placement and cb equality are best-of-knowledge new, albeit potentially implicit in older linear interpolation/marc norming literature.
+
+## value
+
+PASS
+
+Optimizing symmetric two-point measurements is a natural, useful conditioning invariant for these elementary complex function systems; the entire inverse norm profile and matrix-level equality distinguish optimal interior sampling from ill-conditioned endpoint sampling as theta approaches pi. The result is exact over an open continuum of arcs, not a one-off grid trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
