@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The result follows from exact discriminant and resultant identities, convexity of a quadratic in the mean-angle cosine, and a unique scalar critical point in a bounded interval. All angles and boundary cases are covered in the proof.
+## correctness
 
-The standalone `check.py` requires Python 3, NumPy and SciPy. Run `python check.py`. On the tested configurations it compares directly evaluated monomial Vandermonde Gram determinants to the closed product formula for 30 parameter cases and independently checks 10 numerical two-angle global optima and 10 strict comparisons against equal stagger. It printed `PASS 30 determinant tests, 10 global optimization tests, and 10 strict inequalities`.
+PASS
 
-Separately, exact symbolic arithmetic at \(m=2\), \(r=1/2\), \(s=1\), \(\alpha=\pi\), \(\beta=0\) gave \(50625/262144\) for both the direct Gram determinant and the cross-resultant formula, and the radical series begins \(-2q+18q^3+O(q^5)\). These are supporting checks, not exhaustive empirical proofs. The source comparison covers the named full mathematical sources and accessible older abstract; an unindexed prior equivalent may remain.
+PASS: Reconstructed the exact squared Vandermonde product from three monic z^m-a discriminants and three pairwise resultants. The phase torus is covered by half-gap delta in [0,pi/2] and mean phi; the outer-distance product is strictly convex in cos(phi) and forces phi=pi away from a strictly suboptimal boundary. For t=-cos(delta) in [-1,0], derivative of (1-t²)(A-Bt)² has exactly one interior maximizing root with -1/2<t<0 because 0<B<A. Substitution fixes the displayed radical, unique unordered optimizer and maximum. For q=(r/s)^m, t=-2q+18q³+O(q^5), the normalized optimum/equal per-orbit factor tends 4/3 and m q->0, yielding (4/3)^m(1+o(1)). Independently recomputed 4 direct complex Vandermonde determinants (m=1,2,3,4) and exact resultant product at predicted phases; agreement 1e-8 relative. Singular radii r=s excluded, equality of phases zero determinant, m=1 included.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Neither general Vandermonde conditioning bounds, same-radius normalized Szegő kernel orbit optimization, nor the accessible historical interpolation construction mathematically implies the two-radius, three-cyclic-orbit D-optimal phase pair and exponential gain. Classical discriminant/resultant factorization is explicitly credited. Residual risk: older Sugiura–Torii full text unavailable and an unindexed weighted logarithmic-energy classification might apply.
+
+## value
+
+PASS
+
+PASS: Maximizing the Gram determinant is a natural D-optimal interpolation-volume design for three regular sampling orbits in the Hardy polynomial basis. The explicit radius-contrast optimizer, rigorous uniqueness and exponential squared-volume advantage over equal spacing provide a precise, nontrivial infinite-family geometry classification; the work carefully distinguishes volume from least-singular-value conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
