@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all integers k>=2 and budgets B>0, the centered variance decomposition gives the universal budget lower bound V_k; the scalar F_k derivative determines the k<=3 versus k>=4 phase. The exact weight formulas satisfy sum rates V_k. On leaf fluctuations, the spectral gap certificate is a+kc>=1; on quotient increments it is the 3x3 M matrix with kernel (d,1,1), nonpositive off-diagonal entries, and a proved sum-of-squares ground-state identity. Equality yields lambda2=1; the simplex-coordinate eigenvectors and complementary slackness force every edge weight, proving global uniqueness. The explicit verify.py ran k=2..60 (59 values) and checked budget/gap/multiplicity/PSD. These finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richter and Rocha, Absolute Algebraic Connectivity of Double Brooms, Theorem 1 and proof: tree family with separate leaves, not the complete graph imposed among the left leaves.",
+        "Li, Guo and Shiu, The minimum algebraic connectivity of graphs with a given clique number, Theorem 3.6: unweighted graphs and graph-topology extremality, not conductance design.",
+        "Kirkland and Pati 2002, On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs, DOI 10.1080/03081080290025453: abstract only accessible."
+      ],
+      "reasoning": "Tree results lack the edges between peripheral clique vertices; their optimal embedding can violate the clique distance constraints. Fixed-unit-edge graph extremality does not imply optimized nonnegative continuous edge conductances. The inaccessible Kirkland-Pati source is an unresolved residual risk, not evidence of exclusion.",
+      "searches": [
+        "absolute algebraic connectivity optimal conductance allocation lollipop clique k plus one pendant two vertex path, phase transition three to four clique internal edge rates",
+        "fastest mixing Markov process double star two hubs k leaves each, optimal algebraic connectivity under total rate budget and edge orbit extinction",
+        "\"absolute algebraic connectivity\" lollipop graphs clique pendant path weighted"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+      "https://www.researchgate.net/profile/Saber-Jafarizadeh/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs/links/649049d795bbbe0c6edab526/Fastest-Mixing-Reversible-Markov-Chain-Clique-Lifted-Graphs-and-Subgraphs.pdf",
+      "https://shiu1958.github.io/PDF/p1170-final.pdf",
+      "doi:10.1080/03081080290025453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. (2006) proves SDP duality and gives a path result and a small nonunique six-node example, without the lollipop parametric optimum.",
+        "Richter and Rocha (2014) optimize double-broom trees; adding all peripheral clique edges may constrain embeddings and alter the optimum, so the present theorem is not a special case.",
+        "Jafarizadeh describes discrete-time lollipop SLEM (Section VI-D); its per-node stochasticity and optimization objective differ from the current sum-of-rates formulation."
+      ],
+      "reasoning": "The closest general formulation is a recipe for solving an SDP, not an established general closed-form classification that implies the rate extinction for clique sizes three and four and activation from five onward. The precise all-k formula, optimizer uniqueness and eigenvalue-multiplicity classification require the independent geometric and matrix proof; priority beyond inspected evidence remains provisional.",
+      "searches": [
+        "For lollipop graph K_(k+1) joined through one bridge to K2, exact continuous time fastest mixing Markov process optimal spectral gap budget B, clique internal rate turns positive at k equals four",
+        "optimal algebraic connectivity bridge link between two cliques conductance budget symmetric barbell graph",
+        "Optimal weighted Laplacian spectral gap zero weights clique internal edges two cliques connected by one link all optimal weights unique, double star backbone",
+        "Graph augmentation invariance algebraic connectivity optimal budget if extra edges link vertices with identical Fiedler coordinates, bridge separating two dominating vertex neighborhoods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, Sections 3-5, DOI 10.1137/S0036144504443821: spectral-gap optimization with sum-rate budget and dual maximum-variance unfolding, examples restricted to other graphs.",
+        "Jafarizadeh, clique-lifted reversible Markov chains, Sections I-II and VI-D: same lollipop geometry but second-largest-eigenvalue modulus of a discrete-time stochastic matrix, including vertexwise probability constraints."
+      ],
+      "reasoning": "The maximum-variance dual reformulates the same objective but supplies a general method, not the explicit lollipop extremizer or activation threshold. Discrete-time SLEM minimization on an admissible stochastic matrix differs from the unconstrained continuous-time total-rate-budget eigenvalue maximization. Neither formulation yields the stated rates or the k=4 threshold as a formal corollary without new analysis.",
+      "searches": [
+        "For lollipop graph K_(k+1) joined through one bridge to K2, exact continuous time fastest mixing Markov process optimal spectral gap budget B, clique internal rate turns positive at k equals four",
+        "maximum variance unfolding lollipop clique graph with pendant path simplex embedding continuous-time fastest mixing Markov process sharp optimal clique internal edges threshold",
+        "\"fastest mixing Markov process\" \"lollipop\"",
+        "\"absolute algebraic connectivity\" \"lollipop\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches ranked lollipop-unrelated polynomial, spectral-polytope and combinatorial results; no displayed record stated the continuous-time budgeted lollipop formula.",
+        "The closest recovered prior same-domain statements concern uniform-rate graph cones, budgeted star-edge augmentation under Kirchhoff-index loss, or discrete-time double-star mixing; each has a different graph, objective, or constraints."
+      ],
+      "reasoning": "Returned records and recovered prior-claim statements do not entail this exact parameterized phase boundary. A ranked semantic search is not a complete database exhaustion, and its failure to produce a hit is not proof of novelty.",
+      "searches": [
+        "For lollipop graph K_(k+1) joined through one bridge to K2, exact continuous time fastest mixing Markov process optimal spectral gap budget B, clique internal rate turns positive at k equals four",
+        "absolute algebraic connectivity optimal conductance allocation lollipop clique k plus one pendant two vertex path, phase transition three to four clique internal edge rates",
+        "weighted graph spectral gap fastest mixing clique with two vertex tail exact Laplacian edge weight budget",
+        "continuous-time fastest mixing Markov process spectral gap optimization on barbell dumbbell graph two complete cliques joined by single bridge, optimum conductance allocates zero on internal clique edges, exact bridge spoke allocation",
+        "Absolute algebraic connectivity and fastest mixing Markov process of graph formed by two equal-size communities each with dominating gateway vertex, connected by one bridge. Optimal all internal community edges zero, identical to double star, spectral gap 2B/(9k+1)"
+      ]
+    },
+    "rationale": "Direct scientific comparison of lollipop continuous-time sum-budget eigenvalue optimization with its general 2006 SDP source, 2014 double-broom trees, discrete-time clique-lifted lollipop analysis, and unweighted kite extremality did not reveal implication or duplicate of the exact activation theorem. Primary full-text material was inspected where available. Publisher-only 2002 absolute-algebraic-connectivity source and unindexed coverage remain genuine priority risks.",
+    "residual_risks": [
+      "Kirkland and Pati (2002) has relevant title and abstract but full text could not be accessed; it may contain a stronger all-graph consequence.",
+      "Search indexing does not exhaust all specialized weighted-lollipop or clique-attached-path papers.",
+      "The discrete-time lollipop paper has formulas for the same unweighted topology but different constraints; no assertion of priority relative to unseen extensions is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers foundational general framework, not stated parametric lollipop optimum.",
+        "evidence": [
+          "p.1 identifies the continuous-time uniform-stationary sum-rate optimization and MSC 90C22; pp.5-6 formulate SDP; pp.14-16 cover non-lollipop worked examples."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Abstract; Sections 1 and 3 on rate normalization/semidefinite formulation; Section 4 on maximum variance dual; Section 5 examples including path/cycle and six-node graph; reference section; first-page screenshot.",
+        "method": "Primary open-access PDF inspected via page text and rendered page.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact continuous-time objective, published 2006-11-02"
+      },
+      {
+        "assessment": "Tree double-broom optimization does not include clique-edge constraints and does not imply the proposed lollipop optimum.",
+        "evidence": [
+          "Theorem 1 parameterizes tree double brooms, not a graph containing a full pendant-adjacent clique."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "material_read": "Definition, Theorem 1 on pp.2-3, maximum-variance embedding results, main proof toward pp.8-9; rendered p.3.",
+        "method": "Open-access university PDF inspected by extracted text and page screenshot.",
+        "title": "Absolute Algebraic Connectivity of Double Brooms",
+        "trigger": "Closest globally optimized tree geometry"
+      },
+      {
+        "assessment": "Overlapping graph but different discrete-time stochastic/SLEM problem; paper also says many non-path/non-star analytical results are for interior-domain optima.",
+        "evidence": [
+          "Sections I-II use transition probabilities and SLEM; VI-D gives discrete-time lollipop formula."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/profile/Saber-Jafarizadeh/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs/links/649049d795bbbe0c6edab526/Fastest-Mixing-Reversible-Markov-Chain-Clique-Lifted-Graphs-and-Subgraphs.pdf",
+        "material_read": "Introduction and FMRMC definition, Section II on stochastic matrices and probabilities, theorem for clique lifting, Sections V-E and VI-C/VI-D on lollipop and extended barbell with formulas, rendered p.8.",
+        "method": "Public full-text PDF inspected by text and page rendering.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Explicit lollipop graph and clique-lifted optimization"
+      },
+      {
+        "assessment": "Treats unit-weight Laplacian and optimal graph structure at fixed clique number, not variable-edge-weight budget.",
+        "evidence": [
+          "Abstract and Theorem 3.6 identify kite as unweighted minimizer among topologies."
+        ],
+        "identifier_or_url": "https://shiu1958.github.io/PDF/p1170-final.pdf",
+        "material_read": "Abstract and introduction, exact graph definition, Section 3 and Theorem 3.6, rendered p.1.",
+        "method": "Open full PDF inspected by text and page rendering.",
+        "title": "The minimum algebraic connectivity of graphs with a given clique number",
+        "trigger": "Same clique-plus-path graph commonly named kite"
+      },
+      {
+        "assessment": "Unresolved comparison; no whole-document exclusion claimed.",
+        "evidence": [
+          "The accessible abstract describes vertex connectivity and absolute algebraic connectivity bounds without an explicit lollipop rate formula."
+        ],
+        "identifier_or_url": "doi:10.1080/03081080290025453",
+        "material_read": "Search-index abstract and bibliographic description only; full-text publisher link inaccessible.",
+        "method": "Searched preprint and open-access sources; authorized publisher-access request returned disconnected institutional connection; no paper text obtained.",
+        "title": "On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs",
+        "trigger": "Plausible stronger upper bound on optimal weighted Laplacian gap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c77a3a7-bc2b-4087-95ea-4b885dd2aff9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is an exact all-orders design theorem for a natural rate-budgeted diffusion/consensus network: it identifies when an entire family of available clique edges is optimally extinguished and when all those rates switch on, with closed-form rates, unique global optimizer, exact mixing rate, and spectral degeneracy transition. This is a structural boundary of a motivated convex network design problem, not a small numerical improvement or arbitrary invariant.",
+    "status": "PASS"
+  }
+}
