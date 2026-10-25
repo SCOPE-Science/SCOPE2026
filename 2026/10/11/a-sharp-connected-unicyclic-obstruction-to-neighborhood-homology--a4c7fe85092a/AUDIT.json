@@ -1,105 +1,126 @@
 {
   "correctness": {
-    "rationale": "For every m>=1, disjoint neighborhoods of the m tail-middle vertices force at least m tail dominators; at least one cycle dominator is required and equality m+1 would force c2 and t1, losing one tail coverage, a contradiction. The independent dominating set {c0,c2} union U_m has m+2 members. U_m deletes precisely the tail, leaving the C4 independence complex as two components and Htilde_0=Z. For sharp order7 unique orbit, standard-library exhaustive graph/independence/chain census verifies all 68,295 connected labeled unicyclic n7 graphs and 2520 failures exactly equal to 2520 labelings of template; smaller orders have none. Boundary Smith unit pivots establish integral homology.",
+    "checked_computations": [
+      "Independent networkx graph atlas n=3..7 unicyclic isomorphism class counts: 1,2,5,13,33",
+      "Independent Smith normal form for all 113 distinct residual graph encodings encountered: no nonunit diagonal factors",
+      "Independent orbit-stabilizer graph count 1,15,222,3660,68295; failure count 0,0,0,0,2520; unique order-seven orbit size 2520"
+    ],
+    "rationale": "Let B_j be disjoint triples of pendant vertices around t_(3j+2). Dominating these middle vertices forces at least m tail choices. Dominating cycle vertex c2 forces at least one cycle choice; equality m+1 would force c2 and t1, but t1 covers only two tail vertices, preventing m tail vertices from dominating all 3m tail vertices. The independent dominating set {c0,c2} union {t2,t5,...,t_(3m-1)} attains size m+2. Closed-neighborhood deletion of those middle tail vertices leaves C4, whose independence complex consists of two disjoint edges, with reduced integral H0=Z. Thus p=m+1 absent and p-q-1=0 nonzero. Sharp smallest n=7 unique is established by a finite exact integral Smith-form census of all 54 unlabeled unicyclic types of orders 3..7 with orbit-stabilizer labeled totals.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "No classification of all connected unicyclic or forest graphs satisfying the vanishing property.",
+    "The uniqueness/minimality theorem is computer-assisted, with an independent finite integral Smith-normal-form isomorphism-class verification.",
+    "Novelty is best-of-knowledge rather than historical priority certification."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arXiv:2008.06267v2, sections 1 and 5.4–5.5",
-        "DOI:10.1145/2261250.2261258, theorem scope described in original abstract",
-        "arXiv:2101.07131, abstract about ternary graph independence homotopy"
+        "J. Kim, The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3, arXiv:2101.07131v3 (2022) proves every induced subgraph of a ternary graph has a contractible or spherical independence complex. G_m and its residual C4 lie in this class, but this theorem gives neither the sphere dimension as tied to q,p nor maximal-independent-size exclusions.",
+        "M. Adamaszek and J. Stacho, Algorithmic complexity of finding cross-cycles in flag complexes (SoCG 2012), DOI:10.1145/2261250.2261258 proves chordal-graph cross-cycle detection of nonzero independence homology; the witness G_m contains an induced chordless C4 and is not chordal."
       ],
-      "reasoning": "A general chordal-graph homology result does not cover the induced chordless four-cycle in the witness. A forest or cycle homotopy classification alone does not compare maximal independent sizes of the original graph with every neighborhood-deleted homology term. No stronger statement implying this exact connected unicyclic obstruction was located.",
+      "reasoning": "These are genuinely broader graph-topology theorems on homotopy or homology, but their conclusions do not compare missing maximal-independent-set cardinalities in G with the precise degree in every closed-neighborhood deletion. The exact submitted obstruction is not a corollary of their statements.",
       "searches": [
-        "connected unicyclic graph C4 with pendant path length three counterexample Berghoff maximal independent set vanishing homology",
-        "unicyclic independence complex maximal independent homology",
-        "forest F independence complex nonzero H_k implies maximal independent set cardinality k+1",
-        "Adamaszek Stacho cross cycles chordal graphs independence homology"
+        "neighborhood-deleted independence homology and unicyclic graph vanishing",
+        "\"unicyclic\" \"independence complex\" \"domination\" \"homology\"",
+        "arXiv:2101.07131v3 Theorem 1.1 and proof",
+        "DOI:10.1145/2261250.2261258, Theorems 1-2"
       ]
     },
     "checked_sources": [
-      "arXiv:2008.06267v1/v2",
-      "DOI:10.5070/C62156880",
-      "DOI:10.1145/2261250.2261258",
-      "arXiv:2101.07131",
-      "indexed title: Cyclomatic bounds and sharp matching-induced-matching gaps",
-      "indexed title: Triple-C5 one-vertex wedge has reg(S/I)=4 and im=3 over QQ"
+      "M. Berghoff, On the homology of independence complexes, arXiv:2008.06267v2 (2020), Combinatorial Theory 2 (2022), DOI:10.5070/C62156880",
+      "J. Kim, The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3, arXiv:2101.07131v3 (2022)",
+      "M. Adamaszek and J. Stacho, Algorithmic complexity of finding cross-cycles in flag complexes (SoCG 2012), DOI:10.1145/2261250.2261258",
+      "Nearby published mathematical-result records, including the identical 2026-10-11 record (self-match excluded)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "M. Berghoff, arXiv:2008.06267v2: Theorem 5.4 states vanishing for paths or cycles; Question 5.5 asks which graph families satisfy it, with disconnected graph hint.",
-        "M. Adamaszek and J. Stacho, DOI:10.1145/2261250.2261258: discusses cross-cycles detecting homology for chordal graphs only."
+        "M. Berghoff, On the homology of independence complexes, arXiv:2008.06267v2 (2020), Combinatorial Theory 2 (2022), DOI:10.5070/C62156880 Theorem 5.4 proves the vanishing only for paths/cycles; Question 5.5 explicitly asks for other families. The paper suggests constructing a counterexample starting with a disconnected graph, not a connected unicyclic sharp classification.",
+        "J. Kim, The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3, arXiv:2101.07131v3 (2022) controls individual homotopy types for ternary induced subgraphs but does not tie these to all maximal independent-set sizes.",
+        "M. Adamaszek and J. Stacho, Algorithmic complexity of finding cross-cycles in flag complexes (SoCG 2012), DOI:10.1145/2261250.2261258 ties chordal independence homology to induced matchings; the C4-tailed witness violates the chordal assumption."
       ],
-      "reasoning": "The source path/cycle theorem neither asserts nor implies the property for any unicyclic graph with an attached path. A stronger classification of the phenomenon for unicyclic graphs could imply this counterexample, but no such theorem was found in the inspected source or searched literature. Related algebraic regularity bounds do not imply absence/presence of the target E1 term.",
+      "reasoning": "No materially inspected prior implication supplies the exact connected unicyclic counterexample family plus sharp n=7 uniqueness. Search failure alone is not a novelty proof; priority could lie in unindexed work on Berghoff's specific question.",
       "searches": [
-        "On the homology of independence complexes Theorem 5.4 Question 5.5 unicyclic",
-        "Berghoff spectral sequence Theorem 5.4 extension forests maximal independent sets vanishing homology",
-        "On the homology of independence complexes unicyclic graph counterexample"
+        "arXiv:2008.06267v2, Theorem 5.4 and Question 5.5 plus page-2 footnote",
+        "arXiv:2101.07131v3, Theorems 1.1 and 3.1",
+        "Adamaszek-Stacho full accessible author PDF, Theorems 1,2",
+        "Resultary nearest semantic records for connected unicyclic graph and deletion homology"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:2008.06267v2, Theorem 5.4, its spectral-sequence E1 diagonal equivalence and Question 5.5; https://arxiv.org/html/2008.06267v2"
+        "M. Berghoff, On the homology of independence complexes, arXiv:2008.06267v2 (2020), Combinatorial Theory 2 (2022), DOI:10.5070/C62156880 Theorem 1.2 and 5.4 identify precisely Htilde_(p-q-1)(Ind(G-N[U])) with the first-page obstruction for missing maximal independent set size p; the theorem assumes G is a path or cycle.",
+        "The seven-vertex residual C4 has Ind(C4) equal to two disjoint 1-simplices and reduced integral H_0=Z; i(G1)=3, so p=2 and q=1 violate that implication."
       ],
-      "reasoning": "The asserted failure is exactly the nonzero upper-column term despite a zero diagonal term, under Berghoff’s E1 identification; it is not an unrelated homology or a simple renaming. Theorem 5.4 proves the opposite implication only for paths/cycles, not connected unicyclic graphs.",
+      "reasoning": "The proposed failure has an exact spectral-sequence formulation (a nonzero upper-column term above a vanishing diagonal). Berghoff proved the contrary implication only for pure paths or cycles; this connected C4-with-tail is neither, and the cited theorem does not imply its least-order uniqueness.",
       "searches": [
-        "Berghoff theorem 5.4 counterexample connected unicyclic tadpole graph C4 tail P3, E1 spectral sequence maximal independent set",
-        "Question 5.5 Berghoff independence complex counterexample",
-        "independence complex pendant path 4-cycle maximal independent sets homology"
+        "Berghoff theorem 5.4, unicyclic C4 path, spectral sequence missing diagonal column",
+        "\"spectral sequence\" \"maximal independent\" unicyclic independence",
+        "arXiv:2008.06267v2, Theorem 5.4; Equation (2.3), Theorem 1.2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "An indexed work titled Cyclomatic bounds and sharp matching-induced-matching gaps concerns a matching invariant, not homology of neighborhood deletions.",
-        "An indexed result on regularity versus induced matching in a triple-cycle wedge graph concerns different topology and different parameters."
+        "One explicitly indexed identical Resultary record is the same publication, not an independent earlier table. The remaining nearest indexed results concern ordinary independence complexes, matching invariants, or Lovasz neighborhood complexes.",
+        "Independent unlabeled census: 1,2,5,13,33 unicyclic isomorphism types at orders 3..7; violating type counts 0,0,0,0,1. Orbit-stabilizer yields labeled counts 1,15,222,3660,68295 and violators 0,0,0,0,2520."
       ],
-      "reasoning": "The sharp 7-vertex, one-isomorphism-class census is an exhaustive calculation of a graph property, rather than reuse of a known table. Indexed nearest records report different parameters and do not determine whether Berghoff’s E1 diagonal implication fails.",
+      "reasoning": "A generic graph atlas contains the underlying graph types, but not this evaluated homological-vanishing predicate. The evaluated sharp classification is a new mathematical table unless independently covered elsewhere; the atlas itself does not mechanically state the seven-vertex obstruction.",
       "searches": [
-        "minimal unicyclic graph failure of vanishing column for maximal independent sets and neighborhood-deletion homology",
-        "4-cycle with attached length-three path unicyclic graph independent domination 3 and nonzero H0 after closed-neighborhood deletion",
-        "Berghoff theorem 5.4 counterexample connected unicyclic tadpole graph C4 tail P3, E1 spectral sequence maximal independent set"
+        "minimal seven-vertex unicyclic Berghoff counterexample census",
+        "\"minimal unicyclic\" independence homology neighborhood maximal independent set",
+        "NetworkX graph atlas full list on orders 3 through 7, independently filtered and Smith-normal-form audited"
       ]
     },
-    "rationale": "Berghoff’s Theorem 5.4 covers paths and cycles and explicitly asks which larger classes satisfy its vanishing criterion; it acknowledges a disconnected counterexample but supplies no connected unicyclic obstruction or least-order uniqueness. The four comparisons below distinguish the exact E1 column statement from general homotopy or graph invariant results. Unindexed equivalent observations remain possible.",
+    "rationale": "Best-of-knowledge priority: The original open problem is specifically motivated in Berghoff 2020/2022. The exact connected unicyclic family, nonzero upper-column term, and sharp seven-vertex classification are not consequences of the materially compared statements. A self-match to the identical published record is excluded as independent evidence.",
     "residual_risks": [
-      "An equivalent observation about the same neighborhood-deletion condition could appear in unindexed literature, differently titled theses, or unpublished work.",
-      "A later manuscript on a different topological invariant of pendant-cycle graphs might incidentally contain the same small graph, without the same implication being established."
+      "Other papers or theses might give the same connected unicyclic obstruction under different names or a stronger predicate.",
+      "The smallest-order claim is computer-assisted; it relies on a correct finite atlas and integral homology evaluation, independently corroborated here.",
+      "A more general classification of neighborhood-deleted independence homology and independence domination might yield this family as an unprinted corollary."
     ],
     "source_inspections": [
       {
-        "assessment": "Theorem proves path/cycle case; asks which families extend it, and indicates a disconnected counterexample, but does not state connected unicyclic obstruction or sharp minimum",
+        "assessment": "Source establishes vanishing for paths/cycles but states the connected extension as a question; its disconnected-counterexample hint does not supply this unicyclic family or minimality",
         "evidence": [
-          "Theorem 1.2 and Theorem 5.4; Question 5.5, paragraph after proof, and original remark about disconnected counterexample"
+          "Theorem 1.2 at PDF page 2; Theorem 5.4 at PDF page 11; Question 5.5 at PDF page 13; introduction footnote at PDF page 2"
         ],
-        "identifier_or_url": "https://arxiv.org/html/2008.06267v2",
-        "material_read": "Introduction including Theorem 1.2, complete Theorem 5.4 statement and proof, Questions 5.5 and 5.6, Examples 6.1 and 6.2",
-        "method": "Read original openly accessible full-text HTML and compared quantified statement with constructed graph counterexample",
+        "identifier_or_url": "https://arxiv.org/pdf/2008.06267",
+        "material_read": "Original open preprint PDF, Theorems 1.1 and 1.2, spectral-sequence identification, Theorem 5.4 statement and proof on pages 11-13, Question 5.5 and surrounding discussion, introductory counterexample footnote",
+        "method": "Read actual PDF text and page images, compared quantifiers, degree shift and graph-family assumptions",
         "title": "On the homology of independence complexes",
-        "trigger": "Precise source of the maximal-independent-set neighborhood-homology vanishing theorem and its scope question"
+        "trigger": "Defines the exact spectral-sequence vanishing property and poses its extension question"
       },
       {
-        "assessment": "Its chordal-only detection statement does not assert the maximal-set neighborhood-deletion vanishing or its failure for a chordless-square unicyclic graph",
+        "assessment": "Homotopy types of individual induced-subgraph independence complexes are restricted to spheres/contractible spaces; no comparison to missing maximal-independent-set sizes appears in the theorem",
         "evidence": [
-          "2012 abstract about cross-cycles and chordal graphs"
+          "Theorem 1.1 PDF page 1; Theorem 3.1 and proof pages 5-8"
         ],
-        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/49181/",
-        "material_read": "Abstract and published scope description; original full text not accessible from inspected repository",
-        "method": "Compared published theorem description and chordal-graph hypothesis with graph containing an induced C4",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.07131",
+        "material_read": "Full mathematical theorem statement and definitions in introduction, Theorem 3.1 and its main proof argument, appendix scope and references",
+        "method": "Read open arXiv PDF and inspected relevant page images",
+        "title": "The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3",
+        "trigger": "The witness and residual graphs are ternary, making a broad homotopy-classification theorem potentially dominating"
+      },
+      {
+        "assessment": "The chordal cross-cycle equivalence does not encompass graphs containing an induced C4 and says nothing about the Berghoff E1 vanishing implication",
+        "evidence": [
+          "Definition and Observation on pages 1-2; Theorems 1 and 2 on page 2; chordal hypothesis in Theorem 2"
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~stacho/public/indmatchdom7.pdf",
+        "material_read": "Full accessible author PDF, Introduction definitions and Theorems 1-8, chordality assumptions and cross-cycle interpretation",
+        "method": "Read primary PDF and inspected page image with Theorem 2",
         "title": "Algorithmic complexity of finding cross-cycles in flag complexes",
-        "trigger": "Possible homology-detection theorem that might dominate the proposed observation"
+        "trigger": "Relates maximal independent sets to nonzero graph independence-complex homology and could imply the obstruction"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "a4c7fe85-092a-48d2-9616-aec3227802f7",
+  "scientific_scope": "Finite simple connected unicyclic graphs; the explicit family is C4 with one pendant path of 3m edges for every integer m>=1, plus complete failure classification among connected unicyclic graphs on <=7 vertices; reduced integral simplicial homology with the augmented degree -1 convention.",
   "value": {
-    "rationale": "The exact question is explicitly motivated in Berghoff Question 5.5. A complete infinite connected unicyclic negative family separates the extension from the proven path/cycle cases. Establishing seven vertices as the first possible obstruction with one unique unlabelled witness gives a sharp and natural structural boundary for spectral-sequence vanishing heuristics, beyond an arbitrary one-off numerical counterexample.",
+    "rationale": "A natural open graph-family boundary from Berghoff Question 5.5 is resolved negatively for connected unicyclic graphs. An all-parameter structural counterexample plus exact first-order uniqueness gives an informative obstruction to extending a spectral-sequence vanishing criterion from paths and cycles; the finite classification is not a gratuitous arbitrary invariant.",
     "status": "PASS"
   }
 }

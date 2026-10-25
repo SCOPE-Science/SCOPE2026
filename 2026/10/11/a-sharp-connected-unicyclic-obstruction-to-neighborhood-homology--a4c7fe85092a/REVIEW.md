@@ -1,15 +1,16 @@
-# Review of the unicyclic neighborhood-homology obstruction
+# Mathematical review: connected unicyclic neighborhood-homology obstruction
 
-## Correctness — PASS
-The analytic lower bound on the smallest maximal independent set is proved by disjoint three-vertex domination demands along the pendant tail, plus a forced two-vertex cycle-side cost. The explicitly constructed independent dominating set reaches that bound. Its selected middle tail vertices delete exactly the pendant path, leaving a four-cycle with two components in its independence complex and hence an integral rank-one reduced zeroth homology group. The sharp seven-vertex statement is supported by an exhaustive labeled connected unicyclic graph enumeration through seven vertices with complete independent-set quantifiers and integral Smith-unit elimination: 68,295 seven-vertex graphs, 2,520 failures, exactly one isomorphism orbit.
+## Correctness
+For every integer m >= 1, one pendant middle vertex in each disjoint three-vertex block must be dominated. This forces at least m tail choices, and cycle vertex c2 forces a cycle choice. If a maximal independent set had m+1 vertices, its unique cycle choice would be c2 and it would need t1. But t1 covers only two of the 3m tail vertices, whereas each other tail vertex covers at most three, so domination would be impossible. The explicit independent dominating set {c0,c2} union {t2,t5,...,t_(3m-1)} has m+2 vertices.
 
-## Originality — PASS, with residual risk
-Berghoff's Theorem 5.4 in arXiv:2008.06267 establishes the neighborhood-homology vanishing statement for paths and cycles and asks for other graph families in Question 5.5. Its original text acknowledges an example among disconnected graphs but does not provide this connected unicyclic family or a sharp minimal unicyclic obstruction. Literature and scientific-database searches targeting unicyclic/tadpole graphs, neighborhood deletion, maximal independent sets, spectral-sequence diagonal vanishing, and equivalent formulations yielded no encompassing statement. Published work on chordal complexes, graph regularity, and single-graph homology does not imply the asserted joint condition. Unindexed or unpublished equivalent counterexamples remain possible.
+Deleting the closed neighborhoods of {t2,t5,...,t_(3m-1)} removes exactly the tail. The residual graph is C4. Its independence complex is two disjoint edges, with reduced integral H_0 equal to Z; this contradicts the proposed vanishing for p=m+1, q=m. This is an all-parameter proof, not a finite extrapolation.
 
-## Value — PASS
-This resolves a concrete boundary question for the natural class of connected unicyclic graphs, showing that even one cycle of length four with a short tail fundamentally differs from paths and bare cycles. The order-seven sharpness and unique minimal witness make the obstruction useful when formulating maximal-facet spectral-sequence vanishing hypotheses. The all-parameter construction is explained by a structural domination argument, not isolated enumeration.
+For the sharp order-seven result, an separately implemented atlas enumeration covers every unlabeled connected unicyclic graph on 3 through 7 vertices. Signed simplicial boundary matrices were evaluated by exact integer Smith normal forms, including the augmented degree -1 chain group. The numbers of graph isomorphism classes by order are 1,2,5,13,33, with exactly one failure among the last 33. Orbit-stabilizer recovers labeled graph totals 1,15,222,3660,68295 and 2520 labeled failures at order seven. The unique bad isomorphism class is the C4 with a pendant path of three edges.
 
-## Limitations
-Not a complete classification of all unicyclic graphs or forests. The finite minimality census depends on faithfully executing the embedded exhaustive verifier. Originality cannot be inferred solely from negative search results.
+## Relation to prior mathematics
+Berghoff's *On the homology of independence complexes* (arXiv:2008.06267, Theorems 1.2 and 5.4) proves the vanishing property for paths and cycles and asks in Question 5.5 which other graph families satisfy it. The theorem does not assert a connected unicyclic counterexample or classify the least one. Kim's ternary-graph theorem (arXiv:2101.07131) determines spherical-or-contractible homotopy types of individual induced-subgraph independence complexes but does not relate their homology dimensions to forbidden maximal-independent-set cardinalities. Adamaszek and Stacho's cross-cycle characterization concerns chordal graphs and does not apply to this induced-C4 witness.
 
-Same-model review: passed. Independent audit: not yet performed.
+These comparisons support a best-of-knowledge originality assessment. A differently formulated earlier observation or a stronger unindexed theorem remains a priority risk; a failed search by itself is not a novelty certificate.
+
+## Mathematical value and limits
+The construction answers a motivated graph-family extension question, and the exact seven-vertex minimum gives a sharp natural boundary. It does not classify every graph, every unicyclic graph satisfying the property, or forests. The small-order classification depends on exhaustive exact-integer computation, independently corroborated here; the infinite family follows from the structural proof.

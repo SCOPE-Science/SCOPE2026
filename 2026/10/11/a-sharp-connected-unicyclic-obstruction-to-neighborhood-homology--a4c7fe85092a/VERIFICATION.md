@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification
-The proof applies to every integer \(m\ge1\). The packaged `verify.py` checks the independent domination number and neighborhood deletion for \(1\le m\le4\), but the all-parameter conclusion is supported by the explicit disjoint-neighborhood proof, not by testing finitely many values.
+# Independent mathematical audit
 
-For the minimal-order assertion, the script enumerates every connected labeled simple graph on \(n=3,4,5,6,7\) vertices having exactly \(n\) edges (equivalently, every connected unicyclic graph in those orders). It examines all independent subsets, all maximal independent sizes, and every relevant reduced integral homology degree after closed-neighborhood deletion. Integral chain boundaries are reduced using unit row/column pivots, proving rank and unit Smith invariants without relying on field-only homology. All residual graphs in this census have at most five vertices.
+## correctness
 
-The complete labeled graph totals are `1,15,222,3660,68295`, with failure totals `0,0,0,0,2520`. The full permutation orbit of the seven-vertex template has exactly `2520` distinct members and agrees setwise with the failure set. Running `python3 verify.py` must print `VERIFY_OK` after these checks.
+PASS
 
-No general assertion about all unicyclic graphs satisfying the vanishing condition follows, and no independent scientific audit has been performed.
+Let B_j be disjoint triples of pendant vertices around t_(3j+2). Dominating these middle vertices forces at least m tail choices. Dominating cycle vertex c2 forces at least one cycle choice; equality m+1 would force c2 and t1, but t1 covers only two tail vertices, preventing m tail vertices from dominating all 3m tail vertices. The independent dominating set {c0,c2} union {t2,t5,...,t_(3m-1)} attains size m+2. Closed-neighborhood deletion of those middle tail vertices leaves C4, whose independence complex consists of two disjoint edges, with reduced integral H0=Z. Thus p=m+1 absent and p-q-1=0 nonzero. Sharp smallest n=7 unique is established by a finite exact integral Smith-form census of all 54 unlabeled unicyclic types of orders 3..7 with orbit-stabilizer labeled totals.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority: The original open problem is specifically motivated in Berghoff 2020/2022. The exact connected unicyclic family, nonzero upper-column term, and sharp seven-vertex classification are not consequences of the materially compared statements. A self-match to the identical published record is excluded as independent evidence.
+
+## value
+
+PASS
+
+A natural open graph-family boundary from Berghoff Question 5.5 is resolved negatively for connected unicyclic graphs. An all-parameter structural counterexample plus exact first-order uniqueness gives an informative obstruction to extending a spectral-sequence vanishing criterion from paths and cycles; the finite classification is not a gratuitous arbitrary invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
