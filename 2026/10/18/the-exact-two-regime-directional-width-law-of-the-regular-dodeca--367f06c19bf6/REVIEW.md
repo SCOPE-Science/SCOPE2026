@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The dodecahedron's twenty congruent vertex normal cones are spherical triangles. The proof determines their exact inradius and circumradius from the edge angular separation, establishes the three nonoverlapping forbidden azimuth intervals, and applies a normalized spherical coarea change of variable. It then integrates the resulting density by a checked elementary antiderivative. Boundary support, continuity and total mass follow from the normal-cell partition. Independent numerical consistency checks recompute support widths from all vertex coordinates, test eleven CDF thresholds over a 120,000-direction spherical grid, and recover a published exact second moment. Correctness is assessed as passed for the specified uniform-direction, Euclidean-solid model; numerical quadrature alone is not relied on as proof.
+## correctness
 
-## Originality
-The closest exact published result for the same polyhedron supplies its **second moment**, expressly not its full distribution. Finch's regular-polyhedron paper supplies historical motivation and cube/tetrahedron moments. Kabluchko--Litvak--Zaporozhets supply general regular-polytope moment theory. An August 2026 general polyhedral coarea framework gives a finite angular-aperture representation of width laws, but its accessible abstract does not state the dodecahedral two-branch CDF or the exact constant-density mass. The new evaluated dodecahedral distribution is not logically determined by the older scalar moment; obtaining it requires evaluating the spherical normal cone and its polar aperture. The possible presence of a previously uninspected equivalent formula inside the general 2026 text or a historical caliper table is a residual priority risk, not concealed.
+PASS
 
-## Mathematical value
-The random width is a standard intrinsic-volume-related observable of a canonical Platonic solid. Determining its full law is a natural complete classification beyond known means and mean squares. The precise support, inverse-cosine branch, one critical threshold and exact uniform high-width tail give significantly more information than a finite set of moments; the closed CDF supports exact probabilities and quantiles. The result is a finite-dimensional stereological calculation, not a claim of a broad new polyhedral-density theory.
+The 20 centered vertices all have length √3 and each has three adjacent edge vectors with dot product √5; antipodal symmetry gives W=2h_D(U). Each spherical vertex normal cone has three great-circle sides with 120° azimuth separation and tan inradius q=φ^-2=(3−√5)/2, with maximal polar angle arctan(2q). For polar θ, admissible aperture is 2π for θ≤arctan q, 2π−6 arccos(q cotθ) up to arctan(2q), zero outside. Transform w=2√3 cosθ across 20 cells normalized by 4π: density 5/√3[1−(3/π)arccos(qs/√(1−s²))] between s0,s1 and 5/√3 from s1 to 1; CDF follows differentiating atan(z/q)−sβ, whose derivative is −β. Independently checked s0=lower width 2.752763840942347, transition 3.23606797749979, tail mass 0.658276410373. Inspected entire verify.py, which numerically tests moment, normalization and grid but is not a proof of continuous statements.
 
-## Boundaries
-The conclusion covers only a regular dodecahedron up to similarity and uniform spherical directions. It does not prove an analogous law for other solids or nonuniform direction models. The same geometric argument is transparent enough to reconstruct without relying on the numerical checker. Historical priority remains provisional pending fuller comparison with the August 2026 general theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted semantic published search, direct mathematical implication checks and primary full-text comparisons identify relevant component machinery or partial results but not a dominating exact statement, with the listed residual risks.
+
+## value
+
+PASS
+
+A complete elementary random-direction width distribution for a Platonic solid, including a sharp internal phase transition and an exactly uniform high-width branch occupying ~65.8% mass, is a natural exact stochastic-geometry invariant beyond previously known first and second moments. The full evaluated formula is useful in stereology and convex-geometric projections even without a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
