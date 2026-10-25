@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:57:24.604788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start with the exact Motzkin generating function F(z)=(1-z-sqrt((1-3z)(1+z)))/(2z²). For q=3^r the extraction coefficient at z^(q-3) is -1/2 sum_{j=0}^{q-1}(-3)^j binom(1/2,j)binom(1/2,q-1-j). The half-binomial is an integral Catalan factor divided by a power of two. All j>=r terms vanish modulo 3^r, and the j=0 term equals 2^(-2(q-1))C_(q-2) because q-1 is even. For 1<=j<r let m=q-j-2 and t=ceil(log_3(j+2)): high ternary digits 2 in m force >=r-t Kummer carries upon doubling, so ν3(C_m)>=r-t-ν3(j+1). Check j=1, j=2 (special ternary digits 2,1,2,...,2 and exactly r carries), and j=3 directly, then j>=4 using t<=floor(j/2) and ν3(j+1)<=floor(j/2), to obtain j+ν3(C_m)>=r. Therefore every j>=1 vanishes and the asserted congruence holds. Finally q-2 in base3 has digits 1,2,...,2, generating exactly r-1 carries on doubling; q-1 is a 3-unit, hence ν3(C_(q-2))=r-1 and the congruence determines ν3(M_(q-3)) exactly. r=1 gives M0=1. An independent integer-recurrence calculation for all 1<=r<=7 reproduced indices 0,6,24,78,240,726,2184, valuations 0,1,2,3,4,5,6 and all congruences; finite checks are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general automatic congruence machinery computes M_n modulo any *fixed* prime power; it does not provide the unbounded-in-r valuation identity.",
+          "Straub supplies ν2(M_n) and prime-square exclusions rather than ν3 at these specific indices."
+        ],
+        "reasoning": "Automata and scaling schemes have broader applications but their published stated theorems do not dominate an unbounded all-r valuation theorem.",
+        "searches": [
+          "Rowland–Yassawi 2013/2026 arXiv full HTML",
+          "Straub 2022 Theorems3.1 and3.3",
+          "Mikić arXiv:2311.14623 source-listed comparison"
+        ]
+      },
+      "checked_sources": [
+        "Rowland–Yassawi full primary HTML arXiv:1310.8635 and legal author PDF Open Question3.15",
+        "Straub 2022 full primary PDF Sec3.2–3.3 and examples, visual screenshot",
+        "Resultary semantic search recorded; returned hits did not present the Motzkin 3^r-3 valuation",
+        "Classical Catalan/Kummer carries proof and OEIS A001006 mathematical identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rowland–Yassawi list ν3 unbounded as unresolved; Straub establishes for p=3 existence of some number divisible by 3² (as p=3 not one of eight exclusions), not arbitrarily high powers."
+        ],
+        "reasoning": "Existence of a multiple of 9 is logically weaker than arbitrarily growing 3-adic valuation, so the source implications do not cover the claimed sequence.",
+        "searches": [
+          "Rowland–Yassawi Open Question3.15",
+          "Straub Theorem3.3 finite-prime p² classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi explicitly pose the unboundedness of ν3(M(n)) as an open question in their full paper.",
+          "Straub Theorem 3.3 checks divisibility by p² for primes p<200, separately from all powers of three."
+        ],
+        "reasoning": "Exact ν3(M_(3^r-3))=r-1 solves the first open question, not equivalent to automata for fixed 3^a residues.",
+        "searches": [
+          "Resultary query: Motzkin numbers 3-adic valuations at 3^r-3 unboundedness Rowland Yassawi",
+          "Rowland–Yassawi arXiv:1310.8635 Open Question 3.15",
+          "Straub 2022 PDF Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit table or listed exact all-r subsequence valuation appeared in the checked primary sections or semantic database results."
+        ],
+        "reasoning": "A few computed numbers are not an exact formula; failure of indexed matching is not proof of originality.",
+        "searches": [
+          "OEIS A001006 Motzkin number reference in source",
+          "Resultary search for 3^r-3 valuations",
+          "Straub Section3.3 explicit prime lists"
+        ]
+      },
+      "rationale": "Best-of-knowledge original explicit unbounded exact 3-adic valuation family. The origin Rowland–Yassawi paper directly asks in Open Question 3.15 whether ν3(M_n) is unbounded, and its 2026-rendered primary arXiv text still states that question. Straub (2022) determines all primes below 200 with Motzkin valuations bounded by one versus having a valuation at least two, and gives the full 2-adic valuation; this does not entail unbounded growth along 3^r-3. The submission answers the unboundedness half and does not claim to resolve 3-regularity.",
+      "residual_risks": [
+        "An unidentified later Motzkin congruence formula could specialize to exactly this subsequence; semantic search cannot rule this out.",
+        "The displayed general result does not decide 3-regularity at all indices; claim does not assert it.",
+        "A congruence modulo 3^r alone would be too weak without the checked Catalan valuation r-1; both are necessary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_QUESTION_CONFIRMED_NOT_COVERING",
+          "evidence": "Open Question 3.15 at HTML lines331–333 and PDF page18 asks whether ν3(M_n) is unbounded.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Full primary arXiv HTML Sections 3.2–3.3, especially Open Question 3.15; lawful author PDF page18",
+          "method": "read open problem, hypotheses, automaton theorem and prime-power claims; PDF page visually inspected",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Source of exact open question and prior Motzkin prime-power automata"
+        },
+        {
+          "assessment": "NOT_COVERING_CLAIM",
+          "evidence": "Theorem3.1 gives Motzkin ν2, Theorem3.3 classifies p² avoidance for p<200; no all-r ν3(M_(3^r-3)) consequence.",
+          "identifier_or_url": "https://arminstraub.com/downloads/pub/congruenceschemes-ct.pdf",
+          "material_read": "Full 22-page primary PDF: Introduction, Sec3.2 and Sec3.3 Theorems3.1/3.3, Section4 worked examples; page1 screenshot",
+          "method": "read detailed theorem statements and proof outline and checked 3-adic occurrences",
+          "title": "On congruence schemes for constant terms and their applications",
+          "trigger": "Potential stronger Motzkin prime-power coverage"
+        },
+        {
+          "assessment": "REFERENCE_ONLY",
+          "evidence": "OEIS A001006 identifies the sequence, not an independent all-r proof.",
+          "identifier_or_url": "https://oeis.org/A001006",
+          "material_read": "Primary sequence identifier listed in Rowland–Yassawi and source; not used as all-formula proof",
+          "method": "reference database identification; no claimed full table read",
+          "title": "Motzkin numbers",
+          "trigger": "Exact standard Motzkin numerical sequence and potential tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact infinite family ν3(M_(3^r-3))=r-1 proves unboundedness and directly settles one of the two halves of a prominently stated open question in Motzkin arithmetic. It is more than a finite residue test or computed table, and the elementary generating-function/Kummer proof supplies a natural transparent mechanism. No complete valuation classification or 3-regularity claim is required for this self-contained sharp fact to have mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unidentified later Motzkin congruence formula could specialize to exactly this subsequence; semantic search cannot rule this out.",
+    "The displayed general result does not decide 3-regularity at all indices; claim does not assert it.",
+    "A congruence modulo 3^r alone would be too weak without the checked Catalan valuation r-1; both are necessary.",
+    "The theorem only fixes 3^r-3 indices, not arbitrary Motzkin valuations or 3-regularity.",
+    "Best-of-knowledge originality remains vulnerable to an uncatalogued direct 3-adic congruence identity.",
+    "All five root Git tree SHA-1 values were reconstructed from the actual Git directory entry listing, with source root blob SHAs matched; deeper nested tree bytes (where applicable) and each file payload hash not independently recomputed.",
+    "Scientific PASS is a best-of-knowledge analytical and finite-check assessment, not an independent human expert, Lean certification, or guarantee of publication priority.",
+    "Scientific acceptance does not license public exposure of source operational metadata; publication is intentionally not_ready."
+  ],
+  "schema_version": 1
+}

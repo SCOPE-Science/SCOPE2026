@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classical Motzkin generating function yields an exact convolution in half-integer binomial coefficients. The \(j=0\) term is an invertible power of two times a Catalan number. Kummer's carry formula eliminates every \(j\ge1\) term modulo \(3^r\): large \(j\) terms are immediate, and the four remaining cases \(j=1\), \(j=2\), \(j=3\), \(j\ge4\) establish the necessary inequalities. Exactly \(r-1\) carries determine the leading Catalan valuation. The supplementary executable checker confirms the congruence for the first eight exponents. No finite check is substituted for proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Rowland–Yassawi (arXiv:1310.8635, Open Question 3.15) ask for precisely the unboundedness now proved. Their results treat automatic congruences rather than the explicit ternary-power family. Primary full-text comparison with Straub, Sun, Mikić, and Kohen did not locate a covering theorem. The Motzkin residue record OEIS A001006 and semantic mathematical-record searches did not yield this valuation formula. Results modulo a single prime or at powers of two do not imply the exact unbounded valuation at indices \(3^r-3\). Residual risk: a less visible existing proof or stronger three-adic congruence could subsume it; independent literature review was not performed.
+PASS
 
-## Value — PASS
-An exact unbounded valuation family resolves the first half of an explicit published number-theoretic open question, not merely a small fixed-modulus calculation. The index structure follows from a natural prime-power cancellation in the Motzkin algebraic generating function; the theorem yields an infinite sharp invariant with a transparent carry-theoretic mechanism. The independent three-regularity question remains unsettled.
+Start with the exact Motzkin generating function F(z)=(1-z-sqrt((1-3z)(1+z)))/(2z²). For q=3^r the extraction coefficient at z^(q-3) is -1/2 sum_{j=0}^{q-1}(-3)^j binom(1/2,j)binom(1/2,q-1-j). The half-binomial is an integral Catalan factor divided by a power of two. All j>=r terms vanish modulo 3^r, and the j=0 term equals 2^(-2(q-1))C_(q-2) because q-1 is even. For 1<=j<r let m=q-j-2 and t=ceil(log_3(j+2)): high ternary digits 2 in m force >=r-t Kummer carries upon doubling, so ν3(C_m)>=r-t-ν3(j+1). Check j=1, j=2 (special ternary digits 2,1,2,...,2 and exactly r carries), and j=3 directly, then j>=4 using t<=floor(j/2) and ν3(j+1)<=floor(j/2), to obtain j+ν3(C_m)>=r. Therefore every j>=1 vanishes and the asserted congruence holds. Finally q-2 in base3 has digits 1,2,...,2, generating exactly r-1 carries on doubling; q-1 is a 3-unit, hence ν3(C_(q-2))=r-1 and the congruence determines ν3(M_(q-3)) exactly. r=1 gives M0=1. An independent integer-recurrence calculation for all 1<=r<=7 reproduced indices 0,6,24,78,240,726,2184, valuations 0,1,2,3,4,5,6 and all congruences; finite checks are not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original explicit unbounded exact 3-adic valuation family. The origin Rowland–Yassawi paper directly asks in Open Question 3.15 whether ν3(M_n) is unbounded, and its 2026-rendered primary arXiv text still states that question. Straub (2022) determines all primes below 200 with Motzkin valuations bounded by one versus having a valuation at least two, and gives the full 2-adic valuation; this does not entail unbounded growth along 3^r-3. The submission answers the unboundedness half and does not claim to resolve 3-regularity.
+
+## value
+
+PASS
+
+An exact infinite family ν3(M_(3^r-3))=r-1 proves unboundedness and directly settles one of the two halves of a prominently stated open question in Motzkin arithmetic. It is more than a finite residue test or computed table, and the elementary generating-function/Kummer proof supplies a natural transparent mechanism. No complete valuation classification or 3-regularity claim is required for this self-contained sharp fact to have mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
