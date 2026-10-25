@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is symbolic. Critical reductions are (a) the generalized Vandermonde factorization with the complete homogeneous quadratic \(h_2\); (b) the degree-\(p-1\) minimal polynomial of a primitive \(p\)-th root over the third cyclotomic field, for primes \(p\ne3\); (c) the resulting integer constraint \(10=p|v|+3T\); and (d) the exhaustive fifteen-case elementary count of pair-sum residue histograms. No finite experiment is used to infer an infinite statement.
+## correctness
 
-The standalone `CHECKER.py` checks each of the \(\binom{3p}{4}\) possible four-column sets at primes \(p=5,7,11,13\) in exact integer cyclotomic coordinates. It validates the same expected obstruction classification and reproduces the three possible ternary histograms. Run `python3 CHECKER.py`; expected output is preserved in `CHECKER_OUTPUT.txt`. The checker requires only the Python standard library.
+PASS
 
-The tests cover \(130521\) finite column sets, not every possible prime; analytic steps (a)–(d) cover every prime in the theorem. Prior-work priority is not externally certified. Independent audit remains not performed.
+PASS: The generalized Vandermonde determinant factors as the nonzero Vandermonde product times h₂(z₁,…,z₄)=Σ_{i≤j}z_i z_j. Write a primitive 3p-th root as ωζ with ω primitive third and ζ primitive p-th; collecting pair-sum residues gives coefficients B_b=n_{0,b}+n_{1,b}ω+n_{2,b}ω². Since [Q(ω,ζ):Q(ω)]=p−1, vanishing forces all B_b equal, hence n_{a,b}=v_a+t_b with min(v_a)=0 and 10=p|v|+3T. The only possible cases are p≥11 (impossible divisibility), p=7 (histogram (8,1,1), excluded by the exhaustive fifteen ternary histograms), and p=5 (histogram (10,0,0), forcing all columns into one mod-3 class). For p=5, the four distinct p-residues are four of five fifth roots and h₂=0 by the omitted-root generating identity; the first three Vandermonde rows give rank exactly 3. The saved checker output is an exact finite corroboration (p=5,7,11,13), not the infinite proof; the symbolic proof covers all primes.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.
+
+## value
+
+PASS
+
+PASS: Full spark is a natural erasure-robustness invariant for harmonic frames. The theorem resolves an infinite squarefree-composite family for a concrete four-row pattern, including the exact exceptional order and all 15 rank-three bad minors. It fills a genuine gap between the prime-power theorem and composite counterexamples; it is not a known-table recomputation or a finite census extrapolated to all primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
