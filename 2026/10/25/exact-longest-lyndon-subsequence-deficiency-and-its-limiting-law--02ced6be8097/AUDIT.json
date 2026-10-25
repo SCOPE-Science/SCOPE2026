@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "A strict proper-suffix criterion classifies all binary Lyndon subsequences of the four-run input as either \\(0^i1^j\\) or \\(0^i1^j0^k1^l\\) with \\(i>k\\) or \\(i=k,j<l\\). Maximization over positive exponents yields the exact deficiency formula, with edge cases \\(a=c=1\\) and \\(b\\ge d\\) handled by deleting the one-symbol middle zero run. Two disjoint generating-function sums for \\(b<d\\) and \\(b\\ge d\\) give the marked rational distribution. A sharp linear extremum is attained explicitly; uniform composition convergence and an exactly integrated Dirichlet tail give the limit law. Finite independent checks exhaust 625 complete subsequence sets and all 91,390 compositions of lengths 4..40; those checks are not treated as infinite proof. The argument and its boundaries are in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bannai et al., Algorithmica, Theorems 8 and 9: an algorithm for arbitrary alphabet strings with cubic-time bound, and a distinct special case (Theorem 5) when each input character occurs once.",
+        "Bannai et al., Algorithmica, §§6–7 discuss algorithmic experiments and open complexity questions, not a random-composition distribution.",
+        "Hirakawa et al., arXiv:2106.01190, §§3–5, Theorems 1, 3, 4: general bounds on total and expected counts; their objective differs from the longest-length objective."
+      ],
+      "reasoning": "The general algorithm covers all four-run inputs computationally, but its existence neither states an explicit constant-time run formula nor subsumes the rational distribution or the nondegenerate limit theorem. Its unique-character special case is inapplicable because four-run binary words repeat symbols. This comparison does not claim the family was previously uncomputable.",
+      "searches": [
+        "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences Algorithmica 2023",
+        "\"longest Lyndon subsequence\" \"four\" runs binary",
+        "Computing Longest (Common) Lyndon Subsequences 2201.06773"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00453-023-01125-z (full article)",
+      "https://arxiv.org/abs/2201.06773 (entire original public arXiv preprint Sections 1–5)",
+      "https://doi.org/10.4230/LIPIcs.CPM.2018.19 (abstract/scope)",
+      "Published mathematical-record searches: Lyndon subsequence, exact four-run deficiency, Dirichlet law and OEIS aliases",
+      "https://arxiv.org/abs/2106.01190 (complete public preprint Sections 1–5 and tables)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bannai et al., open-access Algorithmica, DOI 10.1007/s00453-023-01125-z: statements are algorithmic upper bounds on computation, not formulae in four run parameters.",
+        "Urabe et al., CPM 2018, DOI 10.4230/LIPIcs.CPM.2018.19: the published abstract concerns the longest Lyndon contiguous substring after edit; suffix-constrained scattered subsequences are a different object.",
+        "Published mathematical-record search matches included scattered-subsequence universality but no longest-Lyndon length-law record.",
+        "Hirakawa et al., arXiv:2106.01190, read whole accessible §§1–5: maximum TOTAL number and expected TOTAL/DISTINCT number of Lyndon subsequences, not maximum LENGTH in each fixed string."
+      ],
+      "reasoning": "A general exact algorithm implies decidability and computes specific evaluations; it does not give the requested symbolic four-variable identity, rational marked generating function, or asymptotic Dirichlet law as a stated result. The substring and contiguous-factor invariants cannot be substituted for scattered subsequences: in the latter, entire interior runs or portions of runs may be deleted. No stronger published theorem inspected implies the full present claim without additional derivation. Global counts of how many subsequences are Lyndon do not determine the longest Lyndon subsequence length of each positive four-run composition; the counted objects, quantifiers, and statistics differ.",
+      "searches": [
+        "\"longest Lyndon subsequence\" \"binary\" \"formula\"",
+        "\"four-run\" \"Lyndon subsequence\" distribution",
+        "\"Lyndon subsequence\" \"0^a\" \"1^b\"",
+        "Lyndon subsequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithmica open-access DOI 10.1007/s00453-023-01125-z, full article §§1,4–7: general longest Lyndon scattered-subsequence problem and algorithms; its Section 4 has no four-run closed form.",
+        "The standard suffix characterization of Lyndon words is equivalent to the primitive lexicographically least-rotation characterization; the proof checks all proper suffixes.",
+        "Hirakawa et al., arXiv:2106.01190, §§1–5: total and distinct number of Lyndon subsequences, not maximum achievable length in one fixed word."
+      ],
+      "reasoning": "An equivalent statement might use least rotations, longest scattered Lyndon words, maximal Lyndon embeddings, or minimum deletion distance to the set of Lyndon words. The searched exact forms and inspected article did not exhibit the four-parameter identity or its marked generating function. General conversion between suffix/rotation definitions does not provide the required enumerative theorem.",
+      "searches": [
+        "\"longest Lyndon subsequence\" \"binary\" runs exact",
+        "\"Lyndon subsequence\" \"0^a\" \"1^b\"",
+        "\"Lyndon subsequences\" \"run-length\" maximum",
+        "Lyndon subsequence",
+        "longest Lyndon word as a scattered subsequence",
+        "longest Lyndon subsequence",
+        "Counting Lyndon Subsequences 2021 Hirakawa Nakashima Inenaga Takeda"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed mathematical results include general binary scattered-subsequence-universality counts (indexed published work on the closed-form law for binary subsequence universality), a different invariant.",
+        "The relevant Algorithmica article gives no table of positive four-part compositions classified by longest Lyndon subsequence deletion cost.",
+        "Hirakawa et al. Tables 1–5 record global counts of Lyndon subsequences (through various lengths), not distributions over positive four-run run-length compositions indexed by longest-length deficiency."
+      ],
+      "reasoning": "No inspected fixed-length table or recorded database entry matches the full four-run Lyndon-subsequence deficiency histogram. An absence in indexed results is not a proof that no such table exists elsewhere.",
+      "searches": [
+        "Exact longest Lyndon subsequence length, deficiency and bivariate generating function for four constant runs 0^a1^b0^c1^d, binary",
+        "Density limit distribution of longest Lyndon scattered subsequence of random binary four-run word, Dirichlet atom at 1",
+        "\"longest Lyndon subsequence\" \"OEIS\"",
+        "OEIS \"Lyndon subsequence\" longest"
+      ]
+    },
+    "rationale": "The full accessible Algorithmica article on longest Lyndon subsequences gives general cubic-time algorithms and a unique-character special case, but does not state the exact positive four-run length deficiency, its bivariate rational distribution or its Dirichlet limiting law. Direct searches for the same invariant, run parameters and probabilistic aliases found no equivalent table or claim; an unindexed equivalent specialization remains a documented risk, not claimed disproved. Distinct earlier Lyndon substring and Lyndon-factor results do not imply scattered optimal length. The general algorithm can compute each instance but does not give this four-parameter formula and statistical law. The complete 2021 Hirakawa et al. preprint counts Lyndon subsequences by occurrence and distinctness, and contains no fixed-word longest-length theorem; this distinct-statistic comparison does not establish absolute priority.",
+    "residual_risks": [
+      "Unindexed literature or a detailed unpublished calculation might independently contain an equivalent run-length formula or distribution.",
+      "General polynomial-time computation of the invariant is previously known; the original contribution asserted is explicit symbolic run classification and statistical enumeration, not solvability or an asymptotic improvement for arbitrary strings.",
+      "The 2018 substring paper was inspected only at abstract scope and is not used for a full-text noncoverage conclusion.",
+      "The separate 2021 Lyndon-subsequence enumeration study concerns counts, which do not automatically imply longest subsequence length, but independent unindexed fixed-run derivations remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Computes longest Lyndon subsequences for arbitrary inputs; does not state the positive four-run deletion law, bivariate distribution, sharp family extremum or Dirichlet limit. The unique-letter special case does not apply.",
+        "evidence": [
+          "Theorem 5 assumes every character occurs once.",
+          "Theorems 8 and 9 give general cubic-time computations.",
+          "Sections 6–7 cover general experiments and complexity questions rather than run-composition enumeration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+        "material_read": "Open-access HTML article §§1–7, including §4 Theorems 5, 8, 9, §5, §6 experiments, §7 conclusion/open questions, and references",
+        "method": "Read full-text HTML section ranges and search within the complete article for binary, runs and special case",
+        "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+        "trigger": "Same invariant and closest plausible source, including explicit results and appendices in full open-access HTML"
+      },
+      {
+        "assessment": "The 2022 original establishes generic polynomial-time longest-Lyndon-subsequence algorithms but does not state the positive four-run formula, fixed-length deficiency distribution, or random-composition limit.",
+        "evidence": [
+          "arXiv:2201.06773 v1 recorded on 2022-01-18; topic is generic longest Lyndon subsequence computation.",
+          "Original arXiv Section 4 develops trie-traversal algorithm for longest Lyndon subsequence, rather than a symbolic run-length family classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.06773",
+        "material_read": "Full accessible original arXiv v1 HTML, abstract, Sections 1–5 algorithmic development and conclusions, plus first public record 2022-01-18. Expanded published article inspected independently.",
+        "method": "Read original arXiv public HTML text throughout, including Sections 3–5 on lexicographically smallest and longest Lyndon subsequences, and compared with its expanded journal version.",
+        "title": "Computing Longest (Common) Lyndon Subsequences",
+        "trigger": "Original source and earliest verified public date before expanded article"
+      },
+      {
+        "assessment": "The published abstract concerns contiguous Lyndon substrings under edits. It is not material proving coverage or noncoverage of any unpublished scattered-subsequence statement in the full text.",
+        "evidence": [
+          "The 2018 publication explicitly defines LLS as longest Lyndon substring of an edited string."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+        "material_read": "Publisher abstract, bibliographic information and theorem scope only; not the full article",
+        "method": "Checked object definitions in publication listing",
+        "title": "Longest Lyndon Substring After Edit",
+        "trigger": "Plausible closest competing term: longest Lyndon substring rather than subsequence"
+      },
+      {
+        "assessment": "Studies total or distinct numbers of Lyndon subsequences in a word or across uniform iid words; it does not compute the maximum length of a Lyndon scattered subsequence of each fixed four-run composition nor its limit law. The published count data do not imply the requested theorem without new classification.",
+        "evidence": [
+          "Table 2 lists MTS, MDS (open), ETS and EDS, all counts rather than maximum lengths.",
+          "Theorems 1, 3, 4 and Sections 3–5 optimize/count occurrence multiplicities and expectations, not length deficiency indexed by run lengths.",
+          "2021 preprint full public text starts June 2 2021."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.01190",
+        "material_read": "Complete public arXiv HTML, introduction, Sections 2–5, Theorem 1 on maximum total count, Theorems 3 and 4 on expected total/distinct counts, all five tables and conclusion",
+        "method": "Read full text and compare its enumerated objects and parameter quantifiers with the positive four-run longest-length deficiency and marked generating function",
+        "title": "Counting Lyndon Subsequences",
+        "trigger": "Exact same word “subsequence” and “Lyndon”; a plausible stronger published counting theorem could imply a fixed-family length profile"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02ced6be-8097-436d-bacf-5a87d6a4b7ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Longest Lyndon scattered subsequences are a named algorithmic invariant whose general polynomial-time computation was a research target. Positive four-run binary words are the smallest family with an internal 0/1 conflict while still admitting a full-word Lyndon case. The formula converts the general string problem to \\(O(1)\\) arithmetic on a run-length representation and gives a complete family classification. The rational bivariate distribution, sharp worst-case deletion loss and explicit mixed atomic/continuous Dirichlet limit are nontrivial intrinsic enumerative facts relevant to compressed-string statistics, not just one-off instances, substitutions or finite enumeration.",
+    "status": "PASS"
+  }
+}
