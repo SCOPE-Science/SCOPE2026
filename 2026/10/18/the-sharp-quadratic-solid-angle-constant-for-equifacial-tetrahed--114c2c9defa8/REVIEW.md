@@ -1,19 +1,21 @@
-# Review of the disphenoid solid-angle/fullness bound
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an arbitrary nondegenerate equifacial tetrahedron, equality of opposite edges yields the exhaustive orthogonal sign-coordinate model. The edge determinant, largest pair-edge length, and the standard positive-branch trihedral half-angle formula give exact \(V,\delta,\Omega\). The inequality \(y^2B+z^2A\ge ABC\) follows from \(0<x\le y\le z\); the exact identity \((AB)^2-2xyzC=x^4+(xC-yz)^2\) yields a second strict bound. They combine with \(\arctan s<s\) to prove \(\Omega^2<6V/\delta^3\). An exact product decomposition characterizes all maximizing degenerations. The proof does not extrapolate from finite tests. Principal mathematical risk is convention or branch error in the standard solid-angle formula; positive edge dot products and the positive denominator fix the branch, and sample geometric determinants have been recomputed.
+PASS
 
-## Originality — PASS, with residual risk
+The even-sign centered-coordinate model classifies all equifacial tetrahedra up to similarity/permutation, with 0<x≤y≤z. Using A=sqrt(x²+y²), B=sqrt(x²+z²), C=sqrt(y²+z²), δ=2C, V=8xyz/3 and trihedral tan(Ω/2)=2xyz/Q for Q=ABC+x²C+y²B+z²A. Rechecked y²B+z²A≥ABC from x≤y≤z, hence Q>2ABC, and exact positive identity (AB)²−2xyzC=x^4+(xC−yz)²>0; therefore Q²>8xyzC³ and arctan t<t yields Ω²<6 V/δ³. The exact factorization of Ω²/(6V/δ³) into three factors ≤1 shows ratio→1 forces x/z→0 and xC/(yz)→1, hence y/z→0, x/y→1; converse follows from asymptotic formulas. Independent ordered integer grid and sharp family samples ε→0 corroborate analytic proof, not universal completeness.
 
-The initiating 2026 article (Licht, arXiv:2610.05883v1, Theorem 4.1 and Example 4.3) proves the weaker coefficient \(12+3\pi\) for unrestricted tetrahedra and obtains \(6\) as a necessary lower limit from one symmetric sliver family. Those assertions do not give \(6\) as a universal upper coefficient within all equifacial tetrahedra, nor characterize the full set of approaching sequences. Katsuura's 2021 nine-page article gives equal-solid-angle characterizations and a maximizer of the solid angle itself, not the diameter-normalized volume ratio. Kabluchko--Schange's 2025 treatment concerns a different class of orthocentric simplices. Published quantitative statements about disphenoid radius ratios or tetrahedral Ptolemy slack do not dominate the new invariant. Search and full-text inspection cannot rule out all unindexed sources; this is explicitly not an independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The source's gap between its proven three-dimensional constant \(12+3\pi\) and the necessary lower obstruction \(6\) motivates determining the exact constant on the highly symmetric, naturally occurring class of equifacial tetrahedra. The result gives that class's complete sharp quadratic shape-regularity coefficient and **all** limiting optimizers, rather than merely evaluating the source's single sliver. Such meshes and slivers arise as canonical quality benchmarks; the calculation is a genuine global inequality over the full three-parameter class, not an arbitrary single numerical example. It does not imply the unresolved all-tetrahedron bound.
+No earlier mathematical statement found that logically covers the exact final theorem, after checking closest indexed results and materially accessible primary sources. This is best-of-knowledge originality, not guaranteed priority.
 
-## Literature and scope limitations
+## value
 
-Primary texts inspected were Licht (2026) in detail, Katsuura (2021) across its complete nine pages, and relevant classifications from Kabluchko--Schange (2025). The 1983 half-angle identity is standard and independently checked by substitution; its primary abstract was accessible. The strongest remaining risk is an equivalent older disphenoid inequality in uncatalogued literature. The only proved global result is for equifacial tetrahedra, and the sharp constant is not attained by a nondegenerate member.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a sharp geometric inequality on the classical symmetry class of equifacial tetrahedra and a rigid characterization of all sequences approaching the optimal nonattained constant. The improvement from the general-tetrahedron coefficient 12+3π to exact restricted-class 6 is substantive for simplex quality/solid-angle fullness estimates, not a normalization tautology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
