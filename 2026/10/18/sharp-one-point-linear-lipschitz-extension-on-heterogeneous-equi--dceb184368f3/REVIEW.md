@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The global minimum is taken over all real-linear scalar extensions, not merely positive barycenters: group averaging removes leaf-level asymmetry, the exact tree transport formula handles *signed* cluster coefficients, and the sign-transfer argument proves that negativity cannot improve any of the requisite edge norms. On the positive simplex the new-point minimax is exactly the unique scalar root. The proof explicitly treats equality boundaries, ties, singleton clusters and all permitted real radii. Reproducibility checks: 6,272 exact-rational root, attainment and signed-comparison assertions, supplemented by unrestricted leaf-level linear programs; finite tests do not replace the infinite-family proof.
+## correctness
 
-**Originality — PASS, with bibliographic qualification.** Bruè–Di Marino–Stra (2018), Ambrosio–Puglisi (2016), Albiac–Ansorena–Cúth–Doucha (2020) and Sofi (2020) establish general constructions, random-projection equivalences, complementability and extension existence/estimates. Their inspected relevant sections do not state the exact heterogeneous cluster optimal norm, positive optimal coefficient classification, or sorted active-set transition. The publicly available clustered-space projection theorem concerns a different subspace without an added point; the equilateral universal \(p\)-target one-point theorem uses a different quantifier over targets and has no heterogeneous metric parameters. Full text of those two closest public mathematical records was materially read, not inferred from snippets. Equivalent unindexed theorems are a residual risk; no failed query is treated as conclusive novelty proof.
+PASS
 
-**Mathematical value — PASS.** The problem asks for the exact best simultaneous *linear* extension constant of a natural family of finite ultrametric-like cluster spaces, beyond existence or asymptotic bounds. The solution yields a nontrivial finite-dimensional transport/optimization structural theorem: signed optimality reduces to a positive barycenter, and the optimizer switches support according to exact radii thresholds. Its algorithm depends on the number of clusters rather than the potentially much larger number of leaves. This is a motivated exact invariant, not an arbitrary finite sample.
+Symmetrize any linear extension over within-cluster permutations, so new value is a signed cluster-mean functional ∑α_i average_i with ∑α_i=1. The finite clustered metric embeds as leaves of a weighted tree, which gives exact Kantorovich–Rubinstein norm of μ−δ_x via sum of edge lengths times absolute subtree mass. Using that identity, transferring mass from negative to positive α never raises any new-point constraint, proving a positive optimum. On the α-simplex T_i=c−[c−a_i(1−1/m_i)]α_i; minimax equivalent to feasibility F(L)=∑(c−Lr_i)_+/d_i<=1, with unique root F(L*)=1. Active radii sorted give an O(k log k) arithmetic algorithm; old-pair norm enforces max{1,L*}. Assumptions check genuine metric, ties, singleton clusters and L*<1.
 
-**Limits and risk.** The finite metric is structured, scalar and real, one point is added, and the complexity bound uses arithmetic operations. There is no independent scientific audit or proof of universal novelty outside accessible sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ambrosio–Puglisi develop extension/transport correspondence and arbitrary metric random projections, but no sharp finite heterogeneous-cluster one-point scalar constant. Closest Resultary findings, read in full, concern fixed-space projection onto within-cluster fluctuations (different operator) and universal p-Banach target extensions of an equal-radius star (different target quantifier); neither implies the heterogeneous scalar waterfill.
+
+## value
+
+PASS
+
+An exact optimal simultaneous linear extension constant for a natural family of finite clustered metrics, including heterogeneous radii, singleton boundaries and zero-weight active-set phases, answers a genuinely useful Lipschitz-free geometry optimization beyond existence of coarse extension bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

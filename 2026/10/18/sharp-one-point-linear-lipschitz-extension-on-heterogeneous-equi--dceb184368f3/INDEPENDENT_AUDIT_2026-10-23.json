@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:53:22Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independent exact-rational instance k=3, m=(10,10,10), a_i=19/10,c=2,r=(1,11/10,19/10) yields d_i=29/100, L*=53/30, α=(70/87,17/87,0); root and distances checked directly. Actual scipy LP script and exact formula read at frozen blob 6e65fd; its finite randomized LP checks are not taken as proof for all clusters."
+      ],
+      "limitations": [
+        "Finite checker diagnostics do not substitute for analytic all-parameter proof."
+      ],
+      "rationale": "Symmetrize any linear extension over within-cluster permutations, so new value is a signed cluster-mean functional ∑α_i average_i with ∑α_i=1. The finite clustered metric embeds as leaves of a weighted tree, which gives exact Kantorovich–Rubinstein norm of μ−δ_x via sum of edge lengths times absolute subtree mass. Using that identity, transferring mass from negative to positive α never raises any new-point constraint, proving a positive optimum. On the α-simplex T_i=c−[c−a_i(1−1/m_i)]α_i; minimax equivalent to feasibility F(L)=∑(c−Lr_i)_+/d_i<=1, with unique root F(L*)=1. Active radii sorted give an O(k log k) arithmetic algorithm; old-pair norm enforces max{1,L*}. Assumptions check genuine metric, ties, singleton clusters and L*<1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General linear extension bounds on doubling spaces and equal-leaf universal p-Banach traces concern different quantifiers/parameter families."
+        ],
+        "reasoning": "The p=1 equal-star special case is related, but its equilateral leaf geometry and arbitrary Banach target do not yield the optimized real-linear clustered source with unequal r_i.",
+        "searches": [
+          "Bruè Di Marino Stra arXiv:1801.07533 Thm4.1",
+          "Resultary 2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1"
+        ]
+      },
+      "checked_sources": [
+        "Ambrosio Puglisi arXiv:1609.01450 full HTML Theorems 2.14-2.15",
+        "Resultary full prior bd13acd51aa3/RESULT.md",
+        "Resultary full prior b03e5cc2b3f1/RESULT.md",
+        "Bruè Di Marino Stra arXiv:1801.07533 Theorem 4.1 bibliographic statement",
+        "Resultary query one point linear Lipschitz extension finite clustered equilateral metric stars optimal projection transportation linear operator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results cover the norm geometry/symmetric averaging and related special objects, but not uniqueness of positive invariant optimum or r_i-dependent active-set thresholds for scalar extension of X into X+o."
+        ],
+        "reasoning": "Non-equivalence established by distinguishing subspace projection (prior), extension range/target quantifiers (other prior), and explicit new point radius constraints (claim).",
+        "searches": [
+          "Ambrosio Puglisi arXiv:1609.01450 Thm2.14-2.15",
+          "Resultary clustered finite metric projection theorem bd13acd51aa3",
+          "Resultary p-Banach leaf trace theorem b03e5cc2b3f1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear scalar extension is dual to finite Lipschitz-free operator and tree KR transportation; general duality established, but not its explicit heterogeneous waterfill root."
+        ],
+        "reasoning": "Checked same metric restriction and one-point extension operator versus general random projection/barycentric maps; exact minimax optimization cannot be read off from general existence statement.",
+        "searches": [
+          "Resultary: one point linear Lipschitz extension finite clustered equilateral metric stars optimal projection transportation linear operator",
+          "Ambrosio Puglisi arXiv:1609.01450 Thm2.14-2.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One previous cluster constant max{1,w_(1)+w_(2)} is a projection norm in F(M) (no added point). Another gives min{2,2(n−1)^(1/p)/n} for universal p-Banach star trace, not new-point cluster waterfilling."
+        ],
+        "reasoning": "A finite metric LP can calculate each instance, but the claimed analytic formula and active-set exact phase diagram are not known tables; they solve arbitrary k with continuous/rational parameters.",
+        "searches": [
+          "Resultary prior finite metric projection constants, full RESULT.md",
+          "Resultary leaf-count Lipschitz p-Banach full RESULT.md"
+        ]
+      },
+      "rationale": "Ambrosio–Puglisi develop extension/transport correspondence and arbitrary metric random projections, but no sharp finite heterogeneous-cluster one-point scalar constant. Closest Resultary findings, read in full, concern fixed-space projection onto within-cluster fluctuations (different operator) and universal p-Banach target extensions of an equal-radius star (different target quantifier); neither implies the heterogeneous scalar waterfill.",
+      "residual_risks": [
+        "A specialized interpolation/transport LP literature for finite ultrametric stars may give an equivalent water-filling formula.",
+        "Proof of signed-to-positive transfer is delicate and depends on exact tree KR representation; independent small instances support but do not certify all-dimensional argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General extension-transport equivalence, not an exact heterogeneous finite-cluster waterfill",
+          "evidence": "Theorems formalize random projections/linear extension but no explicit d_i=c−a_i(1−1/m_i) minimax formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.01450",
+          "material_read": "Full accessible HTML and targeted reading of Theorems 2.14 and 2.15 plus neighboring proof",
+          "method": "arXiv HTML full-text reading",
+          "title": "Linear extension operators between spaces of Lipschitz maps and optimal transport",
+          "trigger": "Same Lipschitz-free duality and operator formulation"
+        },
+        {
+          "assessment": "Different projection onto within-cluster fluctuations of F(X); does not adjoin a point",
+          "evidence": "Theorem computes max{1,w1+w2} for projection P:F(X)->U and complementary Q, not extension E:Lip(X)->Lip(X+o).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3",
+          "material_read": "Entire RESULT.md including theorem and full proof",
+          "method": "GitHub raw published file",
+          "title": "Sharp optimal projection constants for clustered finite metric free spaces",
+          "trigger": "Closest same cluster metric, potentially dominating operator result"
+        },
+        {
+          "assessment": "Optimizes universal Banach target extension on equilateral leaves; not heterogeneous real-scalar linear operator",
+          "evidence": "Formula uses equal leaf distances and quantifies over all p-Banach targets, contrasted with present unequal cluster distances and scalar linear norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1",
+          "material_read": "Entire RESULT.md including formulas, proof, limitations",
+          "method": "GitHub raw published file",
+          "title": "Sharp leaf-count transitions in one-point p-Banach Lipschitz extensions",
+          "trigger": "Same one-point extension but broader target class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact optimal simultaneous linear extension constant for a natural family of finite clustered metrics, including heterogeneous radii, singleton boundaries and zero-weight active-set phases, answers a genuinely useful Lipschitz-free geometry optimization beyond existence of coarse extension bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ambrosio Puglisi arXiv:1609.01450 full HTML Theorems 2.14-2.15",
+    "Resultary full prior bd13acd51aa3/RESULT.md",
+    "Resultary full prior b03e5cc2b3f1/RESULT.md",
+    "Bruè Di Marino Stra arXiv:1801.07533 Theorem 4.1 bibliographic statement",
+    "Resultary query one point linear Lipschitz extension finite clustered equilateral metric stars optimal projection transportation linear operator"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp one-point linear Lipschitz extension on heterogeneous equilateral clusters",
+  "limitations": [
+    "Scientific claim assessed against exact frozen source tree and specific reviewed RESULT.md, checker and metadata blobs.",
+    "Previous self-review is not treated as independent science; public audit status remains unverified.",
+    "No published modification or external attestation is represented."
+  ],
+  "residual_risks": [
+    "A specialized interpolation/transport LP literature for finite ultrametric stars may give an equivalent water-filling formula.",
+    "Proof of signed-to-positive transfer is delicate and depends on exact tree KR representation; independent small instances support but do not certify all-dimensional argument."
+  ],
+  "schema_version": 1
+}
