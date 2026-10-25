@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T00:04:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact cubic edges u_i-u_(i+1), u_i-v_i, v_i-v_(i+2) and the multiplicity-aware reflected quotient neighbor multisets. The six-round base and induction split the three-orbit leading collision while advancing the resolved frontier two indices each round; the four mod-4 seam cases leave a nontrivial collision at R-1 and resolve it at R. Reflection invariance plus singleton orbit-sized final cells proves the full rooted automorphism-orbit statement. Independent full-graph WL, BFS/eccentricity and orbit computation for every n=14..150 (137 parameters) agreed; further independent full-graph wavefront/seam checks on n=26..250 (225 parameters, 6,666 wavefront-round comparisons) agreed. The tests are finite corroboration; the explicitly examined induction is necessary for n unbounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer and McKay establish global worst-case iteration bounds, not exact iteration count for a singled-out rooted GP family. Kluge focuses on circulants and higher-dimensional refinement."
+        ],
+        "reasoning": "Neither a general maximum over n-vertex graphs nor a symmetry classification gives this exact per-family lower bound and wavefront.",
+        "searches": [
+          "one-dimensional Weisfeiler Leman colour refinement exact stabilization round depth rooted generalized Petersen graph G(n,2) individualization orbit partition eccentricity",
+          "arXiv:2005.10182 main iteration theorems",
+          "arXiv:2204.01054 main theorems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.2752",
+        "arXiv:1502.01255",
+        "arXiv:2005.10182",
+        "arXiv:2204.01054",
+        "Resultary GP(n,2) Vietoris–Rips finding 7ffdbeea612d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conder–Pisanski–Žitnik classify automorphism structure; this gives reflection invariance but not the 1-WL separation success or strict round count. Arvind et al. do not formulate the present all-n rooted case."
+        ],
+        "reasoning": "A graph-group theorem cannot imply the specific algorithmic refinement rate. The induction and seam collision are essential additional statements.",
+        "searches": [
+          "one-dimensional Weisfeiler Leman colour refinement exact stabilization round depth rooted generalized Petersen graph G(n,2) individualization orbit partition eccentricity",
+          "arXiv:1207.2752 Theorem 5",
+          "arXiv:1502.01255 Section 8",
+          "arXiv:2005.10182"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GP(n,2) rooted 1-WL is an individualized/counting-logic formulation; Arvind et al. discuss the Petersen graph GP(5,2), excluded by n>=14, and other refinability notions."
+        ],
+        "reasoning": "An orbit partition theorem for a fixed n=5 graph does not imply the all-n iterated refinement partition or the number of rounds.",
+        "searches": [
+          "one-dimensional Weisfeiler Leman colour refinement exact stabilization round depth rooted generalized Petersen graph G(n,2) individualization orbit partition eccentricity",
+          "arXiv:1502.01255 Section 8 and appendix Petersen",
+          "arXiv:1207.2752 Sections 2-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A GP(n,2) Vietoris–Rips persistence result concerns topological homotopy at a metric scale rather than one-dimensional colour refinement; no exact GP rooted-depth data found among scoped results."
+        ],
+        "reasoning": "The specific natural invariant is different; the lack of an indexed table is only a bounded observation.",
+        "searches": [
+          "one-dimensional Weisfeiler Leman colour refinement exact stabilization round depth rooted generalized Petersen graph G(n,2) individualization orbit partition eccentricity",
+          "Resultary:2026/10/11/SCOPE-a-sharp-twelve-to-thirteen-rips-collapse-transition-in-generaliz--7ffdbeea612d"
+        ]
+      },
+      "rationale": "Exact rooted all-n GP(n,2) one-dimensional counting refinement wavefront, orbit partition and sharp depth not supplied by the inspected automorphism classifications, unmarked Petersen graph examples or unrestricted colour-refinement iteration bounds. Bounded absence of a source cannot prove priority.",
+      "residual_risks": [
+        "A specialized unindexed study of individualization/1-WL on generalized Petersen graphs could have overlapping conclusions.",
+        "Finite graph checks do not independently prove all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering rooted 1-WL depth: classifies automorphism groups",
+          "evidence": [
+            "Theorem 5 addresses skew automorphisms; no rooted colour-refinement depth assertion in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.2752",
+          "material_read": "Full-text introduction/graph definitions, Sections 2–3 and Theorem 5; relevant automorphism discussion",
+          "method": "Lawful arXiv PDF text and visual-page inspection",
+          "title": "GI-graphs and their groups",
+          "trigger": "Exact generalized Petersen family and automorphisms"
+        },
+        {
+          "assessment": "Not covering n>=14 GP(n,2) sharp rooted depth",
+          "evidence": [
+            "The Petersen example is G(5,2), not this all-n marked wavefront."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "Section 8 and appendix passages on Petersen graph and Johnson graphs, searched full text",
+          "method": "Lawful arXiv PDF text and selected page inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "1-WL refinability and Petersen orbit context"
+        },
+        {
+          "assessment": "Different quantifier, no family-specific formula",
+          "evidence": [
+            "Global worst-case iteration numbers do not determine rooted GP(n,2) iteration time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.10182",
+          "material_read": "Abstract and introduction/main iteration bounds, text search for Petersen",
+          "method": "Lawful arXiv PDF and term search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Possible dominating general stabilization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Generalized Petersen graphs are a classical natural cubic family. The exact all-n marked graph orbit recovery, round-by-round wavefront and equality of strict stabilization depth with graph eccentricity are nontrivial structural invariants and a usable example of exact one-dimensional counting-logic propagation; not merely a finite computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1207.2752",
+    "https://arxiv.org/pdf/1502.01255",
+    "https://arxiv.org/pdf/2005.10182",
+    "https://arxiv.org/pdf/2204.01054"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one marked outer vertex in GP(n,2), n>=14; not arbitrary G(n,k) or graph-isomorphism recognition.",
+    "Induction required for unbounded n; finite experiments are corroborative."
+  ],
+  "residual_risks": [
+    "A specialized unindexed study of individualization/1-WL on generalized Petersen graphs could have overlapping conclusions.",
+    "Finite graph checks do not independently prove all n."
+  ],
+  "schema_version": 1
+}
