@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:02:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k,m>=2 and u,v>=0 with (2m+1)^k=u m^k+v(m+1)^k, positivity implies 0<=v<2^k. Reduction mod m yields v=1+jm, j>=0; reduction mod m² (k>=2) yields j=k mod m. If m>k, j>=k, so 1+km<=2^k-1 and m<=(2^k-2)/k. Otherwise m<=k. The cutoff M_k=max(k,floor((2^k-2)/k)) therefore covers ALL k. For each m,k, coprime m^k,(m+1)^k give unique admissible v as least residue of (2m+1)^k [(m+1)^k]^{-1} modulo m^k since v<2^k<=m^k. A nonnegative quotient gives solution; otherwise none. Independently enumerated all 111,114 pairs (k,m) for k=2..20 within proved cutoff using exact Python integers, obtaining exactly (2,2,4,1),(4,2,34,1),(4,3,17,4),(11,2,1093,263),(13,2,51118,503). Inspected companion CHECKER.py contains independent residue and constrained-j methods. This is finite but exhaustive because the cutoff is proved; no conclusion for k>20.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fel analyzes k=2,3,4 and reports k=11,13 examples in finite parameter searches; these overlap individual solutions.",
+          "Lepilov–ORourke–Swanson formulas concern squares and cubes only, not the general k cutoff."
+        ],
+        "reasoning": "Earlier low-k classification is covered, but no inspected stronger uniform all-k m bound or complete k<=20 census follows from it.",
+        "searches": [
+          "https://arxiv.org/pdf/1608.08693",
+          "https://www.math.purdue.edu/~iswanso/LepilovORourkeSwanson.pdf",
+          "Resultary semantic: consecutive powers odd center (2m+1)^k representable as nonnegative combination m^k (m+1)^k cutoff numerical semigroup Fel"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1608.08693",
+        "https://www.math.purdue.edu/~iswanso/LepilovORourkeSwanson.pdf",
+        "Resultary semantic: consecutive powers odd center (2m+1)^k representable as nonnegative combination m^k (m+1)^k cutoff numerical semigroup Fel",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/an-effective-cutoff-and-an-exact-nineteen-exponent-census-for-ce--d478826b1489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fel describes the same center representation and observes high-k examples, but cannot deduce their completeness for k<=20 from finite restricted searches alone.",
+          "The modular m² obstruction v=1+jm and j=k mod m supplies the previously absent global cutoff."
+        ],
+        "reasoning": "Old equation and five examples are covered; the universal cutoff and all-m completeness are distinct logical strengthening, not automatic from Fel tables.",
+        "searches": [
+          "https://arxiv.org/pdf/1608.08693",
+          "https://www.math.purdue.edu/~iswanso/LepilovORourkeSwanson.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original (2m+1)^k membership in semigroup of (2m)^k,(2m+2)^k reduces after 2^k to m^k,(m+1)^k; the reviewed equation is this exact alias."
+        ],
+        "reasoning": "The semigroup alias was compared, including Fel examples, rather than relying on a title difference. The newly proved bound applies all m at each exponent.",
+        "searches": [
+          "Resultary semantic: consecutive powers odd center (2m+1)^k representable as nonnegative combination m^k (m+1)^k cutoff numerical semigroup Fel",
+          "numerical semigroup powers three consecutive integers odd center membership Fel 2016",
+          "https://arxiv.org/abs/1608.08693"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five tuples include earlier published examples, especially k=11 and k=13; the exact census is NOT new numerical identities individually.",
+          "Fel Appendix A and restricted searches at m<=50 do not prove there are no additional solutions for any m beyond that bound."
+        ],
+        "reasoning": "The key missing certificate was a global m cutoff, making the finite census exhaustive; it upgrades but does not deny previous computations.",
+        "searches": [
+          "https://arxiv.org/pdf/1608.08693",
+          "Resultary semantic: consecutive powers odd center (2m+1)^k representable as nonnegative combination m^k (m+1)^k cutoff numerical semigroup Fel"
+        ]
+      },
+      "rationale": "Fel 2016 studied numerical semigroups from powers of three consecutive integers, including earlier k=2,3,4 classifications and the individual k=11,13 examples in a bounded search m<=50. The present identities are NOT individually novel. The surviving mathematics is a uniform analytic all-m cutoff for arbitrary k and a complete proof-level classification for k=2..20, rather than a truncated computational table.",
+      "residual_risks": [
+        "An unindexed later general-exponent semigroup paper could independently give equivalent cutoff.",
+        "k>20 remains unclassified; no claim of complete symmetric-semigroup classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PARTIAL_COVERAGE: equation and examples known; cutoff/completeness not identified",
+          "evidence": "Observed searches in bounded m and k ranges and examples R_5^11 and R_5^13; no proof of all-m cutoff across arbitrary k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.08693",
+          "material_read": "Full arXiv primary PDF: introduction, Section 5 and Appendix A, including relevant page 17 discussing high exponents and finite m-range",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "Numerical semigroups generated by squares, cubes and quartics of three consecutive integers",
+          "trigger": "Exact same semigroup membership equation and previously reported exceptional exponents"
+        },
+        {
+          "assessment": "RELATED_SPECIAL_CASE_ONLY",
+          "evidence": "The subject has k=2 or k=3 fixed and supplies no uniform cutoff over every exponent.",
+          "identifier_or_url": "https://www.math.purdue.edu/~iswanso/LepilovORourkeSwanson.pdf",
+          "material_read": "Published primary title/abstract and square/cube theorem statements",
+          "method": "Primary accessible summary and theorem statements",
+          "title": "Frobenius numbers of numerical semigroups generated by three consecutive squares or cubes",
+          "trigger": "Related low-exponent preceding theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural semigroup center-generator membership question previously had searches bounded ad hoc in m. The modular obstruction makes it decidable over a proved finite domain for each exponent; the nineteen-exponent census is a natural complete classification with exact, reproducible arithmetic, not an arbitrary slice. No claim is made to solve all k or all symmetric semigroups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed later general-exponent semigroup paper could independently give equivalent cutoff.",
+    "k>20 remains unclassified; no claim of complete symmetric-semigroup classification."
+  ],
+  "schema_version": 1
+}

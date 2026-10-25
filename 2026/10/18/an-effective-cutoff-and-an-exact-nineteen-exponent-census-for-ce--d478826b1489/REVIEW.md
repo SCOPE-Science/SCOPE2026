@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The inequality \(v<2^k\) and the first two binomial congruences imply \(v=1+jm\) and \(j\equiv k\pmod m\), forcing the stated bound whenever \(m>k\). The coprimality of consecutive powers makes the residue for \(v\) unique. Two structurally different exhaustive exact-integer enumerators, bounded by the proved inequality, agree for all nineteen exponents and directly check every identity. The bound is infinite in its exponent parameter; the census is only for \(2\le k\le20\).
+## correctness
 
-## Originality — PASS, with literature risk
-Fel's 2016 full-text sections and appendix prove the \(k=2,3,4\) special cases and exhibit exponent-\(11\) and exponent-\(13\) equalities after numerical searches restricted to \(m\le50\). Neither a uniform finite cutoff for all exponents nor an exhaustive all-\(m\) classification through \(k=20\) was identified in the inspected source. The earlier squares/cubes paper is more restricted. Three live mathematical-results database queries targeted the defining equation, semigroup form and known examples; the closest returned statements concern other semigroups or Diophantine equations and do not imply the claim. Subsequent papers and nonindexed variants remain a residual uncertainty.
+PASS
 
-## Value — PASS
-The result converts a concrete open-ended digit-free Diophantine membership search arising from a published semigroup investigation into a finite, reproducible decision for each exponent, with a proof-level classification of nineteen natural initial exponent classes. Its mathematical use is the constrained power-representation phenomenon, not a claim that the five individual identities are new or that the entire semigroup symmetry problem is solved.
+For k,m>=2 and u,v>=0 with (2m+1)^k=u m^k+v(m+1)^k, positivity implies 0<=v<2^k. Reduction mod m yields v=1+jm, j>=0; reduction mod m² (k>=2) yields j=k mod m. If m>k, j>=k, so 1+km<=2^k-1 and m<=(2^k-2)/k. Otherwise m<=k. The cutoff M_k=max(k,floor((2^k-2)/k)) therefore covers ALL k. For each m,k, coprime m^k,(m+1)^k give unique admissible v as least residue of (2m+1)^k [(m+1)^k]^{-1} modulo m^k since v<2^k<=m^k. A nonnegative quotient gives solution; otherwise none. Independently enumerated all 111,114 pairs (k,m) for k=2..20 within proved cutoff using exact Python integers, obtaining exactly (2,2,4,1),(4,2,34,1),(4,3,17,4),(11,2,1093,263),(13,2,51118,503). Inspected companion CHECKER.py contains independent residue and constrained-j methods. This is finite but exhaustive because the cutoff is proved; no conclusion for k>20.
 
-## Scope and limits
-The equation is classified only through \(k=20\). The analytic cutoff applies for all \(k\ge2\); the attached code is finite evidence only within the cutoff. The principal remaining risk is an equivalent unpublished or incompletely indexed prior cutoff.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fel 2016 studied numerical semigroups from powers of three consecutive integers, including earlier k=2,3,4 classifications and the individual k=11,13 examples in a bounded search m<=50. The present identities are NOT individually novel. The surviving mathematics is a uniform analytic all-m cutoff for arbitrary k and a complete proof-level classification for k=2..20, rather than a truncated computational table.
+
+## value
+
+PASS
+
+The natural semigroup center-generator membership question previously had searches bounded ad hoc in m. The modular obstruction makes it decidable over a proved finite domain for each exponent; the nineteen-exponent census is a natural complete classification with exact, reproducible arithmetic, not an arbitrary slice. No claim is made to solve all k or all symmetric semigroups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
