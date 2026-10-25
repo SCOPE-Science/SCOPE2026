@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces the policy comparison to finite directed reachability and an exact integer Bernstein expansion. For each of the two exceptional graphs, the complete signed-coefficient vector was independently reconstructed from retained-arc subsets. The complete finite enumeration tested all labeled directed graphs through four vertices and, for the full-transmission boundary, all five-vertex directed graphs. Every strongly connected graph is included because the enumeration ranges over every possible loopless directed adjacency matrix, and strong connectivity is tested by reachability from every vertex. The exact witness fractions, polynomial expansions, numerical rational check, and isomorphism orbit counts agree with the proof. A compiled standalone checker reproduced the reported counts and expressions. No sampled evidence is treated as exhaustive.
+## correctness
 
-## Originality — PASS (conditional on further bibliographic review)
-Cohen et al. (2002/2003) previously introduced acquaintance immunization and analyzed it on broad-degree networks, including SIR models. Allard et al. (2023) previously differentiated forward and backward friendship-paradox sampling and epidemic risk on directed networks. Work on friendship paradoxes in directed social graphs (arXiv:1905.05286) previously identified directed degree-sampling biases. None of the examined material provides the exact expected-outbreak disadvantage for the stated one-vaccinee forward-out-neighbor rule, the unique four-vertex critical graph and transmissibility threshold, or the saturated five-vertex/eight-arc minimum. Targeted research-index and literature searches did not identify a stronger theorem implying the result. Failure to find a source is not proof of publication novelty; alternate names for directed immunization rules, graph reliability, or finite epidemic interventions remain possible.
+PASS
 
-## Mathematical value — PASS
-The two sharp finite thresholds identify a natural mechanism that invalidates blanket expectations that acquaintance vaccination necessarily improves outbreak outcomes. The result separates low transmissibility, where a four-person seven-arc network suffices, from complete transmissibility, which requires five vertices and eight arcs. Both boundaries are exact, invariant under relabeling, and realized by open transmission-parameter ranges (or the full-transmission endpoint). The classification supplies a reproducible test for local intervention rules on directional contacts, rather than merely a free-standing graph statistic.
+Exactly as defined (random first vertex, random OUT-neighbor for vaccination, random surviving seed, iid open directed arcs), a_v=(1/n) sum_{u->v}1/outdeg(u), and exact Bernstein coefficient expansion Δ=[nL(n-1)]^-1 sum B_k p^k(1-p)^(m-k). Inspecting original C++ confirmed enumeration of all 2^(n(n-1)) directed labels with reachability closure; independent compiled C++ independently enumerated all strongly connected n=2..4 graphs (counts 1,18,1606) with 24 relabelings as sole positive-Bernstein n=4 exceptions, and independently enumerated all n=5 graphs with <=8 arcs (34059 strongly connected), finding exactly 120 eight-arc full-transmission harmful graphs in a single asymmetric orbit and none at <=7 arcs. Exact G4 B=(0,1,0,-20,-60,-75,-44,-10) yields Δ=p(1-6p-5p²)/72. G5 B=(0,-18,-150,-486,-786,-660,-252,-12,12) yields displayed polynomial and Δ(1)=1/20. Complete original code also enumerates 2^20 n=5 graphs; independent checker covers only the decisive <=8-edge cutoff.
 
-## Closest literature and limitations
-The closest literature addresses the benefits of acquaintance immunization in undirected and large-network settings and the distinction between risk and spread in directed networks. This theorem is confined to one perfectly immunized vertex, one uniform post-vaccine seed, independent homogeneous directed transmissibility, and strongly connected finite directed graphs. It gives no empirical calibration or multiple-vaccine guarantee. The exhaustive certificate and bibliographic assessment have not received independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acquaintance immunization introduced for undirected heterogeneous networks and epidemic thresholds; directed epidemic studies distinguish infection risk and onward spread but do not establish the precise smallest finite strongly connected counterexamples for this out-neighbor rule, uniform post-vaccination seed, and expected Reed--Frost reachability. Analogous friendship-paradox sampling statements do not mathematically imply these exact finite extremizers.
+
+## value
+
+PASS
+
+Sharp smallest-network counterexamples in a concrete directed intervention model expose two distinct performance boundaries (any transmissibility versus full transmission), with exactly classified graph witnesses; natural finite optimization and model-design caution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
