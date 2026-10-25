@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Execute `python3 check_volumes.py` using Python 3.9 or later; no third-party libraries are required.
+## correctness
 
-The script independently computes exact anchored coordinate volumes using the leading Ehrhart coefficient obtained by counting integer lattice points in dilates of ten rational network-difference polytopes. It verifies the binomial formula for 492 multipartitions and tests 2230 strictly comparable unordered composition pairs at both within-part distances \(3/2\) and \(2\). Expected output:
+PASS
 
-`EXACT_MULTIPARTITE_VOLUME_PASS ehrhart=10 endpoints=492 majorization_pairs=2230`
+Reconstructed the anchored minimum-coordinate decomposition: spread r<=1 contributes N; spread r>1 forces extremal pair within one part and contributes n_i(n_i-1) integral_1^t r^(n_i-2)(2-r)^(N-n_i)dr. Endpoint beta/binomial calculation yields finite binomial tails. For fixed N the integrand second discrete difference is r^(s-3)(2-r)^(N-s-1)[2u^2+4s u d+s(s+1)d^2] with u=2-r and d=2(r-1), strictly positive for 1<r<t, proving transfer-majorization. Dominated convergence for balanced k>=3, central binomial asymptotics at k=2, and concentrated endpoint expansion give all growth regimes. Independently counted Ehrhart lattice points and recovered six exact n=4 anchored volumes, including fractional t.
 
-The rationale for using Ehrhart theory here is total unimodularity of the directed vertex-incidence difference matrix after multiplying all rational metric bounds by the denominator. The exact-volume calculations are checks, not an exhaustive proof for every dimension. The theorem for all real \(1\le t\le2\) follows from the measurable extrema decomposition, positive discrete second difference and beta-binomial/Stirling arguments in `RESULT.md`.
+## originality
 
-## Limits of verification
+PASS
 
-A finite checker cannot establish the infinite-dimensional quantifiers or prior-work novelty. The analytic proof addresses all dimensions; comparisons with accessible mathematical literature are described in `REVIEW.md`. No independent scientific validation or external certification has been performed.
+The complete two-level signed-chain polytope of Resultary record 84c1d3d87a65 is exactly the rooted K_{1,p,q} endpoint t=2 subcase, including a strict imbalance law; this substantial known part is expressly excluded from novelty. The wider k-partite continuous-t integral and all-part majorization go beyond that two-parameter endpoint. Prior Alexander et al. equilateral volume, Higashitani et al. facets, and a more recent interpolated metric facet census concern other invariants. No general dominating dual-volume statement located, but priority risk remains.
+
+## value
+
+PASS
+
+An infinite family of nontrivial metric dual bodies receives a natural exact volume functional, a sharp majorization extremal principle, and distinctly scaled k=2 versus k>=3 balanced growth; valuable for finite-dimensional Lipschitz-free and symmetric-edge polarity geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
