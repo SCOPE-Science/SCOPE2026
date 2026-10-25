@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Specified-cycle deletion is a bijection with fixed-root forests. Deleting r direct-cycle leaves and s deeper leaves leaves F(n-r-s,k) forests; their available parents number k^r(m-r-s)^s. The exact factorial-moment identity follows by the ordered-marking factor. From moments (1,0),(0,1),(1,1), the ratio E[JH]/(EJ EH) is below 1 for m>=3 because m(n-1)^2-(m-2)n^2=2n(n-m)+m>0; m=2 has E[JH]=0 and m=0,1 has H=0. First-order logarithmic expansion proves the asymptotic constant. 203 forest and 70 independent graph checks passed; finite checks are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman 1996 Section 6 (38)–(39) is an all-root-set weighted outdegree identity",
+        "Pitman 1996 Section 2.1 (6) enumerates forests for a specified root set"
+      ],
+      "reasoning": "The degree-vector polynomials do not record whether a degree-one nonroot attaches directly to the unique cycle; they cannot alone imply the two parent-color mixed moments. The proof takes the classical uncolored forest count as a premise.",
+      "searches": [
+        "Pitman Coalescent Random Forests formula (39) fixed roots outdegree",
+        "random forests leaves roots joint distribution root-adjacent leaves",
+        "random unicyclic graph number leaves given cycle length forests"
+      ]
+    },
+    "checked_sources": [
+      "Pitman 1996 Berkeley Technical Report 457, pages 3–4 and 20–22, https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+      "Ben-Naim–Krapivsky 2004 author-posted full-text transcription, https://www.researchgate.net/publication/220485769_Unicyclic_Components_in_Random_Graphs",
+      "Janson 2003 publisher abstract, https://doi.org/10.1017/S0963548302005412"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson abstract identifies size/length point-process results, full text not inspected",
+        "Ben-Naim–Krapivsky full author-posted transcription discusses time-dependent number of unicyclic components and size distributions",
+        "Pitman exact fixed-root forest count but no cycle-parent leaf partition in inspected statements"
+      ],
+      "reasoning": "An implication comparison must retain the parent-on-cycle predicate in J and H. The prior marginal results and component-size results discard this predicate; the proof counts marked leaf reattachments in two distinct parent classes. Lack of Janson full text remains a specific risk, not a claim of whole-document absence.",
+      "searches": [
+        "Cycles and Unicyclic Components in Random Graphs Janson 2003",
+        "Ben-Naim Krapivsky Unicyclic Components in Random Graphs cond-mat/0403453",
+        "conditional on cycle length, uniform labeled unicyclic graph, joint counts of pendant vertices adjacent to unique cycle and pendant vertices at distance at least two; exact mixed factorial moments; negative covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman 1996 fixed-root count in formula (6)",
+        "Exact total-leaf/cycle-length enumeration for unicyclic graphs exists separately and is not claimed as new"
+      ],
+      "reasoning": "The full law of J+H and root-fixed forest counts give no identity for the split (J,H) without a new root-versus-nonroot parent-marking argument. Equality of the uncolored marginal does not imply a unique bivariate refinement.",
+      "searches": [
+        "random rooted forest k prescribed roots direct-root child leaves versus deeper leaves full joint factorial moments",
+        "rooted Cayley forest with fixed roots joint leaf types children of roots versus children of nonroots all mixed falling factorial moments",
+        "unicyclic graph leaves number leaves given cycle length forests exactly leaf count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously known exact (cycle length,total leaf count) enumeration is materially overlapping at the marginal level",
+        "No retrieved scientific record gave the joint shallow/deep leaf table"
+      ],
+      "reasoning": "The known two-parameter counts (cycle length and total leaves) are covered prior facts; the present three-way array conditioned on cycle length and partitioning leaves by whether their parent is on the cycle is not obtained from their sum alone. Negative search is not a priority proof.",
+      "searches": [
+        "unicyclic graph number leaves conditional cycle length random labeled unicyclic forest occupancy Prüfer",
+        "unicyclic random graph distance from cycle of degree-one vertices, pendant leaf shallow deep covariance",
+        "In uniform connected unicyclic graph conditioned on cycle length, number of degree one vertices neighboring the cycle and number at distance at least two have strictly negative covariance"
+      ]
+    },
+    "rationale": "The claim is the two-class distribution of leaves by adjacency to a cycle and its strict conditional negative covariance; known rooted forest counts and known exact total-leaf/cycle-length marginal are excluded from novelty. A total-leaf count and uncolored degree counts cannot recover which terminal nodes have a cycle parent. The inspected full text and research searches did not supply an equivalent two-class statement; Janson full-text access is a recorded priority risk.",
+    "residual_risks": [
+      "Full text of Janson 2003 was inaccessible and is not deemed checked for whole-document noncoverage.",
+      "A differently named colored rooted-forest enumeration might encode the joint parent-color distribution; absence of a retrieved equivalent is not a proof of priority.",
+      "The older exact total-leaf/cycle-length marginal is covered and excluded from the new claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the exact F(q,k) rooted-forest enumeration used here and broader degree-weight polynomial identities. Its degree-vector and free-root identities do not determine the parent-of-leaf root membership defining J versus H; not claiming those priors as new.",
+        "evidence": [
+          "Pitman, formula (6): exactly k*q^(q-k-1) forests with k specified roots",
+          "Pitman, formula (39): polynomial over all root sets and outdegree counts, not cycle-adjacent leaf partition"
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+        "material_read": "Full text searched for leaf, degree, rooted-forest counts; inspected Section 2.1 formulas (5)–(6), Section 5.1 rooted-tree degree laws, Section 6 Theorem 11 and its forest polynomial identity; read PDF pages 3–4 and 20–22 with visual page inspection.",
+        "method": "HTML landing page for earliest public date; PDF text and page screenshots",
+        "title": "Coalescent Random Forests",
+        "trigger": "Fundamental prescribed-root forest count and possibility of a stronger weighted degree-law implication"
+      },
+      {
+        "assessment": "Studies evolving random graph with multigraph/self-connection allowances and component-size distributions. No two-class degree-one/cycle-distance joint law located in the inspected full transcription.",
+        "evidence": [
+          "Original abstract and stated equation (1) describe expected number of unicyclic components by their total size",
+          "Model discussion explicitly allows self-connections, unlike the simple-graph conditional object here"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0403453",
+        "material_read": "Full author-posted original research text available as the ResearchGate HTML transcription, from abstract through analytic model and discussion; site text searched for leaf and degree-one statistics.",
+        "method": "Author-posted manuscript transcription at https://www.researchgate.net/publication/220485769_Unicyclic_Components_in_Random_Graphs",
+        "title": "Unicyclic Components in Random Graphs",
+        "trigger": "Same unicyclic components, potential broader size and leaf-class enumeration"
+      },
+      {
+        "assessment": "Abstract concerns cycle and component lengths near the random-graph transition, not a stated split of leaves by their distance to the cycle. Full-document implication comparison remains a historical-priority risk, not a NOT_COVERING conclusion.",
+        "evidence": [
+          "Journal abstract names cycle and unicyclic component sizes and point-process scaling laws; no claim of leaf-distance covariance in accessible material"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548302005412",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text was not accessible in this run.",
+        "method": "Cambridge Core publication page and bibliographic index",
+        "title": "Cycles and Unicyclic Components in Random Graphs",
+        "trigger": "Highly relevant cycle-length distributions in random graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ee31f6d-c5e8-4aca-9a0f-2a2cdb51654f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaves directly attached to the unicyclic two-core versus leaves deeper in pendant trees are natural core–periphery observables. All mixed factorial moments determine their full joint distribution, and the universally strict negative conditional covariance with explicit linear-scale limit expresses structural competition not recoverable from the total-leaf marginal. The result is an exact natural finite classification rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
