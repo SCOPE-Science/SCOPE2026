@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the rational symmetry calculation
+# Independent mathematical audit
 
-Run `python3 verification/verify_character.py` in this package. The implementation uses only the Python standard library, reconstructs all vertices and edges of the Petersen graph as disjoint pairs of two-subsets, and enumerates every valid degree-two edge subset. The calculation is complete for this finite graph, not an extrapolation.
+## correctness
 
-The verifier independently checks the full face vector, constructs the explicit repeated-toggle Morse matching, validates each incidence and each matched cover, and tests absence of directed cycles by a topological sort of all Hasse nodes. This proves the nonequivariant homology premise rather than assuming the older published result.
+PASS
 
-For all seven conjugacy classes of \(S_5\), it computes the character in two independent ways: alternating counts of admissible unions of edge-orbits and direct signed Lefschetz traces on every setwise invariant simplex. Both match the standard character. The complete expected output from the included program is `verification/verification_output.txt`.
+M2(Petersen) has 15 vertices corresponding to graph edges and faces exactly edge subsets with incident degrees ≤2. Independent enumeration builds 10869 nonempty faces f=(15,105,445,1245,2358,2985,2400,1095,215,6), 5432 acyclic disjoint staged toggles, one critical vertex/four critical 7-cells and full 63780 directed Hasse incidences topologically sorted. So the separately published wedge4 S7 premise is independently confirmed. For all seven S5 cycle types, both direct signed fixed-face Lefschetz and edge orbit union count give top H7 traces (4,2,0,1,-1,0,-1)=fixed ground letters−1. Rational character theorem identifies Sp(4,1) standard; for any finite subgroup H≤S5, barycentric subdivision and rational averaging identify reduced homology of |K|/H with H-invariants, dimension (# five-letter H-orbits)−1 in degree 7. No integral quotient torsion claim.
 
-The inference from character values to a rational representation is standard semisimple character theory. The subgroup-quotient homology follows from invariant rational chains after barycentric subdivision. The checks do not identify an integral lattice, integral quotient torsion or absolute originality. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Published Petersen two-matching wedge4 S7 explicitly predates this assessment and is not claimed original. Vega and Singh explain two/higher matching theory but no Petersen S5 full-character formula; Resultary related Petersen ordinary matching and configuration-space modules act on different complexes. Character and all subgroup quotient homology require new equivariant traces, not a known dimension 4.
+
+## value
+
+PASS
+
+The two-matching complex on the exceptional Petersen graph is a natural bounded-degree simplicial complex; its rational S5 module and invariant dimensions for ALL subgroups are canonical exact invariants. Distinguishing the standard module among four-dimensional possibilities and determining every finite symmetry quotient gives useful representation-theoretic/topological structure beyond the known nonequivariant wedge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

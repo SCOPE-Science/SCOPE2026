@@ -1,17 +1,21 @@
-# Scientific review: Petersen two-matching symmetry module
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every simplex is generated from the exact degree-two incidence condition on the ten Petersen vertices. The complete checker reconstructs 10,869 nonempty faces, 5,432 disjoint acyclic Morse pairs and precisely one critical vertex plus four critical seven-cells; the directed Hasse certificate covers all 63,780 incidences. This proves the homology-concentration premise. For each of the seven conjugacy classes of the natural five-letter symmetric group, the signed invariant-simplex Lefschetz sum and alternating admissible-edge-orbit formula agree exactly with the character of the standard module. The quotient statement follows from averaging invariant rational simplicial chains after barycentric subdivision. All calculations are finite, exact and reproducible.
+PASS
 
-## Originality
+M2(Petersen) has 15 vertices corresponding to graph edges and faces exactly edge subsets with incident degrees ≤2. Independent enumeration builds 10869 nonempty faces f=(15,105,445,1245,2358,2985,2400,1095,215,6), 5432 acyclic disjoint staged toggles, one critical vertex/four critical 7-cells and full 63780 directed Hasse incidences topologically sorted. So the separately published wedge4 S7 premise is independently confirmed. For all seven S5 cycle types, both direct signed fixed-face Lefschetz and edge orbit union count give top H7 traces (4,2,0,1,-1,0,-1)=fixed ground letters−1. Rational character theorem identifies Sp(4,1) standard; for any finite subgroup H≤S5, barycentric subdivision and rational averaging identify reduced homology of |K|/H with H-invariants, dimension (# five-letter H-orbits)−1 in degree 7. No integral quotient torsion claim.
 
-**PASS, subject to residual literature risk.** The closest published result already gives the nonequivariant wedge of four seven-spheres but does not determine how the symmetric group acts. Vega treats the bounded-degree construction and matching algorithms; Singh's scope is complete and complete-bipartite graphs; Ghosh and Selvaraja prove clique-free shellability under hypotheses excluding this line graph. Published mathematical-record searches under matching-complex, bounded-degree, clique-free line-graph, Kneser-graph, Specht-module and quotient aliases found no equivalent rational representation or dominating theorem. Abstract homotopy rank four does not imply the computed representation. The remaining possibility is a not-indexed equivalent specialization or a stronger unpublished equivariant formula.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The five-letter standard character is a complete representation-theoretic strengthening of a known four-sphere homotopy classification and reveals how automorphisms act on homology. Unlike a face count or isolated trace, it immediately classifies the rational homology of *all* subgroup quotients by the simple, natural invariant of point-orbit count. Such quotients can be rationally acyclic even though the original complex has four independent top cycles. The exact comparison of seven character classes rules out several inequivalent four-dimensional representations.
+Published Petersen two-matching wedge4 S7 explicitly predates this assessment and is not claimed original. Vega and Singh explain two/higher matching theory but no Petersen S5 full-character formula; Resultary related Petersen ordinary matching and configuration-space modules act on different complexes. Character and all subgroup quotient homology require new equivariant traces, not a known dimension 4.
 
-The proof does not classify integral symmetry lattices or quotient torsion, and independent scientific validation remains outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-matching complex on the exceptional Petersen graph is a natural bounded-degree simplicial complex; its rational S5 module and invariant dimensions for ALL subgroups are canonical exact invariants. Distinguishing the standard module among four-dimensional possibilities and determining every finite symmetry quotient gives useful representation-theoretic/topological structure beyond the known nonequivariant wedge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
