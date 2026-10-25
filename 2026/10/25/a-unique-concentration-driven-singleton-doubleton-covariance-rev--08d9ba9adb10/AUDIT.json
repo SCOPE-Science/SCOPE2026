@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Marginal and two-category beta/Dirichlet–multinomial probabilities yield covariance K^2 p1 p2 (R-1). Factorization in inverse concentration t isolates increasing factors and B(t). Direct derivation gives B'/B numerator a cubic, all coefficients proved strictly positive for K>=2+choose(n-1,2) using explicit positive polynomials in n-4. The two endpoint ratios straddle 1, so continuity and strict monotonicity imply a unique crossing. Exact-rational enumeration and polynomial-identity checks were executed from the current package; they are not substitutes for the analytic proof. The claimed exact endpoint condition for R(infinity)>1 follows by an algebraic inequality. The equality boundary K=1+choose(n-1,2) is not assigned a finite-shape sign.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mao–Ma 2020, section 2.1 eq. (2.1), states the Dirichlet–multinomial model and familiar cross-category covariance structure, not the two nonlinear occupancy-class statistics.",
+        "Related published occupancy-richness/frequency records have an occupied-category count rather than a singleton–doubleton pair, or assume plain iid multinomial sampling."
+      ],
+      "reasoning": "General Dirichlet-multinomial likelihood or individual-coordinate covariance does not imply a global sign switch for the nonlinear pair (M1,M2). The reviewed generic occupancy–richness and stable-Poisson–Dirichlet statements do not cover this finite symmetric concentration-varying pair. However general Gibbs-partition moment classifications remain a residual coverage risk.",
+      "searches": [
+        "Symmetric Dirichlet multinomial urn frequency of frequencies covariance singleton doubleton count sign transition finite alphabet concentration parameter",
+        "Polya urn symmetric finite colors singleton doubleton covariance threshold number of colors binomial n-1 choose 2",
+        "Finite symmetric Dirichlet multinomial singletons doubletons covariance has one crossing as concentration increases, K at least 2+choose(n-1,2), finite urn reinforcement",
+        "arxiv:2008.00400 Dirichlet-tree multinomial count covariance model"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1703.07747 (full-text HTML, section 5)",
+      "arxiv:2008.00400 (full-text model section 2.1)",
+      "arxiv:2103.07518 (full-text HTML, exceptional finite Dirichlet case)",
+      "A one-switch covariance law for occupancy richness and frequency counts (published mathematical finding, title and claim summary inspected)",
+      "Occupied-box indicators have a strictly positive precision matrix (published mathematical finding, title and claim summary inspected)",
+      "Exact missing-mass covariance identity and sign reversal for successive species discoveries (published mathematical finding, title and claim summary inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 MIMIX studies rare category count diagnostics but not Dirichlet–multinomial two-frequency covariance.",
+        "2020 Dirichlet-tree multinomial paper provides the compound model and dispersion motivation, but no concentration-wide singleton–doubleton phase diagram.",
+        "2021 Zhu richness law treats the number of distinct sampled categories, not covariance of exactly-one and exactly-two class counts.",
+        "Closest own claims: one finite symmetric Dirichlet–multinomial result correlates unseen categories with r-fold categories; another stable Poisson–Dirichlet result correlates singleton/doubleton classes in a distinct infinite-type positive-discount model."
+      ],
+      "reasoning": "The new statement varies per-color Dirichlet shape in a fixed finite alphabet, proves normalized mixed-frequency ratio strictly decreases for every shape at a specified nontrivial alphabet threshold, and identifies its exact endpoint cutoff. Neither a different covariance pair in the same family nor the same pair in the positive-discount infinite-type model implies this statement without an additional monotonicity proof.",
+      "searches": [
+        "For symmetric finite Dirichlet multinomial sampling with m colors, what is covariance between count of singleton colors and count of doubleton colors, and does overdispersion cause one sign switch in concentration parameter?",
+        "Finite symmetric Dirichlet multinomial singletons doubletons covariance has one crossing as concentration increases, K at least 2+choose(n-1,2), finite urn reinforcement",
+        "arxiv:1703.07747 full-text section 5",
+        "arxiv:2103.07518 full-text exceptional parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhu 2021, lines 650–652, identifies finite symmetric Dirichlet as the negative-discount branch of a two-parameter partition model.",
+        "A previous stable positive-discount infinite Poisson–Dirichlet singleton–doubleton sign-transition result concerns a different parameter line and law."
+      ],
+      "reasoning": "Finite symmetric Dirichlet–multinomial occupancies are equivalent to negative-discount finite-type exchangeable partition counts. This equivalence was used in search. A positive-discount infinite-type result is not stronger coverage because it excludes the negative-discount/finite-type family, and it does not imply monotonicity in the Dirichlet per-color concentration.",
+      "searches": [
+        "Dirichlet multinomial species frequency count covariance of number of species appearing once and twice sign overdispersion crossover",
+        "Ewens Pitman negative discount alpha finite number of colors symmetric Dirichlet singleton doubleton frequency counts covariance sign concentration threshold",
+        "arxiv:2103.07518; exceptional negative-discount finite symmetric Dirichlet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct parameter-table entry for the concentration threshold or global sign classification was returned by the published mathematical search; nearest results have different count pairs."
+      ],
+      "reasoning": "The theorem is an infinite family of algebraic monotonicity statements, not a finite catalog entry. An indexed table of small-ratio roots would not establish the all-integer/no-second-crossing theorem, but lack of a found table is not proof of novelty.",
+      "searches": [
+        "Dirichlet multinomial species frequency count covariance of number of species appearing once and twice sign overdispersion crossover",
+        "one switch covariance singleton doubleton symmetric Dirichlet multinomial concentration",
+        "Dirichlet-multinomial occupancy frequency spectrum joint singleton doubleton covariance positive negative dependence uniqueness finite alphabet"
+      ]
+    },
+    "rationale": "Full-text 2017, 2020, and 2021 related literature was inspected; searched mathematical records for concentration-varying singleton–doubleton covariance aliases, negative-discount exchangeable partition equivalence and stronger coverage. The closest known results treat full DM count moments, richness-versus-frequency covariances or positive-discount infinite-type sampling. Those statements do not imply the new finite symmetric DM all-concentration one-crossing theorem. Priority remains conditional on uncovered Gibbs-partition moment literature.",
+    "residual_risks": [
+      "Unindexed or non-open full-text studies might already prove monotonicity of the finite symmetric Dirichlet–multinomial singleton–doubleton ratio.",
+      "Known negative-discount Gibbs partition identities may admit an unstated corollary covering this result; database search alone cannot exclude this.",
+      "A prior published result on the same pair but different parameter line is not automatically equivalent; the claim-to-prior comparison relies on the verified finite-type versus infinite-type distinction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The work motivates rare-count statistics and dependence but uses mixed-effects/factor constructions rather than proving finite symmetric Dirichlet–multinomial occupancy-class covariance monotonicity.",
+        "evidence": [
+          "Section 5 discusses singleton and doubleton counts as sequencing-error-prone categories, and posterior checks on species with 0 or <=2 observations (arXiv HTML lines 163-168).",
+          "First submitted 22 March 2017 (arXiv abstract record)."
+        ],
+        "identifier_or_url": "arxiv:1703.07747; https://arxiv.org/html/1703.07747v1",
+        "material_read": "Sections 1, 4, 5 and conclusions; especially sparsity posterior-predictive material referring to zero-count and at-most-two-count taxa",
+        "method": "Open-access full-text HTML reading and content search",
+        "title": "MIMIX: a Bayesian Mixed-Effects Model for Microbiome Data from Designed Experiments",
+        "trigger": "Explicit singleton and doubleton count statistics as sparse microbiome features and inter-taxon dependence"
+      },
+      {
+        "assessment": "Defines the same Dirichlet–multinomial hierarchical construction (without symmetry restriction); its cited count covariance is of categorical count coordinates and not covariance of sample-wide singleton and doubleton class counts. No monotone ratio sign-switch theorem is stated in inspected material.",
+        "evidence": [
+          "Section 2.1 eq. (2.1) contains conditional multinomial and Dirichlet mixing, lines 41–50.",
+          "Lines 27–33 identify concentration as governing overdispersion, not the two-frequency covariance sign."
+        ],
+        "identifier_or_url": "arxiv:2008.00400; https://arxiv.org/abs/2008.00400",
+        "material_read": "Full text introduction and model section 2.1, equations (2.1) and (2.2), and discussion of concentration and cross-taxon covariance",
+        "method": "Open-access parsed full text including model equations and sections",
+        "title": "Dirichlet-tree multinomial mixtures for clustering microbiome compositions",
+        "trigger": "Dirichlet–multinomial baseline for overdispersed categorical count data; single concentration parameter"
+      },
+      {
+        "assessment": "Recognizes symmetric finite Dirichlet partition sampling as a special parameter line but analyzes the distribution of number of distinct values; does not supply the mixed singleton–doubleton covariance one-crossing statement.",
+        "evidence": [
+          "Exceptional parameters discussion, HTML lines 650–652: finite symmetric Dirichlet law occurs for negative discount and finite total-type parameter.",
+          "No singleton-frequency moment or cross-class concentration-threshold theorem occurs in the inspected sections."
+        ],
+        "identifier_or_url": "arxiv:2103.07518; https://arxiv.org/html/2103.07518v1",
+        "material_read": "Sections on exchangeable sample richness, three-draw laws, and the exceptional negative-discount parameter subsection near the end",
+        "method": "Open-access HTML full text and searches of contents and formulas for frequency and singleton",
+        "title": "The distribution of the number of distinct values in a finite exchangeable sequence",
+        "trigger": "Finite symmetric Dirichlet frequencies are an exceptional negative-discount exchangeable partition family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08d9ba9a-db10-4fbd-b625-aa78b4e7f0b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counts observed exactly once and twice are meaningful sparsity/diversity diagnostics (2017 microbiome literature explicitly considers both) and symmetric Dirichlet mixing is a widely used baseline for overdispersed categorical counts (2020 model literature). Proving a unique covariance sign reversal as the reinforcement parameter varies is a new structural phase classification, not merely the known raw second moment formula. The exact threshold for the normalized small-shape sign-ratio limit explains which finite alphabet sizes support the positive-dependence regime.",
+    "status": "PASS"
+  }
+}
