@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Signed cubical differential computations on all \(15+48+30\) cells, an exact Smith form with 26 unit invariant factors, and a four-column top-cycle lattice with a unimodular minor reconstruct integral homology. Signed chain-equivariance and the torus action were checked for all 48 automorphisms; exact character inner products reproduce the two proposed rational decompositions. The equivalence to the continuous configuration space uses the cited Prue–Scrimshaw theorem.
+## correctness
 
-**Originality — PASS, with limited bibliographic certainty.** Barnett–Farber's ordered planar graph-space results and subsequent general product-cycle statements already explain the existence of disjoint-cycle tori; that general fact is not new. General first-homology calculations likewise do not themselves state a complete automorphism character. The closest same-graph indexed computation concerns the matching complex rather than this particle space, and the closest same-problem indexed representation concerns the cuboctahedron. Primary literature and equivalent-object searches did not identify the explicit integral torus action together with the full rational 48-element character. An equivalent unindexed calculation remains possible.
+PASS
 
-**Value — PASS.** The natural octahedral graph-particle problem has a complete integral second-homology symmetry lattice and a fully determined first-homology rational representation. Their orientation and invariance patterns refine ordinary Betti numbers and supply a canonical finite graph-braid symmetry benchmark.
+For the octahedron K(2,2,2), the standard unordered two-particle closed-cell discretization has 15 vertices, 48 one-cells, 30 square two-cells. The inspected signed cubical differentials satisfy d1d2=0, ranks d1=14,d2=26 and Smith form d2 with 26 unit factors, giving integral H0=Z,H1=Z^8,H2=Z^4. Four products of opposite triangular face cycles are integral two-cycles, and their 4×4 coefficient minor on square indices (0,1,5,6) has determinant+1, hence an integral basis for the saturated four-dimensional two-cycle kernel. Direct signed action on all 48 octahedral automorphisms verifies g wi=det(g)sgn(pi_g)w_(pi_g(i)); equivariant Euler–Poincare traces then yield the displayed rational H1 and H2 S4×C2 modules and ten class values. The subdivision theorem applies since essential-to-essential paths have at least one edge and nontrivial cycles have length at least three.
 
-**Limitations.** The first-homology representation is rational, not an asserted integral module classification. No multi-particle extension, cup-product description, or independent scientific audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new information is the complete 48-symmetry rational modules on the UNORDERED octahedral two-particle configuration space and explicit integral H2 sign/determinant torus lattice. Published cuboctahedral, dodecahedral and Petersen unordered space computations concern different graphs. Octahedral matching complex homology is another functor; Barnett–Farber analyze ordered graph-particle topology and product tori without the present 48-action.
+
+## value
+
+PASS
+
+The canonical octahedral graph is a natural finite graph-braid example where group symmetry can be computed completely; an explicit integral 4-torus basis with action is stronger than numerical Betti ranks and differentiates orientation-parity on physical symmetries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
