@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:55:05.862117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Checked the exact unbiased edge-picking/copying update law, random iid fair start, attempted updates including null changes, and independent exponential(rate n) continuous-time clock. Transient complementary configuration rate matrix Q has diagonal sum n d_s(v)/(2|E|) and negative flip rates; Q m_1=1 and Q m_2=2 m_1, averaging 2^{n-1} complement classes with absorbing starts contributes zero. K and T obey ET=EK/n and Var(T)=(Var(K)+EK)/n^2, so count-variance and time-variance signs must be tested separately. The finite universe of connected unlabeled graphs n=2..5 has (1,2,6,21) classes and (0,1,11,80) graph/nonedge tests. A separate exact rational solver over networkx.graph_atlas_g (not repository verifier) obtained opposite-sign counts for (time-mean, time-variance) and (count-mean, count-variance) respectively n4 (3,0) and n5 (0,1), zero below. The n4 positives are equivalent star-leaf additions; the n5 reverse is K5 minus edges 01,24,34 then add 01. This is a complete finite proof via all unlabeled graph classes, not a claimed large-n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iwamasa–Masuda prove network shapes maximizing mean consensus time for several update rules; no second-moment edge-insertion enumeration follows from their reported mean-only maximization theorem.",
+          "Sood et al derive fixation and consensus-time behavior, not the exact 80-test n5 sign patterns."
+        ],
+        "reasoning": "A theorem optimizing the mean over all graphs has no algebraic implication for the sign of variance after a fixed edge addition; models must also match link update and random initialization.",
+        "searches": [
+          "arXiv:0712.4288 §§II–III",
+          "arXiv:1404.6360 introduction and results on maximum mean consensus",
+          "Masuda arXiv:1403.4763 two-clique mean consensus"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify_link_dynamics.py (exact blob identities)",
+        "https://arxiv.org/abs/0712.4288 (material inspected)",
+        "https://arxiv.org/abs/1404.6360 (material inspected)",
+        "https://arxiv.org/abs/1403.4763 (context only)",
+        "Resultary searches listed in named checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A first-moment optimum can coexist with either sign of added-edge variance; Q m2=2 m1 requires separate calculation.",
+          "n4 versus n5 minimal counterexamples are not corollaries of the cited continuum scaling laws."
+        ],
+        "reasoning": "The second moment and cross-graph discrete-clock correction are independent input; existing first-moment results are not claimed new.",
+        "searches": [
+          "Sood Antal Redner 2007/2008 voter link-dynamics definitions",
+          "Iwamasa Masuda 2014 mean consensus optimizer graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sood–Antal–Redner define link dynamics as random link then random endpoint adopts the other opinion; this exactly matches the source update law.",
+          "Continuous independent rate-n holding times transform count moments as ET=EK/n, Var(T)=(Var(K)+EK)/n², so exact time comparisons do not simply equal discrete variance comparisons."
+        ],
+        "reasoning": "Matched the microscopic stochastic clock and fair initialization, distinguished voter-model/invasion-process update schemes, count versus continuous variance and graph/nonedge orbit notion.",
+        "searches": [
+          "arXiv:0712.4288 link dynamics consensus time",
+          "web: voter model link dynamics edge addition consensus time variance",
+          "Resultary: voter model link dynamics adding edge consensus time mean variance opposite changes minimum order graph 4 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent census 1,2,6,21 connected classes, tests 0,1,11,80; opposed sign time/count pairs n4 (3,0), n5(0,1).",
+          "No identical table found in inspected primary mean-only papers or Resultary top matches."
+        ],
+        "reasoning": "The claim supplies a new-looking exact table of threshold witness edge classes; graph-atlas class counts themselves are well known and not asserted as novel.",
+        "searches": [
+          "Resultary: mean variance voter consensus link updates edge insertion graph 5 nodes",
+          "https://arxiv.org/abs/1404.6360",
+          "Pinned census connected unlabeled graphs n2-5"
+        ]
+      },
+      "rationale": "PASS — The link-dynamics definition and first-moment consensus scaling are classical. Inspected primary papers analyze mean/fixation probabilities and mean-time maximizing graphs, not the simultaneous exact *mean and variance* effects of a single added nonedge together with both sharp minimum orders. No Resultary published record with the four/five-agent sign-pattern census was returned; semantic similarity misses remain possible.",
+      "residual_risks": [
+        "Other stochastic-network work may contain a coincident small-graph exact second-moment table under link dynamics, especially not semantically indexed.",
+        "The census is exhaustive ONLY for connected simple graphs of <=5 vertices and uniform link dynamics, not biased opinions or weighted graphs.",
+        "A networkx graph atlas enumeration is an independent second implementation for these small orders, not an extension to n>5 or a formal Lean proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL: matches link dynamics definition but inspected analysis addresses mean/fixation scaling, not n<=5 exact mean–variance sign-class enumeration",
+          "evidence": [
+            "p0 link dynamics (i) choose random link, (ii) random endpoint adopts neighbor; subsequent mean-time scaling"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.4288",
+          "material_read": "Accessible full arXiv PDF; model-definition lines at first page, link-dynamics item and later discussion of consensus-time and fixation",
+          "method": "PDF page 0/1 screenshot and full-text relevant section examination",
+          "title": "Voter Models on Heterogeneous Networks",
+          "trigger": "Original microscopic link-dynamics model and consensus-time normalization"
+        },
+        {
+          "assessment": "BROADER_MEAN_ONLY: studies mean consensus extrema across networks, without a stated sharp mean–variance edge-addition census in inspected material",
+          "evidence": [
+            "Abstract: lollipop, barbell, double-star mean-time maximizers under different updates; no variance occurrence on text search"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.6360",
+          "material_read": "Full legally available 38-page arXiv PDF; abstract and introduction defining VM/LD/IP and reported mean-time extremal graph results; searched full text for variance",
+          "method": "PDF screenshot page0 and mathematical theorem/results text searches",
+          "title": "Networks Maximising the Consensus Time of Voter Models",
+          "trigger": "Closest first-moment edge/network extremal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Mean response time and dispersion are distinct natural stochastic-performance metrics, and the first network orders where an edge worsens one while improving the other are meaningful sharp boundaries. The complete exact-rational census gives reproducible small-network counterexamples relevant to edge-intervention monotonicity, without claiming a large-graph classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other stochastic-network work may contain a coincident small-graph exact second-moment table under link dynamics, especially not semantically indexed.",
+    "The census is exhaustive ONLY for connected simple graphs of <=5 vertices and uniform link dynamics, not biased opinions or weighted graphs.",
+    "A networkx graph atlas enumeration is an independent second implementation for these small orders, not an extension to n>5 or a formal Lean proof.",
+    "All five Git API tree-object SHA identities and fetched result/verifier blob identities were checked; exact recursive Git tree bytes not recomputed locally.",
+    "Mathematical and literature C/O/V are independent best-of-knowledge assessments, not Lean verification or human/external certification.",
+    "Scientific PASS is separate from file publication authorization: plan remains not_ready until complete privacy sanitization is staged and validated."
+  ],
+  "schema_version": 1
+}

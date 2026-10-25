@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The continuous-time flip rates derive directly from uniformly choosing an edge, then the copying endpoint. Exact rational inversion of the transient rate matrix gives raw first and second moments under the fully specified fair independent initial law, including two zero-time absorbing starts. Algebraically the first two moment systems are independently checked by substitution. The canonical graph generator exhausts all labeled graphs up to five vertices before quotienting by vertex permutations, and all nonedges of each representative are considered. Every strict sign and witness equality is rational. The Poisson attempt-clock relation is an exact conditional expectation/variance identity. The proof is finite and covers precisely the claimed size range.
+PASS
 
-## Originality — PASS, with residual risk
+PASS — Checked the exact unbiased edge-picking/copying update law, random iid fair start, attempted updates including null changes, and independent exponential(rate n) continuous-time clock. Transient complementary configuration rate matrix Q has diagonal sum n d_s(v)/(2|E|) and negative flip rates; Q m_1=1 and Q m_2=2 m_1, averaging 2^{n-1} complement classes with absorbing starts contributes zero. K and T obey ET=EK/n and Var(T)=(Var(K)+EK)/n^2, so count-variance and time-variance signs must be tested separately. The finite universe of connected unlabeled graphs n=2..5 has (1,2,6,21) classes and (0,1,11,80) graph/nonedge tests. A separate exact rational solver over networkx.graph_atlas_g (not repository verifier) obtained opposite-sign counts for (time-mean, time-variance) and (count-mean, count-variance) respectively n4 (3,0) and n5 (0,1), zero below. The n4 positives are equivalent star-leaf additions; the n5 reverse is K5 minus edges 01,24,34 then add 01. This is a complete finite proof via all unlabeled graph classes, not a claimed large-n theorem.
 
-The checked 2007 link-dynamics source supplies the model and mean-time asymptotics, and the checked 2014 full-text sources address mean consensus times and graph effects. The earlier mean-only edge examples and general moment equations do not imply opposing signs for variance, their sharp graph minima, or the reverse five-vertex unique edge orbit. research-index semantic queries and accessible previously established claims were compared by mathematical implication; the nearest previously examined claim on an analogous tradeoff is for Moran/invasion dynamics on six vertices, a different transition kernel, and the closest previously examined link-dynamics result concerns mean only. A paper treating link-dynamics hitting-time variability under alternative terminology could still subsume the finite classification; no claim of database-complete novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two natural risk measures for a binary consensus process—expected convergence delay and variability around it—need not improve together when a contact is inserted. The exact, distinct minimum population sizes and unique first reverse-type intervention distinguish a structural network effect from a loose example. This motivates using both mean and dispersion when comparing interventions in small social-contact networks. The finite classification does not establish empirical or large-network behavior.
+PASS — The link-dynamics definition and first-moment consensus scaling are classical. Inspected primary papers analyze mean/fixation probabilities and mean-time maximizing graphs, not the simultaneous exact *mean and variance* effects of a single added nonedge together with both sharp minimum orders. No Resultary published record with the four/five-agent sign-pattern census was returned; semantic similarity misses remain possible.
 
-## Independent verification
+## value
 
-The standalone exact-rational verifier was executed successfully. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Mean response time and dispersion are distinct natural stochastic-performance metrics, and the first network orders where an edge worsens one while improving the other are meaningful sharp boundaries. The complete exact-rational census gives reproducible small-network counterexamples relevant to edge-intervention monotonicity, without claiming a large-graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

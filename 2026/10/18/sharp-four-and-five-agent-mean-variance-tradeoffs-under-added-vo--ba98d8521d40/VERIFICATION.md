@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_link_dynamics.py` with Python 3; no external packages or data are needed. All graph states, graph isomorphism permutations, moment matrices and fraction operations are generated from the source code. The verifier checks the moment defining equations by substitution and asserts exact class counts \((1,2,6,21)\), edge-addition counts \((0,1,11,80)\), opposed-sign pair counts \(((0,0),(0,0),(3,0),(0,1))\) for continuous-time and discrete clocks, and the two exact witness sign pairs. It terminates by printing `ALL EXACT CERTIFICATES PASSED` on success. These calculations were run successfully against the packaged code contents.
+## correctness
 
-The code proves only finite-size exhaustive claims; the complete-coverage argument is that every simple labeled graph is enumerated, tested for connectivity, then canonicalized under all vertex permutations, and every possible nonedge is explored. No search of larger graph orders or independent human audit is asserted.
+PASS
+
+PASS — Checked the exact unbiased edge-picking/copying update law, random iid fair start, attempted updates including null changes, and independent exponential(rate n) continuous-time clock. Transient complementary configuration rate matrix Q has diagonal sum n d_s(v)/(2|E|) and negative flip rates; Q m_1=1 and Q m_2=2 m_1, averaging 2^{n-1} complement classes with absorbing starts contributes zero. K and T obey ET=EK/n and Var(T)=(Var(K)+EK)/n^2, so count-variance and time-variance signs must be tested separately. The finite universe of connected unlabeled graphs n=2..5 has (1,2,6,21) classes and (0,1,11,80) graph/nonedge tests. A separate exact rational solver over networkx.graph_atlas_g (not repository verifier) obtained opposite-sign counts for (time-mean, time-variance) and (count-mean, count-variance) respectively n4 (3,0) and n5 (0,1), zero below. The n4 positives are equivalent star-leaf additions; the n5 reverse is K5 minus edges 01,24,34 then add 01. This is a complete finite proof via all unlabeled graph classes, not a claimed large-n theorem.
+
+## originality
+
+PASS
+
+PASS — The link-dynamics definition and first-moment consensus scaling are classical. Inspected primary papers analyze mean/fixation probabilities and mean-time maximizing graphs, not the simultaneous exact *mean and variance* effects of a single added nonedge together with both sharp minimum orders. No Resultary published record with the four/five-agent sign-pattern census was returned; semantic similarity misses remain possible.
+
+## value
+
+PASS
+
+PASS — Mean response time and dispersion are distinct natural stochastic-performance metrics, and the first network orders where an edge worsens one while improving the other are meaningful sharp boundaries. The complete exact-rational census gives reproducible small-network counterexamples relevant to edge-intervention monotonicity, without claiming a large-graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
