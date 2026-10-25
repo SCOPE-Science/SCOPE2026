@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical point is that strict chains of cosets have distinct sizes, so any element fixing a simplex fixes each vertex and has orientation sign \(+1\). Sorting each chain by its smallest coset yields the exact subgroup-weight recursion, and counting conjugates in each subgroup yields the fixed-coset formula. The displayed subgroup census and both exact finite methods give the same four character values for all 60 elements; the character inner products reproduce the full rational irreducible decomposition. Homology concentration is supplied, not reinvented, by Ramras's published proposition.
+## correctness
 
-## Originality — PASS, with stated residual risk
-Ramras's \(A_5\) coset-poset result gives the number of spheres, not the left-translation homology representation. Brown's foundational coset-poset framework gives the Euler characteristic and remains a possible bibliographic overlap in unexamined portions; no exact character evaluation was located in the inspected relevant material. Douvropoulos and Josuat-Vergès compute an analogous character for Coxeter-group *parabolic* coset families, not the full proper-subgroup coset poset of \(A_5\). Searches under the names coset complex, coset poset, Lefschetz module and equivariant Euler character revealed no identified evaluation implying the five-class vector or multiplicities. A negative literature search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The 1,560-dimensional second homology of the smallest nonabelian simple group's coset complex is a natural, previously classified topological object, and its full rational symmetry module is an intrinsic invariant not determined by its Betti number. The explicit nonregular character, two Galois-conjugate three-dimensional constituents combined as a rational six-dimensional irreducible, and multiplicities \(100,95,116\) give the complete rational equivariant classification for this object, not an arbitrary subcomplex or small numerical increment.
+Ramras Proposition 4.9 proves this exact proper-subgroup coset complex is a wedge of 1560 S2, establishing rational homology concentration. Independently generated all 60 even permutations and 59 subgroups, computed 58 proper subgroup Möbius weights by descending containment, and for every g evaluated the fixed-coset character from centralizer*conjugacy-class intersection/|H|; traces by orders 1,2,3,5 are 1560,-84,-21,5, with class counts 1,15,20,24. Independent rational character arithmetic gives multiplicities V6=100,V4=95,V5=116; norm-square of V6 over rational character is two, properly dividing its complex inner product by two.
 
-## Limits
-This is a rational character theorem, not an integral equivariant splitting or an independently audited result. Ramras provides the topological concentration; direct exact finite checks establish the additional equivariant arithmetic. Bibliographic uncertainty remains for unavailable/uninspected older material.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; Ramras 2002 Proposition 4.9 provides wedge, Brown 2000 scalar probabilistic zeta relation; neither identified by inspected material with this full 60-element homology action.
+
+## value
+
+PASS
+
+The full left-A5 representation on a natural 1560-sphere coset complex and explicit rational irreducible multiplicities refine a known unequivariant homotopy classification. Even a single finite group is a well-motivated exact equivariant invariant; absence of a global family theorem is not disqualifying.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

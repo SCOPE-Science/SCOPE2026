@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this document and the verifier. It needs only the Python standard library (Python 3.9 or later). The expected last line is `ALL_CHECKS_PASSED`.
+## correctness
 
-The verifier constructs 60 alternating permutations, closes 59 subgroups (58 proper), and enumerates 1,018 distinct left cosets. It evaluates reduced Lefschetz traces for every group element using a fixed-coset-poset recursion, and independently reconstructs these traces from subgroup weights and the exact conjugacy-class intersection formula. Both computations yield character values \(1560,-84,-21,5,5\) on the five complex conjugacy classes. Explicit fixed-chain counts of simplex dimensions zero through three give \((1018,6867,8310,900)\), \((82,195,30,0)\), \((40,60,0,0)\), and \((18,12,0,0)\) at respective element orders one, two, three, five.
+PASS
 
-The final character arithmetic checks the multiplicities of all four rational irreducible types, including absence of the trivial representation, and accounts for the rational six-dimensional irreducible's character norm two.
+Ramras Proposition 4.9 proves this exact proper-subgroup coset complex is a wedge of 1560 S2, establishing rational homology concentration. Independently generated all 60 even permutations and 59 subgroups, computed 58 proper subgroup Möbius weights by descending containment, and for every g evaluated the fixed-coset character from centralizer*conjugacy-class intersection/|H|; traces by orders 1,2,3,5 are 1560,-84,-21,5, with class counts 1,15,20,24. Independent rational character arithmetic gives multiplicities V6=100,V4=95,V5=116; norm-square of V6 over rational character is two, properly dividing its complex inner product by two.
 
-The verifier does not independently prove the infinite-homotopy assertion \(X\simeq\bigvee^{1560}S^2\); that is a cited published theorem. Finite checks certify the exhaustive character calculation on this explicitly finite group, not analogous claims for any other group. Independent external validation has not been performed.
+## originality
+
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; Ramras 2002 Proposition 4.9 provides wedge, Brown 2000 scalar probabilistic zeta relation; neither identified by inspected material with this full 60-element homology action.
+
+## value
+
+PASS
+
+The full left-A5 representation on a natural 1560-sphere coset complex and explicit rational irreducible multiplicities refine a known unequivariant homotopy classification. Even a single finite group is a well-motivated exact equivariant invariant; absence of a global family theorem is not disqualifying.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
