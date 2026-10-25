@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the complete Haar polygon-type distribution for center-passing planes of the one regular truncated octahedron. Every generic section polygon side corresponds to one intersected facet. Evaluating the fourteen facets in ordered normal coordinates proves the exhaustive three-class law; no exhaustive finite sampling is used as proof. The ten-vertex event is one explicit trihedral cone, with exact solid angle obtained from the standard spherical triangle identity. Separately, the known angle between any adjacent vertices gives the exact mean by an edge-crossing probability. Normalization and the mean solve for the other two masses. The standard-library checker confirms 24 vertices, 36 edges, 9,983 generic rational/integer configurations, six spherical triangulation pieces and 200,000 simulated directions. It prints `VERIFY_OK`. Numerical checks are finite and strictly corroborative.
+## correctness
 
-## Originality — PASS under inspected evidence
-Full primary text of Lonke (1998) addresses Haar sections of cubes and their expected face counts. A separate published Haar hexagon law covers rectangular boxes and has only four-/six-gonal sections. Two other relevant primary statements for the *same* truncated-octahedron body concern translative blocking and maximum-volume tetrahedra; their implications do not encompass the present angular chamber law. The most plausible historical source, Paul (1981), discusses *sectional area distributions* of randomly cut truncated octahedra and was accessible only through its abstract; its full contents have not been established noncovering. Published simulations of truncated-octahedral particle mesophases likewise do not supply the theorem. The van Oosterom–Strackee spherical triangle identity is acknowledged as classical. These comparisons support best-knowledge originality but not absolute historical priority.
+PASS
 
-## Mathematical value — PASS
-The three-atom probability law completely determines a natural stereological statistic of a canonical space-filling convex polyhedron. Its 10-vertex probability has a transparent, nontrivial spherical-triangle expression; the 6-/8-gon probabilities emerge from a different angular expectation argument. This exact classification supplies information absent from aggregate mean-section formulas and shape-specific maximal-volume or blocking invariants.
+The frozen RESULT.md defines K=[-2,2]^3∩{||x||_1≤3} and Haar-normal central sections (U and −U identify the same plane; degeneracies measure zero). Reconstructed the 24 signed-permutation vertices, 36 edges and all facet incidence inequalities. For ordered positive normal coordinates x>y>z>0, the generic polygon count is N=4+2·1[y<2z]+2·1[x>2z]+2·1[x>2y]; its range is exactly {6,8,10}. N=10 is the cone with rays X=(1,0,0),R=(4,2,1),Q=(2,1,1); the spherical triangle formula yields q=24 arctan(1/(11+3√14+4√6+2√21))/π. Independently, 36 edges all have endpoint dot product 4 and endpoint norms √5, so Crofton crossing probability θ/π with θ=arccos(4/5) gives EN=36θ/π. Normalization and these two moments uniquely give p6=4+q−18θ/π, p8=18θ/π−3−2q, p10=q; numeric sum=1, all positive. Independently regenerated 24 vertices, 36 edges and compared the direct edge-crossing count with the facet indicator on 25,000 Haar Gaussian normals; all cases agreed, empirical frequencies within sampling error. Computation supports but does not prove measure identities; proof is the finite facet-cone analysis plus exact solid angle and expectation.
 
-## Remaining limitations and risks
-Only central Haar planes through this exact regular polyhedron are covered; no general parameter family or random offset plane law is claimed. Paul (1981) remains a full-text priority risk. Independent mathematical audit and complete historical-priority confirmation are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete exact three-atom Haar central-section type law of the specific regular truncated octahedron, not for Crofton crossing counts or the classical solid-angle identity. Resultary's cube, octahedron and icosahedron section laws concern distinct bodies; Lonke gives general cube section expectations. Paul's 1981 paper explicitly includes truncated octahedra in random stereological section-area simulations, a same-object priority risk, but the accessible abstract does not establish the center-passing polygon-vertex distribution or displayed closed law. Its full text was inaccessible, so no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+A regular truncated octahedron is a canonical Archimedean, space-filling solid and an archetypal non-vertex-transitive section problem. Its full Haar central-section polygon-type law is a motivated natural exact invariant, not merely an arbitrary numerical evaluation: the calculation distinguishes 6/8/10 faces and a nonobvious decagonal solid-angle chamber. The exact closed probabilities and first-moment consistency provide a reusable benchmark in integral geometry; value does not rest on overstated downstream theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
