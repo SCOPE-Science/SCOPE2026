@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of square-prime-counting root monotonicity
 
-## Reproducing the finite certificate
+# Independent mathematical audit
 
-Place `VERIFY.py` and `FINITE_CASES.csv` in the same folder and execute `python VERIFY.py` with standard Python 3. The program compares two independently coded exact primality indicators through \(10000\), regenerates each of the 97 \((n,\pi(n^2),\pi((n+1)^2))\) records, and tests \(\pi(n^2)^{n+1}>\pi((n+1)^2)^n\) using unrestricted integers. It also tests the reverse inequality at \(n=2\). No packages or approximate calculations are required.
+## correctness
 
-## Non-computational verification
+PASS
 
-Check that in any block of six consecutive integers exactly two are coprime to six, and in any leftover block of at most five at most two are coprime to six. With the Rosser--Schoenfeld lower bound \(\pi(x)>x/\log x\) for \(x\ge17\), deduce \(n\log(B/A)<(69/50)\log n\) for \(n\ge100\). The monotone function \(\sqrt t-2\log t\), positive at \(100\), implies \(\log A>(3/2)\log n\). These steps prove the infinite tail separately from the finite certificate.
+PASS: Write A=π(n²), h=π((n+1)²)−π(n²). For n≥100 every prime in the interval is coprime to six, hence h≤2 floor((2n+1)/6)+2≤(2n+7)/3. Rosser–Schoenfeld π(n²)>n²/(2log n) yields n log(1+h/A)<(4/3+14/(3n))log n≤1.38log n, while log A>2log n−log(2log n)>1.5log n for n≥100. Thus A^(n+1)>(A+h)^n. Independently sieved/trial-checked every integer through 10000 and verified all 97 exact integer-power inequalities for n=3..99; n=2 fails. Finite range is genuinely exhaustive and tail proven analytically.
 
-## Limits
+## originality
 
-The computational table is exhaustive only over \(3\le n\le99\). All larger indices are covered analytically. The external classical bound is cited, not re-proved here. No independent validation has been performed.
+PASS
+
+PASS best of knowledge: Sun 2014 Conjecture 2.14(ii) states precisely this monotonicity as conjectural; OEIS A038107 still records it as a conjecture. A general prime-count lower bound and trivial modulo-six sieve are old, but no inspected source combines them into this all-n explicit proof. Search absence does not establish definitive priority.
+
+## value
+
+PASS
+
+PASS: Full resolution of an explicitly formulated uniform prime-counting monotonicity conjecture with sharp starting index is a mathematical result; not merely a finite verification, since an unconditional analytic tail covers all remaining n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

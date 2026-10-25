@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T04:02:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Write A=π(n²), h=π((n+1)²)−π(n²). For n≥100 every prime in the interval is coprime to six, hence h≤2 floor((2n+1)/6)+2≤(2n+7)/3. Rosser–Schoenfeld π(n²)>n²/(2log n) yields n log(1+h/A)<(4/3+14/(3n))log n≤1.38log n, while log A>2log n−log(2log n)>1.5log n for n≥100. Thus A^(n+1)>(A+h)^n. Independently sieved/trial-checked every integer through 10000 and verified all 97 exact integer-power inequalities for n=3..99; n=2 fails. Finite range is genuinely exhaustive and tail proven analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rosser–Schoenfeld lower bound π(x)>x/log x",
+          "Hassani 2006 considers prime counts in intervals between squares"
+        ],
+        "reasoning": "The old lower bound plus a simple upper sieve yields the tail once explicitly combined, while Hassani’s interval estimates do not themselves prove the adjacent-root inequality for all n. This is a new theorem if no previous equivalent proof exists.",
+        "searches": [
+          "Sun conjecture pi(n squared) powers 1/n strictly decreasing prime counting at consecutive squares n>=3",
+          "pi(n^2)^(1/n) decreasing theorem Sun conjecture 2.14 prime counting October 2026",
+          "Rosser Schoenfeld pi(x)>x/log x x>=17 primes between squares"
+        ]
+      },
+      "checked_sources": [
+        "Sun Problems on combinatorial properties of primes arXiv:1402.6641 Conjecture 2.14(ii)",
+        "OEIS A038107 conjecture comment 2014",
+        "Rosser–Schoenfeld 1962 explicit prime lower bound",
+        "Hassani 2006 intervals between consecutive squares"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun source labels exact assertion a conjecture",
+          "Rosser–Schoenfeld 1962 bound is a cited premise"
+        ],
+        "reasoning": "Neither the conjecture statement nor Hassani’s distinct interval counting results logically imply monotonicity; the new modular-six upper bound plus the explicit n≥100 inequality and exhaustive finite cases establish it.",
+        "searches": [
+          "Sun 2014 Conjecture 2.14(ii)",
+          "Sun conjecture pi(n squared) powers 1/n strictly decreasing prime counting at consecutive squares n>=3",
+          "pi(n^2)^(1/n) decreasing theorem Sun conjecture 2.14 prime counting October 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun 2014 Conjecture 2.14(ii), p6",
+          "A_n^(n+1)>A_(n+1)^n exact integer comparison"
+        ],
+        "reasoning": "The exponentiated inequality is equivalent to strict decrease of π(n²)^(1/n), and matches precisely Sun’s conjecture; this earlier statement is an open problem, not a proof.",
+        "searches": [
+          "Sun conjecture pi(n squared) powers 1/n strictly decreasing prime counting at consecutive squares n>=3",
+          "pi(n^2)^(1/n) decreasing theorem Sun conjecture 2.14 prime counting October 2026",
+          "Sun Conjecture 2.14 ii pi(n squared) nth root strictly decreasing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A038107 provides finite data and an explicit conjecture comment",
+          "Independent all n=3,…,99 integer inequalities verified"
+        ],
+        "reasoning": "A finite OEIS table or independently sieved 97 cases cannot prove the statement for arbitrary n; the analytic tail is essential. The database is prior evidence of the question but does not dominate the proof.",
+        "searches": [
+          "Sun conjecture pi(n squared) powers 1/n strictly decreasing prime counting at consecutive squares n>=3",
+          "pi(n^2)^(1/n) decreasing theorem Sun conjecture 2.14 prime counting October 2026",
+          "OEIS A038107 decreasing n-th roots pi(n squared)"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Sun 2014 Conjecture 2.14(ii) states precisely this monotonicity as conjectural; OEIS A038107 still records it as a conjecture. A general prime-count lower bound and trivial modulo-six sieve are old, but no inspected source combines them into this all-n explicit proof. Search absence does not establish definitive priority.",
+      "residual_risks": [
+        "An equivalent unindexed prior proof might exist despite the conjecture still appearing in updated source indexes.",
+        "The conclusion does not imply a prime in each consecutive-square interval and does not address stronger prime gap conjectures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "This is exactly the claim stated as a conjecture without proof",
+          "evidence": "Conjecture 2.14(ii), p6",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.6641",
+          "material_read": "Full published 19-page PDF scanned for Section 2; Conjecture 2.14(ii) p6 and related remarks checked, original 2014 conjecture persists in v12",
+          "method": "primary arXiv PDF extracted text and page screenshot",
+          "title": "Problems on combinatorial properties of primes",
+          "trigger": "Exact named conjecture and possibility of prior proof"
+        },
+        {
+          "assessment": "Contains conjecture and sample values; no all-n proof found in viewed material",
+          "evidence": "A038107 comments, updated October 2026",
+          "identifier_or_url": "https://oeis.org/A038107",
+          "material_read": "Sequence description, formulas and conjecture comment accessed",
+          "method": "OEIS primary sequence listing",
+          "title": "OEIS A038107: Number of primes less than the square of the index",
+          "trigger": "Exact integer sequence, dated conjecture and possible recorded later proof"
+        },
+        {
+          "assessment": "Prior analytic inequality is credited, not claimed original",
+          "evidence": "Rosser–Schoenfeld 1962",
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255631807",
+          "material_read": "Statement of standard explicit bound and its published attribution; complete 1962 paper not page-by-page reviewed",
+          "method": "source citation and standard theorem check",
+          "title": "Approximate formulas for some functions of prime numbers",
+          "trigger": "Analytic premise π(x)>x/log x for x≥17"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Full resolution of an explicitly formulated uniform prime-counting monotonicity conjecture with sharp starting index is a mathematical result; not merely a finite verification, since an unconditional analytic tail covers all remaining n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sun Problems on combinatorial properties of primes arXiv:1402.6641 Conjecture 2.14(ii)",
+    "OEIS A038107 conjecture comment 2014",
+    "Rosser–Schoenfeld 1962 explicit prime lower bound",
+    "Hassani 2006 intervals between consecutive squares"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent unindexed prior proof might exist despite the conjecture still appearing in updated source indexes.",
+    "The conclusion does not imply a prime in each consecutive-square interval and does not address stronger prime gap conjectures.",
+    "All publication plans not_ready because existing public metadata needs sanitized replacements; no research source files edited.",
+    "A signed continuation is sequence evidence only; not proof of scientific correctness."
+  ],
+  "residual_risks": [
+    "An equivalent unindexed prior proof might exist despite the conjecture still appearing in updated source indexes.",
+    "The conclusion does not imply a prime in each consecutive-square interval and does not address stronger prime gap conjectures."
+  ],
+  "schema_version": 1
+}
