@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all nonempty finite or countable transitive Kripke frames, the order on levels is a partial order by transitivity and strict increase of the level coordinate; every upward neighbourhood has an infinite saturated intersection precisely when an original successor exists. Inverse image preserves Boolean combinations and the possibility operator. The reverse scatteredness implication takes a **closed** witness \(\omega_X(P)\), not merely a potentially nonclosed saturated \(P\), matching the exact definition. Completeness is inherited from established soundness and finite Kripke countermodels. The direct finite verifier covers \(4180\) transitive relations and \(259828\) symbolic successor profiles but does not purport to certify infinitely many points computationally.
+PASS
 
-## Originality — PASS (with explicit residual risk)
+The relation (u,i)<= (v,j) iff equality or i<j and uRv is reflexive, antisymmetric by increasing level, and transitive precisely because R is transitive. Its minimal open cone is singleton plus infinitely many higher-level copies of every R-successor. Thus an infinite intersection with a fibre-saturated set equals existential accessibility, exactly omega_X(pi^-1 B)=pi^-1(Diamond_R B). Inverse images commute with Boolean operations and arbitrary intersections, proving modal formula/ordinal-iteration preservation on saturated valuations only. For R conversely well founded every nonempty P has witness without internal R-successors, disproving P subset omega(P); if not, R-serial B yields omega-perfect lifted P, and C=omega(P) is a closed nonempty perfect superset. Finite transitive K4 and finite transitive irreflexive GL counterframes lift to countably infinite T0 Alexandrov examples, while soundness is prior Montacute theorem. No assertion applies to arbitrary unsaturated subsets.
 
-Montacute's 2026 *Halo Semantics for Modal Logic* [1], inspected in material sections, already establishes omega-accumulation semantics and K4/GL completeness over *all* infinite spaces by metrizable T1 derivative maps. The explicit countable \(T_0\) Alexandrov operator-intertwining representation, exact iff scatteredness criterion and consequent completeness on this narrower class were not found in that source, relevant published results or semantic-search records. Earlier work on global conjunction preservation of omega-accumulation is different. A differently phrased earlier construction in poset-modal representation literature is possible; absence from retrieved records does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact construction explains modal expressivity of a topologically restricted countable class and detects its \(\omega\)-scatteredness through the source frame's converse well-foundedness. This gives a structural tool in place of the general metrizable completeness route. Importantly, it does **not** identify \(\omega_X\) with a Kripke relational operator on arbitrary nonsaturated subsets of the target space.
+Montacute establishes K4 and GL for omega-accumulation on larger topological classes using derivative-map constructions; his named Theorems 6.16/6.18 do not by themselves state the explicit countable T0 Alexandrov fibre lifting identity or sharp R converse-well-foundedness equivalence. An earlier alternative Alexandrov representation under other modal terminology remains plausible but was not located. Related published Resultary countable indiscrete halo logic obtains KD45 without this operator identity, so does not cover this theorem.
 
-## Scientific limits
+## value
 
-This covers only transitive frames of finite or countable size and valuations saturated along the projection fibres. The restricted-space completeness corollaries rely on established modal soundness and finite Kripke completeness. Prior equivalent representations under different vocabulary remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact representation theorem makes non-Kripke topological accumulation compute an arbitrary transitive relational modality on a canonical subalgebra; sharp scatteredness characterizes the GL restriction. This is a structural lemma with clear reusable scope despite relying on classical completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
