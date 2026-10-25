@@ -1,0 +1,112 @@
+{
+  "claim": "For integers \\(p\\ge1\\) and \\(m\\ge0\\), let \\(\\mathcal L_{p,m}=\\{a^{m+kp}:k\\ge0\\}\\) over the unary alphabet \\(\\{a\\}\\). Among \\(\\varepsilon\\)-free NFAs with one initial state, every transition crossing a fixed bipartition, and simple undirected transition graph a cactus, the exact minimum number of states is \\(\\max\\{\\ell,m+\\ell-p+1\\}\\), where \\(\\ell=\\operatorname{lcm}(p,2)\\).",
+  "correctness": {
+    "rationale": "The proof establishes a cycle lower bound of lcm(p,2), a simple path lower bound from the least accepted length, and the stronger m+p path bound for odd p. A path-plus-cycle witness has exactly max(l,m+l-p+1) states and accepts precisely the required lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The claim quantifies every integer p>=1 and every least accepted length m>=0.",
+        "The pure residue-class case m<p has cost lcm(p,2), while the new formula also treats all delayed progressions m>=p."
+      ],
+      "reasoning": "The result covers the full threshold parameter, not only languages accepting a residue class from its first nonnegative representative. The exact delay penalty is determined by the parity of p.",
+      "searches": [
+        "Literature-index query: exact state cost of unary ultimately periodic language with transient prefix under bipartite transition graph all cycles even cactus NFA",
+        "Primary source: https://arxiv.org/abs/2610.11717, Sections 1–3",
+        "Primary source: https://arxiv.org/abs/2302.06435, unary NFA and Chrobak normal form discussion"
+      ]
+    },
+    "checked_sources": [
+      {
+        "source": "https://arxiv.org/abs/2610.11717",
+        "use": "Primary source motivating the structural graph constraint; its existence theorem does not imply the exact minimum."
+      },
+      {
+        "source": "https://arxiv.org/abs/2302.06435",
+        "use": "Unary NFA state-complexity background; no matching bipartite-cactus minimum identified."
+      },
+      {
+        "source": "Semantic search of a mathematical-literature index",
+        "use": "Four claim/source/alias queries were run; returned close automata results were compared by object and implication."
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grobler, Koziel, and Siebertz, arXiv:2610.11717, Theorem 1.1: existence of a bipartite-cactus NFA for every regular language.",
+        "Czerwiński et al., arXiv:2302.06435, Section 2: unary NFA definitions and Chrobak normal form; the text notes that general conversion to that form may increase state count to O(n^2)."
+      ],
+      "reasoning": "Neither source supplies the exact lower bound or matching path-plus-cycle construction for the family L_{p,m}. The new result establishes the exact state count using the bipartite cycle divisibility obstruction and the finite initial delay.",
+      "searches": [
+        "https://arxiv.org/abs/2610.11717, Theorem 1.1: existence of a bipartite-cactus NFA for every regular language",
+        "https://arxiv.org/abs/2302.06435, Section 2: unary automata and Chrobak normal form"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathematical-literature index searches returned rank-compression and synchronizing-automata entries, not a result for unary arithmetic-progression languages with this graph constraint.",
+        "Theorem 1.1 of arXiv:2610.11717 states existence of an epsilon-free bipartite-cactus NFA for every regular language, without an exact state minimum.",
+        "The inspected unary-NFA survey paper describes Chrobak normal form and state-size issues, but not the bipartite-cactus minimum for this family."
+      ],
+      "reasoning": "No equivalent exact formula was found in the inspected sources. The general existence theorem does not determine the minimum number of states for the stated language and constraints.",
+      "searches": [
+        "Literature-index query: minimum number of states of a single-initial-state epsilon-free unary NFA with a bipartite cactus transition graph accepting lengths m, m+p, m+2p, ...",
+        "Web query: \"bipartite cactus\" \"length congruence\" NFA states minimum unary",
+        "Primary source: https://arxiv.org/abs/2610.11717, Theorem 1.1 and transition-compatible coloring definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or exhaustive table for constrained unary NFAs was found in the literature-index results or web search results.",
+        "The The returned index hits were identifiable but scientifically different automata families; their statements concern rank-compression thresholds rather than accepted-length languages."
+      ],
+      "reasoning": "This is an infinite theorem over p and m, so no finite table is claimed to establish it. The bounded checker is used only to verify the construction on sample parameters.",
+      "searches": [
+        "Literature-index query: minimum epsilon-free NFA with all transitions crossing a bipartition for unary arithmetic progression language with finite threshold",
+        "Web query: site:arxiv.org \"cactus automaton\" unary modular language state complexity"
+      ]
+    },
+    "rationale": "The inspected primary graph-structure theorem gives existence but not the exact state minimum. Unary-NFA background does not impose the same graph constraint. Literature-index searches returned no covering claim among the closest results; this bounded search leaves residual bibliographic risk.",
+    "residual_risks": [
+      "The semantic literature-index search and web search are not exhaustive; an unindexed or differently phrased prior theorem may exist.",
+      "The exact formula is restricted to one unary arithmetic progression, one initial state, no epsilon transitions, and a transition-compatible bipartition.",
+      "The finite verification script corroborates the witness construction only; the proof in RESULT.md is responsible for the universal claim.",
+      "Independent audit and independent validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant existence theorem, but it does not state an exact minimum state count for this family or a formula depending on p and m.",
+        "evidence": [
+          "Theorem 1.1; Sections 1–3; DOI 10.4204/EPTCS.454.9."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+        "material_read": "Full text through Theorem 1.1, the transition-graph and coloring definitions, and the construction and closure lemmas in Sections 1–3.",
+        "method": "Compared the theorem and construction to the exact state-minimum statement for unary arithmetic-progression languages with a finite initial delay.",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Recent primary literature on the same graph restriction for epsilon-free NFAs."
+      },
+      {
+        "assessment": "Covers unary NFA structure and complexity, but not the bipartite-cactus constraint or the exact minimum proved here.",
+        "evidence": [
+          "Sections 1–2; especially the Chrobak normal form discussion and statement that general conversion can increase state count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.06435",
+        "material_read": "Full text introduction, unary-NFA definitions, Chrobak normal form discussion, and summary of state-size results.",
+        "method": "Checked the stated unary-language operations and representation bounds for an exact result with the same graph constraint and arithmetic-progression parameters.",
+        "title": "Languages given by Finite Automata over the Unary Alphabet",
+        "trigger": "Plausible primary background on state complexity of unary NFAs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08999567-f29d-4242-b61f-87200fd2e05e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact formula classifies a natural infinite family and measures the precise additional state cost of a delayed first accepted length under a bipartite-cactus constraint. It supplies a sharp benchmark beyond a pure-periodic residue class and exposes the parity-dependent transient penalty.",
+    "status": "PASS"
+  }
+}
