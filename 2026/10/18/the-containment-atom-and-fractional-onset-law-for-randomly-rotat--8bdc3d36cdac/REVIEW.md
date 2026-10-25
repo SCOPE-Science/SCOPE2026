@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Affine circular normalization and diagonalization yield the two exact singular axes. The unique angular contact, polar area integral, and all containment boundaries are derived explicitly. Monotonicity follows by differentiating the crossing integral and checking the sign of its denominator derivative. Uniform orientation gives the atom and the inverse-profile CDF. A local quadratic tangency expansion yields the three-halves area deficit and two-thirds CDF exponent. A standalone checker supplies 248 numerical comparisons, including directly integrated overlap areas, but those finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS, with historical qualification.** Hughes and Chraibi's full-text generic overlap algorithm computationally handles the ellipse pairs, but does not state the scale-angle containment phase, distributional atom or fractional onset. The closest 2019 public concentric-ellipse answer supplies a partial general approach and an explicit **equal-area** special case, which is therefore treated as prior work, not claimed new. The positive scaling regime and its complete random-angle distribution are the finding. Public research-index queries on scaled, rotated, concentric ellipse random-overlap laws found no matching evaluated result; this cannot prove unique historical priority. Geometric Tools documentation remained inaccessible in full.
+PASS
 
-**Value — PASS.** A sharp one-parameter anisotropy/scale transition separates almost-sure full containment from a mixed atomic/continuous geometric probability law. The exact atom weight, globally monotone continuous profile, and universal fractional exponent at grazing are structural, parameter-sensitive results not obtainable by renaming the equal-area formula. They give a natural analytic benchmark for overlap algorithms and random-orientation stochastic geometry.
+Normalize the first filled ellipse to the unit disk (area multiplier ab). The other has reciprocal singular semiaxes k*lambda and k/lambda, lambda-1/lambda=q|sin theta|, q=(a^2-b^2)/(ab). Comparing the minimum radial squares gives the stated exact polar integral and switch at lambda=k. Lambda increases from 1 to a/b; moving-boundary terms cancel in the derivative, proving strict area decrease on (theta_c,pi/2). Uniform rotation gives containment-atom mass 2 theta_c/pi and CDF 1-2theta(y)/pi. At first tangency lambda-k=L t+O(t^2), the lost cap is order (lambda-k)^(3/2) with the stated K, so the continuous probability tail is order epsilon^(2/3). Checked cases k=1, 1<k<a/b, k>=a/b and theta=0,pi/2; the change of exponent at k=1 is not conflated with positive-threshold behavior. Independent high-precision original-ellipse polar quadrature matches sampled formula values, and onset ratios for t=0.005,0.002,0.0005 approach 1 (0.98933,0.99571,0.99892). Numerical checks alone do not prove continuum claims.
 
-**Limits.** Arbitrary mismatched ellipses, displaced centers, and independent shape orientations are not covered. Historical priority and independent mathematical validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hughes–Chraibi 2011 gives a conic-intersection algorithm for arbitrary ellipse overlap; it implies numerical computability of each specialization but does not state this Haar-random orientation law, its nonzero containment atom, or the precise grazing 2/3 power. The 2019 equal-area concentric ellipse example concerns k=1 and is explicitly not claimed as new. Available Resultary queries reveal no equivalent phase law; originality is a best-of-knowledge assessment, not a guarantee.
+
+## value
+
+PASS
+
+The atom-to-continuous transition at the aspect ratio k=a/b and the fractional onset exponent give a motivated contact-geometry and stochastic-geometry phase diagram for a canonical common-center random-rotation model; this is more than an arbitrary numerical overlap computation or a restatement of the general ellipse-intersection algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
