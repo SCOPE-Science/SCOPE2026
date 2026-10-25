@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`: normalized synchronized restriction; exact weighted-attention derivative cancellation; orthogonal common/zero-sum tangent decomposition; two-step spectral values; and uniform normal contraction with an asymptotic phase.
+## correctness
 
-Execute `python3 verify.py` with Python 3 and NumPy installed. The checker directly evaluates the full nonlinear normalized multihead softmax map. It checks 135 configurations (three dimensions, three token counts, three head counts, and five phases), including random non-symmetric per-head matrices with their effective sum constrained to a randomly rotated symmetric spectral example. Each case checks the exact two-step return and all intrinsic eigenvalues by centered finite differences. In the saved package it reported a maximum Floquet eigenvalue residual of `1.46e-09` and passed three exact rational checks. All test cases are finite; they corroborate the calculations but do not certify the all-parameter theorem.
+PASS
 
-Analytically, the only strict inequalities needed are \(r>1\) and \(|1+\eta_c\lambda_j|<r\) for each interior eigenvalue. Both follow from the simple endpoint spectral hypotheses. Normalization is locally well-defined because its unperturbed norm is the constant \(r>0\). The proof's convergence assertion is local and has no claim of finite-time synchronization or universal attraction from distant initial states.
+Synchrony makes each softmax row uniform; row-sum differentiation cancels each attention-weight derivative, so D F acting on tangent perturbations equals r^{-1}P_{Rv}(h_i+eta V hbar), independently of queries and keys. On extreme eigenspace B=I+eta V acts as r diag(1,-1), producing the reflected synchronized eigencircle, fixed under F². The mean/zero-sum token splitting gives circle tangent multiplier 1, remaining common modes ((1+eta lambda_j)/r)^2, n-1 disagreement tangent modes cos²(2theta)/r², and (n-1)(d-2) other disagreements at 1/r². Multiplicities add to n(d-1); strict endpoint simplicity and r>1 force every transverse multiplier <1. The F² derivative has no normal-to-tangent linear component, so smooth tubular coordinates yield O(z²) angular increments and geometric normal contraction, selecting a unique asymptotic phase. Independently tested the nonlinear three-token two-head attention map with arbitrary Q/K heads and nonidentical value matrices summing to diag(2,-1/2,-5): four phases and finite-difference Floquet normal spectra agreed to <3e-7; bounded checks only support the universal proof.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+The synchronized extreme-plane reflection is ordinary normalized power iteration and cannot be claimed new. The original same mathematical model Altafini paper establishes strict stability below the spectral boundary but the available abstract/secondary evidence cannot exclude an uninspected boundary theorem. Gao--Yang--Chen examine repulsive negative scalar value with a different diagonal attention mask and flip consensus, which does not yield the mixed-sign, fully self-inclusive multihead normal Floquet spectrum. The claimed contribution is the precise interacting-token phase-dependent normal multipliers and nonlinear phase selection.
+
+## value
+
+PASS
+
+A sharp exceptional parameter boundary between stable consensus and mixed-sign flip dynamics is a natural dynamical question for residual normalized multihead maps. The exact transverse rates, universality with respect to query/key matrices, and local phase-selection law quantify robustness of an entire neutral periodic family rather than only noting a trivial eigencircle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
