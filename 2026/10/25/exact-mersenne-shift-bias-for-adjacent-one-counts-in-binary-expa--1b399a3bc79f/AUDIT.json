@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional increment law follows by inspecting the trailing-one run of an integer. Splitting \\(n=2^kq+a\\) isolates all high-block and cross-boundary effects. The valuation classes \\(j=\\nu_2(a)\\) give the complete and disjoint low-word census, including the \\(j=k-2\\) and \\(j=k-1\\) boundary exceptions. The four class sums \\(W_0=W_1=37/8\\) and \\(W_j=8-27/2^{j+2}\\) for \\(j\\ge2\\) follow from explicit conditional survival formulas. Their exact geometric sum gives \\(T_k=83\\cdot 2^{k-6}\\), hence \\(P_k=83/128\\) for every \\(k\\ge4\\); finite direct substitution gives \\(k=1,2,3\\). Conditional tail probability decays geometrically, ensuring genuine natural densities. The included verifier checks all key formulas with exact rationals plus finite independent integer instances. No computational enumeration is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sobolewski–Spiegelhofer, arXiv:2309.00142v1, Section 2 (open inequality (2.4)) and Proposition 3.2 (full recurrence for the difference distribution).",
+        "Sobolewski, arXiv:2412.15851, Sections 1 and 4–7: generalized binary-block difference recursions and many-run Gaussian approximation."
+      ],
+      "reasoning": "General recurrences describe the distribution for any fixed shift and therefore potentially imply each finite instance. However, they neither state nor explicitly derive the uniform closed rational plateau across infinitely many t with exactly one run of ones. The CLT assumes the count of one-runs grows, whereas it is identically one here.",
+      "searches": [
+        "Sobolewski Spiegelhofer \"block occurrences\" Cusick conjecture solved 2024 2025 2026",
+        "On the behavior of binary block-counting functions under addition arxiv",
+        "Sobolewski Spiegelhofer \"block occurrences\" Cusick conjecture solved 2024 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.00142v1",
+      "arxiv:2412.15851",
+      "arxiv:2204.05287",
+      "OEIS:A014081",
+      "Mathematical research-record semantic searches (four exact/alias/claim variants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sobolewski–Spiegelhofer, arXiv:2309.00142v1, Section 2 (open inequality (2.4)) and Proposition 3.2 (full recurrence for the difference distribution).",
+        "Sobolewski, arXiv:2412.15851, Sections 1 and 4–7: generalized binary-block difference recursions and many-run Gaussian approximation.",
+        "Sobolewski, arXiv:2204.05287, Theorems 1.4–1.6 and Section 3: Rudin–Shapiro parity monochromatic arithmetic progressions for differences 2^k-1.",
+        "The closest indexed superadditivity statement concerns a summatory inequality, not pairwise sign frequencies under addition."
+      ],
+      "reasoning": "The 2022 result with the same Mersenne parameter concerns equality of parity values along progressions n*(2^k-1), not inequalities of integer counts r(n+t)-r(n). The general difference recurrences of 2023 and 2024 compute distributions for any fixed parameter; proving an all-k stationary sign mass entails a nontrivial cancellation of the carry-depth and top-digit contributions. The available results do not explicitly cover that new uniform theorem. This implication assessment is provisional, not a uniqueness claim.",
+      "searches": [
+        "Block occurrences in binary expansion analogue of Cusick conjecture for shifts all ones 2^k minus one, 2023 Sobolewski Spiegelhofer",
+        "Rudin Shapiro adjacent 11 binary block count nondecrease under addition of Mersenne shift 2^k-1, exact density 83/128",
+        "\"Rudin-Shapiro\" \"2^k-1\" \"Cusick\" density",
+        "\"83/128\" \"Rudin Shapiro\" digit addition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sobolewski–Spiegelhofer, arXiv:2309.00142v1, Section 2 (open inequality (2.4)) and Proposition 3.2 (full recurrence for the difference distribution).",
+        "Sobolewski, arXiv:2412.15851, Sections 1 and 4–7: generalized binary-block difference recursions and many-run Gaussian approximation.",
+        "The published superadditivity of summatory all-one block counts addresses a distinct summatory inequality, not nondecrease sign densities."
+      ],
+      "reasoning": "The claim is equivalently an exact sign mass of the distribution c_(2^k-1), not merely a bound on its variance or a parity correlation. Name/decimal/fraction/Mersenne aliases were searched; no matching exact sign-mass result was found.",
+      "searches": [
+        "Rudin Shapiro adjacent 11 binary block count nondecrease under addition of Mersenne shift 2^k-1, exact density 83/128",
+        "Exact probability 83/128 that adding Mersenne number does not decrease 11 pattern occurrence count",
+        "Block occurrences in binary expansion analogue of Cusick conjecture for shifts all ones 2^k minus one, 2023 Sobolewski Spiegelhofer",
+        "\"83/128\" \"block\" \"binary\" \"shift\" Rudin",
+        "\"0.6484375\" \"Rudin\" \"n+t\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014081, sequence definition, formulas, references, and crossreferences; no record of a Mersenne-shift sign-density sequence.",
+        "OEIS A014081 has the original r(n) values and binary recurrences, not the claimed shift-density table."
+      ],
+      "reasoning": "The enumerated sequence is the underlying digit-block statistic; finite table entries do not imply a uniform density statement. No exact special-family density record was found in the inspected listing or queried numeric aliases.",
+      "searches": [
+        "site:oeis.org/A014081 count of adjacent 11 binary expansion",
+        "site:oeis.org/A014081 count of adjacent 11 binary expansion",
+        "\"83/128\" \"Rudin Shapiro\" digit addition",
+        "Exact probability 83/128 that adding Mersenne number does not decrease 11 pattern occurrence count"
+      ]
+    },
+    "rationale": "A uniform rational density of \\(83/128\\) for every Mersenne shift beyond length three is not stated by the inspected primary articles or the sequence record. The 2023 and 2024 papers provide general computational difference recurrences and asymptotic laws for shifts with many one-runs, but the present analytic cancellation across all \\(k\\) is not a direct numerical table entry. The 2022 article studies parity along progressions, a distinct observable. The exact special-family result remains subject to the residual possibility of an implicit specialization of the known general recurrences or an unindexed treatment.",
+    "residual_risks": [
+      "The general distribution recurrences in the 2023 and 2024 papers may admit an earlier unpublished or unstated derivation of this uniform Mersenne-family evaluation.",
+      "A separate unindexed source may state the same 83/128 plateau.",
+      "No claim of independent novelty certification or publication priority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes computable distributions and a many-one-run CLT, but not an all-k exact one-run plateau. Its distribution recurrences remain a potential implication route.",
+        "evidence": [
+          "Sobolewski–Spiegelhofer, arXiv:2309.00142v1, Section 2 (open inequality (2.4)) and Proposition 3.2 (full recurrence for the difference distribution)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.00142v1",
+        "material_read": "Complete HTML text sections 1–3, especially Section 2 equation (2.4) and Section 3.1 Proposition 3.2 and initial laws; section layout and remaining results inspected.",
+        "method": "Read primary arXiv full text, compared definitions, open question and explicit recurrences with the all-one-shift sign-density claim.",
+        "title": "Block occurrences in the binary expansion",
+        "trigger": "Exact same adjacent-one statistic and explicit open inequality for every shift."
+      },
+      {
+        "assessment": "Provides stronger generality of pattern, but no explicitly uniform Mersenne-family nondecrease density; one-run sequence falls outside many-run Gaussian regime.",
+        "evidence": [
+          "Sobolewski, arXiv:2412.15851, Sections 1 and 4–7: generalized binary-block difference recursions and many-run Gaussian approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.15851",
+        "material_read": "Accessible arXiv HTML body in Sections 1, 4, 6 and 7, including main theorem, recurrence discussion and moment identities.",
+        "method": "Read primary source directly; compared asymptotic hypotheses and full-distribution recurrences to exact uniform sign mass.",
+        "title": "On the behavior of binary block-counting functions under addition",
+        "trigger": "Later generalization that might dominate the special 11-pattern theorem."
+      },
+      {
+        "assessment": "Studies parity monochromatic progressions; not a real-valued signed increment density.",
+        "evidence": [
+          "Sobolewski, arXiv:2204.05287, Theorems 1.4–1.6 and Section 3: Rudin–Shapiro parity monochromatic arithmetic progressions for differences 2^k-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.05287",
+        "material_read": "Accessible arXiv HTML Sections 1 and 3 with Theorems 1.4–1.6 and related proofs for arithmetic progressions.",
+        "method": "Compared actual object and quantifiers rather than sharing only Mersenne parameters.",
+        "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+        "trigger": "Same pattern 11 and exactly the same Mersenne step 2^k-1."
+      },
+      {
+        "assessment": "Defines the same digit statistic but does not tabulate the claimed Mersenne-shift density.",
+        "evidence": [
+          "OEIS A014081, sequence definition, formulas, references, and crossreferences; no record of a Mersenne-shift sign-density sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A014081",
+        "material_read": "Sequence definition, formulas, comments, crossreferences and links on listing.",
+        "method": "Inspected the sequence record and its explicit recurrence descriptions.",
+        "title": "OEIS A014081: occurrences of 11 in binary",
+        "trigger": "Potential existing table or equivalent sequence statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b399a3b-c79f-49cc-9c1d-c1c6664787a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a direct, exact infinite-family answer to the open adjacent-one analogue of the Cusick comparison inequality. Shifts \\(2^k-1\\) have only one one-block regardless of size, so existing many-block normal approximations do not resolve their bias. The unexpected finite-length stabilization at \\(83/128\\) is a quantitative structural law, with a carry-class proof showing the cancellation that causes it. No larger conjecture is asserted.",
+    "status": "PASS"
+  }
+}
