@@ -1,21 +1,21 @@
-# Review of the five-crown homology-character theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and the 20 vertex labels of its matching complex are defined without ambiguity. Enumerating the legal partial matchings gives chain dimensions \((20,130,320,265,44)\). Exact elimination in prime characteristic supplies rational rank lower bounds \((19,111,208,44)\). The first two rational rank upper bounds follow from column-sum zero and boundary composition; the top one follows from its 44 columns. The explicit eight-triangle integer two-cycle and 120-entry integer two-cocycle pair to \(2\), yielding the last required upper bound on the third boundary rank. Thus the rational Betti numbers are proved independently of numerical extrapolation or the older homology table.
+PASS
 
-The signed fixed-simplex trace is checked for all 240 automorphisms and satisfies the class-function property. The reduced Lefschetz identity determines the virtual character. Since rational second homology is one-dimensional, checking its four possible group characters and decomposing the resulting degree-three characters against all 14 irreducibles singles out the unique nonnegative decomposition stated in the theorem. All finite claims are replayed from `verify.py` and `cocycle.json`.
+The ordinary five-crown matching complex is precisely 5×5 nonattacking rooks excluding the five diagonal cells. Direct face enumeration gives counts (1,20,130,320,265,44) including the empty face, independently repeated. Reviewed integer boundary matrices have ranks (19,111,208,44); mod101 supplies lower bounds, chain composition and 20-vertex connectivity bound ranks d1,d2 above, d4≤44, and explicit eight-triangle octahedral two-cycle z with integral cocycle phi satisfying δphi=0, <phi,z>=2 bounds rank d3≤208 over Q. Thus reduced Betti ranks are H2=1,H3=13. Signed Lefschetz traces of all 240 row/column-preserving and transpose automorphisms, independently re-enumerated, give the 14 S5×C2 class values. Inner products force the H2 line to be trivial S5 times transpose sign and H3 to be S(4,1)⊕S(3,2) even plus S(2,1,1,1) odd. The absence of trivial G constituents follows.
 
-## Originality — PASS, with uncertainty
+## originality
 
-The most relevant same-object source is Shareshian--Wachs, arXiv:math/0409054v1, Section 8. It gives the diagonal-deleted chessboard definition, sharp connectivity, and Table 8.1 with \(\widetilde H_2\cong\mathbb Z\) at board size five; the older non-equivariant calculation is expressly credited. Its representation discussion in Section 6, following Friedman--Hanlon, applies to **complete** rectangular chessboard complexes, which have different faces and larger symmetry. Neither provides the stated simultaneous-permutation plus transpose character on the diagonal-deleted board. The mathematical implication distinction is that homology ranks and the full-board character do not determine the action on homology of a strict subcomplex.
+PASS
 
-Searches under the aliases crown graph, derangement board, deleted diagonal, and diagonal-free rook complex, including semantic searches of published mathematical findings, did not identify a covering character formula. Their closest records concern full rook boards, other matching complexes or graph-cut/domination complexes. Björner--Welker's original same-object paper is known through its abstract and Shareshian--Wachs' explicit citation and was not inspected in full. Equivalent results under other terminology or in less-indexed literature remain possible. This qualified novelty judgment is not an absolute priority claim.
+Björner–Welker / Shareshian–Wachs identify nontrivial degree-two homology of the diagonal-deleted chessboard, which this finding DOES NOT claim new. Friedman–Hanlon decompose full rectangular chessboards with independent row and column actions, a different simplicial complex and group. The new exact S5×C2 split under coupled relabeling and transposition is not mathematically implied by a degree-two rank or the full-board representation.
 
-## Mathematical value — PASS
+## value
 
-Deleting a diagonal is a classical, independently motivated deformation of the chessboard complex. At side length five, it has nontrivial rational homology in **two different dimensions**, making Betti-number knowledge insufficient to understand its natural symmetries. The full \(S_5\times C_2\) character distinguishes a degree-two class that is permutation-invariant but transpose-odd from a degree-three space with nine transpose-even and four transpose-odd dimensions. It also establishes that every positive-degree class loses invariance under the full graph automorphism group. This is structural equivariant information for the first small mixed-degree case, not an arbitrary selection of coefficients.
+PASS
 
-The result is limited to rational representations at board size five. It does not assert integral equivariant decomposition or a uniform theorem over all board sizes.
+This is a natural chessboard variation with diagonal deleted and a reduced symmetry group. A complete 240-element rational action with a nontrivial transpose-odd H2 line and distinct even/odd H3 Specht constituents gives non-obvious equivariant information not inferable from the known rank one H2 class.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

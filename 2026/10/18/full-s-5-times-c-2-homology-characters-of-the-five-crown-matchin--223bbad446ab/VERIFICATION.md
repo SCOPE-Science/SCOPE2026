@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Extract `verify.py` and `cocycle.json` into the same directory and run `python3 verify.py` with Python 3 and NumPy installed. The checker independently reconstructs the off-diagonal rook positions, enumerates every matching, and constructs the integer oriented simplicial chain matrices in degrees one through four.
+## correctness
 
-The exact computed face numbers in dimensions zero through four are \((20,130,320,265,44)\). Reduction over the primes \(3\) and \(101\) gives boundary ranks \((19,111,208,44)\). Over the integers, every consecutive boundary composition is zero. The code constructs an eight-triangle two-cycle \(z\), loads the standalone 120-entry signed cochain \(\phi\), and verifies \(\partial_2 z=0\), \(\delta^2\phi=0\), and \(\langle\phi,z\rangle=2\). These integer equalities, not modular extrapolation, establish the required nonzero rational second-homology class; the argument in `RESULT.md` upgrades the modular rank lower bounds to equal rational ranks.
+PASS
 
-The checker computes signed fixed-simplex traces for all \(240\) automorphisms, checks their conjugacy-class consistency, constructs the seven orthonormal rational irreducible characters of \(S_5\), and checks all four possible one-dimensional degree-two characters against exact integral multiplicities for the resulting degree-three representations. A single candidate remains, giving the displayed three-Specht degree-three decomposition.
+The ordinary five-crown matching complex is precisely 5×5 nonattacking rooks excluding the five diagonal cells. Direct face enumeration gives counts (1,20,130,320,265,44) including the empty face, independently repeated. Reviewed integer boundary matrices have ranks (19,111,208,44); mod101 supplies lower bounds, chain composition and 20-vertex connectivity bound ranks d1,d2 above, d4≤44, and explicit eight-triangle octahedral two-cycle z with integral cocycle phi satisfying δphi=0, <phi,z>=2 bounds rank d3≤208 over Q. Thus reduced Betti ranks are H2=1,H3=13. Signed Lefschetz traces of all 240 row/column-preserving and transpose automorphisms, independently re-enumerated, give the 14 S5×C2 class values. Inner products force the H2 line to be trivial S5 times transpose sign and H3 to be S(4,1)⊕S(3,2) even plus S(2,1,1,1) odd. The absence of trivial G constituents follows.
 
-Expected terminal lines:
+## originality
 
-`VERIFY_OK CROWN_5 F_VECTOR_20_130_320_265_44 RANKS_19_111_208_44`
+PASS
 
-`GROUP_ORDER_240 H2_TRIVIAL_TIMES_TRANSPOSE_SIGN H3_4_PLUS_5_PLUS_4`
+Björner–Welker / Shareshian–Wachs identify nontrivial degree-two homology of the diagonal-deleted chessboard, which this finding DOES NOT claim new. Friedman–Hanlon decompose full rectangular chessboards with independent row and column actions, a different simplicial complex and group. The new exact S5×C2 split under coupled relabeling and transposition is not mathematically implied by a degree-two rank or the full-board representation.
 
-The code verifies finite exact identities; the theorem uses elementary chain algebra and ordinary rational finite-group representation theory to draw its mathematical conclusions. It does not certify a general family, an integral representation lattice, or publication priority. Independent audit has not been performed.
+## value
+
+PASS
+
+This is a natural chessboard variation with diagonal deleted and a reduced symmetry group. A complete 240-element rational action with a nontrivial transpose-odd H2 line and distinct even/odd H3 Specht constituents gives non-obvious equivariant information not inferable from the known rank one H2 class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
