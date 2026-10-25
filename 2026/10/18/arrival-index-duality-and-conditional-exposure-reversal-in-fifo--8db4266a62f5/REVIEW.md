@@ -1,19 +1,21 @@
-# Scientific review: arrival-index duality and conditional exposure reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any FIFO sample path, the \(k\)-th last predecessor of customer \(i\) overlaps its arrival for longer than \(\ell\) precisely when the \(k\)-th next arrival overlaps customer \(i-k\) for longer than \(\ell\); in both directions the necessary and sufficient inequality is \(D_{i-k}>A_i+\ell\). Stationary arrival indexing therefore equates both exceedance distributions and all independent-mark exposure probabilities. Conditional on the tagged sojourn, earlier exposures use only past arrivals/services/marks, whereas later exposures use future renewal increments and their independent marks, giving conditional independence. In a unit-service \(M/D/1\) queue, the predecessor count is a staircase function of the workload while the later marked Poisson arrivals have a continuous exponential survival probability. The displayed threshold inequalities follow from \(b_\ell(t)\ge t-2\) and \(-\log(1-p)>\lambda p\); the workload stationary transform gives the exact common marginal. The theorem distinguishes the sojourn-time atom and exceptional integer points. The independent finite checker passed 1,180,980 exact rank assertions, 40 conditional-risk checks and a separate simulation sanity check; the analytic proof, not these finite checks, supplies the universal quantifiers.
+PASS
 
-## Originality — PASS, qualified
+For FIFO departures D_i nondecreasing and arrivals A_i strictly increasing, B_i(ell)>=k iff D_(i-k)>A_i+ell; F_(i-k)(ell)>=k iff the same strict inequality. Shifting indexes in an arrival-stationary array yields equal entire nonnegative-integer count distributions, equal independent Bernoulli-mark infection risks, and at most k empirical exceedance difference per fixed window. Under iid renewal inputs the tagged sojourn T and older overlaps/labels depend on past plus tagged service whereas later contacts use future increments and labels, giving conditional independence given T for a fixed ell. In unit-service M/D/1, when W=T-1=m+r with 0<r<1 predecessor departure offsets r,r+1,...,r+m give b_ell(t)=m+1_{r>ell}; future marked arrivals to time T-ell are Poisson(lambda*p*(T-ell)). Near t=1 the preceding risk vanishes; for t>(2a-lambda*p*ell)/(a-lambda*p) with a=-log(1-p)>lambda*p, the earlier risk dominates. The workload LST E exp(-sW)=(1-lambda)*s/(s-lambda+lambda*exp(-s)) gives the exact common marginal formula, with the mass at W=0 handled. An independent bounded parameter check verified opposite signs in both regimes for three (lambda,p,ell) sets; no simulation was treated as universal proof.
 
-Newman and Pender (2026), arXiv:2610.09019v1, explicitly formulate Conjecture 3.10 for earlier/later customer exposure in \(G/G/1\) and investigate \(M/M/1\) and approximated \(M/G/1\) laws. Their visible paper does not give the stated exact deterministic-service conditional reversal or common directional probability. Boxma and Pender (2025), DOI 10.1007/s11134-025-09938-1, already establish the pairwise \(G/G/1\) overlap formula, and stationary nonovertaking gives unmarked overlap symmetry as an elementary consequence. The newness assessment rests on the explicit marked-risk conjecture resolution and strict conditional reversal; the FIFO rank shift alone is not claimed as independently new. The 2025 priority-queue overlap work concerns a different discipline. General Palm-mass transport, queueing transforms, or earlier work could subsume part of the present formulation and require independent priority inspection.
+## originality
 
-## Value — PASS
+PASS
 
-A published explicit conjecture asserts both an unconditional directional infection symmetry and a much stronger conditional identical-distribution assertion. The result establishes a sharp logical distinction: unconditional symmetry remains valid throughout stationary FIFO queues, while conditional direction preference reverses on positive-probability regions in a standard \(M/D/1\) model. Exact marginal and conditional formulas replace a numerical-only comparison and permit model calibration. The claim is neither a new queueing workload transform nor a rebranding of an unmarked symmetry; it answers the infectious-mark question and identifies an observable conditional failure.
+Newman–Pender arXiv:2610.09019 (2026), Conjecture 3.10, explicitly conjectures unconditional equality and conditional iid infection risks in FCFS G/G/1. The rank-shift marginal symmetry has a simple known FIFO overlap underpinning and alone is not claimed novel. The substantive new assertion differentiates true conditional independence from false conditional identical law using exact positive-probability M/D/1 reversal, while deriving the exact marked directional risk. The primary G/G/1 overlap work studies maximum overlap rather than those conditional marked infection laws.
 
-## Closest literature and limitations
+## value
 
-The closest texts are arXiv:2610.09019v1, DOI 10.1007/s11134-025-09938-1, and *The Number of Overlapping Customers in Priority Queues* (2025). The first motivated the open issue; the second supplies fundamental existing overlap identities; the third treats a related but differently disciplined model. Stationarity and FIFO are necessary for the stated symmetry proof. Conditional independence uses renewal structure and independent marks and a deterministic threshold; conditional risk reversal is shown only for \(M/D/1\). No independent external audit or exhaustive priority verification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question is motivated by explicit Newman–Pender Conjecture 3.10 on infection direction in FIFO queues. Showing unconditional equality holds pathwise/stationarily while conditional independence does not imply identical conditional distribution is a substantive mathematical distinction, with a positive-measure reversal in a standard deterministic-service queue. Exact marked infection formulas and their regimes can be reused in queueing epidemiology; the claim is not merely routine derivation of an old workload LST.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

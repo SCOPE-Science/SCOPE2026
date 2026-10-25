@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:58:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at Git blob 7b3731410703c65645980589a80868bf465a1b98",
+        "assigned verify.py blob 020b633dca6552cec91f961903979ab48e68f5b6 (read, not executed)",
+        "Boxma–Pender 2025 full OA HTML, pairwise overlap Eq. (1)",
+        "Newman–Pender arXiv:2610.09019 Conjecture 3.10 full source"
+      ],
+      "rationale": "For FIFO departures D_i nondecreasing and arrivals A_i strictly increasing, B_i(ell)>=k iff D_(i-k)>A_i+ell; F_(i-k)(ell)>=k iff the same strict inequality. Shifting indexes in an arrival-stationary array yields equal entire nonnegative-integer count distributions, equal independent Bernoulli-mark infection risks, and at most k empirical exceedance difference per fixed window. Under iid renewal inputs the tagged sojourn T and older overlaps/labels depend on past plus tagged service whereas later contacts use future increments and labels, giving conditional independence given T for a fixed ell. In unit-service M/D/1, when W=T-1=m+r with 0<r<1 predecessor departure offsets r,r+1,...,r+m give b_ell(t)=m+1_{r>ell}; future marked arrivals to time T-ell are Poisson(lambda*p*(T-ell)). Near t=1 the preceding risk vanishes; for t>(2a-lambda*p*ell)/(a-lambda*p) with a=-log(1-p)>lambda*p, the earlier risk dominates. The workload LST E exp(-sW)=(1-lambda)*s/(s-lambda+lambda*exp(-s)) gives the exact common marginal formula, with the mass at W=0 handled. An independent bounded parameter check verified opposite signs in both regimes for three (lambda,p,ell) sets; no simulation was treated as universal proof.",
+      "residual_risks": [
+        "Conditional independence needs independent *future renewal* increments, marks and fixed threshold; does not claim full G/G/1 generality for that part.",
+        "Integer waiting times above zero form a null set but the idle atom T=1 is treated separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boxma–Pender derives LST of maximum overlap in G/G/1 and pairs O_(n,n+k), not conditional M/D/1 marked-direction comparison.",
+          "Newman–Pender proves M/M/1 infection expressions and explicitly labels the broader G/G/1 conditional identity a conjecture."
+        ],
+        "reasoning": "Maximum overlap transforms do not imply that infectious earlier/later risks conditionally reverse for a non-exponential service law. The M/M/1 special case cannot establish a generally false conditional identical-distribution claim.",
+        "searches": [
+          "DOI:10.1007/s11134-025-09938-1 Section 2, Proposition 2.1",
+          "Newman–Pender 2026 arXiv:2610.09019 Theorems 3.4,3.9,3.14 and Conjecture 3.10"
+        ]
+      },
+      "checked_sources": [
+        "Newman–Pender arXiv:2610.09019v1 full HTML",
+        "Boxma–Pender DOI:10.1007/s11134-025-09938-1 full HTML",
+        "Resultary stationary FIFO queries; closest retrieved hits unrelated to rank-shift infection theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Newman–Pender explicitly asserts conditional identical law as conjectural; submitted counterexample shows it false in M/D/1.",
+          "Boxma–Pender supplies overlap and maximum-overlap formulas; these do not calculate the backward-count staircase conditional on T or reconcile it with independently thinned future Poisson contacts."
+        ],
+        "reasoning": "A conjectured statement is not prior proof. The exact conditional sign reversal is not a corollary of already-known maximum-overlap identities or a mere parameter substitution into M/M/1 formulas.",
+        "searches": [
+          "arXiv:2610.09019v1 Conjecture 3.10 and Section 5.3",
+          "DOI:10.1007/s11134-025-09938-1 Eq. (1), Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "FIFO adjacent overlap Eq. (1) of Boxma–Pender 2025 gives (D_i-A_(i+k))^+.",
+          "A rank-k event of earlier overlaps at i and later overlaps at i-k is the identical event D_(i-k)>A_i+ell."
+        ],
+        "reasoning": "The pathwise involution/rank shift is a form of stationarity and FIFO mass transport and may be implicit in prior overlap counting. The complete submitted theorem additionally resolves the marked, conditional conjecture, which this equivalence does not establish.",
+        "searches": [
+          "stationary FIFO queue Palm mass transport overlap before versus after tagged customer",
+          "stationary FIFO queues overlap before after arrival infection exposure symmetry conditional sojourn time M/D/1",
+          "arXiv:2610.09019 Conjecture 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 primary source formulates the general exposure equality as a conjecture, with approximate extensions for non-M/M/1.",
+          "Resultary query yielded unrelated infectious-disease delay models, not a stored M/D/1 conditional staircase and closed marginal formula."
+        ],
+        "reasoning": "This is an analytic identity and conditional stochastic model, not a static numerical database; available formula tables for waiting-time LSTs alone do not contain the marked-direction result.",
+        "searches": [
+          "Resultary query: stationary FIFO queues overlap before after arrival infection exposure symmetry conditional sojourn time M/D/1",
+          "Newman–Pender arXiv:2610.09019 Section 5.3 M/G/1 and Conjecture 3.10"
+        ]
+      },
+      "rationale": "Newman–Pender arXiv:2610.09019 (2026), Conjecture 3.10, explicitly conjectures unconditional equality and conditional iid infection risks in FCFS G/G/1. The rank-shift marginal symmetry has a simple known FIFO overlap underpinning and alone is not claimed novel. The substantive new assertion differentiates true conditional independence from false conditional identical law using exact positive-probability M/D/1 reversal, while deriving the exact marked directional risk. The primary G/G/1 overlap work studies maximum overlap rather than those conditional marked infection laws.",
+      "residual_risks": [
+        "General stationary point-process mass transport might already imply the unmarked count equality, and is not claimed as standalone priority novelty.",
+        "Further priority sources on tagged-customer M/D/1 infection risk could exist outside the identified overlap literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_AND_M_M_1_CASE",
+          "evidence": "Conjecture 3.10 says earlier/later infection events are marginally equally likely and conditionally iid given sojourn. It is not a proof of the GI/GI/1 or M/D/1 behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09019",
+          "material_read": "Full accessible arXiv rendered article, especially Theorems 3.4/3.9/3.14, Conjecture 3.10 and Section 5.3",
+          "method": "primary full HTML via arXiv abstract page",
+          "title": "When Lines Become Contagious: Analyzing the Spread of Infection in the M/M/1 Queue",
+          "trigger": "Direct same-problem conjecture and infection exposure framework"
+        },
+        {
+          "assessment": "PAIRWISE_AND_MAXIMUM_OVERLAP_ONLY",
+          "evidence": "Eq. (1) O_(n,n+k)=(D_n-A_(n+k))^+ and Proposition 2.1 describe maximum adjacent overlap in terms of workload. No conditional marked M/D/1 early/later reversal found in inspected full text.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11134-025-09938-1",
+          "material_read": "Full open-access publisher HTML, Eq. (1), Proposition 2.1, Lemmas 2.2–2.4 and M/G/1 specialization",
+          "method": "primary full publisher HTML, no PDF needed",
+          "title": "Overlap times in the G/G/1 queue via Laplace transforms",
+          "trigger": "Earlier G/G/1 pairwise and maximum overlap identities might subsume rank duality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Newman–Pender Conjecture 3.10 full text",
+        "Boxma–Pender 2025 earlier pairwise overlap law"
+      ],
+      "rationale": "The question is motivated by explicit Newman–Pender Conjecture 3.10 on infection direction in FIFO queues. Showing unconditional equality holds pathwise/stationarily while conditional independence does not imply identical conditional distribution is a substantive mathematical distinction, with a positive-measure reversal in a standard deterministic-service queue. Exact marked infection formulas and their regimes can be reused in queueing epidemiology; the claim is not merely routine derivation of an old workload LST.",
+      "residual_risks": [
+        "Scope excludes common random thresholds, nonrenewal conditional independence and secondary transmission; this does not diminish the targeted conjecture resolution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is a best-of-knowledge conclusion based on actual literature inspection, not exhaustive priority certification.",
+    "No new public certificate or expert/Lean attestation created; unchanged source package science and external channels preserved.",
+    "All seven files in the assigned Git tree were read, but opaque repository checker scripts were not executed; separately stated bounded independent diagnostics do not replace infinite proofs.",
+    "The source tree snapshot is immutable and matched the seven-blob verified tree listing."
+  ],
+  "schema_version": 1
+}
