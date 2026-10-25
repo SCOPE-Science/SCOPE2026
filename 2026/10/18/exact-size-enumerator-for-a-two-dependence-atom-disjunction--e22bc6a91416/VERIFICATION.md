@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file and the standalone checker. Python's standard library suffices. Expected output includes `ALL_16_RECTANGULAR_FIBER_CENSUSES_OK`, `BINARY_256_FULL_TEAMS_OK`, and the final `DEPENDENCE_RECTANGULAR_SIZE_ENUMERATOR_OK`.
+## correctness
 
-The first group independently enumerates every subset of every \(r\times s\) grid with \(1\le r,s\le4\), tests containment in a cross directly by bit masking, and compares the full cardinality histogram against the polynomial. The second group separately implements disjunction by enumerating every possible split of every team in a two-element, three-variable domain, comparing all \(256\) truth values with the derived geometric condition. It counts \(225\) satisfied teams.
+PASS
 
-These are finite verification tests, **not** substitutes for the all-parameter proof in `RESULT.md`. No mechanized proof or independent mathematical audit has been performed. The proof's noncomputational critical step is the classification of intersections of two distinct row-column crosses, stated explicitly in `RESULT.md`.
+PASS: Under lax team splitting, dep(x,y) OR dep(x,z) holds exactly when every x-fiber is a subset of one designated y-row union z-column cross. Choices for distinct x-values are independent, hence F_{m,r,s}(t)=H_{r,s}(t)^m. Enumerating all rs crosses by their (r+s-1)-cell subset polynomials and subtracting the precise excess multiplicities from the empty set, singleton sets, row subsets, column subsets and two-point diagonal pairs gives the stated explicit H. These overlap classes are exhaustive: distinct crosses intersect in a row, column or two opposite cells. Bernoulli probability follows by summing p^k(1-p)^(mrs-k) over counted teams; q=2 full teams total 225.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Fröhlich–Kolaitis–Meier Theorem22 explicitly studies the same dep(x,y) OR dep(x,z) and proves 4-coherence; Theorem26 gives FO model checking. Their complete published text gives neither the rectangular labeled-team size enumerator nor Bernoulli satisfaction law. The cross-cover characterization is elementary and related to their local splitting proof, but the exact multiplicity-corrected generating polynomial is a distinct quantitative invariant.
+
+## value
+
+PASS
+
+PASS: Counting all satisfying labelled teams by cardinality is a natural distributional refinement of the qualitative 4-coherence and model-checking result for a canonical formula of dependence logic, relevant to database relation counts and random-team probability. An all-domain closed polynomial and exact Bernoulli law provide a concrete reusable exact enumeration, although the derivation is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

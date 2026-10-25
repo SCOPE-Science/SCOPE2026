@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:00:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Under lax team splitting, dep(x,y) OR dep(x,z) holds exactly when every x-fiber is a subset of one designated y-row union z-column cross. Choices for distinct x-values are independent, hence F_{m,r,s}(t)=H_{r,s}(t)^m. Enumerating all rs crosses by their (r+s-1)-cell subset polynomials and subtracting the precise excess multiplicities from the empty set, singleton sets, row subsets, column subsets and two-point diagonal pairs gives the stated explicit H. These overlap classes are exhaustive: distinct crosses intersect in a row, column or two opposite cells. Bernoulli probability follows by summing p^k(1-p)^(mrs-k) over counted teams; q=2 full teams total 225.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem22 says coherence level four; Theorem26 and later reductions classify model-checking complexity. Enumeration-complexity algorithms list satisfying teams without stating the explicit weighted count for all rectangular product domains."
+        ],
+        "reasoning": "Decision complexity and local forbidden four-tuples do not by themselves numerically yield the full size-generating polynomial; no inspected broader theorem contains the target distribution.",
+        "searches": [
+          "Fröhlich–Kolaitis–Meier 2026 Theorems22,26,30 and Section5",
+          "Meier–Reinbold arXiv:1704.03292"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verified cross-enumerator source checker",
+        "Fröhlich–Kolaitis–Meier CSL2026 original HTML complete article, Theorem22",
+        "Meier–Reinbold 2017 enumeration complexity abstract",
+        "Resultary search on team semantics/dependence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "4-coherence means every failure has a <=4-assignment witness and leads to FO model checking; it does not imply counts of *all* satisfying teams by size on X x Y x Z."
+        ],
+        "reasoning": "Exact H requires distinct-cross multiplicity correction (including diagonal pairs), absent from the prior claim; it is not a trivial substitution into the 4-coherence statement.",
+        "searches": [
+          "CSL 2026 Theorem22 proof Figure5 and Theorem26",
+          "explicit independent intersection multiplicity classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed x, a satisfying team is a bipartite graph edge set covered by one incident y-row and one z-column; disjoint x-fibers independently contribute the same cross-cover enumerator."
+        ],
+        "reasoning": "Graph-theoretic row-plus-column cover language is an equivalent formulation of the satisfying-team condition; existing coherence characterizations do not fix the polynomial coefficients.",
+        "searches": [
+          "Dependence logic team semantics dep(x,y) or dep(x,z) exact number of satisfying teams rectangular r s cross-coverable bipartite graphs size generating polynomial",
+          "Fröhlich–Kolaitis–Meier CSL2026 Theorem22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary team-semantics entries focus on closure/implication and graph invariants; the unsorted totals q=1:2, q=2:225, q=3:5639752 were checked against the closed formula, not inferred from an online table."
+        ],
+        "reasoning": "No identical database/table found in bounded searches; an unindexed bipartite-cross subset polynomial remains possible.",
+        "searches": [
+          "Resultary semantic search Dependence logic team semantics dep(x,y) or dep(x,z) exact number of satisfying teams rectangular r s cross-coverable bipartite graphs size generating polynomial",
+          "database relation disjunction two functional dependencies number of cross-coverable teams"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Fröhlich–Kolaitis–Meier Theorem22 explicitly studies the same dep(x,y) OR dep(x,z) and proves 4-coherence; Theorem26 gives FO model checking. Their complete published text gives neither the rectangular labeled-team size enumerator nor Bernoulli satisfaction law. The cross-cover characterization is elementary and related to their local splitting proof, but the exact multiplicity-corrected generating polynomial is a distinct quantitative invariant.",
+      "residual_risks": [
+        "No claim about arbitrary quantifiers, formulas with more dependence atoms or unlabeled isomorphism quotient.",
+        "Earlier graph-theoretic cross-covered bipartite subset enumerators may implicitly contain the same polynomial, though not located in the compared literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS 4-coherence and FO model-checking, not enumerator by labelled team size",
+          "evidence": "Theorem22 directly states dep(x,y) OR dep(x,z) 4-coherent and proves a four-element failing witness; Theorem26 complexity trichotomy.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+          "material_read": "Complete published HTML article: Sections 1–5, Theorems 22/26/30, Figure5, appendix and bibliography searches",
+          "method": "publisher open-access full HTML",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exactly the same dependence disjunction and plausible stronger result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Counting all satisfying labelled teams by cardinality is a natural distributional refinement of the qualitative 4-coherence and model-checking result for a canonical formula of dependence logic, relevant to database relation counts and random-team probability. An all-domain closed polynomial and exact Bernoulli law provide a concrete reusable exact enumeration, although the derivation is elementary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verified cross-enumerator source checker",
+    "Fröhlich–Kolaitis–Meier CSL2026 original HTML complete article, Theorem22",
+    "Meier–Reinbold 2017 enumeration complexity abstract",
+    "Resultary search on team semantics/dependence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality from bounded searches and inspected published sources, not absolute priority guarantee.",
+    "Finite independent enumerations corroborate special cases only; unrestricted scope established by proof reconstruction.",
+    "Publication not_ready due to unsanitized operational provenance; no GitHub writes or public acceptance."
+  ],
+  "residual_risks": [
+    "No claim about arbitrary quantifiers, formulas with more dependence atoms or unlabeled isomorphism quotient.",
+    "Earlier graph-theoretic cross-covered bipartite subset enumerators may implicitly contain the same polynomial, though not located in the compared literature."
+  ],
+  "schema_version": 1
+}

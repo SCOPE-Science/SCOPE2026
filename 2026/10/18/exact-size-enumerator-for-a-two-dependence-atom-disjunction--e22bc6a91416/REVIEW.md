@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The splitting semantics is equivalent to independent containment of each \(x\)-fiber in a union of one row and one column. The weighted cover sum is corrected by an exhaustive, disjoint classification of multiply covered subsets (empty set, singleton, same-row and same-column subsets of size at least two, and diagonal pairs). Each overcount has been evaluated exactly, yielding an all-cardinality generating polynomial. The probabilistic formula follows by substitution. The standalone verifier reconstructs the polynomial coefficient vectors for all 16 rectangles with dimensions at most four and directly checks all 256 binary teams against lax-split semantics.
+PASS
 
-## Originality
+PASS: Under lax team splitting, dep(x,y) OR dep(x,z) holds exactly when every x-fiber is a subset of one designated y-row union z-column cross. Choices for distinct x-values are independent, hence F_{m,r,s}(t)=H_{r,s}(t)^m. Enumerating all rs crosses by their (r+s-1)-cell subset polynomials and subtracting the precise excess multiplicities from the empty set, singleton sets, row subsets, column subsets and two-point diagonal pairs gives the stated explicit H. These overlap classes are exhaustive: distinct crosses intersect in a row, column or two opposite cells. Bernoulli probability follows by summing p^k(1-p)^(mrs-k) over counted teams; q=2 full teams total 225.
 
-PASS with historical-priority risk. The most relevant primary research, Fröhlich–Kolaitis–Meier, *Disjunctions of Two Dependence Atoms* (arXiv:2508.16146v1), has been materially inspected in its full online text: Theorem 22 proves coherence level four and its proof describes the underlying splitting constraint; Theorem 26 classifies decision complexity. Neither theorem gives the size-enumerating polynomial, its rectangular version, or the exact random-team probability. Meier–Reinbold (arXiv:1704.03292) studies algorithmic enumeration of satisfying teams, not an evident explicit weighted census, but only its abstract was accessible in this comparison. Graph-theoretic vertex-cover enumeration may contain a disguised prior formula. Search nonmatches do not establish priority; this risk remains.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete size distribution for *all* labeled finite teams satisfying a specific recently characterized four-coherent disjunction, not just a yes/no decision procedure or small examples. The rectangular parameterization matches heterogeneous attribute domains. Its coefficient formula yields exact cardinality-conditioned counts, Bernoulli satisfaction probabilities, and a reusable weighted enumeration technique for a naturally occurring lax-splitting database integrity constraint.
+PASS (best of knowledge): Fröhlich–Kolaitis–Meier Theorem22 explicitly studies the same dep(x,y) OR dep(x,z) and proves 4-coherence; Theorem26 gives FO model checking. Their complete published text gives neither the rectangular labeled-team size enumerator nor Bernoulli satisfaction law. The cross-cover characterization is elementary and related to their local splitting proof, but the exact multiplicity-corrected generating polynomial is a distinct quantitative invariant.
 
-## Limits
+## value
 
-The theorem does not count satisfaction on structurally restricted relations, does not generalize to arbitrary dependence-atom formulas, and does not determine the provenance of all equivalent graph-enumeration formulas.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Counting all satisfying labelled teams by cardinality is a natural distributional refinement of the qualitative 4-coherence and model-checking result for a canonical formula of dependence logic, relevant to database relation counts and random-team probability. An all-domain closed polynomial and exact Bernoulli law provide a concrete reusable exact enumeration, although the derivation is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
