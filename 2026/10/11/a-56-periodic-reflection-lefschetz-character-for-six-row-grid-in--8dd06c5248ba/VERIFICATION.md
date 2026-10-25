@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof's finite certificate consists of explicitly constructed integral state matrices, not inferred values from a floating-point calculation. Run `python3 artifacts/verify.py` from the extracted package root. The standard-library verifier reconstructs all 21 allowable six-row masks, the transition matrix and three boundary vectors, and checks the three **exact 21-component equalities** after 28 matrix multiplications. A separate three-state computation proves the four-step two-row boundary identity. It independently rebuilds every vertex orbit and conflict edge for the four automorphisms on all widths \(1\le n\le8\), evaluating the signed independence polynomial by deletion-contraction recursion. Expected output: `VERIFY_OK`.
+## correctness
 
-The same run checks the complete 28- and 56-entry tables, the boundary values at \(n=0,1,57\) where applicable, all claimed periodicities through representative additional periods, minimal period 56 by excluding divisors 28, 8, 7, and integrality of virtual one-dimensional character multiplicities for 120 widths.
+PASS
 
-The computer-assisted component is an **exhaustive finite matrix identity on 21 states**; once established, the mathematical proof implies the result at every positive width. Direct graph enumerations in finitely many widths are confirmatory and are not presented as an infinite proof. The claims do not determine degreewise equivariant homology outside the specified \(n=8\) example and do not constitute independent audit or external certification.
+The reduced Hopf trace on oriented augmented simplicial chains gives −I(Q_g;−1): a fixed independent set with s orbits and t vertices contributes (−1)^(t−1)(−1)^(t−s)=(−1)^(s−1), and the empty face contributes −1. The a-quotient is P_{ceil(n/2)}□P_6 for odd n and P_{n/2−1}□P_6 for even n after deleting center-edge orbits; the b quotient is a 2-row ladder. For the half-turn, the even and odd center conflicts yield explicit integral boundary vectors e and o. I independently constructed all 21 admissible column masks and the integer transfer matrix, and exactly computed T^28 on all three boundary vectors, obtaining equality component by component. The first-period F28 and Z56 tables and n=1, n=57, F0/F28 boundary values match; excluding proper divisors establishes LEAST period 56. An independent orbit-conflict graph and deletion recurrence gave exact agreement for all four group elements and n=1..10 (40 cases); 4000 virtual character multiplicity-integrality checks and n=8 degree-11 representation were also consistent. Infinite all-n conclusion comes from orbit derivation and finite exact matrix identities, NOT extrapolation of finite widths.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the full all-n C2×C2 reduced Lefschetz character and its nontrivial least 56-periodic half-turn component, relative to the published 28-period nonequivariant Euler table; close primary works were inspected at substantive mathematical sections and compared by implication, not titles.
+
+## value
+
+PASS
+
+Geometric horizontal/vertical involutions form a canonical V4 symmetry of every open six-row grid, and their alternating rational homology representation is a natural invariant not recoverable from Betti numbers or an ordinary Euler characteristic. A complete all-n exact formula supplies the full virtual reflection character; the half-turn has a least period twice the known ordinary period (56 versus 28) and uniformly bounded nonconstant values ±1,±3,±5. At n=8 it yields an actual five-dimensional rational H11 decomposition into multiplicities (2,1,0,2), information that the known wedge-of-five-spheres result cannot identify. The classification can support subsequent equivariant-topology and symmetry-restricted counting inquiries; it is not a textbook restatement of an ordinary transfer table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
