@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof independently reduces the undamped staged update to the Chebyshev polynomial using all recurrence initial conditions, identifies every interior unit-modulus multiplier and handles the identity/reflection alternatives. The simultaneous negative-extremum case is an exactly solvable random reflection walk: independent choices yield variance \(n(c_1-c_2)^2\), with no extrapolation from finite experiments. The five-stage radical curvatures give two exact negative extrema and a full-gradient multiplier \(61/64\). Standard mean-square coupling proves a unique finite-second-moment stationary law off resonance, and exact quadratic Taylor coefficients establish the pole constant \(100\). The embedded verifier provides independent symbolic and finite path checks. The claim is restricted to undamped, fixed-step, shared-within-stage sampling; finite experiments are not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated risk
-The source SRKCD paper already specifies the stochastic stage sampling, polynomial stability framework and convergence for decreasing learning rates; those are not original here. The earlier deterministic RKCD article supplies the underlying Chebyshev method, and general random affine recursion theory supplies moment recursions. The new statement is the exact necessary-and-sufficient *joint negative-interior-extremum* criterion for linear variance growth, an explicit two-sample five-stage separation from strictly contractive full-gradient RKCD, and an exact stationary-variance pole. Targeted mathematical-record searches, source passages and accessible preceding claim statements showed no stronger result implying that package. The full texts of two later related stochastic Runge–Kutta optimization papers were not accessible; publication-priority uncertainty is nonzero. No independence or priority certification is claimed.
+PASS
 
-## Value — PASS
-A deterministic stability interval extending quadratically with the number of stages is a central motivation for stabilized stochastic descent. Exact cancellation of damping at two different component curvatures exposes a concrete design boundary: internally stable sampled scalar problems can cause stochastic second moments to grow without limit, even as the same algorithm with full gradients contracts. The sharp quadratic invariant-variance blow-up quantifies a reproducibility-relevant conditioning effect near such a boundary and motivates positive damping and separate stochastic stability checks. The result does not establish failures in the published damped/decreasing-step recommendations and does not claim generic divergence.
+The stage recurrence with one reused sample reduces exactly to x->c+T_s(1-h lambda/s^2)(x-c). For s=5,h=25, lambda_±=(3±sqrt5)/4 the arguments are cos(pi/5), cos(3pi/5), giving r±=-1. With centers -1,+1 independent each outer step the increments have alternating signs and variance 4n from deterministic X0=0. The full-gradient average curvature 3/4 gives T5(1/4)=61/64 and F minimizer sqrt5/3, yielding E excess =3n/2+5/24. For q=(r_-²+r_+²)/2<1, synchronous L² coupling contracts; stationary mean/variance recursions give V=4(1-r_-)²(1-r_+)²/((2-r_--r_+)²(1-q)). Exact derivative gives both quadratic coefficients 1/50∓sqrt5/125 and 1-q=(h-25)²/25+O((h-25)³), so (h-25)²V->100. Independent SymPy evaluation reproduced r±=-1, the exact second derivatives and objective expectation. Interior bounds and off-resonance uniqueness checked by argument, not finite horizons.
 
-## Closest literature and restrictions
-Stillfjord and Williamson, *SRKCD: a stabilized Runge-Kutta method for stochastic optimization* (arXiv:2201.12782), sections 2–5 and appendix; Eftekhari et al., *Explicit stabilised gradient descent for faster strongly convex optimisation* (doi:10.1007/s10543-020-00819-y), relevant methods and analysis; Abdulle and Cirilli, *S-ROCK* (doi:10.1137/070679375), bibliographic summary. Public abstracts for later Krivovichev stochastic RK-related optimization articles were checked, without accessible full-text comparison. Source model restrictions and potential algebraic rederivability from general random affine theory remain explicit limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Established stochastic RKC and Chebyshev polynomial stability do not by themselves state the joint interior negative-extremum criterion, independent two-center reflection variance growth or exact quadratic invariant-variance pole. The original convergence results use diminishing steps/other noise conditions, so they do not rule out this fixed-step resonance.
+
+## value
+
+PASS
+
+This is an explicit counterexample to inferring stochastic mean-square stability from each scalar deterministic stability factor in the allowable open interval. Classification of simultaneous negative extrema and a sharp variance pole quantify a real algorithmic failure mode in a natural same-sample-across-stages implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
