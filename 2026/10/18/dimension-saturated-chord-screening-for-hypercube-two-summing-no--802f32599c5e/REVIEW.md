@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has complete quantifiers and normalization: arbitrary sets of distinct new cube nonedges with positive row amplitudes, integer dimensions at least three, real Euclidean generators and free two-convex exponent two. Formula (1.1) of Jardón-Sánchez et al. and the Pietsch domination theorem yield a global spectral norm-design duality. The cube Laplacian's Walsh eigenbasis supplies the exact Hamming-distance inverse-square-root form, and strict concavity gives a sharp, simultaneous condition including all equality cases. Positive integral estimates and a uniform Laplace expansion prove the asymptotic coefficient, while graph-path telescoping proves the exact pointwise ratio. A standalone checker passed 44 spectral, optimization and asymptotic checks; those computations do not prove the infinite theorem.
+PASS
 
-## Originality — PASS, qualified by literature risk
+The real exponent-2 free Banach lattice/absolutely 2-summing norm representation reduces to the max over simplex weights of tr sqrt(sum w_e v_e v_e^T). Trace-square-root concavity and cube edge transitivity make the uniform old-edge Laplacian L/M optimal; strict concavity on the mean-zero support plus unique off-diagonal pair supports gives uniqueness even if a new chord is at equality. The first-order directional derivative for a chord of amplitude a is proportional to a^2 b^T L^{-1/2} b, so necessary and sufficient preservation is a^2 R_{d,k}<=R_{d,1} independently for each chord, not an assumption that optimizers are symmetric. The Walsh eigenvalues 2|S| prove the explicit R sum and base norm. The integral heat-kernel representation yields strictly increasing R_{d,k}; careful uniform Laplace expansion with tanh(s)^k<=s^2 for k>=2 gives T_{d,k}=1-1/(4d)+O(d^-2); shortest cube paths and x(u)=sum_i u_i prove the exact amplification d T_{d,d}. Independently reconstructed ordinary cube Laplacians for d=3,4,5, all pairwise spectral R values matched the Walsh sum to 1e-10, with strict order. Scope explicitly d>=3, finite arbitrary sets of nonedge rows and positive amplitudes, and real Euclidean generator; finite checks are corroboration, not proof.
 
-The 2021 free-lattice paper supplies the abstract norm framework, and its 2022 sequel treats general induced operators. Neither inspected full text states the cube-specific chord thresholds. Liu and collaborators' hypercube Kirchhoff-index work uses inverse eigenvalue powers, not the inverse-square-root chord sensitivity. Previously recorded cycle-specific chord screening and general graph-gradient bounds cover different statements; the present Walsh sums, dimension-saturated threshold and exact all-nonedge order amplification do not follow just from their conclusions. Searches of mathematical research records and published literature did not reveal a stronger or equivalent coverage, but missed sources remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives exact, necessary-and-sufficient stability for any simultaneous added-chord family on every binary cube, identifies its unique norming design, and establishes a uniform near-unit screening threshold. Adding every nonedge preserves a natural Banach-lattice/two-summing norm while the corresponding positive function can grow pointwise by the exact factor approaching the dimension. This sharp asymptotic separation is motivated by norm invariants of edge-gradient operators and is not an arbitrary finite computation.
+Best-of-knowledge originality PASS after fresh published findings search and mathematical comparison of alias objects, stronger coverage, exact tables, and prior-result implications. Known general tools are credited, rather than claimed anew; risk remains documented: An earlier equivalent optimal-design calculation for hypercube graph gradients or graph Banach-lattice perturbation could imply the same thresholds without the word chord; no global novelty guarantee.
 
-## Limits
+## value
 
-No norm beyond the threshold, other exponents, or extension beyond real binary cubes is established. Bibliographic equivalence remains a residual risk, and finite numerical tests do not replace the analytic argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact one-chord-at-a-time simultaneous screening criterion is mathematically useful for the stability of a nonlinear operator norm under arbitrarily many perturbations. The fact the admissible amplitude approaches 1 uniformly over every nonedge Hamming distance while the pointwise maximum may grow like dimension shows a genuine operator-vs-order gap, not a relabeling or tiny improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
