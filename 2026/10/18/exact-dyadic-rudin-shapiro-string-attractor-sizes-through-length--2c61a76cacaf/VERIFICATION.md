@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and finite-proof boundary
+# Independent mathematical audit
 
-From this directory, execute `python3 verify.py`. It requires only Python 3.10+ and local `certificates.json`. It regenerates the Rudin–Shapiro prefix in two independently stated ways, enumerates every distinct factor, reconstructs the inclusion-minimal position coverages, checks the stored antichains by equality, verifies four explicit attractor sets and four integer dual lower bounds, and runs a complete finite exact-cover search to exclude equality at lengths 128, 256, and 512.
+## correctness
 
-Observed fresh-package execution:
+PASS
 
-```text
-PROOF n=128 factors=7008 minimal=48 lower_dual=9 exact_cover_states=30 options=16 memo=30 optimum=10
-PROOF n=256 factors=28128 minimal=64 lower_dual=10 exact_cover_states=2566 options=45 memo=2566 optimum=11
-PROOF n=512 factors=112608 minimal=80 lower_dual=11 exact_cover_states=1316 options=82 memo=1316 optimum=12
-PROOF n=1024 factors=450528 minimal=96 lower_dual=12 optimum=12
-VERIFY_OK Rudin-Shapiro dyadic attractor profile = 10,11,12,12
-```
+The claim fixes ordinary binary Rudin–Shapiro r_i as the parity of overlapping 11s in binary i, positions one-based, and ONLY N=128,256,512,1024. Independently enumerated all distinct factors and their complete interval-union masks from freshly generated words: 7008,28128,112608,450528 factors, and precisely 48,64,80,96 inclusion-minimal coverage masks. Canonical sorted-hex SHA256 digests of independently regenerated masks were a6544128ca3c04bbb8038882ddb3d427ab5840e81ea38e24b0c32034ec550ece, 004167c859ab00d91a6bb72c545e8c3da3c221b2cfaf4b3dc222e875e4b40a0c, 26917b5a15caa29863b6240919b91f5aef52eff32fbc0095422d75e47f3c6198, 78aaa4b7a10ab9d14f25befcb694142b1ac44062eb79699b810fc637f27704b4; independently SHA256-hashing fetched certificates.json masks gave the IDENTICAL four digests. An independently coded JS BigInt certificate check verified all listed 10/11/12/12-point witnesses hit EVERY mask and integer incidence-duals achieve lower bounds 9/10/11/12, with multiplicities 1/1/2/2. Independently coded exhaustive exact-cover recursion, restricting equality-to-dual and satisfying additional core coverages, found NO smaller 9/10/11 solutions (27,2194,1278 memo states under different pruning), while at 1024 dual=upper=12. The recursion branches on each uncovered positive-dual coverage with exact feasibility pruning and keeps undominated incidence options, proving those three finite exclusions, not relying on a solver log. Four exact finite minima survive; no infinite-word claim.
 
-The certificate verification is finite and exhaustive for the four concrete words only. In the exact-cover step, every hypothetical attractor saturating the dual lower bound must select positions meeting exactly the indicated number of positive-dual coverages, with each such coverage met exactly once. The verifier enumerates all assignments of these incidences, rejecting an assignment only when the remaining required coverage cannot possibly be reached; it uses only provably dominance-preserving candidate reductions. An upper witness together with the dual-plus-unsatisfiability certificate proves the listed exact values; an optimization transcript by itself does not.
+## originality
 
-No outside expert review, formal-system certification, or independent audit is claimed. Novelty may be affected by inaccessible full prior records or unindexed earlier calculations; those limits do not affect the self-contained correctness check.
+PASS
+
+Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.
+
+## value
+
+PASS
+
+The next four consecutive dyadic Rudin–Shapiro prefixes after the prior exact results through 64 are natural benchmark instances of the canonical compression invariant gamma. Their sharp values 10,11,12,12 improve the nearest published summary upper bounds 12,13,15,16, exposing a non-obvious 512-to-1024 plateau; the independently checkable exact hitting-set certificates are useful precisely for those benchmark lengths. This finite result merits value without an infinite asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
