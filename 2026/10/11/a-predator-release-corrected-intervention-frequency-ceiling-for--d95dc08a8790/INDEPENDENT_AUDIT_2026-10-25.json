@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x>0 on a positive first-return leg, d(log x)/dt=(x-alpha)(1-x)-lambda y/(x+y). The prey jump sets log x(T-)-log x(0)=L=-log(1-p). Concavity of g(x) yields sup_{0<x<h} g(x)=rho piecewise with vertex (1+alpha)/2. ydot/y=lambda1 x/(x+y)-beta > -beta for x,y>0; the predator jump has y(0)=(1-q)y(T-)+tau>tau. Hence y(t)>tau exp(-beta t); first return yields x(t)<h. The predation fraction is increasing in y and decreasing in x, so y/(x+y)>tau exp(-beta t)/(h+tau exp(-beta t)). Its exact time integral is beta^-1 log((h+tau)/(h+tau exp(-beta T))). Thus L<F(T)<rho T for T>0, and T>L/rho. Fprime(T)=rho-lambda tau exp(-beta T)/(h+tau exp(-beta T)); the displayed sufficient condition makes Fprime>0 for all T>0, F(0)=0 and F→infinity, giving unique T_*>0 and T>T_*. The strictness, endpoint sup, positivity, and conditional quantifier were verified. Independent 55-digit mpmath computations reproduced both numerical root and frequency bounds to >25 digits. Finite numerical checks verify only the particular evaluations, not the all-parameter inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Wang–Ouyang 2021 model (2) requires ydot=yV(x), which excludes the y-dependent predator per-capita field of the source. Its conclusions concern existence and stability.",
+          "Dai–Zhao 2012 computes a semitrivial logistic cycle at tau=0 with Ivlev response, not the claimed positive-cycle lower bound.",
+          "Wang–Cheng–Liu–Wang 2018 restocks prey, unlike mandatory predator release, so its profit/T optimum and reported T values do not dominate the bound."
+        ],
+        "reasoning": "General state-feedback existence theorems and simple cycle period formulas are compared by equations, impulse sides, quantifiers, and whether they actually imply the scalar inequality. No proved broader coverage found among these inspected sources.",
+        "searches": [
+          "Resultary semantic: period lower bound intervening interval minimum inter-event time positive periodic orbit predator prey state dependent impulsive harvesting x+ = (1-p)h predator release tau",
+          "Web: prey predator impulse periodic orbit lower bound period per capita growth Allee release",
+          "DOI 10.1080/17513758.2021.1937721 general state dependent predator prey",
+          "DOI 10.1155/2012/534276 Ivlev-type positive order-one cycles",
+          "https://www.tandfonline.com/doi/full/10.1080/17513758.2021.1937721",
+          "https://link.springer.com/article/10.1186/s13662-018-1499-9"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1186/s13662-018-1933-z",
+        "https://onlinelibrary.wiley.com/doi/10.1155/2012/534276",
+        "https://doi.org/10.1007/s11071-017-3567-1",
+        "https://www.tandfonline.com/doi/full/10.1080/17513758.2021.1937721",
+        "https://link.springer.com/article/10.1186/s13662-018-1499-9",
+        "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2006.6.1301",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-predator-release-corrected-intervention-frequency-ceiling-for--d95dc08a8790",
+        "Resultary semantic searches Resultary semantic: Shi Wang Li Cheng 2019 ratio-dependent predator prey model order-one state-triggered impulse x=h additive predator tau release strict minimum period log prey reset",
+        "Resultary semantic searches Resultary semantic: period lower bound intervening interval minimum inter-event time positive periodic orbit predator prey state dependent impulsive harvesting x+ = (1-p)h predator release tau"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 article supplies the exact model and reset, but its main results concern cycles existence, stability, and cost/T; it does not assert any time floor.",
+          "The 2017 Floquet proof integrates dot x/x, but the impulse occurs at y=tau and resets predator multiplicatively, so it cannot imply y(t)>release exp(-beta t) for a prey-threshold cycle.",
+          "The 2021 general model predator equation has the special dependence yV(x), unlike λ1xy/(x+y)-βy; hence its existence/stability theorem cannot be applied as an all-parameter dominating period result."
+        ],
+        "reasoning": "The exact budget is mechanically derivable from source dynamics; the new quantitative strict bound requires combining the first-return prey ceiling with obligatory predator release and its decay envelope and integrating the ratio-dependent predation. These elementary premises appear in the 2019 equations but no inspected earlier result was shown to imply the final inequality or stronger time bound. Residual priority risks remain.",
+        "searches": [
+          "https://link.springer.com/article/10.1186/s13662-018-1933-z",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2012/534276",
+          "https://doi.org/10.1007/s11071-017-3567-1",
+          "https://www.tandfonline.com/doi/full/10.1080/17513758.2021.1937721",
+          "https://link.springer.com/article/10.1186/s13662-018-1499-9",
+          "Web: prey predator impulse periodic orbit lower bound period per capita growth Allee release"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Resultary hit matching all constants is the assessed published SCOPE record itself and is not an independent antecedent: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-predator-release-corrected-intervention-frequency-ceiling-for--d95dc08a8790",
+          "Primary 2019 equations and the 2017 Floquet treatment contain related log-derivative tools but do not state the corrected lower bound.",
+          "The 2017 system uses predator-threshold impulses, so exchanging x and y does not preserve the ratio-dependent differential system or additive stocking reset."
+        ],
+        "reasoning": "Compared period/intervention-frequency aliases T^-1, minimum inter-impulse time/dwell time, the exact logarithmic reset budget, and the release-driven integral correction. No independently published equivalent or stronger inequality was identified; an identical own-result database hit is not a priority argument.",
+        "searches": [
+          "Resultary semantic: Shi Wang Li Cheng 2019 ratio-dependent predator prey model order-one state-triggered impulse x=h additive predator tau release strict minimum period log prey reset",
+          "Resultary semantic: period lower bound intervening interval minimum inter-event time positive periodic orbit predator prey state dependent impulsive harvesting x+ = (1-p)h predator release tau",
+          "Web: state-dependent impulse predator release harvesting minimal inter-event time dwell-time log prey threshold period model",
+          "https://link.springer.com/article/10.1186/s13662-018-1933-z",
+          "https://doi.org/10.1007/s11071-017-3567-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned the same finding as the strongest hit, with more distant predator-prey records concerning distinct flow laws, boundary cycles, or weighted time means.",
+          "The theorem involves a continuous multidimensional parameter family rather than a finite census or exact sequence table."
+        ],
+        "reasoning": "No independent exact database/table or source theorem giving the floor was identified. Database non-retrieval is not novelty proof; direct primary mathematical comparison is the main originality evidence.",
+        "searches": [
+          "Resultary semantic: Shi Wang Li Cheng 2019 ratio-dependent predator prey model order-one state-triggered impulse x=h additive predator tau release strict minimum period log prey reset",
+          "Resultary semantic: period lower bound intervening interval minimum inter-event time positive periodic orbit predator prey state dependent impulsive harvesting x+ = (1-p)h predator release tau",
+          "Resultary returned top same-record id SCOPE-a-predator-release-corrected-intervention-frequency-ceiling-for--d95dc08a8790",
+          "Web: minimum interevent period impulsive predator prey logarithmic reset tau beta"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the model and elementary logarithmic device are prior, but the checked primary sources do not assert or dominate the release-corrected parameter-only necessary period inequality and its evaluated control-frequency ceilings. The same-result Resultary hit cannot be counted as earlier independent coverage. The derivation is short and plausible as an unindexed observation, so historical priority is not certified.",
+      "residual_risks": [
+        "An older or unindexed control-theoretic minimum dwell-time inequality might dominate this simple integral comparison.",
+        "The primary 2019 model already prints all differential/reset premises, so the new contribution is the specific quantitative consequence rather than a difficult new technique.",
+        "The monotonicity hypothesis for the convenient proof of the positive root is sufficient but not necessary: F is strictly convex with F(0)=0 and F(T)→∞, hence a unique positive root actually exists for any allowed positive parameters and L>0; the published claim is weaker, not incorrect.",
+        "No claim of sharpness, unconditional cycle existence, stability, or extension to higher-order cycles is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equations (3)-(4) and first-return geometry support the premises; the article studies existence/stability and numerical T and F/T, but does not provide the release-corrected parameter-only lower bound or a dominating theorem.",
+          "evidence": "Model and reset at article lines 105-123; impulse set and phase set lines 153-160; Section 3 reported period and h*=0.46, p*=0.0878, tau*=0.0737; DOI 10.1186/s13662-018-1933-z.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13662-018-1933-z",
+          "material_read": "Complete open-access HTML: dimensionless model (3), impulse parameter functions (4), geometric order-one orbit setup and reset, Theorem 2.5 and stability proof, Section 3 period figures, numerical examples and optimum.",
+          "method": "Primary full-article HTML reading and formula-level comparison.",
+          "title": "Control optimization and homoclinic bifurcation of a prey–predator model with ratio-dependent",
+          "trigger": "Exact originating model and release/harvest cycle for the assessed theorem."
+        },
+        {
+          "assessment": "Same Allee ratio-dependent continuous flow, but trigger y=tau and multiplicative harvest of both coordinates; no additive predator stocking and no implication of the prey-trigger release-corrected floor. Log derivative integration itself predates this record.",
+          "evidence": "Equations (1.3)-(1.4) trigger y=tau; printed p.2007 contains ∫ (dot x / x) and log endpoint ratios; Fig.11 p.2010 reports period variation.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-017-3567-1",
+          "material_read": "Complete authorized 12-page primary PDF text (2017), including model (1.4) pp.2-3, first-return definition p.3, Floquet logarithmic derivative p.7, cycle/homoclinic analysis pp.4-11, numerical period figures and references.",
+          "method": "After unsuccessful arXiv and lawful OA searches for this same paper, retrieved and read pages 1-12 via authorized institutional access; no authentication bypass.",
+          "title": "Homoclinic bifurcation of a ratio-dependent predator–prey system with impulsive harvesting",
+          "trigger": "Closest published continuous dynamics, similar Floquet integral, period discussion."
+        },
+        {
+          "assessment": "An Ivlev predation response and different impulse mapping; the explicitly calculated T concerns predator-free semitrivial cycles at tau=0, not positive cycles with compulsory release and ratio-dependent Allee predation.",
+          "evidence": "Section 3.1, tau=0 semitrivial logistic period; Section 4 positive cycle simulations with additive predator release.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2012/534276",
+          "material_read": "Full Wiley open web text, Sections 1-5 with model (1.1), semitrivial period formula (3.3), positivity/stability arguments and numerical parameter examples.",
+          "method": "Direct primary publisher full-text reading.",
+          "title": "Dynamic Complexity of an Ivlev-Type Prey-Predator System with Impulsive State Feedback Control",
+          "trigger": "Earlier prey-threshold control with additive release and explicit information about periodic solutions."
+        },
+        {
+          "assessment": "General model is xdot=xU(x,y), ydot=yV(x), while the audited predator per-capita field λ1 x/(x+y)-β depends on y, so a strict generic special-case reduction is not immediate. No explicit period floor or predator decay integral correction was found.",
+          "evidence": "Model (1) cites Wang et al with reset Δy=-qy+tau; model (2) imposes ydot=yV(x); abstract and Section 5 address existence/stability, not strict period floor.",
+          "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/17513758.2021.1937721",
+          "material_read": "Publisher open full HTML: abstract, Introduction and model (2), assumptions, existence/stability results, Section 5 simulations and cited 2019 model.",
+          "method": "Direct primary full-text inspection including equations and theorem objectives.",
+          "title": "The state-dependent impulsive control for a general predator–prey model",
+          "trigger": "A general prey-threshold theorem that might dominate the more specific period inequality."
+        },
+        {
+          "assessment": "Involves additive prey restocking and predator harvesting plus a different logistic functional response; reports numerical periods but no stronger model-specific stocking-corrected prey-reset floor.",
+          "evidence": "Remark 2.1: reset x+=(1-p_h)h+tau_h and y+=(1-q_h)y; Section 4.2 gives profit/T objective and numerical T values.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13662-018-1499-9",
+          "material_read": "Complete open-access HTML: model, impulse mapping, cycle existence/stability theorems and Section 4.2 period and profit optimization.",
+          "method": "Direct full HTML reading and search for period T, logarithmic bounds and lower bounds.",
+          "title": "Periodic solution and control optimization of a prey-predator model with two types of harvesting",
+          "trigger": "Published explicit threshold-dependent harvest optimization and cycle-period study."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimum permissible intervention interval is a natural control quantity in the originating 2019 paper because its economic objective is cost per period. The necessary release-dependent floor uses physical stocking tau and predator decay beta and requires no trajectory integration or cycle stability proof. The first example increases the lower bound from 1.5541271350 to 2.3686218445 (about 52%); the reported optimum increases it from 0.4727161250 to 0.6782308510 (about 43%). This quantitatively excludes overly frequent interventions for any existing positive order-one cycle, and is mathematically more informative than a mere normalization or sign check. Limits: the derivation is elementary and gives a possibly nonsharp necessary condition, not existence or feasibility at parameters without positive cycles.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1186/s13662-018-1933-z",
+    "https://onlinelibrary.wiley.com/doi/10.1155/2012/534276",
+    "https://doi.org/10.1007/s11071-017-3567-1",
+    "https://www.tandfonline.com/doi/full/10.1080/17513758.2021.1937721",
+    "https://link.springer.com/article/10.1186/s13662-018-1499-9",
+    "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2006.6.1301",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-predator-release-corrected-intervention-frequency-ceiling-for--d95dc08a8790",
+    "Resultary semantic searches Resultary semantic: Shi Wang Li Cheng 2019 ratio-dependent predator prey model order-one state-triggered impulse x=h additive predator tau release strict minimum period log prey reset",
+    "Resultary semantic searches Resultary semantic: period lower bound intervening interval minimum inter-event time positive periodic orbit predator prey state dependent impulsive harvesting x+ = (1-p)h predator release tau"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Proof assumes existence of strictly positive order-one cycle and first threshold return; higher-order or boundary cycles not covered.",
+    "No claim of optimal sharpness or a general existence/stability result; floor is necessary only.",
+    "Only two specified parameter values numerically evaluated; no numerical trajectory integration.",
+    "Originality is qualified given the elementary derivation from the 2019 source, broad impulse-period literature, and possible unindexed dwell-time results.",
+    "Public METADATA.json and AUDIT.json include operational run identifiers; first_public_date in METADATA refers to 2019 literature, not verified first publication of this finding. No guarded sanitized replacement package of complete AUDIT/METADATA/REVIEW bytes was staged; withhold publication pending complete sanitization."
+  ],
+  "schema_version": 1
+}
