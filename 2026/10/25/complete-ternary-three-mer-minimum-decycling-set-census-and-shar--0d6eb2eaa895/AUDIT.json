@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Eleven pairwise disjoint rotation cycles give an exhaustive 3^8 candidate universe for any cardinality-11 decycling set. A standalone deterministic program enumerates all 6561 transversals, tests DAGness by Kahn elimination, independently tests 21 length-2/4 simple cycle masks, reconstructs longest residual paths, and verifies 84 survivors split 60/24. Six alphabet permutations and reversal produce seven complete size-12 orbits. Direct enumeration of every ternary length-8/9/10 word confirms exact hitting thresholds. The code is included and has been executed successfully; no extrapolation beyond the finite domain is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marçais, DeBlasio & Kingsford, arXiv:2311.03592, sections 2, 4, 5, Tables 1-2 (full primary text, originally posted 2023-11-06).",
+        "Zheng, Kingsford & Marçais, arXiv:2001.06550v1, sections 2-4 (full primary text, posted 2020-01-16)."
+      ],
+      "reasoning": "The 2023/2024 paper is broader in alphabet and order but its algorithms and theorems do not fix the full ternary length-three equality-case set, shortest avoiding-word distribution or symmetry types. A general finite enumeration algorithm enables computation but alone does not explicitly entail the numerical and structural classification without running and verifying the exhaustive instance.",
+      "searches": [
+        "Marçais DeBlasio Kingsford sketching methods small window guarantee minimum decycling sets ternary 3 kmer 2024",
+        "minimum decycling sets ternary q=3 k=3 84 60",
+        "universal hitting sets ternary three-mers 11 smallest 9-character string window guarantee"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.03592 full primary text and Tables 1–2",
+      "doi:10.1089/cmb.2024.0544 open-access published primary article",
+      "arXiv:2001.06550v1 full primary text",
+      "Orenstein et al. 2017 universal hitting set study (relevant prior work; not used to assert a full-text absence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marçais, DeBlasio & Kingsford, arXiv:2311.03592, sections 2, 4, 5, Tables 1-2 (full primary text, originally posted 2023-11-06).",
+        "Zheng, Kingsford & Marçais, arXiv:2001.06550v1, sections 2-4 (full primary text, posted 2020-01-16)."
+      ],
+      "reasoning": "Eleven necklace cycles and the lower bound are known ingredients, not new. Those facts alone leave 6561 prospective equality transversals; acyclicity, 84 survivors, the split into 60 and 24 path profiles, the seven orbits and the 21 short-cycle equivalence require additional finite proof. The general bounds on the Mykkeltveit construction do not imply the equality-case census.",
+      "searches": [
+        "arXiv:2311.03592 Proposition rotation classes PCR necessary cardinality lower bound",
+        "arXiv:2001.06550 universal hitting sets remaining path bounds Mykkeltveit",
+        "3-symbol length-three de Bruijn graph minimum decycling set short cycles orbit enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marçais, DeBlasio & Kingsford, arXiv:2311.03592, sections 2, 4, 5, Tables 1-2 (full primary text, originally posted 2023-11-06).",
+        "Zheng, Kingsford & Marçais, arXiv:2001.06550v1, sections 2-4 (full primary text, posted 2020-01-16)."
+      ],
+      "reasoning": "Vertex feedback sets in the ternary order-three de Bruijn graph equal unavoidable three-mer hitting sets. The reported exact claim includes not merely cardinality but a full labeled census, longest avoiding paths, orbit structure and 21-cycle finite test; neither primary paper provides these enumerations. Search did not find another publication giving the equivalent formulation.",
+      "searches": [
+        "\"ternary\" \"de Bruijn\" \"minimum decycling sets\" 3",
+        "\"ternary\" \"minimum decycling\" \"84\"",
+        "ternary de Bruijn graph decycling sets 2-cycles 4-cycles necklace transversal classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Marçais, DeBlasio & Kingsford, arXiv:2311.03592, sections 2, 4, 5, Tables 1-2 (full primary text, originally posted 2023-11-06).",
+        "arXiv:2311.03592 Table 1 specifies sigma=2 and Table 2 specifies sigma=2 or sigma=4; neither supplies sigma=3,k=3."
+      ],
+      "reasoning": "The closest exact published table tabulates binary minima through small orders; the other table reports binary and DNA path lengths. Neither is a table of ternary length-three minima, so no exact table entry dominates this result. It remains possible that unindexed supplemental data or third-party software independently contains the same row.",
+      "searches": [
+        "arXiv:2311.03592 Table 1 sigma=2 count MDS",
+        "arXiv:2311.03592 Table 2 sigma=2 sigma=4 longest remaining path",
+        "ternary order-three minimum decycling set full enumeration seven orbits"
+      ]
+    },
+    "rationale": "The closest full primary article establishes the minimum-decycling-set framework, the necklace/PCR necessary condition and general exploration algorithms, but its exact-count table concerns the binary alphabet and its path-length table concerns binary and four-letter alphabets; it does not present the ternary length-three 84-set census, 60/24 sharp guarantee profile, seven symmetry classes or sufficiency of 21 short-cycle constraints among cardinality-minimal transversals. Earlier general UHS/remaining-path bounds also do not imply these exact counts. Multiple targeted statement and reduction searches identified no exact equivalent, but unindexed computations remain a residual originality risk.",
+    "residual_risks": [
+      "A ternary three-mer instance may already have been enumerated in unindexed software, a dataset or a secondary work without explicit publication.",
+      "This is a small but natural exact classification, not a general asymptotic theorem; its value depends on the sharp finite window benchmark and complete symmetry/obstruction structure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides main earlier framework and exact binary and exploratory four-letter data; no ternary length-three full census or local 21-cycle test found",
+        "evidence": [
+          "arXiv:2311.03592 sections 2, 4.3, 5.2; Table 1 sigma=2; Table 2 sigma=2,4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.03592",
+        "material_read": "Full accessible preprint HTML, introduction, rotation-cycle necessary condition, graph operations, section 5 and Tables 1–2, discussion and extended proof sections",
+        "method": "Full-text review with direct parameter comparison and examination of both numerical tables",
+        "title": "Sketching methods with small window guarantee using minimum decycling sets",
+        "trigger": "Same objects, exact minimum-decycling-set framework and path-length question"
+      },
+      {
+        "assessment": "Same focus and alphabet regimes; no ternary three-mer 84/60/24/seven-orbit classification identified",
+        "evidence": [
+          "Journal of Computational Biology 31 (2024), pp.597–615, open-access full HTML; article originally published 2024-07-09"
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2024.0544",
+        "material_read": "Publicly available full article HTML including introductory motivation, section headings and discussion",
+        "method": "Cross-comparison with the complete accessible preprint; independently inspected published data and conclusion",
+        "title": "Sketching Methods with Small Window Guarantee Using Minimum Decycling Sets (journal version)",
+        "trigger": "Potential stronger revised paper superseding preprint"
+      },
+      {
+        "assessment": "Gives UHS framework, Mykkeltveit bounds and selection-scheme connections; no exact 84-case ternary table or seven-orbit result found",
+        "evidence": [
+          "arXiv:2001.06550v1, sections 2–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.06550v1",
+        "material_read": "Full HTML introduction, section 2 result statements, section 3 methods, and discussion",
+        "method": "Compared complete statement with finite ternary exact spectrum and minimum-cardinality conditions",
+        "title": "Lower density selection schemes via small universal hitting sets with short remaining path length",
+        "trigger": "Strongly related universal-hitting-set equivalence and remaining path bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d6eb2ea-a895-4ee0-b704-b2d452eeb526",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum-cardinality decycling sets are a well-motivated optimal-footprint support family for context-free sequence sketching. The complete first three-letter ternary classification supplies an exact optimal guaranteed-hit word length, counts all equivalent and inequivalent choices, and proves a compact 21-short-cycle obstruction criterion for any equality-size candidate. Neither existence from standard constructions nor generic parameter algorithms provide this classified exact benchmark without the nontrivial exhaustive comparison.",
+    "status": "PASS"
+  }
+}
