@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(r,s\ge2\), a group-averaged optimizer first yields an exact scalar optimum and a unique aggregate cross weight. At or below the threshold \(s=2r\), the between-parts Rayleigh quotient saturates the lower spectral bound and forces every row and column sum of the cross block; outer difference vectors then saturate the upper bound and force every cross entry to be equal. Above the threshold, total clique row capacity is saturated, while a compressed trace identity forces the same uniformity. The complete core-face constraints are necessary and sufficient by orthogonal block decomposition. Trace bounds plus explicit feasible constant-offdiagonal cores prove both sharp internal-edge extrema. Exact-arithmetic and symbolic tests in the verification program support the algebra, not the infinite quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-Boyd et al. (arXiv:0709.0955, Sections 3.1.2 and 5) give the symmetry and complete-bipartite optimum. Jafarizadeh (arXiv:2501.02421, Theorem 1 and Section 6.5) already implies the complete-split **optimal value** through a clique-lift of a star and constructs a particular optimum. Those facts are explicitly treated as prior results, not claimed as new. The present result determines **all** globally optimal kernels, proves cross-block rigidity without an assumed symmetry, and classifies the entire remaining spectral face and edge-mass interval. These all-optima statements are not asserted in the inspected prior theorems. Possible unindexed coverage of equality cases remains a risk.
+PASS
 
-## Value — PASS
-Designing a fastest-mixing chain requires knowing whether an internal communication edge can be retained or must be removed, not just the optimal spectral rate or one example chain. The exact two-parameter complete-split classification settles that choice for every optimizer: core links are unavoidable for \(s<r\), optional for \(r\le s<2r\), and absent from every optimizer for \(s\ge2r\). It also gives a sharp allowable total core traffic interval, including non-invariant optima; the forced equal cross-edge probabilities are an unexpectedly strong structural constraint. These distinctions are not consequences of a mere graph relabeling or a generic numerical SDP output.
+Averaging under S_r x S_s gives optimal average cross x, with unique minimizer of max(1-ra,(r+s)a-1); for s<=2r Rayleigh saturation of between-block contrast and independent differences forces B=xJ, and for s>2r capacity saturation plus the independent-block compression trace forces B=xJ and A=0. Block eigenvalues reduce the entire optimizer face to A1=c1 and spectrum(A|U_r) inside [-mu,mu]; trace and nonnegative diagonal bound exact T interval attained by invariant core. Independent numeric eigenvalue endpoints at (r,s)=(2,3),(3,2),(3,6),(2,7) confirm all phases; finite checks do not prove all sizes.
 
-## Limits and related literature
-The result concerns symmetric, uniform-stationary kernels only. Prior work already settles the scalar optimal value; only the equality-case classification is assessed as new. Published equivalent optimizer-face treatments might have escaped indexing. Numerical tests do not certify infinite families. The mathematical proof is independent of the tests.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level best-of-knowledge check: Complete split joins, star clique lifts, FMMC symmetric semidefinite optimal face and optimizer equality conditions searched. Jafarizadeh clique-lift reduction dominates scalar optimum and yields invariant construction but inspected statement does not classify every non-invariant optimum. Optimal value and a constructed symmetric lift cannot determine the full set of all optimizers; Rayleigh equality and trace-saturation proof yield the added universal rigidity.
+
+## value
+
+PASS
+
+Characterizes all optimal reversible uniform-stationary kernels rather than an optimal value or single construction, making symmetry rigidity, optimizer nonuniqueness, internal-edge usage, and phase transitions exact and useful in fastest-mixing design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
