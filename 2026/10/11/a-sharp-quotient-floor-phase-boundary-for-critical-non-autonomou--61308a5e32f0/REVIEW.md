@@ -1,68 +1,19 @@
-# Review of A sharp quotient-floor phase boundary for critical non-autonomous Hénon basins
+# Scientific assessment: a dyadic phase boundary for critical non-autonomous Hénon basins
 
 ## Correctness
 
-PASS. The dyadic representation
-\[
-q_n=2^n b_n/n,
-\qquad
-1\le b_n<2^\gamma,
-\]
-gives the critical root limit and
-\[
-\rho_n\to0.
-\]
-There are only two kinds of quotient steps: ordinary steps tend to two and reset steps tend to
-\[
-2^{1-\gamma}.
-\]
+The proof is valid for fixed \(0<\kappa<1\) and fixed \(\gamma>0\). Writing \(q_n=2^n b_n/n\), with \(1\le b_n<2^\gamma\), establishes the critical root growth and vanishing \(\rho_n\). The only quotient subsequential limits are \(2\) on ordinary steps and \(2^{1-\gamma}\) on resets. The weighted geometric-tail bound verifies the product hypothesis required for the cited parabolicity criterion.
 
-The product condition needed for parabolicity follows from a uniform bound on
-\[
-\sum_{j<n}q_j/q_n.
-\]
-For
-\[
-0<\gamma<1,
-\]
-the gap
-\[
-2q_n-q_{n+1}
-\]
-is eventually positive and tends to infinity, so the source's biholomorphism criterion applies. At
-\[
-\gamma=1,
-\]
-the normalization exponents are constant on explicit dyadic blocks, giving a superexponentially convergent normalization series and
-\[
-\alpha_n\to1.
-\]
-For
-\[
-\gamma>1,
-\]
-a geometric-moment expansion immediately before each reset gives a negative normalization exponent of size
-\[
--2(\gamma-1)q_n/n,
-\]
-so selected normalization coefficients tend to infinity. The three parameter regimes therefore establish the claimed if-and-only-if summability threshold.
+For \(0<\gamma<1\), the gaps \(2q_n-q_{n+1}\) tend to infinity, proving summability and permitting the previously established basin criterion. At \(\gamma=1\), the exact dyadic block exponents and tail estimate prove \(\sum\lambda_n<\infty\) and \(\alpha_n\to1\), giving biholomorphy by the capture theorem despite the zero gaps on ordinary steps. For \(\gamma>1\), a pre-reset geometric-moment expansion proves \(E_n\to-\infty\) on a subsequence and hence \(\lambda_n\to\infty\), proving divergence. The statement does not classify these latter basins.
 
 ## Originality
 
-PASS. The fresh source explicitly identifies critical sequences with nonconvergent successive quotients as a further question and uses summability of the derivative-normalization series as a principal structural division. It does not provide a family prescribing the two quotient limit points, nor an exact threshold linking the lower quotient limit to normalization summability.
+Boc Thaler, *Complex structures of non-autonomous basins* (arXiv:2610.00627v1), establishes the general geometric implications and highlights nonconvergent critical quotients as a further question. The paper does not give the specified dyadic one-parameter quotient limit set or its exact normalization-summability threshold. Fornæss and Pal, *Notes on Short C^k's* (arXiv:2104.12413v1), Theorem 1.10, supplies existential critical-scale Short and Fatou–Bieberbach examples but not this phase diagram. This is a best-of-knowledge distinction, not a claim of certified priority; unindexed equivalents remain possible.
 
-The older Fornæss–Pal theorem gives existential critical-scale Short and Fatou–Bieberbach examples. Its stated theorem and inspected construction do not give the continuum of prescribed quotient floors or the sharp lower-limit threshold at one.
+## Mathematical value
 
-Searches under exact-source, quotient-limit, dyadic-critical, normalization-summability, and Fatou–Bieberbach formulations found no covering statement. The basin conclusions on the summable side use published criteria, but the accepted final claim is the new exact phase diagram of the quotient-oscillating family, including the divergence direction and the endpoint analysis.
+The family resolves a motivated sharp boundary for a natural derivative-normalization quantity while remaining on the same critical root scale and exhibiting prescribed quotient oscillation. Its endpoint calculation isolates where the elementary positive-gap criterion fails but the stronger capture theorem succeeds. For the divergent side, only parabolicity and nonsummability are established, leaving complex-Euclidean biholomorphy open.
 
-## Value
+## Sources and verification scope
 
-PASS. The source singles out both nonconvergent critical quotients and the summable-versus-nonsummable normalization split as unresolved structural features. The family resolves those two coordinates against each other: every quotient floor in
-\[
-(0,2)
-\]
-is realized, and the normalization mechanism changes sharply at floor one.
-
-The endpoint is mathematically informative because the elementary positive-gap theorem fails there while the stronger capture theorem still succeeds. Below the threshold, the family supplies explicit parabolic, non-Short, nonsummable basins on which the source's derivative normalization cannot settle biholomorphy. This is a motivated boundary family and not a routine finite computation.
-
-Same-model review: passed. Independent audit: not yet performed.
+Primary statements and proofs examined: Boc Thaler, arXiv:2610.00627v1, Theorems 1.6, 1.7, 1.9 and Section 7; Fornæss–Pal, arXiv:2104.12413v1, Theorem 1.10 and Section 4.1. Exact finite dyadic identities and high-precision asymptotic checks corroborate the proof without establishing the infinite claims by enumeration.
