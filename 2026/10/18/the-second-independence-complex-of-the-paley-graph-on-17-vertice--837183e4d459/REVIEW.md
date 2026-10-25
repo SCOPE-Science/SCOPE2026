@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem identifies a precise finite simplicial complex and an exact homotopy type. Two equivalent but separately programmed membership procedures agree on all \(131072\) vertex subsets. The complete \(423\)-pair face-poset matching is acyclic over all \(2856\) incidences and gives critical cells in dimensions \(0\), \(2\), and \(3\) only, with multiplicities \(1,1,19\). Exact integral signed gradient-path cancellation gives a one-row boundary matrix with three entries \(-1\) and sixteen zeros. The primitive degree-one attachment contracts the two-sphere in the CW model, leaving \(\bigvee^{18}S^3\). Direct mod-two simplicial ranks independently agree. The translation character follows from the free \(C_{17}\) action and Lefschetz traces.
+## correctness
 
-**Originality — PASS, qualified by search coverage.** Primary higher-independence papers describe complete multipartite graphs, cycles, whiskered graphs, trees, chordal constructions and general connectivity bounds, not the \(17\)-vertex Paley example. A search of relevant research records and exact/alias web queries revealed no equivalent classification of \(\operatorname{Ind}_2(P_{17})\) or its translation module. The closest named calculation of \(P_{17}\) concerns a different simplicial construction, its open-neighborhood complex, which has eight-vertex faces forbidden here. Other Paley higher-independence examples use distinct graph orders. Equivalent unindexed work remains possible.
+PASS
 
-**Value — PASS.** The theorem classifies a natural but nonpure complex on a canonical highly symmetric finite graph. The exact sphere count, the cancellation of a genuine two-dimensional critical cell, and the rational cyclic representation provide structural homotopy information beyond face counts or homology over one field. It gives a concrete benchmark for comparing higher-independence constructions on Paley graphs and distinguishes the present complex from the same graph's torsion-bearing neighborhood complex.
+Applied Ind_2 condition every induced connected component has ≤2 vertices iff every induced degree≤1. Independently scanned all 2^17 subsets and found 868 faces including empty; f=(17,136,340,306,68), facets 34 size4 and 68 size5. Independent element-toggle Morse matching has 423 disjoint pairs, critical 1 vertex, 1 two-cell, 19 three-cells, and is acyclic over all face incidences. Independently evaluated signed Morse projection with unit pivots; the nineteen critical attaching degrees are 0 except -1 at masks 67620,69728,99360. A degree-one 3-cell kills the only S2 and other 18 attach nullhomotopically, proving ∨18 S3 integrally, not just modularly. No nonzero face is fixed setwise by nonidentity translation of order17; Lefschetz trace on H3 is 1 for nonidentity,18 at identity, giving Q⊕Q[C17].
 
-**Limits.** The claim is specific to the stated graph and filtration threshold, with no infinite-family or integral equivariant-module extrapolation. Scientific verification is computer-assisted and not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No earlier mathematical statement found that logically covers the exact final theorem, after checking closest indexed results and materially accessible primary sources. This is best-of-knowledge originality, not guaranteed priority.
+
+## value
+
+PASS
+
+The canonical strongly regular Paley(17) graph supplies a nonchordal, nonpure higher-independence complex with an exact integral homotopy type and rational symmetry decomposition. This exact natural invariant and 17-cycle character provide finite test data for higher-independence complexes beyond chordal families, without requiring an all-Paley theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
