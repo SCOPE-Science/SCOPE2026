@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:58:51.024788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md sections Carry interpretation, PGF, Gap difference, Strict positivity",
+        "verify.py exact Fraction recurrence",
+        "independent_checks.py: independent exact carry recursion checks for r,s<=5",
+        "Git tree fb2a241d... and exact seven blobs"
+      ],
+      "rationale": "For arbitrary positive r,s,g, the carry identity s2(n+t)-s2(n)=r+s-C and explicit two-state digit-transfer matrices with geometric tail recover the exact rational carry PGF and natural density (uniform finite-residue approximation). Subtracting gap-g and gap-(g+1) PGFs gives z^(g+1)(1-z)^2 S_r S_s/[2^(r+s+g)(2-z)]. Truncation at carry count r+s gives difference 4^(-g-1)(N_h - sum_(k=1)^h N_(h-k)/4^k), h=r+s-g-1, and zero for g>=r+s. Interval-convolution adjacent coefficients vary by at most one, so N_(h-k)<=N_h+k and the parenthetical factor >=(2/3)N_h-4/9>=2/9, proving strictness, sharp last increase and plateau. Independently computed 175 parameter/gap exact rational checks; 972 original finite transitions plus 45 distinct residue checks inspected, not substituted for proof.",
+      "residual_risks": [
+        "Potential hidden arithmetic mistake in known two-block general formulas remains a contextual comparison, not contradiction; no statements for >2 one-blocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sobolewski–Spiegelhofer explicitly prove two-block lower bound c_t>5/9 and investigate changing blocks; known general correlation decomposition covers every fixed shift",
+          "Cheng global c_t>1/2 is an individual-shift lower bound"
+        ],
+        "reasoning": "Neither uniform positivity nor individual lower bounds imply monotone comparison across g; the known general formula is broader computationally but the previously inspected proof does not derive this sharp sign/cutoff.",
+        "searches": [
+          "arXiv:2411.07779 Sections 5.3,6.1",
+          "arXiv:1509.08623",
+          "arXiv:2606.23398"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.07779 (close primary full text sections)",
+        "arXiv:1509.08623",
+        "arXiv:2005.07167",
+        "arXiv:2606.23398",
+        "Resultary query binary digit sum correlation two blocks of ones gap separation monotonicity eventual constant threshold Cusick t=(2^r-1)+2^(r+g)(2^s-1) Sobolewski Spiegelhofer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2024/2025 paper sec 5.3 obtains exact formulas and two-block bounds; section 6.1 addresses different inequalities in block lengths",
+          "Our coefficient sign requires extra convolution argument (N_(h-k)<=N_h+k)"
+        ],
+        "reasoning": "Prior formula could algebraically be specialized to recover these values, but a formula from which a short novel inequality can be proved is not by itself a published proof of the sharp inequality. Residual risk of an unindexed equivalent sign argument is material.",
+        "searches": [
+          "arXiv:2411.07779 full two-run formula",
+          "arXiv:2005.07167 block count asymptotics",
+          "arXiv:1509.08623 correlation transfer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2411.07779 Sec. 5.3 expresses two-block binary digit-sum correlations with parameterized formulas; does not display the signed c_(g+1)-c_g identity",
+          "RESULT.md equation G_(g+1)-G_g and strict N_h bound"
+        ],
+        "reasoning": "An exact correlation decomposition is equivalent to an algorithm for each bias but not to a proved all-parameter strictly positive adjacent-gap inequality; no identified prior equality/alias of the latter.",
+        "searches": [
+          "binary digit sum correlation two blocks of ones gap separation monotonicity eventual constant threshold Cusick t=(2^r-1)+2^(r+g)(2^s-1) Sobolewski Spiegelhofer",
+          "binary digit sum carry process shift two runs gap exact difference density",
+          "Sobolewski Spiegelhofer arXiv:2411.07779 sec 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic top-ten hits concerned different binary symbolic block invariants",
+          "No indexed exact difference table found; the older papers give correlation formulas, not a matching strict-gap theorem"
+        ],
+        "reasoning": "This is an all-r,s exact inequality rather than a finite lookup-table question; tabular prior measurements could not supply unrestricted positivity by themselves.",
+        "searches": [
+          "Resultary: binary digit sum correlation two blocks of ones gap separation monotonicity eventual constant threshold Cusick t=(2^r-1)+2^(r+g)(2^s-1) Sobolewski Spiegelhofer",
+          "digit sum Cusick two-run gap table exact cutoff"
+        ]
+      },
+      "rationale": "Known correlation-transfer frameworks permit evaluating c_t, and prior two-run lower bounds are close; inspected primary analysis does not state/prove the universal positive adjacent-gap differences with exact first stationary gap r+s. The new result is a strict parameter inequality, not the already-known coefficient algorithm.",
+      "residual_risks": [
+        "Earlier general two-block decomposition could conceal an unindexed corollary or implicit exact separation identity; check any updated journal version before public priority claims.",
+        "The audit is best-of-knowledge, not exhaustive historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_IDENTIFIED_COVERING for claimed strict adjacent-gap theorem, though computational general formula is close",
+          "evidence": "Sec 5.3 derives two-block lower bounds; Sec 6.1 poses changes in lengths, not sharp zero-gap saturation",
+          "identifier_or_url": "arXiv:2411.07779",
+          "material_read": "PDF introduction, Secs 5.2–5.4 and 6.1, displayed two-run formulas and surrounding proofs",
+          "method": "Lawful arXiv full-text PDF and page-image examination",
+          "title": "Decomposing the sum-of-digits correlation measure",
+          "trigger": "Same two-block shifts and exact c_t formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md theorem and proof",
+        "Sobolewski–Spiegelhofer block-structure motivations"
+      ],
+      "rationale": "Separating-zero length is a canonical physical/statistical parameter within the two-one-run correlation family singled out in prior work. Sharp strictly increasing density until exact finite saturation at total ones r+s (not merely asymptotic decorrelation) is a useful structural boundary; exact increments quantify the entire transition for every pair of block lengths. Not reducible to generic digit-sum existence or a textbook carry fact without substantive sign analysis.",
+      "residual_risks": [
+        "Restricted to exactly two nonempty one-runs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential hidden arithmetic mistake in known two-block general formulas remains a contextual comparison, not contradiction; no statements for >2 one-blocks.",
+    "Earlier general two-block decomposition could conceal an unindexed corollary or implicit exact separation identity; check any updated journal version before public priority claims.",
+    "The audit is best-of-knowledge, not exhaustive historical certification.",
+    "Restricted to exactly two nonempty one-runs."
+  ],
+  "schema_version": 1
+}

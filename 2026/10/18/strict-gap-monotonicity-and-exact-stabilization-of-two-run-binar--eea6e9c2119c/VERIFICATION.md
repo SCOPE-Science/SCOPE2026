@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside this file, using only Python 3 and its standard library. The exact arithmetic checker computes the density from the two-state carry process using `fractions.Fraction`, then compares each increment against the displayed finite-convolution formula for all \(1\le r,s\le9\) and all gaps up to \(r+s+3\). It makes 972 transition comparisons, including positivity and stabilization. Independently it enumerates every low-bit residue of the shift for 45 smaller triples \(1\le r,s\le3\), exactly averaging over the geometric high-bit carry tail. Four illustrative fractions are checked explicitly.
+## correctness
 
-Observed output: `VERIFY_OK: exact increment identities 972 ; independent residue-class enumerations 45`.
+PASS
 
-The proof of the infinite theorem is in RESULT.md, Sections 3–4. The finite verification does not certify originality and is not substituted for the universal proof. No independent audit has been performed.
+For arbitrary positive r,s,g, the carry identity s2(n+t)-s2(n)=r+s-C and explicit two-state digit-transfer matrices with geometric tail recover the exact rational carry PGF and natural density (uniform finite-residue approximation). Subtracting gap-g and gap-(g+1) PGFs gives z^(g+1)(1-z)^2 S_r S_s/[2^(r+s+g)(2-z)]. Truncation at carry count r+s gives difference 4^(-g-1)(N_h - sum_(k=1)^h N_(h-k)/4^k), h=r+s-g-1, and zero for g>=r+s. Interval-convolution adjacent coefficients vary by at most one, so N_(h-k)<=N_h+k and the parenthetical factor >=(2/3)N_h-4/9>=2/9, proving strictness, sharp last increase and plateau. Independently computed 175 parameter/gap exact rational checks; 972 original finite transitions plus 45 distinct residue checks inspected, not substituted for proof.
+
+## originality
+
+PASS
+
+Known correlation-transfer frameworks permit evaluating c_t, and prior two-run lower bounds are close; inspected primary analysis does not state/prove the universal positive adjacent-gap differences with exact first stationary gap r+s. The new result is a strict parameter inequality, not the already-known coefficient algorithm.
+
+## value
+
+PASS
+
+Separating-zero length is a canonical physical/statistical parameter within the two-one-run correlation family singled out in prior work. Sharp strictly increasing density until exact finite saturation at total ones r+s (not merely asymptotic decorrelation) is a useful structural boundary; exact increments quantify the entire transition for every pair of block lengths. Not reducible to generic digit-sum existence or a textbook carry fact without substantive sign analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
