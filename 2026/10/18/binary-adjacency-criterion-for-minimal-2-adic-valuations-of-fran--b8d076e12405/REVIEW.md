@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated bound and its equality cases follow for every nonnegative index from Strehl's positive-summand identity and Legendre's exact factorial-valuation formula. The valuation of each nonzero summand is the binary digit sum of the index plus two nonnegative carry counts. The zero-carry choices are in bijection with subsets of adjacent-one positions. Their number is a power of two, making the normalized sum odd precisely when the original index has no consecutive binary ones. This establishes an infinite proof, not a computational extrapolation. The separate Fibonacci census is an ordinary two-state enumeration. The standard-library checker reproduces the identity, valuations, and consequences for explicitly bounded inputs.
+PASS
 
-## Originality — PASS, subject to independent literature assessment
+The actual RESULT.md proves the Strehl-summand valuation identity ν₂(T)=s₂(n)+c₁+c₂, where c₁ and c₂ are binary carry counts for a+k=n and 2a+b=n. Simultaneous carry-free addition corresponds bijectively to subsets of positions with two adjacent 1 bits, giving 2^t(n) minimal summands. Their normalized sum is odd exactly if t(n)=0. Fibonacci no-adjacent-ones count and density-one divisibility then follow. Independently re-evaluated exact integers for n=0..71; this is corroboration, not a proof of all n.
 
-Sun's 2011 preprint proves primarily odd-prime aggregate congruences and does not state this exact binary valuation boundary. Schulte, VanSchalkwyk, and Yang (2014) supply the Strehl identity and explore the Franel valuation tree, including conjectural recurrences and finite observations, without asserting an all-index adjacent-one sharpness theorem. Malik and Straub (2015) establish digitwise Lucas congruences for Apéry-like sequences including Franel numbers; these are congruences modulo primes, not exact valuations or a classification of equality at the digit-sum lower bound. OEIS A000172 records the Strehl identity but not the binary-adjacency criterion. A more general unindexed theorem of binomial-sum valuations may nevertheless imply the result.
+## originality
 
-## Value — PASS
+PASS
 
-The 2014 Franel valuation study expressly motivates a deeper understanding of binary valuation patterns. The finding classifies exactly when a canonical digit-sum lower bound is attained, produces an exact count of minimum-valuation terms for every index, and explains the Fibonacci enumeration of sharp indices. This distinguishes a whole infinite, natural subfamily rather than an arbitrary numeric cutoff, while not asserting the still-unknown exact valuation in every nonsharp case.
+The published Strehl identity and standard binary carry formula are prior methods. No matched published sharp all-index adjacency equivalence or its Fibonacci census emerged in the consulted primary sources and Resultary search; this remains a best-of-knowledge finding, not global novelty certification.
 
-## Limitations and closest literature
+## value
 
-The theorem is restricted to the prime two and to the lower-bound equality frontier. It is not a complete valuation formula; a broader later valuation result or unpublished equivalent remains a possible originality risk. The main comparisons are Sun (2011), the 2014 MSRI-UP report, Malik–Straub (2015), and OEIS A000172. Finite tests alone are not treated as proof of the infinite statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Franel valuations are a motivated classical arithmetic problem; the all-index exact sharpness boundary and Fibonacci census give a nontrivial, reusable classification beyond the existing lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

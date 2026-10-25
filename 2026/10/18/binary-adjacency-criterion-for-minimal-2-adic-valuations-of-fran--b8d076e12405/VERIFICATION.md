@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with only its standard library. The checker computes Franel numbers directly as cubes of binomial coefficients, independently sums Strehl's nonzero terms, checks each term's valuation against the two binary carry counts, and checks the count of minimal-valuation terms.
+## correctness
 
-Observed result:
+PASS
 
-```text
-VERIFY_OK indices=257 positive_strehl_terms=16641 recurrence_instances=255 fibonacci_lengths=14
-```
+The actual RESULT.md proves the Strehl-summand valuation identity ν₂(T)=s₂(n)+c₁+c₂, where c₁ and c₂ are binary carry counts for a+k=n and 2a+b=n. Simultaneous carry-free addition corresponds bijectively to subsets of positions with two adjacent 1 bits, giving 2^t(n) minimal summands. Their normalized sum is odd exactly if t(n)=0. Fibonacci no-adjacent-ones count and density-one divisibility then follow. Independently re-evaluated exact integers for n=0..71; this is corroboration, not a proof of all n.
 
-The computations cover indices \(0\) through \(256\), 16,641 positive summands, 255 instances of the classical Franel recurrence, and binary lengths \(0\) through \(13\). These finite tests verify the packaged implementation and representative instances but cannot establish an all-index theorem. The infinite mathematical guarantee comes from the displayed equality \(\nu_2(g_{n,k})=s_2(n)+c_1+c_2\), the carry-free-subset bijection, and the parity argument in `RESULT.md`.
+## originality
 
-The first publicly posted arXiv version of Sun's source is dated 2011-12-05. The 2014 research report is dated August 2014 without an invented day. Any additional broader theorem could affect originality, so independent literature assessment remains outstanding.
+PASS
+
+The published Strehl identity and standard binary carry formula are prior methods. No matched published sharp all-index adjacency equivalence or its Fibonacci census emerged in the consulted primary sources and Resultary search; this remains a best-of-knowledge finding, not global novelty certification.
+
+## value
+
+PASS
+
+Franel valuations are a motivated classical arithmetic problem; the all-index exact sharpness boundary and Fibonacci census give a nontrivial, reusable classification beyond the existing lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
