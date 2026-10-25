@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The proof is an exact finite reduction plus periodic symmetry, not sampling. The twelve chamber inequalities are valid bisectors and symmetry boundaries. An independent standalone exact rational enumeration reconstructs all \(41\) outer-polytope vertices and identifies exactly four maximal-radius candidate types. Bounding-box arguments prove the nearest-site search is exhaustive; every candidate has exactly six equidistant closest sites with determinant of absolute value one. Two site cosets, three order-\(192\) site-stabilizer hole orbits and six sites per hole imply \(192\) holes per period. A Delaunay tessellation has interior-disjoint maximal-hole simplices, each with the stated determinant; their exact volume fraction is \(4/5\). The entire package's embedded checker was independently replayed. No numerical approximation supplies any infinite claim.
+
+## Originality — PASS (residual historical risk)
+The original arXiv paper establishes the record two-periodic set, its covering radius and an upper-bounding chamber with a list of vertices, but checks one witness rather than classifying all true deepest-hole centers. The closest research record optimizes the configuration across a diagonal metric parameter but does not give a 192-hole one-orbit classification or a 4/5 Delaunay occupancy theorem. Both full primary mathematical texts were inspected, together with actual semantic searches for aliases, orbit counts, Delaunay volumes and implication-equivalent claims. No identified source establishes the whole claimed result or a stronger result implying it. A cited companion note that could contain an overlapping census was not publicly readable in full; independent historical priority is therefore not certified.
+
+## Mathematical value — PASS
+The source's sharp packing–covering ratio is a single extremal scalar; the geometry of where its maximal empty spheres occur and what fraction of a periodic Delaunay tessellation their cells fill is a natural additional structural invariant of the record configuration. The exact 4/5 spatial occupancy and the distinction between three point-stabilizer orbits and one full orbit require substantive face-vertex, nearest-site, and incidence analysis. This is a complete natural geometric classification and not a mere change of coordinates or re-evaluation of the covering radius. The theorem is limited to one configuration and does not settle global periodic packing–covering optimality.
+
+Self-review: passed. Independent audit: not yet performed.
