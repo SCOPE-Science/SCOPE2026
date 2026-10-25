@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Pair merging iff synchronization for all pairs is proved by iterative subset compression; the length recurrence is exact via first-letter analysis. Two independent exhaustive algorithms (reverse BFS and synchronous fixed point) both examine all 9,765,625 ordered labeled five-state transition pairs and reproduce exactly the same 8,063,385 sync total and threshold counts [3,444,345,3,763,200,738,000,108,720,9,120]. Canonicalization over all 120 state permutations and two letter orders yields 38 classes, each independently reconstructed as a 240-element orbit with disjoint union equal to all 9,120 extremizers. Python separately checks representative word lengths and each extremizer’s strong connectivity and map ranks. No infinite-domain extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Szykuła 2026 discusses general upper-bound questions but does not state this exact n=5 histogram",
+        "Wang 2026 establishes an infinite subfamily with n=3p>=9",
+        "Prior full five-state results classify other metrics and establish the total 8,063,385 sync maps only"
+      ],
+      "reasoning": "General conjectures or estimates of c_A(q) would not determine the five specific frequency counts or 38 orbits. Wang’s smallest automaton has nine states, so its family cannot contain any automaton in the claimed five-state domain. The published 5-state maximum 1-avoiding and triple-rendezvous bounds do not dominate this different invariant.",
+      "searches": [
+        "exact census of state compression thresholds small synchronizing automata all 5-state 2026",
+        "maximum n-state compress-with-another threshold strong connected automata 4 5 states labelled enumeration",
+        "pair merging distance histogram for all five-state binary synchronizing automata",
+        "Marek Szykula Synchronizing Automata Open Problems arxiv 2608.24245 pdf 25 August 2026 compress with another threshold",
+        "\"compress-with-another threshold\" automata Szykuła 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.24245",
+      "arxiv:2610.07044 (abstract, disjoint family n>=9)",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published five-state 1-avoiding RESULT.md: 8,063,385 synchronizing maps; 1-avoiding maximal threshold 8 attained 960 times; four classes",
+        "Full published five-state triple-rendezvous RESULT.md: same 8,063,385 total; shortest arbitrary triple merger maximal 7 attained 240 times; one class",
+        "Current exact CWA histogram includes 9,120 max=5 automata and 38 classes, calculated from specified-state pair-minima"
+      ],
+      "reasoning": "Both prior works exhaust the same automata but map each transition pair to a *different invariant*. Equality of the universe and its size does not imply equality of invariants or tables. There is no stated theorem translating the complete 1-avoiding or arbitrary-triple distribution into the prescribed-state pair-minimum histogram, nor a listed common maximizer class.",
+      "searches": [
+        "5-state binary strongly connected synchronizing automata compress-with-another threshold maximum 5 9120 38 isomorphism classes",
+        "pair merging distance histogram for all five-state binary synchronizing automata",
+        "compressing a specified state with any other in binary automata five states",
+        "pair merging distance histogram for all five-state binary synchronizing automata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Szykuła, arXiv:2608.24245, Section 2.3: shortest word merging a prescribed state with some other state",
+        "Wang, arXiv:2610.07044, abstract: same invariant, but special family on 3p states with p>=3",
+        "Published five-state 1-avoiding classification: avoiding state in image of full Q, not prescribed pair merging"
+      ],
+      "reasoning": "The word condition in the claim is the same as the survey’s compress-with-another threshold. It is not equivalent to 1-avoiding (absence from image of Q), triple rendezvous (merging some triple), or pairwise diameter (maximum over prescribed *pairs* rather than minimum over partners for each state). Those other objects do not imply the claimed distribution.",
+      "searches": [
+        "5-state binary strongly connected synchronizing automata compress-with-another threshold maximum 5 9120 38 isomorphism classes",
+        "five states exhaustive binary cwa threshold automaton state merge with some other state 2026",
+        "compress-with-another threshold of automata n=5 complete binary alphabet",
+        "\"compress-with-another\" \"five-state\" automata",
+        "\"compress-with-another\" exhaustive enumeration 5 states exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public 5-state exhaustive datasets: 1-avoiding histogram max 8, 960 extremals/4 orbits; triple-rendezvous histogram max 7, 240 extremals/1 orbit",
+        "Their exhaustive counts both give 8,063,385 synchronizing maps, but neither reports the 5-bin prescribed-state-merger distribution"
+      ],
+      "reasoning": "Checking the mathematical meaning and full result/proof text of both closest finite tables rules out their direct covering. No exact CWA histogram or 9,120/38 classification was found by the actual targeted public-record searches; a negative search does not prove absolute novelty.",
+      "searches": [
+        "binary DFA compress-with-another threshold distribution 678720 1345440 331680 69360 9120",
+        "compressing a specified state with any other in binary automata five states",
+        "\"compress-with-another\" \"five-state\" binary automata classification",
+        "five states exhaustive binary cwa threshold automaton state merge with some other state 2026"
+      ]
+    },
+    "rationale": "An exact motivated finite classification of the prescribed-state compress-with-another threshold; literature and mathematically nearby complete 5-state datasets were compared by definitions and actual theorem implications, not title matching. None examined supplies the five-bin histogram or 38 complete symmetry classes. Novelty remains best-knowledge and subject to an unindexed older computation; the similarly named larger-state preprint is parameter-disjoint.",
+    "residual_risks": [
+      "An unpublished/unindexed exhaustive five-state prescribed-state-merging census could already contain the exact table or classification.",
+      "The complete manuscript of arxiv:2610.07044 could not be read; its stated n=3p>=9 family excludes n=5, but its discussion could mention other finite computations not visible from the abstract."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_SAME_INVARIANT_NOT_COVERING_EXACT_FIVE_STATE_CENSUS",
+        "evidence": "Introduces merging a specified state with some distinct state, and motivates upper bounds; no five-bin binary n=5 frequency table or 38-orbit enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Article introduction, preliminaries, compress-with-another section, definitions and stated conjectures; public full-text section inspected",
+        "method": "Open-access article text and textual section comparison",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Original 2026 introduction of the prescribed-state compression quantity and general open bounds"
+      },
+      {
+        "assessment": "PARAMETER_DISJOINT_FROM_N_EQUALS_FIVE; RESIDUAL_FULL_TEXT_RISK",
+        "evidence": "The stated theorem concerns n=3p>=9, rather than all binary automata on five states.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.07044",
+        "material_read": "Author abstract and published parameter statement (p>=3, n=3p); full paper not obtained",
+        "method": "Open-access abstract inspection; attempted primary full-text access separately",
+        "title": "The compress-with-another threshold of Szykuła's Figure 3 family",
+        "trigger": "Most closely named contemporary result for exactly the same invariant"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+        "evidence": "Avoidance of q from delta(Q,w), max 8, 960 extrema, four orbits; reports 8,063,385 synchronizing pairs but not CWA thresholds.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8/RESULT.md",
+        "material_read": "Complete public RESULT.md, including definitions, finite proof, histogram, and relationship section",
+        "method": "Retrieved published source file and compared exact invariant, parameters, and implications",
+        "title": "Four extremal five-state binary avoiding-threshold classes",
+        "trigger": "Closest published finite exhaustive n=5 binary synchronizing census"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+        "evidence": "Minimum over triples of a shortest merger, global maximum 7, one extremal orbit of 240; not min over partners for each prescribed state.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0/RESULT.md",
+        "material_read": "Complete public RESULT.md, including definitions, proof, census histogram, and limitations",
+        "method": "Retrieved published source file and compared exact invariant and quantifier order",
+        "title": "The five-state binary triple-rendezvous extremal is unique",
+        "trigger": "Another published all-binary-five-state exhaustive pair/triple merging study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ed29a47-b807-46ae-8998-fda6a8d0b7df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The prescribed-state compress-with-another quantity is singled out by a recent 2026 survey of difficult synchronization bounds. The claim gives a complete finite benchmark on the entire 9,765,625-element binary five-state transition universe, not just a sample or routine checking a single automaton: all possible exact values and multiplicities, sharp maximum, complete 38-orbit extremal classification, the fact every extremizer is strongly connected, and rank-type stratification. These structural quantities are not implied by neighboring avoidance/triple-rendezvous tables and provide an exact benchmark for proposed general bounds.",
+    "status": "PASS"
+  }
+}
