@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:00:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The positive diagonal fixed-point equation for T(x)=a x/(1+x)[u+v x²/(H+x²)] is cubic P(x)=x³-Lx²+Hx-HK with K=au-1>0, L=a(u+v)-1>K, H=h²>0. P(-y)<0, so all real roots are positive. Its discriminant H[-4H²+QH-4L³K], Q=L²+18LK-27K², has Q²-64L³K=(L-9K)³(L-K); this proves exactly L>9K and H_-<H<H_+ for three positive roots, folds at endpoints, and triple cusp L=9K,H=27K². T strictly increases, and T(r)-r sign together with derivative formula gives outer diagonal multipliers in (0,1), middle >1; planar eigenvalues T'(r) and (2p-1)T'(r) yield outer sinks, middle instability. Rational a=10,u=17/110,v=6/11,H=11,p=3/5 has T=x(17+7x²)/((1+x)(11+x²)) and T-x=-x(x-1)(x-2)(x-3)/((1+x)(11+x²)). Independently exact SymPy calculation verified discriminant factor, derivative (7x^4+120x^3+214x²+187)/((1+x)^2(11+x²)^2), and positivity coefficients [176,726,215,12,62,6,3] of (3-T') numerator. Thus 0<T'<3 and global difference contracts by factor 3/5, excluding asymmetric full-system fixed points at the example. Exact multipliers 17/11,11/12,47/45,37/40 give origin unstable, outer sinks, middle hyperbolic saddle. Implicit function theorem gives their persistence under small admissible C^1 perturbations. Global all-parameter absence of asymmetric equilibria is not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 general Kolmogorov/dispersal framework permits model coefficients but its stated theorems address persistence/extinction and examples with different recruitment/mixing. Allee models impose intrinsic positive density dependence distinct from monotone BH recruitment."
+        ],
+        "reasoning": "The broad framework contains the submitted map as a parameter specialization but does not supply the precise Hill-survival discriminant region or a rational example with provable total synchronization. General model inclusion is not prior proof of exact special-case classification.",
+        "searches": [
+          "McGrane Corrigan Mason de Andrade Moral arXiv:2405.04505 full PDF Sections 6.3–6.4",
+          "Vortkamp 2020 multiple attractors Allee spatial populations",
+          "Knipl Rost 2016 heterogeneous populations Allee"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 918f628da78344153b6ac6da2da0dee45de1fbfc",
+        "McGrane-Corrigan et al arXiv:2405.04505 full PDF",
+        "Vortkamp et al arXiv:2004.11219 abstract",
+        "Resultary population bistability semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 source numerical example is extinction versus persistence; its general persistence conditions do not imply two strictly positive sinks with hyperbolic saddle or uniform synchronization at the chosen parameters."
+        ],
+        "reasoning": "Prior general population-map frameworks allow, but do not establish, this exact analytical cusp and all-system equilibrium exclusion. Scalar cubic discriminants are a standard method; value and novelty rest on complete model-specific stability/global-difference proof, not on the classical cubic formula.",
+        "searches": [
+          "McGrane Corrigan et al 2024 Example 5 full text",
+          "Vortkamp et al 2020 Allee spatial population",
+          "Bilgin Kulenovic 2017 sigmoid Beverton Holt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Synchronous dynamics are scalar Beverton–Holt multiplied by increasing Hill survival, generating a cubic with a cusp; the two-patch map is a stochastic mixing of T components."
+        ],
+        "reasoning": "Compared to Allee threshold, fold cusp, Beverton–Holt with density-dependent immigration/survival, and positive metapopulation bistability. Classical cubic cusp existence is not asserted new in isolation; the stated exact parameter and full-planar example are evaluated.",
+        "searches": [
+          "Resultary: density dependent dispersal Beverton Holt Hill survival metapopulation two positive stable equilibria cusp bistability",
+          "Allee effect sigmoid survival Beverton Holt bistability",
+          "McGrane Corrigan Mason density dependent metapopulation 2405.04505"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At rational example the fixed-point polynomial exactly x(x-1)(x-2)(x-3) after removing positive denominators; coefficients and multipliers independently checked."
+        ],
+        "reasoning": "The roots 1,2,3 were specifically constructed to expose a sharp natural bifurcation; no preexisting specialist table for the same Hill model and parameter boundary identified. General discriminant tables are algebraic tools rather than a known biological model result.",
+        "searches": [
+          "cubic discriminant positive roots Hill survival Beverton Holt dual carrying capacity",
+          "rational parameters 10 17/110 6/11 H11 p3/5",
+          "Resultary metapopulation cusp models"
+        ]
+      },
+      "rationale": "PASS best of knowledge: McGrane-Corrigan, Mason and de Andrade Moral 2024 introduce broad nonlinear lossy dispersal patch models and numerical persistence/extinction behavior; their cited Example 5 exhibits extinction-vs-positive coexistence, not this explicit identical-monotone Beverton–Holt/Hill survival two-positive-sink cusp and full-system synchronization certificate. Generic scalar cubic discriminants and Allee-like hysteresis are classical; novelty limited to the sharp parameter law plus the rational two-patch model with two stable positive densities despite uniquely stable isolated BH recruitment.",
+      "residual_risks": [
+        "Other specialist models with scalar BH times density-dependent survival could have an equivalent Hill cusp under rescaling; some primary literature only inspected at abstract level.",
+        "The three-root cusp classification is for synchronous equilibria generally; global absence of asymmetric equilibria is proved only at the exact rational example.",
+        "The parameter perturbation argument is local hyperbolic continuation, not global basin classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general framework and persistence/extinction theory; its numerical example concerns extinction versus positive persistence, not explicit two-positive-sink Hill survival cusp.",
+          "evidence": "Sections 6.3–6.4 and Example 5 discuss nonlinear source/sink patch outcomes, without L>9K,H_-<H<H_+ classification.",
+          "identifier_or_url": "arXiv:2405.04505; https://arxiv.org/abs/2405.04505",
+          "material_read": "Complete 26-page arXiv PDF including assumptions/model, Section 6.3, Section 6.4 Example 5 and conclusions",
+          "method": "Read primary full-text PDF with section/page screenshots",
+          "title": "A density-dependent metapopulation model: Extinction, persistence and source-sink dynamics",
+          "trigger": "Exact general lossy nonlinear dispersal model and closest illustrated bistability"
+        },
+        {
+          "assessment": "Intrinsic Allee reproduction, unlike uniquely attracting isolated Beverton–Holt and positive Hill dispersal survival; qualitative bistability is established prior",
+          "evidence": "Paper title and model concern multiple attractors with Allee effect, not a cited exact Hill-survival cusp formula.",
+          "identifier_or_url": "arXiv:2004.11219",
+          "material_read": "Title and abstract-level summary only; complete article not inspected",
+          "method": "ArXiv literature lookup",
+          "title": "Multiple attractors and long transients in spatially structured populations with an Allee effect",
+          "trigger": "Potential broader bistability phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The result exhibits two distinct *positive* carrying capacities while each isolated Beverton–Holt recruitment map has only one positive attracting density, a motivated counterexample in lossy dispersal modeling. The sharp two-parameter cusp, complete exact rational witness, transverse contraction excluding hidden asymmetric fixed points and hyperbolic robustness provide reusable mathematical bifurcation information beyond a generic polynomial sign computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 918f628da78344153b6ac6da2da0dee45de1fbfc",
+    "McGrane-Corrigan et al arXiv:2405.04505 full PDF",
+    "Vortkamp et al arXiv:2004.11219 abstract",
+    "Resultary population bistability semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform synchronization and no asynchronous equilibria proven at the rational example only.",
+    "No full global separatrix or post-perturbation global attraction claim."
+  ],
+  "residual_risks": [
+    "Other specialist models with scalar BH times density-dependent survival could have an equivalent Hill cusp under rescaling; some primary literature only inspected at abstract level.",
+    "The three-root cusp classification is for synchronous equilibria generally; global absence of asymmetric equilibria is proved only at the exact rational example.",
+    "The parameter perturbation argument is local hyperbolic continuation, not global basin classification."
+  ],
+  "schema_version": 1
+}

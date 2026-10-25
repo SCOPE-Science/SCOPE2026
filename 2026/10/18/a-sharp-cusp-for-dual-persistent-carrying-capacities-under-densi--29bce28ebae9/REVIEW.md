@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The synchronous fixed-point polynomial is cubic with coefficients obtained by clearing strictly positive denominators. Its discriminant factors into a quadratic whose parameter discriminant is exactly \( (L-9K)^3(L-K) \), delivering necessary and sufficient strict three-root bounds plus folds and the triple cusp. Every real root is positive because the cubic is negative on the nonpositive axis. Derivative signs give stability of the two outside roots in both planar eigenmodes for any \(0<p<1\). In the rational example, independent exact-rational reconstruction checks roots \(1,2,3\), their multipliers, and the positive-coefficient certificate for \(0<T'(x)<3\). The difference coordinate contracts by \(3/5\) uniformly, excluding every asynchronous fixed point. These identities prove the quantified claims; finite tests are secondary.
+## correctness
 
-## Originality — PASS, subject to stated specialist-literature risk
-McGrane-Corrigan, Mason and de Andrade Moral (arXiv:2405.04505v1, 2024) analyze persistence and extinction for general lossy density-dependent patch dispersal, with an extinction-versus-positive attractor example, not a sharp three-positive-synchronous-root Hill–Beverton–Holt cusp or the rational dual-positive-sink synchronization witness. Vortkamp et al. (arXiv:2004.11219v1) study multiple attractors from intrinsic Allee dynamics under constant dispersal; Knipl and Röst (doi:10.1016/j.tpb.2016.01.001) study continuous-time heterogeneity with intrinsic Allee dependence. Bilgin and Kulenović (doi:10.1155/2017/5963594) study one-dimensional monotone recurrences, including a sigmoid Beverton–Holt family with at most two positive fixed points, not the particular product survival profile or two-patch synchronization. Related indexed records on age-structured Allee kernels, bistable forest disease, three-virus equilibria, and Ricker synchrony use inequivalent governing equations and do not imply these equations' discriminant criterion. Search absence is not proof of uniqueness. Residual risk: unindexed works on Hill survival coupled to Beverton–Holt recruitment, or a stronger unrecognized theorem for the same subclass.
+PASS
 
-## Value — PASS
-A natural mathematical question from density-dependent metapopulation transport is whether increasing density-dependent survival alone creates multiple persistent densities even when local recruitment is monostable, and whether two patches must then disagree. The result gives a complete sharp cusp criterion in a biologically interpretable Hill-2 subclass, nondegenerate full-system positive sink/saddle coexistence, and a global mixing contraction that rules out asymmetric fixed points. This distinguishes local recruitment multistability from metapopulation-induced bistability and gives exact testable parameter thresholds. It is more than a special-case substitution or a numerical example.
+PASS: The positive diagonal fixed-point equation for T(x)=a x/(1+x)[u+v x²/(H+x²)] is cubic P(x)=x³-Lx²+Hx-HK with K=au-1>0, L=a(u+v)-1>K, H=h²>0. P(-y)<0, so all real roots are positive. Its discriminant H[-4H²+QH-4L³K], Q=L²+18LK-27K², has Q²-64L³K=(L-9K)³(L-K); this proves exactly L>9K and H_-<H<H_+ for three positive roots, folds at endpoints, and triple cusp L=9K,H=27K². T strictly increases, and T(r)-r sign together with derivative formula gives outer diagonal multipliers in (0,1), middle >1; planar eigenvalues T'(r) and (2p-1)T'(r) yield outer sinks, middle instability. Rational a=10,u=17/110,v=6/11,H=11,p=3/5 has T=x(17+7x²)/((1+x)(11+x²)) and T-x=-x(x-1)(x-2)(x-3)/((1+x)(11+x²)). Independently exact SymPy calculation verified discriminant factor, derivative (7x^4+120x^3+214x²+187)/((1+x)^2(11+x²)^2), and positivity coefficients [176,726,215,12,62,6,3] of (3-T') numerator. Thus 0<T'<3 and global difference contracts by factor 3/5, excluding asymmetric full-system fixed points at the example. Exact multipliers 17/11,11/12,47/45,37/40 give origin unstable, outer sinks, middle hyperbolic saddle. Implicit function theorem gives their persistence under small admissible C^1 perturbations. Global all-parameter absence of asymmetric equilibria is not claimed.
 
-## Limits
-Global convergence and an explicit two-dimensional separatrix are not established for all asymmetric initial data; no application to a specific species is inferred. An independent examination of proof and full specialist literature remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: McGrane-Corrigan, Mason and de Andrade Moral 2024 introduce broad nonlinear lossy dispersal patch models and numerical persistence/extinction behavior; their cited Example 5 exhibits extinction-vs-positive coexistence, not this explicit identical-monotone Beverton–Holt/Hill survival two-positive-sink cusp and full-system synchronization certificate. Generic scalar cubic discriminants and Allee-like hysteresis are classical; novelty limited to the sharp parameter law plus the rational two-patch model with two stable positive densities despite uniquely stable isolated BH recruitment.
+
+## value
+
+PASS
+
+PASS: The result exhibits two distinct *positive* carrying capacities while each isolated Beverton–Holt recruitment map has only one positive attracting density, a motivated counterexample in lossy dispersal modeling. The sharp two-parameter cusp, complete exact rational witness, transverse contraction excluding hidden asymmetric fixed points and hyperbolic robustness provide reusable mathematical bifurcation information beyond a generic polynomial sign computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
