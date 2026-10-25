@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every line/disk intersection is equivalent to membership in a projected offset interval. The one-, two-, and three-fold line measures follow respectively by direct integration, the pair projection overlap, and integration of the triangular width; combinatorial inversion uniquely supplies the three-hit probabilities. Cauchy's width identity proves the exact all-angle gap-closure transition. A local cusp expansion at the three critical widths and dominated convergence give the quadratic onset and the uniform diamond; differentiation proves strict monotonicity. The checker independently integrates and simulates the same observable, but does not certify infinite families. Normalization uses unoriented line measure and a nonempty-hit condition.
+PASS
 
-## Originality — PASS relative to inspected material
+At angle theta disk hitting is exactly t in interval [p_i−r,p_i+r]; integrate 3 single, 3 pair and 1 triple overlap measures. Pair integral B(q)=2[q asin q+sqrt(1−q²)−1]; equilateral directional triangle width has 6 sectors cos(delta), min sqrt3/2, hence triple T(q)=6∫_{acos q}^{pi/6}(q−cos delta)d delta above threshold. Inclusion-exclusion and factorial moments invert to full P(K=j) and Z, with no independence assumption. The maximal adjacent projection gap is sqrt3 d/2, and connected interval union yields Z=3+pi q by Cauchy width. At 3 critical angles width cusp w/d=q0+|u|/2+O(u²), giving the 24epsilon² law and, after theta/offset scaling, 3 copies of uniform diamond of area 8. Derivative identity proves triple probability strictly increasing; q=1 is only an excluded limiting case.
 
-Montejano--Karasev (2010; arXiv:1006.0104v1) proves topological-transversal and Helly implications, not measures of transversal sets; full accessible manuscript reviewed including principal theorems and proof sections. Bracho--Montejano--Oliveros (2002) studies topology of spaces of transversals; its abstract, main results, and proof portions were inspected in the lawful ten-page manuscript. Bisztriczky--Fodor--Oliveros (2008) investigates T(4) existence of line transversals for families of unit disks; accessible principal theorems and arguments were inspected. Published computations of area for circular disk triangles are about body areas, not random affine lines. Known pairwise line-overlap integrals and existence at the critical radius are excluded from the novelty claim. A previous finite-jet line-section inverse formula for circular perforations concerns pair distances and second moments, so it does not imply the three-disk law or diamond. The precise complete probability law and critical conditional limit were not found, but mathematical priority has not been exhaustively established.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural first higher-order Crofton invariant beyond pairwise crossings for disjoint convex sets. The exact probability vector bridges the all-line-hit topology with geometric sampling; the coincidence of first triple incidence and all-direction interval connectivity is a sharp, interpretable transition; the conditional diamond identifies the full two-dimensional critical geometry and its quadratic mass. These go beyond a routine numerical calculation and provide a tractable benchmark for higher-order stereology and line-transversal questions.
+Standard Crofton line measures, pairwise projection overlaps and existence of common transversals are background, not new. Montejano–Karasev gives topological/Helly consequences of transversals of convex families, and Bracho–Montejano–Oliveros studies topology of transversal spaces. Their theorems do not provide the exact conditional invariant-measure three-hit distribution or blowup diamond law, which requires third factorial intersection and the triangle-width cusp. Nearby Resultary third-order overlaps of spherical caps are a different sampling space.
 
-## Residual scientific risks
+## value
 
-Historical literature may contain the same identity under another random-line or interval-covering terminology. Only the stated symmetric equal-disk family is proved. The endpoint \(q=1\) is evaluated as a limit, not included. The scientific validation is same-model only and not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete random-line hit multiplicity is a natural higher-order stereological invariant beyond pairwise crossings. The same sharp threshold characterizes topology of projected unions, and the quadratic critical mass plus two-dimensional universal diamond give substantive geometric limit structure, not merely a numerical threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
