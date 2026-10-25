@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The mathematical claim is a complete finite calculation for one explicitly defined ten-vertex graph. Exhaustive enumeration establishes all filtration values. The standard exact mod-two persistence reduction is cross-checked against ten independently assembled Betti vectors and 279 independently computed homology-inclusion ranks. Every one of the sixty claimed elementary collapses is checked for a unique strict coface and correct residual subcomplex. No finite sample is substituted for the full domain.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** The earlier ordinary Petersen homology calculation (Berghoff 2020) establishes the threshold-one group, while a publicly indexed later result establishes the isolated threshold-two homotopy type. Neither gives the filtration's nontrivial inclusion maps, its higher-threshold mod-two groups, or a threshold-three-to-two relative collapse. Sawant's 2026 primary theorem concerns trees, and Deshpande–Roy–Sawant's 2025 results concern Alexander duals and graph-class decomposability. A different Petersen graph-metric Čech barcode is not a dominating computation because it uses a distinct filtration. The full text of one close indexed threshold-two record was unavailable; its summary is narrower than the present statement.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural filtration invariant on the Petersen graph, a canonical ten-vertex cubic girth-five graph rather than an arbitrary chosen slice. It identifies a persistent degree-three class that survives two strict inclusion steps and separates it from all short-lived classes, and certifies a concrete simple-homotopy stability step. The exact barcode provides a test case for higher-independence filtration methods beyond tree classes. Its scope is deliberately mod-two, except for the proved integral topological collapse.
+Reconstructed 10-vertex Kneser/disjointness Petersen adjacency, component-bound filtration on all 1023 nonempty masks, ordered exact F2 simplicial boundary column reduction (511 pivot pairs), reduced intervals 4*[degree2,1,2), [degree3,2,5),10*[degree3,4,5),61*[degree4,5,6),74*[degree5,6,7),36*[degree6,7,8),9*[degree7,8,9),[degree8,9,10). The pair certificate from actual collapse_pairs.json was replayed: each of 60 low faces has exactly one remaining strict coface, all removed faces outside K2, 380-120=260 faces remain. These are exhaustive finite-domain proofs, not samples; no integral barcode inferred.
 
-**Risks and limitations.** The field barcode alone does not prove integral persistence or homotopy classifications at other levels. Publication novelty is a best-knowledge comparison, not a global priority theorem; review of any subsequently available full texts could alter the literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary r=1 homology and isolated r=2=S^3 calculation are prior. Full filtration ranks/inclusion maps, persistence intervals above r=2 and 60 relative elementary collapses do not follow just from those snapshot homotopy types. A different Petersen Čech/Rips metric filtration has different simplices/parameter; its barcode is not a reduction to this component-size filtration.
+
+## value
+
+PASS
+
+This is a complete, natural higher-independence filtration invariant of the canonical Petersen graph. It distinguishes a 3-dimensional interval persisting from r=2 to r=5 from ten transient 3D intervals at r=4 and proves K3 collapses onto K2 integrally. The finite scope is a complete, motivated classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
