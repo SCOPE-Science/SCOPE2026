@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact generator for the Fourier mode has the two-by-two matrix and invertible negative generator displayed in the proof. Its symmetric resolvent gives the stated rational covariance integral, including the nonzero-driver and zero-diffusivity boundaries. Parseval summability and the positive translational-diffusion spectral gap justify infinite-mode integration and meromorphic continuation. Subtracting two probe readings gives a genuine nonsingular Cauchy system; a nullspace perturbation shows sharpness of the sample count. The reproducible script independently checks the symbolic identities and representative quadratures and inversions. It does not purport to verify infinity by finite enumeration.
+## correctness
 
-## Originality — PASS, with risks
-The 2026 motivating study treats transport of interacting particles and an approximate free-driver kernel, not inverse force-spectrum recovery from finite tumbling-rate scans. Earlier rigorous Green--Kubo and reversible/irreversible run-and-tumble diffusion theory is acknowledged as prior art. Direct comparison did not show the Cauchy reconstruction with the exact minimal measurement count or the combined zero-noise/no-propulsion identifiability boundary. The classical Cauchy and Stieltjes inversion techniques are standard and could supply a more general implication in unlocated literature; this limits any categorical novelty assertion. The conclusion refers only to the specified exogenous model.
+PASS
 
-## Value — PASS
-For a ring-driven tracer, Fourier powers of the unknown force field are physically natural parameters controlling observed long-time dispersion. Recovery by a minimal number of control settings gives a substantive transport-spectroscopy interpretation, while the strict monotonicity and two sharp degenerate limits explain which diffusion scans cannot reveal those powers. The exact mathematical identifiability result is distinct from numerical spectral fitting and from merely computing another forward diffusivity.
+For stationary uniform ring position and independent symmetric telegraph sign, the Fourier-mode generator Q_n has diagonal -Dq_n^2-alpha±ivq_n and off-diagonal alpha. Integrating its semigroup gives (Dq_n²+2alpha)/(q_n²(v²+D²q_n²+2Dalpha)). Mean-zero L2 forcing and Brownian spectral gap justify Parseval sum and Green–Kubo limit. Subtracting from the alpha→infinity value gives v²/D Σ P_n/[q_n²(B_n+2Dalpha)]; strict alternating derivative signs for nonzero force follow termwise. The poles at alpha=-B_n/(2D) are distinct, residues identify all P_n from ideal open-interval scans; phase information is unrecoverable. If harmonics stop at known N, differences of N+1 distinct readings eliminate unknown D0 and form invertible Cauchy system; with <=N readings linear nullspace perturbations around strictly positive spectra show sharp nonidentifiability. Independently checked the generator inverse, derivative and deficit identities symbolically and an exact-rational six-harmonic Cauchy reconstruction. Infinite-series continuation is justified analytically, not by those finite tests. Scope excludes coupled feedback, unknown L,D,v and noisy inversion.
 
-## Closest literature and limitations
-Patel et al., arXiv:2607.25902v1, is the closest model; van Ginkel et al., arXiv:2101.09046, covers the broader Green--Kubo diffusion tool. The main remaining scientific risks are preexisting abstract inverse-Stieltjes identifiability results, practical ill-conditioning, and the fact that the result does not apply verbatim to the interacting two-particle system.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.
+
+## value
+
+PASS
+
+A physically interpretable inverse identifiability theorem for the exact exogenous tracer model determines which force-power information can be recovered and the provably minimal number of rate probes when the thermal baseline is unknown. Its complete-monotonicity obstruction separates it from interacting-model transport mechanisms. Exact noiseless inversion is ill-conditioned, which is explicitly disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
