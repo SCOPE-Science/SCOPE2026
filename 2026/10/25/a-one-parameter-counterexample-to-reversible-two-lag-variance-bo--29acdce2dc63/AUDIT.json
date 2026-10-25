@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The Fourier eigenvalue gives the exact autocorrelations. Since \\(|\\lambda|^2=1-3\\alpha+3\\alpha^2<1\\), the correlation series converges and \\(\\tau=(1-|\\lambda|^2)/|1-\\lambda|^2=(1-\\alpha)/\\alpha\\). Subtraction yields the exact gap; its denominator is positive on \\((0,1)\\), and its numerator has discriminant \\(-12\\) and positive leading coefficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi (arXiv:1706.00068v1) analyzes nonreversible cycle walks and variance bounds, but the inspected statements are spectral-gap/MH-gap bounds rather than the exact two-lag comparison proved here.",
+        "The result is restricted to one three-state family and one observable, and does not claim a general nonreversible bound."
+      ],
+      "reasoning": "The inspected nonreversible literature supplies context but does not dominate the exact parameter-uniform inequality gap for this family. The claim is deliberately narrower than a general characterization of nonreversible chains.",
+      "searches": [
+        "nonreversible Markov chain asymptotic variance first two autocorrelations sharp lower bound counterexample",
+        "three state directed cycle asymptotic variance autocorrelation Markov chain reversible variance bound",
+        "arXiv:1706.00068v1, sections 3.3 and 6"
+      ]
+    },
+    "checked_sources": [
+      "Berg and Song, arXiv:2207.12705v1 (2022-07-26), equation (7) and reversible-chain setup.",
+      "Choi, arXiv:1706.00068v1 (2017-05-31), sections 3.3 and 6."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For reversible chains, the moment representation gives \\(\\tau\\ge(1+\\rho_1)^2/(1-\\rho_2)\\) by Cauchy–Schwarz when the long-run variance is finite.",
+        "For the nonreversible family, direct calculation gives \\(\\tau=(1-\\alpha)/\\alpha\\) and the exact difference \\((4-6\\alpha+3\\alpha^2)/(6\\alpha(2-\\alpha))>0\\) for all \\(0<\\alpha<1\\)."
+      ],
+      "reasoning": "The cited reversible result does not imply the counterexample, because its self-adjoint spectral representation is unavailable for this chain. The nonreversible source's general variance bounds do not state this specific two-lag failure. The positive gap is proved algebraically, not inferred from numerical searches.",
+      "searches": [
+        "arXiv:2207.12705v1, equation (7) and reversible-chain assumptions",
+        "arXiv:1706.00068v1, section 3.3 and section 6",
+        "exact counterexample to tau >= (1+rho1)^2/(1-rho2) nonreversible Markov chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berg and Song (arXiv:2207.12705v1) give a reversible spectral moment representation.",
+        "The present claim is a nonreversible explicit family with complex eigenvalue; it is not an equivalent formulation of the reversible moment representation."
+      ],
+      "reasoning": "The reversible representation yields the two-lag expression by Cauchy–Schwarz, while the family here has a nonreal Fourier eigenvalue and an explicitly computed strict violation. No equivalent statement for this family appeared in the inspected primary texts.",
+      "searches": [
+        "lazy directed 3-cycle autocorrelation long-run variance reversible two-lag bound",
+        "nonreversible Markov chain autocovariance sequence moment representation failure reversible shape constraints",
+        "exact counterexample to tau >= (1+rho1)^2/(1-rho2) nonreversible Markov chain",
+        "arXiv:2207.12705v1, equation (7)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact-bound record found concerned the reversible case only; no exact matching record for this lazy one-way family was returned by the exact-formula searches.",
+        "The full texts of arXiv:2207.12705v1 and arXiv:1706.00068v1 were inspected in the relevant sections."
+      ],
+      "reasoning": "Search absence is not proof of novelty. The assessment relies on the positive comparison of the claim's explicit statement and gap against the inspected source statements; an implicit derivation by general spectral methods remains a residual risk.",
+      "searches": [
+        "lazy directed 3-cycle autocorrelation long-run variance reversible two-lag bound",
+        "exact counterexample to tau >= (1+rho1)^2/(1-rho2) nonreversible Markov chain",
+        "nonreversible Markov chain autocovariance sequence moment representation failure reversible shape constraints"
+      ]
+    },
+    "rationale": "The finding supplies an explicit nonreversible family and a strict parameter-uniform gap not stated in the inspected reversible autocovariance paper or the inspected nonreversible cycle-walk paper. The claim is limited to this exact family; the possibility that general spectral methods make it an implicit corollary is disclosed as a residual risk.",
+    "residual_risks": [
+      "The exact gap may be derivable as a short corollary of general nonreversible spectral methods; no inspected source states the same comparison explicitly.",
+      "The result does not characterize all nonreversible autocorrelation sequences or produce an optimal lower bound for that class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper explicitly assumes reversibility for the moment representation; it does not state the nonreversible three-state family or its exact two-lag gap.",
+        "evidence": "Equation (7) represents \\(\\gamma(k)\\) as the \\(k\\)-th moment of a positive measure on \\([-1,1]\\) for reversible chains; sections 1–2 state the reversible assumption.",
+        "identifier_or_url": "arXiv:2207.12705v1",
+        "material_read": "Full-text abstract and introduction, the reversible moment representation in equation (7), and the setup defining reversibility and autocovariance.",
+        "method": "Read the arXiv full-text sections stating the representation and the assumptions under which it is used.",
+        "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+        "trigger": "The finding tests the boundary of reversible autocovariance moment constraints."
+      },
+      {
+        "assessment": "The paper treats nonreversible spectral bounds and asymmetric cycle walks, but the inspected results do not state the normalized first-two-autocorrelation comparison or the exact gap for the lazy one-way three-cycle.",
+        "evidence": "Section 3.3 gives an asymmetric nearest-neighbour cycle example; section 6 gives variance bounds in terms of an MH-spectral gap.",
+        "identifier_or_url": "arXiv:1706.00068v1",
+        "material_read": "Full-text introduction, section 3.3 on asymmetric cycle walks, and section 6 on variance bounds.",
+        "method": "Read the primary arXiv full-text sections describing the cycle example and stated variance bounds.",
+        "title": "Metropolis–Hastings reversiblizations of non-reversible Markov chains",
+        "trigger": "The proposed family is a finite nonreversible cycle chain, so nonreversible spectral and variance analyses are closest literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29acdce2-dc63-4fe3-876d-a5981b679a68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reversible moment-shape constraints are used in Markov-chain autocovariance and asymptotic-variance estimation. The full one-parameter family shows exactly how the reversible two-lag floor can fail outside its assumptions, with a strictly positive closed-form gap for every admissible parameter rather than a single numerical counterexample.",
+    "status": "PASS"
+  }
+}
