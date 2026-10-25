@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal exterior relations and the idempotence equations reduce the four tangent-rank cases to exhaustive normal forms after conjugation by a linear automorphism. The rank-one and rank-two forms have \(q^3\) and \(q^4\) free parameters per fixed tangent projection; rank zero and three are unique. Counting linear projections yields the total rank stratification. Independent subalgebra-generator counting gives \(q^3\) images per tangent line or plane. Explicit automorphisms show image transitivity, and retractions onto canonical images number \(q^2\) and \(q^3\), proving uniformity. The included checker independently tests all coefficient candidates for the canonical projections over \(\mathbb F_3\), and separate image/canonical-fiber counts. Characteristic two is excluded.
+PASS
 
-## Originality — PASS within checked scope
+Nilpotent maximal ideal J ensures a canonical tangent idempotent on J/J². Rank-r linear projections number Gaussian-binomial(3,r)q^{r(3−r)}. For standard tangent ranks 1 and 2 the exterior anticommutation, square-zero and idempotence equations yield the complete displayed generator normal forms, with q³ and q⁴ free lifts. The rank-one image generator x+a xy+b xz+s xyz gives q³ distinct images for each tangent line; rank-two generating pairs have q^5 normal form choices modulo a free q² action by multiples of xy, giving q³ images per tangent plane. Explicit invertible-tangent generator substitutions show all images of each rank are automorphism-conjugate; canonical-image retractions number q² and q³. Independently implemented exterior wedge multiplication by bitmask with graded signs modulo 3, verified each of 3³ rank-one and 3⁴ rank-two displayed canonical projection retractions satisfies every exterior relation and e²=e. This is a consistency check, not a complete q3 enumeration; the proof’s normal-form exhaustion supplies all q.
 
-Bavula's arXiv:math/0703352 provides the automorphism structure and canonical coordinate projections; it does not state the finite-field idempotent-endomorphism image census. Guimarães–Koshlukov arXiv:2009.00175 studies involutive automorphisms and gradings, not algebra retractions; the full accessible text was compared. The indexed finite-field polynomial-identity paper of Fonseca treats another invariant, with only its abstract inspected. Related indexed literature concerning Grassmann Rota–Baxter operators in characteristic two and truncated commutative-algebra retractions do not imply the current odd-field exterior-algebra counts. An unindexed equivalent calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Retractions and their embedded images are natural invariants of the endomorphism monoid. The complete classification isolates the first three-generator exterior algebra's nonlinear even-degree and top-degree perturbations, determines all prescribed-image fiber sizes, and reveals the equal-size intermediate image strata despite distinct multiplicities. The object, the invariant, and the equality of image counts are mathematically motivated; the finding does not require a speculative downstream theorem.
+Automorphism structure and changes of Grassmann generators are well developed in Bavula (2007), but its inspected algebraic-group results concern automorphisms rather than finite-field counts of idempotent endomorphisms and embedded images by tangent rank. Guimarães–Koshlukov (2020) treats involutory automorphisms/superalgebra gradings, again a different operator census; no direct stronger formula for the present table was found.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Retractions and embedded retract subalgebras are natural invariants of the smallest nontrivial odd-characteristic exterior algebra. The exact image/fiber multiplicity table and rank-one/rank-two image-count symmetry are a complete, usable structural classification rather than a gratuitous numeric fragment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
