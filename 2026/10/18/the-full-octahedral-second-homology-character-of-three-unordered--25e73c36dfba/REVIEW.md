@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full closed-disjoint cubical chain complex has ranks \(1140,3672,3840,1296\). The verifier checks every degree-two and degree-three cellular identity \(\partial^2=0\), performs \(1296\) individual elementary free-face collapses eliminating all three-cells, and constructs a 1139-edge spanning tree of the connected one-skeleton. Ko–Park Theorem 3.16 applies to the simple planar triconnected cube, giving \(H_1\cong\mathbb Z^6\). Euler characteristic \(12\) and absence of three-dimensional homology yield free \(H_2\cong\mathbb Z^{17}\). The verifier independently obtains first-homology dimension six modulo primes two and 101. For each of the 48 automorphisms it computes the signed cellular Lefschetz trace and independently reduces six fundamental first cycles modulo 101, with uniquely lifted first-homology traces in \([-6,6]\). Exact 48-element character inner products establish all ten irreducible multiplicities and the claimed antipodal eigenspace dimensions. Reproducibility code is complete and self-contained, not a substitute for the cited general first-homology and discretization theorems.
+## correctness
 
-## Originality — PASS (subject to residual literature risk)
-Same-object graph three-particle representations and the full 48-element character were not found in the surveyed indexed scientific literature. Farley–Sabalka and Prue–Scrimshaw supply models, not this character; Ko–Park's Theorem 3.16 gives \(H_1\), not \(H_2\) with symmetry; An–Knudsen's higher-homology generators under graph operations do not determine the proposed 17-dimensional full-group decomposition. Results on cube two-particle configurations, the cube three-cut complex, and three-particle Heawood/Pappus configurations have distinct spaces or graphs and do not imply this statement. Exact theorem and alias searches compared the three-strand cubical graph braid group, the square prism, antipodal symmetry, and octahedral characters. An undiscovered equivalent calculation is possible.
+PASS
 
-## Mathematical value — PASS
-The three-particle sector on the cubic one-skeleton is a basic finite planar graph-braid test case. Its second homology has seventeen rational degrees of freedom not resolved by published general generators and Betti-one formulae. Splitting those degrees into all ten possible octahedral symmetry types gives complete, useful natural representation data (including an eight/nine inversion dichotomy and vanishing full rotational invariants) and a benchmark for equivariant graph-braid methods; it is neither a mere restatement of a Betti number nor a cosmetic reparameterization of a prior two-particle result.
+From the actual RESULT.md definitions, the once-subdivided Q3 has 20 vertices, 24 edges and the valid three-point cubical configuration chain model C0..C3=(1140,3672,3840,1296). Independent finite reconstruction checks all chain face incidences and ranks mod 2 (1139,2527,1296), enumerates 1296 genuine free 3/2 elementary collapses, and computes the signed Lefschetz traces for every one of 48 cube automorphisms; the resulting ten class values are (17,-1),(-3,3),(1,-1),(-1,-1),(1,-1) in the stated S4 class order, exactly the claimed irreducible character. The integral H1=Z^6 premise is supplied by Ko–Park for simple 3-connected planar graphs with one planar exchange class; mod-prime ranks are corroboration, not an invalid assertion that they alone determine Z-homology. With H3=0 and Euler characteristic 12, H2 is free rank 17. The equivariant subdivision theorem underwrites equality with the continuous graph configuration space. Scope excludes integral Z[G] lattice classification.
 
-## Closest literature and limitations
-Farley–Sabalka (arXiv:math/0410539); Prue–Scrimshaw (arXiv:0909.5511); Ko–Park (arXiv:1101.2648, Theorem 3.16); An–Knudsen (arXiv:2008.10371, main generation theorem). The integral \(\mathbb Z[G]\)-lattice in degree two, equivariant topological attaching maps, cohomology products and family generalizations are not claimed. Unindexed equivalent work remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact full 48-element degree-two character of three unordered cube particles is not implied by the known H1 classification or planar H2 generation results. The same graph with other particle numbers or a cube matching/cut complex is a distinct invariant. Best-of-knowledge O PASS, not a claim of exhaustive bibliographic priority.
+
+## value
+
+PASS
+
+The complete rational action on a nontrivial seventeen-dimensional natural topological invariant separates antipodal parity and rotation fixed vectors. It fills a meaningful explicit equivariant classification beyond the nonequivariant Betti number for a canonical graph and can distinguish symmetry of graph braid classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
