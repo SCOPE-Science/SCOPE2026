@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact reduced-stage equations give the matrix with rows \\( (1,0,p)\\), \\((0,1,0)\\), and \\((p,0,0)\\). The exact positive flow is a convex combination of positive-definite \\(G_\\gamma\\) and positive-semidefinite \\(Y_0\\). Schur-complement congruence proves the generic inertia. Eigenvalues \\(1+d\\), \\(1\\), \\(-d\\) satisfy \\(d(d+1)=p^2\\) and yield the sharp transition \\(p=\\sqrt2\\). At \\(\\gamma=2\\), \\(h=3/2\\), \\(\\vartheta=6/5\\), and rejection multiplier \\(c=10\\), the algorithm selects rank two and \\(h\\eta=7.5<12\\), with no rejection. The checker provides finite corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ceruti--Kusch--Lubich 2021 updates a full augmented Galerkin matrix and proves different near-conservation/structure results.",
+        "Appelö--Cheng 2024 ensures complete positivity via Kraus-form integration and eigenvalue truncation, not a zero-new-new-block parallel augmentation.",
+        "Schmidt et al. 2023 propagate a low-rank covariance with a factorized, different projection framework."
+      ],
+      "reasoning": "The related works demonstrate why positivity matters and why alternate constructions preserve it, but none states a stronger result that implies the particular sharp sign selection for the 2023 parallel step, including the 3-state gradient-flow and rejection parameters.",
+      "searches": [
+        "web: rank adaptive integrator Ceruti Kusch Lubich loss positivity positive semidefinite covariance parallel SVD",
+        "web: positivity preserving dynamical low rank integrators density matrix covariance matrix positivity rank adaptive",
+        "arXiv:2104.05247v1, Sections 1-2",
+        "arXiv:2409.08898, Introduction and Kraus integrator formulation",
+        "arXiv:2306.07774, Introduction and factorized Kalman covariance method"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2304.05660v1",
+      "https://arxiv.org/html/2104.05247v1",
+      "https://arxiv.org/abs/2306.07774",
+      "https://arxiv.org/abs/2409.08898",
+      "https://doi.org/10.1137/23M1565103",
+      "Published published-finding corpus semantic matches: 2026/10/4/SCOPE-spectral-width-is-the-sharp-second-iterate-positivity-threshold--f58cce2753f2; 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80; 2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f; 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8; 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c; 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 equation (9) implies the generic indefinite saddle-block fact after an additional standard congruence, and this ingredient is not presented as a novel standalone matrix theorem.",
+        "2023 Section 3.3 specifies (i) retry if all 2r singular directions retained, and (ii) retry if h*eta>c*theta. For the witness, r1=2<4 and h*eta=7.5<12.",
+        "2023 Section 4 gives robust norm error bounds, which do not control signs or SVD choice; its explicit reservations concern exactness and energy, not a rank-two negative eigenvalue retained after truncation."
+      ],
+      "reasoning": "The original formulas are necessary premises, not a theorem giving the derived all-new-direction inertia together with a sharp singular-value sign ordering and accepted-step violation. The strongest overlap is the readily implied basic block obstruction; the quantitative SVD transition and explicit accepted witness make the complete claimed result more specific and mathematically uncovered by the inspected statements.",
+      "searches": [
+        "arXiv:2304.05660v1 Sections 3.1-3.3, 4, 5 and conclusion",
+        "arXiv:2104.05247v1 Sections 1-2",
+        "published-finding corpus: parallel rank-adaptive BUG integrator block zero off diagonal guaranteed indefinite loss of positive semidefiniteness on positive Lyapunov covariance flow",
+        "published-finding corpus: exact rank truncation tolerance threshold to restore positivity of parallel low rank BUG step for two state gradient flow"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published augmented coefficient is [[B,L],[K,0]]; the symmetric case has L=K^T, and the new result computes its exact signed inertia.",
+        "The closest published-finding corpus matches concern positivity in different iterative solvers, or ordinary SVD rank staircases; no returned title/summary addresses symmetric parallel BUG truncation and accepted-step PSD loss."
+      ],
+      "reasoning": "An eigenvalue or Schur-complement reformulation of the new inertia observation is equivalent, and this is explicitly recognized as standard linear algebra. A method-specific rank-two SVD sign threshold and its acceptance under rejection criteria are not supplied by those identities alone without deriving the stage coefficients and singular ordering. No matching reformulation was found.",
+      "searches": [
+        "published-finding corpus: parallel BUG numerical integrator rank two SVD truncation indefinite symmetric positive semidefinite gradient flow step rejection",
+        "published-finding corpus: rank adaptive parallel low rank zero lower right block inertia negative eigenvalues equals rank off diagonal",
+        "web: parallel BUG integrator non positive semidefinite matrix counterexample rank adaptive zero block SVD",
+        "arXiv:2304.05660v1, Section 3.1 equations (6)-(10) and Section 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source provides the general singular-tail stopping criterion, not an eigenvalue/sign table for the displayed three-state family.",
+        "No indexed exact table, benchmark record, or pertinent published-finding corpus result retrieved in the searches stated the rank-two signed SVD transition at \\(p=\\sqrt2\\) for this method."
+      ],
+      "reasoning": "The object is a specific algorithmic singular-value ordering rather than a named canonical table. The exact three-eigenvalue calculation and its sign-retention transition are given in the proof; a mere lack of a table is not used as a novelty certificate.",
+      "searches": [
+        "published-finding corpus: three dimensional positive definite A minus Y flow parallel rank adaptive BUG sign failure despite step rejection",
+        "published-finding corpus: low rank covariance evolution parallel BUG SVD retains negative eigenvalues versus positive eigenvectors",
+        "web: parallel rank-adaptive integrator positive semidefinite loss counterexample zero lower right augmentation",
+        "arXiv:2304.05660v1, equation (10) singular-value truncation rule"
+      ]
+    },
+    "rationale": "The inspected primary 2023 article explicitly defines the zero-corner parallel coefficient and the rejection checks but does not state its negative inertia count, sharp rank-two SVD sign reversal, or an accepted-step PSD failure. The prior serial BUG, rank-reduced covariance, and Kraus-positive integrators use different constructions; none of the published-finding corpus searches exposed a covering conclusion. Classical block inertia and SVD are credited; originality is attributed to their exact consequences for this algorithm, especially the quantitative rank-two crossover and nonrejected witness. The original displayed block makes the first lemma readily derivable, a candid residual risk.",
+    "residual_risks": [
+      "The basic indefinite-block inertia is a standard Schur-complement consequence of the original paper equation (9). Originality principally concerns the exact rank-two sign-retention frontier and nonrejected witness, not that classical lemma.",
+      "A differently worded subsequent or classical low-rank PSD numerical analysis might have the same three-state truncation sign transition; absence from retrieved searches does not prove uniqueness.",
+      "Originality remains a best-knowledge assessment without independent literature validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_BUT_NO_MATCHING_SIGN_THEOREM",
+        "evidence": "Equation (9) has zero new-new block, equation (10) SVD truncation, Section 3.3 two rejection tests; Section 3.2 discusses neglected normal term and Section 4 norm error, but not inertia/sign transition.",
+        "identifier_or_url": "https://arxiv.org/html/2304.05660v1",
+        "material_read": "Full public HTML, especially Sections 2, 3.1-3.3, 4, 5 and conclusion; explicit equations (6)-(17)",
+        "method": "Read rendered full-text mathematics and compare coefficient and rejection formulas",
+        "title": "A parallel rank-adaptive integrator for dynamical low-rank approximation",
+        "trigger": "Identical integrator and exact block coefficient being analyzed"
+      },
+      {
+        "assessment": "DIFFERENT_COEFFICIENT_UPDATE",
+        "evidence": "Augmented Galerkin evolution rather than the 2023 zero-corner parallel coefficient; near-conservation results do not imply the claimed SVD sign threshold.",
+        "identifier_or_url": "https://arxiv.org/html/2104.05247v1",
+        "material_read": "Abstract and Sections 1-2, including augmented-basis Galerkin update and stated structure properties",
+        "method": "Read arXiv full-text HTML",
+        "title": "A rank-adaptive robust integrator for dynamical low-rank approximation",
+        "trigger": "Predecessor serial BUG and structure-preserving comparator"
+      },
+      {
+        "assessment": "NOT_SAME_PARALLEL_UPDATE",
+        "evidence": "The covariance algorithm maintains low-rank factors using projected Lyapunov updates, not the parallel method with zero new-new coefficient.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+        "material_read": "Full HTML abstract, Introduction and contribution/method overview",
+        "method": "Read arXiv HTML and compare factorized covariance construction",
+        "title": "The Rank-Reduced Kalman Filter: Approximate Dynamical-Low-Rank Filtering In High Dimensions",
+        "trigger": "Relevance of PSD low-rank covariance dynamics"
+      },
+      {
+        "assessment": "DIFFERENT_CPTP_METHOD",
+        "evidence": "Kraus representation ensures complete positivity for a Lindblad generator; no classification of the 2023 parallel augmented SVD.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.08898",
+        "material_read": "Full HTML abstract and Introduction, equations (1)-(4), method motivation and Kraus/truncation statements",
+        "method": "Read arXiv HTML to compare positivity mechanism",
+        "title": "Kraus is King: High-order Completely Positive and Trace Preserving Low Rank Method for the Lindblad Master Equation",
+        "trigger": "Higher-level positivity-preserving low-rank matrix integrators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3faab1da-76ad-4e0e-8f58-6c4e37fbdd32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PSD feasibility is essential in covariance and density-matrix dynamics. The theorem exposes systematic negative inertia from parallel rank enlargement and establishes exactly when ordinary rank-two SVD discards a positive mode to retain a negative mode. A positive gradient flow produces a negative accepted update, demonstrating that the method’s stated normal-component safeguard alone does not certify this invariant; the sharp family boundary motivates sign-aware rank selection.",
+    "status": "PASS"
+  }
+}
