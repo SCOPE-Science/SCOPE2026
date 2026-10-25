@@ -1,19 +1,21 @@
-# Review of the binary-parity criterion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof derives the exact normalized summand valuation \(s_2(3n)+2c_n(k)\) directly from Legendre's formula; there is no reliance on numerical extrapolation. Guo's published Theorem 1.2 guarantees integer normalization for each summand. Carry-free terms are exactly the \(2^{s_2(n)}\) submasks of the binary expansion of \(n\). Reflection has no carry-free fixed point for positive even \(n\), and contributions of higher-carry pairs and the central term have strictly larger valuation. The resulting parity congruence holds for all positive \(n\), including \(n=1\). Exact-integer computations through \(n=512\) support, but do not replace, the proof.
+PASS
 
-## Originality
+Legendre yields ν2(F(j))=2s2(j), and ν2(binomial(3n,n))=2s2(n)-s2(3n). Thus each positive rational normalized summand Q_n,k has exact valuation t+2c with t=s2(3n), c=s2(k)+s2(n-k)-s2(n), the number of binary carries. Guo 2013 Theorem1.2 supplies termwise ordinary integrality. Exactly 2^{s2(n)} k are carry-free submasks; k↔n-k pairs them, and even n central k=n/2 is never carry-free because its carry count equals s2(n)>=1. Pair contributions at exact valuation t+1 are odd when normalized, while other contributions have larger valuation. Therefore s_n/2^{t+1}≡2^{s2(n)-1} (mod2), yielding ν2(s_2^r)=3 and ν2(s_n)>=s2(3n)+2 otherwise; since s2(3n)>=2, the stated n>=1 mod16 dichotomy follows. Endpoints n=1 and k=0,n are included. Independently computed convolution for n=1..33 confirms integer quotients, valuation bounds and mod16; finite check is not the proof.
 
-**PASS under accessible evidence, with residual priority risk.** Sun's original archived sequence and OEIS A189286 explicitly record the parity criterion as a conjecture. Guo's 2013 full paper proves the termwise integrality used here and cites Sun's eight-divisibility, but does not state the parity criterion as a theorem. The 2026 Appendix A.1 entry on A189286 in arXiv:2608.11941v2 also explicitly proves only integrality, not parity. Related search results for Thue–Morse valuation, other binomial supercongruences, and unrelated parity results do not imply this criterion. Accessible historical claim summaries in three archives were screened for the same source ID, formula, and conjecture aliases, without a direct match. Incomplete historical coverage and unlocated publications remain risks; absence of a search hit is not a uniqueness certificate.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact oddness condition is a pre-existing natural open question about a named 2011 binomial-convolution sequence arising in Ramanujan-type series. The proof resolves all positive indices, and the digit-sum inequality supplies an infinite strengthening rather than a fixed finite computation or arbitrary slice.
+A189286 itself identifies exact oddness of s_n/8 as Sun’s conjecture; the August 2026 source specifically reports a proof of *integrality*, not the binary-parity clause. Guo 2013 established termwise integrality and cited 8-divisibility, but did not establish the iff oddness criterion in the inspected full original article. The new reflection-pair 2-adic carry argument resolves the stronger exact parity statement for every n>0. No equivalent earlier complete solution found in exact-form searches or semantic Resultary hits; best-of-knowledge only.
 
-## Boundaries
+## value
 
-This work does not establish exact valuations at non-power-of-two indices, and does not claim to reproduce Guo's proof as a new result. Independent priority and correctness checks remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact classification for all n of a named natural binomial sequence addresses the distinct 2011 recorded parity conjecture and strengthens 8-divisibility with digit-sum valuation bounds. Reflection cancellation is a substantive uniform arithmetic mechanism, not a finite table or a routine restatement of integrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

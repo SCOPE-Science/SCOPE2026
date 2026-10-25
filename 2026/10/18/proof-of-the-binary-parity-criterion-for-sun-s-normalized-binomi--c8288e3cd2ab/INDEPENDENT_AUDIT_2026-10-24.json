@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:47:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3a3fba78b804f9f055d23c35e2a225d0d7899d13, equation (1),(2)",
+        "V. J. W. Guo, arXiv:1301.4877v1, Theorem 1.2 and proof (5-page original PDF inspected)",
+        "OEIS A189286 explicit binary conjecture statement, accessed 2026-10-24"
+      ],
+      "rationale": "Legendre yields ν2(F(j))=2s2(j), and ν2(binomial(3n,n))=2s2(n)-s2(3n). Thus each positive rational normalized summand Q_n,k has exact valuation t+2c with t=s2(3n), c=s2(k)+s2(n-k)-s2(n), the number of binary carries. Guo 2013 Theorem1.2 supplies termwise ordinary integrality. Exactly 2^{s2(n)} k are carry-free submasks; k↔n-k pairs them, and even n central k=n/2 is never carry-free because its carry count equals s2(n)>=1. Pair contributions at exact valuation t+1 are odd when normalized, while other contributions have larger valuation. Therefore s_n/2^{t+1}≡2^{s2(n)-1} (mod2), yielding ν2(s_2^r)=3 and ν2(s_n)>=s2(3n)+2 otherwise; since s2(3n)>=2, the stated n>=1 mod16 dichotomy follows. Endpoints n=1 and k=0,n are included. Independently computed convolution for n=1..33 confirms integer quotients, valuation bounds and mod16; finite check is not the proof.",
+      "residual_risks": [
+        "Relies on Guo theorem only for integrality; 2-adic valuation arithmetic is direct.",
+        "No exact ν2(s_n) claimed for arbitrary nonpowers of two or for odd primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo Theorem1.2: each normalized summand integer; earlier 8-divisibility is weaker.",
+          "Adamczewski 2026 Appendix A.1 explicitly labels A189286 resolved claim as a(n) integer and proves termwise divisibility; it does not assert oddness of a(n)/8."
+        ],
+        "reasoning": "Integrality of individual terms does not fix their residues mod16 after summation; the carry-free reflection parity has to be established separately. The appendix’s stronger termwise integrality remains an incomparable arithmetic claim, not coverage of this parity theorem.",
+        "searches": [
+          "Guo Proof of Sun conjecture divisibility binomial sums theorem1.2",
+          "OEIS Open arxiv:2608.11941 A189286 appendix A.1"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A189286 current full entry, comments(ii)",
+        "Guo 2013 arXiv:1301.4877v1 original 5-page article Theorem1.2",
+        "Adamczewski 2026 arXiv:2608.11941v2 Appendix A.1 A189286 row",
+        "Sun arXiv:1104.3856 (conjecture context)",
+        "Resultary precise normalized-convolution parity query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun conjectured integerness, 8-divisibility and oddness iff power2; Guo 2013 and 2026 OEIS Open prove normalization/integrality.",
+          "The new exact valuation Q_n,k=t+2c_n(k) and reflection pairing give zero-carry pair parity 2^{s2(n)-1}."
+        ],
+        "reasoning": "No inspected previous stated theorem forces whether the number of lowest-valuation paired terms is odd. The new step supplies precisely the missing implication; earlier termwise normalization is transparently cited.",
+        "searches": [
+          "Sun 2011 arXiv:1104.3856 congruences",
+          "Guo arXiv:1301.4877v1 Theorem1.2",
+          "OEIS Open arXiv:2608.11941v2 A189286"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A189286: a(n)/8 odd iff n is power of 2 (2011 conjecture); this is exactly s_n≡8 mod16 at powers of two and 0 mod16 otherwise.",
+          "The displayed ν2 parity quotient is a stronger equivalent operational criterion from binary carry zero-pair count."
+        ],
+        "reasoning": "Normalized convolution and parity of s_n/8, not just divisibility by 8, were matched to OEIS, Guo and the 2026 appendix. Repeated similar central-binomial congruences on other sequences do not imply this exact statement.",
+        "searches": [
+          "Resultary: Sun normalized binomial convolution A189286 parity s_n/8 odd iff n power of two",
+          "Web \"A189286\" \"s(n)/8\" \"power of 2\" proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A189286 lists initial exact values and Sun’s parity clause as a conjecture; a finite term table cannot certify the all-n equivalence."
+        ],
+        "reasoning": "Named OEIS sequence is exact object/database, and its values match finite test; recorded parity conjecture, not a theorem, while new proof is uniform for all positive n.",
+        "searches": [
+          "OEIS A189286 comments conjecture and table",
+          "Sun binomial convolution mod16 parity finite OEIS table"
+        ]
+      },
+      "rationale": "A189286 itself identifies exact oddness of s_n/8 as Sun’s conjecture; the August 2026 source specifically reports a proof of *integrality*, not the binary-parity clause. Guo 2013 established termwise integrality and cited 8-divisibility, but did not establish the iff oddness criterion in the inspected full original article. The new reflection-pair 2-adic carry argument resolves the stronger exact parity statement for every n>0. No equivalent earlier complete solution found in exact-form searches or semantic Resultary hits; best-of-knowledge only.",
+      "residual_risks": [
+        "An unpublished or unindexed earlier proof of the power-of-two parity clause may exist; absence of search results is not priority certification.",
+        "Sun full 2011 published revisions were not all read in full; OEIS attribution used for historical formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT PRIOR CONJECTURE; not theorem",
+          "evidence": "Clause (ii) explicitly states a(n)=0 mod8 and a(n)/8 odd iff n power two; 2026 comment mentions proof of integrality only.",
+          "identifier_or_url": "https://oeis.org/A189286",
+          "material_read": "Formula, initial terms, 2011 COMMENTS clause (ii) and Aug 2026 edit, linked references",
+          "method": "full OEIS entry HTML reading 2026-10-24",
+          "title": "OEIS A189286",
+          "trigger": "Exact named sequence and status of conjecture"
+        },
+        {
+          "assessment": "ESTABLISHES INTEGRALITY PREMISE; NOT the power-of-two parity statement in inspected text",
+          "evidence": "Theorem 1.2 proves divisibility of each F(k)F(n-k) term by (2n-1)binom(3n,n), exactly the present normalization premise.",
+          "identifier_or_url": "arXiv:1301.4877v1 | https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i4p20/pdf/",
+          "material_read": "Full five-page lawful original PDF, inspected Theorem 1.2, proof and introductory Sun 8-divisibility context; PDF page image checked",
+          "method": "open-access original article PDF text and screenshot",
+          "title": "Proof of Sun’s conjecture on the divisibility of certain binomial sums",
+          "trigger": "Termwise integer normalization used in proof and possible stronger coverage"
+        },
+        {
+          "assessment": "EXPLICIT INTEGRALITY only, parity not covered in listed result",
+          "evidence": "A189286 row specifies conjecture for all n that a(n) is integer and termwise divisibility proof, not mod16 oddness pattern.",
+          "identifier_or_url": "arXiv:2608.11941v2 | https://arxiv.org/html/2608.11941v2",
+          "material_read": "Full openly accessible HTML with Appendix A.1 resolved-conjectures table; inspected A189286 row",
+          "method": "arXiv HTML primary paper, Appendix A.1 row",
+          "title": "OEIS Open: How many conjectures can language models turn into theorems?",
+          "trigger": "Recent same-OEIS entry could dominate older conjecture"
+        },
+        {
+          "assessment": "HISTORICAL CONJECTURE context; whole paper coverage not excluded",
+          "evidence": "The 2011 conjecture is attributed to Sun; exact 8-divisible/power-two oddness given verbatim by OEIS.",
+          "identifier_or_url": "arXiv:1104.3856",
+          "material_read": "Abstract and original conjecture as referenced by OEIS and original source; not all later versions of long paper fully compared",
+          "method": "primary arXiv abstract and original claim as cited by OEIS",
+          "title": "Some new series for 1/pi and related congruences",
+          "trigger": "Original proposer and primary mathematical setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A189286 2011 clause(ii)",
+        "Guo 2013 Thm1.2 as prior contrast",
+        "RESULT.md exact c_n(k) reflection argument"
+      ],
+      "rationale": "An exact classification for all n of a named natural binomial sequence addresses the distinct 2011 recorded parity conjecture and strengthens 8-divisibility with digit-sum valuation bounds. Reflection cancellation is a substantive uniform arithmetic mechanism, not a finite table or a routine restatement of integrality.",
+      "residual_risks": [
+        "Exact nonpower-of-two valuations and odd-prime congruences remain open outside claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=1; n=0 has s_0=-1 and is excluded.",
+    "Guo prior termwise integrality theorem is assumed and credited.",
+    "Only initial n=1..33 independently calculated; no reliance on extrapolation.",
+    "The frozen PUBLIC AUDIT.json and METADATA.json contain scope_run_id operational identifiers. No complete, semantically sanitized versions with exact source blob guards and content hashes were prepared. Keep scientific evidence, withhold publication; server status-file postprocessing is not a substitute for verified removal from source-public metadata."
+  ],
+  "schema_version": 1
+}
