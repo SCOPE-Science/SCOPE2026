@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T14:18:13.232451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For τ=2cosφ∈(-2,2), δ_R=1 and any left trace ℓ, the right-affine first coordinate before a switching hit is exactly X_n=(1−cos((n+1)φ))/(2−τ)+e sin((n+1)φ)/sinφ for x(0)=1/2+e. The first return is N(x)=min{k≥1:X_(k−1)≤0}: x≤0 returns immediately, while right iterates produce negative second coordinate until left branch is used. For rational α=p/q the first-coordinate sign is positive at the tangent point until k=q and X_(q−1)=0 for every x. For irrational α, factorization into 2sin(θ/2)[r sin(θ/2)+(e/sinφ)cos(θ/2)] proves one-sided target arcs with exact inclusive endpoint, ε(e)=arctan(2|e|tan(φ/2))/π. Density gives eventual returns for e≠0 and none for e=0. Badly-approximable lower bound ||kα||≥κ/k gives N≥c/|e|; convergent residues ±1 mod q_j and q_j≤O(1/ε) for bounded partial quotients give N≤C/|e| on both sides. Unbounded partial quotients provide k_j||k_jα||→0 and corresponding e_j with |e_j|N(x*+e_j)→0. Uniform return boundedness away from x*=1/2 plus layer cake yields Leb{N>n}=Θ(1/n) on [0,1] and divergent mean for bounded type. Independent SymPy check confirmed exact ellipse invariance under the right map and representative rational first returns q=3,4,6; all-parameter statements rest on these exact proofs, not on the repository's reported 309 finite diagnostics. The only use of the left trace is after return, so ℓ is genuinely arbitrary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson (2026) Theorems 2.3/2.6 assume δ_R>1 and δ_R>τ_R²/4, excluding δ_R=1.",
+          "Simpson (2025) arXiv:2408.04790 Section 6.2 identifies δ_R=1 and the rotation-number formula but analyzes bifurcation structures, not exact Diophantine section-return times.",
+          "Sushko–Gardini (2008) Section 3 treats the neutral invariant ellipse and rational polygons but not the off-ellipse one-sided hitting-time law."
+        ],
+        "reasoning": "None of the checked stronger parameter-space/rotation descriptions supplies a theorem whose stated conclusions dominate the exact all-section return singularity, although basic geometry and the standard continued-fraction ingredients are previously known.",
+        "searches": [
+          "Simpson 2025 The Two-Dimensional Border-Collision Normal Form with a Zero Determinant arxiv 2408.04790 full text neutral determinant 1",
+          "Sushko Gardini 2008 Center Bifurcation 2D Border-Collision Normal Form invariant ellipse Proposition 1",
+          "Simpson 2026 one dimensional first return zero determinant repelling focus Theorems 2.3 2.6"
+        ]
+      },
+      "checked_sources": [
+        "I. Sushko and L. Gardini (2008), DOI:10.1142/S0218127408020823, 32-page primary PDF",
+        "D. J. W. Simpson (2025), arXiv:2408.04790, full arXiv-rendered article and journal metadata",
+        "D. J. W. Simpson (2026), arXiv:2606.08901, full OA Springer HTML",
+        "D. H. Kim and S. Marmi, arXiv:1307.3511 abstract, arithmetic context",
+        "Resultary published mathematical finding search, matching record distinguished from prior",
+        "Original pinned Git RESULT.md and check_neutral_return.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical recurrence theorem for irrational rotations controls shrinking neighborhoods via convergent denominators; see Kim–Marmi (2013), arXiv:1307.3511, for bounded-type arithmetic versus dynamical recurrence characterization.",
+          "Sushko–Gardini (2008) derives E and quasiperiodic motion, but no explicit off-ellipse section coordinate X_n or the 1/n tail.",
+          "Simpson (2025) Section 6.2 mentions the center bifurcation δ_R=1 and angular rotation; Simpson (2026) covers repelling δ_R>1 first-return partitions."
+        ],
+        "reasoning": "The asserted theorem is a short concrete new reduction plus application of well-known number theory; its arithmetic input is not novel. I found no independent earlier source stating or directly proving the full off-ellipse return law and distribution for this exact family. Priority remains qualified by possible unindexed equivalent applications.",
+        "searches": [
+          "Sushko Gardini neutral ellipse plus first return x axis continued fraction",
+          "The recurrence time for irrational rotations one-sided shrinking interval bounded partial quotients",
+          "Simpson 2025 zero determinant center bifurcation delta_R=1 Section 6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Resultary hit 2026/10/11/SCOPE-arithmetic-singularity-of-first-returns-on-a-neutral-border-coll--a26e5c1f5662 is the same finding, not independent prior work.",
+          "Sushko–Gardini (2008) Section 3, Proposition 1 establishes the neutral tangent ellipse and irrational quasiperiodic rotation, but does not display an exact first return of off-ellipse section points.",
+          "The return condition is equivalent to first hitting an explicit shrinking one-sided rotation arc near 0, which is not given in the inspected normal-form antecedents."
+        ],
+        "reasoning": "Same-map geometry is known; for the off-ellipse real section the exact hitting predicate uses right-branch first-coordinate recurrence, not just invariant-ellipse motion. The precise bounded-type criterion and Lebesgue tail are not stated by the inspected same mathematical model sources. The matching Resultary version does not establish independent priority.",
+        "searches": [
+          "Resultary: Neutral border collision normal form unit determinant zero left determinant irrational invariant ellipse first return x=1/2 one-sided rotation hitting bounded partial quotients tail",
+          "Resultary: Simpson Sushko Gardini border collision neutral invariant ellipse rotation first-return time infinite mean arithmetical scaling",
+          "web: neutral focus border collision first return exact inverse distance tangent invariant ellipse Diophantine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the matching published finding plus other non-equivalent dynamical results; no independent exact table governing this neutral section was identified.",
+          "The finite rational cases and irrational parameter law form an all-parameter statement, not a finite precomputed census."
+        ],
+        "reasoning": "A known exact table would need to encode these first-return times and consequences; no such table was identified in actual searches. A negative search is only limited evidence, not novelty proof.",
+        "searches": [
+          "Resultary semantic search neutral border collision first return bounded type tail",
+          "web: neutral border collision exact x=1/2 return-time singularity 1/n",
+          "web: rotation irrational bounded partial quotients hitting time one sided intervals"
+        ]
+      },
+      "rationale": "Qualified novel boundary first-return arithmetic. Sushko–Gardini 2008 proves the neutral invariant tangent ellipse and center quasiperiodicity, which are explicitly prior. Simpson 2025 §6.2 studies the same determinant-one center line, rotation-number branches and Arnold tongues, but does not establish the off-ellipse first-section return law or arithmetic tail. Simpson 2026 return theorems explicitly assume repelling determinant δ_R>1 and do not cover the neutral case. Classical continued-fraction and shrinking-target recurrence bounds are standard antecedents, not newly claimed. The matching Resultary record is the assessed finding itself, not independent precedent. No independent primary claim found covering this exact theorem, with unindexed and journal-version overlap retained as priority risks.",
+      "residual_risks": [
+        "The August 2025 journal revision has not been visually read end to end; changes from the complete arXiv preprint could include additional return analysis.",
+        "Unindexed prior work could apply classical one-sided shrinking-target continued fractions to this same neutral section.",
+        "Much of the theorem is a concise consequence of known geometry and classical rotation arithmetic; originality is of the explicit border-section reduction and distribution, not the inherited ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-existing tangent ellipse, rational/irrational center behavior and polygon structure; not an explicit off-ellipse first-section return singularity or 1/n tail.",
+          "evidence": [
+            "PDF printed page 7 eqs. (7)–(10), Proposition 1; printed page 8 eq. (12) and rational polygon."
+          ],
+          "identifier_or_url": "I. Sushko and L. Gardini, IJBC 18 (2008), DOI:10.1142/S0218127408020823, author PDF https://www.mdef.it/public/fileadmin/whoiswho/gardini/Publications/Journals/SG_CenterBif_08.pdf",
+          "material_read": "Full 32-page author PDF accessed; read introduction and Sections 2–3 through rational invariant polygons; inspected actual PDF page images 7–8 showing (7)–(12), ellipse E and Proposition 1.",
+          "method": "Extracted full-text search, page text and visual PDF screenshots",
+          "title": "Center Bifurcation for Two-Dimensional Border-Collision Normal Form",
+          "trigger": "Same neutral ellipses and tangency to switching line"
+        },
+        {
+          "assessment": "Section 6.2 covers δ_R=1 and rotation-number onset of Arnold tongues; does not state a one-sided shrinking arc law, bounded-type return scale or mean-return tail. Journal version not examined page-by-page, so its later changes remain a risk.",
+          "evidence": [
+            "arXiv §6.2: δ_R=1 is centre bifurcation; τ_R=2cos(2πρ) equation (6.5).",
+            "SIAM journal publication August 11, 2025."
+          ],
+          "identifier_or_url": "D. J. W. Simpson, arXiv:2408.04790; DOI:10.1137/24M1683548 (journal 2025)",
+          "material_read": "Complete arXiv-rendered full 2024 preprint available in arxiv.org/abs/2408.04790 text, including Sections 1–8 with §6.2 centre bifurcations and references; inspected journal abstract and dates.",
+          "method": "Primary full-text arXiv inspection, section/hypothesis/term comparison",
+          "title": "The Two-Dimensional Border-Collision Normal Form with a Zero Determinant",
+          "trigger": "Plausible comprehensive treatment of the same zero-left-determinant map, including neutral boundary"
+        },
+        {
+          "assessment": "Finite Farey return-time partition under repelling focus δ_R>1, not the neutral δ_R=1 model.",
+          "evidence": [
+            "Theorems 2.3 and 2.6 explicitly require δ_R>1 and δ_R>τ_R²/4; §2.3 explains finite maximum p."
+          ],
+          "identifier_or_url": "D. J. W. Simpson, arXiv:2606.08901; DOI:10.1007/s12346-026-01576-z",
+          "material_read": "Full Springer open-access HTML, introduction, definition of first-return map, Theorems 2.3/2.6, §2.3 and proof/geometry sections",
+          "method": "Primary open HTML mathematical comparison",
+          "title": "One-Dimensional First Return Maps for the Two-Dimensional Border-Collision Normal Form with a Zero Determinant",
+          "trigger": "Same section-return construction and focus return-time theorems"
+        },
+        {
+          "assessment": "Provides classical antecedent for arithmetic-type recurrence, not a border-collision section-return theorem.",
+          "evidence": [
+            "Abstract: bounded partial quotients and bounded rescaled recurrence times."
+          ],
+          "identifier_or_url": "D. H. Kim and S. Marmi, arXiv:1307.3511",
+          "material_read": "Accessible abstract and mathematical background statement; not claimed full-text inspection",
+          "method": "Search/abstract comparison",
+          "title": "Bounded type interval exchange maps",
+          "trigger": "Classical equivalence of bounded continued fractions and quantitative rotational recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A neutral focus is a natural singular boundary separating center and repelling focus regimes in this piecewise-linear family. The result classifies the full real horizontal section by finite versus infinite return, provides an exact one-sided circle-code, identifies a sharp arithmetic condition for uniform inverse-distance blowup, and derives a 1/n heavy tail and infinite mean under finite-section Lebesgue sampling. These are motivated quantitative return-time statistics, not merely repackaging the known invariant ellipse. It is limited to δ_L=0, δ_R=1, μ=1 and bounded-type tails; no claim of a new general shrinking-target theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "I. Sushko and L. Gardini, IJBC 18 (2008), DOI:10.1142/S0218127408020823, author PDF https://www.mdef.it/public/fileadmin/whoiswho/gardini/Publications/Journals/SG_CenterBif_08.pdf",
+    "D. J. W. Simpson, arXiv:2408.04790; DOI:10.1137/24M1683548 (journal 2025)",
+    "D. J. W. Simpson, arXiv:2606.08901; DOI:10.1007/s12346-026-01576-z",
+    "D. H. Kim and S. Marmi, arXiv:1307.3511"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No global attractor result, no unbounded-type 1/n tail theorem, no assertion of exact constants.",
+    "Scientific originality is best-of-knowledge and may be superseded by an unindexed or revised journal result.",
+    "The finite accompanying checker does not exhaust infinitely many irrational parameters."
+  ],
+  "schema_version": 1
+}
