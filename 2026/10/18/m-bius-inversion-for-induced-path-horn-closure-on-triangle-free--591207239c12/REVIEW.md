@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single-round closure lemma was proved in both directions, using the absence of triangles to ensure that the two premise edges are disjoint. The Möbius identity was derived directly from its defining convolution recurrence. Inclusion-exclusion over new vertices reduces the interval value to signed vertex covers, then to the independence polynomial of the residual induced graph. Empty, singleton and disconnected cases are covered by the definitions. The leaf recurrence proves the forest bound; a two-state transfer matrix proves the cycle identity. `verify.py` checked 210,708 intervals across 678 graphs by a separate lattice-recurrence computation.
+PASS
 
-## Originality — PASS, with residual priority risk
+An induced line-graph P3 has disjoint premise edges covering both endpoints of the middle edge. For every absent uv induced on V(S), selected ux and vy are necessarily disjoint by triangle-freeness and directly imply uv. The classical Boolean-fibre formula for closure-lattice Möbius inversion sums (-1)^|S| over generators; inclusion-exclusion on uncovered new vertices gives the signed vertex-cover sum, forced neighbors of V(A) split off, and remaining vertex covers complement independent sets in G[W]. Forest leaf recurrence I_F(-1)=-I_{F-N[u]}(-1) bounds values by 1; C_n two-state transfer eigenvalues exp(±π i/3) prove cycle formula. Independent reconstruction enumerated all 436 labelled triangle-free graphs of orders 3–5, checking closure and 18,570 interval Möbius values by direct recurrence. One-round proof covers all n; finite checks do not.
 
-General induced-path convexity is prior work, particularly Gutierrez–Protti–Tondato (2022) and Dourado–Penso–Rautenbach (2019/2022). Their compared statements concern convex-geometry recognition and hull-number complexity, not the present all-interval Horn-model-lattice Möbius formula. The Boolean-fiber Möbius identity is standard, and signed independent-set enumerations and their forest bound are classical. The assessed new claim is the precise structural identification of every interval Möbius value for the line-graph Horn theory of an arbitrary triangle-free graph. Related induced-subgraph-poset and closure-lattice literature may contain an equivalent theorem under other terminology; no absence-of-hit claim substitutes for a global priority proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result computes a generally difficult lattice invariant on every interval of a natural infinite family of finite Horn consequence systems. The residual induced graph determines the exact value, enabling a forest rigidity theorem and exhibiting a sharp jump to unbounded magnitudes along disjoint six-cycles. This is a full structural translation rather than a numerical example, finite table, or routine substitution into an enumerator.
+Best-of-knowledge original explicit all-interval Möbius reduction for this particular Horn closure, despite classical Boolean-fibre inversion and classical independence polynomial evaluations. Graph P3-convexity literature studies geometry/hull complexity, not the formula shown in its inspected main theorems.
 
-## Closest sources and limitations
+## value
 
-Gutierrez, Protti, and Tondato, arXiv:2203.05588 (2022); Dourado, Penso, and Rautenbach, DOI:10.1016/j.tcs.2022.01.004 (2019 conference version; 2022 journal); Kim, arXiv:2101.07131 (2021); classical Möbius inversion as in Rota (1964). The source comparison cannot rule out equivalent graph-theoretic formulations outside the inspected literature. The original claim is not extended beyond triangle-free graphs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives an exact computable incidence-algebra invariant of an intrinsic closure lattice for arbitrary triangle-free G; detects cycles versus forests and constructs exponential Möbius magnitudes. The interval formula is not merely an isolated easy numerical evaluation; it maps all interval values to induced independence polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

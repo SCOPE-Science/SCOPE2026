@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The standalone Python 3 program `verify.py` reconstructs the induced-path Horn hull, the edge-induced closure, all closed edge sets, and each interval Möbius value via the defining lattice recurrence. It compares every value to the stated independence-polynomial formula. The program needs only the Python standard library and runs with `python3 verify.py`.
+# Independent mathematical audit
 
-Reproduced output:
+## correctness
 
-```text
-TRIANGLE_FREE 2 graphs 2
-TRIANGLE_FREE 3 graphs 7
-TRIANGLE_FREE 4 graphs 41
-TRIANGLE_FREE 5 graphs 388
-TREES 6 random 60
-TREES 7 random 60
-TREES 8 random 60
-TREES 9 random 60
-VERIFY_OK graphs 678 intervals 215512 max_concepts 151 triangle_free_hull=PASS mobius_formula=PASS forest_bound=PASS triangle_boundary=PASS
-```
+PASS
 
-The 678 checked graphs include all 438 labeled triangle-free graphs of orders two through five plus 240 deterministically sampled trees on six through nine vertices, and 210,708 examined lattice intervals. This is finite corroboration, not a substitute for proof or independent external validation. The triangle counterexample is explicitly checked.
+An induced line-graph P3 has disjoint premise edges covering both endpoints of the middle edge. For every absent uv induced on V(S), selected ux and vy are necessarily disjoint by triangle-freeness and directly imply uv. The classical Boolean-fibre formula for closure-lattice Möbius inversion sums (-1)^|S| over generators; inclusion-exclusion on uncovered new vertices gives the signed vertex-cover sum, forced neighbors of V(A) split off, and remaining vertex covers complement independent sets in G[W]. Forest leaf recurrence I_F(-1)=-I_{F-N[u]}(-1) bounds values by 1; C_n two-state transfer eigenvalues exp(±π i/3) prove cycle formula. Independent reconstruction enumerated all 436 labelled triangle-free graphs of orders 3–5, checking closure and 18,570 interval Möbius values by direct recurrence. One-round proof covers all n; finite checks do not.
+
+## originality
+
+PASS
+
+Best-of-knowledge original explicit all-interval Möbius reduction for this particular Horn closure, despite classical Boolean-fibre inversion and classical independence polynomial evaluations. Graph P3-convexity literature studies geometry/hull complexity, not the formula shown in its inspected main theorems.
+
+## value
+
+PASS
+
+Gives an exact computable incidence-algebra invariant of an intrinsic closure lattice for arbitrary triangle-free G; detects cycles versus forests and constructs exponential Möbius magnitudes. The interval formula is not merely an isolated easy numerical evaluation; it maps all interval values to induced independence polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
