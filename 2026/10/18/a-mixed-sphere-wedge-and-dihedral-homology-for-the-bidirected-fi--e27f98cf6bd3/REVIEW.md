@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All \(2^{16}\) directed-arc subsets are checked against source, target and cycle constraints, leaving 261 faces. The deterministic matching has 115 pairs and a complete acyclic orientation of all 704 nonempty Hasse covers. An exact integral gradient-path calculation gives critical dimensions \((0:1,1:1,2:20,3:8)\), a primitive rank-one differential in degree two, and zero differential in degree three. A CW cancellation followed by the degree-two Hurewicz isomorphism establishes the integral mixed sphere wedge. A separately implemented modular chain computation and all eight signed dihedral actions confirm the homology ranks and rational symmetry characters. The verifiers' exact outputs are included.
+PASS
 
-## Originality — PASS, with risk
+A fresh exhaustive definition-level 2^16 arc-mask enumeration gave 261 augmented faces with nonempty f=(16,76,120,48), 704 nonempty covers; independent acyclic-Morse elimination had 115 pairs, critical (1,1,20,8), integral d2 primitive row with 3 +1 and 3 -1, integral d3=0. Hurewicz after cancelling the unique one-cell yields 19 S² and 8 S³. Independent F2 boundary ranks d1,d2,d3=(15,61,40), and 101-field 48x120 top-kernel, integral trace bound 8, exact D4 signed Lefschetz give H2 (19,-1,3,-1;1,1,1,1), H3 (8,0,0,0;0,0,0,0). Sources actual pinned RESULT.md/verify_morse.py/verify_character.py, plus separately written checks.
 
-The 2026 bidirectional-polygon paper supplies an emerging neighboring question, not a theorem for a wheel with a central hub. The earlier general multipath framework treats different classes, and the February 2026 directed-linear-forest classification concerns shellability/acyclicity criteria and forests/cycles, not the wheel's integral homotopy and dihedral module. Searches using wheel, complete tripartite \(K_{1,2,2}\), bidirected multipath, directed linear forest, and cycle-free partial permutation aliases did not identify an implication covering the exact claim. Relevant indexed mathematical records were also compared at the statement level. This is not a uniqueness theorem: unindexed equivalent work could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest non-complete wheel adds a universal hub to a bidirected four-cycle, directly testing how the polygonal theory changes under a natural graph extension. Its mixed-dimensional sphere wedge contrasts with the sphere-only path family, and its degree-three regular dihedral module together with three invariant degree-two classes gives nontrivial symmetry information not determined by Betti numbers. It is a finite structural benchmark, not a purported uniform wheel classification.
+Best-of-knowledge original as an exact claim over the stated object and quantifiers after comparing equivalent functors, stronger theorems, literature and relevant indexed findings. Search failure alone is not proof; see material_read and residual_risks.
 
-## Scientific limitations
+## value
 
-No formula for larger wheels, no integral automorphism-module splitting and no equivariant homotopy splitting are claimed. No independent scientific audit has been performed; proof and computations have been checked within this package.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest hubbed bidirected wheel is a natural non-polygon extension of multipath homotopy theory. Mixed-dimensional integral sphere wedge and complete D4 representation/invariant ranks capture information neither path/cycle formulas nor Betti counts alone supply, useful exact first hub case for future wheel and equivariant classifications; not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
