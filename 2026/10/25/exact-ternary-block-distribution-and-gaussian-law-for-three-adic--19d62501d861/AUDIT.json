@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Kummer carry counts and the exact trailing-two decomposition establish the two-state weighted transfer matrix T=[[2,u],[1,2u]], including all-2 and zero-length boundary cases. Resolvent algebra proves the bivariate rational identity for every L; differentiation gives exact moments and dominant-root expansion proves the Gaussian limit and fixed-valuation asymptotics. A separate stdlib program uses Legendre factorial valuations to check 29524 complete index instances through L=9, 10000 independent carry comparisons, and exact rational finite moments. Enumeration is explicitly not treated as proof of the infinite identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alter and Kubota (1973), JCTA 15, 243--256, DOI:10.1016/0097-3165(73)90072-1, is cited in Deutsch--Sagan 2004 Theorem 5.1 for lengths of blocks of zeros modulo primes; its full text was unavailable",
+        "Chen and Jiang, Integers 13 (2013), A36, Theorem 1 restricts to C_(p^k-a) modulo p^k and eventual stabilization",
+        "Li (2018), Theorem 5 gives an individual prime-adic digit-valuation formula and applications"
+      ],
+      "reasoning": "General formulas for each index and congruence stability on sparse prime-power subsequences do not, as stated, settle the exact finite-scale distribution on all n<3^L or its Gaussian law. Full-text unavailability for Alter--Kubota is specifically recorded, and is not treated as an affirmative noncoverage check.",
+      "searches": [
+        "Alter Kubota Catalan prime power divisibility 1973 DOI 10.1016/0097-3165(73)90072-1",
+        "Catalan numbers 3-adic valuation distribution generating function probability central limit theorem among 0 to 3^k",
+        "OEIS A067397 per-index digit formula; Chen--Jiang 2013 Catalan numbers modulo a prime power",
+        "Exact rational generating function enumerating 3-adic valuations of Catalan numbers over ternary intervals, variance central limit theorem"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A067397",
+      "Deutsch--Sagan arXiv:math/0407326v1",
+      "Chen--Jiang Integers 13 (2013) A36",
+      "Li On the Divisibility of Catalan Numbers (2018)",
+      "Alter--Kubota JCTA 15 (1973) DOI:10.1016/0097-3165(73)90072-1 (abstract/quoted theorem only)",
+      "published-finding corpus semantic searches (nearest returns unrelated Catalan enumeration and other digit-valuation findings)",
+      "Existing accessible number-theory claim ledgers for the current and preceding UTC weeks (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deutsch--Sagan 2004 Theorem 5.2 covers only C_n modulo 3, a strict projection onto the event valuation=0; their discussion attributes zero-block lengths to Alter--Kubota",
+        "OEIS A067397 formula determines individual valuations; Li 2018 digit formulas likewise classify an index given its digits",
+        "The new transfer matrix resolves simultaneous digit summation and yields characteristic roots controlling fluctuations"
+      ],
+      "reasoning": "A theorem identifying v_3(C_n) for any given n contains all arithmetic input but need not include the evaluated exact generating function, all-level frequency law, or asymptotic normality. Existing modulo-3 information is implied by taking u=0 in the new equation; the converse is false because u=0 loses every positive valuation level. No inspected source states a theorem that immediately subsumes the exact bivariate census and Gaussian conclusion.",
+      "searches": [
+        "exact trivariate generating function of ternary-index Catalan numbers 3-adic valuation frequencies n less than 3^L; rational function (1+(1-2t)z)/(1-2(1+t)z+3tz^2)",
+        "Exact rational generating function enumerating 3-adic valuations of Catalan numbers over ternary intervals, variance central limit theorem",
+        "Catalan numbers ternary digit carries valuation distribution polynomial exact mean variance Gaussian law",
+        "Deutsch Sagan Catalan mod 3 residue criteria 2004 Theorem 5.2",
+        "Chen Jiang prime power Catalan congruence 2013 PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A067397 (2002, formula updated 2015) gives per-index valuation recurrence and factorial valuation, https://oeis.org/A067397",
+        "arXiv:math/0407326v1 section 5, Theorem 5.2 gives residues modulo 3, not all nonnegative valuation levels"
+      ],
+      "reasoning": "The proposed P_L(u) is equivalent to an exact integer count for each valuation r in each aligned ternary block. Individual-valuation algorithms permit finite recomputation but do not state or directly yield the closed bivariate rational generating function, the exact full variance, or the normal limit. Theorem 5.2 of Deutsch--Sagan identifies the zero-valuation event only. published-finding corpus semantic queries for the rational function, digit-carry census and Gaussian law had no same-statement top hits.",
+      "searches": [
+        "valuation distributions of Catalan numbers modulo three powers, exact digit automata density v_3 binomial Catalan",
+        "exact trivariate generating function of ternary-index Catalan numbers 3-adic valuation frequencies n less than 3^L; rational function (1+(1-2t)z)/(1-2(1+t)z+3tz^2)",
+        "Catalan 3-adic valuation Kummer carry enumerator distribution all n 0 <= n < 3^k and central binomial valuation polynomial",
+        "OEIS A067397 formula a(n) recurrence; arXiv:math/0407326v1 Theorem 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A067397 publishes explicit valuation entries, an individual digit recurrence, and sample n=0..10000 table, but not a family of bivariate census polynomials indexed by arbitrary L"
+      ],
+      "reasoning": "Every fixed small-L histogram is computable from the OEIS list when the index range is within the table; this does not supply symbolic P_L(u) for unbounded L, closed moments, or the central limit theorem. The new finite results are not represented as a novel recomputation of known entries.",
+      "searches": [
+        "OEIS A067397 maximal power of 3 divides nth Catalan number sequence formula table",
+        "Deutsch Sagan Catalan modulo 3 density 3*2^(L-1) exact ternary valuations distribution",
+        "central binomial Catalan nonzero modulo powers of 3 valuation counts generating function"
+      ]
+    },
+    "rationale": "The specifically new theorem is the all-level, all-block-length rational census P_L(u), its exact first two moments and its Gaussian law, not the pre-existing individual valuation formula or the residue modulo 3. OEIS A067397 publishes a per-index recurrence; Alter--Kubota addresses prime-power divisibility; Deutsch--Sagan gives Catalan residues modulo 3; Chen--Jiang gives fixed-offset prime-power congruences; Li provides digit valuation formulas. No inspected statement supplies the simultaneous block-length/valuation frequency generating function and its limit law. The missing 1973 full text leaves material priority risk.",
+    "residual_risks": [
+      "Alter--Kubota (1973) full text was unavailable; it may already contain or imply an all-scale distribution beyond its quoted zero-block theorem.",
+      "The known OEIS per-index digit recurrence could make the rational census readily derivable, though no explicit broader statement was identified; downstream novelty still merits independent priority check.",
+      "published-finding corpus returns ranked semantic hits and is not exhaustive; accessible ledger history is incomplete, so neither proves uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest close per-index antecedent, does not display all-L valuation histogram generating function or moments/normal limit",
+        "evidence": [
+          "OEIS A067397 FORMULA and AUTHOR fields; digit-block recurrence and 2002 date"
+        ],
+        "identifier_or_url": "https://oeis.org/A067397",
+        "material_read": "Sequence, formula, comments, table link, history/author date; specifically original Jan 22 2002 and later Sep 20 2015 recurrence",
+        "method": "Read the public sequence entry and its complete displayed formulas",
+        "title": "OEIS A067397: maximal power of 3 that divides n-th Catalan number",
+        "trigger": "Exact target per-index valuation and earliest archival origin"
+      },
+      {
+        "assessment": "Gives exact residue mod 3 and prior block-of-zero information, not the full valuation frequency distribution or Gaussian law",
+        "evidence": [
+          "Theorem 5.2, page 15: Catalan values 0 or ±1 mod3; Theorem 5.1 attributes zero-block lengths to Alter--Kubota"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0407326",
+        "material_read": "Title/abstract; sections 2 and 5, Theorem 5.1 and Theorem 5.2 (p.15), neighboring explanatory text and prior-work citations",
+        "method": "Read parsed full-text sections and inspect the relevant PDF page image",
+        "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+        "trigger": "Nearest primary congruence theorem mod 3 and reference to Alter--Kubota"
+      },
+      {
+        "assessment": "Theorem 1 concerns the sequence C_(p^k-a) and residue stabilization, not all n in a finite ternary block",
+        "evidence": [
+          "Theorem 1 of Integers 13 (2013), A36; publication June 14 2013"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/n36/n36.pdf",
+        "material_read": "Four-page article, abstract, Theorem 1 and its proof, PDF page 1 visually inspected",
+        "method": "Read parsed text of all four pages and inspect original PDF page",
+        "title": "Catalan numbers modulo a prime power",
+        "trigger": "Prime-power congruence work plausibly broader than mod 3"
+      },
+      {
+        "assessment": "Individual-digit valuation algorithm and special-index divisibility consequences; no all-L distribution or central limit theorem in inspected material",
+        "evidence": [
+          "Theorem 5 and Corollaries 10--11, discussion on PDF pages 9--11"
+        ],
+        "identifier_or_url": "https://hlma.hanglung.com/assets/2127BE7E-4FF5-4E68-8A75-4268DE5AEB8E/007.pdf",
+        "material_read": "Theorem 5, its digit-valuation derivation and pp.9--11 applications plus introductory description",
+        "method": "Read parsed PDF ranges and visually inspect page 9",
+        "title": "On the Divisibility of Catalan Numbers",
+        "trigger": "Explicit digit-valuation theorem potentially subsuming Catalan carries"
+      },
+      {
+        "assessment": "PRIORITY RISK: original document not inspected in full; known quoted theorem is zero-block length, but unobserved broader coverage cannot be excluded",
+        "evidence": [
+          "Deutsch--Sagan, PDF page 15, Theorem 5.1 attributed to Alter--Kubota; DOI and 1973 bibliographic metadata"
+        ],
+        "identifier_or_url": "doi:10.1016/0097-3165(73)90072-1",
+        "material_read": "Publisher abstract and exact theorem quote via Deutsch--Sagan 2004 Theorem 5.1; original 1973 full text inaccessible",
+        "method": "Publisher metadata/abstract and named quotation in lawful full-text secondary paper; open-access/arXiv search and institutional retrieval attempted without full text",
+        "title": "Prime and prime power divisibility of Catalan numbers",
+        "trigger": "Historic primary source explicitly treating Catalan valuation by prime powers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19d62501-d861-47cf-a4ed-bcd24fe364eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact law P_L(u) is a natural complete finite-block census of three-adic divisibility across all levels, stronger than per-index lookup or zero-vs-nonzero counts. The explicit finite mean/variance and central limit theorem reveal the typical valuation scale, while fixed-r asymptotics quantify rare lower-tail frequencies. Such aggregate statistics are mathematically motivated by Kummer carry phenomena and are not arbitrary parameter substitutions or a recomputation of fixed tables.",
+    "status": "PASS"
+  }
+}
