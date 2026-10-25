@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T09:09:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-first-impartial-culture-borda-welfare-reversal-between-proba--0b9c9c574351/RESULT.md",
+        "2026/10/18/the-first-impartial-culture-borda-welfare-reversal-between-proba--0b9c9c574351/verify_ps_rp_borda.py",
+        "/mnt/data/scope_worker_08_20261024T0854_delivery/audit08_independent_checks_output.json"
+      ],
+      "rationale": "The pinned package defines PS as continuous unit-rate eating, RP as average over uniform agent permutations, and each received r-th choice earns n-r Borda points. Object relabeling is free because the first agent has a strict order, reducing all (n!)^n profiles to (n!)^(n-1) canonical profiles with n! multiplicity. An independently written rational PS event simulator and RP recursive Bellman welfare evaluator enumerated all canonical profiles n=2,3,4; n=4 has exactly 13824 reps, giving over all 331776 labelled profiles 87408 positive, 129168 zero and 115200 negative PS-minus-RP values; mean 1283/62208>0. n=3: 36 negatives at -1/12 and mean -1/72; n=2 all zero. The source also cross-checks matrix and direct-welfare implementations. For every n>4, new agents each rank their fresh personal object first and all old agents rank old objects above new ones: both rules preserve old four-agent lotteries and only shift each old Borda score by constant n-4, so the positive and negative four-agent witness signs persist.",
+      "residual_risks": [
+        "Exact n<=4 values rely on complete rational enumeration modulo an explicitly free object-relabeling group, not a probabilistic sample.",
+        "Only sign existence, not full profile enumeration, is proved for all n>=4; impartial culture and equally spaced Borda utilities are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Replica-economy asymptotic equivalence and uniform-in-size rank bounds constrain aggregate trends rather than enumerating each strict preference profile at n=4."
+        ],
+        "reasoning": "General asymptotic and welfare-bound results are not an exact characterization of finite signed comparisons; any comparison of exact mean sign requires their precise inequalities, not merely broad efficiency labels.",
+        "searches": [
+          "Che–Kojima 2010 Econometrica 78:1625–1672",
+          "Ortega–Zhao 2026",
+          "probabilistic serial random priority Borda welfare impartial culture exact small n 4 preference profiles"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1006/jeth.2000.2710",
+        "Ortega–Zhao (2026), https://www.josueortega.com/PS_versus_RP_simplified.pdf",
+        "doi:10.3982/ECTA8354",
+        "Resultary semantic search: probabilistic serial random priority Borda welfare impartial culture exact small n 4 preference profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old three-agent lottery types and four-agent direct dominance are PRIOR; two incomparable allocation matrices can have either sign for a Borda score and their signs are not settled by SD dominance cases."
+        ],
+        "reasoning": "It would take an exact additional four-agent rank-welfare computation to infer the claimed distribution and mean. Neither cited theorem directly entails the asserted frequency paradox.",
+        "searches": [
+          "probabilistic serial random priority Borda welfare impartial culture exact small n 4 preference profiles",
+          "Bogomolnaia–Moulin JET 2001",
+          "Ortega–Zhao PS versus RP 2026 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bogomolnaia–Moulin introduce PS and compare with RP including small canonical profiles; Ortega–Zhao analyze average rank under independent preferences."
+        ],
+        "reasoning": "PS and RP objects coincide, but neither retrieved exact statement supplies frequencies 87408/115200 or positive exact four-agent Borda mean while negative three-agent mean.",
+        "searches": [
+          "probabilistic serial random priority Borda welfare impartial culture exact small n 4 preference profiles",
+          "Bogomolnaia–Moulin 2001 JET 100:295–328",
+          "Ortega–Zhao Remarkable Efficiency 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 52 exact four-agent rational welfare differences occur in the current complete certificate; retrieved earlier sources offer small examples and theoretical bounds rather than an exact matching signed table."
+        ],
+        "reasoning": "A negative targeted result does not rule out alternative archived rank-welfare enumerations; that residual priority risk is retained.",
+        "searches": [
+          "probabilistic serial random priority Borda welfare impartial culture exact small n 4 preference profiles",
+          "exact four agent PS RP Borda profile table 1283 62208 87408 115200"
+        ]
+      },
+      "rationale": "Classic PS/RP literature and Ortega–Zhao directly discuss efficiency and expected ranks; three-agent disagreement is prior. The exact FOUR-agent signed frequency distribution and opposite signs of profile-majority versus impartial-culture average are not implied by bounds or asymptotic efficiency claims. A previously compiled complete four-agent Borda table remains plausible but was not identified.",
+      "residual_risks": [
+        "Ortega–Zhao author-hosted manuscript full text inaccessible; an explicit finite table may be present in unread appendices.",
+        "Earlier published four-agent efficiency/stochastic-dominance censuses may encode equivalent signed rank-welfare information not located by the present search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "fundamental definitions and small witness patterns are prior",
+          "evidence": "2001 paper introduces PS and compares RP; no exact all-profile Borda census is asserted from abstract.",
+          "identifier_or_url": "doi:10.1006/jeth.2000.2710",
+          "material_read": "Accessible online abstract and bibliographic description; not a complete independently read paper",
+          "method": "read accessible primary bibliographic/abstract material",
+          "title": "A New Solution to the Random Assignment Problem",
+          "trigger": "original PS/RP definitions and small-profile comparisons"
+        },
+        {
+          "assessment": "relevant potential broader coverage; complete text inaccessible and not judged globally noncovering",
+          "evidence": "Accessible description gives asymptotic and uniform rank-performance results, not full n=4 sign-frequency histogram.",
+          "identifier_or_url": "Ortega–Zhao (2026), https://www.josueortega.com/PS_versus_RP_simplified.pdf",
+          "material_read": "Available abstract/overview through SSRN; author-hosted PDF returned access failure",
+          "method": "read abstract and attempted author full PDF",
+          "title": "The Remarkable Efficiency of the Probabilistic Serial Mechanism",
+          "trigger": "same mechanisms and mean rank/Borda welfare under independent preferences"
+        },
+        {
+          "assessment": "replica asymptotics distinguished from finite IC census",
+          "evidence": "Convergence in large replica economies does not assert exact signed four-agent Borda counts.",
+          "identifier_or_url": "doi:10.3982/ECTA8354",
+          "material_read": "Accessible title and result description, not the complete 2010 paper",
+          "method": "web bibliographic/abstract reading",
+          "title": "Asymptotic Equivalence of Probabilistic Serial and Random Priority Mechanisms",
+          "trigger": "broad PS/RP theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-first-impartial-culture-borda-welfare-reversal-between-proba--0b9c9c574351/RESULT.md",
+        "doi:10.1006/jeth.2000.2710",
+        "Ortega–Zhao (2026), https://www.josueortega.com/PS_versus_RP_simplified.pdf",
+        "doi:10.3982/ECTA8354"
+      ],
+      "rationale": "At the smallest postclassical market size, this natural rank-welfare comparison exhibits a sharp mean sign change even though more individual profiles favor the opposite mechanism. The exhaustive exact distribution is an interpretable quantitative decision-theory invariant and the sign-persistence construction shows its robust logical scope.",
+      "residual_risks": [
+        "Model interpretation depends on impartial culture and equally spaced Borda scores; it says nothing about actual cardinal welfare or incentive behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
