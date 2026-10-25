@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A group-averaging lemma reduces the global affine-center optimization to the uniform edge-incidence center. The reflection factor is evaluated against the complete spanning-tree inequality system. The key lemma computes exact minimum induced-edge intersections by deletion-component counts; the three ratio types and their maxima are then derived algebraically. Exact-rational exhaustive checks on eight small complete-bipartite graphs corroborate the proof and are not substituted for infinite reasoning.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The arXiv full text of Pineda-Villavicencio–Schröter (arXiv:2010.10227, Sections 1 and 3–4, including the matroid-basis-polytope reconstruction and facet discussions) concerns reconstructibility, not the Minkowski reflection factor. Chaourar (arXiv:1903.07292, Sections 2–3) describes graph-matroid facets and inequalities, but not their maximum reflected support ratios. Classical spanning-tree inequalities yield a finite optimization instance, not the new balanced-versus-unbalanced value by themselves. Being a face of a complete-graph base polytope does not imply a Minkowski-asymmetry value for the face, even when a value for the containing body is available. Semantic searches of pertinent published-result records and web literature found no statement that covers the exact formula, though equivalent terminology and omitted sources remain possible.
+PASS
 
-**Value — PASS.** The result exactly evaluates a natural affine-invariant extremum in a two-parameter family of graphic matroid base polytopes, including a discontinuous arithmetic balance effect: all unequal sizes have a boundary-governed value, whereas exactly balanced sizes have a different interior-subgraph obstruction and an asymptotically half-unit excess. This is a structural classification, not an arbitrary computational instance.
+For p,q>=2, K_{p,q} has pq edges and affine tree-base dimension pq-1. The edge-transitive S_p×S_q action and convexity of feasible centers at any lambda reduce the minimum reflection factor to the unique uniform vector t=(p+q-1)/(pq). For inequality L(x)<=u, the exact test is lambda>=(L(c)-min_P L)/(u-L(c)). The independent standard spanning-tree H-description consists of nonnegative edges, x(E)=p+q-1, and induced-edge subset upper bounds. For S meeting the two graph parts in a,b>=1, its induced bipartite graph is connected and max x(E[S])=a+b-1. Deleting its ab edges leaves a connected graph when a<p,b<q, or isolates precisely b right vertices when a=p,b<q, or a left vertices when a<p,b=q; the exact minimum is correspondingly 0,b,a. Thus the three candidate maxima are q-1, p-1 and F(p-1,q-1)=(p-1)(q-1)(p+q-1)/D for D=p^2-2p+q^2-2q+1>0. The interior ratio is increasing in ab/(a+b-1) separately in a,b and maximized at (p-1,q-1), with the denominator positive because c is relatively interior. The nonnegative-edge factor (1-t)/t does not exceed the boundary maxima. Algebraically F(p-1,q-1)-(p-1)=p(p-1)(q-p+1)/D when p>=q, so only p=q contributes a strictly larger interior obstruction, with a tie when p=q+1. At p=q=r, the excess is r(r-1)/(2r^2-4r+1), tending to 1/2. All upper/lower support extremes are realized by trees. This is a complete infinite argument, not a finite-enumeration inference.
 
-**Closest literature and limits.** The two inspected papers and the standard Edmonds inequality description provide the polytope background and its constraints, not the claimed evaluation. The result gives one explicit minimizing center, not all centers; no generalization to noncomplete bipartite graphs is asserted. Potential prior calculations of matroid-base-polytope asymmetry remain a risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after original targeted searches and substantial primary full-text inspections: the classical spanning-tree inequalities and general robust Minkowski-center LP are known, but no independent earlier source found evaluating the K_{p,q} two-parameter exact asymmetry or proving the balanced anomaly. The identical published Resultary entry is a copy of the audited record, not separate prior work. The nearby published SCOPE complete-graph, rank-two matroid base, and polymatroid independence-polytope results do not dominate this specific graphic-matroid base-polytope family. No mathematical novelty certification is asserted; unindexed equivalent optimization formulas are a genuine residual risk.
+
+## value
+
+PASS
+
+Graphic-matroid base polytopes of K_{p,q} form a natural edge-transitive two-parameter family, and Minkowski asymmetry is a standard affine-invariant geometric quantity. Its exact family-level evaluation reveals a structural change of the active reflected-facet constraint: for p≠q the dominant obstruction is a boundary subgraph and s=max(p,q)-1, while at exact balance an interior induced-subgraph bound is stronger and gives a positive excess tending to 1/2. This sharp equality/inequality transition is not merely a substitution of parameters or a known table entry; it gives an independently useful exact invariant and a canonical center for a broadly used family. No theorem beyond the proved family or paper-size contribution is required to justify this structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,241 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T15:49:06Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned record RESULT.md §§1–4 read in full at Git blob 30ea5d41590400568d8aedc41c92004154a68235; supporting metadata, REVIEW.md, SLOGAN.txt, VERIFICATION.md, AUDIT.json, and verify.py read, but previous claims of PASS were not used as premises.",
+        "Zenklusen 2015 Theorem 9, https://ethz.ch/content/dam/ethz/special-interest/math/operations-research/ifor-dam/documents/lecture4.pdf, independently establishes the full spanning-tree H-description.",
+        "Independent sympy checks verify boundary b/(q-b), interior maximum, the difference formula, balanced factor and asymptotic 1/2.",
+        "Independent full-tree enumeration for eight profiles (2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5),(4,4) scans 6,762 trees and 1,412,760 induced-subset/tree pairs. Every support minimum and maximal exact reflection factor matches the formula; sharp cases include s(K_2,2)=3, s(K_3,3)=20/7, s(K_4,4)=63/17.",
+        "Independently reconstructed Git tree from seven actual blob SHAs equals the assigned e038c67440faa9b616deea4dbb468e37d0afdff8."
+      ],
+      "rationale": "For p,q>=2, K_{p,q} has pq edges and affine tree-base dimension pq-1. The edge-transitive S_p×S_q action and convexity of feasible centers at any lambda reduce the minimum reflection factor to the unique uniform vector t=(p+q-1)/(pq). For inequality L(x)<=u, the exact test is lambda>=(L(c)-min_P L)/(u-L(c)). The independent standard spanning-tree H-description consists of nonnegative edges, x(E)=p+q-1, and induced-edge subset upper bounds. For S meeting the two graph parts in a,b>=1, its induced bipartite graph is connected and max x(E[S])=a+b-1. Deleting its ab edges leaves a connected graph when a<p,b<q, or isolates precisely b right vertices when a=p,b<q, or a left vertices when a<p,b=q; the exact minimum is correspondingly 0,b,a. Thus the three candidate maxima are q-1, p-1 and F(p-1,q-1)=(p-1)(q-1)(p+q-1)/D for D=p^2-2p+q^2-2q+1>0. The interior ratio is increasing in ab/(a+b-1) separately in a,b and maximized at (p-1,q-1), with the denominator positive because c is relatively interior. The nonnegative-edge factor (1-t)/t does not exceed the boundary maxima. Algebraically F(p-1,q-1)-(p-1)=p(p-1)(q-p+1)/D when p>=q, so only p=q contributes a strictly larger interior obstruction, with a tie when p=q+1. At p=q=r, the excess is r(r-1)/(2r^2-4r+1), tending to 1/2. All upper/lower support extremes are realized by trees. This is a complete infinite argument, not a finite-enumeration inference.",
+      "risks": [
+        "Finite cases are checks only; the general claim relies on edge-transitive averaging, the exact H-description and the deletion-component argument.",
+        "The theorem supplies one minimizing center; uniqueness and all minimizing centers are not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published complete-graph spanning-tree result proves n-1 for K_n; P(K_{p,q}) is a face, and Minkowski asymmetry is not face-inherited.",
+          "The published rank-two matroid-base theorem assumes rank exactly 2, versus graphic rank p+q-1>=3.",
+          "The submodular theorem studies independence polytopes, not the fixed-rank base face.",
+          "The published transportation-polytopes theorem requires fixed positive row/column margins; spanning-tree incidence vectors have varying degree margins and do not form such a transportation polytope."
+        ],
+        "reasoning": "The potentially dominating adjacent results apply to genuinely different sets or narrower ranks. A larger ambient class or common H-description alone does not logically imply the present numerical factor or exceptional balance threshold. No broader theorem with matching hypotheses and conclusion was identified in the inspected material.",
+        "searches": [
+          "Resultary query: Minkowski asymmetry coefficient of symmetry of matroid base polytopes spanning tree polytopes graphic matroids",
+          "Resultary query: Minkowski asymmetry of polymatroid base polytope via submodular function rank nonseparable matroid",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773"
+        ]
+      },
+      "checked_sources": [
+        "https://ethz.ch/content/dam/ethz/special-interest/math/operations-research/ifor-dam/documents/lecture4.pdf",
+        "https://arxiv.org/pdf/1903.07292",
+        "https://arxiv.org/pdf/2010.10227",
+        "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+        "https://arxiv.org/pdf/1909.08448",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zenklusen Theorem 9 and Chaourar Corollary 2.4 establish H-descriptions; they do not maximize the reflected support ratio over all induced subsets of K_{p,q}.",
+          "den Hertog–Pauphilet–Soali Proposition 4 formulates a general optimization, not this family-specific closed-form answer.",
+          "Pineda-Villavicencio–Schröter Theorem 18 establishes combinatorial reconstructibility, not this affine metric invariant.",
+          "Published K_n spanning-tree asymmetry has value n-1; the face K_{p,q} has a different formula, with s(K_{r,r})>(r-1)."
+        ],
+        "reasoning": "Statement-level comparison distinguishes existence of an algorithm or LP formulation from a special exact symbolic evaluation. The new theorem needs the K_{p,q} deletion-component support minima, monotone rectangular subset comparison, and sharp balance sign; none of the inspected earlier conclusions logically asserts the final evaluated formula. General algorithms can compute instances but are not themselves a dominating explicit theorem.",
+        "searches": [
+          "https://ethz.ch/content/dam/ethz/special-interest/math/operations-research/ifor-dam/documents/lecture4.pdf",
+          "https://arxiv.org/pdf/1903.07292",
+          "https://arxiv.org/pdf/2010.10227",
+          "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "Resultary query: exact Minkowski asymmetry K_{p,q} complete bipartite spanning-tree polytope balanced exceptional formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "den Hertog–Pauphilet–Soali (2023/2024), Proposition 4 and Lemmas 1–2, provides a general robust LP, but no K_{p,q} closed form.",
+          "Jochemko–Ravichandran (2021) Theorems 3.1/3.3 concern Minkowski-linear valuations (an unrelated use of Minkowski), not reflected-homothety asymmetry.",
+          "Chaourar (2020) Corollary 2.4 gives a facet language; it does not state this symmetry coefficient."
+        ],
+        "reasoning": "Searched Minkowski symmetry/coefficient of symmetry/asymmetry, robust-optimal centers, graphic-matroid base and submodular-base terminology; compared the actual invariant (minimum lambda with c-P subset lambda(P-c)), not overlapping names. Available general optimization frameworks could be specialized to derive the result, but do not themselves state the evaluated balanced/unbalanced factor.",
+        "searches": [
+          "\"Minkowski asymmetry\" \"matroid base polytope\" formula",
+          "\"Minkowski asymmetry\" \"spanning tree polytope\" \"bipartite\"",
+          "\"coefficient of symmetry\" \"matroid\" base polytope",
+          "\"Minkowski symmetry\" \"graphic matroid\" \"base polytope\"",
+          "complete bipartite spanning tree polytope \"asymmetry\" \"center\"",
+          "Resultary query: Minkowski asymmetry coefficient of symmetry of matroid base polytopes spanning tree polytopes graphic matroids",
+          "Resultary query: exact Minkowski asymmetry K_{p,q} complete bipartite spanning-tree polytope balanced exceptional formula",
+          "Resultary query: Minkowski asymmetry of polymatroid base polytope via submodular function rank nonseparable matroid",
+          "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "https://arxiv.org/pdf/1909.08448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary entry https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4 repeats the assigned result and is not an independent prior source.",
+          "Several distinct published-result entries concern Minkowski asymmetry of complete-graph, rank-two matroid-base, and independence polytopes, but none tabulates the K_{p,q} exact values.",
+          "Independent exact finite table was recomputed from graph spanning-tree definitions, not accepted from an online table."
+        ],
+        "reasoning": "No independent earlier exact database/table entry was found for the two-parameter balanced anomaly. Negative searches only bound confidence and are not a proof of priority.",
+        "searches": [
+          "Resultary query: exact Minkowski asymmetry K_{p,q} complete bipartite spanning-tree polytope balanced exceptional formula",
+          "Resultary query: Minkowski asymmetry coefficient of symmetry of matroid base polytopes spanning tree polytopes graphic matroids",
+          "Resultary record https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4",
+          "web searches: \"Minkowski asymmetry\" \"matroid base polytope\" formula, \"Minkowski asymmetry\" \"spanning tree polytope\" \"bipartite\", \"coefficient of symmetry\" \"matroid\" base polytope"
+        ]
+      },
+      "rationale": "Best-of-knowledge after original targeted searches and substantial primary full-text inspections: the classical spanning-tree inequalities and general robust Minkowski-center LP are known, but no independent earlier source found evaluating the K_{p,q} two-parameter exact asymmetry or proving the balanced anomaly. The identical published Resultary entry is a copy of the audited record, not separate prior work. The nearby published SCOPE complete-graph, rank-two matroid base, and polymatroid independence-polytope results do not dominate this specific graphic-matroid base-polytope family. No mathematical novelty certification is asserted; unindexed equivalent optimization formulas are a genuine residual risk.",
+      "residual_risks": [
+        "A historically earlier exact K_{p,q} reflection-factor formula under symmetry coefficient, graphic matroid base-polytope optimization or submodular-base terminology could have escaped available indexes.",
+        "Published mathematical records on the same UTC day were read for implication, not treated as independent scientific priority certificates; exact earlier-first publication order of unrelated same-day records was not established.",
+        "Only material actually read is credited; no claim of entire 45-page den Hertog paper, 22-page Pineda paper or all journal supplementary appendices being exhaustively read.",
+        "The identical Resultary record is self-identity and cannot serve as external novelty corroboration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the exact full spanning-tree-polytope inequality system, but contains no reflection-factor evaluation.",
+          "evidence": [
+            "Theorem 9 states x(E)=|V|-1, x_e>=0, and x(E[S])<=|S|-1 for proper S."
+          ],
+          "identifier_or_url": "https://ethz.ch/content/dam/ethz/special-interest/math/operations-research/ifor-dam/documents/lecture4.pdf",
+          "material_read": "Section 1.5, Theorem 9 and surrounding spanning-tree inequalities, with the PDF page image visually inspected.",
+          "method": "Open-access PDF text and page-zero screenshot.",
+          "title": "Combinatorial Optimization lecture notes, §1.5, Theorem 9",
+          "trigger": "An explicit polyhedral H-description is the central external premise of the proof."
+        },
+        {
+          "assessment": "COVERS facet structure/locked subgraphs, not the K_{p,q} Minkowski asymmetry or balanced exception.",
+          "evidence": [
+            "Corollary 2.4 lists minimal equations for a 2-connected graphic matroid base polytope, not an optimized reflected-homothety constant.",
+            "Section 3 treats alternate facet presentations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07292",
+          "material_read": "Abstract; graph/matroid definitions; Section 2, Corollary 2.4 and its derivation; Section 3 alternative facet descriptions and conclusion.",
+          "method": "Read publicly available arXiv PDF extracted text with page-zero screenshot and targeted sections.",
+          "title": "The facets of the spanning trees polytope, Brahim Chaourar",
+          "trigger": "The same graphic-matroid base-polytope object; facet classification could subsume support computations."
+        },
+        {
+          "assessment": "NOT_COVERING: reconstructibility and face-lattice recovery are different from optimizing affine Minkowski reflection.",
+          "evidence": [
+            "Theorem 18 says the basis-exchange graph determines combinatorial type within matroid polytopes.",
+            "Example 17 and Theorem 18 discuss facet and matroid recovery, not the asymmetry constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.10227",
+          "material_read": "Abstract, overview, reconstruction problem setup, relevant Section 4/Example 17, Theorem 18 and surrounding facet recovery discussion.",
+          "method": "Open-access arXiv full document searched and relevant body passages read; first PDF page visually inspected.",
+          "title": "Reconstructibility of matroid polytopes, Pineda-Villavicencio and Schröter",
+          "trigger": "Primary published study of precisely matroid base-polytopes, potential equivalence via basis-exchange graph."
+        },
+        {
+          "assessment": "COVERS general computational/LP reformulation, but does not state or evaluate the balanced K_{p,q} anomaly.",
+          "evidence": [
+            "Proposition 4 gives the robust LP for any given H-description and support minima.",
+            "Lemma 2 reduces a fully coordinate-permutation invariant polytope to a scalar center; here only the S_p × S_q subgroup is used.",
+            "No graphic-matroid or spanning-tree specialization appears in the searchable PDF."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "material_read": "Introduction, Section 2 robust-feasibility reformulation, Proposition 4, Lemmas 1–2, and nearby analytical symmetry discussion.",
+          "method": "Lawful publicly available Optimization Online PDF parsed and Proposition 4 page visually inspected.",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications, den Hertog–Pauphilet–Soali",
+          "trigger": "General theorem about computing the exact invariant under a polytope H-description."
+        },
+        {
+          "assessment": "NOT_COVERING: Minkowski-linear valuations and Ehrhart coefficients are not the reflected-containment asymmetry s(P).",
+          "evidence": [
+            "Theorem 3.1 classifies positive Minkowski-linear functionals, not minimizing centers.",
+            "Theorem 3.3 concerns a simplicial cone of symmetric valuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.08448",
+          "material_read": "Abstract, introduction, Section 3 definitions of Minkowski linear functionals, Theorems 3.1 and 3.3.",
+          "method": "arXiv open-access PDF text, with first page screenshot.",
+          "title": "Generalized Permutahedra: Minkowski Linear Functionals and Ehrhart Positivity, Jochemko–Ravichandran",
+          "trigger": "Same generalized-permutahedron class, plausible terminology collision involving Minkowski."
+        },
+        {
+          "assessment": "NOT_COVERING: K_{p,q} polytope is a face of K_{p+q} polytope; face Minkowski asymmetry need not equal, or be implied by, the ambient value n-1.",
+          "evidence": [
+            "It proves s(P(K_n))=n-1 and a complete center locus; no K_{p,q} calculation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+          "material_read": "Entire RESULT.md, including theorem, full proof and limitations.",
+          "method": "Read published GitHub record at Resultary/2026; full source returned by repository read connector.",
+          "title": "Minkowski centers of complete-graph spanning-tree polytopes and the exceptional six-vertex cut",
+          "trigger": "Same invariant and same spanning-tree-polytope construction, for the encompassing graph K_{p+q}."
+        },
+        {
+          "assessment": "NOT_COVERING: graphic matroid of K_{p,q} has rank p+q-1>=3, whereas this result assumes rank exactly two.",
+          "evidence": [
+            "Theorem gives three-obstruction formula for rank-two parallel-class matroids only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "material_read": "Entire RESULT.md, including all rank-two cases and proof.",
+          "method": "Read published Resultary GitHub record.",
+          "title": "Minkowski asymmetry and all centers of rank-two matroid base polytopes",
+          "trigger": "Same invariant for matroid base polytopes, possibly a dominating general result."
+        },
+        {
+          "assessment": "NOT_COVERING: its theorem concerns the full-dimensional independence polytope x(S)<=r(S), not the base face x(E)=r(E); minimizing asymmetry does not pass to arbitrary faces.",
+          "evidence": [
+            "The theorem explicitly restricts to independence-polytopes; its limitations exclude arbitrary base polytopes and affine sections."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+          "material_read": "Entire RESULT.md and its matroid specialization, proof, and explicit independence/base distinction.",
+          "method": "Read published Resultary GitHub record.",
+          "title": "Density-tight sets classify Minkowski centers of polymatroid independence polytopes",
+          "trigger": "A broader-looking submodular theorem with the identical asymmetric containment invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No determination of all minimizing centers, arbitrary bipartite spanning-tree polytopes or stability under graph perturbations.",
+        "The generic Edmonds inequalities and robust optimization method are prior knowledge; value is the sharp evaluated two-parameter formula and its balanced anomaly."
+      ],
+      "rationale": "Graphic-matroid base polytopes of K_{p,q} form a natural edge-transitive two-parameter family, and Minkowski asymmetry is a standard affine-invariant geometric quantity. Its exact family-level evaluation reveals a structural change of the active reflected-facet constraint: for p≠q the dominant obstruction is a boundary subgraph and s=max(p,q)-1, while at exact balance an interior induced-subgraph bound is stronger and gives a positive excess tending to 1/2. This sharp equality/inequality transition is not merely a substitution of parameters or a known table entry; it gives an independently useful exact invariant and a canonical center for a broadly used family. No theorem beyond the proved family or paper-size contribution is required to justify this structural result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ethz.ch/content/dam/ethz/special-interest/math/operations-research/ifor-dam/documents/lecture4.pdf",
+    "https://arxiv.org/pdf/1903.07292",
+    "https://arxiv.org/pdf/2010.10227",
+    "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+    "https://arxiv.org/pdf/1909.08448",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Every branch p,q>=2 assessed, with p=2 and p=q handled explicitly; finite enumeration does not establish infinite correctness.",
+    "Best-of-knowledge originality, not independent publisher priority certification.",
+    "No unique-center theorem, arbitrary bipartite graphs, or external formal proof claimed.",
+    "Publication withheld pending complete privacy-neutral replacements of operational metadata."
+  ],
+  "residual_risks": [
+    "A historically earlier exact K_{p,q} reflection-factor formula under symmetry coefficient, graphic matroid base-polytope optimization or submodular-base terminology could have escaped available indexes.",
+    "Published mathematical records on the same UTC day were read for implication, not treated as independent scientific priority certificates; exact earlier-first publication order of unrelated same-day records was not established.",
+    "Only material actually read is credited; no claim of entire 45-page den Hertog paper, 22-page Pineda paper or all journal supplementary appendices being exhaustively read.",
+    "The identical Resultary record is self-identity and cannot serve as external novelty corroboration."
+  ],
+  "schema_version": 1
+}
