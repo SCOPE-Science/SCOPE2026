@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The total three-cut complex uses complements of independent triples, with all graph edges and orientations given explicitly in `RESULT.md`. Its Alexander dual has augmented face counts \((1,20,190,480,375,12)\); the six-vertex Ramsey theorem excludes all larger dual faces. The four signed boundary matrices have complete unimodular unit-pivot reductions of ranks \((19,171,309,12)\), ruling out integral torsion rather than relying on finite-field experiments. Combinatorial Alexander duality and Hurewicz/Whitehead then give the full integral wedge equivalence. Exhaustive graph-automorphism search and two direct signed Lefschetz formulations independently produce the stated 120-element character. `verify_dodeca_total3.py` was executed successfully with output matching `verification_output.txt`.
+PASS
 
-## Originality — PASS (qualified)
+For the 20-vertex cubic triangle-free dodecahedral graph GP(10,2), X=total-three-cut has facets complements of independent triples. Its Alexander dual K consists exactly of subsets with independence number≤2; R(3,3)=6 gives |face|≤5. Complete counts in sizes 0..5 are (1,20,190,480,375,12). Exact signed integer boundary reductions ∂1..∂4 have ranks (19,171,309,12), unit Smith factors and zero remainder, hence reduced integral H3(K)=Z54 only. On 20 vertices combinatorial Alexander duality and UCT yield reduced H14(X)=Z54, others zero. The complete 13-skeleton ensures sufficient connectivity; Hurewicz and homology Whitehead give X≃54 S14 (not mere homology). A separate independently implemented Python check reconstructed all 660 independent triples, K face vector, primitive boundary ranks and all 120 automorphisms and signed Lefschetz character. Traces grouped by order are 1:54×1, 2:6×31, 3:0×20, 5:-1×24, 6:0×20, 10:1×24. Average gives 2 invariant dimensions; central antipode ± eigendim 30/24. Pure dimension16 and H14 nonzero excludes shellability.
 
-The foundational total-cut work [1] gives the definition and theorems for other graph families; it does not furnish this dodecahedral classification or full automorphism character. The companion article [2] studies ordinary cut complexes, not the independent-triple total cut complex. Related indexed homotopy statements for dodecahedral independence, matching, and Čech complexes use different faces; related total-three-cut statements concern different graphs. Searches for the total-three-cut formulation, Alexander dual, independent-triple equivalence, and broader cubic/girth-five coverage found no equivalent implication. Residual risk: unindexed, independently derived or differently named equivalent findings; source access was not universal.
+## originality
 
-## Value — PASS
+PASS
 
-The dodecahedron is the smallest vertex-transitive Platonic graph with pentagonal girth and a canonical 120-element symmetry action. Its total three-cut complex is a natural nonchordal benchmark excluded from the graph-family classifications in [1]. The exact homotopy type lies two dimensions below its pure facet dimension, witnessing nonshellability, while the full homology character distinguishes 54-dimensional homology from its two-dimensional invariant subspace and the antipodal even/odd split. The exact homotopy classification and full character are coherent properties of one natural construction, not arbitrary parameter slices.
+PASS (best knowledge): No inspected family formula covers total 3-cut on the dodecahedron or its complete rational 120-element character. Indexed near neighbors differ either by graph or by complex.
 
-## Closest work and limitations
+## value
 
-[1] M. Bayer et al., *Total Cut Complexes of Graphs*, arXiv:2209.13503 (first public September 27, 2022). [2] M. Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675 (first public April 26, 2023). The result does not characterize other cubic graphs or the integral representation lattice, and it has not undergone independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Total cut is an established natural graph-topology construction. The dodecahedron is a highly symmetric Platonic graph outside previously solved chordal/cycle families. A pure 16-dimensional but homotopy 54 S14 example is a genuine non-shellability phenomenon, and full rational icosahedral symmetry character distinguishes the homology module from its rank. The exact integral homotopy and character are motivated, not arbitrary recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
