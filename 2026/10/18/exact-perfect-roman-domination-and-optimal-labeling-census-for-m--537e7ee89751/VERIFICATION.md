@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone C++17 program `verify_middle_K2n.cpp` constructs \(M(K_{2,n})\) from its defining incidence and adjacent-edge rules, rather than from a precomputed certificate. For each \(n\in\{1,\ldots,8\}\), it enumerates all subsets of vertices assigned label two. For each such subset, it computes the exact-one-two-neighbor condition and gives every other vertex its unique cheapest label zero or one. It records the minimum weight and all distinct minimum labelings.
+## correctness
 
-Independently, for \(n\in\{1,2,3,4\}\), the program enumerates **every** ternary labeling and checks the perfect Roman condition on each zero directly; the resulting minimum and count must match the two-support method. The recorded run covered 76,695,840 two-support subsets over eight graphs. The ternary cross-check is exhaustive only at its four stated orders.
+PASS
 
-To reproduce with a standard C++17 compiler, place `verify_middle_K2n.cpp` in a directory and run:
+For H_n=M(K2,n), 3n+2 vertices arranged as row vertices plus n column triangles, fixing the set T of label-2 vertices forces a unique cheapest valid completion: label zeros exactly at vertices outside T with exactly one T-neighbor, ones elsewhere. Set p_i as # row edge providers plus indicator for row original. If (p1,p2)!=(1,1), a column triangle of total weight 1 would force both edge vertices zero and hence p1=p2=1; thus all columns weigh >=2 and the row originals jointly >=1, so weight >=2n+1. If p1=p2=1, chosen row providers each exactly one among a_i,e_ij, no optimal column-2 vertices, and exact column accounting gives uniform weight n+4 with (n+1)^2 choices. Equality in nonregular lower bound entails, up to row swap, exactly one selected edge e_ij (no other 2s), yielding 2n exceptional labelings of weight 2n+1. Compare cases: n1 two singleton edge minima of weight3, n2 four minima of weight5, n3 16+6=22 minima weight7, n>=4 only (n+1)^2 regular minima weight n+4. Independent graph implementation and direct exhaustive 2-support enumeration n1..5 verified (3,2),(5,4),(7,22),(8,25),(9,36), including boundary n3. This is full graph-theoretic proof for every n, not finite extrapolation.
 
-```sh
-g++ -O3 -std=c++17 verify_middle_K2n.cpp -o verifier
-./verifier
-```
+## originality
 
-Expected exact output is embedded in `verify_middle_K2n_output.txt`, ending with:
+PASS
 
-```
-VERIFICATION_OK n=1..8 total_two_support_subsets=76695840 ternary_crosscheck=1..4
-```
+The 2021 full text by Kim actually poses this complete-bipartite middle-graph calculation as an open problem and establishes paths/cycles/Kneser families instead. Kim's 2024 work treats ordinary Roman, Italian and 2-rainbow rather than the exactly-one-defender perfect Roman condition. Resultary hits on perfect Roman crown graphs, ordinary complete multipartite graphs and their weight polynomials are on the ORIGINAL graph, not its middle graph, and are not a dominating parameter identity. No later K2,n middle-graph solution located in targeted searches; this is best-of-knowledge, not a certification that the 2021 problem was never solved elsewhere.
 
-The mathematical proof in `RESULT.md` covers all integers \(n\ge1\), including the exceptional cases. Neither the finite computation nor its output log alone proves this infinite assertion. The verifier uses 64-bit bitsets and is intentionally scoped to the stated small graphs; it is not presented as a general solver for arbitrary \(n\).
+## value
 
-## Scientific limitations
-The original open problem for \(K_{m,n}\) with \(m>2\) is not settled here. Bibliographic coverage is incomplete and an independent scientific audit has not been performed.
+PASS
+
+Kim 2021 explicitly posed the minimum perfect Roman domination number of the middle graph of a complete bipartite K_{m,n} (Problem 2.1). The two-row subfamily K_{2,n} is a natural first non-star slice, and classifying all minimum functions adds a previously missing exact enumeration to its scalar open question. The tight transition at n=3 is structurally motivated, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

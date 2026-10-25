@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:00:02.743898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H_n=M(K2,n), 3n+2 vertices arranged as row vertices plus n column triangles, fixing the set T of label-2 vertices forces a unique cheapest valid completion: label zeros exactly at vertices outside T with exactly one T-neighbor, ones elsewhere. Set p_i as # row edge providers plus indicator for row original. If (p1,p2)!=(1,1), a column triangle of total weight 1 would force both edge vertices zero and hence p1=p2=1; thus all columns weigh >=2 and the row originals jointly >=1, so weight >=2n+1. If p1=p2=1, chosen row providers each exactly one among a_i,e_ij, no optimal column-2 vertices, and exact column accounting gives uniform weight n+4 with (n+1)^2 choices. Equality in nonregular lower bound entails, up to row swap, exactly one selected edge e_ij (no other 2s), yielding 2n exceptional labelings of weight 2n+1. Compare cases: n1 two singleton edge minima of weight3, n2 four minima of weight5, n3 16+6=22 minima weight7, n>=4 only (n+1)^2 regular minima weight n+4. Independent graph implementation and direct exhaustive 2-support enumeration n1..5 verified (3,2),(5,4),(7,22),(8,25),(9,36), including boundary n3. This is full graph-theoretic proof for every n, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim 2021 computes middle graphs of paths and cycles but explicitly leaves complete bipartite K_m,n as Problem2.1; M(K2,n) is within that open family.",
+          "Kim 2024 related paper changes domination variant (Roman/Italian/2-rainbow); scalar identities in those variants do not imply exact perfect Roman optima."
+        ],
+        "reasoning": "This is a motivated partial answer of a broader prior OPEN question, not a mere restatement of a stronger completed theorem.",
+        "searches": [
+          "Resultary semantic query: perfect Roman domination middle graph complete bipartite K2n exact number optimal labelings",
+          "Kim 2021 full article Theorem2.1 Problem2.1",
+          "Kim 2024 ordinary Roman middle graphs"
+        ]
+      },
+      "checked_sources": [
+        "Kim 2021 full 3-page arXiv:2106.01539 including explicit Problem2.1",
+        "Kim 2024 Italian/2-rainbow/ordinary Roman middle graph article identified by DOI 10.1051/ro/2024072; full text not read",
+        "Resultary query 4 and returned crown/perfect Roman complete multipartite records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim 2021 Problem2.1 poses missing value gamma_pr*(K_m,n), and known special graph families are not superclasses of M(K2,n) with an implied formula.",
+          "Minimum weight and optimal function multiplicities require a column-triangle lower bound and equality classification; they do not follow from ordinary Roman domination of the same middle graph."
+        ],
+        "reasoning": "The current exact argument answers m=2 including n1..3 boundaries; the original arbitrary-m problem remains open in this record.",
+        "searches": [
+          "Resultary semantic query: perfect Roman domination middle graph complete bipartite K2n exact number optimal labelings",
+          "Kim 2021 Problems2.1–2.2",
+          "Kim 2024 ordinary Roman middle graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The middle graph M(K2,n) has 3n+2 vertices (original endpoints plus edges); it is not K2,n itself or a crown/complete multipartite graph.",
+          "Perfect Roman condition requires exactly one 2-neighbor for each zero, unlike ordinary Roman at least one 2-neighbor and Roman {2} variants."
+        ],
+        "reasoning": "The differing graph operator and defender quantifier preclude treating known biclique ordinary/perfect Roman formulas as the same invariant.",
+        "searches": [
+          "Resultary semantic query: perfect Roman domination middle graph complete bipartite K2n exact number optimal labelings",
+          "Kim 2021 Problem 2.1 arXiv:2106.01539",
+          "perfect Roman K2n middle graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds exact crown graph perfect Roman and complete multipartite perfect Roman polynomials, none concerning the 3n+2-vertex middle graph.",
+          "Kim 2021 p3 asks for gamma perfect on complete-bipartite middle graphs rather than giving a K2n table."
+        ],
+        "reasoning": "The (n+1)^2 count and n3=22 boundary are not shown in accessible exact tables; lack of search match is not proof of worldwide priority.",
+        "searches": [
+          "Resultary semantic query: perfect Roman domination middle graph complete bipartite K2n exact number optimal labelings",
+          "Resultary perfect Roman crown graph record",
+          "Kim K2n exact minimizer count"
+        ]
+      },
+      "rationale": "The 2021 full text by Kim actually poses this complete-bipartite middle-graph calculation as an open problem and establishes paths/cycles/Kneser families instead. Kim's 2024 work treats ordinary Roman, Italian and 2-rainbow rather than the exactly-one-defender perfect Roman condition. Resultary hits on perfect Roman crown graphs, ordinary complete multipartite graphs and their weight polynomials are on the ORIGINAL graph, not its middle graph, and are not a dominating parameter identity. No later K2,n middle-graph solution located in targeted searches; this is best-of-knowledge, not a certification that the 2021 problem was never solved elsewhere.",
+      "residual_risks": [
+        "A later unindexed 2021–2026 treatment may have solved the K2n slice, and only accessible targeted works were compared; exact (n+1)^2 multiplicity could appear separately.",
+        "Do not claim extension to all K_m,n with m>2 or identify different Roman domination variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_PROBLEM_FOR_KM_N",
+          "evidence": "Problem 2.1 asks exact value for complete bipartite K_m,n middle graph; earlier results in paper treat path/cycle, not this K2n classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.01539",
+          "material_read": "All three PDF pages, particularly Definition of perfect Roman middle domination, Propositions2.2–2.3, and p3 Problem2.1",
+          "method": "PDF parsed text plus screenshots p1 and p3",
+          "title": "Perfect Roman domination in middle graphs",
+          "trigger": "Exact same graph operation and perfect Roman definition, explicit complete-bipartite open question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kim 2021 explicitly posed the minimum perfect Roman domination number of the middle graph of a complete bipartite K_{m,n} (Problem 2.1). The two-row subfamily K_{2,n} is a natural first non-star slice, and classifying all minimum functions adds a previously missing exact enumeration to its scalar open question. The tight transition at n=3 is structurally motivated, not an arbitrary finite example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only middle graphs of labeled K2,n, n>=1; optima are functions not orbits under automorphisms.",
+    "No formal Lean proof or external expert certification."
+  ],
+  "schema_version": 1
+}
