@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T05:55:02.769669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/verify_symbolic.py",
+        "Original numerical check log (not a publicly archived source)."
+      ],
+      "rationale": "Reconstructed free 2-convex lattice norm using finite PSD design duality: ||vee_r |delta_{b_r}|||=max_{w in simplex} tr sqrt(sum w_r b_r b_r^T). Average by S_v using concavity, with no restriction to invariant test families. Johnson J(v,2) and complement Laplacians have zero and two nontrivial eigenspaces: E1 dim v-1, eigenvalues L1=v,L2=N-v; E2 dim v(v-3)/2, eigenvalues L1=2(v-1),L2=N-2(v-1). This yields U_b(x)=P sqrt(2b+(1-2b)x)+Q sqrt(cb+(1-cb)x), c=(v-4)/(v-3), P=sqrt(2(v-1)/(v-2)), Q=(v-3)sqrt(v/(v-2)), b=a². Strict scalar concavity gives beta_minus=(P+Q)/(2P+cQ) and beta_plus=(P/sqrt2+Q/sqrt(c))/(sqrt2 P+sqrt(c)Q) for v>=5, infinity for v=4; weighted Cauchy-Schwarz gives interior radical. Information matrix uniqueness by strict operator concavity on connected zero-sum space and off-diagonal recovery, and marginal sensitivity gives arbitrary disjoint-edge addition no-growth iff each a_e²<=beta_minus. Independent scipy scalar optimizations in 24 points v 4,5,6,8,15,60 across phases matched all piecewise branches. Formula is analytic for all v>=4, a>0; numeric tests not an infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer equivalence conditions and operator-concave information functions apply broadly in principle, but a general feasibility/optimality criterion does not specify the unique Johnson/Kneser phase boundaries or v=4 disconnected exception."
+        ],
+        "reasoning": "No inspected stronger explicit Johnson association-scheme optimization yields formula as an immediate corollary without performing the current spectral computation.",
+        "searches": [
+          "free 2 convex Banach lattice Johnson graph Kneser edge differences absolutely 2 summing norm optimal design threshold",
+          "arxiv:2101.03510",
+          "Kiefer 1974 general equivalence theory optimal designs",
+          "Bailey Cameron 2009 graph laplacian optimal design"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/RESULT.md",
+        "https://arxiv.org/abs/2101.03510",
+        "free 2 convex Banach lattice Johnson graph Kneser edge differences absolutely 2 summing norm optimal design threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published fractional clique-cover two-threshold concerns a different graph Banach norm (from combinatorial graph-generated space to l1), whereas the present norm is real free two-convex Euclidean and absolutely two-summing."
+        ],
+        "reasoning": "Matching the phrase two-threshold and graph data does not give equivalence: norm definition, dual program, and objective differ. General prior free lattice norm specializes only after nontrivial Johnson spectral reduction.",
+        "searches": [
+          "free 2 convex Banach lattice Johnson graph Kneser edge differences absolutely 2 summing norm optimal design threshold",
+          "arxiv:2101.03510",
+          "Resultary:2026/10/11/SCOPE-fractional-clique-cover-norms-and-the-sharp-two-threshold-for-gr--da23138814f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jardón-Sánchez et al equation (1.1) and Thm6.1 describe general free-2-convex Banach lattices; they provide the norm framework but no Johnson J(v,2) vs complementary Kneser amplitude transitions."
+        ],
+        "reasoning": "Universal norm representations are inputs; concrete two-orbit optimization and thresholds are not an equivalent statement.",
+        "searches": [
+          "free 2 convex Banach lattice Johnson graph Kneser edge differences absolutely 2 summing norm optimal design threshold",
+          "arxiv:2101.03510",
+          "Resultary search free 2 convex lattice Johnson Kneser norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical two eigenspace eigenvalue tables determine L1,L2 spectra but do not determine the amplitude-optimized free lattice operator norm, which also depends on design weights."
+        ],
+        "reasoning": "Known spectral tables are mandatory input not the new norm or no-growth regime; an eigenvalue table alone is insufficient for two-parameter optimization.",
+        "searches": [
+          "free 2 convex Banach lattice Johnson graph Kneser edge differences absolutely 2 summing norm optimal design threshold",
+          "Johnson graph J(v,2) Laplacian eigenvalues complement Kneser spectrum"
+        ]
+      },
+      "rationale": "The general free p-convex lattice norm by Jardón-Sánchez et al and standard Johnson/Kneser graph eigenvalues and Kiefer optimal design are prior art. Their abstract general expressions do not state the mixed Johnson/Kneser two-threshold amplitude profile nor the simultaneous exact coordinatewise no-growth condition. A possible equivalent optimal-design theorem applied to this association scheme is an explicit residual priority risk.",
+      "residual_risks": [
+        "A general optimal experimental-design calculation for rank-2 Johnson association schemes might implicitly include this spectral optimum under another terminology.",
+        "The cited free-lattice norm and Johnson spectra are established; novelty limited to their combination and exact phase/flatness classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general free p-convex norm and model, not the stated Johnson/Kneser sharp v,a formula",
+          "evidence": [
+            "Equation (1.1), Theorem 6.1, finite Hilbert specialization as used in submitted proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.03510",
+          "material_read": "Full accessible Springer HTML, especially norm formula (1.1), Theorem 6.1 and related Section 7",
+          "method": "primary open journal HTML full-text inspection",
+          "title": "Free Banach lattices under convexity conditions",
+          "trigger": "Exact norm theorem underpinning submitted duality"
+        },
+        {
+          "assessment": "Different stated graph-generated Banach norm and fractional clique cover, no implication established merely from the title",
+          "evidence": [
+            "Its summary: canonical map of graph-generated combinatorial Banach space to l1; fractional chromatic parameters, not free 2-convex norm."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-fractional-clique-cover-norms-and-the-sharp-two-threshold-for-gr--da23138814f6",
+          "material_read": "Published Resultary title and summary from semantic search; no full-paper NOT_COVERING assertion",
+          "method": "Resultary semantic abstract inspection",
+          "title": "Fractional clique-cover norms and the sharp two-threshold for graph-generated Banach spaces",
+          "trigger": "Semantic Resultary hit with similar graph threshold terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/RESULT.md",
+        "https://arxiv.org/abs/2101.03510"
+      ],
+      "rationale": "Determines the exact norm of a canonical competing graph-orbit operator for all amplitudes and graph orders, including a singular small case and an exact subfamily robust no-growth threshold. These are motivated phase boundaries for a natural association scheme rather than renaming a previously solved scalar example.",
+      "residual_risks": [
+        "Valid for real Hilbert-generated free 2-convex lattices and J(v,2) only; does not extend to all p or Johnson ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general optimal experimental-design calculation for rank-2 Johnson association schemes might implicitly include this spectral optimum under another terminology.",
+    "The cited free-lattice norm and Johnson spectra are established; novelty limited to their combination and exact phase/flatness classification.",
+    "Valid for real Hilbert-generated free 2-convex lattices and J(v,2) only; does not extend to all p or Johnson ranks.",
+    "No writes or publication; five public source packages contain operational metadata requiring sanitization."
+  ],
+  "schema_version": 1
+}
