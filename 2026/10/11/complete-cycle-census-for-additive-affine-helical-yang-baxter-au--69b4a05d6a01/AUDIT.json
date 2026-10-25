@@ -1,132 +1,172 @@
 {
+  "attestation_scope": "Scientific mathematical review; does not claim a formal proof, independent human certification, or proof of historical priority.",
   "correctness": {
-    "rationale": "The functional equation expands to \\(L+L^3)x+(I+L^2)c=0\\), forcing \\(L^2=I\\) for invertible \\(L\\). With \\(D=I+L\\) square-zero and \\(v=Dc\\), direct carrier increments give \\(\\delta_j=Dx_j+Db_0+(j-1)v+c\\) and \\(\\delta_j^{\\prime}=\\delta_j+(N+1)v\\). Thus \\(T^2\\) has the stated parity-dependent translation and \\(T^4=I\\). Its fixed states are independent kernel fibers exactly when \\(c\\) lies in \\(\\operatorname{im}D\\), and the orbit census follows. Image/kernel flags enumerate each rank of \\(D\\). Actual verify.py was executed, including 846906 exact finite assertions, while unrestricted positive dimensions and lattice lengths follow from the proof.",
+    "checked_sources": [
+      "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py and metadata/review files, Git source tree 282afde9867eb3f97c7db894618f02c3bbe6ba32",
+      "Independent direct finite equations and full-state orbit enumeration: m=1 2 rules/120 tested states, m=2 16 rules/21760 tested states, m=3 176 rules/822272 tested states; m=4 all 65536 binary endomorphisms square-zero-rank census",
+      "https://arxiv.org/html/2602.17148 sections 2.2, 2.3 and 3.1 (functional equation and helical carrier sweep)",
+      "https://oeis.org/A053722 matrix-involution counts"
+    ],
+    "rationale": "For f(x)=Lx+c on F_2^m, substitution into the characteristic-two Yang--Baxter functional equation gives (L+L^3)x+(I+L^2)c=0 for all x. Invertibility of L forces L^2=I and the constant term then vanishes; D=I+L obeys D^2=0 and rank(D)=r<=floor(m/2). For the specified helical carrier sweep, delta_j=Dx_j+Db_0+(j-1)Dc+c. Directly D(delta_j)=Dc=v and Db_N=Db_0+Nv, so delta_j(second)=delta_j+(N+1)v, giving T^2: sites translate by v exactly for even N, carrier fixed. This proves T^4=I for all m,N. A full state is fixed exactly when each delta_j=0, solvable precisely when c is in im D, then there are q(q/2^r)^N fixed full states. The primitive 1/2/4-cycle formulas follow. Square-zero matrices of rank r are classified by image U, kernel K containing U, and an isomorphism V/K->U, yielding [m choose r]_2 [m-r choose r]_2 |GL(r,2)|. m=4 counts (1,105,210), total 5056 maps and 3360 even-length all-period-four maps are arithmetically correct. Independent fresh exhaustive checks covered all invertible affine rules m=1,2,3 and all states through N=3 (through N=4 for m<=2), as well as all 65536 endomorphisms in m=4. Universal quantifiers follow analytically, not from these finite checks.",
+    "residual_risks": [
+      "The finite checker does not prove all dimensions/lengths; universal derivations have been reconstructed separately.",
+      "The claim concerns full states including carrier; projected site-only periods may differ.",
+      "No theorem for nonlinear Yang--Baxter maps follows."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "earlier_scientific_review": {
+    "correctness_rationale": "Affine substitution implies L^2=I and D^2=0. Exact two-sweep increments yield parity-dependent translation and period at most four. Fixed-state kernel fibers and image/kernel flags establish the formulas. A separate finite checker exercises bounded cases; unbounded generality is analytic.",
+    "originality_rationale": "The source already gives the functional equation, additive involutions and selected low-field periods. The all-dimension full-state primitive-cycle counts and translation-rank stratification are additional claims. Known involution sequence values are prior art; later inaccessible auxiliary work remains a priority risk.",
+    "status": "passed",
+    "value_rationale": "The theorem classifies a canonical affine subclass of finite-field helical Yang--Baxter automata across all dimensions and lengths, resolving orbit multiplicities and the exact all-period-four boundary."
+  },
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "https://arxiv.org/html/2602.17148, section 3 (finite q and qualitative period assertions)",
-        "https://doi.org/10.1007/s11040-026-09569-9 (journal abstract)",
-        "https://doi.org/10.6084/m9.figshare.33684460.v1 (later manuscript metadata/abstract only)"
+        "https://arxiv.org/html/2602.17148 Conjecture 9 states general period divisibility, with q=4,8 proofs; Table 1 counts RULES by longest observed period at q=8,16, not primitive full-state orbit counts.",
+        "Published journal abstract https://doi.org/10.1007/s11040-026-09569-9 describes small fields and conjectural general q.",
+        "Related published 2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3 classifies scalar clocks for a traveling cyclic-ring affine rule (not the YB carrier sweep)."
       ],
-      "reasoning": "The source addresses all bijective rules but proves a general period-conjecture only in low dimensions; the stated generality does not itself imply a complete affine-subclass orbit census. The later two-site normalized exponent study has partially overlapping methods but the accessible abstract supplies neither this all-length affine rule classification nor full-state counts; inaccessible full text remains an explicit priority uncertainty.",
+      "reasoning": "The original work is broader in allowing nonlinear maps but only establishes specific smaller-q period assertions; a broad conjecture cannot cover a proved all-m affine classification. Its table is a count of valid maps by the longest period, not a state-by-state orbit census. The related clock-factor theorem is a different state map with different invariant and cannot imply these results.",
       "searches": [
-        "Integrable cellular automata on finite fields order 2^n Araoka Tokihiro Conjecture 1 2026",
-        "Koide sharp two site exponent Araoka Tokihiro Yang Baxter 2026",
-        "finite involutive affine Yang Baxter map R(x,y)=(y+f(x+y),x+f(x+y)) helical periods even odd N",
-        "Complete cycle census fixed points helical cellular automaton with affine bijective Yang Baxter map Araoka Tokihiro, odd sites period two even sites period four, square zero linear map"
+        "Resultary semantic query: finite fields characteristic two Yang Baxter integrable cellular automata complete orbit census affine maps rank D translations",
+        "web search: Araoka Tokihiro 2026 helical affine orbit count Yang Baxter cellular automata period T squared even odd",
+        "https://arxiv.org/html/2602.17148 Section 3.2 and the journal DOI https://doi.org/10.1007/s11040-026-09569-9"
       ]
     },
     "checked_sources": [
-      "arXiv:2602.17148v1 (full source HTML)",
-      "DOI:10.1007/s11040-026-09569-9 (abstract and publication metadata)",
-      "OEIS:A053722 (known involutions)",
-      "DOI:10.6084/m9.figshare.33684460.v1 (abstract only)"
+      "https://arxiv.org/html/2602.17148 full preprint relevant proofs",
+      "https://doi.org/10.1007/s11040-026-09569-9 journal metadata/abstract",
+      "https://oeis.org/A053722 sequence",
+      "Resultary search IDs 2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01 (self, excluded) and 2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3 (compared, distinct)",
+      "Kassotakis SIGMA 2019 transfer maps bibliographic statement, https://doi.org/10.3842/sigma.2019.048",
+      "https://doi.org/10.6084/m9.figshare.33684460.v1 attempted OA, authorization blocked"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "https://arxiv.org/html/2602.17148, Propositions 16, 19, 21 (qualitative small-field 2/4 periods)",
-        "https://doi.org/10.1007/s11040-026-09569-9 (journal abstract only)",
-        "https://oeis.org/A053722 (matrix enumeration only)"
+        "https://arxiv.org/html/2602.17148 lines 240-251: admissible additive involutions",
+        "https://arxiv.org/html/2602.17148 lines 367-417: helical convention, numeric/table results and period conjecture",
+        "https://arxiv.org/html/2602.17148 lines 563-622: linear involution case and q=8 parity-dependent qualitative claims",
+        "https://oeis.org/A053722 matrix enumeration only"
       ],
-      "reasoning": "Period divides 4 is implied by some small-field analysis, but a period-divisibility upper bound cannot determine which individual orbits are fixed, 2-cycles or 4-cycles, nor exact numbers for every affine rule and every m,N. The new square formula and explicit kernel-fiber argument are necessary for these counts. General Yang–Baxter literature may contain equivalent linear-algebra reformulations not yet identified.",
+      "reasoning": "The primitive orbit formula depends on the number of fixed FULL states, not only on a period bound. Previous results giving T^2=I in selected cases or a longest period do not determine fixed-point multiplicities. Even the numerical m=4 table does not separate the affine subset by rank/translation. The local map/sweep and standard rank counts are prior ingredients, but the combined explicit all-parameter orbit census is not established by the checked prior implications.",
       "searches": [
-        "arXiv:2602.17148 affine f helical cellular automata fixed point cycle count zero square linear map",
-        "finite involutive affine Yang Baxter map R(x,y)=(y+f(x+y),x+f(x+y)) helical periods even odd N",
-        "Complete cycle census fixed points helical cellular automaton with affine bijective Yang Baxter map Araoka Tokihiro, odd sites period two even sites period four, square zero linear map",
-        "binary vector space affine Yang Baxter helical automata exact cycle counts fixed points rank square-zero parity N 4-cycles all configurations",
-        "helical Yang Baxter cellular automaton fixed points primitive period four affine translation exact count"
+        "https://arxiv.org/html/2602.17148 Proposition 5, Proposition 19, Proposition 21, Conjecture 9, Table 1",
+        "web search: additive helical Yang-Baxter fixed points finite fields; complete cycle census helical affine Yang Baxter",
+        "Resultary searches with exact helical-map and state-count alias terms"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "https://arxiv.org/html/2602.17148, sections 2.2, 2.3 and 3.2, Propositions 5, 19 and 21",
-        "https://oeis.org/A053722"
+        "https://arxiv.org/html/2602.17148 Proposition 5 already proves additive involutions admissible; Propositions 19 and 21 establish selected period-two/four phenomena.",
+        "Resultary exact title hit 2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01 is the SAME audited research record, not independent priority evidence.",
+        "Kassotakis, Invariants in Separated Variables: Yang-Baxter, Entwining and Transfer Maps, SIGMA 15 (2019) 048, concerns distinct rational H/F transfer-map families."
       ],
-      "reasoning": "A normalized affine involution is the familiar linear-involution subclass of the source construction, so admissibility and basic period 2 are covered. The four-part assertion assessed here additionally gives all full-state fixed-point/primitive-cycle counts for every dimension and length, precise Dc-versus-lattice-parity stratification, and the exact affine-rule rank census. Existing involution sequences cover only matrix enumeration, not this joint dynamical classification.",
+      "reasoning": "The affine admissibility condition is equivalent to a standard involution L or square-zero D, and its matrix enumeration is classical. However, the full dynamical statement specifies every primitive orbit count in every V^(N+1), stratified by rank, c, and parity. The source low-q period statements and general transfer-map theory do not present or directly imply the exact full-state fixed-point fiber formula and its all-parameter rank-stratified census without the new sweep analysis.",
       "searches": [
-        "affine Yang Baxter cellular automata finite field characteristic two helical boundary orbit period at most four linear involution f(x)=Lx+c",
-        "arXiv:2602.17148 affine f helical cellular automata fixed point cycle count zero square linear map",
-        "finite involutive affine Yang Baxter map R(x,y)=(y+f(x+y),x+f(x+y)) helical periods even odd N",
-        "Araoka Tokihiro 2602.17148 Proposition 21 affine all configurations orbit cycles"
+        "Resultary semantic query: Helical Yang Baxter cellular automata over finite fields additive affine involutions exact primitive cycle counts sites carrier",
+        "web search: affine helical Yang-Baxter orbit automata; Yang Baxter affine maps helical cycles rank square-zero matrix involution",
+        "https://arxiv.org/html/2602.17148 sections 2.2, 2.3, 3.1, 3.2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "https://oeis.org/A053722 (known involution numbers 1,4,22,316)",
-        "https://arxiv.org/html/2602.17148, Theorem 7 (all bijective solutions for small fields)"
+        "https://oeis.org/A053722 lists a(4)=316 for matrix involutions/square-zero maps, matching 1+105+210.",
+        "https://arxiv.org/html/2602.17148 Theorem 7 counts all admissible small-field bijective rules and Table 1 lists longest orbit-type classes, not full state counts.",
+        "Independent binary endomorphism enumeration reproduced rank histogram 1,105,210."
       ],
-      "reasoning": "Existing numbers classify linear involutions and source small-field arbitrary bijections. The matrix-rank count is a standard flag count and is credited, not proposed as a novel integer sequence. None of these counts determines the pairwise dependence of primitive orbit counts on affine translation, rank, and arbitrary lattice length.",
+      "reasoning": "The flag formula M_(m,r) is classical and the scalar involution totals are known; these are credited rather than claimed as novel sequences. The theorem additionally derives the joint state-cycle distribution for each affine rule and each helical length, information not recoverable from the published aggregated tables alone.",
       "searches": [
-        "OEIS A053722 number involutions GL(n,2) 1 4 22 316",
-        "affine Yang Baxter solution counts 16 736 269056 2026",
-        "binary vector space affine Yang Baxter helical automata exact cycle counts fixed points rank square-zero parity N 4-cycles all configurations"
+        "web search: OEIS A053722 number involutions GL(n,2) 1 4 22 316",
+        "https://arxiv.org/html/2602.17148 Theorem 7 and Table 1",
+        "Resultary search: affine Yang Baxter helical orbit count square zero matrices translation"
       ]
     },
-    "rationale": "The original Feb 19 2026 arXiv text was materially compared in sections 2.2, 2.3 and 3.2: it already gives the functional equation, additive involutions and qualitative short periods. The proposed complete full-state cycle census for all dimensions and lattice lengths, the parity/translation separation and exact rule-family size stratification were not supplied or implied by the inspected statements. Known GL(n,2) involution numbers are credited background; inaccessible later literature remains a priority risk. Actual similarity checks and full-text evidence are documented in the four scientific comparisons.",
+    "rationale": "Best-of-knowledge originality for the entire quantitative claim, not its ingredients. The same helical construction, characteristic-two functional equation, additive involutions, selected low-q period results, and classical square-zero involution counts are credited prior art. Fresh comparisons with the full arXiv preprint, published journal metadata, OEIS, distinct relevant published CA findings and three semantic mathematical searches did not find the uniform state-by-state primitive orbit count with rank/translation stratification for every m,N. The exact Resultary match is the record being audited and not affirmative independent priority evidence. Inaccessible later auxiliary work and journal revisions remain explicitly identified priority risks.",
     "residual_risks": [
-      "Journal published version full text not inspected; preprint full text inspected.",
-      "Related 2026 two-site Yang–Baxter manuscript inaccessible in full; its abstract did not establish the claimed counts.",
-      "An equivalent matrix-theoretic treatment of helical cycle counts might exist under different terminology.",
-      "The published original period-four language is qualitative and does not specify which individual full states have primitive period four."
+      "Journal version full body inaccessible despite reading its lawful freely accessible complete preprint; possible revised exposition.",
+      "Related two-site exponent manuscript full text inaccessible; institutional access indicated vpn_disconnected.",
+      "An unindexed affine Yang--Baxter transfer-map orbit classification under equivalent algebraic language might have priority.",
+      "The matrix-involution sequence and source period bounds are known; novelty is specifically the all-dimension full-state census, not those ingredients."
     ],
     "source_inspections": [
       {
-        "assessment": "Establishes starting definitions, affine/additive involutions and low-dimensional qualitative periodicity; does not explicitly supply general all-m,N affine rank-and-translation orbit census or four-cycle-only rule counts.",
+        "assessment": "Establishes the motivating map and several low-field periods but not the complete all-m,N affine primitive orbit census. Its general higher-field period statement is conjectural.",
         "evidence": [
-          "https://arxiv.org/html/2602.17148 (2026-02-19 v1)"
+          "https://arxiv.org/html/2602.17148 Proposition 5 and Sections 3.1--3.2; Conjecture 9; Table 1"
         ],
         "identifier_or_url": "https://arxiv.org/html/2602.17148",
-        "material_read": "Full available HTML manuscript, 799 lines; equation (12), Proposition 5, section 3.1, Propositions 16, 19, 21 and their proofs in section 3.2, as well as references and conclusion.",
-        "method": "Read arXiv v1 complete HTML and compared source hypotheses, domain, conclusions, and whether each implies the orbit-count theorem.",
+        "material_read": "Accessible 795-line HTML original preprint, focusing on the Introduction, Sections 2.2--2.3, Sections 3.1--3.2, Propositions 5, 16, 19, 21, Conjecture 9, Table 1 and their accompanying proofs.",
+        "method": "Read primary HTML statements/proofs and compare exact full-state versus site-projected dynamics and qualitative period bounds to rank/translation cycle-number formulas.",
         "title": "Integrable cellular automata on finite fields of order 2^n",
-        "trigger": "Same local map, exact functional equation and helical carrier construction"
+        "trigger": "Exact same Yang--Baxter map, characteristic-two functional equation and helical boundary convention"
       },
       {
-        "assessment": "Abstract repeats small-field exhaustive counts, qualitative periodicity and general conjecture. Unseen revisions remain a residual originality risk.",
+        "assessment": "Journal abstract reiterates q=4,8,16 enumeration and the general period conjecture. The unseen journal-body differences remain a priority risk, not proof of noncoverage.",
         "evidence": [
-          "https://doi.org/10.1007/s11040-026-09569-9"
+          "https://doi.org/10.1007/s11040-026-09569-9",
+          "https://arxiv.org/html/2602.17148"
         ],
         "identifier_or_url": "https://doi.org/10.1007/s11040-026-09569-9",
-        "material_read": "Title, authors, journal publication date and abstract; full journal text was not accessible, while full arXiv preprint was read.",
-        "method": "Compared publication metadata and stated abstract scope to freely accessible arXiv full text.",
-        "title": "Integrable Cellular Automata on Finite Fields of Order 2^n (journal)",
-        "trigger": "Journal version of motivating source may contain revised results"
+        "material_read": "Published June 22, 2026 abstract, reference metadata and publication notes; full journal article restricted. The complete freely available preprint of the same paper was read for primary proofs.",
+        "method": "Cross-compared publication metadata and abstract scope with complete arXiv manuscript.",
+        "title": "Integrable Cellular Automata on Finite Fields of Order 2^n (journal version)",
+        "trigger": "Published version of the same closest primary work could include revisions"
       },
       {
-        "assessment": "Potentially related low-coordinate periodicity work; not sufficient to establish no overlap, and not affirmative evidence of broad implication. Remains a priority risk.",
-        "evidence": [
-          "https://doi.org/10.6084/m9.figshare.33684460.v1"
-        ],
-        "identifier_or_url": "https://doi.org/10.6084/m9.figshare.33684460.v1",
-        "material_read": "Bibliographic record and available abstract only; downloadable complete manuscript unavailable through attempted lawful routes.",
-        "method": "Read available abstract/metadata and compared explicitly advertised scope against all-length affine helical full-orbit census.",
-        "title": "Koide later work on two-site exponent of finite-field Yang–Baxter automata",
-        "trigger": "Potential close new work studying linear/affine helical operations"
-      },
-      {
-        "assessment": "Already covers \\(\\sum_r M_{m,r}\\), but not helical dynamics or per-translation primitive cycles.",
+        "assessment": "Covers the unweighted involution matrix count and standard rank enumeration but not the helical cycle census.",
         "evidence": [
           "https://oeis.org/A053722"
         ],
         "identifier_or_url": "https://oeis.org/A053722",
-        "material_read": "Sequence identification and low-dimensional values available from search; no claim of new involution counts.",
-        "method": "Compared aggregate m=2,3,4 rank counts to known matrix involution numbers.",
-        "title": "OEIS A053722: number of involutions in GL(n,2)",
-        "trigger": "Matrix counts could be old tables"
+        "material_read": "Entry title, explicit initial values, involutions--square-zero equivalence, formula and references.",
+        "method": "Compared 316 matrices at m=4 with 1+105+210 and distinguished matrix totals from helical-state orbit counts.",
+        "title": "OEIS A053722: involutions in GL(n,2)",
+        "trigger": "Check whether rule-count formula is already a tabulated invariant"
+      },
+      {
+        "assessment": "Works with x_i->x_(i+r)+1 over Z/qZ, classifies scalar clocks and fixed states on rings; not the helical YB carrier map or affine-rule rank census.",
+        "evidence": [
+          "Git scientific result, record 2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3",
+        "material_read": "Complete RESULT.md of the linked SCOPE scientific record, including theorem, hypotheses, proof and limitations.",
+        "method": "Compared underlying dynamical map, group, invariants and exact formulas.",
+        "title": "Finite-volume clock-factor aliasing in traveling affine cellular automata",
+        "trigger": "Nearest related published mathematical record involving reversible affine CA and finite orbit arithmetic"
+      },
+      {
+        "assessment": "Cannot judge full text or rule out an equivalent two-site special case. Access restriction is residual priority risk, not automatic originality failure.",
+        "evidence": [
+          "https://doi.org/10.6084/m9.figshare.33684460.v1"
+        ],
+        "identifier_or_url": "https://doi.org/10.6084/m9.figshare.33684460.v1",
+        "material_read": "Prior record bibliographic abstract/metadata; fresh exact DOI and arXiv/OA attempts did not retrieve a full text.",
+        "method": "Searched author/title/DOI and checked cited DOI resolution; authorized institutional download returned vpn_disconnected, no bypass.",
+        "title": "Related two-site exponent manuscript attributed to Koide",
+        "trigger": "Possible later finite-field Yang--Baxter work with overlapping local dynamics"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "69b4a05d-6a01-45d3-bc84-e80d35e2aa98",
   "value": {
-    "rationale": "This resolves all orbit lengths and multiplicities for a canonical nontrivial subclass of a recent finite-field integrable cellular automaton, without dimension/length restrictions. It gives a sharp structural characterization of universal period four and shows why periods larger than four, if present in the full class, must arise from genuinely nonlinear rules; the result is an exact natural dynamical classification, not an arbitrary small enumeration.",
+    "checked_sources": [
+      "https://arxiv.org/html/2602.17148 Sections 3.1--3.2 motivations and Table 1",
+      "https://oeis.org/A053722 classical involution totals",
+      "Source RESULT.md assumptions and proof; independent exact enumeration"
+    ],
+    "rationale": "The complete primitive-period census for a canonical affine subclass of a contemporary finite-field integrable helical automaton is a mathematically motivated infinite-parameter classification. The relation between system parity, square-zero rank and affine translation, plus the criterion for all full states to have primitive period four, resolves exactly what the known qualitative maximum-period results and general-conjecture language do not. The rankwise family cardinalities allow structural counting of admissible rules. This is a natural exact invariant and not a low-dimensional finite-table repetition, although the ingredients and proof are elementary. It does not solve the nonlinear classification or claim new involution counts.",
+    "residual_risks": [
+      "Scope restricted to additive-affine rules and complete states including carrier.",
+      "Some individual low-dimensional instances overlap the original small-field period statements; independent mathematical value lies in unrestricted complete classification."
+    ],
     "status": "PASS"
   }
 }
