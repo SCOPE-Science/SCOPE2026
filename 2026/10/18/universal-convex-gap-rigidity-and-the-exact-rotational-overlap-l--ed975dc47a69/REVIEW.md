@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the exact normal-gap multiset from the residue classes of two integer angular lattices, even at common-normal orientations. The reflection symmetry and strict convexity establish global sharp extrema and equality classes. The tangent side-length identity, one-variable integration and finite cubic-sum calculation prove the exact area, mean, distribution and asymptotic statements. The independent standard-library geometric checker reproduced 5780 finite tests: `VERIFY_OK 5780 finite_energy_clip_mean_and_asymptotic_checks`. These tests supplement, rather than prove, the universal theorem. No unproved infinite extrapolation is used.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Buck–Siddon (2012) provides the general tangential polygon area identity; Mathar (2013) studies minimum scaled outer circumscription of unequal regular polygons; Kiss–Vidnyánszky (2014) treats unions of congruent polygons; and a 2015 equal-circumradius overlap question concerns facet counts. Full text of the first three, the entire question discussion, and full mathematical statements of the nearest congruent-copy random intersections and radial-union research notes were compared. Their scope does not cover a deterministic two-order common-inradius normal-grid convex-gap law or the \(\gcd(n,m)^2\) area oscillation. An existing exact **Minkowski sum** rotational-area theorem is a different geometric operation and does not imply this overlap law. Historical-priority risk persists for inaccessible or unindexed geometry articles.
+PASS
 
-## Mathematical value — PASS
-The full continuous angular problem for two unequal regular polygon resolutions of one disk is resolved, including all extreme orientations, full generic/degenerate facet counts, exact Haar expectation, implicit exact distribution and sharp arithmetic anisotropy. The same orientations simultaneously optimize every strictly convex normal-gap energy, giving a reusable structural statement beyond a single numerical invariant. The contribution is limited to common-inradius, same-center rotations and does not claim an optimal polygon approximation over translations or shapes.
+Each fine-grid interval of angular width b=2π/m contains at most one coarse normal. Modulo b, the n coarse residues form q=n/gcd(n,m) equally spaced offsets occurring d times; this gives exact gap list and identity E_f=(m−n)f(b)+d∑[f(kh−t)+f((q−k)h+t)] including collision phases f(0)=0. Symmetry and strict convexity yield unique midpoint min and aligned max, without assuming f is increasing. A circumscribed tangential polygon has area r²∑tan(g/2). Uniform angular phase and integral of tan yield claimed mean and CDF; Taylor at minimizing phase and derivative at maximum establish density endpoint laws; cubic power-sum identity yields π³r²d²/(4nm³)+O_n(m^-5) for fixed n. Independent direct merged-normal computation across 280 (n,m,t) configurations matched formula with maximum absolute rounding discrepancy 3.55e-14; these checks supplement proof.
 
-## Evidence and limitations
-The exact statement, proof, assumptions, computed examples, literature comparisons and citations appear in `RESULT.md`; `verify.py` is a standalone executable diagnostic. This is an analytical geometry argument with finite independent numerical checks but has not received independent mathematical or historical-priority review. The inference of originality is conditional on actual source availability and content comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing area formula for tangential polygons, circumscribed outer-size polygon problems and congruent-copy random intersections are prior, but differ from unequal-order equal-inradius intersection normal-grid overlap. General convex rearrangement principles alone do not give the gcd-resolved gap multiset, exact full phase law, area distribution and sharp arithmetic oscillation.
+
+## value
+
+PASS
+
+Natural intersection and rotational statistics of two unequal regular polygons under a common circle normalization. The all-convex-energy extremizer theorem and exact all-n<m distribution resolve a genuine geometric/arithmetic gap, not an arbitrary unmotivated finite slice or a renamed textbook polygon-area identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

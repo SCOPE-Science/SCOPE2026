@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The full result is proved analytically in `RESULT.md` by normal-grid residue enumeration, convex reflection symmetry, a tangential-area identity, exact Haar integration and a finite cubic-power identity. In particular, all real orientation phases and all side counts in the stated range are covered by the proof, not by finite enumeration.
+## correctness
 
-The standalone Python 3 standard-library checker was run from its actual saved path with `python3 verify.py`; the observed output was `VERIFY_OK 5780 finite_energy_clip_mean_and_asymptotic_checks`. It checks literal side normals, four convex gap functions, independent halfplane-clipped polygon areas, integrated means and five arithmetic asymptotic cases. The diagnostic count is finite, and its floating-point agreement is not a proof of universal identities.
+PASS
 
-The first motivating source is publicly dated 2012-03-15. More directly overlapping concentric regular-polygon work is first publicly dated 2013-01-26. Relevant primary historical literature was inspected as described in the paper and scientific audit. Some older or unindexed work could still affect priority. Independent audit has not been performed.
+Each fine-grid interval of angular width b=2π/m contains at most one coarse normal. Modulo b, the n coarse residues form q=n/gcd(n,m) equally spaced offsets occurring d times; this gives exact gap list and identity E_f=(m−n)f(b)+d∑[f(kh−t)+f((q−k)h+t)] including collision phases f(0)=0. Symmetry and strict convexity yield unique midpoint min and aligned max, without assuming f is increasing. A circumscribed tangential polygon has area r²∑tan(g/2). Uniform angular phase and integral of tan yield claimed mean and CDF; Taylor at minimizing phase and derivative at maximum establish density endpoint laws; cubic power-sum identity yields π³r²d²/(4nm³)+O_n(m^-5) for fixed n. Independent direct merged-normal computation across 280 (n,m,t) configurations matched formula with maximum absolute rounding discrepancy 3.55e-14; these checks supplement proof.
+
+## originality
+
+PASS
+
+Existing area formula for tangential polygons, circumscribed outer-size polygon problems and congruent-copy random intersections are prior, but differ from unequal-order equal-inradius intersection normal-grid overlap. General convex rearrangement principles alone do not give the gcd-resolved gap multiset, exact full phase law, area distribution and sharp arithmetic oscillation.
+
+## value
+
+PASS
+
+Natural intersection and rotational statistics of two unequal regular polygons under a common circle normalization. The all-convex-energy extremizer theorem and exact all-n<m distribution resolve a genuine geometric/arithmetic gap, not an arbitrary unmotivated finite slice or a renamed textbook polygon-area identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
