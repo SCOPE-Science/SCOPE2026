@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` in a standard Python 3 environment (no third-party packages). The first check explicitly enumerates all functions whose source root is fixed, constructs principal upsets from the full ancestor relations, and tests the exact back condition at each source point; it agrees with the closed counting formula on 50 profile pairs including 16 zero-count pairs. A canonical JSON encoding of the exhaustive table has SHA-256 `ba693d7d1c74b658e6560606d13fe8c3baed6344fe2e388d96ead118ddbc171b`. The second check, implemented independently as a subset-of-covered-target-branches dynamic program, agrees with inclusion–exclusion on 13,260 parameter pairs (10,521 positive); its largest exact count is 70,543,872.
+## correctness
 
-These are finite consistency checks, not an exhaustive investigation of all input sizes. For unbounded profiles, correctness rests on the branchwise bijection and inclusion–exclusion proof in `RESULT.md`. This check does not establish bibliographic uniqueness. No independent mathematical audit has been performed.
+PASS
+
+For rooted three-level tree posets, surjectivity forces the root image and the p-morphism equation sends every maximal source leaf to a maximal target leaf. Each source center either collapses with all its leaves onto one of L target leaves or maps to target center j with its leaves surjecting onto the t_j leaves, in A_ij=t_j! S(s_i,t_j) ways. Independent center factors give the multivariate polynomial; using every target center is necessary and sufficient for global back-surjectivity, yielding the stated inclusion–exclusion. Checked r,k>=1, positive sizes, no claim for omitted-center coefficients. Independent literal image-and-upset enumeration agreed with formula on four small irregular/zero cases; those do not prove arbitrary lengths.
+
+## originality
+
+PASS
+
+The exact coefficient distribution for arbitrary labeled positive branch profiles is distinct from the known decidable existence predicate for rooted-tree p-morphisms and from a general abstract kernel-partition reformulation. Reconstructed the actual count and checked a nearby full decision proof; no searched primary source gave the all-profile numeric formula. Best-of-knowledge only.
+
+## value
+
+PASS
+
+The first nontrivial rooted-tree depth permits centers to collapse onto leaves or onto target centers; the multivariate polynomial records both and exactly counts distinct labeled finite Kripke quotients under arbitrary irregular branch sizes. Existing YES/NO matching discards these multiplicities, which are natural finite-frame/Heyting dual invariants. No additional downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
