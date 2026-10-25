@@ -1,0 +1,11 @@
+# Review of a post-contact curvature law for the first intrinsic-volume metric
+
+**Correctness — PASS.** The normalized line-symmetry-difference identity gives the exact translation profile. Contact is the radial boundary of the difference body; strict convexity isolates precisely two normal caps. Each cap has positive-definite quadratic support gap and a rescaled integral with explicit value, yielding the exponent \((n+1)/2\) and coefficient \(2^{(n+3)/2}\gamma^{(n+1)/2}\sqrt{\kappa_G}/(n+1)\). The positivity and all normalizations were re-derived rather than inferred from finite calculations. Planar ball, 3D ball and ellipse constants were checked numerically.
+
+**Originality — PASS, best knowledge with priority risk.** The closest primary text is Besau and Hoehner, *An intrinsic volume metric for the class of convex bodies in \(\mathbb R^n\)*, arXiv:2208.13927. Proposition 2.6(v) already supplies the whole equal-metric law for overlapping translates, and Proposition 2.6(ii) supplies a general one-sided bound; neither implies the new asymptotic positive coefficient after intersection ceases. Its Definition 1.1 fixes the common normalization. Later work by Hoehner, arXiv:2512.02379, addresses completeness/topology for higher metric indices rather than translated first-metric curvature. Targeted literature searches and indexed-claim searches did not locate an equivalent theorem; an unindexed result remains possible.
+
+**Mathematical value — PASS.** The new one-sided exponent and coefficient identify local curvature of the difference body through a natural metric for convex bodies. The result is multidimensional, works without central symmetry of the original body, and includes a necessary radial/normal incidence angle; it sharpens a previously qualitative inequality on the disjoint side of a geometric phase transition.
+
+**Limitations and risk.** Hypotheses require \(C^2\) support functions with positive curvature radii; flat, nonsmooth, and degenerate contacts are excluded. The theorem is an asymptotic at first separation, not a global translation formula. Publication-priority verification is incomplete, and no external independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
