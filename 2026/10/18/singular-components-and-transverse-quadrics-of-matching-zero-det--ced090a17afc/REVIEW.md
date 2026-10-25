@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(n\ge4\), \(1\le k\le n\), and algebraically closed characteristic-zero fields, the differential of the determinant is the allowed cofactor array; its rank-\(n-1\) vanishing is equivalent to one of the explicitly listed row-and-column-zero patterns because the adjugate has rank one. The rank-\(n-2\) locus is irreducible of ambient codimension four by a product-of-quadrics factorization, and an allowed partial permutation supplies a point with four independent transverse minor coordinates. Each additional linear stratum contains rank-\(n-1\) matrices. Schur complement gives the two claimed quadratic normal forms. Codimension excludes reducible or repeated determinant factors and establishes normality. The degree follows from the standard corank-two determinantal formula and proper linear-section dimension. The companion exact scripts corroborate the gradient identity and transverse rank; they are not replacements for these proofs.
+PASS
 
-## Originality — PASS, residual uncertainty disclosed
+The gradient uses allowed cofactors. At rank n-1 adjugate has rank one; a Cartesian support rectangle contained in the forbidden matching forces one forbidden diagonal singleton, equivalently entire corresponding row and column zero. At rank<=n-2 all cofactors vanish. Factorization A=UV^T with r=n-2 gives k disjoint irreducible bilinear equations U_i dot V_i=0 and irreducible rank-r image of affine dimension n^2-k-4, after GL_r quotient, yielding codim 3 in X. Explicit allowed partial permutation with unused row 1,2 and columns 3,4 verifies transverse 2x2 Schur parameters and degree remains standard corank2 determinantal degree. At zero row/column loci Schur complement gives nondegenerate sum u_jv_j. Jacobian codim excludes reducibility and ensures normality by R1/S2. Independent exhaustive GF2 checks n=4 k=2 examined 16384 matrices, 2632 singular (144 corank-one extra H_i), k=4 examined 4096, 826 singular (56 extra H_i), agreeing precisely. Finite checks not the universal proof.
 
-The closest directly inspected primary paper, Boocher (arXiv:1111.0279, Sections 1, 4 and 5), addresses sparse-determinantal ideals, primality, Cohen–Macaulayness and resolutions, not this all-parameter singular-component and transverse-type classification. Alper–Bogart–Velasco (arXiv:1505.02205) gives singular-codimension constraints but not the special matching-zero locus. A separate normal form for symmetric hollow matrices is not applicable to these independent nonsymmetric matrix entries, their arbitrary partial matching, or the extra linear components. The full text of Giusti–Merle's 1982 coordinate-section chapter was not available and could contain implied results. The conclusion is limited to evidence examined, not a claim of exhaustive bibliographic uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Sparse generic determinant hypersurfaces naturally arise as coordinate linear sections of rank loci. Even a one-entry forced-zero restriction creates an additional singular component invisible in the generic square determinant. The formula gives a complete infinite family, exact component degrees and codimensions, normality, and distinct generic quadratic transverse geometries. This clarifies how zero patterns change singularities beyond familiar homological invariants.
+Generic determinantal rank singular locus is only D, whereas forcing diagonal matching zeros creates k additional singular linear loci with distinct generic slice dimensions. Boocher full PDF Theorem 1.1 studies sparse maximal-minor resolutions; Alper–Bogart–Velasco full PDF Theorem 1.2 provides general singular codimension and complexity bounds. Neither inspected result implies this k+1 primary decomposition or explicit transverse models. Giusti–Merle 1982 is highly plausible underlying prior; full text unavailable (authorized Oxford reported VPN disconnected), retained as a material priority risk, not a shortcut to failure.
 
-## Risks and limitations
+## value
 
-The statement is set-theoretic after reduction; no assertion is made about the nonreduced Jacobian scheme. Full Giusti–Merle text inaccessible; no external independent check. Finite-field enumerations are strictly corroborative.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-parameter geometric classification of a natural sparse generic determinantal family supplies exact degrees, exceptional singular strata, and two local models; these are useful to sparse determinantal geometry and not an arbitrary tiny instance or purely a normality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

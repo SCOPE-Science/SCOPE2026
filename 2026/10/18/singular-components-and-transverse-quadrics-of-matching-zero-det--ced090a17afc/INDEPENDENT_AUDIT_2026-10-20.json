@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T23:51:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient uses allowed cofactors. At rank n-1 adjugate has rank one; a Cartesian support rectangle contained in the forbidden matching forces one forbidden diagonal singleton, equivalently entire corresponding row and column zero. At rank<=n-2 all cofactors vanish. Factorization A=UV^T with r=n-2 gives k disjoint irreducible bilinear equations U_i dot V_i=0 and irreducible rank-r image of affine dimension n^2-k-4, after GL_r quotient, yielding codim 3 in X. Explicit allowed partial permutation with unused row 1,2 and columns 3,4 verifies transverse 2x2 Schur parameters and degree remains standard corank2 determinantal degree. At zero row/column loci Schur complement gives nondegenerate sum u_jv_j. Jacobian codim excludes reducibility and ensures normality by R1/S2. Independent exhaustive GF2 checks n=4 k=2 examined 16384 matrices, 2632 singular (144 corank-one extra H_i), k=4 examined 4096, 826 singular (56 extra H_i), agreeing precisely. Finite checks not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boocher proves sparse maximal-minor resolutions; Alper et al derive determinant-complexity lower bound from singular codimension; exact H_i strata and local quadratic charts are not their theorems."
+        ],
+        "reasoning": "The stronger prior hypotheses/results inspected do not imply a complete Jacobian component decomposition. Giusti–Merle full original could affect this conclusion; only abstract/index metadata available.",
+        "searches": [
+          "determinantal hypersurface generic square matrix zero entries matching diagonal singular locus rank n-2 row column zero strata sparse determinant",
+          "Boocher Theorem 1.1 arXiv:1111.0279",
+          "Alper–Bogart–Velasco Theorem 1.2 arXiv:1505.02205",
+          "Giusti–Merle 1982 DOI:10.1007/BFb0071278"
+        ]
+      },
+      "checked_sources": [
+        "Boocher arXiv:1111.0279 Theorem 1.1, p.2 PDF",
+        "Alper–Bogart–Velasco arXiv:1505.02205 Theorem 1.2, p.1 PDF",
+        "Giusti–Merle 1982 DOI:10.1007/BFb0071278 (not full text)",
+        "Resultary search: determinantal hypersurface generic square matrix zero entries matching diagonal singular locus rank n-2 row column zero strata sparse determinant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An algorithm for sparse resolutions/codimension and general determinantal singularity bounds does not determine the exceptional corank-one support rectangle conditions or local types."
+        ],
+        "reasoning": "The submitted added part needs cofactor geometry and zero pattern; no decisive stronger matching result was observed. Original Giusti–Merle remains a concrete comparison gap.",
+        "searches": [
+          "Boocher Theorem 1.1",
+          "Alper–Bogart–Velasco Theorem 1.2",
+          "Giusti–Merle 1982 (inaccessible original)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A partial matching of zeros is row-column-permutation equivalent to k forbidden diagonal entries; the generic matrix has no such extra H_i."
+        ],
+        "reasoning": "Compared zero-pattern relabelings, maximal minors, zero-rectangle conditions, and the exact determinant hypersurface; matching pattern is invariant under separate row/column permutations.",
+        "searches": [
+          "determinantal hypersurface generic square matrix zero entries matching diagonal singular locus rank n-2 row column zero strata sparse determinant",
+          "Boocher arXiv:1111.0279",
+          "Giusti-Merle DOI:10.1007/BFb0071278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard corank-two degree n^2(n^2-1)/12 is prior; k extra row/column components and their codimensions/slices are not in the prior degree table."
+        ],
+        "reasoning": "The degree alone is not novel and is credited; the combined complete locus and generic analytic types are not a known table recitation.",
+        "searches": [
+          "determinantal hypersurface generic square matrix zero entries matching diagonal singular locus rank n-2 row column zero strata sparse determinant",
+          "Resultary: zero-insertive-matrices-are-exactly-the-half-rank-locus--8052759fe4ed",
+          "Fulton Thom–Porteous corank-two degree"
+        ]
+      },
+      "rationale": "Generic determinantal rank singular locus is only D, whereas forcing diagonal matching zeros creates k additional singular linear loci with distinct generic slice dimensions. Boocher full PDF Theorem 1.1 studies sparse maximal-minor resolutions; Alper–Bogart–Velasco full PDF Theorem 1.2 provides general singular codimension and complexity bounds. Neither inspected result implies this k+1 primary decomposition or explicit transverse models. Giusti–Merle 1982 is highly plausible underlying prior; full text unavailable (authorized Oxford reported VPN disconnected), retained as a material priority risk, not a shortcut to failure.",
+      "residual_risks": [
+        "Giusti–Merle (1982) original text inaccessible owing to institutional VPN disconnection; possible equivalence not excluded.",
+        "Other sparse determinant Jacobian primary decompositions indexed under transversal sections may have stronger coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not furnish complete rank n-1 singular component classification or quadratic slices in the material inspected.",
+          "evidence": "Theorem 1.1 states sparse maximal-minor regularity, projective dimension and pruned generic resolutions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.0279",
+          "material_read": "Full PDF downloaded/read text at introduction, Theorem 1.1 and the sparse-pruning technique around pp.1–3; its claim concerns Eagon–Northcott resolutions and maximal minors",
+          "method": "Inspected PDF text plus page-2 image and compared theorem quantifiers",
+          "title": "Free Resolutions and Sparse Determinantal Ideals",
+          "trigger": "Same sparse generic determinant variables, potential stronger homological coverage"
+        },
+        {
+          "assessment": "Lower bound dc(f)>=codim(Sing(f))+1 under high codimension; cannot reconstruct the explicit sparse singular strata.",
+          "evidence": "Theorem 1.2 is a singular-locus-to-complexity inequality, not a classification of singular sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.02205",
+          "material_read": "Full PDF title, abstract and Theorem 1.2/page1 inspected, general bounds on dc(f)",
+          "method": "Read primary PDF text/image, compared direction of implications",
+          "title": "A lower bound for the determinantal complexity of a hypersurface",
+          "trigger": "A possible general theorem on singularity codimension of matrix sections"
+        },
+        {
+          "assessment": "CANNOT exclude equivalent or broader theorem in this chapter; retained residual priority risk.",
+          "evidence": "The subject of special determinantal linear sections could cover or imply part of the result; no claims about unread theorem statements.",
+          "identifier_or_url": "https://doi.org/10.1007/BFb0071278",
+          "material_read": "Publication metadata and available abstracts only; original full text not accessible",
+          "method": "Lawful arXiv/OA attempts produced no original full text; authorized institutional retrieval returned vpn_disconnected",
+          "title": "Singularités isolées et sections planes de variétés déterminantielles II",
+          "trigger": "Potentially strongest historical source for sparse/linear-section singularities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-parameter geometric classification of a natural sparse generic determinantal family supplies exact degrees, exceptional singular strata, and two local models; these are useful to sparse determinantal geometry and not an arbitrary tiny instance or purely a normality restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For char-0 algebraically closed fields, n>=4, 1<=k<=n, determinant on n by n matrices with diagonal matching a_11=...=a_kk=0 has exactly k+1 reduced singular components: an irreducible corank-two locus of codim 3 in the hypersurface and degree n^2(n^2-1)/12, plus k zero-row-and-column linear spaces codim 2n-3; transverse quadrics are uv-wz and sum_(j=1)^(n-1) u_jv_j, respectively, and hypersurface is integral normal CM Gorenstein.",
+  "limitations": [
+    "n>=4, char0 and forbidden entries form a partial matching.",
+    "Reduced Jacobian support, not full scheme or intersections.",
+    "Giusti–Merle priority gap, not a correctness gap."
+  ],
+  "schema_version": 1
+}
