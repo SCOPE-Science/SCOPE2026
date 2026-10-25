@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verification.py",
+        "Independent finite derivative calculation",
+        "Published weighted Euclidean ball clipping result"
+      ],
+      "evidence": [
+        "Actual RESULT.md blob 43c41297855b0a5b64d9c5573b6e00df37cb44d8: exact derivative, Hölder equality witnesses, scalar maximization and p=2 closed form.",
+        "Independent derivative matrix computation at p=3,n=3,weights (1,2,3): weighted max/sum realized respectively 2.45369126 and 2.51192060, agreeing with F_3 and F_(3/2); documented in independent_science_checks.py.",
+        "Inspected verification.py Git blob c97061b1532f78b3946c769b238a4106c7e4b1cc; its deterministic finite checks include weighted row/column norms and witness directions, not all real inputs.",
+        "At p=2, F_2(k)=(1+sqrt(1+k²))/2 yields the published weighted Euclidean result exactly, a separate compatibility check."
+      ],
+      "rationale": "PASS. The exterior derivative DR_p(ru)=r^-1(I-u φ^T), φ_i=sign(u_i)|u_i|^(p-1), and integration on each straight segment proves its supremum is the global Lipschitz constant. Weighted absolute row sums yield 1-a^p+(a/w_i)(Σ_{j≠i}w_j^p)^(1/p)(1-a^p)^((p-1)/p), optimized as F_p(k_i). Weighted column sums yield the conjugate F_{pconj}(k_i). Hölder equality supplies boundary realizing directions; k_i peaks at min weight; the scalar F_s optimizer is unique by strict monotonicity of the derivative equation. Equal weights uniquely minimize B_s, leading dimension orders n^(1/p) and n^(1/pconj), with reversed ordering between n=2 and large n for p≠2.",
+      "residual_risks": [
+        "Exterior derivatives are limiting sharpness: two distinct finite points need not attain the ratio.",
+        "No claims for complex spaces, endpoint exponents or nearest-point retractions under the weighted measurement norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rieffel arXiv:math/0508097 section 8 native ball/norm radial bound ≤2, whereas these cross-norm constants can grow unbounded as n grows.",
+          "Thele 1974 and Kapoor–Mathur 1983 catalogued radial retraction regularity in the norm generating the unit ball; their full texts were not obtained."
+        ],
+        "reasoning": "Native-norm general bounds do not dominate a different weighted domain/codomain geometry. Absence of older full text creates residual risk but does not supply contrary covering evidence.",
+        "searches": [
+          "Rieffel Lipschitz extension constants projection constants radial retractions Section 8",
+          "Thele Some results radial projection Banach spaces",
+          "Kapoor Mathur metric projection bound radial retraction 1983"
+        ]
+      },
+      "checked_sources": [
+        "Published weighted Euclidean radial result entire RESULT.md",
+        "Rieffel arXiv:math/0508097 indexed result",
+        "Thele 1974 indexed abstract",
+        "Kapoor--Mathur 1983 bibliographic information",
+        "Resultary searches radial retraction onto ell_p ball exact Lipschitz constant weighted infinity weighted one coordinate norms conjugate exponents; weighted Euclidean ball radial retraction coordinate l infinity and l one sharp exact Lipschitz constant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Euclidean clipping prior formula (1+||w||_2/min w)/2 is exactly obtained by p=2 here.",
+          "A prior generalized weighted ℓ1-ball nearest-point map has a different constraint body and optimization metric from the radial ℓp-ball map."
+        ],
+        "reasoning": "The prior special case and other map class do not determine p=3 numerical disparity or higher-dimensional exponent crossover; full new theorem adds a mathematically different rank-one nonlinear differential.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+          "Resultary sharp Lipschitz stability weighted cross-polytope metric projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary complete published RESULT.md Sharp weighted coordinate sensitivity of Euclidean-ball clipping has exactly the p=2 case.",
+          "The full cross-p result reduces to two different induced derivative projections under ℓ∞,w and ℓ1,w (not the same p-ball metric)."
+        ],
+        "reasoning": "Only p=2 has symmetric normal operator uu^T; for p≠2 the nonsymmetric uφ^T produces conjugate exponents and different constants. Consequently p=2 prior theorem is a proper special case, not the full statement.",
+        "searches": [
+          "radial retraction onto ell_p ball exact Lipschitz constant weighted infinity weighted one coordinate norms conjugate exponents",
+          "weighted Euclidean ball radial retraction coordinate l infinity and l one sharp exact Lipschitz constant",
+          "radial x/max(1,norm_p(x)) weighted coordinate Lipschitz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest identical map is p=2 Euclidean clipping; other hits are nearest-point maps onto ℓ1 balls and Lorentz-octagon radial maps, different objects."
+        ],
+        "reasoning": "No inspected database/table gives F_p(B_p), F_p'(B_p') simultaneously for arbitrary p and positive w; finite tables would also not prove all-dimensional conjugate reversal.",
+        "searches": [
+          "radial retraction onto ell_p ball exact Lipschitz constant weighted infinity weighted one coordinate norms conjugate exponents",
+          "weighted Euclidean ball radial retraction coordinate l infinity and l one sharp exact Lipschitz constant",
+          "Resultary sharp weighted Euclidean-ball clipping 2026/10/11"
+        ]
+      },
+      "rationale": "PASS, qualified by older native-norm literature. The p=2 weighted sensitivity law is already published; the non-Hilbert conjugate pair for all p, weighted extremizing directions, and finite-versus-high-dimensional reversal are not implied by that special case or intrinsic-norm radial bounds.",
+      "residual_risks": [
+        "Full 1974 Thele and 1983 Kapoor--Mathur papers not inspected; an unindexed exact mixed-norm formulation remains possible.",
+        "All p asymptotics are elementary consequences of the new scalar optimum once that exact expression is known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT special case p=2, not broader p",
+          "evidence": "Shows (1+||w||_2/min w)/2; p=2 matches, but no general ell_p derivative.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+          "material_read": "Complete published RESULT.md proof, equality normal classification and all scope/limitations",
+          "method": "Read full GitHub blob of published RESULT.md",
+          "title": "Sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+          "trigger": "Same radial formula and both weighted norms at p=2"
+        },
+        {
+          "assessment": "NONDOMINATING native-norm setting",
+          "evidence": "Cited radial bounds concern using same norm to define both ball and distance, not weighted cross-norm map.",
+          "identifier_or_url": "arXiv:math/0508097",
+          "material_read": "Indexed record and Section-8 description in reviewed source audit; full section not directly opened during this run",
+          "method": "Abstract/secondary mathematical statement cross-check; not claimed as read full",
+          "title": "Lipschitz extension constants equal projection constants",
+          "trigger": "General Banach-space radial Lipschitz bound"
+        },
+        {
+          "assessment": "RESIDUAL_RISK rather than whole-document negative",
+          "evidence": "Native-norm radial result per indexed summary; cross-norm analogue not established or excluded by abstract alone.",
+          "identifier_or_url": "DOI:10.1090/S0002-9939-1974-0328550-1",
+          "material_read": "Indexed title/abstract and bibliographic facts; full text unavailable",
+          "method": "Publisher-indexed citation search",
+          "title": "Some results on the radial projection in Banach spaces",
+          "trigger": "Potential earlier exact radial constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact all-p row/column calculation",
+        "Published p=2 limiting special case",
+        "Independent derivative check p=3 showing different constants"
+      ],
+      "rationale": "PASS. Exact cross-norm stability of a canonical nonlinear radial retraction measures anisotropic coordinate-error amplification relevant to Banach geometry and sensitivity analysis. The distinct dual exponents, optimal weights and provable dimension-order reversal give genuine structural behavior not reducible to known p=2 or native-norm constant bounds.",
+      "residual_risks": [
+        "Finite-dimensional real setting; growth law is asymptotic but follows analytically, not computational sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

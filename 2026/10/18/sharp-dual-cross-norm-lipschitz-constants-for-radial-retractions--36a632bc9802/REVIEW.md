@@ -1,15 +1,21 @@
-# Scientific review of sharp cross-norm radial retraction laws
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact exterior differential is \((I-u\phi^{\mathsf T})/r\) with \(\phi_i=\operatorname{sgn}(u_i)|u_i|^{p-1}\), valid for all real \(1<p<\infty\). Weighted row/column operator norms, followed by equality-achieving Hölder inequalities, yield exactly \(F_p(B_p(w))\) and \(F_{p'}(B_{p'}(w))\). Piecewise line-segment integration makes the differential upper bounds global, while exterior sequences approaching the sphere prove lower sharpness. The scalar maximizer is unique by a strictly monotone first-order equation. The weight-minimizing and dimension-reversal statements follow from strict monotonicity and elementary sharp bounds for \(F_s\). The packaged verifier independently checks numerous instances and witnesses but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with residual historical risk.** Rieffel's accessible Section 8 and Christianson et al.'s radial-retraction treatment measure Lipschitz constants in the same norm as the ball. Thele (1974) and Kapoor–Mathur (1983), from their abstracts and later published discussions, address the native-norm radial constant. Neither those inspected statements nor relevant searchable published summaries provide the pair of weighted cross-norm constants across all \(p\), the optimal anisotropic weights, or the finite-to-large-dimension reversal. The known \(p=2\) exact formula is an explicit specialization, not claimed as new. The Thele and Kapoor–Mathur historical full texts could not be inspected; a hidden equivalent formulation remains a risk. Search nonappearance is not treated as proof of priority.
+PASS
 
-## Value
-**PASS.** Weighted coordinate error is a natural stability measure for radial normalization under an \(\ell_p\)-ball constraint. Exact simultaneous sensitivity profiles determine the sharp loss for two dual error metrics in every dimension and for every positive weight vector. The conjugate-exponent asymptotics, unique optimal balancing and dimension-dependent reversal are structural information not contained in a same-norm global bound or a lone finite example.
+PASS. The exterior derivative DR_p(ru)=r^-1(I-u φ^T), φ_i=sign(u_i)|u_i|^(p-1), and integration on each straight segment proves its supremum is the global Lipschitz constant. Weighted absolute row sums yield 1-a^p+(a/w_i)(Σ_{j≠i}w_j^p)^(1/p)(1-a^p)^((p-1)/p), optimized as F_p(k_i). Weighted column sums yield the conjugate F_{pconj}(k_i). Hölder equality supplies boundary realizing directions; k_i peaks at min weight; the scalar F_s optimizer is unique by strict monotonicity of the derivative equation. Equal weights uniquely minimize B_s, leading dimension orders n^(1/p) and n^(1/pconj), with reversed ordering between n=2 and large n for p≠2.
 
-## Scope and remaining limitations
-Results are real, finite-dimensional and restricted to \(1<p<\infty\). The source comparison is bounded by imperfect archival access; independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified by older native-norm literature. The p=2 weighted sensitivity law is already published; the non-Hilbert conjugate pair for all p, weighted extremizing directions, and finite-versus-high-dimensional reversal are not implied by that special case or intrinsic-norm radial bounds.
+
+## value
+
+PASS
+
+PASS. Exact cross-norm stability of a canonical nonlinear radial retraction measures anisotropic coordinate-error amplification relevant to Banach geometry and sensitivity analysis. The distinct dual exponents, optimal weights and provable dimension-order reversal give genuine structural behavior not reducible to known p=2 or native-norm constant bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

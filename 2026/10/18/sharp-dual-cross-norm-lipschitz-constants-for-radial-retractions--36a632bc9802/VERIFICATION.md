@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification scope
-The analytic proof in `RESULT.md` supplies all infinitely quantified steps: the exterior differential, global line-segment integration, equality cases in the sharp Hölder bounds, scalar uniqueness, and the dimension-reversal argument. No numerical test replaces these proofs.
+# Independent mathematical audit
 
-The included `verification.py` uses only the Python standard library and a fixed deterministic random seed. Run `python verification.py` from a directory containing the extracted files. It checks 4,371 assertion groups: optimizer equations, sharp row and column derivative norms, bounds for unrelated sphere directions, boundary derivative finite differences, known Hilbert specialization, and asymptotic estimates. The success marker is `VERIFY_OK 4371 assertion groups, multiple assertions per group`.
+## correctness
 
-The tests are finite numerical corroboration, not interval-certified exhaustive calculations or a proof for all parameters. The bibliographic check distinguishes accessible full texts from abstract-only sources. No independent audit has been performed.
+PASS
+
+PASS. The exterior derivative DR_p(ru)=r^-1(I-u φ^T), φ_i=sign(u_i)|u_i|^(p-1), and integration on each straight segment proves its supremum is the global Lipschitz constant. Weighted absolute row sums yield 1-a^p+(a/w_i)(Σ_{j≠i}w_j^p)^(1/p)(1-a^p)^((p-1)/p), optimized as F_p(k_i). Weighted column sums yield the conjugate F_{pconj}(k_i). Hölder equality supplies boundary realizing directions; k_i peaks at min weight; the scalar F_s optimizer is unique by strict monotonicity of the derivative equation. Equal weights uniquely minimize B_s, leading dimension orders n^(1/p) and n^(1/pconj), with reversed ordering between n=2 and large n for p≠2.
+
+## originality
+
+PASS
+
+PASS, qualified by older native-norm literature. The p=2 weighted sensitivity law is already published; the non-Hilbert conjugate pair for all p, weighted extremizing directions, and finite-versus-high-dimensional reversal are not implied by that special case or intrinsic-norm radial bounds.
+
+## value
+
+PASS
+
+PASS. Exact cross-norm stability of a canonical nonlinear radial retraction measures anisotropic coordinate-error amplification relevant to Banach geometry and sensitivity analysis. The distinct dual exponents, optimal weights and provable dimension-order reversal give genuine structural behavior not reducible to known p=2 or native-norm constant bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
