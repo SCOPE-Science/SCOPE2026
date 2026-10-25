@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every n>=6, the Kim–Kim homotopy theorem gives a single reduced homology degree. Exact equivariant Alexander duality changes character by the ambient permutation sign. The weighted fixed-orbit sum is computed for all rotations using a four-state cyclic transfer matrix with characteristic polynomial x(x-1)(x^2+1), and for all reflections by a mirror-path matrix coefficient with period-four values. The resulting traces are checked independently against the original noncover simplicial Lefschetz sums for all dihedral elements n=6..12, and against dual orbit sums for n=6..14. The result does not infer an infinite theorem from finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer et al. 2023, Sections 4 and 7 analyze cut complexes of cycles and multipartite graphs; the theorem here uses complements of cycles.",
+        "Bayer et al. 2024, Section 6.2 explicitly states that its cyclic character applies to the cut complex of the cycle graph itself, not its complement."
+      ],
+      "reasoning": "Published equivariant topology results for direct cycles, graph joins and powers of cycles do not cover the complement-cycle complex. There is no implication from characters of a different graph to this specific full dihedral character.",
+      "searches": [
+        "Topology of Cut Complexes arXiv:2304.13675 group representations",
+        "Topology of Cut Complexes II arXiv:2407.08158 Section 6.2 Paths and Cycles",
+        "dihedral 3-cut complex cycle powers homology character"
+      ]
+    },
+    "checked_sources": [
+      "Kim–Kim arXiv:2101.01850, Theorem 3.4",
+      "Bayer et al. arXiv:2304.13675, Sections 4,6,7",
+      "Bayer et al. arXiv:2407.08158, Section 6.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim–Kim gives a nonequivariant homotopy wedge, without a group-equivariant wedge equivalence or trace computation.",
+        "Bayer et al. II derives dihedral representations for Δ_k(C_n), whose facets are complements of disconnected k-subsets of C_n, unlike Δ_3(complement C_n)."
+      ],
+      "reasoning": "A 3-dimensional rational vector space can carry many inequivalent D_n-modules; an unoriented wedge count does not imply a quarter-turn plane or the reflection sign. Neither checked stronger result subsumes the stated full character.",
+      "searches": [
+        "arXiv:2101.01850 Theorem 3.4 tight cycle noncover",
+        "arXiv:2407.08158 Section 6.2 dihedral character cycle graph",
+        "ordinary 3-cut complex complement of cycle representation D_n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim and Kim, arXiv:2101.01850, Section 3.2 defines the identical triple-cycle noncover and proves its nonequivariant wedge type.",
+        "For n≥6, disconnected triples of the complement graph are exactly the tight triples of the original cycle."
+      ],
+      "reasoning": "The two object descriptions are equivalent, not two novel findings. Kim–Kim determines underlying homotopy but gives no dihedral trace or module decomposition. This comparison includes mathematical equivalence, not merely similar titles.",
+      "searches": [
+        "noncover complex tight cycle dihedral character group action",
+        "complete dihedral character NC(C_n,3) tight triple-cycle noncover",
+        "arXiv:2101.01850 Section 3.2 Theorem 3.4",
+        "ordinary 3-cut complement of cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known exact rank table is Kim–Kim 2021 Theorem 3.4; this manuscript explicitly excludes it from novelty.",
+        "No table of rotation and reflection traces for this exact graph/hypergraph was identified in the checked literature."
+      ],
+      "reasoning": "Existing Betti/homotopy tables fix character values only at identity. The displayed nonidentity traces, rational decomposition and invariant-space congruences are not determined by such tables.",
+      "searches": [
+        "tight 3-uniform cycle noncover dihedral trace rational homology",
+        "three-cut complex complement cycle modulo eight invariant dihedral",
+        "cycle hypergraph independent sets signed reflection transfer matrix"
+      ]
+    },
+    "rationale": "The full dihedral representation, including reflection axes and the D4 plane constituent, is not supplied by the nonequivariant Kim–Kim tight-cycle classification, nor by Bayer et al. representations of cut complexes of direct cycles. Similar published power-cycle results concern different graphs; no exact earlier result was identified, with residual unindexed-work risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent character result could exist.",
+      "Earlier work may encode the same representation through a nonobvious equivariant duality; no such dominating theorem was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes underlying wedge homotopy, no D_n character or rational module",
+        "evidence": "Theorem 3.4 k=3,j=0 gives three spheres in n≡0 mod4 and one in other residues; no equivariant character assertion.",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.01850",
+        "material_read": "Definitions in Section 1; Theorem 3.4 and full Section 3.2 proof spanning pages 14–16",
+        "method": "Opened arXiv open-access PDF and inspected its theorem and proof",
+        "title": "Domination numbers and noncover complexes of hypergraphs",
+        "trigger": "Exact same tight 3-uniform hypergraph; necessary known homotopy input"
+      },
+      {
+        "assessment": "Develops general tools and unrelated graph cases; no character for Δ_3(complement C_n)",
+        "evidence": "Section 7.2 analyzes Δ_k(C_n), and Section 7.1 the complete multipartite family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Title, introduction and relevant Sections 3, 4, 6 and 7 (including group representations for multipartite graphs and treatment of cycle graph)",
+        "method": "Inspected open-access arXiv PDF sections and group-action theorem statements",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Cut-complex equivalence and possible stronger graph-family character theorems"
+      },
+      {
+        "assessment": "Computes Δ_k(C_n) and Δ_k(P_n) representations rather than Δ_3(complement C_n)",
+        "evidence": "Section 6.2 explicitly specifies G=P_n or C_n in its character theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Contents, introduction, Section 6.1, and Section 6.2 text and character formulas around pages 24–26",
+        "method": "Inspected arXiv full-text PDF including Section 6.2 stated domain",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Most plausible new dihedral equivariant cut-complex extension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c98e1a1-1ba7-46ba-bfe1-258a4e12921c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dihedral symmetry representation of a canonical infinite family is a motivated refinement of a known nonequivariant homotopy computation: for n divisible by four it detects an inflated D4 plane and a parity-twisted line, while other n exhibit an eight-periodic invariant-homology dichotomy. This is substantive module information, not a restatement of Betti numbers or a narrow arbitrary finite parameter calculation.",
+    "status": "PASS"
+  }
+}
