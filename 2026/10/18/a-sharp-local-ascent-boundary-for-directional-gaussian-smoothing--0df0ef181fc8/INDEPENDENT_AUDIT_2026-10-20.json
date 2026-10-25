@@ -1,0 +1,41 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T09:02:40.305871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bounded g permits Gaussian differentiation: DF(0)=delta I+a u^T, not in general symmetric. The two nonzero eigenvalues of sym(a u^T) are (u·a ± ||u|| ||a||)/2, so the lower one is -delta_*. Since g(0)=0, f(tw)=delta t² ||w||²/2+o(t²), and F(tv)=tJv+o(t), hence the fixed-step gain has strictly positive leading coefficient delta t²[-h v^T Jv +(h²/2)||Jv||²] for every h>0 if the least symmetric eigenvalue is negative. Positive symmetric part gives uniform local descent directions. For g(s)=s² exp(-s²/2), u=(1,10), delta=.001, independently computed v=(-9.9,1) yielding v^T Jv=-.1524893230 and delta_*=.156921249228332. The displayed rational comparisons certify sign without floating point. Equality delta=delta_* is explicitly not classified beyond quadratic order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Tran–Du–Zhang arXiv:2302.06404, relevant Section 4",
+        "Zhang et al. arXiv:2002.03001 (primary identification, partial accessibility)",
+        "Resultary semantic query for directional Gaussian smooth ascent threshold",
+        "Frozen RESULT.md/verify_dgs.py and independent sympy rank-two calculation"
+      ],
+      "rationale": "The nonlocal coordinate-by-coordinate Gaussian derivative is a known optimization operator, but the inspected primary convergence analysis controls distance to a neighborhood, not monotone objective descent. The exact rank-two local negative-curvature threshold and every-fixed-step uphill witness are distinct mathematical assertions.",
+      "residual_risks": [
+        "The original DGS algorithm paper appendix was not fully inspected; a counterexample or closely equivalent monotonicity caveat could appear there.",
+        "The equality case at delta_* remains open to nonlinear higher-order effects."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp criterion separates provable local descent directions from unavoidable local ascent even for a globally smooth strongly convex objective. It diagnoses a structural obstruction to naive fixed-step monotonicity assurances for a named, nonconservative smoothing method and provides an analytic bounded-curvature explicit witness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tran–Du–Zhang arXiv:2302.06404, relevant Section 4",
+    "Zhang et al. arXiv:2002.03001 (primary identification, partial accessibility)",
+    "Resultary semantic query for directional Gaussian smooth ascent threshold",
+    "Frozen RESULT.md/verify_dgs.py and independent sympy rank-two calculation"
+  ],
+  "disposition": "passed",
+  "limitations": "Exact fixed-radius coordinate-direction Gaussian integral only; no claim of global divergence, failure of convergence-to-neighborhood theorems, finite quadrature behavior, or classification at the equality threshold.",
+  "residual_risks": [
+    "The original DGS algorithm paper appendix was not fully inspected; a counterexample or closely equivalent monotonicity caveat could appear there.",
+    "The equality case at delta_* remains open to nonlinear higher-order effects."
+  ],
+  "schema_version": 1
+}
