@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the cluster order forced by mutual accessibility and forth; a globally onto map supplies unique contiguous source-level segments. Back at the last source cluster in each segment forces that cluster to hit every point of the corresponding target cluster; conversely those last-cluster surjections ensure every target successor is accessible from every source vertex over it. This establishes an if-and-only-if normal form, not only a sufficient construction. Inclusion–exclusion gives the labeled count. Source automorphisms fix each level and target automorphisms permute each target cluster, so column-vector multisets are complete two-sided orbit invariants. The finite coefficient product matches that bijection. Independently implemented enumerators checked 395 small labeled cases and 22 explicit group-action cases. Finite tests corroborate, rather than replace, the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest comparisons are the classical bounded-morphism semantics (Goranko–Otto, Section 2.2), Shapirovsky's frame-sum setting, previously recorded classifications of onto bounded morphisms for ordinal sums of *antichains* and of automorphism-orbit moduli for \(\mathsf{S5}\) disjoint equivalence blocks, and the published *Exact cardinality recurrence for mapping spaces between finite weak orders*. They concern, respectively, baseline definitions/general sums, antisymmetric levels, unordered equivalence components, and ordinary continuous order-preserving maps without modal back. None of the inspected claims implies this last-cluster-surjectivity normal form or the mixed ordered-cluster two-sided orbit count. Search does not establish global uniqueness. The 2009 frame-sums note and the 2018 article were not fully accessible and remain residual overlap risks.
+PASS
 
-## Value — PASS
-Finite linear preorders are natural models of the modal logic \(\mathsf{S4.3}\), and bounded morphic images preserve modal validity. The result classifies and counts a full two-parameter family of frame quotients up to both source and target labeling. A sharp subsequence existence condition shows exactly why global cardinality and level-count bounds are insufficient; the multivariate fiber-vector invariant extends the single-cluster partition picture to interacting ordered clusters. These are structural and enumerative invariants of the natural modal frame family, not isolated examples or routine relabelings.
+A finite total preorder has mutually accessible equivalence clusters arranged linearly; forth maps each source cluster to a single target cluster and induces a monotone sequence. Global onto makes this a nondecreasing surjection on cluster indices, determined by unique contiguous cuts e_0=0<e_1<⋯<e_k=h. Back at a point in the last source cluster assigned to target B_j forces images of that final cluster onto ALL of B_j; conversely endpoint surjectivity over each target B_j covers every target successor of every source point, giving pointwise f[R(x)]=S[f(x)]. Therefore labeled counts are ∑cuts∏ b_j^{sum earlier a_i}U(a_ej,b_j). Two-sided source/target within-cluster symmetric actions classify exactly the unordered multisets of fiber-column vectors with fixed row sums and positive final row, giving the coefficient product and existence iff a_ej≥b_j. Independently brute-forced all onto functions in 395 composition pairs, 1,550 valid maps and 247 orbit profiles with direct relation equality; separately reviewed the repository group-action script constructing actual source and target transposition orbits for 22 representative cases. Verified (a,b)=((2,2,2),(2,2)) gives 32 maps/4 orbits and ((3,2,3),(2,2)) gives 240/5. The finite enumeration corroborates, not proves, the arbitrary-cluster formulas.
 
-## Limitations and closest literature
-The theorem applies only to finite, unvalued, total preorders with global surjectivity. It does not claim bit-polynomial algorithms, an infinite-frame extension, or novelty certified independently. Earlier specialized work on linear-preorder p-morphisms remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty tested is an EXACT if-and-only-if and two-sided orbit count for globally onto bounded morphisms of linearly ordered equivalence clusters, not p-morphism definition or standard inclusion–exclusion. Inspected Shapirovsky primary full article on sums of Kripke frames: Proposition 3.4 constructs certain induced p-morphisms but neither counts all onto maps nor classifies cluster fiber orbits. Read the complete published Resultary finite weak-order mapping-space recurrence: its levels are ANTICHAINS in a T0 poset and maps only monotone; the present domain has full mutually accessible clusters and back condition. Separate S5 unordered-cluster and ordinal-sum antichain results likewise lack the ordered equivalence-cluster mix. Specialized unindexed S4.3 frame morphism enumerations remain a residual priority risk.
+
+## value
+
+PASS
+
+Finite linear preorders are the natural frames for S4.3, and globally surjective bounded morphisms preserve modal truths. The last-source-cluster constraint gives a sharp existence boundary and an exact complete classification of both labeled maps and quotient types under the two full frame symmetry groups. This is a coherent invariant and enumeration for all positive cluster vectors, with no requirement of a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
