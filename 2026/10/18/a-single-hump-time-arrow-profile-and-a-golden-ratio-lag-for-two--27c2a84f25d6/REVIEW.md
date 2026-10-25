@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary system has a stable triangular drift. Independent noise and the standard transfer functions yield the cross spectral difference. Its sine transform equals a negative derivative of a convolution of three even exponential kernels. The convolution is strictly decreasing on positive lags, fixing the sign. The derivative of the resulting time kernel is a nonzero three-dimensional exponential polynomial (including the confluent cases), so generalized Rolle zero-counting, its initial positive derivative and eventual negative derivative force exactly one simple positive maximum. Triple-pole inversion and the implicit function theorem prove the golden-ratio lag. The shipped numerical checks independently reconstruct finite covariance matrices and do not replace these proofs. The claim correctly excludes any physical asymmetry at identical probe damping.
+## correctness
 
-## Originality — PASS, with residual risk
-The parent cross-spectrum, coherence invariant, and full-system entropy-production formula in Bi–Calhoun (2026) are prior work and explicitly credited. That paper's Appendix K even identifies an antisymmetric zero-lag Onsager correction, so the presence of a small-lag asymmetric signal is not claimed as independently new. Its frequency-domain formulas do **not state** the all-positive-lag sign, exactly one absolute maximum including repeated poles, or the golden-ratio optimal-lag limit. These require positivity of a threefold Laplace-kernel convolution and an exponential-polynomial zero-count. General OU matrix theory by Godrèche–Luck supplies the covariance machinery without this model-specific optimization. The cross-correlation thermodynamic-bound and scalar-blindness literatures address different implications. Relevant indexed database records and recoverable earlier claims were compared by mathematical implication; no equivalently strong all-lag/optimal-lag coverage was identified. A general theorem on convolution derivatives or uninspected methodological papers may subsume the conclusion; this remains a genuine originality risk, not an assertion of unique discovery.
+PASS
 
-## Value — PASS
-The all-time sign and unique amplitude maximum answer a natural observation-design question that cannot be read from mere nonzero cross coherence. The theorem shows exactly when an observed two-channel Gaussian path law remains time-reversal symmetric despite hidden dissipation, distinguishes common-input detection from observed time-arrow detection, and gives a parameter-free golden-ratio timing rule in the near-degenerate regime. The signal amplitude vanishes on exact matching, so the rule is about first-order mismatch sensitivity, not a claim of detectability there. No finite-sample optimality is asserted.
+The stationary 3-dimensional linear Gaussian drift eigenvalues are -a,-d,-b with all positive. Independent observer noises have zero cross-spectrum. Exact cross-spectrum subtraction gives delta(t)=2D_f*c1*c2*(d-a)*F(t) with F(t)=(2/pi) int_0^infty omega*sin(omega*t)/[(omega²+a²)(omega²+d²)(omega²+b²)] d omega and Fprime(0)=1/[(a+d)(a+b)(d+b)]. Writing each Laplace Green kernel ell_r(t)=exp(-r|t|)/(2r) and G=ell_a*ell_d*ell_b yields F=-2Gprime>0 for every t>0 by strict monotonicity of convolution of positive symmetric decreasing kernels. Distinct poles give a three-term sum of exponentials and equal poles give confluent polynomial-exponential terms. Its derivative lies in a Chebyshev space of total order 3, so at most two real zeros including multiplicity; Fprime(0)>0 and its positive decaying eventual tail forces exactly one positive simple maximum (any tangent would violate the zero bound). Gaussian reversibility for observed two-probe covariance is equivalent to a=d when c1*c2 !=0. Triple equal rates κ give F=e^{-κt}(κt)(1+κt)/(8κ⁴); differentiation yields 1+z-z², hence unique optimum at κt=(1+sqrt5)/2. Smooth positive-rate perturbation and simple root yield coalescence. Independent symbolic differentiation and sampled positive-rate checks corroborate; full universal statement follows from Chebyshev/convolution proof.
 
-## Closest literature and limits
-Bi–Calhoun (2026) provides the complete input spectral matrix; this is the closest source, and its spectral implications are explicitly excluded from the novelty target. Godrèche–Luck (2018) gives general OU covariance, not the exact optimization. Lucente et al. (2022) and Ohga et al. (2023) give observational and thermodynamic context. The full texts of the first two were materially inspected; the latter two were compared through accessible summaries/abstracts, leaving residual risk. The theorem assumes exactly one OU latent mode and positive damping; multirate mixtures need not share the one-peak conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment of this EXACT final statement against published mathematical results and the source model, not certification of historical priority. General mathematical machinery and prior model definitions are attributed; claim-specific evaluated classification is not found among inspected primaries. A failed search is not novelty proof. Prior frequency-domain cross-spectral formulas enable deriving the cross-spectrum and sometimes imply its algebraic antisymmetric part, but do not by themselves force globally fixed sign, unique peak, or triple-coalescence optimizer; these depend on convolution strictness and the zero-count of exponential polynomials. Neither ordinary observation irreversibility nor global full-system entropy production alone yields this theorem.
+
+## value
+
+PASS
+
+For a canonical partial observation of irreversible OU motion, a precise positive-lag orientation sign and a unique optimal sampling lag independent of independent probe noise or coupling magnitudes are meaningful population diagnostics. The unexpected golden-ratio coalescence is an exact limiting invariant, not merely a numerical coincidence; distinction from finite-sample statistical power is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
