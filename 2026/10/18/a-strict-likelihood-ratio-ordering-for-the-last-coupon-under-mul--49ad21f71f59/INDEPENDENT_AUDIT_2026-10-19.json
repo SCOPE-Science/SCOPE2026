@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T00:57:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=n,L=i, exactly h-1 earlier i draws and final i, hence the multinomial coefficient extraction from exp(p0 z) times other truncated exponentials, valid n>=mh. The coefficient factors p^r/r!, supported on r>=h, and the null exponential are log-concave; their convolutions retain TP2. For p_j>p_i the rank kernel a_pj(r)/a_pi(r) grows strictly in r; a positive 2x2 determinant using the minimal supported coefficient b_(m-2)h yields strict monotonicity of C_k(pj)/C_k(pi) for all k>= (m-1)h, not merely asymptotic monotonicity. n=mh uniform final-label law follows from equal exact quota counts. Conditioning on fixed h-1 instances of i proves the fixed-parameter joint tail and stated odds ratio. Recomputed bounded exact-rational unequal-weight examples with and without null outcomes, supporting but not replacing the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Myers–Wilf extends Newman–Shepp quota-completion formulas in the equal-weight setting.",
+          "Anceaume–Busnel–Sericola cover arbitrary weights/null draws for completion time, not conditional last-label ratios."
+        ],
+        "reasoning": "Broader marginal distribution coverage does not dominate the joint conditional ordering for distinct labels; no identified general theorem simultaneously handles optional null draws, arbitrary positive weights, equal h and strict all-time label ratios.",
+        "searches": [
+          "unequal coupon collector quotas weighted completion last type monotone likelihood ratio",
+          "Newman Shepp 1960 double dixie cup",
+          "arXiv:1402.5245 generalized coupon collector Markov chains"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0304229, Section 3 equations (29),(33)",
+        "arXiv:1402.5245, Theorem 2 and equation (4)",
+        "Newman–Shepp, Double Dixie Cup Problem (1960)",
+        "SCOPE source RESULT.md frozen blob 4bf16aeedbec35850925a71af52cd32f05385e26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Myers–Wilf formula (29) sums over the final label for equiprobable coupon quotas.",
+          "Anceaume et al. equation (4) recursively removes a coupon but does not assert a TP2 comparison of labels under fixed N."
+        ],
+        "reasoning": "The joint coefficient expression refines the marginal laws; taking a ratio of marginal-time expressions is not an algebraic shortcut to the claimed strict inequality. Classical PF2 convolution facts are acknowledged as tools.",
+        "searches": [
+          "arXiv:math/0304229 formula (29) and (33)",
+          "arXiv:1402.5245 Theorem 2 and recurrence (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Myers–Wilf section 3 (formula 29) computes the total completion-time law for uniform coupons under repeated quota, no conditional label odds.",
+          "Anceaume et al. Theorem 2 gives P(T_c,n(p)>k) under arbitrary weights/null, still unlabelled."
+        ],
+        "reasoning": "The last finishing label is not determined by the time marginal. Even when completion-time generating functions use the same truncated exponentials, pairwise strict likelihood-ratio comparisons across all n require a separate total-positivity argument.",
+        "searches": [
+          "last finishing coupon label probability conditional on collection time unequal probabilities",
+          "Myers-Wilf arXiv:math/0304229 Section 3",
+          "Anceaume-Busnel-Sericola arXiv:1402.5245 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned 15 mostly unrelated results (top similarity below 0.40) and no title/summary asserting this last-label inequality.",
+          "The cited classical papers give total-time laws rather than an exact conditional-label table."
+        ],
+        "reasoning": "No directly matching published database/table found in inspected indexed findings. Search absence alone is not a novelty proof and cannot rule out unindexed conditional results.",
+        "searches": [
+          "Resultary: strict likelihood ratio last coupon identity multiple quotas unequal weights null coupon completion time",
+          "Resultary: coupon collector multiple quotas identity last coupon conditional completion time strict likelihood ratio ordering"
+        ]
+      },
+      "rationale": "The selected finding is conditional strict likelihood-ratio ordering of last-label identity for every n and arbitrary unequal coupon weights and quotas; published coupon-completion distributions are stronger only for the unlabelled marginal and do not imply conditional strict TP2 ordering without an additional theorem. Best-of-knowledge new motivated joint refinement.",
+      "residual_risks": [
+        "A previous total-positivity or reverse-hazard comparison of completing coupon identity may imply the same inequality without matching words.",
+        "Complete historical priority indexing of conditional last-coupon laws has not been established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No stated conditional final-coupon likelihood-ratio theorem",
+          "evidence": "Section 3 equation (29) is a marginal N law for equiprobable coupons and equation (33) its generating function.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "Full 20-page text accessible; abstract, Section 3 including equations (29)–(33), and conclusions/references inspected",
+          "method": "Open arXiv PDF text and page 15 image",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Same quota collection process and exact completion-time generating function"
+        },
+        {
+          "assessment": "Unlabelled time distribution covers more general weights but not the conditional-label ordering",
+          "evidence": "Theorem 2 is P(T_c,n(p)>k), and p0 enters its exact recurrence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5245",
+          "material_read": "Full 14-page PDF accessible; section 2, Theorem 2 and recurrence (4) materially inspected",
+          "method": "Open arXiv PDF text and page 4 image",
+          "title": "New Results on a Generalized Coupon Collector Problem Using Markov Chains",
+          "trigger": "Same arbitrary coupon probabilities plus null coupon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The last required coupon label, conditional on observed completion time, is a natural inferential observable distinct from the classical marginal collection-time distribution. Strict ordering with arbitrary weights, repeated quotas and optional nulls answers a nontrivial uniform-in-n comparison and supplies a sharp interpretive distinction; it is not just a re-expression of the known total-time EGF.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent identical draws only; common positive integer quota; no varying quotas or adaptive sampling.",
+    "Exact-rational enumerations are illustrations, not infinite-n proof."
+  ],
+  "schema_version": 1
+}
