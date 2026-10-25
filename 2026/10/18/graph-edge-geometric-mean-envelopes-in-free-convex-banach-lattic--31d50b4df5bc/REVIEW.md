@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from the published free \(p\)-convex norm formula specialized to \(\ell_1^n\), an exact reduction to endpoint resources on graph edges, and strong finite-dimensional concave-programming duality. A strictly feasible positive resource assignment justifies the dual equality. The complementary-price threshold \(x_i x_j\ge1\) is derived by a sharp two-variable arithmetic–geometric-mean inequality. Equality at \(n/2\) is proved in both directions via budget saturation and equality in arithmetic–geometric mean. Convex averaging of logarithmic vertex prices and a complete one-variable minimization prove the multipartite formula for every number and size of parts. The direct primal examples attain both branches. The accompanying bounded exact-rational checker corroborates 4,083 part profiles and 35,832 certificate entries; it is not used to infer the infinite family from finite tests.
+PASS
 
-## Originality — PASS, residual risk recorded
+Uses the published free finite-p convex lattice norm over ℓ1^n, whose weak-p constraint reduces to per-coordinate budgets. Edgewise Cauchy–Schwarz bounds group a maximizing edge per vector; converse edge-supported test vectors attain every budget, proving equality with the finite edge program. Slater strong duality and √ab≤λ_i a+λ_j b iff 4λ_iλ_j≥1 give vertex-price min. AM–GM equality and budget saturation iff fractional perfect matching; multipartite price convexity in log variables and one-variable minimization yields n/2 or √(L(n−L)). Verified source of exact rational antipodal/dominant multipartite checker, n≤12 only.
 
-The 2021 original paper provides the explicit ambient norm and function calculus, but its inspected introduction and §§2,6–7 do not calculate this graph-edge function or establish its matching criterion. The 2022 full open preprint examines general structure, operators, and sublattices, but its inspected §§1,2,4,9 and title/term searches did not reveal these exact statements. The 2017 original paper provides the free-lattice \(p=1\) representation without the graph invariant. A direct symmetry-averaging argument already yields the vertex-transitive case, so no originality is claimed for that special case. Searches for equivalent graph-edge budget, geometric-mean, fractional-matching and complete-multipartite statements found no stronger covering published result. The main residual risk is an equivalent optimization theorem outside the indexed Banach-lattice vocabulary, not a known implication from a stronger claim.
+## originality
 
-## Value — PASS
+PASS
 
-The finding computes a natural homogeneous lattice norm for arbitrary finite graph incidence patterns, identifies exactly when its universal upper bound is attained using fractional perfect matchings, and gives a complete phase diagram for all complete multipartite graphs. In particular, large nontransitive stars and imbalanced bipartite graphs differ sharply from the previously covered invariant cases. The structural matching equivalence and exact multipartite threshold are not merely a numerical instance or a renaming of the general p-convex norm definition. It supplies an explicit conic optimization model for graph-induced functions; no general algorithmic breakthrough or result for hypergraphs is claimed.
+General FBL^p norm is published and not newly asserted; graph edge-reduction, matching threshold and multipartite formulas are not found already stated in the accessible primary theorem or related published result search. Best-of-knowledge with optimization-vocabulary coverage risk.
 
-## Scope and residual risks
+## value
 
-The published ambient norm is relied upon as a proven premise. The theorem concerns finite simple graphs without isolates, real scalars and finite exponents. The elementary transitive symmetry case is not claimed as independently novel. No independent audit or external validation has occurred; literature coverage cannot certify absence of unindexed equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact norm for graph-generated free-lattice function across all finite simple graphs, structural fractional-matching equality test, and a nontrivial sharp classification for nontransitive complete multipartite graphs. The graph-dependent price invariant can be used in future lattice norm comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

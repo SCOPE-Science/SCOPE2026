@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof uses the canonical free p-convex norm, a finite concave edge-budget optimization, strong Lagrangian duality under strictly feasible affine budget constraints, and an exact equality classification through fractional perfect matchings. The complete multipartite formula follows from convex averaging in log-prices and a one-variable minimum.
+# Independent mathematical audit
 
-A standalone Python 3 verifier with no third-party requirements checks all ordered complete multipartite profiles with 2 through 12 vertices. It enumerates 3,711 balanced and 372 dominant profiles and checks 35,832 rational antipodal edge/cross-edge certificate entries. Representative floating-point comparisons are supplementary and explicitly bounded. No finite enumeration is taken as proof of a statement for every graph or dimension.
+## correctness
 
-The baseline norm representation is a published theorem; it has not been independently reproved here. Independent audit of the new result has not been performed.
+PASS
+
+Uses the published free finite-p convex lattice norm over ℓ1^n, whose weak-p constraint reduces to per-coordinate budgets. Edgewise Cauchy–Schwarz bounds group a maximizing edge per vector; converse edge-supported test vectors attain every budget, proving equality with the finite edge program. Slater strong duality and √ab≤λ_i a+λ_j b iff 4λ_iλ_j≥1 give vertex-price min. AM–GM equality and budget saturation iff fractional perfect matching; multipartite price convexity in log variables and one-variable minimization yields n/2 or √(L(n−L)). Verified source of exact rational antipodal/dominant multipartite checker, n≤12 only.
+
+## originality
+
+PASS
+
+General FBL^p norm is published and not newly asserted; graph edge-reduction, matching threshold and multipartite formulas are not found already stated in the accessible primary theorem or related published result search. Best-of-knowledge with optimization-vocabulary coverage risk.
+
+## value
+
+PASS
+
+Exact norm for graph-generated free-lattice function across all finite simple graphs, structural fractional-matching equality test, and a nontrivial sharp classification for nontransitive complete multipartite graphs. The graph-dependent price invariant can be used in future lattice norm comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
