@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The transient generator has strictly positive absorption rates from singly occupied states. The first-step transform equations yield the stated cubic denominator. Its coefficient of the directional allocation product is exactly the Laplace argument, proving the fixed-sum distributional symmetry and strict Laplace-transform order. Differentiation at zero proves the claimed mean and variance comparisons; exact symbolic inversion and rational examples were executed. The order is not silently strengthened to ordinary stochastic dominance.
+## correctness
 
-**Originality — PASS, with access limitations.** The 2006 colonization-asymmetry study uses a Monte Carlo system with many patches; its examined abstract, introduction, results, and discussion do not give the particular two-patch fixed-total-rate law. The 2001 conservation rules study is closer in objective but describes a different allocation comparison in its accessible abstract. The 2010 restoration study uses dynamic programming for different choices. Searches by alternative terms for directional rescue, Laplace transforms, and allocation under fixed totals did not identify an exact equivalent. The complete 2001 text was unavailable, and some external search results were intermittently inaccessible; scientific originality is consequently provisional rather than certified.
+PASS
 
-**Mathematical value — PASS.** This is a natural conservation resource-allocation question. The answer is not only a maximizer of one expectation: it is an entire distributional symmetry that survives arbitrary heterogeneity in local extinction rates, plus a strict optimal ordering of all positive Laplace transforms. That the variance is also maximized clarifies why persistence gains and outcome uncertainty need not conflict in the intuitive direction. The fixed-total-rate condition is essential; this result is not a generic management prescription.
+Rebuilt three-state transient Q=[[-a-b,b,a],[c,-a-c,0],[d,0,-b-d]], absorption r=[0,a,b]. Symbolically inverted (sI-Q) and recovered L(s)=ab(2s+K)/(s^3+[2(a+b)+C]s^2+[a^2+3ab+b^2+(a+b)C+cd]s+abK), K=a+b+C. All coefficients and denominator positive for s>=0. Differentiate holding C fixed: dL/dz=-ab(2s+K)s/D^2<0 for s>0. AM-GM z<=C^2/4 proves unique balance if C>0. Derived E[T]=(a^2+ab+b^2+(a+b)C+z)/(abK) and Var[T]=A^2/(abK)^2-2[2(a+b)+C]/(abK)-4/K^2 with A=a^2+3ab+b^2+(a+b)C+z, so both increase in z. Symbolic exact independent reproduction and rational a=4,b=1,C=2 endpoints were checked.
 
-The claim is limited to the exact Markov occupancy model described in the result, and the availability of an older comparable full text is a residual bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General finite absorbing Markov-chain resolvents and conservation-colonization optimization are standard; the exact direction-swap law with heterogeneous local extinction rates and one-parameter balanced allocation optimum was not found in identified papers.
+
+## value
+
+PASS
+
+An unexpected complete-law exchange symmetry despite unequal local extinction rates, plus an exact simultaneous optimum for two practically distinct extinction-time moments at a fixed physically explicit successful rescue budget, gives a useful finite-state ecological mechanism and boundary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
