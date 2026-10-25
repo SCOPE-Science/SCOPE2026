@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:54:45.553738Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md unique Hamiltonian-cycle representation and shell proof",
+        "verify_2conn_bipartite_outerplanar.py and verify_independent.py (different enumeration paradigms inspected)",
+        "verify_family.py and its recorded outputs",
+        "independent custom dihedral+WL+orbit verifier n<=12, odd ell up to 21"
+      ],
+      "rationale": "A biconnected simple outerplanar graph has a unique outer Hamiltonian cycle, reducing isomorphism to dihedral equivalence of noncrossing polygon diagonals; bipartiteness forces even order and opposite parity endpoints. Double-counting bounded-face boundary length gives c<=n/2−2 chords, so enumeration of all admissible noncrossing diagonal subsets for even n<=12 is exhaustive. A fresh independent exact enumeration gives (labelled dissections, dihedral classes, failures) (1,1,0),(4,2,0),(21,4,0),(126,13,0),(818,48,1) for n=4,6,8,10,12; the sole failure is chords (0,3),(6,9). Its equitable degree classes are sizes 4 and 8 versus three four-point dihedral automorphism orbits. For odd ell=2h+1, four degree-three hubs and h distance shells form an equitable partition; successive refinement distinguishes shells in exactly h strict rounds, and the chord-matching stabilizer has order four splitting each shell into two size-four orbits. Independently recomputed exact small n and ell=3..21 selected points, including automorphism counts. The infinite h theorem follows from shell and symmetry structure, not finite checks.",
+      "residual_risks": [
+        "Finite exhaustive classification explicitly stops at twelve vertices; no assertion of classification for n>12 beyond the exhibited family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general refinability and amenability framework is conceptual, without stated first obstruction and chord-family gap formula.",
+          "The dissection representation is fully covered by Bodirsky et al and not a novelty claim."
+        ],
+        "reasoning": "No source found with both the precise bipartite biconnected restriction and sharp n=12 obstruction or all-order deficient family; this is a best-of-knowledge comparison.",
+        "searches": [
+          "Arvind et al Graph Isomorphism Color Refinement and Compactness sections on refinable/amenable graphs",
+          "Bodirsky Fusy Kang Vigerske Enumeration of Unlabeled Outerplanar Graphs §§3.1,3.4",
+          "Resultary published graph refinement / outerplanar records"
+        ]
+      },
+      "checked_sources": [
+        "Bodirsky et al arxiv:math/0511422 §§3.1,3.4",
+        "Arvind et al arxiv:1502.01255",
+        "OEIS A111757",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two graphs in the same class-count table may differ in equitable and orbit partitions; the enumeration alone has no WL data.",
+          "General colour refinement procedures can compute partitions on input graphs but do not assert a unique first exception at n=12."
+        ],
+        "reasoning": "The claim involves a complete finite structural classification and all-order unbounded gap, not automatically implied by generic executable algorithms.",
+        "searches": [
+          "Bodirsky et al arxiv:math/0511422 counting",
+          "Arvind et al arxiv:1502.01255 theoretical refinability",
+          "OEIS A111757"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-start 1-WL stable cells are equitable colour classes, and orbit-exactness asks equality with automorphism orbit partition; broad refinability criteria address this general relation.",
+          "Bodirsky et al enumerate bipartite 2-connected outerplanar dissections but do not give this exact WL-vs-orbit exceptional dissection classification."
+        ],
+        "reasoning": "The new cutoff requires analysing equitable partitions for all 48 dihedral classes at n=12; unlabeled enumeration does not imply refinement success/failure.",
+        "searches": [
+          "Resultary: bipartite biconnected outerplanar graph color refinement automorphism orbit exact 12 vertices dissection",
+          "Bodirsky Fusy Kang Vigerske 2005 arxiv:math/0511422 full",
+          "Arvind Köbler Rattan Verbitsky 2015 arxiv:1502.01255 full ECCC report"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A111757 gives class numbers 1,2,4,13,48, precisely matching the preexisting enumeration component.",
+          "New tabulation includes failure counts 0,0,0,0,1 and automorphism-orbit-vs-WL class information, absent from enumerative counts alone."
+        ],
+        "reasoning": "The old table is not recomputed as discovery; the added invariant is the orbit mismatch and unique extremal witness.",
+        "searches": [
+          "OEIS A111757 bipartite two-connected outerplanar graph counts",
+          "Bodirsky et al graph enumerative tables",
+          "Resultary search WL orbit exact two-chord example"
+        ]
+      },
+      "rationale": "The older outerplanar graph-isomorphism count and abstract colour-refinement theory are prerequisites, not the exact first failure nor the unbounded orbit-colour deficit construction.",
+      "residual_risks": [
+        "A less discoverable specialized graph-refinement classification could contain the exact twelve-vertex example.",
+        "The finite classification n<=12 does not claim all possible larger exceptions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers dissection premise and class counts, not this colour-refinement orbit exception",
+          "evidence": [
+            "Unique Hamiltonian cycle for 2-connected outerplanar graphs; bipartite unlabeled counting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0511422",
+          "material_read": "Accessible primary complete arXiv text, §§3.1 and 3.4 on canonical outer cycle and bipartite graph enumeration",
+          "method": "Read full HTML/text of paper and relevant enumeration sections",
+          "title": "Enumeration of Unlabeled Outerplanar Graphs",
+          "trigger": "Same exact graph class and dissection counts"
+        },
+        {
+          "assessment": "Develops general theory; does not furnish this exact bipartite outerplanar sharp cutoff and matched-chord orbit deficit",
+          "evidence": [
+            "Definitions and structural results comparing 1-WL stable classes and automorphism action."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Primary full arXiv/ECCC report on refinement, amenability, refinability and compactness",
+          "method": "Read accessible full primary text emphasizing theorem statements and graph classes",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Direct same notion equitable/automorphism partition"
+        },
+        {
+          "assessment": "Provides old isomorphism class numbers but not WL-vs-orbit classification",
+          "evidence": [
+            "Terms for even orders 4..12 are 1,2,4,13,48."
+          ],
+          "identifier_or_url": "https://oeis.org/A111757",
+          "material_read": "OEIS title and terms for bipartite 2-connected outerplanar counts",
+          "method": "Read sequence entry and compared terms to independent table",
+          "title": "OEIS A111757",
+          "trigger": "Existing exact table likely to dominate claimed small enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bodirsky et al 2005 exact graph class",
+        "Arvind et al 2015 WL/orbit theory",
+        "RESULT.md family proof"
+      ],
+      "rationale": "Uniform counting colour refinement approximates automorphism orbit partitions, and the first failure within the natural bipartite 2-connected outerplanar family is a meaningful extremal boundary. The theorem proves uniqueness at 12 by a complete justified census and exposes an unbounded quantitative gap and exact refinement depth along a natural two-chord family. This structural witness is useful for testing symmetry-sensitive graph algorithms and is not an arbitrary enumeration of 48 graphs.",
+      "residual_risks": [
+        "Generality limited to uniform-start 1-WL and specified graph restrictions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive classification explicitly stops at twelve vertices; no assertion of classification for n>12 beyond the exhibited family.",
+    "A less discoverable specialized graph-refinement classification could contain the exact twelve-vertex example.",
+    "The finite classification n<=12 does not claim all possible larger exceptions.",
+    "Generality limited to uniform-start 1-WL and specified graph restrictions."
+  ],
+  "schema_version": 1
+}

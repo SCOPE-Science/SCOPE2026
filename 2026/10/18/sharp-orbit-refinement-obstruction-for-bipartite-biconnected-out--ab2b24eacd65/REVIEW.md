@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unique outer Hamiltonian cycle of every biconnected outerplanar graph reduces graph isomorphism to dihedral equivalence of noncrossing chord sets. Bipartiteness imposes even polygon order and odd-separated chord endpoints. The finite bound on chords, \(c\le n/2-2\), is derived from the bounded-face length inequality. Two independently implemented exhaustive algorithms (dihedral canonicalization and full-graph isomorphism) agree on all orders \(4,6,8,10,12\), on class counts, and on the unique exceptional twelve-vertex chord configuration. Explicit neighbour-colour counts show its equitable stable partition, and its exact dihedral stabilizer gives the three orbits. In the infinite family, the hub distance-shell partition is equitable and recovered round by round; the chord matching's four-element symmetry group separates shortened from unshortened arcs. The proof is all-order for this family, while the finite census is explicitly capped at twelve.
+PASS
 
-## Originality — PASS, qualified
+A biconnected simple outerplanar graph has a unique outer Hamiltonian cycle, reducing isomorphism to dihedral equivalence of noncrossing polygon diagonals; bipartiteness forces even order and opposite parity endpoints. Double-counting bounded-face boundary length gives c<=n/2−2 chords, so enumeration of all admissible noncrossing diagonal subsets for even n<=12 is exhaustive. A fresh independent exact enumeration gives (labelled dissections, dihedral classes, failures) (1,1,0),(4,2,0),(21,4,0),(126,13,0),(818,48,1) for n=4,6,8,10,12; the sole failure is chords (0,3),(6,9). Its equitable degree classes are sizes 4 and 8 versus three four-point dihedral automorphism orbits. For odd ell=2h+1, four degree-three hubs and h distance shells form an equitable partition; successive refinement distinguishes shells in exactly h strict rounds, and the chord-matching stabilizer has order four splitting each shell into two size-four orbits. Independently recomputed exact small n and ell=3..21 selected points, including automorphism counts. The infinite h theorem follows from shell and symmetry structure, not finite checks.
 
-Semantic searches of research indexes for bipartite biconnected outerplanar graph refinement, equitable orbit partitions, the twelve-vertex chord-pair exception and exact dual-chord families returned no covering published statement. Accessible earlier internal claims about first failures in unrestricted outerplanar graphs, or cactus graphs, do not classify the stricter bipartite biconnected case. The full Bodirsky–Fusy–Kang–Vigerske paper [1], §§3.1 and 3.4, describes exactly the enumeration framework and existing counts but not colour-refinement orbit failures. The full Arvind–Köbler–Rattan–Verbitsky report [2] supplies broad refinement theory, without the stated sharp dissection classification or infinite chord-matching deficit. OEIS A111757 [3] independently provides the old counts, not the new partition information. Earlier specialist coverage remains a real residual priority risk; a negative search is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp first obstruction and its uniqueness solve a concrete natural finite extremal classification inside a standard sparse graph family. The all-order two-chord construction explains the phenomenon structurally and shows that orbit-refinement deficit is unbounded despite bipartiteness, biconnectivity and outerplanarity. The exact depth and orbit formulas give a reproducible testing family for symmetry-sensitive graph procedures. Previously known enumeration counts alone do not imply these properties.
+The older outerplanar graph-isomorphism count and abstract colour-refinement theory are prerequisites, not the exact first failure nor the unbounded orbit-colour deficit construction.
 
-## Sources and limits
+## value
 
-[1] Bodirsky–Fusy–Kang–Vigerske, *Enumeration of Unlabeled Outerplanar Graphs*, arXiv:math/0511422, §§3.1, 3.4 (full PDF inspected).
+PASS
 
-[2] Arvind–Köbler–Rattan–Verbitsky, *Graph Isomorphism, Color Refinement, and Compactness*, arXiv:1502.01255 / ECCC TR15-032 (full PDF inspected).
+Uniform counting colour refinement approximates automorphism orbit partitions, and the first failure within the natural bipartite 2-connected outerplanar family is a meaningful extremal boundary. The theorem proves uniqueness at 12 by a complete justified census and exposes an unbounded quantitative gap and exact refinement depth along a natural two-chord family. This structural witness is useful for testing symmetry-sensitive graph algorithms and is not an arbitrary enumeration of 48 graphs.
 
-[3] OEIS A111757 (known bipartite outerplanar counts).
-
-The complete census stops at twelve vertices; no completeness above twelve is asserted. A possible specialized earlier priority claim and a lack of independent validation remain.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

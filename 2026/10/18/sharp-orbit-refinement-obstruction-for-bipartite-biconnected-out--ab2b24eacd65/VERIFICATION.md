@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify_2conn_bipartite_outerplanar.py`, `python verify_independent.py`, and `python verify_family.py` in one directory. Python 3 and NetworkX are required for the independent graph-matcher implementation; the primary enumeration and the family checker use the standard library. The second program enumerates full graph automorphisms rather than reusing the primary program's dihedral-orbit routine. Compare standard output with `primary_output.txt`, `independent_output.txt`, and `family_output.txt`.
+## correctness
 
-The two exact finite programs enumerate 1, 4, 21, 126 and 818 noncrossing bipartite polygon dissections (before isomorphism), yielding 1, 2, 4, 13 and 48 isomorphism types at even orders 4 through 12. Both find exactly one orbit-refinement failure at order 12, with diagonals (0,3) and (6,9) and colour/orbit sizes 4+8 versus 4+4+4. The group-theoretic proof explains exhaustiveness of canonicalization. The independent program's graph-isomorphism checks are separate from the primary dihedral implementation.
+PASS
 
-The family test exercises odd arc lengths 3 to 81, validating all observed colour counts, orbit counts, refinement depths and orbit sizes. These finite tests are checks, not certificates of the universal statement, which follows from the equitable distance-shell proof and chord-preserving automorphism classification.
+A biconnected simple outerplanar graph has a unique outer Hamiltonian cycle, reducing isomorphism to dihedral equivalence of noncrossing polygon diagonals; bipartiteness forces even order and opposite parity endpoints. Double-counting bounded-face boundary length gives c<=n/2−2 chords, so enumeration of all admissible noncrossing diagonal subsets for even n<=12 is exhaustive. A fresh independent exact enumeration gives (labelled dissections, dihedral classes, failures) (1,1,0),(4,2,0),(21,4,0),(126,13,0),(818,48,1) for n=4,6,8,10,12; the sole failure is chords (0,3),(6,9). Its equitable degree classes are sizes 4 and 8 versus three four-point dihedral automorphism orbits. For odd ell=2h+1, four degree-three hubs and h distance shells form an equitable partition; successive refinement distinguishes shells in exactly h strict rounds, and the chord-matching stabilizer has order four splitting each shell into two size-four orbits. Independently recomputed exact small n and ell=3..21 selected points, including automorphism counts. The infinite h theorem follows from shell and symmetry structure, not finite checks.
 
-No independent scientific audit, publication priority judgment, or external expert certification has been performed.
+## originality
+
+PASS
+
+The older outerplanar graph-isomorphism count and abstract colour-refinement theory are prerequisites, not the exact first failure nor the unbounded orbit-colour deficit construction.
+
+## value
+
+PASS
+
+Uniform counting colour refinement approximates automorphism orbit partitions, and the first failure within the natural bipartite 2-connected outerplanar family is a meaningful extremal boundary. The theorem proves uniqueness at 12 by a complete justified census and exposes an unbounded quantitative gap and exact refinement depth along a natural two-chord family. This structural witness is useful for testing symmetry-sensitive graph algorithms and is not an arbitrary enumeration of 48 graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
