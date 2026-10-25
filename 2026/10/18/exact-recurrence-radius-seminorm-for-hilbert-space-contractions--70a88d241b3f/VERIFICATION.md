@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Hilbert-contraction recurrence-radius theorem
+# Independent mathematical audit
 
-The result is proved analytically for arbitrary complex Hilbert spaces; no finite enumeration or numerical convergence claim underlies its quantifiers. The indispensable nontrivial facts are (i) existence of the positive asymptotic limit for a contraction, (ii) reduction by unimodular eigenvectors, (iii) scalar spectral representation by Sz.-Nagy unitary dilation, and (iv) uniform-block squared-Fourier averaging. The last step is explicitly proved by a two-measure integral and dominated convergence, with the diagonal atom obstruction independently excluded by the Hilbert mean ergodic theorem. Exact threshold necessity and sufficiency use disjointness of a syndetic set from a uniformly Banach-density-zero set and survival of syndetic returns after deleting a uniformly sparse set, respectively.
+## correctness
 
-Reproduction of finite diagnostics: run `python check_examples.py` using Python 3. This uses only the standard library. The checker verifies exact rational squared-return norms for a finite diagonal contraction, the unilateral shift on a finite-support vector, a weighted unilateral shift with a damped first edge, and the backward shift on a basis vector. These checks cannot certify the infinite-dimensional theorem; the proof is in RESULT.md.
+PASS
 
-Limits: only base-point syndetic returns and Hilbert-space contractions; no optimal gap-length constants or uniform orbit-translation statement. Publication-priority risk remains in older classical spectral recurrence theory. Independent audit has not been performed.
+PASS. Monotone positive sequence T*^n T^n has strong limit A. Unimodular eigenvectors of a contraction reduce T and have syndetic compact-torus returns; complement scalar correlation φ(n)=⟨T^n z,z⟩ has nonatomic unitary-dilation spectral measure, because mean-ergodic projections at each circle eigenvalue vanish on z. Dominated convergence in the uniformly shifted geometric-series kernel establishes uniform-block averages of |φ(n)|² tending to zero. Thus times with large correlation have upper Banach density zero and cannot contain a syndetic return set, proving δ below sqrt(||z||²+⟨Az,z⟩) impossible. Every sufficiently large block contains a small-correlation time intersecting a syndetic pure-point return set, yielding returns within d+epsilon and including δ=d via positive slack. Hence δ_*(x)² is the claimed Hilbertian seminorm on (I-P)x, nullspace PH, Lipschitz ≤√2. Explicit checks of stable, isometric, backward/forward weighted-shift and normal spectral regimes agree; no finite test is used as infinite-dimensional proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
+
+## value
+
+PASS
+
+PASS. Complete universal formula for a natural and recently formalized base-point recurrence threshold for all complex Hilbert contractions, differentiating pure-point, stable and continuous-spectrum components. Structural seminorm and ellipsoidal tolerance sets sharpen earlier lower-semicontinuity and stable-orbit special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

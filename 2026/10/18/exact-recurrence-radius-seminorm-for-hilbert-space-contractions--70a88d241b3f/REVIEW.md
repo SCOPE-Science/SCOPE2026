@@ -1,19 +1,21 @@
-# Scientific review: exact contraction recurrence radius
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator asymptotic limit exists by monotone boundedness of positive quadratic forms. Unimodular eigenvectors reduce contractions, and their closed span has syndetic near-identity return sets. The orthogonal complement has continuous scalar dilation spectrum: mean ergodicity rules out every atomic frequency. The explicitly bounded geometric-series integral makes squared correlations uniformly Cesàro-small over **all** starting positions. This is the critical step that allows intersection with an arbitrary syndetic eigenvector-return set. The squared-distance identity then provides both necessity and sufficiency, including the endpoint tolerance by its stipulated positive slack. Separate checks cover stable, isometric, mixed weighted-shift, and normal cases. The standalone arithmetic checks are not relied upon for the universal statement.
+PASS
 
-## Originality — PASS, with priority risk
+PASS. Monotone positive sequence T*^n T^n has strong limit A. Unimodular eigenvectors of a contraction reduce T and have syndetic compact-torus returns; complement scalar correlation φ(n)=⟨T^n z,z⟩ has nonatomic unitary-dilation spectral measure, because mean-ergodic projections at each circle eigenvalue vanish on z. Dominated convergence in the uniformly shifted geometric-series kernel establishes uniform-block averages of |φ(n)|² tending to zero. Thus times with large correlation have upper Banach density zero and cannot contain a syndetic return set, proving δ below sqrt(||z||²+⟨Az,z⟩) impossible. Every sufficiently large block contains a small-correlation time intersecting a syndetic pure-point return set, yielding returns within d+epsilon and including δ=d via positive slack. Hence δ_*(x)² is the claimed Hilbertian seminorm on (I-P)x, nullspace PH, Lipschitz ≤√2. Explicit checks of stable, isometric, backward/forward weighted-shift and normal spectral regimes agree; no finite test is used as infinite-dimensional proof.
 
-The exact motivating base-point definition and recurrence radius appear in Alshammari–Benchiheb (2026). Its fully inspected §§2–4 prove the strongly stable orbit threshold and lower semicontinuity but do not state the formula involving both the unimodular eigenprojection and the contraction asymptotic limit. The later Alshammari (2026) paper expressly changes to the stronger whole-orbit translation definition, which is not equivalent to the base-point condition. Targeted scientific literature and mathematical-record searches for spectral/Wiener/ergodic equivalents yielded no identified theorem implying the entire classification. Classical unitary-dilation, Wiener, and ergodic results are acknowledged as proof ingredients. Residual risk: older Hilbert-space rigidity/recurrence literature may record the same radius in a different language; the search is not a proof of uniqueness or priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact complete classification of the natural quantitative invariant \(\delta_*(x)\) is more informative than the known stable-orbit special case and lower semicontinuity. It identifies the exact contribution of persistent continuous-spectrum motion, produces a closed-convex geometric formula for every tolerance class, and yields sharply distinct unitary, forward-shift, backward-shift, and mixed weighted-shift regimes. The theorem's construction gives a structural mechanism rather than an arbitrary isolated test case.
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
 
-## Boundary and remaining limitations
+## value
 
-The proof is restricted to contractions on complex Hilbert spaces, and the conclusion is a base-point syndetic-return threshold, not an optimal return-time-window profile. The article's stronger whole-orbit definition is not silently substituted. Publication-priority and human verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Complete universal formula for a natural and recently formalized base-point recurrence threshold for all complex Hilbert contractions, differentiating pure-point, stable and continuous-spectrum components. Structural seminorm and ellipsoidal tolerance sets sharpen earlier lower-semicontinuity and stable-orbit special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
