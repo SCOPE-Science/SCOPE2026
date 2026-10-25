@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact truth recurrence for \\(T_r=W\\setminus\\llbracket\\alpha_r\\rrbracket\\) and \\(U_r=\\{u:R(u)\\subseteq T_r\\}\\) is \\(T_{r+1}=\\operatorname{Pre}(U_r)\\). Induction on \\(i+j\\) proves \\(T_i\\cap U_j=\\varnothing\\): any point in the intersection with positive \\(i\\) has a successor in \\(T_j\\cap U_{i-1}\\), contradicting induction. A strict difference at index \\(r+1\\) entails at least \\(r+1\\) nonempty additions to each of \\(T_{r+1}\\) and \\(U_r\\), which are disjoint; therefore \\(|W|\\ge2r+2\\). The path on \\(2r+2\\) vertices attains the threshold. Exact exhaustive enumeration of all labelled frames on 1 to 4 worlds, reproducible samples on 5, 6, and 9 worlds, and path checks through 80 worlds all passed using the packaged checker. The infinite proof is independent of these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruse, Sälzer and Lange, Finite Convergence of μ-Calculus Fixpoints on Genuinely Infinite Structures, MFCS 2021, DOI:10.4230/LIPIcs.MFCS.2021.24 (abstract inspected).",
+        "Hella, Kuusisto and Rönnholm, Bounded Game-Theoretic Semantics for Modal μ-Calculus, arXiv:1706.00753 (abstract inspected)."
+      ],
+      "reasoning": "General finite-carrier monotone iteration implies at most \\(n\\) strict stages on an \\(n\\)-world frame, not the sharp \\(\\lfloor n/2\rfloor\\) limit; the inspected descriptions do not assert the disjointness lemma for the special composite operator or exact \\(2r+2\\) separation sizes. Full primary texts of these broad background works were not represented as inspected.",
+      "searches": [
+        "box diamond top fixed point iteration finite Kripke frames floor n/2 convergence bound",
+        "modal mu calculus box diamond top fixed point approximation n/2 bound finite transition systems",
+        "greatest fixed point box diamond true sequence half number of states stabilization rounds"
+      ]
+    },
+    "checked_sources": [
+      "Alpay–Başaran, arXiv:2606.15437v1, relevant full Section 7 (read).",
+      "Bruse–Sälzer–Lange, MFCS 2021, abstract only.",
+      "Hella–Kuusisto–Rönnholm, arXiv:1706.00753, abstract only.",
+      "Published-source searches for the exact alternating successor operator, stabilization stages, model-size extremal bounds, and game-attractor aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alpay and Başaran, Proposition 5, Lemma 2 and subsequent SAT/DRAT discussion in Section 7 (full source material inspected).",
+        "Generic finite fixpoint iteration in powerset lattices (background), which yields at most the carrier cardinality of strict changes."
+      ],
+      "reasoning": "The present statement implies all values in the old exact finite table but is strictly stronger as a quantified all-index assertion. The old path construction alone only proves minimum \\(\\le2r+2\\); the finite table plus path construction cannot prove \\(\\ge2r+2\\) for every \\(r\\). The independent disjoint-approximants lemma supplies exactly the missing implication. The general finite-lattice principle yields only a weaker bound and does not dominate the claim.",
+      "searches": [
+        "arXiv:2606.15437v1 Section 7 Lemma 2",
+        "iterated box diamond top descending chain length finite directed graph even path extremal",
+        "alternating reachability attractor game predecessor universal existential two disjoint sets stabilization n/2 rounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alpay and Başaran, arXiv:2606.15437v1, Section 7 and Lemma 2 define the same variable-free iteration and its path separators.",
+        "Game-attractor and alternating-reachability queries did not locate an exact finite-frame half-world theorem."
+      ],
+      "reasoning": "The variable-free modal iterates are equivalent to alternating universal/existential predecessor conditions, and their failure sets are successive finite approximants of a monotone operator. Comparing these exact semantics, rather than titles, shows that the paper proves existence of witnesses of size \\(2r+2\\) for all \\(r\\), but not a universal lower bound at arbitrary \\(r\\). Broader attractor terminology remains a priority risk.",
+      "searches": [
+        "modal logic alternating modalities box diamond top depth hierarchy minimal model 2n+2",
+        "alternating reachability attractor game predecessor universal existential two disjoint sets stabilization n/2 rounds",
+        "iterated box diamond top descending chain length finite directed graph even path extremal",
+        "deadlock attractor alternating predecessor operators graph iteration disjoint player losing sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alpay and Başaran report exact smallest distinguishing models at three finite indices: \\(r=1,2,3\\), with \\(4,6,8\\) worlds respectively, and an explicit path family at all positive indices.",
+        "All frames of sizes \\(1,2,3,4\\) were independently enumerated by checker.py; this finite test was not considered novelty evidence."
+      ],
+      "reasoning": "The source table implies the present minimum for three small indices; these cases are prior art. The claimed novelty is the proof of the minimum for every integer index and the exact global stabilization bound; neither follows from finitely many entries, and the paper explicitly distinguishes its path construction from general optimality.",
+      "searches": [
+        "arXiv:2606.15437v1 Section 7 SAT DRAT n=4 6 8",
+        "modal logic alternating modalities box diamond top depth hierarchy minimal model 2n+2"
+      ]
+    },
+    "rationale": "The motivating June 2026 paper establishes the all-index path construction and numerically certifies optimality only at indices 1 through 3, expressly noting that the path witness does not prove the general lower bound. The present uniform lower bound and half-world cutoff follow from an additional disjoint-approximants lemma. Existing general modal fixpoint work yields at most the generic finite-carrier bound; no stronger covering statement was located. Residual possibility of an older equivalent two-player attractor invariant remains.",
+    "residual_risks": [
+      "An older, mathematically equivalent theorem in two-player game-attractor or monotone fixed-point theory may use terminology not surfaced by the searches.",
+      "Background μ-calculus literature was screened through abstracts only and not claimed as fully checked.",
+      "No independent priority assessment or independent proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the upper path construction for every positive index and minimal sizes for indices 1–3; does not cover the universal arbitrary-index minimum or sharp half-world stabilization.",
+        "evidence": "Section 7 explicitly notes that the all-index path witness does not constitute an all-index lower bound and treats small finite indices using model enumeration and SAT/DRAT.",
+        "identifier_or_url": "arXiv:2606.15437v1; https://www.researchgate.net/publication/407115453_GPU-Accelerated_Search_and_Certification_of_Bounded_Indistinguishability_in_Finite_Kripke_Semantics",
+        "material_read": "Full relevant accessible Section 7, including Proposition 5, Lemma 2, path argument, SAT/DRAT finite minima discussion, and distinction between all-index witnesses and global lower bounds.",
+        "method": "Read public article text in HTML and compared theorem hypotheses and quantifier strength.",
+        "title": "GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics",
+        "trigger": "Same \\(\\Box\\Diamond\top\\) iterates, minimal separating frames, and an all-index path lemma."
+      },
+      {
+        "assessment": "Background on modal fixed-point iteration, not established to imply the present exact finite-frame extremal statement.",
+        "evidence": "The inspected abstract concerns finite convergence even in genuinely infinite structures, not exact smallest \\(\\Box\\Diamond\top\\) separators.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.MFCS.2021.24",
+        "material_read": "Published abstract and bibliographic description only.",
+        "method": "Web-indexed abstract review.",
+        "title": "Finite Convergence of μ-Calculus Fixpoints on Genuinely Infinite Structures",
+        "trigger": "Possible broader theorem on iterated modal fixed-point approximants."
+      },
+      {
+        "assessment": "No exact \\(2r+2\\)-world separator or half-world stabilization bound visible in inspected material; broader text is a residual priority risk.",
+        "evidence": "The inspected work develops bounded game semantics for μ-calculus, a broader setting with different quantifiers.",
+        "identifier_or_url": "arXiv:1706.00753",
+        "material_read": "Public abstract and indexed bibliographic description only.",
+        "method": "Web-indexed abstract review.",
+        "title": "Bounded Game-Theoretic Semantics for Modal μ-Calculus",
+        "trigger": "Potentially equivalent alternating game semantics for modal approximants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0fdb970e-6f27-4bc4-8f8d-3fe37a346949",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating source supplied exact minimum sizes for only three indices and otherwise an upper witness. The new two-sided invariant proves sharp minimum distinguishing sizes at every index and a tight factor-two improvement on the generic finite-carrier iteration bound. This is a natural complete extremal classification with direct model-size implications for finite modal semantics, rather than a finite table extension or a renaming of prior constructions.",
+    "status": "PASS"
+  }
+}
