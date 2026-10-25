@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tree path-count formula and Cauchy–Schwarz give exact positive tree weights; the centered tree-cut voltage identity gives the full biharmonic marginal for every potential chord. The priced budget KKT multipliers then certify the simultaneous all-chord region. Strict convexity proves uniqueness including equality, and a feasible one-chord perturbation proves sharp failure below threshold. Independent exact rational inverse-matrix tests checked 1,900 assertions for multiple tree shapes and costs; finite tests are supplementary.
+## correctness
 
-**Originality — PASS, with material residual risk.** Ghosh–Boyd–Saberi (2006/2008) already establish the convex objective, unpriced tree allocation and general derivative/KKT framework. The 2026 cost-convexity paper already establishes priced marginal closure and the price-three triangle example. None of the materially inspected source passages states the explicit sharp all-chord tree-cut threshold, its arbitrary base-tree prices and simultaneous global support classification. The present theorem is a nontrivial exact specialization of general KKT theory, not a claim to introduce KKT or the triangle result. A directly derivable or unindexed prior version is a real remaining novelty risk.
+PASS
 
-**Value — PASS.** A natural topology/sparsification decision in resistance-optimal network design is whether to retain an existing priced tree backbone when arbitrary chords become affordable. The theorem supplies a finite, transparent and budget-independent *complete* answer in terms of tree cut sizes and chord prices, including mixed interaction terms for long paths, rather than requiring repeated full-network convex optimization. It detects a sharp support change and equality uniqueness for an infinite family of all base trees.
+On an n>=4 tree, the sum of effective resistances is (1/n)sum_e b_e/g_e with b_e=k_e(n-k_e). Cauchy-Schwarz yields unique positive optimal g_e=B/S sqrt(b_e/c_e). The pseudoinverse voltage for a chord e_u-e_v is a sum of centered nested cut indicators divided by path conductances; their pairwise inner products min(s_i,s_j)(n-max(s_i,s_j))/n give exactly the displayed Theta_uv mixed-root expression. Trace-inverse on positive connected Laplacians is strictly convex along any nonzero simple-edge conductance perturbation. KKT at the tree-only candidate yields the simultaneous necessary-and-sufficient inequalities p_uv>=Theta_uv with equality included; subthreshold chord admits a budget-preserving improving perturbation. Independently simplified P4 unit-edge threshold 11/3+4/sqrt(3). Script exact-rational calculation inspected; its finite tests not substituted for all-tree argument.
 
-The result does not solve optimal allocations beyond the threshold region. It does not claim externally verified novelty, and the primary linear-price KKT principle is expressly credited to previous work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary evidence and published-record searches support best-of-knowledge originality of the precisely isolated mathematical contribution, not unconditional priority. Evaluated tree-path covariance distinguishes the claimed theorem from generic sensitivity-language aliases, though it is derived from these prior methods. Claim credits generic methods and restricts novelty to a motivated closed-form cut coefficient plus simultaneous all-chord if-and-only-if region. Substantive originality concern: whether this is a routine implicit corollary of published KKT plus classical cut potentials.
+
+## value
+
+PASS
+
+A natural network design question is when a priced spanning tree remains optimal despite optional chords. The theorem gives a complete closed-form all-chord no-entry phase region from tree split sizes and costs, independent of budget, for all trees and heterogeneous prices; it avoids resolving the full convex allocation whenever candidate prices vary. The nested-cut mixed terms make long-path interactions explicit. This remains worthwhile even though the generic KKT method is established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
