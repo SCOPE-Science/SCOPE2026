@@ -1,0 +1,43 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T20:05:29.600573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Monomial diagonalization converts eigenvalues exactly to Gamma(shape k+1) mass in two intervals centered at squared radius N. Standard uniform Stirling/Edgeworth expansion for k=N+x√N gives λ_{N,k}=g(x)+N^{-1/2}[g′+(x/2)g′′+(1/3)g′′′]+O(N^{-1}) on compact x. Differentiating the even Gaussian annulus profile gives g′(x)=2φ(x)[e^{-b²/2}sinh(bx)−e^{-c²/2}sinh(cx)]. Strict increase of sinh(cx)/sinh(bx) makes a unique pitchfork at log(c/b)=2aδ; in supercritical case strict h(x_*)<0 selects −x_* at order N^{-1/2}. At criticality b e^{-b²/2}=c e^{-c²/2}=q, g′′(0)=0, g⁽⁴⁾(0)=−24γδ and h′(0)=−8γδ; optimizing −γδ(y⁴+8y) at y=(k−N)/N^{1/3} yields unique −2^{1/3}, value 6·2^{1/3}γδ. Tightness via Gamma tails and quartic bound plus lattice spacing establishes every maximizing sequence. Read the bundled standard-library verify.py and independently evaluated exact Gamma-CDF shell masses at N=200000 for critical δ=0.5 and 1.0; respective maximizing displacements (k−N)/N^(1/3) were −1.26538 and −1.28248 versus predicted −1.25992. The analytic expansion, not finite checks, proves the limit. Scope: fixed δ>0,a>δ,N>c², squared-radius normalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "2026/10/18/...6bb4d239ab20/RESULT.md and verify.py",
+        "arXiv:1505.07906 PDF §6 Proposition 6.5",
+        "arXiv:1404.2256 PDF Theorem 2.4 and Corollary 2.5",
+        "DOI:10.1007/BF01197858"
+      ],
+      "rationale": "Esmeral–Maximenko Proposition 6.5 provides leading Gaussian smoothing of radial Fock Toeplitz eigenvalue sequences. Oldfield Theorem 2.4 is a two-term Szegő trace/counting theorem for anti-Wick operators under fixed-shape rescaling. Neither examined theorem determines the precise moving-annulus critical quartic mode, finite-size Gamma skewness selection or universal -2^{1/3} maximizer offset. Classical radial diagonalization of Grudsky–Vasilevski is credited, not claimed new.",
+      "residual_risks": [
+        "A general, previously published Gamma Edgeworth/quartic coalescing-mode optimization theorem could subsume the special local maximizer law but was not located.",
+        "Grudsky–Vasilevski 2002 full text not inspected; radial spectral background credited."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A coalescing pair of natural spectral localization peaks has a genuinely nonstandard quartic-to-cubic-root finite-size regime: exact universal signed displacement, N^{-2/3} norm correction, and symmetry-breaking sign choice. This is a structural stability/bifurcation law for a canonical Toeplitz operator family and supplies precise data where leading symmetric Gaussian limit is insufficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/18/...6bb4d239ab20/RESULT.md and verify.py",
+    "arXiv:1505.07906 PDF §6 Proposition 6.5",
+    "arXiv:1404.2256 PDF Theorem 2.4 and Corollary 2.5",
+    "DOI:10.1007/BF01197858"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed δ and a; thin equal-width annuli symmetric in squared radius; one complex dimension; no drifting critical parameter or full spectrum statement."
+  ],
+  "residual_risks": [
+    "A general, previously published Gamma Edgeworth/quartic coalescing-mode optimization theorem could subsume the special local maximizer law but was not located.",
+    "Grudsky–Vasilevski 2002 full text not inspected; radial spectral background credited."
+  ],
+  "schema_version": 1
+}

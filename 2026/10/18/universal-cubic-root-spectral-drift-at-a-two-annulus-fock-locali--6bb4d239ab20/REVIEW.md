@@ -1,19 +1,21 @@
-# Review of a two-annulus Fock spectral threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Direct angular integration gives the Gamma-distribution diagonal entries with the normalization \(1/k!\). A uniform Stirling expansion on the two fixed scaled intervals yields the first-order term \(h=g'+xg''/2+g'''/3\). The positive-axis derivative reduces modality to a strictly increasing hyperbolic-sine quotient. At the supercritical mode, the inequalities \(x_*<a\) and \(0<c\coth(cx_*)-b\coth(bx_*)<2\delta\) prove \(h(x_*)<0\), not just numerically. At criticality, \(g^{(4)}(0)=-24\gamma_\delta\) and \(h'(0)=-8\gamma_\delta\); their competition forces the unique optimizing scaled degree \(-\sqrt[3]{2}\) and the coefficient \(6\sqrt[3]{2}\gamma_\delta\). The proof handles tails and the integer lattice. The supplied checker passed 119 finite corroboration assertions; it is not used to infer infinite convergence.
+PASS
 
-## Originality — PASS with historical risk
+Monomial diagonalization converts eigenvalues exactly to Gamma(shape k+1) mass in two intervals centered at squared radius N. Standard uniform Stirling/Edgeworth expansion for k=N+x√N gives λ_{N,k}=g(x)+N^{-1/2}[g′+(x/2)g′′+(1/3)g′′′]+O(N^{-1}) on compact x. Differentiating the even Gaussian annulus profile gives g′(x)=2φ(x)[e^{-b²/2}sinh(bx)−e^{-c²/2}sinh(cx)]. Strict increase of sinh(cx)/sinh(bx) makes a unique pitchfork at log(c/b)=2aδ; in supercritical case strict h(x_*)<0 selects −x_* at order N^{-1/2}. At criticality b e^{-b²/2}=c e^{-c²/2}=q, g′′(0)=0, g⁽⁴⁾(0)=−24γδ and h′(0)=−8γδ; optimizing −γδ(y⁴+8y) at y=(k−N)/N^{1/3} yields unique −2^{1/3}, value 6·2^{1/3}γδ. Tightness via Gamma tails and quartic bound plus lattice spacing establishes every maximizing sequence. Read the bundled standard-library verify.py and independently evaluated exact Gamma-CDF shell masses at N=200000 for critical δ=0.5 and 1.0; respective maximizing displacements (k−N)/N^(1/3) were −1.26538 and −1.28248 versus predicted −1.25992. The analytic expansion, not finite checks, proves the limit. Scope: fixed δ>0,a>δ,N>c², squared-radius normalization.
 
-Grudsky–Vasilevski (2002) and Esmeral–Maximenko (2015, Proposition 6.5) already cover radial diagonalization and the leading Gaussian approximation. Oldfield (2014, Theorem 2.4 and Corollary 2.5) covers global localization trace/counting asymptotics under different scaling assumptions. The new statement requires a uniform first-order correction and optimization at a quartic degeneracy. None of those inspected primary results supplies the cubic-root displacement or strict negative-branch preference. The relationship to broad Edgeworth expansions has been acknowledged, and alternative-language historical coverage remains possible; an independent literature audit is needed.
+## originality
 
-## Value — PASS
+PASS
 
-Spectral norm alone does not reveal which monomial degree realizes maximal localization. At the exact parameter where two spectral peaks fuse, an ordinary Gaussian limit cannot resolve this index; the theorem computes its universal \(N^{1/3}\) displacement and the \(N^{-2/3}\) norm correction. Above that transition it identifies the otherwise invisible skew-induced preferred branch. These quantify a genuine spectral-localization boundary rather than a routine rewriting of the radial eigenvalue formula.
+Esmeral–Maximenko Proposition 6.5 provides leading Gaussian smoothing of radial Fock Toeplitz eigenvalue sequences. Oldfield Theorem 2.4 is a two-term Szegő trace/counting theorem for anti-Wick operators under fixed-shape rescaling. Neither examined theorem determines the precise moving-annulus critical quartic mode, finite-size Gamma skewness selection or universal -2^{1/3} maximizer offset. Classical radial diagonalization of Grudsky–Vasilevski is credited, not claimed new.
 
-## Scope and remaining risk
+## value
 
-The result covers a symmetric pair of equally wide squared-radius shells in one complex dimension, with parameters fixed as \(N\to\infty\). It does not provide a full spectrum, varying-parameter crossover, or independent priority certification. General coalescing-saddlepoint or Gamma Edgeworth references may encode an equivalent corollary without the same terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A coalescing pair of natural spectral localization peaks has a genuinely nonstandard quartic-to-cubic-root finite-size regime: exact universal signed displacement, N^{-2/3} norm correction, and symmetry-breaking sign choice. This is a structural stability/bifurcation law for a canonical Toeplitz operator family and supplies precise data where leading symmetric Gaussian limit is insufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
