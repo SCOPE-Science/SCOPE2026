@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Source Algorithm 1 reduces on nonzero singleton sketches to exact line searches along the fixed one-predecessor H-orthogonalized coordinate basis. The rank-drop lemma proves the full-sweep product vanishes exactly for a mutually H-conjugate basis; recursive support proves equivalence with tridiagonal H. Genericity follows by an adjoint projection argument. In three dimensions direct Gram products produce D, W and the exact factor |c|/sqrt(aW), with strict inequality from SPD and exact rational witness. Symbolic, exact-rational and reproducible random calculations were rerun from the included script. The theorem does not assert anything for zero-gradient exceptional branches or arbitrary IID sketch sequences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "BMVA conjugate-direction one-pass theorem at https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/BMVA96Tut/node20.html",
+        "DSC 243 conjugate-gradient short-recurrence notes at https://ddrusvyat.github.io/DSC-243/week1.html",
+        "arXiv:2605.25034 Theorem 2.4 gives expected convergence, not conditional exact-sweep characterization."
+      ],
+      "reasoning": "General conjugate-direction theory covers the step from fully conjugate directions to exact termination but not the algorithm-specific equivalence with path graphs nor the three-step equality. The classical Krylov short recurrence is not an equivalent coordinate-sketch recurrence for arbitrary Gram matrices.",
+      "searches": [
+        "\"conjugate direction\" \"one pass\" tridiagonal matrix coordinate basis",
+        "adjacent conjugacy only tridiagonal Gram matrix coordinate descent conjugate directions one pass exact solver",
+        "two neighboring conjugate directions path graph tridiagonal Gram finite pass exact least squares RCGLS"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.25034 (full accessible HTML)",
+      "https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/BMVA96Tut/node20.html",
+      "https://ddrusvyat.github.io/DSC-243/week1.html",
+      "published-finding corpus six actual semantic searches listed in check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.25034 Algorithm 1 supplies a one-predecessor correction only and Theorem 2.4 supplies expectation convergence, no finite-pass criterion.",
+        "BMVA Conjugate Directions establishes the generic mutual-conjugacy sufficiency principle.",
+        "A related two-dimensional RCGLS stopping-time statement concerns a different object: IID sampling histories rather than graph-ordered higher-dimensional sweeps."
+      ],
+      "reasoning": "The current proof adds a necessary-and-sufficient sparsity-graph classification for one-sweep conjugacy and a sharp three-dimensional error factor. The two-dimensional stopping-time result and generic conjugate directions do not imply this formula without additional algebra or the rank argument; no stronger directly covering source was identified.",
+      "searches": [
+        "\"randomized conjugate gradient least squares\" \"tridiagonal\" orthogonality",
+        "RCGLS randomized conjugate gradient least squares three dimensional tridiagonal coordinate sketch one-pass finite termination",
+        "3 by 3 coordinate sketch conjugate gradient exact final error factor outer Gram correlation H13 incomplete orthogonalization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "RCGLS Algorithm 1 expresses the one-predecessor H-orthogonalization, arXiv:2605.25034",
+        "published-finding corpus matching records concern ordinary CG or other randomized projections, not the exact path-sparsity criterion."
+      ],
+      "reasoning": "Equivalently the recurrence is an incomplete Gram–Schmidt process on ordered coordinate vectors. A standard full Gram–Schmidt theorem alone does not decide when truncation to one previous vector is exact. The proof supplies the tridiagonal-if-and-only-if condition and quantitative defect.",
+      "searches": [
+        "RCGLS randomized conjugate gradient least squares three dimensional tridiagonal coordinate sketch one-pass finite termination",
+        "Zeng Cai Han Xie RCGLS one pass order path graph tridiagonal H adjacent H conjugacy exact three step residual ratio",
+        "\"RCGLS\" \"finite\" \"tridiagonal\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest hits include 2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5 and 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1, involving different methods.",
+        "Original arXiv Algorithm 1 numerical experiments do not tabulate the exact graph-order and last-step formula."
+      ],
+      "reasoning": "No matching result/table was returned for direct aliases of ordered singleton-sketch RCGLS and the three-dimensional off-band ratio. Search noncoverage cannot certify global uniqueness.",
+      "searches": [
+        "randomized conjugate gradient least squares coordinate gradient sketching two dimensional exact convergence stagnation",
+        "randomized conjugate gradient sparse least squares rank one sketch finite termination bias",
+        "Zeng Cai Han Xie RCGLS one pass order path graph tridiagonal H adjacent H conjugacy exact three step residual ratio",
+        "3 by 3 coordinate sketch conjugate gradient exact final error factor outer Gram correlation H13 incomplete orthogonalization"
+      ]
+    },
+    "rationale": "Compared RCGLS source Algorithm 1, its conditional expected-rate theorem and sparse equivalent, classic conjugate-directions/short-recurrence material, related two-dimensional claims, and six actual published-finding corpus semantic searches. Existing RCGLS two-dimensional exact stopping-time work is distinct: this result proves a full-dimension path graph criterion plus exact three-coordinate off-band error factor for ordered nonzero-sketch sweeps. Generic Gram–Schmidt implications are credited, no prior direct formula identified. Global bibliographic completeness is not claimed.",
+    "residual_risks": [
+      "Classical coordinate conjugation and incomplete Gram–Schmidt literature may contain an equivalent path-order formulation not surfaced by searches.",
+      "The positive-definite matrix must be the normal matrix, not merely a sparse input design.",
+      "Three-dimensional sharp ratio concerns the final stage relative to the second-stage error, not an overall multi-sweep global rate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies adjacent-direction H-conjugacy and expected convergence, not the path-graph one-sweep criterion or the explicit three-coordinate off-band error factor. Source date and MSC 65F10 given on abstract and first page.",
+        "evidence": [
+          "arXiv 2605.25034 section 2.2 Algorithm 1, lines 114-164",
+          "section 2.3 Theorem 2.4, lines 187-246",
+          "sections 3 and 6, lines 247-320 and 507-513"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.25034",
+        "material_read": "Full accessible HTML text, especially Algorithm 1 and equations (7)–(10), Theorem 2.4, Remarks 2.1–2.7, sparse equivalent Algorithm 2 and Proposition 3.1, experiments, conclusions and references",
+        "method": "Read and compared the full arXiv HTML mathematical statements and algorithm branches",
+        "title": "Randomized conjugate gradient least squares",
+        "trigger": "Exact primary update and possible earlier finite-termination coverage"
+      },
+      {
+        "assessment": "General theorem ensures termination once directions are mutually conjugate, but does not characterize when the source local recurrence achieves conjugacy for coordinate sketches or give the 3D ratio.",
+        "evidence": [
+          "Conjugate Directions tutorial, paragraphs on conjugate sets and one-pass minimization"
+        ],
+        "identifier_or_url": "https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/BMVA96Tut/node20.html",
+        "material_read": "Complete available tutorial page on conjugate line searches and quadratic finite termination",
+        "method": "Read full HTML page",
+        "title": "Conjugate Directions (BMVA tutorial)",
+        "trigger": "Broader conjugate directions theorem might subsume finite-pass statement"
+      },
+      {
+        "assessment": "Short-recurrence Gram–Schmidt for Krylov-gradient directions differs from one-step orthogonalization of a prescribed coordinate basis; the path criterion and off-band ratio are not stated.",
+        "evidence": [
+          "Section The conjugate gradient algorithm implements the Krylov method"
+        ],
+        "identifier_or_url": "https://ddrusvyat.github.io/DSC-243/week1.html",
+        "material_read": "Section on conjugate-gradient method implementing the Krylov method with short recurrence",
+        "method": "Read public HTML notes including the relevant conjugate-direction passage",
+        "title": "Week 1: Convex Quadratics, DSC 243",
+        "trigger": "A general short recurrence might already prove local conjugacy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "136fcf9c-3f36-41a6-8c67-8d46b3142d6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The locality of the conjugacy correction is central to the sparse RCGLS method. The theorem gives a complete graph-theoretic classification of when a single pass of d column touches is exact, and the first quantitative obstruction when the sparsity order violates that condition: a long-range coupling controls the entire third-step remaining energy, and a permutation switches a near-stagnating sweep into an exact one. This motivates sparse-column ordering and differentiates local from global conjugacy in actual iterative linear solvers. It is not presented as a generic textbook conjugate-directions lemma or an arbitrary sliced invariant.",
+    "status": "PASS"
+  }
+}
