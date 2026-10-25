@@ -1,0 +1,210 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:36:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Finding, Assumptions, Proof, Verification, and source files",
+        "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219 original Model (9), Theorem 1",
+        "independent_checks.json: exact rational drift, independent symbolic DT and finite 6x6 corroboration"
+      ],
+      "rationale": "For the printed discrete update T=(rho1 H tanh P, rho2 H(1-tanh P), alpha0 G+alpha H+(1-alpha)P), direct differentiation at zero gives DT(0)=[[0,0,0],[rho2,0,0],[alpha,1-alpha,alpha0]], hence multipliers 0,0,alpha0 strictly inside the unit disk for 0<alpha0<1. T is C1, so the origin is locally attracting. Independently at (rho1,rho2,alpha,alpha0)=(2,1,1/2,1/2), for strictly positive V=3H+P+G<1/16, tanh P<P<1/16 gives Hprime<=H/8, Pprime<=H, Gprime=(G+H+P)/2; therefore Vprime<=15H/8+P/2+G/2<=(3/4)V. The positive cone is invariant (tanh P in (0,1), alpha0>0), so this open positive set has V_n<=(3/4)^n V_0 and all coordinates tend to zero, contradicting Theorem 1’s universal strictly positive permanence liminf. For shared H0,P0 the G difference is alpha0^n deltaG0, because the first two equations contain no G.",
+      "residual_risks": [
+        "Discrete T and difference field T-I must not be conflated; only T has multipliers 0,0,alpha0.",
+        "Contraction is shown for V<1/16 at one admissible tuple, not as a global statement for every positive initial point.",
+        "Six finite numerical orbits are corroboration only; the uniform-in-n conclusion follows from positivity and one-step induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The usual discrete hyperbolic fixed-point theorem implies local asymptotic stability once multipliers of this precise update are computed, but general theory alone does not identify or evaluate the printed PTM permanence theorem.",
+          "The 2016 refuge-effect model is a distinct two-dimensional recurrence with a constant refuge and no PTM environmental coordinate; the inspected abstract studies its persistence, not a correction of the tanh PTM map.",
+          "The 2024 article studies an arctan two-dimensional host–parasitoid activation model and compares the tanh model; it does not prove a stronger all-positive-initial-data extinction theorem for the printed three-dimensional map."
+        ],
+        "reasoning": "A genuinely dominating prior statement would invalidate permanence for the same printed recurrence and source parameter strip, or give a general theorem with hypotheses explicitly satisfied by that recurrence. The inspected works do not supply such a statement. The standard linearization theorem is a proof technique, not itself the model-specific priority claim.",
+        "searches": [
+          "Resultary semantic query: host parasitoid recurrence H tanh(P) permanence origin attracting",
+          "Web: \"Salih\" \"Al-Saidi\" \"permanence\" \"tanh\" 2022 2025 2026",
+          "Web: \"Global behavior of a host-parasitoid model under the constant refuge effect\" Din 2016 abstract",
+          "AIMS 2021/2022 original Model (9), Theorem 1: https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-219.pdf",
+          "MMEP 2024 full HTML: https://www.iieta.org/journals/mmep/paper/10.18280/mmep.110817",
+          "Din 2016 abstract/bibliography: https://www.researchgate.net/publication/283089488_Global_behavior_of_a_host-parasitoid_model_under_the_constant_refuge_effect"
+        ]
+      },
+      "checked_sources": [
+        "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219: full publisher PDF, model p.3974, Jacobian pp.3976-3977, Theorem 1 p.3981",
+        "Salih et al., Analyzing Stability and Controlling Chaos in a Unique Host Parasitoid Discrete Dynamical System with Applications in Artificial Intelligence, MMEP 11 (2024), pp.2152-2162, doi:10.18280/mmep.110817: publisher HTML equations, Table 2, conclusion, references",
+        "Din, Global behavior of a host-parasitoid model under the constant refuge effect, Appl. Math. Model. 40 (2016), pp.2815-2826, doi:10.1016/j.apm.2015.09.012: indexed bibliographic record and abstract only",
+        "Resultary query hits Q1-Q3, assigned self-entry 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0 not counted as independent priority",
+        "Independent symbolic derivative/characteristic polynomial and rational drift checks in independent_checks.json",
+        "Assigned actual Git tree files RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and verify.py at frozen commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 concludes liminf(H_n,P_n,G_n)>=1 for every positive solution under rho1>1, 0<rho2<=rho1, 0<alpha0<1, whereas the constructed positive basin has all three coordinates tending to zero within that very strip.",
+          "At (rho1,rho2,alpha,alpha0)=(2,1,1/2,1/2), V=3H+P+G<1/16 gives Hprime<=H/8, Pprime<=H, Gprime=(G+H+P)/2, so Vprime<=15H/8+P/2+G/2<=(3/4)V.",
+          "The 2024 comparison table lists eigenvalues of a difference field of a related model, but does not show that the original Model (9) is nonpermanent."
+        ],
+        "reasoning": "The original map equations permit this derivation, but the earlier asserted mathematical implication is contradictory to it, not stronger coverage. The corrected conclusion is that the source theorem fails; the paper and follow-up do not explicitly or correctly establish that claim. An explicit counterexample and an open invariant positive basin refute the quantified permanence statement.",
+        "searches": [
+          "Primary full text https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-219.pdf, Model (9), Jacobian, permanence definition pp.3977-3981 and Theorem 1 proof",
+          "2024 full text https://www.iieta.org/journals/mmep/paper/10.18280/mmep.110817, Table 2 and model equations",
+          "Resultary semantic query: positive basin origin PTM host parasitoid map Salih Al-Saidi permanence theorem tanh rho1 rho2 environmental coordinate",
+          "Resultary semantic query: counterexample 3D-Chaotic discrete system of vector borne diseases using environment factor theorem permanence locally asymptotically stable origin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent source-specific forms are: the origin has an open strictly positive basin for the discrete update; an allowed positive orbit has liminf of H,P,G equal zero; hence the published uniform permanence assertion is false.",
+          "The introducing article (PDF printed pp.3974 and 3981, Model (9) and Theorem 1) states exactly the recurrence and claims permanence for rho1>1, 0<rho2<=rho1, 0<alpha0<1. It does not state the positive-basin contradiction and its displayed Jacobian is for T-I, not T.",
+          "The 2024 same-author-family Table 2 repeats an earlier fixed-point/eigenvalue summary, not the origin-basin correction.",
+          "Resultary searches return 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0 as the assigned result itself, not an independent earlier proof; other high-ranked records concern distinct models."
+        ],
+        "reasoning": "The correct discrete multipliers (0,0,alpha0), or the exact V contraction, make the original permanence theorem false. That logical correction is not a restatement of the paper’s permanence conclusion; similarly phrased extinction/persistence results for other models are not equivalent. Exclude the indexed self-copy of the assigned result as separate priority evidence.",
+        "searches": [
+          "Resultary semantic query: positive basin origin PTM host parasitoid map Salih Al-Saidi permanence theorem tanh rho1 rho2 environmental coordinate",
+          "Resultary semantic query: counterexample 3D-Chaotic discrete system of vector borne diseases using environment factor theorem permanence locally asymptotically stable origin",
+          "Web: \"3D-Chaotic discrete system\" \"permanence\" correction origin",
+          "Web: \"10.3934/math.2022219\" \"permanence\" \"counterexample\" \"erratum\"",
+          "Full primary PDF https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-219.pdf Model (9), Jacobian of Model (11), Theorem 1",
+          "2024 full HTML https://www.iieta.org/journals/mmep/paper/10.18280/mmep.110817, Section 6 and Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary displays the published copy with the same assigned record identifier f46cfb42e8e0; it was not counted as independent prior mathematics.",
+          "Exact DOI, title, tanh-host-parasitoid and erratum/counterexample search results found the introducing paper, related ecological models, and the 2024 comparison, not a separate same-system correction.",
+          "The introducing article is theoretical rather than a numerical table of positive-basin boundaries; its Theorem 1 gives the opposite uniform lower bound."
+        ],
+        "reasoning": "No inspected independent published database entry or table contains the same counterexample. A negative query is only bounded evidence, never a proof of historical novelty; hidden errata/theses remain a risk.",
+        "searches": [
+          "Resultary semantic query: positive basin origin PTM host parasitoid map Salih Al-Saidi permanence theorem tanh rho1 rho2 environmental coordinate",
+          "Resultary semantic query: counterexample 3D-Chaotic discrete system of vector borne diseases using environment factor theorem permanence locally asymptotically stable origin",
+          "Resultary semantic query: host parasitoid recurrence H tanh(P) permanence origin attracting",
+          "Web: \"3D-Chaotic discrete system\" \"permanence\" correction origin",
+          "Web: \"10.3934/math.2022219\" \"permanence\" \"counterexample\" \"erratum\"",
+          "Web: \"Salih\" \"Al-Saidi\" \"permanence\" \"tanh\" 2022 2025 2026",
+          "Web: \"rho_1\" \"tanh(P_n)\" \"permanent\" \"positive\" host parasitoid counterexample",
+          "Publisher exact DOI/title and open-access PDF search",
+          "Resultary indexed self-entry ID 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific correction: the exact publisher primary article states permanence for all positive solutions under rho1>1, 0<rho2<=rho1, 0<alpha0<1 but Model (9) has a locally attracting origin and an explicit strictly positive basin inside those hypotheses. Its proof’s liminf>=1 is therefore false. Material inspection of its Model (9), difference-field Jacobian, and Theorem 1, together with the 2024 same-author-family Table 2, found no correction or equivalent positive-basin result. Broader two-dimensional refuge models do not imply this printed 3D contradiction. Resultary matches the assigned public self-record, excluded as independent priority; other hits concern distinct models. Targeted erratum, exact-title/DOI and alias searches found no separate same-system correction, but absence of hits is not a novelty proof.",
+      "residual_risks": [
+        "An unindexed formal erratum, thesis, informal correspondence, or independent pre-2026 correction to the 2021/2022 permanence theorem may exist despite focused exact-source queries.",
+        "The 2024 comparison article was read at the relevant actual equations, table and discussion, not every sentence of every application; its checked passages do not state this correction.",
+        "Resultary lists the assigned published 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0 itself, not separate corroboration or prior work; indexed timing does not establish independent authorship or priority.",
+        "The statement corrects the equations as printed. A hypothetical intended model with PTM feedback into H or P could behave differently, so no claim is made about it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the correction; the source explicitly asserts the opposite permanence theorem. Its difference-field Jacobian at origin is not the discrete update derivative; its claimed liminf >=1 is contradicted by a positive invariant basin.",
+          "evidence": "Model (9), printed p.3974; difference map (10)-(11), p.3975; Jacobian of Model (11), pp.3976-3977; permanence definition p.3977; Theorem 1 and proof p.3981 (web PDF parsed lines 398-438).",
+          "identifier_or_url": "doi:10.3934/math.2022219; https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-219.pdf",
+          "material_read": "Actual 16-page lawful OA PDF, especially printed p.3974 Model (9), p.3975 discrete T-I distinction, pp.3976-3977 Jacobian and zero fixed point, pp.3977-3978 permanence definition, p.3981 Theorem 1 with claimed positive liminf, p.3982 continuation, and control discussion. Rendered PDF pages corresponding to model and theorem were inspected.",
+          "method": "Publisher open-access PDF parsed/formula text, targeted complete passage inspection and visual page screenshots.",
+          "title": "3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis",
+          "trigger": "Introducing primary document containing the exact three-coordinate update, definition of permanence, Jacobian conventions, and Theorem 1 being refuted."
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_COVERING. It is a two-dimensional arctan model with a comparison table summarizing the earlier tanh model; it does not prove an open positive basin for the three-dimensional tanh-PTM recurrence or retract Theorem 1.",
+          "evidence": "2024 paper Table 2, lines 414-427 in retrieved HTML, lists original tanh activation and a fixed-point/eigenvalue summary; model description and conclusion separately discuss arctan dynamics.",
+          "identifier_or_url": "doi:10.18280/mmep.110817; https://www.iieta.org/journals/mmep/paper/10.18280/mmep.110817",
+          "material_read": "Publisher full HTML: abstract; introductory host–parasitoid equations, arctan Model (6), fixed-point stability section, Section 6 discussion, Table 2 row on prior tanh model, conclusions, and references.",
+          "method": "Lawful publisher open-access full-text HTML with text/LaTeX table inspection.",
+          "title": "Analyzing Stability and Controlling Chaos in a Unique Host Parasitoid Discrete Dynamical System with Applications in Artificial Intelligence",
+          "trigger": "2024 same-author-family paper comparing the original tanh model and an arctan activation model."
+        },
+        {
+          "assessment": "DISTINCT_MODEL. The abstract concerns fixed refuge counts in a two-dimensional model, not the same PTM tanh recurrence. No claim that the entire inaccessible paper has been exhaustively inspected.",
+          "evidence": "Abstract explicitly identifies a modified constant-refuge host–parasitoid model; DOI, venue and scope.",
+          "identifier_or_url": "doi:10.1016/j.apm.2015.09.012; https://www.researchgate.net/publication/283089488_Global_behavior_of_a_host-parasitoid_model_under_the_constant_refuge_effect",
+          "material_read": "Available publisher/index bibliographic material and author-posted abstract identifying a modified two-dimensional constant-refuge interaction; not the full scientific body.",
+          "method": "Bibliographic indexing, open abstract and scope check; full text not claimed read.",
+          "title": "Global behavior of a host-parasitoid model under the constant refuge effect",
+          "trigger": "Earlier literature on global persistence and stability that might dominate the present source-specific counterexample."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219 Theorem 1 and formal permanence definition",
+        "Assigned self-contained positive-basin inequality and passive-coordinate calculation",
+        "Exact rational contraction check and symbolic map Jacobian"
+      ],
+      "rationale": "Permanence is a substantive invariant for ecological/discrete population models: the original paper asserts a common positive asymptotic lower bound on every positive solution. This result invalidates that quantified conclusion inside the paper’s own parameter domain, with an open invariant positive basin and exact geometric convergence rather than an isolated orbit or superficial sign check. The passive third-coordinate identity also shows why varying PTM coefficients cannot rescue persistence of the first two populations in the printed model. Its significance is a precise correction to a central published theorem, not a claim of a globally classified basin or a new general local-stability theorem.",
+      "residual_risks": [
+        "This is a targeted theorem correction using elementary dynamics, not a classification of all attractors or a new general theory.",
+        "Biological interpretation remains limited to the paper’s printed recurrence; no empirical disease inference is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219: full publisher PDF, model p.3974, Jacobian pp.3976-3977, Theorem 1 p.3981",
+    "Salih et al., Analyzing Stability and Controlling Chaos in a Unique Host Parasitoid Discrete Dynamical System with Applications in Artificial Intelligence, MMEP 11 (2024), pp.2152-2162, doi:10.18280/mmep.110817: publisher HTML equations, Table 2, conclusion, references",
+    "Din, Global behavior of a host-parasitoid model under the constant refuge effect, Appl. Math. Model. 40 (2016), pp.2815-2826, doi:10.1016/j.apm.2015.09.012: indexed bibliographic record and abstract only",
+    "Resultary query hits Q1-Q3, assigned self-entry 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0 not counted as independent priority",
+    "Independent symbolic derivative/characteristic polynomial and rational drift checks in independent_checks.json",
+    "Assigned actual Git tree files RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and verify.py at frozen commit",
+    "Assigned RESULT.md Finding, Assumptions, Proof, Verification, and source files",
+    "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219 original Model (9), Theorem 1",
+    "independent_checks.json: exact rational drift, independent symbolic DT and finite 6x6 corroboration",
+    "Salih and Al-Saidi, 3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis, AIMS Mathematics 7 (2022), pp.3972-3987, doi:10.3934/math.2022219 Theorem 1 and formal permanence definition",
+    "Assigned self-contained positive-basin inequality and passive-coordinate calculation",
+    "Exact rational contraction check and symbolic map Jacobian"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the exact printed Salih--Al-Saidi Model (9) and rho1,rho2>0, 0<=alpha<=1, 0<alpha0<1, the discrete origin is locally asymptotically stable with multipliers (0,0,alpha0). In particular, admissible (rho1,rho2,alpha,alpha0)=(2,1,1/2,1/2) admits a strictly positive invariant open set 3H+P+G<1/16 whose solutions converge geometrically to (0,0,0), contradicting the published Theorem 1 claim of a common positive liminf under rho1>1, 0<rho2<=rho1, 0<alpha0<1. The H,P subsystem is independent of G and differences in G for equal H,P decay by alpha0^n. The correction is for the printed map only, not an altered PTM-feedback model or a full basin classification.",
+  "limitations": [
+    "Only the printed 3D discrete update Model (9) is assessed; not the ODE model or alternative feedback rules.",
+    "The exact contraction is local at one admissible parameter tuple, and is sufficient to refute universal positive permanence.",
+    "The checked Resultary self-entry is not independent prior work and cannot certify priority.",
+    "Source tree identity reconstructed from exact Git tree entries, with local full-byte rehash of all source blobs not achieved.",
+    "Public metadata/review contain potentially sensitive operational provenance; publication plan remains not_ready without neutral replacements."
+  ],
+  "residual_risks": [
+    "An unindexed formal erratum, thesis, informal correspondence, or independent pre-2026 correction to the 2021/2022 permanence theorem may exist despite focused exact-source queries.",
+    "The 2024 comparison article was read at the relevant actual equations, table and discussion, not every sentence of every application; its checked passages do not state this correction.",
+    "Resultary lists the assigned published 2026/10/11/SCOPE-a-positive-basin-at-the-origin-invalidates-permanence-in-the-ptm--f46cfb42e8e0 itself, not separate corroboration or prior work; indexed timing does not establish independent authorship or priority.",
+    "The statement corrects the equations as printed. A hypothetical intended model with PTM feedback into H or P could behave differently, so no claim is made about it.",
+    "Discrete T and difference field T-I must not be conflated; only T has multipliers 0,0,alpha0.",
+    "Contraction is shown for V<1/16 at one admissible tuple, not as a global statement for every positive initial point.",
+    "Six finite numerical orbits are corroboration only; the uniform-in-n conclusion follows from positivity and one-step induction.",
+    "This is a targeted theorem correction using elementary dynamics, not a classification of all attractors or a new general theory.",
+    "Biological interpretation remains limited to the paper’s printed recurrence; no empirical disease inference is made."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING the correction; the source explicitly asserts the opposite permanence theorem. Its difference-field Jacobian at origin is not the discrete update derivative; its claimed liminf >=1 is contradicted by a positive invariant basin.",
+      "evidence": "Model (9), printed p.3974; difference map (10)-(11), p.3975; Jacobian of Model (11), pp.3976-3977; permanence definition p.3977; Theorem 1 and proof p.3981 (web PDF parsed lines 398-438).",
+      "identifier_or_url": "doi:10.3934/math.2022219; https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-219.pdf",
+      "material_read": "Actual 16-page lawful OA PDF, especially printed p.3974 Model (9), p.3975 discrete T-I distinction, pp.3976-3977 Jacobian and zero fixed point, pp.3977-3978 permanence definition, p.3981 Theorem 1 with claimed positive liminf, p.3982 continuation, and control discussion. Rendered PDF pages corresponding to model and theorem were inspected.",
+      "method": "Publisher open-access PDF parsed/formula text, targeted complete passage inspection and visual page screenshots.",
+      "title": "3D-Chaotic discrete system of vector borne diseases using environment factor with deep analysis",
+      "trigger": "Introducing primary document containing the exact three-coordinate update, definition of permanence, Jacobian conventions, and Theorem 1 being refuted."
+    },
+    {
+      "assessment": "RELATED_BUT_NOT_COVERING. It is a two-dimensional arctan model with a comparison table summarizing the earlier tanh model; it does not prove an open positive basin for the three-dimensional tanh-PTM recurrence or retract Theorem 1.",
+      "evidence": "2024 paper Table 2, lines 414-427 in retrieved HTML, lists original tanh activation and a fixed-point/eigenvalue summary; model description and conclusion separately discuss arctan dynamics.",
+      "identifier_or_url": "doi:10.18280/mmep.110817; https://www.iieta.org/journals/mmep/paper/10.18280/mmep.110817",
+      "material_read": "Publisher full HTML: abstract; introductory host–parasitoid equations, arctan Model (6), fixed-point stability section, Section 6 discussion, Table 2 row on prior tanh model, conclusions, and references.",
+      "method": "Lawful publisher open-access full-text HTML with text/LaTeX table inspection.",
+      "title": "Analyzing Stability and Controlling Chaos in a Unique Host Parasitoid Discrete Dynamical System with Applications in Artificial Intelligence",
+      "trigger": "2024 same-author-family paper comparing the original tanh model and an arctan activation model."
+    },
+    {
+      "assessment": "DISTINCT_MODEL. The abstract concerns fixed refuge counts in a two-dimensional model, not the same PTM tanh recurrence. No claim that the entire inaccessible paper has been exhaustively inspected.",
+      "evidence": "Abstract explicitly identifies a modified constant-refuge host–parasitoid model; DOI, venue and scope.",
+      "identifier_or_url": "doi:10.1016/j.apm.2015.09.012; https://www.researchgate.net/publication/283089488_Global_behavior_of_a_host-parasitoid_model_under_the_constant_refuge_effect",
+      "material_read": "Available publisher/index bibliographic material and author-posted abstract identifying a modified two-dimensional constant-refuge interaction; not the full scientific body.",
+      "method": "Bibliographic indexing, open abstract and scope check; full text not claimed read.",
+      "title": "Global behavior of a host-parasitoid model under the constant refuge effect",
+      "trigger": "Earlier literature on global persistence and stability that might dominate the present source-specific counterexample."
+    }
+  ]
+}
