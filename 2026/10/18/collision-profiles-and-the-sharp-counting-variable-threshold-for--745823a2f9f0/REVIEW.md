@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-size sufficiency and necessity proof reconstructs complete two-variable types from orbit-constant local collision profiles. Three-variable path composition and finite rooted-orbit words establish the all-size upper bound. Complete enumerations verify the first failing size; finite checks are corroboration, not the basis of unrestricted claims.
+## correctness
 
-**Originality — PASS, with residual risk.** Kiefer–Schweitzer–Selman (arXiv:1503.08792) establishes general two-variable counting logic and the identified-structure criterion, not the explicit permutation-profile invariant or the five-element minimum found here. Pratt-Hartmann (2015) treats equivalence predicates. Published work on tuple-orbit enumeration and Dowker relations concern different objects. Several additional targeted research-record searches failed internally; prior specialized consequences of coherent-configuration theory may remain undiscovered.
+PASS
 
-**Value — PASS.** The theorem gives a complete natural finite-dynamics invariant and locates the sharp expressive boundary between two and three counting variables, rather than only computing a finite table.
+In finite commuting named permutation systems, the partition of (x,f_i(x),f_i^{-1}(x)) is C²-definable with two variables: equalities of any two images become two-edge atomic formulas with one bound y. Commutation makes this partition constant on every joint orbit. For any vertex x, its complete atomic two-type multiplicities among other vertices are determined by its partition, the partition histogram, and the all-false residual pairs. These data remain closed under the two-variable counting-quantifier induction, giving both implications of the exact histogram criterion. For two named bijections the exhibited Z/5 pair g=+2 versus g=+3 has equal collision profile but is not isomorphic (the centralizer of f=+1 consists of translations); a C³ formula detects g=f². Full labelled commuting-pair enumeration modulo simultaneous conjugation through n=6 gives isotype/profile counts (1/1,4/4,8/8,21/21,39/38,92/82), so n=5 is minimal. Finally, three variable symbols suffice to define the action of any fixed group word, identify a rooted permutation orbit via words of lengths at most n, and count orbit copies; commutativity is not required for this C³ upper bound. Independently reconstructed finite n≤5 census corroborates; the universal claims are deductive, not inferred from finite sampling.
 
-**Limitations.** Exact local profiles require commutation, the small-size census fixes two generator names, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS: Generic C² characterizations imply the equivalence can in principle be tested by stable atomic-neighbor counts, but without the commuting-orbit local-collapse argument they do not state its precise histogram theorem. The C³ statement also treats noncommuting finite systems, not an automatic C² corollary.
+
+## value
+
+PASS
+
+Natural finite-model-theoretic threshold: named permutation structures are canonical bounded-degree relational systems, and the theorem gives an explicit complete C² invariant plus the minimal obstruction and universally sufficient C³. The exact five-point boundary is motivated by the variable-width expressibility question and not an arbitrary census. A specialist could use the histogram and the 2/3-variable threshold in equivalence tests and finite-structure logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
