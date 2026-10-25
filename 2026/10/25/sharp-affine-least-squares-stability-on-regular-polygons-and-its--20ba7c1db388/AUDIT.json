@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The covariance of uniform area on an n-gon follows from explicit equal-area triangular moments and dihedral symmetry. Its inverse gives K(x,y)=1+c x·y. Convexity bounds the L-infinity norm by any vertex row; a vertex sign input gives equality, and kernel symmetry yields L1 dual equality. The negative cap is reconstructed by two edge intersections; shoelace area and x-first-moment identities give the exact norm. For the limit, uniform radial expansion r_n=1+(s²-δ²)/2+O(δ⁴), angular averaging against a Lipschitz integrand, differentiability in c, and exact disk-cap integrals produce the coefficient 5π√15/12. There is no leap from samples to infinite claims. The packaged checker separately passed 15 groups: three exact rational identities, four independent triangle-quadrature comparisons, five coefficient-scaling comparisons, and three floating reproductions of the rational benchmarks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hangelbroek et al. Sections 3–5 establish abstract projector bounds for localized-kernel approximation spaces on smooth manifolds; this is not an exact filled-polygon first-degree constant.",
+        "Defant et al., DOI 10.1112/jlms.70429, explicitly concern polynomial spaces on Euclidean spheres, whose measure spaces differ from normalized interior area on regular polygons.",
+        "A generic reproducing-kernel formula for affine polynomials is acknowledged as known, but it does not evaluate the polygon cap sums or the coefficient 5π√15/12 without the geometric calculation."
+      ],
+      "reasoning": "General boundedness or a reproducing-kernel identity is not the sharp all-order number and does not imply the evaluated shape derivative. Sphere-only constants cannot directly cover filled polygons. A stronger general convex-domain formula may exist outside the inspected literature, and that possibility is recorded as a residual bibliographic risk.",
+      "searches": [
+        "norm of orthogonal projection onto affine functions convex polytopes regular polygon",
+        "2015 affine least squares projection convex polygon polynomial exact L infinity norm",
+        "sharp L∞ norm of orthogonal projection onto affine functions on regular n-gon with uniform area measure, polygon Lebesgue constants",
+        "Hangelbroek Narcowich Sun Ward Kernel Approximation on Manifolds II L infinity norm L2 projector arxiv pdf 2011"
+      ]
+    },
+    "checked_sources": [
+      "Hangelbroek–Narcowich–Sun–Ward (2010), arXiv:1005.2424, sections 1, 3, 5, 6 (full text).",
+      "Defant–Galicer–Mansilla–Mastyło–Muro (2026), DOI:10.1112/jlms.70429 (abstract and bibliographic material).",
+      "Published 2026-10-04 statement about the affine simplex projection constant (statement summary only).",
+      "Earlier affine-projector statements concerning all parallelepipeds, beta-weighted Euclidean balls, and Dirichlet simplices (recoverable claims checked for object/claim overlap)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The triangle (a simplex) and square (a parallelepiped) are covered baseline examples, explicitly excluded from novelty.",
+        "An earlier affine projection result for uniform Euclidean balls supplies the disk-limit constant, but the n^-2 polygonal correction is a separate geometric computation.",
+        "General kernel-approximation and sphere results do not state the formula for the polygon cap or the coefficient 5π√15/12."
+      ],
+      "reasoning": "The new theorem contains both an exact sharp norm for every filled regular n-gon and a quantified nonzero n^-2 discrepancy relative to the disk. These facts are neither equal to nor immediate corollaries of the previously recovered triangle, square, ball, manifold-kernel, or sphere-polynomial statements without additional new cap geometry and a controlled shape expansion.",
+      "searches": [
+        "affine least squares projection constant regular polygons and asymptotic to circle",
+        "two-dimensional convex polytope uniform Lebesgue least squares degree-one affine projection, exact endpoint norm",
+        "near-ball polygonal approximation sharp affine polynomial projector endpoint norm second order",
+        "least squares polynomial projection regular polygons L infinity norm affine"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The kernel for the specified filled regular polygon is exactly 1+c x·y with c=12/(2+cos(2π/n)); exact norms require the negative-cap area and first moment.",
+        "Hangelbroek et al. (arXiv:1005.2424) treat local kernel spaces on compact manifolds, not this filled-polygon affine space.",
+        "Known simplex and parallelepiped special cases yield n=3 and n=4, but do not supply the n≥5 clipped-cap values or the asymptotic defect."
+      ],
+      "reasoning": "Equivalent terms include affine orthoprojector, least-squares linear polynomial projector, Lebesgue constant, absolute reproducing-kernel integral, and positivity defect. They define the same norm here. The examined statements do not assert the all-polygon formula or its sharp second-order disk correction.",
+      "searches": [
+        "sharp Lebesgue constant L2 least squares projection linear affine polynomials regular polygon uniform area vertices",
+        "norm of L2 orthogonal projection onto affine functions convex polygon regular n-gon sharp",
+        "hexagon uniform area affine least squares projection sharp maximum norm equals 361/180"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rational exact benchmarks n=3 (19/8), n=4 (233/108), n=6 (361/180) were separately reconstructed by exact rational cap geometry.",
+        "The n=3 and n=4 cases lie within known simplex and parallelepiped projection studies. No inspected table provides the n≥5 all-order prescription or the exact n^-2 limit coefficient."
+      ],
+      "reasoning": "Searching exact rational values and names as well as general projection terms did not identify a database or prior table that covers the claimed infinite sequence together with its nonzero asymptotic discrepancy. This is evidence of no identified overlap, not a proof of priority.",
+      "searches": [
+        "hexagon uniform area affine least squares projection sharp maximum norm equals 361/180",
+        "finite element local affine L2 projection on regular hexagon and polygon maximal kernel norms",
+        "uniform-area planar regular n-gon orthogonal projection onto affine functions, exact L infinity Lebesgue constant, n inverse squared disk limit"
+      ]
+    },
+    "rationale": "Relevant primary source full text (Hangelbroek et al. 2010), another polynomial-projection abstract (Defant et al. 2026), published records, and recoverable prior affine projection claims were compared by objects and implications. Existing simplex/parallelepiped and disk results are acknowledged rather than claimed. The exact n≥5 regular-polygon family and its evaluated n^-2 disk-shape coefficient were not found in inspected statements. Limited full-text availability and unindexed older literature remain explicit historical priority risks.",
+    "residual_risks": [
+      "A stronger general all-convex-body projection-constant theorem might contain the same regular-polygon formula in an inaccessible or unindexed source.",
+      "The related 2026 spherical-polynomial article and the simplex publication record were not inspected in full; no unsupported whole-document noncoverage inference is drawn.",
+      "No independent bibliographic priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 5 concerns projectors from localized-kernel spaces on quasiuniform point sets on compact smooth manifolds. It does not imply exact sharp affine projection constants on filled regular polygons or their disk-limit correction.",
+        "evidence": [
+          "Section 5, main result: stable local bases yield uniformly bounded Lp least-squares projectors; the sphere example employs fundamental-solution-generated kernels.",
+          "The paper contains no polygon setup or explicit affine polynomial cap moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+        "material_read": "Full text rendered in HTML: Introduction, Sections 3 and 5 (including Theorem 5.1, Corollary 5.3), and the Conclusion.",
+        "method": "Read accessible arXiv full-text presentation and contrasted theorem hypotheses and approximation spaces.",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+        "trigger": "Most directly relevant archived primary full text concerning endpoint boundedness of orthogonal least-squares projections."
+      },
+      {
+        "assessment": "The recovered abstract concerns real Euclidean spheres, not uniform area inside regular polygons. It is not used to make a whole-document NOT_COVERING assertion.",
+        "evidence": [
+          "The stated objects are spaces of spherical harmonics, homogeneous polynomials and finite-degree polynomials on spheres, with weighted Jacobi L1 representations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.70429",
+        "material_read": "Abstract, cited references, and publication metadata; the full text was not obtained.",
+        "method": "Compared the explicitly stated sphere-polynomial setting and Jacobi-weighted L1 norms with normalized two-dimensional polygon-area projection.",
+        "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+        "trigger": "Closest newer research about norms of polynomial projections for high-symmetry domains."
+      },
+      {
+        "assessment": "The recovered claim covers simplices and therefore the triangle, but the available text cannot establish whether its full paper contains additional broader polygon results. No full-text NOT_COVERING conclusion is drawn.",
+        "evidence": [
+          "The recovered statement gives C_d=(d+1)((d+1)/(d+2))^d-1 for a d-simplex, implying the known triangle benchmark 19/8 when d=2."
+        ],
+        "identifier_or_url": "Published online mathematical record, dated 2026-10-04",
+        "material_read": "Title and published statement summary only; its full paper/package was inaccessible.",
+        "method": "Compared the recovered theorem domain (uniform d-simplex) with filled planar regular n-gons for n≥5.",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Exact affine-projector norm for the n=3 triangle case and a possible stronger generic theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20ba7c1d-b388-43d1-a8cb-70042f9e10a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Affine least-squares projection on a simple polygon is a canonical local approximation operator, and regular n-gons converge to the disk in a controlled geometric way. Exact norms across the entire discrete family and the evaluated nonzero n^-2 discrepancy offer a motivated, interpretable benchmark for worst-case pointwise stability and shape approximation. The calculation extends beyond the already-known triangle, parallelogram and disk cases; it is not simply another rational numerical instance.",
+    "status": "PASS"
+  }
+}
