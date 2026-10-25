@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:44:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For cyclic w=0 1^a 0 1^b 0 1^c with 1≤a<b<c, every two-position attractor must include a zero and a one. Unique 1^c forces the one into the c-run, and unique 0 1^a 0 and 0 1^b 0 occurrences force the zero to shared Z1. Unique factors 1^(a+1)0 and 1^(a+1)0 1^(a+1) force necessary c−a≤j≤a+1. The sufficiency proof explicitly splits the unmarked circle after marking {Z1,X_j} into arcs A=1^b 0 1^(j−1) and B=1^(c−j)0 1^a. Pure ones, factors with ≥2 zeros, and single-zero factors 1^u 0 1^v exhaust all nonempty cyclic factors: every candidate occurrence confined to A or B has a translated occurrence covering a marked position at Z1 or X_j. When c≥2a+2 no j exists and the explicit triple {Z1,X_(a+1),X_(c−a)} covers all factors by analogous arcs. Therefore pair sets precisely j=c−a,...,a+1, count max(0,2a+2−c), γ*_c(w)=2 below the threshold and 3 above, independent of middle b. Separately implemented direct circular-occurrence bitmask enumeration checked all 56 distinct triples a<b<c≤8 with 20 two-phase and 36 three-phase cases and every pair, plus the three-point witnesses; finite check supplements the all-parameter arc argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Romana 2023 general algorithms check given attractors in linear time and study complexity; source family proof instead gives a closed formula for all a<b<c."
+        ],
+        "reasoning": "A general algorithm can decide each input instance but does not state the infinite structural threshold γ*=2 iff c≤2a+1 or classify all 2-point witnesses. No checked stronger theorem makes the claim automatic.",
+        "searches": [
+          "circular string attractor three zeros distinct run lengths binary necklace minimum two positions threshold",
+          "Romana Algorithmic View on Circular String Attractors 2023",
+          "minimal attractor size binary three zeros circular"
+        ]
+      },
+      "checked_sources": [
+        "Mantaci et al. Theoretical Computer Science 850 (2021), DOI 10.1016/j.tcs.2020.11.006, author OA PDF Theorem 34",
+        "G. Romana, ICTCS 2023, Algorithmic View on Circular String Attractors, CEUR Vol 3587",
+        "Frozen RESULT.md proof, check_circular_gap_triplets.py and verification state"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 34 applies to consecutive minimal marked positions and primitive Sturmian conjugacy, not arbitrary sparse three-zero words. Algorithmic paper proves verification complexity, not a closed minimum formula."
+        ],
+        "reasoning": "New unique-factor forcing plus complementary-arc sufficiency resolves all nonconsecutive pair possibilities and three-marker witness. Neither prior statement implies the exact b-invariant threshold without significant new combinatorics.",
+        "searches": [
+          "circular string attractor three zeros distinct run lengths binary necklace minimum two positions threshold",
+          "Mantaci et al 2021 circular string attractor Theorem 34",
+          "Romana 2023 circular attractor general linear time verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foundational Mantaci et al. Theorem 34 classifies consecutive-position minimal pairs in primitive Sturmian conjugacy classes; here optimal pairs may be far apart and circles have exact distinct gap lengths."
+        ],
+        "reasoning": "The model is genuinely circular (factors wrap); circular pair classification cannot be inferred from ordinary linear-string attractor statements or the consecutive-site Sturmian theorem.",
+        "searches": [
+          "circular string attractor three zeros distinct run lengths binary necklace minimum two positions threshold",
+          "circular string attractors Sturmian consecutive positions Mantaci Restivo Romana",
+          "ordinary string attractors three runs binary word threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite exact direct occurrence tested 56 admissible triples through c=8; original package tested 220 through c=12. Resultary thematic search retrieved other word families, not an exact three-gap table."
+        ],
+        "reasoning": "These are local certificates only, not priority. No checked published infinite-table enumeration of the parameter family was found; inaccessible/unindexed results remain a risk.",
+        "searches": [
+          "circular string attractor three zeros distinct run lengths binary necklace minimum two positions threshold",
+          "Resultary string attractors circular three runs distinct gaps",
+          "circular binary word 0 1^a 0 1^b 0 1^c size two list"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: 2021 Mantaci–Restivo–Romana–Rosone–Sciortino provides foundational circular attractors and a characterization of *consecutive* size-two attractors for primitive Sturmian words; 2023 Romana gives a general linear verification and NP-completeness. Neither statement determines the nonconsecutive two-marker pairs for a distinct three-gap circular family, its exact count, or the b-independent 2-to-3 transition. Equivalent transformations of ordinary, noncircular attractors are not valid because wrap-around factors differ. Unindexed structural family results remain possible.",
+      "residual_risks": [
+        "An unindexed or newly published specialized three-zero circular word theorem may cover this simple family.",
+        "Pairwise distinct run length is essential; repeated gaps and four or more zeros may have additional optimal pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Consecutive pair primitive Sturmian theorem; no checked claim of all nonconsecutive pairs in distinct-three-gap family",
+          "evidence": [
+            "Theorem 34: consecutive-position minimal circular attractors and primitive Sturmian conjugacy"
+          ],
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+          "material_read": "Primary 29-page open PDF; relevant definitions and Theorem 34 section including statement/nearby argument materially read; not asserted entire paper line by line",
+          "method": "Author OA PDF with PDF page screenshot/selection",
+          "title": "Mantaci, Restivo, Romana, Rosone and Sciortino, A Combinatorial View on String Attractors",
+          "trigger": "Introduces circular attractor and characterizes consecutive minimal pairs"
+        },
+        {
+          "assessment": "General verification/NP-completeness does not itself give a closed parameter-uniform family classification",
+          "evidence": [
+            "General algorithmic results and definition of circular string attractor"
+          ],
+          "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+          "material_read": "Primary 2023 proceedings PDF, abstract/introduction, statement of general verification algorithm and complexity results inspected",
+          "method": "Open 12-page CEUR primary PDF with page screenshot/selection",
+          "title": "Romana, Algorithmic View on Circular String Attractors",
+          "trigger": "Potential all-binary word decision theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete infinite-parameter classification for a natural simplest nontrivial family of sparse-zero cyclic words. The exact threshold c=2a+1, all optimal pairs and the surprising cancellation of b give a small meaningful structural invariant, potentially useful as a test case for circular-attractor algorithms and extremal constructions. Not merely finite census or relabeling of a known consecutive-position result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mantaci et al. Theoretical Computer Science 850 (2021), DOI 10.1016/j.tcs.2020.11.006, author OA PDF Theorem 34",
+    "G. Romana, ICTCS 2023, Algorithmic View on Circular String Attractors, CEUR Vol 3587",
+    "Frozen RESULT.md proof, check_circular_gap_triplets.py and verification state"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Circular factors length≤full period with wraparound; no ordinary linear-string extrapolation.",
+    "No complete classification for repeated gap lengths or more zero markers."
+  ],
+  "residual_risks": [
+    "An unindexed or newly published specialized three-zero circular word theorem may cover this simple family.",
+    "Pairwise distinct run length is essential; repeated gaps and four or more zeros may have additional optimal pairs."
+  ],
+  "schema_version": 1
+}
