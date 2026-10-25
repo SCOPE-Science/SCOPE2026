@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim is an all-graph existence and phase-space classification for connected simple bicyclic cone bases with zero-diagonal unit-modulus Hermitian couplings. The proof independently establishes that exact all-time apex cosine-squared return is equivalent to the base unit-gain row-zero equations: the order-four coefficient detects the squared row-sum norm. The cyclomatic-rank identity exhausts the leaf-free graph shapes. The forced alternation on every degree-two path then gives the theta equilateral triple, the exact two-circle/four-point phase spaces, the figure-eight construction, and the even-lobe obstruction and eight solutions for odd–odd barbells. The proof explicitly covers path length one between theta branch vertices (only one direct path in a simple graph), cycle lengths at least three, arbitrary connecting-path length, and all real times. No finite test substitutes for the all-orders argument. The reproducibility code checks 1,145 constructed cones and 28 even-lobe identity profiles, including high-order apex moments.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-Frigerio–Paris, *Swift chiral quantum walks* (arXiv:2207.05168, 2022; Linear Algebra Appl. 2023), gives the overarching cone zero-row-sum criterion and even-degree and cubic-regular graph theorems; therefore the present finding claims neither. Its inspected main results and relevant appendices do not supply the complete cyclomatic-rank-two classification, the new even-cycle barbell obstruction, or the parity-dependent phase-space counts. Annoni–Frigerio–Paris, *Enhanced quantum transport in chiral quantum walks* (arXiv:2308.14747; 2024), studies endpoint transport on chain-like units and does not state this apex theorem. Belardo–Brunetti–Khan, *NEPS of complex unit gain graphs* (Electronic Journal of Linear Algebra 39, 2023), studies spectral properties and NEPS constructions, not the claimed bicyclic all-ones kernel criterion. General unit-gain or graph-flow theorems not identified by the inspected texts may still subsume a specialization. The distinction is one of exact mathematical implications, not merely unmatched paper titles.
+PASS
 
-## Value — PASS
-This solves phase-only attainment, not merely approximated speed, in the full smallest family of connected graphs with two independent cycles. It identifies a nontrivial *bridge/parity obstruction* invisible to the simple minimum-degree condition, gives explicit constructive controls when feasible, and distinguishes continuous design freedom (two circles) from discrete solutions (four or eight) within natural graph families. The exact classification is reusable for selecting coherent transport networks without coupling-amplitude tuning. The known figure-eight even-degree case is included to complete the family, not presented as an independent advance.
+For a finite connected simple bicyclic base with exactly E=V+1, zero-diagonal unit-modulus Hermitian gains and apex couplings gauged to 1, the order-four apex survival coefficient is N²/3+||Q1||²/12; matching cos²(sqrt(N)t) for all t forces Q1=0. Conversely Q1=0 makes the apex and uniform base vector a 2x2 invariant subspace, proving both exact return and uniform base probability for all times. Leaf rows cannot cancel. Handshaking sum(deg-2)=2 reduces leafless bases to theta, figure-eight and barbell; at each degree-two path vertex gains alternate t,-conj(t). An equilateral unit-gain triple gives theta two phase circles for uniform parities or exactly four points for mixed parities. A figure-eight admits imaginary circulation on both cycles. Even cycle lobes in barbells produce zero root contribution and cannot cancel their unit bridge; odd-odd lobes give 2*2*2=8 assignments. Phase counts concern labelled/oriented bases and fixed apex gauge, not gauge-equivalence classes. Independently formed theta rows for lengths (2,2,2), (1,2,2), (1,3,2) and verified residuals below 4e-16; inspected the finite checker for 1,145 constructed cones, 28 local obstructions and apex moments through order twelve. Those finite checks alone do not prove the universal theorem.
 
-## Limitations and nearest literature
-The scope excludes graphs of cycle rank other than two, nonunit coupling amplitudes, diagonal site potentials, and alternative starting states. Figure-eight solution counts are not claimed. Further literature might contain broader complex-unit-gain existence criteria that imply these special cases; claims of universal publication priority or independent confirmation are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual Resultary search, source-specific mathematical implication comparisons, primary-source reading of accessible material and explicit residual risks. Known general frameworks and special cases are credited; unsuccessful searches are not proof of historical novelty.
+
+## value
+
+PASS
+
+Exact feasibility and complete phase-control classification for all connected rank-two bicyclic cone bases is a natural quantum-transport network design problem. The bridge-cycle parity obstruction and contrast of continuous theta phase tori with discrete four/eight-point solutions are mathematically substantive, not a mere invocation of the known general cone criterion; the case of figure-eight feasibility is acknowledged as known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
