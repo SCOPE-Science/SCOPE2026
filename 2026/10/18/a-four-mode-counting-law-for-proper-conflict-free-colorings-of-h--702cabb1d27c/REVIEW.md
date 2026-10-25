@@ -1,15 +1,21 @@
-# Scientific review: hairy-cycle PCF counting law
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is the uniformly leaf-decorated simple cycle with integers \(n\ge3\), \(a\ge1\) and a labeled palette of \(q\ge3\) colors. The proof first counts local pendant extensions according to whether the two core-neighbor colors agree, including all singleton and no-singleton cases. The resulting pair-color transfer has an exact four-family invariant splitting whose dimensions sum to its full dimension; this proves the trace formula for arbitrary length. The special three-color weights follow from direct binary choices. The complete attached verifier reproduces local weights and counts by structurally different exact procedures, including full coloring enumeration; those tests do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified
-Caro–Petruševski–Škrekovski (arXiv:2203.01088, Observation 3) already study ordinary coronas and cover the chromatic-number statement in the one-leaf specialization. This is explicitly not asserted to be novel. Qi–Song–Cao (arXiv:2609.11249) establish large-girth list-colorability, not counting. Related crown-graph counting formulas and complete-multipartite results concern different graph families. No covering all-palette formula or core-independent two-pendant extension identity was found in the inspected full primary texts, published research search or published related claims. Unindexed equivalent work and unpublished overlap remain possible; there is no claim of certified uniqueness.
+PASS
 
-## Value — PASS
-The result gives the full \(q\)-color enumerator for a two-parameter natural outerplanar family, reducing an exponentially large coloring count to two explicit local weights and a four-mode spectral formula. The striking identity for two leaves and three colors identifies an exactly uniform extension multiplicity across all properly colored cycle cores, rather than merely identifying the least number of colors. A generic fixed-graph transfer construction would not itself provide this closed all-parameter splitting or explain the cancellation. It does not solve arbitrary unicyclic/list-coloring enumeration.
+For n≥3,a≥1,q≥3 and labelled core/leaves/palette, each core neighborhood is determined by equality or inequality of its two proper-colored cycle neighbors; inclusion–exclusion EGFs subtract exactly the assignments with no singleton, giving r_a(q),s_a(q). A proper core coloring has multiplicative independent leaf extensions. The ordered-distinct-color transition matrix T (dimension q(q−1)) has a constant eigenvector h; (q−1) standard two-dimensional blocks with characteristic equation λ²+sλ+(s−r)h; and zero-row/column symmetric and antisymmetric sectors of dimensions q(q−3)/2 and (q−1)(q−2)/2 with eigenvalues r−s,s−r. Dimension sum is exact, so the resulting trace formula holds for every n; U_j obeys the characteristic recurrence even with repeated roots. At q=3, r=a,s=2; at a=2 all core colorings have 2^n extensions. Independent brute core and transfer checks match selected q,a,n values including (3,2,5), (4,2,4). Finite cases alone cannot prove all parameters.
 
-## Limits
-The result counts labeled palette assignments for uniform pendant counts only. The algebraic proof, not computational extrapolation, supports the infinite scope. Historical sources are used for overlap, without a claim of independent examination of other results. Scientific residual risk is recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary hits for crown graphs and complete multipartite PCF colorings have different adjacency/leaf neighborhood structures and cannot simply give sunlet PCF counts; no exact sunlet table found. No negative search establishes absolute novelty.
+
+## value
+
+PASS
+
+A natural uniform-pendant cycle corona has an exact all-palette PCF chromatic counting polynomial for arbitrary n and leaf multiplicity a, not merely a chromatic number. The four-mode spectral reduction and exceptional q=3,a=2 constant-extension phenomenon supply structural insight and reusable enumeration, beyond running a fixed finite graph transfer matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

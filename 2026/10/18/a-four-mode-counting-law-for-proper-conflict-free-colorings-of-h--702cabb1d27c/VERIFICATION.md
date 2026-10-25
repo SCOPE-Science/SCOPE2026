@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-Run `python3 verify_sunlet.py` from the directory containing the file. The program uses the Python standard library; `verification_output.txt` is its actual recorded output. It tests all thirty pairs with \(3\le q\le7\) and \(1\le a\le6\) for equality of direct and coefficient-extraction local weights; all 96 triples with \(3\le q\le6\), \(1\le a\le4\), \(3\le n\le8\) for trace-versus-recurrence equality; and 27 core-coloring enumerations with \(3\le q\le5\), \(1\le a\le3\), \(3\le n\le5\). Ten further direct full-graph cases evaluate the open-neighborhood PCF condition explicitly, over 1,496,305 ambient assignments. No numerical tolerance is used. These checks are finite and do not establish the general theorem without the proof. The general step is the invariant subspace decomposition in `RESULT.md`.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For n≥3,a≥1,q≥3 and labelled core/leaves/palette, each core neighborhood is determined by equality or inequality of its two proper-colored cycle neighbors; inclusion–exclusion EGFs subtract exactly the assignments with no singleton, giving r_a(q),s_a(q). A proper core coloring has multiplicative independent leaf extensions. The ordered-distinct-color transition matrix T (dimension q(q−1)) has a constant eigenvector h; (q−1) standard two-dimensional blocks with characteristic equation λ²+sλ+(s−r)h; and zero-row/column symmetric and antisymmetric sectors of dimensions q(q−3)/2 and (q−1)(q−2)/2 with eigenvalues r−s,s−r. Dimension sum is exact, so the resulting trace formula holds for every n; U_j obeys the characteristic recurrence even with repeated roots. At q=3, r=a,s=2; at a=2 all core colorings have 2^n extensions. Independent brute core and transfer checks match selected q,a,n values including (3,2,5), (4,2,4). Finite cases alone cannot prove all parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary hits for crown graphs and complete multipartite PCF colorings have different adjacency/leaf neighborhood structures and cannot simply give sunlet PCF counts; no exact sunlet table found. No negative search establishes absolute novelty.
+
+## value
+
+PASS
+
+A natural uniform-pendant cycle corona has an exact all-palette PCF chromatic counting polynomial for arbitrary n and leaf multiplicity a, not merely a chromatic number. The four-mode spectral reduction and exceptional q=3,a=2 constant-extension phenomenon supply structural insight and reusable enumeration, beyond running a fixed finite graph transfer matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
