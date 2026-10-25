@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T07:59:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact occurrence-labelled, odd-bottom-up/even-top-down Anttila–Kontinen–Yang algorithm, established flat support F_u and existential NE obligations W_u by structural induction over literals, constants, conjunction, lax split. Formula satisfaction iff S subset F_root and S meets all NE witness sets. After first and second updates the labels are f1(u)=T cap F_u and f2(u)=T cap F_u cap C_u (contexts accumulate flat support of siblings at conjunctions). If every nonempty-team obligation survives, stage three preserves stage two and thus all later stages. Otherwise a null NE leaf at update three propagates null up to root, and top-down fourth update propagates null globally. Empty input team follows separately, null is distinguished from empty actual subteam; phi=NE and BOT conjunction with singleton T forces f3 not equal f4. The direct two-pass context checker is O(|phi||T|) elementary operations on explicit teams. Read the actual bundled simulation/semantic verifier and reconstructed the inductive argument; finite tests do not prove unbounded depth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anttila–Kontinen–Yang polynomial-time iteration upper bound is weaker than universal bound 4; its later discussion states fourth update was observed but unproved.",
+          "Anttila–Knudstorp expressive completeness concerns property classes, no general proof fixing this particular four-round recurrence identified."
+        ],
+        "reasoning": "The known polynomial bound cannot imply exact sharp convergence constant without new local-context invariant, nor the linear-in-team-size two-pass implementation.",
+        "searches": [
+          "arxiv:2510.08122v2 §3, §6",
+          "arxiv:2503.21850",
+          "propositional team logic nonemptiness atom algorithm alternating greatest subteam four rounds fixed point Anttila Kontinen Yang"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md plus full verify_ne_obligations.py implementation, REVIEW/SLOGAN/VERIFICATION, metadata and audit JSON at tree a4a32ea56c30d2419d3d68e091148610c75aefb2",
+        "Primary full arxiv:2510.08122v2 pseudocode and explicit open question; arxiv:2503.21850 full text",
+        "Resultary semantic query on nonemptiness, convex team logic, alternate update and four rounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary explicitly invites proof of convergence at fourth iteration and improvement beyond its polynomial upper bound; it does not establish f4=f5 for all finite teams."
+        ],
+        "reasoning": "The mathematical claim adds inductive support/witness normal form and sharp fourth-round proof. Original semantics, algorithm and observation are credited as prior rather than attributed to the new claim.",
+        "searches": [
+          "Anttila Kontinen Yang arxiv:2510.08122v2 exact iteration pseudocode, discussion",
+          "propositional team logic nonemptiness atom algorithm alternating greatest subteam four rounds fixed point Anttila Kontinen Yang"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greatest-subteam label iteration and propagation of nonempty witnesses is equivalent to an alternating fixed-point-on-occurrences problem; exact null vs empty and lax union semantics essential."
+        ],
+        "reasoning": "Compared fixed-point convergence, team model checking, convex-union-closed property, propagation algorithm aliases. The four-round theorem is about one specific published recurrence, not generic propositional satisfiability.",
+        "searches": [
+          "propositional team logic nonemptiness atom algorithm alternating greatest subteam four rounds fixed point Anttila Kontinen Yang",
+          "arxiv:2510.08122v2 §3/§6",
+          "arxiv:2503.21850"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published semantics research record discusses antecedents and union/intersection closure under material implication rather than iterations of NE model checker."
+        ],
+        "reasoning": "An algorithmic fourth-iteration observational remark is in the original primary paper and is prior; full universally verified recurrence and sharp example are not a mere benchmark table.",
+        "searches": [
+          "propositional team logic nonemptiness atom algorithm alternating greatest subteam four rounds fixed point Anttila Kontinen Yang",
+          "Resultary: 2026/10/4/SCOPE-exact-antecedent-boundary-for-material-implication-closure-in-te--aba05b7ed790"
+        ]
+      },
+      "rationale": "The source paper Anttila–Kontinen–Yang 2025 explicitly says the same algorithm seems to converge by fourth iteration but identifies that assertion as unproved and open; it supplies only polynomial iteration complexity. The new rigorous four-step universal and sharpness theorem settles that question and adds a flat-support witness checker. Prior Convex Team Logics characterizes expressibility, not this update count; original coNP entailment result is not re-claimed.",
+      "residual_risks": [
+        "A general older local propagation/fixed-point theorem could imply the constant-round stopping time under different terminology.",
+        "Any extension beyond lax split / stated atomic language or treating empty labels as null is not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PARTIAL_COVERAGE",
+          "evidence": "Published polynomial iteration bound and observation of 4, no provided all-input proof; now formally resolved.",
+          "identifier_or_url": "arxiv:2510.08122v2",
+          "material_read": "Full accessible primary HTML, semantic definitions, §3 algorithm pseudocode/complexity and later explicit apparent fourth-iteration question",
+          "method": "full primary HTML and source passages",
+          "title": "Complexity Results in Team Semantics: Nonemptiness Is Not So Complex",
+          "trigger": "exact named alternating algorithm and apparent fourth-round convergence"
+        },
+        {
+          "assessment": "RELATED_NOT_DIRECT_COVERAGE",
+          "evidence": "Does not furnish four-update stopping bound for the particular recursion.",
+          "identifier_or_url": "arxiv:2503.21850",
+          "material_read": "Full accessible preprint text on closure and expressive completeness, relevant named theorems",
+          "method": "primary full HTML",
+          "title": "Convex Team Logics",
+          "trigger": "possible stronger theorem in convex/union-closed team semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp constant-round termination resolves a specific published algorithmic gap; direct context check materially improves a polynomial iterative model checker for the natural fragment with nonemptiness, even though previous polynomial-time decidability was known. The precise best possible fourth round has conceptual content beyond mechanical substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md plus full verify_ne_obligations.py implementation, REVIEW/SLOGAN/VERIFICATION, metadata and audit JSON at tree a4a32ea56c30d2419d3d68e091148610c75aefb2",
+    "Primary full arxiv:2510.08122v2 pseudocode and explicit open question; arxiv:2503.21850 full text",
+    "Resultary semantic query on nonemptiness, convex team logic, alternate update and four rounds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only this exact published lax-split algorithm with occurrence labels, literals/constants/NE; explicit team input complexity, no succinct-encoding or other team atoms."
+  ],
+  "residual_risks": [
+    "A general older local propagation/fixed-point theorem could imply the constant-round stopping time under different terminology.",
+    "Any extension beyond lax split / stated atomic language or treating empty labels as null is not covered."
+  ],
+  "schema_version": 1
+}
