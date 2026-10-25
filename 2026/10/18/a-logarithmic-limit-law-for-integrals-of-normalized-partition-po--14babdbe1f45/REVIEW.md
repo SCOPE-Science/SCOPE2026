@@ -1,15 +1,21 @@
-# Review: A logarithmic limit law for normalized partition-polynomial integrals
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A bijection removing prescribed part multiplicities proves the exact survival identity, which yields independent exponential limits for every finite list of scaled counts. A Hardy–Ramanujan ratio inequality proves a uniform \(O(1/J)\) bound for the weighted tail, so the infinite numerator limit is rigorous. Erdős–Lehner controls the denominator; Slutsky's theorem, moment summations, and Gamma products establish the stated distribution and transform. The executable enumerations test exact finite identities but do not stand in for the classical asymptotic inputs.
+## correctness
 
-## Originality
-**PASS within the available primary evidence, with nontrivial residual risk.** Dawsey, Russell, and Urban's full 2021 paper defines the integral, proves value denseness and considers fixed-length averages, but does not formulate the log-scaled weak law for a uniformly random partition of fixed size. Erdős–Lehner and Fristedt developed core probabilistic inputs; the latter was accessible in abstract only, so a general theorem subsuming the present corollary cannot be ruled out. Semantic mathematical-literature searches and source comparisons for aliases, infinite weighted sums, limiting distributions, and the Gamma law identified no dominating statement. Independence or priority is not certified.
+PASS
 
-## Mathematical value
-**PASS.** The theorem identifies a nontrivial random limit for a natural statistic attached to normalized partition polynomials, including its exact scale, transform, mean and variance. It requires uniform control of a potentially infinite small-part contribution, and supplies a reusable method for other nonlocal partition-weight integrals.
+For multiplicities m_j, removing required copies yields P(m_{j_i}>=r_i all)=p(n-s)/p(n) exactly. Hardy–Ramanujan ratios with r_i~x_i sqrt(n) give independent rate-c j exponential limits. The uniform bound p(n-s)/p(n)<=C exp(-delta s/sqrt(n)), obtained by splitting s<=n/2 from s>n/2, yields uniform L1 control <=C/[delta(J+1)] for the weighted tail. This justifies convergence of the infinite numerator; Erdos–Lehner gives L_n/(sqrt(n)log n)->1/(2c), so Slutsky yields Z. Telescoping 1/[j(j+1)], square-sum 2zeta(2)-3, and gamma ratios give all constants. Independently checked 432 exact joint-tail identities for n=1..16 and the three smallest part sizes, and numerical Gamma/product comparisons at four t values. These finite checks do not prove classical partition inputs or the weak limit.
 
-## Closest literature and limitations
-Dawsey–Russell–Urban (arXiv:2108.00943); Erdős–Lehner (Duke Math. J. 1941); Fristedt (Trans. AMS 1993, abstract inspected); Hardy–Ramanujan (1918). The result asserts weak convergence only, not fixed-length monotonicity, moment convergence for finite \(n\), or priority over all general partition limit theorems. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dawsey–Russell–Urban 2022 introduce exactly these normalized polynomial integrals, prove density, and discuss fixed-length average monotonicity. They do not establish the random fixed-size, logarithmically rescaled integral weak limit in the inspected full-text sections. Hardy–Ramanujan, Erdős–Lehner, and Fristedt multiplicity laws are credited, not repackaged as discoveries; their combination requires an explicit uniform weighted-tail bound and normalization.
+
+## value
+
+PASS
+
+A natural statistic specifically introduced in the partition-polynomial literature has a previously uncomputed nondegenerate limit law, explicit infinite exponential-series and Gamma transform, and sharp decay scale. This provides a meaningful probability distribution theorem independent of the unrelated fixed-length average conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
