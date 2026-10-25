@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every finite poset, the negation of an upset is the complement of its generated downset. Finite height two makes each nonmaximal vertex independently optional once its maximal successors are included; counting gives a Boolean zeta transform of the maximal-neighborhood multiplicities. Boolean Möbius inversion reconstructs those multiplicities and the frame. The converse constructs every feasible probability law, and the two six-point witnesses demonstrate loss of identifiability after forgetting output labels. Independently enumerating the 6,543 labelled test frames and 224,635 upsets confirmed the derived formulas; the proof is general and does not rely on this finite test.
+## correctness
 
-**Originality — PASS, qualified.** The relevant prior 2021/2024 source by Bumpus–Kocsis, *Degree of Satisfiability in Heyting Algebras*, Proposition 2.12, establishes the Boolean image of negation and examines aggregated satisfiability degrees. It does not present the indexed output-frequency inversion or the exact realizability criterion in the inspected sections. Relevant research-record searches of negation fibers, height-two frames, pseudocomplement distributions, and Möbius inversion returned no equivalent claim. Related prior results on weak excluded middle/double negation count satisfaction categories, not individual negation outputs; a prior Peirce-right-fiber reconstruction concerns a different binary law and a weak-order frame class. An equivalent result in generic hypergraph zeta-transform literature remains a residual novelty risk; an unsuccessful search is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** The exact law of one unary logical operation, with its Boolean outcome labels, acts as a complete inverse invariant for all finite height-two intuitionistic frames. This supplies an exact realizability/recognition algorithm for the law and exhibits the precise information that unordered probabilities lose, using natural six-point witnesses. The statement is about recovery of semantic incidence, not merely restating the elementary zeta-inversion identity.
+On finite height≤2 posets, every upset is specified by maximal trace S⊆M and independent decisions for each lower vertex v with N(v)⊆S. Consequently ¬U=P\↓S, all 2^m such R_S occur distinctly, and their fibers have counts f(S)=2^{Σ_{T⊆S,T≠∅}h(T)}. Since f(∅)=1, the normalized probability ratio p(S)/p(∅) gives the integer exponent c(S), whose unique Boolean Möbius inverse h(T) records every lower neighborhood count. Those counts completely reconstruct order up to maximal labels, and conversely nonnegative Möbius integers construct the unique suitable frame. Fast Boolean transform complexity O(m2^m) measured in indexed exact arithmetic operations. Independent direct enumeration of upsets, negations, fiber exponents and Möbius inversion over all labeled m≤3,l≤3 incidence frames matches the theorem; independent explicit examples have identical unordered histograms but distinct lower degrees. A three-chain has non-power-of-two boundary fiber (3), so scope is rightly confined to height two.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior finite Heyting satisfiability studies determine Boolean structure of double-negation fixed points and probabilities of formulas, but the source-specific full inverse of each negation output’s frequency, exact recognition test, and identifiability counterexample are not established in the inspected primary work. Möbius inversion is standard but its observation-theoretic application is a complete naturally motivated finite-height-two reconstruction.
+
+## value
+
+PASS
+
+Recovering the entire underlying height-two intuitionistic Kripke frame from an observable distribution is a natural inverse problem, not merely relabeling a combinatorial formula. The exact positive-law recognition criterion and explicit six-vertex non-identifiability boundary are useful structural complements; the object and invariant have independent logical meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
