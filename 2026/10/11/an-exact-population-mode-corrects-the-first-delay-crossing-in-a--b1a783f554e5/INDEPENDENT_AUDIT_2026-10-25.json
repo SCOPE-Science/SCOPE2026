@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T12:54:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+        "assigned RESULT.md, verify.py, SLOGAN.txt, all current source files and Git tree; /tmp/scope07_independent_math.py is private independent scratch only"
+      ],
+      "evidence": [
+        "Direct publisher p19 system (5.1) screenshot and p4 character equation; independent SymPy exact rational equilibrium and derivative, exact determinant and modulus-polynomial factorization; mpmath 55-digit phase/root/transversality calculations.",
+        "Exact normalized modulus polynomial: 122411815876000000000000u^3 + 1138198587703536256250000u^2 + 581713807208182432802500u − 116397809998222537212561.",
+        "Independent high-precision root 0.1533334188148464043159519594066937889144, ω 0.3915781132990535316596192706621001611816, τ 5.31769616572693033589505071762174340387, Re speed 0.01697586913561838810444404277355396650."
+      ],
+      "rationale": "Reconstructed directly from equations (5.1), not the packaged VERIFY_OK: with I=(2/25)S(P1+5P2/4)/(1+S), the four equations sum to Ndot=6/5−N/50 and the positive rational equilibrium E*=(1407/4561,544506/305587,105271160/2139109,18603955/2139109), N*=60, solves all four equations exactly. Independently differentiated current and delayed flows with SymPy: A0[1,1]=−3001/14920 and delayed transfer B[1,1]=−9/20,B[2,1]=+9/20 (zero-index). Reconstructed exact det=(50λ+1)[P(λ)+Q(λ)e^(−λτ)]/17493700000000 with P and Q coefficients identical to RESULT.md. For u=Ω² the exact modulus difference polynomial has signs +,+,+,−; derivative positive on u>0, one positive root u*=0.15333341881484640431595... giving Ω*=0.39157811329905353166..., phase τ*=5.31769616572693033590..., and d(Re λ)/dτ=0.0169758691356183881044... >0. At τ=0 cubic coefficients all positive and exact Routh–Hurwitz determinant 2548962325924970823125000>0 after unscaled normalization; factor −1/50 is stable. Zero λ cannot be a root because P(0)+Q(0)>0 independent of delay. Standard retarded-system root continuity and absence of any earlier imaginary frequency prove first loss of linear asymptotic stability. The published Ω=0.320220 does not satisfy reconstructed modulus equality. All numbers are tied to printed δ=0.02 equations, not prose δ=0.2. No nonlinear Hopf branch/first Lyapunov coefficient certified.",
+      "residual_risks": [
+        "Printed coefficient inconsistency δ=.2 prose versus δ=.02 equations prevents claims about authors’ intended parameter set.",
+        "Only first LINEAR crossing and delay interval proved; nonlinear supercritical/subcritical type, periodic-orbit stability and source’s first Lyapunov coefficient are not recomputed.",
+        "Numerical phase, root and speed are high precision checks linked to exact polynomial and sign/phase proof, not rigorous certified enclosures beyond stated rounding; analytic uniqueness/positivity supplies the essential theoretical conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saha--Samanta 2019 page 6 explicitly derives Ndot=Λ−δN from the nondelayed model; hence exact population balance is an antecedent. But it contains no time-delay parameter or critical delay.",
+          "Zhang--Yang--Xia 2019 model (2) has S,Q,I,R, bilinear incidences and two delayed pathways τ1,τ2; its characteristic equation (6) contains multiple independent exponentials, unlike Wang equations (5.1).",
+          "Generic DDE Hopf theory supplies a method and implicit spectral criteria but no published numerical root for the particular Wang coefficients checked."
+        ],
+        "reasoning": "The precursor total-population law and generic Hopf stability machinery are NOT new. They do not by themselves state the corrected numeric threshold in the printed delay model; an independent coefficient substitution, equilibrium and determinant reconstruction is necessary. The 2019 two-delay paper cannot be specialized by renaming parameters to Wang’s Holling-II S,P1,P2,T model.",
+        "searches": [
+          "Saha--Samanta, Letters in Biomathematics 6 (2019), 1--31, DOI 10.1080/23737867.2019.1624204, especially model (1), total-population identity on page 6, and §§2--9",
+          "Zhang--Yang--Xia, Complexity (2019), 3492589, DOI 10.1155/2019/3492589, model (2), characteristic eq. (6), numerical §4, conclusion §5",
+          "Resultary 2026-10-25: Exact conserved total population decoupling in delay epidemic compartmental model lambda+mu factor characteristic determinant and first Hopf threshold",
+          "web search 2026-10-25: Hopf Bifurcation Analysis of a Synthetic Drug Transmission Model with Time Delays Zhang Yang Xia pdf"
+        ]
+      },
+      "checked_sources": [
+        "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+        "Saha--Samanta, Letters in Biomathematics 6 (2019), 1--31, DOI 10.1080/23737867.2019.1624204, especially model (1), total-population identity on page 6, and §§2--9",
+        "Zhang--Yang--Xia, Complexity (2019), 3492589, DOI 10.1155/2019/3492589, model (2), characteristic eq. (6), numerical §4, conclusion §5",
+        "Resultary search 2026-10-25: query delay-independent population mode first Hopf critical delay numerical correction Wang Zeb Upadhyay Pratap synthetic drug transmission; exact hit 2026/10/11/SCOPE-an-exact-population-mode-corrects-the-first-delay-crossing-in-a--b1a783f554e5 (current finding), nearby distinct SIQRS/awareness/fear-delay examples",
+        "web searches dated 2026-10-25 for source DOI/title, corrections, numerical values, and population-mode reduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 of Wang et al. gives general Hopf criteria; its Section 5 asserts a different critical numerical value for the same printed system. Reconstructing the system’s exact coefficients changes its stated Section 5 conclusion.",
+          "Saha--Samanta derive scalar total population in an ordinary differential system, not a delay stability crossing.",
+          "Zhang--Yang--Xia analyze a different four-class system with two delays and different incidence terms."
+        ],
+        "reasoning": "The preceding general techniques permit one to recompute the answer but do not logically state or imply the claimed particular number without the source-specific calculation. The accepted contribution is a correction of the published numerical classification, not the standard scalar-balance lemma.",
+        "searches": [
+          "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+          "Saha--Samanta, Letters in Biomathematics 6 (2019), 1--31, DOI 10.1080/23737867.2019.1624204, especially model (1), total-population identity on page 6, and §§2--9",
+          "Zhang--Yang--Xia, Complexity (2019), 3492589, DOI 10.1155/2019/3492589, model (2), characteristic eq. (6), numerical §4, conclusion §5",
+          "web search 2026-10-25: delayed synthetic drug first Hopf correction characteristic population factor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. equation (5.1) and equation (5.2) on p.19 explicitly give Ω=0.320220 and τ0=5.105862; no correction there. Independently derived exact 5.317696... differs, and source angular frequency fails its required reduced modulus equation.",
+          "Resultary top exact matching hit is the record under review (same title and numbers); it is not earlier independent work."
+        ],
+        "reasoning": "An equivalent result must apply to the same displayed four-compartment delayed system with the same coefficients and entail the corrected first crossing or an algebraically equivalent root. The direct source instead gives incompatible numbers; searches found no independently earlier equivalent correction. This is a bounded positive novelty assessment, not a claim that search exhausts literature.",
+        "searches": [
+          "web search 2026-10-25: \"Wang\" \"Zeb\" \"Upadhyay\" \"Pratap\" Hopf correction 5.317696",
+          "web search 2026-10-25: \"A delayed synthetic drug transmission model\" corrigendum erratum 2025 2026",
+          "web search 2026-10-25: \"A delayed synthetic drug transmission model\" \"5.317696\"",
+          "Resultary 2026-10-25: synthetic drug two stage addiction Holling Type II delay Hopf threshold 5.105862 5.317696",
+          "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source numerical display on p.19 lists the incorrect first threshold τ0=5.105862 and Ω=0.320220; the source’s displayed quartic (5.2) is not the reduced modulus polynomial reconstructed from its equations.",
+          "The corrected root is an algebraic root of a new explicitly reconstructed integer-coefficient cubic, not a lookup from the article’s printed table. No independently prior matching corrected threshold was found in bounded search."
+        ],
+        "reasoning": "No established table or indexed numerical compilation inspected gives the corrected source-specific value. This does not rule out unindexed independent calculations; exact numerical coincidence would require evaluating the same printed coefficients and phase condition.",
+        "searches": [
+          "web search 2026-10-25: 10.3934/math.2021001 5.105862 5.317696",
+          "web search 2026-10-25: \"Wang\" \"Zeb\" \"Upadhyay\" \"5.317696\" synthetic drug",
+          "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+          "Resultary exact numerical-value keyword search 2026-10-25"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific originality: the direct published equation (5.1) has its own printed 5.105862/0.320220 thresholds, not the corrected first linear crossing 5.31769616572693034/0.39157811329905353. The earlier Saha--Samanta paper already states the total-population law for its NONDELAYED precursor (so this cancellation itself is not credited as new), and standard characteristic factoring and retarded-delay crossing methods are known. Nevertheless these earlier sources do not provide the exact corrected factorization and stable-delay boundary for the particular printed delayed system. The other Zhang--Yang--Xia two-delay model is structurally different. A same-record Resultary hit is not independent prior evidence. Searches are not exhaustive priority certification.",
+      "residual_risks": [
+        "An unindexed or future corrigendum to Wang et al. could state the same correction, and the available search is not proof of unique priority.",
+        "The scalar total-population balance is published for the nondelayed ancestor; claim originality is solely the source-specific exact delayed factorization and corrected first crossing, not the general conservation method.",
+        "The original publisher’s prose δ=0.2 conflicts with equations δ=0.02; the scientifically intended version cannot be recovered from the printed system alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_SOURCE_PUBLISHES_DIFFERENT_THRESHOLD",
+          "evidence": "On printed p19 the prose gives δ=0.2 while (5.1) uses 0.02 and corresponding losses .22, .14, .72; source states Ω=0.320220 and τ0=5.105862, whereas exact reconstruction for equations as printed yields Ω=0.391578113299... and τ*=5.317696165726...",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2021/1/PDF/math-06-01-001.pdf ; doi:10.3934/math.2021001",
+          "material_read": "Open-access PDF, Section 1 system (1.2), Section 2 linearization/characteristic calculation pp3--6, Section 5 (5.1)--(5.2) p19, numerical stability assertions and parameter list; page 19 and page 4 also visually inspected",
+          "method": "Full-text PDF passages and mandatory page screenshots; direct equation-by-equation comparison to reconstructed exact calculation",
+          "title": "A delayed synthetic drug transmission model with two stages of addiction and Holling Type-II functional response",
+          "trigger": "Direct primary paper, identical state variables, coefficients, and published threshold being corrected"
+        },
+        {
+          "assessment": "KNOWN_TOTAL_POPULATION_ANTECEDENT_NOT_DELAY_THRESHOLD",
+          "evidence": "p6 explicitly writes dN/dt=Λ−δN for the precursor ODE and p5 gives no delayed transfer; thus this elementary cancellation is not new, but no first-delay Hopf crossing is claimed.",
+          "identifier_or_url": "https://lettersinbiomath.org/manuscript/index.php/lib/article/download/106/97/192 ; doi:10.1080/23737867.2019.1624204",
+          "material_read": "Open-access 31-page PDF: model equations on p5, exact total-population identity on p6, stability/control section inventory and related theorem headings/abstract",
+          "method": "PDF text and visual inspection of p6; checked the source-specific Ndot identity, and the lack of escalation-delay terms in its defining model",
+          "title": "Synthetic drugs transmission: stability analysis and optimal control",
+          "trigger": "Original nondelayed model inherited by Wang et al.; possible broader structural conservation lemma"
+        },
+        {
+          "assessment": "DIFFERENT_FOUR_COMPARTMENT_MODEL_NO_IMPLICATION",
+          "evidence": "Its variables S,Q,I,R and two delayed transfers τ1,τ2 with bilinear incidence do not specialize to Wang’s Holling-II S,P1,P2,T equations (5.1); no same coefficients or corrected threshold.",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/be6a/291f622bc5737783f24b3069f1c160be4e80.pdf ; doi:10.1155/2019/3492589",
+          "material_read": "Open-access 18-page PDF: primary system (2) on p2, characteristic (6) and delay cases pp3--7, numerical §4 and conclusions §5; visually inspected equation (2) on p2",
+          "method": "PDF full-text reading of model and spectral formula and visual screenshot of p2",
+          "title": "Hopf Bifurcation Analysis of a Synthetic Drug Transmission Model with Time Delays",
+          "trigger": "Highly relevant earlier two-delay synthetic-drug Hopf study potentially dominating source-specific analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+        "Saha--Samanta, Letters in Biomathematics 6 (2019), 1--31, DOI 10.1080/23737867.2019.1624204, especially model (1), total-population identity on page 6, and §§2--9",
+        "Zhang--Yang--Xia, Complexity (2019), 3492589, DOI 10.1155/2019/3492589, model (2), characteristic eq. (6), numerical §4, conclusion §5",
+        "source Figures 1--2 and p19 simulation thresholds, independent exact determinant and phase calculations"
+      ],
+      "rationale": "The exact population identity itself is elementary and explicitly appears for the 2019 nondelayed ancestor, so it cannot alone justify value. The substantive result is a concrete correction of a published stability/Hopf benchmark: the first linear stability boundary moves from reported τ0=5.105862 to 5.3176961657..., a shift 0.2118341657 (~4.15%), with corrected imaginary frequency, an exact factorization that explains the redundant dimension, and a rigorous unique-first-crossing proof. This has direct use for reproducing the paper’s simulations, distinguishing the reported τ=5.3202 run (only 0.00250 beyond corrected crossing), and checking its bifurcation claims. It is not an arbitrary rounding improvement or a fabricated general theorem. The claim is limited to a specified printed parameter set; no new general theorem or nonlinear Hopf normal form is asserted.",
+      "residual_risks": [
+        "One source-specific numerical benchmark rather than a broad classification.",
+        "Source parameter inconsistency limits physical interpretation of the corrected number.",
+        "Nonlinear Hopf direction/orbital stability conclusions in source paper cannot be transferred without recalculation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wang--Zeb--Upadhyay--Pratap, AIMS Mathematics 6 (2021), 1--22, DOI 10.3934/math.2021001, especially eqs. (1.2), (2.2)--(2.10), (5.1)--(5.2), page 19",
+    "Saha--Samanta, Letters in Biomathematics 6 (2019), 1--31, DOI 10.1080/23737867.2019.1624204, especially model (1), total-population identity on page 6, and §§2--9",
+    "Zhang--Yang--Xia, Complexity (2019), 3492589, DOI 10.1155/2019/3492589, model (2), characteristic eq. (6), numerical §4, conclusion §5",
+    "Resultary search 2026-10-25: query delay-independent population mode first Hopf critical delay numerical correction Wang Zeb Upadhyay Pratap synthetic drug transmission; exact hit 2026/10/11/SCOPE-an-exact-population-mode-corrects-the-first-delay-crossing-in-a--b1a783f554e5 (current finding), nearby distinct SIQRS/awareness/fear-delay examples",
+    "web searches dated 2026-10-25 for source DOI/title, corrections, numerical values, and population-mode reduction"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only printed coefficients, not contradictory prose parameter δ=.2.",
+    "Only first loss of linear asymptotic stability, not nonlinear Hopf branch type or Lyapunov coefficient.",
+    "Known total-population identity in the nondelayed antecedent is not novel; source-specific correction is the actual judged contribution.",
+    "Historical priority is best-of-knowledge, unindexed errata may exist."
+  ]
+}
