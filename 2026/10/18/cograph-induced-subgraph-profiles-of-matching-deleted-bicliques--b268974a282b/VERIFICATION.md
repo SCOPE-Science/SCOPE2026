@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The calculation can be repeated with `python3 verify_cograph.py` using Python 3 and no packages beyond the standard library. The program enumerates each graph's actual edges, detects all induced four-vertex paths by checking the degree multiset \(\{1,1,2,2\}\) on four vertices, tests every selected vertex subset for containment of such a path, and determines inclusion-maximality through every possible one-vertex extension.
+## correctness
 
-The recorded successful run was:
+PASS
 
-```
-VERIFICATION_OK bivariate_profiles=129 direct_subsets=169304 explicit_P4_masks=2576 crown_facets_orders=3..8 coefficientwise_tests=9282
-```
+Classified P4-free selections in K_(a,b) minus a size-t matching: no shared selected pair, or one selected side has size 1, or both sides select the same two deleted matched indices. Disjoint enumeration gives (1+u+v)^t(1+u)^(a-t)(1+v)^(b-t)+tuv[(1+u)^(a-1)+(1+v)^(b-1)-1]+C(t,2)u^2v^2, including t=0 and singleton classes. Consecutive matching-deletion difference reduces to nonnegative selections on both sides, with coefficient (a-1)(b-1)-2t at uv; its only full equality case is (3,3,2). For crowns, maximal sets split into two-sided full-index partitions, one-side singleton/full other side, or paired 2x2 sets, producing stated bivariate maximal polynomial. Independent induced-P4 direct enumeration confirmed all 1<=a,b<=5 and all t, and independently confirmed maximal-facet distributions for crowns n=3..6. Infinite coefficient inequalities are from the symbolic counting, not finite tests.
 
-Direct exhaustive profiles include all \(1\le a,b\le6\) and all \(0\le t\le\min(a,b)\), plus crowns of orders seven and eight. Each coefficient of the full bivariate induced-cograph polynomial is checked, as are maximal crown-face coefficients for all crown orders from three to eight. Additional exact-integer formula comparisons cover \(9282\) monotonicity triples with \(3\le a,b\le30\). The general case is justified by the structural proof and the nonnegative combinatorial coefficient argument, not by these finite checks. This program does not inspect publication priority and is not independent external scientific validation.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full bivariate P4-free induced-subgraph distribution, coefficientwise edge-deletion transition and all minimal deletion-set sizes in crowns. Classical cograph recognition and generic minimum-deletion algorithms predate the work; different matching-deleted biclique invariants from published Resultary records do not dominate these statements.
+
+## value
+
+PASS
+
+A full bivariate hereditary-subgraph counting polynomial and classification of all inclusion-minimal deletion sets on a natural dense bipartite graph family have independent combinatorial use. The coefficientwise deletion paradox and arbitrarily long gaps in possible maximal cograph sizes are motivated structural effects rather than arbitrary small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
