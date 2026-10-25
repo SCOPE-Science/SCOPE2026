@@ -1,109 +1,176 @@
 {
   "correctness": {
-    "rationale": "For every nonedge \\(uv\\), the hypotheses give a unique common neighbor \\(w\\). The face \\(V\\setminus\\{u,v,w\\}\\) is codimension one in the \\(\\Delta_2\\)-facet \\(V\\setminus\\{u,v\\}\\) and is contained in no other \\(\\Delta_2\\)-facet because \\(uw\\) and \\(vw\\) are edges. These free faces are distinct. A face surviving all such collapse pairs lies in \\(\\Delta_3\\): if its complement contains at least four vertices, add a vertex different from \\(u,v,w\\) to obtain a disconnected triple; if the complement has three vertices, the only connected possibility is exactly \\(\\{u,v,w\\}\\), whose complementary face was removed. The reverse inclusion \\(\\Delta_3\\subseteq\\Delta_2\\) is immediate from a nonedge in every disconnected triple. The finite verifier exhausts all qualifying labeled graphs on five and six vertices and separately reconstructs Petersen; its direct Morse check leaves one critical \\(0\\)-cell and six critical \\(6\\)-cells.",
+    "rationale": "For any nonedge {u,v}, diameter≤2 and no 4-cycle give a unique common neighbor w; triangle-freeness ensures uw,vw are edges and uv is the only nonedge of {u,v,w}. The Δ2 facet F_uv=V ∖ {u,v} has free codimension-one face σ_uv=V ∖ {u,v,w}, because any other Δ2 facet containing σ would come from a nonedge in {u,v,w}; there is none. Distinct nonedges yield distinct σ, so all pairs may be removed sequentially. Every disconnected triple contains a nonedge, hence Δ3⊆Δ2. Every remaining face τ of Δ2 has complement X containing a nonedge uv: if |X|=2 it was a removed facet; if |X|=3 then either X={u,v,w} was a removed σ or X induces a disconnected triple; if |X|≥4 choose x∈X\\{u,v,w}, so {u,v,x} is disconnected and τ is a Δ3 face. Thus the remainder is exactly Δ3, proving an elementary simplicial collapse for all stated graphs, not only a homotopy equivalence. For connected triangle-free G, Bayer et al., Theorem 6.4 and Corollary 6.3, give Δ2≃∨^{e−n+1}S^{n−4}, with zero interpreted contractibly; Petersen has (n,e)=(10,15), hence six 6-spheres. Separate independent enumeration of all 2^10 and 2^15 labeled graphs yields exactly 17 qualifying n=5 graphs and 6 qualifying n=6 graphs, and verifies the collapse pair set in every case. Direct Petersen enumeration gives f(Δ2)=(10,45,120,210,252,210,120,30), f(Δ3)=(10,45,120,210,252,210,90) and 30 distinct collapse pairs.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Bayer et al., Theorem 6.4, determines \\(\\Delta_2(G)\\) for every connected triangle-free graph but makes no \\(\\Delta_3\\) conclusion from diameter or common-neighbor hypotheses.",
-        "The 2024 and 2026 \\(3\\)-cut papers treat squared cycles and powers of cycles, not arbitrary diameter-two, \\(C_4\\)-free, triangle-free graphs."
+        "The separate published SCOPE claim \"Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters\" gives Δ3(G)≃∨^{binom(n−1,2)−Σ_v binom(deg v,2)} S^{n−4} for all triangle- and C4-free n≥7 graphs, including this graph class.",
+        "Under unique common neighbors, Σ_v binom(deg v,2)=binom(n,2)−e, hence that formula gives e−n+1 spheres for all n≥7 cases here; the published same-day result already covers the wedge and Petersen homotopy consequences.",
+        "Its argument collapses the Alexander dual of Δ3 to a graph, but does not compare Δ2(G) and Δ3(G) through the inclusion or exhibit the claimed codimension-one simplicial collapse.",
+        "Bayer et al. Theorem 6.4 gives Δ2(G)≃∨^{e−n+1} S^{n−4} for all connected triangle-free G, plus tree contractibility, but not the Δ2→Δ3 collapse.",
+        "The further SCOPE results on C4-free graphs with triangles and edge-disjoint squares compute broader/different Δ3 homotopy classes, but likewise do not state this inclusion collapse."
       ],
-      "reasoning": "The strongest nearby theorem supplies the input homotopy type of \\(\\Delta_2\\), not the new simple-homotopy equivalence \\(\\Delta_2\\searrow\\Delta_3\\). The later \\(3\\)-cut theorems have graph-family hypotheses that neither contain nor dominate the present class.",
+      "reasoning": "The entire derived wedge formula is already mathematically covered for n≥7 by a separately published stronger same-day SCOPE result; it cannot be advertised as an independent new homotopy enumeration. Nevertheless the primary claimed simple-homotopy bridge is stronger/different data, not logically implied by equality of homotopy types or Alexander-dual collapse. The n=5 cycle and star boundary cases already have related classical cut-complex coverage. Originality is assessed solely for the explicit whole-family inclusion collapse.",
       "searches": [
-        "Topology of Cut Complexes of Graphs Theorem 6.4",
-        "Shellability of 3-Cut Complexes of Squared Cycle Graphs",
-        "Shellability of 3-cut complexes of powers of cycle graphs"
+        "Resultary: cut complexes Moore graphs 3 cut Delta3 homotopy star Petersen",
+        "Resultary/2026/2026/10/11/...--868c7d2aa0e7/RESULT.md (full reviewed)",
+        "Resultary/2026/2026/10/11/...--06da2f0ef7ce/RESULT.md (full reviewed)",
+        "Resultary/2026/2026/10/11/...--8ca830284420/RESULT.md (full reviewed)",
+        "arXiv:2304.13675v2, Theorem 6.4, Proposition 7.13",
+        "arXiv:2407.08158v1, introduction and contents",
+        "arXiv:2603.23155v1, Theorem 1.4"
       ]
     },
     "checked_sources": [
-      "arXiv:2304.13675v2 full text",
-      "arXiv:2406.01979v1 full text/metadata",
-      "arXiv:2603.23155v1 abstract/theorem scope",
-      "database record 2026/10/4/SCOPE-the-petersen-total-3-cut-complex-is-a-wedge-of-nine-4-spheres--f242ea5e9ffb",
-      "database record 2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec"
+      "arXiv:2304.13675v2, Definition 2.7, Proposition 6.2, Corollary 6.3, Theorem 6.4 and Corollary 6.6",
+      "arXiv:2407.08158v1, intro and section scope",
+      "arXiv:2406.01979v2, introduction and Theorem 1.4",
+      "arXiv:2603.23155v1, introduction and Theorem 1.4",
+      "Resultary published 2026/10/11 short-cycle-free Δ3 wedge/module --868c7d2aa0e7 (full RESULT)",
+      "Resultary published 2026/10/11 C4-free with triangles --06da2f0ef7ce (full RESULT)",
+      "Resultary published 2026/10/11 triangle-free edge-disjoint squares --8ca830284420 (full RESULT)",
+      "Resultary published 2026/10/4 total Petersen Δ3 --f242ea5e9ffb (index)",
+      "Resultary published 2026/10/11 ordinary Petersen top homology module --0eae16654cf3 (index)",
+      "Resultary self-index 2026/10/11 --105bfe986abb (excluded as independent prior art)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Theorem 6.4 implies only the \\(\\Delta_2\\) wedge statement; the new free-face lemma is needed to identify \\(\\Delta_3\\) with the same simple-homotopy type.",
-        "The total cut complex imposes independent-set conditions on the omitted vertices and is a different construction, so its Petersen result does not imply the ordinary cut result.",
-        "Squared-cycle shellability does not specialize to Petersen or to general unique-common-neighbor graphs."
+        "Bayer Theorem 6.4 proves the Δ2 wedge, not a collapse of Δ2 onto Δ3.",
+        "The --868c7d2aa0e7 SCOPE theorem proves the Δ3 wedge and its automorphism character from a separate Alexander-dual argument; equality of the homotopy types of Δ2 and Δ3 alone does not imply that their actual inclusion is a simplicial collapse.",
+        "The cycle-power shellability results concern graph classes with different adjacency requirements and no unique-common-neighbor collapse.",
+        "The direct matched free face for each nonedge uv is V ∖ {u,v,w(u,v)}, and its unique containing Δ2 facet is V ∖ {u,v}; these pairs are not supplied by the compared prior results."
       ],
-      "reasoning": "The new claim is not a restatement or special case of the closest results. It combines a new explicit collapse with a published \\(\\Delta_2\\) theorem to derive an ordinary \\(\\Delta_3\\) family theorem.",
+      "reasoning": "Prior literature and the stronger SCOPE finding decisively cover the topological corollary, but do not establish the inclusion as a simple-homotopy collapse. The new proof yields a concrete canonical facet-to-free-face bijection and identifies the exact residual subcomplex. PASS concerns only that surviving structural theorem.",
       "searches": [
-        "arXiv:2304.13675 Theorem 6.4 connected triangle-free Delta_2",
-        "arXiv:2406.01979 ordinary 3-cut squared cycles",
-        "ordinary versus total 3-cut Petersen"
+        "arXiv:2304.13675v2, Theorem 6.4 and Corollary 6.6",
+        "Resultary/2026, full RESULT.md for --868c7d2aa0e7",
+        "arXiv:2406.01979v2, Theorem 1.4",
+        "arXiv:2603.23155v1, Theorem 1.4",
+        "arXiv:2407.08158v1, introductory scopes"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The defining literature uses the notation \\(\\Delta_k(G)\\) for ordinary \\(k\\)-cut complexes whose facets are complements of disconnected induced \\(k\\)-vertex subgraphs.",
-        "The graph hypotheses are equivalent to saying every nonedge has a unique common neighbor, together with triangle-freeness."
+        "For ordinary cut complexes facets omit disconnected vertex sets; the phrase \"3-cut\" can instead mean total 3-cut with independent omitted sets, which is a different functor.",
+        "The hypotheses imply every nonedge uv has exactly one common neighbor w and the induced triple u-w-v is a path, equivalent to the familiar girth-at-least-five diameter-two condition.",
+        "Resultary self-entry 2026/10/11/...--105bfe986abb restates this finding, and is not independent prior coverage.",
+        "The nearest Petersen \"total 3-cut\" SCOPE finding (2026/10/4/...--f242ea5e9ffb) has different facets and wedge^9 S^4 rather than ordinary wedge^6 S^6."
       ],
-      "reasoning": "Searches covered ordinary \\(3\\)-cut terminology, the \\(\\Delta_2\\)-to-\\(\\Delta_3\\) formulation, diameter-two/girth-five language, and Moore-graph language. No equivalent statement of the collapse was located.",
+      "reasoning": "The exact claim concerns a simplicial inclusion/collapse Δ2(G)↘Δ3(G), not merely an equality of Betti numbers or the total cut complex. Checked aliases include Petersen, Moore graph, girth five and unique common neighbors. The self-indexed copy is disregarded for priority. No identified source proves the inclusion collapse.",
       "searches": [
-        "Petersen 3-cut complex ordinary",
-        "cut complex Delta_2 collapses Delta_3 diameter two girth five graph",
-        "3-cut complex diameter 2 girth 5 Petersen Moore graph"
+        "Resultary: simplicial collapse from 2-cut complex to 3-cut complex for graphs with unique common neighbors",
+        "Resultary: ordinary 3-cut complex of Petersen graph Delta_3 wedge six 6-spheres Moore diameter two girth five",
+        "web: Simplicial complexes cut complexes Δ2 Δ3 collapse unique common neighbor graph",
+        "Bayer et al. (arXiv:2304.13675v2), Definition 2.7, §6.1 and §7"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Closest database record `2026/10/4/SCOPE-the-petersen-total-3-cut-complex-is-a-wedge-of-nine-4-spheres--f242ea5e9ffb` concerns the total \\(3\\)-cut complex, not the ordinary \\(3\\)-cut complex.",
-        "Closest ordinary \\(3\\)-cut record `2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec` concerns the cube, which has \\(4\\)-cycles and does not satisfy the theorem hypotheses."
+        "The self-indexed --105bfe986abb matches exactly and was excluded as an independent novelty reference.",
+        "The broader --868c7d2aa0e7 published entry provides the ordinary Petersen six-sphere homotopy as a specialization of its stronger graph-class theorem, but no Δ2→Δ3 simplicial collapse.",
+        "The earlier Petersen total-three-cut --f242ea5e9ffb is a different complex; other ordinary 3-cut entries for the cube, Heawood and Desargues graphs concern different graph classes."
       ],
-      "reasoning": "No checked table or database entry gives the ordinary Petersen \\(\\Delta_3\\) homotopy type or the all-graph collapse formula.",
+      "reasoning": "The precise numerical/homotopy answer is already available from the stronger same-day general three-cut result. What remains absent from identified databases/tables is the direct codimension-one collapse relative to Δ2; no originality is attributed to the numerical Petersen entry.",
       "searches": [
-        "Petersen 3-cut complex ordinary",
-        "Petersen 3-cut complex wedge 6 spheres",
-        "Moore graph 3-cut complex homotopy"
+        "Resultary: ordinary 3-cut complex of Petersen graph Delta_3 wedge six 6-spheres Moore diameter two girth five",
+        "Resultary: simplicial collapse from 2-cut complex to 3-cut complex for graphs with unique common neighbors",
+        "Resultary/2026, short-cycle-free three-cut sphere-wedge record --868c7d2aa0e7",
+        "Resultary/2026, Petersen total-three-cut record --f242ea5e9ffb",
+        "Resultary/2026, ordinary Petersen three-cut S5 module record --0eae16654cf3"
       ]
     },
-    "rationale": "The closest primary theorem computes the homotopy type of the ordinary \\(2\\)-cut complex for connected triangle-free graphs, but it does not state a collapse to the ordinary \\(3\\)-cut complex under the unique-common-neighbor hypotheses. The checked ordinary \\(3\\)-cut literature treats powers of cycles, while the closest database records concern either the total \\(3\\)-cut complex of Petersen or an ordinary \\(3\\)-cut result for the cube. None implies the stated family collapse or its Petersen ordinary-\\(3\\)-cut corollary.",
+    "rationale": "The original mathematical contribution is the explicit global simplicial collapse Δ2(G)↘Δ3(G) under unique common neighbors; exact facet/free-face bijection and residual-complex identification. Bayer et al. (2024) provides the Δ2 wedge and Petersen Δ2 result but not this collapse. Important correction to the package's own originality discussion: the separately published same-day Resultary/SCOPE record --868c7d2aa0e7 proves a much broader Δ3 wedge theorem and signed character formula, which specializes to the sphere count here via Σ_v binom(deg v,2)=binom(n,2)−e. Therefore the Δ3 homotopy formula and Petersen six-sphere corollary are mathematically covered, not separately novel. The stronger source collapses Δ3's Alexander dual, not the actual inclusion Δ3⊂Δ2; neither equal homotopy types nor a dual-collapse prove a simplicial collapse of the inclusion. Nearby publications on squared cycles and powers do not contain this structural inclusion theorem. PASS is limited to the nontrivial surviving structural bridge, not the already covered corollary.",
     "residual_risks": [
-      "A differently phrased simple-collapse lemma in older simplicial-complex literature could remain undiscovered.",
-      "The literature search does not constitute a proof of global novelty; it supports the stated originality assessment against the checked sources and database records."
+      "A separately published same-day SCOPE theorem already proves the entire Δ3 wedge formula for the n≥7 part of this graph class; no independent novelty is credited to the numerical/homotopy consequence.",
+      "Historical publication ordering of same-day records is not verified. This does not affect the distinct collapse-vs-homotopy implication but constrains priority claims.",
+      "An unindexed theorem using Alexander duality or facet contractions could state an equivalent inclusion-collapse; searches of checked literature and Resultary did not locate one.",
+      "Only the parsed introduction and theorem of the squared-cycle paper were assessed; its disjoint graph family does not decisively threaten the claimed collapse.",
+      "The independent finite enumeration verifies n=5,6 and Petersen, not arbitrary n; universality rests on the explicit free-face argument and published Δ2 wedge theorem."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING. It proves the \\(\\Delta_2\\) wedge theorem and the Petersen \\(\\Delta_2\\) case, but not a \\(\\Delta_2\\)-to-\\(\\Delta_3\\) collapse or the ordinary Petersen \\(\\Delta_3\\) conclusion.",
-        "evidence": "Theorem 6.4 states the connected triangle-free \\(\\Delta_2\\) wedge formula; Corollary 6.6 gives Petersen \\(\\Delta_2\\) as six \\(6\\)-spheres.",
-        "identifier_or_url": "arXiv:2304.13675v2; DOI 10.1137/23M1569034",
-        "material_read": "arXiv abstract/metadata, definition, Section 6.1, Theorem 6.4 and its proof, Corollary 6.6 including Petersen.",
-        "method": "Direct full-text statement and implication comparison.",
+        "assessment": "COVERS Δ2 wedge and tree cases, not the inclusion collapse nor the ordinary Δ3 wedge by itself.",
+        "evidence": "Theorem 6.4: connected triangle-free n,e non-tree implies Δ2≃∨^{e−n+1}S^{n−4}; Corollary 6.3 tree contractible; Corollary 6.6 Petersen Δ2 wedge of six S6.",
+        "identifier_or_url": "arXiv:2304.13675v2; DOI:10.1137/23M1569034",
+        "material_read": "Full PDF parsed definition and contents, Section 6 including Proposition 6.2, Corollary 6.3, Theorem 6.4 with full proof (pages 18–19), Corollary 6.6; Section 7 cycle statements.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
         "title": "Topology of Cut Complexes of Graphs",
-        "trigger": "Defines the exact cut-complex object and contains the strongest nearby connected triangle-free theorem."
+        "trigger": "Same exact ordinary cut-complex definition; strongest general connected triangle-free Δ2 theorem and Petersen case."
       },
       {
-        "assessment": "NOT_COVERING. It treats squared cycles, not the present graph class, and does not state the collapse lemma.",
-        "evidence": "The paper's object is \\(\\Delta_3(C_n^2)\\) and its shellability; no Petersen or diameter-two formulation was found.",
-        "identifier_or_url": "arXiv:2406.01979v1",
-        "material_read": "Abstract/metadata and searched full text for graph-family scope, Petersen, and diameter terminology.",
-        "method": "Direct full-text family/hypothesis comparison.",
+        "assessment": "COVERS the ordinary Δ3 wedge conclusion and the Petersen sphere count, but NOT the stronger explicit inclusion collapse Δ2↘Δ3.",
+        "evidence": "It gives β=binom(n−1,2)−Σ_v binom(deg v,2). Here Σ_v binom(deg v,2)=binom(n,2)−e by unique common neighbors, so β=e−n+1; proof collapses only the Alexander dual Δ3∨.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7",
+        "material_read": "Complete RESULT.md theorem, assumptions, four-part proof including Alexander-dual private-edge collapse and automorphism character, scope, references and limitations.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
+        "title": "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters",
+        "trigger": "Mathematically broader same-object Δ3 homotopy classification covering all n≥7 members of current graph class."
+      },
+      {
+        "assessment": "DISJOINT by its explicit requirement of at least one triangle.",
+        "evidence": "Its β=binom(n−1,2)−Σ_v binom(deg v,2)+2t(G) and assumption t(G)>0 exclude the present triangle-free class.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+        "material_read": "Entire RESULT.md theorem, assumptions, Alexander dual collapses, sphere count and limitations.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
+        "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+        "trigger": "Potential stronger 3-cut theorem with no four-cycles."
+      },
+      {
+        "assessment": "COVERS the Δ3 homotopy corollary when n≥8 but not the claimed inclusion collapse.",
+        "evidence": "The general β=binom(n−1,2)−Σ_v binom(deg v,2)+q(G) specializes to the same sphere count at q=0.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-triangle-free-graphs-with-edge-disjoint-s--8ca830284420",
+        "material_read": "Complete RESULT.md theorem, its Alexander-dual tetrahedron/triangle collapses, and scope.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
+        "title": "Three-cut complexes of triangle-free graphs with edge-disjoint squares",
+        "trigger": "A stronger family includes four-cycle-free triangle-free graphs as q=0 subcase."
+      },
+      {
+        "assessment": "The manuscript treats disjoint unions, squared paths, grid graphs and representations; no present inclusion collapse found in inspected sections.",
+        "evidence": "Table of contents: disjoint-union f/h vectors, squared paths, grids and group actions; no Petersen result found by text search.",
+        "identifier_or_url": "arXiv:2407.08158v1; DOI:10.1137/24M1676077",
+        "material_read": "PDF introduction, full section map, overview of Sections 3–6 and searched Petersen term.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Direct sequel likely to expand coverage of ordinary cut complexes."
+      },
+      {
+        "assessment": "Studies Δ3(C_n²) shellability (n≥9) rather than general diameter-two C4-free graphs.",
+        "evidence": "Theorem 1.4 concerns squared cycles, which have triangles, disjoint from present triangle-free condition.",
+        "identifier_or_url": "arXiv:2406.01979v2",
+        "material_read": "Parsed PDF abstract, introduction and Theorem 1.4 with condition n≥9.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
         "title": "Shellability of 3-Cut Complexes of Squared Cycle Graphs",
-        "trigger": "Direct ordinary 3-cut literature could provide stronger coverage."
+        "trigger": "Closely related ordinary 3-cut paper."
       },
       {
-        "assessment": "NOT_COVERING. It treats powers of cycles under an explicit size condition and does not contain the present unique-common-neighbor family.",
-        "evidence": "Its stated theorem is shellability of \\(\\Delta_3(C_n^p)\\) for \\(n\\ge 6p-3\\).",
+        "assessment": "Treats powers of cycles p≥2; its shelling statement does not imply the direct collapse for the target class.",
+        "evidence": "Theorem 1.4 assumes p≥2 and n≥6p−3; such cycle-power graphs contain triangles.",
         "identifier_or_url": "arXiv:2603.23155v1",
-        "material_read": "Abstract and theorem scope.",
-        "method": "Direct hypothesis and implication comparison.",
+        "material_read": "PDF abstract, introduction, Definition 1.3 and Theorem 1.4 with full n≥6p−3 range.",
+        "method": "Direct reading of the specified scientific material and comparison of the mathematical statements, hypotheses and implications.",
         "title": "Shellability of 3-cut complexes of powers of cycle graphs",
-        "trigger": "Later ordinary 3-cut family theorem could dominate the claim."
+        "trigger": "Recent potentially dominating ordinary 3-cut family theorem."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "reference_scope": [
+    "arXiv:2304.13675v2",
+    "arXiv:2407.08158v1",
+    "arXiv:2406.01979v2",
+    "arXiv:2603.23155v1",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7"
+  ],
+  "review_type": "mathematical_review",
   "schema_version": 1,
-  "scope_run_id": "105bfe98-6abb-4d7b-b0f8-ad2b943341ec",
+  "scope_of_result": "For finite connected triangle-free and four-cycle-free diameter-at-most-two graphs on n≥5 vertices, Δ2 collapses simplicially onto Δ3; known general Δ2 results supply its homotopy type. The independently known broader Δ3 formula covers the resulting wedge statement for n≥7.",
   "value": {
-    "rationale": "The collapse is a structural simple-homotopy statement for a natural graph class characterized by unique common neighbors of nonedges. It transports a published connected-triangle-free \\(\\Delta_2\\) theorem to an ordinary \\(\\Delta_3\\) theorem without a new large computation, and immediately evaluates canonical diameter-two, girth-five examples such as Petersen. The exact free-face mechanism also isolates the obstruction created by multiple common neighbors.",
+    "rationale": "A canonical elementary-collapse relation between two natural cut-complex parameters is a substantive combinatorial-topology structural lemma. It identifies a free face for every Δ2 facet using a graph-theoretic local uniqueness law and proves the inclusion Δ3⊂Δ2 is a simple-homotopy equivalence, a finer result than the already known individual wedge types; it supplies an explicit collapse sequence useful for relative topology, functorial comparisons and concrete computations. The diameter-two, triangle- and four-cycle-free hypothesis is motivated by Moore graphs and stars (including C5, Petersen, Hoffman–Singleton), not an arbitrary small slice. The proof isolates the precise multiple-common-neighbor obstruction. Value does not rest on claiming novelty of the six-sphere count, which is covered by the broader same-day three-cut theorem, or on the finite script.",
     "status": "PASS"
   }
 }
