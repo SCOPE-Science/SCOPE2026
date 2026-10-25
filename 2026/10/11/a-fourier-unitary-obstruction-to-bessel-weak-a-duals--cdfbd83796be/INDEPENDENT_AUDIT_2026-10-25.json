@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T04:41:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The submitted bounded example satisfies all stated quantified hypotheses of Bellomonte Theorem 3.20: H=ell2(Z), X=[0,1] Lebesgue; Fourier M:H->L2(X) unitary; A=diag(lambda_n), lambda_n=2^{-|n|}, is bounded, compact, selfadjoint, injective, everywhere-defined and hence closable/densely-defined. sum_Z lambda_n^2 = 1+2 sum_{n>=1}4^{-n}=5/3, so phi_x=(lambda_n exp(-2pi i n x)) is an H-valued weakly measurable vector of norm sqrt(5/3), with analysis C_phi=MA. Plancherel establishes integral |<f,phi_x>|^2 dx=||Af||^2=||A* f||^2, exactly the weak A-frame bound with lower constant one. If Bessel weak A-dual psi exists its analysis C_psi:H->L2 is bounded and weak dual identity for all f,u (since bounded A) yields A=C_phi* C_psi. But C_phi*=A M* is injective and A=C_phi* M, implying C_psi=M. For each n in Z, C_psi u_n=exp(2pi i n x) a.e.; intersection over countable Z yields one common full-measure set where every coefficient <u_n,psi_x> has modulus 1. Parseval there requires ||psi_x||^2=sum_Z 1=infinity, contradiction. This is an unrestricted infinite-dimensional analytic proof, not finite sampling or experimental inference. For optional sufficient repair, HS M implies sum_n||M u_n||_L2^2<infinity, hence almost-everywhere square-summable pointwise coefficient representatives and a Bessel H-valued field; this is sufficient, not necessary. No claim is made about the other implications of Theorem 3.20 or general unbounded-A domains.",
+      "status": "PASS",
+      "verification_evidence": [
+        "Exact operator identities reconstructed from actual RESULT.md, VERIFICATION.md, Bellomonte original definitions and Theorem 3.20.",
+        "Countable common full measure set addresses otherwise invalid n-dependent a.e. representatives; no pointwise assertion about arbitrary L2 equivalence classes is assumed.",
+        "Exact Git tree and each source blob retrieved from frozen snapshot; no code or external certificate substituted for proof."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Speckbacher--Balazs 2019 Proposition 20 provides upper semi-frames over an L2 space with uniformly bounded ONB, choosing coefficients n^-1; Example 4 chooses the Fourier basis on the torus. Their Corollary 19 characterizes the atomicity obstruction to continuous Riesz bases. They do not assert any Bellomonte weak-A-dual counterexample.",
+          "Speckbacher--Balazs 2019 Example 3 is a different no-reproducing-pair example on R, not the present compact-diagonal weak-A-duality obstruction.",
+          "Antoine--Bellomonte--Trapani 2021, arXiv:2012.09101, Remarks 3.9(ii) expressly invokes Bellomonte Theorem 3.20 to infer a Bessel weak G-dual; this is corroboration the contested implication was still claimed, not a correction.",
+          "Non-atomic continuous-frame/RKHS restrictions prohibit surjective Hilbert-valued analysis operators in ordinary frame settings but do not by themselves encode A=C_phi^*C_psi with an injective C_phi^*."
+        ],
+        "reasoning": "The prior stronger general upper-semi-frame construction yields a family of this analytic form and the known non-atomic point-evaluation boundary. To refute the *later* source-specific existence implication one must additionally identify a compatible bounded A and prove that any Bessel weak-A-dual would realize the forbidden Fourier unitary. No examined published theorem explicitly covers that exact implication; earlier general ingredients are fully credited. Further specialized correction literature could still dominate the submitted claim.",
+        "searches": [
+          "Resultary: non atomic continuous frames analysis operator surjective L2 pointwise evaluation bounded operator pointwise vector representation failure",
+          "Resultary: weak A frames Bessel weak A dual theorem correction Hilbert-Schmidt factor Riesz evaluation",
+          "web: Speckbacher Balazs Frames their relatives and reproducing kernel Hilbert spaces Fourier upper semi-frame Proposition 20 Example 4",
+          "web: continuous frame analysis operator surjective L2 non atomic impossible Riesz type finite dimension",
+          "web: Antoine Bellomonte Trapani Weak A-frames and weak A-semi-frames Remark 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Bellomonte (2021), Continuous frames for unbounded operators, arXiv:1912.13097v1, Theorem 3.20, Proposition 3.21 and definitions: full relevant primary material and pages visually checked.",
+        "Speckbacher--Balazs (2019), Frames, their relatives and reproducing kernel Hilbert spaces, arXiv:1704.02818v2, Proposition 20, Example 4, Example 3, Corollary 19 and relevant context: original source read and pages visually checked.",
+        "Antoine--Bellomonte--Trapani (2021), Weak A-frames and weak A-semi-frames, arXiv:2012.09101, Definition 3.8 and Remark 3.9(ii): original source read and page visually checked.",
+        "Resultary semantic published research records across four actual queries, including explicit exclusion of the submitted record self-hit.",
+        "Multiple web theorem-number, Fourier-dual, erratum, RKHS/point-evaluation and literature-variant searches as listed in the four comparisons."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bellomonte 2021 Theorem 3.20 (ii)=>(iii) literally claims Bessel weak-A-dual existence and applies Riesz pointwise to a general bounded M:H->L2. The source is contradicted by C_phi=MA, C_phi^*=AM^* injective, and unrepresentability of C_psi=M.",
+          "Speckbacher--Balazs (2019) Proposition 20 and Example 4 already demonstrate the same upper-semi-frame *construction*, and its dense rather than all-of-L2 analysis range. However they do not formulate the Bellomonte 2019/2021 weak-A theorem or its impossibility.",
+          "Antoine--Bellomonte--Trapani 2021 Remark 3.9(ii) expressly relies on the disputed Theorem 3.20 instead of refuting it.",
+          "The Hilbert--Schmidt sufficient representation step is standard Hilbert-space kernel reasoning and is not claimed as a new characterization."
+        ],
+        "reasoning": "Distinguish prior construction, known RKHS/atomicity obstruction, and the new theorem-specific falsification. A user can combine the known Fourier construction with injective A and the later theorem to expose a contradiction; whether this makes the correction implicit or an original explicit mathematical observation is the leading priority risk. The proof is an actual mathematical reduction, not a title-only match. No novelty is claimed for Fourier unitary, Plancherel, diagonal compact A, or HS pointwise representability.",
+        "searches": [
+          "Resultary: Bellomonte Continuous frames for unbounded operators Theorem 3.20 flaw Bessel weak A dual Fourier unitary pointwise Riesz L2",
+          "Resultary: weak A frames Bessel weak A dual theorem correction Hilbert-Schmidt factor Riesz evaluation",
+          "web: Speckbacher Balazs Frames their relatives and reproducing kernel Hilbert spaces Fourier upper semi-frame Proposition 20 Example 4",
+          "web: Antoine Bellomonte Trapani Weak A-frames and weak A-semi-frames Remark 3.9",
+          "web: Continuous frames for unbounded operators corrigendum erratum Riesz L2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bellomonte, Continuous frames for unbounded operators, arXiv:1912.13097, DOI:10.1007/s43036-021-00136-3, Theorem 3.20 (ii)=>(iii) asserts a Bessel weak A-dual for any weak A-frame; Proposition 3.21 asserts pointwise Riesz representation for arbitrary M:H->L2.",
+          "Equivalent statement: the unitary Fourier operator M:ell2(Z)->L2(T) cannot be the analysis operator of an H-valued Bessel field; the contradiction uses unit-modulus Fourier coordinates on a common full-measure set.",
+          "Speckbacher--Balazs 2019 Proposition 20 and Example 4 already construct Fourier-based upper semi-frames with dense analysis range on the non-atomic torus; this is prior construction rather than an unrelated match.",
+          "The current submitted research record was the top Resultary self-hit and was excluded as independent novelty evidence; other ranked records concerned different operator-frame obstructions."
+        ],
+        "reasoning": "The weak-A-dual impossibility, bounded map point-evaluation failure, RKHS analysis range, Fourier-semi-frame construction and theorem 3.20 defect are aliases of overlapping parts of the claim. Prior Fourier constructions cover the shape of phi; neither the full 2019 source nor later relevant source material inspected states the explicit post-2019 Theorem-3.20 contradiction. Absence of keyword results was not treated as novelty proof.",
+        "searches": [
+          "Resultary: Bellomonte Continuous frames for unbounded operators Theorem 3.20 flaw Bessel weak A dual Fourier unitary pointwise Riesz L2",
+          "Resultary: continuous weak A frame no Bessel weak A dual injective compact diagonal Fourier counterexample",
+          "Resultary: non atomic continuous frames analysis operator surjective L2 pointwise evaluation bounded operator pointwise vector representation failure",
+          "web: Bellomonte Continuous frames for unbounded operators Theorem 3.20 weak A-dual Bessel counterexample",
+          "web: Fourier unitary continuous weak A frame no Bessel weak A dual nonatomic L2",
+          "web: Speckbacher Balazs Frames their relatives and reproducing kernel Hilbert spaces Fourier upper semi-frame Proposition 20 Example 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic research database returned the submitted 2026-10-11 record itself with exact title and claim; it was not counted as independently prior.",
+          "Other relevant indexed research summaries concern infinite excess of normal orbit frames, K-frame transport and projection failures; those mechanisms differ from injective MA and Fourier pointwise obstruction.",
+          "Primary Bellomonte Theorem 3.20 and Proposition 3.21 remain printed with the disputed pointwise step in the inspected 2021 OA full PDF.",
+          "An exact theorem-number/corrigendum search produced no inspected erratum stating this counterexample; no searchable negative outcome is asserted as an exhaustive correction database."
+        ],
+        "reasoning": "This is an operator-theoretic counterexample rather than a numeric database lookup; exact source/theorem/proposition and error/correction names are applicable. No independent exact record was located, but the proof of originality rests on the source-specific implication comparison, not absence of search hits.",
+        "searches": [
+          "Resultary: Bellomonte Continuous frames for unbounded operators Theorem 3.20 flaw Bessel weak A dual Fourier unitary pointwise Riesz L2",
+          "Resultary: continuous weak A frame no Bessel weak A dual injective compact diagonal Fourier counterexample",
+          "web: Bellomonte Continuous frames for unbounded operators Theorem 3.20 weak A-dual Bessel counterexample",
+          "web: continuous weak A-frames Bessel weak A-dual Theorem 3.20 erratum counterexample",
+          "web: Bellomonte Theorem 3.20 error correction Bessel dual",
+          "web: Continuous frames for unbounded operators corrigendum erratum Riesz L2"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of the explicit Bellomonte Theorem 3.20 counterexample, not of its basic Fourier/diagonal upper-semi-frame construction. The exact 2021 source theorem and pointwise-Riesz proof were inspected, and the submitted bounded compact injective A with a dense-range Bessel analysis map demonstrably violates its claimed Bessel weak A-dual implication. Speckbacher--Balazs (arXiv:1704.02818v2, 2019) already gives the Fourier-diagonal construction in Proposition 20 and Example 4, and earlier general point-evaluation/RKHS restrictions. That source predates the targeted 2019-preprint/2021 theorem and does not state the failure of its weak A-dual existence claim or the forced-dual identity. Hence the accepted claim is only the later theorem-specific falsification and precise repair boundary, with a serious residual risk that it is considered an immediate consequence of prior constructions.",
+      "residual_risks": [
+        "Severe qualification: the 2019 Speckbacher--Balazs Proposition 20 and Example 4 already construct Fourier-diagonal Bessel upper semi-frames with dense range. The later source-specific false dual existence statement may be viewed as an easy implicit consequence of prior published construction plus elementary factor uniqueness, rather than an independently novel example.",
+        "Unindexed errata, author communications, dissertations or post-2021 criticism may directly identify the Bellomonte Theorem 3.20 flaw; searching is not a novelty certificate.",
+        "Related 2021 weak-A paper cites the suspect theorem; implications for its other claims need their own separate audit. No blanket invalidation is asserted.",
+        "Sufficient Hilbert--Schmidt representation is standard and may be covered by stronger operator-kernel theorems; novelty is not asserted for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.20 asserts all weak A-frames have Bessel weak A-duals and in its (ii)=>(iii) proof asserts pointwise Riesz representation of arbitrary M:H->L2. Proposition 3.21 repeats this invalid premise. The proposed counterexample has bounded A, so it lies within the printed quantifiers. No source correction on the inspected pages.",
+          "evidence": "Theorem 3.20 at PDF pages 15-16, lines ~844-912; Proposition 3.21 at page16 lines ~922-949. Source screenshot references  and .",
+          "identifier_or_url": "G. Bellomonte, arXiv:1912.13097v1; DOI:10.1007/s43036-021-00136-3; OA https://iris.unipa.it/retrieve/e3ad8926-39bd-da0e-e053-3705fe0a2b96/Bellomonte-2021-Advances_in_Operator_Theory.pdf",
+          "material_read": "Full original text at Definitions 3.1 and 3.9, Theorem 3.20 (printed pp16-17), Proposition 3.21 (printed p17), surrounding factorization and proof; additional source passages concerning continuous K-frames.",
+          "method": "Lawful university OA full PDF; extracted text read and theorem/proposition printed pages inspected visually as PDF screenshots.",
+          "title": "Continuous frames for unbounded operators",
+          "trigger": "Exact source paper and theorem explicitly refuted by the submitted construction, including claimed universal bounded-L2 factor representability."
+        },
+        {
+          "assessment": "This primary source ALREADY supplies the general type of Fourier-diagonal upper-semi-frame construction used to select phi and the dense-range phenomenon. It does not mention Bellomonte Theorem 3.20 (appeared later) or the specific weak A-dual contradiction. This is a major novelty boundary, not dismissed as title mismatch.",
+          "evidence": "Proposition 20 construction with n^-1 coefficients, Example 4 torus Fourier basis, PDF pp13-14; screenshots , ; see arXiv:1704.02818v2.",
+          "identifier_or_url": "M. Speckbacher and P. Balazs, arXiv:1704.02818v2 (2019), https://arxiv.org/pdf/1704.02818",
+          "material_read": "Full-text sections 1 and 2 framing RKHS, section 4.1 and section 4.2 Proposition 20 proof and Example 4 (PDF pp13-14), neighboring Example 3; relevant Corollary 19 descriptions and range/redundancy discussion.",
+          "method": "arXiv lawful OA complete PDF text and visual PDF page screenshots at pp13-14.",
+          "title": "Frames, their relatives and reproducing kernel Hilbert spaces",
+          "trigger": "Highly relevant preexisting Fourier ONB + rapidly decreasing coefficients on a nonatomic torus, and general nonexistence of continuous Riesz bases."
+        },
+        {
+          "assessment": "Remark 3.9(ii) positively invokes the disputed Bellomonte Theorem 3.20 to claim Bessel weak dual existence. It does not disclose this Fourier counterexample; related stronger duality statements need separate reassessment and are not claimed refuted by the submitted finding.",
+          "evidence": "arXiv:2012.09101 Remarks 3.9(ii), PDF page 8 lines 518-526, screenshot .",
+          "identifier_or_url": "J.-P. Antoine, G. Bellomonte and C. Trapani, arXiv:2012.09101; DOI:10.33205/cma.835582; https://arxiv.org/pdf/2012.09101",
+          "material_read": "Definition 3.8, Remarks 3.9 on weak G-duals, Example 3.10, adjacent Section 4 introduction and later Theorem 4.3 discussion, in the 22-page OA PDF.",
+          "method": "arXiv lawful OA full PDF read at directly relevant sections, text and visual screenshot (page 8).",
+          "title": "Weak A-frames and weak A-semi-frames",
+          "trigger": "Later same-topic work by overlapping authors, plausible source of correction or stronger equivalence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete, elementary but structurally motivated counterexample directly refutes the advertised (weak A-frame => Bessel weak A-dual) leg of a published operator-frame characterization, under the standard nonatomic coefficient space and a bounded compact positive injective A. Its failure mode is precisely the illegitimate application of pointwise Riesz to a generic bounded H->L2 operator, not an isolated numerical pathology. The later same-topic paper (Antoine--Bellomonte--Trapani 2021, Remark 3.9(ii)) explicitly uses the invalid implication, amplifying the mathematical importance of identifying this boundary. An HS coefficient factor is a motivated sufficient way to obtain pointwise vectors; a discrete counting-measure coefficient space avoids the obstruction. These qualify as a substantive counterexample and a useful hypothesis boundary, while no new generic HS theorem, characterization of all L2-representable operators, or independent review of unrelated results is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bellomonte (2021), Continuous frames for unbounded operators, arXiv:1912.13097v1, Theorem 3.20, Proposition 3.21 and definitions: full relevant primary material and pages visually checked.",
+    "Speckbacher--Balazs (2019), Frames, their relatives and reproducing kernel Hilbert spaces, arXiv:1704.02818v2, Proposition 20, Example 4, Example 3, Corollary 19 and relevant context: original source read and pages visually checked.",
+    "Antoine--Bellomonte--Trapani (2021), Weak A-frames and weak A-semi-frames, arXiv:2012.09101, Definition 3.8 and Remark 3.9(ii): original source read and page visually checked.",
+    "Resultary semantic published research records across four actual queries, including explicit exclusion of the submitted record self-hit.",
+    "Multiple web theorem-number, Fourier-dual, erratum, RKHS/point-evaluation and literature-variant searches as listed in the four comparisons."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The proof shows only the specific Theorem 3.20 implication false; does not test the converse or general domain-sensitive results.",
+    "No full characterization of pointwise representable bounded H->L2 operators; Hilbert--Schmidt is a sufficient condition only.",
+    "Non-atomicity and infinite-dimensionality are decisive; counting-measure coefficient spaces permit coordinate Riesz representation.",
+    "Prior construction is closely covered by the pre-2020 Fourier upper semi-frame literature; originality is restricted to the source-specific contradiction, subject to residual priority risks."
+  ],
+  "residual_risks": [
+    "Severe qualification: the 2019 Speckbacher--Balazs Proposition 20 and Example 4 already construct Fourier-diagonal Bessel upper semi-frames with dense range. The later source-specific false dual existence statement may be viewed as an easy implicit consequence of prior published construction plus elementary factor uniqueness, rather than an independently novel example.",
+    "Unindexed errata, author communications, dissertations or post-2021 criticism may directly identify the Bellomonte Theorem 3.20 flaw; searching is not a novelty certificate.",
+    "Related 2021 weak-A paper cites the suspect theorem; implications for its other claims need their own separate audit. No blanket invalidation is asserted.",
+    "Sufficient Hilbert--Schmidt representation is standard and may be covered by stronger operator-kernel theorems; novelty is not asserted for it."
+  ],
+  "schema_version": 1
+}
