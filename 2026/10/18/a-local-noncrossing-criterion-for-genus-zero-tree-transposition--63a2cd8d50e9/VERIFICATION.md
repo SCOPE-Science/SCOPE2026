@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem was checked independently in finite instances by running `python3 artifacts/verify.py` using only the Python standard library. The recorded stdout is `artifacts/verification_output.txt` and terminates in `VERIFY_OK`.
+# Independent mathematical audit
 
-Exhaustive verification covered 688,147 distinct multiset words across 13 explicitly described trees, including all six unlabeled six-vertex tree shapes, and compared each product in a permutation representation with an independently implemented crossing test. It also checked the respective identity counts against the motivating paper's tabulated values. The verifier directly evaluated every contiguous factor of 347 selected valid words, checking Lemma 2 vertex by vertex. An additional 30,000 pseudorandom cases on paths and stars with six, seven and eight edges checked the equivalence outside that exhaustive range.
+## correctness
 
-Finite checks neither establish the infinite theorem nor prove originality. The general conclusion depends on Lemma 1 (a bridge cannot appear once), Lemma 2 (cancellation normal form and fixed-point characterization for every contiguous subword of a locally noncrossing word), and the two-direction leaf induction in `RESULT.md`. Computation does not replace inspection of those arguments. External independent validation has not been performed.
+PASS
+
+Bridge-cut subgroup obstruction forbids a once-used edge; minimal 2|E| full-support identity words therefore use every edge twice. For a locally noncrossing double-occurrence word, cancellation of the closest complete pair inside any contiguous factor removes only a transposition commuting with all intervening ones; iterating leaves pairwise distinct forest edges. Their product merges precisely the forest components, proving the fixed-vertex parity lemma. Leaf-edge deletion and this lemma prove the iff statement by induction, with leaf and one-edge boundaries checked. Independent enumerator checked exactly 7,740 complete double-occurrence words on five explicit path/star/branching trees (3 or 4 edges): permutation identity agreed with incident-pair nonalternation on each. This does not replace the all-tree induction.
+
+## originality
+
+PASS
+
+The exact criterion is explicitly stated as Conjecture 1(iii) in Shapiro arXiv:2610.14373v1, rather than proved there. The present all-tree leaf induction supplies the missing direction beyond the previously known star/Catalan counting and enumerated <=5-edge instances. Checked support-factorization work is related but did not establish this iff statement in material read.
+
+## value
+
+PASS
+
+The criterion resolves a specifically posed all-tree genus-zero factorization conjecture with a local decision procedure. It is a natural structural description of minimal transitive identity words, not an arbitrary finite instance or a recasting of known star counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
