@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact SymPy certificate derived R=6h(M+tK), its positive determinant, 20 directed off-diagonal cofactor identities and positive diagonal numerator coefficients. For t<1/6, entry (0,3)<0; for t>=1/6, every sign except (0,2),(1,4) is positive, and their numerator is F_h. Descartes gives a unique positive root for all h>=1. Exact identities at t=1/6 and t=h^2/6 and a fixed-shift large-h expansion prove strict bounds and asymptotic. The 30 rational test matrices supplement, not replace, the parameter-uniform sign proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General M-matrix sufficient positivity condition yields t>=h^2/6, whereas the new exact threshold is strictly smaller for h>1.",
+        "The 2015 paper treats positivity thresholds generally, but an author PDF timed out and institutional retrieval indicated disconnected access."
+      ],
+      "reasoning": "A sufficient condition is not a stronger exact classification; the h-to-infinity gain rules out implication by that bound. The inaccessible plausible general paper is left as a documented coverage risk, not labeled definitively noncovering.",
+      "searches": [
+        "Published record search: finite element heat backward Euler weighted cycle mesh maximum principle below M-matrix time step nonnegative inverse",
+        "Web: consistent mass finite element backward Euler positivity nonuniform periodic one dimensional mesh time step threshold",
+        "Li and Huang arXiv:1209.5657 pp.1-4, 10-12",
+        "Chatzipantelidis–Horváth–Thomée DOI:10.1515/cmam-2015-0018 author manuscript retrieval"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.5657",
+      "doi:10.1002/num.21784",
+      "doi:10.1515/cmam-2015-0018 (abstract/snippets only)",
+      "doi:10.1090/S0025-5718-07-02021-2 (abstract only)",
+      "Prior research relevant indices 77,78,86,90,92,95,99,103,110,116,117",
+      "Five precise published-research semantic queries listed under the four checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform periodic h=1: earlier positive-step threshold t>=1/6, a genuine covered special case.",
+        "General one-dimensional Dirichlet and tree thresholds t>=max edge length squared/6 rely on no bypass cycle; they cannot imply a strictly smaller threshold on a stretched cyclic mesh.",
+        "Alternating six-cell threshold max edge length squared/6 is another geometry, not a domination of the one-defect ring."
+      ],
+      "reasoning": "The new h>1 result is a strict nonuniform cyclic effect and improves the sufficient bound by asymptotically unbounded factor. Only the h=1 restriction is covered, and it is used solely as a boundary check.",
+      "searches": [
+        "Published record search: exact backward Euler positivity threshold single stretched cell on five node periodic consistent mass heat finite elements",
+        "Published record search: finite element heat backward Euler weighted cycle mesh maximum principle below M-matrix time step nonnegative inverse",
+        "arXiv:1209.5657 exact paper full text",
+        "Earlier related findings 77,90,103,110,117"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equivalent to exact positivity of (M+tK)^{-1}M and to a nodal backward-Euler discrete maximum principle, since K1=0 and P1=1.",
+        "Prior equal-mesh theorem at index 77 gives the h=1 endpoint; the new h>1 root is not constant 1/6."
+      ],
+      "reasoning": "The claim is compared as the entire sign set of a non-symmetric step matrix for a periodic metric ring, not merely as a matching title. Equal-mesh and Dirichlet cases do not imply it.",
+      "searches": [
+        "Published record search: five node periodic linear finite element consistent mass backward Euler nonuniform mesh one long interval exact positivity threshold cubic",
+        "Published record search: exact backward Euler positivity threshold single stretched cell on five node periodic consistent mass heat finite elements",
+        "Published record search: nonuniform periodic mesh five element backward Euler inverse positivity cubic threshold mesh ratio h",
+        "arXiv:1209.5657 (full accessible PDF)",
+        "Earlier related findings 77,90,103,117"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest related four-cell arbitrary-periodic polynomial threshold (another four-cell result) is four-by-four, while this proof analyzes a five-by-five one-defect cyclic matrix.",
+        "Published finding searches returned adjacent positivity topics but no table giving F_h(t) or rho(h) for this exact mesh."
+      ],
+      "reasoning": "Parameter and implication comparison reveals no prior five-node one-defect polynomial in the accessible records; this is negative search evidence, not a uniqueness certificate.",
+      "searches": [
+        "Published record search: five node periodic linear finite element consistent mass backward Euler nonuniform mesh one long interval exact positivity threshold cubic",
+        "Published record search: exact backward Euler positivity threshold single stretched cell on five node periodic consistent mass heat finite elements",
+        "Published record search: nonuniform periodic mesh five element backward Euler inverse positivity cubic threshold mesh ratio h",
+        "Published record search: one long interval four short intervals closed ring Galerkin heat step positivity polynomial",
+        "Earlier accessible claims: related results on uniform and variable periodic meshes, paths, and trees"
+      ]
+    },
+    "rationale": "Under best-knowledge comparison, the exact one-defect five-cycle cubic root, its all-timestep if-and-only-if positivity classification and the linear-in-stretch asymptotic are not covered by the accessible closest sources. The familiar h=1 uniform case and standard M-matrix sufficient bound are explicitly excluded from novelty. Remaining risk: specialized 2015 full text was not available; originality cannot be certified independently.",
+    "residual_risks": [
+      "A closely relevant 2015 heat-FEM positivity paper could not be read completely; generic theorems or examples not indexed online may imply a special case.",
+      "Other pre-2016 local finite-element threshold analyses may have an equivalent cubic under different parameter normalization.",
+      "No independent literature audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general sufficient mesh/time-step maximum principle arguments, not the exact five-node one-stretched-periodic algebraic positivity classification in inspected sections.",
+        "evidence": [
+          "Primary PDF explicitly discusses lower bounds for conventional FE mass matrices and lumping; arXiv first submitted 2012-09-25.",
+          "Its stated results concern sufficient geometry/time-step conditions; new polynomial refines an ordinary sufficient bound."
+        ],
+        "identifier_or_url": "arXiv:1209.5657 / https://arxiv.org/pdf/1209.5657",
+        "material_read": "Accessible PDF: abstract, introduction, finite-element construction, time-step positivity criteria including 2D bound (pp.1–4, 11); visual inspection of pp.1 and 11.",
+        "method": "Read publisher-indexed primary PDF text and two page images.",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Closest early primary analysis of timestep lower bounds for consistent-mass FEM"
+      },
+      {
+        "assessment": "UNRESOLVED: no all-document assertion that the claimed five-cycle threshold is absent. Full reading is an originality risk.",
+        "evidence": [
+          "University publication abstract mentions standard Galerkin semidiscrete and fully discrete positivity.",
+          "Indexed snippets discuss positivity thresholds and examples; no exact five-ring cubic in available material."
+        ],
+        "identifier_or_url": "doi:10.1515/cmam-2015-0018 / author manuscript CHV15.pdf",
+        "material_read": "Journal abstract, university record, and indexed snippets of the author manuscript; full text not retrieved.",
+        "method": "Searched author repository and journal; PDF attempts failed; authorized institutional reader returned vpn_disconnected.",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Plausible stronger coverage of positivity thresholds in standard Galerkin methods"
+      },
+      {
+        "assessment": "Relevant contextual precedent, but not used to conclude whole-document noncoverage.",
+        "evidence": [
+          "Abstract establishes limitations of conventional semidiscrete FE maximum principles and positive operators."
+        ],
+        "identifier_or_url": "doi:10.1090/S0025-5718-07-02021-2",
+        "material_read": "University bibliographic abstract only.",
+        "method": "Publication search and abstract comparison.",
+        "title": "On the existence of maximum principles in parabolic finite element equations",
+        "trigger": "Foundational maximum-principle limitations with consistent versus lumped mass"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19c47b14-620e-4d4e-80ec-52ab3a067a9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The five-node periodic ring with one anomalous element is a minimal natural test of cyclical bypass effects beyond established four-node ring and uniform/Dirichlet formulas. The exact sharp threshold determines when numerical heat updates preserve all nonnegative nodal states, and its growth h/6+3 versus the conventional h^2/6 sufficient condition shows an asymptotically unbounded conservatism caused by ignoring the alternate cyclic path. The exact cubic is motivated by this resource-relevant timestep boundary, not an arbitrary graph count.",
+    "status": "PASS"
+  }
+}
