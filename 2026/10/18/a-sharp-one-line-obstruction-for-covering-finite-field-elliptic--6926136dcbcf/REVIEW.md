@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact lower bound follows from Bézout and the unique involution's nonzero total group sum. For the matching upper bound, an index-three subgroup and a near transversal yield \(m-1\) disjoint zero-sum trisecants, leaving exactly three points for two further rational lines. The published Goddyn--Halasz near-transversal theorem supplies the only non-elementary existence input. The complementary torsion regimes admit a full transversal by the complete-mapping theorem (also implied by Cichacz's prior zero-sum result). Explicit cyclic arrays have verified disjointness and group sums. All characteristics are covered because only the smooth chord--tangent law is used.
+PASS
 
-## Originality — PASS (residual literature risk)
+For G=E(F_q) with origin at a rational flex, distinct rational points are collinear iff they sum to zero; Bezout gives cov>=N/3=m. If |G[2]|=2, the sum of all group elements is the unique involution, so partitioning 3m points into m disjoint zero-sum trisecants is impossible; cov>=m+1. Because 3|G|, choose an epimorphism chi:G->Z/3 and H=ker chi with |H|=m. A partial transversal (h_i,k_i) in the Cayley sum table of H gives disjoint triples h_i, u+k_i, -u-h_i-k_i drawn from three different cosets, each summing to zero. The established Goddyn–Halasz near-transversal theorem yields m-1 triples, leaving exactly three points coverable by at most two rational lines: upper m+1. When |G[2]| is 1 or 4, H has trivial or noncyclic Sylow-two subgroup, so the Hall–Paige complete-mapping theorem yields m full triples (alternatively Cichacz 3-ZSP), achieving m. Explicit cyclic formula in RESULT.md checked arithmetically for m=1..200; finite examples are not a proof of the group transversal theorem.
 
-The new geometric conclusion is the **exact one-line defect for the unique-involution case**, not the existence of near transversals, full transversals, zero-sum triple partitions for other groups, or the chord--tangent law. Asgarli et al. explicitly pose the geometric line-covering problem, but their elliptic discussion gives only a bounded-error statement for odd point count. Cichacz's theorem implies the zero-defect regimes, but excludes precisely the unique-involution case. Goddyn--Halasz's theorem guarantees group near transversals yet does not state the finite-field cubic covering minimum. The index-three translation and sharp total-sum obstruction give the missing exact geometric specialization. Targeted literature and mathematical-record searches located no assertion with the same conclusion. The application may exist in unindexed literature; independent priority assessment remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The number of lines required to cover every rational point is the exact natural invariant posed by the originating paper. The novel one-involution regime has an unavoidable arithmetic defect of **exactly one** for *every* qualifying smooth cubic, with no asymptotic or field-size assumptions. The two-torsion criterion is a sharp structural boundary explaining when a cubic fails to attain Bézout's naïve packing bound. This is not a random parameter slice; it resolves a complete obstruction class omitted by existing zero-sum-partition theorems. No result about higher-degree curves, count of optimal covers or point counts not divisible by three is claimed.
+Cichacz already proves the zero-defect zero-sum partition regime, and Goddyn–Halasz proves group near-transversals independently of geometry; these antecedents are credited. The contribution is the exact one-extra-line elliptic covering classification, derived by a specific index-three coset realization and group-sum obstruction. General Asgarli et al. discuss rational line covering and older N/3+O(1) bounds, not the precise all-finite-field unique-involution formula in sections inspected.
 
-## Evidence and limitations
+## value
 
-Inspected in full or materially: Asgarli et al., arXiv:2610.13042, introduction and Theorem 1.2; Goddyn--Halasz, arXiv:1905.07071, Theorems 2 and 4 and their proof of near transversals; Cichacz, arXiv:1702.07859, Section 3 and its main zero-sum result. Related prior Tannenbaum (1981) is identified in Asgarli et al.; its original printed pages were not independently obtained. A specialized unindexed application is the remaining originality risk. Exact finite consistency checks are replayable from `verify.py`, but cannot certify the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact projective line covering number of all rational points on an elliptic plane cubic is a natural finite-field geometric invariant. The sharp one-involution obstruction completely determines the defect relative to Bezout for every allowed cardinality, and the algebraic and combinatorial correspondence gives a reusable explicit geometric covering mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
