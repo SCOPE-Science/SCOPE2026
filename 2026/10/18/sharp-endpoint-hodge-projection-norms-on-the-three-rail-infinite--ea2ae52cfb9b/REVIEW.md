@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, Hilbert-space projections, and endpoint \(\ell_1\) extensions are fully defined. The proof diagonalizes the transverse three-point path Laplacian, gives exponentially decaying scalar Green kernels for eigenvalues one and three, and handles the zero transverse mode separately for horizontal sources. Every current has an explicit sign classification; the three edge-orbit absolute-column sums and source diagonals yield the six exact table entries. The strict comparisons select the claimed maximizers, and summable columns establish bounded \(\ell_1\) extensions. A separate standard-library test checks all six entries by finite Green sums and exact-rational finite-graph solutions. The proof is infinite-dimensional; finite tests are not substituted for it.
+PASS
 
-## Originality — PASS, subject to residual bibliographic risk
+On G=P3×Z transverse Laplacian eigenvalues 0,1,3 and massive scalar Green kernels q_λ^|k|/sqrt(λ(λ+4)) derive three edge orbit columns. Absolute sums and Qee give Q: vertical 1+1/sqrt5+5/sqrt21, outer-horizontal 7/3+1/sqrt5-1/sqrt21, middle 7/3; complementary C: 2+2/sqrt21, 4/3+2/sqrt5,4/3+4/sqrt21. Exact inequalities identify different maximizing orbits. Verified independently with finite 31-column graph incidence D, pseudoinverse D^T(DD^T)^†D: all six column sums within 7.5e-7 of infinite formulas. Absolute exponential summability plus ℓ2 identity justifies ℓ1 and adjoint ℓ∞ extensions; finite graph is not proof for infinite graph.
 
-Actual mathematical-record searches using strip, ladder, three-row, electrical cut/cycle projector, Hodge, and endpoint norm aliases were compared by implication. The closest publicly available two-rail ladder rung-kernel result concerns a different transverse geometry and a different functional (transfer-current inclusion rather than absolute-column endpoint projection norms). Dilworth–Kutzarova–Ostrovskii give general cycle-space projection methods and finite symmetric graph families, but the inspected material does not supply the asserted three-rail norm formulas. Klenke's one-dimensional ladder-like examples concern spanning-tree processes and do not state these projection norms. Common Green-function machinery alone is not a prior numerical theorem. Search absence is not used as proof of novelty, and equivalent unpublished or unindexed formulas remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp Banach endpoint bounds quantify a canonical Hodge decomposition in a natural infinite quasi-one-dimensional transport/cycle space, and separate complementary cut and cycle amplification. The exact two-scale radical constants and different extremizing edge orientations are structural data not supplied by the standard two-rail transfer-current kernel. The statement neither claims a new general Hodge theory nor inflates this into minimization over arbitrary projections.
+Best-of-knowledge PASS. Dilworth–Kutzarova–Ostrovskii full arXiv HTML studies minimal/invariant cycle-space ℓ1 projections on finite tori and Hamming cubes, not canonical ℓ2 cut/cycle projector column norms on infinite open-transverse P3×Z. Published exact two-rail ladder rung spanning-tree transfer-current kernel gives related Green-function technology but does not imply the three-orbit √5/√21 norms or different worst-case edge types. Extensive electrical-network literature not exhaustively searched.
 
-## Scope and risks
+## value
 
-The result is limited to the three-row unit-weight strip and the two canonical orthogonal projectors. Independent mathematical audit has not occurred. Residual prior-art risk remains in electrical network/Riesz-transform literature where equivalent absolute-column sums could be presented under different terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact norms of complementary Hodge projections on a first nontrivial quasi-one-dimensional infinite graph measure l1 instability of canonical cut/cycle decompositions and reveal distinct extremizing edge orbits; precise complete orbit table is a natural reusable network invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
