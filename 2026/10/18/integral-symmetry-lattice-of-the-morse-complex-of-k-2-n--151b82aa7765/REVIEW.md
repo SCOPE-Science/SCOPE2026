@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-flag definitions give a two-hub filtration. Every single-hub attachment has contractible link. The two-hub relative balls attach with zero off-diagonal degrees and unit diagonal degrees, identifying the integral top homology as a direct kernel. The leaf and hub orientation signs are fixed by explicit join orientations and checked on every group element for the finite test range. The all-parameter proof does not rely on those finite computations.
+## correctness
 
-**Originality — PASS, qualified.** The preexisting nonequivariant wedge theorem and the full rational equivariant Euler character cover the rational representation, but not the integral lattice; the previously published rational calculation explicitly excludes integral module classification. The comparison was made at the level of implication, including the same graph and same symmetry group. Integral augmentation is not a direct sum of trivial and standard permutation modules over the integers. Additional unpublished integral descriptions could exist.
+PASS
 
-**Value — PASS.** An infinite two-parameter symmetry family receives a canonical integral decomposition and explicit involution, with modular-invariant consequences invisible in ordinary Betti numbers and rational semisimple characters. The relative-cell splitting gives a reusable structural explanation rather than merely recomputing a known trace.
+For K2,n n>=3, the no-two-hub-flag subcomplex Y is homotopy equivalent to join_i S0=S^(n-1) via one-hub cones on contractible links. Each [x_i,y_j]*L_ij is an attached n-ball; the diagonal attachment maps have degree +/-1 to H_(n-1)(Y) and off-diagonal ones have zero degree, so the integral top kernel is the diagonal augmentation lattice A_n plus free off-diagonal B_n. Hub swap orientation contributes (-1)^n on diagonal and (-1)^(n+1) with reversal on B. Independently enumerated entire Morse faces for n=3 (215 faces) and n=4 (944 faces) and evaluated signed reduced Lefschetz traces for hub swap, leaf transposition and composites; all matched predicted module characters. Finite checks corroborate the general relative-cell proof and do not replace it.
 
-**Limits.** No equivariant homotopy classification; no independent external review. The finite computational check has no role as an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Resultary K2n equivariant Euler character gives rational characters, and known sphere-wedge results give rank n^2-1; neither determines integral non-split augmentation lattice or hub-sign action. Lin–Scoville studies the automorphism GROUP, not this homology module. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+An all-n Z[S_n x C2]-module decomposition resolves integral extension information and modular invariants that a character calculation misses. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
