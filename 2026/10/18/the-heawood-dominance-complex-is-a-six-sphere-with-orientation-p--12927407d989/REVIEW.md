@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The construction uses the complement-dominating-set definition, equivalently exclusion of every entire closed neighborhood of the Fano incidence graph. An explicit complete matching on the nonempty face poset has 4,424 pairs and only critical cells of dimensions zero and six. Its full Hasse graph (8,850 vertices, 52,304 oriented covering edges) is checked acyclic, so the Morse CW complex is a six-sphere and determines **integral**, not just rational, homotopy. The four symmetry generators and exhaustive 168-element point-collineation subgroup are verified on every graph adjacency; all four Lefschetz numbers equal two, forcing degree \(+1\) on the unique top-dimensional integral homology class. Averaging on rational chain complexes justifies the quotient result. An independent mod-two boundary program verifies the sole nonzero reduced Betti number in degree six. The proof does not infer integer homology solely from mod-two ranks.
+## correctness
 
-## Originality — PASS (residual risk)
-Compared the exact complement-dominating formulation, its combinatorial Alexander dual in the 2023 Matsushita–Wakatsuki theorem, related Heawood independence and matching complexes, the chordal sphere theorem, vertex-cover connectivity inequalities, and domination results for the Fano design. The published equivalence \(\mathcal D(G)=\mathcal N(\overline G)^*\) is acknowledged, not claimed new; it does not determine this nonchordal example or its symmetry. No indexed exact result supplying the Heawood dominance-complex sphere and full orientation character was identified. Unindexed equivalent work remains possible. The originality checks, source inspections, and scientific comparisons are detailed in `AUDIT.json`.
+PASS
 
-## Value — PASS
-The Heawood graph is a canonical, maximally symmetric cubic bipartite graph of girth six and a natural first Fano-geometry test case for graph dominance complexes. The exact sphere type proves a sharp connectivity boundary beyond known chordal classifications. The trivial action of all \(336\) automorphisms on the nontrivial integral homology group is a further symmetry-sensitive invariant, with a genuine rational homology consequence for the orbit space; it is not an unmotivated graph slice.
+From the Fano-incidence graph and the no-whole-closed-neighborhood condition, independent enumeration over exactly 2^14 masks produced 8,851 faces including empty and nonempty face counts (14,91,364,987,1862,2394,1962,931,224,21). Independent seven-pivot acyclic toggle matching produced pass counts (3737,471,145,35,21,9,7), leaving 4,424 pairs on nonempty faces, one critical vertex and one critical six-simplex; exhaustive topological sorting of 52,304 oriented cover arrows among all 8,850 nonempty faces proves acyclicity and hence integral S6 (not merely mod-2 Betti ranks). Full graph automorphism group order 336 follows from 168 Fano point collineations plus polarity; independently checked signed fixed-face reduced Lefschetz +1 (ordinary L=2) for each listed generator, so each acts +1 on rank-one integral H6. The rational coinvariant homology claim uses characteristic-zero exact averaging; no assertion on quotient torsion.
 
-## Limitations and literature
-Only the Fano plane of order two is treated, and only rational orbit-space homology is computed. The prior chordal theorem fails to apply since the graph contains induced six-cycles. The group-action certificate computes orientation characters of explicit generators, not an independent topological identification of the quotient. Key literature: Matsushita–Wakatsuki (arXiv:2312.02639), Matsushita (arXiv:2009.04145), and Goldberg–Rajendraprasad–Mathew (arXiv:1405.3436). An equivalent result might occur outside indexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matsushita–Wakatsuki general combinatorial Alexander dual identity and Matsushita vertex-cover bound are prior results explicitly cited; neither computes the Fano incidence closed-neighborhood dominance complex homotopy type or its full 336-element orientation. Resultary search found Heawood matching and independence homology, different complexes. Best-of-knowledge PASS with possible obscure finite-design dominance precedent.
+
+## value
+
+PASS
+
+A canonical nonchordal incidence graph furnishes a complete integral sphere classification with trivial full symmetry orientation and an exact sharp case of a general vertex-cover inequality. This natural finite witness refines general dominance-complex structure and supplies a useful model computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

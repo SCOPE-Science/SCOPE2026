@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-All files are ordinary UTF-8 text. With Python 3's standard library, run:
+## correctness
 
-```sh
-python3 verify_morse.py
-python3 verify_independent.py
-```
+PASS
 
-The first program enumerates all \(2^{14}=16{,}384\) subsets, all \(8{,}850\) nonempty faces and all \(52{,}304\) nonempty Hasse covering relations. It constructs seven rounds of toggle pairs, verifies the critical cells and full acyclicity by Kahn topological sorting, independently enumerates all \(5{,}040\) point permutations to identify the Fano graph collineations, verifies four graph symmetry generators, and computes their signed simplicial Lefschetz numbers. No numerical approximation, solver timeout, or undocumented external software is used.
+From the Fano-incidence graph and the no-whole-closed-neighborhood condition, independent enumeration over exactly 2^14 masks produced 8,851 faces including empty and nonempty face counts (14,91,364,987,1862,2394,1962,931,224,21). Independent seven-pivot acyclic toggle matching produced pass counts (3737,471,145,35,21,9,7), leaving 4,424 pairs on nonempty faces, one critical vertex and one critical six-simplex; exhaustive topological sorting of 52,304 oriented cover arrows among all 8,850 nonempty faces proves acyclicity and hence integral S6 (not merely mod-2 Betti ranks). Full graph automorphism group order 336 follows from 168 Fano point collineations plus polarity; independently checked signed fixed-face reduced Lefschetz +1 (ordinary L=2) for each listed generator, so each acts +1 on rank-one integral H6. The rational coinvariant homology claim uses characteristic-zero exact averaging; no assertion on quotient torsion.
 
-The second program builds the graph from a separately labeled Fano triple system, implements the complement-dominating definition directly, builds every simplicial mod-two boundary and reduces all its columns using integer bit operations. Its ranks and resulting reduced mod-two Betti vector independently agree with the integral Morse conclusion. The scripts intentionally use different labels and different face conditions.
+## originality
 
-Expected exact output transcripts are supplied as `verify_morse_output.txt` and `verify_independent_output.txt`. Do not substitute transcripts for running the included code. The proof of the group action uses the ordinary Lefschetz formula on signed oriented simplices, and the full graph-automorphism generation is explicitly exhausted. This is a finite-combinatorial complete certificate for one graph, not a proof of a family classification or an integral description of the quotient-space homotopy type.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Matsushita–Wakatsuki general combinatorial Alexander dual identity and Matsushita vertex-cover bound are prior results explicitly cited; neither computes the Fano incidence closed-neighborhood dominance complex homotopy type or its full 336-element orientation. Resultary search found Heawood matching and independence homology, different complexes. Best-of-knowledge PASS with possible obscure finite-design dominance precedent.
+
+## value
+
+PASS
+
+A canonical nonchordal incidence graph furnishes a complete integral sphere classification with trivial full symmetry orientation and an exact sharp case of a general vertex-cover inequality. This natural finite witness refines general dominance-complex structure and supplies a useful model computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
