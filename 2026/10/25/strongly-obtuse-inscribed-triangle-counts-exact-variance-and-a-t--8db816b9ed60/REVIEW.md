@@ -1,0 +1,11 @@
+# Review: strongly obtuse inscribed-triangle count law
+
+**Correctness — PASS.** The strict domain \(0<b<1/2\), triple-count normalization, complete covariance classification and Fourier constants have been reconstructed explicitly. The pair-conditioned geometric kernel is \((2b-s)\mathbf1_{s<b}\), giving \(p_b=3b^2\), \(\zeta_b=14b^3/3-9b^4\), and operator eigenvalues as in the theorem. Canonical Hoeffding orthogonality bounds the remaining third-order component by \(O(n^3)\) variance. The exact arc-count program and independent direct triple test, Monte Carlo and Parseval tests agree. Finite checks are not used as infinite proof.
+
+**Originality — PASS relative to inspected literature, not absolute priority.** The right-angle limit was already derived within the classical bivariate sign/simplicial-depth literature and is excluded. The reviewed 2026 full-text synthesis identifies that endpoint. The older 2013 inscribed polygon work treats extreme area/perimeter statistics; generic U-statistic theory supplies the method but not the explicit strict-angle eigenvalues or the two-sided support phase. Exact comparisons and material-read limits appear in AUDIT.json. The old Killeen–Hettmansperger paper was not available in full after legal-source and institutional-access checks; its abstract and a modern full-text scholarly discussion were read. This leaves historical-priority risk, not evidence of uniqueness.
+
+**Value — PASS.** The count aggregates highly dependent triangles in a natural random cyclic polygon. Its explicit finite variance, the complete limiting fluctuation spectrum for every strong-obtuseness cutoff, and the discontinuous change in support at the classical right-angle boundary are structural information beyond single-triangle probability or a routine numerical census. The representative \(120^\circ\) case has exact rational fluctuation constants.
+
+**Limits.** This theorem assumes iid uniform circle points and a fixed threshold strictly between a right angle and a straight angle. It does not imply general nonuniform results or a functional limit in the threshold. Priority is provisional and no independent review is represented.
+
+Self-review: passed. Independent audit: not yet performed.
