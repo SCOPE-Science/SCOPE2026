@@ -1,15 +1,17 @@
-# Review
+# Scientific review
 
 ## Correctness
-PASS. With \(R=T_CU^*\), the condition \(\|I-RA\|<1\) makes \(RA\) invertible by the Neumann lemma. Since \(A\) is invertible, \(R\) is invertible, and \(R^-1\) gives exact controlled \(g\)-dual reconstruction. The converse has zero defect. The scalar example \(R=3I\) satisfies the adjustable condition with \(A=I/3\) while violating \(\|I-R\|<1\); it also makes the printed Neumann series diverge.
 
-## Originality
-PASS. The target full text was checked at the definition and corollary being corrected. Christensen--Laugesen's earlier approximate-dual theory distinguishes fixed-operator approximation from mere invertibility and justifies a Neumann expansion only under a fixed mixed-operator closeness condition. Searches for the target theorem number, the free-preconditioner equivalence, and the scalar obstruction did not locate a covering correction. The closest indexed frame-theory findings concern different duality, convergence, and reconstruction obstructions.
+The reconstruction argument is exact. For a bounded mixed operator \(R=T_CU^*\), existence of an invertible \(A\) with \(\|I-RA\|<1\) makes \(RA\), hence \(R\), invertible. Conversely, taking \(A=R^{-1}\) produces zero defect. The target paper's Corollary 3.8(ii) already records the important forward implication.
 
-## Value
-PASS. The issue changes the meaning of a named definition: its proposed approximate class is exactly the exact controlled \(g\)-dual class. It also invalidates a stated implication to ordinary approximate duality and a displayed reconstruction series. The correction identifies the precise logical collapse and a minimal counterexample rather than only a typographical defect.
+In the scalar case \(H=\mathbb C\), \(C=I\), \(f_1=1\), \(g_1=3\), the controlled frame and Bessel hypotheses hold, \(R=3I\), and \(A=I/3\) gives zero adjusted defect. Yet \(\|I-R\|=2\), contradicting Corollary 3.8(iii). Likewise \(UT_C^*=3I\), so the series written in Corollary 3.8(i) has terms \((-2)^n g_1\) and diverges. The inverse itself and the dual-frame conclusion in part (i) remain valid.
 
-## Closest literature and limitations
-The 2008/2011 Christensen--Laugesen theory is the closest conceptual precursor: it separates approximate duality, defined by a fixed norm defect, from pseudo-duality, defined by invertibility. It does not state the 2022 controlled \(g\)-dual correction. The present result does not rule out Neumann convergence under weaker spectral hypotheses; it establishes that the source's Definition 3.4 alone does not imply the displayed expansion.
+## Originality and relationship to earlier theory
 
-Same-model review: passed. Independent audit: not yet performed.
+Christensen and Laugesen (arXiv:0811.3588, Definition 3.1 and Proposition 4.1) already distinguish fixed-operator approximate duality from invertible pseudo-duality and provide the legitimate Neumann series under a fixed norm bound. Rashidi-Kouchi, Rahimi and Shah (DOI 10.1142/S0219691318500571, Definition 3.1 and Theorem 3.2) give the fixed-operator controlled version. Ramezani's own 2022 Corollary 3.8(ii) already implies approximate g-dual implies exact controlled g-dual, so the abstract invertibility equivalence is not claimed as a novel theorem. The independently checked contribution is the specific counterexample demonstrating the two incorrect conclusions in the named 2022 corollary.
+
+Targeted database and literature searches found no earlier published erratum that states the scalar obstruction to Corollary 3.8(i),(iii). This is a best-of-knowledge finding, not a proof of priority. An unindexed correction or informal note remains possible.
+
+## Mathematical value and limits
+
+The correction removes two asserted conclusions from a named published result while retaining its valid inverse-duality statement. It clarifies the difference between a freely adjusted reconstruction and genuinely close unadjusted reconstruction. It does not invalidate the classical approximate duality definition, and it does not exclude Neumann convergence in special settings with additional assumptions.
