@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Positive definiteness follows from the exact Fourier symbol q>=1/4. The scalar DARE is solved explicitly; completion-of-squares gives an identity valid for every stable noncirculant static gain. Both stationary covariance and I+P dominate the identity; graph-band Frobenius orthogonal projection gives a universal lower bound. The nearest outer Laurent branch is -2, with square-root coefficient sqrt3 and no other singularity at that modulus; transfer yields the exact Fourier tail constant 1/(2pi). A stable symmetric finite-range truncation gives matching uniform upper order. Numerically reproduced with the embedded check.py; infinite statements rely on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shin et al. 2022 prove exponential upper estimates with system-size regularity.",
+        "Zhou–Matias 2026 give finite-range/memory sufficient spatial-temporal decays, not a matching necessary radius for static feedback."
+      ],
+      "reasoning": "Broader system classes in the literature strengthen the scope of sufficient upper bounds, but not the stronger conclusion of a sharp lower cost and exact base plus polynomial prefactor for the present example. A universal strong converse was not identified. The present necessity does not claim dynamic feedback lower bounds.",
+      "searches": [
+        "distributed LQR optimal control locality logarithmic lower bounds approximation static feedback 2026",
+        "distributed control graph locality LQR exact performance gap static radius r lower bound matching exponential polynomial decay",
+        "arXiv:2204.05551v2 full paper main results",
+        "arXiv:2610.11699v1 sections 1–3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11699v1 (2026-10-08), primary HTML §§1–3",
+      "arXiv:2204.05551v2, primary 22-page PDF selected theorem/proof/appendix passages",
+      "arXiv:2209.14376 abstract metadata only",
+      "Jensen–Epperlein–Bamieh CDC2020 publisher abstract and thesis intro",
+      "Published-research-index semantic search of static cyclic LQR tail/cost lower and aliases",
+      "Previously published mathematical claims compared for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The checked bounds are sufficient exponential upper bounds with unspecified/sharpened constants, not a lower bound, and do not force the cubic factor.",
+        "Our lower uses arbitrary stable possibly noncirculant radius-r static controllers and exact uniform state covariance floor."
+      ],
+      "reasoning": "No checked prior statement logically implies \\(\\liminf_N\\Delta_{N,r}\\ge E_r/2\\) or the exact asymptotic order; conversely the present result is a restricted static architecture example, not a general improvement of the prior spatiotemporal upper theorem.",
+      "searches": [
+        "Shin et al. 2022 gain and cost decay Theorems 3.3,4.1,4.2",
+        "Zhou–Matias 2026 response-locality upper theorems",
+        "Sharp r^{-3} 4^{-r} lower bound static spatially localized LQR feedback on ring nearest-neighbor state cost Fourier Riccati singularities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General Riccati Fourier multiplier and algebraic square-root asymptotics are standard tools, but checked main theorems of identified control papers provide upper, not matching lower, bounds.",
+        "Our statement has explicit \\(r^{-3}4^{-r}\\) static-cost gap and is not merely exponential gain decay."
+      ],
+      "reasoning": "Equivalent language includes spatially invariant feedback localization, Toeplitz/circulant Riccati kernel decay, finite-range LQR truncation, and H2 performance. An upper bound on a particular truncated gain cannot imply the universal lower bound against all static radius-r gains; the new Bellman-square/Frobenius tail argument is needed. Classical singularity transfer covers the coefficient step but not by itself the constrained cost gap.",
+      "searches": [
+        "spatially invariant LQR Laurent feedback Fourier coefficients square-root branch singularity optimal communication radius lower bound",
+        "Toeplitz Riccati positive nearest neighbor state cost scalar independent dynamics LQR feedback Fourier coefficients r^-3/2 sharp locality lower bound",
+        "arXiv:2610.11699v1 HTML mathematical model and gain decay",
+        "arXiv:2204.05551v2 Theorems 3.3,4.1,4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-research-index records returned unrelated LQR sign conventions, gradient-tracking and optimization stability; no entry with the explicit cyclic LQR \\(r^{-3}4^{-r}\\) cost asymptotic was returned.",
+        "Prior published claims concerned other optimization and numerical-control questions; none states a graph-radius LQR Fourier lower bound."
+      ],
+      "reasoning": "These are actual database/ledger comparisons rather than a presumption of uniqueness. The database search is not exhaustive, and an unnoticed equivalent result remains possible.",
+      "searches": [
+        "Sharp r^{-3} 4^{-r} lower bound static spatially localized LQR feedback on ring nearest-neighbor state cost Fourier Riccati singularities",
+        "spatially invariant LQR Laurent feedback Fourier coefficients square-root branch singularity optimal communication radius lower bound",
+        "distributed control graph locality LQR exact performance gap static radius r lower bound matching exponential polynomial decay"
+      ]
+    },
+    "rationale": "Checked primary 2026 and 2022 locality theorems give upper decay/sufficiency, not a sharp static locality lower with cubic prefactor. Published-research-index and archival literature comparisons found no covering result; older analytically related sources remain listed with inspection limitations.",
+    "residual_risks": [
+      "A full-text check of arXiv:2209.14376 was not confirmed; a previously derived analytic constant might exist in older spatially invariant LQR literature.",
+      "The original 2020 CDC article was not fully inspected, though a corresponding dissertation chapter introduction was located; Fourier-symbol transfer itself is standard.",
+      "Originality is an evidence-based, self-review and is not independent priority certification.",
+      "The result does not give exact leading constant for optimized excess cost or lower bound for time-varying/dynamic distributed controllers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies spatial/temporal response decay and logarithmic sufficient radius; no exact stationary excess-cost lower asymptotic for every static radius-r feedback on the specified cyclic family was found.",
+        "evidence": [
+          "arXiv HTML §§1–3 equations (1)–(8), introduction and decay results; submitted 2026-10-08",
+          "https://arxiv.org/html/2610.11699v1"
+        ],
+        "identifier_or_url": "arXiv:2610.11699v1; https://arxiv.org/html/2610.11699v1",
+        "material_read": "HTML full-text sections 1–3 including formal model, decay theorem, statements of system-response spatial and temporal upper bounds, and related work §§1–2; selected appendix proof passages",
+        "method": "Direct arXiv HTML inspection; targeted checks for necessity and lower locality gaps",
+        "title": "Spatiotemporal Response Decay for Near-Optimal Distributed LQR via System Level Synthesis",
+        "trigger": "Newest paper directly on spatiotemporal distributed LQR locality"
+      },
+      {
+        "assessment": "Shows stable truncated gains and exponentially small upper loss under general assumptions, not a matching family-specific lower or cubic polynomial prefactor.",
+        "evidence": [
+          "arXiv:2204.05551v2, pp. 2–4 and Theorems 3.3, 4.1, 4.2",
+          "https://arxiv.org/pdf/2204.05551"
+        ],
+        "identifier_or_url": "arXiv:2204.05551v2; https://arxiv.org/pdf/2204.05551",
+        "material_read": "22-page arXiv PDF: introduction, contributions, main gain-decay and performance upper-bound theorem statements, proof mechanisms and relevant appendix portions",
+        "method": "Primary PDF text and page-image inspection; compared direction and quantifiers of performance bounds",
+        "title": "Near-Optimal Distributed Linear-Quadratic Regulator for Networked Systems",
+        "trigger": "Direct precedent on static truncated gains and graph-distance performance loss"
+      },
+      {
+        "assessment": "Related exponentially decaying structural-control framework; full-text exclusion of an equivalent special case remains unverified.",
+        "evidence": [
+          "arXiv:2209.14376 abstract and title"
+        ],
+        "identifier_or_url": "arXiv:2209.14376; https://arxiv.org/abs/2209.14376",
+        "material_read": "Public abstract and bibliographic metadata; complete primary manuscript not established as read",
+        "method": "Bibliographic and abstract comparison, with limitation stated",
+        "title": "On the Optimal Control of Network LQR with Spatially-Exponential Decaying Structure",
+        "trigger": "Related spatial feedback-decay and truncation guarantees"
+      },
+      {
+        "assessment": "Establishes feedback kernel localization in a different continuous-time/Sobolev setting. It may contain related singularity techniques; exact discrete-time cyclic cost-gap asymptotic not established from inspected material.",
+        "evidence": [
+          "IBM Research CDC2020 abstract",
+          "Emily Jensen dissertation chapter 4 introduction, https://sites.engineering.ucsb.edu/~bamieh/theses/emily_thesis.pdf"
+        ],
+        "identifier_or_url": "DOI:10.1109/CDC42340.2020.9304235; https://research.ibm.com/publications/localization-of-the-lqr-feedback-kernel-in-spatially-invariant-problems-over-sobolev-spaces",
+        "material_read": "Publisher abstract and accessible dissertation chapter 4 introductory passages; conference full text not confirmed inspected",
+        "method": "Compared continuous-time/Sobolev operator setting and claimed exponential kernel decay",
+        "title": "Localization of the LQR Feedback Kernel in Spatially-Invariant Problems over Sobolev Spaces",
+        "trigger": "Potentially equivalent Fourier-symbol derivation in spatially invariant LQR"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31392d56-0379-40cd-a434-e3b6e8a4444d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp locality performance lower bound identifies a physical communication constraint that general upper tail bounds cannot certify. The exact exponential base 4 and polynomial cubic improvement resolve the asymptotic static communication-radius price for a natural SPD nearest-neighbor state-cost chain, while permitting all possibly noncirculant static gains. It yields a precise second-order logarithmic design-radius law and a reproducible benchmark for sharper distributed LQR analysis.",
+    "status": "PASS"
+  }
+}
