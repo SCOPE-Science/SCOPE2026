@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For \\(k\\ge3\\), connectivity is equivalent to the two-state response map \\(F(i)=R(C(i))\\) being constant. The proof establishes both directions and computes \\(\\Pr(F\\text{ constant})=(k+1)/(2k)\\) and \\(\\Pr(\\text{NE exists})=(3k+1)/(4k)\\), yielding \\(2(k+1)/(3k+1)\\). The standalone exhaustive verifier directly constructs the graph for k=3,...,7; it corroborates but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wiese and Heinrich, Dynamic Games and Applications 12 (2022), Theorem 3: exact frequencies for convergent two-player equal-strategy games under a fixed sequential best-response dynamic.",
+        "Mimun et al. (2024) abstract describes a two-player random-payoff model with correlated payoffs and asymptotic best-response convergence; it does not state the same independent ordinal graph-connectivity statistic."
+      ],
+      "reasoning": "Sequential convergence under a specified update order is not equivalent to the graph property that every non-sink can reach every sink. The correlated-payoff model changes the probability ensemble. Neither inspected statement implies the rectangular ordinal formula. The correlated-payoff paper was only checked at abstract level and remains a limited residual risk.",
+      "searches": [
+        "published-finding corpus: asymmetric action counts random generic games connectivity best response graph unequal k_i",
+        "Wiese and Heinrich, The Frequency of Convergent Games under Best-Response Dynamics, full-text search/open result",
+        "Mimun, Quattropani, Scarsini, Best-response dynamics in two-person random games with correlated payoffs, article abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.05965 (primary source; first submitted 2026-01-09)",
+      "https://doi.org/10.1007/s13235-021-00401-3 (adjacent sequential-dynamics literature)",
+      "https://doi.org/10.1016/j.geb.2024.03.011 (abstract-level check; correlated payoff model)",
+      "published-finding corpus semantic searches recorded under equivalent_formulations, broader_coverage, exact_database_or_table, and claim_vs_prior_implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnston et al. report that for two players with equal action count \\(k\\), the conditional connected fraction tends to zero as \\(k\\) grows, citing earlier weak-acyclicity results.",
+        "The present theorem yields \\(2(k+1)/(3k+1)\\) when the row player has two actions and the column player has \\(k\\ge3\\) actions, tending to \\(2/3\\)."
+      ],
+      "reasoning": "The equal-action limit does not imply a limit with one action count fixed. Wiese and Heinrich's exact count is for a different sequential convergence property, so its formula does not imply this graph-connectivity ratio.",
+      "searches": [
+        "Johnston et al., arXiv:2601.05965, Theorem 1 and model footnote on unequal action counts",
+        "Wiese and Heinrich, Dynamic Games and Applications 12 (2022), Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnston et al., arXiv:2601.05965, model definitions and Theorem 1: connectedness is defined by paths from every non-equilibrium profile to every pure equilibrium; the displayed asymptotic theorem uses equal k across players.",
+        "Johnston et al., arXiv:2601.05965, footnote in the model section: different action counts can be accommodated, but the paper restricts its stated analysis to equal counts for simplicity."
+      ],
+      "reasoning": "The claim is not a renaming of equal-\\(k\\) asymptotics: it fixes one action count at two, proves a finite-\\(k\\) identity for every \\(k\\ge3\\), and takes a different limit. The two-state response-map classification is specific to the rectangular \\(2\\times k\\) regime.",
+      "searches": [
+        "published-finding corpus: game connectivity best-response graph random generic games many actions two players asymptotic connected fraction weakly acyclic",
+        "published-finding corpus: Johnston Savery Scott Tarbush game connectivity many-action games 2601.05965 theorem 1 zeta_n",
+        "published-finding corpus: two-player random ordinal games best-response graph connectivity exact finite k number of pure Nash equilibria best-response cycles",
+        "published-finding corpus: asymmetric action counts random generic games connectivity best response graph unequal k_i"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest search hits were adjacent results on random games, simple voting games, and other graph properties; none of the closest returned records stated the \\(2\\times k\\) connectedness fraction."
+      ],
+      "reasoning": "The published-finding corpus search is a semantic discovery mechanism, not a complete database census. The mathematical formula is established independently by the exact response-map count, but the absence of a matching database record is not itself proof of novelty.",
+      "searches": [
+        "published-finding corpus: game connectivity best-response graph random generic games many actions two players asymptotic connected fraction weakly acyclic",
+        "published-finding corpus: two-player random ordinal games best-response graph connectivity exact finite k number of pure Nash equilibria best-response cycles",
+        "published-finding corpus: asymmetric action counts random generic games connectivity best response graph unequal k_i"
+      ]
+    },
+    "rationale": "The closest primary source studies the same graph-connectivity definition but states its asymptotic theorem for equal action counts. Its model section notes that unequal action counts can be accommodated but the analysis is restricted for simplicity. The exact \\(2\\times k\\) conditional formula and its \\(2/3\\) limit are derived for the distinct fixed-two-action regime. Prior sequential-dynamics results use a different convergence criterion. Residual risk remains for uninspected rectangular-action results outside the searched sources.",
+    "residual_risks": [
+      "The complete 43-page primary paper proof/appendix was not read line by line; the model, definition, theorem statement, and relevant discussion were inspected.",
+      "The correlated-payoff two-player paper was checked at abstract level only. Its ensemble differs, but a full-text implication comparison was not completed.",
+      "A prior exact theorem for rectangular-action ordinal games may exist outside the searched sources; the published-finding corpus partition and web-visible literature do not prove universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper's displayed asymptotic theorem is for equal action counts. Its model footnote says unequal counts are admissible but the stated analysis is restricted to equal counts. No exact \\(2\\times k\\) conditional fraction appears in the inspected portions.",
+        "evidence": [
+          "arXiv:2601.05965, model section and footnote on differing action counts.",
+          "arXiv:2601.05965, Theorem 1 and discussion of the \\(n=2\\) equal-action limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.05965",
+        "material_read": "Read the arXiv PDF model definitions, connectivity definition, Theorem 1, theorem discussion, and related-work discussion; not every appendix/proof page was inspected.",
+        "method": "Compared the stated equal-action asymptotic claim and response-graph definition with the proposed fixed-two-action rectangular regime.",
+        "title": "Game connectivity and adaptive dynamics in many-action games",
+        "trigger": "Closest recent primary source for random generic ordinal-game graph connectivity."
+      },
+      {
+        "assessment": "The paper counts games convergent under a fixed sequential best-response dynamic and gives equal-action two-player formulas. That property is not the same as connectedness of the full best-response graph, and its stated formulas do not cover the 2-by-k ordinal ensemble.",
+        "evidence": [
+          "Theorem 3 gives frequencies for two-player m-strategy convergent games with exactly a specified number of pure equilibria under the paper's update protocol."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13235-021-00401-3",
+        "material_read": "Read the article abstract, introduction, and displayed Theorem 3; the article states MSC 91A10 and 91A06 in its preprint.",
+        "method": "Compared the graph property and ensemble against the present claim.",
+        "title": "The Frequency of Convergent Games under Best-Response Dynamics",
+        "trigger": "Closest inspected two-player random-game frequency result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f5fc17c-1248-44cf-afc1-d9232e490fba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-two-action regime is a natural and sharply different asymptotic regime for random games with unequal action-space sizes. The exact finite-\\(k\\) conditional fraction and its \\(2/3\\) limit show that the equal-action two-player vanishing limit cannot be transferred to this asymmetric setting; this is useful when interpreting connectivity for games with one low-cardinality player.",
+    "status": "PASS"
+  }
+}
