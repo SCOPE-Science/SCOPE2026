@@ -1,0 +1,124 @@
+{
+  "claim": "For any fixed \\(r\\in\\mathbb Z^2\\setminus\\{0\\}\\) and every \\(\\lambda>0\\), the square-lattice operator \\(H_{\\lambda,r}=4I-\\sum_{|e|_1=1}T_e-\\lambda|0\\rangle\\langle0|+\\lambda|r\\rangle\\langle r|\\) on \\(\\ell^2(\\mathbb Z^2)\\) has exactly one simple eigenvalue below \\([0,8]\\) and exactly one simple eigenvalue above \\([0,8]\\), situated at \\(-\\kappa_r(\\lambda)\\) and \\(8+\\kappa_r(\\lambda)\\), respectively. With \\(h(k)=4-2\\cos k_1-2\\cos k_2\\), \\(G_s(\\kappa)=\\int_{[-\\pi,\\pi]^2}\\cos(k\\cdot s)/(h(k)+\\kappa)\\,dk/(2\\pi)^2\\), and \\(R_r=\\int_{[-\\pi,\\pi]^2}(1-\\cos(k\\cdot r))/h(k)\\,dk/(2\\pi)^2>0\\), \\(\\kappa_r\\) is the unique positive solution of \\(\\lambda^2\\left(G_0(\\kappa)^2-G_r(\\kappa)^2\\right)=1\\) and satisfies \\(\\kappa_r(\\lambda)=32\\exp(-2\\pi R_r)\\exp(-2\\pi/(R_r\\lambda^2))(1+o(1))\\) as \\(\\lambda\\downarrow0\\). For nearest-neighbor \\(r=(1,0)\\), \\(R_r=1/4\\), hence \\(\\kappa_r(\\lambda)\\sim32e^{-\\pi/2}e^{-8\\pi/\\lambda^2}\\).",
+  "correctness": {
+    "rationale": "Fourier diagonalization shows spectrum [0,8]. The rank-two eigenproblem has determinant 1-lambda^2(G0-Gr)(G0+Gr). Both strictly positive factors strictly decrease; the product decreases from infinity to zero, giving precisely one simple negative eigenvalue. The checkerboard-reflection unitary maps H to 8-H, giving one positive partner and no other outside-band eigenvalues. The Watson elliptic integral has G0=(4pi)^-1 log(32/kappa)+O(kappa |log kappa|), while G0-Gr=Rr+O(kappa |log kappa|), yielding D=Rr/(2pi)log(32/kappa)-Rr^2+o(1), and the exact prefactor. At r=e1 the origin resolvent equation gives Rr=1/4. A reproducible high-precision check is included but not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McCutcheon provides free square-lattice diagonal elliptic Green functions and a single-impurity T-matrix; no two-site equal-and-opposite determinant or all-separation resistance formula is stated.",
+        "The handbook contains the Green-function recurrence and bipartite identities but no verified matching two-site signed-defect theorem.",
+        "Closest indexed phase-twisted positive spectrum record concerns a different periodic quantum graph."
+      ],
+      "reasoning": "General rank-two determinant methods could prove the claim, but a method from which a result could be derived is not an explicit prior implication: the sign-sensitive determinant, two-factor monotonicity, resistance finite part, and exact reflected spectral symmetry are newly combined and checked for the stated family.",
+      "searches": [
+        "A Green’s Function Analysis of Defect States in Periodic Hamiltonians (McCutcheon 2004), Sections 1.2–1.3, full 16-page PDF",
+        "Handbook on Lattice Green’s Functions (Zhugayevych), full free-lattice recurrence and Green functions",
+        "rank two sign indefinite discrete lattice perturbation essential spectrum exactly two bound states pairing"
+      ]
+    },
+    "checked_sources": [
+      "Simon, Annals of Physics 97 (1976), 279–288; author-archived 6-page full text.",
+      "Chadan et al., arXiv:math-ph/0208011, first submitted 2002-08-06; 27-page primary text.",
+      "McCutcheon, 2004-12-01, A Green’s Function Analysis of Defect States in Periodic Hamiltonians, 16-page report.",
+      "Zhugayevych, Handbook on Lattice Green’s Functions, 25-page freely accessible text."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simon implies an inverse-square essential singularity as a general phenomenon in the continuum but not a coefficient for the lattice Green function.",
+        "McCutcheon supplies a single-defect Green function, whereas the statement uses a signed two-site determinant.",
+        "Reflection combined with bipartite sign gives the exact 8-E symmetry, which has no continuum analogue in the cited theorems."
+      ],
+      "reasoning": "The new claim is not the already known weak-binding phenomenon; it is the global two-eigenvalue existence/uniqueness for every coupling and displacement plus a resistance-controlled prefactor. The cited results do not dominate or include those assertions; residual possibility of an uninspected equivalent lattice rank-two treatment is explicitly retained.",
+      "searches": [
+        "Simon 1976 zero integral two-dimensional potential Theorem 3.4",
+        "Chadan Khuri Martin Wu arXiv:math-ph/0208011 number of continuum bound states",
+        "McCutcheon 2004 defect states periodic Hamiltonians section 1.3",
+        "Square lattice impurity pair spectral symmetry about band midpoint attractive and repulsive sites"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Simon (1976), Theorem 3.4, treats continuum zero-integral potentials and recognizes an inverse-square-coupling exponential law, so that scaling mechanism alone is covered.",
+        "Chadan et al. (arXiv:math-ph/0208011), full 27-page paper, analyzes continuum potentials and number of bound states; the two-site square lattice is absent.",
+        "No matching sign-balanced onsite-pair classification in the nearest ranked mathematical records."
+      ],
+      "reasoning": "The precise object is a discrete square-lattice two-point signed potential; the eigenvalues are paired about 4 by a lattice-only sublattice-reflection involution, and their weak-coupling prefactor depends on the lattice resistance between arbitrary sites. Continuum zero-average weak-binding theorems do not contain the lattice constant 32 or this spectral involution.",
+      "searches": [
+        "opposite-sign two-site delta impurities square lattice discrete Schrödinger bound states effective resistance all coupling symmetric spectrum",
+        "two-dimensional lattice dipole perturbation zero total potential bound state weak coupling exponentially small exp(-2pi/(R lambda^2)) lattice Green",
+        "arXiv:math-ph/0208011 (complete original PDF)",
+        "Simon 1976 Annals of Physics 97, scanned full paper, Theorem 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original lattice report tabulates or derives the free Green function, not the eigenvalue formula for opposite defects.",
+        "Nearest indexed square-lattice dipole/quadrupole threshold record describes spatial tails at a resonance and a threshold eigenstate for a distinct lattice interaction problem.",
+        "No table of the exact defect eigenvalues or effective-resistance prefactors was found in the inspected sources."
+      ],
+      "reasoning": "The available exact Green function is an essential input and is explicitly credited as such, but its published tabulation does not itself list the paired signed-impurity spectrum or the asymptotic constant.",
+      "searches": [
+        "adjacent attractive repulsive impurities square lattice equal strengths elliptic integral weak binding phase",
+        "discrete Schrödinger 2D zero mean potential weak coupling exp(-c/lambda^2) lattice 2 impurities bound states",
+        "McCutcheon 2004 square-lattice Green’s function Eq. (1.12) and defect discussion in Sec. 1.3"
+      ]
+    },
+    "rationale": "The key exponential-in-inverse-square scale was established for zero-mean continuum potentials by Simon in 1976. The distinctive proposed contribution is the exact square-lattice signed-pair all-coupling classification, spectral pairing, and explicit separation-dependent lattice resistance prefactor, none stated in the inspected primary full texts or related records.",
+    "residual_risks": [
+      "General finite-rank Birman–Schwinger matrix and electrical-network resistance techniques could encompass this special case in less discoverable literature; absence of a search hit is not a uniqueness proof.",
+      "The weak-binding inverse-square exponential scaling itself is prior continuum work, and is not claimed new.",
+      "No independent primary-literature priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers inverse-square-coupling exponential mechanism, not discrete signed-pair all-coupling eigenvalues or lattice resistance prefactor",
+        "evidence": "Theorem 3.4 includes exp[-(c lambda)^(-2)] for zero-integral continuum potentials.",
+        "identifier_or_url": "https://math.caltech.edu/SimonPapers/70.pdf",
+        "material_read": "All six scanned PDF pages including Section 3, Theorems 3.3 and 3.4, and arguments for the 2D zero-integral case",
+        "method": "Compared continuous spatial Schrödinger setup and rates with discrete two-site spectrum and prefactor",
+        "title": "The Bound State of Weakly Coupled Schrödinger Operators in One and Two Dimensions",
+        "trigger": "Canonical earliest weak-coupling zero-mean-potential effect; potential broader coverage"
+      },
+      {
+        "assessment": "Continuum bounds and weak-binding discussion, not the two-site square-lattice signed spectral theorem",
+        "evidence": "arXiv history establishes first public submission 2002-08-06; paper is formulated for continuum one- and two-dimensional potentials.",
+        "identifier_or_url": "https://arxiv.org/abs/math-ph/0208011",
+        "material_read": "Full 27-page OA primary PDF including introductory comparisons, bound-state-count estimates and appendices",
+        "method": "Compared object, dimensionality, decay assumptions, and bound-state counts against finite-support lattice Hamiltonian",
+        "title": "Bound States in one and two Spatial Dimensions",
+        "trigger": "Earliest verified precisely dated source anchoring archive and low-dimensional binding phenomenon"
+      },
+      {
+        "assessment": "The Green function and one-defect method are covered; no rank-two balanced pair, arbitrary displacement, or effective-resistance prefactor is stated",
+        "evidence": "Eq. (1.12) derives square-lattice diagonal elliptic Green function; Section 1.3 discusses a single impurity.",
+        "identifier_or_url": "https://phas.ubc.ca/~berciu/TEACHING/PHYS503/PROJECTS/P503_impurity.pdf",
+        "material_read": "Full 16-page report including Section 1.2.2 and Section 1.3 with equations and illustrations",
+        "method": "Checked two-dimensional elliptic free Green function, impurity T-matrix, and number/type of defect sites",
+        "title": "A Green’s Function Analysis of Defect States in Periodic Hamiltonians",
+        "trigger": "Same square-lattice free Green function and defect context, plausible exact overlap"
+      },
+      {
+        "assessment": "Free-lattice formulas apply and are acknowledged; the exact signed two-site eigenvalue classification was not found",
+        "evidence": "The handbook collects free resolvent recurrences and bipartite symmetry but no verified two-site impurity spectral law.",
+        "identifier_or_url": "https://cmsos.github.io/lgf/LGF.pdf",
+        "material_read": "Full 25-page freely accessible handbook; inspected bipartite symmetry, recurrence and relevant square-lattice Green function sections",
+        "method": "Compared the tabulated resolvent and lattice recurrences to the signed two-defect spectral claim",
+        "title": "Handbook on Lattice Green’s Functions",
+        "trigger": "Potential dominating lattice resolvent identities and effective-resistance representation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b02483e-aca7-4d25-b113-318c1b58e863",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Balanced attractive–repulsive defects have zero net potential yet bind for every coupling in two dimensions, at an anomalously smaller inverse-square-coupling exponential scale than an unbalanced attractive site. The theorem determines not only existence but both paired discrete levels for all coupling strengths, and explicitly identifies the intersite lattice resistance as the geometric invariant controlling the weak-binding exponent and prefactor for every fixed separation. This supplies meaningful quantitative and structural information for impurity localization beyond textbook one-site T-matrix calculations.",
+    "status": "PASS"
+  }
+}
