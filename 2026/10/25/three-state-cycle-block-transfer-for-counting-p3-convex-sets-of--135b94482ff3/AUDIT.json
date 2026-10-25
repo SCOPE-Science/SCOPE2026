@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The incidence tree has disjoint descendant blocks; local factors explicitly enforce the at-most-one-selected-neighbor condition for every unselected vertex. The bridge and arbitrary-cycle boundary cases close the induction; vertex weighting happens exactly once. The 1211 finite independent brute-force comparisons corroborate the resulting polynomial identity but are not its infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3 gives the tree algorithm; Theorem 14 gives threshold graphs; Theorem 12 proves hardness on split graphs",
+        "2019 Brešar-Valencia-Pabon Theorem 1 concerns connected convex subsets of Cartesian products",
+        "Generic MSO / bounded-treewidth weighted counting broadly implies the existence of algorithms on cacti"
+      ],
+      "reasoning": "Tree and threshold algorithms are not cactus cycle-block formulas, while the Cartesian-product theorem is inapplicable to general cacti. General bounded-treewidth tractability is conceded and excluded from the novelty claim; explicit local cycle transfer for every size coefficient is the assessed object.",
+      "searches": [
+        "arXiv:2603.04706v1 Theorems 3,12,14 and Section 4",
+        "P3 convex subset count cactus graphs linear time cycle block transfer recurrence",
+        "2019 P3-hull number Hamming graphs Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.04706v1",
+      "Brešar-Valencia-Pabon 2019 P3 hull of Hamming graphs",
+      "Prior accessible original clique-block finding 473be4ff-33e8-49ef-8d36-309be1ab46fc",
+      "Targeted mathematical-record semantic queries on cactus P3 convex counts and bootstrap closed sets",
+      "Web searches for cactus P3 convex counting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier clique-block circuit is defined only for blocks that are complete",
+        "An arbitrary cactus can have chordless cycles of lengths at least four and so need not be a block graph",
+        "General metatheorems can give efficient counting on bounded treewidth but not this explicit special-case transfer as a stated formula"
+      ],
+      "reasoning": "The prior clique-block result covers cactus graphs with only triangles and edges, but not the unrestricted family with long cycles. The novelty assessment deliberately excludes abstract tractability and counts only the concrete explicit uniform polynomial recurrence.",
+      "searches": [
+        "arXiv:2603.04706v1 tree threshold general algorithms",
+        "mathematical-record published claim 2026-10_week2 id 473be4ff-33e8-49ef-8d36-309be1ab46fc",
+        "fixed treewidth MSO counting meta theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.04706v1 Definition 1 and Sections 2-4 identify the same closed sets as two-neighbor-stable subsets",
+        "mathematical-record targeted cactus searches returned no matching P3 convex counting result in the examined hits"
+      ],
+      "reasoning": "Equivalence to counting fixed points of threshold-two neighbor bootstrap closure was checked. No displayed source gives the cycle-block closure weighting or full cactus polynomial recurrence.",
+      "searches": [
+        "P3 convex subset count cactus graphs linear time cycle block transfer recurrence",
+        "counting closed sets two-neighbor bootstrap percolation cactus graph exact linear time",
+        "P3 convex sets unicyclic cactus graph generating polynomial recurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact cactus size-polynomial table/transfer was identified in the inspected primary sources or the returned targeted searches"
+      ],
+      "reasoning": "The result is a symbolic uniform algorithm for every cactus, not a fixed numerical table; known tree or isolated unicyclic finite values are special cases and do not imply its cycle-boundary recurrences as given.",
+      "searches": [
+        "count P3 convex sets cactus graph",
+        "number of P3-convex sets cactus graph",
+        "P3 convex subset count cactus graphs linear time cycle block transfer recurrence"
+      ]
+    },
+    "rationale": "The assessed claim is the explicit three-state polynomial transfer across arbitrary cyclic cactus blocks, not general efficient tractability. The 2026 focal paper treats trees/threshold classes and general exponential algorithms. The closest known clique-block circuit only treats bridge/clique blocks, not arbitrary simple cycles. A generic fixed-treewidth counting theorem covers tractability but does not itself display these formulas; unlocated equivalent transfer recurrences remain a risk.",
+    "residual_risks": [
+      "A direct cactus transfer may exist in terminology not returned by the bounded searches.",
+      "Generic counting meta-theorems imply existence of efficient algorithms on bounded-treewidth graphs; the priority claim is limited to the explicit formulas.",
+      "Earlier uninspected sources on enumeration of threshold-two bootstrap stable sets may contain equivalent recurrences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3 covers trees and Theorem 14 threshold graphs; no cactus algorithm located in the inspected content. Theorem 12 establishes motivating hardness on split graphs.",
+        "evidence": [
+          "arxiv:2603.04706v1 Theorems 3, 12, 14; Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+        "material_read": "PDF pp.1-15, including abstract, definitions, tree recurrence, hardness and threshold algorithm, plus full-text searches for cactus and unicyclic",
+        "method": "full PDF text inspection of the pertinent sections and PDF text searches",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "same counting invariant and 2026 foundational hardness/algorithms"
+      },
+      {
+        "assessment": "Statements classify convex subsets of Cartesian products and Hamming subgraphs, not cactus counting or cycle-block transfer.",
+        "evidence": [
+          "Brešar-Valencia-Pabon 2019 Theorem 1, Corollary 2, Lemma 4"
+        ],
+        "identifier_or_url": "https://lipn.fr/~valencia/papers/P_3-convexity-RV2.pdf",
+        "material_read": "PDF pp.1-6 including Theorem 1, Corollary 2 and Lemma 4",
+        "method": "primary full-text inspection of relevant theorem and implications",
+        "title": "On the P3-hull number of Hamming graphs",
+        "trigger": "plausible older broader structural P3-convexity theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "135b9448-2ff3-41e3-b861-b68d0be6a2a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an invariant with #P-completeness even on split graphs, arbitrary cactus graphs form a natural non-tree test class with large cycle blocks. An explicit constant-width cycle closure with only three vertex states computes all subset-size coefficients and yields a linear ring-operation circuit; this is a motivated complete-family constructive result and not an isolated parameter substitution.",
+    "status": "PASS"
+  }
+}
