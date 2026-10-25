@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact-image/surjection bijection applies to every square-zero endomorphism. Noncyclic images are forced into the unique subgroup of each admissible rank-two type; all cyclic subgroups are partitioned without overlap into order one, order two, and larger-order cases. The homomorphism difference identity and intersection computation supply the only nontrivial counting steps. For every \(p\) and \(b\ge2\), the piecewise spectrum sums algebraically to the claimed parity-dependent count. The standalone brute-force code separately checks complete image-type histograms in eighteen finite cases.
+## correctness
 
-**Originality: PASS, with literature risk.** The published endomorphism-coordinate description, classical subgroup enumeration, and Hall-polynomial machinery are background, not claimed. The compared source on Hall polynomials supplies a generic subgroup/quotient counting algorithm, while its inspected principal statements do not give the closed image-type spectrum for square-zero operators on the mixed-exponent group \(C_{p^2}\oplus C_{p^b}\). Work on nilpotent endomorphisms of finite-field vector spaces treats a different object. The shorter-exponent group \(C_p\oplus C_{p^b}\) is a distinct known computation, whose cyclic-image conclusion fails here. Specific closed formulas possibly embedded in other Hall-polynomial literature remain an originality risk; an absence of search hits is not treated as proof of novelty.
+PASS
 
-**Value: PASS.** Complete image-type multiplicities are natural invariants of the endomorphism monoid and of differential structures on the underlying finite abelian group. This is the first two-generator mixed-exponent family permitting noncyclic images, and the boundary coefficients record meaningful exponent thresholds. The result includes a sharp noncyclic-image cutoff and a nontrivial parity law throughout an infinite family; it is not solely a small numerical improvement.
+PASS: For every prime p, b>=2, G=C_(p²)⊕C_(p^b), square-zero T iff imT⊆kerT; for every H⊆G with imT=H the map factors bijectively through a surjection G/H→H. Partition subgroup images into trivial, cyclic p, cyclic p², cyclic p^j (j>=3), and rank-two C_p⊕C_(p^j) types. The proof classifies rank-two possible subgroups as pC_(p²)⊕p^(b-j)C_(p^b), 1<=j<=floor(b/2), and computes surjections by reduction modulo p and higher-digit lift counts. For larger cyclic j, its intersection formula |H+p^tG|=p^(b-t+L_t) yields a difference of two homomorphism cardinalities and explains the exact thresholds 2j<=b, 2j=b+1, 2j=b+2, above zero. The closed image spectrum sums to (2p²−1)p^(b/2+1) for even b and (3p−2)p^((b+3)/2) for odd b. Independent generated-and-classified square-zero matrix endomorphisms reproduce full image histograms in nine cases (p,b): (2,2..6),(3,2..4),(5,2), with no use of the subgroup formula. This is finite corroboration, not the all-prime proof.
 
-**Scope and limitations.** Counts are for labeled endomorphisms, not their automorphism orbits. The source comparisons focus on the general coordinate description, Hall-polynomial counting framework, and accessible image-spectrum searches, not an exhaustive survey of all possible equivalent publications. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: actual general-framework primary source text and result-set searches were checked against each exact claim, with the four distinct prior-implication tests documented. The new formulas are derived via a nontrivial combination and specialization rather than quoted directly from the generic counting framework. Existing (1,b) family has different possible ranks; no exact prior statement logically forces the new (2,b) noncyclic image profile without doing counting. Priority still may rest in specialized old Hall tables. No failed search is equated to a novelty proof; unaccessed primary material is named explicitly.
+
+## value
+
+PASS
+
+PASS: Image-group multiplicities are natural, reusable structural invariants of the square-zero endomorphism monoid (equivalently differentials on the torsion group). The small mixed-exponent rank-two family first permits rank-two noncyclic image, has sharp half-exponent cutoffs and parity-dependent total counts, a motivated explicit infinite classification beyond a routine vector-space Jordan calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
