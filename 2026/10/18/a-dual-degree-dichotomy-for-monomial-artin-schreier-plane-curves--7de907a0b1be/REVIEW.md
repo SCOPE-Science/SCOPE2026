@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof computes the local polar intersection at the unique infinite branch directly and recovers the degree of the Gauss map from explicit affine dual coordinates. Irreducibility follows from the standard Artin--Schreier pole criterion. Exact modular eliminations for three small parameter pairs verify both branches of the formula but are not substituted for the proof.
+## correctness
 
-**Originality — PASS, qualified.** Artin--Schreier curve arithmetic and genus are known (Pries--Zhu); the separability theory of Gauss maps is known (Furukawa); Fukasawa--Miura treat characteristic-zero Galois points and duals; Komeda studies a different smooth tensor curve family in positive characteristic. None of the materially inspected relevant statements supplies this exact singular-plane-model dual-degree and congruence classification. A differently formulated computation in unidentified literature remains possible.
+PASS
 
-**Mathematical value — PASS.** A complete natural dual-degree invariant changes by the full characteristic factor according to a single congruence class. The mechanism distinguishes the stable total polar number from the inseparable Gauss degree. The phenomenon is not determined by the known genus of the Artin--Schreier cover.
+Affinely y^p-y=x^m is integral because m prime to p gives Artin-Schreier class of non-p-divisible pole, and smooth since F_y=-1. At infinity cusp z^(m-p)(1-z^(p-1))=x^m has one branch with valuations ord(x)=m-p, ord(z)=m. Generic projective polar derivative F_Z has minimum order m(m-p-1), including smooth a=1 case order 0, leaving m(m-1)-m(m-p-1)=pm of affine polar intersections. Affine dual coordinates u=m x^(m-1), v=y+m x^m; if p does not divide m-1 then dv/du=x recovering x,y and separable birational Gauss. If m=kp+1, u=(x^k)^p,v=y^p, and (x^k,y) generate the same function field since x=(y^p-y)/(x^k)^p; Gauss degree pure inseparable p. Independently eliminated x symbolically over F_p for (2,5),(3,5),(3,7); total resultant degrees 10,15,21 respectively, with expected p-th multiplicities and reduced dual degrees 5,15,7. Finite resultants supplement valuation proof.
 
-**Limitations.** The theorem concerns the reduced dual over an algebraically closed field, excludes \(p\mid m\), and does not classify the dual singularities. General plane duality formulas are classical; the explicit family comparison is the proposed contribution. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Positive-characteristic inseparable Gauss maps and Artin-Schreier polars are known; targeted searches identified no accessible theorem asserting this exact congruence-dependent reduced dual degree for the singular monomial model. A highly relevant 1996 source was not fully obtainable and is an important explicit best-knowledge risk.
+
+## value
+
+PASS
+
+For natural degree-m monomial Artin-Schreier plane models, the reduced dual jumps by factor p precisely when m-1 changes residue. Explicit cusp polar correction and inseparable Gauss degree resolve a nontrivial geometric invariant; neither the Gauss map theory alone nor three finite resultants answers the full congruence classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
