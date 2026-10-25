@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The one-sided finite differences on a positive quadratic give the exact update z+=(I-vvT)z-hw/2. Independence and reflection symmetry cancel cross covariance terms. For either distribution the positive definite E[vvT] gives strict W2 synchronous contraction and a unique stationary finite-second-moment law. Exact angular integrals give m=r/(r+s), beta=rs/[2(r+s)^2], with strictly positive covariance-system determinant 3beta. This yields the two diagonal moment matrices and perfect-square error difference. The accompanying independent direct finite-difference and angular fixed-point verifier passed 1450 checks. Conditions h,a,b>0 and normalized i.i.d. sketches are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berglund et al., Eq. (6)-(7) allows general sketches and obtains an O(alpha) perturbation estimate, but no exact fixed-alpha planar covariance or direction-law comparison.",
+        "Kozak et al., Theorem 6.2 and Remark 6.3 give an O(h^2) fixed-difference neighborhood for a gradient update with a distinct stepsize normalization; no sharp planar Newton stationary formula.",
+        "Gower et al. 2019 Algorithm 1 uses exact gradients and Hessians; it converges to zero on the present quadratics, so it does not dominate positive-radius asymptotics."
+      ],
+      "reasoning": "No general theorem inspected supplies stationary covariance explicitly for the same affine random map; two scalar-valued big-O bounds for different algorithms do not logically imply equality or direction ordering. The exact-gradient limiting special case h=0 has zero forcing and is not stronger at h>0.",
+      "searches": [
+        "arXiv:2202.04612v1 full-text sections 2-6 and appendix checks",
+        "arXiv:2107.03941v1 Sections 2,4,6 and numerical results",
+        "arXiv:1905.10874 NeurIPS paper algorithm and theorem",
+        "zeroth order orthogonal random directions 2021 Kozak Molinari Rosasco Tenorio Villa limiting fixed h quadratic",
+        "Web: \"quadratic\" \"finite difference\" \"random directions\" \"limiting\" \"error\" coordinate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.04612v1",
+      "arXiv:2107.03941v1",
+      "arXiv:1905.01332v1 and 2020 authorized author PDF",
+      "arXiv:1905.10874v1 / NeurIPS 2019 PDF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New claim: exact Haar asymptotic objective h^2(a+b+sqrt(ab))/12 and signed-coordinate h^2(a+b)/8, for all a,b,h>0 in the specified Newton update.",
+        "Original ZO-RSN paper: approximated projected gradient/Hessian and general convergence; it does not evaluate stationary covariances.",
+        "Kozak et al.: distinct gradient step with fixed h residual upper bounds, not equality for Hessian-normalized steps.",
+        "Berahas et al.: gradient-approximation errors and sufficient descent condition, not an invariant distribution of repeated random Newton projectors."
+      ],
+      "reasoning": "A statement about convergence to some O(h^2) neighborhood cannot imply its exact coefficient, much less which of two distributions has smaller invariant expected loss for every curvature pair. Moreover the source methods which do not normalize by the sketched Hessian cannot be substituted for the claimed recurrence. Distinct update maps rule out straightforward corollary coverage.",
+      "searches": [
+        "arXiv:2202.04612v1 Eq. (6), Eq. (7), Theorem 1, appendix",
+        "arXiv:2107.03941v1 Remark 4.2, Theorem 6.2, Remark 6.3",
+        "arXiv:1905.01332v1 (2020 accessible author version) Secs. 1-2 and related terms search",
+        "arXiv:1905.10874v1 Algorithm 1 and convergence theory",
+        "sharp stationary error floor of one sided finite difference randomized coordinate descent versus uniform sphere subspace Newton on anisotropic quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2202.04612v1, Secs. 3-4 gives finite-difference subspace Newton update and general rate, not the two stationary covariances; source text search stationary/covariance yielded no occurrence.",
+        "arXiv:2107.03941v1, Remark 4.2 states quadratic coordinate/spherical smoothing deserves tailored convergence analysis; Sec. 6 bounds residual floors but studies a gradient-descent update."
+      ],
+      "reasoning": "Projected gradient descent and exact-derivative RSN are plausible nomenclature aliases, but their update maps are different: the new statement has a Hessian-normalized one-sided finite-difference forcing −h u/2. General bounds or vanishing-radius rates cannot imply the two exact positive stationary constants or their perfect-square difference.",
+      "searches": [
+        "finite difference randomized subspace Newton quadratic Gaussian Haar directions stationary objective error alpha squared sqrt eigenvalue bias floor",
+        "two dimensional quadratic coordinate vs Haar zeroth order random direction exact stationary risk",
+        "sharp stationary error floor of one sided finite difference randomized coordinate descent versus uniform sphere subspace Newton on anisotropic quadratic",
+        "Web: \"randomized Newton\" \"forward finite differences\" \"steady-state\" error",
+        "Web: \"random subspace\" \"finite difference\" \"stationary\" \"two-dimensional\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2202.04612v1 studies the general zeroth-order randomized Newton method, without the stated exact stationary two-law comparison.",
+        "arXiv:2107.03941v1 studies a projected first-order descent update rather than the Hessian-normalized update."
+      ],
+      "reasoning": "The claim is a general formula, not a known finite table. No identified record, sampled tabulation, or inspected published result states or implies the exact angular covariance or the strict Haar-versus-coordinate limiting risk gap.",
+      "searches": [
+        "zeroth order randomized subspace Newton constant difference anisotropic quadratic stationary expected suboptimality",
+        "2022 Berglund Khirirat Wang zeroth order randomized subspace Newton exact fixed perturbation quadratic covariance",
+        "2021 Kozak Molinari Rosasco Tenorio Villa zeroth order orthogonal directions quadratic stationary loss comparison coordinates Haar",
+        "Web: \"sqrt(a)\" \"sqrt(b)\" \"zeroth order\" \"stationary\" \"coordinate\""
+      ]
+    },
+    "rationale": "The exact fixed-radius stationary covariance, objective-loss constants and sharp uniform-circle versus signed-coordinate comparison were not found in the inspected original method or closely related projected finite-difference descent literature. The one-direction update, generic convergence statements, finite-difference bias and angular integration ingredients are established. Searches of available published mathematical abstracts and primary texts did not identify a result implying the full theorem. An equivalent specialized result might exist, so publication priority is not certified.",
+    "residual_risks": [
+      "A semantically equivalent fixed-radius stationary formula might exist in specialized derivative-free stochastic approximation work outside searched sources.",
+      "2019 gradient-estimation paper appendices were not exhaustively inspected, although its iterative object and target quantities differ.",
+      "The result has not received independent scientific or publication-priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method covered, exact fixed-radius stationary planar Haar-versus-coordinate comparison not found in the inspected work.",
+        "evidence": [
+          "Sec. 3 Eq. (6) finite-difference Hessian and gradient update",
+          "Sec. 4 Theorem 1 general convergence",
+          "Sec. 5 safeguarded SQP adaptation differs from theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.04612v1",
+        "material_read": "Full accessible HTML, method Secs. 2-3, convergence Sec. 4, numerical Sec. 5, conclusion Sec. 6, method theorem and appendix passages; targeted stationary/covariance/coordinate/quadratic searches.",
+        "method": "Read method equations and theorem hypotheses, reviewed mathematical implication and supporting appendix portions.",
+        "title": "Zeroth-Order Randomized Subspace Newton Methods",
+        "trigger": "Same exact finite-difference directional Newton construction."
+      },
+      {
+        "assessment": "Qualitative bias and neighborhood statements, no exact matching stationary covariance or perfect-square comparison for claimed map.",
+        "evidence": [
+          "Remark 4.2 explicitly identifies tailored quadratic analysis as future work",
+          "Theorem 6.2 and Remark 6.3 give a bound on fixed-radius error",
+          "Different method: projected gradient descent, not sketched Newton Hessian scaling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+        "material_read": "Parsed publicly available full text, especially Problem statement, Remark 4.2, Sec. 6 constant-radius PL estimates, Sec. 7 experiments; searched stationary and quadratic claims.",
+        "method": "Compared actual gradient-based recursion to Newton Hessian-normalized update and checked fixed-radius theorem implications.",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "Potential stronger result on identical direction distributions and fixed difference radius."
+      },
+      {
+        "assessment": "Gradient estimation accuracy and descent/line-search conditions, not the iterated projected-Hessian stationary error law; bounded residual risk from uninspected details.",
+        "evidence": [
+          "Secs. 1-2 formulate gradient approximation problems",
+          "No stationary term found in searchable PDF",
+          "Newton references discuss general quasi-Newton context rather than this iteration"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2019/05/7189.pdf",
+        "material_read": "Accessible 42-page author PDF, abstract, introduction, initial theoretical sections including forward differences and interpolation, targeted searches for quadratic, Newton, stationary, and relevant conclusions; not every appendix proof read.",
+        "method": "Page-based PDF text inspection and rendering page 1; matched mathematical object/iteration and checked claim-relevant terminology.",
+        "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+        "trigger": "Primary close source on coordinate/orthogonal finite-difference gradient error and comparison."
+      },
+      {
+        "assessment": "Works with exact gradient and Hessian, does not include persistent one-sided finite-difference forcing, hence does not imply fixed-radius stationary risks.",
+        "evidence": [
+          "Algorithm 1 uses the exact gradient g(x) and Hessian H(x)",
+          "PDF has no finite-difference occurrence"
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2019/file/bc6dc48b743dc5d013b1abaebd2faed2-Paper.pdf",
+        "material_read": "10-page original PDF, method and Eq. (Algorithm 1) on page 4, convergence theorems; full-text term search for finite difference.",
+        "method": "Read original subspace Newton recurrence and derivative-information assumptions; viewed method page image.",
+        "title": "RSN: Randomized Subspace Newton",
+        "trigger": "Foundational RSN construction could dominate the update without explicit finite differences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06de6efd-f176-4180-90a4-404ad17e81f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite forward differences at fixed radius cause a non-vanishing long-run objective error in an established zeroth-order subspace Newton method; the explicit error coefficient is important for sketch choice and tuning. The exact strict anisotropy gap shows a policy ordering that generic big-O convergence estimates cannot express, and the opposed contraction-factor comparison prevents a misleading full superiority claim. The classification holds on the entire natural two-dimensional positive-curvature family, not an arbitrary numerical parameter slice.",
+    "status": "PASS"
+  }
+}
