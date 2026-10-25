@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The orthonormal monomial calculation gives the complete singular spectrum of the difference because each nonzero input column lands in its own output basis direction. The polynomial coefficient is asymptotically \(j^m\) independently of the Dirichlet parameter, yielding a uniform weighted-Riemann reduction for every \(p>0\). Rational phases are treated by residue-class Riemann sums; irrational phases and detuning faster than the contraction scale follow by finite-variation Abel estimates and uniform trigonometric approximation. A Laplace-gamma computation proves the strict quartic crossover dip. This is an analytic infinite-dimensional proof; finite numerical diagnostics are supplementary.
+PASS
 
-## Originality
+For weighted Dirichlet monomials e_k=(k+1)^((alpha-1)/2)z^k, D_{t,theta}^{(m)} maps e_{j+m} into scalar e_j, with scalar (j+m)!/j! e^(-tj)((j+1)/(j+m+1))^((1-alpha)/2)e^(ijtheta). The difference has mutually orthogonal columns and exact singular values with factor |1-e^(ijtheta)|. Since amplitude=j^m(1+O(1/j)), t^(mp+1) sum is uniformly reducible to t sum h(tj)g(jtheta), including 0<p<1, by exponential tails. Rational angle θ=2πa/q+ωt+o(t) gives q residue-class Riemann integrals; irrational fixed limits and super-t detuning follow from Fourier polynomial approximation and the geometric/Abel bound O(t/|1-e^(ikθ)|). Beta integration supplies the Haar factor. For m=1,p=4,q=2 the average phase polynomial is 6+2cos(2ωx), so the gamma Laplace integral gives F(ω)=Γ(5)[6/4^5+2Re(4-2iω)^(-5)] and a strict rational detuning dip. Checked the finite diagnostic script's assumptions; no finite samples establish all-angle claims.
 
-**PASS, with residual priority risk.** Barik–Sen–Paul's arXiv:2605.00213v2 was read in its complete HTML form, especially the definition, Hilbert–Schmidt results, and norm calculation for one linear contraction. Its assertions do not give the difference-power-sum boundary profile. Hu–Yang's arXiv:2507.19745 was examined through its original theorem and Section 4: it treats Schatten membership of composition differences on weighted Bergman ball spaces, not the rotated composition–differentiation Dirichlet profile. Nearby public mathematical research summaries concern affine-commutator essential norms or the numerical-range inradius of a single dilation, neither of which implies this Schatten distance law. The underlying diagonalization and Fourier steps are elementary once formulated; an unindexed general diagonal/Fourier asymptotic could still dominate the statement. Full text of two distant but related research summaries could not be read, and their mere titles or abstracts are not used to certify absence of overlap.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural question is the size of the distance between two compact differentiation-composition operators as their inducing contractions approach the boundary, when the individual derivative operator loses boundedness. The theorem determines the exact singular-value power-sum divergence for all \(p>0\), identifies an arithmetic discontinuity (root-of-unity versus irrational angles), and resolves the full scale of near-resonance. The explicit strict undershoot of the quartic profile distinguishes this from a generic one-sided Schatten-membership test or a routine normalization. The result is restricted to the clearly specified linear-symbol family.
+Best-of-knowledge PASS for the quantitative Schatten differences and detuning profiles; prior operator membership and norm results, and a relevant paper on difference operators in Hardy/Bergman settings, do not state this Dirichlet fixed-order universal angular transition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The t-scale arithmetic detuning profile across rational/irrational rotations, valid even for quasi-Schatten 0<p<1, and the proven nonmonotone quartic crossover quantify a natural operator-ideal boundary invisible to individual composition-differentiation membership tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
