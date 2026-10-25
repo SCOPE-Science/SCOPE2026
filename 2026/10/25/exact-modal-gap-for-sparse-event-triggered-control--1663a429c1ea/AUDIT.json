@@ -1,0 +1,120 @@
+{
+  "claim": "Let \\(A,C\\in\\mathbb R^{n\\times n}\\) be real symmetric commuting matrices with \\(C\\succ0\\), and consider intermittent dynamics \\(\\dot x=-Cx\\) for a fixed pulse of length \\(\\epsilon>0\\), followed by \\(\\dot x=Ax\\) while the input is zero. Use \\(V(x)=\\|x\\|_2^2\\) and trigger the next pulse at the first post-pulse time satisfying \\(V(x(t))=V(x(t_k))e^{-\\lambda(t-t_k)}\\), where \\(0<\\lambda<2\\lambda_{\\min}(C)\\). If \\(a_i,c_i\\) are the eigenvalues in a common orthonormal eigenbasis, the exact infimum of the zero-input gap over all nonzero states is \\(d_*=\\epsilon\\min_{i:\\,2a_i+\\lambda>0}(2c_i-\\lambda)/(2a_i+\\lambda)\\). If the index set is empty, or a given state is supported only on modes with \\(2a_i+\\lambda\\le0\\), no finite next trigger occurs. When the set is nonempty, equality is attained exactly by states supported on the minimizing common eigenmodes, so mixing modes cannot shorten the gap.",
+  "correctness": {
+    "rationale": "In a common orthonormal eigenbasis, the trigger equality is \\(G(d)=\\sum_i p_i\\exp(-(2c_i-\\lambda)\\epsilon+(2a_i+\\lambda)d)=1\\). Before \\(d_*\\), every exponential factor is below one, while a minimizing pure mode reaches one exactly at \\(d_*\\). If every coefficient \\(2a_i+\\lambda\\) is nonpositive, every factor stays below one for all finite \\(d\\). The analytic proof covers all weights and both cases; the script is only a numerical consistency check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banno et al. establish a positive generic lower bound for arbitrary Hurwitz closed-loop dynamics, but the displayed bound is not an exact modal infimum.",
+        "The 2018 abstract reports a lower bound for intermittently actuated control; it describes a piecewise-constant held input rather than the pulse dynamics used here."
+      ],
+      "reasoning": "A broader stability result does not state the exact equality cases or the classification of states that never retrigger. The claim is narrower in its commuting-symmetric assumptions but sharper in the exact interval and worst-mode characterization. The 2018 source remains a residual risk because its full text was inaccessible.",
+      "searches": [
+        "published-finding corpus query: exact lower bound zero-input duration for sparse event-triggered control with fixed control period epsilon and exponential Lyapunov threshold",
+        "Primary source: DOI 10.1002/rnc.6278, Theorem 1 and equations (18)–(23)",
+        "Wang et al. 2018, Event-triggered control of intermittently-actuated systems, accessible abstract"
+      ]
+    },
+    "checked_sources": [
+      "Banno et al., Sparse event-triggered control of linear systems, DOI 10.1002/rnc.6278; full text inspected, especially Theorem 1 and equations (18)–(23).",
+      "Banno et al., Data-driven sparse event-triggered control of unknown systems, DOI 10.23919/ACC50511.2021.9482910; public record date verified as 27 May 2021, full text inaccessible.",
+      "Wang et al., Event-triggered control of intermittently-actuated systems (2018); abstract only, full text inaccessible.",
+      "published-finding corpus semantic searches for sparse event-triggered control, exact zero-input gap, inter-event interval, and related formulations; closest returned IDs are recorded in prior_checks.closest_results.",
+      "Accessible own ledgers for the current week and earlier weeks; overlap search performed on recoverable claims/IDs only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For this model, \\(P^*=I\\) and \\(Q=2C\\) give \\(\\lambda^*=2c_{\\min}\\); the source's generic bound is \\(\\tau_{\\min}=(2c_{\\min}-\\lambda)\\epsilon/[2(2|a_{\\max}|+\\lambda)]\\).",
+        "The exact formula gives \\(d_*\\ge (2c_{\\min}-\\lambda)\\epsilon/(2a_{\\max}+\\lambda)\\ge 2\\tau_{\\min}\\) whenever a finite trigger-capable mode exists.",
+        "The 2022 journal article identifies a 2021 ACC preliminary version, but the earlier full text could not be obtained; no claim of its absence is made."
+      ],
+      "reasoning": "The published theorem supplies stability and a conservative positive interval bound; it does not state the exact minimum or equality characterization from its stated conclusion. The exact trigger equation adds a modal sharpness result and shows that the general lower bound is at least a factor two conservative on this subclass. No matching published-finding corpus record or own-ledger claim was found in the checked accessible history.",
+      "searches": [
+        "Primary source: DOI 10.1002/rnc.6278, Theorem 1 and equations (18)–(23)",
+        "published-finding corpus query: Banno Azuma Ariizumi sparse event-triggered control exact inter-event time Lyapunov threshold diagonal linear system",
+        "published-finding corpus query: exact lower bound zero-input duration for sparse event-triggered control with fixed control period epsilon and exponential Lyapunov threshold",
+        "published-finding corpus query: Data-Driven Sparse Event-Triggered Control of Unknown Systems Banno Azuma 2021 exact lower bound pulse interval"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Banno et al. define the zero-input duration as \\(d_k=t_{k+1}-t_k-\\epsilon\\) and use the threshold \\(V(x(t))=V(x(t_k))e^{-\\lambda(t-t_k)}\\); Theorem 1 gives a generic lower bound but not the modal equality formula.",
+        "The current claim uses the same control architecture and trigger, not a renamed or reparameterized different problem."
+      ],
+      "reasoning": "Equivalent formulations were compared directly. The claim is a sharp exact-gap calculation in the commuting-symmetric subclass; it does not claim novelty for the general sparse event-triggered framework.",
+      "searches": [
+        "published-finding corpus query: Banno Azuma Ariizumi sparse event-triggered control exact inter-event time Lyapunov threshold diagonal linear system",
+        "published-finding corpus query: sparse event-triggered control exact zero-input interval minimum inter-event gap",
+        "Primary source: DOI 10.1002/rnc.6278, Sections 2 and 3.1, equations (2), (5)–(8), (18)–(23)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding corpus IDs are recorded in prior_checks.closest_results; their objects concern numerical exponential approximation, delayed population dynamics, an optimization iteration, controlled-qubit sampling, stochastic optimization sparsification, a max-plus reset oscillator, or a discrete optimization algorithm rather than the present trigger equation.",
+        "No exact database or numerical table is mathematically applicable to the trigger-root classification; the formula is symbolic."
+      ],
+      "reasoning": "The semantic database search is a useful deduplication check, not a proof of uniqueness. No returned record stated the same object, parameters, or modal minimum. The primary full-text comparison is the best available assessment, while the inaccessible 2021 predecessor and 2018 intermittently-actuated paper remain explicit residual risks.",
+      "searches": [
+        "published-finding corpus query: Banno Azuma Ariizumi sparse event-triggered control exact inter-event time Lyapunov threshold diagonal linear system",
+        "published-finding corpus query: sharp minimum inter-event interval for intermittent feedback control pulse duration epsilon scalar linear plant",
+        "published-finding corpus query: minimum gap between pulses for diagonal linear feedback control exponential Lyapunov trigger"
+      ]
+    },
+    "rationale": "The result does not claim the sparse event-triggered framework or its stability theorem as new. It supplies the exact modal gap and equality cases in the commuting-symmetric subclass, beyond the generic lower bound stated by the closest full-text source. No matching claim was found in the searched literature-index results or checked own-ledger claims. The inaccessible 2021 predecessor and 2018 paper remain explicit residual risks.",
+    "residual_risks": [
+      "The full text of the 2021 preliminary conference paper was not accessible. It is a plausible predecessor; available evidence does not establish whether it states the exact modal minimum.",
+      "The full text of the 2018 intermittently-actuated-control paper was not accessible; its abstract states a positive lower bound, and exact coverage cannot be ruled out without the full paper.",
+      "Semantic search and ledger partitioning cannot prove uniqueness; another source may state the same commuting-symmetric specialization under different wording.",
+      "The result is restricted to exact commuting symmetric generators and does not cover disturbances, nonnormal matrices, saturation, or delayed feedback."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives a generic positive lower bound and global asymptotic stability, but does not state the exact commuting-symmetric modal infimum or the minimizing-mode equality condition.",
+        "evidence": [
+          "Theorem 1; equations (2), (5)–(8), and (18)–(23); first published 2022-07-15."
+        ],
+        "identifier_or_url": "doi:10.1002/rnc.6278",
+        "material_read": "Full text: problem formulation, Section 3.1 Theorem 1 and proof including equations (18)–(23), conclusion, and references.",
+        "method": "Compared the exact state-transition equations and claimed lower-bound statement with the current modal formula and equality cases.",
+        "title": "Sparse event-triggered control of linear systems",
+        "trigger": "Directly defines the pulse/off dynamics and exponential Lyapunov trigger studied here."
+      },
+      {
+        "assessment": "It is a plausible predecessor and remains a residual risk; available material does not establish that it states the exact modal minimum or equality cases.",
+        "evidence": [
+          "DOI 10.23919/ACC50511.2021.9482910; Banno et al. 2022 article's discussion of preliminary versions and additions.",
+          "The official university research profile records the 2021 ACC presentation on 27 May 2021."
+        ],
+        "identifier_or_url": "doi:10.23919/ACC50511.2021.9482910",
+        "material_read": "Bibliographic metadata and the 2022 article's account of the preliminary version; no arXiv or lawful open-access full text was found, and institutional retrieval was unavailable.",
+        "method": "Checked whether the earlier version could be ruled out as a source for the same model-based trigger or an exact modal gap statement.",
+        "title": "Data-driven sparse event-triggered control of unknown systems",
+        "trigger": "The 2022 full-text article identifies this 2021 conference paper as a preliminary version of the same sparse event-triggered framework."
+      },
+      {
+        "assessment": "The abstract describes a lower bound for a piecewise-constant held input, which differs from the continuous state-dependent pulse here; exact formula coverage cannot be excluded without the full text.",
+        "evidence": [
+          "Accessible abstract states that the inter-triggering time is lower bounded by a constant and describes intermittent actuation."
+        ],
+        "identifier_or_url": "Wang, Azuma, Ariizumi, and Asai, 62nd Annual Conference of the Institute of Systems, Control and Information Engineers (2018)",
+        "material_read": "Abstract only; searches found no arXiv or lawful open-access full text, and the authorized institutional retrieval attempt returned an unavailable/invalid-request error.",
+        "method": "Compared the abstract's stated objective and control-law description against the present continuous state-feedback pulse and exact modal formula.",
+        "title": "Event-triggered control of intermittently-actuated systems",
+        "trigger": "Cited by the primary paper as an earlier intermittent-control result with an inter-triggering-time lower bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1663a429-c1ea-4694-bf41-67b7cad5ceb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum zero-input duration is a natural actuator-scheduling invariant for intermittent or power-packet control. The formula identifies the worst mode, proves mixtures cannot produce a shorter gap, classifies the no-trigger case, and yields a sharp bound at least twice the generic published lower bound in this class. This supports duty-cycle selection without claiming a general new stability theorem.",
+    "status": "PASS"
+  }
+}
