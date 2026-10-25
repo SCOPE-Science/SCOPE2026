@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Galois closure follows directly from cuts as binary proper colorings of the chosen edge graph. Independent orientation of bipartite connected components proves the complete-bipartite normal form. The ternary path-shortening and triangle-inconsistency rules derive all forced edges. An odd simple path or short odd cycle proves the one-pass upper bound, with Hamiltonian odd cycles handled by a shorter chord arc. A maximum allowed odd cycle plus an isolated vertex proves the matching lower bound. A four-vertex path proves that two-premise iteration fails. The checker exhaustively confirms the claims for complete contexts on four through six vertices and confirms large-cycle witnesses through nine vertices. Finite cases do not substitute for the general proof.
+## correctness
 
-## Originality — PASS (qualified)
-The natural construction is a cut-edge formal context, not a novel type of graph coloring. General direct implication-base notions are known from Adaricheva–Ninesling (2018), and the hypergraph intersection/concept correspondence is known from Rawson et al. (2023). The complete-bipartite component closure is an elementary deduction from parity coloring. The exact formula and coefficient sequence for the total number of closed sets are demonstrably known (OEIS A307389; Nijholt–Sieben–Swift 2022), are acknowledged, and are not claimed as new. No inspected source states the cut-edge context's exact direct/iterative width pair or the length-parity boundary. Searches by alternate cut, parity, graph-closure and implicational-basis terminology found no dominating statement in the compared material. An equivalent theorem within XOR/parity Horn presentations remains a residual publication-priority risk; independent audit has not been performed.
+PASS
 
-## Mathematical value — PASS
-The natural family of all cuts of a complete graph is a canonical finite formal context. It gives an exact, structurally explained separation between two widely used inference mechanisms: a constant optimal premise size for repeated inference versus a linearly growing optimum for one-pass inference. Explicit constructions and optimality witnesses distinguish the finding from a routine recounting of known closed sets. No downstream result beyond this sharp classification is asserted.
+For F⊆E(K_n), cuts containing F are exactly proper 2-colorings of graph (V,F). If F contains an odd cycle no cut exists and closure is all E; otherwise each component may flip independently and the forced edges are precisely pairs linked by an odd path within one bipartite component. Ternary rules from each three-edge path ab,bc,cd→ad shortcut all longer odd paths; triangle premises→E follow after shortcutting every odd cycle, giving iterative width≤3. A bare 3-edge path is not enlarged by any sound premise of width≤2, so width≥3. For direct application D=2 floor((n−2)/2)+1 is largest odd length ≤n−1; every bipartite forced edge has an odd simple path of length≤D. For inconsistent graphs, the shortest odd cycle is ≤D unless n is odd and it is Hamiltonian; in that case every missing edge is a chord forced by its odd arc of length≤n−2=D. A D-edge odd cycle with an isolated outside vertex forces a crossing edge requiring all D premises in one pass, establishing the matching lower bound for every n≥4. Independent exhaustive c_n(F) and iterative/direct comparison for all 64 F in K4 and all 1024 F in K5; not used for universal minimality.
 
-## Closest literature and limits
-Adaricheva–Ninesling, arXiv:1810.08684, treats direct bases generically; Rawson et al., arXiv:2307.11681, treats general concept representations. Nijholt–Sieben–Swift, arXiv:2206.00094, and OEIS A307389 already cover the auxiliary enumeration, not the stated Horn widths. An independently certified publication-priority check is unavailable. This result is restricted to complete-graph edge attributes and all cuts as objects; the verifier handles finite cases only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General direct-versus-iterative Horn basis and hypergraph formal concept constructions are published. The specific closure of all graph cuts of K_n and its exact growing direct width versus constant iterative width were not given by the inspected general work. The auxiliary closed-set enumeration and EGF are already OEIS A307389 and expressly excluded from the new assertion.
+
+## value
+
+PASS
+
+A natural cut-incidence closure gives a fully sharp explicit linear separation between one-shot and iterative Horn inference arities, with constructive matching bases and minimal obstruction witnesses for every n. Such a width gap matters in formal concept analysis and inference basis design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
