@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved for all compact full-dimensional convex factors of positive finite dimension. Inclusion reduces every fiber gauge inequality to \(q_i+C_{ii}=\tau_i^2\); the strict barycentric margin rules out degenerate apex contacts. Exact positive lifted John weights satisfy both first- and second-moment conditions, proving global maximum-volume optimality. Equality in the support inequalities determines precisely the stated contact loci. The rational symbolic checker validates the algebra across 360 diverse dimension profiles, and does not stand in for the all-dimensional argument.
+PASS
 
-## Originality — PASS (qualified)
+For k>=2 compact full-dimensional factors B_i of dimensions d_i>=1, affine John-normalize each factor so B2^{d_i}⊆B_i. The affine free join dimension is d=Σ d_i+k-1, not the origin-intersecting sum. With τ_i=(d_i+1)/(d+1), q_i=d_i(d_i+1)/(d(d+1)), C=(diag τ−ττ^T)/d, show q_i+C_ii=τ_i^2 and C diag(τ)^-1 C=C/d on the barycentric hyperplane. Every factor-polar support inequality <v,x_i>−t_i≤0 has proposed ellipsoid maximum ≤−τ_i+sqrt(q_i+C_ii)=0, and t_i>0 throughout. Transfer factor John contact decompositions with positive weight τ_i² c_ij/q_i: first moments vanish, fiber second moments give identities, barycentric second moments give projection I_H, proving unrestricted uniqueness by John criterion. Equality in support pinpoints exactly x_i=(d_i/d)v and t_i=d_i/d, t_j=(d_j+1)/d for each factor contact v, with unique factor index. Rechecked covariance, normalized weights and exact moment identities for representative profiles (d_1,d_2)=(1,2) algebraically and compared source’s full factor-normalization proof. Source verifier covers 360 profiles, but did not independently execute every case during this review. The theorem does not apply to origin-intersecting free sums.
 
-The closest inspected sources establish (i) a product law for normalized volumes of **origin-intersecting free sums** (Chen–Davis, arXiv:1711.11130), and (ii) abstract John-type optimality conditions for general and functional positions (Ivanov–Naszódi, arXiv:2212.11781). Neither gives a shape-and-contact transfer theorem for skew affine joins. Search comparisons also considered general convex free joins, Cayley embeddings, factorwise \(\ell_p\) sums, free-join Minkowski asymmetry, and special-family John ellipsoids; none of the examined statements logically contains this arbitrary-factor, explicit covariance-plus-contact classification. Novelty is established only to the degree supported by these checks, not by database partition or an absence of matching titles. An older equivalent formulation remains a real bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem is an all-factor structural composition law for a canonical affine-invariant ellipsoid, with explicit center, covariance and every boundary contact. It replaces a potentially high-dimensional global ellipsoid optimization by the already-known John ellipsoids of factors; the transferred positive decomposition certifies unrestricted optimality even for nonsymmetric or smooth factors. The dimension-dependent contact locations and factor-by-factor decomposition make the result more than a direct scalar bound or a special-case exercise.
+Best-of-knowledge PASS for an explicit universal arbitrary-factor dimension-weighted John covariance and exhaustive contact-transfer classification for skew affine free joins. Classical John conditions are acknowledged input.
 
-## Limits
+## value
 
-The result concerns affine free joins, not intersecting free sums or Minkowski sums. The displayed Euclidean covariance uses factor John coordinates, with inverse affine changes giving the original embedding. No enclosing-ellipsoid result or independent audit is claimed. Bibliographic comparisons cannot exclude every unpublished or hard-to-find equivalent theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A universal formula for the canonical maximum-volume inscribed ellipsoid of the arbitrary affine free join, including all contacts and positive John weights, replaces a global higher-dimensional optimization by John data already known for each factor. The law works for nonsymmetric, smooth, or polyhedral factors and is a natural reusable geometric composition rule, not a single small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
