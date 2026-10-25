@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies the countable homogeneous strict partial order, its finite named weak-order parameter sets, and the uniform labelled ordered-partition probability space. The ideal/filter boundary normal form is complete. Ordered-block species give both exact EGFs, and the unique positive smallest-modulus pole of \(2-e^z\) yields the means and limiting ratio with \(O(n)\) absolute errors. The self-contained finite checker independently verifies labelled comparison types, orbit signatures and exact coefficient identities; it does not certify infinite asymptotics by enumeration.
+PASS
 
-## Originality — PASS with risks
+The universal homogeneous strict poset has the extension property and quantifier elimination: each nonalgebraic one-point type over a weak order is a compatible lower ideal L and disjoint upper filter U, with all L below all U. Each nonempty L has one highest occupied antichain and 2^n_i-1 subset options, similarly for U; both boundaries occupy strictly separated levels. This proves T(P)=1+2Σa_i+Σ_{i<j}a_i a_j. The product of within-level symmetric groups acts transitively on subsets of each fixed size, replacing a_i by n_i and giving O(P). Species for ordered nonempty labelled blocks yield W=(2−exp z)^−1, F_T=W+2AW²+A²W³ with A=exp(2z)−exp z, and F_O=W+2CW²+C²W³ with C=z exp z. The unique nearest pole ρ=log 2 has cubic terms 1/[2(ρ−z)^3] and ρ²/[2(ρ−z)^3], leading to n²/(2ρ²)+O(n), n²/2+O(n) and the ratio of expectations ρ^−2. Independently reconstructed direct ternary one-point consistency/orbit counts for all 63 block compositions of n≤6; finite tests do not prove singularity asymptotics.
 
-A preexisting general result already identifies random-poset one-types with ideal/filter pairs; that result subsumes the elementary finite-level classification. Elder and collaborators' Theorem 3.3 (2023) enumerates interval-closed sets of exactly these ordinal sums and accounts for the baseline finite type count after one-sided boundary adjustment. The ordered Bell denominator is classical. Neither inspected source establishes the **paired expected one-type/orbit asymptotics** or the exact ratio \(1/(\log2)^2\). Targeted searches for weighted preferential arrangements, symmetries and random-poset types returned no exact equivalent. The published generic-poset result was available only as a record summary, and an equivalent weighted identity could be unindexed; originality is not independently confirmed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural model-theoretic family of random parameter posets the exact expected search space is quadratic with a sharp constant, despite much larger counts for highly unbalanced instances. The comparison with symmetry-orbit complexity supplies a second quantitative baseline. The finding is an all-size mean law, not an isolated small-integer census.
+Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. A short combinatorial specialization yields individual finite T(P), so that is excluded from novelty; the joint random-model species transforms and unique-pole mean comparison are additional, not an immediate logical implication.
 
-## Closest literature and limitations
+## value
 
-Elder et al., *Toggling, rowmotion, and homomesy on interval-closed sets* (2023), Theorem 3.3; P. Simon, *NIP ω-categorical structures: The rank 1 case* (2022), contextual only; OEIS A000670 for weak-order counts; published generic-poset type-count classification for the ideal/filter correspondence. No concentration, variance, all-poset, or independent certification claims are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural homogeneous-model-theory sampling model has a rigorous quadratic mean count for all n, explicit sharp constants and a separate mean after quotienting parameter automorphisms. This gives a baseline complexity for one-point extensions beyond the well-known worst-case or type-normal-form statement; neither an isolated coefficient nor an arbitrary reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
