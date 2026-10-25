@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` using the Python 3 standard library. The observed output was:
+## correctness
 
-`VERIFY_OK: 3170 exact rational identities/nonnegative dissipations; n=1,2,3; all boundary states sampled`
+PASS
 
-The verifier independently builds equilibrium-compatible rational rate vectors for three different finite chain dimensions; at numerous rational occupancy points, including each face of the cube, it checks equality of the two sides of the instantaneous storage identity, the quadratic-energy derivative via transport fluxes, and individual nonnegative edge dissipations. It separately checks the closed entrance-edge dissipation formula over a rational grid. These are exact rational computations, not floating-point evidence. They do not prove the theorem for all controls, all initial states, or unbounded dimension.
+PASS: For n>=1, x0=1,x_(n+1)=0 and measurable rates u_i in [m,M], positive-rate equilibrium e(λ) with common current R=λ_i e_i(1-e_(i+1)²) exists uniquely and varies continuously on compact λ-cube. Holding each horizon λ,e fixed, define z=x-e, η_i=(1-e_(i+1)²)z_i−2e_i e_(i+1)z_(i+1), c_i=e_i(1-e_(i+1)²), p_(i+1)/p_i=2e_(i+1)²/(1-e_(i+1)²), normalized Σp_i=1. Summation of the flux conservation laws yields exact pointwise identity q_n+Σ p_i u_i d_i+d/dt[V_λ+Σ_j(Σ_(i<j)p_i)x_j]=Σp_i u_i c_i, with V_λ=1/2 Σ p_j z_j²/e_j and d_i=η_i²/c_i−(1−η_i/c_i)ρ_i. Strict convexity of (1−y²)^(-1/2) implies uniform nonnegative quadratic lower bound for each d_i in successor deviation, including boundary cases; compactness of the equilibrium cube gives Σp_i d_i>=κΣ z_j². Integrate over [0,T], use actual horizon means λ_i and compact storage to get average terminal output +mκ average squared deviation <=R(λ)+C/T, independent of control regularity. If Cesàro means converge, continuity yields limsup and turnpike consequence. For n=1 unit rates starting from occupancy 1, equilibrium e=(√5−1)/2 and transient integral ∫(x-e)dt=log[(e+2)/(2e+1)]>0, so 1/T is uniformly optimal order. Source rational checks (3170 sampled identities) corroborate but cannot prove arbitrary measurable inputs.
 
-The analytical proof establishes the required global facts: the equilibrium's existence and uniqueness from the monotone edge-flux recursion, the telescope and inventory-coboundary equalities, the strict positive-curvature lower bound, compact uniformity of its coefficient, and integration over an arbitrary horizon. The one-site constant-input trajectory gives the exact strictly positive transient excess. Aperiodic trajectories are not claimed to converge to periodic or stationary solutions. The result has not received independent validation.
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with substantial residual priority risk from the closest same mathematical model periodic source that was not accessible in full this execution; decisive global/nonperiodic quantitative implication was not identified from available primary summaries.
+
+## value
+
+PASS
+
+PASS: This is a structurally motivated finite-horizon nonperiodic throughput budget for a coupled nonlinear exclusion chain, strengthening a periodic no-gain result to arbitrary measurable rate schedules and initial transients, while controlling average quadratic state deviation and identifying the optimal inverse-horizon term. The new storage/inventory identity makes the quantified extension substantive rather than a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
