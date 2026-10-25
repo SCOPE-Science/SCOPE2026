@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The integer recurrence B_j=j B_(j-1)+r^j is proved algebraically from the finite defining sum; the prime sieve and complete inner enumeration cover all p<=2339 and 1<=r<p. The C++17 certificate verifies 345 earlier primes, exact histogram and all six roots at p=2339. An independent inverse-factorial mod-p script obtains the same six roots. All checked operations are exact modular integer arithmetic; no infinite inference from finite tests is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[3] Section 7 introduces h-Schenker sums and proves general periodicity and infinitude, with h(X)=X as classical case.",
+        "[4] Section 3, Tables 1-3 list multiplicities for h=-X-1, X^2+1, X^2-1, not h=X.",
+        "[2] first-200-primes Table 1 records lambda<=5; Question 4 asks about arbitrary m."
+      ],
+      "reasoning": "The general modular periodicity theorem covers the method but not the claimed exact least-prime threshold. The higher-degree-polynomial tables in [4] cannot dominate the h=X enumeration. No stronger exact classical table was identified.",
+      "searches": [
+        "Schenker prime lambda(p) 2339 first prime six roots 156 470 520 589 1092 2170 Miska",
+        "A note on p-adic valuations of the Schenker sums Question 4 Schenker root multiplicity >=6 least prime",
+        "Schenker sums a_n=n!sum n^j/j!, minimal prime with six distinct nonzero modular zero classes",
+        "Piotr Miska Arithmetic properties of generalizations of Schenker sums 2017 pdf",
+        "arXiv:1508.01987 Section 7 h-Schenker"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.1717v1 (whole PDF, numerical table, Question 4)",
+      "Integers 13 (2013), A21 (whole PDF)",
+      "arXiv:1508.01987v1 (full text HTML Section 7)",
+      "DOI:10.1142/S1793042117500890 (author-shared full text Section 3)",
+      "published-finding corpus semantic records, six exact candidate-and-alias searches",
+      "Own accessible current-week ledgers parts 1 and 2, claim strings for duplicate exclusion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] residue-class reduction alone has no least-prime or multiplicity assertion.",
+        "[2] defines lambda and lists data only for first 200 primes; a five-root example neither proves nor disproves a least six-root witness above 1223.",
+        "[3] h-Schenker divisibility and [4] three other h-Schenker tables imply no exact lambda(2339) or lower-prime bound."
+      ],
+      "reasoning": "The theorem requires both six certified roots at p=2339 and the exclusion of all 345 smaller primes. Neither implication follows from published reductions, the source table, or known broader classes; finite enumeration of all missing cases is the extra step. The question for every m remains untouched.",
+      "searches": [
+        "Schenker sums prime 2339 six solutions residue classes n mod p A_n n factorial truncated exponential λ(p)=6 first prime",
+        "Piotr Miska Schenker primes question 4 lambda(p) >= m, minimum p for six roots",
+        "truncated exponential sum a_n=sum n! n^j/j! six residue classes modulo prime 2339",
+        "Schenker prime lambda(p) 2339 first prime six roots 156 470 520 589 1092 2170 Miska",
+        "A note on p-adic valuations of the Schenker sums Question 4 Schenker root multiplicity >=6 least prime",
+        "Schenker sums a_n=n!sum n^j/j!, minimal prime with six distinct nonzero modular zero classes",
+        "\"Schenker\" \"2339\" Schenker sum primes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Proposition 3.2: p|a_n for n nonzero modulo p is equivalent to p|a_r for 1<=r<p.",
+        "[2] pp. 6-7 defines lambda(p) as the number of nonzero roots and poses Question 4.",
+        "[3] Section 7, equivalent h=X modular reductions."
+      ],
+      "reasoning": "The nonzero root-count formulation, periodic-divisibility formulation, and roots of the finite truncated-exponential polynomial all define the same lambda(p). The search covered these aliases. Their known equivalence does not supply the first six-root prime or six roots; the exhaustive certificate does.",
+      "searches": [
+        "Schenker sums prime 2339 six solutions residue classes n mod p A_n n factorial truncated exponential λ(p)=6 first prime",
+        "Piotr Miska Schenker primes question 4 lambda(p) >= m, minimum p for six roots",
+        "truncated exponential sum a_n=sum n! n^j/j! six residue classes modulo prime 2339",
+        "\"Schenker\" \"2339\" \"156\" \"470\"",
+        "\"Schenker primes\" \"six\" \"2339\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[2] Table 1 enumerates 200 primes, ending at 1223, with five-root case 593.",
+        "[4] Tables 1-3 have prime ranges under 2000 but use three other h polynomials, not the classical Schenker sum.",
+        "Exhaustive new verifier counts 345 primes below 2339, returns six nonzero roots at 2339."
+      ],
+      "reasoning": "The original table stops before the candidate; no accessible table giving lambda(2339)=6 or proving that no smaller prime has six was located. Failure to locate one is not proof of absence.",
+      "searches": [
+        "Schenker sums prime 2339 six solutions residue classes n mod p A_n n factorial truncated exponential λ(p)=6 first prime",
+        "Piotr Miska Schenker primes question 4 lambda(p) >= m, minimum p for six roots",
+        "\"Schenker\" \"2339\" \"156\" \"470\"",
+        "\"Schenker primes\" \"six\" \"2339\"",
+        "\"Schenker sums\" \"2339\" valuation",
+        "\"lambda_X\" \"2339\" Miska",
+        "\"Schenker\" \"lambda(p)\" \"2339\"",
+        "\"Schenker primes\" \"number of solutions\" \"6\""
+      ]
+    },
+    "rationale": "The full primary 2014 paper defines lambda, gives a first-200-prime table whose maximum is 5, and poses the higher-multiplicity existence question. Primary 2013 and 2015 full texts supply general reductions, not the sharp least six-root prime; the 2017 generalization tables concern different h. No matching claim found in actual published-finding corpus or literature searches. A possible unpublished/unindexed exact table remains a documented risk.",
+    "residual_risks": [
+      "The search and available corpus are not an exhaustive proof of all mathematical publications or unpublished tables; another source may contain an equivalent first-six-root result.",
+      "The 2015 PDF was not fetched directly; the full text was inspected in the arXiv HTML view.",
+      "The finite certificate relies on the exact C++ and Python sources and ordinary execution; no independent human or formal audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact invariant but does not contain 2339 or multiplicity six example",
+        "evidence": [
+          "Table 1 covers first 200 primes through 1223 and gives maximum 5 at p=593; Question 4 asks existence for each m; PDF find 2339 absent."
+        ],
+        "identifier_or_url": "arXiv:1401.1717v1 / https://arxiv.org/pdf/1401.1717",
+        "material_read": "Complete seven-page lawful open-access preprint, with Table 1 on page 6 and Question 4 on page 7; text and page images",
+        "method": "Inspected the full PDF, including the numerical table, proof and open-question statement",
+        "title": "A note on p-adic valuations of the Schenker sums",
+        "trigger": "Identical sequence, the lambda(p) multiplicity question and published low-prime table"
+      },
+      {
+        "assessment": "General reduction and small-prime examples, not the six-class least threshold",
+        "evidence": [
+          "Proposition 3.2 equates divisibility at n with r modulo p; Example 4.4 lists Schenker primes up to 200; no 2339 occurrence."
+        ],
+        "identifier_or_url": "Integers 13 (2013), A21 / https://emis.de/ft/4841",
+        "material_read": "Full sixteen-page open-access journal PDF, focusing Sections 3-4 and Proposition 3.2, and a page image",
+        "method": "Read continuous PDF text and relevant page image; checked named numeric match",
+        "title": "Valuations and combinatorics of truncated exponential sums",
+        "trigger": "Introduces Schenker sums and the prime reduction"
+      },
+      {
+        "assessment": "Proves general modular-periodic and prime-divisor tools without the specific least six-root classical prime",
+        "evidence": [
+          "Section 7.1 supplies general residue reduction; Section 7.2 infinite prime divisors; no instance 2339."
+        ],
+        "identifier_or_url": "arXiv:1508.01987v1 / https://arxiv.org/abs/1508.01987",
+        "material_read": "Accessible full text HTML representation including Section 7, definitions, propositions, and discussion; PDF direct fetch inaccessible",
+        "method": "Inspected full-text Section 7 and checked 2339 and root-count aliases",
+        "title": "Arithmetic Properties of the Sequence of Derangements and its Generalizations",
+        "trigger": "General h-Schenker sums with classical h(X)=X as a special case"
+      },
+      {
+        "assessment": "Numerical tables apply to h=-X-1, X^2+1, X^2-1, not classical h=X; no threshold 2339",
+        "evidence": [
+          "Section 3 explicitly labels distinct three h and Table 1-3; no 2339 match in accessible text."
+        ],
+        "identifier_or_url": "DOI:10.1142/S1793042117500890 / https://www.researchgate.net/publication/311447024_Arithmetic_properties_of_generalizations_of_Schenker_sums",
+        "material_read": "Available author-shared full-text page containing the 2017 published text, Sections 1-3 and all three tables",
+        "method": "Read full text and Section 3 Tables 1-3; checked for 2339 and classical lambda_X",
+        "title": "Arithmetic properties of generalizations of Schenker sums",
+        "trigger": "Later same-author fuller h-Schenker treatment with numerical multiplicity tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "007dd404-ce57-47b7-a172-be73e312af25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated natural finite cutoff answers m=6, the next multiplicity after the greatest known tabulated value in the source, and supplies a sharp witness and full nonzero residue-class set. This fact serves as a reproducible test of the published unbounded-multiplicity question, not a routine arbitrary slice. General unboundedness is not claimed.",
+    "status": "PASS"
+  }
+}
