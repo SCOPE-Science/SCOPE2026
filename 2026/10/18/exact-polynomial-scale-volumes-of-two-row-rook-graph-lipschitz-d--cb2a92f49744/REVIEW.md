@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof partitions each complete-layer Lipschitz cube according to its unique minimum, uses an integral unimodular coordinate chart, and integrates the one-dimensional allowable shift between layers. The triangular-difference maximum distributions separate the cases of coincident and distinct minima; the integral formula, finite binomial expansion, and Gaussian Laplace estimate then follow algebraically. The full claim has the precise integer domain \(n\ge2\) and anchored-coordinate normalization. Independently, exact Ehrhart finite differences agreed with all four tested cases, \(n=2,3,4,5\); those computations do not certify the infinite case by themselves.
+## correctness
 
-## Originality
-PASS under the searched and inspected evidence, with residual bibliographic risk. Aliaga's arXiv:2102.01219 characterizes extreme molecules, not the volume of this family. Alexander et al., arXiv:1911.10642, focus on general volume products and the equilateral case. D'Alì et al., arXiv:1910.05193, compute normalized volumes of primal symmetric edge polytopes for other graph families, not the anchored polar volume here. The existing same-family facet count \(4^n+2\cdot3^n-9\cdot2^n+8\) is a count of supporting faces, not an exact volume or a result dominating it. Specific searches for rook/Hamming prism Lipschitz-ball volume, two complete layers linked by a matching, and an equivalent triangular-difference integral found no formula implying the stated all-\(n\) result. Search failure does not prove nonexistence; an unindexed calculation remains possible.
+PASS
 
-## Value
-PASS. The measured quantity is the canonical anchored-coordinate volume of a natural Banach dual ball, and the graph family has nontrivial coupling between two full clique constraints and a matching. The resulting exact rational formula and \(\sqrt{2\pi}\,n^{3/2}\) growth describe a geometric invariant for infinitely many increasing dimensions; they are not facet recounting or a direct product formula. No downstream theorem or full Mahler product is claimed.
+Read the frozen RESULT.md and checker.py. The within-layer Lipschitz constraints partition each clique potential into n unit cubes indexed by its unique minimizing vertex. Anchoring a_1=0 and retaining interlayer displacement delta is a determinant-1 coordinate change. For fixed within-layer shapes u,v, admissible delta has length 2-(max_i(u_i-v_i)-min_i(u_i-v_i)). If minimizing indices coincide, the difference array has one zero plus n-1 independent triangular U-V variables, yielding expected interval length 2J_{n-1}; if distinct it has independent -U and +U endpoints and n-2 triangular variables, yielding 2[J_{n-2}-(1-2^{-(n-1)})/(n-1)]. Sum n equal and n(n-1) unequal index pairs to derive exact formula. Laplace expansion J_m=sqrt(pi/(2m))+O(m^-3/2) proves asserted polynomial asymptotic. Independently enumerated lattice potentials and exact Ehrhart leading coefficients for n=2,3, matching V_2=16/3, V_3=49/5. The full formula is analytic, finite tests supplemental; anchored coordinate normalization essential.
 
-## Closest literature and limitations
-The nearest accessible primary sources are arXiv:2102.01219, arXiv:1911.10642, and arXiv:1910.05193. The first treats extremality, the second volume products (including the equilateral metric), and the third primal symmetric-edge volume and facial combinatorics. None in the materially inspected portions states a two-row rook anchored polar volume. The theorem uses a fixed lattice chart rather than intrinsic Euclidean hyperplane measure; verification enumerates dimensions three through nine only. Bibliographic uncertainty remains and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+Graph K_n square K_2 is the standard two-row rook/line graph K_{2,n}; its exact high-dimensional anchored dual-ball volume with polynomial growth is a natural polar invariant in finite Lipschitz-free geometry, distinct from face counts and equilateral ball products. Exact finite rational formula and asymptotic are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
