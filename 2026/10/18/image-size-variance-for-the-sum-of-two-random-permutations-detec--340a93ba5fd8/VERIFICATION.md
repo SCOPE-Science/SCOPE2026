@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Checks and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.9 or newer, with no external dependencies. The check script independently constructs addition tables and element orders, enumerates every permutation in eleven finite abelian test groups of cardinality two through eight, computes image-size histograms and their exact rational moments, and directly checks joint absent-output probabilities against the theorem's coefficient extraction. It also enumerates forbidden rook positions in smaller cycle boards and checks the cycle-matching coefficient formula independently.
+## correctness
 
-The completed run printed `PASS: 200 grouped exact identities; zero Monte Carlo estimation.` In particular, the order-four histograms are \((4,4,16)\) at image cardinalities \((1,2,3)\) for \(\mathbb Z/4\mathbb Z\), and \((4,12,8)\) at \((1,2,4)\) for \((\mathbb Z/2\mathbb Z)^2\), each over 24 equiprobable permutations.
+PASS
 
-Finite exact enumeration corroborates but is not an infinite-order proof. The general validity follows from the separately stated bijection, alternating-cycle decomposition and inclusion-exclusion. Full historical priority verification and any independent audit have not been performed.
+Reindex π1 to reduce random map to u+σ(u). For missing symbol y, forbidden permutation board is one perfect matching, giving derangement probability d_N. For two absent symbols y,z, their perfect matchings alternate along translation orbits of h=z−y; union decomposes into N/ord(h) bipartite cycles with 2ord(h) edges. The exact cycle matching rook polynomial A_m has coefficients (2m)/(2m−k) binomial(2m−k,k); inclusion-exclusion against (N−k)! yields Q_N(m). Indicator covariance yields the displayed variance formula. Independent exhaustive 24-permutation enumerations verify the distinct size laws and variances 7/12 vs 5/4 for Z4 and Z2²; finite checks support, not prove, general N.
+
+## originality
+
+PASS
+
+Bhaumik–Guo–Guo–Jha studies the same random map but focuses distinguishability/security, rather than image-size second moments. Donovan–Johnson–Wanless studies symbol-cycle phenomena in Latin-square permanents; those are relevant prior combinatorics but the available abstract does not establish this exact two-symbol avoidance probability or group-specific variance; full work inaccessible. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+This identifies a concrete observable of an already motivated random permutation-sum map that distinguishes group structure at fixed order and provides an exact finite formula indexed by element orders; the order-four witness is natural, not arbitrarily picked.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
