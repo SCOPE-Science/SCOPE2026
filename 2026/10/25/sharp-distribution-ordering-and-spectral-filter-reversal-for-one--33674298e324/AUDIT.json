@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The Frobenius rank-one capture is exactly (Σ s_i c_i T_i)/(Σ c_i T_i). Exchangeability under each transposition yields f_i-f_j=-(c_i-c_j)/2 E[(T_i-T_j)^2/(DDswap)]; a weighted covariance identity gives the claimed exact 1/(2C) error gap. Ratio integrands are uniformly bounded for strictly positive filter weights, so no unproved moments are needed. Pairwise monotonicity and strictness follow termwise. Power-iteration filter c_i=s_i^(2q+1) and inverse filter c_i=1/s_i give opposite orders. Log-convex power sums prove q-monotonicity; rank-one optimal tail and pair decomposition prove the sharp factor 2. In the planar Gaussian example the polar integral equals 1/(ab), yielding expected error ab and the claimed arbitrarily large comparison. The standalone rational checker passed 6969 assertions, as finite corroboration rather than universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.05814v1: Saibaba--Międlar: independent random sketch distribution classes, sample-covariance-based bounds and randomized subspace iteration; not an exact one-vector exchangeable extremal theorem.",
+        "arXiv:2306.12418v1: Tropp--Webber: Gaussian sketch expected-error bounds and one-/multi-pass algorithms, not all-exchangeable-magnitude extremality.",
+        "arXiv:2206.08793v1: Diouane et al.: deterministic and general Gaussian-covariance expected-error bounds, not a Rademacher-versus-arbitrary-exchangeable risk ordering.",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248: sparse stochastic subspace descent, not rank-one range-finding risk."
+      ],
+      "reasoning": "Broader high-probability and expected residual bounds apply to Gaussian or other sub-Gaussian matrices and may cover the numerical algorithms, but neither a generic bound nor generic isotropic sketch admissibility yields a distributional extremal ordering of exact expected errors. The all-exchangeable class (possibly dependent or heavy-tailed magnitudes) and reversal for inverse filtering are not statements of these inspected results.",
+      "searches": [
+        "Spectral weight order reversal Rademacher vs Gaussian rank-one Frobenius low-rank approximation orthogonal columns exact error",
+        "Randomized low-rank approximations beyond Gaussian random matrices Rademacher subspace iteration",
+        "arXiv:2308.05814v1 theorems 5,7,9,11 and randomized subspace iteration",
+        "arXiv:2206.08793v1 covariance Gaussian sketch Frobenius bound",
+        "single-vector randomized subspace iteration flat magnitude sign sketch exact two approximation optimal among exchangeable probes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.05814v1 main accessible HTML and targeted appendix sections",
+      "arXiv:2306.12418v1 PDF selected sections, notably Gaussian expectation Theorem 8.7",
+      "arXiv:2206.08793v1 PDF main Gaussian covariance/expected-error discussions",
+      "Published mathematical record: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "Published mathematical record: 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "Published mathematical record: 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.05814v1: Saibaba--Międlar: independent random sketch distribution classes, sample-covariance-based bounds and randomized subspace iteration; not an exact one-vector exchangeable extremal theorem.",
+        "arXiv:2306.12418v1: Tropp--Webber: Gaussian sketch expected-error bounds and one-/multi-pass algorithms, not all-exchangeable-magnitude extremality.",
+        "arXiv:2206.08793v1: Diouane et al.: deterministic and general Gaussian-covariance expected-error bounds, not a Rademacher-versus-arbitrary-exchangeable risk ordering.",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee: adaptive randomized pivoting multistage Frobenius-error factor, different algorithm and objective.",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0: Rayleigh residual distortion under spectral filtering, not rank-one approximation distribution ordering.",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248: sparse stochastic subspace descent, not rank-one range-finding risk."
+      ],
+      "reasoning": "A published expected-error bound for arbitrary random sketches could dominate a numerical estimate without establishing the sign of the difference between two distributions; the precise conditional claim is strict flat-magnitude optimality only among exchangeable squared-magnitude probes in a singular-vector-aligned one-vector setting, with the reversed order under inverse filtering. Previously published Gaussian covariance formulas overlap the planar special case but do not entail the all-dimensional exact exchangeability gap or filter-order bifurcation. No identified statement implies the whole theorem; generalized rearrangement literature remains residual priority risk.",
+      "searches": [
+        "Rank one randomized range finder one probe squared Frobenius residual Rademacher flat sign extremal all exchangeable magnitudes power iterations inverse spectral filter",
+        "Spectral weight order reversal Rademacher vs Gaussian rank-one Frobenius low-rank approximation orthogonal columns exact error",
+        "Expected weighted ratio sum spectral weights exchangeable random vector coordinate swap monotonicity exact identity",
+        "Rademacher Gaussian rank-one range finder exact expected error diagonal sketch 2 factor optimal",
+        "A general error analysis for randomized low-rank approximation methods Gaussian covariance expectation",
+        "arXiv:2308.05814v1 Section 3 Theorems 5,7,9,11 and Section 5",
+        "arXiv:2306.12418v1 Section 8.4 Theorem 8.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.05814v1: Saibaba--Międlar: independent random sketch distribution classes, sample-covariance-based bounds and randomized subspace iteration; not an exact one-vector exchangeable extremal theorem.",
+        "arXiv:2306.12418v1: Tropp--Webber: Gaussian sketch expected-error bounds and one-/multi-pass algorithms, not all-exchangeable-magnitude extremality.",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0: Rayleigh residual distortion under spectral filtering, not rank-one approximation distribution ordering.",
+        "The pairwise transposition identity yields a new exact error difference; a general rearrangement theorem may underlie the step but was not located in the inspected specialized sources."
+      ],
+      "reasoning": "Equivalent descriptions include a Rayleigh quotient of the diagonal squared singular-value matrix under an exchangeably weighted direction, a one-column range-finder Frobenius loss, and a normalized weighted-ratio inequality. The checked source results give distribution-agnostic bounds or a different (Rayleigh residual) risk, not an implication of the present exact comparison or its inverse-filter sign reversal.",
+      "searches": [
+        "Rank one randomized range finder one probe squared Frobenius residual Rademacher flat sign extremal all exchangeable magnitudes power iterations inverse spectral filter",
+        "Expected weighted ratio sum spectral weights exchangeable random vector coordinate swap monotonicity exact identity",
+        "exchangeable nonnegative random vector normalized weighted average ratio rearrangement monotone expectation",
+        "arXiv:2308.05814v1, Sections 1--5 and Appendix A",
+        "arXiv:2306.12418v1, Section 8.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The referenced experiments compare Rademacher/other sketch distributions at varying sample counts but are neither an exact all-dimension identity nor a complete single-probe table.",
+        "arXiv:2308.05814v1: Saibaba--Międlar: independent random sketch distribution classes, sample-covariance-based bounds and randomized subspace iteration; not an exact one-vector exchangeable extremal theorem.",
+        "arXiv:2306.12418v1: Tropp--Webber: Gaussian sketch expected-error bounds and one-/multi-pass algorithms, not all-exchangeable-magnitude extremality."
+      ],
+      "reasoning": "The new result is a continuum of spectra and exchangeable laws, not a discrete numerical table. Related computational experiments and spectral error estimates do not directly enumerate or imply the exact pairwise swap identity; no exact same-parameter table was identified.",
+      "searches": [
+        "Rademacher Gaussian rank-one range finder expected Frobenius residual exact table",
+        "arXiv:2308.05814v1 Section 5 numerical experiments Appendix C",
+        "arXiv:2306.12418v1 Section 8.4",
+        "Rank one randomized range finder one probe squared Frobenius residual Rademacher flat sign extremal all exchangeable magnitudes power iterations inverse spectral filter"
+      ]
+    },
+    "rationale": "Inspected main primary paper and related Gaussian/broad randomized approximation texts, actual mathematical-record searches for exact ratio and reversal aliases, and accessible prior research claims. The closest works contain probabilistic error controls, Gaussian-specialized planar analysis, or other Krylov/pivoting questions; their statements do not imply this exact all-dimensional exchangeable-magnitude gap and its opposite-order filtered corollary. An unlocated general weighted-ratio rearrangement theorem could imply the statement, so publication priority is not independently guaranteed.",
+    "residual_risks": [
+      "A general exchangeable weighted-ratio/rearrangement inequality might imply this conditional numerical theorem without using the exact same language.",
+      "The specialized single-vector sketch domain may have been treated in other monographs or non-indexed prior literature.",
+      "Full publication-priority certification and independent mathematical review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general distribution classes, sample-size and probabilistic error bounds. No all-exchangeable one-vector exact optimality or inverse-filter ordering in the inspected material.",
+        "evidence": [
+          "arXiv:2308.05814v1, §§1.1, 2.2, 3.2--3.6, 5, 6, Appendix C; exact preprint date 2023-08-10."
+        ],
+        "identifier_or_url": "arXiv:2308.05814v1 | https://arxiv.org/html/2308.05814v1",
+        "material_read": "Full-text HTML Introduction, §2 randomized SVD and setup, §3 theorems on sub-Gaussian/column sketches, §5 experimental comparisons, §6 conclusions, and relevant Appendix C; inspected related proof discussion in §4.",
+        "method": "Read arXiv HTML v1 including the main contribution list, result statements, numerical comparisons and related-work discussion.",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Same non-Gaussian Rademacher/Gaussian sketch methods, power subspace iteration, and expected/range approximation error."
+      },
+      {
+        "assessment": "Covers algorithms and Gaussian error bounds; does not directly compare the full class of exchangeable squared-magnitude probes.",
+        "evidence": [
+          "arXiv:2306.12418v1, §8.4, Theorem 8.7; initial submission 2023-06-21."
+        ],
+        "identifier_or_url": "arXiv:2306.12418v1 | https://arxiv.org/abs/2306.12418",
+        "material_read": "Available public PDF Introduction, range finder setup, and §8.4 Gaussian expected-error theory including Theorem 8.7.",
+        "method": "Read arXiv full-text PDF selected sections; compared theorem assumptions and quantity controlled.",
+        "title": "Randomized algorithms for low-rank matrix approximation: Design, analysis, and applications",
+        "trigger": "General randomized range finder and subspace iteration; potential broader coverage of one-probe exact residual."
+      },
+      {
+        "assessment": "The error-control work is Gaussian-based and provides bounds rather than an extremal comparison across exchangeable magnitude laws. Only selected sections were materially compared.",
+        "evidence": [
+          "arXiv:2206.08793v1, 2022-06-17, abstract and Gaussian/Frobenius error contributions."
+        ],
+        "identifier_or_url": "arXiv:2206.08793v1 | https://arxiv.org/abs/2206.08793",
+        "material_read": "Public preprint full-text PDF abstract, introduction, main-result descriptions and expected Gaussian error theorem discussions.",
+        "method": "Read the accessible arXiv paper directly and compare distributional hypotheses and error type.",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Possible dominating nonstandard Gaussian covariance expectation formula in Frobenius norm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33674298-e324-4c60-bd41-23ac76e0db79",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing the single probe distribution for randomized range approximation at fixed expected input coordinate energy is a natural and explicitly motivated design problem in non-Gaussian randomized numerical linear algebra. The theorem classifies an entire exchangeable probe family under every power-iteration depth, proves strict extremality, identifies exactly how an inverse spectral filter reverses the optimal distribution, and quantifies an unbounded Gaussian disadvantage plus a sharp factor-two loss bound. This is a structural optimization and conditioning boundary rather than a table recomputation or a renaming of general bounds. It is consciously restricted to known singular-vector coordinates; no general-purpose algorithmic optimality is claimed.",
+    "status": "PASS"
+  }
+}
