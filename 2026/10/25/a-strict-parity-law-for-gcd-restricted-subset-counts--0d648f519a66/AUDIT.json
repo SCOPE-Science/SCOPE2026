@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact gcd-stratum bijection proves (1); universal 2^{m-1}<=f(m)<2^m bounds force strict odd sign from n>=11 and even sign from n>=16 (including verified induction for the remaining tail). The nine finite cases n=4,...,14 establish the boundary. Splitting gcd strata at 2 and 3 and bounding g>=4 yields the pointwise O(2^{floor(n/4)}) expansion. Exact independent Möbius/stratum and brute-force checks are supplementary; no finite bound is substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1 (partial sums and mean error, not pointwise signs)",
+        "M. Tang, J. Integer Seq. 13 (2010), Article 10.7.6, Theorems 1-3 (formulas for f and Phi)",
+        "A. Łydka, arXiv:1910.02418v1, Introduction and Sections 2-3 (log-concavity and other gcd-restricted inequalities)"
+      ],
+      "reasoning": "Asymptotic individual counts f~Phi~D~2^n and source partial-sum averages are too coarse to force the sign of their difference. The later inequalities in f and g have neither D nor this pointwise comparison, so no stronger implication was identified.",
+      "searches": [
+        "Pongsriiam 2013 divisor sum relatively prime subsets sign alternating proved",
+        "Relatively Prime Sets Divisor Sums and Partial Sums Pongsriiam arXiv 1306.4891 D(n) Phi(n) alternate sign for every integer n >= 4 Question 3.1",
+        "Pongsriiam 2013 alternating divisor sum of relatively prime subsets n≥4 proof counterexample general theorem"
+      ]
+    },
+    "checked_sources": [
+      "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1",
+      "M. Tang, J. Integer Seq. 13 (2010), Article 10.7.6, Theorems 1-3",
+      "A. Łydka, arXiv:1910.02418v1, Introduction and Sections 2-3",
+      "P. Pongsriiam, arXiv:1306.2529v1",
+      "OEIS A224840",
+      "Parity-resolved divisor-power sums for q=2",
+      "Complete-or-injective divisor subset sums on two-prime integers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1 explicitly says no proof beyond 30 as of 2013",
+        "M. Tang, J. Integer Seq. 13 (2010), Article 10.7.6, Theorems 1-3 does not define the new 2013 divisor sum D",
+        "A. Łydka, arXiv:1910.02418v1, Introduction and Sections 2-3 treats f log-inequalities and a different count g",
+        "Parity-resolved divisor-power sums for q=2 (ordinary divisor powers, not gcd-stratified subset counts)",
+        "Complete-or-injective divisor subset sums on two-prime integers (numerical divisor sums, not sets classified by gcd)"
+      ],
+      "reasoning": "The main theorem resolves precisely the source Question 3.1; its sign statement implies Question 3.2, rather than being implied by the original partial-sum analysis. The nearest mathematical records share terminology (parity, divisors, subsets), but their precise mathematical objects and statements differ, so none dominates this claim.",
+      "searches": [
+        "Relatively Prime Sets Divisor Sums and Partial Sums Pongsriiam arXiv 1306.4891 D(n) Phi(n) alternate sign for every integer n >= 4 Question 3.1",
+        "number of nonempty subsets with gcd dividing n versus gcd coprime to n; difference signs even n positive odd n negative; exponential asymptotic 2^floor(n/2)",
+        "Pongsriiam 2013 alternating divisor sum of relatively prime subsets n≥4 proof counterexample general theorem",
+        "Pongsriiam \"D(n)\" \"Φ(n)\" \"sign\" \"alternating\" solution",
+        "Pongsriiam 2013 alternating divisor sum of relatively prime subsets n≥4 proof counterexample general theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1 (the unproved sign question is expressed as an all-index alternation)",
+        "OEIS A224840 (the divisor-sum sequence is tabulated, not universally compared)"
+      ],
+      "reasoning": "The equality of the gcd-stratified and divisor-sum definitions makes the alternating-sign statement directly equivalent to Question 3.1. Searches for sign, parity, gcd divisor/coprime subset descriptions, and the sequence identifiers found no proof; a table and bounded numerical verification do not imply it.",
+      "searches": [
+        "Relatively Prime Sets Divisor Sums and Partial Sums Pongsriiam arXiv 1306.4891 D(n) Phi(n) alternate sign for every integer n >= 4 Question 3.1",
+        "number of nonempty subsets with gcd dividing n versus gcd coprime to n; difference signs even n positive odd n negative; exponential asymptotic 2^floor(n/2)",
+        "Pongsriiam \"D(n)\" \"Φ(n)\" \"sign\" \"alternating\" solution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A224840 (D(n) data)",
+        "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1 Table 1 and Question 3.1 (checked n up to 30)"
+      ],
+      "reasoning": "Finite entries of the exact sequences or computations through 30 cannot cover every n>=4. The theorem proves the unbounded statement and an additional pointwise expansion.",
+      "searches": [
+        "OEIS A224840 and A038199 parity alternate sign comparison exact dominant 2^{floor(n/2)} asymptotic",
+        "Relatively Prime Sets Divisor Sums and Partial Sums Pongsriiam arXiv 1306.4891 D(n) Phi(n) alternate sign for every integer n >= 4 Question 3.1"
+      ]
+    },
+    "rationale": "The 2013 primary paper explicitly poses the unrestricted sign pattern as Question 3.1 after checking only indices through 30. The present universal sign proof and pointwise two-scale asymptotic are not consequences of its average partial-sum formula; Tang 2010 and Łydka 2019 address different inequalities. Targeted recent and older literature searches and semantic mathematical-record searches did not locate an equivalent theorem. This is a limited, evidence-based originality assessment, not proof of absence.",
+    "residual_risks": [
+      "An equivalent proof might exist in unindexed articles, theses, later manuscripts, or inaccessible records; absence from search hits does not certify global priority.",
+      "The full bibliography of the subject is not exhaustively indexed; an independent literature review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source poses the sign claim as open after a finite check; neither its listed theorems nor its comparisons prove it",
+        "evidence": [
+          "P. Pongsriiam, J. Integer Seq. 16 (2013), Article 13.9.1, Questions 3.1 and 3.2, arXiv:1306.4891v1",
+          "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.4891",
+        "material_read": "Full accessible HTML scientific statements; journal PDF pp. 1-3 and 9-11 including definitions, cited lemmas, main asymptotics, comments, question 3.1 and bibliography",
+        "method": "Read formulas and definitions; inspect journal PDF page image of Questions 3.1–3.2; compare quantified signs and partial-sum versus pointwise claims",
+        "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+        "trigger": "Exact primary source and explicit Question 3.1"
+      },
+      {
+        "assessment": "Gives f and Phi formulas but predates introduction of D and has no D-Phi universal sign comparison",
+        "evidence": [
+          "M. Tang, J. Integer Seq. 13 (2010), Article 10.7.6, Theorems 1-3"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Tang/tang2.pdf",
+        "material_read": "Full accessible article page containing Theorems 1–3 and formulas, plus source bibliographic description",
+        "method": "Read exact inclusion-exclusion identities and theorem implications; inspect theorem page image",
+        "title": "Relatively Prime Sets and a Phi Function for Subsets of {1,2,...,n}",
+        "trigger": "Foundational identities for exactly the f and Phi functions"
+      },
+      {
+        "assessment": "Resolves log-concavity and g-ratio problems, not Question 3.1 for D-Phi",
+        "evidence": [
+          "A. Łydka, arXiv:1910.02418v1, Introduction and Sections 2-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1910.02418",
+        "material_read": "Accessible article abstract, introduction, theorem and section statements, reference list; electronic within-document D(n) search",
+        "method": "Inspect precise functions f and g, main inequalities, and source questions identified by the authors",
+        "title": "On Some Properties of the Function of the Number of Relatively Prime Subsets of {1,2,...,n}",
+        "trigger": "Later manuscript explicitly claims to solve several questions of Pongsriiam"
+      },
+      {
+        "assessment": "Does not establish or formulate an all-n comparison of D and Phi",
+        "evidence": [
+          "P. Pongsriiam, arXiv:1306.2529v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1306.2529v1",
+        "material_read": "Accessible HTML introductions, formula statements, contents; D(n) term search",
+        "method": "Compare studied subset counts and hypotheses; search for divisor-sum D(n)",
+        "title": "A Remark on Relatively Prime Sets",
+        "trigger": "Same author and closely related gcd-subset formulas"
+      },
+      {
+        "assessment": "Computational table alone is not a proof of the quantified claim",
+        "evidence": [
+          "OEIS A224840"
+        ],
+        "identifier_or_url": "https://oeis.org/A224840",
+        "material_read": "Accessible sequence definition and tabulation",
+        "method": "Identify whether published comments or numerical entries entail all-index sign theorem",
+        "title": "OEIS A224840",
+        "trigger": "Exact integer sequence for divisor sum D"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d648f51-9a66-4733-879c-c6cfda0256ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original 2013 study singles out precisely the global strict alternating-sign question as Question 3.1 and the weaker infinite-sign-change Question 3.2. This theorem proves both for all indices, gives quantitative size and the first two exponential terms, and is meaningful independent of numerical tables. The structural gcd-stratification argument makes the previously observed parity phenomenon transparent.",
+    "status": "PASS"
+  }
+}
