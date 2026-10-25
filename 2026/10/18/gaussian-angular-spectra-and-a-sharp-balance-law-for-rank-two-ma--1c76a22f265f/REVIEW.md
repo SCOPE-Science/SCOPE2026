@@ -1,11 +1,21 @@
-# Scientific assessment: Gaussian angular spectra of rank-two matroid base polytopes
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed normal-cone probability follows from an exact uniform-order argument and the rank-two matroid greedy rule, including the two-class disconnected case. Summing squared per-basis probabilities yields the collision identity. The explicitly calculated fixed-sum directional derivative has the sign of the difference between the two sizes and a strictly positive remaining factor; this proves strict Schur-convexity and all integer extremizers. The uniform-probability criterion, fixed-number-of-classes asymptotics, and distinct exact collision values for the two classes with \(109\) vertices and \(1250\) edges all follow by direct algebra. The independently implemented exhaustive ranking checker has passed \(58\) nontrivial class partitions of total size at most eight and \(3065\) strict transfer comparisons through total size fifteen. Its finite checks are corroboration; the symbolic argument covers every admissible size.
+## correctness
 
-**Originality — PASS (qualified).** The 2020 first-publicly-posted matroid-polytope paper of Pineda-Villavicencio and Schröter gives the canonical realization and the basis-exchange edge description, but treats graph reconstructibility, not normal-cone probabilities or their strict extremizers. The 2019 Jochemko–Ravichandran paper addresses generalized permutahedron valuations and interior/tangent solid-angle lattice sums, rather than outward normal cones. Published rank-two geometric results concerning inradii and Minkowski asymmetry do not imply the angular probability spectrum. The previously observed sparse-paving deletion-angle formula subsumes the special case of disjoint forbidden rank-two pairs, so that special case is expressly excluded from a novelty claim; it does not establish the arbitrary-parallel-class strict balance law or the two-face-count separation. Targeted alias, reduction, and broader-coverage searches produced no covering theorem. Full text of both primary papers was available; some close publicly indexed mathematical records could be inspected only through summaries, leaving residual risk of an equivalent older greedy-order formulation.
+PASS
 
-**Mathematical value — PASS.** Normal-cone spherical measure governs the probability with which a generic isotropic optimization objective selects each polytope vertex. Determining this entire law for an important complete class of matroid base polytopes provides exact sampling statistics rather than a simple vertex-count restatement. The proved strict balancing law yields sharp global design extremizers and two different orders of concentration for fixed class count. The explicit eighteen-element pair shows that even matching numbers of vertices and edges fail to determine the collision probability. The theorem is not a mere renaming of a known lattice statistic.
+The matroid greedy algorithm selects the top Gaussian coordinate x and the highest coordinate y outside its parallel class; symmetry of uniform rank permutations gives the sum 1/[n(n-a_i)]+1/[n(n-a_j)]. Summing p_xy^s over all cross-class pairs gives every collision moment, including n²C2=sum_i b_i+2sum_{i<j}b_i b_j for b_i=a_i/(n-a_i). Differentiation along fixed-total-sum pair transfers gives n(a_i-a_j)[a_i+a_j+2(2n-a_i-a_j)T]/[(n-a_i)^2(n-a_j)^2], strictly positive when a_i>a_j, proving unique balanced/skewed integer extremizers up to permutations (degenerate single-partition cases included). Exact face formulas f0=sum_{i<j}a_i a_j and f1=sum_i a_i choose(n-a_i,2) yield both examples (1,4,5,8) and (2,2,7,7) with f0=109, f1=1250, yet C2=11581/1253070 versus 11617/1254528 (difference 2151/119799680). Independently computed these exact rational identities and greedy finite rank-order examples. For fixed m the balanced and skew asymptotics follow directly from class-size expressions.
 
-**Scientific limits.** The extremality theorem is only about two-direction collisions in the canonical Euclidean embedding; it is not claimed for arbitrary \(s\), arbitrary affine coordinates, or arbitrary rank. The two-face-count pair has not been claimed to have the same full face vector or abstract one-skeleton. Search cannot prove global novelty. The result has not undergone independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
+
+## value
+
+PASS
+
+Determining the complete outward cone-angle spectrum and the sharp balancing law connects a canonical matroid base-polytope family to randomized optimization. The two face-count twins establish the mathematically motivated non-reconstructibility of this Euclidean angular functional from low face data, rather than a gratuitous parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
