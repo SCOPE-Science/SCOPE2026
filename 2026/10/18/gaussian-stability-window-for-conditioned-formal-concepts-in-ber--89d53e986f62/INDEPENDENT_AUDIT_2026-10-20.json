@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T20:04:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On conditioning E=(A,B) formal concept, A×B all-one, every outside-B column not all-one on A, and every outside-A row not all-one on B constrain disjoint iid blocks. The N outside columns on A are independent Bernoulli-p vectors truncated at the all-ones vector. For |S|=t, Pr(S′=B|E)=((1-p^t)/(1-p^a))^N, and for S,T use 1-p^|S|-p^|T|+p^|S∪T|; summing indicators yields both moments. With independent U~uniform P(A), |U|~Bin(a,1/2), compare the indicator U′=B to |U|≥h. Outside width w=2 log a/(-log p), conditional mismatch is O(a^-2) or exp(-a²+o(1)); binomial anti-concentration in the width O(log a/√a) plus Berry–Esseen yields uniform bound. Independent exhaustive enumeration of all truncated column words confirmed exact first and second moments and variance for (a,N,p)=(2,1,1/2),(3,2,2/3),(4,2,1/3); at (2,1,1/2) mean7/12 variance1/72.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior top-concept finding proves almost-sure and L1 Gaussian limits for unrestricted arrays; Sakurai treats expected total number of concepts; Mouakher–Ko studies efficient deterministic assessment."
+        ],
+        "reasoning": "The prior is broader in almost-sure mode but narrower in selected-concept conditioning and lacks uniform O(log a/√a) error and the exact conditioned two-point moment. Give it priority for leading Gaussian behavior.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+          "https://arxiv.org/abs/2101.11023",
+          "https://doi.org/10.1080/03081079.2022.2084728"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+        "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639",
+        "https://publications.hse.ru/data/2013/02/20/1306850908/2007_On%20stability%20of%20a%20formal%20concept.pdf",
+        "https://doi.org/10.1080/03081079.2022.2084728",
+        {
+          "Resultary_search_query": "formal concept analysis Bernoulli random contexts reducible objects meet intersection gaussian phase transition dominance row maximal random vectors"
+        },
+        {
+          "Resultary_search_query": "random formal context conditional intensional stability moments concept concentration Gaussian critical window"
+        },
+        {
+          "Resultary_search_query": "general position polynomial K_m Cartesian P_n clique path product maximal general position sets"
+        },
+        {
+          "Resultary_search_query": "general position polynomial K_m Cartesian K_n rook graphs maximal sets bipartite star forests"
+        },
+        {
+          "Resultary_search_query": "general position polynomial direct categorical product K_m times K_n maximal sets unimodality"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N≈exp((-log p)a/2), Pr(any all-one column)≤Np^a→0; the conditional law under no all-one columns and previous top sigma therefore differs from prior unconditional law by vanishing total variation. Prior gives only qualitative limit while current gives uniform quantified L1 error."
+        ],
+        "reasoning": "Explicitly credit the transferred qualitative limit; it does not entail a numerical O(log a/√a) bound from the previously stated theorem nor exact conditional second moment. Proofs must be verified independently and were.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639",
+          "random formal context conditional intensional stability moments concept concentration Gaussian critical window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing top-concept theorem: unconditional expectation 2^-a Σ_t C(a,t)(1-p^t+p^a)^N; current conditioned expectation has 2^-a Σ_t C(a,t)((1-p^t)/(1-p^a))^N; conditioning the top concept to have empty intent recovers the latter distribution."
+        ],
+        "reasoning": "The two stability statistics agree in distribution after conditioning the prior top-context model on no all-one columns; different from unconditional law. Crucially the unconditional Gaussian limit transfers when Pr(condition)→1, but exact conditional moments and explicit uniform rate are not earlier statements.",
+        "searches": [
+          "random formal context conditional intensional stability moments concept concentration Gaussian critical window",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhi 2014 deterministic minimal-generator formulas and top-concept exact first moment are distinct from the reviewed exact conditioned two-moment finite law."
+        ],
+        "reasoning": "The second moment requires the joint subset inclusion-exclusion numerator depending on |S∪T|; no matching exact conditioned moment table found in inspected full texts. Failed semantic search is not a novelty proof.",
+        "searches": [
+          "random formal context conditional intensional stability moments concept concentration Gaussian critical window",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md"
+        ]
+      },
+      "rationale": "Strongest relevant published earlier SCOPE theorem studies *unconditional top-concept* Bernoulli stability and proves an almost-sure Gaussian crossover with the same leading threshold. In this critical window the event that no attribute is common to all a rows has probability tending to 1, so the earlier theorem implies the *qualitative* conditional Gaussian limit via conditioning on empty top intent. Thus neither Gaussian location nor limit shape alone is original. The reviewed claim additionally proves exact conditioned first/second moments for prescribed (A,B), all finite parameters, and an explicit uniform O(log a/√a) L1 approximation not implied by the prior qualitative theorem; these are the surviving original statements.",
+      "residual_risks": [
+        "Qualitative Gaussian limit already follows from earlier top-concept SCOPE theorem; novelty is strictly confined to conditional finite two-moment law and uniform rate.",
+        "Full 2022 Mouakher–Ko primary article inaccessible after lawful OA and authorized attempts (vpn_disconnected); possible prior conditioned computations remain a risk.",
+        "The source includes no lower bound on the rare fixed (A,B)-concept conditioning event; the theorem is conditional only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS same leading window through a stronger almost-sure unconditioned theorem; current exact conditional second moments and quantitative uniform error are distinct.",
+          "evidence": "Top law Eσ=2^-aΣ_t C(a,t)(1-p^t+p^a)^N, almost-sure critical law Φ(-2b/β).",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+          "material_read": "Complete RESULT.md from frozen source tree including exact mean, almost-sure Gaussian window, first-order phases, exponential rate, proof and limitations.",
+          "method": "Read actual frozen Git blob.",
+          "title": "A sharp Gaussian stability window for top concepts of Bernoulli formal contexts",
+          "trigger": "same p, Bernoulli context, stability and √a window"
+        },
+        {
+          "assessment": "Deterministic per-context computation; no quantified conditional Bernoulli Gaussian law established in inspected sections.",
+          "evidence": "Uses generators and counts of subsets, not specified random conditioned column laws.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639",
+          "material_read": "Full publicly accessible article, stability normalization and generator/inclusion–exclusion calculations.",
+          "method": "Read accessible full-text HTML.",
+          "title": "On the Calculation of Formal Concept Stability",
+          "trigger": "deterministic exact stability formulas"
+        },
+        {
+          "assessment": "Foundational invariant with an older integral normalization convention; no conditioned Bernoulli asymptotic shown.",
+          "evidence": "2007 work motivates stability and its relevance.",
+          "identifier_or_url": "https://publications.hse.ru/data/2013/02/20/1306850908/2007_On%20stability%20of%20a%20formal%20concept.pdf",
+          "material_read": "Author-hosted full text, abstract, definition and early theorem context, with first pages inspected.",
+          "method": "Read PDF parsed text and screenshot.",
+          "title": "On stability of a formal concept",
+          "trigger": "foundational stability definition"
+        },
+        {
+          "assessment": "FULL TEXT NOT INSPECTED; cannot assert complete noncoverage; residual originality risk.",
+          "evidence": "DOI:10.1080/03081079.2022.2084728, access limitation documented.",
+          "identifier_or_url": "https://doi.org/10.1080/03081079.2022.2084728",
+          "material_read": "Abstract/bibliographic metadata accessible; full text not accessible. Authorized institutional attempt returned vpn_disconnected.",
+          "method": "Read abstract; requested authorized full text without bypass.",
+          "title": "Efficient assessment of formal concept stability in the Galois lattice",
+          "trigger": "same named invariant, plausibly stronger computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stability is a central formal-concept robustness invariant. Exact conditional second moments quantify fluctuations for an explicitly prescribed concept, and a uniform nonasymptotic Gaussian error bound addresses a different sampling scheme than top-concept unconditional stability. The quantitative estimate and finite law are potentially reusable even though a qualitative limit follows from the prior theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/a-sharp-gaussian-stability-window-for-top-concepts-of-bernoulli--dc9bef08ad4e/RESULT.md",
+    "https://onlinelibrary.wiley.com/doi/10.1155/2014/917639",
+    "https://publications.hse.ru/data/2013/02/20/1306850908/2007_On%20stability%20of%20a%20formal%20concept.pdf",
+    "https://doi.org/10.1080/03081079.2022.2084728",
+    {
+      "Resultary_search_query": "formal concept analysis Bernoulli random contexts reducible objects meet intersection gaussian phase transition dominance row maximal random vectors"
+    },
+    {
+      "Resultary_search_query": "random formal context conditional intensional stability moments concept concentration Gaussian critical window"
+    },
+    {
+      "Resultary_search_query": "general position polynomial K_m Cartesian P_n clique path product maximal general position sets"
+    },
+    {
+      "Resultary_search_query": "general position polynomial K_m Cartesian K_n rook graphs maximal sets bipartite star forests"
+    },
+    {
+      "Resultary_search_query": "general position polynomial direct categorical product K_m times K_n maximal sets unimodality"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge novelty only; unindexed equivalent literature cannot be excluded.",
+    "Finite enumeration supports but does not replace the infinite all-parameter proofs."
+  ],
+  "residual_risks": [
+    "Qualitative Gaussian limit already follows from earlier top-concept SCOPE theorem; novelty is strictly confined to conditional finite two-moment law and uniform rate.",
+    "Full 2022 Mouakher–Ko primary article inaccessible after lawful OA and authorized attempts (vpn_disconnected); possible prior conditioned computations remain a risk.",
+    "The source includes no lower bound on the rare fixed (A,B)-concept conditioning event; the theorem is conditional only."
+  ],
+  "schema_version": 1
+}
