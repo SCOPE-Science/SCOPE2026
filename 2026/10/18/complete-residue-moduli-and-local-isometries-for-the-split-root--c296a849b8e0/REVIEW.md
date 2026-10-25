@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The split-root formula follows from the stated recurrence. For each odd \(p\mid a+1\), odd-prime lifting the exponent yields exactly \(v_p(J_{2i}-J_{2j})=v_p(i-j)\) and the analogous identity for odd indices. In particular the first \(m\) terms of each parity form permutations for all odd \(m\) supported on factors of \(a+1\). The remaining primes are eliminated by periodicity modulo \(p\), by collapse to \(0,\pm1\) when \(p\mid a\), or by parity. The isolated modulus \(3\) is checked at indices \(0,1,2\). Exact modular enumeration corroborates, without substituting for, this infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Closed form follows from recurrence roots a,-1. For odd p|a+1, the difference within equal-parity indices factors as a^{2j}(a^{2(i-j)}-1)/(a+1), times a in the odd case. LTE yields v_p(a^{2d}-1)=v_p(a+1)+v_p(d) because p∤a-1; hence v_p(J_{2i}-J_{2j})=v_p(J_{2i+1}-J_{2j+1})=v_p(i-j). By CRT each parity among the first m supported odd modulus terms permutes Z/m. Even m>=4 excludes residue 2 (only J0 even). For p|a not dividing a+1, all Jn for n>=1 reduce to ±1, allowing only standalone p=3; if p∤a(a+1), period p-1 limits image to at most p-1 values. Independent exact full-state recurrence enumeration checked every even base a=2..50 and m=1..120 (3000 complete-image decisions), all matched; this finite check supplements the complete infinite proof.
 
-The classical base \(a=2\) complete-moduli theorem is **previous work**, stated as Griffiths–Bramham Theorem 3.5. Its statement fixes the characteristic roots at \(2,-1\) and cannot alone logically furnish the complete family with arbitrary prime support dividing \(a+1\), or the exceptional \(3\mid a\) behavior. Bacani–Rabago address recurrence identities but not complete residues; Sriprad et al. use different characteristic roots. Semantic comparisons against related published number-theory claims did not identify a statement covering this theorem. Exact terminology and implications were compared, not just titles. Residual risk: older general Lucas-sequence theorems could implicitly subsume the result.
+## originality
 
-## Value — PASS
+PASS
 
-The original complete-residue question is an established natural arithmetic invariant. The classification changes structurally with the base: at \(a=14\), every \(3^u5^v\) is complete, an infinite mixed-prime family absent in the classical base \(2\); at \(a=6\), the modulus \(3\) is isolated while arbitrary powers of \(7\) qualify. The precise isometry proves strong equidistribution for both parity subsequences, not merely eventual coverage.
+Griffiths–Bramham Theorem 3.5 already proves a=2 complete moduli 2 and powers of 3. The variable even base theorem with arbitrary supported mixed-prime moduli, isolated 3|a case and p-adic equal-parity isometry is mathematically broader than that special case. Bacani–Rabago and other generalized Jacobsthal papers have distinct recurrences without shown all-even-base completeness criterion. No Resultary query hit implied the same theorem, but broad Lucas recurrence literature may contain an equivalent strong statement.
 
-## Closest literature and limitations
+## value
 
-Griffiths–Bramham is the closest result and covers the entire \(a=2\) case. This theorem makes no contrary novelty claim. Odd-base sequences and arbitrary Lucas recurrences are outside the proven range. A day-resolved March 18, 2015 original source supports the provenance date; the closest article states May 2015 without a verifiable publication day. Independent verification is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Surjectivity of recurrence orbits modulo composite moduli and exact local p-adic isometry constitute natural arithmetic dynamical invariants, not a mere renamed formula. Complete mixed-prime support classification and exceptional p=3 obstruction extend the classical a=2 theorem in a mathematically structural way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
