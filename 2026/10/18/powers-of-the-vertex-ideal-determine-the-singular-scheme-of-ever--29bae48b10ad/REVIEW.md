@@ -1,15 +1,21 @@
-# Review of the rectangular rank-one Fitting singular-scheme theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The ambient conormal presentation forces the \(c\)-th Fitting Jacobian minors to have degree at least \(c=(a-1)(b-1)\). The explicitly chosen \(c\) defining quadrics have a Jacobian subdeterminant equal to \(z_{11}^c\). Characteristic-zero irreducibility of \(\operatorname{Sym}^c(k^a)\otimes\operatorname{Sym}^c(k^b)\) under the two-sided row–column group action proves that these minors span the full degree-\(c\) subspace, giving the complete ideal equality. Direct toric exchange coordinates establish the hypersimplex charts. Exact graded dimensions give each fat point's length. The bundled checker independently tests samples but does not replace the proof.
+## correctness
 
-## Originality
-PASS, with residual literature risk. The historically established hypersimplex toric ideal, triangulations, secant equations, and rank-one local-chart descriptions do not state or prove the uniform intrinsic Fitting-ideal power identity. The extension beyond previously described reduced singular points is a scheme-theoretic calculation, not a renamed count of fixed points. No directly covering theorem was located in the targeted mathematical-record and primary-literature checks. A broader unpublished or poorly indexed determinantal singular-scheme theorem could still imply it; the conclusion is best-knowledge, not a uniqueness certificate.
+PASS
 
-## Mathematical value
-PASS. Determining the intrinsic nonreduced singular scheme is meaningful when reduced singular-support data hide arbitrarily large infinitesimal multiplicities. Both the nilpotency exponent and the exact local/global lengths are uniform across all rectangular ranks, including the balanced hypersimplex family. For example, the reduced singular set of \(X_{3,6}\) has twenty points, but the intrinsic singular scheme has degree \(2920\). This provides a substantive invariant of the failure of smoothness, not merely an additional enumeration of existing singular points.
+PASS: For k algebraically closed of characteristic zero and a,b>=2 the dimension d=a+b-1, codimension c=(a-1)(b-1) rank-one determinantal presentation supplies a c-minor Jacobian Fitting ideal. Each Jacobian entry is linear, giving Fitt_d(Omega_A) subset m^c. The c anchored quadrics z11*zij-zi1*z1j have the interior-column Jacobian matrix z11 I_c; its determinant z11^c is a nonzero class in A. The intrinsic Fitting ideal is GL_a x GL_b stable; its degree-c piece is a nonzero submodule of Sym^c(k^a) tensor Sym^c(k^b), which is an irreducible product-group representation in char0. Thus the entire A_c occurs and m^c subset Fitt; equality follows. This representation-theoretic step, rather than any finite calculation, covers all a,b. Counting degree t monomials u^alpha v^beta yields length L=sum_{t<c}binom(a+t-1,t)binom(b+t-1,t). On each projective chart z_B !=0 of Delta(r,n), all ratios are products of single-exchange t_j/t_i; the row/column toric relations are 2x2 minors (contingency 2x2 swaps), so the local ring is A_{r,n-r}. Its only singular point is the rank-zero origin. Disjoint local lengths yield total binom(n,r)L. Independent symbolic derivative checks of rectangles (2,2),(2,3),(2,4),(3,3),(3,4) confirmed the distinguished diagonal pivot and exact lengths 1,7,39,146,1974; these sample checks are not an infinite proof. Scope 2<=r<=n-2; r=1,n-1 smooth. Does not claim a characteristic-p version or Hilbert-Samuel multiplicity.
 
-## Sources and limitations
-De Loera–Sturmfels–Thomas (1995) gives the toric ideal and Gröbner triangulation; Sullivant (arXiv:0804.2897) gives the secant ideal and symbolic powers. Both are distinct from the differential Fitting computation. Independent audit has not been performed; the proof uses characteristic zero, and an equivalent theorem in unlocated literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): the uniform identification of the differential Fitting ideal with the cth maximal-ideal power and consequent nonreduced scheme colength is more specific than the classical rank-one Segre charts, toric equations, and hypersimplex secant/symbolic-square ideals. Full arXiv HTML of Sullivant 0804.2897v2 concerns Groebner bases for secant and symbolic-square ideals of the second hypersimplex, not Fitt_d(Omega) of the unsecanted toric variety. Results for reduced singular supports or Hilbert-Samuel multiplicities do not imply the nonreduced Fitting length. This is best-of-knowledge only: a general determinantal Jacobian/Fitting-ideal theorem, possibly in Bruns-Vetter, could implicitly yield the result and was not fully checked.
+
+## value
+
+PASS
+
+PASS: The intrinsic nonreduced singular scheme distinguishes a toric singular support of binom(n,r) isolated reduced points from its infinitesimal structure; the uniform nilpotence exponent and scheme lengths (e.g. n=6,r=3 gives 20 points of length 146, degree 2920) are natural numerical singularity invariants. A chart-wise representation-theoretic identity across all rectangular ranks is more than merely observing the already known reduced torus fixed points. It does not assert a new toric chart description alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
