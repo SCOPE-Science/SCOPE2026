@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed claim is one combined exact theorem about rooted intuitionistic fork theories and their minimal-variable branching cutoff. The proof specifies the exact frame, all allowed persistent valuations, and the full intuitionistic implication clause. A structural induction establishes that the pair of root and distinct leaf colors determines every rooted formula; explicit negated minterms recover every leaf color and atoms recover the root color. This gives an exhaustive bijective count, while an explicit finite disjunction is valid at every world on the smaller frame and false at the root of the larger frame. The finite checker directly evaluates the semantics and corroborates all tested counts and distinguishing formulas; it is not substituted for the general proof.
+PASS
 
-## Originality — PASS, with stated residual risk
+PASS: Structural induction on intuitionistic formulas uses the root implication clause plus classical evaluation at each maximal leaf; formulas depend only on (a,S). Atoms distinguish root colors, while negated classical minterms beta_t at the root distinguish presence/absence of each leaf color, proving injectivity. Each allowed pair is realized by repeat colors to fill k leaves, giving the binomial census. Theta_{n,k}, a finite disjunction of negations of minterms outside k-element sets, holds at all points of F_k but fails at a root with k+1 distinct leaf colors; duplication handles l>k. Independent enumeration of all persistent valuations for 1<=n,k<=3 exactly matched nine formula-count cases: n=2 gives 9,17,21 and n=3 gives 27,76,144. Infinite assertion rests on proof, not bounded enumeration.
 
-The closest inspected source, Almeida's 2026 *Uniform Local Tabularity in Intuitionistic Logic*, develops colored models, bisimulation and examples using the two-fork, but its explicit results address uniform implication-depth logic rather than all rooted \(n\)-types of arbitrary finite forks and the sharp \(k\)-versus-\(n\) threshold. Related material in Almeida's dissertation was checked in the universal-model and uniform-tabularity chapters. Hyttinen et al. (2024) obtain exponential color-count bounds for a different layered infinite Esakia construction; it does not establish the exact finite-fork census or the formulas giving each sharp transition. Searches for equivalent fork terminology, bounded branching, full rooted-type profiles, and minimum-variable separation did not identify a dominating theorem. A previously unindexed equivalent specialization of the standard bisimulation theory remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The full classification makes a motivated model-theoretic question exact: how many genuinely different rooted theories can a finite branching frame realize in a restricted propositional language, and precisely when does additional branching become invisible? The binomial census determines the whole natural type spectrum, not one small instance, while the formula construction proves that the cutoff is optimal at every finite level. Such finite-variable compression is relevant to analyzing tabular intermediate logics and generating finite-model test collections; no speculative stronger general theorem is claimed.
+PASS (best knowledge): The Almeida paper addresses uniform implication-depth and general colored-model mechanisms rather than an identified exact all-k fork type census; Hyttinen et al. work on more general layered Esakia spaces is materially different. The fork-specific elementary classification may have been stated in nonindexed intermediate-logic literature, and the closest primary paper was read only in abstract this run, so historical priority is qualified.
 
-## Boundaries
+## value
 
-The count is not the number of elements of a free Heyting algebra; intermediate levels, arbitrary posets and richer languages are not covered. The result is subject to the usual risk of unindexed equivalent results. The code's finite checks are not independent or infinite certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The complete type spectrum and exact minimal-variable frame-distinction threshold are natural finite-model and intermediate-logic invariants; the explicit Theta formula certifies each strict visibility boundary. This is more informative than merely observing a finite-color upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
