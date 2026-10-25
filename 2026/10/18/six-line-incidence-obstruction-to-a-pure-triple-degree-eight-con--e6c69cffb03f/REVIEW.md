@@ -1,9 +1,21 @@
-# Review of the six-line/conic obstruction
+# Independent mathematical audit
 
-**Correctness: PASS.** The intersection counts force six mixed conic–two-line triples and three pure line triples. The six-line triple-incidence hypergraph is necessarily a triangle with one additional line through each vertex; this is proved by the nine line–triple incidences and uniqueness of a line through two points. Its normalized remaining double points have conic evaluation determinant \(u^2(u-1)^2\), nonzero for every admissible parameter. Exact symbolic polynomial expansion was independently checked by the accompanying standalone code. No finite sample is used as the universal proof.
+## correctness
 
-**Originality: PASS, with residual risk.** The motivating Gałecka paper leaves degree eight as a classification problem and does not give this specific geometric obstruction. Dimca–Pokora treats free, rather than arbitrary, conic–line arrangements; the exclusion here holds without a freeness hypothesis and is not implied by its free classification. Roulleau's six-line study assumes a different double-only line arrangement. Actual research-record searches used combinations of conic/line multiplicities, conic interpolation, triangle/cevian normal forms, and stronger-coverage phrasings, without finding an equivalent assertion. This does not certify universal novelty: a classical six-point conic criterion could be unindexed or expressed without the arrangement terminology.
+PASS
 
-**Value: PASS.** The all-ordinary-triple degree-eight type is forced by Bézout to have nine triples and satisfies the numerical nearly-free Tjurina identity with exponents \((4,4)\), yet it fails a genuine projective incidence condition. The proof gives a reusable obstruction for interpolating a conic through the six nodes of a three-triple six-line arrangement, supplying a concrete boundary in the degree-eight realizability problem. This is not a conclusion about every open degree-eight or degree-nine case.
+In CP2 six distinct lines have total pair intersections 15 and a smooth conic has total line-conic intersections 12. Ordinary triple-only incidence forces six conic-plus-two-line triples and three line-only triples. Nine line–triple incidences over three distinct triple points force exactly the sides of a projective triangle and a single additional cevian through each vertex. Normalize axes x=0,y=0,z=0 and cevians y=z,z=x,x=uy with u≠0,1. All six remaining ordinary line double intersections must lie on the conic. Their homogeneous quadratic evaluation matrix has exact polynomial determinant u²(u−1)², nonzero for all admissible u, forbidding even reducible conics. The projective normalization accounts for distinctness/nonconcurrency; no sample-parameter argument substitutes for this identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new nonrealizability for the single degree-eight weak-combinatorial type, independent of free/near-free hypotheses; it is not claimed that Gałecka’s general necessary numerical constraints or the known free-arrangement cases are original. No exact six-double-point conic obstruction appeared in compared sources; possible old projective equivalent remains a risk.
+
+## value
+
+PASS
+
+This is a natural numerically admissible but geometrically impossible case in an explicit open classification: all-nine-triple weak type meets τ=36 and (4,4) near-free counting requirements, yet fails six-point conic interpolation. The constructive obstruction separates realizability from numerical singularity bookkeeping and can be used in neighboring arrangement questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
