@@ -1,0 +1,21 @@
+# Scientific assessment: finite-distance-moment recovery of triangles
+
+## Correctness
+
+**PASS.** The domain is every nondegenerate Euclidean triangle sampled uniformly by area; repeated side lengths are included. The proof fixes the normalization by the exact Dirichlet(1,1,1) barycentric monomial identity, expands \(D^2\) in squared side lengths, and gives the complete \(M_2,M_4,M_6\) polynomials. The included standard-library verifier independently derives all 3+6+10 formal monomial coefficients using rational combinatorial sums and checks the exact formulas, inverse cubic, Heron identity, and a two-moment counterexample. The realizability condition is equivalent to strict Heron positivity for positive squared sides. The uniform stability bound uses a Rouché argument on components of unions of disks with correctly counted root multiplicities; the explicit two-curve family establishes sharp exponent \(1/3\). Computations are finite confirmations of explicit identities, not substitutes for the universal argument. No unproved claim of optimal stability constant or general-polytope extension is made.
+
+## Originality
+
+**PASS with explicit historical-priority risk.** Mathematical-text queries and comparisons against published mathematical records were made for the area identity, three consecutive even distance moments, their cubic inversion, inverse shape stability, and aliases involving chord-power integrals. Tong–Ahmadi–Pan (2013, full online text, Section II) provide a complete *forward* distance distribution from given triangle geometry; Ciccariello (2010) gives isotropic correlation functions. Reichenwallner (2017, full article, Section 3.2, Proposition 4) derives moments of random distances in triangles for a nonmonotonicity study. These results are acknowledged as covering forward moments, not claimed as new. The examined source material does not state an inverse from the particular triple \(M_2,M_4,M_6\), the area identity, its exact moment-feasibility criterion, or the uniform sharp cube-root inverse stability theorem.
+
+Gates (1982) recognized triangles from chord-power information. A 2026 paper explicitly identifies his sufficient set as \(\{I_0,I_1,I_5\}\); its authors prove a different set \(\{I_0,I_1,I_2\}\). The present point-pair moments correspond to area-normalized \(\{I_5,I_7,I_9\}\), so the published sufficient-data statements do not imply the result by relabeling: perimeter and area are not supplied as inputs. The original Gates article was available only through its abstract and later precise citations, not its full proof. This unresolved historical source is identified as a residual novelty risk, rather than being misrepresented as disproved overlap. A published general reconstruction result for another geometric family does not by itself reconstruct arbitrary triangles from this data.
+
+## Mathematical value
+
+**PASS.** This is a natural complete, globally quantitative inverse problem for the simplest nonsymmetric planar convex bodies, using only three expectations rather than a full chord-length distribution. The exact two-moment Heron identity determines area without shape, while the sixth moment resolves an explicit continuum of shape ambiguities. The cubic-root modulus is globally valid without an angle-separation assumption and is proved optimal at the equilateral shape. These features provide a precise statistical geometric descriptor and a rigorous conditioning threshold; they are more than a numerical table or a routine restatement of an available full distribution.
+
+## Closest literature and limits
+
+The forward geometric-probability literature contains general arbitrary-triangle correlation, distance-density, and moment formulas. The original 1982 Gates manuscript was not inspected in full, so independent historical-priority checking is recommended. The theorem is restricted to Euclidean interior-area samples and does not assert a new forward moment integral formula in general degree. The constant in the inverse stability inequality is not optimized. The accompanying rational verification has been run and checked, while the infinite theorem is proved analytically.
+
+Self-review: passed. Independent audit: not yet performed.
