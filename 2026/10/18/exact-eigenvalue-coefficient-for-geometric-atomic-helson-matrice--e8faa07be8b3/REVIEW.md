@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator is well defined: the Gram operator is a positive Toeplitz correlation matrix plus a Hilbert--Schmidt perturbation, and conjugation by a compact polynomial diagonal produces a compact positive Helson operator. The proof reconstructs the eigenvalue correspondence, proves exponential negligibility of the zeta regular part, and derives the limiting count by explicit finite-band spectral localization. The resulting counting coefficient is finite and positive. The claimed Schatten and weak-endpoint properties follow from the proved strict asymptotic. Numerical checks are supplemental rather than infinite-dimensional certificates.
+## correctness
 
-**Originality — PASS, subject to independent review.** The closest primary October 2026 manuscript proves positive Helson representation and a trace-class criterion, which does cover the separate fact that this construction is trace class for \(r>1\), but does not state a pointwise eigenvalue law for geometrically accumulating atoms. The 2024 Helson-matrix Appendix gives general Schatten implications without this leading constant; the 2020 Toeplitz paper gives related spectral-asymptotic machinery for other objects and decay models. The new claim is the particular geometric Helson realization and its precise two-parameter coefficient, not the existence of general Szegő or trace theorems. The August 2026 related weighted-Helson manuscript could not be read completely; an unadvertised equivalent calculation remains a literature risk. Published-record searches for the exact atom/kernel formula and its functional-analytic aliases yielded no direct dominating statement, which is not a proof of uniqueness.
+PASS
 
-**Value — PASS.** This supplies a complete spectral-decay law for a canonical discrete model of positive moments clustering at the critical Dirichlet half-plane boundary, going beyond a qualitative trace-class criterion. The leading constant distinguishes geometric separation ratios, yields a nontrivial closed positive series when \(r=\tfrac12\), and becomes exactly one when \(r=1\). The weak-endpoint residue is determined for every positive polynomial exponent. The result does not assert a paper-sized general classification of Helson measures.
+For q>1, epsilon>0, r>0 the positive Helson matrix is B diag(j^-r) B*, B e_j(n)=sqrt(2delta_j)n^(-1/2-delta_j). The Gram kernel is 2sqrt(delta_j delta_k)zeta(1+delta_j+delta_k); subtract the pole 1/(delta_j+delta_k) to obtain sech((j-k)log(q)/2) plus a rapidly decaying remainder. The integral-test bound 0<=zeta(1+t)-1/t<=1 makes the weighted remainder exponentially approximable in finite rank, hence negligible at any polynomial singular-value scale. The Toeplitz symbol f_q has strictly positive Poisson-summed sech representation, and localized banded Toeplitz block asymptotics yield the counting function N(t)~t^-1/r mean(f_q^(1/r)). Monotone inversion and Weyl/Ky-Fan perturbation inequalities give lambda_n~n^-r(mean f_q^(1/r))^r; the p>0 Schatten and logarithmic weak-endpoint conclusions follow by the p-series. In independent bounded calculations 361 exact-form Gram identities matched sech to roundoff, and the Fourier symbol minimum was positive (q=5 sample min~0.03391), mean 1 and second moment 2.4859146897, consistent with Parseval. Finite Fourier computations do not replace spectral counting.
 
-No independent confirmation of originality, proof, or numerical reproduction has been carried out, and the paper [4] access limitation warrants later human review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.
+
+## value
+
+PASS
+
+Explicit asymptotic eigenvalue coefficients for one natural family of positive atomic Helson forms give strictly more information than a trace-class criterion or mere spectral membership: the q dependence and epsilon independence identify the leading spectral constant, all quasi-Schatten exponents and a weak endpoint residue. The nontrivial bridge from a multiplicative Hankel/zeta Gram to a hyperbolic-secant Toeplitz symbol makes the concrete invariant mathematically motivated and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

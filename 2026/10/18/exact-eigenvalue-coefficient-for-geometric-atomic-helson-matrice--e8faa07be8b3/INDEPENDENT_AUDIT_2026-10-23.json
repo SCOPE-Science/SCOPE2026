@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>1, epsilon>0, r>0 the positive Helson matrix is B diag(j^-r) B*, B e_j(n)=sqrt(2delta_j)n^(-1/2-delta_j). The Gram kernel is 2sqrt(delta_j delta_k)zeta(1+delta_j+delta_k); subtract the pole 1/(delta_j+delta_k) to obtain sech((j-k)log(q)/2) plus a rapidly decaying remainder. The integral-test bound 0<=zeta(1+t)-1/t<=1 makes the weighted remainder exponentially approximable in finite rank, hence negligible at any polynomial singular-value scale. The Toeplitz symbol f_q has strictly positive Poisson-summed sech representation, and localized banded Toeplitz block asymptotics yield the counting function N(t)~t^-1/r mean(f_q^(1/r)). Monotone inversion and Weyl/Ky-Fan perturbation inequalities give lambda_n~n^-r(mean f_q^(1/r))^r; the p>0 Schatten and logarithmic weak-endpoint conclusions follow by the p-series. In independent bounded calculations 361 exact-form Gram identities matched sech to roundoff, and the Fourier symbol minimum was positive (q=5 sample min~0.03391), mean 1 and second moment 2.4859146897, consistent with Parseval. Finite Fourier computations do not replace spectral counting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General banded/Toeplitz spectral asymptotic technology concerns other operators, and the 2026 Helson trace-class criterion covers r>1 membership.",
+          "The candidate establishes lambda_n asymptotics for every r>0."
+        ],
+        "reasoning": "Prior broad methods explain why a weighted Toeplitz local-symbol law is plausible; their statements do not identify the distinct zeta-Helson Gram realization and coefficient. Already-covered r>1 trace class is not credited as independent novelty.",
+        "searches": [
+          "Geometric atomic Helson matrix eigenvalue asymptotic Toeplitz hyperbolic secant q^{-j} n^{-r} spectral coefficient",
+          "Koïta–Kupin–Naboko–Touré arXiv:2006.02586v1",
+          "Ma–Lu–Zu arXiv:2610.12252v1"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 8a09b14e70d395c083fbf496a256322e4bb5272d and actual RESULT.md, verify.py, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+        "arXiv:2407.04124v2",
+        "arXiv:2006.02586v1",
+        "arXiv:2610.12252v1",
+        "arXiv:2608.22882v1 abstract + lawful access failure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For this measure the positive Helson trace test is sum j^-r<infinity, equivalent to r>1.",
+          "Schatten membership estimates alone do not determine the coefficient mean(f_q^(1/r))^r."
+        ],
+        "reasoning": "The r>1 trace-class corollary is covered by prior literature and explicitly excluded from standalone novelty. The full coefficient, epsilon-independent normalization, and all r>0 counting asymptotic require the stated Gram decomposition and weighted Toeplitz proof.",
+        "searches": [
+          "Geometric atomic Helson matrix eigenvalue asymptotic Toeplitz hyperbolic secant q^{-j} n^{-r} spectral coefficient",
+          "arXiv:2610.12252v1 Theorem 3.4 and Example 3.6",
+          "arXiv:2407.04124v2 Appendix Proposition A",
+          "arXiv:2006.02586v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Helson BDB* has nonzero eigenvalues of D^1/2 G D^1/2.",
+          "The pole Gram kernel becomes a weighted Toeplitz matrix with sech Fourier coefficients."
+        ],
+        "reasoning": "The Toeplitz counting theorem is a standard-method equivalent after a new reduction of this specific Helson measure; no inspected Helson source gives this explicit q-dependent coefficient or exact equivalence as its stated result. The generic trace-class test is not equivalent to eigenvalue asymptotics.",
+        "searches": [
+          "Geometric atomic Helson matrix eigenvalue asymptotic Toeplitz hyperbolic secant q^{-j} n^{-r} spectral coefficient",
+          "arXiv:2407.04124v2",
+          "arXiv:2006.02586v1",
+          "arXiv:2610.12252v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on geometric Rhaly singular values and generalized Cesàro operators have other matrices/weights.",
+          "No q-dependent sech symbol Helson eigenvalue coefficient was located."
+        ],
+        "reasoning": "This is not an exact finite table claim, but a full infinite eigenvalue asymptotic. Searched closest published spectral profiles and primary Helson papers for a dominating coefficient; absence of an indexed hit is not proof of priority.",
+        "searches": [
+          "Geometric atomic Helson matrix eigenvalue asymptotic Toeplitz hyperbolic secant q^{-j} n^{-r} spectral coefficient",
+          "Resultary semantic top-12 geometric atomic Helson search",
+          "arXiv:2407.04124v2 appendix"
+        ]
+      },
+      "rationale": "The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.",
+      "residual_risks": [
+        "The very relevant arXiv:2608.22882 could not be read fully. Authorized Oxford acquisition returned vpn_disconnected; novelty confidence is best-of-knowledge, not negative full-text certification.",
+        "The exact weighted Toeplitz counting mechanism is established mathematics; only its particular Helson realization/coefficient is candidate new.",
+        "Finite Gram/Fourier checks do not establish all-index eigenvalue asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_SAME_ASYMPTOTIC",
+          "evidence": "Schatten/scattering bounds but not n^r lambda_n coefficient for geometric atoms.",
+          "identifier_or_url": "arXiv:2407.04124v2",
+          "material_read": "Primary full PDF, Theorem 2.1 and Appendix Proposition A",
+          "method": "full-text PDF",
+          "title": "Helson matrices induced by measures",
+          "trigger": "Same positive moment-generated Helson matrices and Schatten conditions"
+        },
+        {
+          "assessment": "ANALOGOUS_DIFFERENT_OPERATOR",
+          "evidence": "Weighted/Bergman Toeplitz and banded local asymptotics, not the zeta-Helson geometric atomic Gram matrix.",
+          "identifier_or_url": "arXiv:2006.02586v1",
+          "material_read": "Primary full PDF; introduction, Theorem 0.2, §4.2",
+          "method": "full-text PDF",
+          "title": "On spectral properties of compact Toeplitz operators on Bergman space with logarithmically decaying symbol and applications to banded matrices",
+          "trigger": "Strong broader weighted Toeplitz counting theory"
+        },
+        {
+          "assessment": "COVERS_TRACE_CLASS_COROLLARY",
+          "evidence": "Trace criterion implies r>1; does not state q-dependent spectral coefficient.",
+          "identifier_or_url": "arXiv:2610.12252v1",
+          "material_read": "Primary online text, main Helson moment theorems and trace-class criterion",
+          "method": "primary HTML full text",
+          "title": "Unbounded Helson Forms with a Moment Representation",
+          "trigger": "Newest Helson trace class generality"
+        },
+        {
+          "assessment": "MATERIAL_NOT_FULLY_AVAILABLE",
+          "evidence": "Cannot determine whether uninspected parts contain an equivalent specialization; recorded as priority risk, not disproof.",
+          "identifier_or_url": "arXiv:2608.22882v1",
+          "material_read": "Accessible abstract only; attempts at lawful full text unsuccessful; institutional download reported VPN disconnected",
+          "method": "abstract+failed authorized full-text attempts",
+          "title": "Helson Forms and Integral Operators on Bergman Spaces of Dirichlet Series",
+          "trigger": "Closest recent potentially dominating geometric Helson paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Explicit asymptotic eigenvalue coefficients for one natural family of positive atomic Helson forms give strictly more information than a trace-class criterion or mere spectral membership: the q dependence and epsilon independence identify the leading spectral constant, all quasi-Schatten exponents and a weak endpoint residue. The nontrivial bridge from a multiplicative Hankel/zeta Gram to a hyperbolic-secant Toeplitz symbol makes the concrete invariant mathematically motivated and reusable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 8a09b14e70d395c083fbf496a256322e4bb5272d and actual RESULT.md, verify.py, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+    "arXiv:2407.04124v2",
+    "arXiv:2006.02586v1",
+    "arXiv:2610.12252v1",
+    "arXiv:2608.22882v1 abstract + lawful access failure"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The very relevant arXiv:2608.22882 could not be read fully. Authorized Oxford acquisition returned vpn_disconnected; novelty confidence is best-of-knowledge, not negative full-text certification.",
+    "The exact weighted Toeplitz counting mechanism is established mathematics; only its particular Helson realization/coefficient is candidate new.",
+    "Finite Gram/Fourier checks do not establish all-index eigenvalue asymptotics."
+  ],
+  "residual_risks": [
+    "The very relevant arXiv:2608.22882 could not be read fully. Authorized Oxford acquisition returned vpn_disconnected; novelty confidence is best-of-knowledge, not negative full-text certification.",
+    "The exact weighted Toeplitz counting mechanism is established mathematics; only its particular Helson realization/coefficient is candidate new.",
+    "Finite Gram/Fourier checks do not establish all-index eigenvalue asymptotics."
+  ],
+  "schema_version": 1
+}
