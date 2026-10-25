@@ -1,15 +1,21 @@
-# Scientific review: coprime-period cube rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The generating recurrence implies aligned blocks \(a_m(1-a_m)a_m\). An equal adjacent pair can occur only at a block boundary, while the even-sampled symbols \(a_m\) cannot have four alternating terms. These two exact constraints force any cube whose period is coprime to three to be alternating, with period two and length six. The no-ten-bit-alternation lemma proves the sharp \(9/2\) upper bound, which is attained at positions \(12\)–\(20\). The accompanying exact verifier independently checks the first 50,000 letters and the stated bounded period range, but finite observation is not used to establish the infinite theorem.
+## correctness
 
-## Originality — PASS within checked evidence
-The same-word primary source (Dekking, arXiv:2301.13563, 2023) proves the recurrence and presents an unrestricted critical-exponent conjecture. Dekking–Keane (2023) includes an alternating fourth-power example; the later Cassaigne–Espinoza–Rigo–Stipulanti manuscript (arXiv:2602.21895) concerns frequencies, morphic relations and recurrence. OEIS A357448 contains finite values and the defining substitution. None of those examined results states, or by its given conclusions establishes, the exact coprime-to-three cube classification or its sharp restricted exponent. An unindexed equivalent theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The three-fold block boundaries make the divisibility of periods by three a mathematically intrinsic split, not a chosen numerical slice. The theorem identifies the complete cube spectrum on one side of that split and a sharp restricted critical exponent, giving a structural partial answer to the published critical-exponent problem.
+The recurrence groups aligned triples as (a_m,1-a_m,a_m), a_m=x_{2m}; adjacent equalities in x can start only at indices 2 mod 3. Every four successive a_m include adjacent equal a-values because one of their even-index pairs equals x_(3j),x_(3j+2). An alternating x factor of length ten would cross three consecutive aligned triple boundaries, forcing four alternating a-values, a contradiction; maximum alternation length at most nine. In a period-p length-3p cube with 3 not dividing p, any equal neighboring letters recur at two or three pair starts with distinct residues mod3, impossible. The cube must therefore be alternating, requiring even p and 3p<=9, hence p=2, words 010101 or 101010. If L>=3p and p coprime to3, the alternating period-2 prefix propagates and L<=9; otherwise exponent below 3. Recurrence directly gives x12..20=101010101, attaining sharp 9/2. No assumption on periods divisible by three.
 
-## Limitations
-The unrestricted critical exponent, and repetitions at periods divisible by \(3\), remain unresolved by this proof. Further specialist review may reveal equivalent literature. The finite executable checker is not a substitute for the universal argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The aligned length-three recurrence is due to Dekking and not novel; Dekking documents the conjecture that unrestricted critical exponent is five. The current proof adds a local equality-residue obstruction and exact 9/2 restricted exponent not found in the inspected original sequence papers or the later frequency-analysis work. Resultary semantic search did not identify a same-word repetition classification. A semantically equivalent earlier specialized word-combinatorics result remains possible.
+
+## value
+
+PASS
+
+Determines an exact sharp restricted critical exponent and a universal factor classification for a well-studied nonuniform-base digit-parity word. This gives a natural separable obstruction within the unresolved unrestricted power problem, not a trivial finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

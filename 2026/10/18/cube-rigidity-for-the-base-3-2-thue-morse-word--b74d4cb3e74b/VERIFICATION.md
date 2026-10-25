@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` with Python 3, standard library only. The script independently regenerates the first 50,000 binary symbols from the published integer-index recurrence and compares the first 5,000 against the direct base-\(3/2\) digit-parity algorithm. It checks the precise length-nine witness at indices \(12\)–\(20\), the maximum alternating-run length within that finite prefix, and every cube whose period is between \(1\) and \(120\) and coprime to \(3\) that lies entirely within that prefix. The finite checks are supportive only.
+## correctness
 
-The infinite proof is entirely elementary: equal-adjacent starts are restricted modulo three, four consecutive even-sampled bits have an equal adjacent pair, alternating runs have maximum length nine, and a coprime-period cube with an equal pair would replicate that pair across forbidden residues. This yields the complete length-\(3p\) classification and the sharp restricted exponent.
+PASS
 
-No claims are made about powers with periods divisible by \(3\), nor is the unrestricted critical-exponent conjecture settled. No independent mathematical audit has been conducted.
+The recurrence groups aligned triples as (a_m,1-a_m,a_m), a_m=x_{2m}; adjacent equalities in x can start only at indices 2 mod 3. Every four successive a_m include adjacent equal a-values because one of their even-index pairs equals x_(3j),x_(3j+2). An alternating x factor of length ten would cross three consecutive aligned triple boundaries, forcing four alternating a-values, a contradiction; maximum alternation length at most nine. In a period-p length-3p cube with 3 not dividing p, any equal neighboring letters recur at two or three pair starts with distinct residues mod3, impossible. The cube must therefore be alternating, requiring even p and 3p<=9, hence p=2, words 010101 or 101010. If L>=3p and p coprime to3, the alternating period-2 prefix propagates and L<=9; otherwise exponent below 3. Recurrence directly gives x12..20=101010101, attaining sharp 9/2. No assumption on periods divisible by three.
+
+## originality
+
+PASS
+
+The aligned length-three recurrence is due to Dekking and not novel; Dekking documents the conjecture that unrestricted critical exponent is five. The current proof adds a local equality-residue obstruction and exact 9/2 restricted exponent not found in the inspected original sequence papers or the later frequency-analysis work. Resultary semantic search did not identify a same-word repetition classification. A semantically equivalent earlier specialized word-combinatorics result remains possible.
+
+## value
+
+PASS
+
+Determines an exact sharp restricted critical exponent and a universal factor classification for a well-studied nonuniform-base digit-parity word. This gives a natural separable obstruction within the unresolved unrestricted power problem, not a trivial finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
