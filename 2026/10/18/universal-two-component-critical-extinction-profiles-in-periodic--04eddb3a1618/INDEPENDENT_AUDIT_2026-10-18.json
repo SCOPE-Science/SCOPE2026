@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T22:01:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive invariant rectangles exist by choosing tau/d2<r<d1/sigma, so solutions are bounded and positive. Logistic comparison with a2 positive mean bounds resident y below away from zero. For p=sigma/d2, G'=a1+p*a2 with zero mean, exact W=x*y^p*exp(-G) satisfies W'/W=-kx and (1/W)'=k exp(G)*y^-p>c>0; hence W and x are O(1/t). Log ratio h=log(y/Y) satisfies scalar forced stable equation h'=tau*x-d2*Y(e^h-1), so h=O(1/t). Integration of the exact inverse W law against periodic Q yields W=(kI*t)^-1+O(log t/t²), x=f(t)/t+same error; subtract unique positive periodic solution H(t)/t in h equation to obtain h=H/t+O(log t/t²) and y=Y+YH/t+same error. Mean(f)=1/k by normalization, rigorously proving seasonal invariance. Independent rational check for source coefficients (d1,d2,sigma,tau)=(2,3,4/5,11/10) gives k=128/75; finite RK4 output not a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 full-text §4.4 discusses limiting non-strict cases separately and the strict boundary hypotheses. 2023/2025 forward-attractor work needs positive exclusion gap."
+        ],
+        "reasoning": "The known results do not yield the displayed coefficient and full positive resident-correction first profile at the exact zero-invasion boundary. General normal-form theory might be applicable but explicit coefficient not located.",
+        "searches": [
+          "Forwards Attractor Structures in a Planar Cooperative Non-autonomous Lotka–Volterra System §4.4",
+          "arxiv:2301.04955 §6.2",
+          "RESULTARY:periodically forced cooperative Lotka Volterra critical zero invasion extinction 1/t periodic profile"
+        ]
+      },
+      "checked_sources": [
+        "Garcia-Fuentes, Kalita and Langa 2024 full journal HTML DOI:10.1007/s12346-024-01020-0",
+        "Garcia-Fuentes et al arxiv:2301.04955",
+        "Resultary RESULTARY:periodically forced cooperative Lotka Volterra critical zero invasion extinction 1/t periodic profile",
+        "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive invasion/decay exponent produces exponential attraction in published results, whereas at equality the exponent vanishes."
+        ],
+        "reasoning": "One cannot substitute zero into an exponential estimate with a strict positivity hypothesis. The exact W inverse-identity and periodic averaging supply a substantive missing critical argument.",
+        "searches": [
+          "Garcia-Fuentes et al 2024 §4.2, §4.4",
+          "arxiv:2301.04955 §6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero mean(a1+sigma a2/d2)=0 is the boundary invasion Floquet exponent with opposite b12=-sigma sign convention."
+        ],
+        "reasoning": "Strict-gap theorems do not extend by setting gap=0; their rate conclusions change from exponential to t^-1. The theorem concerns forward strictly positive solutions only, not complete attractors.",
+        "searches": [
+          "Garcia-Fuentes Kalita Langa 2024 §4.4 DOI:10.1007/s12346-024-01020-0",
+          "arxiv:2301.04955 §6.2",
+          "RESULTARY:periodically forced cooperative Lotka Volterra critical zero invasion extinction 1/t periodic profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed Resultary results on other predator-prey critical t^-1 flows and strict periodic harvest boundaries involve different models; no same two-species waveform-invariant amplitude."
+        ],
+        "reasoning": "No exact same model critical profile among top indexed hits; no novelty proof from absence.",
+        "searches": [
+          "RESULTARY:periodically forced cooperative Lotka Volterra critical zero invasion extinction 1/t periodic profile",
+          "Resultary:periodic cooperative Lotka Volterra critical equal invasion Floquet t^-1"
+        ]
+      },
+      "rationale": "Garcia-Fuentes, Kalita and Langa 2024 examine forward attractors under strict average inequalities and discuss the critical cooperative equality boundary as open/not covered; their other joint 2023 arXiv work uses a positive gap. Neither previously established the entire universal periodic t^-1 asymptotic and resident above-orbit correction. A broad center-manifold reduction could imply rates but must be compared at the specific time-dependent coefficients.",
+      "residual_risks": [
+        "Classical nonautonomous center-manifold theorems could imply a general critical asymptotic from which this example is a corollary; no exact stronger statement found.",
+        "The finding does not solve the broad backward/complete-attractor classification; coefficients must be time independent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict averages and other attractor structure covered; no printed positive forward t^-1 pair profile at equality in inspected theorems.",
+          "evidence": "§4.4 nonstrict/equality issue; sign convention b12=-sigma.",
+          "identifier_or_url": "DOI:10.1007/s12346-024-01020-0; Springer open full article",
+          "material_read": "Full accessible HTML, introduction and main §§2, 4.2, 4.4 with critical boundary comparisons materially read.",
+          "method": "primary full-text HTML reading",
+          "title": "Forwards Attractor Structures in a Planar Cooperative Non-autonomous Lotka–Volterra System",
+          "trigger": "Exact cooperative periodic model and the equality boundary"
+        },
+        {
+          "assessment": "The extinction comparison uses a strictly positive gap, unlike critical equality.",
+          "evidence": "Strict-decay parameter in §6.2.",
+          "identifier_or_url": "arxiv:2301.04955",
+          "material_read": "Accessible paper summaries and §§4.4/6.2 theorem statements checked; full article not read line-by-line.",
+          "method": "arxiv full-text and mathematical implication comparison",
+          "title": "Forwards attractors for non-autonomous Lotka–Volterra cooperative systems: a detailed geometrical description",
+          "trigger": "Possible stronger prior by same authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a motivated critical-invasion boundary in a standard two-species periodically forced ecology ODE with explicit universal positive periodic profiles and forcing-independent mean coefficient, separating critical algebraic relaxation from the known strict-gap exponential regime.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Garcia-Fuentes, Kalita and Langa 2024 full journal HTML DOI:10.1007/s12346-024-01020-0",
+    "Garcia-Fuentes et al arxiv:2301.04955",
+    "Resultary RESULTARY:periodically forced cooperative Lotka Volterra critical zero invasion extinction 1/t periodic profile",
+    "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, check.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical nonautonomous center-manifold theorems could imply a general critical asymptotic from which this example is a corollary; no exact stronger statement found.",
+    "The finding does not solve the broad backward/complete-attractor classification; coefficients must be time independent.",
+    "The source Git-tree ancestry was not independently traversed; source content and frozen commit SHA were checked via file blob fetches.",
+    "The original metadata contains operational provenance; no publication or Git write occurred. Scientific acceptance and publication readiness are separate."
+  ],
+  "residual_risks": [
+    "Classical nonautonomous center-manifold theorems could imply a general critical asymptotic from which this example is a corollary; no exact stronger statement found.",
+    "The finding does not solve the broad backward/complete-attractor classification; coefficients must be time independent."
+  ],
+  "schema_version": 1
+}

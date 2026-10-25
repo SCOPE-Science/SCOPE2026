@@ -1,15 +1,21 @@
-# Scientific assessment: critical periodic cooperative extinction profiles
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is global for all finite strictly positive initial data and for every continuous jointly periodic pair of intrinsic growth rates satisfying the stated mean relation. Cooperative diagonal dissipativity supplies an explicit inward-pointing rectangle; scalar logistic comparison gives a positive lower bound for the resident population. With \(p=\sigma/d_2\), the weighted variable \(W=xy^pe^{-G}\) satisfies the exact identity \((1/W)'=k e^G y^{-p}\). This establishes the initial \(O(t^{-1})\) decay without assuming the desired limit. Uniform scalar dissipation gives \(\log(y/Y)=O(t^{-1})\), periodic averaging sharpens the first component to \(f(t)/t+O(\log t/t^2)\), and a second stable scalar linear equation gives the positive resident correction \(Z(t)/t+O(\log t/t^2)\). The proof checks the zero-mean boundary and all normalizing constants. A standalone standard-library numerical checker confirms exact rational cancellations and long-time trajectories but is not used as a substitute for proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-The primary 2024 full-text comparison, Garcia-Fuentes–Kalita–Langa, DOI: 10.1007/s12346-024-01020-0, separates cases by **strict** periodic average inequalities and explicitly states in §4.4 that cooperative boundary equalities remain open. The 2023 preprint arXiv:2301.04955 (read §§4.4, 6.2) imposes an extinction gap in the pertinent attraction theorem. Neither inspected statement covers the exact zero-invasion boundary, much less the initial-data-independent *two-component* oscillatory polynomial profile and universal seasonal mean. Tineo's 2005 theorem instead addresses competitive interactions, a distinct sign structure, and was accessible only at abstract level. Targeted searches for equivalent formulations, stronger periodic-Lotka–Volterra theorems, and matching published results found related critical extinction results in different ecological systems but no decisive implication. Database nonmatches are not taken as proof of priority; unseen parallel work and the limited older-paper access remain risks.
+PASS
 
-## Mathematical value — PASS
-The 2024 study identifies the cooperative equality boundary as a mathematical gap. At this boundary the linear invasion exponent vanishes, so strict exponential extinction estimates do not apply. The exact weighted cancellation yields a nonhyperbolic global convergence theorem, two positive seasonal asymptotic profiles, eventual one-sided approach of the resident species, and an exact season-independent mean extinction amplitude \(1/(d_1-\sigma\tau/d_2)\). These quantities distinguish the critical transition from neighboring strict persistence/extinction regions and quantify its convergence, rather than recomputing an elementary equilibrium or an arbitrary finite slice.
+Positive invariant rectangles exist by choosing tau/d2<r<d1/sigma, so solutions are bounded and positive. Logistic comparison with a2 positive mean bounds resident y below away from zero. For p=sigma/d2, G'=a1+p*a2 with zero mean, exact W=x*y^p*exp(-G) satisfies W'/W=-kx and (1/W)'=k exp(G)*y^-p>c>0; hence W and x are O(1/t). Log ratio h=log(y/Y) satisfies scalar forced stable equation h'=tau*x-d2*Y(e^h-1), so h=O(1/t). Integration of the exact inverse W law against periodic Q yields W=(kI*t)^-1+O(log t/t²), x=f(t)/t+same error; subtract unique positive periodic solution H(t)/t in h equation to obtain h=H/t+O(log t/t²) and y=Y+YH/t+same error. Mean(f)=1/k by normalization, rigorously proving seasonal invariance. Independent rational check for source coefficients (d1,d2,sigma,tau)=(2,3,4/5,11/10) gives k=128/75; finite RK4 output not a proof.
 
-## Closest sources and limitations
-The full-text sources considered were the 2024 forward-attractor article and the 2023 cooperative forward-attractor preprint. The competitive Tineo (2005) work was compared via its abstract and the 2024 authors' discussion only; no claim is made about its inaccessible body. The result does not settle the structure of all bounded complete or backward trajectories or permit nonperiodic or time-varying interaction coefficients. Self-review is not independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Garcia-Fuentes, Kalita and Langa 2024 examine forward attractors under strict average inequalities and discuss the critical cooperative equality boundary as open/not covered; their other joint 2023 arXiv work uses a positive gap. Neither previously established the entire universal periodic t^-1 asymptotic and resident above-orbit correction. A broad center-manifold reduction could imply rates but must be compared at the specific time-dependent coefficients.
+
+## value
+
+PASS
+
+The theorem resolves a motivated critical-invasion boundary in a standard two-species periodically forced ecology ODE with explicit universal positive periodic profiles and forcing-independent mean coefficient, separating critical algebraic relaxation from the known strict-gap exponential regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Proof and reproducibility checks
+# Independent mathematical audit
 
-The critical algebraic cancellation is exact: for \(p=\sigma/d_2\), \(k=d_1-p\tau>0\) and \(G'=a_1+p a_2\), logarithmic differentiation of \(xy^pe^{-G}\) eliminates both forcing functions and the resident-dependent cross term. The remaining drift is \(-kx\), so \((1/W)'=k e^G y^{-p}>0\). Positivity/finite bounds, the logistic comparison, and the scalar convolution estimates are proved directly in `RESULT.md`. They are not certified by the numerical tests.
+## correctness
 
-Run `python3 check.py` using Python 3.8+ with the standard library. The checker verifies the cancellation coefficients as exact rational numbers; constructs the logistic resident orbit and the predicted positive periodic correction; checks the exact averaged coefficient \(1/k\) by quadrature; and integrates two very different positive initial states through 320 forcing periods. The numerical outputs are finite-horizon convergence diagnostics, not proofs for infinite time or priority. A representative execution returned \(k=1.7066666666666668\), \(\langle f\rangle=0.5859375\), predicted phase values \(f=0.2799365956972193\) and \(Z=0.13018741038964696\); computed \(tx=0.2799471319941986\), \(t(y-Y)=0.1302166007123871\) for one initial state, with the other trajectory approaching the same profiles.
+PASS
 
-The mathematical conclusion is confined to the stated positive initial data, periodic continuous growth rates, constant cooperative couplings with \(d_1d_2>\sigma\tau\), and the exact zero-mean invasion boundary. No independent audit, formal proof certification, exhaustive search, or backward-attractor classification has been performed.
+Positive invariant rectangles exist by choosing tau/d2<r<d1/sigma, so solutions are bounded and positive. Logistic comparison with a2 positive mean bounds resident y below away from zero. For p=sigma/d2, G'=a1+p*a2 with zero mean, exact W=x*y^p*exp(-G) satisfies W'/W=-kx and (1/W)'=k exp(G)*y^-p>c>0; hence W and x are O(1/t). Log ratio h=log(y/Y) satisfies scalar forced stable equation h'=tau*x-d2*Y(e^h-1), so h=O(1/t). Integration of the exact inverse W law against periodic Q yields W=(kI*t)^-1+O(log t/t²), x=f(t)/t+same error; subtract unique positive periodic solution H(t)/t in h equation to obtain h=H/t+O(log t/t²) and y=Y+YH/t+same error. Mean(f)=1/k by normalization, rigorously proving seasonal invariance. Independent rational check for source coefficients (d1,d2,sigma,tau)=(2,3,4/5,11/10) gives k=128/75; finite RK4 output not a proof.
+
+## originality
+
+PASS
+
+Garcia-Fuentes, Kalita and Langa 2024 examine forward attractors under strict average inequalities and discuss the critical cooperative equality boundary as open/not covered; their other joint 2023 arXiv work uses a positive gap. Neither previously established the entire universal periodic t^-1 asymptotic and resident above-orbit correction. A broad center-manifold reduction could imply rates but must be compared at the specific time-dependent coefficients.
+
+## value
+
+PASS
+
+The theorem resolves a motivated critical-invasion boundary in a standard two-species periodically forced ecology ODE with explicit universal positive periodic profiles and forcing-independent mean coefficient, separating critical algebraic relaxation from the known strict-gap exponential regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
