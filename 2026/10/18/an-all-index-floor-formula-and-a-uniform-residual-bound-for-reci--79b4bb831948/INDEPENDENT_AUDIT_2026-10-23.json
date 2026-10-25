@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:02:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define alpha=1+sqrt2, a=alpha^{-2}=3-2sqrt2,z=a^n,t=(-1)^n. The exact Binet/binomial expansion S_n=64 z^2[c0+c1 t z+c2 z^2+H] with c0=(1-a^2)^-1,c1=4/(1+a^3),c2=10/(1-a^4) yields inverse coefficients A=-1/4+3sqrt2/16, B=-1/5+sqrt2/10, C=67sqrt2/1200. The proof bounds |H|/c0<21z^3 for n>=3, and remainder |S_n^-1 -(A z^-2+B t z^-1+C)|<180 A z, giving |S_n^-1 -T_n-C|<0.017. As 0.078<C<0.080, 0<S_n^-1-T_n<0.1 for n>=3. Direct rational Pell-growth enclosures handle n=1 and n=2; (-1)^n(2P_2n-Q_2n) modulo 5 and P_4n,Q_4n modulo 4 yield T_n fractional parts 0.9,0.5,0.1 in the three classes, so floors agree without a boundary crossing. Independently formed exact rational tail enclosures for n=1..16 confirming 0<R_n-T_n<0.1 and residues; these are finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yang–Yuan Theorem 2.4 dominates the asymptotic expansion and the eventual floor implication.",
+          "Balancing fourth-power tails treat an even-Pell-index subsequence with a different series, and Fibonacci fourth powers have different recurrence."
+        ],
+        "reasoning": "Strong coverage of the leading expansion is explicitly conceded. No inspected general theorem provides a uniform residual inequality for the full Pell fourth-power tail at n=1,2 as well as n>=3.",
+        "searches": [
+          "https://doi.org/10.3934/era.2025020",
+          "https://arxiv.org/abs/2609.31548",
+          "https://doi.org/10.1515/math-2022-0525"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/era/2025/1/PDF/era-33-01-020.pdf",
+        "https://doi.org/10.1186/1687-1847-2013-184",
+        "Resultary semantic: Pell sequence fourth power reciprocal infinite sum inverse floor all n uniform residual Li Yang Yuan Lucas",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/an-all-index-floor-formula-and-a-uniform-residual-bound-for-reci--79b4bb831948"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.4 gives T_n+C+o(1) and indeed eventual floor equality by distance of {T_n} from integers.",
+          "Xu–Wang 2013 addresses reciprocal Pell cubes and asks about higher exponents."
+        ],
+        "reasoning": "An asymptotic can establish sufficiently large n but does not bound its exceptional cutoff; the explicit global margin and direct two exceptional cases survive.",
+        "searches": [
+          "https://doi.org/10.3934/era.2025020",
+          "https://doi.org/10.1186/1687-1847-2013-184"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pell/Lucas Binet expressions can be written as T_n+C+o(1); this alias and the balancing-number even-Pell subsequence were compared."
+        ],
+        "reasoning": "Algebraic Binet equivalence is acknowledged. The quantitative uniform all-index inequality adds finite-index information beyond an asymptotic with unspecified threshold.",
+        "searches": [
+          "Resultary semantic: Pell sequence fourth power reciprocal infinite sum inverse floor all n uniform residual Li Yang Yuan Lucas",
+          "Pell 4th reciprocal tail generalized Lucas fourth-power n all index inequality",
+          "https://www.aimspress.com/aimspress-data/era/2025/1/PDF/era-33-01-020.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The initial floors 0,15,606,20127,686446,23303293,791717374 were checked through rational bracketing.",
+          "Neither a finite table nor the known asymptotic certifies infinitely many all-index residual inequalities."
+        ],
+        "reasoning": "The first few entries are consequences, not the result by themselves; no dominating exact table was identified.",
+        "searches": [
+          "https://doi.org/10.3934/era.2025020",
+          "Resultary semantic: Pell sequence fourth power reciprocal infinite sum inverse floor all n uniform residual Li Yang Yuan Lucas"
+        ]
+      },
+      "rationale": "Li–Yang–Yuan (2025) gives the SAME leading fourth-power Pell inverse-tail asymptotic T_n+C+o(1); by the proved finite residue obstruction it ALREADY implies floor equality for sufficiently large n. The surviving contribution is explicit strict (0,0.1) uniform residual for every n and complete all-index floor equality, neither a consequence of an unspecified o(1) threshold for the initial indices.",
+      "residual_risks": [
+        "Known 2025 asymptotic covers all large-n information; novelty strictly limited to explicit global inequality and initial indices.",
+        "Possible unindexed direct fourth-power all-index formula.",
+        "Ceiling 1/10 is sufficient, not established sharp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PARTIAL_COVERAGE: SAME ASYMPTOTIC AND EVENTUAL FLOOR",
+          "evidence": "The specialized expansion has precisely T_n+67sqrt2/1200+o(1). It does not give the strict uniform 0<R_n-T_n<1/10 for n>=1.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/era/2025/1/PDF/era-33-01-020.pdf",
+          "material_read": "Published full primary PDF, including Theorem 2.4 and surrounding asymptotic, PDF page 3",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "The asymptotic behavior of the reciprocal sum of generalized Fibonacci numbers",
+          "trigger": "Strongest plausible prior: generalized Lucas reciprocal fourth powers"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Solves exponent three rather than exponent four; supplies mathematical motivation.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1847-2013-184",
+          "material_read": "Published article abstract/method introduction and cubic theorem statements; fourth-power theorem not identified",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "The infinite sum of the cubes of reciprocal Pell numbers",
+          "trigger": "Earlier exact Pell reciprocal-floor method and open higher-power question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-index bound settles the natural exceptional-small-index portion of a published Pell reciprocal fourth-power floor problem. The period-three fractional obstruction makes the global 0.1 threshold mathematically relevant and enables an exact algorithm-free floor at every index, not just a routine term of an expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Known 2025 asymptotic covers all large-n information; novelty strictly limited to explicit global inequality and initial indices.",
+    "Possible unindexed direct fourth-power all-index formula.",
+    "Ceiling 1/10 is sufficient, not established sharp."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Binet/binomial expansion (3), rational tail estimate (4), reciprocal error identity (5), surd identities (7), and explicit small-index rational bounds prove \(0<S_n^{-1}-T_n<1/10\) for every \(n\ge1\). The three-class fractional obstruction proves the floor equality. All endpoint inequalities are strict. Exact rational spot checks for forty indices and exact quadratic-field arithmetic reproduce critical arithmetic; none is treated as proof for arbitrarily large indices.
+## correctness
 
-**Originality — PASS, with substantial pre-existing asymptotic coverage.** Li–Yang–Yuan (2025), Theorem 2.4, implies the *same* asymptotic \(S_n^{-1}=T_n+67\sqrt2/1200+o(1)\) for Pell, hence by residue analysis already implies the eventual floor formula. The non-subsumed statement is the **explicit global residual inequality** and **all-index floor**; an asymptotic alone provides neither an explicit threshold nor any proof for the initial indices. Xu–Wang (2013) poses the higher-power Pell floor problem but solves only the cube. Fibonacci-fourth and balancing-fourth results concern other tails. Searches found no earlier exact all-index Pell-fourth bound; unindexed overlap is possible.
+PASS
 
-**Value — PASS.** A uniform bound, including the delicate low indices where asymptotic theory is silent, closes the natural exact-index problem for fourth-power Pell reciprocal tails. The period-three fractional-part separation makes the tight \(1/10\) error enclosure mathematically decisive, not a cosmetic error term. It is a motivated completion of the 2013 higher-power Pell problem, not a mere new numerical example.
+Define alpha=1+sqrt2, a=alpha^{-2}=3-2sqrt2,z=a^n,t=(-1)^n. The exact Binet/binomial expansion S_n=64 z^2[c0+c1 t z+c2 z^2+H] with c0=(1-a^2)^-1,c1=4/(1+a^3),c2=10/(1-a^4) yields inverse coefficients A=-1/4+3sqrt2/16, B=-1/5+sqrt2/10, C=67sqrt2/1200. The proof bounds |H|/c0<21z^3 for n>=3, and remainder |S_n^-1 -(A z^-2+B t z^-1+C)|<180 A z, giving |S_n^-1 -T_n-C|<0.017. As 0.078<C<0.080, 0<S_n^-1-T_n<0.1 for n>=3. Direct rational Pell-growth enclosures handle n=1 and n=2; (-1)^n(2P_2n-Q_2n) modulo 5 and P_4n,Q_4n modulo 4 yield T_n fractional parts 0.9,0.5,0.1 in the three classes, so floors agree without a boundary crossing. Independently formed exact rational tail enclosures for n=1..16 confirming 0<R_n-T_n<0.1 and residues; these are finite checks only.
 
-**Limitations and residual risks.** Prior work supplies the large-index expansion; discovery and title must not claim that expansion as new. Exact all-index results may be present in unindexed literature. The error ceiling is not asserted optimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Yang–Yuan (2025) gives the SAME leading fourth-power Pell inverse-tail asymptotic T_n+C+o(1); by the proved finite residue obstruction it ALREADY implies floor equality for sufficiently large n. The surviving contribution is explicit strict (0,0.1) uniform residual for every n and complete all-index floor equality, neither a consequence of an unspecified o(1) threshold for the initial indices.
+
+## value
+
+PASS
+
+The all-index bound settles the natural exceptional-small-index portion of a published Pell reciprocal fourth-power floor problem. The period-three fractional obstruction makes the global 0.1 threshold mathematically relevant and enables an exact algorithm-free floor at every index, not just a routine term of an expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
