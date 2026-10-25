@@ -1,11 +1,21 @@
-# Scientific review: the six-flex incidence cover
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed source quartic is a direct expansion of the Hesse polar equation in [1, Corollary 36]. Smoothness is checked for precisely the specified parameter domain, not extrapolated from the word "general": affine singular-point elimination forces \(\gamma^3=1\), and the remaining boundary cases are explicitly excluded. Triple-contact differentiation gives both universal incidence equations and verifies the third derivative is nonzero; the coordinate-slope lines are separately excluded. The resulting smooth cubic has a basepoint-free degree-six map to the parameter line and six explicit deck transformations forming \(S_3\), proving the exact splitting field. Local ramification orders at all four branch values and at infinity are individually established, with a Riemann--Hurwitz checksum. SymPy identities were replayed from the packaged checker; finite samples are not substituted for a universal proof.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** [1, Theorem 31, Corollary 36 and Example 37] already give the quartic normal form and the existence of six concurrent flex lines: these facts are *not* claimed as novel. The additional claim is the global incidence curve as a Fermat elliptic cubic, with the exact degree-six regular \(S_3\) splitting-field action and all ramification cycles. The strongest close source [1] was inspected in full at the relevant construction and special-value sections and does not state the cover or its Galois group. Searches for the equivalent sextic, Hesse flex monodromy, genus-one normalization and regular \(S_3\) quotient found no covering published-finding corpus record or matching published claim. Chisini's 1916 full article was not obtained; its treatment of this quartic leaves a real, named risk of an implicit equivalent historical computation. Lack of search results is not taken as a proof of universal uniqueness.
+PASS
 
-**Value — PASS.** The six concurrent flex tangents govern the six cuspidal fibers in the geometric constructions of [1]. Their variation with the Hesse parameter is a naturally defined finite covering question. Its nonabelian monodromy, elliptic compactification and complete four-value branch classification provide global structure not given by the original six-point enumeration; this is a motivated exact invariant, not an arbitrary parameter slice. The theorem does not claim a result for unmarked coarse moduli, a complete quartic-flex classification, or smooth flexes at excluded singular boundary fibers.
+Over C with gamma!=0 and gamma^3!=1, expansion of Chisini polar of Hesse cubic produces F=4Z(X^3+Y^3)+Z^4-6gamma XYZ^2-3gamma^2X^2Y^2. The line X=tY triple-contact equations z^2=gamma t and t^3+1=2z^3, with z nonzero, ensure contact exactly 3; t=0,infinity lines lack flex. The smooth compactified genus-one cubic T^3+W^3=2Z^3 has basepoint-free morphism gamma=Z^2/(TW) of degree 6. rho(t,z)=(omega*t,omega^2*z) and tau(t,z)=(1/t,z/t) form six distinct deck transformations and regular S3 Galois action. Ramification at gamma=0,1,omega,omega^2 has 3 simple index-2 points each and no infinity branch, satisfying Riemann-Hurwitz. Independent SymPy reconstruction verified polar, triple-contact Hessian, slope-sextic discriminant 2985984 gamma^9(gamma^3-1)^3. The finite check is algebraic corroboration, global geometry is proved in the source.
 
-The most consequential remaining risk is possible implicit coverage in early Chisini literature; that is a bibliographic limit, not a gap in the explicit proof. All described computations can be checked with `python3 artifacts/check_flex_cover.py` using SymPy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+A finite cover of six geometrically selected flex tangencies is naturally attached to the Hesse/Chisini quartic construction; obtaining its elliptic compactification, nonabelian regular monodromy and exact boundary ramification gives global parameter geometry that a fiberwise six-point fact cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

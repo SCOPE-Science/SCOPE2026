@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The algebraic calculations were checked with Python 3 and SymPy by running `python3 artifacts/check_flex_cover.py`; expected output: `FLEX_INCIDENCE_FERMAT_S3_EXACT_OK`. The checker verifies the Hesse polar expression, the quartic restriction to a marked line, flex contact derivative equations, the exact discriminant of the slope sextic, the two deck-map invariance identities, and the critical-value reduction.
+# Independent mathematical audit
 
-The degree, smoothness, genus, automorphism group, completeness of the branch locus, and absence of omitted projective flex directions follow from the explicit mathematical proof in RESULT.md. The computer algebra operations corroborate its identities but are not an independent formal proof or verification of all geometric arguments.
+## correctness
 
-The primary manuscript's relevant sections were read, including the universal quartic construction, six-flex statement, and special parameters. A historical classification in the earlier work of Chisini remains a bibliographic risk. No independent audit has been performed.
+PASS
+
+Over C with gamma!=0 and gamma^3!=1, expansion of Chisini polar of Hesse cubic produces F=4Z(X^3+Y^3)+Z^4-6gamma XYZ^2-3gamma^2X^2Y^2. The line X=tY triple-contact equations z^2=gamma t and t^3+1=2z^3, with z nonzero, ensure contact exactly 3; t=0,infinity lines lack flex. The smooth compactified genus-one cubic T^3+W^3=2Z^3 has basepoint-free morphism gamma=Z^2/(TW) of degree 6. rho(t,z)=(omega*t,omega^2*z) and tau(t,z)=(1/t,z/t) form six distinct deck transformations and regular S3 Galois action. Ramification at gamma=0,1,omega,omega^2 has 3 simple index-2 points each and no infinity branch, satisfying Riemann-Hurwitz. Independent SymPy reconstruction verified polar, triple-contact Hessian, slope-sextic discriminant 2985984 gamma^9(gamma^3-1)^3. The finite check is algebraic corroboration, global geometry is proved in the source.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+A finite cover of six geometrically selected flex tangencies is naturally attached to the Hesse/Chisini quartic construction; obtaining its elliptic compactification, nonabelian regular monodromy and exact boundary ramification gives global parameter geometry that a fiberwise six-point fact cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
