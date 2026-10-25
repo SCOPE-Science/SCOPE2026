@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The numerical radius reduces to half the top eigenvalue of a positive symmetric path matrix. Exact continuant expansion and the Chebyshev product identity give a negative characteristic-polynomial difference at the first top eigenvalue. A Perron Rayleigh bound locates that root above all Chebyshev zeros needed for the sign. Monicity then gives a strictly larger top root. The definitions and strict parameter ranges are explicit; exact polynomial checks and finite eigenvalue stress tests corroborate but do not prove the universal inequalities.
+## correctness
 
-**Originality — PASS, with specified bibliographic risks.** Chien and Sheu (2013, Theorem 2.2 and p.202 Remark) expressly left \(1<r<2\) conjectural. Vandanjav and Undrakh (2014, Section 2) consider two consecutive exceptional links instead. Chang and Wang (2012) determine weight-permutation maximizers, which does not *as stated* force a strict inequality at every intermediate adjacent location. Search and primary-material comparison found no statement covering the missing strict chain. A possible implication of older spectral rearrangement theory remains the principal unresolved risk.
+PASS
 
-**Value — PASS.** The assertion closes an explicitly identified mathematical question with a full parameter- and dimension-uniform theorem. The Chebyshev identity also supplies a transparent structural mechanism for the sharp centerward ordering, rather than an isolated bound.
+Unitary gauge on a finite nilpotent shift gives w(S)=λ_max(S+S*)/2. Continuant expansion in the exceptional squared weight r² gives P_{n,k}=Q_n−(r²−1)Q_{k−1}Q_{n−k−1}; Chebyshev determinant/product identity yields P_{n,k+1}−P_{n,k}=−(r²−1)Q_{n−2k−2}. Perron positivity shows λ_max(J_{n,k})>2cos(π/(n+1)), greater than the largest zero of Q_{n−2k−2}, so P_{n,k+1}(λ_{n,k})<0; monicity ensures a strictly greater new top root for every admissible integer n,k and every r>1. Reflection k↔n−k accounts for only mirror ties. Independently checked continuants and Chebyshev products for n=4,…,7; universal strictness comes from the analytic sign argument.
 
-The result is limited to finite-dimensional complex Hilbert-space shifts with one enlarged positive weight. Independent bibliographic and mathematical certification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2013 article explicitly gives and leaves open the intermediate r range. The present adjacent-link strict chain covers this missing range with an exact difference identity. Global permutation maximizers for cyclic shifts or two-defect arrangements are not logically equivalent to each adjacent centerward strict inequality.
+
+## value
+
+PASS
+
+The missing interval 1<r<2 was an explicit open strict-position conjecture after Chien–Sheu Theorem 2.2. A short all-dimension Chebyshev sign identity resolves it for a natural rank-one defect family rather than a numerical or cosmetic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

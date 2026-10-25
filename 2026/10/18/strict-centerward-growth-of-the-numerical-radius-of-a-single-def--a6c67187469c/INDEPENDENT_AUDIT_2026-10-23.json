@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:02:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9180eba088f77be1ade4778f79c179121920e7b4 §Proof 1–5",
+        "verify.py blob 7d8a0327e00a27beca38feb873dd48c91f47ca60, exact continuant logic read and separate rational tests"
+      ],
+      "rationale": "Unitary gauge on a finite nilpotent shift gives w(S)=λ_max(S+S*)/2. Continuant expansion in the exceptional squared weight r² gives P_{n,k}=Q_n−(r²−1)Q_{k−1}Q_{n−k−1}; Chebyshev determinant/product identity yields P_{n,k+1}−P_{n,k}=−(r²−1)Q_{n−2k−2}. Perron positivity shows λ_max(J_{n,k})>2cos(π/(n+1)), greater than the largest zero of Q_{n−2k−2}, so P_{n,k+1}(λ_{n,k})<0; monicity ensures a strictly greater new top root for every admissible integer n,k and every r>1. Reflection k↔n−k accounts for only mirror ties. Independently checked continuants and Chebyshev products for n=4,…,7; universal strictness comes from the analytic sign argument.",
+      "residual_risks": [
+        "Formal Lean verification and external expert attestation not performed; analytic proof was independently reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Wang 2012 DOI 10.1016/j.jmaa.2012.04.039, maximizers under cyclic shift permutations",
+          "Vandanjav–Undrakh 2014 DOI 10.1016/j.laa.2014.02.018, consecutive two-defect paths"
+        ],
+        "reasoning": "A global optimizing arrangement need not imply strict monotonicity for every individual move; two exceptional adjacent weights have different continuants. Possible universal spectral rearrangement theorem remains a residual risk.",
+        "searches": [
+          "numerical radius weighted shift single exceptional weight defect centerward strict ordering Chien Sheu conjecture 1<r<2 rearrangement",
+          "weighted shift numerical radius all permutations rearrangement Chang Wang 2012"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.7153/oam-07-11",
+        "https://doi.org/10.1016/j.laa.2014.02.018",
+        "https://doi.org/10.1016/j.jmaa.2012.04.039",
+        "numerical radius weighted shift single exceptional weight defect centerward strict ordering Chien Sheu conjecture 1<r<2 rearrangement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chien–Sheu Theorem 2.2 r≥2, following remark 1<r<2 conjecture",
+          "Chang–Wang weighted cyclic shifts permutation extrema"
+        ],
+        "reasoning": "Substitute r=1.5 into the original theorem: not within its proved r≥2 interval. Subsequent optimization results do not force every adjacent step by their published statements. The submitted strict inequality is a genuine resolution of the stated gap.",
+        "searches": [
+          "numerical radius weighted shift single exceptional weight defect centerward strict ordering Chien Sheu conjecture 1<r<2 rearrangement",
+          "Chien Sheu theorem numerical radii 2013 PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chien–Sheu 2013 DOI 10.7153/oam-07-11 Theorem 2.2 and p.202 Remark",
+          "P_{n,k+1}−P_{n,k}=−(r²−1)Q_{n−2k−2} identity in inspected RESULT.md"
+        ],
+        "reasoning": "Representing the numerical radius as half the spectral radius of a positive weighted path and the strict centerward edge comparison are equivalent. The earlier theorem establishes the chain for r≥2 but treats 1<r<2 as conjectural.",
+        "searches": [
+          "numerical radius weighted shift single exceptional weight defect centerward strict ordering Chien Sheu conjecture 1<r<2 rearrangement",
+          "\"Chien\" \"Sheu\" \"1<r<2\" numerical radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit SCOPE strict Schatten rearrangement for four-site weighted-shift resolvents (2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377)",
+          "Chien–Sheu 2013 p.202 size-four case"
+        ],
+        "reasoning": "A four-site numeric instance and a resolvent Schatten table are not an all-n, every-real-r>1 successive-link numerical-radius theorem.",
+        "searches": [
+          "numerical radius weighted shift single exceptional weight defect centerward strict ordering Chien Sheu conjecture 1<r<2 rearrangement"
+        ]
+      },
+      "rationale": "The original 2013 article explicitly gives and leaves open the intermediate r range. The present adjacent-link strict chain covers this missing range with an exact difference identity. Global permutation maximizers for cyclic shifts or two-defect arrangements are not logically equivalent to each adjacent centerward strict inequality.",
+      "residual_risks": [
+        "An earlier general path-spectrum rearrangement result might entail successive-center inequalities without using this theorem’s wording.",
+        "2012/2014 peripheral full texts not all read; no exhaustive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original theorem establishes r≥2 and conjectures missing 1<r<2; no coverage of this missing interval",
+          "evidence": [
+            "Theorem 2.2 and following Remark p.202"
+          ],
+          "identifier_or_url": "https://doi.org/10.7153/oam-07-11",
+          "material_read": "Entire available 2013 PDF relevant Theorem 2.2, proof, subsequent p.202 remark and examples",
+          "method": "Read primary complete article and inspected PDF pages visually",
+          "title": "The numerical radii of weighted shift matrices and operators",
+          "trigger": "Identical single enhanced link and explicit conjecture"
+        },
+        {
+          "assessment": "Different two-defect setup; unread complete text retains a stronger-rearrangement risk",
+          "evidence": [
+            "Section 2 Theorems 2.1–2.2 described in bibliographic material"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2014.02.018",
+          "material_read": "Accessible bibliographic abstract and theorems described for two consecutive exceptional links; complete publisher full text was not obtained in this execution",
+          "method": "Compared accessible primary metadata/abstract and package references, not whole-document noncoverage",
+          "title": "On the numerical range of some weighted shift matrices and operators",
+          "trigger": "Possible extension of the original 2013 result"
+        },
+        {
+          "assessment": "Global maximum does not as stated imply strict neighboring link inequalities",
+          "evidence": [
+            "Published 2012 journal abstract, DOI"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Accessible abstract and description of permutation extrema, not entire manuscript",
+          "method": "Scoped abstract comparison; no whole-manuscript noncoverage claim",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Broad rearrangement might dominate one-defect position"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chien–Sheu 2013 Theorem 2.2 and following Remark explicitly conjecture 1<r<2",
+        "Nilpotent weighted-path Perron eigenvalues are canonical shift numerical radii"
+      ],
+      "rationale": "The missing interval 1<r<2 was an explicit open strict-position conjecture after Chien–Sheu Theorem 2.2. A short all-dimension Chebyshev sign identity resolves it for a natural rank-one defect family rather than a numerical or cosmetic improvement.",
+      "residual_risks": [
+        "Motivation and originality are bounded best-of-knowledge judgments; unknown stronger historical results could change priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier general path-spectrum rearrangement result might entail successive-center inequalities without using this theorem’s wording.",
+    "2012/2014 peripheral full texts not all read; no exhaustive priority guarantee.",
+    "The signed dispatcher checkpoint is a sequence cursor only, not science attestation.",
+    "The public-facing source operational identifiers prevent ready publication despite scientifically complete C/O/V judgment."
+  ],
+  "schema_version": 1
+}

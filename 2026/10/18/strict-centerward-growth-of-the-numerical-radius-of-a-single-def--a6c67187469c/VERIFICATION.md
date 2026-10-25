@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted package. The script has no external dependencies and checks characteristic-polynomial continuants using exact rational arithmetic, plus the adjacent Chebyshev product identity and finite floating-point matrix eigenvalue comparisons via positive-definiteness bisection.
+## correctness
 
-Expected output begins `VERIFY_OK exact_polynomial_checks= 1486 monotone_spectral_checks= 372`.
+PASS
 
-The polynomial checks cover specified rational weights across dimensions 4 through 24, and the spectral checks cover positive weights 1.01 through 3 in dimensions 4 through 16. The finite tests are not a proof of the all-dimensions or all-real-parameter theorem; that is supplied by the analytical proof in RESULT.md. All mathematical assumptions, including the strict endpoint condition, are documented there. Independent audit has not been performed.
+Unitary gauge on a finite nilpotent shift gives w(S)=λ_max(S+S*)/2. Continuant expansion in the exceptional squared weight r² gives P_{n,k}=Q_n−(r²−1)Q_{k−1}Q_{n−k−1}; Chebyshev determinant/product identity yields P_{n,k+1}−P_{n,k}=−(r²−1)Q_{n−2k−2}. Perron positivity shows λ_max(J_{n,k})>2cos(π/(n+1)), greater than the largest zero of Q_{n−2k−2}, so P_{n,k+1}(λ_{n,k})<0; monicity ensures a strictly greater new top root for every admissible integer n,k and every r>1. Reflection k↔n−k accounts for only mirror ties. Independently checked continuants and Chebyshev products for n=4,…,7; universal strictness comes from the analytic sign argument.
+
+## originality
+
+PASS
+
+The original 2013 article explicitly gives and leaves open the intermediate r range. The present adjacent-link strict chain covers this missing range with an exact difference identity. Global permutation maximizers for cyclic shifts or two-defect arrangements are not logically equivalent to each adjacent centerward strict inequality.
+
+## value
+
+PASS
+
+The missing interval 1<r<2 was an explicit open strict-position conjecture after Chien–Sheu Theorem 2.2. A short all-dimension Chebyshev sign identity resolves it for a natural rank-one defect family rather than a numerical or cosmetic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
