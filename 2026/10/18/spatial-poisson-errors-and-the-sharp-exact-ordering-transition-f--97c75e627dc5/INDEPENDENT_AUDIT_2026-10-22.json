@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:03:52.940193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5/RESULT.md Git blob 049317725666c179a1876bd43eed349f05856ede",
+        "2026/10/18/spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5/check.py Git blob 5c6d2f50f7889bb8d7f2a6ab52b87ba0cd787789"
+      ],
+      "evidence": [
+        "Pinned RESULT.md Git blob 049317725666c179a1876bd43eed349f05856ede, Proof Steps 1–4 and verification; pinned check.py Git blob 5c6d2f50f7889bb8d7f2a6ab52b87ba0cd787789 inspected for finite scope",
+        "Independent standard-library exact enumeration n=2,...,7: ranking identity and neighboring comparison probabilities passed.",
+        "Cauchy exact two-race formula, geometric series for distances ≥2 and dominated size-k factorial expansion independently checked."
+      ],
+      "rationale": "Reconstructed the n-dependent exponential clock model with strictly positive rates, unique continuous sample ordering and uniform neighboring ratios n*r_{n,i}→a(i/n) where a is bounded continuous and may vanish. For i<j the exact two-clock race probability is lambda_j/(lambda_i+lambda_j)≤(C/n)^(j-i), so the expected number of inversions at gaps≥2 is at most n(C/n)^2/(1-C/n)=O(n^-1). Excluding them, adjacent inversions cannot touch (else transitivity makes a gap-two inversion) and inversion sets determine the full permutation. The exact chronological race probability for a length-k decreasing run is ≤R_n^k; disjoint clock blocks factor, giving domination of each size-k Laplace inclusion-exclusion term by C^k/k!. Neighbor-free subsets factor, neighboring subsets count O_k(n^(k-1)); Riemann summation of (1-exp(-f(i/n)))r_i gives ∫a(1-exp(-f)). Dominated summation yields the spatial Poisson Laplace functional. Full inversion and parity limits follow with O(n^-1) rare long-inversion error. For geometric r, sequential race selection gives exactly product_{k=2}^n[(1-r)/(1-r^k)]; nr→∞ case follows by n/2 independent odd-index adjacent comparisons. Independently recomputed exact identity and pair probabilities n=2..7 from independent enumeration. All-size convergence is analytical, not inferred from enumeration.",
+      "residual_risks": [
+        "Uniform ratio hypothesis is necessary for the full field; the separate r_n→0 geometric recovery classification is broader but one-dimensional. No error rate for the full point process is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives a finite-dimensional span of rank laws; it supplies no n-dependent probabilities or Poisson limit.",
+          "Standard Chen–Stein bounds could reprove counts but do not automatically assert the deterministic disjoint-neighbor permutation structure."
+        ],
+        "reasoning": "The stronger-looking general ranking framework contains the model as a subclass, but its established conclusions do not imply this specific asymptotic. No dominance based only on titles.",
+        "searches": [
+          "Turvey arXiv:2610.11895v1",
+          "Babson et al. arXiv:2407.20226",
+          "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold",
+        "arXiv:2610.11895v1, https://arxiv.org/html/2610.11895v1",
+        "arXiv:2407.20226, https://arxiv.org/abs/2407.20226"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dimensional rank-law classification and record-indicator independence do not produce triangular-array Poisson limits or the exact product cutoff."
+        ],
+        "reasoning": "Exact scalar exponential-race probabilities are classical prerequisites; the new chain of uniform long-inversion exclusion plus spatial rare-event limit establishes added quantified structure.",
+        "searches": [
+          "arXiv:2610.11895v1 Theorems 1.1/1.2",
+          "Resultary heterogeneous exponential records",
+          "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turvey Theorems 1.1–1.2 identify dimensions and Mallows obstruction, not n-dependent sharply separated rates.",
+          "Independent exponential-record indicators are different random statistics from adjacent ranking inversions."
+        ],
+        "reasoning": "Rare inversions of high-signal Plackett–Luce/exponential races can be called sorting errors or rank upsets. Compared actual random-variable order laws; no accessed theorem giving the spatial inhomogeneous PPP and exact adjacent-swaps structure.",
+        "searches": [
+          "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold",
+          "Turvey arXiv:2610.11895v1",
+          "Resultary: finite-prefix-independence-classification-for-heterogeneous-expo--c2d274b9c3b5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited inversion precision result is for uniform permutations; current ordering is highly nonuniform and approaches identity."
+        ],
+        "reasoning": "No finite database/table or tabulated identity known to supply an all-n spatial PPP; finite exact checker checks small n only.",
+        "searches": [
+          "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold",
+          "Resultary: incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+        ]
+      },
+      "rationale": "Published ranking laws for independent continuous variables and finite heterogeneous exponential record indicators do not imply this n→∞ spatial Poisson permutation limit; classic exponential race and Poisson rare-event tools are background, not new. Best-of-knowledge priority remains subject to equivalent high-signal Plackett–Luce ranking analyses outside indexed papers.",
+      "residual_risks": [
+        "Possible nonindexed high-signal ranking asymptotics or earlier Poisson rare-error theorem remain a historical priority risk; no claimed full-text negative coverage for partially accessed spanning-tree paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the growing-n spatial Poisson adjacent-error theorem; studies linear dimensions of attainable permutation laws and Mallows nonrepresentation",
+          "evidence": "Theorems 1.1 and 1.2 classify attainable rank-law space and Mallows representability, no rare errors or rates.",
+          "identifier_or_url": "arXiv:2610.11895v1, https://arxiv.org/html/2610.11895v1",
+          "material_read": "Read complete arXiv HTML, Theorems 1.1/1.2, proof topics, searched full text for exponential and Poisson",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Permutations from ranking independent random variables",
+          "trigger": "Same independent ranking law and possible exponentially separated rates"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: neither abstract nor inspected context establishes rate-ratio rare-error limits",
+          "evidence": "Spanning-tree applications and attainable ranking distributions",
+          "identifier_or_url": "arXiv:2407.20226, https://arxiv.org/abs/2407.20226",
+          "material_read": "Title/abstract and relevant background only; NOT a complete independent full-text negative audit",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Models of random spanning trees",
+          "trigger": "Independent-variable ranking framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5/RESULT.md Git blob 049317725666c179a1876bd43eed349f05856ede",
+        "2026/10/18/spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5/check.py Git blob 5c6d2f50f7889bb8d7f2a6ab52b87ba0cd787789",
+        "Resultary search: Exponential races independent exponential clocks rapidly decreasing rates spatial Poisson rare adjacent inversions ranking exact-ordering Gumbel threshold"
+      ],
+      "evidence": [
+        "The uniform a(t) allows a nonconstant error landscape and zero-intensity subregions.",
+        "The exact geometric finite-n recovery probability and critical Gumbel profile are sharp and motivate the n^-1 scale."
+      ],
+      "rationale": "A natural complete asymptotic description of a noisy sorting regime: not merely convergence of a count, but the marked error locations, exact permutation support, parity, zero-error probability and sharp geometric recovery transition. This identifies precisely when exponential-race rankings become reliable and how sparse errors arise. The spatial point process and full permutation refinement are mathematically useful even though their constituent race identities are standard.",
+      "residual_risks": [
+        "Model-specific; structural limit under O(1/n) adjacent ratios does not cover general rank noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
