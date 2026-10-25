@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct composition of the two component updates gives the affine epoch chain \(X_{k+1}=rX_k+\delta\xi_k\). The stable range \(0<h<2\) is exactly \(0\le r<1\), so the unique invariant law is the convergent signed geometric series. The support classification follows from the two similarity maps; the central gap and its endpoints are obtained by a sharp first-digit versus tail calculation.
+PASS
 
-Scientific risk: only epoch-start support is classified, and no absolute-continuity claim is made above the overlap threshold.
+Directly composing the + and - gradient maps x->(1-h)x±hb yields one-epoch X_next=(1-h)^2 X±h^2 b. Since the multiplier r lies in [0,1), iteration converges uniquely to δΣr^j ξ_j; independence gives Var=δ²/(1-r²). The two similarities x->rx±δ tile the invariant interval iff r≥1/2; r=1/2 gives uniform tiling; 0<r<1/2 satisfies the open-set condition with dimension log(2)/log(1/r) and sharp central gap g=δ(1-2r)/(1-r), whose endpoints are achieved by signed tails. The special r=0 gives exactly ±b, and h=1±1/√2 are boundary interval/uniform cases. Independent symbolic composition and gap checks corroborated the proof, not used as infinite proof.
 
-## Originality
+## originality
 
-PASS. The defining random-reshuffling source already provides the exact quadratic steady-state MSD and its cubic small-step behavior, and the later power-spectral work studies stationary variances; neither inspected source gives a full invariant-law support classification. Classical Bernoulli-convolution theory supplies the generic fractal facts and is treated explicitly as prior. Focused searches found no implication-equivalent random-reshuffling statement connecting those facts to the exact learning-rate band and minimizer gap.
+PASS
 
-Residual risk: an unindexed note may make the same two-sample identification.
+Best-of-knowledge original optimizer-specific distributional phase boundary; standard Bernoulli-convolution geometry and Ying et al exact MSD are explicitly prior, not rebranded.
 
-## Value
+## value
 
-PASS. The result exposes information that the known MSD formulas cannot encode: a zero-mean stationary process can be supported on a Cantor set separated by a positive gap from the true strongly convex minimizer. The sharp support transition is a natural complete classification of the simplest nontrivial constant-step reshuffling model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact supported-state phase boundary is a natural invariant of stochastic optimization: it shows zero stationary mean and small MSE can coexist with a positive support gap excluding the true minimizer. The sharp learning-rate band is a concrete mechanism and diagnostic, not merely a restatement of abstract Cantor-set theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

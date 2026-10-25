@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:53:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob f56c12cda3d564329a5a71b2dfe61337dfaa6ef1",
+        "Git tree cf53f3e2a85ff092322b3ace7293fe2cbe48d6b3",
+        "arXiv:1803.07964v1",
+        "Independent symbolic affine-map and moment checks 2026-10-18"
+      ],
+      "rationale": "Directly composing the + and - gradient maps x->(1-h)x±hb yields one-epoch X_next=(1-h)^2 X±h^2 b. Since the multiplier r lies in [0,1), iteration converges uniquely to δΣr^j ξ_j; independence gives Var=δ²/(1-r²). The two similarities x->rx±δ tile the invariant interval iff r≥1/2; r=1/2 gives uniform tiling; 0<r<1/2 satisfies the open-set condition with dimension log(2)/log(1/r) and sharp central gap g=δ(1-2r)/(1-r), whose endpoints are achieved by signed tails. The special r=0 gives exactly ±b, and h=1±1/√2 are boundary interval/uniform cases. Independent symbolic composition and gap checks corroborated the proof, not used as infinite proof.",
+      "residual_risks": [
+        "Only epoch-start iterates, scalar symmetric 2-component model and stable constant step; r>1/2 implies full support not absolute continuity; no claim for inner epochs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernoulli convolution theory dominates the abstract support step after identifying r.",
+          "Spectral shuffling papers establish second-order quantities only."
+        ],
+        "reasoning": "Existing abstract support theorems are appropriately credited, but a moment theorem cannot entail stationary support; the optimization-specific correspondence and step-size band are not asserted by the inspected stronger results.",
+        "searches": [
+          "Resultary semantic query: constant step random reshuffling stochastic gradient descent two quadratic functions stationary distribution Bernoulli convolution fractal Cantor support",
+          "arXiv:2206.00632v1",
+          "Bernoulli convolution contraction one half Cantor interval"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.07964v1",
+        "arXiv:2206.00632v1",
+        "Classical Bernoulli-convolution iterated-function-system support theorem",
+        "Resultary semantic query: constant step random reshuffling stochastic gradient descent two quadratic functions stationary distribution Bernoulli convolution fractal Cantor support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ying et al variance specializes to δ²/(1-r²), which is shared by different possible laws.",
+          "The proof derives a complete invariant support and optimizer gap beyond variance."
+        ],
+        "reasoning": "The source exact MSE and the new exact distribution have nonidentical implications: support non-inclusion cannot follow from a second-moment identity.",
+        "searches": [
+          "arXiv:1803.07964v1",
+          "arXiv:2206.00632v1",
+          "random reshuffling quadratic stationary law Bernoulli convolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary random-reshuffling theorem concerns exact steady-state quadratic MSD.",
+          "Generic Bernoulli-convolution support transition is well established at r=1/2."
+        ],
+        "reasoning": "A general self-similar-law result does not state the precise SGD epoch recursion or its optimizer-relative gap; equivalent optimization-specific coverage would require the same coefficient identification and support conclusions.",
+        "searches": [
+          "Resultary semantic query: constant step random reshuffling stochastic gradient descent two quadratic functions stationary distribution Bernoulli convolution fractal Cantor support",
+          "web query random reshuffling Bernoulli convolution stationary support Cantor",
+          "arXiv:1803.07964v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search hits concerned different methods: exact chattering band for Lion, additive-noise signSGD urn, and SARAH residual floor."
+        ],
+        "reasoning": "No exact random-reshuffling stationary-support table or equivalent published record surfaced; a negative corpus search is not proof of priority.",
+        "searches": [
+          "Resultary semantic query: constant step random reshuffling stochastic gradient descent two quadratic functions stationary distribution Bernoulli convolution fractal Cantor support",
+          "SCOPE/Resultary published findings: constant-step optimizer steady state and stochastic support"
+        ]
+      },
+      "rationale": "Best-of-knowledge original optimizer-specific distributional phase boundary; standard Bernoulli-convolution geometry and Ying et al exact MSD are explicitly prior, not rebranded.",
+      "residual_risks": [
+        "A different earlier stochastic-optimization paper may derive the epoch-level law implicitly; no exhaustive historical-priority assertion.",
+        "Subtle measure regularity at r>1/2 intentionally not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact two-sample stationary variance is prior, but no support theorem or minimizer-exclusion band occurs in inspected sections.",
+          "evidence": [
+            "Paper gives moment/neighborhood formulas for quadratic risks; it does not assert Cantor or interval support."
+          ],
+          "identifier_or_url": "arXiv:1803.07964v1",
+          "material_read": "Primary PDF mathematical setup, epoch reshuffling, exact quadratic stationary mean-square statement and examples, including quadratic specialization; relevant sections I and steady-state formulas, not every page.",
+          "method": "Lawful arXiv primary PDF text and page inspection",
+          "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+          "trigger": "Same constant-step random reshuffling and quadratic steady state"
+        },
+        {
+          "assessment": "Stationary variance and covariance analysis cannot alone determine support.",
+          "evidence": [
+            "Title, abstract and indexed results emphasize power-spectral-density variance, not Bernoulli-convolution support."
+          ],
+          "identifier_or_url": "arXiv:2206.00632v1",
+          "material_read": "Abstract and relevant publicly indexed problem/results; complete text not examined.",
+          "method": "arXiv abstract/search",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Same algorithm family and stationary variance alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1803.07964v1",
+        "Exact random-series derivation and parameter translation"
+      ],
+      "rationale": "An exact supported-state phase boundary is a natural invariant of stochastic optimization: it shows zero stationary mean and small MSE can coexist with a positive support gap excluding the true minimizer. The sharp learning-rate band is a concrete mechanism and diagnostic, not merely a restatement of abstract Cantor-set theory.",
+      "residual_risks": [
+        "Special two-sample symmetric toy model limits breadth; distribution support rather than practical convergence probability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric scalar two-quadratic epoch-start chain and 0<h<2; no universal SGD claim.",
+    "Literature priority remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
