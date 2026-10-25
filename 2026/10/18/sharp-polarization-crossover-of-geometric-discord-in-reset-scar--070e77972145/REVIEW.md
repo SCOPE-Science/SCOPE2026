@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-principles renewal integral and product factorization are explicit in the source's equations (10) and (13). The rank-two transverse correlation minor proves nonzero ordinary discord for each nontrivial parameter value, while the exact Dakić two-qubit formula reduces the geometric quantity to the eigenvalues of a displayed real symmetric matrix. The sparse-reset optimum follows from a single quadratic crossing and opposite-sign piecewise derivatives. The finite-rate equatorial expression follows from trace/determinant identities verified independently by symbolic calculations. The standalone checker passed 395 assertions involving symbolic identities, independent quadrature, positivity/PPT and selected numerical spectra. Infinite claims rest on the proof, not on the numerical tests.
+PASS
 
-## Originality — PASS with recorded uncertainty
+For 0<|alpha|<infinity, finite r>0, omega !=0, any two distinct sites and finite chain L>=2, pair state is an exact convex integral of two pure-qubit product density matrices; separability follows. Let x=|omega|/r, transverse phase-averaged covariance block det C=x^2/(1+4x^2)>0, so Pauli-correlation T has rank>=2. A classical-quantum two-qubit state has T rank<=1, establishing strictly positive ordinary discord on either site. In sparse r->0 limit first two Fourier moments vanish; two-qubit geometric-discord squared-Hilbert-Schmidt formula for K=uu^T+TT^T gives eigenvalues k=(1-t)^2/4 twice and h=t+t^2 once. Their unique crossing t*=(2sqrt(3)-3)/3 yields exact max (2-sqrt(3))/3 and equatorial-to-longitudinal measurement switch; derivative signs on both branches independently checked. At z=0 finite-rate u and T give positive second eigenvalue and the displayed closed radical formula with low/high-x asymptotics. The result does NOT assert HS discord is monotone or entropic discord has this numerical value.
 
-Gotta–Kulkarni–Perfetto supply the phase-coherent resetting construction, not a discord or optimized polarization theorem. Dakić–Vedral–Brukner supply a general geometric-discord formula; it does not by itself state the sharp optimum in this scar-reset family. Lanyon et al. and Wu–Zhou already establish noise/twirling-induced discord as a broader phenomenon: none of that phenomenon is presented as new. Published records and indexed findings were compared by object and implication. An unlocated general collective-phase-twirling optimization could subsume the explicit threshold; this is a genuine residual originality risk, not evidence of independence.
+## originality
 
-## Value — PASS
+PASS
 
-The source's engineered long-range order and unusual global mixedness do not specify whether local correlations are quantum-classical or how their Hilbert--Schmidt strength depends on preparation polarization. The finding gives a nonentanglement diagnostic for arbitrarily distant pairs, an exact maximal value for experimentally controlled reset polarization, and a sharp measurement-axis crossover. This is a natural complete optimization of an observable of that physical ensemble, rather than an arbitrary numerical slice. It does not attribute resource monotonicity to the Hilbert--Schmidt quantity.
+No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.
 
-## Closest literature and limitations
+## value
 
-See the checked literature and exact comparison records in AUDIT.json. The source's phase-mixture and the generic two-qubit distance formula are prerequisites, not new contributions. The optimizing polarization result is only for the sparse-reset limit; finite-rate optimization is not claimed. The occupied two-level subspace and ideal coherent scar dynamics are essential. Historical indexed records contain related discord and quantum-resetting findings but no identified coverage of this polarization crossover.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Within a physical many-body renewal scar-tower family, the universal separable-but-discordant two-site state and especially the sharp preparation-polarization optimum and measurement-basis crossover supply interpretable exact correlation structure absent from the source renewal/spectral results. This is more than a generic statement that classical noise creates discord.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
