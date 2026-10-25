@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Unpack all files from the result package into one directory, then execute `python3 VERIFY.py` with Python 3.9 or newer. No external Python packages, network, proprietary software, or precomputed external table is required. `CERTIFICATES.json` stores the twelve coordinate vectors, the boundary triangulation, the 4 and 12 preliminary elementary pairs, the 12 core-to-boundary pairs, and the full 140-pair collapse of the larger Rips complex onto the same boundary triangulation.
+## correctness
 
-The executable enumerates every one of the \(2^{12}-1=4095\) nonempty vertex subsets at the largest distance level, checking the exact integer squared distances \(8,24,32,40\) and respective edge multiplicities \(18,24,12,12\). It verifies that the convex hull has four triangular and four hexagonal supporting faces, that the indicated triangulation has face vector \((12,30,20)\) and all vertex links single cycles, and that the Euler characteristic is two. The free-face replay verifies at each step that the deleted face has exactly one remaining strict coface (its paired upper simplex), stronger than merely consulting a log. The reduced one-dimensional stage is connected with twelve vertices and fourteen edges; the two higher-stage collapses and the four-cell relative attachment argument establish the integral homotopy types.
+PASS
 
-All 24 coordinate-permutation/even-sign transformations are independently reconstructed, classified by their action on the four original tetrahedral corners, and evaluated by signed fixed-simplex traces. Their conjugacy-class traces must match the complete rational representation decomposition. The program outputs `VERIFY_OK`, `COLLAPSES_OK`, `GEOMETRIC_SPHERE_OK`, `S4_CHARACTERS_OK`, and `INTEGRAL_PERSISTENCE_OK` on success.
+The twelve signed coordinate permutations of (3,1,1) with positive sign product have exact squared-distance pair multiplicities 18,24,12,12 at 8,24,32,40. I independently built every clique on all 4095 nonempty subsets and recovered stage counts 34,114,342,4095. Directly replayed the actual frozen CERTIFICATES.json free-face lists: 4 collapses at q8, 12 q24-to-core, 12 relative core-to-geometric-boundary, and ALL 140 q32-to-the-SAME-included-boundary, confirming final boundary 12 vertices/30 edges/20 triangles, no free-coface violation. Therefore wedge3 circles at q8, wedge5 S² at q24 by four nullhomotopic 2-cell attachments to a sphere, and relative integral surjective H2=Z^5→Z with Z^4 kernel at q32, killed at q40. Independently enumerated all 24 coordinate/permutation even-sign transformations, computed oriented fixed-simplex reduced Lefschetz traces by cycle type (identity5, transposition1, double transposition1, 3-cycle2, 4-cycle−1) and later sign (1,−1,1,1,−1), obtaining rational trivial+standard+sign before and sign after; kernel four-point permutation character. This verifies the presented complete finite domain and persistence, not any other solid.
 
-These checks verify the precise finite certificate, the symbolic topological deductions, and the stated group action. They do not establish a classification of other solids, an equivariant sequence of elementary collapses, an integral identification of the kernel lattice with the four-point permutation lattice, or absolute uniqueness in historical literature. No independent external scientific audit has occurred.
+## originality
+
+PASS
+
+Euclidean CHORDAL metric distinguishes squared shells 32 and 40 which the preexisting graph-distance-three Rips stage merges. The published full 2026-10-04 graph-metric theorem supplies stages ≤24 but cannot imply intermediate Euclidean S², a 140-pair collapse onto the INCLUDED geometric boundary, integral persistent map, or tetrahedral S4 homology character.
+
+## value
+
+PASS
+
+A classical natural Archimedean solid has a geometric metric refinement invisible to its graph distance: exact extra S² shell, primitive integral persistence and rational S4 character decomposition. The complete finite classification is structurally motivated, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

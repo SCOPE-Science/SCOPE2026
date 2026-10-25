@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed-permutation coordinate model has twelve distinct points and exactly four positive squared distances with multiplicities \(18,24,12,12\). The proof checks all inclusive threshold boundaries, verifies a triangulated convex-boundary two-sphere, and supplies complete elementary-collapse certificates of lengths 4, 12, 12, and 140. The twelve-pair core collapse establishes that attaching the four remaining two-cells gives exactly four extra two-spheres, with no hidden fundamental-group or torsion assumption. The 140-pair collapse onto the **included** boundary identifies the degree-two inclusion map integrally; the kernel is free of rank four. Fixed-simplex Lefschetz traces were checked on each of the 24 symmetry transformations, then compared with the rational \(S_4\) character table. The accompanying independent-of-presentation finite checker replays each exact certificate from the supplied data. The full claim is confined to the twelve-point metric space; it does not extrapolate to an infinite family.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest directly matching mathematical record is *The graph-metric Rips filtration of the truncated tetrahedron* (published-finding corpus, 2026-10-04), whose complete scientific RESULT was read. Its graph-distance-three step adds both distinct Euclidean distance-three shells simultaneously and thus becomes a simplex; it cannot establish the intermediate Euclidean two-sphere at squared radius \(32\), the particular included geometric-boundary collapse, the integral persistence quotient, or the \(S_4\)-module of disappearing classes. Earlier graph-power theory (Adamaszek, arXiv:1104.0433) provides methodology rather than this example's geometric metric. The full theorem and Archimedean-extension discussion in Saleh–Titz Mite–Witzel (arXiv:2302.14388) treat only Platonic solids. Exact-name, metric-alias, complement-cycle, broader-coverage, and character queries of a mathematical-result database found no statement that dominates the combined claim. An indexed thesis was seen only in abstract, and alternative or unindexed Euclidean polytope computations remain genuine residual risks. Absence of a hit is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The truncated tetrahedron is a canonical Archimedean vertex-transitive solid whose shortest-path graph metric merges two geometrically distinct shells. The new Euclidean middle stage, its 140-step relative collapse, its primitive surviving integral boundary class, and the nontrivial four-dimensional permutation character of the classes that disappear resolve this exact natural ambiguity. This is a complete metric filtration and symmetry-resolved persistence classification of a motivated classical example, not an arbitrary face-count or a relabeling of the graph-metric theorem. The finite nature of the object is explicitly part of the scope, and neither general-polytopal applicability nor an integral permutation-lattice splitting is claimed.
+The twelve signed coordinate permutations of (3,1,1) with positive sign product have exact squared-distance pair multiplicities 18,24,12,12 at 8,24,32,40. I independently built every clique on all 4095 nonempty subsets and recovered stage counts 34,114,342,4095. Directly replayed the actual frozen CERTIFICATES.json free-face lists: 4 collapses at q8, 12 q24-to-core, 12 relative core-to-geometric-boundary, and ALL 140 q32-to-the-SAME-included-boundary, confirming final boundary 12 vertices/30 edges/20 triangles, no free-coface violation. Therefore wedge3 circles at q8, wedge5 S² at q24 by four nullhomotopic 2-cell attachments to a sphere, and relative integral surjective H2=Z^5→Z with Z^4 kernel at q32, killed at q40. Independently enumerated all 24 coordinate/permutation even-sign transformations, computed oriented fixed-simplex reduced Lefschetz traces by cycle type (identity5, transposition1, double transposition1, 3-cycle2, 4-cycle−1) and later sign (1,−1,1,1,−1), obtaining rational trivial+standard+sign before and sign after; kernel four-point permutation character. This verifies the presented complete finite domain and persistence, not any other solid.
 
-## Literature and limitations
-Scientific references: Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433 (2011-04-03); Saleh, Titz Mite and Witzel, *Vietoris–Rips complexes of Platonic solids*, arXiv:2302.14388 (2023-02-28); *The graph-metric Rips filtration of the truncated tetrahedron*, published-finding corpus (2026-10-04); and the accessible abstract of Saleh's 2023 dissertation. The exact field-dependent character computation is rational, while the homotopy and homology statements are integral. The listed collapses need not respect the symmetry, although their inclusion maps do. Bibliographic exhaustiveness is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Euclidean CHORDAL metric distinguishes squared shells 32 and 40 which the preexisting graph-distance-three Rips stage merges. The published full 2026-10-04 graph-metric theorem supplies stages ≤24 but cannot imply intermediate Euclidean S², a 140-pair collapse onto the INCLUDED geometric boundary, integral persistent map, or tetrahedral S4 homology character.
+
+## value
+
+PASS
+
+A classical natural Archimedean solid has a geometric metric refinement invisible to its graph distance: exact extra S² shell, primitive integral persistence and rational S4 character decomposition. The complete finite classification is structurally motivated, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
