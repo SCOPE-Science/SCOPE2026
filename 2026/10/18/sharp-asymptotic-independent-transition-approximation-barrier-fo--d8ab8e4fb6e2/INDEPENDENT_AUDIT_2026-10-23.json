@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:19:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git pinned RESULT.md blob 7451fe7345a60c1283cefd10b8efe4bbdab6c788",
+        "Git pinned check.py blob ae5ace669ba4a978c28b7ce0f8d0450c35cb608e",
+        "independent_crosschecks.py: 12 exact rational word-enumeration mean/variance checks"
+      ],
+      "rationale": "The actual RESULT.md fixes d≥2, strictly positive categorical p, and m=n−1 trials. Direct enumeration for rational p and n=3..6 confirms E T_n=mq and Var T_n=mq(1−q)+2(n−2)(s3−s2²). The proof correctly uses a bounded stationary 1-dependent CLT with variance σ²=τ²+2δ and exact binomial(m,q) upper comparison. For the minimax lower bound it treats near-optimal independent Bernoulli arrays of length ≤m, uses Var Z≤μ(1−μ/m), subsequential mean shifts and variance ratios, and tests centered normal CDFs at ±u. Diverging shifts force distance→1 and zero variance gives a point-mass distance ≥1/2. Cauchy–Schwarz gives δ≥0 with equality precisely for uniform positive p; uniform transition indicators are independent. The finite support/variance obstruction for nonuniform n≥3 also follows.",
+      "residual_risks": [
+        "Bounded independent calculations are not substitutes for all quantified analytical steps; no formal proof or external attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Fu compares normal/Poisson/compound-Poisson approximations for pattern counts; Kumar–Upadhye derives Stein/Gibbs approximation classes for specified runs."
+        ],
+        "reasoning": "Their approximation classes and bounds do not supply a universal sharp lower bound for every independent Bernoulli array with at most one term per transition.",
+        "searches": [
+          "Johnson Fu 2014 approximating runs and patterns",
+          "Kumar Upadhye 2017 Gibbs measure approximation runs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches: sum of n-1 independent Bernoulli approximating categorical runs number of transitions minimum Kolmogorov distance nonuniform variance gap",
+        "Resultary: 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "Johnson and Fu (2014) doi:10.1186/2195-5832-1-5",
+        "Kumar and Upadhye arXiv:1701.03294",
+        "Wentzel-Larsen and Anhøj (2019) doi:10.1371/journal.pone.0223233"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Key new step is Var Z/m≤q(1−q)+o(1) for all eligible independent arrays while the run statistic has variance σ²>q(1−q), followed by a sharp normal CDF minimax comparison."
+        ],
+        "reasoning": "General Gaussian approximations and distribution identities do not entail the sharp distance under this restricted proxy budget; the variance comparison plus optimization is necessary.",
+        "searches": [
+          "arxiv:1701.03294",
+          "doi:10.1186/2195-5832-1-5",
+          "sum of n-1 independent Bernoulli approximating categorical runs number of transitions minimum Kolmogorov distance nonuniform variance gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform categorical p the changes are iid Bernoulli, already familiar in crossing-count results; the new theorem assumes nonuniform δ>0 and infimizes over arbitrary Poisson-binomial laws."
+        ],
+        "reasoning": "Uniform-source exact binomial equivalence is prior boundary context, not a general nonuniform minimax theorem.",
+        "searches": [
+          "sum of n-1 independent Bernoulli approximating categorical runs number of transitions minimum Kolmogorov distance nonuniform variance gap",
+          "Wentzel-Larsen Anhøj binary crossing binomial run counts 2019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda gives independent Bernoulli cumulant bounds, not a categorical-transition minimax table."
+        ],
+        "reasoning": "No exact run-dependent κ(p) table or equivalent transition constraint classification was identified; database absence is not proof.",
+        "searches": [
+          "sum of n-1 independent Bernoulli approximating categorical runs number of transitions minimum Kolmogorov distance nonuniform variance gap",
+          "Resultary Poisson-binomial cumulant effective-trial hierarchy"
+        ]
+      },
+      "rationale": "Previously studied runs and approximations concern normal, Poisson, pseudo-binomial/negative-binomial or fixed-composition sequences, not a proof of the exact positive asymptotic infimum in Kolmogorov distance over all ≤n−1 independent Bernoulli variables; novelty is confined to that quantified constrained minimax barrier, not the easy finite non-Poisson-binomial obstruction.",
+      "residual_risks": [
+        "Godbole–Gornowicz 1992 exact and approximate runs distributions could be checked only in abstracts/secondary summaries; an unindexed minimax comparison remains possible.",
+        "Resultary retrieval and keyword searches do not prove global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING on inspected full article: compares specified approximation families, not all ≤n−1 Bernoulli surrogates",
+          "evidence": "2014 Journal of Statistical Distributions and Applications 1:5",
+          "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+          "material_read": "Open journal full HTML: methodology for normal, Poisson and compound-Poisson approximations and examples; conclusions",
+          "method": "Lawful open journal article text",
+          "title": "Johnson and Fu, Approximating the distributions of runs and patterns",
+          "trigger": "Same random-run statistic and distributional approximations"
+        },
+        {
+          "assessment": "NOT_COVERING in inspected text: no exact constrained Poisson-binomial minimax κ(p) for categorical change counts",
+          "evidence": "arXiv:1701.03294",
+          "identifier_or_url": "https://arxiv.org/abs/1701.03294",
+          "material_read": "Accessible arXiv PDF mathematical sections on run patterns and Stein/Gibbs approximation framework",
+          "method": "Open preprint PDF, text and page-image reading",
+          "title": "Kumar and Upadhye, On Discrete Gibbs Measure Approximation to Runs",
+          "trigger": "Discrete-Gibbs and pseudo-binomial run approximations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Categorical run count and constrained independent proxy definition in RESULT.md",
+        "Sharp κ(p), equality regime, and quantified infimum supported by independent variance checks"
+      ],
+      "rationale": "A random categorical transition count is a natural runs statistic. The exact and positive best possible Kolmogorov error for a natural one-proxy-per-transition independent approximation class is a motivated sharp approximation-theory obstruction, distinguishes uniform versus nonuniform sources, and is not merely the known finite support/variance test.",
+      "residual_risks": [
+        "Does not cover total variation, growing alphabet, or more than n−1 proxy terms; no finite-n optimizer classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

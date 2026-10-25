@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact adjacent-indicator expectations and covariances yield \(\operatorname{Var}(T_n)=(n-1)\tau^2+2(n-2)\delta\). The analytic central limit argument and the variance bound for arbitrary Bernoulli surrogates reduce the minimax problem to centered Gaussian comparison. Evaluation at the positive or negative density-crossing point establishes the global lower bound, and the ordinary binomial proxy attains it. The uniform boundary is exact by sequential conditioning. The packaged checker verifies independent finite cases but is not substituted for the limiting proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual risk.** The closest 2017 paper by Kumar--Upadhye bounds approximation of specified consecutive success/failure patterns; its full accessible HTML presents total-variation/Stein results, not this exact cross-category transition-count Kolmogorov minimax asymptotic. Wentzel-Larsen--Anhøj study exact binary-crossing/longest-run distributions and note the fair-coin binomial case; their work does not state the sharp barrier. Johnson--Fu analyze normal and (compound) Poisson approximation, not the optimized one-per-transition Bernoulli class. Historical finite nonrepresentability of biased crossings and standard variance/CLT observations are not claimed separately as novel. The 1992 Godbole--Gornowicz article could not be inspected in full; an unindexed equivalent asymptotic minimax result remains a risk.
+PASS
 
-**Value — PASS.** The result answers a natural modeling question that finite nonrepresentability alone leaves open: can a flexibly tuned independent-transition model be asymptotically accurate? It identifies an exact strictly positive best-possible CDF error for every nonuniform categorical source, and a sharp zero-error boundary and optimal surrogate. The constant quantifies an asymptotically persistent cost of sharing category observations across adjacent transitions. Restricting to one latent independent trial per observed transition is structurally motivated, rather than an arbitrary parameter slice.
+The actual RESULT.md fixes d≥2, strictly positive categorical p, and m=n−1 trials. Direct enumeration for rational p and n=3..6 confirms E T_n=mq and Var T_n=mq(1−q)+2(n−2)(s3−s2²). The proof correctly uses a bounded stationary 1-dependent CLT with variance σ²=τ²+2δ and exact binomial(m,q) upper comparison. For the minimax lower bound it treats near-optimal independent Bernoulli arrays of length ≤m, uses Var Z≤μ(1−μ/m), subsequential mean shifts and variance ratios, and tests centered normal CDFs at ±u. Diverging shifts force distance→1 and zero variance gives a point-mass distance ≥1/2. Cauchy–Schwarz gives δ≥0 with equality precisely for uniform positive p; uniform transition indicators are independent. The finite support/variance obstruction for nonuniform n≥3 also follows.
 
-**Scientific limits.** Only fixed finite categorical distributions, Kolmogorov distance, and the specified Bernoulli-term budget are covered. Exact finite-sample optimizers, unconstrained numbers of surrogate trials, and other probability metrics are not determined. No external audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously studied runs and approximations concern normal, Poisson, pseudo-binomial/negative-binomial or fixed-composition sequences, not a proof of the exact positive asymptotic infimum in Kolmogorov distance over all ≤n−1 independent Bernoulli variables; novelty is confined to that quantified constrained minimax barrier, not the easy finite non-Poisson-binomial obstruction.
+
+## value
+
+PASS
+
+A random categorical transition count is a natural runs statistic. The exact and positive best possible Kolmogorov error for a natural one-proxy-per-transition independent approximation class is a motivated sharp approximation-theory obstruction, distinguishes uniform versus nonuniform sources, and is not merely the known finite support/variance test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
