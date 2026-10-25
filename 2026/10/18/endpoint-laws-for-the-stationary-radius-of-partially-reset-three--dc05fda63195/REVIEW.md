@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary vector construction and synchronous Poisson-reset contraction reconstruct the precise radial Markov semigroup. The characteristic product is integrable in three dimensions; Fourier inversion supplies the positive cubic coefficient. Two separate dominated-convergence arguments, including an integrable characteristic-function bound uniformly as the contraction approaches one, establish both sharp endpoint constants. The second-moment generator calculation independently excludes a scalar sum of independent Erlang distances. Executable numeric checks corroborate but do not certify the infinite-dimensional limits.
+## correctness
 
-**Originality — PASS, qualified.** Kolb--Wübker (2026), Proposition 10, identifies the model while its Corollary 11 and Lemma 12 assert a scalar perpetuity and super-polynomial near-origin decay incompatible with the true Bessel radial semigroup. Grzywny et al. (2024/2026), Theorem A and Proposition 2.22, already cover smooth stationary densities for fixed contraction in arbitrary dimension. Thus the fixed-parameter cubic exponent, existence, smoothness and general Fourier construction are not claimed as original. The two explicit limiting constants as the *conditioning-induced reset rate and contraction vary together* are not contained in the inspected fixed-parameter statements or their space-time convergence regimes; Targeted mathematical-record and primary-literature queries identified no matching endpoint law. A stronger general parameter-uniform result could subsume these limits, and priority requires independent verification.
+PASS
 
-**Value — PASS.** The parameter-dependent near-boundary mass is a directly motivated invariant of the positive-conditioned resetting process. Its sharp endpoints quantify two competing degeneration mechanisms and imply a nontrivial interior maximizer, while demonstrating why the published super-polynomial near-origin assertion cannot describe this stationary Bessel law. This is more than the normalization or moment check alone.
+Lift BES(3) reset at rate c and factor c to the norm of three-dimensional Brownian motion with vector contraction. Stationarity has Y=sum_{j>=0}c^j B_j(E_j) and positive radial Fourier product, integrable over R^3 using the first two factors. Therefore the invariant density at zero is finite and positive, giving pi_c(0,r)~K(c)r^3 with the stated Fourier integral and prefactor. Rescale t to s=ct and dominate by (1+s^2)^-1 to prove c I(c)->pi/2 and K(c)/sqrt(c)->2sqrt2/3. For c->1 coordinate variance sigma^2=1/[c(1-c^2)], the normalized characteristic product converges to Gaussian; first ceil(4/(1-c^2)) factors bound it by integrable (1+e^-6|xi|^2/2)^-4 so L1 convergence yields 4/(3sqrt(pi))*(1-c)^(3/2). Stationary generator gives E[R^2]=3/[c(1-c^2)], separately cross-checked algebraically for c=1/5,1/2,4/5 against the erroneous positive-radial-sum moment. Parameter limits are after r->0, not joint.
 
-The positive result covers only the order of limits stated in RESULT.md. It does not establish a unique maximizer, joint double limits, or broader implications for quasistationary statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kolb and Wuebker (2026) Proposition 10 identifies the rate-c conditioned BES reset but Corollary 11 sums independent nonnegative Erlang radii in error; vector sums must precede norm, invalidating its Lemma 12 flat-origin law. Grzywny et al 2024/2026 Theorem A, Proposition 2.22 give stationary density existence/smoothness for general partial resetting, overlapping fixed-c facts, but not the two tuned c->0 and c->1 constants. The sharp endpoint asymptotics are the surviving claim.
+
+## value
+
+PASS
+
+The error in a directly motivating published distributional representation leads to a wrong qualitative small-ball conclusion. Identifying the true positive cubic coefficient, its two sharp singular perturbation regimes and forced interior maximum supplies a useful quantitative correction in a natural conditioned stochastic process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

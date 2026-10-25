@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:16:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lift BES(3) reset at rate c and factor c to the norm of three-dimensional Brownian motion with vector contraction. Stationarity has Y=sum_{j>=0}c^j B_j(E_j) and positive radial Fourier product, integrable over R^3 using the first two factors. Therefore the invariant density at zero is finite and positive, giving pi_c(0,r)~K(c)r^3 with the stated Fourier integral and prefactor. Rescale t to s=ct and dominate by (1+s^2)^-1 to prove c I(c)->pi/2 and K(c)/sqrt(c)->2sqrt2/3. For c->1 coordinate variance sigma^2=1/[c(1-c^2)], the normalized characteristic product converges to Gaussian; first ceil(4/(1-c^2)) factors bound it by integrable (1+e^-6|xi|^2/2)^-4 so L1 convergence yields 4/(3sqrt(pi))*(1-c)^(3/2). Stationary generator gives E[R^2]=3/[c(1-c^2)], separately cross-checked algebraically for c=1/5,1/2,4/5 against the erroneous positive-radial-sum moment. Parameter limits are after r->0, not joint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grzywny et al arXiv:2412.15626 Theorem A and Proposition 2.22 smoothness for stable processes with partial resetting.",
+          "Kolb-Wuebker Corollary 11 asserts a sum-of-positive-radii representation, contradicted by generator moment."
+        ],
+        "reasoning": "The broad stationary-density theorem may supply integral formula but does not state or logically force sharp c-coupled singular constants without independent uniform asymptotic analysis. Conversely prior scalar radial sum cannot dominate because it is false for this process.",
+        "searches": [
+          "three dimensional Bessel Brownian partial stochastic resetting stationary radial density small ball contraction rate endpoint",
+          "Kolb Wuebker 2026 conditioned partial reset Brownian rate c Proposition 10 Lemma 12",
+          "arxiv:2412.15626 stationary states stable processes with partial resetting density endpoint c",
+          "partial resetting vector Brownian Fourier product stationary density small ball"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/endpoint-laws-for-the-stationary-radius-of-partially-reset-three--dc05fda63195/RESULT.md",
+        "https://doi.org/10.1112/blms.70314",
+        "https://arxiv.org/pdf/2412.15626",
+        "https://doi.org/10.1103/PhysRevE.110.044142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kolb-Wuebker Proposition 10 vs Corollary 11, Lemma 12; norm(sum vectors) is not sum(norm vectors).",
+          "arXiv:2412.15626 Proposition 2.22 density C-infinity; no double endpoint coefficient in cited proposition."
+        ],
+        "reasoning": "The stationary density positivity gives cubic local law, contradicts prior superpolynomial claim. Singular c->0 and c->1 coefficient asymptotics require rescaled integral and uniform Fourier domination beyond cited earlier theorems.",
+        "searches": [
+          "three dimensional Bessel Brownian partial stochastic resetting stationary radial density small ball contraction rate endpoint",
+          "Kolb Wuebker 2026 conditioned partial reset Brownian rate c Proposition 10 Lemma 12",
+          "arxiv:2412.15626 stationary states stable processes with partial resetting density endpoint c",
+          "partial resetting vector Brownian Fourier product stationary density small ball"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolb-Wuebker DOI:10.1112/blms.70314 Proposition 10 exactly identifies conditioned BES3 c-reset rate c.",
+          "Grzywny et al arXiv:2412.15626 Proposition 2.22 provides smooth stationary density for the underlying full-dimensional process."
+        ],
+        "reasoning": "The BES3 scalar-radius invariant law equals the radialization of a 3D vector autoregressive reset Brownian law, not a sum of independent positive Erlang radii. General fixed-parameter invariant density theory contains the cubic exponent but does not give the two distinct moving-c coefficients.",
+        "searches": [
+          "three dimensional Bessel Brownian partial stochastic resetting stationary radial density small ball contraction rate endpoint",
+          "Kolb Wuebker 2026 conditioned partial reset Brownian rate c Proposition 10 Lemma 12",
+          "arxiv:2412.15626 stationary states stable processes with partial resetting density endpoint c",
+          "partial resetting vector Brownian Fourier product stationary density small ball"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query for Bessel Brownian partial reset endpoint returned no directly matching stationary coefficient among 15 hits.",
+          "The Kolb-Wuebker published polynomial-moment formula gives different second moment for erroneous radius sum."
+        ],
+        "reasoning": "No indexed exact c-endpoint coefficient table found. Failure of search is not a proof of priority, and the submitted result excludes any novelty claim for fixed-c density smoothness.",
+        "searches": [
+          "three dimensional Bessel Brownian partial stochastic resetting stationary radial density small ball contraction rate endpoint",
+          "Kolb Wuebker 2026 conditioned partial reset Brownian rate c Proposition 10 Lemma 12",
+          "arxiv:2412.15626 stationary states stable processes with partial resetting density endpoint c",
+          "partial resetting vector Brownian Fourier product stationary density small ball"
+        ]
+      },
+      "rationale": "Kolb and Wuebker (2026) Proposition 10 identifies the rate-c conditioned BES reset but Corollary 11 sums independent nonnegative Erlang radii in error; vector sums must precede norm, invalidating its Lemma 12 flat-origin law. Grzywny et al 2024/2026 Theorem A, Proposition 2.22 give stationary density existence/smoothness for general partial resetting, overlapping fixed-c facts, but not the two tuned c->0 and c->1 constants. The sharp endpoint asymptotics are the surviving claim.",
+      "residual_risks": [
+        "Full literature on c-uniform stationary-density expansions not exhaustively searched; a general parameter-uniform theorem could imply constants as corollaries.",
+        "The 2026 Kolb-Wuebker Introduction says resetting rate 1-c, whereas its Proposition 10 and Corollary 11 state rate c: explicit hypotheses were taken from the formal proposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INCORRECT_RADIUS_SUM",
+          "evidence": "Proposition 10 transition uses rate c; Corollary 11 sums positive Erlang norms; source Lemma 12 claims faster than all powers, contradicted by vector density and generator moment.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.70314",
+          "material_read": "Full lawful OA Wiley HTML inspected around Proposition 10, Corollary 11, Lemma 12 and derivations; discovered introduction rate (1-c) contradicts actual Proposition 10 rate c",
+          "method": "Full HTML primary text, formulas and proof passages",
+          "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+          "trigger": "Exact same reset BES process and closest false competing assertion"
+        },
+        {
+          "assessment": "FOUNDATIONAL_PRIOR_NOT_ENDPOINT",
+          "evidence": "Proposition 2.22 explicitly states stationary density C-infinity in R^d and moment identities; no sharp moving c endpoint constant in inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.15626",
+          "material_read": "Full arXiv PDF available; inspected Theorem A statement and Proposition 2.22 p20, including rendered page screenshot and surrounding density proof",
+          "method": "PDF text plus rendered page screenshot",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Stronger general partial resetting stationary density theorem"
+        },
+        {
+          "assessment": "LOWER_DIMENSION_ONLY",
+          "evidence": "Dimension one and different output invariant; does not establish the 3D conditioned tuned-rate endpoint law.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.110.044142",
+          "material_read": "Bibliographic reference and comparison setting only; article full text not read",
+          "method": "Reference check",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one dimension",
+          "trigger": "Older related rescaled Brownian resetting model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The error in a directly motivating published distributional representation leads to a wrong qualitative small-ball conclusion. Identifying the true positive cubic coefficient, its two sharp singular perturbation regimes and forced interior maximum supplies a useful quantitative correction in a natural conditioned stochastic process.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/endpoint-laws-for-the-stationary-radius-of-partially-reset-three--dc05fda63195/RESULT.md",
+    "https://doi.org/10.1112/blms.70314",
+    "https://arxiv.org/pdf/2412.15626",
+    "https://doi.org/10.1103/PhysRevE.110.044142"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full literature on c-uniform stationary-density expansions not exhaustively searched; a general parameter-uniform theorem could imply constants as corollaries.",
+    "No GitHub publication, third-party attestation or formal mechanized proof is represented; finite checks are corroboration only."
+  ],
+  "residual_risks": [
+    "Full literature on c-uniform stationary-density expansions not exhaustively searched; a general parameter-uniform theorem could imply constants as corollaries.",
+    "The 2026 Kolb-Wuebker Introduction says resetting rate 1-c, whereas its Proposition 10 and Corollary 11 state rate c: explicit hypotheses were taken from the formal proposition."
+  ],
+  "schema_version": 1
+}
