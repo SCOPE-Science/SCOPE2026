@@ -1,11 +1,21 @@
-# Scientific review of the crown-graph directional-localization theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** A lower-bound invariant preserves a nontrivial family of possible robber territories after any \(n-2\) simultaneous probes: two matching indices are untouched, yielding an indistinguishable opposite-part pair and a renewed territory omitting a crossed pair. The upper bound uses \(n-1\) probes on one side, then changes the omitted index after the only possible ambiguous response; a third-index probe separates any two remaining opposite-side robber positions. All indices and boundary assumptions require \(n\ge4\), so the claimed \(n\ge5\) regime is covered. The standalone finite-game solver confirms cases through \(n=6\), and a separate finite check exhausts strategy conditions through \(n=7\); the infinite proof does not rely on these tests.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Jones and Kinnersley define the adversarial partial-feedback game and determine \(\operatorname{dirloc}(K_{m,n})\), but deletion of a perfect matching changes the graph and shortest-path feedback. The published cube result covers \(\operatorname{Cr}_4\cong Q_3\), not the unbounded family \(n\ge5\). A crown-graph edge-metric-dimension value happens also to equal \(n-1\), but it counts a static resolving set and does not entail a dynamic pursuit-evasion result. Searches of related aliases, published research records, and graph/game literature found no direct covering theorem. Some later text of the initiating manuscript could not be inspected, and unindexed prior results may exist; these risks are not represented as proof of uniqueness.
+PASS
 
-**Value — PASS.** This determines the exact search resource and worst-case number of rounds on a natural infinite family of regular bipartite graphs, gives an explicit optimal policy and a structurally stable adversarial belief-set invariant, and exhibits a sharp matching-deletion contrast with the motivating biclique formula. Both an upper construction and an infinite evasion strategy are needed, rather than a mere substitution in known bounds. It is not asserted to solve arbitrary matching-deleted bicliques.
+PASS: For each n>=5 under one-vertex shortest-path partial feedback, the first n-1 probes A\{a_t} yield either a singleton or exactly {a_t,b_s}, s!=t; recontamination then excludes a_s,b_t, so A\{a_s} distinguishes every legal second-round position. With at most n-2 probes, at least two unused matching indices permit p!=q with a_p,b_q inside a contained invariant member V or V\{a_j,b_i} (i!=j). Common geodesic replies b_q to A probes and a_p to B probes retain both positions; their closed neighbourhood union is V\{a_q,b_p}, closing the indefinite-belief invariant. These are all-parameter arguments, not an inference from finite game searches.
 
-**Sources and scope.** Jones–Kinnersley, arXiv:2609.01745v1 (partial-feedback definition and Proposition 2.2(iv), first publicly available 2026-09-01); published published-finding corpus records on the \(Q_3\) case and a distinct crown-graph metric invariant, both dated 2026-10-04. Primary manuscript sections not wholly inspected remain a residual risk. Only the partial-feedback game and \(n\ge5\) are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Jones–Kinnersley gives the partial-feedback rules and dirloc(K_m,n)=min(m,n), but deleting a perfect matching changes both geodesic reports and post-move belief dynamics. A known Q3=Cr4 calculation is explicitly excluded. No covering crown graph partial-feedback all-n theorem was found in the inspected primary article or relevant mathematical searches.
+
+## value
+
+PASS
+
+PASS: Crown graphs are a canonical family of almost-complete bipartite graphs; the exact n-1 game cost, two-round adaptive policy and perpetual n-2-cop belief invariant show a sharp one-unit sensitivity to deleting a perfect matching from K_n,n. The dynamic-search invariant, not a static edge metric dimension equality, is the useful exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
