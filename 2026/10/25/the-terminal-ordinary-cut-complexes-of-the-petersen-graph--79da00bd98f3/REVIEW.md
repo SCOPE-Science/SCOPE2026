@@ -1,0 +1,11 @@
+# Scientific review: terminal ordinary cut complexes of the Petersen graph
+
+**Correctness — PASS.** For each of the three terminal nonvoid cut parameters, the exact Petersen adjacency rule and the ordinary cut definition specify finite lists of facets. The included standard-library certificate enumerates all faces, verifies global acyclicity of an explicit matching, reconstructs the integral alternating-path Morse boundary and checks both a unit minor and the rank-limiting row dependence. The resulting CW complexes yield the stated integral homotopy types, not just field Betti numbers. The computations are exhaustive for the ten-vertex object, not extrapolations.
+
+**Originality — PASS on available evidence.** The article introducing ordinary cut complexes (Bayer et al., arXiv:2304.13675, 2023-04-26) explicitly gives the Petersen second-cut complex, while previously reported fourth-cut results treat another parameter. Searches for the fifth, sixth and seventh cuts, their Kneser aliases, mixed-dimensional spheres and higher-parameter generic implications revealed no encompassing statement. Indexed neighboring claims about the Petersen third-cut complex, total cut complexes and high-girth complexes do not imply this theorem: their parameters/definitions/hypotheses differ. The relevant full primary article text was inspected by sections and exact term search. Residual risks include unindexed literature and neighboring repository items whose full texts could not be read; similarity searches alone do not prove novelty.
+
+**Value — PASS.** The Petersen graph is a canonical small symmetric nonchordal graph and a named example in the original cut-complex article. Its three final nonvoid levels form a natural complete classification. The fifth-cut level exhibits a mixed-dimensional integral wedge and a concrete shellability obstruction, followed by two uniform-dimension sphere wedges. The exact upper-cut profile supplies a useful boundary case for homotopy and shellability patterns without alleging a general theorem for all graphs.
+
+The scope is nonequivariant, does not describe maps between cut levels, and carries residual search limitations stated in the structured audit. All external audit and independent validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
