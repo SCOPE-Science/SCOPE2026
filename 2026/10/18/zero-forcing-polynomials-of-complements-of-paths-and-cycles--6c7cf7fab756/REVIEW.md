@@ -1,19 +1,21 @@
-# Scientific review: zero forcing on complementary paths and cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument computes the number of initially white neighbors exactly as the number of whites minus at most two neighbors in the original graph. This excludes every forcing set smaller than \(n-3\). With three white vertices, the first force exists exactly when a blue degree-two original-graph vertex has both neighbors white; after that force, two whites always disappear by the absence of twin pairs in paths and cycles of order at least five. The incidence counts explicitly account for every duplicated center/triple pair, including the two triple-center configurations at order six. This proves the complete polynomial formulas, not merely an asymptotic assertion. Independent direct simulation of all vertex subsets for orders \(5\) through \(14\) confirms the derived coefficients and set-level classification.
+PASS
 
-## Originality — PASS with residual risks
+Let G=complement(H) for H=P_n or C_n, n≥5. With r initial whites, each blue vertex has r−|N_H(v)∩W|≥r−2 neighbors among whites in G, hence r≥4 immediately stalls; Z≥n−3. With r=2, path/cycle vertices u,w have distinct external H-neighborhoods, so some blue v sees exactly one of u,w in H and forces the other in G; remaining singleton is forced since δ(G)≥2. For r=3, first G-force happens iff a blue degree-two vertex of H has both its H-neighbors among the three whites, and then pair completion finishes. Path counting (n−2)(n−3) center–triple incidences minus n−4 double counts yields n²−6n+10. Cyclic incidences n(n−3), usually n double-center triples give n(n−4); at n=6 precisely two alternating triples have three centers and each causes multiplicity adjustment +2, giving n(n−4)+2. Thus full polynomials have low coefficient as displayed, then binom(n,2), n, 1; difference 2n−10+2*[n=6], zero at n=5. Independently enumerated all initial blue sets for n=5..10 in path/cycle complements, matched both polynomials (n=6 path 10, cycle 14 minimum sets). This bounded test does not prove all n; the incidence argument does.
 
-The closest inspected literature contains the zero-forcing number of complementary paths and cycles (Curl et al., 2022), plus general high-degree polynomial coefficients and exact polynomials of noncomplemented paths and cycles (Boyer et al., 2018). Neither supplies the newly computed minimum-set multiplicity coefficient, its exceptional six-cycle correction, or the equality of all other coefficients across the two complementary graph families. Searches under co-path, antihole, complete-graph-edge-deletion, zero-forcing-polynomial, and minimum-set-count terminology, including mathematical result records, yielded no covering earlier statement. Overlooked tables or separately circulated results remain possible; the search does not prove uniqueness or chronological priority.
+## originality
 
-## Value — PASS
+PASS
 
-These are canonical dense complements of sparse connected graph families studied in the complement-zero-forcing literature. The coefficients count all choices of optimal initial conditions, a finer graph invariant than the known minimum cardinality. A single natural edge deletion can strictly change the minimum-set count without changing the minimum itself, and the exact difference has an exceptional six-vertex case. The result is a motivated complete classification across two infinite families rather than an arbitrary finite instance.
+Best-of-knowledge PASS for full polynomial refinement. Curl et al give the scalar n−3 for these graph complements, but no count of all minimum sets. Boyer et al compute polynomials for ordinary paths and cycles (not complements) and general top coefficients. The n=6 exact correction and minimum triple description require a separate incidence argument.
 
-## Scientific limits
+## value
 
-Only \(n\ge5\) and the two specified complement families are covered. The algorithmic checks are exhaustive only on bounded orders; the infinite proof is combinatorial. Independent priority assessment and scientific validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complementary path/cycle families are natural dense graphs with classical scalar forcing number n−3 but previously unenumerated minimum forcing sets. Exact complete polynomials, especially the six-cycle overlap exception and sharp effect of adding the cycle edge in H, refine the scalar result into reusable enumerative distributions across infinitely many orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
