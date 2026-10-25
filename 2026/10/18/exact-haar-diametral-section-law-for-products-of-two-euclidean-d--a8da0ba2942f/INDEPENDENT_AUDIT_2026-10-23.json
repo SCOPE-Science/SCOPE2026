@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T03:12:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "Pinned RESULT.md blob 2811a9a2bcc5e63cf992270623cee4313b281d50; CHECK.py d47c7ffd2ec8ab281d5627596a75e0247f6864c7; independent_crosschecks.py/output",
+      "rationale": "The body has full diameter 2√(1+h²). In a 2-plane E the full-radius event is λmin≤c=1/(1+h²)≤λmax for the first 2-block Gram matrix. The oriented Gr(2,4) selfdual/antiselfdual spherical product has independent A=W12+W34 and B=W12−W34 uniform [-1,1]. The Rayleigh condition becomes ellipse x²/c+y²/(1−c)≤1 inside the diamond |x|+|y|≤1, with density 1/2, giving π√(c(1−c))/2=πh/[2(1+h²)]. AM–GM gives unique h=1 maximum π/4; Gr(1,4) event null and every Gr(3,4) has a deterministically exhibited witness. Independent finite Haar QR samples at h=.3,.7,1,2,6 agree to sampling accuracy.",
+      "residual_risks": [
+        "Monte Carlo only checks normalizations and event implementation, not the continuous exact probability.",
+        "The proof uses standard SO(4)→SO(3)×SO(3) Haar factorization, which is essential and explicitly justified, not inferred from the sample."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guédon et al. arXiv:2609.24131 gives general high-dimensional random diameter bounds; no fixed-four-dimensional exact product-of-disks event in relevant theorem statements.",
+          "Hinrichs et al. arXiv:1901.06639 work with random sections of single ellipsoids."
+        ],
+        "reasoning": "General random-section diameter bounds are not equality-event probabilities, and those for individual ellipsoids do not cover intersection-type Cartesian disk products.",
+        "searches": [
+          "Guédon, Litvak, Tatarko and Vritsiou, On random diameters of convex bodies, arXiv:2609.24131",
+          "Hinrichs, Krieg, Novak, Prochno and Ullrich, Random sections of ellipsoids and the power of random information, arXiv:1901.06639",
+          "Resultary semantic search: Haar random 2-dimensional planes diameter preserving Euclidean disk Cartesian product in R4 principal angles"
+        ]
+      },
+      "checked_sources": [
+        "Guédon, Litvak, Tatarko and Vritsiou, On random diameters of convex bodies, arXiv:2609.24131",
+        "Hinrichs, Krieg, Novak, Prochno and Ullrich, Random sections of ellipsoids and the power of random information, arXiv:1901.06639",
+        "Resultary semantic search: Haar random 2-dimensional planes diameter preserving Euclidean disk Cartesian product in R4 principal angles",
+        "assigned RESULT.md Hodge/Grassmannian calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim gives exact positive mass πh/(2(1+h²)) for planar sections, zero for generic lines, one for every hyperplane.",
+          "The cited diameter-bound literature cannot be specialized to this exact equality atom without additional analysis."
+        ],
+        "reasoning": "A new exact probability remains after removing standard Hodge and principal-angle facts from the contribution.",
+        "searches": [
+          "Guédon, Litvak, Tatarko and Vritsiou, On random diameters of convex bodies, arXiv:2609.24131",
+          "Hinrichs, Krieg, Novak, Prochno and Ullrich, Random sections of ellipsoids and the power of random information, arXiv:1901.06639",
+          "Resultary semantic search: Haar random 2-dimensional planes diameter preserving Euclidean disk Cartesian product in R4 principal angles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-diameter iff c=1/(1+h²) lies between squared principal cosines of the random plane; same event equals ellipse x²/c+y²/(1−c)≤1 in a uniform diamond.",
+          "Product B2²×hB2² has separate block constraints, unlike a single ellipsoid quadratic sum."
+        ],
+        "reasoning": "Checked aliases from singular values, principal angles, Clifford-torus geometry and Grassmannian Hodge coordinates; no retrieved statement implied the exact aspect-ratio probability.",
+        "searches": [
+          "Resultary semantic search: Haar random 2-dimensional planes diameter preserving Euclidean disk Cartesian product in R4 principal angles",
+          "Guédon, Litvak, Tatarko and Vritsiou, On random diameters of convex bodies, arXiv:2609.24131",
+          "Hinrichs, Krieg, Novak, Prochno and Ullrich, Random sections of ellipsoids and the power of random information, arXiv:1901.06639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical density describes ordered λ1,λ2 but the disk-product full-diameter probability is a nontrivial planar-region integral; Hodge square makes it elementary."
+        ],
+        "reasoning": "No matching exact pretabulated event found in searched random subspace probability results; there is no finite table expected to imply a continuous-h parameter law.",
+        "searches": [
+          "Resultary semantic search: Haar random 2-dimensional planes diameter preserving Euclidean disk Cartesian product in R4 principal angles",
+          "Real Jacobi principal angle density (classical)"
+        ]
+      },
+      "rationale": "The exact πh/(2(1+h²)) two-disk-product diametral planar section probability is not a standard single-ellipsoid random-section result. The 4D Hodge product sphere representation and real Jacobi law are classical proof ingredients, not claimed novel. Inspected 2026 general random-diameter paper bounds diameters but does not give exact atom for this nonsmooth fixed 4D product; finite Grassmannian distribution and dimension trichotomy are new as far as searched.",
+      "residual_risks": [
+        "Older principal-angle or Clifford-torus event integral might yield an unindexed equivalent law.",
+        "No historical priority certificate; exact formula nevertheless independently reconstructed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PROBABILITY_BOUNDS_NOT_EXACT_EVENT",
+          "evidence": "Theorem statements give dimension-sensitive high-probability bounds, not πh/(2(1+h²)) for product disks.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24131",
+          "material_read": "Full 38-page PDF obtained; title/abstract, theorem statements and relevant application sections searched for product and exact-preservation event.",
+          "method": "Lawful arXiv PDF and screenshots",
+          "title": "On random diameters of convex bodies",
+          "trigger": "Very recent closest primary diameter topic"
+        },
+        {
+          "assessment": "DIFFERENT_ELLIPSOID_MODEL",
+          "evidence": "Single Euclidean quadratic ellipsoids are not product intersection of block balls.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06639",
+          "material_read": "ArXiv abstract and relevant operator-object statements, not every proof paragraph.",
+          "method": "OA arXiv abstract/theorem inspection",
+          "title": "Random sections of ellipsoids and the power of random information",
+          "trigger": "Related Grassmannian singular values and random sections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Hodge/elliptic-area proof and comparison with Guédon et al. 2026"
+      ],
+      "rationale": "A full-diameter preservation atom for random sections of a natural nonsmooth product body is mathematically meaningful. The dimension trichotomy 0 for lines, explicit πh/(2(1+h²)) for planes, and 1 for all hyperplanes and sharp equal-radii extremum exhibit a geometry-driven phase difference not supplied by generic diameter estimates.",
+      "residual_risks": [
+        "Only exact two-factor four-dimensional disk products; not a full section-diameter distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

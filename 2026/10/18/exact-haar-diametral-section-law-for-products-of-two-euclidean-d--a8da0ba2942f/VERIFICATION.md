@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-The main derivation is analytical. The standalone command `python CHECK.py` uses Python 3 with NumPy and passed with the following output:
+# Independent mathematical audit
 
-`VERIFY_OK random_planes=60000 independent_diamond_draws=450000 hyperplane_witnesses=7500 aspect_ratios=5`
+## correctness
 
-The first test performs orthonormal Gaussian-QR constructions of Haar two-planes, compares the exact eigenvalue-straddling indicator to the bivector/Hodge ellipse indicator pointwise, and compares frequencies to the proposed formula for five aspect ratios. The second independently samples uniform square coordinates corresponding to the Haar Hodge law and compares the ellipse frequencies with the formula. The third constructs maximal-radius witnesses orthogonal to randomly sampled three-plane normals. Exact elementary arithmetic confirms \(P(h)=P(1/h)\) and its upper bound \(\pi/4\). Simulation tolerances are deliberately finite; they do not establish the continuum theorem or rule out hidden errors. Those depend on the complete proof in RESULT.md.
+PASS
 
-The classical identification \(\operatorname{Gr}^{+}(2,4)\cong S^2\times S^2\) follows algebraically from decomposable bivectors and Hodge duality, and its measure decomposition is justified by the full product rotation action. The equality event is well-defined with endpoints, which have Haar measure zero. No unperformed independent audit is represented as performed.
+The body has full diameter 2√(1+h²). In a 2-plane E the full-radius event is λmin≤c=1/(1+h²)≤λmax for the first 2-block Gram matrix. The oriented Gr(2,4) selfdual/antiselfdual spherical product has independent A=W12+W34 and B=W12−W34 uniform [-1,1]. The Rayleigh condition becomes ellipse x²/c+y²/(1−c)≤1 inside the diamond |x|+|y|≤1, with density 1/2, giving π√(c(1−c))/2=πh/[2(1+h²)]. AM–GM gives unique h=1 maximum π/4; Gr(1,4) event null and every Gr(3,4) has a deterministically exhibited witness. Independent finite Haar QR samples at h=.3,.7,1,2,6 agree to sampling accuracy.
+
+## originality
+
+PASS
+
+The exact πh/(2(1+h²)) two-disk-product diametral planar section probability is not a standard single-ellipsoid random-section result. The 4D Hodge product sphere representation and real Jacobi law are classical proof ingredients, not claimed novel. Inspected 2026 general random-diameter paper bounds diameters but does not give exact atom for this nonsmooth fixed 4D product; finite Grassmannian distribution and dimension trichotomy are new as far as searched.
+
+## value
+
+PASS
+
+A full-diameter preservation atom for random sections of a natural nonsmooth product body is mathematically meaningful. The dimension trichotomy 0 for lines, explicit πh/(2(1+h²)) for planes, and 1 for all hyperplanes and sharp equal-radii extremum exhibit a geometry-driven phase difference not supplied by generic diameter estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

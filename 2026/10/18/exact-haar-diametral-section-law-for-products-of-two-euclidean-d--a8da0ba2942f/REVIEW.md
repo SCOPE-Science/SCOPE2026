@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The body is centrally symmetric and has radius \(\sqrt{1+h^2}\). A two-plane section preserves the radius exactly when the Rayleigh quotient of first-block projection equals \(c=1/(1+h^2)\), equivalently to a straddle of \(c\) by two squared principal cosines. The Hodge decomposition sends a Haar-uniform oriented plane to independent uniform points on two two-spheres; their relevant coordinates are independent uniform \([-1,1]\). The straddle condition is the ellipse \(x^2/c+y^2/(1-c)\le1\) inside a diamond with constant density \(1/2\), yielding the exact probability. The height-symmetry and unique maximum follow from \((h-1)^2\ge0\). Separate explicit geometry establishes the line, hyperplane and whole-space cases. The standalone checker passed 60,000 QR-plane event equivalences, 450,000 independent diamond samples and 7,500 three-plane witnesses. Statistical checks supplement, rather than prove, the universal formula.
+## correctness
 
-## Originality — PASS, qualified
-A full-text reading of arXiv:2609.24131 establishes that its results concern general upper/lower random-radius estimates and specialized \(p\)-ellipsoids, not the exact atom at ambient diameter for a product of two disks. A full-text reading of arXiv:1901.06639 concerns quadratic ellipsoids, rather than the intersection of two independent disk constraints. published-finding corpus searches for aliases including principal-angle straddling, Clifford-torus intersections, product-ball central sections and the exact \(\pi h/[2(1+h^2)]\) expression found no covering result; the nearest records concern other convex bodies or scalar radii. The Grassmannian identification and principal-angle density are classical and are not claimed as independent novelties. An unindexed historical source using different terminology might nevertheless establish the same exact probability and remains a specific residual risk.
+PASS
 
-## Mathematical value — PASS
-The question measures the probability that dimension reduction preserves a maximal chord, a natural extremal statistic in geometric information recovery. The exact all-aspect-ratio law exhibits a nontrivial absolutely positive preservation probability for random two-planes, a unique balanced-shape optimum \(\pi/4\), inversion symmetry, and a deterministic dimension jump at three-dimensional sections. Its derivation exploits nontrivial four-dimensional integral geometry and gives a self-contained benchmark in a nonsmooth convex family omitted by classical ellipsoid estimates. It is not a renaming of an existing formula or a numerical recomputation of a table. No general claims for arbitrary products or full diameter distributions are made.
+The body has full diameter 2√(1+h²). In a 2-plane E the full-radius event is λmin≤c=1/(1+h²)≤λmax for the first 2-block Gram matrix. The oriented Gr(2,4) selfdual/antiselfdual spherical product has independent A=W12+W34 and B=W12−W34 uniform [-1,1]. The Rayleigh condition becomes ellipse x²/c+y²/(1−c)≤1 inside the diamond |x|+|y|≤1, with density 1/2, giving π√(c(1−c))/2=πh/[2(1+h²)]. AM–GM gives unique h=1 maximum π/4; Gr(1,4) event null and every Gr(3,4) has a deterministically exhibited witness. Independent finite Haar QR samples at h=.3,.7,1,2,6 agree to sampling accuracy.
 
-## Closest literature and limitations
-Guedon–Litvak–Tatarko–Vritsiou, arXiv:2609.24131 (general diameter estimates); Hinrichs–Krieg–Novak–Prochno–Ullrich, arXiv:1901.06639 (ellipsoid sections); Mendelson, arXiv:1312.3608 (diameter upper bounds). The exact formula is for \(B_2^2\times hB_2^2\) and only the maximal-diameter atom, not the complete continuous diameter distribution. Historical priority has not been certified independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact πh/(2(1+h²)) two-disk-product diametral planar section probability is not a standard single-ellipsoid random-section result. The 4D Hodge product sphere representation and real Jacobi law are classical proof ingredients, not claimed novel. Inspected 2026 general random-diameter paper bounds diameters but does not give exact atom for this nonsmooth fixed 4D product; finite Grassmannian distribution and dimension trichotomy are new as far as searched.
+
+## value
+
+PASS
+
+A full-diameter preservation atom for random sections of a natural nonsmooth product body is mathematically meaningful. The dimension trichotomy 0 for lines, explicit πh/(2(1+h²)) for planes, and 1 for all hyperplanes and sharp equal-radii extremum exhibit a geometry-driven phase difference not supplied by generic diameter estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
