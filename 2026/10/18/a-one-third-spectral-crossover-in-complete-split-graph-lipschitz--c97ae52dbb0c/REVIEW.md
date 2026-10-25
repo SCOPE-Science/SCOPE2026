@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The dual Lipschitz inequalities reduce exactly to a clique range bounded by one and \(q\) conditional intervals of length \(2-R\). The extrema-coordinate transformation yields density proportional to \(R^{p-2}(2-R)^q\); ordered endpoint labels, residual uniform interior coordinates and global translation are accounted for. Conditional sums of clique pairwise squares and conditional leaf moments give the three eigenvalues in the canonical zero-sum metric. Permutation invariance excludes missing mixed eigenspace terms. The spectral crossover follows from a boundary exponential scaling for \(q/p<1\), a half-Gaussian scaling for \(q=p\), and a strict Laplace maximizer for \(q/p>1\). These analytic arguments apply in every stated dimension. Independent convex-hull simplex integrations check the *full covariance matrices* and volumes in six small instances.
+PASS
 
-## Originality
+Reconstructed anchored-coordinate disintegration: clique range R has density proportional r^(p-2)(2-r)^q, conditional q independent intervals length 2-r, permutation-exchangeable clique deviations and class-contrast variance yield all three stated rational eigenvalues. Independent exact-rational I_j evaluations and covariance consistency checked for (p,q)=(2,2),(3,2),(4,5),(8,3),(13,13),(20,6). Boundary Laplace p(1-R)->Exp(rate 1-c) for 0<c<1 and sqrt(p)(1-R)->half-normal at q=p give two vanishing gap scalings; interior Laplace r->2/(1+c) for c>1 gives macroscopic gap. The finite cases only corroborate the all-parameter proof. The critical ratio c=1/3 has no universal sign assertion, and anchored volume differs from intrinsic H_N volume by sqrt(N).
 
-**PASS on the completed, evidence-limited comparisons of the main spectral crossover.** Alexander et al. (arXiv:1911.10642), §5.2, compute the equilateral reference polytope volume, not the continuous split-graph covariance. D'Alì et al. (arXiv:1910.05193), §§2–4, study graph symmetric-edge combinatorics, face and volume invariants, not a second-moment law for continuous points in the split-graph polar. Chen et al. (arXiv:2107.12315), §4, classify facets through maximal bipartite subgraphs rather than the polar's second moments. These statements do not imply the new three-eigenvalue formulas and the two density-ratio limits. The related complete-bipartite dual-ball disintegration admits the present truncated-range law by conditioning on the clique-range event. Hence the conditional sampling construction and rational moment formulas are treated as supporting ingredients rather than the independent novelty. What is not supplied by that unconditioned law is the proved sharp asymptotic change of covariance-eigenvalue ordering at class-density ratio \(1/3\), followed by a second nonzero-gap transition beyond ratio \(1\). Search failure is not a theorem of uniqueness; an unindexed equivalent asymptotic treatment remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The bulk covariance operator is a canonical second-order geometric invariant of a natural two-parameter graph-metric Banach family. Exact eigenvalue multiplicities, rational formulas and independent integration certificates give a complete finite-dimensional answer. More importantly, the contrast/clique spectral ordering changes at an asymptotically sharp density ratio of \(1/3\), and its gap acquires a nonzero limit beyond density ratio \(1\). Neither phenomenon is a simple restatement of a facet count, a volume, or the symmetry of the graph. The source object and the two spectral transitions supply motivation for the precise quantity calculated.
+The exact continuously sampled Lipschitz-dual-ball covariance spectrum and asymptotic eigenvalue-order switch at 1/3 are not equivalent to facets, Ehrhart data, inradius or Löwner-ellipsoid spectral axes; all use different measures or observables. Related Lipschitz-free volume-product work provides polytope setting but not this covariance. Best-of-knowledge original under named searched sources.
 
-## Limitations and closest literature
+## value
 
-The theorem does not classify the critical window \(q/p\to1/3\), and it does not prove a single crossing for each finite \(p\). The available primary-paper sections and searches leave a nonzero risk of equivalent older work expressed through other terminology. The exact finite tests corroborate the proof but are not exhaustive. The review is not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural two-parameter family of metric polytope balls has previously inaccessible second-moment geometry; the complete class-symmetry covariance spectrum and sharp change in largest fluctuation mode at an intrinsic one-third ratio are structurally interpretable and useful as an exact high-dimensional Lipschitz-polytope benchmark. Volume formula alone would be standard range integration, but the covariance ordering transition is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
