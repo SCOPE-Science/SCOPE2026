@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T10:55:02.465275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write F_q^×=<g> of order 2^a l. Nonsquare iff exponent k odd, nonprimitive then iff l divides k; these are exactly primitive 2^a-th roots, roots of x^(2^(a-1))+1, all split and squarefree over F_q. Pair count is degree of gcd with the shifted polynomial computed over prime field F_p; irreducible factors are shared exactly over algebraic closure and here all roots already split in F_q. Exact integer resultants for a=1..4 are 1,5,153,1051779953=7²·17⁴·257; modular monic gcd degrees for possible p are (5:1),(3:2,17:1),(7:2,17:4,257:1). Fresh independent symbolic resultant and modular gcd computations reproduced all factors/degrees. The valuations v2(p^f−1) with the primality of (q−1)/2^a eliminate p=3,17 for a3 and p=257 for a4; factorization eliminates p=7 except q=49. The remaining p=5 or 17 families require odd f and prime l; f=1 excluded. The inspected `check.py` also directly computes q49,125,4913 and zero examples, but no infinite assertion relies on those finite fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For odd prime l>=5, primitive density (l-1)/(2l)>1/3, outside Cohen sufficiency theorem; Zhou–Wu addresses triples and density."
+        ],
+        "reasoning": "Their broader universe of finite fields does not supply exact counts for this high-density sparse-order stratum or the all-a characteristic-local gcd identity. Full Zhou–Wu unavailable, hence recorded residual risk.",
+        "searches": [
+          "Cohen 2026 arXiv:2604.21429",
+          "Zhou Wu 2026 arXiv:2607.17267",
+          "Jarso Trudgian arXiv:1710.04320"
+        ]
+      },
+      "checked_sources": [
+        "actual Git RESULT.md blob c85c163e133abdc66492d8bb4cccccda6a53dfe6",
+        "actual Git check.py blob 33802da055b5859b7b83f01da2cf1ed22e034380",
+        "https://arxiv.org/html/2604.21429v1",
+        "https://arxiv.org/abs/1710.04320",
+        "https://arxiv.org/abs/2607.17267",
+        "https://oeis.org/A255831",
+        "Resultary query finite field consecutive non-square non-primitive elements q-1=2^a times odd prime resultant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohen proves existence in a different density regime, not exact high-ratio counts; OEIS only supplies integer resultant; tuple paper abstract addresses triples."
+        ],
+        "reasoning": "The exact gcd-degree formula follows from a new focused NSNP identification and requires modular gcd computation and valuations to filter allowed characteristics; it is not a direct corollary of Cohen sufficiency or of integer resultant values alone.",
+        "searches": [
+          "Cohen main theorem theta_q <=1/3",
+          "OEIS A255831",
+          "arXiv:2607.17267 triples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen studies NSNP pairs in all odd q and records q49; OEIS independently lists resultant numbers."
+        ],
+        "reasoning": "Known general existence results below density 1/3 and raw integer resultants are not the exact characteristic-local pair-count theorem for order 2^a times odd prime. Only overlap is q49 and the polynomial-resultant ingredient.",
+        "searches": [
+          "arXiv:2604.21429 consecutive NSNP pairs Cohen",
+          "OEIS A255831 shifted binomial resultant",
+          "Resultary finite field consecutive non-square non-primitive elements q-1=2^a times odd prime resultant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS resultants (a=1..4) and Cohen two q49 pairs are prior; q125 has one and q4913 four in checked claim and direct polynomial identities."
+        ],
+        "reasoning": "Table of resultant integer factors alone does not determine gcd multiplicities per characteristic or permitted finite-field order families. Novelty is precisely the combined field-order classification beyond known q49.",
+        "searches": [
+          "OEIS A255831 shifted resultants",
+          "Cohen 2026 Table 3 q49",
+          "Results for q125 q4913 consecutive nonsquare nonprimitive"
+        ]
+      },
+      "rationale": "The integral shifted-binomial resultants are known in OEIS A255831 and q49 two-pair case was in Cohen. Cohen establishes general positive existence under primitive-density theta<=1/3, while this single-prime case has theta=(l-1)/(2l)>1/3 for l>=5, so the main published bound does not determine the q125/q4913 sparse classes or exact pair counts. The proposed contribution is characteristic-local gcd identity tied to the NSNP condition, modular gcd ranks and all-field sieve at a<=4, not resultant numbers in isolation.",
+      "residual_risks": [
+        "Potential older application of OEIS A255831 modular gcds to consecutive primitive/nonsquare roots could independently yield the same sparse cases.",
+        "Full Zhou–Wu 2026 tuple paper was not accessible, only abstract; its triples setting does not by itself prove pair classification, but is a residual comparison risk.",
+        "No assertion of infinitely many admissible prime l values in the 5-power and 17-power families; a>=5 and composite odd parts excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general low-density sufficient existence and q49, NOT the sparse higher-density exact families",
+          "evidence": "Theorem for theta_q<1/3 or boundary exceptions; q49 listed; theta for l>=5 exceeds1/3.",
+          "identifier_or_url": "arXiv:2604.21429v1; https://arxiv.org/html/2604.21429v1",
+          "material_read": "full accessible 13-page arXiv HTML, sections 1–7 including primitive-density theorem and small-field Table 3",
+          "method": "read primary arXiv full HTML with exact theorem and table",
+          "title": "Consecutive non-square non-primitive pairs in a finite field",
+          "trigger": "direct same NSNP pair problem and possible stronger coverage"
+        },
+        {
+          "assessment": "COVERS resultants, not specific finite-field NSNP adjacency classification",
+          "evidence": "Raw resultant divisibility does not determine modular gcd degrees and possible q after order sieve.",
+          "identifier_or_url": "https://oeis.org/A255831",
+          "material_read": "listed sequence and entries matching the four determinant inputs",
+          "method": "read OEIS record and compare integer values",
+          "title": "Square array of resultants of shifted binomial polynomials",
+          "trigger": "exact database of raw integral resultant inputs"
+        },
+        {
+          "assessment": "INACCESSIBLE full text; not used to conclude whole document lacks pair result",
+          "evidence": "Abstract concerns 3 consecutive NSNP and small primitive density; possible supplementary pair arguments remain unverified.",
+          "identifier_or_url": "arXiv:2607.17267",
+          "material_read": "arXiv abstract only; full primary text unavailable in accessible searches",
+          "method": "abstract-level inspection only",
+          "title": "Consecutive non-square non-primitive tuples in finite fields",
+          "trigger": "same additive adjacency, triple vs pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp natural sparse-multiplicative-order classification of additive adjacency in finite fields turns a difficult general primitive-root density question into a local algebraic congruence computation, identifying genuine exceptional arithmetic families and a universal gcd formula. Finite cutoff a<=4 is the first complete set of low two-adic strata, motivated by manageable resultants rather than arbitrary fields.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "actual Git RESULT.md blob c85c163e133abdc66492d8bb4cccccda6a53dfe6",
+    "actual Git check.py blob 33802da055b5859b7b83f01da2cf1ed22e034380",
+    "https://arxiv.org/html/2604.21429v1",
+    "https://arxiv.org/abs/1710.04320",
+    "https://arxiv.org/abs/2607.17267",
+    "https://oeis.org/A255831",
+    "Resultary query finite field consecutive non-square non-primitive elements q-1=2^a times odd prime resultant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential older application of OEIS A255831 modular gcds to consecutive primitive/nonsquare roots could independently yield the same sparse cases.",
+    "Full Zhou–Wu 2026 tuple paper was not accessible, only abstract; its triples setting does not by itself prove pair classification, but is a residual comparison risk.",
+    "No assertion of infinitely many admissible prime l values in the 5-power and 17-power families; a>=5 and composite odd parts excluded."
+  ],
+  "residual_risks": [
+    "Potential older application of OEIS A255831 modular gcds to consecutive primitive/nonsquare roots could independently yield the same sparse cases.",
+    "Full Zhou–Wu 2026 tuple paper was not accessible, only abstract; its triples setting does not by itself prove pair classification, but is a residual comparison risk.",
+    "No assertion of infinitely many admissible prime l values in the 5-power and 17-power families; a>=5 and composite odd parts excluded."
+  ],
+  "schema_version": 1
+}

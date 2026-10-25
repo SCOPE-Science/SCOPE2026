@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(q-1=2^a\ell\), cyclicity identifies exactly the primitive \(2^a\)-th roots as nonsquare nonprimitive elements; separability and splitting justify replacing the pair count by the degree of a gcd over the prime field. For \(a\le4\), exact integral Sylvester determinants and finite-field polynomial Euclidean algorithms give the complete characteristic possibilities. Elementary \(2\)-adic valuations and factorizations of \((q-1)/2^a\) eliminate impossible extension degrees and enforce the prime odd factor. The complete program reruns all critical finite computations. The proof does not infer an infinite assertion from small-field enumeration.
+## correctness
 
-**Originality — PASS, with residual risk.** Cohen (2026) addresses existence at primitive density at most \(1/3\), and explicitly includes the \(q=49\) count, which is acknowledged here as prior. Jarso–Trudgian and Zhou–Wu treat different existence conditions, not this exact sparse-order classification. The old OEIS A255831 table already contains the integer resultant values; those numbers themselves are not novel. Their modular gcd degrees and the requirement that the odd cofactor of \(q-1\) be prime lead to a complete four-stratum classification not identified in the inspected text or searches. A logically equivalent earlier application of shifted resultants is possible; the most closely related later tuple paper was checked at abstract level only.
+PASS
 
-**Mathematical value — PASS.** The high-primitive-density regime \((\ell-1)/(2\ell)>1/3\) lies beyond Cohen's principal existence range. Exact simultaneous classification of the first four dyadic group-order strata resolves a natural finite-field adjacency invariant: all \(a=3\) cases vanish, but the \(a=4\) stratum has two and four-pair exceptions, including \(q=4913\) where four pairs are supported by just eight NSNP elements. The count is structurally characteristic-local and stable across all admissible extensions. This is not a claim of novelty for previously tabulated integer resultants or for the known \(q=49\) entry.
+Write F_q^×=<g> of order 2^a l. Nonsquare iff exponent k odd, nonprimitive then iff l divides k; these are exactly primitive 2^a-th roots, roots of x^(2^(a-1))+1, all split and squarefree over F_q. Pair count is degree of gcd with the shifted polynomial computed over prime field F_p; irreducible factors are shared exactly over algebraic closure and here all roots already split in F_q. Exact integer resultants for a=1..4 are 1,5,153,1051779953=7²·17⁴·257; modular monic gcd degrees for possible p are (5:1),(3:2,17:1),(7:2,17:4,257:1). Fresh independent symbolic resultant and modular gcd computations reproduced all factors/degrees. The valuations v2(p^f−1) with the primality of (q−1)/2^a eliminate p=3,17 for a3 and p=257 for a4; factorization eliminates p=7 except q=49. The remaining p=5 or 17 families require odd f and prime l; f=1 excluded. The inspected `check.py` also directly computes q49,125,4913 and zero examples, but no infinite assertion relies on those finite fields.
 
-**Closest literature and limits.** Cohen, arXiv:2604.21429v1, Theorem 1.1 and Table 3; Zhou–Wu, arXiv:2607.17267 (full text inaccessible, abstract inspected); OEIS A255831. Higher dyadic strata, arbitrary composite odd parts, and the frequency of primes of the form \((p^f-1)/2^a\) are not addressed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The integral shifted-binomial resultants are known in OEIS A255831 and q49 two-pair case was in Cohen. Cohen establishes general positive existence under primitive-density theta<=1/3, while this single-prime case has theta=(l-1)/(2l)>1/3 for l>=5, so the main published bound does not determine the q125/q4913 sparse classes or exact pair counts. The proposed contribution is characteristic-local gcd identity tied to the NSNP condition, modular gcd ranks and all-field sieve at a<=4, not resultant numbers in isolation.
+
+## value
+
+PASS
+
+A sharp natural sparse-multiplicative-order classification of additive adjacency in finite fields turns a difficult general primitive-root density question into a local algebraic congruence computation, identifying genuine exceptional arithmetic families and a universal gcd formula. Finite cutoff a<=4 is the first complete set of low two-adic strata, motivated by manageable resultants rather than arbitrary fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

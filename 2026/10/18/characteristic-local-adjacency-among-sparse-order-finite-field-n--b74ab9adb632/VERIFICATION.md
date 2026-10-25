@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 check.py` with a standard Python 3 installation. The program constructs each integral Sylvester matrix for the two polynomials \(X^{2^{a-1}}+1\) and \((X+1)^{2^{a-1}}+1\), using only exact integer arithmetic, computes the determinant via the Bareiss algorithm, factors the result by trial division, and reconstructs every monic gcd at each relevant characteristic. The determinant computations have integer-size at most \(16\times16\). The output in `certificate.txt` records all evaluated cases.
+## correctness
 
-It also enumerates the nonsquare nonprimitive elements in \(\mathbb F_{49}\), \(\mathbb F_{125}\), and \(\mathbb F_{4913}\), using explicit polynomial-basis field arithmetic; three prime-field negative tests supplement these. Assertions stop execution if any expected value fails. A separate symbolic-algebra calculation of these four integral resultants and modular gcds gave the same values.
+PASS
 
-The general classification uses a separate proof: cyclic multiplicative groups identify primitive dyadic roots, and exact \(2\)-adic valuations and integer factorization restrict the admissible field orders. Finite test fields do not establish a universal theorem. In particular the proof asserts no primality or existence of untested higher-exponent cofactors. The full text of the later arXiv:2607.17267 source was unavailable, so a residual overlap risk remains.
+Write F_q^×=<g> of order 2^a l. Nonsquare iff exponent k odd, nonprimitive then iff l divides k; these are exactly primitive 2^a-th roots, roots of x^(2^(a-1))+1, all split and squarefree over F_q. Pair count is degree of gcd with the shifted polynomial computed over prime field F_p; irreducible factors are shared exactly over algebraic closure and here all roots already split in F_q. Exact integer resultants for a=1..4 are 1,5,153,1051779953=7²·17⁴·257; modular monic gcd degrees for possible p are (5:1),(3:2,17:1),(7:2,17:4,257:1). Fresh independent symbolic resultant and modular gcd computations reproduced all factors/degrees. The valuations v2(p^f−1) with the primality of (q−1)/2^a eliminate p=3,17 for a3 and p=257 for a4; factorization eliminates p=7 except q=49. The remaining p=5 or 17 families require odd f and prime l; f=1 excluded. The inspected `check.py` also directly computes q49,125,4913 and zero examples, but no infinite assertion relies on those finite fields.
+
+## originality
+
+PASS
+
+The integral shifted-binomial resultants are known in OEIS A255831 and q49 two-pair case was in Cohen. Cohen establishes general positive existence under primitive-density theta<=1/3, while this single-prime case has theta=(l-1)/(2l)>1/3 for l>=5, so the main published bound does not determine the q125/q4913 sparse classes or exact pair counts. The proposed contribution is characteristic-local gcd identity tied to the NSNP condition, modular gcd ranks and all-field sieve at a<=4, not resultant numbers in isolation.
+
+## value
+
+PASS
+
+A sharp natural sparse-multiplicative-order classification of additive adjacency in finite fields turns a difficult general primitive-root density question into a local algebraic congruence computation, identifying genuine exceptional arithmetic families and a universal gcd formula. Finite cutoff a<=4 is the first complete set of low two-adic strata, motivated by manageable resultants rather than arbitrary fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
