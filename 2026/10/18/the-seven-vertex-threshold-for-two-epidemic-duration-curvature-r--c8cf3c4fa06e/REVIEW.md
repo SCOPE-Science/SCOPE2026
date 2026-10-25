@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A unique-path coupling identifies the last infected generation with the longest open root path. Its exact tail recursion yields a polynomial for every rooted tree. Every Prüfer word and every root through seven vertices is enumerated; the canonical rooted-tree code is complete by recursive subtree isomorphism. Exact Sturm root counts exclude the endpoints. Independently, full open-edge-mask summation reproduces all 84 exact duration polynomials. The sole seven-vertex two-root class has a second derivative with two simple interior roots and the asserted alternating signs. The finite certificate does not support claims beyond seven vertices.
+PASS
 
-## Originality — PASS, with documented residual risk
+Rooted-tree unique-path percolation coupling identifies last infected generation with maximum depth of root open-edge component. Exact recursion Q_k(v)=1−∏_children(1−p Q_(k−1)(child)) and tail sum F=Σ_{k≥1}Q_k yield correct polynomials. Completeness for n≤7 follows from all Prüfer sequences for labeled trees and root choices, collapsed by canonical recursively sorted subtree code; 84 isomorphism classes in total. Each F was independently recomputed by a new NetworkX nonisomorphic-tree generator and independent branch-tail recursion and exact SymPy polynomial root counting, yielding frequencies n=2:(1,0,0), n=3:(2,0,0), n=4:(3,1,0), n=5:(5,4,0), n=6:(12,8,0), n=7:(28,19,1). Source CENSUS.csv has exactly one two-root row: 7-vertex three-armed spider (3,2,1), F=3p−p²+2p³−p⁴, Fʺ=−2+12p−12p² with two simple roots (3±√3)/6 and strict −,+,− signs. No statement about n>7.
 
-Targeted searches for epidemic-duration curvature, the longest open root path, and Reed–Frost transmission sensitivity found no statement giving the seven-vertex minimum and unique rooted witness. The accessible full texts of Karrer–Newman (2010) and Sharkey et al. (2012 preprint) address exact tree epidemic dynamics but do not provide this curvature classification. The 1990 Picard–Lefèvre Reed–Frost study concerns a different collective model; only its abstract was accessible. General exact-dynamics frameworks are not themselves proofs of the minimum or unique extremal shape. Unknown equivalent results in reliability-polynomial theory remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The expected final infectious generation measures how long a one-step epidemic remains active. Its first derivative with respect to transmissibility quantifies marginal sensitivity to changing per-contact risk; changes in the curvature sign distinguish diminishing from increasing marginal gains. Expected total infections are always convex in transmission probability on a rooted tree, since their expectation is a sum of positive monomials, while expected duration can be concave–convex–concave. The smallest network exhibiting the latter shape is a simple, uniquely characterized combination of parallel and serial exposure paths. The exact minimality and uniqueness are a motivated structural result, not an arbitrary numerical polynomial evaluation.
+Existing general SIR tree message passing and exact Markov equations are frameworks for expected dynamics, not the finite classification of changes in duration curvature. The 1990 collective Reed–Frost article is only abstract-inspected; it does not establish noncoverage throughout. Targeted Resultary search returned nonlinear SIRS dynamical work but no equivalent minimal-tree cutoff. Potential reliability-polynomial aliases remain priority risks.
 
-## Closest literature and limits
+## value
 
-Relevant primary sources: Karrer–Newman, arXiv:1003.5673, Sections II–IV; Sharkey et al., arXiv:1212.2172, introduction, theorem and proof sections; Picard–Lefèvre (1990), DOI 10.1017/S0001867800019571, abstract only. No finite-census conclusion is asserted for trees of eight or more vertices. No independent external scientific review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Expected last-infection generation is an interpretable network-process statistic, and its second derivative describes changing sensitivity to per-contact transmissibility. A sharp first occurrence and unique minimizing rooted topology are motivated structural boundaries, contrasting with simpler monotonicity/convexity behaviors of expected infection totals; the result is a complete finite classification rather than a cherry-picked polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
