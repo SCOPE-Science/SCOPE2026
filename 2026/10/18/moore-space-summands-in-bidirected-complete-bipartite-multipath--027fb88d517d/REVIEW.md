@@ -1,19 +1,21 @@
-# Scientific review: Moore-space summands in bidirected complete-bipartite multipath complexes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is a fixed four-member family of explicitly defined bidirected digraphs. Every valid simplex has at most four arcs, permitting exhaustive enumeration of all faces and boundaries. The arc-toggle matching is checked as a disjoint matching over every face and certified acyclic by topological sorting of the entire directed Hasse graph. An independent implementation cancels every matched chain generator with a signed unit coefficient. The resulting integral matrices are zero in the first and last cases and have content exactly two in the middle cases. Because the remaining CW models consist only of a vertex and one or two consecutive low-dimensional cell degrees, their attaching maps are classified by degree, and unimodular changes yield precisely the asserted Moore-space or sphere-wedge homotopy types. The dynamical-module argument uses actual directed two- and four-cycles, applies uniformly to all four digraphs, and verifies that every vertex is unstable. See `RESULT.md` and both bundled Python programs.
+PASS
 
-## Originality — PASS, qualified
+Every multipath arc of bidirected K_{2,n} meets one of the two degree-limited central vertices. At most one selected incoming and one outgoing arc per central vertex means every simplex has at most four arcs; enumeration of all arc subsets of size 0..4 is fully exhaustive, not sampled. For n=3,4,5,6 the augmented face counts are 115,313,711,1417 and the signed acyclic discrete-Morse reductions leave critical cells in dimensions (1,2): (1,6), (2,3): (8,1), (2,3): (1,32), and 3:169. All matched incidences are units and the integral reduced boundary contents are 0,2,2,0, giving S1∨6 S2; 7 S2∨M(Z/2,2); M(Z/2,2)∨31 S3; 169 S3 respectively. Unimodular basis changes in wedges of simply connected spheres realize the Moore-space cofibers. The two source verifier algorithms were inspected: one signed gradient projection, another independent signed integral unit-pivot cancellation. Separately an independently written exhaustive face and F2 boundary-rank implementation recovered all four face vectors and Betti vectors. Full integer matching verification was examined in actual code, not asserted merely from prior PASS logs. Graph directed 2-/4-cycle closure forces any nonempty dynamical region to include all arcs, so each G_n is itself the unique dynamical module and is unstable.
 
-The 2026 bidirectional-polygon study treats path and cycle hosts, not the present bidirected complete bipartite hosts. The 2022 complete bipartite computation uses one-way oriented arcs and computes Euler characteristics of chessboard complexes, not the bidirected multipath homotopy types. Its introduction does contain the exact torsion/stability conjecture which these examples contradict. The 2024 weak categorical quiver-minor paper establishes torsion boundedness and gives a matching-complex correspondence for acyclic digraphs, not this cyclic family. Mathematical record comparisons identify graph Morse and higher matching complexes on the same underlying graph, but those have different defining simplices. No published result was located that implies the present four exact integral homotopy types or the explicit unstable-module counterexamples. Unindexed or unpublished prior computations remain a genuine qualification. Details of comparison and source reading are in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-These are small, natural, highly symmetric bidirected hosts outside the previously classified bidirected path and polygon families. The two consecutive torsion-bearing cases exhibit a precise Moore-space mechanism, rather than just an unexplained finite-field discrepancy. Moreover, the torsion occurs in unstable dynamical modules and directly resolves a stated proposed torsion criterion in the negative. The explicit four-case classification is a useful finite cutoff; there is no unsupported claim for larger values or an all-parameter formula.
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
 
-## Scientific limitations
+## value
 
-The proof uses exhaustive finite computation with complete source programs, not an infinite extrapolation. No assertion is made about \(n\ge7\). Priority remains qualified by the reach of public source retrieval and mathematical indexing. The 2026 conjecture for bidirectional polygons is not addressed because the graphs here are not polygons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four complete exact natural finite graph homotopy types with genuine integral 2-torsion, plus concrete unstable dynamical-module counterexamples to a published torsion-implies-stability conjecture, are mathematically motivated and not mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

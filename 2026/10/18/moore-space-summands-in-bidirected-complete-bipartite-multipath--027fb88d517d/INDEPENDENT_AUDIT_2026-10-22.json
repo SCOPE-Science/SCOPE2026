@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T00:54:20Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned RESULT.md and code/VERIFICATION.md read at the frozen source-tree commit.",
+        "Git tree/blob identities match assigned tree; direct independent finite checks performed when noted in rationale."
+      ],
+      "limitations": [
+        "Finite computations are claimed only for their enumerated sizes; analytic quantification relies on explicit proofs, not experimental extrapolation."
+      ],
+      "rationale": "Every multipath arc of bidirected K_{2,n} meets one of the two degree-limited central vertices. At most one selected incoming and one outgoing arc per central vertex means every simplex has at most four arcs; enumeration of all arc subsets of size 0..4 is fully exhaustive, not sampled. For n=3,4,5,6 the augmented face counts are 115,313,711,1417 and the signed acyclic discrete-Morse reductions leave critical cells in dimensions (1,2): (1,6), (2,3): (8,1), (2,3): (1,32), and 3:169. All matched incidences are units and the integral reduced boundary contents are 0,2,2,0, giving S1∨6 S2; 7 S2∨M(Z/2,2); M(Z/2,2)∨31 S3; 169 S3 respectively. Unimodular basis changes in wedges of simply connected spheres realize the Moore-space cofibers. The two source verifier algorithms were inspected: one signed gradient projection, another independent signed integral unit-pivot cancellation. Separately an independently written exhaustive face and F2 boundary-rank implementation recovered all four face vectors and Betti vectors. Full integer matching verification was examined in actual code, not asserted merely from prior PASS logs. Graph directed 2-/4-cycle closure forces any nonempty dynamical region to include all arcs, so each G_n is itself the unique dynamical module and is unstable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 acyclic-digraph matching-complex identification excludes G_n because G_n contains many directed 2-cycles; polygon results concern bidirected cycle graphs rather than K_{2,n}."
+        ],
+        "reasoning": "Neither general bound nor different-host-family calculation determines the integral Moore-space attachments for these strongly connected bidirected graphs.",
+        "searches": [
+          "arXiv:2401.01248 directed-acyclic matching theorem",
+          "arXiv:2601.05670 bidirectional polygons",
+          "arXiv:2208.04656 multipath homotopy and conjecture"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.04656",
+        "https://arxiv.org/abs/2601.05670",
+        "https://arxiv.org/abs/2401.01248",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-rational-homology-of-bidirectional-polygon-multipath-co--627013477864"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior torsion/stability conjecture is contradicted, not implied. Dihedral polygon computations use graph C_n rather than K_{2,n}."
+        ],
+        "reasoning": "The combination of exact 2-torsion in bidirected K2n and the dynamical closure argument is not a corollary of the cited known cases; it constitutes a substantive motivated counterexample.",
+        "searches": [
+          "arXiv:2208.04656 intro torsion/stability conjecture",
+          "arXiv:2401.01248 theorem on acyclic directed graphs",
+          "Resultary bidirectional-polygon dihedral homology RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 original paper discusses one-way bipartite orientations and states a conjecture linking torsion with stable dynamical modules; neither includes the explicitly bidirected complete bipartite host G_n."
+        ],
+        "reasoning": "The graph structure and computed complex differ from earlier one-way bipartite graph cases. The four finite exact homotopy types and counterexamples are not equivalent to stated prior computations.",
+        "searches": [
+          "Resultary query: bidirected K2n multipath Moore space unstable dynamical module",
+          "Caputi–Collari–Di Trani–Smith arXiv:2208.04656 primary full text",
+          "Caputi–Collari–Smith arXiv:2601.05670 bidirectional polygonal digraphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full augmented faces and integer Morse coefficients at four widths are explicitly reconstructed from the assigned package; no published exact matching multipath table was located."
+        ],
+        "reasoning": "The claim is a complete finite classification of a motivated four-width family, not an arbitrary recomputation of an identified external numerical table; finite exact work itself can be valuable.",
+        "searches": [
+          "Resultary multipath complex bidirected K2n semantic search",
+          "Source independent finite exhaustive enumerations n=3..6"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.",
+      "residual_risks": [
+        "The full integral pivot cancellations are supplied by two inspected standard-library programs and not separately independently recoded here; their critical matrix shape/content and Euler consistency were examined while independent F2 ranks were rechecked.",
+        "Other unindexed multipath examples of small bidirected bipartite graphs could overlap the finite computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the bidirected complete-bipartite examples; directly motivates their conjecture counterexample.",
+          "evidence": [
+            "arXiv:2208.04656 introduction conjecture"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Accessible 18-page primary PDF, including definitions, introduction and the stated conjecture; PDF first-page rendering inspected.",
+          "method": "Compared precise mathematical objects, hypotheses, conclusion, and implication rather than title similarity.",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Foundational multipath definition, one-way complete bipartite case, and torsion/stability conjecture"
+        },
+        {
+          "assessment": "Different family of bidirected polygons, not complete bipartite K2n.",
+          "evidence": [
+            "arXiv:2601.05670"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.05670",
+          "material_read": "Abstract and main result description; full primary detailed proof not established read.",
+          "method": "Compared precise mathematical objects, hypotheses, conclusion, and implication rather than title similarity.",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Closest bidirected host-graph multipath family"
+        },
+        {
+          "assessment": "Not covering integral torsion for complete bipartite bidirected K2n: polygon graphs and rational representations are different.",
+          "evidence": [
+            "Resultary published RESULT.md blob 9e7233c8bab17fef314e871eadf7b207d1a269a0"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-rational-homology-of-bidirectional-polygon-multipath-co--627013477864",
+          "material_read": "Full published RESULT.md, blob 9e7233c8bab17fef314e871eadf7b207d1a269a0.",
+          "method": "Compared precise mathematical objects, hypotheses, conclusion, and implication rather than title similarity.",
+          "title": "Dihedral rational homology of bidirectional-polygon multipath complexes",
+          "trigger": "Closest published SCOPE bidirectional multipath result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact mathematical object and invariant, motivated prior problem, and nontrivial structural calculation are specified."
+      ],
+      "rationale": "Four complete exact natural finite graph homotopy types with genuine integral 2-torsion, plus concrete unstable dynamical-module counterexamples to a published torsion-implies-stability conjecture, are mathematically motivated and not mere table recomputation.",
+      "residual_risks": [
+        "The full integral pivot cancellations are supplied by two inspected standard-library programs and not separately independently recoded here; their critical matrix shape/content and Euler consistency were examined while independent F2 ranks were rechecked.",
+        "Other unindexed multipath examples of small bidirected bipartite graphs could overlap the finite computations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2208.04656",
+    "https://arxiv.org/abs/2601.05670",
+    "https://arxiv.org/abs/2401.01248",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-rational-homology-of-bidirectional-polygon-multipath-co--627013477864"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge source coverage only; publication blocked by public operational metadata.",
+    "The full integral pivot cancellations are supplied by two inspected standard-library programs and not separately independently recoded here; their critical matrix shape/content and Euler consistency were examined while independent F2 ranks were rechecked.",
+    "Other unindexed multipath examples of small bidirected bipartite graphs could overlap the finite computations."
+  ],
+  "residual_risks": [
+    "The full integral pivot cancellations are supplied by two inspected standard-library programs and not separately independently recoded here; their critical matrix shape/content and Euler consistency were examined while independent F2 ranks were rechecked.",
+    "Other unindexed multipath examples of small bidirected bipartite graphs could overlap the finite computations."
+  ],
+  "schema_version": 1
+}
