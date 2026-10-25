@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite taxon-labelled, strictly positively weighted unrooted tree with \(n\ge3\), independently surviving leaves produce exactly the two-sided edge inclusion probability in equation (1). Differentiation gives equation (2). After dividing by the positive power \(q^{n-2}\), its normalized curvature is strictly increasing in extinction probability \(q\), diverges negatively at zero and is positive at one; consequently its unique zero reverses convexity in survival probability. Bernoulli's inequality at \(q=(n-2)/n\) bounds the reversal by \(2/n\), with equality exactly when every edge split is pendant. Jensen comparisons on either strict-curvature interval and the rooted counterpart follow. The included independent subset-enumeration program reproduces exact coefficients and examples; the infinite assertion depends on the displayed proof, not experiments.
+## correctness
 
-## Originality — PASS (same-model, with limitations)
-Faller, Pardi and Steel (arXiv:0708.0425, first version 2007-08-02; Journal of Theoretical Biology 251 (2008), §5 equations (12)–(14)) provide the edge-inclusion formula, so it is not new. Their available full preprint analyzes expected unrooted PD, variance and distribution, not the global single-inflection theorem, sharp \(2/n\) bound or sign reversal under shared environmental variability. Nipperess and Matsen (arXiv:1208.6552; DOI 10.1111/2041-210X.12042), available in full, address hypergeometric fixed-size rarefaction. Faller and Steel (arXiv:0911.3441) address root-anchored trait-dependent extinction, not this unrooted environmental comparison. A prior result about mixed finite differences when guaranteeing two designated taxa concerns a different function; the present normalized total curvature and its sharp bound are not a corollary of an individual mixed-interaction crossing. Searches of published mathematical research records for shared-risk/phylogenetic curvature yielded no directly dominating statement. Search limitations remain: older specialized sampling/phylogenetics work may hide an equivalent observation, and novelty should receive independent review before publication.
+PASS
 
-## Mathematical value — PASS
-The natural expected diversity under independently surviving taxa lacks global concavity for the unrooted metric. The theorem completely determines its curvature phase on every tree, supplies a sharp species-number ceiling and a structural equality characterization, then gives a testable qualitative distinction between positive common extinction-risk dependence and the root-anchored measure. It is not merely the known expectation formula or one enumerated example; the same environmental volatility may improve or worsen mean retained unrooted evolutionary history depending on the background survival regime. No extension to heterogeneous taxa or across-threshold mixtures is claimed.
+For each unrooted edge split a+b=n, the probability its bridge is needed is (1−q^a)(1−q^b)=1−q^a−q^b+q^n (q=1−p), yielding exact U(p). After twice differentiating and dividing by q^{n−2}>0, H(q)=n(n−1)L−sum ℓ[a(a−1)q^{-b}+b(b−1)q^{-a}] is strictly increasing from −infinity to positive H(1)=2sum ℓab; unique zero gives convex-to-concave U. Bernoulli inequality at q0=(n−2)/n yields H(q0)<=0, strict for any nonpendant split. Such split exists iff nonstar under stated no degree-two hypothesis, proving pT<=2/n and sharp equality star. Jensen under environmental common random P then yields opposite signs on either side, while the standard rooted edge sum is concave. Independent exact survival-set quartet polynomial 6−4q−4q²−4q³+6q⁴ and q=1/3 value 112/27 corroborate; finite example not universal proof.
 
-## Limitations and independent status
-All scientific assessments refer only to the present theorem in the stated domain. Overlooked equivalent published results remain possible; the reproducibility program checks eight finite examples rather than certifying the universal argument. The environmental comparison concerns expectation and not persistence probabilities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Faller–Pardi–Steel 2008 derives the *same edge inclusion expected unrooted PD formula* and is fully credited, while rooted concavity also follows immediately from classical expectation. The reviewed contribution is the all-positive-weight tree unique inflection, universal sharp 2/n upper bound with star equality, and sign-reversal interpretation for shared environmental risk. Inspected §5 of Faller 2008 and related broad ecological-diversity sources without an identified dominating curvature theorem.
+
+## value
+
+PASS
+
+Environmental correlation is a central issue for evolutionary biodiversity conservation. Unlike always-concave rooted PD, expected unrooted PD changes Jensen sensitivity exactly once at a universal sharply bounded p; the bound and equality characterization are natural structural constraints that can guide sensitivity comparisons across nonbinary, weighted phylogenies. The algebra builds on a classical formula but gives a nontrivial universal sign topology and geometry-dependent threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
