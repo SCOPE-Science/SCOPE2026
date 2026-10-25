@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The intrinsic radial normalization reduces the spherical cubic width to a Gaussian absolute-product expansion. Repeated edge products are handled by exact conditional Gaussian integration; the four possible configurations of three distinct edges in a triangle-free graph are exhaustive and their coefficients follow from the established trivariate Gaussian absolute-product identity. Double-counting proves the partition into the four motifs. The sign of the path coefficient is supported by an exact rational interval computation, not an approximate sign assertion. The supplied standalone checker reproduces the motif identities for explicit graphs and independently tests two of the trivariate Gaussian constants by numerical integration. The checked claim is precisely the all-dimensional formula and the strict degree-matched tree consequence, with the stated normalization and hypotheses.
+## correctness
 
-**Originality — PASS, subject to residual risk.** The accessible full text of Padrol–Pilaud–Poullot develops the graphical zonotope and its deformation cone, not its width moments. The nearest public *Sharp width-variance extremizers among tree graphical zonotopes* treats the second width moment and variance; a result that determines the first two moments by the degree multiset does **not** imply the stated third-moment distinction involving adjacency of degrees. The Gaussian absolute-moment formula is identified as prior work. Queries included tree zonotope third moments, Gaussian total variation, length-three edge paths, degree assortativity and related vertex or circumradius moments; none identified an exact covering statement. An earlier unindexed all-dimensional third-moment calculation, or an implication hidden in the inaccessible full second-moment record, remains possible.
+PASS
 
-**Mathematical value — PASS.** All standard graphical zonotopes of trees are combinatorially cubes and, within a degree class, have identical first two Haar-directional width moments. The third moment proves an additional and strictly monotone structural sensitivity to adjacency of vertex degrees, with an exact sign and explicit small pair of degree-equivalent trees demonstrating strict separation. This answers a motivated moment-identifiability question and supplies a general formula for triangle-free graphs, rather than a routine numerical instance.
+For Gaussian g projected onto H, χ_(n-1) radius R is independent of spherical U and RW_G(U)=Σ_edges|X_i-X_j|, with E R³=2^(3/2) Γ((n+2)/2)/Γ((n-1)/2). Expanding the cube separates equal edges, ordered two-equal edges (correlation 0 or 1/2), and triples of distinct edges. A triangle-free simple graph allows exactly matching, wedge+disjoint, path length 3, star triple classes; their multiplicities are S, T, (m-2)L-3S-2T, and binom(m,3)-(m-2)L+2S+T. Classical trivariate Gaussian |Z1 Z2 Z3| identity produces cM,cW,cP,cS; collector yields the displayed general cubic formula. For same-degree trees n,m,L,S fixed, leaving Δ E W³=(6/R_n)(cP-2cW+cM) ΔT. The exact rational alternating-arctan/Machin bound in checker.py establishes negative contrast; first two moments depend only on n,m,L. T=Σ_edges d_v d_w-Σ_v d_v² +m supplies degree assortativity.
 
-**Scientific limits.** There is no assertion about graphs with triangles, arbitrary affine changes of metric, complete distributional reconstruction or independent mathematical certification. The classical Gaussian identity is cited rather than rebranded. The accessible primary text is contrasted at theorem/subject level; one close indexed record was available in abstract form only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: full published lower-width-moment law is explicitly acknowledged; the cubic moment distinguishes tree degree adjacency that those moments provably cannot resolve. The trivariate absolute-Gaussian identity is classical, with the graph-motif application and strict coefficient being the new content; an equivalent total variation third-moment theorem might exist under different names.
+
+## value
+
+PASS
+
+Among same-degree trees, the first two natural width moments coincide but the third strictly detects degree mixing through the number of length-3 paths (second Zagreb index). The complete triangle-free cubic formula and the strict negative sign yield a meaningful graph-geometric structural invariant, not a tiny arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
