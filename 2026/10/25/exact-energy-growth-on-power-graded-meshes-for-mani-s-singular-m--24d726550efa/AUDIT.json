@@ -1,0 +1,97 @@
+{
+  "claim": "For every fixed grading exponent \\(r>0\\), the exact Manià energy of the nodal piecewise-affine interpolant of \\(u_*(x)=x^{1/3}\\) on \\(x_i=(i/N)^r\\) satisfies \\(\\mathcal I[I_N^{(r)}]=N^r\\sum_{i=1}^N i^{-r}F(((i-1)/i)^r)\\sim C_rN^r\\), where \\(F(\\rho)=s(\\rho)^6\\int_\\rho^1(\\phi_\\rho(t)^3-t)^2dt\\), \\(s(\\rho)=(1-\\rho^{1/3})/(1-\\rho)\\), \\(\\phi_\\rho(t)=\\rho^{1/3}+s(\\rho)(t-\\rho)\\), and \\(C_r=\\sum_{i=1}^\\infty i^{-r}F(((i-1)/i)^r)\\in(0,\\infty)\\). In particular, \\(\\mathcal I[I_N^{(r)}]\\ge(8/105)N^r\\).",
+  "correctness": {
+    "rationale": "The cell substitution x=x_i t gives an exact identity for each cell and hence for the full energy. Taylor expansion of the interpolation error at t=1 yields F(rho)=(1-rho)^5/196830+O((1-rho)^6); because 1-((i-1)/i)^r=r/i+O(i^-2), the coefficient series has terms asymptotic to r^5/(196830 i^(r+5)) and converges for every fixed r>0. The first cell contributes exactly (8/105)N^r. Exact rational checks for r=3 and finite N are supplementary, not the all-r proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball and Knowles, Numerische Mathematik 51 (1987), pp. 182-183, equations (1.1)-(1.6), describe the Manià minimizer, qualitative energy divergence for convergent approximants, and the uniform-mesh finite-element setup.",
+        "Feng and Schnake, arXiv:1610.03111, introduction and preliminary finite-element discussion, state qualitative failure/divergence and motivate a derivative cut-off remedy."
+      ],
+      "reasoning": "The broad qualitative divergence statements imply that the energy diverges along suitable convergent approximants, but do not imply the exact N^r rate or the series C_r. The new theorem narrows to a specified family of nodal interpolants and supplies a quantitative asymptotic, not a claim about all approximants.",
+      "searches": [
+        "Ball Knowles 1987 Manià energy divergence nodal graded mesh",
+        "arxiv:1610.03111 Manià finite element interpolation energy rate nonuniform mesh"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1610.03111",
+      "DOI:10.1007/BF01396748",
+      "published-finding corpus:2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest exact prior claim is the uniform-mesh asymptotic I[I_N^(1)]~C_1 N recorded as published-finding corpus 2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d.",
+        "The inspected Ball-Knowles and Feng-Schnake material gives qualitative divergence, not the graded family C_r or its rate."
+      ],
+      "reasoning": "The previous exact result covers r=1 and supplies a useful consistency check; it does not state the all-r coefficient or asymptotic. The general qualitative divergence theorem does not determine a rate. The extension is motivated by the practical question whether algebraic endpoint grading changes the energy blow-up of the standard nodal interpolant.",
+      "searches": [
+        "uniform mesh nodal interpolant Mania Lavrentiev exact linear energy blow-up graded mesh extension",
+        "Mania functional power graded finite element mesh first cell energy lower bound 8/105 h",
+        "Ball Knowles 1987 Manià energy divergence nodal graded mesh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus record 2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d gives the exact uniform-mesh case r=1.",
+        "Feng and Schnake, arXiv:1610.03111, introduces the Manià functional and discusses standard finite-element failure; the inspected introduction/preliminaries do not state a graded-mesh coefficient."
+      ],
+      "reasoning": "The uniform case is an equivalent special case and is not claimed as new. The full family for every fixed r>0 has coefficient C_r depending on the grading exponent; the searched result and inspected source material do not state this family. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "Mania Lavrentiev nodal piecewise affine interpolant graded mesh exact energy asymptotic",
+        "Mania functional power graded finite element mesh first cell energy lower bound 8/105 h",
+        "arxiv:1610.03111 Manià finite element interpolation energy rate nonuniform mesh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant source material treats a continuum variational integral and finite-element interpolation; no finite table is the mathematical object whose entries determine C_r.",
+        "The coefficient is defined by an explicit convergent series with an analytically proved summable tail."
+      ],
+      "reasoning": "A finite database/table comparison is specifically inapplicable: the result is an all-r asymptotic theorem for a continuum integral, and its coefficient is an infinite series. This is not a claim that all databases or unindexed sources have been exhausted.",
+      "searches": [
+        "Mania functional power graded finite element mesh first cell energy lower bound 8/105 h",
+        "Mania Lavrentiev nodal piecewise affine interpolant graded mesh exact energy asymptotic"
+      ]
+    },
+    "rationale": "The exact uniform-mesh asymptotic is explicitly treated as prior work. The inspected older literature establishes qualitative divergence for approximants converging to the singular minimizer, but does not state the power-grading-dependent rate or coefficient in the material read. The new claim is the full exact series coefficient and N^r asymptotic for every fixed r>0; it is not a rebranding of the r=1 case. Residual priority risk remains for an uninspected equivalent graded-mesh result.",
+    "residual_risks": [
+      "The older Ball-Knowles full text was inspected for the relevant introductory pages, not all 17 pages; related graded-mesh estimates elsewhere in the article cannot be ruled out.",
+      "The later sections of the Feng-Schnake manuscript were not exhaustively inspected, so any equivalent graded-mesh computation there remains a priority risk.",
+      "Searches do not prove novelty against unindexed, differently named, or non-English literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected material establishes the classical qualitative obstruction and describes the remedy, but does not state the explicit power-graded nodal-interpolant asymptotic in the sections read.",
+        "evidence": "The manuscript gives J(v)=integral (v^3-x)^2(v')^6, u_*(x)=x^(1/3), and qualitative divergence for approximants converging to u_*; its finite-element discussion focuses on standard approximation and a derivative cut-off.",
+        "identifier_or_url": "arXiv:1610.03111",
+        "material_read": "Accessible HTML manuscript, introduction and preliminary finite-element discussion through the method setup; the entire later numerical section was not exhaustively inspected.",
+        "method": "Compared the functional, singular minimizer, approximation space, qualitative divergence statement, and scope of the proposed cut-off method.",
+        "title": "An enhanced finite element method for a class of variational problems exhibiting the Lavrentiev gap phenomenon",
+        "trigger": "Primary same-object source for the Manià functional and finite-element failure."
+      },
+      {
+        "assessment": "The inspected pages establish the qualitative obstruction and uniform-mesh setup, but do not state the all-r power-graded asymptotic in the inspected material.",
+        "evidence": "Equations (1.1)-(1.6) present the functional, u_*(x)=x^(1/3), qualitative energy divergence for approximants converging almost everywhere, and the uniform-mesh piecewise-linear setup.",
+        "identifier_or_url": "DOI:10.1007/BF01396748; Oxford-hosted full-text PDF",
+        "material_read": "Full-text PDF introduction and Manià example/setup (pp. 181-183); the remaining pages were not exhaustively read.",
+        "method": "Compared the original functional, minimizer, qualitative divergence statement, and uniform-mesh finite-element setup.",
+        "title": "A numerical method for detecting singular minimizers",
+        "trigger": "Classic primary source on the Manià example and qualitative failure of standard finite elements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24d72655-0efa-4068-ba0a-23f6c8300c4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Endpoint grading is a standard numerical response to singular minimizers. This theorem gives a complete exact asymptotic family for every fixed power exponent and quantifies that grading alone does not remove the nodal interpolant's energy blow-up. The result is an analytic rate and coefficient, not merely a numerical experiment; its scope is deliberately limited to the specified interpolants.",
+    "status": "PASS"
+  }
+}
