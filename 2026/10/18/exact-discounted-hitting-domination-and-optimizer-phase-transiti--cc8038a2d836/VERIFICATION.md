@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The independent script `verify.py` requires Python 3 with standard-library modules only. Run `python3 verify.py` in the directory containing that file; expected terminal line: `TOTAL_EXACT_OK 132`.
+## correctness
 
-For each graph tested it enumerates every nonempty vertex set, solves the Markov first-step equations for all unpinned supports over exact rational numbers, records the least support, and tests the exact optimizer census at all internal and external transition thresholds and at intermediate points. The test graph/discount pairs are \((m,q)\) equal to \((2,2),(3,2),(2,3),(3,3),(2,4)\), with \(\lambda\) equal to \(1/2\) or \(4/5\). There are 132 rational threshold checks. The verifier reconstructs matrix solutions directly from graph adjacencies; it does not use the proof's clique equations to compute those values.
+PASS
 
-Finite graph enumeration does not establish a claim for arbitrary \(m,q\). The infinite result follows from the equilibrium equations and the lower-bound and classification proof in `RESULT.md`. Input parameters for the theorem remain restricted to \(m,q\ge2\), \(0<\lambda<1\) and \(0<\tau\le1\); no statement is made for weighted or heterogeneous-fidelity networks.
+For m,q≥2 and λ∈(0,1), τ∈(0,1], the Markov first-step equation on an unpinned vertex in a q-clique with s pinned and hub potential x is y_s(x)=λ(x+s)/(q−λ(q−s−1)). With pinned hub, sharp per-clique threshold b_s=y_s(1) yields minimum 1+mr, b_{r−1}<τ≤b_r. If hub is free, all cliques still need at least r pinned; exactly mr sources give uniform hub support b_{r−1}<τ and fail. At mr+1, exactly one clique has r+1, others r, and exact hub fixed-point x=X from rational linear response. Its minimum peripheral potential θ=y_r(X) satisfies b_{r−1}<θ<b_r, giving every hub-free optimum when τ≤θ and exactly the binomial count. The r=q and τ=1 boundary yields the whole graph uniquely. Independent exact-rational adjacency-first-step exhaustive enumeration of 148 tested (graph,λ,τ) cases and all nonempty source subsets corroborated both counts; arbitrary graph sizes and real thresholds follow from proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. All source statements actually inspected are either less explicit or apply to distinct graph classes/objectives; no decisive stronger prior theorem covering this windmill profile identified, subject to full-text uncertainty. Unread primary documents are not treated as not covering.
+
+## value
+
+PASS
+
+The originating discounted-hitting domination problem makes source-location optimization mathematically natural. Clique windmills give a motivated symmetric family bridging stars and non-tree block graphs, and this theorem calculates not just optimum cardinality but every optimum and an internal rational phase transition where many hub-free optimum sets vanish without any cardinality change. This classification is a complete meaningful extremizer problem for all real λ,τ rather than one numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A source-bearing clique with \(s\) pinned peripheral vertices and hub support \(x\) has exactly one unpinned support \(\lambda(x+s)/(q-\lambda(q-s-1))\). Monotonicity yields the tight per-clique source lower bound. When the hub is absent, \(mr\) sources force equal allocation and center support below the floor. At the first feasible hub-free cardinality \(mr+1\), one clique has exactly one extra source, giving a single explicitly solvable hub equation; the other cliques determine the minimum support. Positive marginal discounted hitting support places the new threshold strictly inside each cardinality plateau. Every case, including \(r=0\), \(r=q\), and threshold equality, is included. Exact rational exhaustive replay gives `TOTAL_EXACT_OK 132` from `verify.py`; it is corroboration, not the universal proof.
+PASS
 
-## Originality — PASS, with residual risk
+For m,q≥2 and λ∈(0,1), τ∈(0,1], the Markov first-step equation on an unpinned vertex in a q-clique with s pinned and hub potential x is y_s(x)=λ(x+s)/(q−λ(q−s−1)). With pinned hub, sharp per-clique threshold b_s=y_s(1) yields minimum 1+mr, b_{r−1}<τ≤b_r. If hub is free, all cliques still need at least r pinned; exactly mr sources give uniform hub support b_{r−1}<τ and fail. At mr+1, exactly one clique has r+1, others r, and exact hub fixed-point x=X from rational linear response. Its minimum peripheral potential θ=y_r(X) satisfies b_{r−1}<θ<b_r, giving every hub-free optimum when τ≤θ and exactly the binomial count. The r=q and τ=1 boundary yields the whole graph uniquely. Independent exact-rational adjacency-first-step exhaustive enumeration of 148 tested (graph,λ,τ) cases and all nonempty source subsets corroborated both counts; arbitrary graph sizes and real thresholds follow from proof.
 
-Allagan–Pereyra–Massey (arXiv:2609.31535v1) provides the invariant, equilibrium representation, and results for spiders, stars, complete graphs and arbitrary-graph algorithms; its graph-specific statements do not give the optimizer census for clique windmills. The Guo–Lin–Wang–Wong–Lin group-hitting paper addresses pointwise target-set queries and ranking, not simultaneous uniform-floor minimum-source placement. A published exact result for complete bipartite graphs is different in both graph class and extremizer formula, and a windmill dissociation polynomial concerns another graph property. Searches for windmill, friendship, clique bouquet, discounted hitting, pinned dynamics, and source placement revealed no stronger implication covering this result. Unindexed mathematics and other terminology remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-Clique windmills are natural one-cut-vertex block graphs, intermediate between the stars and complete graphs treated by the initiating paper. The exact cardinality step law, full minimum-set classification, and a genuinely distinct internal threshold for whether high-degree-hub omission is compatible with optimality describe the entire family for every admissible real fidelity and floor. The number of feasible optimum placements can fall discontinuously without changing the optimum budget, an interpretable redundancy transition in discounted network coverage. For example, a nine-vertex windmill with two four-vertex peripheral cliques and \(\lambda=4/5\) changes from 64 to 16 optimum three-source placements precisely at \(\tau=9/17\).
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. All source statements actually inspected are either less explicit or apply to distinct graph classes/objectives; no decisive stronger prior theorem covering this windmill profile identified, subject to full-text uncertainty. Unread primary documents are not treated as not covering.
 
-## Primary sources and limitations
+## value
 
-Relevant primary source sections were read: Allagan–Pereyra–Massey, Sections 2, 5, 6, 7 and concluding remarks; Guo et al., abstract, definitions and conclusion. Other mathematical records were compared by their stated claims, without claiming that an abstract or indexed summary is a complete full-text inspection. The theorem excludes heterogeneous cliques or discount rates; no external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The originating discounted-hitting domination problem makes source-location optimization mathematically natural. Clique windmills give a motivated symmetric family bridging stars and non-tree block graphs, and this theorem calculates not just optimum cardinality but every optimum and an internal rational phase transition where many hub-free optimum sets vanish without any cardinality change. This classification is a complete meaningful extremizer problem for all real λ,τ rather than one numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
