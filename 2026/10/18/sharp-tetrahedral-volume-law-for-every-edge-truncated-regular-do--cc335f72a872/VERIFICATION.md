@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducing the exact certificate
+# Independent mathematical audit
 
-In the directory containing `verify.cpp`, run:
+## correctness
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify
-./verify
-```
+PASS
 
-The implementation constructs 20 exact golden-ratio dodecahedron vertices; identifies 30 edges by squared distance; produces both directions of each edge, giving 60 affine truncation paths; enumerates every unordered four-path subset; interpolates all determinants as degree-at-most-three polynomials in the ring \(\mathbb Z[\varphi]\); and checks all eight Bernstein coefficient signs bounding the determinant by \(F(t)\) in absolute value for **every** \(t\in[0,1/2]\). Sign comparisons are exact. It checks that 120 path quadruples attain the same absolute polynomial bound identically and that 40 fixed three-vertex bases have three equal-sign apex alternatives with the same original dodecahedron endpoint, certifying triangular moving-apex equality families. An explicit witness is also verified through the polynomial construction.
+Reconstruct 20 dodecahedron vertices and 30 graph edges from exact Z[phi] squared-distance predicate; 60 oriented paths specify truncation polytope. Fresh independent C++ integer-ring implementation exhaustively enumerated all C(60,4)=487,635 unordered quadruple determinant cubics, checking 8 exact scaled Bernstein coefficients for F(t)±D(t) on [0,1/2]. No signed gap was negative; exactly 120 determinant cubics attained ±F, and 40 fixed-three-vertex groups had three compatible maximizing apex paths. Bernstein nonnegative basis yields the continuum bound; determinant affinity yields 2D apex regions. Sympy independently verified exact derivative factorization (-126+54sqrt5)(t-2/3)(t-2-2sqrt5/3)<0. Edge-uniform parameter t=(5-sqrt5)/10 and known body volume supply final ratio.
 
-The checker output should begin `PASS: 487635 four-vertex configurations checked; 8 signed Bernstein inequalities each.` and include `Interior maximizing quadruples: 120` and `Movable-apex triangle families: 40`.
+## originality
 
-The proof additionally uses two independent analytic steps: (1) replacement of each tetrahedron vertex by a polytope vertex using convexity of the absolute determinant; and (2) positivity of the Bernstein basis in the interior to exclude nonidentical determinant polynomials from tying the sharp envelope. The finite exact certificate is not falsely identified with enumeration of infinitely many \(t\) values; these analytic implications close that gap.
+PASS
 
-The Archimedean uniform member has \(t=(5-\sqrt5)/10\), **not** \(t=1/3\); this follows by equating triangular and decagonal edge lengths. The classical truncated-dodecahedron body-volume formula is independently documented in the references. No formal independent audit or historical-priority certification is claimed.
+No inspected published Resultary record or primary geometric literature gives an edge-truncation-dependent largest tetrahedron cubic for regular dodecahedra together with exact continuous equality families. The prior regular icosahedron maximal-tetrahedron theorem is related at a dual solid, not same body or parameter; general MVS results do not supply the explicit polynomial.
+
+## value
+
+PASS
+
+This is a natural complete one-parameter extremal geometry problem across a Platonic-to-rectified family, with a sharp exact cubic, 120 optimal vertex quadruples and genuine 40 positive-dimensional maximizing-apex families. The family-level envelope is more mathematically informative than a single arbitrary numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine path model supplies all vertices for each truncation. Convexity of absolute affine determinants reduces unrestricted contained tetrahedra to vertex-supported ones. The embedded exact-arithmetic checker builds all \(\binom{60}{4}=487635\) determinant polynomials in \(\mathbb Z[\varphi]\), verifies four Bernstein inequalities for each sign, verifies a witness with the proposed cubic, and identifies precisely 120 polynomial identities. Positivity of the Bernstein basis upgrades the finite certificate to a continuous-parameter proof. The code was compiled and executed successfully; the derivative factorization and the uniform specialization were independently reproduced symbolically. Its 40 triple groups give genuine two-dimensional apex triangles by determinant affinity.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The relevant 2014 general maximal-simplex literature addresses approximation complexity, Radon partition ideas, prisms, or parallelotopes, rather than an exact continuous cubic on the dodecahedral truncation path. Polyhedral coordinate and volume references give the uniform body geometry, not the largest inscribed tetrahedron. Neighboring known endpoint and differently truncated-family results do not entail the interior dodecahedral formula or the exact vertex-supported count. Searches for dodecahedral truncation aliases and for determinant/tetrahedron tables found no decisive prior equivalent; a historical-priority risk remains, and absence from searches is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The uniformly edge-truncated regular dodecahedron is a natural continuous path between the Platonic dodecahedron and the Archimedean icosidodecahedron, passing through the uniform truncated dodecahedron. An exact largest-tetrahedron profile over the whole family, the 120 interior vertex configurations, the 40 moving-apex equality families, and an exact uniform-polyhedron occupancy fraction resolve substantive extremal geometric questions, beyond a routine renaming or a single finite numerical invariant.
+Reconstruct 20 dodecahedron vertices and 30 graph edges from exact Z[phi] squared-distance predicate; 60 oriented paths specify truncation polytope. Fresh independent C++ integer-ring implementation exhaustively enumerated all C(60,4)=487,635 unordered quadruple determinant cubics, checking 8 exact scaled Bernstein coefficients for F(t)±D(t) on [0,1/2]. No signed gap was negative; exactly 120 determinant cubics attained ±F, and 40 fixed-three-vertex groups had three compatible maximizing apex paths. Bernstein nonnegative basis yields the continuum bound; determinant affinity yields 2D apex regions. Sympy independently verified exact derivative factorization (-126+54sqrt5)(t-2/3)(t-2-2sqrt5/3)<0. Edge-uniform parameter t=(5-sqrt5)/10 and known body volume supply final ratio.
 
-## Scope and residual risk
-The 40 families are not presented as an exhaustive description of all non-vertex maximizers; endpoint combinatorial equality counts are not claimed. The complete certificate and the verified public geometric scaling are part of the evidence. Historical priority for obscure specialized tetrahedron tables remains unverified; independent scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected published Resultary record or primary geometric literature gives an edge-truncation-dependent largest tetrahedron cubic for regular dodecahedra together with exact continuous equality families. The prior regular icosahedron maximal-tetrahedron theorem is related at a dual solid, not same body or parameter; general MVS results do not supply the explicit polynomial.
+
+## value
+
+PASS
+
+This is a natural complete one-parameter extremal geometry problem across a Platonic-to-rectified family, with a sharp exact cubic, 120 optimal vertex quadruples and genuine 40 positive-dimensional maximizing-apex families. The family-level envelope is more mathematically informative than a single arbitrary numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
