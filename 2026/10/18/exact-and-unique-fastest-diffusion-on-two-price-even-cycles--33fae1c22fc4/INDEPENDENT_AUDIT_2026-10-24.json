@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:42:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2 and positive budget B and alternating edge prices cA,cB, define tau=pi/m, d=cos(tau), Delta=cA+cB+2sqrt(cA*cB)d. Build a centered 2m-vertex planar polygon with squared alternating chord lengths cA,cB, where angular steps 2alpha,2beta and alpha+beta=tau. Rayleigh trace against both columns yields a universal upper bound B/(2mR^2) = 2B sin^2(tau)/(m Delta) for EVERY independently chosen nonnegative conductance vector (even asymmetric). The proposed positive alternating weights a*=B/m(cA+sqrt(cA*cB)d)/(cA Delta), b*=B/m(cB+sqrt(cA*cB)d)/(cB Delta) are budget-feasible and satisfy L(w*)X=Lambda X via tangential-force cancellation. Standard two-vertex Bloch decomposition shows this Lambda is the first positive eigenvalue, even for m=2, so upper bound is attained. Every other optimum makes both planar Rayleigh columns gap eigenvectors; two noncollinear neighbor-chord vectors at each vertex then uniquely determine its incident conductances, proving labelled-edge uniqueness (not merely modulo symmetry). The m=2 equal-weight boundary, strict price sensitivity for m>2, square-root large-cycle ratio and m^-3 gap follow algebraically. Independent eigenvalue/budget computation checked 15 size-price cases and 180 randomly perturbed nonsymmetric feasible conductance assignments, all below the claimed optimal gap. These finite computations do not replace the global proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al 2006 Result 6, Section5.3; Boyd et al arxiv:0709.0955"
+        ],
+        "reasoning": "The general SDP encompasses every price arrangement algorithmically and establishes a two-dimensional optimal embedding, but an SDP characterization does not already give the algebraic cosine/square-root two-price optimum and unique allocation. Uniform-cost edge-transitive cycle formula is a strict cA=cB special case; the later discrete-time symmetry model has a different spectral objective.",
+        "searches": [
+          "Resultary semantic search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances",
+          "Sun et al 2006 Result 6, Section5.3; Boyd et al arxiv:0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "Sun et al, DOI:10.1137/S0036144504443821, full PDF Section5.3 and dual",
+        "Boyd et al arxiv:0709.0955, cycle section and discrete-time objective",
+        "Resultary search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun et al Section5.3 and Result 6; arxiv:0709.0955 Section3 ordinary cycle"
+        ],
+        "reasoning": "Two-dimensionality of a dual optimizer neither fixes its alternating chord angles nor certifies simultaneous primal equality and labelled-edge uniqueness. Ordinary equal-price cycle solutions cannot imply the strict cost-ratio dependence for every m>2. Distinct discrete-time transition constraints cannot be substituted.",
+        "searches": [
+          "Resultary semantic search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances",
+          "Sun et al Section5.3 and Result 6; arxiv:0709.0955 Section3 ordinary cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun-Boyd-Xiao-Diaconis 2006 DOI:10.1137/S0036144504443821 geometric cycle dual; arxiv:0709.0955"
+        ],
+        "reasoning": "Geometric maximum variance unfolding is a prior equivalent dual program for the same continuous-time mixing objective. The submission explicitly solves that dual for alternating two prices and proves uniqueness of all primal edge variables. Discrete-time Markov-chain SLEM results are not equivalent to the continuous-time Laplacian spectral gap under these budgets.",
+        "searches": [
+          "Resultary semantic search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances",
+          "Sun-Boyd-Xiao-Diaconis 2006 DOI:10.1137/S0036144504443821 geometric cycle dual; arxiv:0709.0955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun et al 2006 cycle formulas; Resultary 2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242"
+        ],
+        "reasoning": "Indexed cycle formulas give equal-cost cases, whereas the closest mathematical record concerns quantum average mixing on a fixed path, not weighted budget Laplacian optimization. Lack of a matched table is not historical priority evidence.",
+        "searches": [
+          "Resultary semantic search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances",
+          "Sun et al 2006 cycle formulas; Resultary 2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit globally unique two-price alternating cycle solution with unrestricted independent edge conductances, not the generic continuous-time fastest mixing SDP or polygon dual. Sun-Boyd-Xiao-Diaconis already establish continuous-time spectral-gap design, maximum-variance-unfolding dual, uniform price cycles, and 2-dimensionality of optimal cycle configurations; Section5.3 does not state this exact period-two tariff optimizer with labelled-edge uniqueness. Boyd-Diaconis-Parrilo-Xiao solve symmetry-reduced discrete-time SLEM objective; the stochastic-matrix spectral-radius problem is distinct from continuous-time generator gap with conductance price budget. Published mathematical-finding queries yielded no direct same-parameter solution, but unindexed analytic specializations remain a priority risk.",
+      "residual_risks": [
+        "An unindexed specialization of general optimal graph embeddings may derive the same two-tariff closed formula and uniqueness.",
+        "The semidefinite dual and equal-price cycle solution are prior; novelty is only the explicit period-two solution with unrestricted allocation/uniqueness.",
+        "Only continuous-time unnormalized Laplacian spectral gap and strictly positive two-class prices; no arbitrary-tariff or discrete-time SLEM theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DUAL_AND_UNIFORM_PRICES; no direct inspected two-price explicit labelled-edge unique formula",
+          "evidence": [
+            "Sun, Boyd, Xiao, Diaconis, SIAM Review 48 (2006) pp681-699, Section5.3, Result6"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Original published PDF setup/semidefinite dual, geometric maximum-variance-unfolding theorem, Section5.3 cycles and Result6",
+          "method": "Read relevant complete cycle section and checked rendered page containing 2D result and arbitrary-cost caveat against submission",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exactly same continuous-time spectral optimization and graph family"
+        },
+        {
+          "assessment": "DIFFERENT_DISCRETE_TIME_OBJECTIVE; uniform cycle examples only",
+          "evidence": [
+            "Boyd, Diaconis, Parrilo, Xiao, arxiv:0709.0955 (2007), section on edge-transitive cycles"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Preprint abstract, objective statement, relevant ordinary cycle section, and examples of graph edge orbits",
+          "method": "Compare minimization of stochastic transition SLEM with maximization of continuous-time unnormalized Laplacian lambda2 under prices",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Potential symmetry reduction covering cycle weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-class alternating tariffs are a natural tractable yet nonuniform spectral resource allocation problem. An explicit unique global allocation over 2m unconstrained independent rates, a sharp spectral-gap value, and a rigorous independence-from-symmetry optimum certificate replace a numerical SDP throughout the infinite family. The four-cycle price-neutral allocation is a meaningful sharp finite-size exception, and the asymptotic square-root price rule explains large-network scaling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sun et al, DOI:10.1137/S0036144504443821, full PDF Section5.3 and dual",
+    "Boyd et al arxiv:0709.0955, cycle section and discrete-time objective",
+    "Resultary search: Fastest mixing continuous time Markov process even cycle alternating link costs exact unique optimal conductances"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed specialization of general optimal graph embeddings may derive the same two-tariff closed formula and uniqueness.",
+    "The semidefinite dual and equal-price cycle solution are prior; novelty is only the explicit period-two solution with unrestricted allocation/uniqueness.",
+    "Only continuous-time unnormalized Laplacian spectral gap and strictly positive two-class prices; no arbitrary-tariff or discrete-time SLEM theorem.",
+    "Independent finite computations confirm only stated bounded examples; all unrestricted statements were assessed analytically from the source proof, not inferred from code or logs."
+  ],
+  "residual_risks": [
+    "An unindexed specialization of general optimal graph embeddings may derive the same two-tariff closed formula and uniqueness.",
+    "The semidefinite dual and equal-price cycle solution are prior; novelty is only the explicit period-two solution with unrestricted allocation/uniqueness.",
+    "Only continuous-time unnormalized Laplacian spectral gap and strictly positive two-class prices; no arbitrary-tariff or discrete-time SLEM theorem."
+  ],
+  "schema_version": 1
+}
