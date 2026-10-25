@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:47:10Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent supplementary finite and symbolic checks, not substituted for proofs in RESULT.md.",
+      "rationale": "Every nonempty finite sampling window T separates according to its residue support S mod m. Exactly one possible active residue is binary for each starting phase that hits the binary coordinate, and the observed marker/binary alphabets are disjoint; thus active phases have disjoint languages and cannot collide with silent all-marker signatures. Uniform recurrence of x ensures a one-step base-index carry does not remove any sampled pattern. Therefore p_y(T)=sum_{r in S}p_x(U_r)+D_w(S). Since each base window size n_r independently attains p_x^*(n_r)=2n_r, one may choose arbitrary support S with |S|<=k, positive n_r summing k and obtain p_y^*(k)=2k+max_S D_w(S), with no extrapolation. In one-defect marker template A^(m-2)B, each distinct silent-phase signature is either a unique-B coordinate at an occupied->unoccupied cyclic transition or all-A if complement has adjacent pair, so D_w(S)=b(S)+1_{m-|S|>b(S)}. Sharp alternating runs attain max correction min{k+1,ceil(m/2)}. Independently exhaustively enumerated all supports of m=3..9 and direct phase signatures for all m and sampled k to m+1, confirming analytic formula; finite tests not proof for arbitrary m or irrational x.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schlortt §5 displays only upper bound and eventual 2k+C, §6 explicit individual examples; no all marker-template optimization stated",
+          "Le–Pavlov–Schlortt structural theorem classifies recurrent pattern Sturmian bases, not their arbitrary fixed-marker extension counts",
+          "One-hole Toeplitz class may be a special case of pattern Sturmian base, but irrational mechanical bases are also included"
+        ],
+        "reasoning": "Potential broader structural coverage does not automatically supply the numerical correction. A more general exact formula in older Toeplitz literature cannot be excluded without its full text; this risk is retained.",
+        "searches": [
+          "Schlortt 2025 Theorem1.3 Sections 5-6 and Examples6.1-6.2",
+          "Le Pavlov Schlortt 2025 structural low maximal pattern complexity",
+          "Gjini Kamae Tan Xue 2006 Toeplitz words maximal pattern complexity"
+        ]
+      },
+      "checked_sources": [
+        "Schlortt arXiv:2505.05627v1 full HTML §5-6",
+        "Le Pavlov Schlortt arXiv:2508.13420v1 original HTML and PDF relevant sections",
+        "Gjini Kamae Tan Xue 2006 DOI bibliographic/abstract",
+        "Resultary 12 hits periodic-marker maximal-pattern complexity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate p*(k)=2k+max_{S,|S|<=k}D_w(S) entails Schlortt eventual 2k+C and computes C explicitly",
+          "For one-defect A..AB marker, sharp max C=ceil(m/2) diverges as marker period m grows on four letters"
+        ],
+        "reasoning": "Previous eventual-linearity theorem is implied by the stronger explicit formula in this subclass; conversely the eventual existence of C does not determine its value or finite-k onset.",
+        "searches": [
+          "Schlortt 2025 Theorem 1.3 eventual 2k+C and Example 6.2",
+          "Le Pavlov Schlortt 2025 Theorem C structural categories",
+          "Exact cyclic-run b(S) silent marker signature identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schlortt 2025 Theorem 1.3 establishes eventual p*=2k+C, with C not generally evaluated and only inequalities in proof",
+          "Candidate evaluates C_w by maximum cyclic projections AND p*(k) for every finite k"
+        ],
+        "reasoning": "Eventual linearity with unspecified C is not equivalent to an exact formula at all lengths; prior special examples are explicitly excluded from novelty.",
+        "searches": [
+          "Resultary: Maximal pattern complexity Sturmian word periodic fixed marker interleaving exact all length 2k plus silent-phase marker signatures, four letter unbounded excess",
+          "Schlortt arXiv:2505.05627v1 Theorem1.3 Sections5-6",
+          "Le Pavlov Schlortt arXiv:2508.13420v1 Theorem C Proposition4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Schlortt Example 6.2 gives a single m=5 four-letter instance with offset 3; the submitted family gives all m and unbounded offsets",
+          "Retrieved other Resultary records concern Abelian pattern Sturmian support or word/string attractor counts, not p^* for periodic marker interleaving"
+        ],
+        "reasoning": "Known exact single example does not imply a theorem for every m, every k and every template. No dominating indexed table found; negative search is only evidence of search.",
+        "searches": [
+          "Resultary exact maximal-pattern complexity periodic marker Sturmian four-letter 2k+C",
+          "Schlortt 2025 Example6.2 four-symbol larger-than-minimum offset",
+          "Gjini et al. 2006 one-hole Toeplitz exact complexity"
+        ]
+      },
+      "rationale": "Schlortt 2025 Theorem1.3 already proves eventual 2k+C for one binary pattern-Sturmian residue interleaved with constant marker residues; his examples already show some exact cases and a four-letter excess greater than alphabet-bound 2. These are credited, including existence of such larger offsets. The assessed result computes the COMPLETE all-k correction for EVERY marker template as a finite cyclic-signature optimization, plus unbounded excess ceil(m/2) at fixed four-symbol alphabet using single exceptional marker, including sharp finite onset. Le–Pavlov–Schlortt 2025 structural classification of recurrent low-complexity subshifts concerns allowed interleavings, not an evaluated all-template complexity function in relevant sections. General one-hole Toeplitz research could cover intersecting special bases; its complete 2006 full text was not read and is a material risk, though Toeplitz special instances do not dominate arbitrary uniformly recurrent binary pattern Sturmian bases.",
+      "residual_risks": [
+        "Schlortt 2025 already gives a four-letter C>2 example; the novelty is all-k/all-template and fixed-four-letter UNBOUNDED excess, not existence of any such example.",
+        "Gjini et al. 2006 complete Toeplitz primary text not read, so an exact overlapping special-case formula is possible.",
+        "Uniform recurrence, one active binary residue and completely disjoint alphabets essential; finite rational mechanical test word does not prove irrational case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_STRUCTURE_EVENTUAL_NOT_EXACT_GENERAL",
+          "evidence": [
+            "§5 lines419-432 bound p*(k) and assert eventually 2k+C, §6 Example6.2 provides four-letter one-off offset >2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.05627v1",
+          "material_read": "Full HTML read, Theorem1.3 proof §5 and Examples6.1–6.3 §6",
+          "method": "Compare precise fixed marker template and integer k quantifiers with prior eventual C theorem",
+          "title": "On the structure of sequences with minimal maximal pattern complexity",
+          "trigger": "Identical one-pattern-Sturmian-residue plus constant marker structure"
+        },
+        {
+          "assessment": "RELEVANT_STRUCTURAL_NOT_ENUMERATIVE",
+          "evidence": [
+            "Le, Pavlov and Schlortt 2025 classify pattern Sturmian and allowed subshifts, not a table of p_y^*(k) for all marker templates"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.13420v1",
+          "material_read": "Full arXiv HTML and PDF index, Theorem C and §4.3/Prop4.7 relevant passages read",
+          "method": "Compare structural classification vs explicit marker cyclic-projection counts",
+          "title": "On subshifts with low maximal pattern complexity",
+          "trigger": "General theorem classifying allowed recurrent low-complexity sequence structures"
+        },
+        {
+          "assessment": "SPECIALIZED_FULL_TEXT_RISK",
+          "evidence": [
+            "Gjini, Kamae, Tan, Xue 2006 near-exact Toeplitz complexity formulas; precise intersection not fully resolved"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0143385706000150",
+          "material_read": "Publisher indexed abstract/citation; complete paper not inspected",
+          "method": "Compare Toeplitz base restriction vs arbitrary uniformly recurrent binary pattern Sturmian base in current claim",
+          "title": "Maximal pattern complexity for Toeplitz words",
+          "trigger": "Possible stronger one-hole Toeplitz exact invariant antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes an exact natural combinatorics question left open by the 2025 eventual-linearity structure theorem: which additive constant C occurs, when does it begin, and how does periodic skeleton geometry influence the complete function p_y^*(k)? A phase-signature formula for all templates and fixed four-letter unbounded correction is structural, broad in marker period and k, and independent of specific base realization. It is not a cosmetic new invariant or a repetition of the known 2k baseline and occasional special examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Schlortt arXiv:2505.05627v1 full HTML §5-6",
+    "Le Pavlov Schlortt arXiv:2508.13420v1 original HTML and PDF relevant sections",
+    "Gjini Kamae Tan Xue 2006 DOI bibliographic/abstract",
+    "Resultary 12 hits periodic-marker maximal-pattern complexity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One uniformly recurrent binary pattern Sturmian residue only, fixed disjoint marker alphabet, m>=2.",
+    "Four-letter A^(m-2)B family requires m>=3; no theorem for multiple aperiodic residues or overlapping marker alphabets."
+  ],
+  "residual_risks": [
+    "Schlortt 2025 already gives a four-letter C>2 example; the novelty is all-k/all-template and fixed-four-letter UNBOUNDED excess, not existence of any such example.",
+    "Gjini et al. 2006 complete Toeplitz primary text not read, so an exact overlapping special-case formula is possible.",
+    "Uniform recurrence, one active binary residue and completely disjoint alphabets essential; finite rational mechanical test word does not prove irrational case."
+  ],
+  "schema_version": 1
+}

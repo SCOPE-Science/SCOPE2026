@@ -1,19 +1,21 @@
-# Scientific review: exact periodic-marker maximal-pattern complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any finite sampling window, the proof separates \(m\) possible starting phases. Each active phase sees binary symbols in exactly one residue class of the window; all remaining entries are constant markers. Because the alphabets are disjoint, no two distinct active phases can overlap in the observed word, and a silent marker-only phase cannot overlap an active phase. The single-step carry in the binary index is harmless by uniform recurrence. This proves the exact window identity \(p_y(T)=\sum_{r\in S}p_x(U_r)+D_w(S)\). Choosing independently maximizing binary windows proves the exact extremal formula for every \(k\geq1\). The single-defect signature count follows from a bijection with cyclic occupied-to-empty transitions and the existence of an adjacent pair in the complement. Explicit separated-residue selections attain both branches of the claimed sharp maximum. There are no unchecked limiting arguments, and the verifier's finite tests are not treated as an infinite proof.
+PASS
 
-## Originality — PASS, subject to recorded priority risks
+Every nonempty finite sampling window T separates according to its residue support S mod m. Exactly one possible active residue is binary for each starting phase that hits the binary coordinate, and the observed marker/binary alphabets are disjoint; thus active phases have disjoint languages and cannot collide with silent all-marker signatures. Uniform recurrence of x ensures a one-step base-index carry does not remove any sampled pattern. Therefore p_y(T)=sum_{r in S}p_x(U_r)+D_w(S). Since each base window size n_r independently attains p_x^*(n_r)=2n_r, one may choose arbitrary support S with |S|<=k, positive n_r summing k and obtain p_y^*(k)=2k+max_S D_w(S), with no extrapolation. In one-defect marker template A^(m-2)B, each distinct silent-phase signature is either a unique-B coordinate at an occupied->unoccupied cyclic transition or all-A if complement has adjacent pair, so D_w(S)=b(S)+1_{m-|S|>b(S)}. Sharp alternating runs attain max correction min{k+1,ceil(m/2)}. Independently exhaustively enumerated all supports of m=3..9 and direct phase signatures for all m and sampled k to m+1, confirming analytic formula; finite tests not proof for arbitrary m or irrational x.
 
-Schlortt, arXiv:2505.05627v1, §5 Theorem 1.3 and §6, establishes only eventual \(2k+C\) for this structure and exhibits certain previously known sharp examples. The new claim is the full all-length cyclic-signature formula and the unbounded correction \(\min\{k+1,\lceil m/2\rceil\}\) at fixed four-letter alphabet. Le, Pavlov and Schlortt, arXiv:2508.13420v1, §4.3, establishes structural interleaving categories rather than exact template counts. The original binary pattern Sturmian \(2k\) law is not new. Indexed semantic and primary-literature comparisons were made against alternative terminology, exact parameter coverage and possible stronger results. The 2006 Toeplitz abstract advertises an almost-exact formula for one-hole Toeplitz words; its full text was not inspected, so any intersecting specialized result remains a genuine priority risk. Neither that abstract nor the inspected stronger structural classifications covers arbitrary irrational Sturmian bases with the explicit constant. This assessment is not an independent priority guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit symbolic family is central to an existing structure theorem whose eventual additive offset is left undetermined. Counting *all* sampling lengths and *all* marker templates settles a natural combinatorial invariant. A template with one exceptional marker exhibits arbitrarily large eventual \(p_y^*(k)-2k\) on just four symbols, including the exact onset of the plateau. The fixed-alphabet unboundedness is a meaningful mechanism distinct from an isolated computation, a routine finite example or a formal change of notation.
+Schlortt 2025 Theorem1.3 already proves eventual 2k+C for one binary pattern-Sturmian residue interleaved with constant marker residues; his examples already show some exact cases and a four-letter excess greater than alphabet-bound 2. These are credited, including existence of such larger offsets. The assessed result computes the COMPLETE all-k correction for EVERY marker template as a finite cyclic-signature optimization, plus unbounded excess ceil(m/2) at fixed four-symbol alphabet using single exceptional marker, including sharp finite onset. Le–Pavlov–Schlortt 2025 structural classification of recurrent low-complexity subshifts concerns allowed interleavings, not an evaluated all-template complexity function in relevant sections. General one-hole Toeplitz research could cover intersecting special bases; its complete 2006 full text was not read and is a material risk, though Toeplitz special instances do not dominate arbitrary uniformly recurrent binary pattern Sturmian bases.
 
-## Verification and limitations
+## value
 
-The analytical derivation is self-contained conditional on the standard pattern Sturmian hypothesis. The standalone Python 3 checker recomputes 17861 finite exact assertions from periodic rational mechanical test words, direct sample enumeration and independent marker signature counts. It tests the finite identities, not the universal irrational case. No claim is made for overlapping marker/binary alphabets, several nonconstant residues, or nonuniformly recurrent bases. Priority remains subject to specialized literature and external expert assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This closes an exact natural combinatorics question left open by the 2025 eventual-linearity structure theorem: which additive constant C occurs, when does it begin, and how does periodic skeleton geometry influence the complete function p_y^*(k)? A phase-signature formula for all templates and fixed four-letter unbounded correction is structural, broad in marker period and k, and independent of specific base realization. It is not a cosmetic new invariant or a repetition of the known 2k baseline and occasional special examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
