@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:11:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564/RESULT.md",
+        "2026/10/18/exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564/CHECK.py"
+      ],
+      "rationale": "For uniform recursive-tree attachment, conditional updates T_(n+1)=T_n+1+D_K, L_(n+1)=L_n+1-I(K leaf), and A_(n+1)=A_n+1+D_K-I D_K yield ET_n=n(H_n-1), EL_n=n/2, EA_n=nH_n/2-n/4. The conditional covariance plus total covariance reduces to c_(n+1)=c_n-1/4 with c_2=0, so Cov(T_n,L_n)=-(n-2)/4 for all n>=2. W_n=(T_n-ET_n)/n has orthogonal increments (D_K-T_n/n)/(n+1) and square-summable increments, proving its nondegenerate L2 and a.s. limit. L_n has Eulerian 1+descents law; bounded 1-dependent descents give N(0,1) at sqrt(n/12). Crucially, at fixed m the number of surviving leaves labeled >m is independent of the parent-history F_m, while the <=m contribution is bounded by m. Approximate any bounded F_infinity statistic by its F_m conditional expectation and pass m then n to show mixing; replacing W by W_n gives joint independence. Independently enumerated all parent choices n=2..8 matched the exact rational covariance. Finite checks are not the mixing proof.",
+      "residual_risks": [
+        "Finite exact computations diagnose bounded instances only; analytic derivation controls general quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bryc et al. derive leaf-count Markov-chain large deviations/CLT; Dobrow–Fill derive path-length W moments and its distributional fixed point; Lundblad–Wagner focus on external path LENGTH, not leaf COUNT mixing."
+        ],
+        "reasoning": "None of the actually inspected primary theorems bounds joint dependence by fixed-history mixing or computes this exact cross-covariance. An unspecified multivariate urn theorem could dominate only if it includes T_n at scale n and mixing against F_infinity; no such theorem was identified.",
+        "searches": [
+          "Bryc–Minda–Sethuraman 2008 introduction/limit theorems",
+          "Dobrow–Fill 1999 full primary text",
+          "Lundblad–Wagner 2026 Sections 1–3"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/S0963548399003855",
+        "https://arxiv.org/pdf/0809.4741",
+        "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+        "Resultary query 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dobrow–Fill Theorem 2.1 is Lp convergence of total path length and §3 its factorial moments, not joint leaf fluctuations. Bryc et al. study leaf-chain marginal CLT and large deviations."
+        ],
+        "reasoning": "From a marginal non-Gaussian W limit and marginal Gaussian leaf limit one cannot infer asymptotic independence, let alone mixing; the finite-prefix independence argument fills that precise gap.",
+        "searches": [
+          "doi:10.1017/S0963548399003855, pages 1–17",
+          "arxiv:0809.4741 pp.1–3",
+          "Lundblad/Wagner AofA 2026 PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leaf count equals an Eulerian-descent count in distribution; path-length martingale is Dobrow–Fill/Mahmoud W_n."
+        ],
+        "reasoning": "The new statement is equivalent to a stable/mixing CLT for leaves jointly with the path-length martingale and the covariance identity; the separate marginal Eulerian and W_n limits do not enforce this joint conclusion.",
+        "searches": [
+          "Resultary: Random recursive tree total path length leaf count covariance mixing stable convergence Gaussian independence",
+          "arxiv:0809.4741",
+          "doi:10.1017/S0963548399003855"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f computes Cov(ROOT DEGREE, LEAVES); .../SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba computes Cov(ROOT DEGREE, PATH)."
+        ],
+        "reasoning": "Neither of these two distinct pairwise covariances determines Cov(LEAVES, PATH): covariance lacks transitivity. No checked exact table for the claimed pair/mixing was established.",
+        "searches": [
+          "Resultary root-degree/leaves item",
+          "Resultary root-attachments/path-cost item",
+          "web leaf count total path length mixing search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.",
+      "residual_risks": [
+        "Older joint recursive-tree degree-profile or multivariate functional limit results could imply an equivalent mixing theorem; searched primary theorems do not resolve every historical formulation.",
+        "Mixing is for fixed bounded F_infinity observables, not a triangular sequence B_n; do not overextend."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Paper proves marginals and Lp convergence of W, not a simultaneous path/leaf mixing limit in inspected statements",
+          "evidence": "pp.1–3 define W_n and cite Mahmoud; pp.9–13 give factorial-moment functions, Table 2 Var(W)=2-zeta(2); pp.14–17 density estimates and references.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+          "material_read": "Authorized complete 17-page text retrieved in two page ranges (pp.1–8, pp.9–17); read introduction, Lemma 2.1, Theorem 2.1 overview and Sections 3–4 moments/distribution",
+          "method": "Oxford authorized text, original publisher PDF pages",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Primary path-length limit reference with possible joint moments"
+        },
+        {
+          "assessment": "Leaf marginal limit theory, not a joint leaf/path theorem",
+          "evidence": "p.1 abstract explicitly describes leaf-chain large deviations/central limit theorems.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4741",
+          "material_read": "Open preprint introduction, transition (1.1), general limit-theorem scope",
+          "method": "arXiv full PDF text plus page 1 image",
+          "title": "Large deviations for the leaves in some random trees",
+          "trigger": "Same leaf-count Markov chain and CLT"
+        },
+        {
+          "assessment": "Studies external (leaf) path length, a different statistic from number of leaves; theorem is not the claimed joint mixing",
+          "evidence": "Theorem 6 treats normalized internal/external path lengths, not CLT-scale leaf COUNT.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "Open 20-page full PDF, inspected introduction, theorem statement and pages around Theorem 6",
+          "method": "Public publisher PDF text and page images",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Recent primary paper jointly names path length and leaf-related statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564/RESULT.md",
+        "https://doi.org/10.1017/S0963548399003855",
+        "https://arxiv.org/pdf/0809.4741"
+      ],
+      "rationale": "A joint theorem for the natural tree shape statistic (number of leaves) and global search-cost statistic (total depth), whose fluctuations occur on incompatible sqrt(n) and n scales. The strong mixing conclusion against the ENTIRE fixed growth history is not a routine consequence of vanishing Pearson correlation; it explains why a non-Gaussian path-cost martingale limit decouples from Gaussian leaf noise while finite trees remain negatively dependent. The exact -1/4-per-vertex covariance is additionally useful for small-sample calibration.",
+      "residual_risks": [
+        "Mathematical interest is bounded to the claimed statistic/model and is not an assertion of broad theory or independent historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older joint recursive-tree degree-profile or multivariate functional limit results could imply an equivalent mixing theorem; searched primary theorems do not resolve every historical formulation.",
+    "Mixing is for fixed bounded F_infinity observables, not a triangular sequence B_n; do not overextend."
+  ],
+  "schema_version": 1
+}

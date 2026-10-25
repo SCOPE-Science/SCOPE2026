@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-`CHECK.py` runs with Python 3 and its standard library. The actual packaged checker was run and returned `EXACT_OK 2530 assertions; enumerated n=2..9, 499 recurrence transitions`.
+## correctness
 
-It compares expectations of total path length, leaf number, product, and leaf-depth sum with their closed expressions in every uniform random recursive tree through nine vertices. It checks exact leaf variance and replays five rational recurrence assertions for each integer from two to 499. These are independent finite diagnostics for the formulas printed in `RESULT.md`.
+PASS
 
-The claims for all tree sizes and the mixing limit are mathematical consequences of the conditional moment recursion, Eulerian descent representation and finite-history approximation in `RESULT.md`. The checker is not a proof of a central limit theorem, infinite-dimensional mixing, or source uniqueness. A historical joint-limit theorem beyond the material inspected may still affect priority.
+For uniform recursive-tree attachment, conditional updates T_(n+1)=T_n+1+D_K, L_(n+1)=L_n+1-I(K leaf), and A_(n+1)=A_n+1+D_K-I D_K yield ET_n=n(H_n-1), EL_n=n/2, EA_n=nH_n/2-n/4. The conditional covariance plus total covariance reduces to c_(n+1)=c_n-1/4 with c_2=0, so Cov(T_n,L_n)=-(n-2)/4 for all n>=2. W_n=(T_n-ET_n)/n has orthogonal increments (D_K-T_n/n)/(n+1) and square-summable increments, proving its nondegenerate L2 and a.s. limit. L_n has Eulerian 1+descents law; bounded 1-dependent descents give N(0,1) at sqrt(n/12). Crucially, at fixed m the number of surviving leaves labeled >m is independent of the parent-history F_m, while the <=m contribution is bounded by m. Approximate any bounded F_infinity statistic by its F_m conditional expectation and pass m then n to show mixing; replacing W by W_n gives joint independence. Independently enumerated all parent choices n=2..8 matched the exact rational covariance. Finite checks are not the mixing proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+A joint theorem for the natural tree shape statistic (number of leaves) and global search-cost statistic (total depth), whose fluctuations occur on incompatible sqrt(n) and n scales. The strong mixing conclusion against the ENTIRE fixed growth history is not a routine consequence of vanishing Pearson correlation; it explains why a non-Gaussian path-cost martingale limit decouples from Gaussian leaf noise while finite trees remain negatively dependent. The exact -1/4-per-vertex covariance is additionally useful for small-sample calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim covers the uniform independent-parent recursive tree, \(n\ge2\) for the covariance and \(n\ge3\) for normalized leaf fluctuations. The path-length centered martingale has square-summable increments from logarithmic depth second moments and therefore converges almost surely and in \(L^2\); its positive variance is inherited from the nonconstant third-step term. The closed leaf-depth mean \(\mathbb EA_n=nH_n/2-n/4\) produces the exact covariance decrement \(-1/4\) by total covariance, and the base case is zero. The Eulerian leaf-count recurrence gives a sum of bounded 1-dependent descent indicators and hence a Gaussian CLT. A finite-label split makes the late-label leaf count independent of each fixed initial history; an \(L^1\) approximation proves the stated mixing limit against every fixed bounded full-history observable. The supplementary checker passed 2,530 exact rational assertions. The infinite proof does not rely on enumeration.
+PASS
 
-## Originality: PASS, qualified
+For uniform recursive-tree attachment, conditional updates T_(n+1)=T_n+1+D_K, L_(n+1)=L_n+1-I(K leaf), and A_(n+1)=A_n+1+D_K-I D_K yield ET_n=n(H_n-1), EL_n=n/2, EA_n=nH_n/2-n/4. The conditional covariance plus total covariance reduces to c_(n+1)=c_n-1/4 with c_2=0, so Cov(T_n,L_n)=-(n-2)/4 for all n>=2. W_n=(T_n-ET_n)/n has orthogonal increments (D_K-T_n/n)/(n+1) and square-summable increments, proving its nondegenerate L2 and a.s. limit. L_n has Eulerian 1+descents law; bounded 1-dependent descents give N(0,1) at sqrt(n/12). Crucially, at fixed m the number of surviving leaves labeled >m is independent of the parent-history F_m, while the <=m contribution is bounded by m. Approximate any bounded F_infinity statistic by its F_m conditional expectation and pass m then n to show mixing; replacing W by W_n gives joint independence. Independently enumerated all parent choices n=2..8 matched the exact rational covariance. Finite checks are not the mixing proof.
 
-Full accessible source text for Gałązka–Wdowicka (arXiv:2610.00614), Bryc–Minda–Sethuraman (arXiv:0809.4741), and Lundblad–Wagner (DOI 10.4230/LIPIcs.AofA.2026.2) was compared by implication. The first treats total-path-length fluctuations, the second the marginal leaf process, and the third leaf depth versus all-vertex depth using a multivariate generating function; none states the normal/non-Gaussian mixing assertion. Published records 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f and 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba were read beyond their titles: one covers root degree with leaves and the other root attachments with total depth, neither the leaf-count/total-depth pair. Accessible own historical claims were screened for overlapping objects and limiting assertions. The 1999 Dobrow–Fill article's abstract was accessible but its full text was not; it remains a priority risk. The explicit covariance is algebraically obtainable from general multivariate enumerators, so its numeric value is not claimed to have priority independently of the accompanying mixing limit. Search nonmatches are not proofs of uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Leaf abundance and total pointer-tracing cost are simultaneously natural diagnostics of a growing recursive tree, but their intrinsic fluctuations live on different scales. The exact negative covariance quantifies their finite-size dependence. Mixing relative to the entire input history gives a much stronger separation than zero limiting correlation: every fixed event determined by the complete growth process is asymptotically uninformative about the standardized leaf count. The result connects an active total-depth martingale research direction to classical Eulerian leaf fluctuations and exhibits how non-Gaussian global shape randomness can coexist with asymptotically fresh Gaussian local-count randomness. This is not a mere restatement of either marginal CLT or martingale convergence. It does not extend to arbitrary weighted attachment, and quantitative mixing rates remain open.
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
 
-## Risks and scope
+## value
 
-The full text of Dobrow–Fill (1999) was not available; a historically unindexed joint functional limit theorem or a stronger general theorem might imply this claim. The 2026 multivariate tree enumerator encodes finite mixed moments implicitly and may subsume the exact covariance component. No claim is made for weighted trees, finite-size independence, or Gaussianity of the path-length limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A joint theorem for the natural tree shape statistic (number of leaves) and global search-cost statistic (total depth), whose fluctuations occur on incompatible sqrt(n) and n scales. The strong mixing conclusion against the ENTIRE fixed growth history is not a routine consequence of vanishing Pearson correlation; it explains why a non-Gaussian path-cost martingale limit decouples from Gaussian leaf noise while finite trees remain negatively dependent. The exact -1/4-per-vertex covariance is additionally useful for small-sample calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
