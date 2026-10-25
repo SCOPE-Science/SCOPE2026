@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T19:54:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md fixes the normal fan of S_n in the integral off-diagonal lattice Z^{n choose 2}, not the Ehrhart ring. Every active coordinate facet yields an e_ij row and each zero diagonal a negative star row. Eliminating unit rows reduces the toric divisor exact sequence to unsigned incidence blocks: singleton none, paired component 2x1 with free cokernel Z, odd support cycle with Smith invariant 2. Thus Cl(U_v)=Z^{t(v)}+(Z/2)^{c(v)}, Q-factorial iff t=0, smooth iff t=c=0 (identity). Solving canonical all-ones ray equations sets off-support m_ij=1, pair edges =-(n-1), odd cycle edges =-(n-2)/2; local index 2 iff n odd and c>0 and 1 otherwise, Q-Gorenstein always. Exponential formula counts singleton/pair/odd undirected cycles and gives exp(z+uz²/2+(q/2)sum_{j>=1}z^{2j+1}/(2j+1)). Independently calculated support count 5,14,58,238 at n3..6; inspected actual SymPy Smith-normal-form checker, including BFS vertex confirmation n3,4. Arbitrary-characteristic assertion concerns lattices, not quotient group-scheme étaleness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Davis even n Gorenstein result is for Ehrhart-related semigroup algebra and does not compute Cl(U_v) of the normal-fan variety."
+        ],
+        "reasoning": "These two toric constructions are not interchangeable. The normal-fan chart has active facet rays and variable chart class groups, whereas the cited global Ehrhart parity result does not imply the full local formulas.",
+        "searches": [
+          "local class groups canonical Cartier index normal fan of symmetric doubly stochastic matrix polytope, pair edges and odd cycle supports",
+          "Davis arXiv:1409.2742 Theorem 2.8",
+          "Brualdi–Cao arXiv:1712.03129"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.03129 support classifications, PDF and screenshot",
+        "arXiv:1409.2742 Theorem 2.8 and Ehrhart setting, PDF and screenshot",
+        "Katz 1970 DOI through later primary literature",
+        "Fulton affine toric divisor exact sequence as standard algebraic premise",
+        "Actual Git RESULT.md and verify_symmetric_stochastic.py, tree d6f944...",
+        "Resultary toric class-group and symmetric stochastic semantically targeted search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known decomposition plus general toric exact sequence allows the new Smith computations, but the prior papers do not directly state all local invariants."
+        ],
+        "reasoning": "Prior component theorem is a necessary premise, not a dominant theorem that already states the result. Davis parity overlaps the global even case, which is expressly credited; local torsion and full distribution are additional.",
+        "searches": [
+          "Brualdi–Cao arXiv:1712.03129",
+          "Davis arXiv:1409.2742",
+          "local class groups canonical Cartier index normal fan of symmetric doubly stochastic matrix polytope, pair edges and odd cycle supports"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normal-cone toric class group is coker of active primitive ray matrix; Brualdi–Cao explicitly list loop/pair/odd-cycle vertex blocks."
+        ],
+        "reasoning": "Compared toric divisor-class chart computation, symmetric fractional matching polytope vertices, and odd-cycle incidence Smith torsion; previously known support language supplies inputs, not a reported local-group theorem.",
+        "searches": [
+          "local class groups canonical Cartier index normal fan of symmetric doubly stochastic matrix polytope, pair edges and odd cycle supports",
+          "arXiv:1712.03129 symmetric doubly stochastic extreme points",
+          "arXiv:1409.2742 toric Gorenstein Ehrhart"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known extreme-point classification yields raw vertex counts; it does not tabulate class groups Z^t+(Z/2)^c with canonical indices."
+        ],
+        "reasoning": "Our 5,14,58,238 small vertex counts are corroboration, not new by themselves; the classified local invariants and generating function are the substantive content.",
+        "searches": [
+          "local class groups canonical Cartier index normal fan of symmetric doubly stochastic matrix polytope, pair edges and odd cycle supports",
+          "arXiv:1712.03129 extreme-point component count"
+        ]
+      },
+      "rationale": "Katz and Brualdi–Cao already classify extreme support components, and Davis already proves even-n Gorenstein phenomena for associated Ehrhart rings. These are credited, not asserted new. The current claim instead supplies each normal-fan affine chart class group, Cartier index, exact local smoothness/Q-factorial boundaries, and bivariate distribution. Direct inspection of the two accessible primary papers found neither the per-chart class group formula nor its joint generating function. Full Katz 1970 text inaccessible; legacy equivalent localization remains a risk.",
+      "residual_risks": [
+        "Original Katz 1970 full paper not inspected directly; an older equivalent class-group computation cannot be categorically excluded.",
+        "Subtle confusion of normal-fan and Ehrhart Gorenstein constructions is avoided; the global even-n parity is not claimed independent of Davis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the vertex-type premise; does not directly supply normal fan local class group and canonical index formulas",
+          "evidence": "Extreme-point classification (matrix blocks) versus assessed Smith normal forms.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.03129",
+          "material_read": "Accessible arXiv full PDF sections on extreme point support as loops, disjoint pairs and odd half-weight cycles; PDF page screenshots examined",
+          "method": "primary PDF text plus page screenshots",
+          "title": "Symmetric, Hankel-Symmetric, and Centrosymmetric Doubly Stochastic Matrices",
+          "trigger": "Same symmetric stochastic polytope support"
+        },
+        {
+          "assessment": "Known even-n Gorenstein observation but different Ehrhart ring, not all normal fan toric local groups",
+          "evidence": "Theorem 2.8 in Ehrhart setting; local Cl(U_v) and Cartier-index array not given.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2742",
+          "material_read": "Full PDF available, inspected introduction, related polytope description and parity Gorenstein statement (Theorem 2.8) with PDF page screenshot",
+          "method": "primary PDF full-text search, text inspection and page screenshot",
+          "title": "Ehrhart Series of Polytopes Related to Symmetric Doubly-Stochastic Matrices",
+          "trigger": "Plausibly stronger even-n Gorenstein theorem"
+        },
+        {
+          "assessment": "Vertex class prior; cannot assert the entire original paper lacks a local toric result",
+          "evidence": "Katz vertex support characterization as credited in actual package.",
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9800(70)80034-5",
+          "material_read": "Citation and theorem attribution through Brualdi–Cao; original 1970 article full text not obtained",
+          "method": "secondary primary-paper attribution only",
+          "title": "On the extreme points of a certain convex polytope",
+          "trigger": "Original same-vertex theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local Weil divisor groups and Gorenstein/Cartier indices control singularity and divisor theory of a natural infinite toric family. The pair/odd-cycle Smith decomposition and parity transition are complete structural invariants, not merely known vertex enumeration; the bivariate enumerator makes singularity types quantitatively accessible.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1712.03129 support classifications, PDF and screenshot",
+    "arXiv:1409.2742 Theorem 2.8 and Ehrhart setting, PDF and screenshot",
+    "Katz 1970 DOI through later primary literature",
+    "Fulton affine toric divisor exact sequence as standard algebraic premise",
+    "Actual Git RESULT.md and verify_symmetric_stochastic.py, tree d6f944...",
+    "Resultary toric class-group and symmetric stochastic semantically targeted search"
+  ],
+  "disposition": "passed",
+  "limitations": "The class groups concern affine torus-fixed charts, not arbitrary singular strata or Ehrhart-ring class groups. No group-scheme quotient claim in characteristic 2.",
+  "residual_risks": [
+    "Original Katz 1970 full paper not inspected directly; an older equivalent class-group computation cannot be categorically excluded.",
+    "Subtle confusion of normal-fan and Ehrhart Gorenstein constructions is avoided; the global even-n parity is not claimed independent of Davis."
+  ],
+  "schema_version": 1
+}
