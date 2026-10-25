@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The polar of the real Lipschitz-free ball is the Lipschitz polytope with its root height fixed at zero. Its extreme potentials have connected tight-edge graph by the rank of the oriented incidence matrix. Such a graph supplies integer heights. Because the Heawood graph is bipartite, all graph edges—not only a spanning set—are then tight. Every pair of Fano points shares a line, forcing point heights into one of two two-level integer families. A mixed line has only one permitted height; a monochromatic line has two. The cross-pair incidence count gives exactly \(7-k(7-k)/2\) monochromatic lines and \(660\) normalized extreme potentials after removal of a \(128\)-element overlap. A disjoint exhaustive classification by point patterns and independent spanning-tree enumeration agree exactly; the complete 336-element graph automorphism action and sign reversal yield the ten disjoint orbit sets with total cardinality \(660\). All representatives, orbit sizes, and height-level distributions are independently checked by the supplied exact Python code. No finite sampling is interpreted as an infinite-family result; the claim concerns one finite graph.
+## correctness
 
-## Originality: PASS (best-knowledge)
-Higashitani–Jochemko–Michałek, arXiv:1807.07678v1 (2018), give the general tight-edge criterion and other family counts; D'Alì–Delucchi–Michałek, arXiv:1910.05193v1 (2019), give general formulas and a planar-bipartite flow evaluation that does not apply to the nonplanar Heawood graph; Chen–Davis–Korchevskaia, arXiv:2107.12315v1 (2021), characterize maximal bipartite facet subgraphs but do not enumerate the Heawood orientations; Braun–Bruegge, arXiv:2201.13303v1 (2022), study sparse-graph formulas and smaller tables. Deza–Dutour Sikirić, arXiv:1501.05407 (2015), tabulate the Heawood **cut** polytope in a different \(21\)-dimensional space, not the Lipschitz-free symmetric-edge polytope. Published-result searches for Heawood, Fano-plane incidence, Lipschitz-free, and symmetric-edge facet-orbit formulations found no equivalent claim; records concerning Heawood matching complexes, Petersen symmetric-edge polytopes and fan/crown symmetric-edge polytopes have different objects or invariants. A paper containing the general criterion does not explicitly imply the ten symmetry classes without the Fano-specific enumerative argument. Unindexed analogous computations could preempt some or all enumeration; this remains a residual risk, not a certificate of worldwide uniqueness.
+PASS
 
-## Mathematical value: PASS
-The Heawood graph is the highly symmetric point-line incidence graph of the unique projective plane of order two. An exact \(660\)-facet count and **complete ten-orbit classification** reveal the geometry of the natural real transportation norm on this canonical nonplanar finite metric space. The closed subset formula, explicit orbit representatives and exact distributions of dual height levels and incident vertices make the statement useful as an independently reproducible, structurally interpretable benchmark. This is neither an arbitrary graph-table entry nor a routine restatement of the general facet criterion.
+Graph Lipschitz dual polytope vertices correspond exactly to connected tight-edge graphs, as the active incidence matrix has rank 14-c where c is the number of tight graph components. On a connected bipartite tight-edge subgraph, all vertex heights have a fixed parity on each color class and every original incidence edge must have odd difference bounded by one, hence every edge is tight. For rooted integer heights, all seven Fano points have pairwise difference in {0,+/-2}, so either all 0 or root 0 and selected other six at +2 (or -2). For k of the six selected, there are m=7-k(7-k)/2 monochromatic Fano lines independently allowing two line heights; each mixed line is forced. Positive-envelope total sum_{k=0}^6 C(6,k)2^m=394; two envelopes overlap in 2^7=128 all-point-zero cases, giving 660. Direct level-count gives 2,252,406. The supplied verifier independently enumerates all 660 via a spanning-tree increment search and classifies under all 336 incidence automorphisms and sign. A separate exact reconstruction obtained the same 660 and 10 orbit sizes 168,112,112,84,56,42,28,28,28,2. Each facet has 21 tight signed edge molecules. Finite exhaustion proves the finite orbit census; nothing claimed for other geometries or the full affine polytope automorphism group.
 
-## Limits
-All counts and symmetry claims are for this fixed graph and the specific action of graph automorphisms plus sign reversal. An independent scientific audit has not occurred, and unindexed or inaccessible literature could contain equivalent calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph-metric duality criterion and Fano incidence construction are standard. The nontrivial 660 count, exact height strata and ten graph-automorphism/sign orbits are a specific full evaluation, not a restatement of general symmetric-edge-polytope facet criteria. Published Heawood cut-polytope numbers concern a different convex body. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
+
+## value
+
+PASS
+
+The Fano-plane incidence graph is a natural highly symmetric, nonplanar graph and its Lipschitz-free ball is a canonical 13-dimensional symmetric edge polytope. Its exact facet count and orbit stratification supply a nontrivial intrinsic invariant not given by the known general facet criterion; this is a motivated complete finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

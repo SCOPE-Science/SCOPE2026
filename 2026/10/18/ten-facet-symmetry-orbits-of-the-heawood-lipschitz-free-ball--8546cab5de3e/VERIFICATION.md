@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_heawood.py` in the directory containing the seven delivered files. The code uses standard Python 3 only and contains no nonstandard libraries, external files or network dependencies. It generates the Fano point-line incidence graph from three-bit dot products and checks that there are 14 vertices, 21 edges and degree three at every vertex.
+## correctness
 
-Two **structurally independent** finite enumeration methods are checked for equality as complete sets: point-height envelopes with independently chosen monochromatic line heights, and spanning-tree incremental assignments of integer Lipschitz potentials with saturated-edge connectivity. Each produces exactly 660 normalized dual extreme potentials. The program checks the point-height level distribution 2,252,406, the closed subset count, all 336 graph automorphisms and their preservation of the incidence edges, the action under sign reversal, and the ten disjoint symmetry orbits and their explicit representatives.
+PASS
 
-A separate analytic proof in RESULT.md derives the 660 count from the Fano incidences. The ten-orbit classification additionally uses certified finite exhaustive loops; the loops are finite because each point family has at most 64 patterns and each monochromatic line has exactly two heights, and the spanning-tree check considers only three integer increments per tree edge. The output `ALL EXACT CHECKS PASSED` means that the stored assertions were satisfied, **not** that an independent scientific audit occurred or that the result is certified by an external authority.
+Graph Lipschitz dual polytope vertices correspond exactly to connected tight-edge graphs, as the active incidence matrix has rank 14-c where c is the number of tight graph components. On a connected bipartite tight-edge subgraph, all vertex heights have a fixed parity on each color class and every original incidence edge must have odd difference bounded by one, hence every edge is tight. For rooted integer heights, all seven Fano points have pairwise difference in {0,+/-2}, so either all 0 or root 0 and selected other six at +2 (or -2). For k of the six selected, there are m=7-k(7-k)/2 monochromatic Fano lines independently allowing two line heights; each mixed line is forced. Positive-envelope total sum_{k=0}^6 C(6,k)2^m=394; two envelopes overlap in 2^7=128 all-point-zero cases, giving 660. Direct level-count gives 2,252,406. The supplied verifier independently enumerates all 660 via a spanning-tree increment search and classifies under all 336 incidence automorphisms and sign. A separate exact reconstruction obtained the same 660 and 10 orbit sizes 168,112,112,84,56,42,28,28,28,2. Each facet has 21 tight signed edge molecules. Finite exhaustion proves the finite orbit census; nothing claimed for other geometries or the full affine polytope automorphism group.
 
-Limitations: the computation addresses only this fourteen-vertex metric graph and the specified graph-automorphism-plus-sign action. It does not establish priority relative to unindexed research or test higher-order projective planes.
+## originality
+
+PASS
+
+The graph-metric duality criterion and Fano incidence construction are standard. The nontrivial 660 count, exact height strata and ten graph-automorphism/sign orbits are a specific full evaluation, not a restatement of general symmetric-edge-polytope facet criteria. Published Heawood cut-polytope numbers concern a different convex body. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
+
+## value
+
+PASS
+
+The Fano-plane incidence graph is a natural highly symmetric, nonplanar graph and its Lipschitz-free ball is a canonical 13-dimensional symmetric edge polytope. Its exact facet count and orbit stratification supply a nontrivial intrinsic invariant not given by the known general facet criterion; this is a motivated complete finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
