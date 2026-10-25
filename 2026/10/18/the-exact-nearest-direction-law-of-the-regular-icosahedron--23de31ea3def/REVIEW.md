@@ -1,15 +1,21 @@
-# Scientific review: The exact nearest-direction law of the regular icosahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is twelve normalized icosahedral site directions, one independent area-uniform point on the sphere, and geodesic nearest-site angle. The twenty face-center Voronoi corners have the stated radius, five bisecting great circles enclose each regular pentagonal cell, and their clipped-cap azimuth sectors remain disjoint before the covering radius. A single spherical segment formula then yields a CDF with matching branches and endpoints. Differentiation gives the density, the \(3/2\) onset and quadratic terminal asymptotics with explicit positive constants. Green's identity on a pentagonal cell proves the exact mean squared chord loss. The independent radial integral and numerical Monte Carlo checks succeeded; these do not replace proof.
+## correctness
 
-## Originality — PASS relative to examined literature
-Fowler, Tarnai and Gáspár (2002) treat exactly the twelve-site spherical cap coverage observable and cite the classical icosahedral packing/covering endpoints, which are not claimed new. Mazonka (2012) proves the one-sided spherical-segment formula, another acknowledged building block. Hardin, Michaels and Saff (2016) study icosahedral spherical nodes and Voronoi metrics. None of the relevant portions inspected supplies the same closed full-range CDF together with both explicit threshold powers and exact average loss. The 1996 Fowler–Tarnai full paper remained inaccessible, and equivalent formulations may exist elsewhere: this is not a historical priority certificate.
+PASS
 
-## Mathematical value — PASS
-This is a complete exact stochastic-geometric profile for a classical optimal twelve-site sphere covering, including separate, quantitative edge-contact and terminal-corner transitions and an exact average squared-chord quantization error. Those are natural global and local invariants of a canonical optimal arrangement, not a selected numerical table cell or mere re-labeling of the cap-segment formula. The result does not assert an optimal mean loss for all twelve-point configurations.
+The 12 nearest-site Voronoi pentagons have five equal great-circle sides at angular inradius ρ=½ arccos(1/√5), corner radius R=arccos √((1+2/√5)/3) and side length ℓ=arccos(√5/3). Integrating a polar cap over one pentagon, its clipped segment has S′(t)=2 sin(t) α(t), α=arccos(tanρ/tan t). Twelve normalized cells yield F(t)=6(1−cos t)−15S(t)/π between ρ,R, with cap CDF below and total coverage above. Expanding α at ρ proves the 3/2 threshold, and F′(R−)=0,F″(R−)<0 the quadratic uncovered tail; the spherical Laplacian identity Δ(u·v)=−2(u·v) with constant outward edge derivative −sinρ gives the exact chord moment 2−15ℓsinρ/π. Independently evaluated scalar moment 0.1682513876492615 and endpoints rho=0.5535743588970452,R=0.6523581397843682. Inspected check.py, whose radial quadrature/Monte Carlo are finite corroboration, not continuum proof.
 
-## Limitations
-The theorem is confined to a regular icosahedral site set, exact population statistics, and uniform orientations; it neither supplies statistical confidence bounds nor resolves historical priority. Independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted semantic published search, direct mathematical implication checks and primary full-text comparisons identify relevant component machinery or partial results but not a dominating exact statement, with the listed residual risks.
+
+## value
+
+PASS
+
+The exact nearest-angle distribution, both different onset exponents and an exact nearest-chord quantization moment for the canonical 12-vertex icosahedral code are mathematically natural geometric-probability invariants; covering-radius tables and packing optimality do not supply this full function. Researchers in spherical quantization and coding can use these precise endpoint laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
