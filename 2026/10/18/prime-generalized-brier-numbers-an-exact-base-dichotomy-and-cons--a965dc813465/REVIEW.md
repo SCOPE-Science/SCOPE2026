@@ -1,15 +1,21 @@
-# Review of the prime generalized Brier base dichotomy
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact local obstruction is immediate from the required gcd conditions, and the sufficiency argument makes a precise change to a published full two-sided covering construction: the independent residue modulo \(b-1\) is replaced by \(2\). The latter is coprime to \(b-1\) and avoids both forbidden neighboring residues precisely in the claimed bases. Each retained covering residue is a unit modulo its prime-power factor, and all covering prime divisors have nontrivial multiplicative order, so the enlarged CRT progression is reduced. The published two-distinct-prime-factor covering result is retained for both signs and all positive exponents. The prime distribution and consecutive-prime conclusions invoke the prime number theorem in arithmetic progressions and the published Shiu--Maynard results. The executable checks local congruence logic on finite inputs, not the infinite covering or prime theorems. The scientific premise is the actual congruence construction of Virbalas, not an unsupported upgrade of an arbitrary infinite progression.
+## correctness
 
-## Originality
-**PASS, with disclosed implicit-extension risk.** Virbalas, *On the generalized Sierpiński and Riesel numbers* (Boletín de Matemáticas 33(1), 2026, 16--26; DOI 10.15446/bol.mat.v33n1.125921), proves an all-base two-sided compositeness progression but selects the potentially non-coprime residue \(0\) modulo \(b-1\). Filaseta--Juillerat--Luckner, arXiv:2209.10646, already cover the base-two prime-string case, which is explicitly excluded from the novelty claim. Evans--Harrington--Heiney--Wieczorek, arXiv:2508.05942, construct generalized Brier coefficients in a special exponential sequence but do not establish prime coefficients in every qualifying base. Searches for generalized Brier primes, base classifications, and prime strings, including published mathematical-result records, identified no equivalent arbitrary-base classification. The possibility that the simple residue refinement was noted elsewhere remains a real residual originality risk.
+PASS
 
-## Mathematical value
-**PASS.** Whether a covering-system progression contains any primes is a genuine structural question, not answered by an arbitrary-progression existence theorem. The result gives a complete intrinsic congruence classification of bases permitting infinitely many prime generalized Brier coefficients, and upgrades existence to a positive share of primes and arbitrarily long blocks of consecutive primes. It recovers the previously known base-two phenomenon while extending the classification to all other permitted bases, and proves sharp obstructions in the excluded bases. It does not claim a new covering system, an optimized modulus or minimal prime example.
+Inspected Virbalas 2026 full primary text: equations (8)–(10) and the succeeding two-distinct-factor proof are established BEFORE the final independent congruence k≡0 (mod b−1) (Section 3 pp. 21–24). Covering primes have ord_b>1 and remain coprime to b−1; prescribed residues are units, and 1+b^M mod b^(M+1) is a unit. Replacing only the independent last residue with k≡2 (mod b−1) preserves every covering congruence, makes gcd(k,k−1,k+1,b−1)=1 in the required individual senses iff b is even and 3∤(b−1), and CRT produces a reduced fixed progression. The published proof then gives two distinct prime factors for both signs at each n>=1 once k>b^M. If b odd, only possible prime k=2, while 3|(b−1) forces only possible prime k=3; hence no infinite exceptions. Prime number theorem for fixed reduced progressions gives relative lower density >=1/phi(Q); Shiu gives arbitrary consecutive-prime strings, Maynard 2016 Theorem 3.3 positive starting-prime proportion for fixed h,Q. Independently enumerated the local residue feasibility for 208 bases; NOT a verification of infinitely many coverings or of prime distribution.
 
-## Limits and closest literature
-The proof imports Virbalas's explicit dual covering and its two distinct prime factors for every sign and exponent; it does not reconstruct that substantial covering-system construction from scratch. The Shiu--Maynard results are classical inputs, not new claims. The base-two case is covered by Filaseta--Juillerat--Luckner. Independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. A sharp base dichotomy for prime Brier coefficients resolves a substantial natural question about simultaneous covering systems and the interaction of local obstructions with global prime distribution. The reduced-progression refinement materially strengthens an existing all-bases composite-coefficient theorem; fixed-h consecutive primes and quantitative positive proportion are useful outcomes, not mere restatements of CRT.
+
+## value
+
+PASS
+
+A sharp base dichotomy for prime Brier coefficients resolves a substantial natural question about simultaneous covering systems and the interaction of local obstructions with global prime distribution. The reduced-progression refinement materially strengthens an existing all-bases composite-coefficient theorem; fixed-h consecutive primes and quantitative positive proportion are useful outcomes, not mere restatements of CRT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

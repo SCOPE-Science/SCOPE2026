@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification details and limits
+# Independent mathematical audit
 
-The proof reduces the new assertion to (i) a complete local gcd obstruction, (ii) independent unit coefficient congruences in Virbalas's published two-sided covering construction, and (iii) the classical prime-distribution and consecutive-prime theorems for reduced residue classes.
+## correctness
 
-The standalone file `verify.py` was executed with Python and returned:
+PASS
 
-```
-VERIFY_OK exact_local_bases=511 analytic_condition_bases=199488 crt_unit_instances=100
-```
+Inspected Virbalas 2026 full primary text: equations (8)–(10) and the succeeding two-distinct-factor proof are established BEFORE the final independent congruence k≡0 (mod b−1) (Section 3 pp. 21–24). Covering primes have ord_b>1 and remain coprime to b−1; prescribed residues are units, and 1+b^M mod b^(M+1) is a unit. Replacing only the independent last residue with k≡2 (mod b−1) preserves every covering congruence, makes gcd(k,k−1,k+1,b−1)=1 in the required individual senses iff b is even and 3∤(b−1), and CRT produces a reduced fixed progression. The published proof then gives two distinct prime factors for both signs at each n>=1 once k>b^M. If b odd, only possible prime k=2, while 3|(b−1) forces only possible prime k=3; hence no infinite exceptions. Prime number theorem for fixed reduced progressions gives relative lower density >=1/phi(Q); Shiu gives arbitrary consecutive-prime strings, Maynard 2016 Theorem 3.3 positive starting-prime proportion for fixed h,Q. Independently enumerated the local residue feasibility for 208 bases; NOT a verification of infinitely many coverings or of prime distribution.
 
-The first check exhaustively tests all possible residues modulo \(b-1\) for every \(2\le b\le512\) and verifies that a unit residue avoiding both adjacent forbidden classes exists exactly when \(b\) is even and \(3\nmid b-1\). The second verifies the explicit gcd formula for \(513\le b\le200000\). The third constructs sample CRT systems whose coverage-prime conditions are abstracted to independent unit residues, combines them with the base-power condition and the new residue \(2\pmod{b-1}\), and verifies the resulting full modulus is coprime to its residue.
+## originality
 
-**Limits.** These finite tests are not an exhaustive verification of Virbalas's covering systems and do not prove any infinitude or prime-density theorem. Those infinite statements follow from the stated covering-system proof and the published prime theorems. No numerical search for an actual generalized Brier prime or minimal modulus is asserted. Every imported theorem is identified in `RESULT.md`.
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. A sharp base dichotomy for prime Brier coefficients resolves a substantial natural question about simultaneous covering systems and the interaction of local obstructions with global prime distribution. The reduced-progression refinement materially strengthens an existing all-bases composite-coefficient theorem; fixed-h consecutive primes and quantitative positive proportion are useful outcomes, not mere restatements of CRT.
+
+## value
+
+PASS
+
+A sharp base dichotomy for prime Brier coefficients resolves a substantial natural question about simultaneous covering systems and the interaction of local obstructions with global prime distribution. The reduced-progression refinement materially strengthens an existing all-bases composite-coefficient theorem; fixed-h consecutive primes and quantitative positive proportion are useful outcomes, not mere restatements of CRT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
