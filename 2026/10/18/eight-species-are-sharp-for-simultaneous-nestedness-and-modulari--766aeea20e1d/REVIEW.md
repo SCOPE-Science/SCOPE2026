@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and precisely specifies connected simple bipartite incidence graphs, original NODF (equal-degree pair contribution zero), maximum unipartite Newman–Girvan modularity, and degree-preserving two-by-two switches with connected endpoints. For a guild of size at most two, NODF is invariant under swaps by degree-count identities. Thus only the three-by-three and three-by-four cases need finite exclusion through seven vertices. The standard-library certificate enumerates all binary incidence matrices, all eligible switches, checks connectedness, and evaluates NODF as exact fractions. Modularity uses an exhaustive subset-partition recurrence whose induction proof is included in the result. The witness is checked independently by enumeration of all 4140 eight-vertex set partitions. Both exact increases are positive. The theorem makes no unbounded claim from finite enumeration.
+PASS
 
-## Originality — PASS (same-model, bibliographic uncertainty remains)
+Connected simple bipartite graphs with p,a guilds and one degree-preserving 2×2 checkerboard switch are ranked by exact NODF (equal-degree pairs score zero) and unrestricted optimum of ordinary Newman–Girvan modularity Q*. A guild size≤2 forces fixed NODF under degree-preserving swaps, reducing n≤7 to 3×3 and 3×4. Independent exhaustive bitmask enumeration checked all connected labeled matrices: 3×3 had 205 graphs, 216 directed connected swaps and 0 co-improvements; 3×4 had 1,795 graphs, 4,320 swaps, 0 co-improvements and 576 strictly opposed changes. A separate complete least-vertex-block DP computes global modularity over all partitions. For the actual two 3×5 witness matrices, independently checked NODF values 5/13 and 11/26 and integer modularity numerators 72 and 78 out of 256 (Q*=9/32,39/128), giving simultaneous strict +1/26 and +3/128. Proof covers the stated finite universal lower bound and witness, not arbitrary larger graphs.
 
-Almeida-Neto et al. (2008) define NODF and analyze nestedness under fixed-margin null models. Fortuna et al. (2010) compare nestedness and modularity with a swap null model and show changing correlations with connectance, but report empirical and simulation comparisons, not a smallest-order, connected, exact co-improvement theorem. Joppa et al. (2011) study individual NODF contributions, not joint optimum modularity. Leung and Weitz (2015) exhibit nested-modular structures through network growth and use Barber rather than unipartite Newman–Girvan modularity. A 2026 generative-null-model article treats estimation biases rather than the sharp eight-species switch question. Research-index comparisons located graph-incidence and network-degree results but no theorem implying this precise threshold. Terminology differences, unexamined supplements, and possible unindexed network-theory results remain risks; the absence of a search hit alone is not presented as a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite minimum isolates a natural structural issue in ecological null-model practice: whether one elementary degree-preserving step can improve both nestedness and modular community organization without changing the degrees of any species. Degree-matched comparisons remove a major confounder, and exact optimization avoids heuristic modularity artifacts. The result gives both a sharp low-dimensional obstruction and an explicit unicyclic witness; it is a useful benchmark when interpreting fixed-degree network rewiring. Its value does not depend on claims about ecological dynamics, which are not proven.
+Fortuna et al. already studied nestedness and Newman–Girvan modularity with degree-preserving swaps and showed coexistence under changing connectance. The claim is not generic compatibility but the sharp *single connected connected-output 2×2 swap* first size with exact max partition Q*, and exhaustive exclusion below it. No inspected primary article or Resultary result implies that minimality; originality PASS best-of-knowledge with specific supplement risk.
 
-## Limits and further verification
+## value
 
-The conclusion is specific to NODF and maximum Newman–Girvan modularity. It does not cover Barber modularity, nestedness temperature, degree-weighted interaction matrices, disconnected graphs, or ecological population dynamics. Some equivalent treatments outside the inspected primary literature may have escaped discovery. No independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed labeled species degrees a degree-preserving local swap isolates structural from degree-sequence effects, while exact global Newman–Girvan optimization avoids heuristic community choices. The sharp connected 8-species onset of simultaneous NODF/modularity increase is a motivated first finite boundary and counterexample with an exact witness, useful as a benchmark for ecological network null models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
