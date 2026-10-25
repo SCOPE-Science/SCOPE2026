@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The RKL2 three-stage polynomial is expanded exactly. Explicit products for path lengths \\(N=2,3,4,5\\) verify the stated coefficients; the tridiagonal band structure yields the same formulas for all \\(N\\). The two critical boundary-adjacent factors have exact roots \\((15-\\sqrt{30})/13\\) and \\((15-\\sqrt{15})/14\\). All other entries are proved nonnegative up to the relevant lower root, and the critical entry is negative above it within \\(0\\leq c\\leq5/4\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 primary theorem explicitly limits its proof to boundaryless, periodic, or homogeneous Neumann cases.",
+        "The accessible Dawes abstract reports regions of Dirichlet nonmonotonicity, but no exact threshold is stated there.",
+        "The 2021 Skaras et al. abstract discusses a different RKG method designed to retain the convex monotone property with Dirichlet conditions."
+      ],
+      "reasoning": "No accessible source found gives a stronger result that implies the two exact cutoffs for the three-stage RKL2 polynomial on every finite Dirichlet path. The inaccessible Dawes full text remains a named residual risk.",
+      "searches": [
+        "published-finding corpus query: finite Dirichlet grid RKL1 monotonicity positivity boundary counterexample",
+        "published-finding corpus query: RKL2 Dirichlet boundary monotonicity stage count 3 positivity cutoff finite difference matrix",
+        "Dawes (2021), DOI 10.1016/j.compfluid.2020.104762 (abstract)"
+      ]
+    },
+    "checked_sources": [
+      "Tan, Aslam, Bertozzi, arXiv:2507.17062 (full-text sections and Theorem 7(b)): https://arxiv.org/abs/2507.17062",
+      "Dawes, Computers & Fluids 214 (2021), 104762 (abstract only): https://doi.org/10.1016/j.compfluid.2020.104762",
+      "Skaras, Saxton, Meyer, Aslam, Journal of Computational Physics 425 (2021), 109879 (abstract only): https://doi.org/10.1016/j.jcp.2020.109879"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tan et al.'s stated theorem is for periodic or homogeneous Neumann conditions.",
+        "Dawes's accessible abstract reports Dirichlet nonmonotonicity regions without specifying the exact stage-three thresholds.",
+        "Skaras et al. discuss RKG rather than RKL2."
+      ],
+      "reasoning": "The present result is a precise algebraic classification for finite Dirichlet paths. The general observation that Dirichlet RKL can be nonmonotone does not imply the exact threshold values, their necessity and sufficiency, or the dimension transition at N=2 versus N>=3. Exact prior coverage cannot be conclusively excluded without Dawes's full text.",
+      "searches": [
+        "Tan et al., arXiv:2507.17062, Theorem 7(b)",
+        "Dawes (2021), DOI 10.1016/j.compfluid.2020.104762 (abstract)",
+        "Skaras et al. (2021), DOI 10.1016/j.jcp.2020.109879 (abstract)",
+        "published-finding corpus query: Runge-Kutta-Legendre RKL2 positivity finite path Dirichlet c=(15-sqrt(15))/14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct exact-formula match appeared in the returned published-finding corpus records.",
+        "Tan et al. establish monotonicity under periodic or homogeneous Neumann conditions, not finite Dirichlet paths.",
+        "The candidate uses the finite Dirichlet tridiagonal matrix and its boundary-modified powers M_N^2 and M_N^3."
+      ],
+      "reasoning": "A boundaryless convolution-kernel statement is not equivalent to entrywise positivity of the finite Dirichlet matrix polynomial; the boundary rows change the cubic coefficient in \\(M_N^2\\) and \\(M_N^3\\) and determine the sharp threshold.",
+      "searches": [
+        "published-finding corpus query: three-stage RKL2 finite Dirichlet path Laplacian exact positivity threshold (15-sqrt(30))/13 (15-sqrt(15))/14",
+        "published-finding corpus query: Runge-Kutta-Legendre RKL2 positivity finite path Dirichlet c=(15-sqrt(15))/14",
+        "Tan et al., arXiv:2507.17062, Theorem 7(b) and equations (10)-(11)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned record: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, which concerns a backward-Euler-filtered Crank-Nicolson operator, not RKL2.",
+        "Closest returned record: 2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e, which concerns a Chebyshev semi-iterate, not RKL2.",
+        "Closest returned record: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7, which concerns SSP-SDIRK positivity for Markov chains, not RKL2."
+      ],
+      "reasoning": "The exact query set did not return an equivalent RKL2 finite-Dirichlet threshold. Similar positivity-barrier records concern different stability polynomials or operators and do not imply the claimed roots or the N=2 versus N>=3 split.",
+      "searches": [
+        "published-finding corpus query: two-stage RKL1 Dirichlet boundary positivity threshold finite path Laplacian",
+        "published-finding corpus query: three-stage RKL2 finite Dirichlet path Laplacian exact positivity threshold (15-sqrt(30))/13 (15-sqrt(15))/14",
+        "published-finding corpus query: RKL2 Dirichlet boundary monotonicity stage count 3 positivity cutoff finite difference matrix"
+      ]
+    },
+    "rationale": "The accessible recent primary theorem treats boundaryless, periodic, or homogeneous Neumann grids, not finite Dirichlet paths. published-finding corpus searches found nearby positivity-barrier work for other integrators but no directly equivalent RKL2 stage-three path classification. Dawes (2021) reports Dirichlet nonmonotonicity qualitatively; because its full text was inaccessible, exact prior coverage remains an explicit residual risk rather than a claimed impossibility.",
+    "residual_risks": [
+      "The full text of Dawes (2021) was not accessible, so it may contain a more specific analysis of the same stage-three boundary threshold. The accessible abstract supports qualitative Dirichlet nonmonotonicity only; this uncertainty is disclosed rather than treated as proof of novelty.",
+      "The result does not cover other RKL2 stage counts, multidimensional domains, nonuniform meshes, or nonlinear operators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem establishes monotonicity under the bulk bound for periodic or homogeneous Neumann conditions, not finite Dirichlet paths. It provides the correct three-stage bulk CFL bound \\(c\\leq5/4\\) but does not imply the Dirichlet entrywise thresholds.",
+        "evidence": [
+          "arXiv:2507.17062, equations (10)-(11), section 5.1, Theorem 7(b)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.17062",
+        "material_read": "Full-text sections on the RKL2 formula and monotonicity proof, including equations (10)-(11), the boundaryless finite-difference setup, and Theorem 7(b).",
+        "method": "Read the accessible full text and compared the exact method polynomial, CFL interval, and boundary assumptions with the candidate claim.",
+        "title": "Explicit Monotone Stable Super-Time-Stepping Methods for Finite Time Singularities",
+        "trigger": "Recent primary numerical-analysis source for RKL2 stability and monotonicity."
+      },
+      {
+        "assessment": "The abstract reports regions of nonmonotonicity for Dirichlet conditions but does not state the exact stage-three thresholds or the two-node versus longer-path split. Full-text coverage remains a residual risk.",
+        "evidence": [
+          "Accessible abstract states that Dirichlet conditions can produce nonmonotone regions and negative solutions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.compfluid.2020.104762",
+        "material_read": "Abstract only; full text was not accessible in the available lawful open-access results.",
+        "method": "Reviewed the accessible abstract and searched for an open preprint or full text; no readable full text was obtained.",
+        "title": "Some properties of the Runge-Kutta-Legendre super-time-stepping explicit methods",
+        "trigger": "Closest prior work specifically discussing RKL behavior under Dirichlet boundary conditions."
+      },
+      {
+        "assessment": "The abstract states that a Gegenbauer-based scheme retains the convex monotone property under Dirichlet conditions. This is a different method and does not imply the RKL2 threshold computed here.",
+        "evidence": [
+          "Abstract identifies the Runge-Kutta-Gegenbauer class as the boundary-preserving construction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jcp.2020.109879",
+        "material_read": "Abstract and repository metadata only; the full manuscript was not read in this review.",
+        "method": "Reviewed the accessible abstract and publication metadata.",
+        "title": "Super-time-stepping schemes for parabolic equations with boundary conditions",
+        "trigger": "Boundary-specific super-time-stepping literature cited by the recent primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bd41f96-58af-45a0-b4b6-49b77fabff59",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonnegative cone is a physically meaningful invariant for heat flow. A sharp positivity cutoff distinguishes spectral stability from order preservation at Dirichlet boundaries and gives an exact finite-grid rule rather than a numerical observation. The \\(N=2\\) versus \\(N\\geq3\\) transition identifies a real boundary-size effect and supplies a reusable benchmark for testing stage-selection rules.",
+    "status": "PASS"
+  }
+}
