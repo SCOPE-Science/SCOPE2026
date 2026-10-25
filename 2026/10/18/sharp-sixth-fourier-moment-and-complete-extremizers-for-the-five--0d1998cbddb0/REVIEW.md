@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary complex coefficients, the sixth moment is the squared norm of the exact cubic convolution on the five-frequency cross. The moduli majorization followed by the 25-fiber exact polynomial identity reduces the optimization to two opposite-arm products, then to a negative square measuring imbalance of the two axes. The resulting scalar cubic has one interior maximum, giving the displayed radical constant and a unique amplitude profile. Phase equality is forced by the zero-frequency cubic coefficient and is sufficient at every frequency. The grid cutoff is proved by absence or presence of triple-sum aliasing, not inferred from numerical tests. A self-contained exact-arithmetic program independently checks the polynomial identities and additional finite examples.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The relevant Euclidean-circle sharp extension theorem [Ciccone--Gonçalves, arXiv:2208.09441v1] imposes arithmetic constraints but operates on Euclidean circle measure and Bessel integrals, not the discrete five-frequency lattice cross. Schippa's quasiperiodic Strichartz estimates [arXiv:2407.01830v1] and the nonrectangular-torus Schrödinger bounds [arXiv:1810.05630v1] likewise do not determine the exact fixed-aperture coefficient inequality. The available full mathematical records `f3e238ebf219`, `1a8e79d7e85a`, and `c92f795fa200` concern four consecutive frequencies, three consecutive frequencies, and Boolean rectangles, respectively; neither exact scope nor logical implication covers this distinct five-mode convolution. Existing five-point-cross fourth-moment results do not establish the sixth moment. An older unindexed five-point Nikolskii calculation is a residual risk; originality is not claimed to have independent certification.
+PASS
 
-## Mathematical value — PASS
-The centered diamond is a natural minimal isotropic planar frequency aperture, and sharp sixth moments are not determined by sharp fourth moments. The theorem computes its unrestricted exact operator norm, determines all coefficient phases and amplitudes, and reveals the precise grid sampling threshold for transfer of the norm and extremizer family. The exact negative-square identity also explains why the optimizer balances opposite arms and both coordinate axes. These are structural and usable harmonic-analytic facts, not merely numerical optimization.
+Cubic convolution over 25 triple-frequency fibers gives exact nonnegative F(k,R,T,Z,W); pairwise AM-GM raises Z=ab to R/2 and W=de to T/2. At equal opposite magnitudes F_sym=[25U^3+135U^2k+60Uk^2+4k^3-15(U+3k)(R-T)^2]/4. With x=k/M its exact cubic maximizes at (15-sqrt(105))/18, giving K=25/8+35sqrt(105)/72. Phase alignment at zero triple-frequency forces opposite pair sums twice central phase, yielding precisely lambda(rho,eta,eta^-1,xi,xi^-1). Triple-sum range [-3,3]^2 injects on N>=7 grids and aliases at N=6. Independently enumerated 25 triple-sum fibers and all-ones moment 1001; original symbolic checker and identities inspected.
 
-## Scope and residual limitations
-Only the stated five-mode sixth moment is resolved, without claims of small-grid replacement constants or other exponents. The cubic-convolution proof is universal; the verifier's finite cases are supporting consistency checks. Unindexed historic equivalent formulations remain possible. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Related published 4-frequency 1D sixth-moment exact inequality has a different additive triple-sum configuration; the 4th-moment extension for full finite-abelian axes has another exponent and cardinality, not a stronger fifth-frequency sixth-moment theorem. Euclidean circle extension results use different geometric support. No inspected primary or Resultary finding implies this radical constant and entire phase-rigid optimizer family.
+
+## value
+
+PASS
+
+Natural finite-dimensional Lambda(6) extremal problem on a minimal non-Cartesian cross, yielding exact algebraic constant, complete equality geometry, and first aliasing grid cutoff; useful as exact Fourier synthesis norm benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
