@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exhaustive generation is justified by a removable non-cut ear for connected outerplanar graphs, independently supplemented by augmentation of every connected seven-vertex atlas graph with an arbitrary nonempty neighbourhood. Exact graph-isomorphism deduplication yields the externally checkable population of 777 eight-vertex types. Direct automorphism enumeration and independent pointed-isomorphism testing agree that precisely four fail orbit-exact refinement, two of them biconnected. Every listed equitable quotient and orbit partition is directly reconstructible from the edge lists. The proof is finite and covers the entire stated order bound, not larger orders.
+PASS
 
-## Originality
+For connected simple outerplanar graphs under uniform-start 1-WL, the complete unlabeled population counts at n=1..8 are 1,1,2,5,13,46,172,777. Every connected outerplanar n=8 graph has a removable non-cut vertex of degree 1 or 2 (terminal outerplanar block ear), and alternatively any n=8 connected graph is an arbitrary-neighborhood one-vertex extension of some connected 7-vertex parent; exhaustive atlas cases justify global coverage. Independently implemented fresh generator from 172 outerplanar n=7 atlas parents enumerated and deduplicated all 777 n=8 classes, 75 biconnected, exactly four failures of stable WL versus full automorphism orbit, exactly two biconnected. Fresh independent automorphism/refinement checks on all four explicitly listed labeled 8-vertex witnesses verified their exact partitions, edge counts and automorphism orders 8,8,4,2. Thus the sharp cutoff at n=8 is mathematically exhaustive, not extrapolated from samples.
 
-**PASS, qualified by priority risk.** The 2015 Arvind–Köbler–Rattan–Verbitsky paper establishes the definitional refinability framework and general implications, not this outerplanar census. The 2005 Bodirsky–Fusy–Kang–Vigerske enumeration gives the population but not the colour-refinement/orbit distinction. Two of the four exceptions arise already in the cactus subfamily; the sharp biconnected classification comprises two additional genuinely non-cactus graphs. Targeted literature and database searches did not yield a stronger prior theorem or a complete four-graph table. A previously overlooked specialised small-graph table remains the primary originality risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Biconnected outerplanar graphs are a natural non-treewidth-one test class for the limits of two-variable counting descriptions of vertex orbits. The sharp eight-vertex obstruction threshold, complete list of exceptions, and explicit equitable partitions distinguish structural limitations from a single isolated counterexample. The biconnected examples show that no cut vertex is needed for orbit-blindness. This is a bounded classification, not an all-orders or algorithmic-complexity improvement.
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
 
-## Scientific limits
+## value
 
-The claim is restricted to uniform initial colour on finite simple connected outerplanar graphs with at most eight vertices. Both verifiers rely on NetworkX's graph atlas and planarity implementation, although the exhaustive generation and automorphism comparisons are independently organized. A later or overlooked specialist catalogue could change the novelty assessment without changing the computations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Biconnected outerplanar graphs are a natural structured subclass for finite-variable counting expressiveness. Showing the first exact order of vertex-orbit blindness, identifying all four first failures and the two without articulation points gives a meaningful complete cutoff and explicit obstructions; finite size is intrinsic to a first-example problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

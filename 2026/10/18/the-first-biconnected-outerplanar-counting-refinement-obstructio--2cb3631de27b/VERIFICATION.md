@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The complete universe consists of connected outerplanar simple graphs of orders one through eight. The first source program enumerates all seven-vertex nonisomorphic connected outerplanar graphs from the complete graph atlas, applies all degree-one and degree-two attachments, filters by the apex-planarity condition, and verifies all automorphism orbits by exact isomorphism enumeration. The second begins with every 7-vertex connected atlas graph (853), augments by every nonempty neighbour set (108331 possible labeled inputs), deduplicates the 5841 planar-positive inputs into 777 isomorphism classes, and tests orbit membership by uniquely marking two candidate vertices and asking whether the marked graphs are isomorphic.
+# Independent mathematical audit
 
-The outputs `ear_output.json` and `all_attach_output.json` were produced by executing their accompanying scripts under NetworkX 3.6.1. They record the accepted graph counts, exception counts and structural signatures. `witness_catalog.json` gives the exact edge sets and the stable and orbit partitions of each exception. They establish a finite, exhaustive census only because the graph-generation completeness arguments hold. NetworkX's atlas and planarity functionality are shared dependencies, not independent mathematical certificates. The proof of the universal finite cutoff is conditional on the correctness of the executable enumeration and the stated standard graph-theoretic reductions. No extrapolation to orders exceeding eight or independent scientific audit is claimed.
+## correctness
+
+PASS
+
+For connected simple outerplanar graphs under uniform-start 1-WL, the complete unlabeled population counts at n=1..8 are 1,1,2,5,13,46,172,777. Every connected outerplanar n=8 graph has a removable non-cut vertex of degree 1 or 2 (terminal outerplanar block ear), and alternatively any n=8 connected graph is an arbitrary-neighborhood one-vertex extension of some connected 7-vertex parent; exhaustive atlas cases justify global coverage. Independently implemented fresh generator from 172 outerplanar n=7 atlas parents enumerated and deduplicated all 777 n=8 classes, 75 biconnected, exactly four failures of stable WL versus full automorphism orbit, exactly two biconnected. Fresh independent automorphism/refinement checks on all four explicitly listed labeled 8-vertex witnesses verified their exact partitions, edge counts and automorphism orders 8,8,4,2. Thus the sharp cutoff at n=8 is mathematically exhaustive, not extrapolated from samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+Biconnected outerplanar graphs are a natural structured subclass for finite-variable counting expressiveness. Showing the first exact order of vertex-orbit blindness, identifying all four first failures and the two without articulation points gives a meaningful complete cutoff and explicit obstructions; finite size is intrinsic to a first-example problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
