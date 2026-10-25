@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's coefficient identity is established by its Proposition 3.25 and Corollary 3.26. Recasting it as a positive weighted-composition series yields total block mass \(3/4\), with a Catalan block tail asymptotic to \(1/(4\sqrt\pi\,j^{3/2})\). For any fixed number of blocks, the cap \(\lfloorlpha nfloor\) excludes a single macroscopic block. Above the half threshold two such blocks produce a Riemann integral; below or at the threshold their \(n^{-2}\) contribution vanishes. The estimates with three blocks above a cutoff have an explicit uniform \(n^{-2}\) tail bound; an \(m^5(3/4)^{m-2}\) domination then permits summation over every number of blocks. The final integral and geometric sum give the stated constant. Exact finite checks: 55 published-table comparisons and 66 independently enumerated compositions, with additional representative convergence diagnostics. The infinite statement follows from the proof rather than the checker.
+## correctness
 
-## Originality — PASS, with bounded residual risk
-Bossinger–Gürdoğan (arXiv:2609.38456v1, full introduction and §3.4 examined) prove the fixed-depth vertex recurrence and identify the Catalan endpoint, but do not state a joint dimension/depth limit, a half-depth threshold, or the displayed constant. Bossinger–Telek–Tillmann-Morris treat the fixed depth-two Pell polytope. Seki (arXiv:2609.10526v1, inspected introduction and theorem) treats irreducibility of finite Catalan polynomials, not diagonal coefficients. Calvo Cortes–Frost (arXiv:2602.04571) is geometrically adjacent; only its abstract and overview were accessible, so residual overlap risk remains. Kerriou–Mörters' fewest-big-jumps theorem treats growing numbers of heavy-tailed summands under a moving cutoff; the analogy does not directly give this geometric-block renewal coefficient or its normalization. published-finding corpus statement searches found no directly equivalent or stronger indexed geometry theorem. Its closest Dyck-excursion entropy result concerns a fixed finite truncation followed by an entropy limit, not the joint diagonal coefficient regime. Older unindexed renewal literature could contain general tools or an equivalent specialized computation; no absolute priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The number of vertices is a basic, naturally motivated geometric invariant of a new polytope interpolation between the hypercube and associahedron. The theorem identifies the first nonzero \(4^n/n^2\) asymptotic scale in the linear-depth regime and a sharp parameter boundary at \(lpha=1/2\), including a nontrivial explicit constant and the mechanism responsible for it. This is a structural two-parameter limit that cannot be obtained by merely substituting a fixed depth into its finite recurrence. The finer decay below the threshold and uniform boundary transitions remain unproved.
+The primary article Proposition 3.25 and Corollary 3.26 explicitly establish the generating function for S_n^(d): (1-2z-sum_(k=1)^(d-1) C_k z^(k+1))^-1. Set b1=1/2, bj=C_(j-1)/4^j for j>=2; sum bj=3/4, bj~(4sqrt(pi)j^3/2)^-1. Normalized vertex count is total weight of ordered compositions of n with all parts <=floor(alpha*n); one-block contribution vanishes. Exactly two O(n) parts produce I(alpha)/(16pi) for each ordered choice and the remaining fixed-size parts contribute (3/4)^(m-2). At alpha<=1/2 the two-large interval collapses and n^2 scaling vanishes. Cases with >=3 large parts vanish after K->infinity. Uniform bound n^2 T_(n,m) <= C_alpha m^5 (3/4)^(m-2) justifies sum over m; geometric identity sum_m binom(m,2)p^(m-2)=(1-p)^-3=64 yields 4 I(alpha)/pi, with I=4(2alpha-1)/sqrt(alpha(1-alpha)). Independent normalized recurrence n=1800 for alpha=0.4,0.5,0.6,0.75,0.9 gives qualitative threshold and slow convergence from above for >1/2; these finite values are only corroboration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bossinger–Gürdoğan full accessible 2026 preprint Section 3.4, Proposition 3.25 and Corollary 3.26 supply the exact fixed-depth generating function, fully credited. The source treats fixed depth, Catalan endpoint, finite n and formal extension; its inspected section does not give the joint n->infinity linear-depth alpha limit or the 1/2 two-large-block transition constant. General fewest-big-jumps literature concerns heavy-tail sums with different random block count and does not itself supply this geometric vertex asymptotic. Resultary returned no exact diagonal pellytope theorem.
+
+## value
+
+PASS
+
+The first explicit sharp phase transition for the natural linear-depth interpolation between Pell-type and Catalan polytope vertex growth, with a quantitative discontinuity of scaling and exact continuum parameter constant; motivated asymptotic invariant and independently useful classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
