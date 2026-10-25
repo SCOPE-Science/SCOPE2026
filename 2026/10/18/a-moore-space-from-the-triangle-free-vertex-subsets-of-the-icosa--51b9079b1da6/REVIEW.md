@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The twelve-vertex graph is defined by a full thirty-edge list, with each degree-five link a five-cycle. Exhaustive generation gives twenty forbidden triangles and face vector \((12,66,200,345,312,112)\). The standalone code constructs all \(523\) matching pairs, topologically sorts every node of the directed Hasse graph, and computes the exact oriented algebraic-Morse boundary \(-2\). One ordinary critical vertex and one critical cell each in dimensions four and five yield \(M(\mathbb Z/2,4)\) by the classification of degree-two attachments to \(S^4\). Full mod-two and mod-three boundary ranks are independently checked. The proof does not conflate field tests with the integral calculation.
+## correctness
 
-## Originality — PASS, qualified by evidence
-The central source [1] treats clique-free complex shellability, not this icosahedral Moore-space computation. Source [2] studies the inequivalent higher-independence construction. A published icosahedral **ordinary three-cut** classification has different faces and a wedge-of-spheres homotopy type; it cannot imply the claimed Moore-space type. The combinatorial Alexander dual of this new complex is instead the **total three-cut complex of the complement icosahedral graph**, a distinct object. Candidate- and alias-specific searches found no equivalent indexed classification. The residual risk is an unindexed/inaccessible exact calculation, and source coverage is not asserted to be exhaustive.
+PASS
 
-## Value — PASS
-The icosahedral graph is a canonical highly symmetric triangulated sphere, not an ad hoc parameter-selected graph. Its three-clique avoidance complex supplies an integral torsion and non-shellability benchmark for the recent higher clique-free-complex literature. The Moore-space attachment makes a stronger topological statement than Betti numbers: torsion is invisible to rational homology and excludes wedge decompositions.
+Independent exhaustive mask enumeration of all 2^12 vertex subsets found 20 forbidden triangular cliques, 1048 augmented faces and f=(12,66,200,345,312,112). The pivot matching of 523 valid face-cover pairs (including matched empty face), in given 12-pivot order, leaves exactly mask213 four-cell and mask3147 five-cell; independent full Hasse DAG topological sort visited all 1048 faces, establishing acyclicity. Recursing signed integer elimination for four-faces against the unique five critical face gave EXACT Morse boundary -2, not merely a mod2 rank pattern. Ordinary Morse CW model has one basepoint, one 4-cell and one 5-cell attached degree ±2; maps S4->S4 classified by degree, so homotopy is Moore M(Z/2,4)=Sigma^3 RP2; reduced H4=Z/2 and no other reduced homology. Independent checks of integer recurrence and mod2/mod3 consistency do not assume rational homology detects torsion.
 
-## Scope of verification
-All finite combinatorial data and the integer attaching coefficient are reproducible using `ico_cf3_verify.py`. The theorem is a single finite classification, not a statement for arbitrary triangulated graphs. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On a best-of-knowledge statement/implication comparison, the inspected primary and published records do not establish the exact final theorem under its actual objects and parameters; the named accessible-source and stronger-theorem risks remain documented.
+
+## value
+
+PASS
+
+Mod-2 Moore torsion in the naturally defined triangle-free vertex-set complex of the iconic icosahedral graph is a meaningful exact homotopy invariant and gives an explicit obstruction to a sphere wedge or shellability; the complete finite classification and torsion degree are mathematically motivated, not arbitrary tiny brute force.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
