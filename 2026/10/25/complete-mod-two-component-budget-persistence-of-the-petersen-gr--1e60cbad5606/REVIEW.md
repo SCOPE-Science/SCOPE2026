@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The mathematical claim is a complete finite calculation for one explicitly defined ten-vertex graph. Exhaustive enumeration establishes all filtration values. The standard exact mod-two persistence reduction is cross-checked against ten independently assembled Betti vectors and 279 independently computed homology-inclusion ranks. Every one of the sixty claimed elementary collapses is checked for a unique strict coface and correct residual subcomplex. No finite sample is substituted for the full domain.
+
+**Originality — PASS, with residual bibliographic uncertainty.** The earlier ordinary Petersen homology calculation (Berghoff 2020) establishes the threshold-one group, while a publicly indexed later result establishes the isolated threshold-two homotopy type. Neither gives the filtration's nontrivial inclusion maps, its higher-threshold mod-two groups, or a threshold-three-to-two relative collapse. Sawant's 2026 primary theorem concerns trees, and Deshpande–Roy–Sawant's 2025 results concern Alexander duals and graph-class decomposability. A different Petersen graph-metric Čech barcode is not a dominating computation because it uses a distinct filtration. The full text of one close indexed threshold-two record was unavailable; its summary is narrower than the present statement.
+
+**Mathematical value — PASS.** This is a complete natural filtration invariant on the Petersen graph, a canonical ten-vertex cubic girth-five graph rather than an arbitrary chosen slice. It identifies a persistent degree-three class that survives two strict inclusion steps and separates it from all short-lived classes, and certifies a concrete simple-homotopy stability step. The exact barcode provides a test case for higher-independence filtration methods beyond tree classes. Its scope is deliberately mod-two, except for the proved integral topological collapse.
+
+**Risks and limitations.** The field barcode alone does not prove integral persistence or homotopy classifications at other levels. Publication novelty is a best-knowledge comparison, not a global priority theorem; review of any subsequently available full texts could alter the literature assessment.
+
+Self-review: passed. Independent audit: not yet performed.
