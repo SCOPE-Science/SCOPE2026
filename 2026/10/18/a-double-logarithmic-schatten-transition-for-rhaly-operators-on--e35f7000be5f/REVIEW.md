@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The result is supported by the exact orthonormal Dirichlet coefficient matrix, the logarithmic-coordinate Volterra compression, an escaping-unit-vector proof at the boundedness threshold, the singular values of finite triangular integration matrices, and trace-norm block estimates. These steps prove every parameter range. Finite numerical verification is diagnostic only.
+## correctness
 
-## Originality
-The closest 2025 Rhaly Schatten theorem is for ordinary \(\ell^2\), with exponents strictly above one. The direct 2026 Dirichlet work treats boundedness/compactness, while the June 2026 weighted Hardy preprint flags the classical Dirichlet case as exceptional in the accessible overview. A published ordinary Rhaly trace-class result shares the numerical cutoff but concerns a different operator. The June 2026 preprint's complete text was unavailable and may contain further special-case coverage. Thus originality is assessed under explicitly limited source access, not certified priority.
+PASS
 
-## Mathematical value
-The sharp \(\beta=1\) boundedness threshold and \(\beta=2\) trace-class threshold expose a natural intermediate range in which every nontrace Schatten ideal holds. The critical Dirichlet setting and its departure from ordinary unweighted terraced-matrix behavior motivate the exact logarithmic cutoff.
+PASS: Dirichlet ON basis e_n=z^n/√(n+1) yields factorable matrix c_nd_k for k≤n, c_n=[√(n+1)log(e+n)^β]^{-1}, d_k=(k+1)^{-1/2}. Embedding n into logarithmic intervals [log(n+1),log(n+2)) gives exact A=E*VβE+(1/2)diag(c_nd_n); the Hardy inequality proves β=1 bounded and diagonal multiplication handles β≥1. Widely separated logarithmic blocks of weakly-null unit vectors provide ||Ax||²≥const R^{2−2β}, yielding unboundedness β<1 and noncompactness at β=1. Dyadic Volterra partition into same-block weighted Volterra S_p terms and preceding-block rank-one terms, each O(2^{j(1−β)}), gives membership in all S_p,p>1 for β>1; diagonal correction belongs S1 for β>1. On n∈[2^j,2^{j+1}), compressed J_{2^j} has singular values [2sin((2k−1)π/(4N+2))]^{-1}, giving trace norm ∼(j+1)^{1−β}; S1 block pinching forces β>2. For β>2, diagonal-block norms and earlier-block rank-one norms O((j+1)^{1/2−β}) are summable, establishing S1. Independently checked basis coefficients and J_N singular spectrum for finite N; infinite statements from these analytic estimates, not tests.
 
-## Scope and limitations
-The conclusion concerns a concrete one-parameter family, not all factorable matrices or a universal singular-value asymptotic. The full related June 2026 paper was not read. No external independent audit or publication-priority certification has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge, significant priority qualification): Full published Resultary 2026 ordinary ℓ² monotone-modulus Rhaly trace theorem yields the same numerical cutoff β>2 for its standard lower-triangular matrix, but it does NOT imply the critical Dirichlet coefficient conjugation: the unlogged Dirichlet case is unbounded while ordinary Cesàro ℓ² is bounded. The 2025 Bellavita–Dellepiane–Stylogiannis S_q q>1 results and 2026 Galanopoulos–Girela boundedness/compactness analysis do not document the precise joint Dirichlet S_p/S1/logarithmic phase classification. The most relevant 2026 weighted-Hardy/factorable-matrix preprint was queried via OA/arXiv and authorized Oxford, but full text could not be inspected (VPN disconnected); potential stronger coverage there remains an explicit material risk, not a fabricated NOT_COVERING finding.
+
+## value
+
+PASS
+
+PASS: Two distinct critical logarithmic scales, bounded/compact at β=1 and trace-class at β=2, for a natural coefficient-space operator on the critical Dirichlet Hilbert norm, give an exact nontrivial operator-ideal phase classification, rather than a numerical matching cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
