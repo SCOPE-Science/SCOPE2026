@@ -1,19 +1,21 @@
-# Scientific review: truncated-icosahedral tetrahedral-volume profile
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's exact domain is the set of every real truncation fraction \(t\in[0,1/2]\) and every Euclidean tetrahedron contained in the specified convex hull. Its maximum determinant is the explicit cubic \(Q(t)\), attained by the polynomial witness indexed \((0,13,16,53)\). The proof uses separate affinity to reduce arbitrary point choices to vertices; a transitive directed-edge orbit to reduce to 32,509 cubic cases; 260,072 exact nonnegative Bernstein coefficients to control every real parameter; and the strict interior positivity of Bernstein basis functions to make the winning four-sets invariant. A separate 487,635-case all-vertex enumeration validates 120 maximizing sets and a perfect matching with 60 edge pairs; a combinatorial support argument then proves the complete continuous equality classification. The supplied `verify.py` was executed successfully. The derivative proof and unit-edge rescaling were independently checked algebraically. Endpoint equality classification is not asserted.
+PASS
 
-## Originality — PASS, with residual priority risk
+Sharp Q(t)/6 on icosahedron truncation path follows from affine reduction to vertex quadruples, transitivity of 60 directed edges, full 32509 triples against exact Z[φ] Bernstein-sign conditions Q±det, and explicit identically matching witness. All 260072 Bernstein coefficients are asserted by inspected complete verifier source; nonnegative Bernstein basis proves continuous t∈[0,1/2], not merely sample grid. Full 487635 quadruple finite certificate and perfect-matching adjacency show 120 vertex maxima, 60 moving-apex families; I inspected exact arithmetic and reasoning but did not independently execute the full expensive certificate. Endpoint equality classification is explicitly excluded. Q prime derivative strictly negative as claimed.
 
-Actual semantic searches compared full truncated-icosahedral tetrahedra, icosahedral vertex truncation, icosidodecahedral endpoints, equivalent determinant optimization, and general largest-simplex methods. The closest public icosahedron calculation concerns \(t=0\) alone (maximum \(2\varphi^3/3\), twenty face-apex equality families); the existing icosidodecahedron computation concerns \(t=1/2\), while the cube–octahedron calculation concerns a geometrically distinct parameterized family. None gives a formula or its 60-segment equality classification for all strict-interior \(t\), nor implies either by a direct corollary. The full published descriptions of the two particularly close findings were inspected, as were primary 2014 papers on maximum-volume polytopes/simplices and generalized structure. The use of separate-affinity vertex reduction and Bernstein coefficients is previously known methodology and is not claimed as new. A comprehensive check of older encyclopedic tables and the 1995 general largest-simplex literature has not been completed; historic priority can still require further review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural icosahedral edge-truncation path passes through three classical regular/uniform polyhedra, and its four-point extremal-volume problem is a motivated geometric question rather than an arbitrary index slice. The theorem provides a global sharp analytic law over a continuum, identifies the regular truncated icosahedron's exact extremal tetrahedral volume, establishes strict monotonicity, and supplies an unusually rigid universal classification of all 60 one-dimensional equality families through the entire open parameter range. These results are not conveyed by knowing the two endpoint optima. The icosahedral orbit reduction and continuous interval certificate produce structural information not a mere brute-force table.
+Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.
 
-## Sources, caveats, and independent status
+## value
 
-Primary literature read: Horváth–Lángi, `arXiv:1402.6496`; Di Summa–Eisenbrand–Faenza–Moldenhauer, `arXiv:1406.3512`; Akopyan–Glazyrin, DOI `10.1007/s10998-014-0051-2`. Relevant published comparisons inspected in full: *Complete tetrahedron-volume spectrum and continuous maximum families in the regular icosahedron* and *Sharp tetrahedral-volume profile in the cube–octahedron intersection family*. Direct source-code execution and the mathematical bridge from finite certificate to continuous optimization were reviewed. Missing independent verification and incomplete access to some older historical treatments are limitations, not proof of novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact largest tetrahedron in a natural one-parameter Archimedean truncation path, with golden-ratio polynomial valid at every t and complete continuous equality-locus topology, supplies useful geometric optimization data beyond endpoint values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

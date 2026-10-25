@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-The attached `verify.py` requires only Python 3.10+ with its standard library. Invoke `python3 verify.py` in the directory containing the file. The script enumerates the 12 regular-icosahedron vertices and all 30 length-two edges, generates 60 oriented-edge truncation positions, and operates in the exact quadratic ring \(\mathbb Z[\varphi]\). Expected observations are exactly 260072 nonnegative Bernstein certificates, 32509 triples with the first directed edge fixed and eight maximizing triples, 487635 full four-set determinant checks at \(t=1/4\), 120 vertex maximizers, and 60 edge-segment families; it ends with `PASS`.
+## correctness
 
-The verifier checks both signs of the bound polynomial against every determinant cubic using strict exact sign arithmetic; its Bernstein certificate controls every real parameter in \([0,1/2]\), not just a finite grid. Its second combinatorial check identifies the full winner matching at one interior parameter; the analytic equality condition from strict interior Bernstein positivity shows this matching persists throughout the open parameter interval. The separate determinant-affinity and positive-support argument is required to extend the finite vertex result to every tetrahedron contained in the convex hull. The volume formula covers endpoints, but the all-maximizer classification does not claim either endpoint. Independently check the source, base symmetry transitivity and analytic bridge before relying on the result.
+PASS
 
-The checks are reproducibility aids and self-review evidence, **not** independent certification. Historical-priority conclusions rely on a bounded comparison of identified literature and relevant published results, with residual priority risk.
+Sharp Q(t)/6 on icosahedron truncation path follows from affine reduction to vertex quadruples, transitivity of 60 directed edges, full 32509 triples against exact Z[φ] Bernstein-sign conditions Q±det, and explicit identically matching witness. All 260072 Bernstein coefficients are asserted by inspected complete verifier source; nonnegative Bernstein basis proves continuous t∈[0,1/2], not merely sample grid. Full 487635 quadruple finite certificate and perfect-matching adjacency show 120 vertex maxima, 60 moving-apex families; I inspected exact arithmetic and reasoning but did not independently execute the full expensive certificate. Endpoint equality classification is explicitly excluded. Q prime derivative strictly negative as claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.
+
+## value
+
+PASS
+
+Exact largest tetrahedron in a natural one-parameter Archimedean truncation path, with golden-ratio polynomial valid at every t and complete continuous equality-locus topology, supplies useful geometric optimization data beyond endpoint values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
