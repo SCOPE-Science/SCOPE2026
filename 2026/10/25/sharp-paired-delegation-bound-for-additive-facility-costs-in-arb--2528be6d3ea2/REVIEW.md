@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The metric triangle inequality summed over all \(k\) witnesses in the complementary half gives \(kD_A\le(k-1)H\). Additivity of total costs makes the complement of a least-centrality \(k\)-set the most expensive \(k\)-set. These two lemmas entail the universal bound, and the two-point example gives exact equality. The verification code recomputes the inequalities from the submitted mathematical objects in 702,815 checks; no experiment is used as proof of the infinite statement.
+
+**Originality — PASS (with priority risk).** The motivating January 2026 source proves the \(3-2/k\) lower bound already on \(k\) pairs and has only a \(3+2/k\) general upper bound for its nominated mechanism when \(k\ge3\). The new result is a matching upper bound for every set of \(k\) locations from \(2k\) agents, valid on arbitrary metric spaces, which in particular determines the exact ratio of *every* deterministic local rule with \(k\) pairs. The source's lower example is credited and not claimed as original. Closest checked full text: arXiv:2601.15258, model and Theorems 6.1–6.2. The earlier centralized facility-location paper does not cover the distributed nomination constraint. Unindexed equivalents remain a publication-priority risk.
+
+**Value — PASS.** The original paper leaves a gap between \(3-2/k\) and \(3+2/k\) in its general model. The equal-sized two-person group regime is the smallest nontrivial distributed group design; the exact price of delegation in this natural regime is now determined for all \(k\ge2\), with a stronger metric-independent certificate. The answer is not an arbitrary finite-instance tally and needs no downstream theorem to be informative. It does not close the gap for larger groups or more groups than facilities.
+
+Self-review: passed. Independent audit: not yet performed.

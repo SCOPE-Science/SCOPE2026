@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For balanced A,B of size k, summing d(a,a')<=d(a,b)+d(b,a') yields kD_A<=(k-1)H. Thus C(A)<= (3-2/k)H <=(3-2/k)C(B). Let B be a minimum-cost k-set and A its complement, which is the maximum-cost k-set by additive centralities. Every k-selected set has cost <=C(A). Two-location sharpness gives exact ratio. Independent exact integer checker executed 702815 assertions; proof covers all k and metrics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deligkas et al. 2026 Theorem 6.1 states an upper bound of 3+2/k for their particular strategyproof mechanism in the broader m>=k setting, not 3-2/k for all k selections from 2k agents.",
+        "Deligkas et al. 2025 consider centralized agent-constrained locations; their 2 bound in that distinct feasible mechanism model does not imply this pairwise distributed price."
+      ],
+      "reasoning": "The prior 2026 paper's general bound is numerically weaker and its proof uses line medians and group quantiles. Theorem 6.2 gives a lower bound, which cannot imply this new matching upper bound. Its k=2 bound 1+sqrt(2) applies to general group sizes, not the restricted k paired groups.",
+      "searches": [
+        "Sharp three minus two over k bound two agents per group distributed facility location metric line k facilities representative sum distance optimal 2026 Deligkas Kanellopoulos Voudouris",
+        "distributed agent-constrained facility location sum variant k groups of two each one local representative 3-2/k approximation upper bound metric",
+        "arXiv:2601.15258 Theorem 6.1 Theorem 6.2",
+        "Agent-constrained truthful facility location games (2025) full text"
+      ]
+    },
+    "checked_sources": [
+      "Deligkas, Kanellopoulos, Voudouris, arXiv:2601.15258 (2026), Sections 2, 6, full-text material read",
+      "Deligkas, Lotfi, Voudouris, Journal of Combinatorial Optimization 49 (2025), PMC11906575, model and Section 4 material read",
+      "Chan et al., Mechanism Design for Facility Location Problems: A Survey (IJCAI 2021), background abstract inspected",
+      "published-finding corpus Search actual three targeted sum-distance and paired-delegation queries, top 30 matches compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.15258 Theorem 6.2 gives exactly the 2k-agent two-point lower witness, SC=3k-2 and OPT=k, which is explicitly credited here.",
+        "That paper Theorem 6.1 upper bounds a strategyproof mechanism by 3+2/k in the entire m>=k domain; it cannot derive an exact 3-2/k guarantee for every local rule on arbitrary metric spaces.",
+        "The 2025 centralized scheme achieves ratio <=2 via a median-ball construction in a different model; that does not bound arbitrary paired nominations when k>=3 by 3-2/k."
+      ],
+      "reasoning": "The shared lower example is already known and not original. The new upper bound depends on a combinatorial partition metric lemma absent from the inspected primary argument; proving it matches the lower on k equal pairs. The pair regime is included in the larger model but the published *weaker* upper theorem does not imply the stronger constant.",
+      "searches": [
+        "Sharp three minus two over k bound two agents per group distributed facility location metric line k facilities representative sum distance optimal 2026 Deligkas Kanellopoulos Voudouris",
+        "arXiv 2601.15258 Deligkas Kanellopoulos Voudouris distributed agent-constrained truthful facility location Theorem 6.2 3 minus 2 over k upper bound two-agent groups",
+        "arXiv:2601.15258 Sections 2,6 Theorem 6.1, Theorem 6.2",
+        "Agent-constrained truthful facility location games 2025 Theorems 4.2-4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arbitrary-half inequality is equivalent to a worst-vs-best k-centrality-selection inequality on 2k agent copies; arXiv:2601.15258 presents no such statement in its checked Section 6.",
+        "published-finding corpus returned nearby metric free-space titles but not the pair-nomination selection inequality."
+      ],
+      "reasoning": "Distance centrality converts the choice of k facilities into a separable k-selection problem; the complement triangle bound handles any metric, not merely the strategic mechanism's line locations. Equivalence was assessed at the level of implication, not matching numbers.",
+      "searches": [
+        "Every k-point subset of 2k metric points sums distance at most (3-2/k) times optimum k-subset medoid objective",
+        "Exact approximation ratio 3-2/k for paired delegation k groups two agents all representatives selected sum-variant facility location",
+        "'3 - 2/k' 'sum of distances' facility",
+        "arXiv:2601.15258 Sections 6.1-6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv source Table 1 contains an interval [3-2/k,3+2/k], not the exact paired-regime upper guarantee.",
+        "Actual published-finding corpus nearest ID 2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3 concerns Lipschitz-free projection norms, not representatives or facility-cost ratios.",
+        "Checked own-ledger claim/alias searches returned no entry concerning k pairs and this sum-distance bound."
+      ],
+      "reasoning": "The searched reference table addresses the general model; the nearest database records do not use the relevant selection objective. Failure of database retrieval is not treated as novelty proof; it adds only corroboration to the primary-text comparison.",
+      "searches": [
+        "Every k-point subset of 2k metric points sums distance at most (3-2/k) times optimum k-subset medoid objective",
+        "Exact approximation ratio 3-2/k for paired delegation k groups two agents all representatives selected sum-variant facility location",
+        "arXiv 2601.15258 Deligkas Kanellopoulos Voudouris distributed agent-constrained truthful facility location Theorem 6.2 3 minus 2 over k upper bound two-agent groups",
+        "published-finding corpus query: Every k-point subset of 2k metric points sums distance at most (3-2/k) times optimum k-subset medoid objective",
+        "'3-2/k' 'facility location' '2k' 'agents'"
+      ]
+    },
+    "rationale": "The 2026 source Theorem 6.2 supplies the lower example, not a matching pair-regime upper. Theorem 6.1 gives the weaker bound 3+2/k for one mechanism in general groups. The universal 3-2/k upper bound for all k-subsets of 2k metric agents and resulting exact deterministic paired-delegation characterization was not found in inspected primary or published-finding corpus records; unindexed publication risk remains.",
+    "residual_risks": [
+      "An equivalent centrality inequality or sharp balanced-selection bound may exist in unindexed metric combinatorics or social-choice literature, despite targeted searches.",
+      "Metric generality is not part of the source's one-dimensional design; this proof does not establish incentive compatibility of arbitrary metric-space local nomination rules."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The 3-2/k lower example is identical and credited; the upper bound shown is 3+2/k for one general mechanism, not the new paired-regime metric upper statement.",
+        "evidence": "Article lines 20-32, 49-57, 495-546, including Theorem 6.1 and Theorem 6.2, as displayed at https://arxiv.org/abs/2601.15258",
+        "identifier_or_url": "https://arxiv.org/abs/2601.15258",
+        "material_read": "Model Section 2 (agent-copy colocation); contribution summary; Section 6.1 algorithm, proof and Theorems 6.1 and 6.2; relevant conclusion",
+        "method": "full text in public arXiv article HTML presentation inspected by section and exact search",
+        "title": "Distributed Agent-Constrained Truthful Facility Location",
+        "trigger": "same distributed sum-distance model and exact lower-bound constant"
+      },
+      {
+        "assessment": "The model is centralized rather than k independent pair nominations; its median-ball result does not imply a bound on arbitrary local pair choices.",
+        "evidence": "Theorems 4.2 and 4.3: 2 upper and 2-1/k lower for deterministic centralized strategyproof mechanisms.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11906575/",
+        "material_read": "Introduction, model and contributions; Lemma 4.1 and Theorems 4.2-4.3 in the accessible full-text record",
+        "method": "published open-access HTML full-text scientific sections inspected",
+        "title": "Agent-constrained truthful facility location games",
+        "trigger": "centralized sum-of-distances agent-constrained mechanism and possibility of stronger dominating bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2528be6d-3ea2-4b54-a452-b5313a1b6e5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The k two-agent-group case is the smallest nontrivial participant-granularity of the 2026 distributed model, whose general sum-cost approximation remains between 3-2/k and 3+2/k. The new result closes that interval exactly for the paired regime, for all k, for every deterministic local rule, and even for arbitrary metric spaces. It supplies a tight worst-case quantitative price of delegation, not just a routine numerical tabulation; its strict domain and already-known lower example are acknowledged.",
+    "status": "PASS"
+  }
+}
