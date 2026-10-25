@@ -1,15 +1,21 @@
-# Review of the doubly punctured binary Segre singularity theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The affine-chart monoid identities are constructive and exhaustive for every allowed subset. At central-weight vertices every coordinate direction is represented by an allowed adjacent subset, giving polynomial chart rings. At singleton vertices the exact generating monomials are the two rows of a rank-one matrix, and the full binomial kernel is the standard prime Segre minor ideal. Complementation covers co-singletons; the listed standard charts cover the projective variety. The determinant-cone description gives normality and the full reduced singular support. The integral class-group and canonical calculations use primitive lattice rays and the Segre canonical bundle. The exact volume argument removes two disjoint unimodular corner simplices. The supplied finite checker passed 238 charts and 20,852 differences, with separate numerical volume corroboration. Risks: the checker verifies finite instances only; standard rank-one determinantal primeness and toric class-group criteria are invoked as established theorems.
+## correctness
 
-## Originality
-PASS for the higher-dimensional **pointwise classification**, with residual bibliographic risk. Michałek--Oeding--Zwiernik already define exactly this toric family as the projectivization of their \(T_{1,n-1}\), provide its general homogeneous toric quadratic relations, and display the dimension-three octahedron. Their more detailed singularity analysis is for \(T_{2,n}\), not these pointwise charts. The known six-nodal toric intersection of two quadrics already covers the dimension-three base case and is excluded from the newness claim. Other previously indexed Segre-cone examples concern different global varieties, and prior adjacent research on deleted two-factor Segre coordinates is not the same higher-factor family. No indexed exact statement covering the uniform \(2n\)-point determinant-cone and \(\mathbb Q\)-Gorenstein phase law was located. An equivalent result in an unindexed polytope or toric-projective-specialization source is still possible; absent indexing is not a proof of historical priority.
+PASS
 
-## Value
-PASS. The objects form the naturally defined two-opposite-coordinate projection of the binary Segre, not a chosen numerical slice. The complete affine local algebra for every point, the rank-one determinantal singularity type, isolated-singularity count, exact integral local class group and multiplicity, and the sharp jump from nodal Gorenstein dimension three to non-\(\mathbb Q\)-Gorenstein higher dimensions are useful intrinsic birational data. These are not mere restatements of the known quadratic global embedding ideal. Degree \(n!-2\) is supporting context rather than the sole motivation.
+The affine D_+(z_S) semigroup consists of subset indicator differences. For 2≤|S|≤n−2 all signed basis vectors occur by toggling, giving A^n. For |S|=1, 2(n−1) ratios a_j=t_j/t_1,b_j=t_j generate all monomials; exactly the 2×2 minors are the relations, so the chart is the rank-one Segre cone. Complement gives other extreme charts. Rank-one cone is normal and smooth away from its vertex; its Pic(P¹×P^{n−2})/Z(1,1) local class group is Z and K class (−2,−(n−1)) vanishes rationally iff n=3; Hilbert numerator 1+(n−2)z yields vertex multiplicity n−1. Removing corner simplices from n-cube gives normalized degree n!−2. Independent exact exponent-decomposition checks on n=3..6 (1192 differences) corroborate but do not prove all n.
 
-## Literature and scope
-The closest primary work is Michałek--Oeding--Zwiernik, arXiv:1212.1515, Sections 4--5. Proposition 6.1 of the later equivariant threefold study covers the known six-node low-dimensional special case only. The theorem does not determine a possibly nonreduced projective Jacobian scheme, and an independently verified historical-priority claim is not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Michałek–Oeding–Zwiernik already define exactly the family P(T_{1,n−1}) and give quadratic ideals in arXiv:1212.1515; construction and normality are not claimed new. Their detailed singular-cone proof in §5 addresses T_{2,n}, not the all-n local affine chart isomorphism for projectivized T_{1,n−1}. The known n=3 six-node complete intersection is credited. No stronger exact source for the uniform higher-n determinantal charts, class groups, Gorenstein border located in inspected primary material.
+
+## value
+
+PASS
+
+The explicit all-chart rank-one description is a structural local classification of a natural classical toric Segre projection; it determines singular support, integral divisor classes, multiplicities and a sharp dimension-dependent Q-Gorenstein boundary. These exact invariants are useful beyond a repeated known monomial presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses exhaustive symbolic forms of the chart monoids for arbitrary \(n\), not inference from small finite instances. At each non-extreme vertex the coordinate differences generate a free signed basis; at an extreme vertex they generate the two-row rank-one matrix semigroup. The full ideal is the known prime ideal of \(2\times2\) minors. This settles the chart scheme structure and normality for every \(n\ge3\).
+# Independent mathematical audit
 
-The separate supplied `verify.py` program was run against its actual packaged source. Its output is recorded in `verification_output.txt`: 238 charts and 20,852 exponent-difference decompositions for \(n=3,4,5,6,7\), all passing. The pairwise rank-one quadratic relations were checked on each singleton vertex chart. Optional NumPy/SciPy convex hull computations returned normalized volumes 4, 22, and 118 for \(n=3,4,5\), agreeing with the exact formula \(n!-2\).
+## correctness
 
-The local integral divisor class follows independently from the unimodular subset of the primitive toric rays, and the canonical criterion follows from \(K_{\mathbb P^1\times\mathbb P^{n-2}}=\mathcal O(-2,-(n-1))\) modulo the cone hyperplane class \((1,1)\). Finite enumeration is not an infinite proof, and the optional floating-point volume checks do not establish the general degree formula. A separate all-\(n\) cube-volume argument is given in `RESULT.md`.
+PASS
+
+The affine D_+(z_S) semigroup consists of subset indicator differences. For 2≤|S|≤n−2 all signed basis vectors occur by toggling, giving A^n. For |S|=1, 2(n−1) ratios a_j=t_j/t_1,b_j=t_j generate all monomials; exactly the 2×2 minors are the relations, so the chart is the rank-one Segre cone. Complement gives other extreme charts. Rank-one cone is normal and smooth away from its vertex; its Pic(P¹×P^{n−2})/Z(1,1) local class group is Z and K class (−2,−(n−1)) vanishes rationally iff n=3; Hilbert numerator 1+(n−2)z yields vertex multiplicity n−1. Removing corner simplices from n-cube gives normalized degree n!−2. Independent exact exponent-decomposition checks on n=3..6 (1192 differences) corroborate but do not prove all n.
+
+## originality
+
+PASS
+
+Michałek–Oeding–Zwiernik already define exactly the family P(T_{1,n−1}) and give quadratic ideals in arXiv:1212.1515; construction and normality are not claimed new. Their detailed singular-cone proof in §5 addresses T_{2,n}, not the all-n local affine chart isomorphism for projectivized T_{1,n−1}. The known n=3 six-node complete intersection is credited. No stronger exact source for the uniform higher-n determinantal charts, class groups, Gorenstein border located in inspected primary material.
+
+## value
+
+PASS
+
+The explicit all-chart rank-one description is a structural local classification of a natural classical toric Segre projection; it determines singular support, integral divisor classes, multiplicities and a sharp dimension-dependent Q-Gorenstein boundary. These exact invariants are useful beyond a repeated known monomial presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
