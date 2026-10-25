@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:21:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At t=mk+r, register rotation sends distinct multiplier sets to distinct original coordinates, giving exactly k−r independent product-sign biases u=a^m and r biases v=a^(m+1) and the finite TV double-binomial sum. With centered time floor k(log k/(2b)+s), b=−log a, phase θ={log k/(2b)+s}, the sum of squared biases tends to e^(−2bs+2bθ)[(1−θ)+θ e^(−2b)], with max bias O(k^(−1/2)). Taylor expansion plus bounded-array CLT yields Gaussian log-likelihood N(−z²/2,z²) and TV=2Φ(z/2)−1. H_b(θ)>1 in interior but H_b(0)=H_b(1)=1, giving distinct subsequential curves; chi-square and Hellinger yield the order-k cutoff window. Independently checked finite exact small-k product laws against explicit transition iteration; finite tests do not certify CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.10860",
+          "https://arxiv.org/abs/2109.05387"
+        ],
+        "reasoning": "Potential covering primary paper Judd–Esposito was not available in full, so no whole-document NOT_COVERING is claimed. Distinct XOR-register model cannot dominate this precise TV profile without a reduction not seen.",
+        "searches": [
+          "Judd Esposito On the Impossibility of Estimating the Average Mixing Time",
+          "Levin Tankala Fast mixing of randomized shift-register Markov chain"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: delayed register Markov chain phase dependent TV Gaussian cutoff log-periodic",
+        "Judd Esposito On the Impossibility of Estimating the Average Mixing Time arxiv 2610.10860",
+        "Levin Tankala Fast mixing randomized shift register Markov chain arxiv 2109.05387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.10860",
+          "https://arxiv.org/abs/2109.05387"
+        ],
+        "reasoning": "Known generic Gaussian shift TV principle is an ingredient, but deriving this chain’s k-dependent bias-group frequencies and subsequential phases requires new alignment argument; an unexamined appendix might nevertheless already imply it.",
+        "searches": [
+          "Gaussian LAN binary product TV two different biases register",
+          "Judd Esposito Lemma 5.4 and partial block TV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.10860 accessible abstract/model description; full-text unavailable",
+          "https://arxiv.org/abs/2109.05387 different transition kernel"
+        ],
+        "reasoning": "Identical Markov kernel is recognized; prior complete-block (r=0) formula is a special case of present all-time law. The nonconstant θ dependence arises from two bias groups when 0<r<k, not from r=0 alone.",
+        "searches": [
+          "Judd Esposito delayed-register Markov chain partial-block total variation",
+          "Resultary log-periodic cutoff phase delayed register"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top delayed-register semantic matches were unrelated phase/cutoff systems",
+          "https://arxiv.org/abs/2610.10860 complete blocks described in source citation"
+        ],
+        "reasoning": "Existing exact complete-block law samples θ=0 and misses H_b(θ)>1; no located table computes the all-r phase correction.",
+        "searches": [
+          "Resultary delayed register Gaussian cutoff profile log periodic",
+          "product Bernoulli TV local asymptotic normality and cutoff"
+        ]
+      },
+      "rationale": "Judd–Esposito explicitly covers stationarity/state-independence and complete-k-block TV law for this delayed-register model; those are treated as prior. A two-bias partial-block identity and log-periodic Gaussian subsequential profile are not verified from the accessible source text; the manuscript’s full text was inaccessible, so the priority comparison retains that serious risk. Levin–Tankala concerns a distinct XOR-based randomization kernel.",
+      "residual_risks": [
+        "HIGHEST PRIORITY RISK: full Judd–Esposito primary manuscript unavailable; Oxford institutional access reported disconnected VPN, no human verification bypass attempted. The inaccessible paper may already contain all-time or cutoff formulas; best-of-knowledge PASS is conditional on accessible evidence, not certification of historical uniqueness.",
+        "Subsequential, not full pointwise cutoff-curve convergence; endpoint θ=1 denotes approach from below."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Priority comparison incomplete, but the accessible source establishes prior kernel/complete-block law, not affirmative coverage of the log-periodic profile",
+          "evidence": "Specific risk: sections 4.1 and Lemma 5.4/appendix might contain further partial-time implications unavailable for inspection.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10860",
+          "material_read": "Abstract/indexed summary and manuscript citations only; full text NOT obtained",
+          "method": "Open-access/arXiv attempted; authorized Oxford download returned vpn_disconnected; NO authentication bypass",
+          "title": "On the Impossibility of Estimating the Average Mixing Time",
+          "trigger": "Exact previously published source defining same delayed register"
+        },
+        {
+          "assessment": "Different XOR-based register dynamics, not same kernel as deterministic cyclic transport plus multiplicative independent noises",
+          "evidence": "Their cutoff theorem does not immediately imply the present H_b(θ) phase factor.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.05387",
+          "material_read": "Available preprint/abstract and transition description; inspected to distinguish XOR-based update",
+          "method": "Open preprint reading",
+          "title": "Fast mixing of a randomized shift-register Markov chain",
+          "trigger": "Nearby named shift-register cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a concrete transition-kernel example of lattice-phase nonconvergence of a cutoff profile despite sharp total variation cutoff. It quantifies the cyclic update schedule at partial block times and supplies an exact finite-time formula and nonconstant phase correction beyond the previously published complete-block identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic: delayed register Markov chain phase dependent TV Gaussian cutoff log-periodic",
+    "Judd Esposito On the Impossibility of Estimating the Average Mixing Time arxiv 2610.10860",
+    "Levin Tankala Fast mixing randomized shift register Markov chain arxiv 2109.05387"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No Lean/expert proof, external human attestation, or exhaustive global bibliographic novelty certification is claimed.",
+    "Finite checks are supportive only; their precise limits are distinguished from analytical proofs.",
+    "HIGHEST PRIORITY RISK: full Judd–Esposito primary manuscript unavailable; Oxford institutional access reported disconnected VPN, no human verification bypass attempted. The inaccessible paper may already contain all-time or cutoff formulas; best-of-knowledge PASS is conditional on accessible evidence, not certification of historical uniqueness.",
+    "Subsequential, not full pointwise cutoff-curve convergence; endpoint θ=1 denotes approach from below."
+  ],
+  "residual_risks": [
+    "HIGHEST PRIORITY RISK: full Judd–Esposito primary manuscript unavailable; Oxford institutional access reported disconnected VPN, no human verification bypass attempted. The inaccessible paper may already contain all-time or cutoff formulas; best-of-knowledge PASS is conditional on accessible evidence, not certification of historical uniqueness.",
+    "Subsequential, not full pointwise cutoff-curve convergence; endpoint θ=1 denotes approach from below."
+  ],
+  "schema_version": 1
+}

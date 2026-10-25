@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All conditional signs have independent multiplier histories; the resulting two-block likelihood reproduces the exact finite Markov evolution. Uniform Taylor expansion and the triangular-array central limit theorem give a lognormal likelihood limit, and bounded continuity yields the total-variation Gaussian profile. Every phase has a constructive dimension subsequence. Elementary chi-squared and Hellinger estimates establish the cutoff window. The numerical checker returns 1366 exact-rational/deterministic assertions, supportive rather than a substitute for the limiting argument. A limitation is that the result is for fixed \(0<a<1\).
+PASS
 
-## Originality — PASS, with priority risk
+At t=mk+r, register rotation sends distinct multiplier sets to distinct original coordinates, giving exactly k−r independent product-sign biases u=a^m and r biases v=a^(m+1) and the finite TV double-binomial sum. With centered time floor k(log k/(2b)+s), b=−log a, phase θ={log k/(2b)+s}, the sum of squared biases tends to e^(−2bs+2bθ)[(1−θ)+θ e^(−2b)], with max bias O(k^(−1/2)). Taylor expansion plus bounded-array CLT yields Gaussian log-likelihood N(−z²/2,z²) and TV=2Φ(z/2)−1. H_b(θ)>1 in interior but H_b(0)=H_b(1)=1, giving distinct subsequential curves; chi-square and Hellinger yield the order-k cutoff window. Independently checked finite exact small-k product laws against explicit transition iteration; finite tests do not certify CLT.
 
-Judd–Esposito, arXiv:2610.10860v1, Lemma 5.2 and its Appendix A proof, provides a bound for early times and the one-block exact formula at multiples of the register length. Its Lemma 5.4 *already proves* equality of worst-case and average distance at every time; this equality is expressly excluded from the new contribution. The new claim is the evaluated two-block profile at partial-block times and the nonconstant log-periodic Gaussian cutoff family. Levin–Tankala (arXiv:2109.05387) concerns a different XOR shift-register process. General Bernoulli-product normal approximations may imply the Gaussian sublemma; they do not, without the model's partial-block structure, give the phase law. Exact earlier applications to this process could still cover the result, and no claim of exhaustive priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The main source uses this exact chain to calibrate statistical impossibility through average mixing times. A phase-free Gaussian approximation at its expected cutoff location is mathematically false; the proved family identifies how the discrete register length stores a fraction-of-block phase, causing different asymptotic mixing levels along dimension subsequences. This distinction directly informs threshold calibration, not just a numerically larger constant. It is more than a routine evaluation at a fixed index: it classifies all subsequential profiles and proves their genuine separation.
+Judd–Esposito explicitly covers stationarity/state-independence and complete-k-block TV law for this delayed-register model; those are treated as prior. A two-bias partial-block identity and log-periodic Gaussian subsequential profile are not verified from the accessible source text; the manuscript’s full text was inaccessible, so the priority comparison retains that serious risk. Levin–Tankala concerns a distinct XOR-based randomization kernel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a concrete transition-kernel example of lattice-phase nonconvergence of a cutoff profile despite sharp total variation cutoff. It quantifies the cyclic update schedule at partial block times and supplies an exact finite-time formula and nonconstant phase correction beyond the previously published complete-block identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
