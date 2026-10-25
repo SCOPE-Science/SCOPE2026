@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For finite nonempty triangle-free \(H\) with connected \(I=\operatorname{Ind}(H)\), and \(m\ge2\), triangles of \(K_m\vee H\) are exactly triangles within hubs, one hub plus an edge of \(H\), or two hubs plus one vertex of \(H\). Therefore the equality \(\operatorname{CF}_3(K_m\vee H)=\Delta_R\cup_I(D_m*I)\cup\bigcup_{i<j}[u_i,u_j]\) is exhaustive. Cofibration and an equivariant contraction of the full simplex give \(A\simeq D_{m+1}*I\); connectedness of \(I\) makes \(A\) simply connected. Attaching one-cell edges contributes one free circle apiece. The relative homology long exact sequence identifies the integral \(H_1\) edge-permutation module as \(\bigwedge^2\mathbb Z^m\), while the join-chain tensor and \(\widetilde H_0(D_{m+1})\) give the higher integral modules. The proof covers every specified graph and integer without using a finite-experiment extrapolation.
+PASS
 
-A reproducible standalone script independently generates graph triangles and all legal faces, checks mod-two homology, and evaluates signed Lefschetz numbers for six tests. These finite checks agree with the formulas; they do not prove the general theorem.
+For triangle-free H, every face of CF3(K_m∨H) is either an arbitrary H-vertex set, one hub plus an independent H-set, or two hubs alone. This proves a literal simplicial equality Delta_R union (D_m * Ind(H)) plus binom(m,2) unfilled hub edges; connected Ind(H) ensures the suspended core is simply connected. Nullhomotopy of Ind(H) -> Delta_R by the simplex barycenter is Aut(H)-equivariant; the cofiber is D_{m+1}*Ind(H) = wedge^m ΣInd(H). Adding each hub-hub edge contributes an independent free S1, giving π1 free rank binom(m,2). Relative chain complexes and signed orientation of hub edges yield H1=∧² Z^m and degree>=2 shifted permutation-lattice tensor. Examined exact source and verify_clique_join.py at immutable tree; independently checked direct face counts m=3,H=C5 (68) and C6 (121) including their independence sets (11 and18). General statement follows symbolic pushout, not finite tests.
 
-## Originality — PASS, subject to bibliographic uncertainty
+## originality
 
-The motivating primary source (Ghosh–Selvaraja, arXiv:2602.09623, February 10, 2026) was compared at the level of its theorems and constructions. Its localized clique attachments and shellability criteria do not assert the current global clique-join homotopy or integral representation formulas; induced nonchordal cycles in the specialized family also evade its chordal hypotheses. The nearest mathematical-record results on neighborhood complexes of clique joins concern a different simplicial functor; cycle matching-complex character results can supply the known input \(\operatorname{Ind}(C_n)\) but do not compute the three-clique-free complex of the clique join. Searches for triangle-free/clique-free complexes, equivalent joins and suspension or exterior-square formulas identified no statement implying the theorem. There may be unindexed equivalent results, and no claim of literature completeness is made.
+PASS
 
-## Mathematical value — PASS
+Graph join neighborhood-complex suspensions form a nearby full-text Resultary prior but use the common-neighbor simplicial functor, not no-induced-triangle faces. Clique-free shellability paper handles a different attachment framework. Cycle independence homotopy itself known, not claimed new. Universal mixed-loop/higher-suspension decomposition and integral natural module not found covered by read sources; folklore identity risk acknowledged.
 
-The theorem converts an arbitrary connected independence-complex homotopy type into the three-clique-free topology of a whole family of graphs that contain many triangles, while introducing an unexpected universal free fundamental group of rank \(\binom m2\). Its exact *integral equivariant* information detects hub permutations, including endpoint signs on first homology, and preserves torsion in any higher base homology. The cycle family gives natural mixed one- and higher-dimensional homotopy types. These are a structural transfer law and symmetry classification, not only an arbitrary small-graph invariant or a face count.
+## value
 
-## Residual limitations
+PASS
 
-The result is restricted to connected \(\operatorname{Ind}(H)\), graph joins with a clique, and the canonical product symmetry subgroup. The cycle special case uses preexisting independence-complex calculations. A published or unindexed stronger general simplicial gluing theorem may subsume the argument, although the targeted comparisons found none stated for this construction. The finite checker cannot establish integral torsion behavior for all graphs; the proof does.
+A structural transfer principle for triangle-free complexes of arbitrary graph joins is a natural reusable family formula, with genuinely mixed free fundamental groups, torsion-sensitive integral homology and equivariance, rather than isolated finite numerics.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
