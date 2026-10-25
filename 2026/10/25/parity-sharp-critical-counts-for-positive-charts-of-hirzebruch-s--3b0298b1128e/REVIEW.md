@@ -1,0 +1,11 @@
+# Review of the positive-chart parity law
+
+**Correctness (PASS).** The normal fan and unimodular matrix establish the required positive chart; explicit Cox equations exhibit an affine plane. A fourth divisor component is a line punctured at precisely \(r_m\) distinct roots, and its four transverse nodes with three lines give the claimed compact-support cohomology and Alexander-duality homology. The generic critical equations eliminate to a degree-\(r_m+1\) squarefree polynomial with no boundary roots. The included exact finite arithmetic checks agree for \(0\le m\le12\) but are not substituted for the proof.
+
+**Originality (PASS, with residual literature risk).** Inspected Calvo Cortes–Telen Sections 3 and 5 establish the construction and the signed Euler interpretation but do not state the all-\(m\) Betti numbers or parity-sharp critical counts. Améndola et al. Theorem 17 and Example 19 instead address a different projective-scroll likelihood model; their Hirzebruch formula is not a formula for the two-polynomial Cox complement. General Cox-ideal results can imply the graph equations and are not claimed as original. Targeted mathematical record and literature searches revealed no direct covering result, though lack of a search hit is not a proof of novelty.
+
+**Value (PASS).** An infinite, geometrically natural family of smooth rational toric surfaces admits affine-plane positive charts with unbounded second Betti number after removing their Cox coordinate divisors. The precise paired parity count supplies scattering-equation complexity data not supplied by the general existence or signed-Euler theorems, and pinpoints the cancellation in \(x^m+(1-x)^m\) as its mechanism.
+
+**Risks and boundaries.** The source's general theorem is used for the positive-chart identification, but the particular fan and matrix have been verified here. The assertion is about a fixed section choice; coefficient changes, other positive charts and real critical counts are not covered. General treatments of very affine complements may contain equivalent special cases not found in the inspected literature. An independent mathematical audit has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
