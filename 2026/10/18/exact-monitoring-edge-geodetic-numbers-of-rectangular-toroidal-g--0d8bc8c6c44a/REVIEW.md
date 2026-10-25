@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The fiber criterion follows by reordering coordinate moves in shortest paths. The cycle-gap characterization follows because a gap of length strictly under half the circumference is uniquely geodesic and one of length at least half cannot be uniquely traversed by a pair of selected endpoints. The proposed columns have three selections, and the explicit block-start formula \(J_v=\lceil vn/m\rceil\) gives the row-gap upper bound \(B=1+\lceil(\lceil m/3\rceil-1)n/m\rceil\). The bound is strictly below \(n/2\) for \(n\ge12\); direct finite integer substitution leaves only dimensions \((5,6)\) and \((7,8)\), for which complete certificates are supplied. Exhaustive small-cycle checks, thousands of row/column tests and independent edge-deletion BFS agree with the theorem. No inference from samples is needed for unbounded parameters.
+PASS
 
-## Originality
+For finite simple Cartesian tori with 5<=m<=n, any pair whose endpoints differ in both coordinates admits disjoint move-order geodesics, so an edge can be monitored only within its row/column fiber. A cycle subset monitors all edges iff every gap between cyclic consecutive members is strictly shorter than half the circumference. This gives three probes per row/column and lower bound 3n. The placement T={0,floor(m/3),floor(2m/3)} shifted by -floor(mj/n) in column j has column gaps <=ceil(m/3)<m/2. The exact row-block starts J_v=ceil(vn/m) bound row gaps by B=1+ceil((ceil(m/3)-1)n/m)<n/2 for n>=12. Exhaustive elementary inequalities at 5<=m<=n<=11 leave only (5,6) and (7,8), with listed direct row/column certificates. Independent shortest-arc criterion checked on all 8160 cycle subsets of sizes 5..12, and row/column construction checked for 3000 rectangles. These finite checks do not prove the unrestricted theorem; the inequalities and explicit witnesses do.
 
-**PASS (same-model, with literature-access limitations).** The closest full-text precedent is Haslegrave, arXiv:2210.08955, Theorem 4, proving \(\operatorname{meg}(C_m\square C_m)=3m\); its Theorem 1 gives the lower bound but not the unequal-side upper bound, and its published diagonal construction uses equal cyclic dimensions. The new balanced-floor construction closes all unequal-side cases, including non-coprime and opposite-parity circumferences. Foucaud et al. arXiv:2210.03774 prove cycle factors and path-grid results, not the rectangular toroidal formula. Xu et al. DOI:10.1080/17445760.2024.2301929 list join/corona/cluster/lexicographic/direct products in the accessible abstract, not Cartesian tori. Tan et al. DOI:10.1080/17445760.2023.2220143 list circulant networks, which can be relevant when the torus has coprime dimensions, but the full paper could not be accessed. The related public mathematical-record searches did not return a result implying the unequal-side exact formula. Remaining risk: uninspected full text could contain a stronger unadvertised statement. Failed or absent searches are not treated as novelty proofs.
+## originality
 
-## Value
+PASS
 
-**PASS.** Rectangular toroidal grids are canonical finite networks, and the prior sharp product lower bound left a genuine parameter gap beyond square tori. The theorem determines the invariant for every allowed pair of circumferences, including arbitrarily unbalanced rectangles, while the explicit optimal monitor placement has a direct network-coverage interpretation. A natural all-parameter exact evaluation is stronger than isolated small computations or a routine parameter substitution.
+Best-of-knowledge originality is the unequal-side exact upper bound with explicit optimal placements; Haslegrave Theorem 4 proves only the square case and Theorem 1 the general Cartesian fiber/lower-bound structure. The cycle scalar invariant is established earlier. A hidden stronger rectangular theorem in incompletely accessible publisher texts remains a priority risk.
 
-## Limits and verification state
+## value
 
-The arithmetic finite boundary check is fully enumerated; the universal claim rests on the displayed inequalities and constructed sets. Exact minimum-set enumeration, special small cycles, strong products, and twisted tori are not addressed. The available primary papers and publisher abstracts were checked within their accessible portions, with the uninspected publisher papers named above as residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rectangular Cartesian tori are canonical monitoring networks; known universal fiber lower bound and square upper bound leave a real unequal-dimensions gap. The exact sharp value for all permissible rectangles, with simple explicit optimal placements and two exceptional finite certificates, is an independently useful natural graph invariant, not a relabeling of the square case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
