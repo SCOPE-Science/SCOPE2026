@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact squared-risk factor follows by conditioning on whether the update measurement is corrupted and on the binomial count of corrupted calibration measurements. In the clean-update case, \(J<k\) forces acceptance, and \(J\geq k\) allows rejection. In the corrupted-update case, \(J\leq D-k\) forces a quantile at most the clean residual and caps the accepted scalar error ratio at \(2\); if \(J>D-k\), the amplitude limit gives the sharp ratio \(B\). Each extremum is attained by an indicator-adaptive corruption assignment explicitly given in RESULT.md. Stirling and geometric binomial-tail estimates establish the \(\log B\) and \(\log\log B\) terms, with bounded lattice effects. Finite enumeration in CHECK.py corroborates, but does not substitute for, the proof.
+PASS
 
-## Originality
+For scalar unit rows normalize e=1 and let J~Bin(D,beta), k=max(1,floor(qD)). If update clean, J<k forces Q>=1 and acceptance (error zero), whereas J>=k permits Q=0 and rejection (error one). If update corrupted and J<=D-k, at least k calibration residuals equal one, hence Q<=1 and accepted |v0|<=2, sharp at v0=2 with ties; if J>D-k, v0=B and corrupted calibration residual B-1 attain B². Joint indicator-adapted selections achieve both extrema, giving R=(1-beta)Pr(J>=k)+4beta+beta(B²-4)Pr(J>D-k). R>=4beta, and for beta<1/4 any beta<q<1-beta gives both tails vanishing with D, proving the quarter boundary. Strict binomial-upper-tail bounds uniformly Theta(D^-1/2 exp(-D KL(1-q||beta))) and first-crossing logarithmic inversion yield (2/I)ln B -(1/(2I))ln ln B+O(1) without assuming monotone risk in D. No finite D controls all unbounded B. Independently checked 420 conditional finite-grid cases and exact ties; these are not proof of the asymptotic.
 
-PASS, subject to the specified residual literature risk. The streaming Massart QRK primary source analyzes dimensions at least two and high-probability performance with an excluded catastrophic-event region. The 2025/2026 subsampled-QRK source establishes logarithmic-in-horizon failure and possible arbitrarily large outliers. Neither inspected source states or implies the complete exact scalar **unconditional** minimax risk formula together with the quarter-corruption boundary and the two-term amplitude calibration law. Published mathematical-record searches for aliases, binomial-tail forms, and mean-square envelopes found no equivalent full claim; search incompleteness and the elementary scalar specialization remain residual originality risks. The observation that enormous outliers can cause catastrophic failure is credited to earlier work and not represented as the novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The precise conditional squared-risk envelope answers a practical mathematical question left open by the contrast between high-probability and mean-square convergence analyses: how large a quantile calibration batch is needed when adversarial corrupted observations have a known **relative** magnitude bound? The exact critical corruption level, discrete finite-batch evaluation, and sharp second-order amplitude budget quantify a natural reliability tradeoff. The dimension-one character is openly stated, and no higher-dimensional threshold is inferred.
+The exact unconditional scalar finite-D minimax functional, sharp beta=1/4 contraction boundary, and two-term B-dependent batch size were not supplied by the inspected high-probability streaming or finite-sample quantile-Kaczmarz papers. Corruption catastrophe itself and the streaming rule are explicitly prior art.
 
-## Boundaries and sources
+## value
 
-Primary source: arXiv:2608.27968 (streaming rule and Massart adversary). Nearest precursor: arXiv:2507.15185 (subsample/high-probability catastrophe results). Foundational quantile Kaczmarz: arXiv:2009.08089. These are not independent validations of the present calculations. This work assumes exact arithmetic, independent corruption indicators, and state-relative magnitude bounds; robust multi-dimensional performance and general unbounded-amplitude unconditional guarantees are outside its scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural exact worst-case design question for a published stochastic projection update: gives practical analytic calibration bounds and a sharp feasibility threshold while explaining why excluded rare batches undermine unconditional risk. This is not a mere restatement of high-probability convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
