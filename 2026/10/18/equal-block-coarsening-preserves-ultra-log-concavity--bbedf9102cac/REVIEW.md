@@ -1,17 +1,21 @@
-# Scientific review: equal-block coarsening preserves ultra-log-concavity
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise hypotheses are nonnegative integer support with no internal zeros and ultra-log-concavity \(n a_n^2\ge(n+1)a_{n-1}a_{n+1}\). The proof converts this to ordinary log-concavity of \(c_n=n!a_n\), applies a two-middle versus two-outer product inequality at each pair of block residues, and independently proves the sharp factorial-weight comparison by monotonicity in the two residues. Summation gives the target ULC inequality at every integer block index. Positive outer blocks force all middle original coordinates positive, so the strictness conclusion follows from the strictly positive \((0,0)\) summand for \(m\ge2\). The Poisson/Erlang interpretation is exactly pathwise; covariance with the strictly decreasing size-biased adjacent-mass ratio yields strict variance underdispersion. The finite exact-rational verifier confirms sampled identities, not infinite quantifiers.
+## correctness
 
-## Originality — PASS, subject to independent priority verification
-The most relevant open-access 2023 article by Puig, Valero and Fernández-Fontelo proves/quotes renewal-count underdispersion from an IFR interarrival law (Section 2.1, Proposition 1), which is weaker than ultra-log-concavity. Badiella, del Castillo and Puig (2023) establish ULC for *order statistics* (its main theorem), whereas \(X\mapsto\lfloor X/mfloor\) is a different, deterministic coarsening operation. Neither statement implies the present universal preservation result. General ULC closure under convolution and binomial thinning likewise does not subsume this nonrandom many-to-one map. Mathematical-record searches and previous-claim comparisons did not identify coverage, but 2026 grouped-Poisson modeling articles were only inspectable at abstract level and differently named older results remain a priority risk.
+PASS
 
-## Value — PASS
-The assertion supplies an all-distributions closure theorem for a natural grouped-count observation mechanism, not merely a fitted numerical example. Its strictness theorem upgrades the known underdispersion conclusion for ordinary integer-shape Erlang renewal counts to a full adjacent-probability shape constraint. Equal block size is integral to the sharp factorial comparison, establishing a structural reason for the condition. The result does not classify noninteger Gamma renewals or unequal-width grouping.
+Set c_n=n!a_n, log-concave with interval support. For any k>=1 and residues 0<=j,l<m, indices mk+j,mk+l lie between m(k-1)+j and m(k+1)+l and sums agree, so c_{mk+j}c_{mk+l}>=c_{m(k-1)+j}c_{m(k+1)+l}. The positive factorial weights A_{k,j}=k!/(mk+j)! obey A_{k,j}A_{k,l}>=A_{k-1,j}A_{k+1,l}, since the first k-step quotient is smallest at j=m-1 and second largest at l=0, where they are exactly equal. Multiply and sum m^2 cross-pair inequalities to obtain (k!b_k)^2>=((k-1)!b_{k-1})((k+1)!b_{k+1}), all m including m=1. For m>=2 and b_{k-1}b_{k+1}>0, interval support forces a_{mk}>0 and strict j=l=0 cross-pair gap, so strict ULC. For Poisson input, grouped arrivals are exactly Erlang(m,lambda) renewal counts and strictly decreasing R(k)=(k+1)b_{k+1}/b_k yields Cov(Y,R(Y))=Var(Y)-E[Y]<0. Independently checked 637 exact rational factorial-factor comparisons for m<=6,k<=7; finite checks only corroborate the quantified argument.
 
-## Sources and limits
-- Badiella, del Castillo and Puig, *Ultra log-concavity of discrete order statistics*, 2023, DOI: 10.1016/j.spl.2023.109900. First online 26 June 2023. The publisher-indexed text includes the definition, main theorem/proof, synchronized-sequence proposition and corollary; direct full PDF access was denied.
-- Puig, Valero and Fernández-Fontelo, *Some mechanisms leading to underdispersion*, 2023 first-online / 2024 issue, DOI: 10.1111/sjos.12677. Open-access full text, especially Section 2.1 and discussion of renewal underdispersion.
-- Johnson, *Log-concavity and the maximum entropy property of the Poisson distribution*, 2007, DOI: 10.1016/j.spa.2006.10.006, for classical ULC context.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Puig-Valero-Fernandez-Fontelo 2023/2024 establishes underdispersion of IFR/Erlang renewal counts, which is weaker than distribution-wide strict ULC or closure for all interval-supported ULC inputs. Badiella-del Castillo-Puig 2023 proves ULC for independent-replicate order statistics, a different transformation from deterministic floor(X/m). Classical convolution and thinning closures likewise do not immediately imply equal-width aggregated-block closure. Search did not locate a more general theorem with exact operator, leaving priority uncertainty.
+
+## value
+
+PASS
+
+ULC is a strong regularity property giving more information than the known variance bound; exact closure for every equal integer block size extends from Poisson to arbitrary interval-supported ULC laws, with a strictness theorem. It supplies a reusable structural fact about deterministic count coarsening and Erlang renewal distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

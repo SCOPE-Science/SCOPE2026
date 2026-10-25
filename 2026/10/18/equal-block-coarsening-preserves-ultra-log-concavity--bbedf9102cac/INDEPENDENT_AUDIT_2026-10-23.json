@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:16:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set c_n=n!a_n, log-concave with interval support. For any k>=1 and residues 0<=j,l<m, indices mk+j,mk+l lie between m(k-1)+j and m(k+1)+l and sums agree, so c_{mk+j}c_{mk+l}>=c_{m(k-1)+j}c_{m(k+1)+l}. The positive factorial weights A_{k,j}=k!/(mk+j)! obey A_{k,j}A_{k,l}>=A_{k-1,j}A_{k+1,l}, since the first k-step quotient is smallest at j=m-1 and second largest at l=0, where they are exactly equal. Multiply and sum m^2 cross-pair inequalities to obtain (k!b_k)^2>=((k-1)!b_{k-1})((k+1)!b_{k+1}), all m including m=1. For m>=2 and b_{k-1}b_{k+1}>0, interval support forces a_{mk}>0 and strict j=l=0 cross-pair gap, so strict ULC. For Poisson input, grouped arrivals are exactly Erlang(m,lambda) renewal counts and strictly decreasing R(k)=(k+1)b_{k+1}/b_k yields Cov(Y,R(Y))=Var(Y)-E[Y]<0. Independently checked 637 exact rational factorial-factor comparisons for m<=6,k<=7; finite checks only corroborate the quantified argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Puig-Valero-Fernandez-Fontelo (2024) §2.1 and §5 identify increasing-failure-rate renewal counts as underdispersed, including Erlang.",
+          "Badiella et al (2023) establish ULC under order statistics only."
+        ],
+        "reasoning": "Underdispersion Var(Y)<E[Y] is weaker than k b_k^2>=(k+1)b_{k-1}b_{k+1} for every k; a broad IFR variance result does not imply strict ULC or general ULC-input block stability.",
+        "searches": [
+          "ultra log concavity equal contiguous block aggregation floor Poisson Erlang renewal",
+          "equal block coarsening ultra log concavity Poisson grouped counts theorem floor divided m",
+          "Erlang renewal count ultra log concavity equal block aggregation",
+          "ultra log concavity discrete order statistics Badiella 2023"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/equal-block-coarsening-preserves-ultra-log-concavity--bbedf9102cac/RESULT.md",
+        "https://doi.org/10.1111/sjos.12677",
+        "https://doi.org/10.1016/j.spl.2023.109900",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Puig et al Wiley full HTML §2.1 and §5 conclude IFR underdispersion only.",
+          "Badiella et al ScienceDirect indexed public full-text excerpt says its aim is preservation by order statistics, not block aggregation."
+        ],
+        "reasoning": "Neither cited theorem implies the full quantified ULC inequality under floor(X/m). The reverse implication from ULC to underdispersion is proved in the record and acknowledges pre-existing renewal variance result.",
+        "searches": [
+          "ultra log concavity equal contiguous block aggregation floor Poisson Erlang renewal",
+          "equal block coarsening ultra log concavity Poisson grouped counts theorem floor divided m",
+          "Erlang renewal count ultra log concavity equal block aggregation",
+          "ultra log concavity discrete order statistics Badiella 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badiella-del Castillo-Puig (2023) DOI:10.1016/j.spl.2023.109900 proves order statistics of independent discrete observations preserve ULC.",
+          "Equal block coarsening is b_k=sum_{j<m}a_{mk+j}, distinct from order statistic convolution/recur formulas."
+        ],
+        "reasoning": "Order-statistic closure changes the law by taking min/max/quantiles of i.i.d. observations; floor(X/m) is deterministic disjoint block aggregation of one count, not a special case of cited theorem.",
+        "searches": [
+          "ultra log concavity equal contiguous block aggregation floor Poisson Erlang renewal",
+          "equal block coarsening ultra log concavity Poisson grouped counts theorem floor divided m",
+          "Erlang renewal count ultra log concavity equal block aggregation",
+          "ultra log concavity discrete order statistics Badiella 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026 entries for Poisson renewal blocks and discrete log concavity returned overshoot and small-support examples but not deterministic equal-width ULC coarsening.",
+          "Puig article §2.1 discusses renewal dispersion, no tabulated ULC inequalities for the coarsened pmf."
+        ],
+        "reasoning": "The natural exact result is universal closure of a sequence class, not a finite parameter table; published numerical examples or variance bounds cannot serve as that table.",
+        "searches": [
+          "ultra log concavity equal contiguous block aggregation floor Poisson Erlang renewal",
+          "equal block coarsening ultra log concavity Poisson grouped counts theorem floor divided m",
+          "Erlang renewal count ultra log concavity equal block aggregation",
+          "ultra log concavity discrete order statistics Badiella 2023"
+        ]
+      },
+      "rationale": "Puig-Valero-Fernandez-Fontelo 2023/2024 establishes underdispersion of IFR/Erlang renewal counts, which is weaker than distribution-wide strict ULC or closure for all interval-supported ULC inputs. Badiella-del Castillo-Puig 2023 proves ULC for independent-replicate order statistics, a different transformation from deterministic floor(X/m). Classical convolution and thinning closures likewise do not immediately imply equal-width aggregated-block closure. Search did not locate a more general theorem with exact operator, leaving priority uncertainty.",
+      "residual_risks": [
+        "Full Badiella-del Castillo-Puig 2023 four-page paper was not retrievable via Wiley/DOI route; a transfer of synchronized-sequence machinery could relate to the present proof.",
+        "Older literature under groupings, bunching, renewal-count convex order, or alternate factorial-moment terminology could contain equivalent closure without the words ultra-log-concavity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "WEAKER_DISPERSION_PRIOR",
+          "evidence": "States IFR-type sufficient condition for Var<mean; no general equal-block ULC closure theorem in inspected discussion.",
+          "identifier_or_url": "https://doi.org/10.1111/sjos.12677",
+          "material_read": "Full open-access Wiley HTML read, especially §§2.1,4 and §5 discussion of IFR renewal counts and binomial thinning",
+          "method": "Full HTML primary article",
+          "title": "Some mechanisms leading to underdispersion: Old and new proposals",
+          "trigger": "Prior Erlang renewal underdispersion claim"
+        },
+        {
+          "assessment": "DIFFERENT_TRANSFORMATION_WITH_RESIDUAL_RISK",
+          "evidence": "Abstract and introduction expressly study order statistics of replicated counts; uninspected sections may contain transferable lemmas.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Indexed ScienceDirect extended article excerpt including introduction and ULC definition; full 4-page article inaccessible via redirected DOI; no claim of whole-document noncoverage",
+          "method": "Search-indexed primary excerpt and DOI access attempt",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Closest ULC preservation article"
+        },
+        {
+          "assessment": "NO_DIRECT_MATCH",
+          "evidence": "No returned matching equal-block coarsening result; this is not conclusive novelty evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Ranked title/summary records on renewal overshoots and ULC-related other models; no full texts read",
+          "method": "Resultary semantic search",
+          "title": "Resultary search for Erlang renewal ULC and equal-block aggregation",
+          "trigger": "Published mathematical corpus comparison for exact same invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "ULC is a strong regularity property giving more information than the known variance bound; exact closure for every equal integer block size extends from Poisson to arbitrary interval-supported ULC laws, with a strictness theorem. It supplies a reusable structural fact about deterministic count coarsening and Erlang renewal distributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/equal-block-coarsening-preserves-ultra-log-concavity--bbedf9102cac/RESULT.md",
+    "https://doi.org/10.1111/sjos.12677",
+    "https://doi.org/10.1016/j.spl.2023.109900",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full Badiella-del Castillo-Puig 2023 four-page paper was not retrievable via Wiley/DOI route; a transfer of synchronized-sequence machinery could relate to the present proof.",
+    "No GitHub publication, third-party attestation or formal mechanized proof is represented; finite checks are corroboration only."
+  ],
+  "residual_risks": [
+    "Full Badiella-del Castillo-Puig 2023 four-page paper was not retrievable via Wiley/DOI route; a transfer of synchronized-sequence machinery could relate to the present proof.",
+    "Older literature under groupings, bunching, renewal-count convex order, or alternate factorial-moment terminology could contain equivalent closure without the words ultra-log-concavity."
+  ],
+  "schema_version": 1
+}
