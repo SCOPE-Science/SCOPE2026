@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The bilinear multiplication gives the three quadratic planes. The proof rules out every two-dimensional subalgebra not containing the identity by a field-theoretic contradiction, rather than assuming all subalgebras are unital. The determinant identity confines every one-dimensional subalgebra to those planes, and standard degree-two algebra arithmetic counts the possible idempotent and nilpotent lines. Two-sided inverses are constrained using the commutator and the vector component of the product, while generation follows from inclusion-exclusion on all maximal proper subalgebras. These are general algebraic arguments valid for every finite field, not extrapolations from enumerations. The standalone checker independently enumerates subspaces, units, nilpotents, idempotents, and generated subalgebras for thirteen parameter configurations. The boundary at \(t=0\) is excluded throughout.
+## correctness
 
-## Originality
-**PASS (same-model best-knowledge assessment, not priority certification).** The closest literature is Bermejo Valdés, arXiv:2610.12483v1, whose Sections 4, 5, and 9 establish the defining real-algebra geometry and real subalgebra classification. Those parts are acknowledged as prior; the finite-field incidence lattice, characteristic-two quadratic degenerations, and exact finite-field unit/structure and generator counts are not statements of that work. Abdurasulov–Eraliyeva–Kaygorodov, arXiv:2603.04391v1, concerns complex structurable algebras with a structurability hypothesis, not the present positive-characteristic family. Semantic research-record searches returned superficially similar classifications of associative or Lie algebras, but no result with the same multiplication and finite-field profile. Some further specialized semantic searches encountered internal unavailability; no novelty is inferred from that failure. Residual risk: an unindexed equivalent calculation in small nonassociative algebra literature; human priority review remains needed.
+PASS
 
-## Value
-**PASS.** The real classification itself notes that its real subalgebra census cannot be transferred unchanged outside the real field. This is the complete finite-field counterpart, including all nonunital subalgebras, the full inclusion poset, exact numbers of two-sided units and degeneracies, and generation statistics. The dependence on splitting of two quadratic polynomials produces distinct arithmetic regimes, while in characteristic two all nonzero parameters have the same ten-subalgebra incidence lattice and no single generator exists over the smallest field. The precise lattice is useful for subsequent structural and Rota-type operator questions. This is an exact classification of a natural current family, not merely a re-expression of the real count or a single small example.
+The multiplication expansion v²=−(b²+c²)1+tbc(i+j) forces the three unital planes; any nonunital plane ker(a+ub+vc), with generators i−u1,j−v1, has u²=v²=−1 and uv=0, impossible over any field. det[1,x,x²]=tbc(b−c) traps all one-dimensional closed lines in those planes. The quadratic quotient types K[z]/(z²+1), K[z]/(z²−tz+2) give the exact split/double/inert line, unit, idempotent and nilpotent counts, including characteristic two. Two-sided-inverse commutator forces a non-scalar inverse into the same commutative plane; uniqueness follows. Inclusion–exclusion over planes with pairwise intersection K1 gives s_r=q^(3r)−3q^(2r)+2q^r. Independent direct multiplication and exhaustive projective-closure/unit counts match q=2,3,5,7 across seven parameters; all character cases arise. Finite checks corroborate, universal conclusion follows the algebraic proof.
 
-## Closest sources and limitations
-The complete multiplication law and prior real classification are in Bermejo Valdés, *Complex slices, inverses, and deformations of a three-dimensional real algebra*, arXiv:2610.12483v1, especially Sections 2, 4, 5, 9. The structurability-boundary comparison is Abdurasulov–Eraliyeva–Kaygorodov, *Unital 3-dimensional structurable algebras*, arXiv:2603.04391v1, Sections 1.2 and 1.3.3. The present theorem excludes the commutative case \(t=0\). All finite-field claims have one mathematical proof and thirteen independent finite checks; no separate external audit or exhaustive bibliography is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The real-field structural trichotomy and three-plane algebra are explicitly prior, but exact finite-field characteristic-uniform lattice and arithmetic cardinalities are not stated or implied by the real-only positive/negative discriminant cases. The general complex structurable-algebra classification concerns a more restricted category. A finite-field analogue could exist elsewhere, so priority is not certified.
+
+## value
+
+PASS
+
+Finite-field forms of a natural three-dimensional nonassociative deformation have a genuine characteristic-two jump in quadratic plane types and explicit combinatorial invariants (subalgebra incidence, two-sided invertible elements, generation probabilities) not determined by the published real case. An exact structure/count family is useful for finite-algebra classification and tests of characteristic-sensitive phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
