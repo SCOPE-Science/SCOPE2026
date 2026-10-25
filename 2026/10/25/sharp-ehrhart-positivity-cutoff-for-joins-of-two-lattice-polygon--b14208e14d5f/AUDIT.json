@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The standard join and five-dimensional Ehrhart numerator are fixed precisely. Pick data imply a>=b>=0,c>=d>=0. Exact expansion gives linear U/60 and quadratic V/24; cubic, quartic and leading coefficients are strictly positive. The relaxed integer search covers every realizable pair with NM<=168, with fully stated integer ranges. Its 14,438 states below 168 have U>=5,V>=45; among 14,838 states through 168 the sole nonpositive type is (N,M,b,d)=(12,14,0,0), U=-4,V=142. Explicit empty lattice triangles realize the sharp case. A second primitive-boundary triangle yields U=113,V=-1. The included standard-library verifier independently computes six Ehrhart coefficient vectors from h-star expansion and convolution/Newton interpolation. Proof and exact calculations were checked from the current standalone source, not inferred from logs or finite sampling for unbounded claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.18794v1 Theorem 2.3 constructs, for a factor of dimension at least four and an interval, failure after sufficiently large dilation; Example 2.4 has a four-cube/interval join.",
+        "arxiv:2610.06338v1 Example 3.4 explicitly credits that earlier example and does not specialize to the two-polygon minimum.",
+        "The known formula for arbitrary standard joins is broader in its objects, but is not itself a statement of the minimum failing normalized volume in the two-polygon subclass."
+      ],
+      "reasoning": "General non-preservation theorems neither establish the minimum 168 nor rule out positivity below it. The present theorem is not a reformulation of any specific stronger bound in the inspected portions; its proof uses the broader algebraic identities but requires an independent exact discrete optimization over polygon Pick data.",
+      "searches": [
+        "Ehrhart Theory of the Join of Two Lattice Polytopes arxiv 2606.18794 Theorem 2.3 Example 2.4",
+        "Ehrhart Properties under Operations on Lattice Polytopes arxiv 2610.06338 Example 3.4",
+        "Ehrhart positivity join two lattice polygons sharp normalized volume threshold 168 and coefficient sign characterization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.18794v1, Definition 1.1, Proposition 1.2, Section 2 Theorem 2.3 and Example 2.4.",
+      "arxiv:2610.06338v1, Section 3 lattice joins, Example 3.4, Table 1.",
+      "Classical Pick lattice-polygon formula for h-star coefficients.",
+      "Recent indexed geometric/Ehrhart reports located by the cited mathematical queries; no matching two-polygon cutoff was found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited generic product identity implies h-star multiplication and, when combined with Pick, allows the two coefficient polynomials to be derived by expansion.",
+        "The earlier non-preservation witness is in dimension six with a four-dimensional cube and interval; it supplies no lower bound for a pair of two-dimensional factors.",
+        "The new exhaustive integer-domain proof establishes that no two-polygon join of normalized volume smaller than 168 can fail, and proves exact uniqueness at 168."
+      ],
+      "reasoning": "The algebraic input and basic coefficient expansion should not be counted as original on their own. The final combined claim additionally supplies the optimized natural normalized-volume threshold, unique boundary data, and two independent realizable sign failures. Those specific implications are not stated or established by the inspected generic join results. No claim that a failed search proves novelty is made.",
+      "searches": [
+        "arxiv:2606.18794v1 Proposition 1.2 and Theorem 2.3",
+        "arxiv:2610.06338v1 Section 3 formula and Example 3.4",
+        "Ehrhart polynomial lattice polygon join two factors Pick normalized area 168"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2606.18794v1 Proposition 1.2(iv) states the classical lattice-join Ehrhart-series product.",
+        "arxiv:2610.06338v1 Section 3 gives the convolution of the factor Ehrhart polynomials and multiplication of their h-star numerators.",
+        "For polygons Pick data determine h-star numerators, but neither inspected article extracts the dimension-five coefficient diagram and sharp volume cutoff."
+      ],
+      "reasoning": "The known h-star multiplication identity is an input rather than the output. Equivalently writing the final criterion in boundary/interior counts or normalized areas does not turn either cited generic product identity into the sharp finite integer optimization showing 168 is first, nor into the uniqueness at the boundary. Search results did not supply a separate complete sharp classification; this is priority evidence with residual risk, not mathematical proof of novelty.",
+      "searches": [
+        "Ehrhart positivity join of lattice polygons h-star product sign criterion",
+        "two-dimensional lattice polytope join with other two-dimensional lattice polygon Ehrhart sign complete criterion Pick formula",
+        "polygon polygon join empty lattice triangles Ehrhart coefficient negative smallest volume 12 14",
+        "arxiv:2606.18794v1 Proposition 1.2",
+        "arxiv:2610.06338v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or previously published minimum was retrieved for the combined parameters 12 and 14 or normalized volume 168.",
+        "Closest distinct material concerns lattice-segment Cartesian factors, oriented-cycle root polytopes, and other classes of Ehrhart polytopes; these do not count two-polygon joins.",
+        "The newly attached exhaustive domain certificate counts exactly 14,438 relaxed Pick-data states below 168 and establishes a unique nonpositive state through 168."
+      ],
+      "reasoning": "The new state count is a finite mathematical certificate, not an external novelty database. The external records searched did not establish a table of minimal normalized volumes for two-polygon joins. Incomplete indexing remains an explicit risk.",
+      "searches": [
+        "lattice join of two lattice polygons normalized volume 168 smallest non Ehrhart positive 5-polytope",
+        "Ehrhart positivity join of lattice joins of two lattice polygons sharp normalized volume threshold 168",
+        "Ehrhart positivity for join of two lattice polygons exact coefficient characterization in dimension five Pick theorem",
+        "Ehrhart join of lattice polygons h star negative coefficient normalized volume smallest"
+      ]
+    },
+    "rationale": "The two closest inspected recent primary papers establish Ehrhart-series multiplication and non-preservation under lattice joins, but neither derives the complete two-polygon coefficient sign criterion or sharp minimum normalized volume 168 with unique first-failure Ehrhart data. The present contribution is not simply the classic series identity; it solves a motivated discrete parameter optimization and establishes independent linear and quadratic sign defects with exact realizations. Prior searches and accessible historical comparison revealed no encompassing bound, with nonzero residual priority uncertainty.",
+    "residual_risks": [
+      "Earlier equivalent bounds or two-factor tables under different terminology may have escaped the searches.",
+      "Some prior generic algebraic formulas are stronger in object class; the new claim rests on the separate sharp integer optimization, not on inventing the standard join-series formula.",
+      "Independent expert priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes generic product and failure for joins with a dimension-at-least-four factor; not the precise two-polygon volume threshold or first-failure classification.",
+        "evidence": [
+          "Proposition 1.2(iv): Ehrhart-series product for joins.",
+          "Theorem 2.3: sufficiently large dilations of d>=4 polytopes joined with a unit interval fail.",
+          "Example 2.4: explicit 100 times unit four-cube joined with interval, degree six."
+        ],
+        "identifier_or_url": "arxiv:2606.18794v1 | https://arxiv.org/pdf/2606.18794",
+        "material_read": "Actual full-text sections including Definition 1.1 and Proposition 1.2 on page 3, Section 2 including Theorem 2.3 and Example 2.4 on pages 5–8.",
+        "method": "Read the arXiv full-text PDF and inspected displayed formulas and theorem pages.",
+        "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+        "trigger": "Directly studies Ehrhart positivity under standard joins, the same construction."
+      },
+      {
+        "assessment": "Summarizes classical join identities and the prior dimension-six counterexample, not a lower normalized-volume bound or classification for two polygon factors.",
+        "evidence": [
+          "Section 3: L_{P*Q}(n)=sum_{k=0}^n L_P(k)L_Q(n-k).",
+          "Example 3.4 attributes its non-preservation witness to Liu–Tao–Xin."
+        ],
+        "identifier_or_url": "arxiv:2610.06338v1 | https://arxiv.org/pdf/2610.06338",
+        "material_read": "Actual PDF Section 3 on lattice joins, its convolution and h-star formulas, and Example 3.4; Table 1 on preservation.",
+        "method": "Read full-text arXiv PDF section and inspected the formulas on pages 10–12.",
+        "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+        "trigger": "More recent broad source devoted to preservation and positivity of lattice joins."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b14208e1-4d5f-4bc3-b612-8ad9a35c1a9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent failure of Ehrhart positivity under joins raises a natural size-and-dimension boundary question. For joins of two lattice polygons—the smallest nontrivial symmetric planar pair of factors—the exact normalized-volume threshold 168 is a structural, sharp finite invariant, not an arbitrary parameter slice. The all-parameter sign criterion and unique minimal Ehrhart-data obstruction complete the first natural planar-by-planar case, while a distinct quadratic-only example separates the two algebraic failure mechanisms. The result is specific to standard joins and makes no unsupported global dimension/minimality claim.",
+    "status": "PASS"
+  }
+}
