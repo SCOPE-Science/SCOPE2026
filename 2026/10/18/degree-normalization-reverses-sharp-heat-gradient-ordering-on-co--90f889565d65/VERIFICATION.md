@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof derives the exact coefficient from the two-state block-mass chain and the two within-part fluctuation eigenspaces, then uses the fixed sign pattern of adjacent transition-row differences. The partition comparison is an application of strictly convex integral functions for the combinatorial generator, and a reciprocal-part-size identity for the unit-exit-rate generator. The intermediate-exponent crossover is proved by strict convexity of negative powers and comparison of dominant exponential decay rates; the small-exponent crossing branch is established by the analytic implicit-function theorem.
+## correctness
 
-Execute `python3 verify.py` in the same directory as this document. The verifier has no external dependencies beyond Python 3's standard library. It forms the finite-state generator via its Poissonized embedded transition chain, evolves the two signed initial point masses, sums absolute heat-row differences, and compares them to the proposed formula. It also checks finite samples of the ordering, short-time derivative, and dominant decay exponents. The completed run returned `PASS 4880 independent finite numerical/analytic-identity assertions`.
+PASS
 
-Finite numerical assertions verify only those selected parameter cases. They do not certify the universal theorem, global novelty, or any independent audit. The analytical proof in `RESULT.md` is the source of the infinite-family conclusions.
+A vertex-level row-difference spectral decomposition of Q_{a,b,θ} has two within-part modes exp(-b^{1-θ}t), exp(-a^{1-θ}t) and one aggregate exp(-(a^{1-θ}+b^{1-θ})t). The fixed row signs yield the exact ℓ∞→edge-Lipschitz operator norm with ±1 attainment. Strict convexity of (s-1)∫exp(sr)dr gives the unnormalized imbalanced>balanced order, while decreasing 1/a+1/b gives its normalized reversal. Intermediate exponents give strictly opposite small- and large-time orders; dividing the difference by t and using the implicit function theorem yields the stated short-time crossing expansion. Independent finite matrix exponentials verify representative formula and order cases, not all quantifiers.
+
+## originality
+
+PASS
+
+General graph Li–Yau gradient bounds and their nonlinear curvature variants do not determine the exact best L∞→edge Lipschitz coefficient or its partition ordering. Kubo–Namba treats regular bipartite graphs and heat-kernel entry ratio monotonicity, excluding the unequal K_{a,b} sharp coefficient. Published pumpkin metric-quantum heat envelope concerns a different generator.
+
+## value
+
+PASS
+
+The exact sharp semigroup gradient norm and its strict reversal under canonical degree normalization, together with a universal time-crossover and a quantified boundary layer, isolate a concrete structural normalization effect relevant to diffusion and Markov contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

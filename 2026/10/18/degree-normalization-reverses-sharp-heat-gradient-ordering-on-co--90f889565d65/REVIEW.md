@@ -1,17 +1,21 @@
-# Scientific assessment: normalization-dependent sharp heat smoothing
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** On a complete bipartite graph the two aggregate part masses form a two-state Markov chain, while fluctuations within each part decay at its common exit rate. The exact adjacent-row difference follows by decomposing these invariant subspaces. Its signs are fixed for every positive time, so the total-variation formula gives the true supremum over bounded real or complex inputs, with an explicit attaining sign input. The strict unnormalized comparison follows from an integral representation with positive second derivative; the normalized comparison follows from the strict ordering of reciprocal part sizes. The intermediate-exponent statements follow from independently proved small- and large-time asymptotics. An analytic implicit-function argument supplies the positive short-time crossing and its first-order expansion. No numerical extrapolation is used to establish an infinite-family statement.
+## correctness
 
-## Originality
-**PASS within examined evidence (self-review).** Bauer et al. (arXiv:1306.2561, §§2, 4, 7) and Münch (arXiv:1412.3340, §§2, 4) give general graph heat-gradient and curvature estimates; they do not state the exact sharp edge-gradient constants and strict complete-bipartite ordering. Kubo–Namba (arXiv:2103.08149, Theorem 1.2) studies the time monotonicity of a heat-kernel *ratio* for regular bipartite graphs with four eigenvalues, not the bounded-input to graph-Lipschitz norm or its dependence on part imbalance. Public mathematical-record comparisons on complete bipartite structures and graph heat operators did not identify a stronger statement implying the combined trichotomy or the small-exponent crossing law. The spectral reduction and endpoint total-variation duality themselves are standard and are not claimed as novel.
+PASS
 
-A residual priority risk is that an earlier source could encode these conclusions using Dobrushin coefficients, neighboring-row total variation, or coupling distances without graph-gradient terminology. This search cannot establish absolute novelty.
+A vertex-level row-difference spectral decomposition of Q_{a,b,θ} has two within-part modes exp(-b^{1-θ}t), exp(-a^{1-θ}t) and one aggregate exp(-(a^{1-θ}+b^{1-θ})t). The fixed row signs yield the exact ℓ∞→edge-Lipschitz operator norm with ±1 attainment. Strict convexity of (s-1)∫exp(sr)dr gives the unnormalized imbalanced>balanced order, while decreasing 1/a+1/b gives its normalized reversal. Intermediate exponents give strictly opposite small- and large-time orders; dividing the difference by t and using the implicit function theorem yields the stated short-time crossing expansion. Independent finite matrix exponentials verify representative formula and order cases, not all quantifiers.
 
-## Value
-**PASS (self-review).** The two conventional graph heat generators produce precisely reversed worst-case partition geometries, *at every positive time*, although they act on the same family of graphs and the same sharp endpoint norm. The intermediate degree exponents cannot preserve either fixed partition ordering and force a genuine time-dependent change. The explicit first-crossing scale quantifies the singular transition away from the combinatorial generator. This is a structural boundary and stability result for network diffusion rather than an isolated matrix entry or parameter substitution.
+## originality
 
-## Scientific limitations
-The theorem is restricted to unit-edge complete bipartite graphs and the unweighted bounded-input/edge-Lipschitz endpoint norm. It proves existence but not global uniqueness of the intermediate time crossings. A separate historical-priority check remains useful, especially for total-variation or Markov-coupling formulations. All computational checks are finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+General graph Li–Yau gradient bounds and their nonlinear curvature variants do not determine the exact best L∞→edge Lipschitz coefficient or its partition ordering. Kubo–Namba treats regular bipartite graphs and heat-kernel entry ratio monotonicity, excluding the unequal K_{a,b} sharp coefficient. Published pumpkin metric-quantum heat envelope concerns a different generator.
+
+## value
+
+PASS
+
+The exact sharp semigroup gradient norm and its strict reversal under canonical degree normalization, together with a universal time-crossover and a quantified boundary layer, isolate a concrete structural normalization effect relevant to diffusion and Markov contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
