@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-Run `python3 check_sections.py` with Python 3 and NumPy, SciPy and SymPy installed. The checker uses separate horizontal-chord and in-plane-polar integral calculations for 159 normal directions, exact symbolic cancellation of the secant kernel, meridional balancing tests, and the alternate integral representation of the critical-point equation. An observed successful execution returned:
+# Independent mathematical audit
 
-```
-SYMBOLIC_SECANT_IDENTITY_OK
-INDEPENDENT_POLAR_AND_CHORD_QUADRATURE_OK 159 max_errors 1.219679517383554e-07 3.1459279625778436e-12
-DIRECTIONAL_BALANCING_MONOTONICITY_OK 7x300
-MERIDIAN_ONE_MINIMUM_AND_EXTREME_SECTIONS_OK root=1.320136713377 value=3.820396841389
-ALL_BICYLINDER_SECTION_CHECKS_OK
-```
+## correctness
 
-The two quadrature methods are distinct from the closed inverse-tangent expression, but finite and floating-point tests do not prove global extrema, completeness of equality directions or the strictly increasing meridional test function. Those claims rest on the analytical identities and positivity arguments in `RESULT.md`. The checker is self-contained other than the declared scientific Python dependencies. No independent review or external validation is claimed.
+PASS
+
+The horizontal-square chord integration gives the displayed arctangent profile for a>=b>=0,c>0. Its boundary limits b=0, c=0, a=b=0 agree with direct disks/square. The secant integral has denominator c^4+c^2t^2(X+Y)+t^4XY, hence strict balancing when XY falls at fixed X+Y. Along a=b, T(r) is strictly increasing from -4 to 4/3, giving the unique internal minimum and upper endpoint π√2; containing the unit ball gives lower endpoint π, strict except coordinate planes. Brunn concavity plus central symmetry controls affine slices. Independently integrated polar radial areas for eight axes/oblique normals at high angular resolution (error below 3e-8); inspected actual check_sections.py and frozen RESULT.md. No inequality for arbitrary noncentral minimum is claimed.
+
+## originality
+
+PASS
+
+Fresh comparison of exact statements and implications, with inspected primary mathematical sources, bounded Resultary searching, and recorded inaccessible potentially relevant sources. Classical total-volume integrals and boundary-area data do not determine the central-section profile, strict normal balancing or affine equality locus. No inspected statement proved the full result; older papers remain uninspected, so no categorical historical exclusion is asserted.
+
+## value
+
+PASS
+
+The complete sharp profile with strict balancing and equality loci is a natural geometric invariant of the classical convex bicylinder, resolving nonaxial sections rather than mechanically recomputing its well-known total volume. The distinction between central min, arbitrary affine max and unique interior meridional dip is substantively informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
