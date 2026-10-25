@@ -1,0 +1,70 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:00:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob c1a262cf72d7915b3754e1963687a631cb1052de",
+        "Pinned checker.py blob f8a906b75e2df43cd73b1b397f78e123dbf005f0",
+        "Independent exact NetworkX reconstruction at /mnt/data/scope_worker04_audit_20261023T1846Z/independent_check_lee.py (private reproduction)",
+        "Kim et al Section 2, arXiv:1402.6807"
+      ],
+      "rationale": "PASS for exactly p in {5,7,11,13}. Cyclotomic minimal-polynomial divisibility shows F_A(u)=0 exactly when 0 and ±u_k cover Fp once, giving D_p all signed permutations of 1..d and |D_p|=2^d d!. After translating B and signed-coordinate normalization u=(1,..,d), every p-element spectrum gives a (p−2)-clique of V_p={v∈D_p:v−u∈D_p}. An independently written exact NetworkX maximal-clique enumeration, using a different implementation from checker.py, confirms profiles p=5 {3:1}, p=7 {5:1}, p=11 {2:120,9:1}, p=13 {1:24,2:324,3:225,5:42,11:1}. The numbers of graph vertices are respectively 3,5,69,319 and edges 3,10,156,926. Each has a UNIQUE clique of order p−2, the radial one. Consequently every full B is an affine line; |D_p|p^(d−1)/(p−1) yields 10,392,5622144,1425765120 distinct spectra. Independent modular checks confirm the stated p=13 noncollinear four-character witness. These are exhaustive FINITE checks, not proof for p>13; the analytic reduction establishes their exact relevance to the claimed four primes.",
+      "residual_risks": [
+        "The result relies on a fully exhaustive finite certificate and does not address primes beyond thirteen.",
+        "The independent graph enumeration corroborates, rather than substitutes for, the cyclotomic reduction and graph-completion proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Kyoung-Tark Kim, Mitsugu Hirasaka and Yoshihiro Mizoguchi, Uniqueness of Butson Hadamard matrices of small degrees (2014/2015), arXiv:1402.6807, Theorem 1.1 and Section 2",
+        "Ronan Egan, Dane Flannery and Padraig Ó Catháin, Classifying cocyclic Butson Hadamard matrices (2015), arXiv:1502.02717, Sections 2.2 and 5, Proposition 5.4",
+        "Aten et al., Tiling sets and spectral sets over finite fields (2015), arXiv:1509.01090, Proposition 6.4",
+        "Kiss, Matolcsi, Matolcsi and Somlai, Tiling and weak tiling in (Z_p)^d, arXiv:2212.05513v1, Sections 2–3",
+        "Iosevich, Kolountzakis, Lyubarskii, Mayeli and Pakianathan, On Gabor Orthonormal Bases Over Finite Prime Fields, https://eigen-space.org/ps/gaborzp.pdf, Sections 1 and 3",
+        "Weiqi Zhou, Spectrality of Prime Size Tiles, arXiv:2509.23752v7, Theorem 1"
+      ],
+      "rationale": "FAIL due to a decisive earlier general theorem: Kim–Hirasaka–Mizoguchi (2014), Theorem 1.1, shows every BH(p,p) for prime p≤17 is equivalent to Fp. A spectral Lee-cross pair produces exactly such a BH(p,p); dephasing a Fourier-equivalent exponent matrix and using the sites e_k forces B to be an affine line. The source spectral counts are then the elementary signed-permutation/orbit formula. Egan–Flannery–Ó Catháin (2015) explicitly cites the theorem as Proposition 5.4. No match of wording or published Lee-cross count table is needed: the prior implication completely covers the central claim. The secondary p=13 noncollinear partial witness is independently valid, but it cannot make an already-covered full-spectrum claim original.",
+      "residual_risks": [
+        "No independent global enumeration of all BH(17,17) has been performed here; the published 2014 theorem is used as established primary literature.",
+        "An independent priority for the secondary p13 local partial-family witness is not established, but it does not rescue the wholly covered principal theorem."
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kyoung-Tark Kim, Mitsugu Hirasaka and Yoshihiro Mizoguchi, Uniqueness of Butson Hadamard matrices of small degrees (2014/2015), arXiv:1402.6807, Theorem 1.1 and Section 2",
+        "Ronan Egan, Dane Flannery and Padraig Ó Catháin, Classifying cocyclic Butson Hadamard matrices (2015), arXiv:1502.02717, Sections 2.2 and 5, Proposition 5.4",
+        "Source RESULT.md and independent exact graph computation"
+      ],
+      "rationale": "FAIL for the submitted principal result because its all-spectrum rigidity and complete four-prime numerical census are immediate specializations of the pre-existing universal small-degree BH classification, with only elementary dephasing and orbit counting. The Lee cross and its spectra are natural geometric/Fourier objects, and the exact numbers can be useful as examples, but this contribution establishes no distinct unknown natural invariant or structural boundary beyond the known matrix theorem. The p=13 four-character noncollinear partial witness is a correct local illustration, not a motivated exact partial-family classification or a substantive independent theorem. Independent exact computation and a working checker do not alone establish mathematical value, and the principal claimed discovery is a known corollary.",
+      "residual_risks": [
+        "A pedagogical example or useful numerical benchmark may remain, but that is not a substantively novel contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Kyoung-Tark Kim, Mitsugu Hirasaka and Yoshihiro Mizoguchi, Uniqueness of Butson Hadamard matrices of small degrees (2014/2015), arXiv:1402.6807, Theorem 1.1 and Section 2",
+    "Ronan Egan, Dane Flannery and Padraig Ó Catháin, Classifying cocyclic Butson Hadamard matrices (2015), arXiv:1502.02717, Sections 2.2 and 5, Proposition 5.4",
+    "Aten et al., Tiling sets and spectral sets over finite fields (2015), arXiv:1509.01090, Proposition 6.4",
+    "Kiss, Matolcsi, Matolcsi and Somlai, Tiling and weak tiling in (Z_p)^d, arXiv:2212.05513v1, Sections 2–3",
+    "Iosevich, Kolountzakis, Lyubarskii, Mayeli and Pakianathan, On Gabor Orthonormal Bases Over Finite Prime Fields, https://eigen-space.org/ps/gaborzp.pdf, Sections 1 and 3",
+    "Weiqi Zhou, Spectrality of Prime Size Tiles, arXiv:2509.23752v7, Theorem 1",
+    "Source RESULT.md, checker.py, SLOGAN.txt, METADATA.json, AUDIT.json, REVIEW.md, VERIFICATION.md all read from assigned tree",
+    "Independent exact graph/clique witness reproduction, Python 3 and NetworkX"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No theorem for prime p>13 is asserted in submitted package; the prior 2014 BH uniqueness theorem covers up to p=17.",
+    "Partial orthogonal families can be noncollinear; BH classification applies to complete p×p bases only.",
+    "Published literature priority is resolved negatively by direct theorem implication, not by a lack of search hits."
+  ],
+  "residual_risks": [
+    "Complete-package publication remains blocked by operational/confidential process metadata; this is not a scientific reason for rejecting the theorem.",
+    "The locally reproduced certificate is exhaustive only for the four listed finite primes.",
+    "An older BH theorem proves a broader result p≤17; the four-prime graph check cannot establish originality."
+  ],
+  "schema_version": 1
+}
