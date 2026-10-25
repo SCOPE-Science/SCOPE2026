@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-delay equalizing equation reduces exactly to \((1+k^2/C)\cosh(bk)-\cosh k=0\). The coefficient identity (2) has one sign variation precisely when \(C>5/2\), yielding existence and uniqueness of a positive crossing. Bracketing its root with \(y=(1\pm\varepsilon)\log C\) and asymptotically inverting the hyperbolic ratio proves the full two-term formula. The executable supplementary root checker passed 75 assertion groups; finite numerical checks are not the proof.
+PASS
 
-## Originality — PASS, subject to independent assessment
+For Brownian search on [0,L] absorbed at 0, reflected at L, Poisson returns at r, and stable G/M/c if T_r(x)>1/(cμ), the exact no-reset critical point exists for C=cμL²/D>2 and has z=x_c/L=1−√(1−2/C), b=1−z. First passage and renewal give T_r(x)=[cosh k/cosh((1−x/L)k)−1]/r, k=L√(r/D); equating T_r(x_c)=T_0 gives (1+k²/C)cosh(bk)−cosh k=0. Its k^(2n) coefficient for n≥2 is [(1−b²)b^(2n−2)/(2n)!]×[n(2n−1)−Σ_{j=0}^{n−1}b^(−2j)]. For t=b^(−2), the bracket changes from positive to negative exactly once when C>5/2, using g_n=Σt^j−n(2n−1) and convex eventual first differences. For 2<C≤5/2 all coefficients nonpositive with one strict, so no positive root; C=2 directly none; when C>5/2, one sign change plus H(k)<0 as k→∞ establishes one positive root. At large C, letting y=kz, the exact root has log cosh ratio y+o(1), RHS Cy²(1+o(1)), first gives y/log C→1 then y=log C+2loglog C+o(1), and √r=cμL/√D×(log C+2loglog C+o(1)). Independent 65-digit mpmath tests confirmed no-root signs for C=2.2,2.5 and positive unique roots for C=2.5001,3,5,10,80,10^3,10^6,10^12 (y≈0.047869,2.64060,4.30215,5.66686,8.69509,11.85171,19.78540,34.725998); relative correction y/(log C+2loglog C) approaches 1.01 by C=10^12. Initial double-precision tiny-y cancellation was corrected by arbitrary precision; finite tests do not prove general uniqueness.
 
-Giral-Barajas and Bressloff (2026, arXiv:2602.05009v2) already derive the renewal formula, implicit crossover equation and numerical scaling. Their Sections II-IV and Appendices A-B were read. The two-term logarithmically corrected asymptotic is not stated there; the source instead reports an empirical higher-than-quadratic power. Earlier search-and-capture and resetting literature was compared by object and observable. Neither indexed scientific comparisons nor checked literature identified an explicit equalizing-rate logarithmic two-term law. General implicit-root/asymptotic inversion coverage remains a residual originality risk, and the 2025 source was not independently read in full.
+## originality
 
-## Value — PASS
+PASS
 
-The crossover is the reset strength at which the stable-region benefit changes sign, a concrete design invariant of search-fed queue systems. A numerical fit with apparent exponent above two can misrepresent large server counts. The exact squared-logarithmic quadratic law and dimensional constant settle the true large-scale resource requirement; the \(2\log\log C\) correction is essential to a useful finite-count approximation. The exact one-positive-root proof also eliminates ambiguity in which crossover is meant.
+Best-of-knowledge PASS for global positive-root uniqueness threshold C>5/2 and precise large-server r_eq∼c²(log C)² with 2loglog correction. Source Giral-Barajas–Bressloff establishes exact mean first passage equation and numerical crossover rates, explicitly fitting finite data to a power c^β with β>2; it does not prove this analytic one-root rule or logarithmically corrected asymptotic.
 
-## Limitations
+## value
 
-The theorem fixes \(D,L,\mu\), sets refractory delay to zero, and treats the one-wall-absorbing/one-wall-reflecting Brownian model. No claim about other queues or independent scientific certification is made. Secondary cited works outside the motivating article were not all inspected in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equalizing reset rate demarcates when resetting harms or helps queue stability and is natural to optimize as server capacity grows. A rigorous positivity threshold and universal c²(log c)² scale (with 2loglog correction) explain why source finite-c polynomial fits suggest a spurious fixed exponent >2; this is a meaningful quantitative phase boundary not a routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

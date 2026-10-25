@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:00:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Brownian search on [0,L] absorbed at 0, reflected at L, Poisson returns at r, and stable G/M/c if T_r(x)>1/(cμ), the exact no-reset critical point exists for C=cμL²/D>2 and has z=x_c/L=1−√(1−2/C), b=1−z. First passage and renewal give T_r(x)=[cosh k/cosh((1−x/L)k)−1]/r, k=L√(r/D); equating T_r(x_c)=T_0 gives (1+k²/C)cosh(bk)−cosh k=0. Its k^(2n) coefficient for n≥2 is [(1−b²)b^(2n−2)/(2n)!]×[n(2n−1)−Σ_{j=0}^{n−1}b^(−2j)]. For t=b^(−2), the bracket changes from positive to negative exactly once when C>5/2, using g_n=Σt^j−n(2n−1) and convex eventual first differences. For 2<C≤5/2 all coefficients nonpositive with one strict, so no positive root; C=2 directly none; when C>5/2, one sign change plus H(k)<0 as k→∞ establishes one positive root. At large C, letting y=kz, the exact root has log cosh ratio y+o(1), RHS Cy²(1+o(1)), first gives y/log C→1 then y=log C+2loglog C+o(1), and √r=cμL/√D×(log C+2loglog C+o(1)). Independent 65-digit mpmath tests confirmed no-root signs for C=2.2,2.5 and positive unique roots for C=2.5001,3,5,10,80,10^3,10^6,10^12 (y≈0.047869,2.64060,4.30215,5.66686,8.69509,11.85171,19.78540,34.725998); relative correction y/(log C+2loglog C) approaches 1.01 by C=10^12. Initial double-precision tiny-y cancellation was corrected by arbitrary precision; finite tests do not prove general uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original source numerically finds r_eq and plots server-dependence through c=20; the earlier work treats search-fed queueing without this high-reset equality asymptotic."
+        ],
+        "reasoning": "General renewal formulas and finite server numerics do not give the high-c sharp law; empirical exponent >2 is asymptotically misleading because the effective exponent of c²(log c)² decreases toward 2.",
+        "searches": [
+          "Resultary semantic query: resetting stochastic Brownian search queue equalizing rate high servers logarithmic asymptotics",
+          "arXiv:2602.05009v2 §IV–V, Fig. 7–8, Appendix B",
+          "Giral-Barajas–Bressloff 2025 search-and-capture G/M/c baseline"
+        ]
+      },
+      "checked_sources": [
+        "Giral-Barajas–Bressloff 2026 arXiv:2602.05009v2 Eq.24 and Fig.8",
+        "Giral-Barajas–Bressloff 2025 J.Phys.A 58,355001 bibliographic comparison",
+        "Resultary Resultary semantic query: resetting stochastic Brownian search queue equalizing rate high servers logarithmic asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source implicit cosh ratio and numerical power exponent fit provide necessary defining relationship, not sign variation for its Taylor coefficients nor asymptotic y=log C+2loglog C."
+        ],
+        "reasoning": "Inversion is a genuine additional mathematical argument: uniqueness threshold from coefficient pattern and high-C matched logarithmic growth; original input equations alone require nontrivial analysis.",
+        "searches": [
+          "arXiv:2602.05009 Eq. (24), Fig. 8, Appendix B",
+          "Resultary semantic query: resetting stochastic Brownian search queue equalizing rate high servers logarithmic asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The resetting equalization at the no-reset queue critical x_c is exactly the authors’ implicit condition x*_r=x*_0 and Eq. (24) after nondimensionalizing k=L√(r/D),C=cμL²/D."
+        ],
+        "reasoning": "Same implicit equation is prior; new theorem is its complete positive-root regime and asymptotic inversion. An existing implicit equation does not mechanically yield the uniqueness/sign-variation proof or corrected logarithmic factor.",
+        "searches": [
+          "Resultary semantic query: resetting stochastic Brownian search queue equalizing rate high servers logarithmic asymptotics",
+          "arXiv:2602.05009v2 Eq. (24), Appendix B",
+          "Brownian first passage with stochastic resetting renewal formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 8 only displays r_eq(c) for sample server counts c≤20 at D=1,L=2,μ=1, not an exact root table or asymptotic certificate; independent C=10^12 calculation gives y≈34.725998 vs logC+2loglogC≈34.269."
+        ],
+        "reasoning": "Numerical tables/fits cannot establish a universal inequality or the precise loglog coefficient. No exact database with the full C>5/2 one-root condition was found in searches.",
+        "searches": [
+          "Resultary semantic query: resetting stochastic Brownian search queue equalizing rate high servers logarithmic asymptotics",
+          "arXiv:2602.05009v2 Figs. 7–8 server numeric rates"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for global positive-root uniqueness threshold C>5/2 and precise large-server r_eq∼c²(log C)² with 2loglog correction. Source Giral-Barajas–Bressloff establishes exact mean first passage equation and numerical crossover rates, explicitly fitting finite data to a power c^β with β>2; it does not prove this analytic one-root rule or logarithmically corrected asymptotic.",
+      "residual_risks": [
+        "A later mathematical asymptotics note could already have inverted the same crossover equation under a different queueing/search terminology.",
+        "The 2025 queueing baseline was not fully read here; priority qualified to the directly relevant 2026 resetting source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact implicit equalization, numerical crossover and finite-server trend already known; analytic threshold C>5/2 and squared-log high-c expansion not shown in inspected relevant sections",
+          "evidence": "Fig. 8 shows rates to c=20; source numerical fit asserts exponent >2 and prose incorrectly calls growth exponential, whereas asymptotic here is c²log²c.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05009",
+          "material_read": "13-page primary PDF abstract, model/MFPT definitions, §§III–IV, Eq. (24), Fig. 7–8 on PDF pp.9–10, and relevant Appendix B formula",
+          "method": "arXiv primary PDF parsed text and page-9 screenshot",
+          "title": "Resetting-induced instability in queues fed by a search process in an interval",
+          "trigger": "Exact identical Brownian geometry, resetting queue and equalizing rate"
+        },
+        {
+          "assessment": "Prior G/M/c setup acknowledged; no whole-text noncoverage assertion",
+          "evidence": "2025 G/M/c queueing baseline listed in source references.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/adfabc",
+          "material_read": "Bibliographic title/citation from primary reset paper only; not full publication read in this execution",
+          "method": "bibliographic reference only",
+          "title": "Stochastic 1D search-and-capture as a G/M/c queueing model",
+          "trigger": "Pre-reset queueing framework and possible broader queue theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equalizing reset rate demarcates when resetting harms or helps queue stability and is natural to optimize as server capacity grows. A rigorous positivity threshold and universal c²(log c)² scale (with 2loglog correction) explain why source finite-c polynomial fits suggest a spurious fixed exponent >2; this is a meaningful quantitative phase boundary not a routine reparameterization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Brownian interval with reflecting L, absorbing 0, independent returns, no refractory delay, homogeneous G/M/c service; fixed D,L,μ as integer c→∞.",
+    "No exact constant-order additive correction beyond o(1) in y; not a universal resetting result or full stationary queue-length law.",
+    "Originality is best-of-knowledge with individually stated material-read limitations; failed search does not establish historical priority.",
+    "Independent finite tests corroborate, and do not substitute for, general-parameter proofs.",
+    "The frozen full Git tree SHA-1 was independently rehashed; no scientific publication, GitHub writes, Lean/expert attestation or external certification occurred."
+  ],
+  "schema_version": 1
+}
