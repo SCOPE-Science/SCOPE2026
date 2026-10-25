@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The factorial ratio is computed for all profitable-move cases: destination occupied with source type multiplicity 1 or at least 2, destination empty with source type multiplicity 1 or at least 2; a singleton source and within-part jumps cannot improve. Positive finite-state potential yields finite improvement. For two types the no-improvement fraction bounds across a vacant destination sum to an impossible inequality for any mixed source; disjoint vacancy placements produce the exact red polynomial. Fixed-q balanced asymptotic is dominated by one-sided vacancy terms. verify.py independently checked 125760 two-color states, 80 polynomials, 18965 multitype states and 508416 profitable moves. No inference from finite tests to all graph sizes is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Narayanan–Sabbagh–Voudouris 2023/2025: Theorem 5.1 requires one vacant vertex in regular graphs; Theorem 5.2 shows a cycle on another regular graph with four vacancies; Theorem 5.3 requires graph maximum degree two.",
+        "Narayanan–Opatrny–Tummala–Voudouris 2025 studies a payoff counting distinct neighboring types, not the occupied-neighbor fraction."
+      ],
+      "reasoning": "A result for degree-at-most-two graphs does not cover K_{A,B} with both parts at least two. The regular-graph one-vacancy statement does not cover multiple vacancies or most unequal K_{A,B}. Different payoff functions can reverse preferences as occupied-neighbor totals change, so the variety-seeking finite-improvement theorem is not dominating.",
+      "searches": [
+        "\"diversity seeking jump Schelling games multiple empty vertices\"",
+        "\"variety seeking jump games two types potential\"",
+        "arxiv:2305.17757",
+        "arxiv:2505.10005"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.17757 (first-public primary)",
+      "doi:10.1007/s10458-025-09714-8 (full open HTML primary)",
+      "doi:10.1007/s10458-019-09431-z (full primary PDF)",
+      "arxiv:2505.10005 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Narayanan–Sabbagh–Voudouris §7 asks about potential games for up to three empty nodes on regular graphs and related bipartite topology questions.",
+        "Monaco–Moscardelli–Velaj 2020 Theorem 9 establishes failure of finite improvement in unrestricted unweighted coalition games."
+      ],
+      "reasoning": "Prior single-vacancy potential, potential at maximum degree two, an improvement-cycle counterexample on another regular graph, and unrestricted coalition-game statements cannot imply an all-vacancy complete-bipartite FIP plus enumerator. The q=1 specialization is properly credited rather than presented as a fresh result.",
+      "searches": [
+        "\"Narayanan Sabbagh Voudouris bipartite open problems\"",
+        "\"stable outcomes modified fractional hedonic games\"",
+        "arxiv:2305.17757",
+        "doi:10.1007/s10458-019-09431-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.17757 journal §§4–5 defines the exact fraction-of-different-neighbors utility and restricts general regular-graph FIP to one vacancy.",
+        "Monaco–Moscardelli–Velaj (2020) §4, Theorem 9, supplies a coalition-game best-response improvement cycle on a general interaction graph, not a two-capacity bipartite theorem."
+      ],
+      "reasoning": "For occupied opposing parts, utility gains can be expressed as gains in own-type proportion on the source-after/destination-before groups, resembling modified fractional hedonic games. Empty receiving parts and capacity/vacancy constraints alter the legal move and zero-utility cases. Neither inspected theory supplies this factorial potential for all vacancy counts.",
+      "searches": [
+        "\"diversity-seeking jump\" \"complete bipartite\" \"multiple vacancies\"",
+        "\"modified fractional hedonic\" \"finite improvement\" \"0-1\"",
+        "arxiv:2305.17757",
+        "doi:10.1007/s10458-019-09431-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023/2025 diversity-jump paper primarily characterizes selected existence/FIP and welfare statements; its inspected full text contains no all-vacancy complete-bipartite red-generating polynomial.",
+        "The exactly one vacancy complete-bipartite polynomial is a previously known special case; it agrees with q=1 of the new formula and does not imply q≥2."
+      ],
+      "reasoning": "No matching published exact polynomial/table was identified for the multi-vacancy stratification. This negative search is not treated as a uniqueness proof; the analytical term-by-term enumeration is independently supplied.",
+      "searches": [
+        "\"two-group complete bipartite multi-vacancy diversity-seeking equilibria count\"",
+        "\"fractional diversity preference Schelling complete bipartite multiple vacancies Nash equilibria exact enumeration\"",
+        "arxiv:2305.17757"
+      ]
+    },
+    "rationale": "The new statement concerns arbitrary positive vacancy counts on complete bipartite graphs, both balanced and unbalanced, with a factorial ordinal potential for any finite type set and a complete two-color equilibrium polynomial. The 2023 diversity-jump anchor provides regular/spider only for a single vacancy, arbitrary vacancies only at maximum degree two, and multi-vacancy cycles elsewhere. The related 2020 modified-fractional-hedonic full text uses unrestricted coalition structures and has its own general improvement cycles; it does not state or imply the fixed-capacity two-part result. The known one-vacancy specialized result is explicitly subsumed but excluded from claimed novelty. No exact covering claim was found; equivalent formulations in uninspected coalition-game literature remain a residual risk.",
+    "residual_risks": [
+      "An older quota-constrained two-coalition/modified-hedonic potential theorem under distinct terminology may already yield the factorial potential; the searched and inspected sources did not resolve every possible such source.",
+      "Some relevant later variety-seeking and coalition-game papers were only checked by abstracts, not their full text.",
+      "Mathematical originality has not been independently verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source; does not cover q≥2 complete bipartite family; even regular larger-vacancy counterexamples concern different graphs.",
+        "evidence": [
+          "2023 arXiv first public version arxiv:2305.17757; open 2025 journal article §5 has one-vacancy regular FIP, at least four vacancy cycles elsewhere, and arbitrary-vacancy degree-two FIP."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10458-025-09714-8",
+        "material_read": "Open full-text HTML, with definitions and relevant passages from §§4–5 and §7",
+        "method": "Read primary text and compared hypotheses of Theorems 5.1–5.3 and §7 with K_{A,B} at every q",
+        "title": "Diversity-Seeking Jump Games in Networks",
+        "trigger": "Same fractional utility, vacancy model and potential questions"
+      },
+      {
+        "assessment": "Related formal payoff on nonempty coalitions; unconstrained coalition formation and counterexample do not imply fixed two-part, vacancy-capacity FIP or equilibrium polynomial.",
+        "evidence": [
+          "Monaco et al. 2020, Theorem 9 p.20: a finite unweighted graph has a best-response cycle."
+        ],
+        "identifier_or_url": "https://www.isi.it/wp-content/uploads/2024/01/stable-outcomes-in-modified-fractional-hedonic-games_Velaj.pdf",
+        "material_read": "Available 29-page primary PDF, targeted introduction/definitions and §4, particularly pp.20–21 and Theorem 9; inspected relevant page images and extracted text",
+        "method": "Read hypotheses, permissible coalition moves, empty/singleton convention, and FIP counterexample",
+        "title": "Stable Outcomes in Modified Fractional Hedonic Games",
+        "trigger": "Potential underlying coalition-composition reduction, average-of-other-members utility"
+      },
+      {
+        "assessment": "Utility counting different types is not fractional diversity for variable occupied-neighbor counts; not directly covering.",
+        "evidence": [
+          "Narayanan et al. 2025 abstract: an agent earns the number of different neighboring types, not their occupancy fraction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.10005",
+        "material_read": "ArXiv metadata and abstract stating utility as number of distinct types in neighborhood and FIP conditions",
+        "method": "Compared payoff definitions and scope at abstract level; full-text noncoverage not asserted",
+        "title": "Variety-Seeking Jump Games on Graphs",
+        "trigger": "General FIP theorem with two types might dominate under a model equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16555f5a-4e5a-4363-8fec-bff11ba20369",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2023 fractional-diversity literature proves multi-vacancy improvement cycles on other topologies and leaves broader bipartite FIP questions open. A potential that works for every vacancy count and arbitrary finite type populations on unequal K_{A,B} is therefore a substantive infinite-family boundary. The exact two-color equilibrium-count polynomial resolves composition-specific counts (including vacancies on both sides), yields a sharp balanced asymptotic, and shows via K_{3,5} that stable fraction is not monotone in q. This is not a one-vacancy routine recomputation.",
+    "status": "PASS"
+  }
+}
