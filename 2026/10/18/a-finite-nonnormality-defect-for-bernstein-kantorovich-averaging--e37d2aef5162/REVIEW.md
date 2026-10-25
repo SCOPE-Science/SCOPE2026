@@ -1,17 +1,21 @@
-# Review: finite nonnormality defect for Bernstein–Kantorovich averaging
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definition is the equal-bin classical Bernstein–Kantorovich operator on \(L^2(0,1)\). Polynomial degree filtration yields the complete nonzero spectrum \(\lambda_{n,k}=(n)_k/(n+1)^k\). Direct beta integration and central-binomial convolution give the exact Hilbert–Schmidt norm. An Euler–Maclaurin calculation with a uniformly Gaussian-dominated remainder proves
-\[\Delta_n=1/6-5\sqrt\pi/(96\sqrt{n+1})+O(n^{-1}).\]
-Strict positivity follows from finite-rank Schur triangularization and the asymmetric real kernel. Exact rational checks and trace-power comparisons reproduce these identities at finite sizes but are not used to infer the infinite limit.
+## correctness
 
-## Originality
-**PASS with bibliographic risk.** Full source inspections of Păltănea (2012), Acu–Gonska (2019), and Obie et al. (2023) identify approximation, shape-preservation and \(L^p\)-boundedness results rather than the spectral–singular energy defect. The closest available results on Bernstein collocation and Jacobi Bernstein–Durrmeyer spectral energy concern different operators; in particular, their self-adjoint spectral traces cannot imply the discrepancy for non-self-adjoint equal-bin Kantorovich averaging. Published mathematical-record queries on the operator, Hilbert–Schmidt energy, eigenvalue squares, normality and \(1/6\) found no covering record. Gonska–Heilmann–Raşa (2011) was checked through its publisher abstract and bibliographic context but its full text remained inaccessible, preserving priority risk. Search failure or index partition is not treated as uniqueness proof.
+PASS
 
-## Value
-**PASS.** The squared-Hilbert–Schmidt energy and the squared-eigenvalue sum are independent, natural invariants for a nonnormal finite-rank approximation operator. Their difference is exactly the off-diagonal Schur energy (including leakage from the orthogonal complement of the polynomial range); its nonzero limit distinguishes strong convergence to identity from asymptotic spectral normality. The exact identity for the first invariant and the two-term defect give a reproducible benchmark for spectral approximation of positive averaging kernels. This is not merely a new normalization or an arbitrary finite index slice.
+PASS: Polynomial bin means N∫bin t^m dt have leading k^m coefficient N^{-m}; Bernstein expectation sends this to (n)_m/N^m x^m, so nonzero eigenvalues of the n+1 dimensional range are simple λ=(n)_m/(n+1)^m. Squared kernel integrated over disjoint equal bins gives HS²=N/(2n+1) Σ binom(n,k)^2/binom(2n,2k), and the central-binomial convolution identity reduces it exactly to N/(2n+1)4^n/binom(2n,n). In k≈√N scaling, log λ²=−x²−h(x+x³/3)−h²(x²/2+x⁴/6)+O(h³P(x)), h=N^{-1/2}; exponential coefficient Q=x⁴/6+x⁶/18, Gaussian half-line Euler–Maclaurin gives Σλ²=√π/(2h)−1/6+11√π h/96+O(h²). Stirling HS²=√π/(2h)+√π h/16+O(h³) yields Δ=1/6−5√π h/96+O(h²). Strict Δ>0 from Schur decomposition and K_n kernel asymmetric on bin x<t<1/N (normality with nonnegative simple eigenvalues would force self-adjointness). Independently checked rational HS identity and Δ positivity through n=28 and residual at n=200,1000,10000; the asymptotic remainder proof relies on uniform Gaussian tails, not numerics.
 
-## Remaining limitations
-The result does not give individual singular values or the metric distance to the normal operators. It is restricted to the unweighted one-dimensional classical family. A stronger historical statement outside the inspected full texts remains possible, and the 2011 full text could not be retrieved through accessible channels. Independent mathematical and bibliographic assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): Classical Bernstein–Kantorovich papers supply moment, polynomial and approximation formulas; the exact HS norm follows from beta integrals but a nonnormality spectral-singular energy deficit and its finite nonzero asymptotic constant require a different comparison. Full 2019 Acu–Gonska primary paper examined and does not state this defect in the material read. The 2011 higher-order source full text was not accessible; priority risk acknowledged without drawing whole-document noncoverage from abstract.
+
+## value
+
+PASS
+
+PASS: The limit 1/6 is a nonzero finite obstruction to spectral-energy accounting by eigenvalues despite approximation to the identity. It quantifies an intrinsic nonnormality invariant of a familiar finite-rank integral approximation operator; second correction shows precise stabilization, not a generic textbook spectrum statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

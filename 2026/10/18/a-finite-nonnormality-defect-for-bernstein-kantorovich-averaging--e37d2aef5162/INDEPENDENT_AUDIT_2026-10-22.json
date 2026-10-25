@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:11:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md#proof",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md#verification",
+        "Git tree 8f7b2e140d289ecb7c474fa3695d6e15580b5807; RESULT.md blob 91a518cc562d4528bad2fcf43f9734f995809cf9; independent_crosschecks.py"
+      ],
+      "rationale": "PASS: Polynomial bin means N∫bin t^m dt have leading k^m coefficient N^{-m}; Bernstein expectation sends this to (n)_m/N^m x^m, so nonzero eigenvalues of the n+1 dimensional range are simple λ=(n)_m/(n+1)^m. Squared kernel integrated over disjoint equal bins gives HS²=N/(2n+1) Σ binom(n,k)^2/binom(2n,2k), and the central-binomial convolution identity reduces it exactly to N/(2n+1)4^n/binom(2n,n). In k≈√N scaling, log λ²=−x²−h(x+x³/3)−h²(x²/2+x⁴/6)+O(h³P(x)), h=N^{-1/2}; exponential coefficient Q=x⁴/6+x⁶/18, Gaussian half-line Euler–Maclaurin gives Σλ²=√π/(2h)−1/6+11√π h/96+O(h²). Stirling HS²=√π/(2h)+√π h/16+O(h³) yields Δ=1/6−5√π h/96+O(h²). Strict Δ>0 from Schur decomposition and K_n kernel asymmetric on bin x<t<1/N (normality with nonnegative simple eigenvalues would force self-adjointness). Independently checked rational HS identity and Δ positivity through n=28 and residual at n=200,1000,10000; the asymptotic remainder proof relies on uniform Gaussian tails, not numerics.",
+      "residual_risks": [
+        "Classical n≥1, Lebesgue L² only; individual singular-value asymptotics not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1080/01630563.2011.580877",
+          "https://arxiv.org/abs/1904.11135",
+          "https://webbut.unitbv.ro/index.php/Series_III/article/download/2051/1764/3774"
+        ],
+        "reasoning": "Generalizations of Kantorovich approximation operators change kernels and moment bounds; their available statements do not imply a two-term singular/eigen deficit for the specific equal-bin classical L² kernel. The inaccessible 2011 full text remains an explicit risk.",
+        "searches": [
+          "Resultary query: Bernstein Kantorovich integral operator Hilbert Schmidt norm squared eigenvalue energy asymptotics nonnormality"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md",
+        "https://arxiv.org/abs/1904.11135",
+        "https://doi.org/10.1080/01630563.2011.580877",
+        "https://webbut.unitbv.ro/index.php/Series_III/article/download/2051/1764/3774"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1904.11135",
+          "https://doi.org/10.1080/01630563.2011.580877",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md"
+        ],
+        "reasoning": "Polynomial eigenvalues are available from degree filtration and approximation literature, but they do NOT imply the nonnormal Δ_n asymptotic without independently computing squared singular energy. Acu–Gonska deals with approximation operators and not this nonnormality defect in inspected primary sections.",
+        "searches": [
+          "Resultary query: Bernstein Kantorovich integral operator Hilbert Schmidt norm squared eigenvalue energy asymptotics nonnormality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1904.11135",
+          "https://doi.org/10.1080/01630563.2011.580877"
+        ],
+        "reasoning": "Equivalent description is Hilbert–Schmidt norm squared minus sum squared eigenvalues, or squared strictly-upper Schur entries plus off-range coupling; classical moment asymptotics alone do not determine this difference.",
+        "searches": [
+          "Resultary query: Bernstein Kantorovich integral operator Hilbert Schmidt norm squared eigenvalue energy asymptotics nonnormality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1904.11135",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md"
+        ],
+        "reasoning": "Resultary semantic query returned no identified table of Δ_n or its 1/6 and √n constants. Failed search is not priority proof; exact checked values are obtained independently from the closed formula rather than a database.",
+        "searches": [
+          "Resultary query: Bernstein Kantorovich integral operator Hilbert Schmidt norm squared eigenvalue energy asymptotics nonnormality"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): Classical Bernstein–Kantorovich papers supply moment, polynomial and approximation formulas; the exact HS norm follows from beta integrals but a nonnormality spectral-singular energy deficit and its finite nonzero asymptotic constant require a different comparison. Full 2019 Acu–Gonska primary paper examined and does not state this defect in the material read. The 2011 higher-order source full text was not accessible; priority risk acknowledged without drawing whole-document noncoverage from abstract.",
+      "residual_risks": [
+        "Full 2011 higher-order Kantorovich article could not be inspected; an older equivalent defect calculation might exist.",
+        "No statement identifying Δ_n as geometric distance to normal operators; it is an energy difference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The relevant reported approximation results differ from Δ_n spectral-singular defect, with no such exact invariant identified in inspected text",
+          "evidence": "arXiv:1904.11135, classical K_n formula and quantitative approximation bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11135",
+          "material_read": "Full 2019 arXiv PDF, including definition, approximation and Voronovskaya-type estimates",
+          "method": "Read accessible 10-page primary PDF and inspected rendered first page",
+          "title": "Classical Kantorovich Operators Revisited",
+          "trigger": "Same K_n definition, possible complete asymptotic theorem"
+        },
+        {
+          "assessment": "Cannot determine whole-paper noncoverage from abstract; exact defect remains possible historical risk",
+          "evidence": "Numerical Functional Analysis and Optimization 32 (2011), 717–738.",
+          "identifier_or_url": "https://doi.org/10.1080/01630563.2011.580877",
+          "material_read": "Publisher title/abstract and bibliographic descriptions; complete original full text unavailable",
+          "method": "Read available publisher abstract and references",
+          "title": "Kantorovich Operators of Order k",
+          "trigger": "Potential broader operator study including order-one classical case"
+        },
+        {
+          "assessment": "Shape-preserving generalization is logically different invariant than Hilbert–Schmidt spectral-energy defect",
+          "evidence": "2012 article, classical and generalized integral averaging forms.",
+          "identifier_or_url": "https://webbut.unitbv.ro/index.php/Series_III/article/download/2051/1764/3774",
+          "material_read": "Accessible primary source description and initial classical formula, including known erratum",
+          "method": "Read accessible paper material around definition and relationship to Bernstein operator",
+          "title": "A Generalization of Kantorovich Operators and a Shape-Preserving Property of Bernstein Operators",
+          "trigger": "Earlier neighboring operator family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-finite-nonnormality-defect-for-bernstein-kantorovich-averaging--e37d2aef5162/RESULT.md",
+        "https://arxiv.org/abs/1904.11135"
+      ],
+      "rationale": "PASS: The limit 1/6 is a nonzero finite obstruction to spectral-energy accounting by eigenvalues despite approximation to the identity. It quantifies an intrinsic nonnormality invariant of a familiar finite-rank integral approximation operator; second correction shows precise stabilization, not a generic textbook spectrum statement.",
+      "residual_risks": [
+        "Full 2011 higher-order Kantorovich article could not be inspected; an older equivalent defect calculation might exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical n≥1, Lebesgue L² only; individual singular-value asymptotics not claimed.",
+    "Full 2011 higher-order Kantorovich article could not be inspected; an older equivalent defect calculation might exist.",
+    "No statement identifying Δ_n as geometric distance to normal operators; it is an energy difference."
+  ],
+  "schema_version": 1
+}
