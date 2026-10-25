@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Homogeneity gives a bijection between ordered injective types and triangle-free finite extensions over the labelled parameter set. Mixed triangles correspond exactly to horizontal G-edges or vertical F-edges in the Cartesian product, proving the independent-set sum. For any fixed arity r>=2, guessable finite adjacency patterns give #P membership. In the bipartite padding reduction the edgeless labelled tuple graph contributes i(B)^r*2^(rm), while all other contributions after division by 2^(rm) total less than 1/4. Thus a single exact count and a polynomial-time integer rth root recover i(B). The independent-parameter asymptotic uses the exact independent-set counts of a graph with zero, one or at least two edges. From actual verify.py execution, 263 direct checks, 14 specializations and 443 recovery identities passed; all-infinite claims rest on proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henson 1971 establishes general homogeneous universal K_p-free structures.",
+        "Conant 2014 Proposition 3.2 supplies generic extension over parameter sets and quantifier elimination; its focus is dividing/forking, not computational counting."
+      ],
+      "reasoning": "The more general homogeneity and finite-extension theorems entail existence/orbit identification, but do not by themselves state the fixed-arity #P-completeness, bipartite promise and one-query encoding. Relevant broad graph-product counting literature concerns graph independent sets, not Henson finite-parameter tuple-type enumeration.",
+      "searches": [
+        "Henson triangle-free Fraisse graph automorphism orbits tuples Cartesian product independent set polynomial",
+        "Exact counting complexity of injective ordered k-types over finite parameters in Henson triangle-free homogeneous graph via independent sets in Cartesian graph products",
+        "arXiv:1401.1570v1"
+      ]
+    },
+    "checked_sources": [
+      "https://msp.org/pjm/1971/38-1/pjm-v38-n1-p09-p.pdf",
+      "https://arxiv.org/html/1401.1570v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650",
+      "https://doi.org/10.1137/0212053",
+      "https://arxiv.org/abs/1401.1570"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 1-type source states r=1 exact polynomial and #P hardness, and explicitly says higher-arity type spaces are not addressed.",
+        "Conant 2014 Section 3 covers tuple consistency and QE, not #P algorithms.",
+        "Provan-Ball 1983 gives #P-hard bipartite independent-set counting."
+      ],
+      "reasoning": "The combined prior premises motivate the new theorem but do not subsume the explicit fixed-r>=2 oracle hardness under the bipartite promise: the extra proof separates the unique maximum weight among all labelled tuple graphs by adding linearly many isolated parameters, then extracts i(B)^r via an integer floor. The theorem carefully attributes the prior existence and source-hardness facts.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650",
+        "arXiv:1401.1570v1",
+        "doi:10.1137/0212053"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conant 2014 Definition 3.3 and Proposition 3.4 encode optimal finite tuple solutions by atomic edge patterns; Theorem requires a fresh count and padding reduction.",
+        "The case r=2 can be written i(G)^2+i(G square K_2), a prism-graph independence expression."
+      ],
+      "reasoning": "Compared the exact ordered injective stabilizer-orbit invariant with complete-type and atomic-extension formulations. The admissibility of tuple patterns follows from Conant, but no fixed-higher-arity counting-complexity statement was located in that source. The product formula is an explicit enumeration consequence, and the isolated-vertex metric reduction adds an independent computational assertion.",
+      "searches": [
+        "Henson graph multiple tuple types extension graphs finite parameters counting all nonalgebraic types",
+        "Finite parameter 2-type counting formula Henson graphs independence polynomial graph prism product",
+        "arXiv:1401.1570v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published research-index hit is the 1-type counting finding, which describes the ordinary independence polynomial and #P-completeness for one type.",
+        "Direct computations have r=2 edgeless parameter profiles 4^m+3^m and r=3 profiles 8^m+3*6^m+3*5^m, but computations are not a database novelty test."
+      ],
+      "reasoning": "No specific published table covering the higher-arity type counts or the all-fixed-arity complexity theorem was identified. Index absence is not proof of global originality.",
+      "searches": [
+        "Finite parameter 2-type counting formula Henson graphs independence polynomial graph prism product",
+        "Ordered r-tuple extensions generic triangle-free graph generating function adjacency patterns independence polynomial",
+        "2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650"
+      ]
+    },
+    "rationale": "The closest public result proves #P-complete finite-parameter counting only for one-variable Henson types and explicitly leaves higher arity untreated. Conant gives general finite-tuple extension consistency, which implies the admissibility criterion and is not claimed as novel; neither that primary paper nor the inspected indexed 1-type result provides fixed-r>=2 #P-completeness on bipartite inputs or the one-query isolated-vertex padding reduction. Henson supplies the classical homogeneity theorem; Provan-Ball supplies the hard independent-set source. Originality attaches to the all-fixed-higher-arity metric hardness theorem with its explicit graph-product formula, not to an elementary restatement of homogeneity.",
+    "residual_risks": [
+      "Conant 2014 already gives the general finite-tuple extension feasibility criterion; the Cartesian counting identity is a direct enumeration of that prior criterion, not an independent novelty claim.",
+      "A specialized paper or unindexed result may contain an equivalent fixed-higher-arity counting-complexity reduction under other language.",
+      "Full Provan-Ball source text was not inspected; its quoted #P-completeness fact is established in the publisher abstract and in later literature.",
+      "No independent proof review or publication-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_BACKGROUND_NOT_COVERING_COUNTING_COMPLEXITY",
+        "evidence": "The paper proves the homogeneous universal K_p-free structures (p>=3), but its cited theorem does not give a higher-arity #P reduction.",
+        "identifier_or_url": "https://msp.org/pjm/1971/38-1/pjm-v38-n1-p09-p.pdf",
+        "material_read": "Original paper pages 69 and 74, including Lemma 2.1 and Theorem 2.3; searchable article text for surrounding definitions",
+        "method": "Open-access original PDF with page images and source text",
+        "title": "A family of countable homogeneous graphs",
+        "trigger": "Original universal homogeneous triangle-free extension property"
+      },
+      {
+        "assessment": "COVERS_PATTERN_CONSISTENCY_NOT_HIGHER_ARITY_COUNTING_HARDNESS",
+        "evidence": "Section 3 states homogeneous K_n-free ages, quantifier elimination, optimal R-type consistency; main results are forking/dividing, without an algorithmic counting-complexity theorem.",
+        "identifier_or_url": "https://arxiv.org/html/1401.1570v1",
+        "material_read": "Open-access HTML full manuscript: introductory and complete Section 3 (Definitions 3.1, 3.3; Propositions 3.2, 3.4) and searched entire text for Cartesian, counting and independent sets",
+        "method": "Read HTML primary manuscript and search relevant terms",
+        "title": "Forking and dividing in Henson graphs",
+        "trigger": "Directly plausible broader theorem on all finite tuple patterns"
+      },
+      {
+        "assessment": "COVERS_ONE_TYPE_ONLY",
+        "evidence": "The source identifies 1-type counts with clique-free induced-subset polynomials; its Limitations expressly excludes higher-arity type spaces.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650",
+        "material_read": "Complete public RESULT.md via repository read, including Finding, Proof, Relationship, Limitations and References",
+        "method": "Read published source file",
+        "title": "Exact finite-parameter 1-type counting in Henson graphs is #P-complete",
+        "trigger": "Closest indexed computation and precise r=1 comparison"
+      },
+      {
+        "assessment": "SUPPORTS_BIPARTITE_INDEPENDENT_SET_HARDNESS_ONLY",
+        "evidence": "Abstract explicitly lists counting bipartite vertex covers as #P-complete. Taking complements identifies these counts with independent-set counts.",
+        "identifier_or_url": "https://doi.org/10.1137/0212053",
+        "material_read": "Publisher abstract and bibliographic metadata, not complete source paper",
+        "method": "Read SIAM publisher abstract and DOI record",
+        "title": "The complexity of counting cuts and of computing the probability that a graph is connected",
+        "trigger": "Hardness source problem and possible stronger counting theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "141a4417-55d6-413f-9fe9-8d8dbcac7ffd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural finite-parameter orbit count for injective multi-types is put into exact graph-product form for all fixed arities, with a one-query #P-completeness theorem even under bipartite input restriction. This fills the arity>=2 gap left by the closest existing 1-type counting result and reveals a precise two-leading-term independent-parameter type spectrum; it is not a mere alteration of a parameter in an already quantified theorem. The exact hardness of this natural invariant can inform model-theoretic type enumeration and algorithm design; no unproved downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
