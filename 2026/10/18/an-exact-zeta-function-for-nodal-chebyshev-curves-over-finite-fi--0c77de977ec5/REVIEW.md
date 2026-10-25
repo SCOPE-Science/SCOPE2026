@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem precisely assumes coprime degrees and odd finite fields satisfying both signed congruences; these hypotheses imply tameness. The Chebyshev commuting identity, field-extension coprimality, integrality, and degree argument establish the normalization. Explicit cyclotomic parameters enumerate all and only \(\delta\) nodes; the differential equation shows every tangent cone is reduced. The ratios of tangent slopes transform by \(\epsilon_m\epsilon_n\) under Frobenius, and identifying branches on the affine normalization gives the exact count in every extension. The zeta identity is then formal. Independently, the included exact checker passed 84 prime-field and eight quadratic-field cases. Finite checks are not the proof; no claim outside the stated congruences is made.
+PASS
 
-## Originality — PASS (with residual literature risk)
+The Chebyshev commuting identity gives finite map u→(T_m(u),T_n(u)), and gcd(m,n)=1 forces K(T_m(u),T_n(u))=K(u) via degree divisibility; the affine coordinate ring is integral under monic rescaling, hence this is normalization and the plane polynomial irreducible. Critical roots a_{d,k}=(zeta^{k}+zeta^{-k})/2 for 1<=k<d have values (-1)^k and nonzero second derivative because characteristic does not divide 2mn. Equal-parity critical pairs give precisely delta ordinary nodes. Congruences make each a_{d,k} rational; b_{d,k}=zeta^k-zeta^-k satisfies Frobenius b^q=eps_d b, so the two local tangent slopes ±(n/m)b_m/b_n are fixed or exchanged with sign eta. Each node replaces two rational normalization points by one if split, and zero by one if nonsplit, correction −eta^r per node. Exponentiating counts derives affine zeta. Independent exact polynomial enumeration checked (q,m,n)=(5,2,3),(7,2,3),(11,2,3),(13,2,3),(31,3,4) giving 6,8,10,12,34 as predicted; finite checks do not prove all-field identity.
 
-Freudenburg–Freudenburg's characteristic-zero Proposition 3.1 already gives the normalization and geometric nodes, and is used as background. A comparison of its relevant full Section 3 found no finite-field Frobenius sign classification or zeta formula. Garcia–Stichtenoth's 1999 finite-field paper was inspected in its reflowed complete text: its models are maximal smooth Kummer covers derived from Chebyshev polynomials, not the affine nodal pair-equality \(T_n(x)=T_m(y)\). The 2017/2018 Kazemifard–Tafazolian–Torres treatment revisits those Kummer-cover models (Theorems 9 and 13); neither their genus formulas nor maximality claims imply the singular curve's rational branch-gluing zeta factor. Direct keyword, equation, and zeta-function searches found no statement of the uniform signed factor. The 2014 finite-field Chebyshev-polynomial book chapter was available only in abstract; a fuller comparison could still disclose related computations. No failure to retrieve a publication is treated as evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete zeta function is a natural arithmetic invariant of the specific nodal affine curve family, which was previously studied primarily geometrically. One bit of simultaneous congruence information governs *every node's* arithmetic branch type and all extension point counts, not merely a chosen small parameter instance. In the mixed-sign regime the curve has \(q+\delta\) points despite normalization \(\mathbb A^1\) having \(q\), reflecting a substantive geometric distinction; for equal signs the opposite deficit is exact. This supplies a uniform structural bridge between the geometric node classification and arithmetic of singular rational curves. It is not proposed as a general smooth-curve bound or a result about projective completions.
+Freudenburg–Freudenburg establish the same Chebyshev curve as rational nodal normalization in characteristic zero; the geometric part is credited. The arithmetic finite-field Frobenius action and uniform affine zeta factor are not consequences of its characteristic-zero claims or the separately inspected smooth Kummer-type maximality literature. The 2014 finite-field Chebyshev chapter remains inaccessible, retained as a genuine priority risk rather than declared noncovering.
 
-## Close literature and limits
+## value
 
-Most directly related: Freudenburg–Freudenburg (2009), Proposition 3.1; Garcia–Stichtenoth (1999); Kazemifard–Tafazolian–Torres (2017/2018). Residual risk: a 2014 finite-field Chebyshev-polynomial chapter was not inspected beyond its abstract, and literature indexing is imperfect. The scientific proof itself is self-contained in `RESULT.md`; `verify.py` supplies independently rerunnable finite tests.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computing zeta functions of singular rational curves and distinguishing split/nonsplit nodes is a natural arithmetic-geometric exact invariant; the uniform sign-controlled formula for all coprime Chebyshev degrees and extension fields provides a reusable nodal Frobenius-gluing law. This is not just one finite-field table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
