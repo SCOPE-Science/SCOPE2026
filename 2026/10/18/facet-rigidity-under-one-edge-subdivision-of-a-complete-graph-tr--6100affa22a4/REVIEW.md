@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The connected spanning tight-edge criterion follows from rank of oriented edge differences and excludes fractional extreme potentials: tight-tree differences propagate integral values. On the complete clique the potential has either one height or two adjacent heights. The two-height case forces eight and only eight extensions to the subdividing path, while the one-height case forces exactly six. Counting yields \(2^{n+1}-10\). The graph automorphism group and sign action give the explicit orbit decomposition; tight-edge counting and an integer quadratic maximum yield the extremal facet-vertex bound and multiplicities. The standalone complete enumerator verifies all normalizations, graph constraints, connectivity, and orbits at \(n=5,6,7,8,9,10\). It does not claim to verify every dimension experimentally.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The general tight-edge criterion, complete-graph baseline, graph gluing, maximal-bipartite facet-subgraph theory and small graph counting techniques are prior work, not discoveries here. Closest source-level comparisons include Higashitani–Jochemko–Michałek (arXiv:1807.07678), D'Alì–Delucchi–Michałek (arXiv:1910.05193), Chen–Davis–Korchevskaia (arXiv:2107.12315), and Braun–Bruegge (arXiv:2201.13303). Chen–Korchevskaia (arXiv:1912.02841) uses *regular polytope subdivision under graph edge contraction*, not subdivision of an edge of the graph, and does not imply these formulas. The examined sources did not supply the all-orders result with its signed orbit sizes and sharp facial-incidence classification. Some small numeric cases might be present in graph tables or unindexed work; discovery by search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-Replacing one edge of an equilateral complete graph metric by a two-edge detour is a natural, controlled change of finite-metric Banach-space geometry. The theorem determines a complete infinite family of facial invariants, not a single table entry: total facets, every signed graph-symmetry orbit size, a sharp maximum number of vertices on a facet, and the multiplicity of all extremizers. The contrast between exponentially many facets and linearly many symmetry types is structural information not provided by the general facet criterion alone.
+Fix m=n-2 untouched clique vertices U. The active-incidence rank criterion forces polar-extreme potentials to have a connected tight-edge graph and hence integral heights. On the clique U, heights are either constant or 0/1 (after translation). For each nonempty proper lower level subset, a,b adjacent to all of U can each lie at 0 or 1 and the two-edge subdividing vertex z has two admissible tight placements, giving exactly eight polar vertices. For constant U, tight connectivity forces a,b in {-1,+1}, with exactly six allowed z configurations. Counting 8(2^m-2)+6 gives 2^(n+1)-10. Degree identifies z, so Aut G=S_m x C2; complement/sign and endpoint swapping partition nonconstant configurations into 6 or 3 orbit-types per height class, totaling 3m. Tight oriented edges are vertices on the face; counts rk+2r+2, rk+2k+2 or rk+m+1, and the quadratic maximum yields floor(n^2/4)+2; the special m=3 tie adds six constant-class maximizers. Independently exhaustive integer potentials with slack edges and tight-spanning connectivity n=5,6,7 returned (facets, signed orbits, max vertices) (54,9,8),(118,12,11),(246,15,14). All-n assertion rests on classification and quadratic proof, not the finite test.
 
-## Scope and residual limitations
-The metric, scalar field, and symmetry group are fixed explicitly. The proof determines facets but not every face dimension or every possible linear symmetry. Initial finite checks cannot replace the analytic argument. An exhaustive bibliography of unindexed sources is unavailable, and an independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general tight incidence criterion and K_n baseline are prior. This theorem counts a one-edge topological graph subdivision (not regular triangulations or contractions of a polytope); the total facet count plus sharp face-incidence spectrum and signed orbit sizes were not found in checked prior general results or tables.
+
+## value
+
+PASS
+
+Subdividing one edge is a canonical perturbation of an equilateral finite metric and produces exponentially many facet normals but only linearly many symmetry classes. The exact maximum facial incidence, with sharp extremizer multiplicities, quantifies a genuine geometric consequence, beyond a routine fixed-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

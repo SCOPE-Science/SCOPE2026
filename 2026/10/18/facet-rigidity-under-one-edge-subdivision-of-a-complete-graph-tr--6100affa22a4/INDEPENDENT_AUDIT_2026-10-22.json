@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:53:09.320032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix m=n-2 untouched clique vertices U. The active-incidence rank criterion forces polar-extreme potentials to have a connected tight-edge graph and hence integral heights. On the clique U, heights are either constant or 0/1 (after translation). For each nonempty proper lower level subset, a,b adjacent to all of U can each lie at 0 or 1 and the two-edge subdividing vertex z has two admissible tight placements, giving exactly eight polar vertices. For constant U, tight connectivity forces a,b in {-1,+1}, with exactly six allowed z configurations. Counting 8(2^m-2)+6 gives 2^(n+1)-10. Degree identifies z, so Aut G=S_m x C2; complement/sign and endpoint swapping partition nonconstant configurations into 6 or 3 orbit-types per height class, totaling 3m. Tight oriented edges are vertices on the face; counts rk+2r+2, rk+2k+2 or rk+m+1, and the quadratic maximum yields floor(n^2/4)+2; the special m=3 tie adds six constant-class maximizers. Independently exhaustive integer potentials with slack edges and tight-spanning connectivity n=5,6,7 returned (facets, signed orbits, max vertices) (54,9,8),(118,12,11),(246,15,14). All-n assertion rests on classification and quadratic proof, not the finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315 general facet-subgraph theorem",
+          "Chen–Korchevskaia, Graph edge contraction and subdivisions for adjacency polytopes, arXiv:1912.02841, regular polytope subdivision under contraction"
+        ],
+        "reasoning": "A regular subdivision of an adjacency polytope is not subdivision of a graph edge, so its title resemblance does not imply this family. General normal characterizations require solving the eight/six-height cases and signed-orbit group action to derive these constants.",
+        "searches": [
+          "number of facets symmetric edge polytope of complete graph with one edge subdivided and facet incidence rigidity",
+          "arxiv:2107.12315"
+        ]
+      },
+      "checked_sources": [
+        "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+        "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019)",
+        "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315",
+        "Braun–Bruegge, Facets of Symmetric Edge Polytopes for Graphs with Few Edges, arXiv:2201.13303 / JIS 26 (2023)",
+        "Chen–Korchevskaia arXiv:1912.02841",
+        "Resultary semantic graph facet/orbit searches",
+        "Frozen verify.py inspected; independent n5–7 tight-rank enumeration and actual sign/graph permutations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ Proposition 37 is joining two bipartite graphs along an edge, not replacing an edge inside K_n with a path",
+          "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315 standard connected spanning tight graph criterion"
+        ],
+        "reasoning": "Neither edge gluing of bipartite graphs nor complete-graph baseline implies the one-edge subdivision family via an immediate substitution. The new z coordinate creates nonclique potentials which must be classified; the incidence maximum is an additional independently motivated extremal statistic.",
+        "searches": [
+          "number of facets symmetric edge polytope of complete graph with one edge subdivided and facet incidence rigidity",
+          "arxiv:1912.02841",
+          "arxiv:2107.12315"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ symmetric edge polytope definitions and connected tight-edge criterion",
+          "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019) graph roots/facets"
+        ],
+        "reasoning": "The unit ball and symmetric edge polytope are identical for shortest-path graph metrics, but the graph G_n is neither K_n nor the all-edges-subdivided bipartite S(K_n); the result asserts distinct 2^(n+1)-10 counts and incidence maxima.",
+        "searches": [
+          "number of facets symmetric edge polytope of complete graph with one edge subdivided and facet incidence rigidity",
+          "arxiv:1912.02841"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Braun–Bruegge, Facets of Symmetric Edge Polytopes for Graphs with Few Edges, arXiv:2201.13303 / JIS 26 (2023) small graph count extremal tables",
+          "Resultary graph-symmetric edge polytope related inradius/face records 2026-10-11"
+        ],
+        "reasoning": "Initial n=5,6 facet counts could be in tables; the all-n formula, signed orbit multiplicities and maximally incident facet counts are not established merely by a short finite list.",
+        "searches": [
+          "number of facets symmetric edge polytope of complete graph with one edge subdivided and facet incidence rigidity",
+          "arxiv:1910.05193"
+        ]
+      },
+      "rationale": "The general tight incidence criterion and K_n baseline are prior. This theorem counts a one-edge topological graph subdivision (not regular triangulations or contractions of a polytope); the total facet count plus sharp face-incidence spectrum and signed orbit sizes were not found in checked prior general results or tables.",
+      "residual_risks": [
+        "Possible small n tables or poorly indexed exact one-edge subdivision enumeration could duplicate parts of the claim; no search proves absolute novelty.",
+        "Finite n=5..7 checks do not establish all n. The automorphism group considered need not be full polytope symmetry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All edge-tight lemma applies only to bipartite graphs; G_n contains a clique, and graph edge gluing is structurally distinct",
+          "evidence": "Facet potential criterion and graph join discussion.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+          "material_read": "PDF sections Theorem 11, Lemma 32, Proposition 37 and relevant pages 18–20 with screenshots",
+          "method": "full article relevant PDF passages",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Potential broader gluing theorem and facet classification"
+        },
+        {
+          "assessment": "Operation is a regular polytope subdivision under edge contraction, not topological replacement of ab by a-z-b; full not-covering is not claimed",
+          "evidence": "The subject and mathematical objects differ.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.02841",
+          "material_read": "Indexed title and research description only; full paper unavailable",
+          "method": "abstract/search-level comparison",
+          "title": "Graph edge contraction and subdivisions for adjacency polytopes",
+          "trigger": "Ambiguous word subdivision may conceal a general theorem"
+        },
+        {
+          "assessment": "General facet-subgraph framework does not by itself evaluate sharp one-edge G_n orbit/incidence formulas",
+          "evidence": "Generic facet-subgraph theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Abstract/targeted theorem description, not whole publication",
+          "method": "public abstract and comparative theorem record",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Possible stronger facet theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Subdividing one edge is a canonical perturbation of an equilateral finite metric and produces exponentially many facet normals but only linearly many symmetry classes. The exact maximum facial incidence, with sharp extremizer multiplicities, quantifies a genuine geometric consequence, beyond a routine fixed-size table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+    "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019)",
+    "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315",
+    "Braun–Bruegge, Facets of Symmetric Edge Polytopes for Graphs with Few Edges, arXiv:2201.13303 / JIS 26 (2023)",
+    "Chen–Korchevskaia arXiv:1912.02841",
+    "Resultary semantic graph facet/orbit searches",
+    "Frozen verify.py inspected; independent n5–7 tight-rank enumeration and actual sign/graph permutations"
+  ],
+  "disposition": "passed",
+  "limitations": "n>=5, real scalars, exactly one unit edge of K_n replaced by path of two unit edges; sharp facet vertex count under this defined polytope, not whole face f-vector.",
+  "residual_risks": [
+    "Possible small n tables or poorly indexed exact one-edge subdivision enumeration could duplicate parts of the claim; no search proves absolute novelty.",
+    "Finite n=5..7 checks do not establish all n. The automorphism group considered need not be full polytope symmetry."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "All edge-tight lemma applies only to bipartite graphs; G_n contains a clique, and graph edge gluing is structurally distinct",
+      "evidence": "Facet potential criterion and graph join discussion.",
+      "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+      "material_read": "PDF sections Theorem 11, Lemma 32, Proposition 37 and relevant pages 18–20 with screenshots",
+      "method": "full article relevant PDF passages",
+      "title": "Many Faces of Symmetric Edge Polytopes",
+      "trigger": "Potential broader gluing theorem and facet classification"
+    },
+    {
+      "assessment": "Operation is a regular polytope subdivision under edge contraction, not topological replacement of ab by a-z-b; full not-covering is not claimed",
+      "evidence": "The subject and mathematical objects differ.",
+      "identifier_or_url": "https://arxiv.org/abs/1912.02841",
+      "material_read": "Indexed title and research description only; full paper unavailable",
+      "method": "abstract/search-level comparison",
+      "title": "Graph edge contraction and subdivisions for adjacency polytopes",
+      "trigger": "Ambiguous word subdivision may conceal a general theorem"
+    },
+    {
+      "assessment": "General facet-subgraph framework does not by itself evaluate sharp one-edge G_n orbit/incidence formulas",
+      "evidence": "Generic facet-subgraph theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+      "material_read": "Abstract/targeted theorem description, not whole publication",
+      "method": "public abstract and comparative theorem record",
+      "title": "Facets and facet subgraphs of symmetric edge polytopes",
+      "trigger": "Possible stronger facet theorem"
+    }
+  ]
+}
