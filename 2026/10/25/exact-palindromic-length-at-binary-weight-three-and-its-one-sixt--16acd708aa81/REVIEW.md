@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The zero-gap theorem follows from a complete classification of palindromes by how many of the three marked symbols they contain. A two-marker lemma gives a universal four-piece upper bound. Matching necessity is proved through the prefix/suffix obstruction, and the two-piece possibilities are exhausted. A separate coefficient derivation proves the rational generating function and limiting density. The independent dynamic-programming checker agrees on \(14641\) quadruples and direct length-limited enumeration agrees through length \(28\). These finite checks are corroborative; the unrestricted claims rest on the written proof.
+
+**Originality — PASS under the checked sources; historical-priority risk remains.** Ravsky's exact global worst-case theorem for binary words, Frid–Puzynina–Zamboni's analysis of palindrome factorization in infinite words, and Bucci–Richomme's greedy-palindromic-length study do not state the fixed-three-marker gap formula or the rational distribution. A related earlier sparse-word palindromic-defect classification concerns a different invariant: its gap criterion alone does not determine the minimum number of palindrome factors. General input-by-input algorithms likewise do not supply this uniform parametric theorem. The searched literature may be incomplete, so priority is not certified.
+
+**Value — PASS.** The theorem is a complete natural fixed-composition classification, rather than an isolated example or an arbitrary finite census. It identifies the first sparse complexity obstruction, determines every boundary case, and supplies an exact rational enumeration and limiting density of one-sixth. It connects length-based palindrome-factorization complexity to the sparse-word gap geometry without claiming a general new algorithm.
+
+**Closest literature and limitations.** Sources: Ravsky, arXiv:1004.1278 (2010-04-08); Frid–Puzynina–Zamboni, arXiv:1210.6179 (2012-10-23); Bucci–Richomme, arXiv:1606.05660 (2016-06-17). The statement does not extend automatically to four or more marked symbols, and unindexed earlier fixed-weight results cannot be excluded. Independent audit has not yet been performed.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary nonnegative gaps, the two-marker lemma proves the four-piece upper bound. Exact two-piece conditions follow by exhausting the one-count allocations of two palindromes; the four-piece lower bound follows from the impossibility of marked palindromic prefixes or suffixes and unequal inner gaps. Explicit three-piece decompositions finish all remaining cases. Gap enumeration gives the rational generating function and its pole at one gives density one-sixth. A standalone dynamic program independently checked 14641 gap quadruples; direct position-based word enumeration and rational-series expansion matched for lengths 3-28. The unrestricted result depends on proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ravsky 2010 Theorem 1 yields the maximum across all binary words of each length, not values for every four-gap word.",
+        "Bucci and Richomme 2016 introduce greedy variants and characterize bounded palindromic lengths of certain infinite words; their Section 4 is about all prefixes of infinite words, not this finite-composition census."
+      ],
+      "reasoning": "An unrestricted algorithm can compute the invariant for any individual input, but does not already state a symbolic closed formula or a generating function. The global extremal length theorem does not imply every fixed-weight class value.",
+      "searches": [
+        "palindromic length binary words fixed Hamming weight characterization 2010 2015",
+        "arxiv:1004.1278",
+        "arxiv:1606.05660"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.1278",
+      "arxiv:1210.6179",
+      "arxiv:1606.05660",
+      "Searches for fixed-Hamming-weight and three-one palindrome-factorization formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ravsky provides a scalar length-only worst-case statistic, so its statement cannot distinguish zero-gap tuples at fixed length.",
+        "The sparse palindromic-defect criterion can recover which words are not rich, but does not by itself assert their minimum number of palindromic concatenation factors.",
+        "Greedy factorization bounds are for a different optimization rule and infinite-word scope."
+      ],
+      "reasoning": "The new exact all-parameter piecewise statement and length-generating function are logically stronger than recognizing one length-eight global maximum and are not implied by the cited infinite-word results. The proof establishes all piece cases independently.",
+      "searches": [
+        "arxiv:1004.1278",
+        "arxiv:1210.6179",
+        "arxiv:1606.05660",
+        "palindromic factorization 3 occurrences of letter binary exact palindromic length sparse weight three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Palindromic length is also minimum number of palindrome factors or membership in a bounded product of palindrome languages; the present result solves this exact membership for all three-one binary words.",
+        "Frid, Puzynina and Zamboni 2012 study unbounded palindromic lengths of factors in infinite words, without this four-gap finite classification."
+      ],
+      "reasoning": "Checked equivalent terms palindrome products, palindrome decomposition and palindrome factorization. No inspected source gave the four-tier arithmetic criterion or the rational fixed-composition distribution; this is not a proof of global novelty.",
+      "searches": [
+        "\"palindromic length\" \"three ones\" binary",
+        "\"three ones\" \"palindromic length\" binary word factorization",
+        "arxiv:1210.6179"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Ravsky length table includes maximum palindromic length four at total length eight, but does not record the number or three-marker composition of its optimizers.",
+        "A previously recorded three-one palindromic-defect formula concerns the number of distinct palindrome factors, not the minimum factorization count; the same gap boundary is not a direct implication without an additional palindromic-factorization theorem."
+      ],
+      "reasoning": "Checked for a direct word-class formula, initial distribution table, and rational generating function, rather than merely a matching example. No explicit exact covering table was located, though unindexed data remain possible.",
+      "searches": [
+        "\"palindromic length\" \"weight three\" binary",
+        "\"palindromic length\" \"1/6\" binary word",
+        "arxiv:1004.1278"
+      ]
+    },
+    "rationale": "A new exact four-tier formula on all nonnegative zero gaps and a rational generating function with asymptotic density 1/6 distinguish the result from global worst-case palindromic-length estimates and qualitative infinite-word factorization results. Checked primary texts and topical searches did not identify an explicit covering parametric classification; older or unindexed equivalents remain a real risk.",
+    "residual_risks": [
+      "A book, thesis, pre-arXiv paper or unindexed exercise may have previously recorded the same four-gap classification.",
+      "Algorithms that compute individual palindromic lengths could have been used to produce an unpublished or uncataloged equivalent formula.",
+      "Earlier hardcopy versions of relevant cited papers may have publication dates preceding their verified arXiv versions; the archival cutoff is unaffected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives global worst-case values by total length, not gap-by-gap three-one values or enumeration of their extremizers.",
+        "evidence": [
+          "Theorem 1 determines K(n) for the full binary language.",
+          "Its displayed table has K(8)=4 but does not select exactly three-one words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.1278",
+        "material_read": "Theorem 1, the length table, Sections 2 and 3 including extremal proof and average bounds",
+        "method": "Read publicly accessible arXiv HTML full-text rendering",
+        "title": "On the palindromic decomposition of binary words",
+        "trigger": "Closest global binary palindromic-length theorem"
+      },
+      {
+        "assessment": "Infinite-word and periodic-run results, with no fixed three-marker gap formula.",
+        "evidence": [
+          "Its Theorem 1 addresses k-power-free infinite words.",
+          "Its Theorem 8 addresses infinite words satisfying a run condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.6179",
+        "material_read": "Definitions and Sections 2-4 and final discussion, including central theorems on factor unboundedness",
+        "method": "Read publicly accessible arXiv HTML full-text rendering",
+        "title": "On minimal factorizations of words as products of palindromes",
+        "trigger": "Foundational generalization of minimum palindrome factorization"
+      },
+      {
+        "assessment": "Its classifications are infinite-word or greedy-factorization statements rather than the four-gap fixed-three-one formula.",
+        "evidence": [
+          "Section 4 Lemma 4.4 classifies infinite words with bounded prefix length two.",
+          "Section 7 studies left-greedy palindrome-factorization lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.05660",
+        "material_read": "Introduction; Section 4 on bounded prefix lengths; Section 7 on greedy unboundedness; Section 8 conclusion; textual finds for minority/few/zeros",
+        "method": "Read publicly accessible arXiv HTML full-text rendering",
+        "title": "Greedy palindromic lengths",
+        "trigger": "Potentially stronger palindrome-factorization theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16acd708-aa81-4c5a-aaa3-2a4ac92d950d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family of all binary strings with exactly three occurrences of one symbol is a natural first sparse family capable of needing four palindrome factors. The theorem classifies every parameter value including equality boundaries, determines the complete extremal sublanguage with a rational generating series, identifies the first length-eight examples, and shows a limiting exact proportion of one sixth; none of these is a routine relabeling of a global maximum table. The result offers a sharp benchmark for minimum palindromic factorization in sparse inputs without claiming a general algorithm.",
+    "status": "PASS"
+  }
+}
