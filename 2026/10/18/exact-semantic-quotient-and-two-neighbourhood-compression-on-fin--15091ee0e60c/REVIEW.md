@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two modal clauses reduce, on the complete upset chain, to the independent suffix minima \(B\) and \(D\) of neighborhood extrema. This yields full-language sufficiency by formula induction and necessity by one atomic threshold; explicit size-one/two neighbourhood families realize every monotone profile pair. The terminal-world obstruction proves optimality. Exhaustive small-frame and complete representative-profile checks reproduced the predicted counts. Critical assumptions are the finite nonempty total order, nonempty neighbourhood families, nonempty members, and at least one propositional letter.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The 2026 semantic/proof-theoretic study provides the precise constructive neighbourhood clauses and its \(\mathsf N\), \(\mathsf P\) conditions, but does not state a labelled-chain full-language semantic quotient, the squared-binomial census, or the sharp two-neighbourhood sparsification. The 2025 translation paper has a different order-varying neighbourhood semantics; its canonical proof contains many neighbourhoods and does not imply the exact finite-chain statement as printed. A previous finite relational four-modal chain theorem concerns a different operator and frame class, so neither direction of implication supplies this result. Literature searches did not identify an equivalent theorem, but older neighbourhood-algebra results under other terminology are possible.
+PASS
 
-**Value — PASS.** The exact quotient replaces doubly exponential families of local neighbourhood choices by two monotone length-\(n\) profiles while preserving every formula, not merely a bounded fragment. The independently realizable profiles give a natural complete exact count, and the sharp two-neighbourhood compression supplies small representatives for semantic testing. This is a structural finite-frame classification, not an arbitrary fixed numerical census.
+On W_n={0<...<n−1}, every persistent upset U_t is a suffix. For each nonempty neighborhood A, A⊂U_t iff min A>=t, and A∩U_t≠∅ iff max A>=t. With constructive modal clauses quantifying all later worlds j, box on U_t has observable threshold B_i=min_{j>=i} max_{A∈N(j)} min A, diamond threshold D_i=min_{j>=i} min_{A∈N(j)} max A. Thus full formulas coincide under all valuations if B,D agree by induction on implication and both modal operations; differing coordinate is separated by one proposition assigned threshold t. Every independent nondecreasing B,D is realized by one {B_i,D_i} when B_i<=D_i, or two singletons {B_i},{D_i} otherwise. The final world with b=n−1>d=0 (n>=2) cannot use one neighborhood because min A<=max A. Weakly increasing n-tuples in n symbols number binom(2n−1,n), squared independently. Independently enumerated ALL 49 admissible raw frames for n=2 and 9 semantic classes, and all profile representatives n=1..4, confirming threshold clauses and claimed counts 1,9,100,1225; original code additionally covers n=5 count 15876. This does not make the all-n result computational.
 
-**Limits.** The theorem does not cover arbitrary posets, empty neighbourhoods, up-to-isomorphism counts, or order-varying neighbourhood semantics. The program checks finite cases only; the proof supplies the general result. Literature novelty remains subject to independent historical verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.
+
+## value
+
+PASS
+
+An exact full-language model-equivalence quotient for a foundational constructive neighbourhood semantics is a natural structural classification. It compresses exponentially many neighborhood-family choices to two independent monotone sequences and gives an optimal two-neighborhood representative with exact all-n census, useful for finite semantic model generation and invariant comparisons rather than merely a binomial exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
