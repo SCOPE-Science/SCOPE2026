@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:19:59.775598Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 3eef56257a5384c01b00c2261ff7b202c712d1b2, verify_biclique.py 066833741f85c2c34fad520879172e0f492e3498",
+        "Independent exact Fraction occupancy/feasible-profile computation audit_math_evidence_13.json"
+      ],
+      "rationale": "Two-equation symmetry reduction is exact: unpinned side potentials U,V depend only on counts (q,r), with determinant 1-lambda^2(1-s)(1-t)>0. The feasibility polynomial counts all labelled pinned choices by binomial weights; saturated parts have opposite-side hit potential lambda. In s>=t half-plane, u>=tau forces s>=f(t) with f strictly decreasing and concave for tau<lambda, so the linear cost is bounded below by the smaller endpoint costs a min(1,rho) and (a+b)beta; reverse half-plane is no better since a<=b. One-sided rounding attains ceil L; balanced rounding attains <=ceil L+1; tau=lambda and >lambda boundaries follow from one-step cap. Independent exact occupancy enumeration for K_{3,4}, lambda=1/3,tau=1/8 gives L=2, optimum=3 and 31 optimal sets in (1,2),(2,1),(3,0) profiles 18,12,1. Comparison rho/beta=(1+lambda)/lambda gives the claimed aspect-ratio threshold. The result is internally correct, including sharp +1 witness.",
+      "residual_risks": [
+        "Independent finite profile calculation was on decisive sharp example, not all parameter instances; all-family conclusion relies on the analytic concavity reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary theorem covers m,n>=1, including every 2<=a<b, all lambda/tau; presents exact optimal cardinality, not just estimates."
+        ],
+        "reasoning": "The earlier record explicitly dominates the entire submitted graph/parameter domain. The initiating manuscript alone only covered stars/complete/spider families, but the stronger intermediate published result defeats a claim of first exact unbalanced biclique optimization.",
+        "searches": [
+          "Resultary 2026-10-04 exact discounted hitting domination K_mn RESULT.md full text",
+          "Allagan–Pereyra–Massey 2026 arXiv:2609.31535v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "https://arxiv.org/html/2609.31535v1",
+        "Resultary semantic: discounted hitting domination complete bipartite graph K a b minimum pinning threshold lambda",
+        "Resultary 2026-10-04 exact discounted hitting domination K_mn RESULT.md full text",
+        "Full earlier Resultary theorem explicit R_x(a), R_y(a), b_a and min_a(a+b_a)",
+        "Resultary 2026-10-04 published primary RESULT.md proof on exact complete biclique domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both derive the identical two-potential equations. The earlier iff inequalities R_x,R_y give necessary and sufficient feasible source-count profiles and full δ; the submitted F_{q,r} tests the same two inequalities."
+        ],
+        "reasoning": "Prior theorem logically determines the claimed polynomial and optimum for every allowed value, even though the attractive one-unit envelope is an additional derived bound requiring analytical simplification; such a bound does not make the already exact central result novel.",
+        "searches": [
+          "Resultary 2026-10-04 published primary RESULT.md proof on exact complete biclique domination",
+          "Submitted frozen RESULT.md 2026-10-18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier primary theorem uses m,n and source counts a,b, with the same lambda-discounted first-hitting potentials, threshold floor and saturation cases."
+        ],
+        "reasoning": "Identical random-walk hitting optimization despite renaming of part occupancies q,r and different displayed minimization formulas.",
+        "searches": [
+          "Resultary semantic: discounted hitting domination complete bipartite graph K a b minimum pinning threshold lambda",
+          "2026-10-04 Resultary Exact discounted hitting domination of complete bipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior b_a is exactly the minimum admissible second-part count for each first-part count; larger second-part counts are feasible by monotonicity. Hence all occupancy profiles and coefficient counts follow from the earlier formula by weighting binom(m,a)binom(n,b)."
+        ],
+        "reasoning": "No independent table census is needed; pre-existing exact parametric profile dominates the submitted enumeration.",
+        "searches": [
+          "Full earlier Resultary theorem explicit R_x(a), R_y(a), b_a and min_a(a+b_a)",
+          "Submission all-set polynomial occupancy sum"
+        ]
+      },
+      "rationale": "FAILED: a publicly available earlier theorem, Exact discounted hitting domination of complete bipartite graphs (published 2026-10-04), already treats every K_{m,n} including all the submission’s unbalanced cases and gives the exact least feasible occupancy b_a for each a in elementary ceiling formulas. This pointwise characterization immediately determines every feasible (a,b) and every binomial-weight coefficient of the submitted all-set polynomial, and its minimum is the very optimization objective. The new +1 approximation and continuous phase characterization may offer explanatory inequalities not explicitly worded in the older result, but the central optimum/profile claim is prior-covered; they do not restore novelty of the submitted combined full theorem as presently framed.",
+      "residual_risks": [
+        "The sharp +1 continuous-relaxation envelope and aspect-ratio transition are not explicitly stated in earlier Resultary theorem, and could be framed as a separately motivated structural corollary; assessment rejects the frozen combined principal exact problem, not mathematical correctness of those derived details."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the principal exact optimization and feasible-profile enumeration throughout the submitted domain",
+          "evidence": "For each first-part count, earlier b_a determines feasible larger second-part counts; binomial multiplicities immediately determine the submitted counting coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+          "material_read": "Complete RESULT.md, including Findings, assumptions, full potential-equation proof, explicit R_x/R_y minimum occupancy formula, verification, prior work and limitations",
+          "method": "Full original primary text through repository GitHub file read",
+          "title": "Exact discounted hitting domination of complete bipartite graphs",
+          "trigger": "Exact same invariant, graph family and all-parameter result, prior date"
+        },
+        {
+          "assessment": "Does not itself provide complete-bipartite closed source-count profiles, but earlier Resultary does",
+          "evidence": "Definitions and graph-family results place the same discounted objective in context.",
+          "identifier_or_url": "https://arxiv.org/html/2609.31535v1",
+          "material_read": "Accessible arXiv full HTML, Sections 6-8 on spiders/stars/complete graphs and general optimization",
+          "method": "Full-text primary HTML model/scope inspection",
+          "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+          "trigger": "Initiating definition and broader theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scientific RESULT.md blob 3eef56257a5384c01b00c2261ff7b202c712d1b2",
+        "Actual source tree a607e96bd6ef7f1daf13978f89b2f1cd8d696dc4",
+        "Independent finite certificate audit_math_evidence_13.json"
+      ],
+      "rationale": "The continuum one-sided/balanced transition and sharp additive-one integrality gap offer genuinely interpretable structural information for a natural graph family; however a formerly unknown exact optimizer cannot be claimed since a stronger earlier all-profile formula exists. This explanatory mathematical value does not override the originality failure.",
+      "residual_risks": [
+        "Earlier complete family exact result leaves little incremental novelty for the original full claim; a different revised claim would require actual new final scientific files and a fresh complete audit, not a disclaimer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every genuinely unbalanced K_{a,b}, 2<=a<b, homogeneous discounted hitting domination admits an exact occupancy counting polynomial, one-sided/balanced continuous phase transition and a sharp at-most-one gap between ceil L and the true optimum.",
+  "limitations": [
+    "Independent finite profile calculation was on decisive sharp example, not all parameter instances; all-family conclusion relies on the analytic concavity reduction.",
+    "The sharp +1 continuous-relaxation envelope and aspect-ratio transition are not explicitly stated in earlier Resultary theorem, and could be framed as a separately motivated structural corollary; assessment rejects the frozen combined principal exact problem, not mathematical correctness of those derived details.",
+    "Earlier complete family exact result leaves little incremental novelty for the original full claim; a different revised claim would require actual new final scientific files and a fresh complete audit, not a disclaimer.",
+    "Historical gap around lost 12 UTC claim response remains preserved; signed sequence checkpoint is not scientific validation.",
+    "Publication blocked because operational provenance is contained in potentially public metadata; full safety/guarded sanitization withheld."
+  ],
+  "schema_version": 1
+}
