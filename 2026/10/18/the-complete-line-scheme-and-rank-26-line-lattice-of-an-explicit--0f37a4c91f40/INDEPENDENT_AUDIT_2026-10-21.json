@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T04:54:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the full all-d>=4 proof for S_d: F=x1^d+x1*x2^(d-1)+x3^d-x4^d. The partial derivatives have no common projective zero in characteristic zero, proving smoothness. A line parametrized by four binary linear forms has pair ranks (r1,r2); rank-zero is impossible and mixed 1/2 ranks would force a degree-d separable binary divisor to equal a dth power. If both ranks are two, the root configurations of u^d+uv^(d-1) (0 plus (d−1)-st roots of -1) and z^d-w^d (unit dth roots) would be projectively equivalent. For d−1>=3, three unit roots determine the generalized unit circle while 0 lies off it, contradicting Möbius preservation of generalized circles. Hence both ranks are one: exactly d² lines x1=a x2, x3=b x4 with a^d+a=b^d-1=0. Separability and normal bundle O(2−d) give finite reduced etale line scheme. Rational roots give four for even d and one for odd d. Row/column incidence and adjunction yield matrix eigenvalues d (1), 0 (2d−2), −d ((d−1)²). Hyperplane class belongs to their span and Hodge index makes pairing nondegenerate on that span; its rank is (d−1)²+1, hence 36 geometric lines, 4 rational, rank26 at d6. Independent small-degree integer Kronecker matrices d4,5,6 had ranks10,17,26; these are corroboration of the uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Page–Ryan–Smith general degree-d line bounds are upper estimates and do not imply d² geometric lines or their intersection spectrum.",
+          "Poonen arithmetic arguments use a different polynomial-pair setup."
+        ],
+        "reasoning": "A generic upper bound with d-dependent large RHS does not imply the exact scheme or rank. The potential risk is a stronger specialized split-variable surface theorem not surfaced by those references.",
+        "searches": [
+          "arXiv:2406.15868 Smooth Surfaces with Maximal Lines",
+          "Poonen arXiv:0902.3961",
+          "Resultary: Smooth surfaces A(x1,x2)+B(x3,x4)=0 all lines Hilbert scheme line intersection lattice Fermat 36 sextic surface"
+        ]
+      },
+      "checked_sources": [
+        "Actual split surface record Git RESULT.md/check_lines.py at 99bf675577c64325deb6a615d01cfcdb4ed081ff",
+        "Cheltsov–Tschinkel arXiv:2610.07479 primary Example3",
+        "Poonen arXiv:0902.3961 sections 1–2",
+        "Page–Ryan–Smith arXiv:2406.15868 theorem/abstract",
+        "Resultary query Resultary: Smooth surfaces A(x1,x2)+B(x3,x4)=0 all lines Hilbert scheme line intersection lattice Fermat 36 sextic surface"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheltsov–Tschinkel invokes particular rational branch curves to establish potential density; this gives existence, not completeness of lines.",
+          "Poonen supplies some trivial lines on a self-equality surface.",
+          "Page–Ryan–Smith is only an upper bound."
+        ],
+        "reasoning": "The exact classification needs the pair-projection rank argument and root-set non-equivalence, and the line-class rank requires adjunction plus Hodge index; none follows just from having one rational line or a general upper bound.",
+        "searches": [
+          "arXiv:2610.07479 Example3 and §2 Theorem5",
+          "arXiv:0902.3961 Sections1–2",
+          "arXiv:2406.15868 Theorem1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheltsov–Tschinkel uses precisely the same sextic branch equation.",
+          "Poonen uses F(x,y)=F(z,w), with equivalent factors; the source has inequivalent root configurations by circle obstruction."
+        ],
+        "reasoning": "Identical surface equation is prior, not the all-lines classification. The Poonen binary-form equality presentation is *not* a parameter relabeling of this inequivalent mixed-form family, so its trivial lines do not give full classification.",
+        "searches": [
+          "Resultary: Smooth surfaces A(x1,x2)+B(x3,x4)=0 all lines Hilbert scheme line intersection lattice Fermat 36 sextic surface",
+          "arXiv:2610.07479 Example 3",
+          "arXiv:0902.3961 split polynomial equality surfaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The originating example provides the equation but no full d²-line listing or 26-dimensional line-class span in inspected text.",
+          "Resultary hits concern other sextic jumping lines or Fermat cubic-fourfold line schemes."
+        ],
+        "reasoning": "The precise root-product scheme and grid intersection table was not found; this is a bounded search, not a priority guarantee.",
+        "searches": [
+          "Resultary: Smooth surfaces A(x1,x2)+B(x3,x4)=0 all lines Hilbert scheme line intersection lattice Fermat 36 sextic surface",
+          "36 lines 4 rational rank 26 sextic branch surface equation",
+          "Cheltsov–Tschinkel arXiv:2610.07479 Example3"
+        ]
+      },
+      "rationale": "PASS best of knowledge for the exact entire line Hilbert scheme and line-class lattice, distinguished from Cheltsov–Tschinkel's identical branch-surface equation and rational-curve density theorem. Poonen's related self-equality binary-form surface is not this mixed inequivalent pair; Page–Ryan–Smith supplies broad line bounds, not its exact Fano scheme. A specialized old classification of split or Delsarte-type surfaces could imply parts; flagged explicitly.",
+      "residual_risks": [
+        "Classical Delsarte/separated-binary-forms surface results could subsume parts of the d² line formula.",
+        "Result computes only span of line divisor classes, not full Néron–Severi or all rational curves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_OBJECT_NOT_LINE_SCHEME",
+          "evidence": "Identical sextic appears, but enumerating every branch line and rank26 class span is not established in read text.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07479",
+          "material_read": "Accessible primary HTML abstract, Example 3, §2 through density line construction and relevant subsequent examples",
+          "method": "Read primary article HTML and matched equation",
+          "title": "Potential density of rational points on sextic double solids",
+          "trigger": "Same explicit branch sextic and arithmetic geometry"
+        },
+        {
+          "assessment": "DIFFERENT_BINARY_FORM_PAIR",
+          "evidence": "Uses identical polynomial forms on two coordinate pairs and rational-point properties rather than this inequivalent pair classification.",
+          "identifier_or_url": "https://arxiv.org/abs/0902.3961",
+          "material_read": "Primary PDF introduction and §2 through trivial-line construction",
+          "method": "Read and visually checked relevant pages",
+          "title": "Multivariable polynomial injections on rational numbers",
+          "trigger": "Potential general result on separated variables surfaces"
+        },
+        {
+          "assessment": "UPPER_BOUND_NOT_EXACT_CENSUS",
+          "evidence": "Universal line bound does not determine the exact d² lines of this S_d.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.15868",
+          "material_read": "Primary theorem and abstract giving line bounds, not complete full-text non-coverage claim",
+          "method": "Checked stated hypotheses and parameter implication",
+          "title": "Smooth Surfaces with Maximal Lines",
+          "trigger": "General upper bounds on lines of smooth degree-d surface"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sextic is a specific arithmetically motivated branch surface used in potential-density research. Exhaustively determining every geometric and rational line, its incidence, and the rank-26 span of their Néron–Severi classes informs actual curve geometry and Picard constraints of the example; the theorem also classifies the full all-d>=4 family and gives an exact finite-etale scheme, not a numerical accident.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual split surface record Git RESULT.md/check_lines.py at 99bf675577c64325deb6a615d01cfcdb4ed081ff",
+    "Cheltsov–Tschinkel arXiv:2610.07479 primary Example3",
+    "Poonen arXiv:0902.3961 sections 1–2",
+    "Page–Ryan–Smith arXiv:2406.15868 theorem/abstract",
+    "Resultary query Resultary: Smooth surfaces A(x1,x2)+B(x3,x4)=0 all lines Hilbert scheme line intersection lattice Fermat 36 sextic surface"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is best of knowledge and is not an external priority certificate.",
+    "The independently performed bounded checks corroborate the unrestricted proofs, not a substitution for them.",
+    "Classical Delsarte/separated-binary-forms surface results could subsume parts of the d² line formula.",
+    "Result computes only span of line divisor classes, not full Néron–Severi or all rational curves."
+  ],
+  "residual_risks": [
+    "Classical Delsarte/separated-binary-forms surface results could subsume parts of the d² line formula.",
+    "Result computes only span of line divisor classes, not full Néron–Severi or all rational curves."
+  ],
+  "schema_version": 1
+}
