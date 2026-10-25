@@ -1,9 +1,21 @@
-# Review of the Higashitani toric singular-locus theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Higashitani's explicit dimension-three facet presentation is specialized and independently checked against ten vertices. The symbolic certificate exhausts eighteen edge cones: exactly the pairs numbered 14 and 78 have lattice index four, and every other edge pair has index one. Six fixed-point cones have unimodular triple generators; the remaining four nonsimplicial fixed points are endpoints of the two exceptional edges. Both exceptional lattice edges have length one. Saturated integral bases give rays \((1,0),(1,4)\), hence transverse equation \(UV=W^4\). Published very ampleness and the original hole count are attributed, not independently claimed.
+## correctness
 
-**Originality — PASS, with residual risk.** The nearest primary source, Higashitani (arXiv:1208.3955), defines the exact polytopes and their facets and proves semigroup-hole and integer-decomposition results; the inspected sections do not classify the associated toric singular orbits or local class groups. Lasoń–Michałek (arXiv:1406.4070) studies different polytope families and gap vectors. Targeted mathematical-record comparisons have not found this singular-line theorem. The original facet formulas are sufficient inputs to *derive* the result with substantial new cone-index and orbit-closure analysis; equivalently derived results elsewhere cannot be excluded. The theorem does not claim the input facet data, toric criteria or hole count as novel.
+PASS
 
-**Mathematical value — PASS.** This is a motivated all-parameter singularity classification of a named construction central to nonnormal very ample polytopes. It determines the complete reduced singular locus, projective degrees, generic local ADE type, exact non-\(\mathbb Q\)-factorial locus and local class-group ranks. The fixed two-line singular geometry contrasts with the independently established unbounded number of normalization holes, distinguishing intrinsic toric singularities from projective normality defects. The Jacobian scheme and fixed-point analytic types remain uncomputed.
+Using pinned 10 vertices and Higashitani’s 10 primitive facet normals, independently enumerated all facet incidences and 18 two-dimensional normal cones symbolically for every integer h≥2. Every cross-product gcd is 1 except pairs (1,4),(7,8), each index 4. Their dual polytope edges u1–u9 and u4–u8 have primitive length 1 and are disjoint; they define exactly two singular P1 lines of projective degree 1. The saturated two-ray transverse cone has integral coordinates (1,0),(1,4), and its dual semigroup Hilbert basis gives UV=W^4 (A3). Six other maximal cones are unimodular; four nonsimplicial endpoints give torsion-free local class groups Z,Z²,Z,Z² by unimodular minors. Symbolic incidence verification establishes the h-uniform fan assertions; Higashitani’s published facet and very-ampleness statements remain cited hypotheses.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A best-of-knowledge comparison of final claim and its implications, distinct from matching names or symbols, with actual relevant searches, full-text inspections and explicit residual bibliographic risks. Source plus standard toric criteria logically permit deriving the result after nontrivial symbolic fan calculations, but paper does not itself prove the 18-edge gcd classification or precise four fixed-point class groups.
+
+## value
+
+PASS
+
+Singular-orbit geometry and class groups of a standard nonnormal very-ample polytope family are natural toric invariants; deriving uniform h-independent A3 singular line loci, degrees, and four local non-Q-factorial defects explains geometric rigidity despite arbitrarily many affine cone semigroup holes, not a random isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

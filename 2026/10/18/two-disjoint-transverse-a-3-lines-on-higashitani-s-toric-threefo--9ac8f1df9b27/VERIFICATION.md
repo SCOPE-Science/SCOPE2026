@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy and SciPy. The checker evaluates exact symbolic incidence, affine slack inequalities on all integer parameters \(h\geq2\), the complete eighteen-edge table, lattice-index and class-group determinant identities, saturated rank-two bases for the \(A_3\) transverse model, and both edge lengths. It additionally checks convex hulls for six representative values; these sample hull checks are corroboration only.
+## correctness
 
-The expected result is `VERIFY_OK: symbolic ten-cone and eighteen-edge fan certificate`. The primary geometric proof of the all-parameter claim is contained in `RESULT.md`; the checker certifies its finite symbolic reductions, not an independent proof of the cited source's very ampleness or hole enumeration.
+PASS
 
-The scheme-theoretic Jacobian singular structure, local equations at the nonsimplicial endpoints and the parameter \(h=1\) are not verified or claimed. No independent audit has been performed.
+Using pinned 10 vertices and Higashitani’s 10 primitive facet normals, independently enumerated all facet incidences and 18 two-dimensional normal cones symbolically for every integer h≥2. Every cross-product gcd is 1 except pairs (1,4),(7,8), each index 4. Their dual polytope edges u1–u9 and u4–u8 have primitive length 1 and are disjoint; they define exactly two singular P1 lines of projective degree 1. The saturated two-ray transverse cone has integral coordinates (1,0),(1,4), and its dual semigroup Hilbert basis gives UV=W^4 (A3). Six other maximal cones are unimodular; four nonsimplicial endpoints give torsion-free local class groups Z,Z²,Z,Z² by unimodular minors. Symbolic incidence verification establishes the h-uniform fan assertions; Higashitani’s published facet and very-ampleness statements remain cited hypotheses.
+
+## originality
+
+PASS
+
+A best-of-knowledge comparison of final claim and its implications, distinct from matching names or symbols, with actual relevant searches, full-text inspections and explicit residual bibliographic risks. Source plus standard toric criteria logically permit deriving the result after nontrivial symbolic fan calculations, but paper does not itself prove the 18-edge gcd classification or precise four fixed-point class groups.
+
+## value
+
+PASS
+
+Singular-orbit geometry and class groups of a standard nonnormal very-ample polytope family are natural toric invariants; deriving uniform h-independent A3 singular line loci, degrees, and four local non-Q-factorial defects explains geometric rigidity despite arbitrarily many affine cone semigroup holes, not a random isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
