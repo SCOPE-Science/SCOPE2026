@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every labelled edge orientation is uniquely represented by its rim-edge bits and spoke bits; the vertex parity identity determines the spokes from the rim and the prescribed signature. The graph is chordal, so the exact directed-triangle exclusion is equivalent to acyclicity. The four-state transition counts each allowable orientation exactly once. The complete four-subset support transition table proves the odd/even obstruction classification and the exact count of exceptional signatures. Independent literal-orientation enumeration for all orders from two through ten and longer recurrence checks agree. No finite computation is used as an infinite proof.
+PASS
 
-## Originality
+For F_n=K1∨P_n, n>=2, summing indegrees gives necessary hub plus path parity =1 mod2 and fixed parity yields exactly 2^(n-1) unrestricted orientations by free choices of all n-1 path-edge directions. Define spoke s_i=0 for h->v_i and path e_i=0 for v_i->v_{i+1}, with e_-1=1,e_(n-1)=0. The identity p_i=s_i xor e_(i-1) xor e_i is exact at both endpoints. Every directed cycle in a chordal fan has a directed triangle; triangles are exactly h v_i v_(i+1), and a switch s_(i+1)=1-s_i is forbidden only when e_i=s_i. This yields the supplied 4-state DP. Directly checking the support-transition table from initial C gives C:0->U,1->A; A:0->B,1->C; B:0->A,1->U; U absorbing. Only support A lacks terminal odd xor, reached after odd processed length precisely by p0=1 and paired equal internal parities. Hence even-n obstruction p0=p_(n-1)=1,p_(2j-1)=p_(2j); counts 2^(n/2−1). Independent literal orientation enumeration with topological sorting, separately coded from source verify.py, checked n=2..8: 32768 orientations and 256 parity signatures at n=8, 8 excluded; sum acyclic 2*3^7=4374. Universal proof is structural, not finite inference.
 
-PASS, subject to residual literature risk. The motivating arXiv:2603.09475v1 studies the prescribed-indegree-parity acyclic-orientation problem and its source/sink constraints, and specifically treats Cartesian products of paths and cycles rather than fan-graph parity fibres. Classical total acyclic-orientation counts do not determine counts for individual parity signatures. Chordal-orientation generation results do not themselves supply the adjacent-pair obstruction or the exact parity-fibre recurrence. Existing wheel and multi-theta orientation results treat different graph families and do not imply the stated fan classification under graph isomorphism, edge deletion without parity correction, or parameter specialization. Targeted literature and mathematical-record searches revealed no covering statement. Priority remains subject to a more exhaustive independent bibliography check.
+## originality
 
-## Value
+PASS
 
-PASS. The recently studied prescribed-indegree-parity acyclic-orientation problem asks which parity prescriptions are realizable. The result supplies a full if-and-only-if criterion, an exact count for every prescription, and a linear-time counting algorithm on a natural infinite maximal-outerplanar chordal family. The exponential-in-half-order forbidden family for even path order and universal feasibility for odd order sharpen a bare decision algorithm; they reveal a boundary-sensitive parity effect obscured by the total acyclic-orientation count.
+Gravier–Petiteau–Sivignon 2026 treats acyclic orientations with parity constraints and necessary P/source/sink conditions, with published abstract emphasizing Cartesian products of paths/cycles, not fan-specific exact transfer counts. Its complete text was not obtainable through arXiv/OA here; authorized retrieval returned vpn_disconnected, so no whole-document exclusion is claimed. The stronger universal acyclic-orientation enumeration via chromatic polynomial yields only the unconstrained sum. Resultary published SCOPE fan dissociation polynomial and complete-graph-matching parity results involve different invariants/graphs. Best of knowledge PASS retaining the plausible unavailable paper as residual priority risk.
 
-## Limits
+## value
 
-The theorem is for fans only; it does not establish corresponding results for arbitrary chordal or outerplanar graphs. Code confirms finite instances, not the unrestricted theorem. A covering result under alternative terminology may be absent from the searched corpus; independent expert review is not supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prescribed indegree parity plus acyclicity is a nontrivial orientation problem; a sharp complete existence criterion and O(n) exact fibre-count recurrence for a natural chordal fan family supply more information than total acyclic-orientation counts. The parity-only obstruction is a motivated mathematical boundary and the multiplicities are available for any labeled n, not an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

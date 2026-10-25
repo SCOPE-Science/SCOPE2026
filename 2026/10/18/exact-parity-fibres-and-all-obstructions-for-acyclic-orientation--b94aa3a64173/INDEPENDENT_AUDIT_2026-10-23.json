@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:00:02.743881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F_n=K1∨P_n, n>=2, summing indegrees gives necessary hub plus path parity =1 mod2 and fixed parity yields exactly 2^(n-1) unrestricted orientations by free choices of all n-1 path-edge directions. Define spoke s_i=0 for h->v_i and path e_i=0 for v_i->v_{i+1}, with e_-1=1,e_(n-1)=0. The identity p_i=s_i xor e_(i-1) xor e_i is exact at both endpoints. Every directed cycle in a chordal fan has a directed triangle; triangles are exactly h v_i v_(i+1), and a switch s_(i+1)=1-s_i is forbidden only when e_i=s_i. This yields the supplied 4-state DP. Directly checking the support-transition table from initial C gives C:0->U,1->A; A:0->B,1->C; B:0->A,1->U; U absorbing. Only support A lacks terminal odd xor, reached after odd processed length precisely by p0=1 and paired equal internal parities. Hence even-n obstruction p0=p_(n-1)=1,p_(2j-1)=p_(2j); counts 2^(n/2−1). Independent literal orientation enumeration with topological sorting, separately coded from source verify.py, checked n=2..8: 32768 orientations and 256 parity signatures at n=8, 8 excluded; sum acyclic 2*3^7=4374. Universal proof is structural, not finite inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley 1973 implies total 2*3^(n-1) via chromatic polynomial, and thus cannot identify per-signature multiplicities.",
+          "The 2026 abstract gives broad class inclusion and solvability for Cartesian grids, cylinders and tori; K1∨P_n is a fan join, not one of those products."
+        ],
+        "reasoning": "The broad work is relevant but no demonstrated stronger theorem forces this exact fan zero-fibre criterion or counts; whole-text access was blocked and this remains risk.",
+        "searches": [
+          "Resultary semantic query: fan graph acyclic orientations prescribed indegree parity exact fibers obstructions",
+          "Gravier–Petiteau–Sivignon arXiv:2603.09475 abstract",
+          "Stanley Discrete Mathematics 5 (1973)"
+        ]
+      },
+      "checked_sources": [
+        "Gravier–Petiteau–Sivignon 2026 arXiv abstract 2603.09475 and lawful OA index; authorized Oxford attempt returned vpn_disconnected",
+        "Stanley 1973 total acyclic orientation result (classical known theorem)",
+        "Resultary query 2 fan parity and relevant published fan-dissociation and complete-graph parity records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global parity congruence is Chevalier-type standard, and total acyclic count is classical; neither implies distribution among 2^n feasible signatures.",
+          "The complete support automaton and boundary pattern use fan triangle overlap; it is not an implication of knowing only total count or general necessary parity/source/sink conditions."
+        ],
+        "reasoning": "PASS supported by new exact fan-specific constructive argument; possible unpublished or inaccessible source theorem with these precise counts remains an explicit risk.",
+        "searches": [
+          "Resultary semantic query: fan graph acyclic orientations prescribed indegree parity exact fibers obstructions",
+          "Gravier arXiv:2603.09475 abstract",
+          "Stanley 1973"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The vertex-signature p_i,q is exactly the T-odd orientation condition of Gravier et al., not a distinct property through notation.",
+          "An acyclic orientation of the fan is uniquely determined by a chordal-triangle-safe directed edge configuration, counted by the 4-state recurrence."
+        ],
+        "reasoning": "No renaming-only claim: full exact fibres and forbidden alternating-pair signatures go beyond the graph-class existence language actually accessible in the Gravier abstract.",
+        "searches": [
+          "Resultary semantic query: fan graph acyclic orientations prescribed indegree parity exact fibers obstructions",
+          "arXiv:2603.09475 abstract",
+          "Stanley 1973 chromatic polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns a dissociation polynomial of F_n, which counts different vertex subsets, and parity-imbalance for complete graphs minus a matching, different graph.",
+          "The independent n=2..8 count table matches source theorem but is not a prior published table proving unrestricted n."
+        ],
+        "reasoning": "No exact fan parity fibre table identified in accessible searches; not novelty proof.",
+        "searches": [
+          "Resultary semantic query: fan graph acyclic orientations prescribed indegree parity exact fibers obstructions",
+          "published SCOPE fan dissociation polynomial",
+          "acyclic orientation graph vertex parity fan table"
+        ]
+      },
+      "rationale": "Gravier–Petiteau–Sivignon 2026 treats acyclic orientations with parity constraints and necessary P/source/sink conditions, with published abstract emphasizing Cartesian products of paths/cycles, not fan-specific exact transfer counts. Its complete text was not obtainable through arXiv/OA here; authorized retrieval returned vpn_disconnected, so no whole-document exclusion is claimed. The stronger universal acyclic-orientation enumeration via chromatic polynomial yields only the unconstrained sum. Resultary published SCOPE fan dissociation polynomial and complete-graph-matching parity results involve different invariants/graphs. Best of knowledge PASS retaining the plausible unavailable paper as residual priority risk.",
+      "residual_risks": [
+        "Most relevant Gravier 2026 paper full text not accessed; a buried fan case or stronger theorem could cover the existence obstruction. This access limitation is not evidence that it does not.",
+        "No exact parity-fibre theorem claimed for other chordal graphs, 2-trees or arbitrary edge orientations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_PRIMARY_FULL_TEXT_NOT_READ",
+          "evidence": "Abstract specifies grids/cylinders/tori and broad class hierarchy; cannot assert that no fan theorem appears in the uninspected full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.09475",
+          "material_read": "Full abstract and public bibliographic details, including classes claimed (Cartesian path/cycle products) and necessary P/S conditions; full PDF and arXiv HTML inaccessible",
+          "method": "Read arXiv and OA index abstract; tried arXiv PDF and lawful OA and authorized institutional retrieval (vpn_disconnected)",
+          "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+          "trigger": "Same prescribed indegree parity and acyclicity problem; strong potential prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prescribed indegree parity plus acyclicity is a nontrivial orientation problem; a sharp complete existence criterion and O(n) exact fibre-count recurrence for a natural chordal fan family supply more information than total acyclic-orientation counts. The parity-only obstruction is a motivated mathematical boundary and the multiplicities are available for any labeled n, not an arbitrary tiny slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only simple labeled fans with ordered P_n and n>=2; finite brute force supports but does not imply all n.",
+    "Primary 2026 paper full text inaccessible after legitimate arXiv/OA and institutional attempts."
+  ],
+  "schema_version": 1
+}
