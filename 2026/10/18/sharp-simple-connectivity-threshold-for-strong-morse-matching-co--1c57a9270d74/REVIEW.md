@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim is an all-integer \(n\ge6\) assertion about \(\pi_1\), not a wedge classification. The two-skeleton proof specifies the oriented-incidence inequalities, characterizes compatible two- and three-vertex faces, handles all four exceptional \(n=6\) triangles, verifies monochromatic simple connectivity, and proves the mixed-incidence graph connected. Van Kampen then kills every remaining mixed-edge generator. The independent exhaustive order-based verifier agrees in sizes four through eight, with mod-two first Betti ranks \(5,1,0,0,0\); no finite test is misused as the infinite proof.
+## correctness
 
-**Originality (O): PASS, subject to index limitations.** The original full-text study [1] computes pure-cycle homotopy types and full-cycle homology only through \(n=21\), without stating an all-length fundamental-group classification. The inspected published face-enumerator [2] explicitly leaves connectivity undetermined, despite providing a compatible three-symbol face criterion. The inspected dihedral Euler study [3] determines alternating traces, not fundamental groups. The inspected pure-cycle rotation study [4] concerns a distinct subcomplex. Searches using the literal fundamental-group claim, the strong/full/pure aliases, cycle sizes, face constraints, and general connectivity descriptions produced no dominating published-finding corpus result. The all-length statement is not implied by a finite table or an Euler characteristic. Unindexed precedents are a residual risk.
+PASS
 
-**Mathematical value (V): PASS.** The full strong Morse cycle complex is a recent family whose full all-length homotopy is not classified in the primary paper. A previously recorded all-length integral homology formula for the same family does not imply simple connectivity: trivial first homology allows a nontrivial perfect fundamental group. The proved sharp, uniform threshold rules out that obstruction for every length, including \(n=22\) and beyond. The two-skeleton characterization explains the structural reason and separates the difficult higher homology problem from the first homotopy obstruction. This is more than a single numerical example or a routine consequence of an already known general homotopy classification.
+An incidence R_i is allowed precisely when h_i<h_(i+1)<h_(i+2), and L_j precisely when h_(j+1)<h_j<h_(j-1). Thus opposite colors conflict iff (j-i) mod n lies in {0,1,2}. Any compatible partial edge orientation extends to a total vertex order unless it forces one directed full cycle. Three incidences cover at most 6 edges, hence the exact two-skeleton n>=7 and four exceptional monochromatic triples n=6. Same-color 2-skeleta fill each triangular loop, including exception fillings via a vertex on the disjoint same-color missing triangle. Allowed cross bipartite graph is connected (consecutive Rs have common L for n>=6); mixed triangles identify all cross edges after van Kampen contraction, so pi1 is trivial. Earlier Proposition 8.5 gives n=5 S1 sharpness. Independent enumeration from all vertex permutations n=5..8 reproduced face constraints, 4 n=6 missing triples, and connected mixed graph; direct finite H1 is not substituted for pi1 argument.
 
-**Closest literature and limits.** [1] Knudson–Owens-White, arXiv:2609.06844v1; [2] *Face enumeration and Euler periodicity of strong Morse cycle complexes*; [3] *Dihedral Euler characters of full strong Morse complexes of cycles*; [4] *The threefold rotation character of pure strong Morse matching complexes of cycles*. Only the published \(n=5\) obstruction is reused; the new \(n\ge6\) proof is separate. No claim about higher homotopy or absolute bibliographic completeness is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known full cycle face enumeration and Euler characters, pure strong complex homotopy, and n<=21 full homology do not give uniform van Kampen proof of trivial nonabelian pi1. A homology table reporting H1=0 cannot imply trivial pi1. This two-skeleton connectivity mechanism is the assessed novel and valuable contribution; possible preexisting all-n connectivity statement outside indexed research remains a risk.
+
+## value
+
+PASS
+
+Fundamental-group triviality is a natural homotopical invariant not determined by Euler characteristics or abelianized homology. Sharp uniform n=6 cutoff and explicit sparse two-skeleton give a usable structural theorem while the full higher homotopy type remains unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
