@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:01:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 and t_i>=1, every vertex in a private clique is simplicial and cannot be internal to a chordless path, so any private-only set is admissible; three selected core vertices always occur on an induced cycle arc and are forbidden. For one core vertex, nonempty private support must be one index or adjacent index pair, and the chosen core cannot be one endpoint of that adjacent pair; for two core vertices, if private support is nonempty it lies in the unique common-neighbor attachment and the selected core pair is precisely its two cycle neighbors. These exhaustive cases yield the stated all-set polynomial using A_i=(1+z)^t_i-1, and facet-by-single-extension analysis yields Phi=z^T+(C(n,2)-n)z²+sum_i(z^(t_i+1)+z^(t_i+2))+(n-2)sum_i z^(1+t_i+t_{i+1}). The invariant total number of facets equals C(n,2)+n(n-1)+1, and the entire private set is unique maximum size T. An independent induced-path enumerator (not the supplied verify.py) exactly reproduced Psi=1+10z+45z²+30z³+5z⁴+z⁵ and Phi=10z²+20z³+z⁵ for the five-sunlet; the structural case proof, not this finite example, establishes all n,t_i. n=4 excluded because antipodal pairs have two common neighbors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thomas et al prove mp(G⨀H)=|G| mp(H); for H=K_t this implies maximum T=nt in uniform case.",
+          "The 2024 polynomial paper enumerates geodesic general-position sets, not induced-path monophonic-position sets; it motivates studying monophonic analogues."
+        ],
+        "reasoning": "Previously proved scalar maximum overlaps one corollary. Neither theorem gives coefficient distribution or facets, and varying clique sizes goes outside the uniform corona statement.",
+        "searches": [
+          "Thomas Chandran Tuite Di Stefano arXiv:2012.10330 Proposition 3.7 corona monophonic-position number",
+          "Irsic Klavzar Rus Tuite arXiv:2401.05696 General Position Polynomials"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md and verify.py; own C5 sunlet chordless-path triple enumeration",
+        "monophonic position polynomial facets cycles with private cliques corona Cn",
+        "Thomas et al arXiv:2012.10330 full text",
+        "Iršič et al arXiv:2401.05696 full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known mp(C_n⨀K_t)=nt is a maximum-cardinality fact and cannot imply all Ψ coefficients or Φ facets.",
+          "Shortest-path notion differs even on elementary graphs, so general-position polynomials do not logically imply monophonic polynomials."
+        ],
+        "reasoning": "One easy corollary is known, but complete enumerative refinement and nonuniform facets are not logically forced by the identified prior statements.",
+        "searches": [
+          "arXiv:2012.10330 On monophonic position sets in graphs",
+          "arXiv:2401.05696 General Position Polynomials"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monophonic position = no three selected vertices on any induced path; geodesic general-position constraints are different.",
+          "Ordinary corona C_n⨀K_t is the uniform special case of the graph H(t0,...,tn-1)."
+        ],
+        "reasoning": "Checked both monophonic and shortest-path aliases while retaining their different semantics; existing general-position polynomial theorem does not transfer verbatim.",
+        "searches": [
+          "monophonic position polynomial facets cycles with private cliques corona Cn",
+          "monophonic general position polynomial corona cycle complete clique modules all facets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Own direct C5 sunlet full independent induced-path test matches exact polynomial arrays.",
+          "Resultary near hit SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642 concerns geodesic general-position of different K_n corona family."
+        ],
+        "reasoning": "No retrieved exact all-subset and maximal-facet polynomial for nonuniform clique modules; search noncoverage is not asserted as proof of priority.",
+        "searches": [
+          "monophonic position polynomial facets cycles with private cliques corona Cn",
+          "monophonic position polynomial cycle sunlet clique corona maximal facets"
+        ]
+      },
+      "rationale": "Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.",
+      "residual_risks": [
+        "Possible unindexed monophonic-position polynomial for sunlet/corona may duplicate uniform special case.",
+        "Nonuniform n>=5 case relies on chordless-path classification; bounded independent check covers n=5 uniform t=1 but not all parameter choices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers scalar maximum, not full counting or facets",
+          "evidence": "Proposition 3.7 yields nt in uniform case but no all-cardinality/facet enumeration.",
+          "identifier_or_url": "arXiv:2012.10330",
+          "material_read": "complete primary PDF text including Proposition 3.7 on corona maximum",
+          "method": "read main definitions, proposition and relevant proof against claimed full polynomials",
+          "title": "On monophonic position sets in graphs",
+          "trigger": "foundational paper with identical induced-path condition and corona products"
+        },
+        {
+          "assessment": "not covering under different induced-path semantics",
+          "evidence": "Geodesic general-position polynomial is not the monophonic polynomial.",
+          "identifier_or_url": "arXiv:2401.05696",
+          "material_read": "full primary arXiv PDF text including introduction, main formulas and monophonic-motivation remarks",
+          "method": "read geodesic definition and monophonic follow-up context",
+          "title": "General Position Polynomials",
+          "trigger": "possible polynomial domination by broader graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle corona constructions with private complete modules are a natural family for monophonic general-position counting, whose scalar maximum was already known. The complete all-set and inclusion-maximal-set polynomials, facet count independent of every positive private clique size, five distinct maximal cardinalities in uniform t>=2, and arbitrarily nonpure complexes answer a structural enumerative question beyond a mere maximum-number substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=5, t_i>=1, induced-path monophonic rather than shortest-path geodesic position; labeled subsets.",
+    "Small bounded example corroborates, not proves general identities."
+  ],
+  "schema_version": 1
+}
