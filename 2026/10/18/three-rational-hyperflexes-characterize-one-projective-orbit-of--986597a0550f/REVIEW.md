@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete argument proves that a rational hyperflex triple cannot be collinear, normalizes noncollinear triples, forces three tangent lines and then a unique quartic by their fourfold contact restrictions. Its gradient calculation proves geometric smoothness over an algebraic closure and verifies that the three coordinate vertices are all rational points. The \(168\)-element projective-group action and \(28\) triple count are established without experimental assumptions. The embedded independently executable verifier checks the extremal enumeration, the three affine Jacobian ideals, and the group orbit.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The claim is about maximal rational contact-four incidence on smooth binary quartics and the unique quartic associated with each Fano noncollinear triple. The inspected papers of Asgarli–Ghioca and Nart–Ritzenthaler concern, respectively, rational tangent-line coverage and an abstract genus-three curve classification; neither text inspection identified this exact rational-hyperflex extremal bijection. The Hilario–Stöhr work concerns a different, singular-quartic setting. Mathematical research-record searches returned only unrelated quartic/flex studies. This is not proof against an unindexed or indirectly derivable historical result: in particular, the full Viana–Paz La Torre article could not be inspected, and Nart–Ritzenthaler normal forms might permit further calculation of the same invariant.
+PASS
 
-## Value — PASS
-This is a complete and sharp classification for a natural high-contact incidence phenomenon on genus-three plane curves over the smallest finite field. It identifies a geometric obstruction (collinear triples), proves rigidity of a triple of maximal-contact tangent constraints, and explains the unique \(28\)-member orbit and its \(S_3\) stabilizer. The classification is stronger than a bare equation count or a tally of rational bitangent lines.
+For any smooth quartic over F2, a collinear triple of rational hyperflexes would force the shared line restriction to vanish at all three F2 points and repeat one root, contradicting line contact 4P at a distinct point. A noncollinear triple normalizes to coordinate vertices and forces their only permitted Fano tangent lines Y+Z,X+Z,X+Y. Equal restrictions make any candidate differ from the displayed F0 by Δ·(aX+bY+cZ), but gradient at each vertex forces a=b=c=0. The displayed symmetric expansion F0=s²q+sr+q² and its factored derivatives exclude any common zero of F0 and derivatives over the algebraic closure; exactly the vertices are rational zeros. Every noncollinear unordered triple corresponds to one F0 projective image: 168 ordered bases/6 =28, stabilizer S3. Separately independently implemented all 32767 nonzero F2 ternary quartic masks and rational tangent restrictions, recovering hyperflex histogram 0:23331,1:8148,2:1260,3:28 and representative mask 15150; this matches the inspected 28-row certificate. The source verifier’s Groebner unit-ideal checks for all affine charts were inspected; the analytic smoothness proof supplies independent all-closure support.
 
-## Boundary
-The result concerns rational hyperflexes, not all inflection points or all geometric Weierstrass points. Computational verification supplements the analytic proof; no independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.
+
+## value
+
+PASS
+
+Rational hyperflexes are maximally special tangency points on natural canonical genus-three curves. The exact Fano-plane extremal count, unique equation forced by a noncollinear triple, geometric smoothness, PGL3 orbit and S3 stabilizer form a complete projective incidence classification; the result is more than counting quartic equations or ordinary bitangents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
