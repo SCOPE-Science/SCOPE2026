@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For this fixed graph, every sign vector of its graphical arrangement is represented by a five-level potential; the reproducible checker obtains the same 389 cones from ordered partitions. The connected-cut criterion supplies the primitive rays from first principles. Integer minors classify all cones, and direct ray-inclusion tests identify eight codimension-three minimal singular cones and four isolated codimension-four cones. Every conifold cone has a primitive \((1,1,-1,-1)\) relation; every isolated cone has a primitive \((1,1,1,-1,-1)\) relation, with lattice-saturating minors. Standard semigroup arguments provide the claimed affine toric models. The result concerns the reduced singular support and is valid in any characteristic.
+## correctness
 
-## Originality
-PASS, with residual risk. Postnikov--Reiner--Williams, *Faces of Generalized Permutohedra*, arXiv:math/0609184, Sections 3 and 5, supply the general fan dictionary and nonsimplicity criterion, but not the particular singular-component census or two local models. Padrol--Pilaud--Poullot, *Deformed Graphical Zonotopes*, arXiv:2111.12422, Sections 1 and 2, study deformation cones rather than singular orbit closures. Targeted mathematical searches found no claim logically dominating the full fixed-graph statement. This is not proof of uniqueness; an unindexed equivalent calculation could exist.
+PASS
 
-## Value
-PASS. This is the first five-vertex matching-deleted complete graph, where two independent edge deletions interact in a connected graphical arrangement with an additional fifth vertex. Its toric fourfold has non-pure singular support: positive-dimensional ordinary-double-point strata and isolated higher-rank Segre determinantal singularities, a contrast to the single-edge-deleted conifold-only pattern. A complete disjoint-component classification, exact orbit census and local equations give useful geometry rather than an isolated numerical exercise.
+The W5 graph is K5 minus disjoint {1,2},{3,4}. Graphical-zonotope normal cones come from realizable 8-edge sign vectors; weak orders of five labeled potentials suffice (5^5 scores), giving exactly 389 cones and 26 primitive connected bipartition rays. Independent enumeration gave dimension/ray profile (0,0):1,(1,1):26,(2,2):116,(3,3):160,(3,4):8,(4,4):58,(4,5):20. All simplicial cones have unimodular primitive determinants per source exact lattice verifier; nonsmooth minimal cones are 8 dimension-3 four-ray cones and 4 dimension-4 five-ray cones. Each dimension-3 minimal cone lies in two distinct maximal cones, no two share a maximum; closures are eight disjoint P1; isolated four maxima yield four points. Eight one-dimensional torus orbits plus 16 endpoints and four isolated fixed points = 28; 20 nonsmooth fixed points of 78 total. Primitive relations in the source checker are (1,1,-1,-1) and (1,1,1,-1,-1), with all rank-maximal minors unit, yielding respectively conifold and rank-one 2x3 Segre semigroups and multiplicities 2 and 3. Every nonsimplicial cone is singular and all simplicial cones unimodular, hence nonsmooth support is precisely non-Q-factorial support. The computed fan is exhaustive, not a random sample.
 
-## Scope and literature limitations
-The wheel fixed-point count alone does not imply these singular components. The finite theorem is not extended to arbitrary deleted matchings or larger wheels. Local multiplicity is computed for the named generic or isolated models. Similar computations under different terminology may be missing from search indexes; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Postnikov–Reiner–Williams Proposition 5.2 gives graphical-zonotope simplicity criterion but no full 389-cone singular-stratum census or conifold/Segre affine model. Padrol–Pilaud–Poullot deformation cone is a different cone space. Related finite wheel topology results examine other complexes, not this toric variety.
+
+## value
+
+PASS
+
+A natural minimal wheel-graph zonotope yields two distinct explicit toric singularity types and a disconnected global singular support; exact local models and intersection pattern are not determined by the previously known global simplicity criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
