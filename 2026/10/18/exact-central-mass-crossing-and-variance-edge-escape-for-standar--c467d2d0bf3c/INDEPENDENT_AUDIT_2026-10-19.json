@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T22:55:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With X_nu=sqrt((nu-2)/nu)T_nu, the exact density f_nu has log-ratio L_nu(z)=constant+z/2-(nu+1)/2 log(1+z/(nu-2)); L_nu'(z)=(z-3)/(2(nu-2+z)). Thus one strict density-ratio trough occurs at z=3. Writing X_nu=sqrt(V)G with V=(nu-2)/Q, Q chi-square nu and E V=1, strict Jensen for V^-1/2 shows f_nu(0)>phi(0); total density normalization forces the trough negative; polynomial Student tails force L_nu(z)->infty. Hence exactly two positive density crossings a_nu<sqrt3<b_nu, signs +,-,+. D_nu'(r)=2(f_nu(r)-phi(r)), D_nu(0)=D_nu(infty)=0 and tail sign yield a unique D zero R_nu in (a_nu,b_nu), positive before and negative after. For epsilon=nu-2->0, distribution X_nu->0 in probability, so R_nu->infinity. Exact density integration gives survival Student A_nu epsilon^(nu/2)r^-nu(1+O(epsilon/r^2)), A_nu->1/4; equating with Mills normal survival implies R²=nu H+2(nu-1)log R+2log[1/(A_nu sqrt(2pi))]+o(1), H=log(1/epsilon). Self-consistent R²~2H yields 2H+log(2H)+log(8/pi)+o(1). Large-nu correction 1/(sqrt3 nu) follows algebraically from prior Ouimet density expansion and is not presented as new. Independent survival-function root solving, carefully avoiding catastrophic 1-CDF subtraction, located roots at nu=2.001 (4.1860), 2.01 (3.5527), 3.5 (2.00843), 50 (1.74393), 300 (1.733984), consistent with both endpoints. Finite checks supplement sign and tail proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ouimet Lemma 1 and Theorems 1–2 provide local density ratio and survival approximations as nu->infinity; their theorem does not extend to variance boundary nu downarrow 2.",
+          "Specific fixed-radius inequalities compare one sigma but do not provide unique entire-r crossing or R_nu asymptotics."
+        ],
+        "reasoning": "A general mixture comparison could cover the sign-crossing part; no located full theorem covered both the all-degree zero uniqueness AND the sharp nu=2 edge expansion. Distinct source scope documented.",
+        "searches": [
+          "F Ouimet Refined normal approximations Student distribution arXiv:2201.05950",
+          "published standardized Student Gaussian one-sigma Resultary records",
+          "Student as normal inverse-chi-square variance mixture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.05950 Ouimet 2022 complete 9-page PDF",
+        "DOI:10.7153/jca-2022-20-03 journal source",
+        "Resultary semantic standardized Student vs Gaussian full central-mass crossing query",
+        "Resultary published one-sigma F and Student-related entries, distinct comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ouimet implies the nu->infinity correction sqrt3+1/(sqrt3 nu)+O(nu^-2), which is credited as DEPENDENT, not independently novel.",
+          "Jensen and calculus prove density sign diagram; tail asymptotics at nu downarrow2 require a distinct singular-parameter argument."
+        ],
+        "reasoning": "The accepted original part is the global strict crossing and its sharp singular endpoint law, not the quoted large-nu corollary. The mixture is an elementary representation; no earlier theorem identified that includes the asymptotic constant.",
+        "searches": [
+          "Ouimet Lemma 1 Hermite coefficients",
+          "Student normal mixture Jensen and density-ratio derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric central-mass difference zero is equivalent to equality of one-sided survival functions by symmetry.",
+          "D derivative follows density crossings, while equality of one-sided tails is exactly the same R_nu."
+        ],
+        "reasoning": "Checked survival-tail and central interval aliases, as well as 2-sided mass vs one-sided tail factors; the asymptotic constant log(8/pi) follows from the ONE-sided tail normalization A_nu->1/4.",
+        "searches": [
+          "Resultary: standardized Student t Gaussian central probability crossing variance boundary nu down to 2",
+          "Ouimet arXiv:2201.05950 standardized density survival approximations",
+          "generic variance matched t Gaussian sign changes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved published table tabulating R_nu unique crossing or its near-2 log-log expansion.",
+          "Ouimet tabulates large-nu normal approximation terms, not variance-edge crossing radii."
+        ],
+        "reasoning": "Not finding an exact R_nu table is only limited supporting evidence; stronger prior results could be indexed under central peakedness or scale mixtures.",
+        "searches": [
+          "Resultary published Student one sigma concentration and standardized distributions query",
+          "Ouimet arXiv 2201.05950 local asymptotic coefficient tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for uniform all-real-nu unique central-mass sign crossover and sharp variance-boundary escape constant, not for the known Student density or Ouimet large-degree expansion. Inspected Ouimet 2022 complete 9-page local density/survival approximation source and identified its large-nu scope; it does not address nu downarrow 2 or prove the global all-degrees unique central mass zero. Resultary searches found related one-sigma Student/F statistics and Gaussian approximations, none of which yields the particular crossing law; an unindexed general mixture comparison theorem remains plausible for uniqueness, but not known to entail boundary asymptotic.",
+      "residual_risks": [
+        "An earlier general normal-scale-mixture peakedness or density-crossing theorem may imply the unique central-mass zero, though the sharp finite-variance boundary constant still requires singular tail matching.",
+        "This audit did not establish monotonicity of nu↦R_nu or absence of every equivalent historical statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: existing large-nu expansion, survival and quantile approximation; no all-degree central mass crossing or nu downarrow2 law",
+          "evidence": "Lemma 1 provides density ratio expansion for nu->infty; Theorem 1 survival approximation is in that same limit, not the nu>2 global crossing or nu->2 singular edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.05950",
+          "material_read": "Complete 9-page primary arXiv PDF accessed; Lemma 1, Theorems 1–2, local density expansions and proof sections examined, with rendered p.3",
+          "method": "Full text search and relevant page-image inspection",
+          "title": "Refined normal approximations for the Student distribution",
+          "trigger": "Same standardized Student family and Gaussian benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Student family passes through a finite-variance boundary where the variance-one law concentrates in probability but retains rare huge tails. A unique switch from excess central probability to deficit, together with an exact log-log escape and additive constant, quantifies a nontrivial competing concentration/tail regime; it is relevant to Gaussian-vs-heavy-tail approximation beyond a routine fixed-radius expansion. It does not assert monotonic R_nu or stronger stochastic order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only variance-one standardized Student nu>2 and centered symmetric interval masses; no monotonic radius or stochastic domination conclusion.",
+    "Publication transport blocked: both METADATA.json and AUDIT.json contain the private scope_run_id; verified confidentiality-safe COMPLETE replacement bytes plus source-blob guards for BOTH have not been prepared. Withhold publication."
+  ],
+  "schema_version": 1
+}
