@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:59:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5 graph subspace, group-averaged projector and minimax proof",
+        "verify_exact.py exact matrix/idempotence and verify_lp.py unsymmetrized LP source read",
+        "independent_checks.py rational edge-column calculations"
+      ],
+      "rationale": "For K_{2,m}, m≥3, each pair of branch edges has the same r_i>0. A cut gradient exactly satisfies s_1=⋯=s_m for s_i=(x_i1+x_i2)/2; all independent d_i=(x_i1−x_i2)/2 belong to the range. Averaging any real projection over independent within-branch edge swaps preserves its range/identity and cannot increase weighted ℓ1 norm; character decomposition forces form Pα(s,d)=((∑α_j s_j)1,d) with ∑α=1, even for initially nonsymmetric projections. Its two edge-column weighted norms in branch j equal F_j=max(1,|α_j|)+(R−r_j)|α_j|/r_j. The inequality max_jF_j≥1+max_jc_j|α_j|≥1+1/H (H=∑1/c_j, c_j=(R−r_j)/r_j) holds for all signs and is attained by α_j=(1/c_j)/H∈(0,1). Strict Jensen for x/(R−x) gives λ≤2−1/m iff equal weights, and an overwhelmingly long branch gives λ↓1; the stated one-defect derivative is a rational identity. I independently formed rational edge columns for weights (1,1,1),(1,2,5),(1,1,3,7), reproducing exact norms 5/3,22/15,481/316. Source verify_exact.py and verify_lp.py were inspected, but log labels do not prove universal quantifiers.",
+      "residual_risks": [
+        "No finite check replaces the analytic proof; claims quantified as in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582, §§1.1,1.3,2.1",
+          "Blatter–Cheney, Minimal projections on hyperplanes in sequence spaces, 1974, abstract/bibliographic scope only"
+        ],
+        "reasoning": "The 2023 cycle-space and transportation-cost paper provides general foundations and special graph classes but no proved all-weight formula for this particular cut target in inspected relevant sections. Blatter–Cheney minimal-projection theorem is for codimension-one hyperplanes; here cut codimension m−1≥2, so a direct implication requires another theorem not found.",
+        "searches": [
+          "Resultary semantic search: weighted K 2 m multibranch diamond cut subspace minimum projection constant weighted l1 relative projections (limit 12, 2026-10-22)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.03814 §5.1",
+        "arXiv:2305.12582 §§1.1,1.3,2.1",
+        "Blatter–Cheney 1974 title/abstract scope, no full text",
+        "Resultary semantic search weighted K 2 m multibranch diamond cut subspace minimum projection constant weighted l1 relative projections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md proof of λ_cut for arbitrary r_i",
+          "arXiv:1807.03814 §5.1 λ_cycle for multibranch diamonds"
+        ],
+        "reasoning": "For unit weights the candidate λ_cut=2−1/m, while the cited λ_cycle=2−2/m; numerically and geometrically distinct subspaces, so the published cycle result neither contains nor refutes the weighted cut formula. Jensen equality rigidity and one-defect decay add exact geometry of weights absent from the compared prior.",
+        "searches": [
+          "Resultary semantic search: weighted K 2 m multibranch diamond cut subspace minimum projection constant weighted l1 relative projections (limit 12, 2026-10-22)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md explicit s/d coordinates and λ=1+[∑r_i/(R−r_i)]^-1",
+          "Dilworth–Kutzarova–Ostrovskii, arXiv:1807.03814 §5.1: cycle projection 2(m−1)/m"
+        ],
+        "reasoning": "The cut subspace is the common-branch-sum subspace of weighted edge ℓ1^{2m}, a relative projection constant, equivalently a weighted direct-sum diagonal-line complementation problem. The compared cycle-space quotient/cycle complement is its *different range* and cannot be equated by matching graph or m.",
+        "searches": [
+          "Resultary semantic search: weighted K 2 m multibranch diamond cut subspace minimum projection constant weighted l1 relative projections (limit 12, 2026-10-22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary weighted cross-polytope projection / block-diagonal graph-subspace hits, different targets",
+          "arXiv:1807.03814 §5.1 explicitly unweighted cycle constant"
+        ],
+        "reasoning": "Resultary semantic search for weighted diamond cut projection formula returned different weighted ℓ1 clipping projections, graph-subspace threshold laws, finite metric free spaces; no exact weighted K_{2,m} cut-space table. The 2018 unweighted multibranch table reports the cycle-space rather than cut-space constant.",
+        "searches": [
+          "Resultary semantic search: weighted K 2 m multibranch diamond cut subspace minimum projection constant weighted l1 relative projections (limit 12, 2026-10-22)"
+        ]
+      },
+      "rationale": "General weighted graph cut/cycle machinery and averaging methods are established, but the claimed exact *relative cut-space* projection norm for arbitrary positive paired branch weights is not the unweighted *cycle-space* value for K_{2,m}, nor a hyperplane theorem. Best-of-knowledge searches and full relevant sections support a distinct candidate contribution.",
+      "residual_risks": [
+        "A general classical higher-codimension weighted ℓ1 projection theorem could imply the formula under a change of coordinates.",
+        "Blatter–Cheney 1974 full text not read; hyperplane codimension mismatch is a specific inapplicability argument, not whole-paper exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes unweighted cycle-space constant; not same cut-space target. Other sections not claimed exhaustively excluded.",
+          "evidence": [
+            "§5.1, cycle space K_{2,m}, 2(m−1)/m"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "PDF section 5.1 on multibranch diamonds and its displayed cycle-space constant with page screenshot",
+          "method": "Web PDF text and screenshot",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Same K_{2,m} multibranch diamonds and projection constants"
+        },
+        {
+          "assessment": "Supplies ambient and cycle methods but not candidate exact weighted K_{2,m} cut formula in material read.",
+          "evidence": [
+            "§1.1 graph cut and cycle; §§1.3,2.1 projections"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "PDF introduction §1.1–1.3 and cycle-projection sections, selected page screenshot",
+          "method": "Web PDF text/screenshot",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Same graph cut/cycle and weighted edge ℓ1 theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md unrestricted symmetry lower bound and Jensen rigidity",
+        "Dilworth–Kutzarova–Ostrovskii background graph projection motivations"
+      ],
+      "rationale": "Finite graph cut and cycle projection norms encode the geometry of graph Lipschitz-free spaces. The exact minimum over all linear projections, in an entire dimension and weight family, is a natural structural invariant rather than a chosen-symmetry estimate. Its strict equal-weight worst case, quantified anisotropic approach to 1, and cut/cycle distinction solve nontrivial geometry-of-weights questions.",
+      "residual_risks": [
+        "Value depends on precisely stated natural object and invariant; no general downstream theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Each two-edge branch has matched positive weights; independently weighted edges, cycle target and iterated diamond graphs excluded.",
+    "Rational finite tests validate instances; universal norm identity follows analytical minimax."
+  ],
+  "schema_version": 1
+}
