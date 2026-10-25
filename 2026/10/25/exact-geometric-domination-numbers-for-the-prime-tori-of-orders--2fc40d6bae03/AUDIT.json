@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The lower bound for sets of at most four points follows from \\(s+\\binom{s}{2}(p-2)\\). For \\(p=7\\), a five-point set with a collinear triple covers at most 39 points outside the set; a five-point arc has 50 external secant incidences and at least seven distinct duplicated incidences, so it covers at most 43 of the 44 external points. The explicit witnesses cover \\(T_5\\) and \\(T_7\\), and verify.py confirms their coverage using exact arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper gives a square-root lower bound and O(sqrt(p log p)) upper bound for prime orders, plus a four-point upper bound when the order is even or divisible by three.",
+        "Its conclusion explicitly asks for which orders the exact torus domination number can be computed; \\(p=5\\) and \\(p=7\\) are not covered by the four-point upper-bound cases."
+      ],
+      "reasoning": "The prior results provide bounds but do not determine D_5 or D_7. Neither exact value is a direct corollary of the stated bounds.",
+      "searches": [
+        "published-finding corpus query: exact geometric domination number on discrete torus for prime orders 5 and 7, every torus point on a line through a selected pair",
+        "arXiv:2203.13170v1, prime-order torus bounds and conclusion/open questions",
+        "DOI:10.1016/j.comgeo.2022.101913, published record for the same article"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.13170v1 — accessible full HTML inspected for the definition, prime-order bounds, constructions, and exact-value open question.",
+      "DOI:10.1016/j.comgeo.2022.101913 — published record for the same article; the first public posting date used here is the arXiv date, 2022-03-24.",
+      "arXiv:1203.6604v1 — accessible full HTML inspected; same torus line model, but maximum no-three-in-line objective.",
+      "published-finding corpus semantic searches for exact prime-order torus domination values and related formulations; closest indexed records compared at the claim/parameter level.",
+      "Accessible own geometry-middle ledgers and library searches checked for overlap; no matching torus-domination claim was found in the searched text."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 source's prime-order lower bound and asymptotic upper bound do not yield exact values at \\(p=5\\) or \\(p=7\\); its four-point construction applies to even orders or multiples of three.",
+        "The 2012 torus paper maximizes the number of selected points with no three collinear. It does not minimize a set whose pair-lines cover every point."
+      ],
+      "reasoning": "Compared the quantified objective, allowed collinearities, and conclusion of each source. The claim's minimum covering objective is distinct from the maximum general-position objective, and no inspected theorem implies either exact value.",
+      "searches": [
+        "published-finding corpus query: exact geometric domination number on discrete torus for prime orders 5 and 7, every torus point on a line through a selected pair",
+        "arXiv:2203.13170v1, Theorem 5, Theorem 8, Theorem 9, Corollary 3, Proposition 1, and conclusion",
+        "arXiv:1203.6604v1, Introduction, torus-line definition, bounds and constructions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines the minimum geometric domination number on the discrete torus using lines that are images of integer lines under reduction modulo the order.",
+        "For prime \\(p\\), these lines are exactly the affine lines of \\(\\mathbb{F}_p^2\\), so the claim is the exact value of the same minimum line-pair covering invariant, not a different metric or a no-three-in-line invariant."
+      ],
+      "reasoning": "Compared the set-cover formulation, affine-line formulation, and the paper's torus definition. No searched equivalent formulation stated the exact values for p=5 and p=7.",
+      "searches": [
+        "published-finding corpus query: exact geometric domination number on discrete torus for prime orders 5 and 7, every torus point on a line through a selected pair",
+        "published-finding corpus query: Aichholzer Eppstein Hainzl geometric dominating sets torus exact small prime domination number",
+        "arXiv:2203.13170v1, Definition 2 and Sections 5.1–5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus's closest returned items concern homology of a triangulated seven-vertex torus, toroidal-grid neighborhood complexes, and domination in abstract finite-field graphs, not the point-line domination number.",
+        "The inspected primary article gives bounds and an open question rather than a table of exact values for prime-order tori."
+      ],
+      "reasoning": "No directly applicable exact-value table or database was located in the actual searches. The nearest records have different objects or different optimization objectives and cannot imply the claim.",
+      "searches": [
+        "published-finding corpus query: exact geometric domination number on discrete torus for prime orders 5 and 7, every torus point on a line through a selected pair",
+        "published-finding corpus query: geometric domination number discrete torus T_5 T_7 exact minimum four points all points lie on a line through a pair",
+        "Library search: 'geometric dominating sets torus' and 'prime torus domination number'"
+      ]
+    },
+    "rationale": "The directly relevant primary paper explicitly leaves exact torus domination numbers as an open direction and does not imply either value. The nearest older torus-line paper studies the different maximum no-three-in-line objective. published-finding corpus and accessible own-ledger searches found no statement of these exact values; unindexed coverage remains possible.",
+    "residual_risks": [
+      "Semantic database and literature searches cannot prove global novelty; differently phrased, unindexed, or inaccessible work may exist.",
+      "The result is restricted to p=5 and p=7 and gives no general-prime formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same invariant and motivating source, but not covering: the paper supplies asymptotic bounds for prime orders and a four-point upper bound only for even orders or multiples of three; it does not state D_5=5 or D_7=6.",
+        "evidence": [
+          "arXiv:2203.13170v1, Definition 2 and Section 5",
+          "arXiv:2203.13170v1, Theorem 5 and Theorem 8",
+          "arXiv:2203.13170v1, Corollary 3, Proposition 1, and conclusion open questions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.13170",
+        "material_read": "Accessible full HTML: torus definition, prime-order lower bound, probabilistic upper bound, composite-order constructions, and concluding open questions (including the exact torus domination-number question).",
+        "method": "Compared the precise point-line covering definition and the quantifiers/parameter cases of the theorems with the proposed exact values.",
+        "title": "Geometric Dominating Sets",
+        "trigger": "The paper defines the exact invariant being evaluated and identifies exact torus domination values as an open question."
+      },
+      {
+        "assessment": "Related but not covering. This source maximizes the size of a subset with no three collinear; the present claim minimizes a set whose pair-lines cover every point and permits selected triples to be collinear.",
+        "evidence": [
+          "arXiv:1203.6604v1, Introduction and Question 1",
+          "arXiv:1203.6604v1, Sections 2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.6604",
+        "material_read": "Accessible full HTML: definition of torus lines, affine/finite-group formulation, prime-order line bounds and constructions, and computational tables for the maximum no-three-in-line objective.",
+        "method": "Compared the optimized quantity and constraints, not just the shared words 'torus' and 'line'.",
+        "title": "The no-three-in-line problem on a torus",
+        "trigger": "Same torus line model and prime-order parameters make this a plausible equivalence or dominating-result source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fc40d6b-ae03-4830-a7ab-10f2bedd7529",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact torus domination number is named as an open question in the motivating primary paper. These are the first odd-prime orders not covered by its four-point upper-bound family; the order-seven value needs a structural secant-intersection obstruction and supplies a precise finite benchmark for future work on exact values.",
+    "status": "PASS"
+  }
+}
