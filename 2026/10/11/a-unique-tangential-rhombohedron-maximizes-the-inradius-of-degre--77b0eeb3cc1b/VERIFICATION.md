@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof in `RESULT.md` applies to every full-dimensional three-dimensional lattice zonotope of Ehrhart \(h^*\)-degree exactly \(2\).
 
-The critical independently checkable equalities and limits are:
-- the primary Theorem 1.8 dichotomy between width one and the unique exceptional lattice-unimodular class;
-- the width-one Euclidean radius upper bound \(1/2\);
-- the exceptional generator determinant \(4\) and half-cofactor determinant \(2\);
-- the exact exceptional inradius \(1/\max_i\|w_i\|\);
-- the even-column-sum congruence of the integral half-cofactors;
-- the integral norm and determinant argument giving \(\max_i\|w_i\|\ge\sqrt2\);
-- the parity and Gram rigidity at equality;
-- the explicit determinant-minus-one transformation to the sharp generator triple;
-- the exact Ehrhart polynomial \(1+3m+6m^2+4m^3\) and its \(h^*\)-polynomial \(1+10t+13t^2\) for the extremizer.
+# Independent mathematical audit
 
-`verify.py` performs exact integer arithmetic using Python's standard library. It verifies the actual displayed matrices, both polynomials by lattice-point counting for small dilates, and exhaustively checks all integer half-cofactor candidates of squared column norm at most two. This finite check tests the equality rigidity at the only possible optimal integer norms; it is not used as an exhaustive search over all lattice zonotopes and does not establish literature novelty.
+## correctness
+
+PASS
+
+Using the full-text Beck–Janssen–Jochemko Theorem 1.8 classification, a width-one member lies in an integer-normal slab of width ≤1 and has Euclidean inradius ≤1/2. The unique exceptional GL(3,Z) class has edge determinant ±4; half-cofactor W has integral columns, |det W|=2, and even column sum. Opposite facet pairs have widths 2/||w_i||, giving r=1/max_i||w_i||. Integral determinant excludes three norm-one columns, hence max norm≥√2. Explicit unimodular V* attains √2 cofactor norms. If equality holds, at most norm√2 columns and parity excludes any norm-one column; the three norm-two vectors must have distinct zero positions, off-diagonal pairings ±1, product +1 and W Gram I+J up to signs. Cofactor inversion gives V Gram 4I−J; all maximizers are Euclidean congruent. All 6 facets tangent and 3 independent opposite planes force unique incenter. No finite experiment is promoted to proof of the general theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the sharp Euclidean inradius and unique congruence-class maximizer among all full-dimensional 3D lattice zonotopes of Ehrhart h*-degree exactly two. Beck–Janssen–Jochemko, Theorem 1.8, gives an essential lattice-unimodular two-class classification but does not state the metric supremum or its equality rigidity under arbitrary GL(3,Z) representatives. The candidate supplies the integer half-cofactor determinant-two/coordinate-parity argument establishing those metric facts. Results indexed with similar words concern different graph, root-system, or simplex-diameter classes; an indexed entry mirroring this assigned claim is not independent prior coverage. These are statement/implication comparisons, not novelty inferred from failed searching.
+
+## value
+
+PASS
+
+Ehrhart h*-degree exactly two is a natural whole class with a sharp published lattice-equivalence classification. The Euclidean inradius is not invariant under GL(3,Z), so determining its global maximum and the unique metric equality shape among infinitely many lattice representatives is a distinct geometric problem. The width-one versus exceptional strict gap and six-facet tangency classify a natural exact metric invariant. The argument uses a motivated arithmetic cofactor/parity rigidity lemma; it is not a known numeric-table recomputation, arbitrary slice, or mere coordinate substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

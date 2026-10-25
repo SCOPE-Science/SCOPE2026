@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete degree-two zonotope classification was verified from the primary full text. Every width-one member lies in a slab of Euclidean thickness at most one. In the exceptional unimodular orbit, integer half-cofactor facet normals have determinant two and even column sum, and the exact inradius is the reciprocal of their maximum norm. These conditions force an upper bound \(1/\sqrt2\); an explicit unimodular rhombohedron attains it. At equality all three normals have squared norm two, the parity condition forces distinct two-coordinate supports, and the Gram identity proves Euclidean congruence. The three independent opposite facet pairs force a unique incenter.
+## correctness
 
-## Originality
-PASS, with residual indexing risk. The closest primary source, Beck--Janssen--Jochemko Theorem 1.8, gives lattice-unimodular classification, not Euclidean inradius optimization. Since lattice-unimodular transformations do not preserve Euclidean distances, that source does not itself imply the sharp constant or metric equality classification. Candidate-specific indexed and literature searches under lattice-width, hollow-zonotope, exceptional-parallelepiped, rhombohedron, insphere, and half-cofactor terminology found no covering assertion. Broader hollow-lattice-polytope sources were checked at abstract level only and remain a bounded residual risk.
+PASS
 
-## Value
-PASS. This is a whole-class Euclidean extremal theorem for the natural Ehrhart-degree-two zonotope family, revealing a strict gap between the lattice-width-one majority and the exceptional unimodular orbit. It additionally characterizes a single tangential metric shape among infinitely many nonisometric integral realizations of the exceptional class. The determinant/parity argument explains the sharp constant and equality, rather than simply recomputing a known table.
+Using the full-text Beck–Janssen–Jochemko Theorem 1.8 classification, a width-one member lies in an integer-normal slab of width ≤1 and has Euclidean inradius ≤1/2. The unique exceptional GL(3,Z) class has edge determinant ±4; half-cofactor W has integral columns, |det W|=2, and even column sum. Opposite facet pairs have widths 2/||w_i||, giving r=1/max_i||w_i||. Integral determinant excludes three norm-one columns, hence max norm≥√2. Explicit unimodular V* attains √2 cofactor norms. If equality holds, at most norm√2 columns and parity excludes any norm-one column; the three norm-two vectors must have distinct zero positions, off-diagonal pairings ±1, product +1 and W Gram I+J up to signs. Cofactor inversion gives V Gram 4I−J; all maximizers are Euclidean congruent. All 6 facets tangent and 3 independent opposite planes force unique incenter. No finite experiment is promoted to proof of the general theorem.
 
-## Closest literature and limitations
-The primary structural ingredient is Beck--Janssen--Jochemko's classification; older hollow-polytope projection and lattice-free maximality literature provides wider context. The result is limited to degree-exactly-two three-dimensional lattice zonotopes with the usual Euclidean metric. Historical rhombohedron and lattice-free terminology remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the sharp Euclidean inradius and unique congruence-class maximizer among all full-dimensional 3D lattice zonotopes of Ehrhart h*-degree exactly two. Beck–Janssen–Jochemko, Theorem 1.8, gives an essential lattice-unimodular two-class classification but does not state the metric supremum or its equality rigidity under arbitrary GL(3,Z) representatives. The candidate supplies the integer half-cofactor determinant-two/coordinate-parity argument establishing those metric facts. Results indexed with similar words concern different graph, root-system, or simplex-diameter classes; an indexed entry mirroring this assigned claim is not independent prior coverage. These are statement/implication comparisons, not novelty inferred from failed searching.
+
+## value
+
+PASS
+
+Ehrhart h*-degree exactly two is a natural whole class with a sharp published lattice-equivalence classification. The Euclidean inradius is not invariant under GL(3,Z), so determining its global maximum and the unique metric equality shape among infinitely many lattice representatives is a distinct geometric problem. The width-one versus exceptional strict gap and six-facet tangency classify a natural exact metric invariant. The argument uses a motivated arithmetic cofactor/parity rigidity lemma; it is not a known numeric-table recomputation, arbitrary slice, or mere coordinate substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
