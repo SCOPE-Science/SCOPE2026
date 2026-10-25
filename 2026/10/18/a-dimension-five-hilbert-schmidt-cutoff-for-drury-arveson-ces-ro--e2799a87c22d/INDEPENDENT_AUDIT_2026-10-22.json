@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:57:23.016911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 201e07b4ef4363e65f7fb413fa11edd2dc779eed",
+        "verifier.py blob e623acf5f69718dcb44e27cbe6bcfe2342fc3ae2",
+        "Independent exact multiindex sum verification 27 parameter cases",
+        "Fang–Xia primary paper on DISTINCT multiplier-adjoint commutators"
+      ],
+      "rationale": "For H_d with reproducing kernel 1/(1-<z,w>), d≥2, distinct Cesàro coordinate maps C_i, C_j are bounded by fiberwise entrywise domination by Hardy’s Cesàro matrix of norm2. The direct two-order expansion gives coefficient (k-l)/[(m+k+1)(m+l+1)(m+k+l+1)] for z^(alpha+k e_i+l e_j), with nonzero coefficient 1/4 on 1→z_i. Squared normalized monomial factor R_alpha summed over all multiindices |alpha|=m equals prod_{s=1}^{d-1}(m+k+l+s)/[binom(k+l,k)prod_{s=1}^{d-1}(k+l+s)] by generating functions. Independently computed 27 exact rational instances of this identity for d=2,3,5, m=0,1,3, and (k,l)=(1,0),(0,2),(2,3), matching the source standalone 600-case verifier. The (k,l)=(1,0) positive subseries is asymptotic m^(d-7), causing divergence precisely for d≥6; a split of the full series by r=k+l≤m+1 and r>m+1 gives summable m-level estimates for d=2..5, including logarithmic d=4 and d=5 m^-2 bound. No inference from a finite run to all dimensions; analytic estimates prove convergence/divergence.",
+      "residual_risks": [
+        "Infinite estimates must be read as analytical reasoning, not established by the finite checker.",
+        "Neither compactness for d≥6 nor the full Schatten scale is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang–Xia Theorem 1.1 gives Schatten [M_f^*,M_{z_i}] estimates on H_d, not pairwise [C_i,C_j].",
+          "Pilla first and sequel define/study Cesàro/Rhaly coordinates, but full original manuscript was inaccessible; their abstracts do not by themselves resolve the complete cutoff."
+        ],
+        "reasoning": "General commutator Schatten theorems from multiplier-adjoint setting cannot be substituted for nonadjoint Cesàro operators, whose monomial kernels differ. We retain explicit uncertainty about same-operator Pilla source, without inventing its full content.",
+        "searches": [
+          "arXiv:2606.24710",
+          "arXiv:2606.25885",
+          "Fang and Xia Commutators and Localization on the Drury-Arveson Space",
+          "Cesaro coordinate operators Drury Arveson space commutator Schatten Hilbert Schmidt sharp dimension six Pilla"
+        ]
+      },
+      "checked_sources": [
+        "Pilla arXiv:2606.24710 abstract and technical synopsis",
+        "Pilla arXiv:2606.25885 abstract/synopsis",
+        "Fang–Xia author-hosted 27-page primary PDF, Theorem 1.1 and Section 5",
+        "Arveson math/0308104 abstract and cited theorem",
+        "Resultary targeted Cesàro/HS and Bergman-ball variants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pilla’s 2026 source directly supplies definition/boundedness of coordinates and known noncommutativity.",
+          "Fang–Xia proves [M_f^*,M_{z_i}]∈S_p for p>2d, and Arveson studies multiplier-adjoint p-summability."
+        ],
+        "reasoning": "Noncommutativity alone gives a nonzero commutator, not a threshold for its Hilbert–Schmidt coefficients. A theorem about multiplier-adjoint commutators cannot imply the exact S2 cutoff without a demonstrated identification, not found. Full Pilla remains genuine overlap risk.",
+        "searches": [
+          "arXiv:2606.24710",
+          "Fang–Xia author PDF Theorem 1.1",
+          "Arveson math/0308104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim concerns ordinary [C_i,C_j], NOT [M_{z_i}^*,M_{z_j}] or single-Cesàro Schatten norms.",
+          "The d-dependent threshold arises by summing all multiindices, not inspecting fixed-degree coefficients."
+        ],
+        "reasoning": "Checked multivariable generalized Cesàro, Rhaly coordinate tuple, normalized monomial commutator matrix, and Schatten-2 Hilbert–Schmidt aliases. Different adjoint/multiplier commutators are not equivalent absent an intertwiner.",
+        "searches": [
+          "Cesaro coordinate operators Drury Arveson space commutator Schatten Hilbert Schmidt sharp dimension six Pilla",
+          "Drury Arveson Cesaro operator Hilbert Schmidt dimension five cutoff Schatten",
+          "arXiv:2606.24710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary Bergman-ball Cesàro theorem concerns measure-induced operators and weighting beta=n/2, not ordinary coordinate commutators in Drury–Arveson kernel.",
+          "Published classical Cesàro self-commutator concerns C* C−C C*, a different operator, and dimension setting."
+        ],
+        "reasoning": "None of these exact spectra or dimension-threshold tables evaluates the declared [C_i,C_j] HS norm; searches alone cannot exclude an unindexed exact computation.",
+        "searches": [
+          "Cesaro coordinate operators Drury Arveson space commutator Schatten Hilbert Schmidt sharp dimension six Pilla",
+          "Resultary dimension-driven Hilbert-Schmidt phase transition for measure-induced Cesaro operators on Bergman balls",
+          "Resultary cubic spectral decay classical Cesaro self-commutator"
+        ]
+      },
+      "rationale": "The original Pilla Cesàro coordinate tuple and its follow-up are directly relevant and accessible only through abstracts/summaries in this run; full-text overlap risk is material. The separate Fang–Xia and Arveson Schatten commutator theorems treat adjoints of coordinate multipliers, not two noncommuting Cesàro coordinates. No stronger exact threshold located in checked evidence.",
+      "residual_risks": [
+        "The two Pilla 2026 full preprints are same-operator primary literature and were inaccessible this run; Oxford vpn_disconnected job d48fe43c7e292225610943b6acc05e4b on first preprint. This alone is not automatically a failure but is a material unresolved priority risk.",
+        "A hidden appendix/special theorem in Pilla or related Cesàro literature could cover the exact cutoff; abstracts do not certify noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its commutators have multiplier adjoints and do not imply [C_i,C_j] membership",
+          "evidence": "Fang–Xia Theorem 1.1 explicitly [M_f^*,M_{z_i}], Schatten p>2d.",
+          "identifier_or_url": "https://www.acsu.buffalo.edu/~jxia/Preprints/commutator.pdf",
+          "material_read": "Primary 27-page PDF abstract, Theorem 1.1 and Section 5 proof vicinity, with page screenshot",
+          "method": "Read original author-hosted PDF theorem and proof",
+          "title": "Commutators and Localization on the Drury–Arveson Space",
+          "trigger": "Same ambient space and Schatten commutator theory"
+        },
+        {
+          "assessment": "Direct possible covering source unresolved by full-text inspection, though accessible abstract does not identify S2 cutoff",
+          "evidence": "First submitted June 23 2026; exact same C_i coordinate construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.24710",
+          "material_read": "Primary arXiv abstract and accessible technical synopsis with operator definition/boundedness/noncommutativity; full manuscript not accessible",
+          "method": "ArXiv/preprint and OA attempts, Oxford returned vpn_disconnected",
+          "title": "Cesàro-Type Operators Acting on the Drury-Arveson Space",
+          "trigger": "Original definition of the same coordinate tuple"
+        },
+        {
+          "assessment": "Reported exact coordinate norms and generalized Rhaly operators; full-text coverage of commutator unknown",
+          "evidence": "June 24 2026 sequel discusses norm of Cesàro components.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25885",
+          "material_read": "Abstract and technical synopsis, not complete original manuscript",
+          "method": "ArXiv abstract and lawful OA search, full text unavailable",
+          "title": "Rhaly-Type Operators in Several Complex Variables",
+          "trigger": "Immediate follow-up from same author and nearby operators"
+        },
+        {
+          "assessment": "Multiplier-adjoint commutator setting is different",
+          "evidence": "Arveson results on [M_zj^*,M_zi], p>d in stated formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0308104",
+          "material_read": "Primary bibliographic abstract and substantive theorem described in Fang–Xia introduction; full original article not inspected",
+          "method": "Bibliographic source and original Fang–Xia citation comparison",
+          "title": "p-Summable commutators in dimension d",
+          "trigger": "Classical dimensional Schatten threshold might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original operator definition in RESULT.md and Pilla abstract",
+        "Fang–Xia older commutator Schatten context"
+      ],
+      "rationale": "Pilla’s coordinate Cesàro tuple is a natural multivariable noncommuting family on the Drury–Arveson module. Determining whether its algebraic noncommutativity belongs to a canonical small operator ideal is mathematically motivated; the sharp cutoff between dimensions five and six is caused by a genuine high-degree monomial multiplicity transition, not a routine finite count or arbitrary parameter choice.",
+      "residual_risks": [
+        "Only S2 and pairwise ordinary commutators; compactness and other Schatten ideals deliberately outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All d≥2, distinct coordinate indices, Hilbert–Schmidt only; same-operator Pilla full primary texts uninspected."
+  ],
+  "schema_version": 1
+}

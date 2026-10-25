@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Boundedness follows from a direct fiberwise matrix comparison with the classical Cesàro operator. The commutator coefficient is computed by two ordered monomial expansions; orthogonality and an exact binomial generating-function identity give the squared Hilbert–Schmidt series. The fixed-increment positive subsum diverges exactly from dimension six onward; a dyadic-free split at total increment \(r=m+1\) proves convergence in dimensions two through five. The exact-arithmetic verifier checks the critical finite combinatorial identities but is not substituted for the infinite sum estimates.
+## correctness
 
-**Originality — PASS, with a material access risk.** Pilla's 2026 introduction and immediate Rhaly follow-up concern the same coordinate tuple and establish basic properties and norms; their accessible abstracts and detailed summaries do not state a Hilbert–Schmidt commutator cutoff. Fang–Xia's accessible 27-page manuscript and the earlier Arveson line study commutators involving adjoints of multiplication operators, not the ordinary commutator of the two noncommuting Cesàro coordinates. Semantic literature and research-record searches found no statement implying the exact cutoff. Nevertheless, the entire full text of the two Pilla preprints was not accessible: this unresolved bibliographic risk is genuine, and failed searches are not proof of novelty.
+PASS
 
-**Value — PASS.** The pairwise noncommutativity of Pilla's natural Cesàro tuple motivates the question whether its obstruction is small in a canonical operator ideal. The result yields a sharp and surprising dimension threshold (five versus six), not a routine bound or isolated numerical case. The factor from monomial normalization is essential: it converts coefficient decay into dimension-dependent ideal membership.
+For H_d with reproducing kernel 1/(1-<z,w>), d≥2, distinct Cesàro coordinate maps C_i, C_j are bounded by fiberwise entrywise domination by Hardy’s Cesàro matrix of norm2. The direct two-order expansion gives coefficient (k-l)/[(m+k+1)(m+l+1)(m+k+l+1)] for z^(alpha+k e_i+l e_j), with nonzero coefficient 1/4 on 1→z_i. Squared normalized monomial factor R_alpha summed over all multiindices |alpha|=m equals prod_{s=1}^{d-1}(m+k+l+s)/[binom(k+l,k)prod_{s=1}^{d-1}(k+l+s)] by generating functions. Independently computed 27 exact rational instances of this identity for d=2,3,5, m=0,1,3, and (k,l)=(1,0),(0,2),(2,3), matching the source standalone 600-case verifier. The (k,l)=(1,0) positive subseries is asymptotic m^(d-7), causing divergence precisely for d≥6; a split of the full series by r=k+l≤m+1 and r>m+1 gives summable m-level estimates for d=2..5, including logarithmic d=4 and d=5 m^-2 bound. No inference from a finite run to all dimensions; analytic estimates prove convergence/divergence.
 
-**Limits.** No result on the full Schatten scale or compactness above dimension five is established. Independent full-text verification of the closest preprints remains important.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Pilla Cesàro coordinate tuple and its follow-up are directly relevant and accessible only through abstracts/summaries in this run; full-text overlap risk is material. The separate Fang–Xia and Arveson Schatten commutator theorems treat adjoints of coordinate multipliers, not two noncommuting Cesàro coordinates. No stronger exact threshold located in checked evidence.
+
+## value
+
+PASS
+
+Pilla’s coordinate Cesàro tuple is a natural multivariable noncommuting family on the Drury–Arveson module. Determining whether its algebraic noncommutativity belongs to a canonical small operator ideal is mathematically motivated; the sharp cutoff between dimensions five and six is caused by a genuine high-degree monomial multiplicity transition, not a routine finite count or arbitrary parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
