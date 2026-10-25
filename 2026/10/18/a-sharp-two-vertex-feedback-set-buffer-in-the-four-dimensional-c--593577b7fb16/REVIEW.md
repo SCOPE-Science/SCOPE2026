@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower bound of six follows by counting edges of an induced forest. The parity-neighborhood argument excludes all mixed-parity six-vertex possibilities, and the antipodal-pair condition gives exactly eight minimum sets. Capacity-seven stars follow from the absence of one-exchange adjacency among minimum sets and a complete count of 1008 seven-vertex feedback sets. For capacity eight, two distinct complete programs use edge-list union-find versus a Cartesian-square/leaf-pruning construction, and BFS versus independent disjoint-set components. Both reproduce 5106 feasible states, 9152 single-toggle edges, one connected component, and four/twelve shortest optimal-set distances. The twelve-toggle cross-parity witness is explicitly tested by both programs. Computation is exhaustive over finite vertex subsets; no inference about larger cubes is made.
+## correctness
 
-**Originality — PASS, with residual risk.** The historical hypercube feedback-set papers concern the optimum size and bounds, which alone do not imply component connectivity or exact shortest transformations. Detailed accessible statements of the later reconfiguration paper give coverage for particular subcubic and planar graph classes, while the four-cube is four-regular and nonplanar; these results do not imply the presented phase portrait. Separate literature and semantic-record searches for feedback-set, induced-forest, token-addition/removal and tesseract formulations produced no identified covering theorem or exact table. Earlier complete PDFs could not all be examined and unindexed identical computations remain possible, so priority is not certified.
+PASS
 
-**Value — PASS.** The four-cube is the first higher-dimensional cubic-graph product with degree four and is a canonical network where cycle-breaking deletions are studied. The sharp two-spare threshold, 936-to-one connectivity transition, and exact 4/12 optimal-set distance dichotomy give a natural complete benchmark for the distinction between frozen optimum states and mobility under temporary extra capacity. The result is a finite, exact classification rather than a general theory of higher cubes.
+For Q4 (16 vertices, 32 edges) a retained forest inequality 32-4|S|+e(S)<=15-|S| rules out |S|<6. Parity-neighbor overlap shows a six-set cannot be mixed, and the only valid pure parity sets omit one antipodal pair, giving eight minima. An independently written 2^16-mask forest test (union-find on Hamming-one edges) enumerated exactly 8,1008,4090 valid sets at sizes 6,7,8, found 80+9072 toggle edges and the 8-star+928-isolate capacity-seven decomposition; capacity eight has one component of all 5106 states. BFS over all 8 minima gave precisely 12 same-parity pairs at distance 4 and 16 opposite-parity pairs at 12. This exhausts every relevant 16-vertex set and never extrapolates to higher-dimensional cubes.
 
-**Closest literature and limitations.** Focardi, Luccio and Peleg, *Feedback vertex set in hypercubes* (2000, DOI 10.1016/S0020-0190(00)00127-7), and the related 1999 report concern the optimization problem. Bousquet, Hommelsheim, Kobayashi, Mühlenthaler and Suzuki, *Feedback vertex set reconfiguration in planar graphs* (2023, DOI 10.1016/j.tcs.2023.114188), studies a related but different structural regime. Detailed indexed theorem statements were available for the latter; full publisher PDFs were not available. Exact state counts are machine-checked finite facts, not infinite extrapolations. Independent external review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Focardi–Luccio–Peleg address feedback-vertex-number bounds in hypercubes and an earlier 1999 report; Bousquet et al study reconfiguration on planar graph classes (subcubic tractability, degree-four PSPACE hardness). The cube Q4 is 4-regular and nonplanar, and the prior theorems do not supply this exact TAR capacity graph or min-set distance spectrum. Focardi full publisher text is not independently read; possible small-cube census overlap is retained.
+
+## value
+
+PASS
+
+Minimum feedback-set reconfiguration with limited temporary buffer is a natural exact graph-algorithm invariant, not simply re-evaluating the optimal set size. The precise two-extra-vertex connectivity threshold and optimal-pair shortest path dichotomy characterize a canonical hypercube small enough for complete verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

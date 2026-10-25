@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:56:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q4 (16 vertices, 32 edges) a retained forest inequality 32-4|S|+e(S)<=15-|S| rules out |S|<6. Parity-neighbor overlap shows a six-set cannot be mixed, and the only valid pure parity sets omit one antipodal pair, giving eight minima. An independently written 2^16-mask forest test (union-find on Hamming-one edges) enumerated exactly 8,1008,4090 valid sets at sizes 6,7,8, found 80+9072 toggle edges and the 8-star+928-isolate capacity-seven decomposition; capacity eight has one component of all 5106 states. BFS over all 8 minima gave precisely 12 same-parity pairs at distance 4 and 16 opposite-parity pairs at 12. This exhausts every relevant 16-vertex set and never extrapolates to higher-dimensional cubes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feedback vertex set in hypercubes: Abstract concerns size not reconfiguration; incomplete full text leaves explicit residual priority risk.",
+          "Minimum Feedback Vertex Set in k-Dimensional Hypercubes: The publicly surfaced text has no demonstrated reconfiguration result but is incomplete.",
+          "Feedback vertex set reconfiguration in planar graphs: Paper studies fixed-size vertex-exchange model; audited graph uses additions/removals bounded by capacity."
+        ],
+        "reasoning": "General fixed-size exchange connectivity results under K3,3-minor-free subcubic hypotheses do not cover 4-regular nonplanar Q4. Hardness at degree four for planar input graphs cannot imply Q4 concrete distances.",
+        "searches": [
+          "Q4 hypercube feedback vertex set reconfiguration graph bounded capacity 8 connectivity minimal sets ten-vertex forest",
+          "DOI:10.1016/S0020-0190(00)00127-7",
+          "1999 research report https://iris.unive.it/handle/10278/15706",
+          "DOI:10.1016/j.tcs.2023.114188"
+        ]
+      },
+      "checked_sources": [
+        "https://weizmann.elsevierpure.com/en/publications/feedback-vertex-set-in-hypercubes/",
+        "https://iris.unive.it/handle/10278/15706",
+        "https://www.researchgate.net/publication/2610774_Minimum_Feedback_Vertex_Set_in_k-Dimensional_Hypercubes",
+        "https://doi.org/10.1016/j.tcs.2023.114188",
+        "RESULT.md",
+        "check_edges.py",
+        "check_cartesian.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feedback vertex set in hypercubes: Abstract concerns size not reconfiguration; incomplete full text leaves explicit residual priority risk.",
+          "Minimum Feedback Vertex Set in k-Dimensional Hypercubes: The publicly surfaced text has no demonstrated reconfiguration result but is incomplete.",
+          "Feedback vertex set reconfiguration in planar graphs: Paper studies fixed-size vertex-exchange model; audited graph uses additions/removals bounded by capacity."
+        ],
+        "reasoning": "Knowing feedback vertex number 6 cannot imply connectivity or 4/12 reconfiguration distances, since these depend on the entire family of nonminimum feasible sets. The existing reconfiguration class results have hypotheses not satisfied by Q4.",
+        "searches": [
+          "Q4 hypercube feedback vertex set reconfiguration graph bounded capacity 8 connectivity minimal sets ten-vertex forest",
+          "DOI:10.1016/S0020-0190(00)00127-7",
+          "1999 research report https://iris.unive.it/handle/10278/15706",
+          "DOI:10.1016/j.tcs.2023.114188"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feedback vertex set in hypercubes: Abstract concerns size not reconfiguration; incomplete full text leaves explicit residual priority risk.",
+          "Minimum Feedback Vertex Set in k-Dimensional Hypercubes: The publicly surfaced text has no demonstrated reconfiguration result but is incomplete."
+        ],
+        "reasoning": "Feedback sets are complements of induced forests; TAR reconfiguration at capacity k corresponds to leaf deletion/addition of induced forest vertex sets with size at least 16-k. Replacing a vertex in the selected set costs two toggles here.",
+        "searches": [
+          "Q4 hypercube feedback vertex set reconfiguration graph bounded capacity 8 connectivity minimal sets ten-vertex forest",
+          "alternate parametrizations, duality, aliases for The Q4 cube has exactly eight minimum feedback sets of size six. The capacity-seven one-ve"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Feedback vertex set in hypercubes: Abstract concerns size not reconfiguration; incomplete full text leaves explicit residual priority risk.",
+          "Minimum Feedback Vertex Set in k-Dimensional Hypercubes: The publicly surfaced text has no demonstrated reconfiguration result but is incomplete."
+        ],
+        "reasoning": "Focardi 2000 size bounds may imply minimum 6 but do not present an identified census of 1008/4090 valid sets or 936 T7 components in accessible material. Absent full text, an older exact table cannot be categorically excluded.",
+        "searches": [
+          "Q4 hypercube feedback vertex set reconfiguration graph bounded capacity 8 connectivity minimal sets ten-vertex forest",
+          "published tables and exact calculated invariant in The Q4 cube has exactly eight minimum feedback sets of size six. The capacity-seven one-vertex-add/d"
+        ]
+      },
+      "rationale": "Focardi–Luccio–Peleg address feedback-vertex-number bounds in hypercubes and an earlier 1999 report; Bousquet et al study reconfiguration on planar graph classes (subcubic tractability, degree-four PSPACE hardness). The cube Q4 is 4-regular and nonplanar, and the prior theorems do not supply this exact TAR capacity graph or min-set distance spectrum. Focardi full publisher text is not independently read; possible small-cube census overlap is retained.",
+      "residual_risks": [
+        "Complete 2000 paper and 1999 report not read; arXiv and lawful OA searches did not yield the same complete paper; authorized Oxford retrieval for DOI:10.1016/S0020-0190(00)00127-7 returned vpn_disconnected, job 241d0ca747bb1377f21fec83f5b42a5c, requiring manual authentication. Unindexed small-dimension Q4 table could duplicate the counts.",
+        "Finite Q4 classification does not assert a dimension-free formula or imply any general algorithmic complexity separation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves close upper/lower bounds for minimum feedback set of k-cubes; cannot exclude hidden Q4 transition table without full text",
+          "evidence": [
+            "Abstract concerns size not reconfiguration; incomplete full text leaves explicit residual priority risk."
+          ],
+          "identifier_or_url": "DOI:10.1016/S0020-0190(00)00127-7",
+          "material_read": "Institutional bibliographic record, abstract and publicly indexed overview, no complete publisher PDF available",
+          "method": "Weizmann and university repositories, ResearchGate request-only publisher entry",
+          "title": "Feedback vertex set in hypercubes",
+          "trigger": "direct same Q4 optimization problem and possible embedded tables"
+        },
+        {
+          "assessment": "Read excerpts describe minimum-size bounds; full report not certified noncovering",
+          "evidence": [
+            "The publicly surfaced text has no demonstrated reconfiguration result but is incomplete."
+          ],
+          "identifier_or_url": "1999 research report https://iris.unive.it/handle/10278/15706",
+          "material_read": "Author-shared ResearchGate page abstract, introductory OCR snippet and author-upload status, not complete PDF text",
+          "method": "Author-uploaded preprint listing and institutional report metadata inspected",
+          "title": "Minimum Feedback Vertex Set in k-Dimensional Hypercubes",
+          "trigger": "possible earlier preprint for same paper"
+        },
+        {
+          "assessment": "Subcubic and planar class results do not directly apply to nonplanar 4-regular Q4, nor supply exact layer counts",
+          "evidence": [
+            "Paper studies fixed-size vertex-exchange model; audited graph uses additions/removals bounded by capacity."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.tcs.2023.114188",
+          "material_read": "Accessible publisher full HTML results including Abstract, Theorems 1 and 2, class assumptions and definitions",
+          "method": "Publisher full article HTML read in theorem-bearing sections",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "closest reconfiguration theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum feedback-set reconfiguration with limited temporary buffer is a natural exact graph-algorithm invariant, not simply re-evaluating the optimal set size. The precise two-extra-vertex connectivity threshold and optimal-pair shortest path dichotomy characterize a canonical hypercube small enough for complete verification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://weizmann.elsevierpure.com/en/publications/feedback-vertex-set-in-hypercubes/",
+    "https://iris.unive.it/handle/10278/15706",
+    "https://www.researchgate.net/publication/2610774_Minimum_Feedback_Vertex_Set_in_k-Dimensional_Hypercubes",
+    "https://doi.org/10.1016/j.tcs.2023.114188",
+    "RESULT.md",
+    "check_edges.py",
+    "check_cartesian.py",
+    "independent_checks.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "The Q4 cube has exactly eight minimum feedback sets of size six. The capacity-seven one-vertex-add/delete reconfiguration graph is eight K_{1,10} components plus 928 isolated vertices, while the capacity-eight graph is connected with 5106 vertices, 9152 edges and all min-pair distances exactly 4 (same parity) or 12 (opposite parity).",
+  "limitations": [
+    "Complete 2000 paper and 1999 report not read; arXiv and lawful OA searches did not yield the same complete paper; authorized Oxford retrieval for DOI:10.1016/S0020-0190(00)00127-7 returned vpn_disconnected, job 241d0ca747bb1377f21fec83f5b42a5c, requiring manual authentication. Unindexed small-dimension Q4 table could duplicate the counts.",
+    "Finite Q4 classification does not assert a dimension-free formula or imply any general algorithmic complexity separation."
+  ],
+  "residual_risks": [
+    "Complete 2000 paper and 1999 report not read; arXiv and lawful OA searches did not yield the same complete paper; authorized Oxford retrieval for DOI:10.1016/S0020-0190(00)00127-7 returned vpn_disconnected, job 241d0ca747bb1377f21fec83f5b42a5c, requiring manual authentication. Unindexed small-dimension Q4 table could duplicate the counts.",
+    "Finite Q4 classification does not assert a dimension-free formula or imply any general algorithmic complexity separation."
+  ],
+  "schema_version": 1
+}
