@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact 90-word uniform posterior, Bellman recursion F, and simultaneous coefficientwise extremal recursions L/U are proved by induction. 11,867 reachable-and-base memoized states are fully enumerated with integer arithmetic, and a second forward enumeration of all 90 decks verifies a concrete mean-optimal policy; equality of root coefficient extrema establishes ALL deterministic/randomized mean-optimal policies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis–Graham–He–Spiro Theorem 1.3 proves expectation upper bounds, not score laws; Diaconis–Graham–Spiro Tables 2–3 list optimal expectations. Diaconis–Graham 1981 Section 3 explains expectation recursion for partial feedback; score distributions in its Section 2 concern complete feedback. 2026 paper abstract states bounds for maximal/minimal expected scores."
+      ],
+      "reasoning": "Existing expectation or total-case bounds do not determine coefficientwise extrema over all optimal policies. Risk: inaccessible historical computational data may contain the claim.",
+      "searches": [
+        "arXiv:2010.05059 \"optimal strategy\" and \"distribution\"",
+        "arXiv:2012.04019 \"optimal strategy\" and \"Table\"",
+        "Diaconis and Graham (1981) PDF Section 3 yes/no feedback",
+        "arXiv:2609.25062 2026 abstract extremal expectations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.05059 full text inspected",
+      "arXiv:2012.04019 full text inspected",
+      "Diaconis–Graham, Annals of Statistics 9 (1981) full text inspected",
+      "arXiv:2609.25062 abstract inspected; PDF inaccessible",
+      "published-finding corpus semantic query results and accessible previous ledger claim screening"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1981 paper supplies a general expectation Bellman recursion and says no simple optimal description in repeated yes/no decks. The 2022 Table 2 gives one scalar optimal expectation. The new theorem adds coefficientwise min/max recursion over all expectation-maximizing continuations and finds identical vectors."
+      ],
+      "reasoning": "A general recursion which could computationally *enable* the result does not already state or imply unique score laws without evaluating higher-order coefficientwise extrema. But derivability raises priority risk if the result appears in accompanying numerical appendices or software.",
+      "searches": [
+        "Diaconis–Graham (1981), Section 3 recurrence (3.10)",
+        "arXiv:2012.04019 Table 2",
+        "arXiv:2010.05059 Theorem 1.3",
+        "published-finding corpus: risk invariant outcome distribution for all mean-optimal guessing strategies with yes-no feedback three card types two copies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem here equivalent to uniqueness of probability generating function across expectation-optimal policies. Table 2 at arXiv:2012.04019 p.5 gives E[S_2,3]=3.0111 only. arXiv:2010.05059 p.3 explicitly focuses on expected numbers."
+      ],
+      "reasoning": "Exact mean alone allows many distinct score laws and does not imply every optimal strategy has identical tails. No inspected published equivalent all-strategy law.",
+      "searches": [
+        "published-finding corpus: Complete probability generating polynomial (33 z^2 + 30 z^3 + 21 z^4 + 5 z^5 + z^6)/90 for optimal partial feedback card guessing deck AABBCC all strategies optimal score law",
+        "arXiv:2012.04019 PDF, search \"distribution\" and Table 2",
+        "arXiv:2010.05059 PDF, search \"distribution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2012.04019 Table 2 lists n=3, m=2 optimal mean rounded 3.0111; its Tables 1 and 3 also list means. No table of the six coefficient counts was found in inspected full texts. Diaconis–Graham (1981) Section 3 discusses recursion and means, not this 90-word law."
+      ],
+      "reasoning": "This exact deck and its mean are previously tabulated. The finding intentionally does NOT re-report that as novel; a score-polynomial with a proof of invariance among all mean-optimal strategies is a distinct finer invariant, absent from inspected tables.",
+      "searches": [
+        "arXiv:2012.04019 PDF Table 2 n=3 m=2",
+        "Diaconis and Graham 1981 PDF Section 3 tables",
+        "web search \"card guessing\" \"33\" \"30\" \"21\" \"5\" \"1\" optimal",
+        "web search \"card guessing\" \"distribution\" \"two copies\" \"three\""
+      ]
+    },
+    "rationale": "Published Table 2 reports the *mean* 3.0111, not the full score polynomial nor its invariance across every mean-optimal strategy. The two exhaustive coefficient extrema and distinct strategic quantification are not consequences of that one mean value. The original 1981 paper develops expected-value Bellman recurrences, while later asymptotic work bounds means, not finite full distributions. Historical software and unpublished tables remain a priority risk.",
+    "residual_risks": [
+      "The 1978 Stanford technical-report version and older unpublished computational appendices could include the score histogram or tie-policy invariance.",
+      "Gatto dissertation or software used to generate Table 2 may encode the exact polynomial; searched abstracts and inspected Table 2 do not resolve all unpublished priority.",
+      "A 2026 preprint on extremal expectations had an inaccessible PDF; its abstract does not describe this distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expectation bounds and context; not the all-optimal six-card score distribution",
+        "evidence": [
+          "PDF introduction definition of P^+_{m,n} pp.2–3; Section 4 discussion; refs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.05059",
+        "material_read": "Abstract; Introduction pp.1–4; main results and references pp.22–24; searches throughout for optimal strategy/distribution",
+        "method": "Accessible full text PDF viewed and searched",
+        "title": "Card Guessing with Partial Feedback",
+        "trigger": "Identical yes/no multiset deck model and origin of question"
+      },
+      {
+        "assessment": "Its Table 2 covers optimal mean 3.0111; does not state the refined law or optimal-policy invariance",
+        "evidence": [
+          "Table 2 p.5 optimal/greedy/linear expectations for m=2,n=2..5",
+          "pp.2–3 discussion of mean-optimal strategies"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.04019",
+        "material_read": "Introduction and Tables 1–3 pp.1–6; prior work and strategy exposition; full-document keyword searches",
+        "method": "Accessible full text PDF viewed and searched",
+        "title": "Guessing about Guessing: Practical Strategies for Card Guessing with Feedback",
+        "trigger": "Direct tabulation of n=3 m=2 exact expected score"
+      },
+      {
+        "assessment": "Expected-score recurrence for partial feedback and different distributional results; not exact three-label two-copy mean-optimal-law invariance",
+        "evidence": [
+          "Section 3 equations (3.8),(3.10); p.14 discusses 3,3,3 decks",
+          "Section 2 explicitly treats complete-feedback distributions"
+        ],
+        "identifier_or_url": "https://gwern.net/doc/reinforcement-learning/exploration/1981-diaconis.pdf",
+        "material_read": "Introduction; Section 2 complete feedback; Section 3 yes/no feedback pp.11–14; distribution passages and references",
+        "method": "Accessible full text PDF read and searched",
+        "title": "The Analysis of Sequential Experiments with Feedback to Subjects",
+        "trigger": "Foundational recurrence, likely strongest earlier theory"
+      },
+      {
+        "assessment": "Abstract describes expectations, not the exact six-card all-optimal score law; full text uninspected, residual priority risk",
+        "evidence": [
+          "arXiv abstract states universal bound for P^+_{m,n} and P^-_{m,n}"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.25062",
+        "material_read": "Public abstract only; PDF retrieval returned internal error",
+        "method": "Read abstract; bounded PDF open attempted once",
+        "title": "Extremal expectations in card guessing with partial feedback",
+        "trigger": "2026 paper with identical game and stronger expectation bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36e98a82-132f-45aa-84bb-0846641f25a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first three-label repeated yes/no deck is a canonical smallest genuinely incomplete-feedback benchmark. Beyond an already known mean, it identifies a full score distribution invariant under choice of optimal policy, including risk variance and universal success floor. This addresses a natural finite exact risk quantity that the mean table and general recursion do not supply.",
+    "status": "PASS"
+  }
+}
