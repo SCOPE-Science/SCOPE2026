@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification and reproducibility
 
-Run `python3 check_pappus.py` and `python3 independent_check.py` from the same directory. Python 3 standard library alone is sufficient. The first program constructs the incidence graph from \(y=mx+d\) modulo three and counts all subsets of cardinality at most eight by checking pairwise nonempty open-neighborhood traces. Its independent graph traversal calculates both state graphs and all optimum-to-optimum shortest paths. The second builds an LCF cycle/chord graph (with a verified explicit relabeling to the affine graph), uses actual Python sets rather than integer incidence masks, and separately regenerates eligible codes, moves, components, and distances.
+# Independent mathematical audit
 
-Expected exact results: minimum size \(6\), exactly \(18\) optima, size-seven feasible sets \(540\), size-eight feasible sets \(4869\). Distinct optimum intersections have sizes \(0,1,2,4\) with respective frequencies \(18,54,54,27\). The four-overlap graph has \(18\) vertices and \(27\) edges and is isomorphic to the original graph via the displayed explicit bijection.
+## correctness
 
-Capacity-seven state graph: \(558\) vertices, \(216\) edges, eighteen components each with \(13\) vertices and \(324\) isolated states. Capacity-eight state graph: \(5427\) vertices, \(6156\) edges, one component of \(4419\) vertices containing all minima and \(1008\) isolated states. For all 153 pairs of different minimum codes, the distance at capacity eight equals the symmetric-difference size. The distances \(4,8,10,12\) have frequencies \(27,54,54,18\).
+PASS
 
-`check_pappus.out` and `independent_check.out` give observed program output. The optional `representative_paths.json` provides a shortest feasible transition path for each intersection-size class; the graph labels are the vertex integers declared by `check_pappus.py`. Each successive subset differs by exactly one vertex, all sizes are at most eight, and the paths have lengths equal to their endpoint symmetric differences. These recorded finite checks, while exact within their enumerated domain, do not prove novelty, a theorem for other graphs, or an independent external audit.
+Open-neighborhood locating domination on the 18-vertex cubic Pappus affine-incidence graph: each outside vertex needs a distinct nonempty selected-neighbor trace. The crossing-edge inequality excludes |S|<=5 and forces an independent 3-point/3-line minimum set at |S|=6. The finite-field parametrization S_(a,b,c) (a=1,2; b,c in F3) exhausts exactly 18 optima; the explicit opposite-a incidence bijection yields the original Pappus graph from intersection-four edges. Direct independent subset enumeration gave 0,18,540,4869 admissible sets of cardinalities 5,6,7,8; optimum intersection histogram {0:18,1:54,2:54,4:27}. Independently constructed size<=8 reconfiguration transitions and exact BFS shortest paths verified all 153 optimum pairs have distance |S triangle T|. At capacity7 optima have no common 7-element superset (maximum mutual intersection 4), so each is isolated from other optima. The calculation is exhaustive for this finite graph; no assertion for a larger family or for connectivity of all size<=8 states.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+The complete optimizer family, its unexpectedly self-isomorphic intersection graph, and the sharp two-spare-vertex reconfiguration threshold give a natural structural and transition classification on a classical incidence graph. The results are substantially stronger than a routine domination-number calculation; the exact Hamming-geodesic distances would support related optimal-code reconfiguration comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

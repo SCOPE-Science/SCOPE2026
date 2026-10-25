@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined by nine points and nine lines over \(\mathbb F_3\), with an explicit LCF-isomorphic construction. A counting argument rules out locating-dominating sets of cardinality at most five; equality at size six forces three points and three lines of distinct slopes. The omitted-intercept argument classifies every optimum by \(S_{a,b,c}\), \(a\in\{1,2\}\), \(b,c\in\mathbb F_3\). Substitution into a specified bijection proves the eighteen-code intersection graph is precisely the Pappus graph. Two separate subset-generation/adjacency implementations agree on the 18 minimum codes, the exact component spectra at buffer capacities seven and eight, and all 153 optimum-to-optimum shortest distances. The finite calculation supports only the explicitly stated finite claims. Four replayable representative paths provide local certificates.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-General locating-domination lower bounds already yield a lower bound of six for a cubic eighteen-vertex girth-six graph, and that inequality alone is **not** claimed as new. The classical Pappus graph and generic reconfiguration of ordinary dominating sets are also previously known. The inspected literature does not establish the eighteen-optimum quadratic parameterization, the induced exact Pappus self-copy at four-point code intersection, or the sharp two-spare-vertex condition with pairwise Hamming-geodesic transformation. These statements are not implications of generic domination reconfiguration because locating-dominating signatures impose additional uniqueness constraints. Inaccessible and unindexed equivalent accounts remain possible; no universal absence claim is made.
+PASS
 
-## Value — PASS
-The result reconstructs an incidence graph from the overlaps of its optimal locating sensors and determines the exact temporary-capacity threshold for moving *any* optimal sensor placement to another without ever violating distinguishability. Moreover, every pair is Hamming-geodesic despite the fact that the full feasible-state graph remains disconnected. This supplies an exact, natural benchmark for fault-tolerant placement and constrained reconfiguration, rather than an arbitrary numerical census.
+Open-neighborhood locating domination on the 18-vertex cubic Pappus affine-incidence graph: each outside vertex needs a distinct nonempty selected-neighbor trace. The crossing-edge inequality excludes |S|<=5 and forces an independent 3-point/3-line minimum set at |S|=6. The finite-field parametrization S_(a,b,c) (a=1,2; b,c in F3) exhausts exactly 18 optima; the explicit opposite-a incidence bijection yields the original Pappus graph from intersection-four edges. Direct independent subset enumeration gave 0,18,540,4869 admissible sets of cardinalities 5,6,7,8; optimum intersection histogram {0:18,1:54,2:54,4:27}. Independently constructed size<=8 reconfiguration transitions and exact BFS shortest paths verified all 153 optimum pairs have distance |S triangle T|. At capacity7 optima have no common 7-element superset (maximum mutual intersection 4), so each is isolated from other optima. The calculation is exhaustive for this finite graph; no assertion for a larger family or for connectivity of all size<=8 states.
 
-## Nearest related sources and limitations
-Balbuena–Foucaud–Hansberg, arXiv:1407.7263, gives locating-domination bounds but not the Pappus optimum-intersection geometry. Haas–Seyffarth, arXiv:1209.5138, and Suzuki–Mouawad–Nishimura, arXiv:1401.5714, treat reconfiguration of ordinary dominating sets, not locating-dominating sets. Hernando–Mora–Pelayo, arXiv:1506.03442, studies global location-domination. The conclusion is restricted to this finite graph and this precise addition/removal operation; the entire capacity-eight feasible-state graph is not connected. The full-literature completeness of the originality check is inherently limited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+The complete optimizer family, its unexpectedly self-isomorphic intersection graph, and the sharp two-spare-vertex reconfiguration threshold give a natural structural and transition classification on a classical incidence graph. The results are substantially stronger than a routine domination-number calculation; the exact Hamming-geodesic distances would support related optimal-code reconfiguration comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

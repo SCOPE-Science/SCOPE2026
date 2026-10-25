@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:05:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Open-neighborhood locating domination on the 18-vertex cubic Pappus affine-incidence graph: each outside vertex needs a distinct nonempty selected-neighbor trace. The crossing-edge inequality excludes |S|<=5 and forces an independent 3-point/3-line minimum set at |S|=6. The finite-field parametrization S_(a,b,c) (a=1,2; b,c in F3) exhausts exactly 18 optima; the explicit opposite-a incidence bijection yields the original Pappus graph from intersection-four edges. Direct independent subset enumeration gave 0,18,540,4869 admissible sets of cardinalities 5,6,7,8; optimum intersection histogram {0:18,1:54,2:54,4:27}. Independently constructed size<=8 reconfiguration transitions and exact BFS shortest paths verified all 153 optimum pairs have distance |S triangle T|. At capacity7 optima have no common 7-element superset (maximum mutual intersection 4), so each is isolated from other optima. The calculation is exhaustive for this finite graph; no assertion for a larger family or for connectivity of all size<=8 states.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1407.7263 contains general girth-based locating domination bounds, not an exact minimum-set parameterization or reconfiguration distances.",
+          "arXiv:1209.5138 and arXiv:1401.5714 concern ordinary dominating-set reconfiguration, a weaker predicate."
+        ],
+        "reasoning": "General domination inequalities and ordinary-dominating reconfiguration results neither give the optimum Pappus family nor imply all shortest capacity-eight paths. The source bibliography attributes a lower bound of six to arXiv:1407.7263, but its inspected displayed theorem is an upper bound; the independent crossing-edge lower bound avoids relying on that attribution.",
+        "searches": [
+          "Pappus graph locating dominating sets minimum optimal six codes intersection reconfiguration threshold; arXiv:1407.7263 locating-dominating sets girth at least five"
+        ]
+      },
+      "checked_sources": [
+        "Pappus RESULT.md proof and exact field formulas",
+        "Pappus check_pappus.py and independent_check.py source tree and independent fresh implementation",
+        "MathWorld Pappus Graph",
+        "Balbuena, Foucaud and Hansberg arXiv:1407.7263 full text",
+        "Haas–Seyffarth arXiv:1209.5138 search/bibliographic comparison",
+        "Resultary semantic search for Pappus locating-dominating/reconfiguration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited general article does not reconstruct the graph from its own optimum codes.",
+          "Ordinary domination can hold when two outside vertices have the same neighborhood trace."
+        ],
+        "reasoning": "The general known graph and domination bounds can be used as inputs but do not assert this isomorphism, exact histograms or distinct capacity-seven components. New finite field classification and full-state enumeration are required.",
+        "searches": [
+          "arXiv:1407.7263 theorem bounds; arXiv:1209.5138 k-dominating graph versus locating domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld Pappus Graph: classical cubic incidence graph and LCF model.",
+          "Balbuena–Foucaud–Hansberg arXiv:1407.7263 studies locating-domination on girth>=5 graphs, not the 18 optimum-code intersection graph."
+        ],
+        "reasoning": "The vertex subset predicate uses open-neighborhood signatures only outside S; identifying codes and ordinary domination have different predicates. An equivalent Pappus code/intersection enumeration was not located in actual searches; absence cannot be certified.",
+        "searches": [
+          "Pappus graph identifying code/locating domination/metric resolving distinctions; published-result query: Pappus graph locating dominating sets minimum optimal six codes intersection reconfiguration threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld supplies graph incidence/LCF metadata, not the 18-set intersection histogram.",
+          "Direct finite enumeration finds exactly 18 optima with pair histogram 18/54/54/27 and verifies 153 shortest paths."
+        ],
+        "reasoning": "A standard graph catalogue specifies Pappus as an object; the particular exact optimum-code census and reconfiguration table were not found there. A finite exhaustive fact cannot be claimed universally new from search alone.",
+        "searches": [
+          "Pappus graph locating dominating sets minimum optimal six codes intersection reconfiguration threshold; Pappus graph LCF adjacency and locating code tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.",
+      "residual_risks": [
+        "An unindexed Pappus optimum-code census may predate this classification.",
+        "Reconfiguration distances are exact only for the specified graph and move predicate; finite enumeration, not a family theorem.",
+        "Original prior-work prose appears to mislabel a general girth upper bound as a lower bound; the new proof contains its own valid lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the graph model, not the optimum locating-code census or reconfiguration",
+          "evidence": "Incidence construction and LCF [5,7,-7,7,-7,-5]^3.",
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+          "material_read": "Definition, LCF description and graph parameters",
+          "method": "Public reference webpage",
+          "title": "Pappus Graph",
+          "trigger": "Classical object identification"
+        },
+        {
+          "assessment": "Only general girth bounds; no specific Pappus optimal-code self-isomorphism",
+          "evidence": "Theorem 8 gives upper rather than the lower locating domination bound attributed by source prose.",
+          "identifier_or_url": "arXiv:1407.7263",
+          "material_read": "Full accessible PDF, theorem statements and girth-based bounds, including theorem 8",
+          "method": "Full PDF reading and page screenshot",
+          "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+          "trigger": "Potential broader general graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete optimizer family, its unexpectedly self-isomorphic intersection graph, and the sharp two-spare-vertex reconfiguration threshold give a natural structural and transition classification on a classical incidence graph. The results are substantially stronger than a routine domination-number calculation; the exact Hamming-geodesic distances would support related optimal-code reconfiguration comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed Pappus optimum-code census may predate this classification.",
+    "Reconfiguration distances are exact only for the specified graph and move predicate; finite enumeration, not a family theorem.",
+    "Original prior-work prose appears to mislabel a general girth upper bound as a lower bound; the new proof contains its own valid lower bound.",
+    "Publication transport/privacy is not a scientific failure; original public metadata must be sanitized before any downstream import."
+  ],
+  "schema_version": 1
+}
