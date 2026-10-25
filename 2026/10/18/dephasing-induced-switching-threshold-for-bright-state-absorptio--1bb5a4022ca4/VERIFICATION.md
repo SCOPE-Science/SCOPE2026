@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification protocol and limitations
+# Independent mathematical audit
 
-The complete mathematical proof is in `RESULT.md`. To reproduce numerical consistency checks, run `python verification.py` with NumPy installed. The checker builds the full complex superoperator on all \((m+n)^2\) density-matrix coordinates, not merely the five-variable subsystem, and solves the finite-dimensional Poisson equation for integrated survival. A deterministic pseudorandom generator yields complex positive-semidefinite initial density matrices. The code also solves the exactly coherent two-level subsystem at zero dephasing and tests the global-dephasing phase boundary on both sides and at equality.
+## correctness
 
-The executed checker reported: `PASS: 124 finite direct-matrix/phase-boundary tests; max absolute mean-time error 2.49e-14`. Conditions tested include \(m\in\{2,3,4\}\), \(n\in\{1,2,3,4\}\), positive sampled couplings and rates, plus further integral-mean and switching-boundary checks. The numerical matrices are small and the comparisons do not prove any arbitrary-dimensional assertion; the derivation of the five-variable closure, Hilbert--Schmidt decay inequality, and exact quadratic phase test do that work.
+PASS
 
-Only ideal site-independent hopping and identical loss across an entire absorbing part are proved. The code neither establishes originality nor constitutes independent scientific validation.
+The Lindblad no-jump generator has Hamiltonian adjacency coupling J between all A and B vertices, loss kappa on every A vertex and offdiagonal projector dephasing gamma. Hilbert–Schmidt dissipation kills all nondecaying eigenmatrices for gamma>0; a diagonal B-supported survivor would create a nonzero A-B commutator. The five exact aggregate evolution equations integrate to T_gamma=(m+n)/(m kappa)+n(m-1)/(m(kappa+gamma))+(n-s)/gamma+(kappa/2+gamma)/(2mJ^2) for every m>=2,n>=1, gamma>0 and B-supported initial density of bright overlap s. For s<n the gamma=0 dark component makes the unconditional mean infinite. For bright s=n the separate two-state Hamiltonian gives T_0=2/kappa+kappa/(4mnJ^2). Strict convexity and the exact comparison polynomial F_(m,n)(x) give improvement precisely m>n and x=kappa/(J sqrt(2n(m-1)))<x_c; equality ties two distinct rates only n>=2, while n=1 equality has gamma*=0. Independent full Liouvillian numerical integration for m=3,n=2, positive rates and a complex mixed B initial state agreed with the integrated five-variable formula at <10^-14 error. This is corroboration, not proof beyond finite tests.
+
+## originality
+
+PASS
+
+The nearest fully inspected studies treat single absorbing vertices or fully connected quantum networks. The entire-part loss operator on a complete bipartite adjacency network with homogeneous dephasing is genuinely distinct, and the exact all-initial-state first-moment formula plus bright-state global switching threshold was not present in inspected results. This remains conditional on unlocated exact reductions elsewhere.
+
+## value
+
+PASS
+
+The exact question whether noise shortens *mean absorption time* of a fully bright, otherwise trapping-free initial excitation is natural in environment-assisted transport. The result distinguishes ordinary dark-state unlocking from genuine bright-state improvement, gives an explicit geometry-dependent threshold and uniquely/tied optimizers, and establishes the no-improvement regime. This is structural, not a routine one-parameter fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

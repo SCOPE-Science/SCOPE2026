@@ -1,11 +1,21 @@
-# Scientific assessment: bipartition-wide quantum absorption under dephasing
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof derives a closed five-variable subsystem from the stated no-jump Lindblad generator with explicit site-projector normalization. The Hilbert--Schmidt dissipation identity excludes nondecaying eigenmatrices for every strictly positive dephasing rate. Integrating the five exact equations gives the mean-time formula; a separate two-state reduction treats exactly zero dephasing. Strict convexity and an explicit quadratic comparison establish the complete optimization boundary, including the special one-site launching part and the tied-minimum boundary. A standalone NumPy check verifies the full generator and 124 finite comparisons with maximum absolute mean-time error \(2.49\times10^{-14}\). Numerics are supporting evidence, not the general proof.
+## correctness
 
-**Originality: PASS (provisional scientific judgment).** Razzoli--Paris--Bordone, arXiv:2011.13794, calculate coherent transport efficiencies for single-trap complete bipartite graphs with a Laplacian Hamiltonian; their Section 4.1 and Appendix B.1 do not analyze a whole absorbing part with homogeneous dephasing or mean-time optimization. Alterman--Berman--Strauch, arXiv:2309.00164, give optimal noise conditions for a complete graph with a single trap, distinct from the exact complete-bipartite coupling/loss pattern here. The one-site monitored star boundary is not the new \(m\ge2\) switching threshold. Searches for aliases of an all-part absorbing Haken--Strobl bipartite network revealed no direct coverage; absence of a match is not proof of uniqueness. Residual risk: a general Lindblad block-symmetry or absorptive-network formula elsewhere might imply the statement after specialization.
+PASS
 
-**Value: PASS.** The result answers whether dephasing helps a perfectly bright excitation reach an array of traps. In contrast with simply making incoherent initial states absorb eventually, the theorem proves an exact counterintuitive region in which dephasing lowers the *mean time relative to completely coherent evolution*, and a sharp site-count obstruction when the monitored part is no larger than the launching part. The explicit threshold distinguishes network geometry from trap strength and supports quantitative design comparisons. It is not a claim about finite-time hitting probability, spectral gaps, nonuniform loss, or disordered hopping.
+The Lindblad no-jump generator has Hamiltonian adjacency coupling J between all A and B vertices, loss kappa on every A vertex and offdiagonal projector dephasing gamma. Hilbert–Schmidt dissipation kills all nondecaying eigenmatrices for gamma>0; a diagonal B-supported survivor would create a nonzero A-B commutator. The five exact aggregate evolution equations integrate to T_gamma=(m+n)/(m kappa)+n(m-1)/(m(kappa+gamma))+(n-s)/gamma+(kappa/2+gamma)/(2mJ^2) for every m>=2,n>=1, gamma>0 and B-supported initial density of bright overlap s. For s<n the gamma=0 dark component makes the unconditional mean infinite. For bright s=n the separate two-state Hamiltonian gives T_0=2/kappa+kappa/(4mnJ^2). Strict convexity and the exact comparison polynomial F_(m,n)(x) give improvement precisely m>n and x=kappa/(J sqrt(2n(m-1)))<x_c; equality ties two distinct rates only n>=2, while n=1 equality has gamma*=0. Independent full Liouvillian numerical integration for m=3,n=2, positive rates and a complex mixed B initial state agreed with the integrated five-variable formula at <10^-14 error. This is corroboration, not proof beyond finite tests.
 
-Closest inspected primary literature: L. Razzoli et al. (2020), arXiv:2011.13794v1, Sections 4.1, 6 and Appendix B.1; S. Alterman et al. (2023), arXiv:2309.00164v1, Sections II--V and Appendix A. Both are related but their stated theorems/models do not cover the new sharp parameter boundary. Broader implicit consequences in other treatments remain a meaningful originality risk. No independent audit or external proof validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest fully inspected studies treat single absorbing vertices or fully connected quantum networks. The entire-part loss operator on a complete bipartite adjacency network with homogeneous dephasing is genuinely distinct, and the exact all-initial-state first-moment formula plus bright-state global switching threshold was not present in inspected results. This remains conditional on unlocated exact reductions elsewhere.
+
+## value
+
+PASS
+
+The exact question whether noise shortens *mean absorption time* of a fully bright, otherwise trapping-free initial excitation is natural in environment-assisted transport. The result distinguishes ordinary dark-state unlocking from genuine bright-state improvement, gives an explicit geometry-dependent threshold and uniquely/tied optimizers, and establishes the no-improvement regime. This is structural, not a routine one-parameter fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

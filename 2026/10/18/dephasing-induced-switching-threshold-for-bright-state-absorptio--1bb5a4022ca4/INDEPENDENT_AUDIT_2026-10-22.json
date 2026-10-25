@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:02:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Lindblad no-jump generator has Hamiltonian adjacency coupling J between all A and B vertices, loss kappa on every A vertex and offdiagonal projector dephasing gamma. Hilbert–Schmidt dissipation kills all nondecaying eigenmatrices for gamma>0; a diagonal B-supported survivor would create a nonzero A-B commutator. The five exact aggregate evolution equations integrate to T_gamma=(m+n)/(m kappa)+n(m-1)/(m(kappa+gamma))+(n-s)/gamma+(kappa/2+gamma)/(2mJ^2) for every m>=2,n>=1, gamma>0 and B-supported initial density of bright overlap s. For s<n the gamma=0 dark component makes the unconditional mean infinite. For bright s=n the separate two-state Hamiltonian gives T_0=2/kappa+kappa/(4mnJ^2). Strict convexity and the exact comparison polynomial F_(m,n)(x) give improvement precisely m>n and x=kappa/(J sqrt(2n(m-1)))<x_c; equality ties two distinct rates only n>=2, while n=1 equality has gamma*=0. Independent full Liouvillian numerical integration for m=3,n=2, positive rates and a complex mixed B initial state agreed with the integrated five-variable formula at <10^-14 error. This is corroboration, not proof beyond finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alterman et al. characterize complete-graph transport with one trap; Razzoli et al. solve single-trap coherent complete bipartite transport."
+        ],
+        "reasoning": "Neither source hypothesis contains the uniform all-m absorbing projector with adjacency-only cross hopping and gamma>0; an all-graphs formula in undiscovered literature remains possible but no inspected theorem dominates this exact law.",
+        "searches": [
+          "complete bipartite quantum network homogeneous dephasing all absorbing sites mean trapping time bright state optimum threshold",
+          "arxiv:2309.00164 noise assisted transport optimal complete network",
+          "arxiv:2011.13794 transport efficiency bipartite"
+        ]
+      },
+      "checked_sources": [
+        "Exact frozen RESULT.md 6caaad6c282bb8417b79482265610ddf4bbf138f",
+        "Inspected verification.py d02c59a6d0e1239f5cc76cc74bdf2fe9d70b2586",
+        "arXiv:2011.13794",
+        "arXiv:2309.00164",
+        "Resultary: analogous quantum transfer and bath dephasing semantic hits, not same absorption claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Razzoli source uses one absorber and no dephasing; Alterman source uses clique rather than K_(m,n) with entire absorbing side.",
+          "Gamma=0 bright two-state law alone cannot imply the dephased discontinuous optimum comparison for arbitrary n,m and mixed B initial states."
+        ],
+        "reasoning": "A prior statement would need to imply the full five-observable integrated equation with all A sinks and the strict x_c switching inequality, not just have an optimal-dephasing theme. The material actually read did not state that.",
+        "searches": [
+          "arxiv:2011.13794 section 4.1 absorption efficiency single vertex",
+          "arxiv:2309.00164 mean transfer time optimization section IV",
+          "complete bipartite quantum network homogeneous dephasing all absorbing sites mean trapping time bright state optimum threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Razzoli–Paris–Bordone, arXiv:2011.13794, Section 4.1/Appendix B.1 use a single trapping vertex and coherent graph-Laplacian evolution.",
+          "Alterman–Berman–Strauch, arXiv:2309.00164, use a fully connected network with a single sink."
+        ],
+        "reasoning": "Names such as Haken–Strobl site dephasing, quantum first passage, non-Hermitian sink Lindblad and bright/dark states were considered. Similar noise-assisted themes do not establish equivalence of their sink projections or Hamiltonians with the rank-m bipartition model.",
+        "searches": [
+          "complete bipartite quantum network homogeneous dephasing all absorbing sites mean trapping time bright state optimum threshold",
+          "complete bipartite noise assisted transport entire absorbing part bright state exact mean time homogeneous dephasing",
+          "Haken Stobl complete bipartite absorbing array bright state first passage mean time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned analogous quantum transfer and stochastic bath findings, not an exact complete-bipartite bright-state switching phase table.",
+          "Explicit x_c(m,n) and the n=1 equality boundary are source-derived and independently rechecked."
+        ],
+        "reasoning": "No matching exact database of these optimization thresholds was located; this is only a bounded search, not novelty proof.",
+        "searches": [
+          "complete bipartite noise assisted transport entire absorbing part bright state exact mean time homogeneous dephasing",
+          "complete bipartite mean trapping time dephasing all absorber sites exact formula"
+        ]
+      },
+      "rationale": "The nearest fully inspected studies treat single absorbing vertices or fully connected quantum networks. The entire-part loss operator on a complete bipartite adjacency network with homogeneous dephasing is genuinely distinct, and the exact all-initial-state first-moment formula plus bright-state global switching threshold was not present in inspected results. This remains conditional on unlocated exact reductions elsewhere.",
+      "residual_risks": [
+        "Undiscovered general symmetry-reduced Lindblad first-passage theorem could imply the formula.",
+        "Homogeneous dephasing conventions matter: offdiagonal decay is gamma and trapping population decay kappa; not interchangeable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected theorem uses one trapping vertex and graph-Laplacian Hamiltonian, with no homogeneous dephasing; does not directly cover the rank-m loss projector.",
+          "evidence": "arXiv:2011.13794, §4.1/Appendix B.1",
+          "identifier_or_url": "https://arxiv.org/abs/2011.13794",
+          "material_read": "Accessible primary PDF, Introduction, Section 4.1 and Appendix B.1 on coherent transport to one trap",
+          "method": "Lawful open-access PDF; relevant sections and PDF page screenshot",
+          "title": "Transport efficiency of continuous-time quantum walks on graphs",
+          "trigger": "Same complete bipartite graph family with loss"
+        },
+        {
+          "assessment": "A single-trap complete graph model with different coupling is analyzed; inspected equations do not imply this complete bipartite full-side loss threshold.",
+          "evidence": "arXiv:2309.00164, Sections II–V/Appendix A",
+          "identifier_or_url": "https://arxiv.org/abs/2309.00164",
+          "material_read": "Accessible full primary article; read definitions and transport equations in Sections II–V and Appendix A",
+          "method": "Lawful open-access primary full text and PDF first-page screenshot",
+          "title": "Optimal Conditions for Environment-Assisted Quantum Transport on the Fully Connected Network",
+          "trigger": "Closest source with dephasing, sinks and optimized trapping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact question whether noise shortens *mean absorption time* of a fully bright, otherwise trapping-free initial excitation is natural in environment-assisted transport. The result distinguishes ordinary dark-state unlocking from genuine bright-state improvement, gives an explicit geometry-dependent threshold and uniquely/tied optimizers, and establishes the no-improvement regime. This is structural, not a routine one-parameter fit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exact frozen RESULT.md 6caaad6c282bb8417b79482265610ddf4bbf138f",
+    "Inspected verification.py d02c59a6d0e1239f5cc76cc74bdf2fe9d70b2586",
+    "arXiv:2011.13794",
+    "arXiv:2309.00164",
+    "Resultary: analogous quantum transfer and bath dephasing semantic hits, not same absorption claim"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only identical hopping J>0, identical full-A loss kappa>0, homogeneous projector dephasing gamma and finite K_(m,n); not onsite disorder or arbitrary graphs.",
+    "At gamma=0, s<n has infinite unconditional mean due to dark component, not slow numerical decay.",
+    "No Lean/expert attestation."
+  ],
+  "residual_risks": [
+    "Undiscovered general symmetry-reduced Lindblad first-passage theorem could imply the formula.",
+    "Homogeneous dephasing conventions matter: offdiagonal decay is gamma and trapping population decay kappa; not interchangeable."
+  ],
+  "schema_version": 1
+}
