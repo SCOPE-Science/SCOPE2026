@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The intrinsic line-rich criterion is proved for all \(r\ge3\), \(d\ge4\): an off-coordinate line meets at most three reflection centers, while each coordinate edge has exactly \(d\). Recovering omitted Galois vertices and diagonal root-coset preservation proves the full projective stabilizer. A separate degree-\(d\) character-weight argument proves uniqueness of the smooth invariant hypersurface. Six exact finite-field incidence computations corroborate the proof without substituting for it.
+## correctness
 
-**Originality (PASS, with residual risk).** Miura--Takahashi (arXiv:2610.09331v1) proves the center census, explicit point coordinates and Fermat symmetry, but not the converse stabilizer inclusion or uniqueness of smooth invariant degree. Fukasawa--Miura--Takahashi (arXiv:2211.16033) treats plane-curve arrangements and Fermat quartic classification. Full relevant text of both papers was compared. Targeted literature and mathematical database queries returned no implied equivalent. The 2019 and independent 2026 quartic-surface sources were inspected by abstracts only.
+PASS
 
-**Mathematical value (PASS).** The result is an all-dimensional intrinsic reconstruction theorem using **only order-two quasi-Galois centers**, even though the outer Galois vertices are absent from the supplied data. It identifies precisely when no extra projective symmetry of the center set occurs, and recovers the defining smooth hypersurface. It is not merely another enumeration of the known centers.
+Let Q be {[e_i−ζe_j]:ζ^d=1} over C, r≥3,d≥4, excluding Galois coordinate vertices. On an off-coordinate line with s≥3 nonzero coordinate functionals, each center requires s−2 vanishing restrictions; each such functional vanishes at only one line point, yielding ≤floor(s/(s−2))≤3 centers. Coordinate lines uniquely carry d≥4 centers, and their pairwise intersections recover all r omitted coordinate vertices. Hence a projective stabilizer is monomial and diagonal ratios lie in μ_d; converse holds. Degree-d monomials have distinct diagonal group characters except pure dth powers. Smooth invariant hypersurface must be Σ c_i X_i^d with c_i nonzero, and S_r forces all c_i equal (r≥3). Independent sample over F17 at (r,d)=(3,4): 12 centers, 3 lines with four and 16 with three, matching the incidence mechanism but not replacing complex proof.
 
-**Limits.** Characteristic zero, \(d\ge4\), projective-linear symmetries only; no conclusion about full abstract automorphisms of quartic K3 surfaces. Unindexed projective-configuration overlap remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing Fermat quasi-Galois point coordinates and monomial automorphism group yield one stabilizer inclusion, not the converse reconstructed from rich lines nor uniqueness of invariant smooth hypersurface. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
+
+## value
+
+PASS
+
+The unmarked non-Galois quasi-Galois point set is a canonical, geometrically motivated configuration; reconstructing missing Galois vertices and proving the full ambient point-set stabilizer exactly equals the Fermat symmetry group is a genuine rigidity theorem, and uniqueness of the smooth invariant defining form is an additional structural consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

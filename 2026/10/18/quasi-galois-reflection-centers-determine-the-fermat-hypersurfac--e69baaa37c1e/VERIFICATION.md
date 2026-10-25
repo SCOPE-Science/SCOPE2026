@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The mathematical proof in RESULT.md is self-contained given the published reflection-center classification. In particular, the proof of the off-coordinate-line bound does not rely on sample data.
+# Independent mathematical audit
 
-Run `python3 check.py` from this package: six exact prime-field tests for \((r,d,p)=(3,4,17),(4,4,17),(5,4,17),(3,5,11),(4,5,11),(4,6,13)\) exhaustively construct the center set, enumerate all lines spanned by distinct centers by Plücker minors, and check that exactly \(\binom r2\) lines are rich with \(d\) centers and all others have no more than three.
+## correctness
 
-These are finite computational checks only. They do not establish the uniform complex proof, uniqueness of invariant smooth hypersurfaces, or literature originality. No independent audit has been performed.
+PASS
+
+Let Q be {[e_i−ζe_j]:ζ^d=1} over C, r≥3,d≥4, excluding Galois coordinate vertices. On an off-coordinate line with s≥3 nonzero coordinate functionals, each center requires s−2 vanishing restrictions; each such functional vanishes at only one line point, yielding ≤floor(s/(s−2))≤3 centers. Coordinate lines uniquely carry d≥4 centers, and their pairwise intersections recover all r omitted coordinate vertices. Hence a projective stabilizer is monomial and diagonal ratios lie in μ_d; converse holds. Degree-d monomials have distinct diagonal group characters except pure dth powers. Smooth invariant hypersurface must be Σ c_i X_i^d with c_i nonzero, and S_r forces all c_i equal (r≥3). Independent sample over F17 at (r,d)=(3,4): 12 centers, 3 lines with four and 16 with three, matching the incidence mechanism but not replacing complex proof.
+
+## originality
+
+PASS
+
+Existing Fermat quasi-Galois point coordinates and monomial automorphism group yield one stabilizer inclusion, not the converse reconstructed from rich lines nor uniqueness of invariant smooth hypersurface. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
+
+## value
+
+PASS
+
+The unmarked non-Galois quasi-Galois point set is a canonical, geometrically motivated configuration; reconstructing missing Galois vertices and proving the full ambient point-set stabilizer exactly equals the Fermat symmetry group is a genuine rigidity theorem, and uniqueness of the smooth invariant defining form is an additional structural consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
