@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic and does not depend on a finite search. The accompanying `verify.py` provides a reproducibility check of the key identities against the source's three-variable 4-periodic equations.
+## correctness
 
-It performs exact rational checks for every integer \(2\le k\le100\) that at \(\theta=2/(k-1)\), the root \(v=1\) has vanishing first and second derivatives and third derivative \(k(k+1)\). It then solves the exact hyperbolic branch numerically for representative degrees and parameters, substitutes both reciprocal roots into all three source equations with \(u=1\), \(w=v\), and checks the stated onset coefficient at small positive parameter increments.
+PASS
 
-These finite tests are corroborative. The infinite statement for every \(k\ge2\) rests on the symbolic reduction and the proof that \(s\coth s\) is strictly increasing for \(s>0\). No exhaustive computation, timeout, or numerical root count is used as proof.
+After substituting u=1,w=v into the displayed source-package system, the scalar equation is F(v)=v^(k+1)-(theta+1)v^k+(theta+1)v-1. For v≠1, set v=e^(2t), giving theta+1=sinh((k+1)t)/sinh((k-1)t). This ratio is even, strictly increases for t>0 by monotonicity of x*coth(x), tends to (k+1)/(k-1) at zero and diverges, so there is precisely one t>0 above theta=2/(k-1), giving reciprocal solutions. Direct differentiation shows v=1 exactly triple at equality (third derivative k(k+1)); the expansion gives |log(v^k)|=sqrt(6k(k-1)/(k+1))*sqrt(theta-theta_c)+O(delta^(3/2)). Independent symbolic checks for k=2..8 confirm derivatives and coefficient. Boundary-law patterns [1,1,r,r] and [1,1,1/r,1/r] are related by a two-height cyclic shift and common rescaling; within the stated mixed gradient construction this identifies a measure. C verified as a mathematical statement about the package-displayed reduction, while independent full-text authentication of original physical model recurrence remained blocked.
+
+## originality
+
+PASS
+
+Best-of-knowledge new all-degree classification of a natural source-exhibited scalar 4-periodic branch, subject to material originality risk from inaccessible full primary; not a theorem about the entire three-variable phase diagram.
+
+## value
+
+PASS
+
+The branch is selected by the originating SOS model as a tractable yet previously unclassified family. A sharp analytic critical transfer parameter valid for all tree degrees, complete positive-root count and onset scaling are natural bifurcation invariants; mathematical value does not require a full phase diagram of all branches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

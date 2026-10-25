@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source equations were reconstructed before specialization. For \(u=1\), \(w=v\), both nontrivial equations reduce to the same scalar polynomial. The substitution \(v=e^{2t}\) is reversible for every positive \(v\ne1\), and strict monotonicity of \(\sinh((k+1)t)/\sinh((k-1)t)\) on \(t>0\) gives the exact positive-root count for all integer \(k\ge2\). The critical multiplicity and onset amplitude follow from exact derivatives and a local Taylor expansion. The standalone verifier checks the algebra against the original three-equation system without replacing the analytic proof.
+## correctness
 
-## Originality
-**PASS.** The closest source, arXiv:2206.00245v1, explicitly writes the general-degree polynomial in its final remark but does not classify it. The closest standard-SOS and generalized-SOS 4-periodic papers use different recurrences and do not imply this statement. Searches covered the exact polynomial, reciprocal and hyperbolic formulations, the threshold \(2/(k-1)\), source/model aliases, broader 4-periodic literature, and current/prior released findings. No covering statement was located. Residual risk remains for weakly indexed follow-up material under another normalization.
+PASS
 
-## Value
-**PASS.** This is the all-degree classification of a branch singled out by the primary source as a natural generalization of its binary-tree calculation. The sharp threshold, exact reciprocal parameterization, and square-root onset law give structural information about where a genuine 4-height-periodic GGM appears. The claim does not inflate this branch result into a classification of the full model.
+After substituting u=1,w=v into the displayed source-package system, the scalar equation is F(v)=v^(k+1)-(theta+1)v^k+(theta+1)v-1. For v≠1, set v=e^(2t), giving theta+1=sinh((k+1)t)/sinh((k-1)t). This ratio is even, strictly increases for t>0 by monotonicity of x*coth(x), tends to (k+1)/(k-1) at zero and diverges, so there is precisely one t>0 above theta=2/(k-1), giving reciprocal solutions. Direct differentiation shows v=1 exactly triple at equality (third derivative k(k+1)); the expansion gives |log(v^k)|=sqrt(6k(k-1)/(k+1))*sqrt(theta-theta_c)+O(delta^(3/2)). Independent symbolic checks for k=2..8 confirm derivatives and coefficient. Boundary-law patterns [1,1,r,r] and [1,1,1/r,1/r] are related by a two-height cyclic shift and common rescaling; within the stated mixed gradient construction this identifies a measure. C verified as a mathematical statement about the package-displayed reduction, while independent full-text authentication of original physical model recurrence remained blocked.
 
-## Closest literature and limitations
-The closest literature is the primary alternating-magnetism paper itself, the standard-SOS 4-periodic paper arXiv:2110.10078v1, and the generalized-SOS paper arXiv:2309.00867v1. The result is confined to \(u=1\), \(w=v\); other 4-periodic branches, extremality, stability, reconstruction, and thermodynamic dominance are not addressed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new all-degree classification of a natural source-exhibited scalar 4-periodic branch, subject to material originality risk from inaccessible full primary; not a theorem about the entire three-variable phase diagram.
+
+## value
+
+PASS
+
+The branch is selected by the originating SOS model as a tractable yet previously unclassified family. A sharp analytic critical transfer parameter valid for all tree degrees, complete positive-root count and onset scaling are natural bifurcation invariants; mathematical value does not require a full phase diagram of all branches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
