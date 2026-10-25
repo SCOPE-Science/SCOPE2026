@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For resting clique vertices the excitation signal is precisely the number of excited clique plus fringe vertices; for resting fringe vertices it is the excited clique count. Initial phase classes remain uniform, and truncating each of six initial multiplicities at two preserves every threshold-two test at every step by induction. Exhaustively checking all 729 truncated six-class profiles at times five and eight proves F^8=F^5 for all positive a,b. Once periods divide three, a periodic vertex is either rest forever or rotates 0->1->2->0. The common excitation signal forces every vertex to rotate on any nonzero periodic orbit, and the three phase-support inequalities are necessary and sufficient. Multinomial weighting yields R(a,b); explicit phase-profile enumeration gives the a=4 and a=5 formulas, while inclusion-exclusion and two-colour fringe support give the three growth regimes. The concrete S_(3,3) trajectory takes five steps to reach rest. Independent labelled-state iteration verified 29,169 states across eleven parameter pairs; verify.py and verify_output.txt accompany the result. Finite enumeration is used only after a proved exact reduction, not extrapolated from small graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fisch et al., Statistics and Computing 1 (1991), DOI:10.1007/BF01890834, studies lattice range/threshold and stable periodic objects",
+        "N. Doba, Complex Systems 27 (2018), DOI:10.25088/ComplexSystems.27.2.101, explicitly assumes one excited neighbour suffices",
+        "Bello and Sivakoff, arXiv:2108.06404, Theorems 1.2–1.4 concern random initial conditions on infinite regular trees",
+        "Wu et al., arXiv:cond-mat/0701248v1, employs scale-free networks and stochastic excitation probability"
+      ],
+      "reasoning": "The general graph result checked is inapplicable because its threshold is one; the threshold-two tree theorems do not concern finite split graphs. Lattice stable-object results do not provide an exact time-five cutoff or labelled finite-network orbit enumeration. The stochastic network paper is not a deterministic all-state theorem.",
+      "searches": [
+        "deterministic excitable cellular automata complete graph graph topology cyclic phase counts Greenberg Hastings",
+        "Greenberg-Hastings complete graph threshold 2 periodic orbits",
+        "Limiting behavior 3-color excitable media arbitrary graphs threshold 1",
+        "Cyclic Cellular Automata and Greenberg-Hastings Models on Regular Trees threshold 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:patt-sol/9304001v1",
+      "doi:10.1007/BF01890834",
+      "doi:10.25088/ComplexSystems.27.2.101",
+      "arxiv:2108.06404",
+      "arxiv:cond-mat/0701248v1",
+      "doi:10.1007/BF01259549",
+      "Relevant accessible claim summaries for three-state Greenberg–Hastings on complete bipartite graphs and binary majority on complete split graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fisch et al. (1991) stable periodic objects are sufficient for enduring oscillation in lattice models, but do not classify all period states of complete split graphs",
+        "Existing threshold-two complete-bipartite recurrence result allows four-cycles, whereas the present split-graph theorem proves only 1- and 3-cycles",
+        "Doba (2018) cycle-density theorem is explicitly for the one-neighbour threshold, not the contact-two rule"
+      ],
+      "reasoning": "The current result cannot be reduced to the bipartite result by relabeling parameters because excited neighbours inside the clique are counted and can sustain a three-cycle when the independent set is small. The previously known rotating-support idea does not entail that all recurrent split-graph states rotate, nor the sharp uniform entry bound or counting trichotomy.",
+      "searches": [
+        "threshold-range scaling Greenberg Hastings stable periodic objects implication exact census",
+        "threshold two complete bipartite Greenberg Hastings period four versus complete split clique edges",
+        "graph Greenberg Hastings maximum cycle density threshold one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1991 Fisch–Gravner–Griffeath, arXiv:patt-sol/9304001v1, pp.23-29: threshold-contact Greenberg–Hastings and stable periodic objects",
+        "2021 Bello–Sivakoff, arXiv:2108.06404: threshold-two Greenberg–Hastings on infinite regular trees",
+        "Relevant exact earlier complete-bipartite result concerns graphs with no clique edges, therefore different excitation map"
+      ],
+      "reasoning": "Changing terminology from split graph to a clique joined to an independent set, and from recurrence to stable periodic excitation, does not lead in examined materials to an all-state census or five-step transient bound. Necessary support inequalities resemble the classical stable-periodic-object criterion; sufficiency alone is prior, but completeness on split graphs and the phase-growth law are not implied.",
+      "searches": [
+        "Greenberg Hastings synchronous excitable three state threshold two cellular automaton complete split graph clique independent set period three count sharp transient bound",
+        "Greenberg Hastings threshold two clique fringe bipartite exact cycle classification",
+        "Greenberg Hastings split graph clique independent threshold three state excitation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact split-graph recurrence table appeared in examined indexed mathematical records or primary-paper sections",
+        "The published threshold-range tables in Fisch et al. (1991) concern two-dimensional lattice-neighbourhood threshold cutoffs, not R(4,b), R(5,b) or R(a,b)"
+      ],
+      "reasoning": "A numerical match to a graph invariant table would not itself establish equation-by-equation coverage. No inspected exact table contained the full three-phase growth law and all-size transient claim. Absence from a search index alone is not used as a proof of originality.",
+      "searches": [
+        "three-state threshold-two Greenberg Hastings split graph K_a join independent set recurrent state 1+18(2^b-b-1)",
+        "excitable automaton complete split graph 5 update nilpotent period three exact counts",
+        "threshold two Greenberg Hastings complete split graph recurrent states 150 2^b",
+        "Greenberg-Hastings threshold two split graph orbit table"
+      ]
+    },
+    "rationale": "The closest directly inspected work is classical Greenberg-Hastings contact-threshold dynamics on lattices and the stable-periodic-object framework, which provides a sufficient rotating-support mechanism but not an exact recurrent-state census for complete split graphs. A deterministic arbitrary-graph treatment uses threshold one, while the later threshold-two tree result studies infinite regular trees and probability. A scale-free-network study uses stochastic excitation and external stimuli. Accessible prior project claims for threshold-two complete bipartite graphs and majority split graphs do not imply the threshold-two Greenberg-Hastings split-graph result because the update rules and clique internal adjacency differ. Indexed-record, publication, parameter-variant and formula searches identified no equivalent uniform five-step law together with the 0/log2/log3 census. Residual risk: unindexed or differently titled analysis of dense graph excitation remains possible.",
+    "residual_risks": [
+      "Mathematical search indices and accessible full texts are not exhaustive; a differently titled or unindexed exact result may exist.",
+      "Only selected sections (not every page) of some highly relevant full-text works were read, with document-wide topical searches; no claim is made for unreadable sources.",
+      "The finite exhaustiveness relies on the stated six-class truncation lemma and the accompanying reproducible Python program; no external independent audit exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING stated theorem: lattice neighbourhoods, stable periodic objects and empirical wave regimes, not exact split-graph census or size-independent five-update cutoff.",
+        "evidence": [
+          "pp.23–24 rule and topology",
+          "pp.27–29 sufficient stable periodic objects",
+          "pp.31–33 lattice threshold tables"
+        ],
+        "identifier_or_url": "arxiv:patt-sol/9304001v1; https://www.stat.cmu.edu/~cshalizi/462/readings/fgg.pdf",
+        "material_read": "Full 17-page article accessible; inspected GH rule and model scope on pp.23–24, stable-periodic-object mechanism on pp.27–29, and threshold/range portraits and cutoff tables on pp.31–33, with document-wide searches for split/complete/bipartite graphs.",
+        "method": "Primary lawful full PDF, selected page images and text-level section comparison",
+        "title": "Threshold-range scaling of excitable cellular automata",
+        "trigger": "Original threshold-dependent Greenberg–Hastings model and potential stronger stable-periodic-object theory"
+      },
+      {
+        "assessment": "NOT_COVERING: the 2018 model has threshold one, whereas threshold two is crucial here.",
+        "evidence": [
+          "p.103 explicitly says at least one adjacent excited vertex",
+          "p.118 concludes the one-neighbour cycle-density law"
+        ],
+        "identifier_or_url": "doi:10.25088/ComplexSystems.27.2.101",
+        "material_read": "Full accessible PDF; pages 101–104 specify the graph update and its one-neighbour threshold, and pages 113–118 discuss graph cycle density and concluding result.",
+        "method": "Primary PDF section reading and page-image inspection",
+        "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+        "trigger": "General finite-graph GH theorem might dominate the claimed split-graph classification"
+      },
+      {
+        "assessment": "NOT_COVERING: stochastic initial data on infinite regular trees rather than deterministic all-state census on finite split graphs.",
+        "evidence": [
+          "Theorem 1.4 gives probabilistic fixation bounds on infinite trees",
+          "introduction assumes infinite regular tree"
+        ],
+        "identifier_or_url": "arxiv:2108.06404",
+        "material_read": "Abstract, introduction, formal rules, Theorems 1.1–1.4, conclusion/related-work context and reference list in accessible full-text HTML.",
+        "method": "arXiv lawful full-text HTML; theorem-to-domain comparison",
+        "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+        "trigger": "Later work specifically includes contact threshold two and might yield a general stronger statement"
+      },
+      {
+        "assessment": "NOT_COVERING: stochastic stimulus/spiking on scale-free networks, no exact finite split-graph orbit census.",
+        "evidence": [
+          "preprint model paragraph discusses external stimulus rate and firing probability",
+          "analysis works with degree-dependent mean-field activity"
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0701248v1",
+        "material_read": "Accessible full-text arXiv HTML, abstract, network model with probabilistic neighbour activation, equations (1)–(10) and model-specific mean-field results.",
+        "method": "Author preprint full text and equation comparison",
+        "title": "Excitable Greenberg-Hastings cellular automaton model on scale-free networks",
+        "trigger": "Dated older network excitation source; check possible graph-general deterministic findings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "005ec3fa-64b3-4007-b45a-909442fa021a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete recurrent-state enumeration on a natural split network, not an arbitrary parameter slice. The degree-heterogeneous clique/fringe architecture admits a genuine three-phase asymptotic law as fringe population grows: no nonzero recurrence for clique at most three, binary-exponential for clique sizes four or five, and ternary-exponential for clique sizes six or more. The two sharp small-core formulas have structural meaning as phase-support thresholds, while a universal sharp five-step stabilization bound makes the all-state classification stronger than a mere periodic-state construction. These facts can serve as explicit test cases for graph-structured excitable-media theory.",
+    "status": "PASS"
+  }
+}
