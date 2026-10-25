@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T02:08:57Z",
+  "axes": {
+    "correctness": {
+      "checked_evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md: Finding, Assumptions, Proof, Verification, Limitations",
+        "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf: system (1.3) and Theorem 3.1(ii), pages 2–3, 9, Section 2 pages 4–5",
+        "Independent sympy identities in independent_checks.py and independent_checks.json",
+        "The source numerical test eta<93/928 uses r=3,d1=c1=d2=d3=1/10,b1=1/2,b2=3/5,c2=4/5."
+      ],
+      "limitations": [
+        "The theorem covers R<1 only; neither equality nor superthreshold dynamics is proved.",
+        "Exact arithmetic checks verify algebraic identities and the rational example, not infinite-time convergence without the analytic proof.",
+        "No numerical DDE trajectory experiment was needed; uniform in finite nonnegative delays comes from the analytic functional."
+      ],
+      "rationale": "For the printed Kong–Shao delayed fear/Crowley–Martin predator-stage system, positivity and global boundedness follow from the quasipositive vector field, logistic upper control of P1 and bounded maturation forcing. With q=d2+c2, K=(r-d1)/c1, a=c2/q and R=eta*b2*c2*K/[q*d3*(1+b1*K)]<1, choose eps>0 with a*eta*b2*h(K+eps)<d3, h(x)=x/(1+b1*x). The actual Lyapunov–Krasovskii functional L=a*P2+P3+c2*int_{t-tau2}^t P2(s)ds has exact derivative Ldot=a*eta*b2*P1*P3/[(1+b1*P1)(1+k*b3*P3)]-d3*P3-c3*P3^2; the current and delayed juvenile terms cancel. For sufficiently large t, Ldot<=-delta*P3-c3*P3^2. Since L>=0 and decreasing eventually, P3 is integrable; bounded P2 and delayed P2 make dot P3 bounded, hence P3->0 by uniform continuity/Barbalat. Variation of constants then gives P2->0; P3(t-tau1)->0 and logistic upper/lower comparison give P1->K. This holds for all fixed nonnegative delays and positive histories, not at R=1. A compact invariant set entirely within the strict positive cone cannot carry an orbit converging to the boundary. Independently reproduced exact symbolic denominator factorization, cancellation, local-condition equivalence, the equality of candidate and earlier R, and the example 93/928 versus 1/12. The earlier published proof also establishes the same general theorem, so scientific correctness is unaffected by failure of originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier global theorem covers all positive continuous histories at every tau1,tau2>=0 in exactly the source system; it dominates the candidate’s claim of arbitrary delays and the absence of strict-positive recurrent sets.",
+          "Kong–Shao (2023) Theorem 3.1(ii) establishes the identical parameter surface only for local asymptotic stability of the undelayed model, not the global all-delay implication.",
+          "Li–Sun–Liu (2023) addresses a different stage-structured Crowley–Martin maturation mechanism and provides threshold-method context; it is not necessary to reject the candidate because the exact earlier Resultary theorem is already sufficient."
+        ],
+        "reasoning": "No need to infer coverage by broader model reduction: a directly identical earlier published theorem dominates all current conclusions. The extra observation concerning compact interior recurrent sets follows immediately once convergence to the boundary is known.",
+        "searches": [
+          "Resultary: global stability predator-free equilibrium arbitrary maturation delay under local invasion eigenvalue threshold",
+          "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf",
+          "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2022177",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/METADATA.json",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/INDEPENDENT_AUDIT_2026-10-04.json",
+        "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf",
+        "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2022177",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+        "Resultary published-finding semantic search (3 queries)",
+        "GitHub commit history for earlier Resultary path and assessed source path"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier published theorem P2(t)->0,P3(t)->0,P1(t)->K under R_P<1 for exact source equations and arbitrary delays.",
+          "Current theorem is the same convergence under algebraically identical R_mat<1; its “same as undelayed local threshold” comparison is a rearrangement of the published Kong–Shao Theorem 3.1(ii).",
+          "The prior paper independently identifies the invalid source P3 inequality and supplies a corrected all-delay extinction proof, already resolving the motivating gap.",
+          "The prior published science was reviewed under 2026-10-04T09:01:47Z dated audit metadata; the earliest visible Git import of that Resultary path is 2026-10-11T13:59:41Z; the candidate’s original import is 2026-10-11T13:03:26Z. This chronology nuance does not change present-day direct mathematical coverage."
+        ],
+        "reasoning": "The older theorem implies the current full claim with no additional assumption, theorem, classification or parameter restriction. The candidate neither corrects an error left unresolved in the prior theorem nor offers a different mathematical conclusion.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+          "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/INDEPENDENT_AUDIT_2026-10-04.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2026-10-04 Resultary Finding: exact same three delayed equations, positive histories, all fixed tau1,tau2>=0 and convergence (P1,P2,P3)->(K,0,0) whenever R_P<1.",
+          "Candidate states R_mat=eta*b2*c2*(r-d1)/[d3*(d2+c2)*(c1+b1*(r-d1))]; earlier R_P=eta*b2*c2*K/[d3*(d2+c2)*(1+b1*K)] with K=(r-d1)/c1; exact symbolic simplification R_mat-R_P=0.",
+          "Earlier functional L_old=P2+alpha*P3+alpha*c2*integral P2, with alpha in (Aeps/d3,(d2+c2)/c2); candidate L=a*P2+P3+c2*integral P2 with a=c2/(d2+c2), which is a positive multiple at the endpoint alpha=(d2+c2)/c2."
+        ],
+        "reasoning": "These are not merely analogous models or similarly titled papers: vector field, hypotheses, threshold and the all-delay nonlinear conclusion coincide. An alternative endpoint Lyapunov weight and alternative parameterization do not create a distinct result.",
+        "searches": [
+          "Resultary: global predator extinction maturation survival delay predator stage c2/(d2+c2) Crowley Martin fear model",
+          "Resultary: delayed predator prey Kong Shao fear predator juvenile maturation Lyapunov functional global extinction threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary semantic search returned the earlier exact theorem as the top or near-top hit in all three real queries, separate from the currently audited record.",
+          "Earlier published R_P is exactly current R_mat; the 93/928 example is rational substitution and the historical weaker bound 1/12 was already contrasted qualitatively by the earlier theorem.",
+          "No independent database enumeration is the finding; the exact formula and the global stability statement are already present in the published RESULT.md."
+        ],
+        "reasoning": "The relevant exact result, not just a matching numerical table entry, is already recorded. Re-evaluating it at different coefficients cannot supply an unknown natural invariant.",
+        "searches": [
+          "Resultary: global predator extinction maturation survival delay predator stage c2/(d2+c2) Crowley Martin fear model",
+          "Resultary: delayed predator prey Kong Shao fear predator juvenile maturation Lyapunov functional global extinction threshold",
+          "Resultary: global stability predator-free equilibrium arbitrary maturation delay under local invasion eigenvalue threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/METADATA.json"
+        ]
+      },
+      "rationale": "Direct statement-level coverage is decisive. The published Resultary record dated 2026-10-04, “A corrected delay-independent predator-extinction threshold in a fear-stage model”, studies the IDENTICAL P1/P2/P3 delayed Kong–Shao equations and proves from every positive continuous history that P2,P3->0 and P1->K for arbitrary tau1,tau2 whenever R_P=eta*b2*c2*K/[(1+b1*K)(d2+c2)d3]<1. Substitution K=(r-d1)/c1 gives exactly the audited R_mat. Its full RESULT.md supplies an explicit positive-weight Lyapunov–Krasovskii functional, logistic comparison and Barbalat proof. The audited L is, up to a positive scalar, its functional at the limiting boundary alpha=q/c2 (outside the earlier strictly interior alpha choice), a different presentation not a distinct theorem. Kong–Shao Theorem 3.1(ii) already prints the undelayed local threshold, and the audited 93/928 example is a direct arithmetic specialization of the earlier global theorem. Nonexistence of a strict-positive compact recurrent set is a corollary of that same global attraction. The earlier published result therefore fully implies every asserted new global conclusion. The repository’s visible prior import (2026-10-11 13:59 UTC) postdates the assessed source import (2026-10-11 13:03 UTC), while the older result’s scientific record and dated audit identify 2026-10-04; this priority-timestamp distinction is explicitly retained, not silently resolved. As of this review the theorem is already present in the published result corpus, and no independently new mathematical claim remains.",
+      "residual_risks": [
+        "Historical priority nuance: earliest visible GitHub import of earlier dated Resultary entry (2026-10-11T13:59:41Z) follows candidate source import (2026-10-11T13:03:26Z); older entry itself dates its scientific audit 2026-10-04. Do not infer authorship, independent discovery or public posting on October 4 solely from metadata.",
+        "Not all other stage-structured literature was examined in full. This does not affect rejection because the accessible prior published full text is exactly covering.",
+        "The threshold equality/superthreshold regimes are not claimed in either compared strict theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: self-review, strict all-delay global extinction condition, limit conclusion, proof mechanism; decisive prior theorem.",
+          "evidence": "Earlier RESULT.md theorem R_P=eta*b2*c2*K/[(1+b1*K)(d2+c2)d3]<1 => (P1,P2,P3)->(K,0,0) for every positive continuous history and arbitrary nonnegative delays; its L=P2+alpha P3+alpha c2 integral P2 proves both predators integrable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "material_read": "Entire prior published RESULT.md: Finding, Assumptions and scope, full proof and Lyapunov inequality, numerical counterexample/witness, Relationship to prior work, Verification, Limitations; publication_date 2026-10-04 in METADATA.json and dated independent-audit JSON inspected for chronology.",
+          "method": "Read GitHub fetch_file full current published RESULT.md and metadata; independently compared equations, parameter domains and limit conclusions; symbolically simplified threshold identities and compared functionals.",
+          "title": "A corrected delay-independent predator-extinction threshold in a fear-stage model",
+          "trigger": "Exact match in published Resultary semantic searches, including identical stage-reproduction quantity and exact Kong–Shao vector field."
+        },
+        {
+          "assessment": "PARTIALLY COVERING: original local undelayed stability threshold matches algebraically, but the published 2023 paper does not itself establish the all-delay global theorem; its Section 2 displayed predator inequality omits delayed maturation input.",
+          "evidence": "Theorem 3.1(ii) states (d2+c2)d3-eta*c2*b2*(r-d1)/(c1+b1*(r-d1))>0 implies undelayed predator-free LAS; Section 2 gives eta*b2/b1<d3 with an invalid isolated P3 bound.",
+          "identifier_or_url": "doi:10.3934/math.20231498",
+          "material_read": "Accessible publisher full PDF relevant original sections: delayed model (1.3), Section 2 preparations/extinction pages 4–5, Theorem 3.1(ii) on page 9, Section 4 delayed dynamics opening, Figure 3 numerical coexistence context. Actual screenshots of pages 4 and 9 examined.",
+          "method": "Publisher lawful open-access PDF text search, selected PDF page images, scientific equation and theorem comparison.",
+          "title": "The effects of fear and delay on a predator-prey model with Crowley-Martin functional response and stage structure for predator",
+          "trigger": "Original mathematical system and specific local/stability threshold compared by the audited submission."
+        },
+        {
+          "assessment": "CONTEXT ONLY: model has predator maturation and Crowley–Martin response; no whole-document noncoverage inference is drawn from abstract. Direct Resultary coverage already decides originality.",
+          "evidence": "Abstract announces a reproduction number separating extinction and permanence, an age/maturity-delay mechanism and large-interference global stability conditions.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2022177",
+          "material_read": "Publisher abstract and article metadata (full article not relied on for an exclusion claim).",
+          "method": "Publisher AIMS web page scientific abstract inspection.",
+          "title": "A stage-structured predator-prey model with Crowley-Martin functional response",
+          "trigger": "A closely relevant older primary article on maturation and reproduction-number extinction/permanence thresholds."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "limitations": [
+        "This scientific-value decision is about the incremental contribution of this record, not a denial of the intrinsic importance or validity of the earlier exact theorem."
+      ],
+      "rationale": "Global delay-independent predator extinction at a maturation-adjusted invasion threshold is mathematically meaningful in its own right, but it had already been established for the identical Kong–Shao system in the dated 2026-10-04 published Resultary finding. That earlier finding even repairs the faulty source extinction calculation and exhibits a strict threshold improvement. The candidate’s distinct exposition, limiting choice of Lyapunov weight, algebraic interpretation as the undelayed local stability surface, derived absence of interior recurrence, and specific sample value 93/928 supply no new theorem, boundary case, natural invariant or independently valuable classification. Repackaging this covered result as another standalone contribution is a known-result recomputation, not a motivated new mathematical gap.",
+      "sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+        "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/METADATA.json",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/INDEPENDENT_AUDIT_2026-10-04.json",
+    "https://www.aimspress.com/aimspress-data/math/2023/12/PDF/math-08-12-1498.pdf",
+    "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2022177",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+    "Resultary published-finding semantic search (3 queries)",
+    "GitHub commit history for earlier Resultary path and assessed source path"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Intrinsic mathematical correctness of the same exact theorem is supported, but lack of originality prevents scientific acceptance of this new record.",
+    "Earlier record’s publication-date metadata and its first public Git commit have different chronology; the exact published mathematical coverage is decisive, not an invented priority or independence certificate.",
+    "Material primary source inspection focused on relevant model/threshold and extinction sections; no claim that all accessible papers were read line-by-line.",
+    "No source GitHub writes or dispatcher closeout occurred; complete failed package preserved in repository as-is."
+  ],
+  "residual_risks": [
+    "Historical priority nuance: earliest visible GitHub import of earlier dated Resultary entry (2026-10-11T13:59:41Z) follows candidate source import (2026-10-11T13:03:26Z); older entry itself dates its scientific audit 2026-10-04. Do not infer authorship, independent discovery or public posting on October 4 solely from metadata.",
+    "Not all other stage-structured literature was examined in full. This does not affect rejection because the accessible prior published full text is exactly covering.",
+    "The threshold equality/superthreshold regimes are not claimed in either compared strict theorem."
+  ],
+  "schema_version": 1
+}
