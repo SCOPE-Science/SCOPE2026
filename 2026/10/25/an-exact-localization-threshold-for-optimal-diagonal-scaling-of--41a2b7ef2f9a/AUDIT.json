@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Löwner feasibility Z<=A<=KZ is symmetrized over S_(n-1); this proves reduction from all positive diagonal scalings to two-level factors. The two-dimensional block has determinant x²(1+t(a²+kb²)) and det(B-I)=tkb²(x²-1). For x<=1, minimizing λ+/λ- reduces by the trace/determinant invariant to minimizing Px+Q/x; for x>=1 the largest eigenvalue increases strictly. The exact threshold and formulas follow. Standard-library numerical checker verifies 2310 sampled comparisons; this does not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braatz and Morari (1994), full six-page paper, §§1-3 and Lemmas 2.1-2.3, gives a general convex procedure but no one-spike mass-phase formula.",
+        "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 optimizes sampling probabilities, a distinct functional.",
+        "Demmel (2023), accessible abstract, bounds general Jacobi and block-Jacobi performance; full article was inaccessible."
+      ],
+      "reasoning": "General existence, inequalities and computational recipes do not state this exact dimension-uniform specialization. Stronger uninspected special-case literature is a genuine residual risk rather than disproved.",
+      "searches": [
+        "published-finding corpus: rank one perturbation of identity spike vector diagonal preconditioning closed form spectral condition number symmetry two blocks",
+        "Web: best diagonal scaling diagonal congruence I + uu^T spectral condition number closed form",
+        "Braatz and Morari 1994 full PDF pp. 1763-1768"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.00809v1 (full available HTML)",
+      "arXiv:2306.02527v1 (full HTML)",
+      "Braatz and Morari 1994 (complete six-page PDF)",
+      "Demmel 2023 (abstract only)",
+      "Shapiro 1985 (abstract only)",
+      "published-finding corpus searches on diagonal congruence, one-spike optimal scaling and Jacobi threshold",
+      "Previously available mathematical claims in numerical linear algebra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qu general SDP feasible sets contain this case abstractly but do not calculate it; the present proof supplies symmetry averaging and exact two-level optimization.",
+        "Braatz Morari general convex minimization does not show the precise localization threshold.",
+        "Previously available mathematical claims on preconditioner/rank-one topics treat sketches, sparse approximate inverses, matrix function correction ranks, distinct from minimizing diagonal congruence scaling of a rank-one SPD spike."
+      ],
+      "reasoning": "An algorithm applicable to A or a general bound does not mathematically imply a closed formula without additional nontrivial specialization; current result proves that specialization. The threshold is P>Q iff a²>(n-1)b², and the opposite branch proves global impotence of scaling, stronger than generic near-optimality. An undiscovered specialized classical theorem could subsume it.",
+      "searches": [
+        "Qu 2022 full arxiv paper sections 1-2 and appendix; search rank-one, closed-form, special case",
+        "Braatz Morari 1994 six-page full PDF text and page images 1 and 4",
+        "published-finding corpus: optimal diagonal congruence scaling identity plus rank one spiked SPD matrix one exceptional coordinate threshold n-1 uniform Jacobi optimal",
+        "Previously available mathematical claims compared for diagonal scaling, one-spike congruence and best-condition-number assertions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Qu et al. 2022 §2 expresses optimal diagonal preconditioning via semidefinite feasibility; the model here fixes A=I+tuu^T, and solves those inequalities exactly under permutation symmetry.",
+        "published-finding corpus closest 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f analyzes Euclidean damping of 2x2 weighted Jacobi, not best congruence scaling of n>=3 spike matrices."
+      ],
+      "reasoning": "Qu et al. general optimization can compute an optimum but provides no explicit one-spike mass threshold, exact minimizer or the stated five-dimensional reversal. Damping rather than congruence optimization is not equivalent.",
+      "searches": [
+        "published-finding corpus: optimal diagonal congruence scaling identity plus rank one spiked SPD matrix one exceptional coordinate threshold n-1 uniform Jacobi optimal",
+        "Web: \"rank-one\" \"diagonal scaling\" \"condition number\" \"optimal\" SPD",
+        "Qu et al. arXiv:2209.00809v1 full HTML"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact one-spike threshold or matching n=5 Jacobi reversal in three parameter-focused published-finding corpus queries; closest IDs 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f and 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a were about different condition surrogates.",
+        "Shapiro (1985) accessible abstract says some special scaling problems admit closed form; no list of those cases available."
+      ],
+      "reasoning": "No examined table supplies the exact threshold; absence of a search hit does not prove uniqueness, especially given inaccessible Shapiro full text.",
+      "searches": [
+        "published-finding corpus: Jacobi versus optimal diagonal preconditioning sharp threshold localized spike irreducible positive definite",
+        "Web: \"one-factor\" \"optimal diagonal scaling\" \"condition number\"",
+        "Demmel 2023 publisher abstract MSC 65F35; Shapiro 1985 abstract"
+      ]
+    },
+    "rationale": "Best-knowledge judgment: full inspected Qu and Braatz papers supply general optimizing frameworks, not the exact all-n one-spike threshold, optimal diagonal factor, and concrete Jacobi reversal. Relevant published-finding corpus and accessible prior ledger claims were compared by implication. Demmel and Shapiro full texts are inaccessible; an equivalent prior special case remains a genuine residual risk.",
+    "residual_risks": [
+      "Shapiro (1985) explicitly mentions closed-form special cases; complete article was inaccessible, so exact model-specific coverage cannot be ruled out.",
+      "Demmel (2023) complete paper unavailable; published abstract alone cannot establish noncoverage.",
+      "More classical work on optimal scaling may express this threshold in a different parameterization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_NOT_EXPLICIT_SPECIAL_CASE",
+        "evidence": [
+          "arXiv:2209.00809 source describes general interior-point/semidefinite formulations but no displayed one-spike mass threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Full accessible HTML, introduction, one-sided scaling formulations, optimization sections and selected appendix; searched rank-one/closed-form/special case",
+        "method": "Read full structured web text and used find searches",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Same global diagonal condition-number minimization with quasiconvex formulation"
+      },
+      {
+        "assessment": "NOT_COVERING_THIS_EXACT_MODEL",
+        "evidence": [
+          "Its global-optimal preconditioning comparator is generic; no one-spike exact scaling formula in examined sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.02527v1",
+        "material_read": "Full HTML sections 1-3 including equation (1) and Armijo condition (4)",
+        "method": "Read source text",
+        "title": "Searching for Optimal Per-Coordinate Step-sizes with Multidimensional Backtracking",
+        "trigger": "2023 motivation for exact optimal diagonal scaling on quadratics"
+      },
+      {
+        "assessment": "GENERAL_OPTIMIZATION_NOT_FORMULA",
+        "evidence": [
+          "General convex scaling procedure in §§1-3; no one-spike mass threshold formula"
+        ],
+        "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+        "material_read": "All six pages of extracted text, visual inspection pages 1 and 4, Lemmas 2.1-2.3",
+        "method": "Read PDF text and page screenshots",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Classical global optimal scaling could imply proposed claim"
+      },
+      {
+        "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract discusses general n-dependent comparisons, not this exact one-spike branch classification; full document not checked"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Publisher abstract, MSC 65F35 and bibliographic details only; full text unavailable at publisher and open repository; additional access attempts unsuccessful",
+        "method": "Publisher/author index search; attempted institutional retrieval, full text inaccessible",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Closest modern Jacobi scaling optimality comparison"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_PRIOR",
+        "evidence": [
+          "Abstract specifically mentions closed-form special cases but does not identify them, leaving coverage unknown"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "SIAM and JSTOR abstracts only; full text unavailable; additional access attempts unsuccessful",
+        "method": "Publisher/JSTOR lookup and institutional attempt",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Potential earlier closed-form special cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41a2b7ef-2f9a-49c5-a1dc-4ec80295f3e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-spike SPD family is a standard positive-definite covariance/Hessian benchmark with diagonal preconditioning. The mass threshold exactly decides when any per-coordinate rescaling can improve condition number, not merely whether a particular heuristic helps. All diagonal factors, including symmetry-breaking ones, are covered. The explicit n=5 case shows a substantive practical divergence: Jacobi equilibration worsens the condition number beyond the no-scaling baseline while an optimal scaling improves it. This is a natural complete classification, not an arbitrary finite parameter value.",
+    "status": "PASS"
+  }
+}
