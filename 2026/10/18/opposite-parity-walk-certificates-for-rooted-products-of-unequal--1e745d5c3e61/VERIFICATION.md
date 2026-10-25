@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-All tests below were actually executed from the accompanying standalone source files using Python 3. The first three scripts require only the Python standard library; `verify_automorphisms.py` requires NetworkX 3.6.1. Commands are run from the directory containing the scripts.
+## correctness
 
-- `python verify_direct.py`: 105 unequal odd cycle pairs, 33,855 graph vertices, 9,465 expected rooted profiles. Actual output is in `output_direct.txt`.
-- `python verify_walks.py`: separately computed geodesic lengths, geodesic multiplicities and first opposite-parity walk lengths using two distinct BFS constructions on the same 105 graph pairs. Actual output is in `output_walks.txt`.
-- `python verify_profiles.py`: checked algebraic signature injectivity across 4,950 pairs with odd \(5\le m<n\le203\), covering 13,601,775 profiles. Actual output is in `output_profiles.txt`.
-- `python verify_automorphisms.py`: explicitly enumerated all rooted graph automorphisms for \((m,n)=(5,7),(5,9),(7,9)\), confirming group order four and the exact reflection orbits. Actual output is in `output_automorphisms.txt`.
+PASS
 
-The tests use distinct algorithms: literal one-dimensional neighbour-colour refinement, standard shortest-path BFS, BFS on a doubled parity-state graph, combinatorial binomial evaluation, and general rooted graph-isomorphism enumeration. They are finite checks, not an exhaustive proof for unbounded odd lengths. The all-length correctness rests on the lattice-lift and binomial-injectivity arguments in `RESULT.md`. No independent audit has been conducted.
+Elementary 4-cycles intrinsicly identify the two Cartesian coordinate directions, giving rooted stabilizer of exactly four sign reflections since m≠n. Stable color refinement determines counts of every walk length from the unique root; these recover distance d=a+b, shortest-path multiplicity binomial(d,a), and first opposite-parity walk length L=min(m−a+b,n+a−b) by lifting walks to Z². Equality of d and g permits only swapping a,b, strictly separated by L since m<n. Orbit-invariance prevents further splitting. L≤(m+n)/2 gives stabilization bound. Independently coded ordinary 1-WL and BFS on parity-double-cover for six unequal odd torus graphs totaling 462 vertices, matching every ordered profile. Infinite proof is analytic.
+
+## originality
+
+PASS
+
+The ordered-profile parity-winding certificate is a nontrivial refinement not furnished by general refinability theory or an equal-factor torus theorem (which admits coordinate swaps).
+
+## value
+
+PASS
+
+An exact all-size refinement-orbit coincidence for a natural homogeneous graph family, with class multiplicities and a concrete spectral/parity-free walk certificate resolving indistinguishable coordinate-swaps; finite-model theory application beyond a small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

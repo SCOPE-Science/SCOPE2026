@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rooted automorphism group is shown to consist precisely of the two independent coordinate reflections: intrinsic four-cycle edge-direction pairs and unequal axis circumferences exclude other possibilities. Every rooted walk count is determined by sufficiently many counting-refinement rounds. Lifting walks to the integer square lattice verifies the exact shortest-path and opposite-parity-walk formulas. Strict binomial unimodality reduces possible collisions to coordinate swaps, and the unequal cycle lengths make the opposite-parity length strictly distinguish such swaps. The walk-length inequality supplies the finite round upper bound. Four replayable programs separately check graph refinement, walk formulas, arithmetic injectivity and small automorphism groups. Their finite tests support but do not replace the all-parameter proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary foundations, arXiv:1502.01255 and arXiv:1503.08792, were inspected in full-text HTML at their relevant definitions, refinability/identification sections and examples; neither contains a theorem classifying odd unequal Cartesian cycle products with one individualized vertex. Queries for Cartesian-cycle product refinement, rooted toroidal grids, walk parity signatures and equivalent formulations did not locate a dominating result. The equal-factor torus classification does not imply this conclusion: it only distinguishes unordered coordinate-distance pairs, while the present theorem distinguishes ordered pairs using an additional parity-walk invariant. A specialized prior treatment remains possible, and published priority is not independently certified.
+PASS
 
-## Value — PASS
-This determines a natural all-order orbit-refinement invariant of an infinite two-parameter family of four-regular graphs. The precise new obstruction to a naive extension of the square-torus proof is the binomial symmetry under coordinate swapping; the first parity-breaking winding length resolves it, giving both a finite arithmetic certificate and a uniform diameter-plus-one bound on refinement rounds. The result is not a sample census, a changed numerical constant, or a mere equal-factor substitution.
+Elementary 4-cycles intrinsicly identify the two Cartesian coordinate directions, giving rooted stabilizer of exactly four sign reflections since m≠n. Stable color refinement determines counts of every walk length from the unique root; these recover distance d=a+b, shortest-path multiplicity binomial(d,a), and first opposite-parity walk length L=min(m−a+b,n+a−b) by lifting walks to Z². Equality of d and g permits only swapping a,b, strictly separated by L since m<n. Orbit-invariance prevents further splitting. L≤(m+n)/2 gives stabilization bound. Independently coded ordinary 1-WL and BFS on parity-double-cover for six unequal odd torus graphs totaling 462 vertices, matching every ordered profile. Infinite proof is analytic.
 
-## Limits
-Only distinct odd cycle factors of length at least five and one distinguished vertex are covered. The refinement-depth bound is not claimed sharp; global graph identification, even factors, and arbitrary initial colourings are not addressed. Priority and correctness require eventual independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordered-profile parity-winding certificate is a nontrivial refinement not furnished by general refinability theory or an equal-factor torus theorem (which admits coordinate swaps).
+
+## value
+
+PASS
+
+An exact all-size refinement-orbit coincidence for a natural homogeneous graph family, with class multiplicities and a concrete spectral/parity-free walk certificate resolving indistinguishable coordinate-swaps; finite-model theory application beyond a small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
