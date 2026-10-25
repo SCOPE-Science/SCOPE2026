@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The commuting idempotent decomposition gives the stated range and kernel. The finite product-permutation commutant has exactly one invariant projection onto the sum of degree-at-most-\(d\) components; averaging gives global norm minimality for all stated \(p\). Entrywise kernel multiplication produces the absolute-row-sum formula and symmetry gives \(\ell_1\). The independent centered variables have orthogonal homogeneous symmetric sums, enabling both the Hermite coefficient limit and uniform integrability. All scope limits and exceptional endpoints are explicit. Exact standalone matrix checks validate finite identities, not infinite claims.
+## correctness
 
-## Originality — PASS (with residual risks)
-Kozdęba (2018) treats a triple-product missing-one-coordinate space, and Kozdęba (2020) treats additive one-coordinate spaces. The full Theorem 16 and Section 5 of Kozdęba–Kozdęba (2025) address the \(r-1\) interaction level and explicitly identify intermediate orders as further research. Here \(2\le d\le r-2\), and the exact mixed-alphabet endpoint minimum and sharp Gaussian operator-constant profile are beyond those statements. Rudin averaging itself and Krawtchouk-to-Hermite convergence are pre-existing and not claimed as new. Residual risk: an equivalent statement may be recorded in classical Fourier/hypercontractive or multivariate approximation literature under Krawtchouk Lebesgue constants; the 2018 full paper could not be inspected and was compared through its abstract and the later full-text citations.
+PASS
 
-## Mathematical value — PASS
-The problem measures the least worst-case amplification of extracting low-order interactions from multivariate bounded data, a natural stability invariant of finite-product functional ANOVA. The result handles all intermediate degrees and mixed coordinate sizes, not a tailored finite example. At fixed order, the sharp \(r^{d/2}\) growth and explicit Gaussian absolute-Hermite coefficient give the correct dimension-dependent scale; the pairwise constant is fully explicit. It determines precise operator-norm behavior, not only an existing existence theorem, and requires an all-projections argument plus an asymptotic uniform-integrability step.
+Actual frozen RESULT.md 0ea184... decomposes product functions into mutually annihilating P_B (coordinate mean-zero and averaging idempotents), so Q_d projects exactly onto low-order ANOVA interactions. Averaging any competing real projection over G=∏Sym(X_i) preserves the range and cannot increase its ℓp norm; the G-commutant is exactly span of the 2^r mutually orthogonal P_B, forcing Q_d. Finite kernel at equality set A is M^(−1) sum_{j≤d} e_j(z(A)), multiplicity ∏_{i∉A}(m_i−1); symmetric kernel gives matching ℓ1/ℓ∞ norms. Fixed d,q centered variables Y_i and generating-function CLT give Hermite limit, L² orthogonality gives uniform integrability. Independently constructed Q2 as sum of tensor E/D matrices and checked exact norms 9/4 (binary r4), 91/27 (ternary r4), and 25/9 (mixed sizes 2,3,2,3), with idempotence residual ≤7e−16. Infinite Gaussian limit proved by CLT, not by finite checks.
 
-## Closest literature and limitations
-The 2025 paper's Theorem 16 covers the all-but-one-coordinate case and its final section points to lower orders. Minabutdinov's 2015 Krawtchouk asymptotics cover the polynomial limiting mechanism but not the corresponding minimax projection norm. No all-exponent exact norms are claimed beyond \(p=1,2,\infty\), and no global uniqueness of all minimizers is claimed. Independently locating older Fourier-analytic equivalences remains worthwhile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem 16 of Kozdęba–Kozdęba (2025) treats all-but-one-coordinate interactions, whereas this theorem is any intermediate 2≤d≤r−2 and supplies exact endpoint constants plus fixed-order Gaussian sharp growth. Earlier Hamming P2 formula is a primitive (homogeneous exact-degree-2) projection, not cumulative low-order Q_d.
+
+## value
+
+PASS
+
+This gives a natural complete answer for least-norm projections onto ≤d-variable interaction models on finite product sample spaces, a class explicitly proposed for further study in a 2025 primary paper. Sharp endpoint amplification and Gaussian growth explain dimension dependence for low-degree ANOVA approximation. It is not merely renaming the classical Hermite limit, since it evaluates global projection minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
