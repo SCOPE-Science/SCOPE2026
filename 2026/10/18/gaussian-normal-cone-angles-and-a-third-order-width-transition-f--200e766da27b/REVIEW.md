@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit greedy exposure rule for all partial permutohedron vertices yields the exact Gaussian spherical normal-cone angles. Gaussian layer-cake integration gives the exact width formula. Binomial law of large numbers, a uniform integrable tail bound, the Gaussian radial mean, and direct differentiation establish the limiting profile and its \(C^2\) but non-\(C^3\) transition. The binomial CLT gives the clipped-normal critical window. A standalone checker replayed every vertex angle for 30 small parameter pairs, 1,360 direct support tests, two exact planar width benchmarks and three normalized width profiles. These finite checks are supplemental and do not prove infinite claims.
+## correctness
 
-**Originality — PASS, with bibliographic qualification.** The full primary texts of Heuer--Striker and Behrend et al. give the partial permutohedron and its vertex/face structure, volumes and Ehrhart formulas, but not this Gaussian angular census or mean-width transition. The inspected type-A/type-B normal-fan literature addresses symmetric ordinary permutohedra, not the positive-rank-capped family with the claimed transition. Published geometric calculations of partial permutohedron diameter, inradius and Löwner ellipsoid solve distinct optimization problems and do not imply the Gaussian angular/width profile. Equivalent earlier formulas under anti-blocking generalized-permutohedron terminology remain possible. The novelty claimed is the complete combined geometry and asymptotic third-order transition, not the elementary Gaussian/Binomial tools themselves.
+PASS
 
-**Mathematical value — PASS.** Both the external normal-cone angles and Euclidean mean width are canonical angular/intrinsic-volume invariants. Their exact evaluation for an infinite two-parameter family yields the typical exposed-vertex rank, a sharp critical window with an atom and a non-obvious third-derivative phase boundary at equal positive-coordinate density. These geometric statistics are not recoverable from the known diameter, ellipsoid or combinatorial vertex counts alone.
+Generic Gaussian maximization fills positive coordinates in decreasing order with n,n-1,..., stopping at min(n,#positive). Thus ranks s<n have individual cone probability 2^-m/s!, and saturated rank s=n<=m has probability Pr(Bin(m,1/2)>=n)/(m!/(m-n)!). These probabilities sum over all vertex orbits to one. Layer cake on sorted Gaussian coordinates yields E h_P(G)=integral E[r(2n-r+1)/2] dt with r=min(n,Bin(m,1-Phi(t))), hence mean width 2 E h/R_m. Under n/m->rho, dominated convergence gives F(rho)=integral [rho min(rho,q(t))-min(rho,q(t))²/2]dt; for rho<.5 differentiate at z=Phi^-1(1-rho) to get erfc(z)/(2 sqrt(pi)), and for rho>=.5 the linear branch. Left W′=2phi(z), W″=2z, W‴=-2/phi(z); right W‴=0, so third derivative jump -2sqrt(2pi). Binomial CLT gives rank limit min(Z/2,tau) at n=m/2+tau sqrt(m)+o(sqrt(m), with atom 1-Phi(2tau). Independently checked direct support optimization in 1700 finite parameter/test-vector instances and finite normal-cone combinatorics; limit relies on proof not finite runs.
 
-**Limits and residual risk.** No uniform asymptotic error bound or anisotropic Gaussian extension is claimed. The full published-literature comparisons reduce, but do not remove, the risk of an indexed or unindexed equivalent theorem. Verification is limited to the provided proof and its finite checks; no external mathematical assessment is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
+
+## value
+
+PASS
+
+The complete geometric Gaussian normal-angle census, exact mean-width integral and a sharp third-order aspect-ratio transition are motivated invariants of the standard partial permutohedron, including a distributional critical window absent from ordinary face counting or ellipsoid descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

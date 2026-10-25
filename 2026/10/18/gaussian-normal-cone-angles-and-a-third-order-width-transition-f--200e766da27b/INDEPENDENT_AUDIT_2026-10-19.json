@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T06:56:46.394727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-normal-cone-angles-and-a-third-order-width-transition-f--200e766da27b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-normal-cone-angles-and-a-third-order-width-transition-f--200e766da27b/VERIFICATION.md",
+        "Independent fresh exact bounded checks: /mnt/data/scope_worker03_delivery_20261019T0638Z/_independent_checks.json"
+      ],
+      "rationale": "Generic Gaussian maximization fills positive coordinates in decreasing order with n,n-1,..., stopping at min(n,#positive). Thus ranks s<n have individual cone probability 2^-m/s!, and saturated rank s=n<=m has probability Pr(Bin(m,1/2)>=n)/(m!/(m-n)!). These probabilities sum over all vertex orbits to one. Layer cake on sorted Gaussian coordinates yields E h_P(G)=integral E[r(2n-r+1)/2] dt with r=min(n,Bin(m,1-Phi(t))), hence mean width 2 E h/R_m. Under n/m->rho, dominated convergence gives F(rho)=integral [rho min(rho,q(t))-min(rho,q(t))²/2]dt; for rho<.5 differentiate at z=Phi^-1(1-rho) to get erfc(z)/(2 sqrt(pi)), and for rho>=.5 the linear branch. Left W′=2phi(z), W″=2z, W‴=-2/phi(z); right W‴=0, so third derivative jump -2sqrt(2pi). Binomial CLT gives rank limit min(Z/2,tau) at n=m/2+tau sqrt(m)+o(sqrt(m), with atom 1-Phi(2tau). Independently checked direct support optimization in 1700 finite parameter/test-vector instances and finite normal-cone combinatorics; limit relies on proof not finite runs.",
+      "residual_risks": [
+        "Diagnostic finite computations alone cannot establish an infinite-dimensional or asymptotic assertion; unrestricted scope depends on reconstructed analytical argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two primary studies develop face polytopes, vertex structure, volumes and Ehrhart theory; other Resultary findings classify ellipsoid/inball/circumball contact ranks."
+        ],
+        "reasoning": "General anti-blocking permutohedron/fan structure does not directly imply the Gaussian width scaling with precise third-order regularity boundary.",
+        "searches": [
+          "arxiv:2207.14253v3",
+          "arxiv:2012.09901v3",
+          "Resultary:SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 08085d8136cc8701fce4c9ebe53b9b1dd84ec155",
+        "verify.py 0f2d65298334e4cbec4ecd299f7f61d44b397500",
+        "Independent 1700 direct support checks and analytic width limit reconstruction /mnt/data/scope_worker03_delivery_20261019T0638Z/_independent_checks.json",
+        "arxiv:2207.14253v3",
+        "arxiv:2012.09901v3",
+        "Resultary partial-permutohedron Gaussian mean-width search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing a permutation-vertex representation permits the first exposure rule, but the critical third-order transition requires Gaussian layer cake, dominated convergence and differentiability analysis of an aspect-ratio-dependent integral."
+        ],
+        "reasoning": "The published combinatorics are used as inputs and are not claimed new; they do not alone settle the normalized mean-width phase profile or critical atom.",
+        "searches": [
+          "arxiv:2207.14253",
+          "arxiv:2012.09901",
+          "Gaussian order-statistics ranked positive coordinates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary Gaussian sign/rank ordering is equivalent to a normal-fan cone-weight calculation for the anti-blocking/partial-permutation polytope. Behrend and Heuer–Striker provide those vertex orbits and combinatorial realizations."
+        ],
+        "reasoning": "The vertex structures and rank counts are acknowledged prior art; their general geometric descriptions do not supply the exact mean-width asymptotic, C2/non-C3 transition or critical clipped-normal rank law.",
+        "searches": [
+          "partial permutohedron Gaussian mean width normal cone solid angle asymptotic transition",
+          "arxiv:2207.14253",
+          "arxiv:2012.09901"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved partial-permutohedron geometric results are inradius, Löwner or circumball theorems; none states exact outward Gaussian rank-angles and the asserted width curve."
+        ],
+        "reasoning": "No exact matching table for the full angle spectrum/width transition was located; this is bounded evidence, not a historical guarantee.",
+        "searches": [
+          "partial permutohedron Gaussian mean width normal cone solid angle asymptotic transition",
+          "Resultary:SCOPE-exact-euclidean-inradius-of-partial-permutohedra--df8bf5a2a297",
+          "Resultary:SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.",
+      "residual_risks": [
+        "An equivalent angular law may be implicit in generalized permutohedron normal-fan theory or anti-blocking geometry.",
+        "General Euclidean widths depend on standard coordinate realization; no arbitrary affine case or uniform-in-rho rates claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers vertex/facet structure but not the exact Gaussian angle and third-order width profile in inspected text",
+          "evidence": "Vertex orbit permutations are stated; no retrieved formula matches the submitted erfc aspect-ratio width or critical normal-angle law.",
+          "identifier_or_url": "arxiv:2207.14253v3",
+          "material_read": "Read public primary arXiv HTML: object/vertex definition, face-structure and volume/Ehrhart sections, mathematical statements and conclusion",
+          "method": "open arXiv full HTML, material read across named sections",
+          "title": "Partial permutohedra",
+          "trigger": "Same exact canonical objects and potential full geometric classification"
+        },
+        {
+          "assessment": "Object provenance is prior art; normal-angle and width asymptotics are different metrics",
+          "evidence": "The source studies partial permutation and ASM polytopes and their combinatorial geometry, not a Gaussian asymptotic width phase transition.",
+          "identifier_or_url": "arxiv:2012.09901v3",
+          "material_read": "Read public primary arXiv HTML: definition/projection construction, structural theorems and relation to partial permutohedra",
+          "method": "open arXiv full HTML, section-level inspection",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Original introduction of partial permutation polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/gaussian-normal-cone-angles-and-a-third-order-width-transition-f--200e766da27b/RESULT.md",
+        "arxiv:2207.14253v3",
+        "arxiv:2012.09901v3"
+      ],
+      "rationale": "The complete geometric Gaussian normal-angle census, exact mean-width integral and a sharp third-order aspect-ratio transition are motivated invariants of the standard partial permutohedron, including a distributional critical window absent from ordinary face counting or ellipsoid descriptions.",
+      "residual_risks": [
+        "Assessment is of this precise natural result, not a claim of broad independent external certification or a general unproved extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent angular law may be implicit in generalized permutohedron normal-fan theory or anti-blocking geometry.",
+    "General Euclidean widths depend on standard coordinate realization; no arbitrary affine case or uniform-in-rho rates claimed."
+  ],
+  "schema_version": 1
+}
