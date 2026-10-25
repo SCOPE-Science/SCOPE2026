@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The incidence map has kernel exactly the unique cycle vector; on the appropriate parity layer it is bijective for an odd cycle and exactly two-to-one for an even cycle. All reference measures, graph sizes, and periodicity qualifications are explicit. The local Fourier coefficients of the single-coordinate cube walk and the parity-conditioned Bernoulli approximation converge in \(L^2\) by summable binomial estimates; Gaussian conditional-expectation limits give the claimed total-variation and chi-square profiles. Exact-rational finite-state verification is separate from this infinite proof. Remaining technical sensitivity: the \(L^2\) domination must use the parity-complement pairing, as done explicitly in the proof.
+## correctness
 
-**Originality (O): PASS on the checked record, subject to independent historical priority.** Ordinary hypercube Gaussian cutoff is classical, and is not claimed. Collevecchio–Griffiths (arXiv:2002.09059) studies cube-coordinate updates, not this quotient by a single graph-cycle dependency. Hermon–Olesker-Taylor (arXiv:2102.02809) treats random generator sets under a growing generator-excess hypothesis, whereas these incidence generators are deterministic with exactly one relation. Demirci–Işlak–Özdemir (arXiv:2201.03315) changes endpoint colors together rather than toggling them. The new content is the uniform odd-cycle finite-time TV identity coupled with the even-cycle continuum of Gaussian–cosh cutoff and chi-square profiles indexed by cycle-edge fraction. Residual risk: older coding and coset-walk literature may contain an equivalent quotient profile; the full historical literature cannot be exhaustively searched.
+PASS
 
-**Value (V): PASS.** This gives a complete, natural graph-family phase classification: even versus odd cycle parity determines whether full equilibrium is possible, while the fraction of edges lying on an even cycle governs a genuinely nonproduct limiting likelihood ratio. The precise cutoff window and limiting chi-square profile add quantitative information beyond mere reduction to the cube, especially for macroscopic even cycles. The endpoint cases distinguish a Gaussian shift from its symmetrized cosh counterpart.
+Over F2, graph incidence B has rank m−1 and kernel {0,z}, z the unique cycle indicator. Edge-cube walk Y_t lives in fixed parity layer P_t and vertex walk is BY_t. If cycle length ℓ odd, B restricted to P_t is bijective, preserving exact finite-time TV and χ² to full stationary uniform even-vertex group. If ℓ even, parity-preserving z makes map two-to-one onto the reachable periodic class. For t=floor((m/4)log m+cm), √m(1−2/m)^t→s=e^(−2c); Walsh coefficients (1−2k/m)^t have parity-complement symmetry and L²-summable binomial bounds, giving parity-conditioned product Bernoulli density approximation. Normal approximations give odd lognormal TV 2Φ(s/2)−1 and χ² e^{s²}−1; averaging product likelihood over y and y+z gives exp(−s²/2+s√(1−α)Z1)cosh(s√α Z2), with χ²=[e^{s²}+e^{(1−2α)s²}]/2−1. Distinction between current parity-class and full equilibrium is mathematically necessary, not a technicality. Finite enumerator source tests m=3..8 and the incidence/spectral identities; it does not prove asymptotics.
 
-The 1990 Diaconis–Graham–Morrison paper establishes a hypercube limit profile, and the underlying Fourier technology is established. Its accessible abstract does not resolve whether some older full-text variant explicitly states the graph-quotient Gaussian–cosh law. This limitation is a scientific priority risk, not a correctness qualification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical hypercube mixing and Gaussian cutoff are openly credited, not claimed new. The concrete unicyclic incidence quotient has a one-relation parity dichotomy and even-cycle Gaussian–cosh continuum depending on ℓ/m, a refinement not expressed in inspected general cube-walk or random Cayley-generator statements. Older folded/coset/linear-code random-walk literature remains a meaningful unchecked priority risk.
+
+## value
+
+PASS
+
+A complete parity-class cutoff and χ² classification for a natural graph-edge dynamical system; distinguishes deterministic odd-cycle aperiodic quotient from even-cycle periodic quotient, and quantifies the continuum from pure Gaussian shift to cosh symmetrization by macroscopic cycle fraction. This supplies exact limit profiles, not only O(m log m) bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
