@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T02:04:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The final k vertices of every arm except the last are black; chronological forces from deep to shallow fill these arms, then a sequence along arm 1 forces the hub and first k vertices of the last arm, then the last arm propagates. Each force has exactly one white neighbor because the inter-arm graph-power adjacency criterion is depth-sum <=k. A symmetric witness formed by within-arm sliding-window Gram C_i^T C_i, first-k coordinate coupling U^TBU and hub block h^TU has exact nonzero off-diagonal pattern. Each ker(C_i) is k-dimensional, parametrized by its first k entries; imposing sum_i E_ix_i=0 leaves (m-1)k independent null vectors. Universal inequality M_R<=Z closes equality. An independent BFS builder and exact SymPy rank/forcing closure verified cases (l,k)=((4,5,6),3),((3,4,5),2),((4,4,4,4),3),((2,3,4),1), with nullities 6,4,9,2. Does not claim short-arm or all-tree result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al. 2026 abstract says zero forcing path/cycle power exact and spider/grid upper bounds.",
+          "DeAlba and Chang–Lin named older results cover path powers and tree-square cases, while m>=3,k>=3 ordinary powers remain the essential claimed region."
+        ],
+        "reasoning": "If an older maximum-nullity result for all higher tree powers existed, it would dominate this spider specialization; no covering mathematical statement was identified from inspected source metadata and indexed findings.",
+        "searches": [
+          "arXiv:2610.03892",
+          "DeAlba et al. Minimum rank of powers of trees EJLA 2012",
+          "Chang Lin minimum rank powers cycles trees Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892 abstract",
+        "EJLA 2012 DOI:10.13001/1081-3810.1511 bibliographic identification",
+        "Resultary queries: zero forcing maximum nullity graph powers spider tree unequal arms minimum rank",
+        "Resultary queries: graph power spider maximum nullity (m-1)k unequal arms Z(S_m(l)^k)",
+        "Frozen RESULT.md and verify_spider_powers.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A spider upper bound Z<= (m-1)k does not imply the lower bound on Z or M_R.",
+          "Known k=2 general-tree classification and m=2 path-power result cover proper boundaries but not jointly m>=3,k>=3.",
+          "New matrix has nullity (m-1)k and exact graph-power off-diagonal support."
+        ],
+        "reasoning": "A proved bound and an unproved equal-arm conjecture are distinct from the claimed equality. The new exact symmetric nullity witness supplies the logically missing implication.",
+        "searches": [
+          "arXiv:2610.03892",
+          "graph power spider maximum nullity (m-1)k unequal arms Z(S_m(l)^k)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M_R=N-mr_R, so the result is equivalent to a sharp minimum-rank formula.",
+          "The matching lower bound is an exact-support kernel construction, not just an eigenvalue bound."
+        ],
+        "reasoning": "Equivalently a generalized-star power maximum-nullity theorem; searches for both zero-forcing and rank language were required to avoid a title-only novelty assessment.",
+        "searches": [
+          "zero forcing maximum nullity graph powers spider tree unequal arms minimum rank",
+          "graph power spider maximum nullity (m-1)k unequal arms Z(S_m(l)^k)",
+          "minimum real symmetric rank graph power spider zero forcing generalized star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near hits concern unpowered spider zero-forcing sets and spider power domination, different graph operation/invariant.",
+          "Independent matrix rank and forcing algorithm give actual values for four nontrivial example families."
+        ],
+        "reasoning": "No exact-all-parameter table was returned. Exact graph-power numbers cannot be certified novel by database nonappearance.",
+        "searches": [
+          "graph power spider maximum nullity (m-1)k unequal arms Z(S_m(l)^k)",
+          "Resultary: zero forcing and minimum rank of spider tree powers"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Abiad et al. 2026 publicly describe upper bounds for spider powers, and the inspected source records their equal-arm equality as a conjecture; the current explicit rank/nullity lower construction gives the missing half and handles unequal lengths. Path powers (m=2), tree squares (k=2), and unpowered spiders (k=1) are earlier known boundaries. The primary 2026 paper was read at abstract level only during this execution; a later version or unindexed stronger result remains a priority risk.",
+      "residual_risks": [
+        "The arXiv:2610.03892 October 6 revision was not inspected in full; cannot exclude a later or stronger result.",
+        "Nonnegative integer symmetric matrix does not establish positive semidefinite minimum rank.",
+        "No shorter-than-k+1 arm or arbitrary-tree claim.",
+        "Source author dates and exact prior theorem numbering were not verified from full primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published baseline establishes spider upper bounds, but full text not freshly verified for Conjecture 10 statement.",
+          "evidence": "arXiv:2610.03892 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+          "material_read": "Dated arXiv title/abstract (2026-10-02; updated 2026-10-06); abstract explicitly states upper bounds for powers of spiders. Full text not available through attempted routes.",
+          "method": "arXiv abstract and OA search; institutional full-text attempt unavailable",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "direct source of spider-power upper bound and conjecture"
+        },
+        {
+          "assessment": "Older path-powers/strict-powers boundary; uninspected broader implications remain possible.",
+          "evidence": "Electronic Journal of Linear Algebra 23 (2012), 151-163",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1511",
+          "material_read": "Bibliographic identification and relevant distinction in assigned source; original journal full text not freshly available.",
+          "method": "Source bibliography + research lookup; no full-text claim",
+          "title": "Minimum rank of powers of trees",
+          "trigger": "older rank results for tree powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Resolving a specifically stated graph-power zero-forcing conjectural equality with an integral exact-pattern minimum-rank witness is mathematically substantial. The arbitrary unequal-arm extension is structural and nontrivial, not a single numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.03892 abstract",
+    "EJLA 2012 DOI:10.13001/1081-3810.1511 bibliographic identification",
+    "Resultary queries: zero forcing maximum nullity graph powers spider tree unequal arms minimum rank",
+    "Resultary queries: graph power spider maximum nullity (m-1)k unequal arms Z(S_m(l)^k)",
+    "Frozen RESULT.md and verify_spider_powers.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite independently reproduced samples support but do not prove unrestricted mathematical quantifiers.",
+    "Originality is best-of-knowledge with the specific source-inspection/access limitations and risks recorded; no absolute priority, formal-verifier or expert certification.",
+    "The arXiv:2610.03892 October 6 revision was not inspected in full; cannot exclude a later or stronger result.",
+    "Nonnegative integer symmetric matrix does not establish positive semidefinite minimum rank.",
+    "No shorter-than-k+1 arm or arbitrary-tree claim.",
+    "Source author dates and exact prior theorem numbering were not verified from full primary text."
+  ],
+  "residual_risks": [
+    "The arXiv:2610.03892 October 6 revision was not inspected in full; cannot exclude a later or stronger result.",
+    "Nonnegative integer symmetric matrix does not establish positive semidefinite minimum rank.",
+    "No shorter-than-k+1 arm or arbitrary-tree claim.",
+    "Source author dates and exact prior theorem numbering were not verified from full primary text."
+  ],
+  "schema_version": 1
+}

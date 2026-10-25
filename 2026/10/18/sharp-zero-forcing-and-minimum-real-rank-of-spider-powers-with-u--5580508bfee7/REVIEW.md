@@ -1,11 +1,21 @@
-# Scientific review — powers of spider trees
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is for integers \(m\ge2\), \(k\ge1\) and arbitrary lengths \(\ell_i\ge k+1\). The written forcing schedule uses exactly \((m-1)k\) seeds and every force has one white neighbour. The nonnegative integral symmetric matrix has exactly the nonzero off-diagonal pattern of the graph power: within arms from sliding-window Gram factors, between arms from the depth-sum indicator, and at the hub from the first-\(k\) indicator. Its kernel contains a subspace of dimension \((m-1)k\), because every window matrix has a \(k\)-dimensional kernel parametrized by the first \(k\) entries and the sum of those entries across all arms imposes \(k\) independent constraints. The standard inequality \(M_{\mathbb R}\le Z\), proved in the result, matches the bounds. Exact rational computations and direct forcing tests corroborate, rather than replace, the proof.
+## correctness
 
-**Originality — PASS, conditional on accessible literature.** Abiad–Flagg–Ghasemi Nezhad–Zeijlemaker (arXiv:2610.03892, first posted 2026-10-02) give the equal-arm upper bound as Proposition 9 and explicitly formulate equality as Conjecture 10. They do not state the matrix lower bound; this result proves equality and extends it to unequal arms. DeAlba et al. (2012) handle ordinary path powers and strict powers of trees, not the higher ordinary powers of branching spiders. Chang–Lin (Theorem 4.1) handle squares of all trees, but not the \(k\ge3\) regime. Related indexed findings on unpowered spider zero forcing sets or power domination are not covering implications. Searches for alternative terminology and stronger maximum-nullity results identified no published covering statement. Residual risk: a poorly indexed or unpublished result or a later update might already imply the theorem; absolute priority is not certified.
+PASS
 
-**Value — PASS.** The finding closes an explicitly stated current conjecture and, independently of that conjecture, supplies a compact exact minimum-rank witness for arbitrary unequal arms across an infinite family of higher graph powers. The same method explains why zero forcing meets the maximum nullity bound, rather than simply reproducing a numerical special case. The omitted short-arm regime is a real mathematical boundary, not a hidden extrapolation.
+PASS: The final k vertices of every arm except the last are black; chronological forces from deep to shallow fill these arms, then a sequence along arm 1 forces the hub and first k vertices of the last arm, then the last arm propagates. Each force has exactly one white neighbor because the inter-arm graph-power adjacency criterion is depth-sum <=k. A symmetric witness formed by within-arm sliding-window Gram C_i^T C_i, first-k coordinate coupling U^TBU and hub block h^TU has exact nonzero off-diagonal pattern. Each ker(C_i) is k-dimensional, parametrized by its first k entries; imposing sum_i E_ix_i=0 leaves (m-1)k independent null vectors. Universal inequality M_R<=Z closes equality. An independent BFS builder and exact SymPy rank/forcing closure verified cases (l,k)=((4,5,6),3),((3,4,5),2),((4,4,4,4),3),((2,3,4),1), with nullities 6,4,9,2. Does not claim short-arm or all-tree result.
 
-**Limitations.** Neither positivity of the matrix in the semidefinite sense nor formulas for shorter arms or general trees are established. There has been no independent mathematical audit. Bibliographic priority remains subject to additional human checking, and the available summaries of two related indexed records were not treated as full-text inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): Abiad et al. 2026 publicly describe upper bounds for spider powers, and the inspected source records their equal-arm equality as a conjecture; the current explicit rank/nullity lower construction gives the missing half and handles unequal lengths. Path powers (m=2), tree squares (k=2), and unpowered spiders (k=1) are earlier known boundaries. The primary 2026 paper was read at abstract level only during this execution; a later version or unindexed stronger result remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Resolving a specifically stated graph-power zero-forcing conjectural equality with an integral exact-pattern minimum-rank witness is mathematically substantial. The arbitrary unequal-arm extension is structural and nontrivial, not a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

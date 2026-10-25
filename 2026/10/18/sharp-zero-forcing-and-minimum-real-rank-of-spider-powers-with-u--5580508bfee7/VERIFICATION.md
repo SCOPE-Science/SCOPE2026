@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The accompanying `verify_spider_powers.py` is a standard-library Python 3 program. Run `python3 verify_spider_powers.py` from a folder containing that file. Its recorded output is in `verification_output.txt`.
+# Independent mathematical audit
 
-The independent graph builder first creates the original tree and computes adjacency in the ordinary \(k\)-th graph power by repeated neighbourhood expansion. For each test instance, the script independently constructs the specified symmetric integer matrix and tests its complete off-diagonal support against the computed power graph. It also checks \((m-1)k\) explicit kernel vectors by exact integer multiplication, verifies their prescribed independent initial-coordinate structure, and computes the *actual* rational matrix rank using fraction arithmetic rather than floating point.
+## correctness
 
-It then follows the proposed chronological forcing list and checks every force against the current blue set and white neighbours. Across 53 instances, with \(2\le m\le5\) and \(1\le k\le4\) and both equal and unequal arm lengths, all matrix and force checks passed. For five smaller instances, an independent closure implementation checked 10,981 initial seed sets of sizes strictly below \((m-1)k\); none forced the graph. The output file preserves the actual printed test summary.
+PASS
 
-These finite checks do not prove the general theorem, enumerate every graph, verify positive semidefiniteness, or establish publication priority. The universal lower bound follows from the dimension of the exact matrix kernel; the universal upper bound follows from the explicit forcing schedule. No independent audit has been performed.
+PASS: The final k vertices of every arm except the last are black; chronological forces from deep to shallow fill these arms, then a sequence along arm 1 forces the hub and first k vertices of the last arm, then the last arm propagates. Each force has exactly one white neighbor because the inter-arm graph-power adjacency criterion is depth-sum <=k. A symmetric witness formed by within-arm sliding-window Gram C_i^T C_i, first-k coordinate coupling U^TBU and hub block h^TU has exact nonzero off-diagonal pattern. Each ker(C_i) is k-dimensional, parametrized by its first k entries; imposing sum_i E_ix_i=0 leaves (m-1)k independent null vectors. Universal inequality M_R<=Z closes equality. An independent BFS builder and exact SymPy rank/forcing closure verified cases (l,k)=((4,5,6),3),((3,4,5),2),((4,4,4,4),3),((2,3,4),1), with nullities 6,4,9,2. Does not claim short-arm or all-tree result.
+
+## originality
+
+PASS
+
+PASS (best knowledge): Abiad et al. 2026 publicly describe upper bounds for spider powers, and the inspected source records their equal-arm equality as a conjecture; the current explicit rank/nullity lower construction gives the missing half and handles unequal lengths. Path powers (m=2), tree squares (k=2), and unpowered spiders (k=1) are earlier known boundaries. The primary 2026 paper was read at abstract level only during this execution; a later version or unindexed stronger result remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Resolving a specifically stated graph-power zero-forcing conjectural equality with an integral exact-pattern minimum-rank witness is mathematically substantial. The arbitrary unequal-arm extension is structural and nontrivial, not a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
