@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Counting allowed edges after forbidding prescribed rows and columns gives every factorial moment. The overlap identity uv=rsN yields the positive finite product with factors 1-rsj/((N-rb-j)(N-as-j)), proving the strict sign for every positive marginal and at least two chosen edges; impossible joint events are handled separately. The balanced sparse constant follows from first-order log probability and second-order log ratio. Independent-edge and repeated-edge comparisons use direct independence; 58,896 exact-rational checks and 1,318 enumerated moment checks supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Joag-Dev--Proschan, Ann. Statist. 1983, DOI 10.1214/aos/1176346079, definition and disjoint-subset closure."
+      ],
+      "reasoning": "The empty-row event depends on an entire row rectangle and the empty-column event on an entire column rectangle; they overlap. A theorem requiring disjoint coordinate sets cannot be directly applied to these two monotone events. General hypergeometric counting is used in the proof, but the inspected source does not itself state the product factorization or sparse constant.",
+      "searches": [
+        "negative association sampling without replacement overlapping sets rectangle incidence",
+        "Joag-Dev Proschan 1983 negative association disjoint subsets multivariate hypergeometric",
+        "conditional negative association overlapping avoidance events fixed-size subsets"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1214/aos/1176346079",
+      "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+      "https://doi.org/10.1515/DMA.1995.5.6.515"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blasiak--Durrett 2004, original PDF, printed p.2: row/column coverage independent with replacement.",
+        "Joag-Dev--Proschan 1983: negative association uses disjoint subsets.",
+        "Saltykov 1995: repeated edge draws and total isolated-count Poisson convergence."
+      ],
+      "reasoning": "The claimed strict factorial covariance concerns sampling without replacement from a complete bipartite edge set; with-replacement independence neither implies nor contradicts it. A disjoint-coordinate negative-association theorem is not applicable to intersecting row/column edge families. Near-connectivity total-isolate Poisson limits do not imply the all-density exact inequality or order-one sparse covariance constant.",
+      "searches": [
+        "Random Oxford Graphs 2004 rows columns independent PDF",
+        "Saltykov 1995 bipartite isolated Poisson",
+        "Negative Association Random Variables with Applications 1983 full statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The relevant rectangular graph is precisely a uniformly chosen binary matrix with a fixed number of ones.",
+        "Blasiak--Durrett 2004 studies row and column coverage with repeated edge sampling, a different measure."
+      ],
+      "reasoning": "A change from graph terminology to fixed-size binary matrices does not yield an inspected equivalent theorem. Repeated independent cell draws are exactly independent in their row and column coordinate sequences, whereas the distinct-cell sample has negative cross-part factorial dependence.",
+      "searches": [
+        "fixed size random binary matrix zero rows zero columns negative covariance",
+        "fixed-edge bipartite random graph isolated vertices opposite parts factorial moments",
+        "empty rows columns joint factorial moments uniform 0 1 matrices fixed total ones"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Saltykov 1995 abstract concerns with-replacement sparse bipartite graphs and a Poisson law for total isolates.",
+        "Blasiak--Durrett 2004 original preprint does not tabulate the exact fixed-distinct-edge cross-part moments."
+      ],
+      "reasoning": "No checked exact table or database record determines this entire parameterized hierarchy or the negative sparse limit. An absence from indexed search is not a proof of novelty.",
+      "searches": [
+        "random bipartite G(a,b,m) number of isolated rows columns covariance table",
+        "G(n,n,m) isolated left right covariance sparse limit",
+        "random fixed-ones matrix zero row zero column exact correlation"
+      ]
+    },
+    "rationale": "The fixed-size distinct-edge theorem and three-ensemble reversal are not consequences of the inspected with-replacement independence theorem or of the standard disjoint-coordinate negative-association statement. They also include an exact sparse covariance constant and a hierarchy of strict factorial-moment inequalities beyond marginal isolated-count formulas. Priority uncertainty remains for older unindexed rectangular occupancy literature.",
+    "residual_risks": [
+      "Published hypergeometric dependence results or rectangular occupancy-table formulas not found in the searches may subsume the exact inequality.",
+      "Saltykov 1995 was accessed at abstract level only, not its original full text; this work has a different sampling measure.",
+      "The factorial-moment inequality alone does not establish negative association or negative quadrant dependence of the count pair."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not a direct implication because left- and right-isolation events depend on overlapping edge sets; the overlap consists of the rectangular intersections.",
+        "evidence": "The 1983 abstract defines negative association using disjoint subsets, including its preservation under disjoint-coordinate functions.",
+        "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+        "material_read": "Journal abstract and explicit definition requiring disjoint index sets; bibliographic classification.",
+        "method": "Primary abstract and logical comparison of the sets of edge indicators on which the isolation events depend.",
+        "title": "Negative Association of Random Variables with Applications",
+        "trigger": "Broad negative-dependence theorem for hypergeometric edge sampling"
+      },
+      {
+        "assessment": "States row/column coverage independence for with-replacement draws; does not provide the fixed-edge distinct-sample factorial moment product, strict inequality or covariance constant.",
+        "evidence": "Page 2 explicitly conditions on the number of balls in rows and invokes independence of row/column coverage, possible because every edge draw has independent row and column indices.",
+        "identifier_or_url": "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+        "material_read": "29-page public preprint: introduction and model definitions on pp. 1--3; connectivity and isolated-vertex comparison on pp. 7--8; full-text term inspections for covariance, independence, isolation and replacement.",
+        "method": "Read original mathematical statements and formulas, inspected page rendering and compared the sampling measures.",
+        "title": "Random Oxford Graphs",
+        "trigger": "Original bipartite occupancy model with row/column nonemptiness"
+      },
+      {
+        "assessment": "Abstract does not resolve the exact fixed-distinct-edge cross-part covariance. Uninspected full text leaves a historical-priority risk.",
+        "evidence": "The abstract specifies independent trials selecting an edge and a Poisson limit for total isolates near connectivity, not a fixed-distinct-edge factorial-moment inequality.",
+        "identifier_or_url": "https://doi.org/10.1515/DMA.1995.5.6.515",
+        "material_read": "Identifiable public abstract describing its with-replacement model and near-connectivity Poisson law; original full text not read.",
+        "method": "Read article abstract and compared model, object and asymptotic scaling.",
+        "title": "The Number of Components in a Random Bipartite Graph",
+        "trigger": "Historically relevant random bipartite graph with isolates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "090f1333-55a7-4c22-9d28-3d153a4cdba3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Isolated vertices are natural obstructions to bipartite connectivity and perfect matching. At equal expected edge count, the sign of cross-part isolation covariance switches from negative for distinct fixed-edge sampling, to zero for repeated independent edge draws, to positive for Bernoulli edges. Strict negativity holds for every positive cross-part factorial moment, and its balanced sparse covariance has a nonzero order-one limit despite a much larger Bernoulli covariance. This exact mechanism distinguishes ensembles beyond standard leading-order occupancy approximations.",
+    "status": "PASS"
+  }
+}
