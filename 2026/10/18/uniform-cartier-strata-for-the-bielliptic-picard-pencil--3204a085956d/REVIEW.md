@@ -1,15 +1,21 @@
-# Scientific review — Uniform Cartier strata for the bielliptic Picard pencil
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the exact smooth genus-three domain and a regular basis of differentials. It computes all Cartier arrows and coefficient exponents in both congruence classes, proves the finite-characteristic Gegenbauer coefficient identities by a differential equation with a one-dimensional polynomial solution space, and checks the scalar normalizations at a boundary parameter. For each smooth parameter, the surviving diagonal entry or two-cycle is semilinearly stable; hence the Cartier rank gives both the geometric \(p\)-rank and the \(a\)-number. The same differential equation proves that the exceptional polynomial has degree \(m\), is separable and avoids the excluded singular parameters. The supplied verifier checks identities and squarefreeness for 18 primes; the infinite proof does not depend on this finite list. Potential risk is an algebraic mistake in the characteristic-dependent Cartier convention; the input-power derivation was independently reconstructed.
+## correctness
 
-## Originality — PASS
-The originating Laga–Shnidman bielliptic-Picard treatment gives the exact family but not the finite-characteristic complete rank strata. The full Nourozi–Rahmati preprint computes Picard Cartier quantities generally and contains a broad rank assertion; at \(p=11,t=0\) its stated uniform nonexceptional behavior is contradicted by a complete zero Cartier matrix from exact coefficients, so that statement cannot subsume this result. Asif–Fité–Pentland give general zeta-function algorithms and Cartier–Manin computations, not the exact \(m\) simple Hasse-root parameter stratification. Searches for parameter, Hasse, rank, and equivalent hypergeometric formulations identified no dominating statement. Residual risk: an unindexed prior specialization, modular reformulation, or later independent characterization of the same locus could have priority.
+PASS
 
-## Value — PASS
-The natural bielliptic genus-three pencil has an arithmetic invariant not treated in its defining geometric work. A single explicit Hasse polynomial controls both invariants uniformly in every prime characteristic greater than three, counts all exceptional geometric parameters, and exhibits superspecial members or rank-one nonordinary members at exactly those roots. This is a natural complete classification, not an isolated computation or arbitrary characteristic table. It also exposes a concrete boundary of a published general Cartier-rank claim. Its full Newton polygons, Ekedahl–Oort types and geometric moduli orbit identifications remain outside scope.
+Reconstructed smoothness: quartic RHS has distinct roots iff t^2!=1; genus3 Picard plane quartic, basis dx/y^2, x dx/y^2, dx/y. Cartier p-semilinearity preserves zero/rank patterns. For p=6m+1, diagonal coefficient polynomials satisfy A=[z^{3m}]Q^{4m}=(t^2-1)^m H and B=[z^{2m}]Q^{4m}=(-1)^m binom(4m,m)(t^2-1)^m, so rank3 for H!=0 and rank1 at H=0. For p=6m+5, Cartier exchanges two basis vectors, with A=[z^{3m+2}]Q^{4m+3}=2(t^2-1)^{m+1}H; rank2 or zero, and semilinear iterates stabilize ranks. H has exact degree m, H(±1)!=0 from binomial coefficients (<p), and satisfies a hypergeometric coefficient ODE forcing simplicity of its roots because m<p. Re-derived coefficient polynomial identities independently for every prime 5..79 (20 primes), including exact degree, nonzero boundaries and gcd(H,H')=1, and specifically p11,t0=H=0 Cartier zero. A finite prime list is corroboration only, not the uniform proof.
 
-## Closest sources and verification limits
-Laga and Shnidman, arXiv:2308.15297 (full-text sections on the family and Pryms); Nourozi and Rahmati, arXiv:2306.07823 (full-text theorem and Cartier-coefficient sections); Asif, Fité and Pentland, arXiv:2010.07247 (general Cartier–Manin computation). Available published-record searches and claim-overlap comparisons were also made. This is not independent review; unindexed mathematical literature remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.
+
+## value
+
+PASS
+
+The pencil is the natural bielliptic genus-three Picard family already studied geometrically. A single explicit characteristic-dependent Hasse polynomial gives a complete geometric p-rank and a-number stratification uniformly across all p>=5 with the precise number of exceptional smooth parameters and superspecial cases. This resolves a genuine natural invariant, not a table for arbitrary primes; full Newton polygons and geometric moduli remain outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
