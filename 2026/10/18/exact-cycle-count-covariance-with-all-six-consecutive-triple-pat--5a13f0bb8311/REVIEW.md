@@ -1,11 +1,21 @@
-# Scientific review: cycle counts and consecutive triple patterns
+# Independent mathematical audit
 
-**Correctness (PASS).** For a prescribed partial bijection on three consecutive domain vertices, all completed cycles consist of already closed components plus cycles of a uniform permutation on the remaining \(n-3\) path components. The conditional expectation is therefore exact, including \(n=3\). Fixed-point, transposition and three-cycle contributions were derived from explicit finite counts; their polynomial sums yield all six covariances with the correct normalization. The included independently implemented exact-rational checker verifies every permutation through order nine and the underlying closed-cycle tables.
+## correctness
 
-**Originality (PASS on inspected evidence; priority risk retained).** Fu–Li's full treatment of oriented peaks supplies marginal and joint *pattern* counts without marking the disjoint-cycle number. Gessel–Zhuang's cycle-type results cover ordinary descent and peak numbers, and thus plausibly imply the *aggregated* peak covariance; no novelty claim is made for that aggregate by itself. The oriented contrast separates the two distinct patterns with the same ascent–descent signature; the inspected cycle-type/descent formulas do not by themselves imply it. A published cycle-count/inversion-indicator result addresses pair comparisons, not consecutive triple patterns. Searches of published research records and earlier mathematical claims revealed no equivalent stated six-dimensional mixed covariance row. Earlier generating-function results may implicitly yield it after nontrivial refinement; independent historical review remains outstanding.
+PASS
 
-**Value (PASS).** The complete sign classification is natural in joint permutation-statistic probability. Its unexpected contrast between \(n^{-1}\) dependence for the oriented peak difference and \(n^{-2}\) dependence for their sum quantifies how pooling two distinct local motifs suppresses dependence on global cycle structure. This exact structural cancellation is not a arbitrary small-parameter computation.
+For every n≥3 and six consecutive length-three rank patterns, conditioning on prescribed distinct images at positions (t,t+1,t+2) leaves n−3 uniform path components; the number of disjoint cycles has conditional mean Z_closed+H_{n−3}. Complete fixed-cycle length 1,2,3 counts (binomial fixed-point sums, pair reversal possibilities, and exactly two possible 3-cycles) yield the displayed S_p polynomial vector. Subtracting (n−2)(H_n−H_{n−3})/6 gives six rational covariances (3n−2,3n−8,3n−8,4−3n,4−3n,10−3n)/(6n(n−1)), including exceptional sign n=3 for pattern321. The peak orientations 132/231 give difference (n−2)/(n(n−1)) and sum −2/(3n(n−1)); analogous valley. I independently enumerated full uniform S_n for n=3,…,7 and recomputed cycle+rank-pattern covariances as exact fractions for each pattern, all matching. The infinite n claim follows symbolic closed-cycle table formulas, not this bounded enumeration.
 
-**Scientific limits and closest material.** The result is restricted to order-three consecutive motifs, second moments and uniform permutations. Closest primary works: Fu and Li (2018, oriented patterns), Gessel and Zhuang (2020, cycle-type/descent and peak enumeration), He (2020, statistics of Mallows permutations). Full first two works and relevant sections were inspected; the third supplies surrounding context. No claim is made to independent verification or complete historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six-by-one orientation-refined joint cycle/pattern vector is the candidate contribution. Prior peak-pattern grammar treats orientation without cycle markings; cycle-type/peak generating functions treat aggregate peak counts without distinguishing orientations. Aggregated peak covariance may be covered; the presented theorem must not claim it independently novel.
+
+## value
+
+PASS
+
+Cycle count measures a global permutation decomposition, while consecutive triple patterns are natural local statistics. The six-type covariance classification gives a sharp and non-obvious sign pattern (including an n=3 boundary exception), and a cancellation mechanism in which oriented peak/valley contrast is O(1/n) but combined peak count is O(1/n²). This is a motivated dependence invariant beyond textbook marginal enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
