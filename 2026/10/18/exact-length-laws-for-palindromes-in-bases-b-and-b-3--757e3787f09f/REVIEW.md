@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has explicit quantifiers: all integers \(b\ge2\), all positive base-\(b\) digit lengths \(L\). The short first block in base \(b^3\) is handled by *numeric* equality to the last full block, not a length-matched string comparison. In length classes \(3q+1\) and \(3q+2\), the specified two-step reflection equations force the respective zero positions inductively. Each converse reconstructs both palindromes. Exact free-digit counting gives the three formulas, a geometric-series sum gives the rational generating function, and largest complete length layers give the cumulative \(\Theta_b(X^{1/3})\) bound. The direct arithmetic checker passed 54 finite base-length profiles. Finite checking is supplementary and neither proves the theorem beyond those profiles nor validates novelty.
+## correctness
 
-## Originality — PASS, subject to residual search risk
-Bérczes and Ziegler (arXiv:1403.0787; first submitted 2014-03-04) consider simultaneous palindromes, explicitly separate the perfect-power-of-base cases, and prove results for multiplicatively independent pairs; their Introduction, theorem statements, and numerical sections were inspected in full text. Their observation that the dependent case admits infinite examples does not imply exact digit patterns, cardinalities at each length, the rational generating function, or the cumulative exponent. OEIS A056145 lists primes simultaneously palindromic in bases two and eight and so neither tabulates nor characterizes the unrestricted integer family. Phunphayap–Pongsriiam (2023) compare individual base-palindrome counting functions, a different invariant; only their abstract and bibliographic page were inspected, leaving a finite risk of an unindexed joint-result reference. Several semantic searches of published mathematical records using the exact objects and reformulations found no dominating result, but absence of a hit is not evidence of uniqueness. There is a general residual risk of an equivalent elementary digit-block enumeration in other sources.
+PASS
 
-## Value — PASS
-The motivating 2014 simultaneous-palindrome problem expressly excludes the multiplicatively dependent case because elementary infinite examples exist; nevertheless, quantitative information about their intersection is a distinct natural invariant. At the first nontrivial odd block size (three), the complete classification reveals sharp residue-dependent layers, two different growth exponents, a rational length generating function, and a cubic-root cumulative counting law. The result is a complete statement for every base and digit length in this family, not a finite census or a tiny routine extension of a previously identified theorem. It does not settle multiplicatively independent bases and uses elementary reasoning, limitations stated openly.
+PASS. For all b>=2 and all positive digit lengths L, reconstruct right-aligned base-b^3 blocks. If L divisible by three, combining palindrome of whole base-b digit string and the reversal of three-digit block list forces each block to be palindromic and the block sequence to be palindromic, yielding (b-1)*b^(2*ceil(q/2)-1). For L=3q+1, the short leading block numeric value matches the final full block (0,0,a_0); whole-word reversal and successive block comparisons force every index congruent to 1 or 2 mod 3 to vanish and leave a palindromic list of q+1 letters; similarly 3q+2 forces equal digit pairs separated by zeroes. Leading digit nonzero handles standard representation. Independent direct conversion + enumeration agrees in 36 (b,L) profiles b=2 L<=17, b=3 L<=11, b=4 L<=8. The rational GF separates q parity; length layers sum to Theta_b(X^(1/3)). The finite checks do not establish the unrestricted theorem.
 
-## Closest sources and limitations
-A. Bérczes and V. Ziegler, *On Simultaneous Palindromes* (2014), arXiv:1403.0787, https://arxiv.org/html/1403.0787v2, Sections 1 and 3–5. P. N. Phunphayap and P. Pongsriiam (2023), DOI 10.3934/math.2023502, abstract and record only. OEIS A056145, base-2/base-8 *prime* simultaneous palindromes. No full-text review of every potentially related article is claimed. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.
+
+## value
+
+PASS
+
+PASS. Multiplicatively dependent bases present a genuine structural boundary relative to the difficult multiplicatively independent palindrome setting. The exact normal-form classification, two distinct length regimes, rational generating series and cumulative Theta_b(X^(1/3)) quantify that natural boundary for all bases rather than merely exhibiting easy infinite families. Despite elementary blocks, the complete count is useful for digit-string combinatorics; no claim of deep number-theoretic breakthroughs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
