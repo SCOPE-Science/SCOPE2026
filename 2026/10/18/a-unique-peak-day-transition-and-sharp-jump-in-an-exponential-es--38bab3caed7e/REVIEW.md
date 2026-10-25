@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly determines the first two epidemic census values, bounds every later prevalence increment uniformly below zero, and proves a unique switching root using a strictly positive derivative bound. At the switch it derives the exact cumulative-exposure jump from the infection-recovery balance. These arguments cover infinitely many time steps and the full parameter interval; 3052 arithmetic checks are independent support, not a replacement for the proof.
+## correctness
 
-**Originality — PASS, with explicit priority limitation.** Ozbay, Nielsen and Nguyen already reported nonmonotone herd-immunity-at-peak curves and switching peak times in discrete SIR systems. That phenomenon and their Euler-discretized comparison are expressly prior art. Diekmann and colleagues established the exponential escape and geometric removal setting. Their mathematical statements, as examined, do not entail an exact unique peak-day switch and explicit jump size for the defined mass-conserving model and parameter range. The closest indexed discrete-SIR finding concerns a different disease-free period-two resonance. General unpublished or less-indexed theory may subsume the result; an independent priority review has not been performed.
+PASS
 
-**Value — PASS.** Peak-time cumulative infection is a motivated observable whose discontinuous dependence on a transmission input makes numerical inference and scenario comparison subtle. The result identifies the only local switch throughout a nontrivial continuous transmission interval, proves that all future days are subdominant, and gives a quantitatively substantial exact jump (strictly over one quarter of the population). Its value is the sharp analytic phase boundary and magnitude, not rediscovery of qualitative nonmonotonicity.
+For every lambda in [4 log 2,8 log 2], q=exp(-lambda/4) in [1/4,1/2]. The exact first two S,I censuses in RESULT.md give S1=3q/4, I1=7/8-3q/4, S2=3q^(9/2-3q)/4 and F(q)=16(I2-I1)=18q-7-12q^(9/2-3q). The analytic bound lambda*S2 <=(3/8)log 2<1/2 implies I_(t+1)<I_t for all t>=2, not just tested days; I1>I0. Endpoint signs and F_prime>=(9/2)(1-log 2)>0 show exactly one q*, with first-two-day tie only at q*. Earliest tie gives H=1-S2 when q>q* and H=1-S1 otherwise, with downward transmission-side jump 7/16-3q*/8>1/4. Independent high precision root gave q*=0.43600529910346198 and jump 0.27399801283620176; script was inspected and is only bounded corroboration.
 
-**Limitations.** The scope is one fixed initial state, recovery fraction and transmission interval in an exponential-escape map. No stochastic or policy implication is proved. The peak-time metric depends on a specified earliest-tie rule. The earlier literature anticipates the phenomenon qualitatively; residual priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The qualitative fact that peak-time infection proxies jump when the maximizing day changes is preexisting (Ozbay, Nielsen & Nguyen). General positive exponential escape and discrete Kermack–McKendrick maps are also preexisting (Diekmann et al.). The assessed claim is narrower and more precise: one-switch classification on the specified positive mass-conserving map, exactly located unique root and jump >1/4. Inspected Ozbay primary text uses network simulations/Euler comparison and does not give this precise theorem; Diekmann complete primary paper was unavailable, so broader implicit coverage remains a risk.
+
+## value
+
+PASS
+
+Peak-day cumulative exposure is mathematically motivated but discontinuous under a continuously varying transmission parameter; this exact bifurcation and nontrivial >1/4 jump with uniform infinite-time tail control quantify a sharp effect in an explicit positive discrete epidemic model. The value is the exact classification, not rediscovering nonmonotonicity or making public-health prescriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
