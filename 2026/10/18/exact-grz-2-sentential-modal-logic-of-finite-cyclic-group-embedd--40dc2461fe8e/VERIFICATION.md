@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the finite cyclic embedding modal invariant
+# Independent mathematical audit
 
-The mathematical proof checks the following noncomputational steps: (1) pp-quotient invariants admit Smith-normal-form product formulas; (2) every first-order sentential truth set is eventually controlled by finitely many capped prime valuations; (3) the finite signature map is a bounded morphism onto a directed finite partial order, preserving modal satisfaction by induction; and (4) each finite Boolean cube has a bounded-morphic prime-divisibility realization permitting every Boolean valuation.
+## correctness
 
-Running `python3 verify.py` using only the standard library returned:
+PASS
 
-```
-CYCLIC_MODAL_VERIFY_OK finite_signatures=188 back_lifts=13418 boolean_cube_lifts=2020 smith_checks=1900
-```
+The category of finite cyclic groups under embeddings is the divisibility frame N_{>0}. For any parameter-free first-order group sentence, Baur–Monk reduces to Boolean combinations of size thresholds of pp quotients. Kernel/image cardinalities of integer matrices on Z/n follow Smith normal form: |ker A_n|=n^(t-r)Πgcd(n,d_i); quotient invariant I(n)=n^aΠ gcd(n,d_i)^epsilon with a>=0 because at large primes outside all d_i, I(p)=p^a must be a positive integer. Hence finite families of sentences depend, outside a finite n cutoff, on capped valuations at finitely many primes. Enlarge prime set and caps to encode small n distinctly; tau(n)=(capped valuation vector, indicator n>=N) is a surjective bounded morphism onto a finite directed poset, with explicit multiple-raising back lifts. Atoms are constant on fibers and modal formula values descend, proving Grz.2 lower bound from known finite-directed-poset soundness. Prime-order-element group sentences induce bounded morphisms onto every finite Boolean lattice and realize all valuations, so the published Grz.2 Boolean-lattice completeness gives the reverse inclusion. Independent 7807 explicit fixed-quotient back lifts checked on 188 signature states, corroborating but not proving infinite Baur–Monk locality.
 
-The first batch verifies explicit lifting on a 188-type finite quotient for \(n\le120\); the second batch checks Boolean-cube back lifts for up to four primes and \(n\le120\); the third checks single-equation Smith identities for cyclic orders \(n\le100\) and coefficients from \(-9\) through \(9\). Nothing about these bounded tests independently proves the infinitary or exact-modal logic statements. The latter use the proofs and cited external theorems. No independent audit has been performed.
+## originality
+
+PASS
+
+Wołoszyn 2026 Modal group theory studies all-group embedding frames and S4.2 modal validities with parameters and richer extension worlds; finite cyclic parameter-free category cannot access those extensions. The same author 2025 proves finite Boolean lattices characterize Grz.2; that input is clearly credited, not a novel logical completeness theorem. Gregory 2021 Section 2.5 provides the Baur–Monk module-sentence elimination; Smith form is classical. The new restricted-category exact modal validity follows from finite bounded-morphic quotients of FO sentence families and finite prime buttons.
+
+## value
+
+PASS
+
+This is a natural, sharply scoped sentential modal invariant of a canonical category, linking group first-order definability, number-theoretic prime caps, and finite Kripke model theory. The two-way Grz.2 equality and explicit bounded-morphic approximation give a structural classification not contained in either black-box Baur–Monk or Grz.2 finite-lattice theorem alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

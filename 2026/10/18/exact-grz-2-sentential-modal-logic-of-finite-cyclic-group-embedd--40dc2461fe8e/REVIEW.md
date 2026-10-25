@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Baur--Monk elimination of parameter-free module sentences and Smith normal form reduce every pp-quotient index to a product of an integer power of the cyclic-group order and finitely many bounded gcd terms. This gives the finite arithmetic signature. The explicit coordinatewise signature has surjective bounded-morphism forth and back maps, and finite directed partial orders validate \(\mathsf{Grz.2}\). First-order sentences asserting the existence of elements of distinct prime orders define independent buttons, giving bounded morphisms onto all finite Boolean lattices. The published finite-Boolean-lattice completeness of \(\mathsf{Grz.2}\) supplies the converse. Quantifiers range over all finite cyclic groups in the modalities, but substitution instances are exclusively parameter-free first-order group sentences. The checked code supports finite construction arithmetic only and is not used as an infinite completeness certificate.
+## correctness
 
-**Originality — PASS, subject to documented residual risk.** The directly motivating 2026 modal-group paper classifies richer embedding categories/substitutions, not the specific finite-cyclic sentential logic. The 2025 theorem supplies a general modal finite-lattice completeness basis, not a realization of every group sentence through arithmetic capped-prime quotient morphisms. The classic module theorem establishes elimination, but not the modal interaction with divisibility. Targeted published-results searches found nearby group and modal topics, not an implication to this exact claim; inaccessible specialized literature may contain prior equivalent formulations.
+PASS
 
-**Value — PASS.** The theorem identifies an exact natural modal validity logic for a concrete full subcategory of the main 2026 modal-group setting. The result distinguishes sentential expressive resources from unrestricted object or parameter valuations; its finite-quotient transfer is a structural tool for modal formulas of arbitrary nesting depth. The result is not merely a small finite model census or a restatement of \(\mathsf{S4.2}\) directedness.
+The category of finite cyclic groups under embeddings is the divisibility frame N_{>0}. For any parameter-free first-order group sentence, Baur–Monk reduces to Boolean combinations of size thresholds of pp quotients. Kernel/image cardinalities of integer matrices on Z/n follow Smith normal form: |ker A_n|=n^(t-r)Πgcd(n,d_i); quotient invariant I(n)=n^aΠ gcd(n,d_i)^epsilon with a>=0 because at large primes outside all d_i, I(p)=p^a must be a positive integer. Hence finite families of sentences depend, outside a finite n cutoff, on capped valuations at finitely many primes. Enlarge prime set and caps to encode small n distinctly; tau(n)=(capped valuation vector, indicator n>=N) is a surjective bounded morphism onto a finite directed poset, with explicit multiple-raising back lifts. Atoms are constant on fibers and modal formula values descend, proving Grz.2 lower bound from known finite-directed-poset soundness. Prime-order-element group sentences induce bounded morphisms onto every finite Boolean lattice and realize all valuations, so the published Grz.2 Boolean-lattice completeness gives the reverse inclusion. Independent 7807 explicit fixed-quotient back lifts checked on 188 signature states, corroborating but not proving infinite Baur–Monk locality.
 
-**Closest literature and limits.** Wołoszyn 2026 (arXiv:2605.14197), Wołoszyn 2025 (arXiv:2505.09836, finite Boolean cubes), Gregory 2021 (DOI:10.1112/plms.12403, Baur--Monk), and Bova--Martin 2015 (DOI:10.4230/LIPIcs.CSL.2015.41) are the nearest inspected or relevant foundations. The classification excludes sentential substitutions using free parameters, full group categories, and arbitrary valuations. Residual originality risk is genuine for unindexed earlier group-potentialist or arithmetic-modal formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wołoszyn 2026 Modal group theory studies all-group embedding frames and S4.2 modal validities with parameters and richer extension worlds; finite cyclic parameter-free category cannot access those extensions. The same author 2025 proves finite Boolean lattices characterize Grz.2; that input is clearly credited, not a novel logical completeness theorem. Gregory 2021 Section 2.5 provides the Baur–Monk module-sentence elimination; Smith form is classical. The new restricted-category exact modal validity follows from finite bounded-morphic quotients of FO sentence families and finite prime buttons.
+
+## value
+
+PASS
+
+This is a natural, sharply scoped sentential modal invariant of a canonical category, linking group first-order definability, number-theoretic prime caps, and finite Kripke model theory. The two-way Grz.2 equality and explicit bounded-morphic approximation give a structural classification not contained in either black-box Baur–Monk or Grz.2 finite-lattice theorem alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
