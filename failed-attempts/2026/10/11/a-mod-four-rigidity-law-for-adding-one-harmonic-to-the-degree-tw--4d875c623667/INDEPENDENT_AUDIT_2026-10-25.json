@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T05:52:00.899613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer n>=3 the optimization fixes constant Fourier coefficient one and allows real a,b,c with continuous-circle nonnegativity. Q=1+sqrt(2)cosθ+(1/2)cos2θ=(cosθ+1/sqrt(2))^2 is feasible and vanishes at 3pi/4 and 5pi/4. If n≡2 mod4 then cos(nθ) vanishes at both contacts, so T(3pi/4)=1-a/sqrt(2)>=0 and a<=sqrt(2). Otherwise gamma=cos(3pi n/4)≠0; the perturbation P_n=cosθ+2sgn(gamma)cos(nθ) is positive at both contacts with value -1/sqrt(2)+2|gamma|>=1/sqrt(2). Continuity provides strictly positive P_n near the finite contact set, while Q has positive compact minimum on its complement; sufficiently small ε>0 makes Q+εP_n nonnegative everywhere and gives a=sqrt(2)+ε. Exact symbolic checks confirmed the square and m=2 specialization; symbolic residue checking over n=3..80 corroborates the contact sign. These finite tests are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published odd-multiple rigidity theorem treats every m>=3 and every distinct added frequency n; its entire proof constructs P_m and tests vanishing of cos(n*pi/(2m)) at contact points.",
+          "At m=2, the closed-form P_m equals the audited Q exactly and its q/nonzero perturbation proves the same dichotomy; the m>=3 bound in the Chebyshev lemma is unnecessary because Q already explicitly factors.",
+          "The doubled-harmonic result provides a stronger exact M for the n=4 special case, but not all n."
+        ],
+        "reasoning": "Do not pretend the printed m>=3 quantifier includes m=2. Instead explicitly derive the m=2 case of the earlier complete proof with no novel nonstandard ingredient. This is decisive proof-level mathematical coverage of the proposed law, independent of verbal theorem alignment; date-order priority between two records deposited in the same October 11 commit is not asserted.",
+        "searches": [
+          "Resultary semantic query: degree two Caratheodory Fejer cosine first coefficient sparse support {0,1,2,4} optimal",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-multiple-rigidity-for-one-frequency-carath-odory-fej-r-augme--537434123da6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-doubled-harmonic-carath-odory-fej-r-family--f8b2aed0e5e0/RESULT.md",
+          "arXiv:math/0302193"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-multiple-rigidity-for-one-frequency-carath-odory-fej-r-augme--537434123da6/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-carath-odory-fej-r-constant-with-the-third-harmonic-missin--b301e7223b2c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-sparse-carath-odory-fej-r-constant-for-frequencies-1-2-5--b617a6c3c335/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-doubled-harmonic-carath-odory-fej-r-family--f8b2aed0e5e0/RESULT.md",
+        "https://arxiv.org/pdf/math/0302193",
+        "https://arxiv.org/pdf/1304.0071",
+        "https://www.renyi.hu/~revesz/LeastPossibleJFAAKahane.pdf",
+        "https://www.renyi.hu/~revesz/ActaSzeged1995.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior complete proof: alpha=pi/(2m), contacts pi±alpha, q=(-1)^n cos(n alpha), zero q iff n≡m(mod2m); q≠0 admits a contact-positive perturbation.",
+          "Specializing alpha=pi/4, m=2 gives Q=(cosθ+1/sqrt2)^2, n≡2(mod4), and strict improvement for every nonresonant n>=3.",
+          "Independent exact symbolic check verifies the m=2 prior P_m equals the audited Q, and modular n=3..80 matches cos(3pi n/4)=0 iff n≡2(mod4)."
+        ],
+        "reasoning": "Every clause of the audited iff plus strict complement follows by routine m=2 completion of the general theorem proof, not from a mere similar title or an empirical sample. The earlier theorem statement formally excludes m=2, but the supplied proof mechanism has no structural obstruction at m=2. As an independent submission, the special-case law lacks a distinct original mathematical deduction.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-multiple-rigidity-for-one-frequency-carath-odory-fej-r-augme--537434123da6/RESULT.md",
+          "Resultary semantic query: support restricted Caratheodory Fejer first Fourier coefficient nonnegative polynomial frequencies 1 2 n equality sqrt 2 modulo four contact zeros",
+          "arXiv:1304.0071",
+          "arXiv:math/0302193"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real even Fourier-positive sequence formulation has support {0,±1,±2,±n}, with first Fourier coefficient a/2.",
+          "Krenedits–Révész Proposition 3.1 identifies the general positive-definite reformulation.",
+          "The all-n mod-four resonance is equivalently the vanishing of cos(n*pi/4) at the two singleton m=2 extremizer contacts.",
+          "The complete published odd-multiple theorem proof uses exactly this resonance criterion for general m and allows m=2 specialization."
+        ],
+        "reasoning": "The alternate positive-definite-sequence wording changes only normalization, not scope. Recasting n≡2(mod4) as the contact resonance n≡m(mod2m) at m=2 identifies the audited claim as a boundary instance of an available, mathematically same-mechanism general proof, even though its displayed theorem assumes m>=3.",
+        "searches": [
+          "Resultary semantic query: support restricted Caratheodory Fejer first Fourier coefficient nonnegative polynomial frequencies 1 2 n equality sqrt 2 modulo four contact zeros",
+          "Resultary semantic query: positive definite trigonometric polynomials adding one harmonic to {1,2} Carathéodory Fejér nonnegative circle n congruence",
+          "arXiv:math/0302193",
+          "arXiv:1304.0071"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact M({1,2,4})=3/2 and M({1,2,5})=1+2cos(3pi/7) from complete published special-case proofs.",
+          "The exact doubled-harmonic family includes m=2 and n=4.",
+          "No inspected exact-value table provides the all-n strict-case values; the audited result claims only equality/strictness, not those values."
+        ],
+        "reasoning": "The isolated exact values corroborate strict improvement in two nonresonant cases and do not alone imply the complete mod-four classification. The decisive comparison is the separately read general contact-resonance proof; no absent database result is fabricated.",
+        "searches": [
+          "Resultary mathematical search for sparse Carathéodory–Fejér exact supports {1,2,n}",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-carath-odory-fej-r-constant-with-the-third-harmonic-missin--b301e7223b2c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-sparse-carath-odory-fej-r-constant-for-frequencies-1-2-5--b617a6c3c335/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-doubled-harmonic-carath-odory-fej-r-family--f8b2aed0e5e0/RESULT.md"
+        ]
+      },
+      "rationale": "A full published Resultary proof of the odd-multiple contact-resonance augmentation criterion (formally stated for m>=3) specializes essentially verbatim to the excluded boundary m=2: its explicit singleton optimizer becomes the audited square, and its resonance/contact-positive perturbation gives exactly the iff mod-four law. Although the printed range does not technically include m=2 and simultaneous October 11 publication does not establish chronological priority, the available complete proof already supplies every nonstandard mathematical ingredient; the audited m=2 extension is a routine boundary case rather than an independent new theorem. The isolated n=4 and n=5 exact-support records further corroborate examples but are not themselves the decisive general coverage.",
+      "residual_risks": [
+        "The published general theorem explicitly begins at m>=3; the failure decision rests on a proof-level mathematically justified extension to m=2, not on false formal inclusion.",
+        "The audited record and the general odd-multiple record appear in the same 2026-10-11T13:59:41Z public commit; this audit makes no unsupported temporal priority or authorship determination.",
+        "Additional pre-2026 classical literature could have earlier explicit contact classifications; remaining ambiguity would strengthen coverage, not support originality.",
+        "The checked 1995 PDFs were inspected in targeted regions, not read word-for-word in entirety."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROOF_SPECIALIZES_TO_FULL_AUDITED_CLAIM",
+          "evidence": "The prior formula has alpha=pi/(2m), singleton P_m=1+sec(alpha)cos(t)+(-1)^m tan(alpha)/m cos(mt) and contact zeros at pi±alpha. At m=2 it becomes exactly Q=(cos(t)+1/sqrt(2))^2, with alpha=pi/4 and resonance cos(n*pi/4)=0 iff n≡2(mod4). Its perturbation R=cos(t)+(2C/q)cos(nt), q=(-1)^n cos(n alpha), is positive at both contacts and gives strict improvement by compactness when q≠0. The older theorem statement imposes m>=3, but its proof mechanism applies to m=2 with the elementary explicit square; no unsupported formal implication from the printed quantifiers is asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-multiple-rigidity-for-one-frequency-carath-odory-fej-r-augme--537434123da6/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, singleton optimizer, Chebyshev tangent support proof, contact zeros, resonance and strict-positive perturbation, stated m>=3 and limitations.",
+          "method": "Read full pinned published RESULT.md from connected GitHub; independently specialized every important formula at m=2 and compared to audited source.",
+          "title": "Odd-multiple rigidity for one-frequency Carathéodory–Fejér augmentation",
+          "trigger": "Nearest available uniform theorem and complete constructive proof for a singleton higher harmonic m and one additional n; must compare its excluded m=2 boundary mathematically."
+        },
+        {
+          "assessment": "COVERS_N4_ONLY",
+          "evidence": "For n=4, M_4=3/2>sqrt(2) with unique extremizer; one strict case, not by itself the all-n iff theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-carath-odory-fej-r-constant-with-the-third-harmonic-missin--b301e7223b2c/RESULT.md",
+          "material_read": "Entire RESULT.md: upper certificate using t=1/2,1/3; exact factorized extremizer; uniqueness and coverage discussion.",
+          "method": "Full connected-GitHub file reading and support/normalization comparison.",
+          "title": "Exact Carathéodory–Fejér constant with the third harmonic missing",
+          "trigger": "Exact overlapping support {1,2,4}, first nonresonant multiple-of-four case."
+        },
+        {
+          "assessment": "COVERS_N4_ONLY_IN_THIS_PROBLEM",
+          "evidence": "m=2 yields {1,2,4} with M=3/2. All-m family varies the baseline singleton rather than all arbitrary n over the fixed {1,2} baseline.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-doubled-harmonic-carath-odory-fej-r-family--f8b2aed0e5e0/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, two-point dual bound, Hermite majorization and uniqueness; range m>=2.",
+          "method": "Full connected-GitHub file reading and specialization to m=2.",
+          "title": "Exact doubled-harmonic Carathéodory–Fejér family",
+          "trigger": "Uniform formula for {1,m,2m} and m=2 special case, possible broader coverage."
+        },
+        {
+          "assessment": "COVERS_N5_ONLY",
+          "evidence": "For n=5, M=1+2cos(3pi/7)≈1.44504>sqrt(2), consistent with submitted strict-class assertion but does not cover arbitrary n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-sparse-carath-odory-fej-r-constant-for-frequencies-1-2-5--b617a6c3c335/RESULT.md",
+          "material_read": "Entire RESULT.md: exact value 1+2cos(3pi/7), dual two-point certificate, factorization and uniqueness.",
+          "method": "Full connected-GitHub reading and comparison of exact frequencies and constant.",
+          "title": "Exact sparse Carathéodory–Fejér constant for frequencies 1,2,5",
+          "trigger": "Second nonresonant exact test with exactly matching normalization."
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NO_EXPLICIT_MOD4_CLASSIFICATION_IN_INSPECTED_MATERIAL",
+          "evidence": "Classical support-restricted first-coefficient problem and M(H)M(N_ge2\\H)=2 duality; known singleton/full-set families, but not the specific full {2,n} mod-four cutoff in checked theorems.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193",
+          "material_read": "Full open-access preprint accessed; definitions of Phi(H), M(H), listed exact special families, and duality formula; PDF page 10 screenshot inspected.",
+          "method": "ArXiv lawful open-access PDF text search/read and visual screenshot of relevant page.",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Early primary source for one-dimensional sparse support Carathéodory–Fejér constants and duality."
+        },
+        {
+          "assessment": "GENERAL_REDUCTION_NO_EXPLICIT_NUMERIC_CLASSIFICATION_IN_INSPECTED_MATERIAL",
+          "evidence": "Proposition 3.1 gives general M(H)=2K^c(H) positive-definite transfer, not an explicit constant for all {2,n}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.0071",
+          "material_read": "Accessible full preprint: definitions, Herglotz positive-definite sequence correspondence, and Proposition 3.1; relevant PDF page 8 visually inspected.",
+          "method": "ArXiv lawful OA PDF reading and page screenshot.",
+          "title": "The Carathéodory–Fejér type extremal problem on locally compact Abelian groups",
+          "trigger": "Primary general support-restricted positive-definite framework and continuous/discrete equivalence."
+        },
+        {
+          "assessment": "DUALITY_CONTEXT_NO_MATCHING_EXACT_FAMILY_FOUND_IN_READ_MATERIAL",
+          "evidence": "General M/L and duality framework does not by itself evaluate the all-n cutoff; uninspected passages remain a bibliographic risk.",
+          "identifier_or_url": "https://www.renyi.hu/~revesz/LeastPossibleJFAAKahane.pdf",
+          "material_read": "Lawful author-hosted PDF; problem-definition pages and duality (2.11), relevant PDF pages 7–8 visually inspected. Not asserting entire 24-page document checked line by line.",
+          "method": "Author-hosted OA PDF targeted reading with page screenshots.",
+          "title": "The Least Possible Value at Zero of Some Nonnegative Cosine Polynomials and Equivalent Dual Problems",
+          "trigger": "Earlier original duality source and plausible hidden exact sparse-support cases."
+        },
+        {
+          "assessment": "DIFFERENT_EXTREMAL_OBJECT_IN_READ_ABSTRACT",
+          "evidence": "The checked abstract studies nonnegative coefficients and minimization of f(0) with prescribed first coefficient, not the present arbitrary-real higher coefficients M({2,n}).",
+          "identifier_or_url": "https://www.renyi.hu/~revesz/ActaSzeged1995.pdf",
+          "material_read": "Title and abstract on first page examined visually; full text not claimed read.",
+          "method": "Author-hosted OA PDF page 1 screenshot.",
+          "title": "Minimization of maxima of nonnegative and positive definite cosine polynomials with prescribed first coefficients",
+          "trigger": "Older title with overlapping cosine-polynomial language."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed degree-two sparse-support extremal problem is a classical, natural object, and the exact infinite mod-four classification answers a meaningful equality-versus-strict-improvement boundary for the effect of any one extra harmonic. Its precise resonance information can be used as a sharp support-design criterion even without strict-case exact constants. This independent utility does not restore originality: as a standalone contribution the result is already implicit in an available general contact-resonance construction and thus rejected despite the useful statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Originality rejection is based on material proof coverage by a formally m>=3 general theorem whose method transparently includes m=2 after checking the special quadratic factorization; no chronological priority claim is made.",
+    "Historical ledger rows/gaps deliberately not revalidated or altered.",
+    "Previous published abstracts alone were not treated as whole-document evidence; targeted full texts were read as described in source_inspections.",
+    "The review is not an expert attestation or formal Lean certification."
+  ],
+  "schema_version": 1
+}
