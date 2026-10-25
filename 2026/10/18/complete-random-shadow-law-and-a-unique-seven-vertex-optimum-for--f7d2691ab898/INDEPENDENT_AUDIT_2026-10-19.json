@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T21:56:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen result fixes a symmetric axial five-gon bipyramid with basal circumradius 1 and apex heights ±h (h>0); projection is orthographic with Haar normal and generic directions. Verified the reduction along u to the basal plane, whose hull is the pentagon plus two antipodal external points. Each visible edge chain of length k contributes g(0)=0 or g(k)=2−k; ordered edge-normal thresholds in 0<φ<π/10 have signs +,−,−,+,+ and yield precisely 5,6,7,6,5,4 as t increases. Integrating the thresholds G(c)=hc/sqrt(r²+h²c²) gives exact J_k=arcsin(λ sin(kπ/10))−arcsin(λ sin((k−1)π/10)), r=cos(π/5), λ=h/sqrt(h²+r²), and p4=(10/π)J5, p5=1−(10/π)(J1−J4+J5), p6=(10/π)(J1−J2+J3−J4), p7=(10/π)(J2−J3). All probabilities positive and sum 1. Derivative of p7 is 2gλ(b)−gλ(a)−gλ(c); the ratio of integrals of gλ'(x) on [b,c] and [a,b] strictly increases in λ, and endpoint signs oppose, establishing one global maximum, not merely a sampled optimum. Independently computed λ*=0.6712912804371369, h*=0.732718175591311 and max p7=0.08958840734036536. Independent true orthographic convex hulls for 5,000 Gaussian/isotropic directions at each of h=.1,h*,1,3 matched the 4-class law to sampling error. These finite checks corroborate the uniform-in-h calculus proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Black–Criado arXiv:2406.06936v1 HTML Theorem 1.5 and Section 3 give general expected random-shadow bounds",
+          "Glisse–Lazard arXiv:cs/0702087 estimates expected silhouette complexity"
+        ],
+        "reasoning": "An expectation theorem determines ∑k k p_k but does not determine four point masses or a sharp aspect-ratio optimizer. The stronger general bound does not imply these exact evaluated probabilities by a direct parameter substitution.",
+        "searches": [
+          "Black Criado Random Shadows of Fixed Polytopes arxiv:2406.06936 Theorem 1.5",
+          "Glisse Lazard 2007 upper bound average size silhouettes",
+          "McGuire 2004 Observations on Silhouette Sizes exterior dihedral expectation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2406.06936v1",
+        "arXiv:cs/0702087",
+        "DOI:10.1080/10867651.2004.10487594",
+        "Resultary 2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete new p7=(10/π)(J2−J3) has a unique interior maximizer at h≈0.7327181756",
+          "First-moment silhouette law cannot determine individual p7, and all-height uniqueness requires derivative monotonicity not present in inspected general expectation theorem"
+        ],
+        "reasoning": "Neither general projection bounds nor the probability that some single vertex survives can algebraically determine joint survival of both apices and all five basal vertices. The full ordered visibility threshold calculation is an essential additional step.",
+        "searches": [
+          "does general expected silhouette edge count imply 4 5 6 7 polygon probabilities",
+          "Black Criado expected random shadows vs unique seven vertex maximizing h"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md planar perspective-to-affine map sends apices to ±t(cos φ,sin φ)",
+          "Resultary query 'pentagonal bipyramid 7 vertices random projection silhouette probability optimal height'"
+        ],
+        "reasoning": "Orthogonal shadows can be recast as affinely equivalent planar hulls of a regular pentagon plus antipodal points; this is the same statistic and explains the visible-edge chain derivation. Neither the Johnson-solid equilateral special h nor arbitrary pyramid results imply the entire all-height law.",
+        "searches": [
+          "symmetric pentagonal dipyramid random orthographic silhouette all 7 vertices probability",
+          "seven-vertex convex hull of regular pentagon and two axial apices Haar projection law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a has a four-point rectangular base, five-vertex pyramid rather than pentagonal bipyramid",
+          "Resultary octahedron shadow optimizer 2026/10/11/...-ddf3a826ab64 has six vertices"
+        ],
+        "reasoning": "No exact table retrieved for symmetric pentagonal bipyramids at arbitrary positive h. The search result title/summary comparisons alone cannot certify historical absence.",
+        "searches": [
+          "Resultary pentagonal bipyramid 7 vertex shadow optimal height",
+          "pentagonal bipyramid projection vertex probability table h exact arcsin",
+          "Johnson solid J13 random orthogonal silhouette count"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact four-atom Haar random orthographic shadow law uniformly for h>0 and unique optimizing seven-vertex height. McGuire's silhouette theorem and Black–Criado's random-shadow theorems control expectations/bounds of general polytopes, not the specific full law and optimizer; Glisse–Lazard gives general average upper bounds. Closest Resultary laws for rectangular pyramids and stretched octahedra concern different geometries. The five-edge ordering and monotone derivative comparison supply genuine additional mathematics.",
+      "residual_risks": [
+        "General computational geometry literature could contain a hidden equivalent law under shadow-chamber/normal-fan terminology, and its full historical bibliography has not been exhaustively read.",
+        "A finite numerical optimum without the monotone analytic argument would not establish uniqueness; here the analytic argument is part of the audited proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_EXPECTATION_BOUNDS_NOT_FULL_LAW",
+          "evidence": "Theorem 1.5 bounds mean silhouette complexity; no bipyramid mention in inspected searchable text.",
+          "identifier_or_url": "https://arxiv.org/html/2406.06936v1",
+          "material_read": "Full HTML article, theorem statements and sections on expected shadow complexity; text search for bipyramid",
+          "method": "arXiv HTML research article, in-document search",
+          "title": "Random Shadows of Fixed Polytopes",
+          "trigger": "primary same random-orthogonal-projection model"
+        },
+        {
+          "assessment": "RELEVANT_BUT_NOT_DECISIVE",
+          "evidence": "Average size estimates leave exact four-class law unspecified; limited material means no whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/cs/0702087",
+          "material_read": "Title, primary abstract and reported main theorem scope; not every page of the primary PDF",
+          "method": "arXiv abstract/theorem-level search",
+          "title": "An Upper Bound on the Average Size of Silhouettes",
+          "trigger": "general silhouette estimates potentially stronger than exact finite law"
+        },
+        {
+          "assessment": "DIFFERENT_POLYTOPE_FAMILY",
+          "evidence": "Four basal vertices and one apex, not five basal vertices plus two antipodal apices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "Resultary index title and summary, not entire article",
+          "method": "published Resultary semantic search",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "closest published same type of height optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pentagonal bipyramid is a natural seven-vertex test object with an actual geometrically distinguished Johnson height. Its 4/5/6/7-vertex Haar shadow law over a continuous shape parameter and a unique height optimizing the rare full-seven-vertex visibility event are substantive exact integral-geometric invariants. The Johnson shape is demonstrably suboptimal; the result can benchmark visibility and silhouette optimization without requiring a universal theorem for all polyhedra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric axial pentagonal bipyramids and Haar orthogonal projection; nongeneric directions measure zero.",
+    "General silhouette bounds and analogous different-polytope optimizers are known; unindexed exact pentagonal law remains a priority risk."
+  ],
+  "schema_version": 1
+}
