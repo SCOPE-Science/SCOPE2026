@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Algebraic factorization gives exact increasing capped valuations and excludes nontrivial cycles; every residue is in a fixed class. The three basin partitions count all points at exact valuation, including two exceptional residues per nonzero basin. A separately implemented orbit enumerator agrees for k=1..8, with 9,840 points. This finite test supports but is not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diarra–Sylla Theorem 13 identifies whole attraction disks; it does not specify the finite-level hitting-time law.",
+        "Panraksa–Tangboonduangjit Corollary 12.1 determines periodic points of degree p but not transient first-hit depths.",
+        "The ternary-adic permutation-polynomial graph results require permutation behavior and do not cover degree three modulo three."
+      ],
+      "reasoning": "The complete first-hit histogram is a strictly finer invariant than a list of attracting disks or number of periodic points. It is not implied by those displayed classifications without further valuation analysis.",
+      "searches": [
+        "arXiv:2605.04417, Corollaries 7.14 and 12.1 and Section 12, Chebyshev–Fermat",
+        "Diarra and Sylla, p-Adic Dynamical Systems of Chebyshev Polynomials (2013), Proposition 11/Theorem 13",
+        "arXiv:2605.21819, Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings"
+      ]
+    },
+    "checked_sources": [
+      "Gassert arXiv:1209.4396 Theorems 2.3-2.4",
+      "Diarra-Sylla 2013 Proposition 11 and Theorem 13",
+      "Panraksa-Tangboonduangjit arXiv:2605.04417 Corollaries 7.14/12.1",
+      "Lu-Dai-Li arXiv:2605.21819 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source basin statement implies which fixed point is ultimately approached, not its exact first-hit time.",
+        "The source periodic-point statement implies exactly three depth-zero points but none of the positive-depth coefficients.",
+        "The new exact formula distinguishes maximum height k−1 in the zero basin and floor(k/2) in nonzero basins."
+      ],
+      "reasoning": "Known conclusions are necessary components, not the entire claim. The proof adds exact valuation growth and full counts, including the exceptional first step in critical branches. Risk remains of a stronger overlooked theorem explicitly giving all depths.",
+      "searches": [
+        "Gassert 2012 Theorems 2.3 and 2.4",
+        "Diarra–Sylla 2013 Theorem 13",
+        "Panraksa–Tangboonduangjit 2026 Corollary 12.1",
+        "Lu–Dai–Li 2026 Chebyshev permutation polynomials ternary adic ring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The polynomial is the monic Dickson D_3(x,1), conjugate via x↦x/2 to the standard Chebyshev T_3.",
+        "Gassert Theorem 2.4 counts preperiods over finite fields but Section 2 explicitly assumes p is different from the Chebyshev prime degree."
+      ],
+      "reasoning": "Conjugacy, tail length/preperiod/first-hit aliases, and finite-field versus residue-ring domains were compared. Gassert does not have the ramified p=degree residue-ring hypothesis.",
+      "searches": [
+        "\"x^3-3x\" \"modulo\" \"preperiod\" powers of 3",
+        "Three-adic Chebyshev T_3 dynamics, contraction rate near fixed points zero versus ±2, exact histogram preperiod depth and cubic critical preimages",
+        "Gassert, Chebyshev Action on Finite Fields, arXiv:1209.4396, §§2.1–2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-modulus first-hit histogram matching the stated coefficients was identified in the retrieved indexed results.",
+        "The explicit depth polynomials for powers three through eight were independently computed and checked, but those computations are not evidence of bibliographic uniqueness."
+      ],
+      "reasoning": "A negative search does not prove novelty. No located database or table supplied the same full k-parametric distribution; an unindexed table remains possible.",
+      "searches": [
+        "Functional graph full preperiod distribution of Dickson or Chebyshev third degree polynomial x^3-3x modulo powers of three, exact first hit counts 0 2 -2",
+        "Finite residue-ring Chebyshev polynomial degree equals 3 at p=3, all points attracted to three fixed points, hitting time distribution",
+        "\"x^3-3x\" \"3^k\" functional graph preperiod tail"
+      ]
+    },
+    "rationale": "The exact transient hit-time polynomial and unequal basin heights are not implied by Gassert finite-field trees (which exclude degree p), Diarra–Sylla p-adic attracting disks, or Panraksa–Tangboonduangjit fixed/periodic counts. Full primary text comparison was done where available, with residual risks acknowledged.",
+    "residual_risks": [
+      "An unlocated general theorem on finite-level nonpermuting Chebyshev tail distributions could subsume the histogram.",
+      "Lu-Dai-Li complete full text was not inspected, though its declared permutation-only scope excludes degree three modulo three."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the ramified residue-ring case",
+        "evidence": [
+          "Section 2 defines G(ℓ,p,n) with distinct primes p and ℓ. Theorem 2.4 counts finite-field preperiods."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.4396",
+        "material_read": "Introduction, Section 2.1, Proposition 2.1 and Theorems 2.3–2.4, finite-field preperiod counts and p≠ℓ hypothesis",
+        "method": "Full open HTML text, theorem and assumptions compared",
+        "title": "Chebyshev Action on Finite Fields",
+        "trigger": "Potential general graph and preperiod classification for Chebyshev prime degree"
+      },
+      {
+        "assessment": "Covers basins and limiting fixed points; not the residue-ring first-hit histogram",
+        "evidence": [
+          "Theorem 13 states the p-adic basin of an attracting fixed point is an open residue disk."
+        ],
+        "identifier_or_url": "https://padic2013.mi-ras.ru/Diarra.pdf",
+        "material_read": "Full-document searchable text including Proposition 11 and Theorem 13, visually inspected PDF pages 9 and 10",
+        "method": "Primary open PDF, page screenshots, and surrounding results compared",
+        "title": "p-Adic Dynamical Systems of Chebyshev Polynomials",
+        "trigger": "Same degree/prime and attracting-basin dynamics"
+      },
+      {
+        "assessment": "Determines fixed and periodic points, not positive first-hit depth distributions",
+        "evidence": [
+          "Corollary 12.1 says only p fixed periodic points when degree n=p."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.04417",
+        "material_read": "Full HTML overview and Corollaries 7.14, 12.1, Section 12, stated periodic lift results",
+        "method": "Full HTML theorem inspection and implication comparison",
+        "title": "Fixed-point lifting and ghost periodic points for Chebyshev polynomials modulo odd prime powers",
+        "trigger": "Strongest recent prime-power theorem, including exceptional n=p case"
+      },
+      {
+        "assessment": "Scope appears disjoint: permutations versus degree divisible by three; residual risk without entire text",
+        "evidence": [
+          "Title and abstract explicitly specify Chebyshev permutation polynomials over binary and ternary rings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.21819",
+        "material_read": "Public abstract and explicit permutation-degree applicability; complete full text not inspected",
+        "method": "Preprint abstract and title compared with nonpermuting polynomial hypotheses",
+        "title": "Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings",
+        "trigger": "Ternary-ring graph including path length questions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24093f02-440f-4135-819e-0cc3809f26de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete naturally defined finite functional-graph first-hit invariant is determined at every precision. The exact height difference k−1 versus floor(k/2) isolates critical multiplicity and gives a meaningful structural classification of basin geometry beyond prior fixed-point/basin results.",
+    "status": "PASS"
+  }
+}
