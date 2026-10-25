@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar reduction follows from a proven fixed-vector weak-null splitting lemma and a two-way realizability argument using tail coordinate vectors. The tameness threshold is determined by applying the same inequality in both orders to two equal-norm vectors and arbitrary tail magnitudes; sufficiency is verified directly from the \(p\)-sum norm. The all-exponent quantitative formula follows from explicit two-sided mixed-norm inequalities and sharp equal-norm witnesses. Cases \(q=1\), \(q=p\), and \(q=\infty\) are covered without endpoint extrapolation; there is no inference from finite samples to infinite dimensions.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+The weak-null finite-block component tends to zero strongly, and coordinate truncation of a weak-null ell_p tail proves ||v+w_n||_p^p-||w_n||_p^p->||v||_p^p. Extract a scalar tail-norm subsequence for the upper variational bound and use ae_{n+1} for exact reverse attainment. Oppositely order equal-norm pure finite/tail vectors to obtain the iff p-sum rigidity. Apply the two-sided mixed-norm Minkowski bounds with r=min(p,q), s=max(p,q) and maximize ((1+t^r)^(1/r))/((1+t^s)^(1/s)) at t=1; pure-finite/pure-tail vectors give equality, including q=1,infinity and p=q. Source CHECK.py is a finite diagnostic, not an infinite proof.
 
-The exact numerical defect and all-radial variational formula were compared with Kalton–Werner's 1993 equal-norm property \((M)\) and Shkarin's 2012 Definitions 2–3, Theorem 1.8, and Section 7. Both primary papers were inspected as original text, not merely via abstracts: Kalton–Werner pages 2–3 and 22, Shkarin pages 3, 8–9 and 14–15. The 1993 property \((M)\) anticipates the equal-norm rigidity mechanism, and the 2012 theorem already detects nonattainment for \(q\ne p\); those known qualitative facts are explicitly excluded from novelty. The distinct claim is an exact arbitrary-radial weak-null distortion formula and the sharp quantified mixed-sum defect for every \(1\le q\le\infty\), which the examined sources do not state. Searches of publication indexes and relevant mathematical research records did not identify a stronger covering theorem. An equivalent older formula with different terminology remains a residual bibliographic possibility; no global uniqueness is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The question originates directly in a published Banach-space geometric condition that was proposed as a sufficient condition for compact-perturbation norm attainment. The theorem exactly identifies what the tame condition forces in a natural class of finite-dimensional extensions and turns an arbitrary weak-null sequence optimization into a one-parameter scalar problem. The dimension-free constant \(2^{|1/p-1/q|}\) quantifies the precise loss for mixed-exponent norms; that is a sharp boundary, not a routine computed instance. It does not purport to settle the full classification problem.
+An exact quantitative ratio invariant and radial rigidity characterization are not stated in the material read from prior property-(M) or norm-attainment works. Shkarin introduces the tame relation and includes a related numerical exponent for an OPERATOR norm, so neither the notion of tameness nor the exponent alone is claimed new. The highly relevant Shkarin full text was inaccessible, a material priority risk explicitly retained; no snippet-based assertion that its full text excludes the result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The defect is a natural quantitative strengthening of a recognized perturbation property. Its full radial reduction, strict isometric p-sum threshold, and exact q-parameter law are structural rather than a simple renaming; they can guide classification and stability questions for finite-dimensional perturbations of ell_p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

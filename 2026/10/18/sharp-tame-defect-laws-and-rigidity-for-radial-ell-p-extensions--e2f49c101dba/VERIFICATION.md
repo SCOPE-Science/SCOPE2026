@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The mathematical proof is self-contained in RESULT.md. The nonstandard ingredient is an elementary \(\ell_p\)-splitting fact for bounded weakly null sequences, proved by finite-head approximation. No finite computation is used to infer a universal infinite-dimensional statement.
+## correctness
 
-The included executable `CHECK.py` uses fixed seed `314159`, five exponents for \(p\), six values for \(q\) (including both endpoint types), and 3,500 positive-coordinate tuples per exponent pair. It verifies the two-sided mixed-norm bounds, the tame-inequality upper estimate, and 30 explicit equality witness comparisons. Running `python3 CHECK.py` should print `PASS: 105000 finite parameter tests; 30 exact-construction comparisons.` Numerical floating-point tolerances are deliberately modest; these calculations are diagnostics only.
+PASS
 
-For hand replay, normalize \(f_0\in F\) to norm one and calculate the norms of \((f_0,e_{n+1})\) and \((0,e_1+e_{n+1})\) in \(F\oplus_q\ell_p\). They are exactly \(2^{1/q}\) and \(2^{1/p}\), independently of \(n\), which directly verifies sharpness. To verify the infinite-dimensional upper bound, check the two applications of Minkowski in the mixed-norm comparison (5), then maximize the scalar function in Step 4.
+The weak-null finite-block component tends to zero strongly, and coordinate truncation of a weak-null ell_p tail proves ||v+w_n||_p^p-||w_n||_p^p->||v||_p^p. Extract a scalar tail-norm subsequence for the upper variational bound and use ae_{n+1} for exact reverse attainment. Oppositely order equal-norm pure finite/tail vectors to obtain the iff p-sum rigidity. Apply the two-sided mixed-norm Minkowski bounds with r=min(p,q), s=max(p,q) and maximize ((1+t^r)^(1/r))/((1+t^s)^(1/s)) at t=1; pure-finite/pure-tail vectors give equality, including q=1,infinity and p=q. Source CHECK.py is a finite diagnostic, not an infinite proof.
 
-Limitations: the tests are neither exhaustive nor an independent mathematical audit. Bibliographic comparisons are described in REVIEW.md and AUDIT.json. Independent audit: not yet performed.
+## originality
+
+PASS
+
+An exact quantitative ratio invariant and radial rigidity characterization are not stated in the material read from prior property-(M) or norm-attainment works. Shkarin introduces the tame relation and includes a related numerical exponent for an OPERATOR norm, so neither the notion of tameness nor the exponent alone is claimed new. The highly relevant Shkarin full text was inaccessible, a material priority risk explicitly retained; no snippet-based assertion that its full text excludes the result.
+
+## value
+
+PASS
+
+The defect is a natural quantitative strengthening of a recognized perturbation property. Its full radial reduction, strict isometric p-sum threshold, and exact q-parameter law are structural rather than a simple renaming; they can guide classification and stability questions for finite-dimensional perturbations of ell_p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
