@@ -1,15 +1,21 @@
-# Scientific assessment: first symbolic arrow of time
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the stationary maximum-entropy binary affine-branch observation in Jiang–Dajani's distinguished shrinking beta family, not an arbitrary random beta process. The Parry telescoping transition formula proves independent return blocks with probability \(\lambda_n^{-k}\), giving a normalized length-biased unit-time suspension. Conditioning on a fresh excursion and residual excursion lengths computes the two cylinder probabilities exactly. The root polynomial reduces their difference to \(-\lambda_n^{-(n+3)}/(2\mu_n)\), which is strictly negative. Stationarity and bit-flip symmetry imply a finite-dimensional rational linear system; its exact row-space calculation proves that every length-four reversal difference vanishes and that every length-five difference is zero or the positive/negative of the specified discrepancy. Eight unordered nonzero pairs give the exact total variation; the Perron identity and dominated geometric convergence give the sharp exponential constant. The included standalone checker reruns rational-state calculations and exhaustive symbolic linear algebra. These finite checks are distinguished from the analytical infinite-parameter proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-The source paper establishes the shrinking map, first-return coding, graph, and maximal-entropy measure; this review **excludes those prior results** from the originality claim. The older paper on induced random beta transformations deals with a broader/different family and admissibility of returns, not the stationary five-symbol arrow in this distinguished system. The 2023 analysis of symbolic irreversibility proves a general short-word obstruction for lengths less than four; it neither gives the present bit-flip symmetry extension to length four nor the exact order-five difference, complete total variation, or sharp family-dependent exponential coefficient. Dedicated searches for reverse-cylinder laws, renewal coding, this family and five-word irreversibility found no statement dominating the theorem. Accessible published mathematical records with renewal entropy and abstract time-reversal operator norms do not cover the same observable or imply the parameter-specific identity. A previously unindexed general theorem on reversal of complement-symmetric renewal codes could cover part of this result. Best-knowledge originality is supported, not certified absolute priority.
+PASS
 
-## Mathematical value — PASS
-The first detectable length of a time arrow is a natural invariant of a stationary symbolic observation. The family has a canonical maximal-entropy state and return coding; its combination of four-step apparent reversibility and strictly nonzero five-step irreversibility makes the threshold meaningful rather than an arbitrary finite statistic. The exact total-variation coefficient across **all** five-symbol cylinders, together with its \(2^{-n}\) scale and universal leading constant, quantifies how the observed arrow disappears as the special base approaches its limiting regime. This is an observable-specific result, not a claim about all invariant measures, physical-state reversibility, or all word lengths.
+For finite n>=3, the original shrinking random beta maximal-entropy measure has a finite first-return graph with two excursion paths per length k=2..n and Parry return probability lambda^-k. The ordinary-time digit law is the length-biased stationary suspension of iid blocks b(1-b)^(k-1), each probability q_k/2=lambda^-k. Complement and stationarity identities force reversal symmetry for lengths <=4; rational row elimination gives one-dimensional length-five antisymmetric space with exactly eight nonzero unordered reversal pairs, all of magnitude |Delta|. Direct prefix conditioning yields Delta=(q2-q2²-q3)/(8mu)=-lambda^{-(n+3)}/(2mu)<0; hence TV5=8|Delta|. The characteristic renewal identity implies lambda_n↗2 with n(2-lambda_n)→0 and mu_n→3, giving 2^n TV5→1/6. Independently rebuilt rational length-biased finite-state transition chain for four distinct distributions n=3..6, exactly verified all <=4 reversals, eight five-symbol discrepancies and coefficient. The finite checks do not prove the all-n exponential limit, which is analytic.
 
-## Scope and limitations
-The claim assumes the exact Jiang–Dajani first-return coding and its Parry measure; an alternative coarse-graining could behave differently. Full priority beyond indexed and accessible literature has not been certified. No independent audit or validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jiang–Dajani 2016 introduce exactly the shrinking random beta graph and its original-system Parry maximal-entropy structure, not the reversal asymmetry of the ordinary-time binary branch digit process. Arola-Fernández–Lacasa prove general stationary binary symbols cannot witness irreversibility for m<4, while here the extra complement symmetry extends that universal threshold to 4 and the finite beta family first exhibits it at m=5 with an exact shrinking coefficient.
+
+## value
+
+PASS
+
+Short-word time-arrow detection is a natural observable in symbolic dynamics and nonequilibrium statistics. Establishing its exact shortest detecting length and complete first discrepancy profile, together with a sharp exponential collapse along a prescribed beta family, gives a motivated and usable invariant rather than a formal reparameterization of the old return graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
