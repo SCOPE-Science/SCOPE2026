@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the entire 14-dimensional vanishing subspace, exact orbit enumeration under generators of order-168 PGL, and exact ideal-theoretic geometric smoothness on every affine chart. The Cech-derived 6-by-6 Frobenius coefficient matrix gives the a-number and stable 2-rank, and exact extension-field counts independently confirm the latter via the Weil numerators modulo two. The supplied verifier executes these tests and reports explicit representatives and coefficients. A computer-assisted exhaustive proof remains contingent on faithful execution of the included ordinary Python and SymPy implementation; it does not rely on any unproved extension cutoff.
+## correctness
 
-**Originality — PASS (qualified).** The full eight-page 2023 Asgarli–Ghioca preprint was inspected: its degree-q+3 results concern existence and smoothness, not complete characteristic-two arithmetic invariants. Earlier known counts of 1512 equations and ten projective orbits are explicitly excluded from the novelty claim. Searches for alternative terminology (Hasse–Witt, Cartier, p-rank, quintic filling curves, Weil zeta polynomials) found no covering statement. An unindexed equivalent census remains a priority risk; search absence alone is not a proof of novelty.
+PASS
 
-**Value — PASS.** This is a complete arithmetic stratification of a geometrically natural extremal family, with a sharp 2-rank floor and genuinely absent intermediate ranks. It resolves all rational Jacobian isogeny types rather than recomputing only equation counts; ten distinct Weil numerators distinguish classes even when projective transformations might not detect all curve isomorphisms. The family and its invariants have a reason for study independent of the particular enumeration parameters.
+Domain: all 16383 nonzero binary plane quintic forms vanishing at the seven F_2-rational points; geometric smoothness, not mere F_{2^m}-point smoothness, is required. The 14-dimensional evaluation kernel and PGL_3(F_2) generators define a complete finite enumeration. The included inspected script generates all forms, partitions the group orbits, and uses the unit ideal of all three partial derivatives on each projective chart to exclude singularities over the algebraic closure; this gives 1512 smooth equations in ten orbits (eight size 168 and two size 84). For each representative the six Cech H^1(O_C) Frobenius coefficients define a 6x6 Hasse-Witt matrix, a=6-rank H and f_2=rank(H^6). An independently written GF(2) row-reduction/power check matched all ten displayed (f_2,a) pairs, namely orbit distributions (2,3):1, (2,1):2, (5,1):2, (6,0):5, giving equation-weighted 168,252,336,756. The ten six-tuples (c_1,...,c_6) in the frozen RESULT are distinct and the functional equation determines the degree-12 Weil numerators, so distinct F_2-Jacobian isogeny classes follow from Tate. I read the complete enumeration, field arithmetic and orbit code rather than accepting CERTIFIED as proof. The independent rank test checks representatives, not the completeness of orbit/smoothness enumeration; that completeness rests on a transparent exact finite algorithm with exhaustive loops and unit-ideal criterion, not on an extension-degree cutoff. No geometric-isomorphism classification or Newton polygons are inferred.
 
-**Limits.** No classification of all genus-six curves, geometric twists, or full Newton polygons is claimed. Bibliographic completeness and independent external verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS applies to the four (p-rank,a) strata and ten computed rational Weil numerators, not the already-known 1512 equations/ten geometric orbits. Primary paper Asgarli–Ghioca concerns degree-q+3 plane filling constructions/smoothness and does not derive Jacobian Hasse–Witt ranks or a ten-isogeny list. A full exact preexisting zeta/Cartier table would cover the novel part, but relevant searches and inspected primary theorem statements have not exposed one; this is qualified, not a priority certificate.
+
+## value
+
+PASS
+
+An extremely constrained, geometrically canonical family with precisely ten projective classes merits its exact arithmetic stratification: the absent 2-ranks 0,1,3,4 and the sharp rank-two minimum have arithmetic meaning, and each distinct Weil numerator answers a natural rational isogeny question. It is not merely rediscovering the known 1512/10 geometric census. A finite complete natural family may have independent value without a general genus-six theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
