@@ -1,0 +1,138 @@
+{
+  "claim": "For the exact zero-order-hold discretization of the continuously controllable planar oscillator \\(A=\\omega\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}, B=e_1, \\omega>0\\), the sampled reachability matrix \\(W_h=[B_h,A_hB_h]\\) is singular exactly at \\(h_m=m\\pi/\\omega\\). Its exact singular values imply \\(\\|W_h^{-1}\\|_2\\sim1/(\\sqrt{2}|h-h_m|)\\) at odd resonances and \\(\\|W_h^{-1}\\|_2\\sim\\sqrt{2}/(\\omega|h-h_m|^2)\\) at even resonances, so the source's unrestricted sampled-controllability assertion fails and its inverse-based exact-tracking computation becomes ill-conditioned nearby.",
+  "correctness": {
+    "rationale": "Exact zero-order-hold matrices give \\(W_h^\\top W_h\\) directly. Its eigenvalues yield both singular values; the singular set and asymptotics follow from trigonometric expansions. Continuous controllability is verified by \\(\\det([B,AB])=\\omega\\ne0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical abstracts discuss sampled-system controllability/reachability broadly; no accessible text supplied this oscillator's singular-value law."
+      ],
+      "reasoning": "Prior general criteria cover the broad loss phenomenon but do not, on available evidence, dominate the quantitative asymptotic claim. Full-text overlap remains a residual risk.",
+      "searches": [
+        "for the sampled controllability matrix W_h=[B_h,A_h B_h] of a controllable oscillator, singular values and inverse norm blow up near critical sampling periods",
+        "near resonant sampling period exact asymptotic condition number of discrete controllability matrix for a two dimensional oscillator",
+        "controllability matrix sampled-data system determinant near critical sampling period oscillator gain blowup",
+        "quantitative ill-conditioning of sampled-data reachability matrix near sampling zeros for finite-time control",
+        "DOI:10.1109/TAC.1972.1100045",
+        "DOI:10.1137/090765304"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arXiv:2207.03235",
+        "material_read": "Full-text HTML; relevant definitions and exact-tracking section.",
+        "title": "Consistent discretization of finite/fixed-time controllers"
+      },
+      {
+        "identifier": "DOI:10.1016/j.automatica.2023.111118",
+        "material_read": "Published metadata and abstract; corresponding full-text section not separately inspected.",
+        "title": "Consistent discretization of homogeneous finite/fixed-time controllers for LTI systems"
+      },
+      {
+        "identifier": "DOI:10.1109/TAC.1972.1100045",
+        "material_read": "Abstract and bibliographic metadata only.",
+        "title": "Controllability and stabilizability of sampled systems"
+      },
+      {
+        "identifier": "DOI:10.1137/090765304",
+        "material_read": "Abstract and bibliographic metadata only.",
+        "title": "Some Remarks on the Controllability of Sampled-Data Systems"
+      },
+      {
+        "identifier": "MSC2020:93C57",
+        "material_read": "Official classification identifies sampled-data control/observation systems.",
+        "title": "MSC2020 classification 93C57"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary preprint asserts continuous controllability implies invertibility of \\(W_h\\); this oscillator has \\(\\det([B,AB])=\\omega\\) but \\(\\det(W_h)=0\\) at \\(h=m\\pi/\\omega\\).",
+        "The exact singular values yield the odd/even asymptotic constants in the claim."
+      ],
+      "reasoning": "The source's unrestricted assertion is contradicted by an explicit plant. The broad loss phenomenon is prior art; the claim is limited to the exact formula and parity-dependent quantitative blow-up.",
+      "searches": [
+        "Polyakov Efimov Ping 2023 consistent discretization W_h invertibility sampled pair controllability",
+        "arXiv:2207.03235",
+        "DOI:10.1109/TAC.1972.1100045",
+        "DOI:10.1137/090765304"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest records concern observation determinants, Fourier sampling aliasing, sampled bang-switch timing, or unrelated resonance invariants."
+      ],
+      "reasoning": "The broad sampled-controllability failure is known, but the exact object and parity-dependent inverse-norm asymptotics are more specific than the retrieved formulations.",
+      "searches": [
+        "sampling a continuous-time controllable linear system can lose controllability at resonant sampling periods due to eigenvalue aliasing exact example rotation matrix",
+        "for A_h=exp(hA), B_h=integral exp(sA)B ds, continuous controllability does not imply discrete sampled controllability every h counterexample",
+        "sampled-data exact discretization critical sampling period controllability loss complex conjugate eigenvalues",
+        "arXiv:2207.03235 exact-tracking section (full-text source inspection)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct database record was returned; the closest IDs are recorded in prior_checks.closest_results."
+      ],
+      "reasoning": "No exact database/table match was identified. Failed search alone is not proof of novelty; the primary source was also inspected directly.",
+      "searches": [
+        "for the sampled controllability matrix W_h=[B_h,A_h B_h] of a controllable oscillator, singular values and inverse norm blow up near critical sampling periods",
+        "controllability matrix sampled-data system determinant near critical sampling period oscillator gain blowup"
+      ]
+    },
+    "rationale": "The broad fact that sampling can destroy controllability is classical and is not claimed as new. The exact determinant, closed-form singular values, and distinct odd/even inverse-norm asymptotics for this reachability matrix were not found in targeted database queries or accessible source material. Full-text overlap with two classical papers remains a stated risk.",
+    "residual_risks": [
+      "Full text of the 1972 and 2010 sampled-data controllability papers was not inspected and may contain a specialization equivalent to part of the formula.",
+      "The published 2023 version was checked at metadata/abstract level; the relevant section was read in the 2022 preprint.",
+      "The result applies only to the planar oscillator and its exact zero-order-hold reachability matrix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The unrestricted implication is false at \\(h=m\\pi/\\omega\\). The separate static-feedback result assumes nilpotent A and is not refuted by this example.",
+        "evidence": [
+          "The exact-tracking section defines \\(A_h=e^{hA}\\), \\(B_h=\\int_0^h e^{sA}B\\,ds\\), and \\(W_h\\), then asserts invertibility from continuous-time controllability.",
+          "For the oscillator, \\(\\det(W_h)=4\\sin^2(\\theta/2)\\sin\\theta/\\omega^2\\) and \\(\\sigma_{\\min}(W_h)=2|\\sin(\\theta/2)|\\sqrt{1-|\\cos\\theta|}/\\omega\\)."
+        ],
+        "identifier_or_url": "arXiv:2207.03235",
+        "material_read": "Full-text HTML, problem statement and single-input exact-tracking section defining \\(A_h\\), \\(B_h\\), and \\(W_h\\), and stating the implication.",
+        "method": "Reconstructed the exact zero-order-hold matrices and computed determinant and singular values for a controllable planar rotation plant.",
+        "title": "Consistent discretization of finite/fixed-time controllers",
+        "trigger": "The source asserts that continuous-time controllability implies sampled-pair controllability and invertibility of \\(W_h\\)."
+      },
+      {
+        "assessment": "The general phenomenon is established prior work; available material does not show the oscillator-specific parity-dependent asymptotics. Full-text overlap remains unresolved.",
+        "evidence": [
+          "The abstract discusses conditions for controllability and stabilizability of sampled systems."
+        ],
+        "identifier_or_url": "DOI:10.1109/TAC.1972.1100045",
+        "material_read": "Abstract and bibliographic record only.",
+        "method": "Compared the broad topic of sampled-system controllability with the narrower exact singular-value law.",
+        "title": "Controllability and stabilizability of sampled systems",
+        "trigger": "Classical prior literature on sampled-system controllability is relevant to the broad loss-of-controllability phenomenon."
+      },
+      {
+        "assessment": "Relevant to the broad issue, but the abstract does not state the exact formula or parity-sensitive constants; full-text overlap remains a risk.",
+        "evidence": [
+          "The abstract studies controllability/reachability of continuous plants with digital control."
+        ],
+        "identifier_or_url": "DOI:10.1137/090765304",
+        "material_read": "Abstract and bibliographic record only.",
+        "method": "Compared the stated reachability scope with the exact two-state zero-order-hold matrix asymptotics.",
+        "title": "Some Remarks on the Controllability of Sampled-Data Systems",
+        "trigger": "A later paper specifically addresses sampled-data reachability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09c3340f-336a-444b-9ddf-62c7dfbbfd33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact-tracking control computation is undefined at resonances and has worst-case inverse gain growing as the inverse first power or inverse square of detuning, depending on resonance parity. This gives a concrete sampling-design constraint beyond a binary controllability test.",
+    "status": "PASS"
+  }
+}
