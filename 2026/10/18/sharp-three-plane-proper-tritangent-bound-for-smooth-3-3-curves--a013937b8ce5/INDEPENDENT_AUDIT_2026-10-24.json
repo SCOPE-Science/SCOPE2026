@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:57:24.604804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The split quadric Q=P1xP1/F2 embeds by O(1,1), so a smooth (3,3) section has canonical genus-four embedding. Exactly 15 rational planes correspond to nonzero 2x2 matrices: six invertible planes cut smooth (1,1) graph conics, nine rank-one planes cut the union of ruling lines. On an invertible graph, restrict a binary (3,3) equation to a sextic G; scheme-theoretic proper tritangency is exactly G=g² with a squarefree homogeneous binary cubic g (three odd sextic coefficient vanishing and projective gcd including infinity). For rank-one LM=0, the two restricted cubics must be M h1² and L h2²; h1(s),h2(u) nonzero ensures one ordinary doubled contact at the ruling-line crossing and one separate doubled contact on each ruling. This is stronger than merely even intersection and correctly excludes nonreduced contact supports. I wrote an independent GF2 polynomial/contact enumerator (different implementation from both supplied checkers), enumerated the complete 65,535 masks, generated all five split-quadric automorphism operations, enumerated 1,075 orbits and checked 4 affine Gröbner charts for each representative. Exactly 252 smooth orbits containing 16,020 equations remained; their proper-plane histogram is 0:10,656;1:5,022;2:324;3:18 and refined (graph,tangent) histogram [(0,0):10656,(0,1):2088,(1,0):2934,(1,1):252,(1,2):18,(2,0):72]. A unique 18-mask orbit attains 3, representative mask 10723 with (1,2) plane-type counts; orbit stabilizer 72/18=4. The two provided checkers were also read and independently implement full graph/rank-one contact with different filtering; finite exhaustion is complete because all possible coefficients and rational planes occur in the enumerated domain. The exact Gröbner unit-ideal criterion detects geometric smoothness over the algebraic closure, not just F2-point regularity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior works give broader classifications of curves or over algebraic closures, but do not state the exact rational-plane 0/1/2/3 proper tritangent distribution."
+        ],
+        "reasoning": "Knowing every curve equation could in principle enable fresh calculations, but a prior enumeration of the objects does not imply the original contact invariant was already computed or reported.",
+        "searches": [
+          "Xarles full text Sections2–4 and Theorem10",
+          "Kulkarni et al arXiv:1712.06274 full primary text sections1–2",
+          "Mathematical genus-four canonical-quadric classification"
+        ]
+      },
+      "checked_sources": [
+        "Xarles arXiv:2007.07822 full primary HTML Sections2–4 and tables",
+        "Kulkarni et al arXiv:1712.06274 full text relevant genus-four tritangents sections",
+        "Resultary dedicated F2 split-quadric proper-plane tritangency query, disjoint hits",
+        "Pinned dual-source checkers and independent complete GF2 enumeration with geometric Gröbner criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F2 genus-four class coverage encompasses the same curves but not the new proper-contact statistic; 120 geometric tritangent planes are not 120 F2-rational distinct proper contacts."
+        ],
+        "reasoning": "Prior complete class lists dominate the object range, not the new invariant. Proper tangent-plane count and sharp 3 bound require the additional GF2 contact computation.",
+        "searches": [
+          "Xarles classification all genus-four F2",
+          "Kulkarni geometric 120 theta-characteristics",
+          "Submitted exact 15-plane contact tests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xarles Section3 and Theorem10 enumerate 780 trigonal curve classes/number-of-points data, not the proper rational-plane contact histogram.",
+          "Kulkarni et al count 120 geometric complex tritangents and real variants; rational F2 tritangents are different arithmetic objects."
+        ],
+        "reasoning": "Arithmetic rationality and reduced three-contact support over F2 are essential; neither an unqualified count of geometric tritangents nor the genus-four curve-isomorphism census is statement-equivalent.",
+        "searches": [
+          "Resultary query: tritangent planes smooth (3,3) curves split quadric F2 complete census three maximum",
+          "Xarles arXiv:2007.07822 genus-four F2 census",
+          "Kulkarni et al arXiv:1712.06274 tritangents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Xarles tables list numbers of curve isomorphism classes and F2^n rational points, not contact counts for all 16,020 split-quadric sections.",
+          "No exact 15-plane histogram appeared among the reviewed Resultary hits."
+        ],
+        "reasoning": "The stated histogram is an exact exhaustive finite table; no prior table with matching derived invariant was found, but uninspected code/supplement files remain a residual possibility.",
+        "searches": [
+          "Xarles full text tables and special curves Section3–4",
+          "Resultary proper-tritangent query",
+          "Kulkarni tritangent algorithms and associated public data"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact proper *F2-rational plane* tritangent spectrum on the split genus-four quadric, refining the existing genus-four F2 curve census by a distinct contact invariant. Xarles (2020) fully enumerates genus-four isomorphism classes and lists point-count/zeta data, but its primary full text does not state the 15-plane proper-contact histogram, extremal orbit or refined plane types. Kulkarni–Ren–Sayyary Namin–Sturmfels (2017) work with real and complex tritangent planes, where all 120 geometric odd-theta tritangents are a different invariant: being geometrically a tritangent neither implies being defined over F2 nor having 3 distinct contacts in char2.",
+      "residual_risks": [
+        "Xarles public companion Magma census files were not exhaustively searched for an unpublished proper-tritangent count; they might contain the invariant although the primary paper does not state it.",
+        "Characteristic-two theta geometry may offer an independent known classification under another invariant name; no priority guarantee.",
+        "All enumerated smoothness verdicts rely on exact symbolic Gröbner reductions; independently implemented, but not externally formal-certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECTS_NEW_INVARIANT",
+          "evidence": "Xarles lists 780 trigonal F2 isomorphism classes and arithmetic point counts, no explicit 15 rational proper-tritangent distribution in inspected full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07822",
+          "material_read": "Full arXiv HTML, Sections2–4, computational algorithm, Theorem10, complete tabulated invariants and special curve examples",
+          "method": "read and searched complete document for tritangent and contact terms",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Direct same genus/base field and potential exact table"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_FIELD_RATIONALITY",
+          "evidence": "Theoretical 120 count over complex closure does not count F2-defined planes or distinguish reducible split-quadric contact supports in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.06274",
+          "material_read": "Full arXiv HTML introduction and geometric tritangent algorithm discussion",
+          "method": "read relevant statements on 120 geometric tritangents and real tritangent counts",
+          "title": "Real Space Sextics and their Tritangents",
+          "trigger": "Same tritangent definitions and potentially dominating classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting F2-rational *proper* tritangent planes of canonical genus-four split-quadric curves is a natural arithmetic contact invariant, not a random slice. The theorem supplies the sharp global bound three, the entire all-equations spectrum, and the unique extremal symmetry orbit with plane-type refinement. The finite census is a complete classification of a canonical degree-six geometric problem and is of legitimate mathematical value independently of a larger general-q theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Xarles public companion Magma census files were not exhaustively searched for an unpublished proper-tritangent count; they might contain the invariant although the primary paper does not state it.",
+    "Characteristic-two theta geometry may offer an independent known classification under another invariant name; no priority guarantee.",
+    "All enumerated smoothness verdicts rely on exact symbolic Gröbner reductions; independently implemented, but not externally formal-certified.",
+    "Only F2 and the split quadric, no nonsplit quadrics or geometric tritangent enumeration in algebraic closure.",
+    "Proper reduced degree-three supports are essential: weaker even-contact counts can exceed the three-plane bound.",
+    "All five root Git tree SHA-1 values were reconstructed from the actual Git directory entry listing, with source root blob SHAs matched; deeper nested tree bytes (where applicable) and each file payload hash not independently recomputed.",
+    "Scientific PASS is a best-of-knowledge analytical and finite-check assessment, not an independent human expert, Lean certification, or guarantee of publication priority.",
+    "Scientific acceptance does not license public exposure of source operational metadata; publication is intentionally not_ready."
+  ],
+  "schema_version": 1
+}
