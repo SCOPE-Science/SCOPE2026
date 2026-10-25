@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T14:53:50Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md and VERIFICATION.md of assigned tree 69bdb96469f4f0b8b732faa8a01c5c67727185ad",
+        "Haddad--Ryabogin primary Definition 7/8, Theorems 9 and 14(a), Eq.21",
+        "Independent admissibility checker: m=2..200, k=2..max(m+20,300), both source-defined functions, all strict margins positive; exact symbolic CF identity and rational lower bounds."
+      ],
+      "rationale": "For every integer m>=2, the infinite 2 continued-fraction tail evaluates to gamma=1/2-1/[2(2m+1+sqrt2)] and hence h=pi/[2(2m+1+sqrt2)], R=csc h, A=(4pi/3)cot^3 h. The source admissibility threshold A>8 omega3 follows from h<pi/8. Recurrence gives odd q2=2m+1,q3=2m+3,q4=6m+7 and all later q odd. Source Theorem 14(a)/(21), with j0=3 and tail digits two, requires lhs 4pi/[cos(pi/q3)*sqrt(R^2 cos^2(pi/q4)-1)]<=q3; uniform bounds h<1/4,q3>=7,q4>=19 imply lhs<160pi/133<4<q3, so every k>=m+2 is covered. For 2<=k<=m+1, direct odd-multiple distances are strictly decreasing; substitution into source F± gives Fminus=asin(sin h/sin((2k-1)h))-h and Fplus=h-asin(tan h sin(2(k-1)h)). For k<=m the minus condition is exactly 3sin h<sin((4k-1)h), proved by sine concavity on [7h, pi-(3+2sqrt2)h] with the uniform h<1/4 bounds; plus follows from Fplus<h<delta(k+1). At k=m+1, the two strict inequalities reduce to the explicit positive sine combination and sin 2h>tan(sqrt2 h), which hold for h<1/4. Thus source Definition 8 applies to every m, and Theorem 9 gives stated ball rigidity. h~pi/(4m) proves unbounded increasing A~256m^3/(3pi^2). Independent symbolic CF and rational-bound checks and 59,501 direct source-G/F finite comparisons per branch corroborate but do not replace the unlimited theorem.",
+      "risks": [
+        "Proof inherits the published hypotheses, inequalities and strictness of primary Theorems 9 and 14; no standalone geometric uniqueness proof is claimed.",
+        "Numerical stress tests are finite and do not certify all k or m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global Barker--Larman rigidity for ellipsoids, published 2026-10-04, establishes parameter-unrestricted uniqueness only in the ellipsoid class.",
+          "Haddad--Ryabogin Theorem 9 covers arbitrary symmetric bodies of revolution, but only for areas in the arithmetic admissible set."
+        ],
+        "reasoning": "Global ellipsoid uniqueness does not imply uniqueness over all symmetric convex bodies of revolution; the source theorem does not imply its admissible set is unbounded.",
+        "searches": [
+          "Resultary semantic search: global rigidity Barker Larman ellipsoid symmetric convex bodies of revolution explicit arithmetic admissible rotation",
+          "web fast: Haddad Ryabogin On convex bodies with constant non-central sections arxiv 2605.00299 Theorem 14 admissible continued fraction"
+        ]
+      },
+      "checked_sources": [
+        "Haddad--Ryabogin arXiv:2605.00299v1 primary full-text HTML mirror (Theorems 1,9,14 and Sections 3-5)",
+        "Resultary published 2026-10-04 positive-measure theorem 9071214707a6 full public RESULT.md",
+        "Resultary published 2026-10-04 ellipsoid-rigidity theorem 75abc96cf1f6 full public RESULT.md",
+        "Resultary semantic query 1 about unboundedness/endpoint exact family",
+        "Resultary semantic query 2 about positive measure/constant tangent-section areas",
+        "Resultary semantic query 3 about global Barker--Larman ellipsoid comparison",
+        "Three targeted public-web searches including exact arXiv identifier and endpoint aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Section 4.2 constructs its large families by keeping a deep prefix of interior gamma1=[0;2,3,1,overline2].",
+          "The positive-measure proof chooses J compactly inside (arctan2/pi,1/2) and a deep cylinder I_L inside U near gamma1.",
+          "The ellipsoid result assumes both comparison bodies already ellipsoidal."
+        ],
+        "reasoning": "The prior results supply machinery (tail criterion, rigidity) and interior sizes of A, but not a boundary-approaching sequence. No previously inspected implication forces the claimed endpoint unboundedness.",
+        "searches": [
+          "Haddad--Ryabogin arXiv:2605.00299v1 full-text Sections 3-5 including Theorems 9 and 14",
+          "Resultary prior complete RESULT.md 9071214707a6 and 75abc96cf1f6",
+          "web fast: \"positive Lebesgue measure\" \"non-central section areas\" 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haddad--Ryabogin arXiv:2605.00299v1, definition A(gamma)=4pi/3 tan^3(pi gamma), Section 4.2; gamma in (arctan 2/pi,1/2).",
+          "The exact family [0;2,m,1,overline 2] tends to 1/2, so the corresponding areas tend to infinity.",
+          "Resultary 2026/10/11 1363b38a004d is the same assessed record, not independent earlier priority."
+        ],
+        "reasoning": "Unbounded admissible areas are equivalent to existence of admissible rotations arbitrarily close to the right endpoint 1/2. The inspected prior constructions do not supply that endpoint accumulation.",
+        "searches": [
+          "Resultary semantic search: admissible non-central section areas unbounded arbitrarily large area rotation gamma approaches one half Haddad Ryabogin continued fractions quadratic irrationals",
+          "web fast: Haddad Ryabogin admissible areas unbounded gamma to 1/2 2026",
+          "web fast: 2605.00299 unbounded admissible section areas gamma m quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/11/1363b38a004d matches the currently assessed source exactly and cannot constitute independent prior work.",
+          "The closest distinct database hit is positive Lebesgue measure for admissible non-central section areas 2026/10/4/9071214707a6, whose proof is confined to a fixed interior cylinder.",
+          "Source arXiv:2605.00299v1 lists [0;2,1,1,overline2] and [0;2,3,1,overline2] individually, with no all-m table."
+        ],
+        "reasoning": "A bounded-cylinder positive-measure theorem neither tabulates nor logically implies this all-integer family. Search absence is not treated as definitive proof of priority.",
+        "searches": [
+          "Resultary query: admissible non-central section areas unbounded arbitrarily large area rotation gamma approaches one half Haddad Ryabogin continued fractions quadratic irrationals",
+          "Resultary query: positive Lebesgue measure admissible non-central section areas constant area tangent sections Barker Larman bounded continued fraction",
+          "web fast: 2605.00299 gamma [0,2,m,1,2,2] admissible A family"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison finds no independent prior result proving that the arithmetic admissible area set of Haddad--Ryabogin is unbounded. The primary complete v1 text constructs two individual examples and further families only inside a cylinder near an interior rotation. The October 4 positive-measure theorem uses one such bounded cylinder, which cannot force admissible rotations approaching 1/2. The all-m family is genuinely new relative to those statements; its exact Resultary index hit is the same research record, not earlier independent coverage.",
+      "residual_risks": [
+        "An equivalent endpoint or unboundedness theorem under a different arithmetic formulation may be unindexed.",
+        "The web tool could not access the newer arXiv v2 PDF; the inspected complete primary version is v1, specifically the source version cited by the claim.",
+        "The primary result and two Resultary predecessors are public research findings, not independently confirmed external journal certifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING: source proves geometric rigidity for admissible A and positive Hausdorff dimension but no all-m boundary-reaching family.",
+          "evidence": "Definition 8; Theorem 9; Theorem 14(a)/(21); Section 4.2 pp18-20: two individual quadratic examples and restricted-digit families about interior gamma1; final Question 15.",
+          "identifier_or_url": "arXiv:2605.00299v1; https://www.researchgate.net/publication/404396743_On_convex_bodies_with_constant_non-central_sections",
+          "material_read": "Complete 20-page primary paper as available in HTML full-text reproduction: Theorem 1 and hypotheses, Sections 2-3, Definition 7 and 8, Theorem 9 and proof, Propositions 10-13, Theorem 14 statement and proof including Eq. (21), Section 4.2 constructions, concluding remarks and Question 15.",
+          "method": "Full-text reading of the legally accessible ResearchGate HTML transcription of the v1 preprint; mathematical statements and formulas cross-checked against the submitted expressions. Direct arXiv PDF access was blocked in this runtime.",
+          "title": "On convex bodies with constant non-central sections",
+          "trigger": "Primary source defining C(A,k) and proving continued-fraction reduction and rigidity."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: positive measure entirely within a bounded deep continued-fraction cylinder near gamma1; does not imply unboundedness.",
+          "evidence": "The proof selects compact J inside (gamma_*,1/2), U near gamma1, and I_L subset U; final A(S_L) remains bounded.",
+          "identifier_or_url": "Resultary/2026: 2026/10/4/SCOPE-positive-lebesgue-measure-for-admissible-non-central-section-are--9071214707a6/RESULT.md; Git blob aa9d0d1687ae2fb6d68c330f73b241c10e717e74",
+          "material_read": "Complete public RESULT.md: finding, scope, uniform tail lemma proof, cylinder positive-measure construction, verification, literature comparison and limitations.",
+          "method": "GitHub pinned public record retrieved through authorized repository connector.",
+          "title": "Positive Lebesgue measure for admissible non-central section areas",
+          "trigger": "Closest published previous result on size of exactly the same admissible set."
+        },
+        {
+          "assessment": "INCOMPARABLE_NOT_COVERING: broader parameter regime but substantially narrower shape class (ellipsoids).",
+          "evidence": "Its theorem begins by assuming both unknown outer bodies are ellipsoids, whereas the primary arithmetic rigidity result applies to symmetric convex bodies of revolution.",
+          "identifier_or_url": "Resultary/2026: 2026/10/4/SCOPE-global-barker-larman-rigidity-for-ellipsoids--75abc96cf1f6/RESULT.md; Git blob 3db7572e233f282db3653d3c6ec049565e5ba1e0",
+          "material_read": "Complete public RESULT.md including theorem, hypotheses, affine section-volume formula, proof, scope and prior-work discussion.",
+          "method": "GitHub public record fetched and read in full.",
+          "title": "Global Barker--Larman rigidity for ellipsoids",
+          "trigger": "Parameter-unrestricted nearby rigidity theorem potentially dominating this special case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Only a countable family is produced; no positive-measure tail or density, no classification of all admissible quadratic irrationals.",
+        "No extension beyond four-dimensional symmetric bodies of revolution and their equal tangent-section area assumptions."
+      ],
+      "rationale": "The source admissible-area set has the geometrically singular boundary gamma->1/2 where R and tangent-section area diverge. Prior positive Hausdorff-dimension and positive-measure results only establish nontrivial interior subsets. This explicit countable quadratic sequence supplies the missing global unboundedness of the natural admissible invariant and quantitative cubic area growth; it is motivated and not implied by the cited sizes of bounded subsets. This is a structural endpoint statement, not merely a new isolated rotation or a textbook restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Haddad--Ryabogin arXiv:2605.00299v1 primary full-text HTML mirror (Theorems 1,9,14 and Sections 3-5)",
+    "Resultary published 2026-10-04 positive-measure theorem 9071214707a6 full public RESULT.md",
+    "Resultary published 2026-10-04 ellipsoid-rigidity theorem 75abc96cf1f6 full public RESULT.md",
+    "Resultary semantic query 1 about unboundedness/endpoint exact family",
+    "Resultary semantic query 2 about positive measure/constant tangent-section areas",
+    "Resultary semantic query 3 about global Barker--Larman ellipsoid comparison",
+    "Three targeted public-web searches including exact arXiv identifier and endpoint aliases"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only a countable family is produced; no positive-measure tail or density, no classification of all admissible quadratic irrationals.",
+    "No extension beyond four-dimensional symmetric bodies of revolution and their equal tangent-section area assumptions.",
+    "Latest v2 primary PDF not materially read: cannot claim to exclude every revision-related novelty overlap."
+  ],
+  "residual_risks": [
+    "An equivalent endpoint or unboundedness theorem under a different arithmetic formulation may be unindexed.",
+    "The web tool could not access the newer arXiv v2 PDF; the inspected complete primary version is v1, specifically the source version cited by the claim.",
+    "The primary result and two Resultary predecessors are public research findings, not independently confirmed external journal certifications.",
+    "Proof inherits the published hypotheses, inequalities and strictness of primary Theorems 9 and 14; no standalone geometric uniqueness proof is claimed.",
+    "Numerical stress tests are finite and do not certify all k or m."
+  ],
+  "schema_version": 1
+}
