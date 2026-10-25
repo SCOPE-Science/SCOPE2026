@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:44:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact quartic equilibrium reduction P(x,r) uses y=5x/D and z=x(r+x)/D, D=2x²+rx+5-r², valid with D>29/10 on the critical rectangle. I independently recomputed disc_x P=12000 H(r) and P(0,r)=(r²−5)(2r²−5r−10). Four real discriminant roots are near −2.011934533, −1.308660544, 2.188758627 and 3.355161061; negative fold r_f≈−1.30866054409147 and transcritical r_t=(5−√105)/4≈−1.31173769148990 have gap ≈0.00307714739843. Exact rational Sturm and the proof’s uniform P_xx>12, P_r>28, endpoint positivity show two and only two positive x roots for r_t<r<r_f, with no extra real roots by root-count continuity. The equilibrium Jacobian satisfies det(J)=−x P_x/D on P=0, independently checked symbolically modulo P; its trace −8, principal-minor a2>12 and |a3|<7 give a sink at x_+ and one-unstable saddle at x_−. The origin polynomial and Routh–Hurwitz prove sink until r_t; nonzero x branch crosses the origin transversally at r_t. The global Lyapunov family V_u=1/2(ux²+y²+(2−u)z²), whose quadratic nonlinear derivative cancels, has negativity condition Phi(u,r)<1; strict convex minimization and resultant r^4 H(r) identify the same r_f as its exact negative threshold. A strict negative definite weighted symmetric linear part proves global exponential attraction for r_f<r≤0, not merely local stability. Verification script’s rational Sturm/inequality assertions were materially inspected; finite numerical eigenvalues were not used for interval proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goyal–Pontes Duff–Benner arXiv:2308.13819 gives general energy-preserving quadratic dynamics stability conditions; Resultary October 11 ETM-3D statement explicitly only rho≥0."
+        ],
+        "reasoning": "A general sufficient quadratic Lyapunov criterion cannot determine the sharp negative fold or index census without additional exact elimination and root/sign analysis. No found broader theorem covers this branch.",
+        "searches": [
+          "ETM-3D quadratic flow negative parameter bistability saddle node transcritical Lyapunov global stability threshold",
+          "Goyal Pontes Duff Benner Guaranteed Stable Quadratic Models energy preserving 2023"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04768v1, ETM-3D original, mathematical model and rho≥0 domain",
+        "Resultary 2026-10-11 exact ETM-3D positive threshold, full RESULT.md",
+        "arXiv:2308.13819, energy-preserving quadratic stability framework",
+        "Frozen package RESULT.md, REVIEW.md, VERIFY and METADATA/AUDIT/VERIFICATION at commit 8e5e2167af52d04f310bb669dc3100d7e8aaca19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem: for 0≤rho<2.18875862695 origin globally exponentially stable; negative rho is excluded. Source algebra has det(J)=−xP_x/D only after new equilibrium branch analysis."
+        ],
+        "reasoning": "Domain restriction and lack of a negative branch stability count prevent implication. Applying the earlier energy technique with negative rho plus Sturm, a2 and index arguments is genuinely new mathematical work.",
+        "searches": [
+          "ETM-3D quadratic flow negative parameter bistability saddle node transcritical Lyapunov global stability threshold",
+          "Resultary prior 2026-10-11 ETM-3D exact global-stability threshold RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original ETM-3D uses the same vector field and parameter rho and reports positive critical values. The published SCOPE result uses the identical degree-eight H but assumes rho≥0. Negative r_f≈−1.30866 is another root of H; origin loses stability at r_t≈−1.31174."
+        ],
+        "reasoning": "The shared polynomial and Lyapunov-formula normalization are equivalent algebraic tools, not equivalent quantified theorems: global positive-half stability does not entail coexistence of two sinks for negative rho.",
+        "searches": [
+          "ETM-3D quadratic flow negative parameter bistability saddle node transcritical Lyapunov global stability threshold",
+          "arXiv:2610.04768v1 negative parameters ETM-3D",
+          "Resultary full text: Exact global-stability threshold at first ETM-3D saddle-node"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published full RESULT.md tabulates positive r=2.18875862695 as first positive fold and positive parameter Lyapunov boundary; original ETM-3D source gives positive continuation data."
+        ],
+        "reasoning": "The same H contains a negative root, but a table of its roots is not the new three-equilibrium stability classification or negative global-stability equivalence. No exact negative-branch classification found in checked material; search absence is not priority proof.",
+        "searches": [
+          "ETM-3D quadratic flow negative parameter bistability saddle node transcritical Lyapunov global stability threshold",
+          "SCOPE published ETM-3D discriminant four real roots"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS restricted to the exact negative-parameter coexistence window, its three equilibrium indices, generic bifurcation endpoints, and sharp origin stability; the original 2026 ETM-3D paper studied nonnegative parameters and a prior published mathematical result proves the positive first saddle-node threshold using the same H. The polynomial and energy cancellation are not credited as new. Opposite signs of r produce genuinely different root order and origin spectral sign; the published positive-half claim neither states nor mechanically yields the negative two-sink interval. Potential unindexed negative-domain analysis remains a priority risk.",
+      "residual_risks": [
+        "Negative-domain equivalent results may occur in unindexed later dynamics literature; checked sources are not a proof of exhaustive priority.",
+        "The exact global conclusion is restricted to the origin at r_f<rho≤0; coexistence result is about local equilibrium sinks only; no claim about all periodic or chaotic attractors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original uses rho≥0 for bifurcation results and leaves negative branch future exploration; provides vector field and quartic used in proof",
+          "evidence": [
+            "arXiv:2610.04768v1 vector field and explicit rho≥0 numerical saddle-node section"
+          ],
+          "identifier_or_url": "arXiv:2610.04768v1",
+          "material_read": "Accessible article HTML mathematical model, nonnegative bifurcation domain and future-work passage; not asserted that every appendix was read",
+          "method": "Open primary arXiv HTML",
+          "title": "Khalili-Amirabadi and Jalaeian-Farimani, ETM-3D: A One-Parameter Multistable Quadratic Flow",
+          "trigger": "Same polynomial ODE and its parameter range"
+        },
+        {
+          "assessment": "Theorem is for rho≥0; same H; no two-negative-sinks or negative fold classification",
+          "evidence": [
+            "Finding 0≤rho<rho_* and proof weighted V_a formula; no negative rho theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-global-stability-threshold-at-the-first-etm-3d-saddle-node--997f2098aca6/RESULT.md",
+          "material_read": "Entire RESULT.md including finding, assumptions, proof, references",
+          "method": "Read-only GitHub connector full-file text",
+          "title": "Exact global-stability threshold at the first ETM-3D saddle-node",
+          "trigger": "Same ETM-3D flow, H and cancellation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact, narrow negative parameter interval with two coexisting hyperbolic sinks in a named quadratic dynamical system is a genuine stability/bifurcation boundary, not merely a restated discriminant root: the proof certifies both sink indices, a saddle separating branches, transcritical/fold transitions, and a global origin-attraction frontier. These precise constraints matter for multistability and parameter selection. It does not claim global basin topology or absence of additional recurrent attractors.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.04768v1, ETM-3D original, mathematical model and rho≥0 domain",
+    "Resultary 2026-10-11 exact ETM-3D positive threshold, full RESULT.md",
+    "arXiv:2308.13819, energy-preserving quadratic stability framework",
+    "Frozen package RESULT.md, REVIEW.md, VERIFY and METADATA/AUDIT/VERIFICATION at commit 8e5e2167af52d04f310bb669dc3100d7e8aaca19"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real polynomial ETM-3D flow with rho negative or zero as stated; no quantitative basin volumes or attractor exclusion in coexistence interval.",
+    "Sturm root brackets certify isolation, decimal width only approximates exact algebraic difference."
+  ],
+  "residual_risks": [
+    "Negative-domain equivalent results may occur in unindexed later dynamics literature; checked sources are not a proof of exhaustive priority.",
+    "The exact global conclusion is restricted to the origin at r_f<rho≤0; coexistence result is about local equilibrium sinks only; no claim about all periodic or chaotic attractors."
+  ],
+  "schema_version": 1
+}
