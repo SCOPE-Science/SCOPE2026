@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:47:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ec658d820e6080b5c5305e524870a57cbdf3dce6, proof and exceptional boundary",
+        "Robles-Pérez & Rosales 2023 Theorem 4.6 and Lemma 4.3 (full accessible article)",
+        "Independent shortest-path Apéry computation a=3..14"
+      ],
+      "rationale": "For a>=3 and m=F_a, the cited Zeckendorf Apéry theorem gives w(x)=x+β(x)m for residues 0<=x<m, with β the number of nonconsecutive Fibonacci summands F_2..F_{a-1}. Maximality in the semigroup order is equivalent to no generator addition yielding a strictly higher Apéry representative; non-wrapping jumps require β(x+F_j)≤β(x), and wrapping jumps cannot raise the required count by the cited coin-reduction lemma. A non-dominating independent set admits insertion of an isolated index and therefore is not maximal. For a dominating set with 2 present, Fibonacci identities 2F_j=F_{j+1}+F_{j-2} (j>=4), 2F_3=F_4+F_2 and 2F_2=F_3 reduce doubled occupied digits without increasing minimal coin count. Dominating sets beginning at 3 fail unless they are exactly the alternating 3,5,...,a-1 set for even a (boundary x=F_a-1). The standard Apéry PF=w-m identity converts all maximal words to the explicit spectrum. The first-2-containing independent dominating binary words correspond to compositions into 2/3 blocks and satisfy Padovan count P_{a-2}; the even exceptional word adds 1. Independent Dijkstra residual shortest-path method, separately enumerated independent dominating words, confirmed full PF values and types a=3..14. None of these finite checks certifies a universal theorem in lieu of proof.",
+      "residual_risks": [
+        "The published Zeckendorf Apéry and coin-reduction lemmas are essential external premises; their general hypotheses were compared for a>=3.",
+        "Subtle carry-propagation induction is checked from explicit Fibonacci identities and small independent spectra; no machine formalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published theorem computes w(x), Frobenius and genus; classical numerical semigroup theory gives PF as maximal Apéry translate."
+        ],
+        "reasoning": "A general Apéry characterization reduces the problem but does not compute all maximal representatives; published type/semigroup comparisons of different Fibonacci triples cannot dominate without an explicit reduction to this shifted infinite-family generator set.",
+        "searches": [
+          "Robles Pérez Rosales Fibonacci incremented theorem 4.6 lemma4.3 Frobenius genus",
+          "Fibonacci numerical semigroup Apéry maximal elements type Padovan"
+        ]
+      },
+      "checked_sources": [
+        "Robles-Pérez and Rosales 2023, Mediterr. J. Math. 20:222, DOI:10.1007/s00009-023-02428-9, full OA, Lem4.3/Thm4.6",
+        "Rosales and García-Sánchez 2009 standard semigroup Apéry theory (bibliography only)",
+        "Resultary exact shifted-Fibonacci Padovan/PF semantic search",
+        "Targeted web queries about shifted Fibonacci PF spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Apéry formula supplies w(x)=x+β(x)m and coin reduction; the current novel proof computes maximal words via adjacency/carry arguments and obtains every PF number."
+        ],
+        "reasoning": "Known genus or Frobenius number determines neither the set of pseudo-Frobenius numbers nor the type. The general PF=max Apery-m statement does not remove the need to classify maximum elements.",
+        "searches": [
+          "Robles Pérez Rosales 2023 Thm4.6 Apéry and Lem4.3",
+          "Rosales García-Sánchez Numerical Semigroups Apéry type theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation uses maximal elements of the Zeckendorf Apéry set under <=_S; standard equivalence PF(S)=max Apery - F_a.",
+          "Existing 2023 paper identifies w(x), not which residues are <=_S-maximal."
+        ],
+        "reasoning": "Explicitly compare PF set, type, canonical Zeckendorf digit ideals and independent-dominating path subsets, not title matching. The carry constraints converting an Apéry representative to a PF number are not consequences of the formula for max(w) alone.",
+        "searches": [
+          "Resultary: shifted Fibonacci numerical semigroup pseudo Frobenius type Padovan independent dominating Apéry Zeckendorf",
+          "Web shifted Fibonacci numerical semigroup type pseudo-Frobenius Padovan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The initial type sequence 1,2,1,3,2,4,4,6,7,10 is independently reproduced by Dijkstra but no same-family type table was found in inspected article."
+        ],
+        "reasoning": "Finite sequence coincidences with Padovan counts do not establish all a or the full set of pseudo-Frobenius numbers; none of the checked published tables exactly supplied this classification.",
+        "searches": [
+          "shifted Fibonacci semigroups pseudo Frobenius table a=3..12 Padovan",
+          "Resultary numerical semigroup Fibonacci Apéry type"
+        ]
+      },
+      "rationale": "The same-family published primary paper proves generator description, explicit Apéry representatives, Frobenius number, genus and Wilf bound but not the complete maximal-Apéry classification, pseudo-Frobenius spectrum or semigroup type. General Apéry max-to-PF equivalence is standard and openly credited; the new content is the dominating-Zeckendorf characterization with parity exception and Padovan enumeration. Resultary and web searches with type/PF/Padovan aliases found related Fibonacci-triple semigroups, not this exact result; best-of-knowledge only.",
+      "residual_risks": [
+        "Unindexed or later study of the same shifted-Fibonacci generator family may independently classify maximal Apéry residues.",
+        "The standard semigroup textbook was not available in full; its use is generic and not taken as a whole-text originality exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "APERY/COIN PREMISES COVERED; PF SPECTRUM NOT IN INSPECTED SECTION",
+          "evidence": "Theorem 4.6 gives Apéry representatives using Zeckendorf count; source’s stated main conclusions concern Frobenius and genus, not Padovan type or all PF numbers.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-023-02428-9 | arXiv:2210.00816",
+          "material_read": "Lawfully accessible complete open-access journal article; compared definitions of S(a), Lemma 4.3, Theorem 4.6, later Frobenius/genus/Wilf discussion",
+          "method": "primary publisher full article HTML, relevant theorem and derivation inspected",
+          "title": "The Extended Frobenius Problem for Fibonacci Sequences Incremented by a Fibonacci Number",
+          "trigger": "Same exact generator family and proof premises"
+        },
+        {
+          "assessment": "STANDARD TOOL recognized; not exact classification",
+          "evidence": "General identity expresses PF elements as translates of maximal Apéry elements, but does not characterize them for this Fibonacci system.",
+          "identifier_or_url": "Rosales and García-Sánchez, Springer 2009, ISBN 978-1-4419-0159-0",
+          "material_read": "Bibliographic description and standard Apéry/PF identity as used in reviewed RESULT.md; full textbook not obtained",
+          "method": "textbook bibliographic/formula context, not independent full-text reading",
+          "title": "Numerical Semigroups",
+          "trigger": "General pseudo-Frobenius and type definitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Robles-Pérez–Rosales 2023 family and Apéry formula",
+        "complete PF set and type derivation in RESULT.md"
+      ],
+      "rationale": "The complete PF spectrum and exact Cohen–Macaulay type are natural structural invariants of an established numerical-semigroup family. They are not implied by known genus/Frobenius formulas; their explicit dominating-set and Padovan relation can inform ring-theoretic or factorization questions for this exact family without requiring a separate downstream theorem.",
+      "residual_risks": [
+        "Does not generalize automatically to arbitrary shifted recurrences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Family parameter a is every integer >=3; Fibonacci indexing F_0=0, F_1=1 matters.",
+    "Uses published exact Zeckendorf Apéry and coin-reduction lemmas.",
+    "Independent Dijkstra checked a<=14, not all a.",
+    "The frozen PUBLIC AUDIT.json and METADATA.json contain scope_run_id operational identifiers. No complete, semantically sanitized versions with exact source blob guards and content hashes were prepared. Keep scientific evidence, withhold publication; server status-file postprocessing is not a substitute for verified removal from source-public metadata."
+  ],
+  "schema_version": 1
+}
