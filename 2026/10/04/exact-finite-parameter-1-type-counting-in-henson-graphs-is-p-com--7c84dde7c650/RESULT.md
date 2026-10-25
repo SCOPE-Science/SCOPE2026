@@ -94,7 +94,7 @@ For the complexity reduction it exhaustively enumerates all bipartite graphs wit
 \[
 C_{r-1}(B\vee K_{r-3};1)=(2^{r-3}-1)2^{|B|}+i(B).
 \]
-The replay covers 2,572 one-point-extension instances and 3,445 hardness-identity instances and terminates with `VERIFY_OK`. This is same-model verification; no independent audit has yet been performed.
+The replay covers 2,572 one-point-extension instances and 3,445 hardness-identity instances and terminates with `VERIFY_OK`. This is self-review; no independent audit has yet been performed.
 
 ## Relationship to prior work
 Siniora and Solecki explicitly list the universal homogeneous \(K_n\)-free graph among free homogeneous structures. This supplies an eligible modern foundations source for the Henson family, but their result concerns coherent EPPA and automorphism groups, not finite-parameter type enumeration or counting complexity.
