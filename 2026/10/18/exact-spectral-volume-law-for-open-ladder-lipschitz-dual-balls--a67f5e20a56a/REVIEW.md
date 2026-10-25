@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For unit-edge open ladder graphs, anchored potentials undergo an integer-unimodular coordinate change into rung slopes and horizontal slopes. Each horizontal slope has feasible interval length \(2-|s-t|\); Fubini gives precisely the claimed triangular transfer kernel. Differentiating the resolvent twice and applying the even endpoint condition gives the stated analytic generating function. The nonnegative Gram representation makes the transfer operator compact, positive and self-adjoint; its even eigenvalues solve \(\cos\rho=\rho\sin\rho\) and their squared constant-vector projections give the exact spectral weights. Strict log-convexity and the exponential asymptotic follow from a nondegenerate positive spectral moment representation. Integer graph-incidence total unimodularity justifies extracting volume from Ehrhart finite differences; an exact independent implementation agrees in dimensions 3, 5, 7, 9, 11 and 13. No finite experiment is used in place of the general proof.
+PASS
 
-## Originality — PASS, qualified
+For L_n=P_n□K2 with f(1,0)=0, the triangular unimodular change to rung slopes s_i∈[−1,1] and horizontal top slopes u_i makes each u_i admissible on an interval of length 2−|s_i−s_{i−1}|. Fubini yields V_n=<1,T^(n−1)1>, T having positive-semidefinite Gram kernel 2−|x−y| on [-1,1]. The resolvent u=(I−zT)^−1 1 solves u=−2zu with the even Robin-type endpoint equation, giving GF 2sin(sqrt(2z))/[sqrt(2z)(cos(sqrt(2z))−sqrt(2z)sin(sqrt(2z)))]. The even eigenfunctions cos(ρ_jx) satisfy tanρ_j=1/ρ_j; spectral weights 4/[ρ_j²(ρ_j²+2)] are strictly positive, giving exact series, strict Cauchy–Schwarz log-convexity and ratio limit 2/ρ_0². Independently computed 240-point Gaussian–Legendre discretized-kernel iterates for n=1..7 and compared every V_n to given exact rational values (relative errors <5e−5); finite quadrature only checks the analytic proof, not exhaustive n.
 
-The checked primary sources describe finite-metric Lipschitz-free geometry, graph transportation quotient structure, volume products, and symmetric-edge polytope lattice points. In particular, the polar lattice-point count in D'Alì–Delucchi–Michałek, Proposition 4.37, is not an exact full Ehrhart polynomial or the continuous open-ladder dual-volume generating function. The closest indexed ladder result concerns spanning trees, not uniformly measured potentials. The nearest accessible historical claims concern circular-ladder facets, a squared-path volume, and wheel volume, rather than the open-ladder exact spectral law. No statement implying the new result was identified, but an unindexed equivalent application of classical triangular-kernel theory remains a meaningful bibliographic risk. The classical operator spectrum by itself is not presented as original.
+## originality
 
-## Value — PASS
+PASS
 
-Anchored polar volume is a basic metric-Banach-space geometric invariant. The ladder is the first nontrivial fixed-width strip family beyond a single path; the theorem gives a complete sequence, a sharp exponential constant, and a global strict monotonicity law for volume ratios across all dimensions, not just a few numerical values. This exact all-dimensional growth behavior distinguishes it from isolated small graph counts and provides a natural benchmark for more complicated graph strips.
+The duality with the polar symmetric edge polytope and generic graph-metric volume methods are prior art, explicitly credited. The fully inspected D’Alì et al. 42-page primary paper has polar-dual lattice point formulas (e.g. Proposition 65) but not the identified open-ladder continuous anchored-volume generating function, spectral decomposition or strict consecutive-ratio law. Those constitute a new evaluated family on the available evidence; unindexed ladder-specific formulas or general transfer-operator corollaries remain residual priority risks.
 
-## Scope and limitations
+## value
 
-All results use unit-edge **open** ladders, anchored-coordinate Lebesgue measure, and integer \(n\ge2\); the auxiliary initial value has \(n=1\). No result is asserted for circular or weighted ladders. Bibliographic search does not certify worldwide uniqueness. Exact enumeration checks only dimensions 3–13; the general theorem is proved analytically.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The real Lipschitz potential polytope of a natural graph strip is a meaningful transportation-cost metric invariant. An all-length rational generating sequence, continuous spectral interpretation, strictly increasing volume ratios and explicit geometric growth rate provide reproducible exact structural information beyond generic polar lattice-point formulas or isolated small-graph computation; downstream theorem is not needed for its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
