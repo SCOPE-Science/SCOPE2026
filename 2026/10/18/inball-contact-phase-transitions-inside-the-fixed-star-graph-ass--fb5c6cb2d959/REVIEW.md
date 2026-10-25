@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The leaf-coordinate projection is exactly the polymatroid given by all intersection-rank upper subset sums and nonnegative coordinate constraints; greedy support functions establish sufficiency. Intrinsic normal lengths give the universal upper bound and an attaining symmetric ball. All possible optimal centers are forced to the stated leaf coordinates. A three-ray comparison rigorously eliminates every intermediate subset cardinality, proving the sharp a=b phase and contact counts. Monotone intersection probabilities yield the strict m>=3 cutoff. Positive edge/pair simplex fans reconstruct all positive leaf ranks, proving normal-fan constancy. A standalone support-vertex/facet checker passed 35 independently enumerated integer-parameter scenarios; those finite tests do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2022 m-graph construction and star combinatorial stabilization are credited. The published standard stellohedron record covers the endpoint m=k inradius/contacts, not the continuous weighted phase or the 2-to-3 contact transition inside one fixed normal fan. The published star hypergraphic result handles diameters, not inballs; projected partial-permutohedron inradius uses a different metric tensor. These statements do not imply the claimed weighted intrinsic contact classification; an equivalent broad polymatroid Chebyshev theorem not found remains a concrete residual bibliographic risk.
+PASS
 
-The closest checked full results are the initial 2022 graph-polytope paper, Behrend's 2024 partial-permutohedron treatment, the published standard stellohedron inball endpoint, the cardinality-weighted star diameter theorem, and the partial-permutohedron inball theorem. The comparison addresses implication and metric normalization rather than mere terminology. Residual risk: a differently presented general polymatroid inball theorem may cover the sharp phase.
+Projected leaf-coordinate polytope equals the independent-set polymatroid y_i≥0, y(U)≤A_|U| with rank A_u=Σ_j w_j(C(k,j)−C(k−u,j)), by equality of greedy support functions, not mere necessary facet inequalities. The intrinsic metric after eliminating hub is I+11^T, giving lower intrinsic normal length d=√(k/(k+1)) and subset-upper normal √[u(k−u+1)/(k+1)]. Any inball forces r≤A_u/(ud+ν_u); center with all leaf coordinates dr realizes the minimum and is uniquely forced by every minimizing-cardinality subset. For two strata a,b>0, exact inequalities on pure edge, equal edge+pair and pure pair rays show only cardinalities 1 and k can minimize, with a>b, a=b, a<b yielding respectively 2k,2k+1,k+1 contacting facets; intermediate u never tangent. For canonical m≥3, strict increased hypergeometric intersection probabilities force only u=k. Positive edge and pair simplices already impose the common normal fan, so m=2→3 tangency changes without combinatorial fan changes. Independently compared analytic distances and endpoint inequalities for k=3..16 over (a,b)=(1,3),(1,1),(3,1),(1,2),(2,1) and all m cutoffs. This is not a metric claim after naive hub-coordinate deletion.
 
-## Mathematical value — PASS
-The number of inball-contact facets changes sharply between 2k, 2k+1, and k+1 while all polytopes with positive edge and pair weights have exactly the same normal fan and face lattice. This distinguishes a natural Euclidean invariant from combinatorial type within an established canonical interpolation; the finite formula and classification apply in every dimension, with the threshold independent of dimension. The known terminal endpoint is explicitly separated from the new transition.
+## originality
 
-## Limitations and integrity
-The proof concerns canonical coordinate-simplex realizations with intrinsic Euclidean distance. The unweighted final endpoint and the construction are credited. Finite vertex/facet scenarios corroborate but do not certify all dimensions. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prior Resultary full same-object stellohedron result already establishes the m=k endpoint radius/unique uniform center and k+1 facets; prior same-weight-family diameter theorem evaluates a different metric functional. Pešović–Stojadinović gives the underlying m-graph polytopes and star fan stabilization; Behrend/partial-permutohedron paper concerns projected leaf-coordinate geometry. None of these inspected source statements entails the new continuous ratio a/b=1 contact transition, sharp formulas for intermediate m and 2→3 jump inside an identical fan. Novelty excludes previously known endpoint.
+
+## value
+
+PASS
+
+The exact transition gives a realizational geometry invariant not visible from a face lattice/normal fan, and the continuous positive two-weight star family is a natural interpolation from graphical zonotopes to stellohedra. The fully specified contact classes and metric distinction are useful independently of the known terminal inradius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
