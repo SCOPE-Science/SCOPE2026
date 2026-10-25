@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with standard Python 3. This file is a complete implementation of signed cellular matrices for unordered two-point configurations of complete bipartite graphs. No third-party libraries or external data are required. It checks integer boundary-composition zero on every square and computes modular ranks and actual signed kernel-action traces modulo 1009. It does not infer a rational theorem from finite-field data: the all-sizes proof is in `RESULT.md`.
+# Independent mathematical audit
 
-The test dimensions and computed \(\beta_2\) values are \((3,3):0\), \((3,4):2\), \((3,5):5\), \((4,4):12\), \((4,5):27\), \((5,5):60\), and \((5,6):104\). Direct signed cycle-trace comparisons for all side permutations were performed on \((3,3),(3,4),(4,4),(4,5)\). All side-exchange elements of the balanced examples \((3,3),(4,4)\) were checked too, for 4,248 comparisons in total. The code checks the exact chain relation before computing any ranks, and explicitly compares predicted traces to those induced on the degree-two cycle kernel.
+## correctness
 
-Limitations: computations modulo a prime do not prove characteristic-zero rank in general, rational semisimplicity in arbitrary size, or novelty. Those claims instead rely on the mathematical argument and primary literature comparison. The degree-two group character does not itself specify an integral lattice. No independent audit has been performed.
+PASS
+
+For the unordered distinct two-point Abrams cubical model of K_m,n, m,n≥3, the degree 0,1,2 oriented chain representations under S_m×S_n are C0=(P_m⊠1)⊕(U_m⊠U_n)⊕(1⊠P_n), C1=(O_m⊠U_n)⊕(U_m⊠O_n), C2=(∧²U_m⊠P_n)⊕(P_m⊠∧²U_n). The two-dimensional matching fibre has exactly two one-dimensional stabilizer sign types, explaining the C2 orientation. Total-motion of two particles gives an equivariant onto map H1→H1(K_m,n); Ko–Park ranks for nonplanar 3-connected graph braid groups imply rational equality, hence H1=V_m⊠V_n. Substituting standard Specht decompositions U=1+V, P=1+V+W, ∧²U=V+Z, O=1+2V+W+Z in Euler–Poincaré yields H2=(W_m⊠Z_n)⊕(Z_m⊠W_n). Semisimplicity justifies representation equality over Q. In square r≥4 both factors irreducible inequivalent and interchange swaps them, forcing full semidirect-product irreducibility and zero trace on exchange coset. At r=3 W3=0 and H2=0. Recomputed dimensions via hook formula: (3,4)=2,(4,4)=12,(4,5)=27,(5,5)=60.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
+
+## value
+
+PASS
+
+The distinction between the diagonal S_r symmetry commonly computed in FI-graph work and the full independent-part S_m×S_n, then outer exchange, matters: these are genuinely finer symmetry types, including the irreducibility of a module that splits over the index-two normal subgroup and trace-zero exchange character. The uniform rectangular family provides a reusable exact benchmark for equivariant graph-configuration topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

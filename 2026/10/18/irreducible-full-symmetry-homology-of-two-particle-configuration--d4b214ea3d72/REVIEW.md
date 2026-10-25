@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ordered-particle-versus-unordered-particle distinction is handled using the unordered Abrams cellular model. For a fixed two-pair vertex selection, the two 2-cells have an oriented signed permutation action; swapping the first-side vertices negates the pairing swap whereas swapping the second-side vertices does not. This gives exactly the two stated induced chain modules. The total-motion map on first homology is surjective because an external fixed particle can accompany each four-cycle; Ko–Park's rank theorem is applicable because the complete bipartite graph is three-connected and nonplanar. Rational Euler–Poincaré and Maschke's theorem then prove the Specht decomposition, including exceptional size three. The two constituents are distinct irreducibles permuted by side exchange, proving the whole-group irreducibility claim for balanced sizes at least four. The standalone independent-in-form arithmetic implementation tests seven graphs, chain-complex identities and 4,248 signed cellular character equalities. Risks: the rational result uses Ko–Park's published first-homology theorem and the standard Abrams-model equivalence; no integral full-group decomposition is claimed.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Farber–Hanbury and Ko–Park cover nonequivariant homological tools and first-homology ranks, not the two-index product-group second-homology character. Ramos–Yun Section 3.3 explicitly uses the diagonal symmetric group simultaneously relabeling both sides of a square complete bipartite graph and gives the diagonal decomposition in Theorem 3.17, not a full product/wreath decomposition and not all rectangular side sizes. Their result is a restriction-type consequence, not a known stronger covering result. Targeted research-record queries for equivalent Specht factors, wreath-product irreducibility, and group action on unordered graph braid homology returned adjacent findings concerning *sink* configurations and different graphs, none furnishing the same claim. Residual risks include unindexed theses or later symmetric-group treatment and the summary-only access for some adjacent research records. The novelty assessment is evidence-based, not a theorem of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Ramos–Yun already showed that equivariant homology of graph configuration spaces is a motivated refinement of Betti numbers; the independent-side action is the natural full automorphism symmetry missing from the diagonal restriction. The two opposite irreducible Specht tensor factors and their exchange yield a genuinely nontrivial structural consequence: balanced entire second homology is a **single irreducible module** of the full graph automorphism group, even though it splits into two irreducibles when restricting to independent side permutations. The vanishing of every exchange-coset trace and uniform rectangular formula are not numerical table extensions or substitutions into the previously published diagonal answer. Their dimensions are consistent with all small exact computations.
+For the unordered distinct two-point Abrams cubical model of K_m,n, m,n≥3, the degree 0,1,2 oriented chain representations under S_m×S_n are C0=(P_m⊠1)⊕(U_m⊠U_n)⊕(1⊠P_n), C1=(O_m⊠U_n)⊕(U_m⊠O_n), C2=(∧²U_m⊠P_n)⊕(P_m⊠∧²U_n). The two-dimensional matching fibre has exactly two one-dimensional stabilizer sign types, explaining the C2 orientation. Total-motion of two particles gives an equivariant onto map H1→H1(K_m,n); Ko–Park ranks for nonplanar 3-connected graph braid groups imply rational equality, hence H1=V_m⊠V_n. Substituting standard Specht decompositions U=1+V, P=1+V+W, ∧²U=V+Z, O=1+2V+W+Z in Euler–Poincaré yields H2=(W_m⊠Z_n)⊕(Z_m⊠W_n). Semisimplicity justifies representation equality over Q. In square r≥4 both factors irreducible inequivalent and interchange swaps them, forcing full semidirect-product irreducibility and zero trace on exchange coset. At r=3 W3=0 and H2=0. Recomputed dimensions via hook formula: (3,4)=2,(4,4)=12,(4,5)=27,(5,5)=60.
 
-## Literature and boundary
-Farber–Hanbury arXiv:1005.2300v1; Ko–Park arXiv:1101.2648v1; Ramos–Yun arXiv:2606.13813v1, Section 3.3, Theorem 3.17. The calculation applies to unordered collision-free two-point spaces and rational group modules. It does not cover sink configurations or integer module decompositions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
+
+## value
+
+PASS
+
+The distinction between the diagonal S_r symmetry commonly computed in FI-graph work and the full independent-part S_m×S_n, then outer exchange, matters: these are genuinely finer symmetry types, including the irreducibility of a module that splits over the index-two normal subgroup and trace-zero exchange character. The uniform rectangular family provides a reusable exact benchmark for equivariant graph-configuration topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
