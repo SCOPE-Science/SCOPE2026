@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit subgroup quotient partitions each triangle and edge uniquely. Each piece is an orientable surface via a complete local link cycle and coherently oriented paired triangular levels. The incidence graph is connected and has a calculated cycle rank. Replacing shared vertex identifications with mapping-cylinder stars produces the claimed wedge by a standard graph-of-spaces argument. A source-code verifier independently reproduces the face, surface, and chain-rank assertions for 42 nongenerating-gap instances.
+
+**Originality — PASS, with stated residual risk.** The closest indexed calculation, *Two adjacent affine layers force integral homology in two neighboring degrees* (2026-10-11), was directly read: its exact domain is a cyclic group with adjacent sums zero and one, with a unique integral top cycle, and it explicitly excludes nongenerating differences. Its statement cannot imply the present subgroup-index-dependent \(g^2\) top cycles. The flabby-inflation theory in Ayzenberg–Khoroshavkina (arXiv:2602.08694v1, Theorem 1.2) requires an inapplicable global assumption, and the inspected ternary-relation framework is general rather than a calculation for this family. Indexed aliases, quotient cosets and full parameter descriptions were searched without a covering result. Unindexed Latin-trade literature remains a risk; absence of a search hit is not a proof of uniqueness.
+
+**Value — PASS.** The nongenerating-gap case is a natural unresolved boundary explicitly noted by the closest preceding two-layer result. It changes local manifoldness and top homology rank while preserving every face count. The exact homotopy decomposition includes positive-genus surfaces and graph cycles for every finite abelian group, and is substantially more informative than a routine numerical extension or Euler-characteristic identity.
+
+**Scientific limitations.** Only finite abelian groups, three colors, two sums and nongenerating gaps are covered. The result does not assert canonical equivariance, nonabelian extensions, independent validation, or novelty of the earlier generating case.
+
+Self-review: passed. Independent audit: not yet performed.
