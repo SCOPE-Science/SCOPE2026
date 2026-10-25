@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:10:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md",
+        "pinned VERIFICATION.md",
+        "independent Fourier filtering examples /mnt/data/scope08_math_checks_20261023.py",
+        "Zajkowski fixed-operator variational formula 2010"
+      ],
+      "rationale": "For W_α on C(T), W_(p/q)^q is multiplication by exp(qG_q), so log spectral radius equals max G_q; root-of-unity filtering gives G_q=sum_j ĝ(jq)e^{ijqθ}, with mean m. Strict max>m exactly when some positive Fourier mode divisible by q is nonzero. For irrational α, uniform unique ergodicity via uniform trig polynomial approximation gives log r=m. Analytic Fourier decay |ĝ(k)|<=Mρ exp(-ρ|k|) yields jump <=2Mρ e^{-ρq}/(1-e^{-ρq}), ensuring continuity at all irrationals, and the rational spike criterion; denominators are divisor-downward closed. Conversely any divisor ideal D has entire g_D=2η sum_{k∈D}e^{-k²}cos kθ, and positive-coefficient Fourier maximum occurs θ=0: exact rational log spike 2η sum_{ℓq∈D}e^{-(ℓq)²}, positive precisely q∈D; its first term has relative O(e^{-3q²}), while ||e^g-1||∞->0 as η->0. D empty, q=1, and infinitely many D all covered. Independent finite D={1,2,3,6} Fourier checks confirm allowed spike denominators; not a proof of general arbitrary sets.",
+      "residual_risks": [
+        "Weight must be positive and nonzero, with g real analytic; no spectral full-set or operator-norm parameter continuity claimed.",
+        "The formula is an infinite Fourier construction with analytic proof; finite samples alone do not prove every divisor ideal is realized."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macdonald, Decomposable weighted rotations on the unit circle (1996), abstract/Theorem 3.6 concerns irrational-angle Cesaro rate/norm-power bounds and decomposability.",
+          "Dobrick, On the Cyclicity Conjecture (2026), Theorem 1.2 gives peripheral spectral cycling not inverse angle-discontinuity control."
+        ],
+        "reasoning": "Those operator results apply in other dynamical or spectral regimes and do not imply the claimed constructive realization of every divisor-downward-closed set of discontinuities; Macdonald full article uninspected beyond material noted, retaining priority risk.",
+        "searches": [
+          "weighted irrational rational rotations positive analytic weights spectral radius discontinuity denominator divisor closed realization Fourier",
+          "continuity spectral radius analytic weighted circle rotation rational denominator Fourier support divisor",
+          "Macdonald decomposable weighted rotations 1996",
+          "Dobrick On the Cyclicity Conjecture arxiv 2610.10093"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4064/sm198-3-8",
+        "https://www.theta.ro/jot/archive/1996-035-002/1996-035-002-001.pdf",
+        "https://arxiv.org/html/2610.10093v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For rational q: spike iff q divides a nonzero positive Fourier frequency k; for irrationals r=e^m.",
+          "Entire g_D yields exact infinite positive-coefficient spikes with q∈D and uniformly tiny norm perturbation."
+        ],
+        "reasoning": "The known ergodic-optimization formula implies an upper envelope, but without the root-of-unity support criterion and entire realization it does not prove both necessity and sufficiency for an arbitrary arithmetic discontinuity pattern.",
+        "searches": [
+          "weighted irrational rational rotations positive analytic weights spectral radius discontinuity denominator divisor closed realization Fourier",
+          "continuity spectral radius analytic weighted circle rotation rational denominator Fourier support divisor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zajkowski (2010), DOI:10.4064/sm198-3-8, fixed operator spectral-radius variational principle over invariant measures.",
+          "For rational rotations, maximizing over cyclic orbits gives max G_q; irrational uniquely ergodic rotations give m."
+        ],
+        "reasoning": "Known fixed-α variational formula explains radius for one operator but does not by itself state the entire discontinuity denominator locus or its inverse realization for every downward ideal. The proof makes those implications explicit.",
+        "searches": [
+          "weighted irrational rational rotations positive analytic weights spectral radius discontinuity denominator divisor closed realization Fourier",
+          "continuity spectral radius analytic weighted circle rotation rational denominator Fourier support divisor",
+          "Zajkowski 2010 Spectral radius weighted composition operators Lp invariant measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-radius-inflation-for-polar-means-of-periodic-weig--acc21422fb82",
+          "Resultary polar means of periodic weighted shifts concern spectral radius inflation under a different operator mean, not parameter-angle continuity.",
+          "Example D={1,2,3,6} explicitly checked."
+        ],
+        "reasoning": "No located database or table states this all-divisor-ideal classification. The Fourier support/inverse construction is infinite and analytic; an isolated finite periodic table cannot entail arbitrary D.",
+        "searches": [
+          "weighted irrational rational rotations positive analytic weights spectral radius discontinuity denominator divisor closed realization Fourier",
+          "continuity spectral radius analytic weighted circle rotation rational denominator Fourier support divisor",
+          "weighted circle rotation spectrum discontinuous rational parameter analytic potential"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.",
+      "residual_risks": [
+        "Macdonald 1996 original article was not inspected exhaustively; its additional results may affect priority, though inspected theorem is on irrational decomposability, not arbitrary analytic inverse classification.",
+        "Unindexed ergodic-optimization continuity-locus literature might contain an equivalent arithmetic statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General maximum over invariant ergodic probability measures for a single weighted composition; no parameterized analytic-weight divisor-ideal inverse theorem located in read material.",
+          "evidence": [
+            "Equation (1.1) and (3.3), variation of log spectral radius"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/sm198-3-8",
+          "material_read": "Authorized-open seven-page publisher PDF, theorem/abstract and fixed-power proof formula (first and page 305 rendered)",
+          "method": "Publisher OA PDF text and rendered pages inspected",
+          "title": "Spectral radius of weighted composition operators in Lp-spaces",
+          "trigger": "Closest general radius/ergodic variational theorem"
+        },
+        {
+          "assessment": "Addresses irrational rotation decomposability and Cesaro norm bounds, not evident divisor-ideal continuity; incomplete reading is residual risk, NOT a whole-article noncoverage verdict.",
+          "evidence": [
+            "Abstract, Theorem 3.6 and Corollary 3.7 on irrational rotation denominators"
+          ],
+          "identifier_or_url": "https://www.theta.ro/jot/archive/1996-035-002/1996-035-002-001.pdf",
+          "material_read": "Original 1996 PDF title/abstract/intro and theorem 3.6 on irrational Diophantine convergence and decomposability (pages 205 and 212); remaining pages NOT inspected",
+          "method": "Original PDF pages 0 and 7 rendered and read",
+          "title": "Decomposable weighted rotations on the unit circle",
+          "trigger": "Precisely weighted circle rotation and possible earlier angle arithmetic"
+        },
+        {
+          "assessment": "Addresses peripheral spectrum cyclicity, not prescribed rational denominator discontinuities",
+          "evidence": [
+            "Theorem 1.2 and Example 3.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10093v1",
+          "material_read": "Relevant arXiv full text theorem statement and unweighted irrational rotation example",
+          "method": "arXiv accessible text consulted",
+          "title": "On the Cyclicity Conjecture",
+          "trigger": "Spectral radius/peripheral spectrum operator theory in current 2026 literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/arithmetic-classification-and-realization-of-spectral-radius-dis--b87c3174d122/RESULT.md",
+        "https://doi.org/10.4064/sm198-3-8",
+        "https://www.theta.ro/jot/archive/1996-035-002/1996-035-002-001.pdf",
+        "https://arxiv.org/html/2610.10093v1"
+      ],
+      "rationale": "Classifies exactly which rational rotation parameters are discontinuities for one positive analytic weighted composition family and gives an inverse construction realizing every permitted arithmetic ideal, even with arbitrarily small entire weight perturbation. It connects Fourier sparsity, unique ergodicity, spectral radius and instability of operator spectrum—an explicit natural structural dichotomy with sharp exponential bounds, beyond a routine restatement of fixed-operator variational principle.",
+      "residual_risks": [
+        "No norm continuity or full spectrum classification, no extension to nonanalytic or sign-changing weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real-analytic positive invertible weights e^g on C(T), parameter α mod1; divisor-downward rational discontinuity locus and entire realization.",
+    "Prior coverage and inaccessibility qualifications are explicit in O; bounded literature search is not a proof of absolute priority.",
+    "Independent finite numerical or chain computations support exact steps only as described; publication remains withheld for privacy, not scientific reasons."
+  ],
+  "schema_version": 1
+}
