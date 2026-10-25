@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every odd integer with exactly two interior zeroes, a three-run binary parametrization is unique. Removing two factors from any even multiplier preserves digit sum. For each odd multiplier 3,5,7,9, the multiplication carry deficit contracts as floor(e/2), hence after four input ones enters a one-output fixed point; therefore the Hamming weight difference is unchanged by reducing runs longer than four to four. This leaves exactly 70 capped triples at length at least seven, all exhaustively verified twice by independent exact arithmetic mechanisms. Every case is assigned its first successful multiplier among these four; no smaller odd or even candidate is possible. In the remaining family, n=3(2^(L-2)-1) has binary weight L-2, and each positive multiple of 2^r-1 has at least r ones, proved by cyclic folding. The closed class counts follow from compositions. The finite certificate is used only after an independently justified infinite-to-finite reduction. No independent audit is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.02731, Sections 4–8 give algorithms for individual mfw or sturdiness decisions.",
+        "arXiv:2002.02731, Section 11 / Theorem 15(c) classifies sturdy versus flimsy status for odd two-zero integers and notes odd multipliers at most 9 suffice for flimsiness.",
+        "The 2021 conference version, Theorem 16(c), has the same status-level dichotomy."
+      ],
+      "reasoning": "Pointwise algorithms can evaluate the invariant for any supplied integer but neither the inspected text nor its theorem gives a closed formula for which multiplier 3,5,7,9 is first for all lengths, nor the exact distribution. The new claim is strictly finer than the old status classification. The method is related, but the structural run-length formula and infinite reduction were not located.",
+      "searches": [
+        "\"sturdy and flimsy numbers\" \"minimal flimsy witness\" classification 2023",
+        "\"flimsy numbers\" binary \"two zeros\" \"multiplier\" 7 9",
+        "For every odd L-bit integer with exactly two zero digits, determine minimum positive multiplier reducing binary Hamming weight; possible first flimsy multipliers precisely 3,5,7,9, or sturdy; classify positions and counts"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2002.02731",
+      "https://doi.org/10.1016/j.tcs.2022.05.029",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol157-fun2021/LIPIcs.FUN.2021.10/LIPIcs.FUN.2021.10.pdf",
+      "https://oeis.org/A143069"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Preprint Theorem 9 establishes an infinite sturdy family; Theorem 15(c) identifies the two-zero sturdy exceptions.",
+        "Its Section 11 constructs automata recognizing k-flimsiness for selected k; it does not assert which k first succeeds at every triple (a,b,c).",
+        "The nearest semantic published-result record concerned products of binary-weight-two and binary-weight-three integers, a distinct invariant."
+      ],
+      "reasoning": "The sturdy subcase is covered and explicitly not claimed as new. The old assertion that a nonsturdy number has SOME multiplier≤9 does not imply the particular 3,5,7,9 partition or its cardinalities without further exact overlap calculations. The other sparse-product result studies factor weights, not minimum weight-reducing multipliers.",
+      "searches": [
+        "For every odd L-bit integer with exactly two zero digits, determine minimum positive multiplier reducing binary Hamming weight; possible first flimsy multipliers precisely 3,5,7,9, or sturdy; classify positions and counts",
+        "minimum flimsy witness mfw(n) for binary strings with exactly two zeros; 1^a 0 1^b 0 1^c; cutoff a b c carry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 preprint defines mfw(n)=min{k:s2(kn)<s2(n)} in its introduction; this is exactly the first-Hamming-weight-decreasing-multiplier invariant.",
+        "The preprint distinguishes mfw from its minimum-weight witness msw and its minimum attained digit sum swm."
+      ],
+      "reasoning": "The five-way case distinction concerns first successful multiplier, not minimum attained weight or mere sturdy status. Searches for both terminologies and for two-zero binary strings found no equivalent uniform five-case partition.",
+      "searches": [
+        "\"mfw\" \"two zeros\" flimsy numbers first witness 9",
+        "\"minimal flimsy witness\" \"two zeros\" binary",
+        "For every odd L-bit integer with exactly two zero digits, determine minimum positive multiplier reducing binary Hamming weight; possible first flimsy multipliers precisely 3,5,7,9, or sturdy; classify positions and counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2002.02731, introduction refers to Appendix C table of mfw for odd n≤129 (journal Table 1).",
+        "OEIS A143069 concerns the multiplier attaining the globally minimum digit sum, a different function."
+      ],
+      "reasoning": "A bounded small-integer table does not imply a uniform classification for L≥7. The motivating table was checked for scope, not treated as exhaustive for the infinite claim.",
+      "searches": [
+        "\"mfw\" \"two zeros\" flimsy numbers first witness 9",
+        "\"minimal flimsy witness\" \"two zeros\" binary"
+      ]
+    },
+    "rationale": "The same-object primary literature defines minimum flimsy witness and computes it on individual inputs, and proves that odd two-zero words are flimsy except a known sturdy pattern and 51. Its general witness bound of 9 does not give the exact first-witness map across every word. The present new statement is the five-way run-length stratification and exact cardinalities; the previously known sturdy subfamily is acknowledged and reproved only to establish completeness. Full relevant primary-source sections and its conference counterpart were read. Public-literature and semantic prior-claim searches did not return a covering theorem. Residual risk is an unindexed or unpublished automata extraction; search absence alone is not proof of novelty.",
+    "residual_risks": [
+      "Algorithms in the motivating work make the formula derivable in principle, even though the explicit first-witness stratification was not located.",
+      "An unindexed follow-up, unpublished carry-table classification, or overlooked related OEIS entry could independently contain the five-way result.",
+      "Search results and available source inspection do not constitute universal proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original establishes binary two-zero sturdiness classification and computability; the exact first-witness five-way infinite case table and exact counts are not stated in inspected portions.",
+        "evidence": [
+          "Theorem 15(c), arXiv preprint page 14; Section 11 statement that multipliers up to 9 suffice",
+          "Introduction: definition of mfw and bounded table",
+          "Appendix: algorithm for individual mfw"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+        "material_read": "Introduction with definitions/table scope; basic digit-sum and sturdy lemmas (pp. 2–5); computational algorithms (pp. 9–11); full Section 11 / Theorem 15(c) (pp. 13–14, including page image); Section 12 on k-flimsy languages (pp. 14–16); appendix algorithm description (pp. 29–31).",
+        "method": "Read accessible full-text PDF sections and theorem statements and inspected the page image of Section 11.",
+        "title": "Clokie, Lidbetter, Molina Lovett, Shallit, and Witzman, Computational Aspects of Sturdy and Flimsy Numbers (arXiv:2002.02731, 2020 first version; 2022 journal publication)",
+        "trigger": "Same object and same invariant; possible direct or stronger overlap"
+      },
+      {
+        "assessment": "Same sturdy/flimsy dichotomy and computational algorithms; no explicit first-witness classification in inspected relevant passages.",
+        "evidence": [
+          "Theorem 16(c), conference page 13",
+          "General algorithm results preceding that theorem"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol157-fun2021/LIPIcs.FUN.2021.10/LIPIcs.FUN.2021.10.pdf",
+        "material_read": "Problem definition and conference Theorem 16(c) with its two-zero status statement (pp. 2 and 12–13); graph-algorithm text preceding theorem.",
+        "method": "Read original open-access full-text PDF at relevant passages.",
+        "title": "Clokie et al., Computational Fun with Sturdy and Flimsy Numbers, FUN 2021",
+        "trigger": "Original conference version could contain stronger claim omitted from preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12081480-f002-4143-9765-95f8e4d4ca15",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly selects minimum flimsy witness as a central natural invariant. Two zeroes are the first natural family admitting several competing first multipliers rather than trivial cases. The result determines an infinite exact first-witness spectrum and closed cardinality distribution, with a proof reducing infinitely many words to 70 elementary machine-verifiable states. It is more informative than the known yes/no classification and furnishes a reusable carry-saturation technique for small witness sets. It is not an arbitrary fixed-length slice, isolated small gain, or restatement of the known sturdy cases.",
+    "status": "PASS"
+  }
+}
