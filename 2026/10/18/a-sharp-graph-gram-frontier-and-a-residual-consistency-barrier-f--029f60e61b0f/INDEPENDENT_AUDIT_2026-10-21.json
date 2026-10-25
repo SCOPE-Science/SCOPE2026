@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T22:46:49.541000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalization A^T A=A1^T(I+Y^T Y)A1 and positive definiteness reduce the spectrum to a Rayleigh ratio. The completed-square identity and ||Yv||/||v|| differing from ||Wv||/||v|| by at most epsilon prove both spectral bounds. A diagonal 2x2 witness attains both endpoints simultaneously. SPD similarity yields the G-energy Richardson factor and balancing the endpoints gives tau*=2/(2+epsilon^2). For residual consistency, choose r2=u and r1=-Y^T u; then A^T r=0 but the W correction is nonzero whenever W!=Y. The scalar inconsistent example has z(e)h(e)<0, so the quadratic objective strictly increases for every tau>0. Numerical tests are corroborative only.",
+      "residual_risks": [
+        "Assumes exact arithmetic, exact upper-block solve, fixed W and an absolute operator-norm error bound; does not prove convergence of every ILU, flexible Krylov or floating-point implementation."
+      ],
+      "sources": [
+        "RESULT.md blob 03f58aba48de0575d2381b2c253e8b6ebe6e9099",
+        "verify_row_split.py blob 379c20204b4b8e8fd55eb0a9a2330df5c8031b07",
+        "VERIFICATION.md blob 3b340ee2f197f68ecea21f413917ce9a6db59021"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wathen states that a not-normal equation preserves least-squares solutions when the substitute matrix has the same column space as A; this covers the general consistency principle, not the exact W/Y residual-map characterization.",
+          "Garrison-Ipsen derive mixed-precision preconditioning perturbation bounds for normal/not-normal equations with residual-size dependence, using different preconditioners and error models."
+        ],
+        "reasoning": "These are relevant broader frameworks but do not imply the exact phi^2 generalized-eigenvalue enclosure or the matched scalar strict-ascent example under ||Y-W||_2<=epsilon.",
+        "searches": [
+          "arXiv:2603.28642v1 Sections 3.1-3.2 Algorithm 3",
+          "Wathen 2025 Least Squares and the Not-Normal Equations Section 2",
+          "Garrison Ipsen arXiv:2603.16644v1 Sections 3-5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.28642v1 full PDF",
+        "Wathen, SIAM Review 67(4), DOI 10.1137/23M161851X, full text",
+        "arXiv:2603.16644v1 full PDF",
+        "Resultary approximate K-duality, controlled g-duality and Kaczmarz entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scott-Tůma use the approximate factor in the row-split correction but do not state the sharp absolute-error envelope or the distinction between applying a preconditioner to the true normal residual and substituting the factor inside the residual.",
+          "Wathen’s column-space consistency result makes clear that the kernel-preservation issue is classical; the audit does not claim that principle itself as novel."
+        ],
+        "reasoning": "The new combined statement is the exact error-only spectral endpoint plus minimax step and a concrete residual-channel counterexample. A known general graph-subspace inequality may imply the scalar envelope; this remains the main originality risk, but no decisive covering result was found.",
+        "searches": [
+          "Scott Tuma arXiv:2603.28642v1 Algorithm 3 and Sections 3.1-3.2",
+          "Wathen DOI 10.1137/23M161851X Section 2",
+          "Garrison Ipsen arXiv:2603.16644v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott and Tůma, arXiv:2603.28642v1, Sections 3.1-3.4 and Algorithm 3: row-splitting factors and residual correction using the approximate trailing factor.",
+          "The current proof gives the exact identity p^2(1+t^2)-(1+(t+epsilon)^2)=epsilon p(t-p^-1)^2 and simultaneous 2x2 endpoint matrices."
+        ],
+        "reasoning": "The underlying row-split algorithm is prior work. The claimed statement is a specific absolute operator-norm perturbation envelope with simultaneous sharp endpoints, a minimax Richardson step, and a separate mismatch-of-residual obstruction; the inspected algorithm text does not state these consequences.",
+        "searches": [
+          "Scott Tuma row-splitting ILU approximate trailing factor graph Gram spectral bound",
+          "graph Gram matrices I+Y transpose Y and I+W transpose W operator norm perturbation sharp phi bound",
+          "Resultary query: row-splitting ILU least squares approximate trailing factor graph Gram preconditioner residual consistency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned related records concern controlled g-duality/K-duality and a two-row Kaczmarz finite-horizon bound; they use different objects and do not list this graph-Gram interval.",
+          "No exact database/table for the phi^4 bound or epsilon-only minimax relaxation was identified in the targeted results."
+        ],
+        "reasoning": "No exact table match surfaced; this is not proof that no classical graph-subspace or shear-matrix perturbation identity exists.",
+        "searches": [
+          "Resultary query: row-splitting ILU exact graph-Gram spectral equivalence operator norm error",
+          "Resultary record 2026/10/11/SCOPE-adjustable-preconditioning-collapses-approximate-controlled-g-duality--68be9d88ad8a",
+          "Resultary record 2026/10/11/SCOPE-approximate-k-duality-needs-generalized-inverse-scaled-error--cf9c26f6c7d8"
+        ]
+      },
+      "rationale": "The row-splitting construction and least-squares column-space consistency are acknowledged prior work. Full-text comparison did not identify the exact sharp phi^4 error-only envelope, simultaneous endpoint witness, minimax step, or the matched true-gradient/residual-channel counterexample. Equivalent classical graph-subspace or shear-matrix results remain a meaningful risk.",
+      "residual_risks": [
+        "An unindexed graph-subspace, shear-matrix singular-value or robust preconditioning result may already imply the exact phi bound.",
+        "The theorem is a structural guarantee, not a performance comparison for actual ILU or flexible Krylov implementations.",
+        "The column-space obstruction is classical and is not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same row-splitting architecture and approximate residual correction are prior; no matching absolute-error phi envelope or exact minimax Richardson theorem was identified.",
+          "evidence": [
+            "Algorithm 3, PDF p. 7, uses approximate trailing factor and solves with I+Y-tilde Y-tilde^T; the paper focuses on preconditioner application and numerical behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.28642",
+          "material_read": "Full 20-page PDF, introduction, Sections 3.1-3.4 and Algorithm 3; specifically the exact correction and the approximate quantities using the computed trailing factor.",
+          "method": "Direct primary full-text PDF reading and formula comparison",
+          "title": "Row-Splitting ILU Preconditioners for Sparse Least-Squares Problems",
+          "trigger": "Exact algorithmic predecessor for row-split factors and residual correction"
+        },
+        {
+          "assessment": "The column-space consistency principle is classical and narrows novelty; it does not state the new graph-Gram spectral envelope.",
+          "evidence": [
+            "Section 2 explains that B^T A x=B^T b preserves least-squares solutions when B spans the same column space as A."
+          ],
+          "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/23M161851X",
+          "material_read": "Full freely accessible SIAM Review text, Section 2 and equations (2.2)-(2.5), including the same-column-space requirement.",
+          "method": "Direct primary full-text inspection",
+          "title": "Least Squares and the Not-Normal Equations",
+          "trigger": "Highly relevant source for preservation of least-squares stationary points"
+        },
+        {
+          "assessment": "Relevant perturbation framework, but different randomized lower-precision preconditioners and residual-dependent error bounds; no matching graph-Gram phi interval found.",
+          "evidence": [
+            "The abstract and Sections 3-5 treat mixed-precision preconditioning and least-squares residual size, not the fixed W-Y absolute error extremizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.16644",
+          "material_read": "Full 19-page PDF, introduction and Sections 3-5 on preconditioned normal equations, half-preconditioned equations and not-normal equations.",
+          "method": "Direct primary full-text PDF reading",
+          "title": "Perturbation Analysis for Preconditioned Normal Equations in Mixed Precision",
+          "trigger": "Potential stronger perturbation result for normal/not-normal equations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Row splitting creates a concrete design choice: using an approximate factor with the true normal residual has a dimension-independent sharp spectral guarantee, while inserting the same inaccurate factor inside the residual can destroy least-squares stationarity and produce ascent even for arbitrarily small error. The simultaneous extremizer and exact minimax step make the error bound operational rather than merely sufficient.",
+      "residual_risks": [
+        "The practical benefit of evaluating the true normal residual, memory cost, finite precision and iterative-solver runtime are not quantified."
+      ],
+      "sources": [
+        "RESULT.md Steps 2-6; Scott-Tůma Algorithm 3 as the motivating row-split method; Wathen Section 2 for the classical consistency constraint"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

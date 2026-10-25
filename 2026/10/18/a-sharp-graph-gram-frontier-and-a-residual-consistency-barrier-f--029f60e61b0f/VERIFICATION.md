@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-## Analytical checks
+## correctness
 
-The pivotal identity \(p^2(1+t^2)-(1+(t+\varepsilon)^2)=\varepsilon p(t-p^{-1})^2\) for \(p-p^{-1}=\varepsilon\) was simplified symbolically to an identically zero remainder. It gives both Rayleigh inequalities after interchange of the true and approximate factors. The explicit diagonal \(2\times2\) matrices attain both endpoints and the sharp condition-number ratio simultaneously. An exact SPD similarity provides the induced energy-norm contraction. The scalar right-hand side \((-aR,R)\) is an inconsistent system with minimizer zero, and an exact quadratic objective expansion verifies ascent for every strictly positive step along the mismatched correction for suitable arbitrarily small starting error.
+PASS
 
-## Executable checks
+The normalization A^T A=A1^T(I+Y^T Y)A1 and positive definiteness reduce the spectrum to a Rayleigh ratio. The completed-square identity and ||Yv||/||v|| differing from ||Wv||/||v|| by at most epsilon prove both spectral bounds. A diagonal 2x2 witness attains both endpoints simultaneously. SPD similarity yields the G-energy Richardson factor and balancing the endpoints gives tau*=2/(2+epsilon^2). For residual consistency, choose r2=u and r1=-Y^T u; then A^T r=0 but the W correction is nonzero whenever W!=Y. The scalar inconsistent example has z(e)h(e)<0, so the quadratic objective strictly increases for every tau>0. Numerical tests are corroborative only.
 
-The standalone `verify_row_split.py` program depends on Python 3 and NumPy. Run it from this package's directory using `python3 verify_row_split.py`. It executes deterministic trials over four upper-block sizes, three trailing-block sizes, six perturbation magnitudes and 70 random trials per configuration. It checks the generalized eigenvalue interval and fixed-step worst-case bound, then tests the exact two-dimensional extremizer for six errors and nine scalar biased-residual examples. The run executed successfully and printed `PASSED 15198 checks`.
+## originality
 
-## Limitations of verification
+PASS
 
-The finite random experiments are not an exhaustive proof, and numerical eigenvalue computations have floating-point tolerances. The symbolic step checks one algebraic identity, not all quantifiers. All universal conclusions are proved in RESULT.md. No external or independent audit, code certification, or experimental evaluation of incomplete-factorization applications has been performed.
+The row-splitting construction and least-squares column-space consistency are acknowledged prior work. Full-text comparison did not identify the exact sharp phi^4 error-only envelope, simultaneous endpoint witness, minimax step, or the matched true-gradient/residual-channel counterexample. Equivalent classical graph-subspace or shear-matrix results remain a meaningful risk.
+
+## value
+
+PASS
+
+Row splitting creates a concrete design choice: using an approximate factor with the true normal residual has a dimension-independent sharp spectral guarantee, while inserting the same inaccurate factor inside the residual can destroy least-squares stationarity and produce ascent even for arbitrarily small error. The simultaneous extremizer and exact minimax step make the error bound operational rather than merely sufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

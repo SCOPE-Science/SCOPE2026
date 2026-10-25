@@ -1,11 +1,21 @@
-# Review of the graph-Gram row-splitting theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the precise normalized matrices and error norm, proves the two-sided generalized Rayleigh enclosure from the exact completed-square identity, and exhibits a single real \(2\times2\) example attaining both ends simultaneously. It derives the energy-norm Richardson bound by an SPD similarity and attains its worst case at the endpoints, then balances them for the exact minimax stepsize. The residual consistency equivalence is proved on the full nullspace of the true normal residual. A scalar inconsistent example gives strict ascent for every positive step and the exact shifted fixed point. The separate symbolic identity check and 15,198 deterministic numerical assertions agree with these arguments; the infinite-dimensional or universal statements are not inferred from tests.
+## correctness
 
-**Originality — PASS, qualified.** Scott–Tůma (arXiv:2603.28642v1, Sections 3.1–3.2 and Algorithm 3) introduce the underlying row-split factors and residual correction; those are not new here. Wathen (DOI:10.1137/23M161851X, Section 2) already characterizes the column-space consistency requirement; this is explicitly prior. Garrison–Ipsen (arXiv:2603.16644v1, Sections 3–5) treat perturbation bounds for mixed-precision randomized preconditioners. The inspected statements do not supply this specific simultaneous sharp \(\phi^4\) graph-Gram condition envelope, the exact absolute-error minimax step, and the matched residual-map contrast. In particular, small factor error is a quantitative *input* here, not a shorthand for a relative condition-number bound. An equivalent formula could occur in classical shear-matrix norm or robust preconditioning work not located in the source inspection; this limits bibliographic confidence, not the reconstructed mathematics.
+PASS
 
-**Value — PASS.** The theorem answers a concrete row-splitting design question: when an approximate trailing factor is available, a gradient-consistent use produces a dimension-independent, sharp convergence rate and stepsize depending solely on that factor's error. The other algebraically natural use does not even preserve least-squares stationary points on inconsistent data. The matched positive-versus-negative boundary makes the exact error tolerance operationally meaningful rather than merely another sufficient perturbation inequality. Explicit simultaneous endpoint witnesses demonstrate no stronger error-only guarantee is possible within the stated model.
+The normalization A^T A=A1^T(I+Y^T Y)A1 and positive definiteness reduce the spectrum to a Rayleigh ratio. The completed-square identity and ||Yv||/||v|| differing from ||Wv||/||v|| by at most epsilon prove both spectral bounds. A diagonal 2x2 witness attains both endpoints simultaneously. SPD similarity yields the G-energy Richardson factor and balancing the endpoints gives tau*=2/(2+epsilon^2). For residual consistency, choose r2=u and r1=-Y^T u; then A^T r=0 but the W correction is nonzero whenever W!=Y. The scalar inconsistent example has z(e)h(e)<0, so the quadratic objective strictly increases for every tau>0. Numerical tests are corroborative only.
 
-**Scientific limitations and residual risk.** The model idealizes the upper-block solve, assumes a fixed lower factor and exact arithmetic, and analyzes preconditioned Richardson rather than flexible Krylov solvers or floating-point implementations. The classical column-space equivalence is not claimed as novel. Unindexed or differently formulated perturbation results involving unitriangular shear singular values could subsume the sharp scalar envelope. No independent external validation was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The row-splitting construction and least-squares column-space consistency are acknowledged prior work. Full-text comparison did not identify the exact sharp phi^4 error-only envelope, simultaneous endpoint witness, minimax step, or the matched true-gradient/residual-channel counterexample. Equivalent classical graph-subspace or shear-matrix results remain a meaningful risk.
+
+## value
+
+PASS
+
+Row splitting creates a concrete design choice: using an approximate factor with the true normal residual has a dimension-independent sharp spectral guarantee, while inserting the same inaccurate factor inside the residual can destroy least-squares stationarity and produce ascent even for arbitrarily small error. The simultaneous extremizer and exact minimax step make the error bound operational rather than merely sufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
