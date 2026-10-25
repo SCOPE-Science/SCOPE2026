@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all positive integer rectangle sides, normalization to primitive Pythagorean triples proves the only allowed primitive legs are \(3,4\), including the odd-leg-one and modulo-eight boundary cases. The resulting graph is exactly a union of paths at constant \(a+2b\), and standard maximum-independent-set counts yield both claimed invariants. The parity analysis separately establishes the square-box formulas. The standalone checker independently recomputes actual integer-square edges and small-box extremizers. No inference from a bounded check to an infinite claim is made.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The motivating paper by Xiao (arXiv:2610.11965) proves a density upper bound as the *number of supported primes grows*; its introduction and Theorem 1.1 do not give the fixed-support two-prime rectangle solution or the maximum-set count. Targeted published-result searches for prime-power boxes, \(3\)-smooth Pythagorean-leg pairs, rectangular independent sets and path components returned no same assertion. Relevant earlier work on primitive cubic sums \(x^2+y^2=z^3\) and on square-perimeter primitive triangles uses distinct equations and does not imply the classification. The known \((3,4,5)\) primitive relation is only one lemma, not the full all-rectangle independent-set count. Unindexed exact-box results remain a risk; novelty is not inferred from a search failure alone.
+PASS
 
-## Mathematical value — PASS
-The result supplies an exact all-parameter fixed-support benchmark for the currently studied extremal prime-power-box problem, including the full number of extremizers. It explains the special solvability through a rigid arithmetic-to-path decomposition and sharp \(N\bmod4\) transitions, rather than giving an arbitrary small numerical slice. It deliberately makes no claim about the difficult growing-prime-support regime.
+Coprime positive legs supported on {2,3} must be 2^alpha and 3^beta; factoring (z-3^beta)(z+3^beta)=2^(2alpha) with gcd 2 and checking residues modulo8 forces (alpha,beta)=(2,1): the unique primitive pair {3,4}. Scaling gives edges in the exponent rectangle precisely (a,b) to (a+2,b-1). Weight w=a+2b separates disjoint path components with L_w consecutive vertices, and max independent sets have size ceil(L_w/2) and count (L_w/2+1) for positive even lengths or 1 for odd lengths. The four N modulo4 formulas follow from counting odd-length components. Independent exact-square tests on 49 rectangles A,B<=7 reproduced all graph edges; brute enumeration of all subsets when AB<=16 matched maxima and multiplicities. No claim for more prime coordinates.
 
-## Limitations
-The larger-support case requires additional primitive Pythagorean ratios. The historical literature comparison is best-knowledge and cannot establish absolute uniqueness. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rongzhong Xiao treats growing prime-support boxes and large-support density decay, not the fixed support {2,3} rectangle with exact maximum-set counts. Classical uniqueness of supported primitive (3,4,5) alone leaves the independent set path and multiplicity counting to establish. The special case does not conflict with the broader large-support asymptotic.
+
+## value
+
+PASS
+
+Fixed prime support {2,3} is the first natural Pythagorean pair-support class, and independently variable exponent bounds are a motivated completion of the box problem. Exact optimum and multiplicity for every rectangular box arise from a structural path decomposition, not just the familiar 3–4–5 identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
