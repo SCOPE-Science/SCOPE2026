@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete labeled graph has 17 vertices, 68 edges, 68 triangles and no four-cliques. The independently reconstructed acyclic discrete-Morse matching has 16 vertex-edge and 52 edge-triangle pairs, and exactly one critical vertex plus 16 critical triangles. All 340 face-poset covering relations were checked for directed acyclicity, so the resulting wedge-of-spheres conclusion follows integrally. The affine-equivariant midpoint bijection identifies the two oriented chain representations, making the rational homology representation a direct consequence of the verified homology concentration and semisimplicity. The finite-group transfer theorem and character averaging give all subgroup-quotient Betti numbers. The standalone verifier independently checks 136 signed affine traces and 9,248 midpoint-equivariance pairs.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest 2026 primary source, Cioabă–Mim, studies clique homology of strongly regular graphs but proves its conference-graph vanishing theorem only beyond the small-graph range containing the seventeen-vertex Paley graph. It gives neither this integral homotopy decomposition nor this affine homology module. Published calculations of the Lovász neighborhood complex of the same graph concern a different simplicial complex. A specific alternative formulation as the independence complex of the complement was considered; the Paley graph is self-complementary, and targeted searches did not locate the same result under that language. Database and graph-reference face counts are not new and are not asserted as such. Undiscovered or unindexed independent treatments remain possible, and complete full-text inspection was not available for every tangential item.
+PASS
 
-**Value — PASS.** The graph is the canonical extremal seventeen-vertex Ramsey witness and a distinguished small conference graph outside existing asymptotic vanishing theorems. The exact two-sphere wedge resolves its integral homotopy type, while a structural midpoint correspondence identifies its entire 136-element affine rational homology action and all geometric affine-subgroup quotient Betti numbers. These conclusions are not recoverable from the already-tabulated graph face counts alone. The theorem is deliberately finite and does not imply an all-Paley family formula.
+Independently enumerated 17 vertices, 68 graph edges, 68 triangles and zero tetrahedra. Rebuilt BFS parent and the 52 edge-triangle collapses, then reoriented all 340 Hasse cover edges and topologically sorted every one of 153 simplices: acyclic matching has 1 vertex, 16 2-cells, no 1-cells, proving wedge of sixteen S². Independently computed signed fixed-simplex Lefschetz character on all 136 affine maps: identity 16, 16 nonzero translations -1, remaining 119 maps 0. Midpoint map (u,v)→{u,v,(u+v)/2} is A-equivariant bijection of 68 edges and 68 triangles with the same signed edge stabilizer; chain cancellation in rational representation ring yields the vertex augmentation module. Character averaging and H∩T dichotomy establish all subgroup quotient ranks.
 
-The assessment concerns the single combined claim and its actual standalone proof and certificate, rather than any earlier calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Paley graph Ramsey parameters and clique counts were known; an open 2026 primary paper on strongly regular clique homology discusses first-homology vanishing, with conference-graph theorem only for v≥256, and does not calculate this P17 integral homotopy, affine H2 representation or all quotient ranks. Distinct neighborhood-complex homology cannot cover clique-complex H2. Best-of-knowledge original exact combined result.
+
+## value
+
+PASS
+
+P17 is a canonical smallest Ramsey/conference graph; its exact flag-complex homotopy is not forced by its face numbers and the full affine module and uniform subgroup-quotient classification add meaningful symmetry/topology information. The theorem supplies an exact naturally motivated invariant, not an arbitrary slice of data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

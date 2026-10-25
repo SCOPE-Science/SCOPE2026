@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 paley17_verifier.py paley17_matching_certificate.json` with Python 3.10 or newer. The script requires only the standard library and validates the externally supplied certificate against its own deterministic reconstruction; it does not trust the listed Morse pairs without checking them.
+## correctness
 
-Verified finite facts: residue set \(\{1,2,4,8,9,13,15,16\}\), exactly \(153\) nonempty faces in dimensions zero through two, a valid complete \(68\)-pair face-poset matching, acyclicity across all \(340\) covers, and a unique unpaired vertex with \(16\) unpaired triangles. The midpoint bijection is verified on all edges and for every affine group element. Signed fixed-simplex computations reproduce the rational character \((16,-1,0)\) on the three indicated classes of affine transformations. Complement-subgroup invariant dimensions \(16,8,4,2\) are checked by averaging.
+PASS
 
-The certificate is finite and exhaustive for the stated seventeen-vertex graph, and the proof establishes the exact integral homotopy type, not merely numerical mod-prime Betti numbers. Mathematical steps not supplied by computation are the standard discrete-Morse homotopy theorem, rational representation semisimplicity, and rational transfer for finite geometric quotients; their applicability is explained in the proof. No higher-order Paley classification or integral quotient calculation is claimed.
+Independently enumerated 17 vertices, 68 graph edges, 68 triangles and zero tetrahedra. Rebuilt BFS parent and the 52 edge-triangle collapses, then reoriented all 340 Hasse cover edges and topologically sorted every one of 153 simplices: acyclic matching has 1 vertex, 16 2-cells, no 1-cells, proving wedge of sixteen S². Independently computed signed fixed-simplex Lefschetz character on all 136 affine maps: identity 16, 16 nonzero translations -1, remaining 119 maps 0. Midpoint map (u,v)→{u,v,(u+v)/2} is A-equivariant bijection of 68 edges and 68 triangles with the same signed edge stabilizer; chain cancellation in rational representation ring yields the vertex augmentation module. Character averaging and H∩T dichotomy establish all subgroup quotient ranks.
 
-The adjacent primary literature treats broader conference-graph first-homology questions; an unindexed equivalent calculation remains a residual originality possibility. No independent external scientific audit is represented here.
+## originality
+
+PASS
+
+Paley graph Ramsey parameters and clique counts were known; an open 2026 primary paper on strongly regular clique homology discusses first-homology vanishing, with conference-graph theorem only for v≥256, and does not calculate this P17 integral homotopy, affine H2 representation or all quotient ranks. Distinct neighborhood-complex homology cannot cover clique-complex H2. Best-of-knowledge original exact combined result.
+
+## value
+
+PASS
+
+P17 is a canonical smallest Ramsey/conference graph; its exact flag-complex homotopy is not forced by its face numbers and the full affine module and uniform subgroup-quotient classification add meaningful symmetry/topology information. The theorem supplies an exact naturally motivated invariant, not an arbitrary slice of data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
