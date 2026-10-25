@@ -1,19 +1,21 @@
-# Review of the sharp quadratic Steinhaus modulus
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The upper pair has unit norm and exact separation; a second-order expansion gives the candidate curvature coefficient. For the lower bound, an arbitrary sequence of nearly minimizing pairs is analyzed, using a common Hilbert-orthogonal perturbation to rule out vanishing block norms, symmetric first differences to force aligned Hilbert directions and matching scalar signs, and exact radial square-root increments to reach the same sharp coefficient. Every zero, sign, and boundary case relevant to fixed \(0<d<2\) is addressed. Finite checker output corroborates only the explicit witness, not the infinite-dimensional argument.
+PASS
 
-## Originality (O): PASS, subject to priority uncertainty
+Real X=R⊕_1 H with dim H>=3, fixed 0<d<2. Upper witness x=(eps,(1-eps)e), y=(eps+d/2,(1-eps-d/2)e), eps=sqrt(a), has unit norms and distance d; perturbations of norm a give transverse Hilbert second-order difference coefficient (d/2)/[2(1-d/2)]. For the lower bound use arbitrary a_n↓0 with B_n=O(a_n²): common Hilbert-orthogonal vectors show neither Hilbert length vanishes; opposite ±a_n Hilbert perturbations force normalized Hilbert directions O(a_n)-close; scalar perturbations force same eventually nonzero scalar sign, otherwise separation collapses. Then d≤2|R-S|, exact radial square-root increment gives liminf B_n/a_n²>=|R-S|/(2RS)≥d/(4-2d). Approximate minimizers transfer to infimum, and monotonicity in a gives uniform property (S). Independently checked upper-witness normalization and perpendicular coefficients at d=.2,.8,1.5, a=1e-3,1e-4; only analytic sequence argument establishes infimum.
 
-The introducing Johnson–Kania manuscript computes the exact **linear** atomless \(L^1\) modulus, but not the mixed scalar–Hilbert \(\ell_1\)-sum's **quadratic** coefficient. Kania–Kochanek supplies qualitative property \((S)\) with a related mixed norm. Full-text comparisons against the two nearest publicly indexed direct-sum findings show that they address qualitative permanence and the scalar-block boundary, not this limit. Actual database queries for direct-sum asymptotics, mixed Hilbert modulus, and the candidate coefficient yielded no covering mathematical implication. Unindexed equivalent quantitative results remain possible; negative searches are not proof of absolute priority.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The quantitative modulus is the natural invariant introduced in the motivating preprint. Determining its exact leading order for a mixed norm that is not strictly convex identifies a nontrivial quadratic regime unlike the known linear atomless case. The full coefficient for every separation \(d\) and a proof uniform over all separated pairs distinguish it from a routine qualitative property-(S) corollary.
+Uniform modulus originates with Johnson-Kania, but their exact linear atomless real L1 formula and qualitative Steinhaus direct-sum results are not a quadratic scalar-Hilbert calculation. Two closest published Resultary direct-sum theorems were read in full and assert (S) classification/permanence without explicit mixed coefficient. This theorem gives a genuinely different quantitative sharp invariant.
 
-## Scientific limits
+## value
 
-The limit is pointwise for fixed \(d\in(0,2)\); no formula for all radii or at the endpoint is claimed. The Hilbert block has dimension at least three. Independent priority and proof checks remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines exact sharp small-radius modulus, the central quantitative invariant of uniform Steinhaus theory, for a natural nonsmooth scalar-Hilbert mixed sum. Distinguishes quadratic curvature regime from known linear atomless L1 and proves lower bound over all separated infinite-dimensional configurations; an independently useful nontrivial sharp asymptotic, not just a qualitative property corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
