@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every t>=2, all size-t matchings on 2t vertices are perfect. Incidence/parity gives precisely A,B for the cycle and one-chord graph, and precisely A,B,T union {x,y} for the two-chord graph. The one-chord complex is a cone on an unused edge. Factoring the disjoint odd matching B reduces the final complex to L on T,U,W. For t=2 L is S0*S0=S1. For t>=3, L is the union of two explicit contractible subcomplexes whose exact intersection is the sphere S^{t-2}; the CW homotopy pushout gives L~S^{t-1}. Joining with boundary of the t-vertex B simplex gives S^{2t-2}. General proof is integral and includes t=2 boundary. Independent incidence, Euler and mod-two homology checks for 2<=t<=7 agree; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linusson–Shareshian–Welker: exact full-complete and complete-bipartite graph ambient edge sets, not sparse two-chorded cycles for t>=3.",
+        "Holmsen–Lee: field-homological vanishing upper bounds for arbitrary graphs, not exact homotopy types for these sparse cycles.",
+        "The case t=2 gives complete K4 and is acknowledged as covered."
+      ],
+      "reasoning": "The ambient edge sets in the present construction have 2t+2 edges; for t>=3 they are neither K_{2t} nor K_{t,t}. General vanishing above degree 3t-4 is too weak to force contractibility at the intermediate graph or distinguish the two sphere dimensions.",
+      "searches": [
+        "arxiv:math/0410345 Theorems 1.1 and 1.4 and introduction",
+        "arxiv:2003.11270 Theorem 1.1 and introduction",
+        "non-matching complexes bounded matching size complete bipartite graph cycle theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.02621 (source text)",
+      "arxiv:math/0410345 (source text)",
+      "arxiv:2003.11270 (source text)",
+      "Searches for chorded even-cycle nonmatching homotopy and perfect-matching ideals"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cycle first stage reproduces arxiv:2609.02621 Lemma 2.2; it is not claimed as new.",
+        "The edge-addition injectivity theorem explicitly assumes the enlarged graph bipartite. The first chord is within an even cycle parity class and creates a triangle.",
+        "The exact final sphere in degree 2t-2 and its intervening contractible stage require the new perfect-matching classification and homotopy-pushout argument."
+      ],
+      "reasoning": "No inspected stronger result implies both the vanishing after the first chord and the new-degree sphere after the second. In contrast, the statement would contradict injectivity if its bipartite hypothesis were removed, which is the motivation for this sharp family.",
+      "searches": [
+        "arxiv:2609.02621 Theorem 2.1 and Theorem 2.3",
+        "arxiv:math/0410345 Theorems 1.1 and 1.4",
+        "arxiv:2003.11270 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.02621 Theorem 2.1: homology injection requires bipartite final graph; Lemma 2.2: the initial cycle sphere is known.",
+        "The final graph introduces two triangles, so cannot fall under the same bipartite hypotheses.",
+        "Exact perfect-matching hypergraph has three minimal nonfaces A,B,C with A∩C=T and B disjoint from A∪C; the full homotopy transition is not identical to the cycle result."
+      ],
+      "reasoning": "Equivalent phrases matching-free graph complex, bounded matching number complex, perfect-matching avoiding subcomplex, and Stanley-Reisner complex of the perfect-matching ideal were compared with the actual three-stage statement. The same object in a different guise would need to include both the intermediate cone and the degree-shifted final sphere; the inspected 2026 paper does neither.",
+      "searches": [
+        "\"non-matching complex\" \"chorded\" cycle perfect matching",
+        "\"nonmatching complex\" \"chords\" cycles homotopy",
+        "\"non-matching complexes\" \"odd cycle\" edge addition bipartite",
+        "\"non-matching\" \"bicyclic\" homotopy",
+        "arxiv:2609.02621 Introduction and Theorems 2.1-2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 arXiv source computes cycle homology and injection only for bipartite-preserving additions; no all-t twice-chorded cycle table is supplied.",
+        "The 2004 paper gives complete-graph formulas; the t=2 final K4 is known, not novel.",
+        "Finite independent checker reproduces new family values without extracting values from any known table."
+      ],
+      "reasoning": "Queries for the exact graph, edge positions, odd-cycle chords and both degrees did not locate an exact formula for the complete three-step family. That absence is bibliographic evidence with residual risk, not a proof of uniqueness.",
+      "searches": [
+        "\"non-matching complex\" \"chorded\" cycle perfect matching",
+        "\"nonmatching complex\" \"chords\" cycles homotopy",
+        "\"non-matching complexes\" \"odd cycle\" edge addition bipartite",
+        "Non-matching simplicial complex of even cycle C_{2t} adding two adjacent length-two chords {0,2} and {1,3}: first chord makes cone; two chords produce sphere dimension 2t-2; bipartiteness sharpness"
+      ]
+    },
+    "rationale": "The original cycle homotopy sphere is explicitly credited to prior work. The first public motivating 2026 theorem applies to edge insertions that preserve bipartiteness; neither of the two chords in the claim preserves bipartiteness. The exhaustive published-source comparison of the relevant theorem, its predecessor on full graphs, and the general Leray bounds found no identical all-t intermediate contractibility plus dimension-increasing recovery statement. The t=2 final K4 case is acknowledged as covered. The sparse two-chorded family for all t>=3 is not an instance of existing K_n/K_{r,s} complete-graph formulas; vanishing bounds cannot supply homotopy equivalences.",
+    "residual_risks": [
+      "An unindexed exact sparse-graph formula or a special-case corollary of broader hypergraph-complex results may exist; literature searches cannot certify uniqueness.",
+      "The t=2 final complete-graph instance and the original cycle sphere are already covered by prior literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers original cycle and the bipartite injectivity theorem, but explicitly excludes the two nonbipartite insertions; does not state the full transition.",
+        "evidence": [
+          "Theorem 2.1 assumes the ambient enlarged graph is bipartite.",
+          "Lemma 2.2 states the cycle sphere model.",
+          "Theorem 2.3 concerns bipartite graphs containing long cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.02621",
+        "material_read": "Full accessible arXiv HTML text, particularly abstract, introduction, Section 2, Theorems 2.1 and 2.3, Lemma 2.2, Section 3 discussion",
+        "method": "Read source text and compare hypotheses, graph construction and conclusion at theorem level",
+        "title": "Homology of non-matching complexes under edge additions and applications to their Stanley-Reisner ideals",
+        "trigger": "Exactly the new 2026 edge-addition theorem to stress-test outside bipartite graphs"
+      },
+      {
+        "assessment": "The full-edge-set K_n/K_{r,s} formulas cover t=2 as K4 but not all t>=3 sparse two-chorded cycles.",
+        "evidence": [
+          "Theorems 1.1 and 1.4 classify complete graph and complete bipartite ambient complexes.",
+          "No theorem in the inspected statements classifies twice-chorded cycle subcomplexes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0410345",
+        "material_read": "Accessible full HTML introduction and main theorems, definitions, main technical theorem statements and relevant proof-section excerpts",
+        "method": "Read domain of complete and complete-bipartite classifications; check possible reduction to present sparse graphs",
+        "title": "Complexes of graphs with bounded matching size",
+        "trigger": "Potential older stronger exact homotopy formula covering nonmatching complexes"
+      },
+      {
+        "assessment": "General homology vanishing bounds are compatible with the result but do not imply it.",
+        "evidence": [
+          "Theorem 1.1 gives vanishing for dimensions >=3t-3 in arbitrary graphs and >=2t-2 in bipartite graphs.",
+          "An unrelated sparse graph is noted to have homology in two dimensions, illustrating insufficiency of degree bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.11270",
+        "material_read": "Accessible HTML introduction and main theorems, including the arbitrary-graph and bipartite vanishing statements",
+        "method": "Compare quantitative bounds and target exact integral homotopy types",
+        "title": "Leray numbers of complexes of graphs with bounded matching number",
+        "trigger": "General vanishing theorem for arbitrary graphs could dominate proposed classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ef7c9c9-7e9d-4a23-9af7-80875859abe3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This infinite natural family diagnoses the precise bipartiteness boundary in the current homology-persistence theorem: a length-two same-parity chord kills the top integral sphere class completely; the complementary same-parity chord then creates a new topological sphere one dimension higher. The full three-stage integral homotopy calculation—not merely a single negative test—shows a nonmonotone and dimension-shifting response to consecutive graph edge insertions. It supplies an explicit model and proof technique for investigating nonbipartite edge-addition transitions. The t=2 special case is old, but t>=3 gives unbounded distinct graph orders.",
+    "status": "PASS"
+  }
+}
