@@ -1,11 +1,21 @@
-# Scientific review: second independence complexes of Kneser pair graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The maximum-degree-one reformulation is equivalent to the induced-component-size-two definition. A marked ground point partitions the face poset into star/triangle intersection fibers and disjoint-pair blocks. Every former fiber has a complete cone-edge matching, and every latter fiber is the same 37-element Boolean filter with 18 matched pairs and one critical three-simplex. The finite universal filter has an exhaustively checked acyclic Hasse orientation, and the order-preserving fiber partition makes patchwork applicable for every order. The resulting Morse complex has one basepoint and no cells below dimension three, so the wedge decomposition follows integrally. The standalone checker independently verifies the face enumeration, pairing, critical cells and complete Hasse orientation for each order five through twelve. The all-order theorem is a mathematical proof, not statistical extrapolation.
+## correctness
 
-**Originality — PASS, with stated residual uncertainty.** Deshpande–Singh (2020) treats higher independence of complete multipartite, whiskered, path, cycle and tree families, not Kneser pair-disjointness graphs. Braun (2009) and Feng–Wang (2024) treat ordinary independence complexes of Kneser or stable Kneser graphs, whereas the condition here allows edges in the induced disjointness graph but forbids components larger than two. Closest indexed results give the Petersen five-point boundary case and separately ordinary four-cut information about the six-point Kneser graph, neither implying the all-parameter homotopy formula for every order six and above. Equivalence searches for the induced-degree-one, disjoint-edge-family, and forbidden three-vertex path formulations did not identify a dominating statement. The main residual risk is a stronger unindexed or inaccessible publication; searches cannot establish absolute novelty.
+PASS
 
-**Value — PASS.** The theorem supplies an infinite classification of a canonical sequence of highly symmetric Kneser graphs; it identifies a uniform homotopy dimension, a quartically growing exact number of sphere summands, integral torsion-freeness, and a transparent four-point decomposition explaining the count. A genuinely universal construction replaces graph-by-graph enumeration and extends beyond the previously indexed isolated Petersen case.
+For every n>=6 (also n=5), face F of Ind_2(KG(n,2)) consists of ground-set pairs each disjoint from at most one other selected pair. H(F) excluding base point 0 is either pairwise-intersecting A or contains a disjoint pair B. In A each H is star, triangle or empty, and toggling a distinguished 0i gives legal complete fiber matching. In B a disjoint pair uses a unique four-set U, all other pairs meet both and lie inside U, with no 0-edge; the six possible U edges decompose into three matching pairs, yielding exactly 37 admissible upper-filter faces. Independently constructed all 37, performed three pivot matchings (14,3,1 pairs), found one critical four-edge face, and verified complete Hasse acyclicity. The fiber patchwork map is order-preserving and B_U incomparable; hence a global acyclic matching with binom(n-1,4) critical dimension-3 cells and paired augmented empty face. Standard Morse reduction gives a basepoint and no 1- or 2-cells, so attaching maps are trivial and the space is a wedge of that many S3, not merely finite Betti evidence.
 
-Scientific limits: this does not address higher parameters \(r>2\), general \(KG(n,k)\) for \(k>2\), or symmetry representations. Finite numerical checks are supporting verification only. An independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication assessment against published results, primary texts and published mathematical records; negative search is not priority certification.
+
+## value
+
+PASS
+
+Uniform integral homotopy classification for all second-independence complexes on the natural Kneser pair family is nontrivial, with explicit reusable 37-face block and matching. An unknown infinite-family exact topological invariant is useful independently of stronger downstream theorems; parameter n=5 alone was known and not the novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
