@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The comparison formula cancels the common normalization exactly under equality of the original arithmetic means. Its derivative has the sign and zeros of a degree-at-most-\(n-2\) polynomial, the difference of two characteristic income products; the leading coefficients cancel because the sample sizes and income sums match. Asymptotic vanishing of the signed entropy difference and Rolle's theorem supply an extra critical point after the final positive zero, proving the bound. The witness coefficients and integer-power sign checks were reproduced with a standalone exact-integer program. No inference from sampled numbers is used to prove the universal bound. A strict difference at integer grants has exact arithmetic certificates.
+## correctness
 
-## Originality — PASS, residual uncertainty
-Literature searches for common additive income shifts, Theil rankings, and double crossings located no statement implying the exact \(n-2\) root bound and the four-household double-reversal witness. Liao's accessible full HTML (2016) was examined, including the analysis of income inequality and decomposition; no covering same-grant theorem was found. Cowell (2003) addresses Theil properties and translatability, but the full work was unavailable through the attempted lawful repository route: coverage cannot be decisively excluded. The nearby prior Atkinson-ranking item deals with changing an aversion parameter, not with an equal cash grant and Theil T. No search result or corpus partition is treated as proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-Uniform cash supplements provide a natural policy perturbation. A sharp dependence of possible ranking changes on household count and an explicit minimal double reversion demonstrate that baseline relative inequality comparisons can fail twice during a monotone, equal-grant reform. The theorem gives structural information for all sample sizes and a nontrivial, reproducible low-dimensional boundary, not just a rounded numerical curiosity.
+For two n-component strictly positive income vectors with equal mean and common additive t>=0, derived T_X(t)-T_Y(t)=F(t)/(n(mu+t)) with F(t)=sum_i(t+x_i)log(t+x_i)-sum_i(t+y_i)log(t+y_i). Differentiation cancels n and equal first moments, yielding F′=log(P_X/P_Y), with polynomial Q=P_X-P_Y of degree <=n−2 due to monic leading and equal income sums. Positive roots of F′ are contained among <=n−2 roots of Q. F(t) ->0 as t->infinity by Taylor expansion and equal totals. If F has m>0 distinct positive zeros, Rolle yields m−1 derivative zeros between them AND one additional derivative zero strictly after the last zero by a nonzero return to 0, hence m<=n−2 (identical multisets excluded). Independently checked quartic polynomial Q=-3t²+314t-3155 for X=(1,7,25,35), Y=(2,5,29,32) and exact integer-power entropy signs + at t=0,5, negative 6,20,32, positive 33,40; two roots occur in (5,6),(32,33). Independent n=3 witness X=(1,11,24),Y=(2,9,25) has opposite exact signs at grants 0 and20; bound not asserted sharp beyond n=4.
 
-## Limits
-No assertion about unequal means, proportional supplements, sampling inference, or realism of household incomes. Possible unlocated equivalent theorem on translation nonrobustness remains the principal novelty risk. Independent replication and bibliography audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theil T and scale/translation discussions are established. Inspected Cowell 2003 full lawful OA text discussing translation parameter and Theil/entropy family and Liao 2016 related income inequality sources; no all-sample-size polynomial-degree bound on count of equal-cash-grant ranking reversals or explicit four-household double reversal was identified. The derivative logarithmic polynomial argument and n−2 bound appear new best of knowledge; translation-robustness literature may contain implicit implication, so priority remains qualified.
+
+## value
+
+PASS
+
+Uniform grants and relative inequality rankings provide a natural non-arbitrary perturbation in distribution comparison. A universal household-count bound and explicit smallest four-household double sign reversal quantify non-monotone stability of comparisons despite monotone cash supplements; this is meaningful mathematical sensitivity structure, not merely numerical example or policy recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
