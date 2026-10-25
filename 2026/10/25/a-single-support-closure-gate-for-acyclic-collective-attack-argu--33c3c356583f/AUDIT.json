@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The attack dependency DAG gives a finite topological induction. For any complete extension E, an already-fired attack forces exclusion by conflict-freeness, while a nonfired attack has a rejected predecessor attacked by E, so every closed attacker of a candidate-included vertex is attacked and completeness forces inclusion. For any stable E, no inactive attack can leave a vertex excluded because outsiders must be attacked; both unique possibilities are K. If K is closed, any attacker of a K-member has a K-excluded tail predecessor and is therefore defeated; K is admissible, and every K-outsider has an attack tail T within K whose closed hull lies within K, so cannot be defended. It follows K is complete and stable, hence uniquely grounded. Otherwise closedness precludes all three. No step assumes support acyclicity; 34,455 finite diagnostic checks independently evaluate semantics against the criterion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "KR 2024 Proposition 3.11 and Lemma 3.12 concern semantic inclusion/defense, not attack-acyclic global uniqueness or linear-time existence.",
+        "KR 2026 Theorem 44 and subsequent results concern modular splitting with support interaction, not this exact acyclic-class decision criterion.",
+        "KR 2025 strong/weak admissibility and adjusted Γ-closure are distinct semantics; its preliminary classical BSAF account does not specialize to this theorem."
+      ],
+      "reasoning": "General BSAF splitting theorems allow arbitrary attacks and supports but reduce extension computation to modified instances, not to a single topological candidate and one closure test. This result is a new subclass characterization rather than a restatement of the broader splitting machinery. Older SETAF results do not by themselves enforce arbitrary collective supports.",
+      "searches": [
+        "web: bipolar set based argumentation frameworks acyclic attack graph supports complete extensions unique stable grounded 2024 2025",
+        "web: finite acyclic attack network Horn support closure stable complete extensions polynomial",
+        "public mathematical-result index, exact query: Finite bipolar set based argumentation with attack acyclic graph unique complete grounded stable extension iff closure of topological kernel support Horn rules linear algorithm",
+        "KR 2026 conference PDF pp.167–178 and arxiv:2604.28112v1 extended text (splitting theorems and appendices)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.24963/kr.2024/12 (primary full-text definitions, lemma, examples, alternative semantics)",
+      "arxiv:2604.28112v1 (primary extended original paper and supplementary proofs)",
+      "doi:10.24963/kr.2026/16 (primary published full text)",
+      "doi:10.24963/kr.2025/14 (primary paper classical and strong/weak BSAF sections)",
+      "arxiv:2604.27964v1 (primary SETAF/ABA splitting manuscript)",
+      "Published result index: targeted semantic comparisons for BSAF acyclicity, collective support and extension existence",
+      "Related published work on ordinary argumentation graphs, including degree-one, path and cycle extension families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "KR 2024 Example 3.15 establishes that complete extensions may fail, but its self-attacking example has cyclic attack dependency, unlike the present sharp two-node acyclic example.",
+        "The 2024 Lemma 3.12 supplies the support-closed-attacker defense test but not the universal acyclic recursion of all complete/stable candidates.",
+        "The 2026 general splitting results are compatible with, but do not explicitly assert or imply without additional arguments, the present simultaneous uniqueness/existence classification."
+      ],
+      "reasoning": "The implication from known results to this claim requires new structural induction: neither support-free DAG uniqueness nor general closed-attacker defense alone gives the necessity and sufficiency of closure of the attack-only unique candidate. The theorem proves that missing attack predecessors are actively attacked and thereby force defense of every accepted candidate. This is the comparison to actual prior statements, not merely title overlap.",
+      "searches": [
+        "KR 2024 full text: Lemma 3.12, Theorem 3.13, Examples 3.14–3.15 and Section 4 alternative semantics",
+        "KR 2026 full text: Definitions 1–4, Sections 3–5 splitting and supplementary proof sections",
+        "public mathematical-result index, exact query: count complete preferred stable extensions support argumentation chains directed support implications",
+        "web: acyclic SETAF unique stable extension grounded semantics collective attacks",
+        "public mathematical-result index, exact query: In finite bipolar set based argumentation (BSAF) with acyclic attack dependency and arbitrary cyclic support Horn rules the unique complete stable grounded extension exists exactly if the topological attack-only kernel is support closed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berthold–Rapberger–Ulbricht (2024), Definitions 3.1–3.3, Lemma 3.12: classical closed-attacker BSAF semantics and reduction of defense to support closures.",
+        "Buraglio–Dvořák–Woltran (arxiv:2604.27964), Sections 3–7: SETAF/ABA splitting; the acyclic occurrence concerns SCC condensation of a dependency graph, not this existence theorem.",
+        "The inspected 27-page full text arxiv:2604.28112v1 contains support splitting and its supplementary proofs, but no acyclic-attack closure gate theorem."
+      ],
+      "reasoning": "The strongest apparent equivalent is the known acyclic attack-only SETAF/Dung topological labeling together with support closure. That combination does not directly establish completeness under closed-attacker BSAF defense; the present induction proves that every candidate omission is refuted by an actual attack, while accepted nodes are defended even when supports are cyclic. Prior sources define distinct semantic variants; only classical BSAF completeness is claimed.",
+      "searches": [
+        "web: \"acyclic\" \"BSAF\" \"complete\" stable extensions",
+        "web: \"support-closed\" \"acyclic\" \"SETAF\" \"complete\"",
+        "web: acyclic assumption based argumentation unique complete stable grounded non flat support",
+        "public mathematical-result index, exact query: support cycles arbitrary acyclic collective attacks no complete extensions criterion attack only stable model closed under supports",
+        "arxiv:2604.28112 full text: search acyclic, support-closed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Top generic indexed near hit: Exact antecedent boundary for material-implication closure in team semantics is team-semantics closure, not BSAF extension existence.",
+        "Top generic indexed near hit: Exact non-separating out-branchings in acyclic orientations of \\(K_{3,n}\\) concerns digraph spanning branchings, not argumentation semantics.",
+        "Nearest accessible own-claim topic: a published degree-one ordinary abstract-argumentation result treats degree-one ordinary abstract argumentation graphs without collective support rules; other mentions concern symmetric/path/cycle extension counting, not acyclic collective-attack closure.",
+        "The final whole-claim semantic search ranked results on unrelated interval-preconditionals, team-semantic closure and acyclic spanning branchings, with no BSAF support-closure theorem among its inspected leading results."
+      ],
+      "reasoning": "Searchable records and recoverable prior claims did not contain an exact BSAF acyclic-attack support-closure classifier or a stronger domination parameter. These are bounded comparison results, not evidence of mathematical uniqueness in the literature.",
+      "searches": [
+        "public mathematical-result index, exact query: BSAF bipolar set based argumentation framework complete extension existence criterion support closure and collective attacks acyclic",
+        "public mathematical-result index, exact query: SETAF acyclic collective attack hypergraph unique extension supports BSAF polynomial recognition support conflict",
+        "public mathematical-result index, exact query: finite abstract argumentation complete stable extensions exact enumeration combinatorial structural classes symmetric graphs new",
+        "comparison against recoverable mathematical claims, terms: BSAF; bipolar; collective attack; support closure; stable extension; grounded extension"
+      ]
+    },
+    "rationale": "Originality is supported within inspected evidence: 2024 BSAF literature provides the closed-attacker defense test and examples of missing complete extensions, and 2026 works develop arbitrary support/attack splitting, but none of the material read presents the acyclic attack-dependency criterion that all complete/stable/grounded families simultaneously equal a singleton if and only if one topological candidate is support-closed. The proof explicitly supplies missing structural implications. A targeted comparison of indexed published mathematical results found only different parameters and objects; older non-flat-ABA equivalence remains a residual risk.",
+    "residual_risks": [
+      "A theorem with equivalent content might occur in older non-flat assumption-based argumentation, stratified nonmonotonic reasoning, or program semantics under different terminology.",
+      "The base 2024 closed-attacker lemma and support-free acyclic Dung/SETAF uniqueness are strong ingredients; the fresh topological closed-attacker equivalence is argued, not independently certified.",
+      "Published sources using a different interpretation of support cannot be identified as covering this precise classical BSAF claim without a semantics translation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines prerequisites and proves defense reduction; no attack-acyclic existence characterization.",
+        "evidence": "Lemma 3.12 states that defense is equivalent to attacking the closures of each attack tail; Example 3.15 shows complete nonexistence with a self-attacker.",
+        "identifier_or_url": "doi:10.24963/kr.2024/12; https://proceedings.kr.org/2024/12/kr2024-0012-berthold-et-al.pdf",
+        "material_read": "Primary six-page article, including Definitions 3.1–3.3, Lemma 3.12, Section 3.2 examples, Section 4 alternative semantics and conclusion; global terminology search",
+        "method": "Primary PDF text and page-3 screenshot, section and global term checks",
+        "title": "Capturing Non-flat Assumption-based Argumentation with Bipolar SETAFs",
+        "trigger": "Foundational formalism, closed-attacker lemma and cited nonexistence example"
+      },
+      {
+        "assessment": "Focuses on splitting and semantic preservation; no equivalent attack-only topological criterion or linear-time gate was identified.",
+        "evidence": "Conference Definitions 1–4 give exact semantics, Theorem 44 support-splitting, supplementary proof sections in arxiv:2604.28112v1.",
+        "identifier_or_url": "arxiv:2604.28112v1; doi:10.24963/kr.2026/16",
+        "material_read": "Conference Definitions 1–4, contribution summary and main attack/support splitting sections; extended 27-page arXiv document relevant supplementary proof pages, plus global acyclic and support-closed searches",
+        "method": "Primary OA PDF text plus screenshots of semantics page and supplementary page 15; searched complete PDF for terms and inspected relevant theorems",
+        "title": "Splitting Argumentation Frameworks with Collective Attacks and Supports",
+        "trigger": "Direct 2026 source for the BSAF semantics, also highly plausible coverage of decomposition/classification"
+      },
+      {
+        "assessment": "Studies strong and weak admissibility, not existence of classical complete/stable/grounded semantics in attack-acyclic BSAFs.",
+        "evidence": "Definitions 2.4–2.7, Sections 3–7 overview; no use of attack acyclicity found.",
+        "identifier_or_url": "doi:10.24963/kr.2025/14",
+        "material_read": "Primary article abstract, Definitions 2.4–2.7, contribution summary and Sections 3–7 descriptions, plus global acyclic term search",
+        "method": "Primary PDF text and page-3 screenshot",
+        "title": "On Strong and Weak Admissibility in Non-Flat Assumption-Based Argumentation",
+        "trigger": "Related BSAF semantics with non-flat support interactions"
+      },
+      {
+        "assessment": "Acyclic graph refers to SCC condensation for splitting, not the BSAF support-closure criterion.",
+        "evidence": "Section 6 constructs dependency graph and condensation DAG; Section 8 contrasts SCC-recursiveness.",
+        "identifier_or_url": "arxiv:2604.27964v1",
+        "material_read": "ArXiv manuscript introduction, preliminaries, Sections 6 and 8 on dependency graphs and related work, plus global acyclic search",
+        "method": "Primary arxiv PDF text and front-page screenshot, global term search",
+        "title": "Splitting Assumption-Based Argumentation Frameworks",
+        "trigger": "Independent 2026 attack/ABA splitting and potential dependency-DAG equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33c3c356-583f-42d7-9742-b0ec63acc1d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classical BSAF complete semantics can lack extensions due to mandatory supports despite acyclic attacks. The theorem is an exact necessary/sufficient existence classification and linear-time constructive algorithm for all finite frameworks with acyclic collective-attack dependency, allowing unrestricted collective supports including cycles and nullary premises. It provides a sharp existence gate for three semantics simultaneously; the given three-node example shows why preferred semantics does not collapse. This resolves a natural structural/algorithmic subclass rather than a routine parameter increment.",
+    "status": "PASS"
+  }
+}
