@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each exact profile with exclusive counts \\(a,b\\) and shared count \\(c\\), all cleaned assignments are parametrized by the number \\(t\\) of common goods sent to agent one, with utilities \\((a+t,b+c-t)\\). Leximin and MNW minimize their absolute difference, giving the exact binomial cardinality formula and \\(K_m>1\\iff|a-b|<c\\); the \\(c=0\\) and \\(c=1\\) boundaries are explicit. For iid Bernoulli \\(p_m\\), the joint-good count has mean \\(mp_m^2\\) and the exclusive imbalance variance \\(2mp_m(1-p_m)\\). Chebyshev/Markov and bounded-increment triangular-array CLT yield the zero/one regimes and normal critical window, while binomial entropy bounds and continuous mapping give the distribution of \\(\\log K_m/m^{1/3}\\). An independent exact direct-split checker examined all \\(21{,}845\\) labeled approval profiles through \\(m=7\\), with a second unrestricted ternary-assignment comparison on all \\(341\\) profiles through \\(m=4\\). The code also checks the generating-function identity. Finite cases support but do not prove the infinite asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.06073, Sections 3–4, analyzes deterministic tie-breaking and lotteries over efficient binary allocations given fixed preferences.",
+        "arXiv:2607.10064v1, Theorems 3.5 and 4.4, analyze consistent tie resolution across instances.",
+        "The inspected papers do not assume iid Bernoulli approval valuations or state probabilities or entropy for numbers of allocations in the untied optimum set."
+      ],
+      "reasoning": "Randomized outcome selection for a fixed preference profile and stochastic sampling of preference profiles are distinct measures. Neither the source characterizations nor existence, fairness and strategyproofness guarantees dominate a theorem on the number of optimum allocations under random input; they provide baseline definitions and constraints.",
+      "searches": [
+        "For two agents with binary additive valuations of m goods, asymptotic probability of multiple maximum Nash welfare allocations under iid Bernoulli p approval, critical scale p=m^(-1/3), Gaussian error function and entropy",
+        "counting maximum Nash social welfare allocations binary valuations tied optimal solutions",
+        "arXiv:2007.06073",
+        "arXiv:2607.10064v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.10064",
+      "https://arxiv.org/abs/2204.03803",
+      "https://arxiv.org/abs/2007.06073",
+      "Published mathematical-results records on ordinal allocation support and Bernoulli entropy, compared by statement rather than title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 characterization paper Section 3, Theorem 3.5: tie-breaking must be consistent under axioms, not the proportion of random profiles with ties.",
+        "2022 weighted-MNW paper Definition 2: selected maximizers may not be unique even after utility-vector tie-break, but no stochastic count follows.",
+        "2020 group-strategyproofness paper Section 4: lotteries over assignments for a fixed binary valuation profile; not a distribution over independent Bernoulli-valued profiles."
+      ],
+      "reasoning": "The new event \\(K_m>1\\) is an exact comparison \\(|a-b|<c\\). Prior guarantees on finding or selecting one optimum are compatible both with multiplicity and uniqueness and do not entail the scale \\(mp_m^3\\) or the error-function transition. The derived asymptotics require a triangular-array CLT for the imbalance and a law of large numbers for shared approvals, plus entropy asymptotics for combinatorial multiplicity. No inspected stronger statement implies these conclusions.",
+      "searches": [
+        "arXiv:2607.10064v1",
+        "arXiv:2204.03803v1",
+        "arXiv:2007.06073",
+        "Sharp threshold number of Nash-optimal two-agent approval allocations, multiplicity entropy at sparse random approval probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.10064v1, Sections 2, 3, and 4: MNW/leximin equivalence, minimally complete and non-redundant constraints, and tie-breaking necessity.",
+        "arXiv:2204.03803v1, Definitions 1–2 and Lemma 1: weighted MNW and its selected lexicographic tie-break refinement; remaining selections may tie.",
+        "No corresponding random-optimal-correspondence multiplicity statement was located in the inspected scientific sections."
+      ],
+      "reasoning": "Leximin, cleaned binary MNW, and concave additive welfare optima are equivalent correspondences here and were searched as aliases. The new object is the cardinality of that correspondence before tie selection. Equivalent fairness rules do not imply the Bernoulli-ensemble phase law or log-multiplicity distribution. Unlike tie-broken MNW, the clean unrefined correspondence may contain many assignments of different labeled goods.",
+      "searches": [
+        "Random binary additive fair division two agents Nash welfare maximization number of optimal tie allocations degeneracy probability uniqueness asymptotic",
+        "Count of leximin-maximizing clean allocations for two agents in a random Bernoulli approval goods model: exact condition shared approvals exceed imbalance between exclusive goods",
+        "arXiv:2607.10064v1",
+        "arXiv:2204.03803v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest retrievable Bernoulli research records address binomial modes and Bernoulli collision entropy, not welfare optima of labeled-goods allocation instances.",
+        "Nearest assignment records address ordinal serial-dictatorship support sizes, not Nash-optimal binary allocation multiplicity.",
+        "The inspected 2026 paper contains illustrative tied allocations but no exhaustive or asymptotic cardinality table for iid approval profiles."
+      ],
+      "reasoning": "An exact probability/entropy table for the present two-agent iid approval allocation correspondence was not found. The direct finite count is not treated as novel simply because a table is missing; originality is primarily assigned to the sharp threshold and limiting random entropy. Absence of a search hit is not a novelty proof.",
+      "searches": [
+        "Exact number and asymptotic growth of maximum Nash welfare optimal allocations for two agents with iid Bernoulli zero-one approvals; multinomial type counts and central binomial coefficients",
+        "Two-agent random approval item allocation binomial overlap versus exclusive preference imbalance; unique welfare maximizer sparse approval threshold",
+        "sharp cube-root threshold p around m^(-1/3) for uniqueness of two-agent Nash welfare optimum on iid Bernoulli binary-valued goods; number of leximin allocations equals one iff exclusive approval imbalance exceeds jointly approved count",
+        "https://arxiv.org/abs/2607.10064"
+      ]
+    },
+    "rationale": "The recent source characterizes the same rule and addresses consistency of selecting among ties; older primary sources establish efficient/strategyproof tie-break implementations and lotteries conditional on fixed approvals. Their statements do not imply the probability of an untied optimum correspondence having more than one allocation, the cube-root threshold, the error-function critical law or the limiting multiplicity entropy. The specific published-results searches found adjacent but different objects; prior unindexed statements remain a publication-priority risk.",
+    "residual_risks": [
+      "No search can exclude an unindexed or unpublished equivalent critical threshold, even though direct primary-source comparisons found no dominating claim.",
+      "The theorem concerns clean, untied optima. It is not a theorem for the output multiplicity of a pre-specified deterministic tie-breaking mechanism.",
+      "The source articles establish related optimizer equivalences; the novelty assessment concerns the added Bernoulli random-input asymptotic distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes a common rule and tie-breaking consistency; no theorem counting optimal allocations for iid approval profiles or giving critical Gaussian/entropy laws in the inspected material.",
+        "evidence": [
+          "2026-07-11 first arXiv submission; Sections 2–4, Theorems 3.5 and 4.4, conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10064",
+        "material_read": "Public first-submitted arXiv version, abstract, introduction, complete preliminaries, tie-breaking discussion in Sections 3 and 4 (Theorems 3.5 and 4.4) and concluding scope; PDF pages compared for section content.",
+        "method": "Primary open-access arXiv full-text HTML and openly available PDF with direct examination of definitions, theorems, and relevant proofs.",
+        "title": "Fair Division with Binary Valuations: Characterizations",
+        "trigger": "The defining recent axiomatic characterization of the same binary MNW and leximin correspondence, including ties."
+      },
+      {
+        "assessment": "Does not cover stochastic Bernoulli-profile multiplicity, sharp cube-root uniqueness threshold, or entropy law.",
+        "evidence": [
+          "Definition 1: MWNW correspondence; Definition 2: utility-vector and minimally complete tie-break; Lemma 1 and Theorem 3.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.03803",
+        "material_read": "Open-access arXiv text: abstract/introduction, Section 2 definitions and Lemma 1, Section 3 monotonicity and algorithmic claims, later discussion of leximin equivalence.",
+        "method": "Primary full-text arXiv, with targeted close reading of the exact maximizer set, tie-breaking definition, and theorem implications.",
+        "title": "On Maximum Weighted Nash Welfare for Binary Valuations",
+        "trigger": "Potential earlier stronger coverage via weighted welfare and multiplicities after tie-breaking."
+      },
+      {
+        "assessment": "The authors randomize allocation output conditional on a fixed preference profile, not independent Bernoulli preferences generating a random multiplicity of optimal allocations.",
+        "evidence": [
+          "Theorem 1; Section 3 Lemma 5; Section 4 Definitions 9–11."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.06073",
+        "material_read": "Primary arXiv abstract and introduction, Section 3 deterministic welfare path criterion, Section 4 randomized rule and fractional allocation definitions.",
+        "method": "Read relevant full-text HTML sections rather than inferring paper coverage from search snippets.",
+        "title": "Fair Division with Binary Valuations: One Rule to Rule Them All",
+        "trigger": "Foundational binary-welfare equivalence and potentially a randomization result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ce796e0-def3-413f-a667-2056014d4d51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimum-correspondence multiplicity directly quantifies the intrinsic amount of choice before tie-breaking in a natural, axiomatically characterized two-agent resource-allocation model. The competition between \\(mp_m^2\\) jointly demanded items and \\(\\sqrt{mp_m}\\) exclusive-demand noise creates a sharp, nontrivial cube-root threshold. The exact error-function crossover and full nondegenerate critical log-multiplicity distribution go materially beyond an isolated counting identity or a small finite table and give an interpretable asymptotic phase diagram.",
+    "status": "PASS"
+  }
+}
