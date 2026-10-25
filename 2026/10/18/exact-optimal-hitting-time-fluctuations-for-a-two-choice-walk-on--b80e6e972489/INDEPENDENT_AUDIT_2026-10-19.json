@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T23:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read frozen RESULT.md and exact checker.py. For each distance 1<=j<R, the greedy kernel steps down with probability 3/4 and up with 1/4; at even antipode it deterministically steps down, at odd antipode it stays with 1/4. Solving h_j-(3/4)h_{j-1}-(1/4)h_{j+1}=1 with boundary gives h_j=2j+A_N(3^j-1), strictly increasing, establishing the Bellman optimality of closer offers for all adaptive controllers. The moment recurrence (I-P)s=2h-1 gives displayed Var formula with parity B_N. Independently solved rational linear systems for N=3..24 and all distances (143 pairs), matching exact means and variances. The characteristic transform has two geometric roots lambda(z),Lambda(z) and an exponentially suppressed boundary coefficient; analytic uniform log F_d(e^u)=d log lambda(e^u)+O(u), log lambda=2u+3u²+O(u³) yields CLT and uniform O(1) variance. Formula tested including small boundary N=3; no variance-optimal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original source derives order-sharp hitting-time bounds, optimization methods, and a 3/4 directional preference in hardness examples; second source uses an epsilon-bias action mechanism."
+        ],
+        "reasoning": "General O(diameter) bounds do not determine centered Gaussian fluctuations or O(1) variance corrections, and time-dependent epsilon-bias is not two independent offers with replacement.",
+        "searches": [
+          "arxiv:1911.05170 full PDF",
+          "arxiv:2006.02475",
+          "Resultary controlled random walk search"
+        ]
+      },
+      "checked_sources": [
+        "Georgakopoulos–Haslegrave–Sauerwald–Sylvester, The Power of Two Choices for Random Walks, arxiv:1911.05170, primary PDF",
+        "Haslegrave–Sauerwald–Sylvester, Time Dependent Biased Random Walks, arxiv:2006.02475, different process",
+        "Resultary semantic search for exact two-choice cycle hitting moments and CLT",
+        "Classical reflected biased birth-death hitting-time recurrence, general context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean-optimal Bellman and chain recurrence are familiar; exact A_N,B_N, parity corrections and uniform analytic PGF yield the new stated theorem."
+        ],
+        "reasoning": "General optimal-control and biased-walk results are premises, not explicit logical statements of this precision; a broadly known first-passage transform could still cover it and is noted as residual risk.",
+        "searches": [
+          "arxiv:1911.05170 primary theorem/bounds",
+          "classical birth-death recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance chain has drift 3/4, reflecting/holding antipode of different parity; original two-proposal controller reduces to this chain under greedy selection."
+        ],
+        "reasoning": "Compared equivalent first-passage Markov-chain representation rather than graph/process titles alone. Classical tools explain calculations, but the exact parity-dependent all-start formulas and uniform CLT were not found as a quoted theorem.",
+        "searches": [
+          "power of two choices random walk cycle optimal hitting time variance central limit theorem distance greedy",
+          "cycle reflecting biased birth-death first passage generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary study does not tabulate all N,d first/second moments or parity boundary constants; claimed theorem supplies them analytically."
+        ],
+        "reasoning": "A finite-state transition table might reconstruct individual N, but this is an all-N closed family plus uniform limit; no exact published table spanning it was identified.",
+        "searches": [
+          "arxiv:1911.05170 cycle search in primary PDF",
+          "Resultary exact hitting time moment search"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.",
+      "residual_risks": [
+        "Classical absorbed/reflected biased birth-death exact moments and quasi-power CLTs may imply parts of the theorem under a standard reparameterization; historical priority remains uncertain.",
+        "Optimality proved only for mean under sampled-neighbor rule; no distributional or variance-optimal claim is made.",
+        "Finite rational checks cannot establish all N; general recurrence and analytic generating-function argument supply the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: same stochastic mechanism and drift, mean order Theta(diameter); no identified exact all-cycle parity second moments or uniform CLT in inspected parts.",
+          "evidence": [
+            "Main hitting-time bound and optimization statements; 3/4 direction choice appears in hardness construction."
+          ],
+          "identifier_or_url": "arXiv:1911.05170; DOI:10.1017/S0963548321000183",
+          "material_read": "Accessible full 28-page PDF; examined introduction, key theorem statements, cycle occurrences, drift/hardness section and hitting-time bounds.",
+          "method": "Primary full PDF accessed; relevant passages and search within PDF inspected",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Original sampled-pair walk and possible dominating hitting theorem"
+        },
+        {
+          "assessment": "DISTINCT_MODEL: epsilon-biased action probability rather than compulsory choice of two sampled proposals; priority risk of broader first-passage results remains.",
+          "evidence": [
+            "Published model definition and scope."
+          ],
+          "identifier_or_url": "arXiv:2006.02475; DOI:10.1145/3498848",
+          "material_read": "Bibliographic overview and documented action opportunity; no complete paper read in this independent run.",
+          "method": "Abstract/description comparison, no whole-paper negative assertion",
+          "title": "Time Dependent Biased Random Walks",
+          "trigger": "Possible stronger biased-walk first-passage theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact finite-size and parity-dependent moment formulas and the CLT for a naturally controlled stochastic walk improve qualitative O(diameter) mean bounds; the uniformity through antipodal starts is a mathematically meaningful boundary phenomenon rather than a routine isolated sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientifically passed means only this specific final claim and stated assumptions. No automatic bibliographic priority, formal proof, expert attestation or scientific independence certificate is implied.",
+    "The referenced checker was inspected as evidence and necessary independent finite mathematics performed; finite checks do not prove unbounded theorems.",
+    "Both public metadata sources have restricted provenance and publication is not ready; package remains unchanged.",
+    "Classical absorbed/reflected biased birth-death exact moments and quasi-power CLTs may imply parts of the theorem under a standard reparameterization; historical priority remains uncertain.",
+    "Optimality proved only for mean under sampled-neighbor rule; no distributional or variance-optimal claim is made."
+  ],
+  "schema_version": 1
+}
