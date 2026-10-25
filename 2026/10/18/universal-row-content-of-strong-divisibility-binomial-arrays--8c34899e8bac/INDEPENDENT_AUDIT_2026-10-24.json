@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each prime p and power p^e, the set S_e of indices with p^e dividing U_j is upward-closed under multiples and gcd-closed under strong divisibility; its least index r_e divides every element. The ranks form a divisibility chain as e increases. Thus v_p(U_j)=sum_e 1[r_e|j], and the factorial quotient valuation is sum of nonnegative carry indicators floor(n/r_e)-floor(k/r_e)-floor((n-k)/r_e), proving all generalized binomials integral. Levels with r_e=n contribute one to every interior column. Setting k_p to the largest proper rank r_e<n dividing n, or 1 when absent, kills every other carry level because ranks above k_p are its multiples and n modulo such ranks is zero or a positive multiple of k_p. Therefore the minimal valuation equals the number of levels r_e=n, which is the valuation jump in lcm(U_1,...,U_n). The known strong-divisibility factorization gives the Mobius product. Independently evaluated complete interior row gcd and lcm jumps for the first 20 rows of ordinary, Gaussian q=2,3 and Fibonacci sequences. These finite cases corroborate, not replace, the all-sequence proof. The minimizing k can depend on p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both chapters concern strong-divisibility generalized coefficients, and the 1991 one expressly concerns gcd/lcm equalities; this is a high-risk potentially stronger theorem.",
+          "Abstracts do not state the present unweighted entire-interior-row equality, and full texts were inaccessible."
+        ],
+        "reasoning": "The possible older covering result cannot be resolved from abstracts. Inaccessible literature alone does not force an O failure, but this is a prominent residual priority risk needing human full-text comparison before publication.",
+        "searches": [
+          "Ando Sato 1991 On the Proof of GCD and LCM Equalities Concerning the Generalized Binomial and Multinomial Coefficients DOI 10.1007/978-94-011-3586-3_2",
+          "Ando Sato 1999 On the Generalized Binomial Coefficients Defined by Strong Divisibility Sequences DOI 10.1007/978-94-011-4271-7_1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1310.2416",
+        "https://doi.org/10.5802/crmath.64",
+        "https://doi.org/10.1007/978-94-011-3586-3_2",
+        "https://doi.org/10.1007/978-94-011-4271-7_1",
+        "https://oeis.org/A061446"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bousla–Farhi identifies lcm of entire generalized binomial row and gcd of products B_U(n,k)*lcm(U_1,...,U_k) over k>=n/2.",
+          "Nowicki identifies primitive lcm quotients; that does not alone assert the gcd of generalized binomial interior row.",
+          "Exact implications of unread Ando–Sato text cannot be determined."
+        ],
+        "reasoning": "The materially read weighted Bousla–Farhi identity and factorization by Nowicki do not directly state the unweighted row content, but the uninspected chapters remain a material risk of prior implication.",
+        "searches": [
+          "Bousla Farhi 2020 DOI 10.5802/crmath.64 Theorem 1 Corollary 2",
+          "Nowicki 2013 arxiv:1310.2416v1 Theorem 2.1",
+          "Ando Sato 1991 gcd lcm generalized binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed n and p, gcd over interior columns has valuation min_k sum_e epsilon_{r_e}(n,k).",
+          "Nowicki factors U_n as product over d|n of lcm increments; identifying that factor with row gcd is extra."
+        ],
+        "reasoning": "Compared primitive divisibility factors, generalized binomial content and p-adic carry minima as aliases. No definitive prior exact equivalence located; Ando–Sato chapter titles remain plausible.",
+        "searches": [
+          "web: strong divisibility gcd binomial coefficients lcm row interior",
+          "Resultary: unweighted row gcd generalized binomial strong divisibility U n lcm increment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A061446 gives pre-existing primitive Fibonacci factors as numbers.",
+          "Specializing the new formula to Fibonacci recovers those existing values; general SDS row contents are not equivalent to a Fibonacci table."
+        ],
+        "reasoning": "Exact known special-case data is explicitly treated as already covered; the general theorem and prime-specific minimizing-column construction are assessed rather than claimed novelty for the sequences.",
+        "searches": [
+          "OEIS A061446 primitive Fibonacci factors",
+          "web: gcd of all interior fibonomial binomial row entries"
+        ]
+      },
+      "rationale": "The successive-lcm-factor/Mobius formula is established by Nowicki and is explicitly credited; the separately claimed content is its identification with the unweighted gcd of all interior generalized-binomial entries, plus an explicit prime-wise minimizer. Bousla–Farhi (2020) proves an entire-row LCM and a *weighted* row gcd, which do not algebraically equate to the unweighted interior gcd without another argument. Ando–Sato (1991, 1999) addressed exactly the same strong-divisibility generalized coefficients and gcd/lcm problems, but full chapters were inaccessible; abstracts and available secondary descriptions do not identify this precise row-content theorem. That is a significant unresolved priority risk, not a proof of distinctness. Best-of-knowledge PASS is qualified by it.",
+      "residual_risks": [
+        "1991 and 1999 Ando–Sato full texts inaccessible with authorized institutional VPN disconnected; possible direct older theorem.",
+        "Previously known special-case primitive factors must not be framed as new.",
+        "Column k_p is prime-dependent, not a simultaneous minimizer for all primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers different full-row lcm and weighted gcd operations, not the unweighted all-interior row content as stated",
+          "evidence": "Its displayed gcd contains B_a(n,k)*lcm(a_1,...,a_k) with n/2<=k<=n; a different expression from gcd_{1<=k<n}B_a(n,k).",
+          "identifier_or_url": "https://doi.org/10.5802/crmath.64",
+          "material_read": "Full text, especially opening theorem statements and formulas for weighted gcd and lcm (pages 1-3)",
+          "method": "Read primary PDF text and visual pages",
+          "title": "Identités et estimations concernant le plus petit commun multiple de suites à forte divisibilité",
+          "trigger": "Closest accessible prior article on SDS generalized-binomial gcd/lcm"
+        },
+        {
+          "assessment": "Covers lcm quotients, which are credited prior; does not itself identify those quotients as binomial-row gcd",
+          "evidence": "Published factor c_n=lcm(U_1,...,U_n)/lcm(U_1,...,U_{n-1}).",
+          "identifier_or_url": "https://arxiv.org/abs/1310.2416",
+          "material_read": "Theorem/abstract statement and factorization description, not every proof page",
+          "method": "Primary abstract and cited theorem-scope comparison",
+          "title": "Strong divisibility and lcm-sequences",
+          "trigger": "Known primitive factors of an SDS"
+        },
+        {
+          "assessment": "Unresolved: exact row theorem could be contained or implied; not characterized as non-covering",
+          "evidence": "The 1991 abstract explicitly starts from the strong divisibility identity and concerns gcd/lcm properties, but does not expose theorem statements.",
+          "identifier_or_url": "https://doi.org/10.1007/978-94-011-3586-3_2",
+          "material_read": "Abstract and bibliographic summary only; full chapter not retrieved",
+          "method": "Read RePEc/EconPapers abstract, attempted authorized Oxford download",
+          "title": "On the Proof of GCD and LCM Equalities Concerning the Generalized Binomial and Multinomial Coefficients",
+          "trigger": "Potential exact priority threat on SDS and generalized binomial GCD"
+        },
+        {
+          "assessment": "Unresolved priority risk; no claim about results not in abstract",
+          "evidence": "The 1999 abstract defines the factorial quotient for strong-divisibility sequences and Raney integrality, but does not state an unweighted interior-row gcd identity.",
+          "identifier_or_url": "https://doi.org/10.1007/978-94-011-4271-7_1",
+          "material_read": "Abstract and bibliographic details only; full chapter not retrieved",
+          "method": "Read Ideas/RePEc abstract, attempted authorized Oxford download",
+          "title": "On the Generalized Binomial Coefficients Defined by Strong Divisibility Sequences",
+          "trigger": "Exact same SDS generalized coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem supplies an exact universal row-content invariant and an explicit minimizing interior column for every prime for arbitrary positive strong-divisibility sequences, a natural meeting of binomial integrality, arithmetic row gcds and primitive sequence factors. It extends familiar binomial/Fibonacci/Gaussian special cases to all such sequences without recurrence or normalization hypotheses. The constructive carry-rank proof explains the arithmetic mechanism, rather than simply retabulating known specific rows.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1310.2416",
+    "https://doi.org/10.5802/crmath.64",
+    "https://doi.org/10.1007/978-94-011-3586-3_2",
+    "https://doi.org/10.1007/978-94-011-4271-7_1",
+    "https://oeis.org/A061446"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "1991 and 1999 Ando–Sato full texts inaccessible with authorized institutional VPN disconnected; possible direct older theorem.",
+    "Previously known special-case primitive factors must not be framed as new.",
+    "Column k_p is prime-dependent, not a simultaneous minimizer for all primes.",
+    "Actual frozen Git record tree eb6151471cf491004a3241ee051a7b398064f48d was inspected; RESULT.md blob 57b4484765a4e11ea223ce6f4a19a7d9e96c33b1, METADATA.json blob d3b547466ff15dcdc3dfd3bb44fbe096e51b859a. No GitHub writes.",
+    "No unsanitized research file was approved for publication."
+  ],
+  "schema_version": 1
+}
