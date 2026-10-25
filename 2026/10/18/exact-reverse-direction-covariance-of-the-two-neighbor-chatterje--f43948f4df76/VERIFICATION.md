@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility verification
+# Independent mathematical audit
 
-The companion `verify.py` runs with Python 3.10 or later and the standard library alone. The recorded execution returned:
+## correctness
 
-```
-PASS: 5915 exact assertions, independent exhaustive permutations for n=4..8
-```
+PASS
 
-For each permutation it calculates the two right-neighbor score and the score of its inverse from scratch, yielding exact rational means, variances and cross-covariances. It reconstructs the edge-array orthogonal projections for integers \(4\le n\le40\) and checks the exact norm/inner-product identities. It checks the stated rational correlation inequalities for finite integers up to \(n=500\).
+For independent atomless margins, sorting X makes Y-ranks uniform π and reversing direction replaces it by π^{-1}. Lin–Han Eq.(2.4) with M=2 and self-replacement equals ξ=-2+12S/[(n+1)(4n+3)], S=two path-power min-rank edge sums plus π_{n−1}+2π_n. The edge-permutation module splits orthogonally into constants, centered vertex sums (dimension n−1), and cycle component (dimension n(n−3)/2); commutant dimension three proves irreducibility. Matrix coefficient orthogonality for π and π^{-1} gives exact covariance as squared projected inner products; explicit vertex boundary correction yields Var(S)=(n+1)(4n²+14n+35)/180 and Cov(S,S^{-1})=(4n⁴+n³+11n²−127n+147)/(18n(n−1)). Polynomial difference expansion at n=5 proves unique integer maximum. Independent exact rational enumeration of every n! permutation for n=4,5,6,7 reproduced mean, variance, inverse covariance and n=4 301/310, n=5 201/205 values. Only the algebraic proof establishes all n≥4.
 
-The analytical proof, not brute-force enumeration, establishes all parameter values and the unique sample-size maximum. No normal approximation, null simulation, or cross-paper priority certification is represented as a proof. Independent audit has not been performed.
+## originality
+
+PASS
+
+The new formula targets the first nontrivial two-right-neighbor Lin–Han coefficient, not the M=1 original Chatterjee statistic whose reverse covariance was published by Zhang. Zhang explicitly names M≥2 as a further problem in the material-read PDF. Lin–Han marginal moments are prior work; the exact positive reverse covariance, unique integer optimum n=5, and 10/n correlation decay are not implied by marginal variance and are supported by independent permutation enumeration and a representation-theoretic all-n proof.
+
+## value
+
+PASS
+
+Exact forward/reverse dependence governs finite-sample symmetrization of a widely used rank-based independence measure. Its strict positivity and maximizing n=5, with sharp n→∞ coefficient 10, resolve a specific natural statistical question not determined by marginal asymptotic normality. The result does not overclaim a joint CLT or asymptotic independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
