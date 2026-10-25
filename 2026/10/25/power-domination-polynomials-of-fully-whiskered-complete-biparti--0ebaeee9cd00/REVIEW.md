@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof divides selected sets according to which of the two bipartition parts contains a selected original vertex, then controls the exact number of untouched pendant pairs. Necessary stalling conditions and sufficient forcing sequences are established in every case, giving a disjoint and exhaustive six-case enumeration. A separate direct-adjacency implementation exhaustively checked 173,312 subsets in eight graphs and compared every coefficient, while 361 integer parameter pairs were checked for the minimal coefficient. These finite tests support the proof but are not substitutes for it.
+
+**Originality — PASS, with residual risks.** The 2018 power-domination-polynomial paper treats larger attached cliques and explicitly singles out \(G\circ K_1\) as a further computation question. The new result is a complete closed polynomial for the fully whiskered complete bipartite family, not the older definitions, generic sum rules, or a scalar domination number. Available full text for the primary 2018 paper and relevant 2019/2023 papers, together with nearest related published graph-family enumerations, did not provide a result implying the exact formula. Targeted searches for aliases such as 'fully whiskered biclique', 'leaf corona', and PMU placement found no dominating result. Unindexed or inaccessible equivalent formulas remain a genuine bibliographic risk.
+
+**Value — PASS.** The natural one-leaf corona is specifically distinguished from larger attachments in the foundational enumerative literature. The theorem solves every cardinality simultaneously for an infinite two-parameter class, with a structural forcing classification and a nonuniform exact count of minimum PMU placements. The all-set polynomial is substantially more informative than evaluating a known or easy scalar minimum.
+
+**Scope and limitations.** The theorem applies only to \(K_{p,q}\circ K_1\) for \(p,q\ge2\) under standard closed-neighborhood initialization. The argument does not yield a general one-leaf-corona transformation for an arbitrary base graph. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
