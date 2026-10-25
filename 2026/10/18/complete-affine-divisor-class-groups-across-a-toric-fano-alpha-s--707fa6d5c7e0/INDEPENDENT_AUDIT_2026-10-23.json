@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T16:09:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 966c4e4265fc5643b1bf9a07aa43f68816ef167f",
+        "Actual assigned source tree 2bc0dad3e2698a33b1804cd88a306261890d4e98",
+        "Independent verification script and output: scope_worker_08_checks_20261023.py (specific ranges, not universal evidence)"
+      ],
+      "rationale": "For the trace-zero box section Q with -A<=d_i<=B and coprime B<=A<=nB, the only facet orbits are coordinate c=-A when A<nB and c=B always. Fixing c, shift remaining n coordinates by A to z_j in [0,L], sum S=nA-c=kL+h. Cube-section vertices have k upper coordinates and, if h>0, one fractional-position coordinate, giving r=binom(n,k) when h=0 or n binom(n-1,k) otherwise. The primitive rays correspond to these vertices because their coordinates include a -A and B and gcd(A,B)=1. Differences span D times the trace-zero root lattice R, with D=L, h, L-h or gcd(L,h) in the four specified cases. The ray lattice is Z*v+DR; in the unimodular basis (e_i-e_n,e_n), Smith determinantal divisors yield (1,D^(n-2),D*abs(c)). Standard toric exact sequence gives free rank r-n and these torsion factors. Independently enumerated primitive facet rays and integer Smith forms for 124 chart cases across 2<=n<=5, B<=4, all coprime allowed A, reproducing the formula and omitted degenerate facet. Symbolic lattice argument establishes all n,A,B.",
+      "residual_risks": [
+        "Finite independent checks only corroborate stated finite domains; universal assertion follows symbolic proof and stated dependencies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu treats alpha values across all coprime A,B by geometric construction.",
+          "General toric divisor exact sequence computes Cl(U_sigma) from rays but does not tabulate their Smith forms."
+        ],
+        "reasoning": "A general algorithm or global alpha-invariant theorem does not state the explicit integral free-plus-torsion classification; this is an application requiring vertex-difference lattice and minors.",
+        "searches": [
+          "Resultary: toric Fano alpha spectrum Wu local affine divisor class groups cubical hyperplane sections Smith normal form",
+          "arxiv:2608.14115",
+          "Cox–Little–Schenck Theorem 4.1.3"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 966c4e4265fc5643b1bf9a07aa43f68816ef167f",
+        "Published Resultary special RESULT.md blob 21b15c7fda5aadfa83c85d9ab7fc23d06aee5c52",
+        "arxiv:2608.14115",
+        "Cox–Little–Schenck Toric Varieties Theorem4.1.3",
+        "Resultary semantic query Resultary: toric Fano alpha spectrum Wu local affine divisor class groups cubical hyperplane sections Smith normal form",
+        "Independent 124 exact integer Smith-form checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result treats A=2n-1,B=2 only; new results handle arbitrary reduced ratio B/(A+B) and all coordinate facets.",
+          "Wu abstract focuses rational alpha spectrum, not explicit local chart class groups."
+        ],
+        "reasoning": "The Liu–Zhu numerical groups are strict special cases; the general toric exact sequence and Wu polytope supply inputs but do not tautologically imply the closed piecewise classification without the given Smith argument. Unread Wu source could change priority.",
+        "searches": [
+          "Resultary: toric Fano alpha spectrum Wu local affine divisor class groups cubical hyperplane sections Smith normal form",
+          "Resultary/2026 original special RESULT.md",
+          "arxiv:2608.14115"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general affine chart Cl(U_sigma) is the cokernel of character-to-ray divisor map, equivalently torsion lattice quotient N/N_sigma plus free rank.",
+          "The prior specialization uses same face-fan convention and lattice."
+        ],
+        "reasoning": "A toric Cox-class-group or ray-matrix Smith statement is mathematically equivalent; the full parameterized D and r formulas are not in the inspected prior specialization.",
+        "searches": [
+          "Resultary: toric Fano alpha spectrum Wu local affine divisor class groups cubical hyperplane sections Smith normal form",
+          "Resultary published-finding 2026/10/4/...06b390f22d0b",
+          "arxiv:2608.14115"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier special result gives Z/(2n-1) for lower charts and Z/8 (n=2) or Z^(n(n-2)) plus Z/2 for upper.",
+          "General formula specializes to those data, and independently checked examples beyond that ratio."
+        ],
+        "reasoning": "The known exact table is a proper parameter specialization of the new formula, not a dominating all-parameter table.",
+        "searches": [
+          "Resultary: toric Fano alpha spectrum Wu local affine divisor class groups cubical hyperplane sections Smith normal form",
+          "Resultary published-finding 2026/10/4/...06b390f22d0b"
+        ]
+      },
+      "rationale": "Wu's original August 2026 preprint constructs the entire parameterized alpha-spectrum toric family, and a published finding already computes the special Liu–Zhu parameter pair (A,B)=(2n-1,2), explicitly excluded from novelty. The inspected complete prior RESULT concerns only that specialization; the general piecewise Smith form for every coprime A,B adds both free ranks and invariant factors. Wu's original full article remains inaccessible (arXiv/OA attempts failed; Oxford VPN disconnected), so any hidden local class-group theorem is a serious named residual risk, not treated as automatic failure.",
+      "residual_risks": [
+        "Wu original full manuscript inaccessible due arXiv retrieval failure and Oxford VPN disconnected; it may contain stronger chart class-group results.",
+        "Existing exact local-chart result for Liu–Zhu specialization is prior coverage and explicitly excluded from novelty.",
+        "Face fan, not normal fan; only torus-fixed maximal affine charts covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers specialized A=2n-1,B=2; does not include general (A,B) formula.",
+          "evidence": [
+            "Lower Z/(2n-1), upper Z/8 for n2 or Z^(n(n-2))+Z/2 for n>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b",
+          "material_read": "Complete prior RESULT.md: full finding, definitions, ray lattice proof, chart groups and limitations.",
+          "method": "GitHub file fetch immutable blob 21b15c7fda5aadfa83c85d9ab7fc23d06aee5c52",
+          "title": "Local divisor class groups at the torus fixed points of the Liu–Zhu small-alpha examples",
+          "trigger": "Exact same object at one parameter value"
+        },
+        {
+          "assessment": "Original text unavailable: cannot exclude hidden theorem on local class groups.",
+          "evidence": [
+            "Abstract determines rational alpha spectrum [1/(n+1),1/2]; indexed summary describes constructed trace-zero coordinate box."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14115",
+          "material_read": "Abstract, full-text secondary paper summary; arXiv HTML unavailable; Oxford returned vpn_disconnected.",
+          "method": "arXiv abstract, indexed secondary summary, authorized Oxford attempt",
+          "title": "The alpha spectrum of K-polystable toric Q-Fano varieties",
+          "trigger": "Original toric polytope and possible local-class computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual Git blob 966c4e4265fc5643b1bf9a07aa43f68816ef167f",
+        "Pinned RESULT.md Git blob 966c4e4265fc5643b1bf9a07aa43f68816ef167f",
+        "Published Resultary special RESULT.md blob 21b15c7fda5aadfa83c85d9ab7fc23d06aee5c52"
+      ],
+      "rationale": "Integral local divisor class groups are natural invariants measuring non-Q-factoriality and torsion of the toric singularities in Wu's alpha-spectrum family. The piecewise formula determines all fixed-chart cases over the whole rational parameter spectrum, including free defects and torsion, which is materially more informative than the known single-parameter special classification.",
+      "residual_risks": [
+        "Value depends on the stated exact mathematical scope, not on an unproved generalization or publication impact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

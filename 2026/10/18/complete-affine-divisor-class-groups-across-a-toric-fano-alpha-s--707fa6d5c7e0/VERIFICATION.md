@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the affine class-group theorem
+# Independent mathematical audit
 
-The exact finite checker `verify_wu_local_groups.py` was run on the files in this package, using Python 3 and SymPy. It independently enumerates all distinct vertices of each box-slice coordinate facet by assigning \(n-1\) boundary coordinates, verifies that the resulting rays are primitive, forms the integer ray matrix in an integral trace-zero basis, and computes its Smith normal form. It compares the result to the closed \((r,D)\) formulas in the theorem, including the degenerate endpoint's missing facet.
+## correctness
 
-Observed run:
+PASS
 
-`VERIFY_OK checked_parameter_triples=105 n_range=2..6 Liu_Zhu_specialization=matched`
+For the trace-zero box section Q with -A<=d_i<=B and coprime B<=A<=nB, the only facet orbits are coordinate c=-A when A<nB and c=B always. Fixing c, shift remaining n coordinates by A to z_j in [0,L], sum S=nA-c=kL+h. Cube-section vertices have k upper coordinates and, if h>0, one fractional-position coordinate, giving r=binom(n,k) when h=0 or n binom(n-1,k) otherwise. The primitive rays correspond to these vertices because their coordinates include a -A and B and gcd(A,B)=1. Differences span D times the trace-zero root lattice R, with D=L, h, L-h or gcd(L,h) in the four specified cases. The ray lattice is Z*v+DR; in the unimodular basis (e_i-e_n,e_n), Smith determinantal divisors yield (1,D^(n-2),D*abs(c)). Standard toric exact sequence gives free rank r-n and these torsion factors. Independently enumerated primitive facet rays and integer Smith forms for 124 chart cases across 2<=n<=5, B<=4, all coprime allowed A, reproducing the formula and omitted degenerate facet. Symbolic lattice argument establishes all n,A,B.
 
-A separate hand-check of the general proof verifies: (i) the vertex configurations exhaust all vertices; (ii) pairwise differences generate exactly \(D\) times the root lattice, not merely a finite-index subgroup; (iii) the primitive reference vector makes the determinantal divisors of the presentation matrix equal to \(D^{j-1}\); (iv) the toric class-group exact sequence supplies free rank \(r-n\). These steps prove the assertion for all permissible dimensions and coprime parameters; the bounded tests alone would not suffice.
+## originality
 
-The proof does not compute singular local rings at non-fixed points, global class groups, or a full singular-locus stratification. Original Wu full-text access remained unavailable, which affects historical priority assessment, not the stated self-contained lattice computation. No external or independent audit is reported.
+PASS
+
+Wu's original August 2026 preprint constructs the entire parameterized alpha-spectrum toric family, and a published finding already computes the special Liu–Zhu parameter pair (A,B)=(2n-1,2), explicitly excluded from novelty. The inspected complete prior RESULT concerns only that specialization; the general piecewise Smith form for every coprime A,B adds both free ranks and invariant factors. Wu's original full article remains inaccessible (arXiv/OA attempts failed; Oxford VPN disconnected), so any hidden local class-group theorem is a serious named residual risk, not treated as automatic failure.
+
+## value
+
+PASS
+
+Integral local divisor class groups are natural invariants measuring non-Q-factoriality and torsion of the toric singularities in Wu's alpha-spectrum family. The piecewise formula determines all fixed-chart cases over the whole rational parameter spectrum, including free defects and torsion, which is materially more informative than the known single-parameter special classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
