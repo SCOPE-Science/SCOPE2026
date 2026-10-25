@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every MEG-subset of a cycle is exactly a cyclic gap composition with all positive gaps <n/2. Any longer gap cannot be in a unique shortest path between selected endpoints; shorter gaps themselves furnish unique shortest paths covering all edges. Marking a selected first vertex gives coefficient n/m. Deleting a selected vertex merges adjacent gaps; the resulting necessary/sufficient minimality inequalities force triples for odd cycles and triples or antipodal-pair quadruples for even cycles. Three-gap bounded-composition inclusion/exclusion gives exact coefficients. A fresh direct BFS verifier tests every vertex subset on C3 through C16 and prints VERIFY_OK; checks corroborate but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.08955, Theorem 1: bounds for Cartesian/strong graph products",
+        "arXiv:2403.09122, main results: mandatory vertices, girth bounds, clique sums and subdivisions",
+        "arXiv:2409.19067, Sections 2--5: optimization/complexity algorithms"
+      ],
+      "reasoning": "No inspected broader MEG-set theorem implies the exact labeled-subset census of a single cycle. Haslegrave bounds apply to graph products, not counts on factors; mandatory-vertex tests do not provide the exact cyclic gap distribution; the algorithms paper optimizes rather than enumerates irredundant solutions.",
+      "searches": [
+        "monitoring edge geodetic sets cycles minimal inclusion wise maximal cardinality even cycle three four enumeration",
+        "monitoring edge geodetic cycle minimal irredundant sets three four antipodal pairs",
+        "monitoring edge geodetic number cycles polynomial generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.03774, Definition 1.1 and Theorem 3.4",
+      "arXiv:2210.08955, Theorem 1 and Section 2",
+      "arXiv:2403.09122, bounds/mandatory-vertex work",
+      "arXiv:2409.19067, algorithmic complexity work",
+      "semantic mathematical finding index: cycle and MEG alias searches",
+      "focused literature search for complete cycle MEG-set enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dev et al.: meg(C_n)=3 except C4=4, no enumeration of all MEG-subsets",
+        "Haslegrave: product formulas take scalar meg of factors, not distribution of all subsets",
+        "Foucaud et al.: general structural tests and upper bounds, not complete cycle probe-set census"
+      ],
+      "reasoning": "Knowing only meg(C_n) bounds the first nonzero coefficient of an enumerator but neither its value nor the other coefficients; a product min-size theorem does not imply all subsets of a factor. The new equivalence for every cycle subset and the inclusion-minimal four-set parity phenomenon are not consequences of these inspected statements.",
+      "searches": [
+        "arXiv:2210.03774, Section 3.2 Theorem 3.4, inspected full primary text",
+        "arXiv:2210.08955, Section 2 Theorem 1, inspected primary text",
+        "arXiv:2403.09122, main definition and mandatory-vertex sections, inspected primary text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.03774, Definition 1.1: edge monitored iff all shortest probe paths contain it",
+        "arXiv:2210.08955, introduction: edge-failure distance change is equivalent MEG predicate",
+        "Direct cyclic-gap uniqueness proof in RESULT.md, Lemma 1"
+      ],
+      "reasoning": "The edge-deletion distance increase and universal-shortest-path formulations are equivalent and both were considered. The cyclic composition formulation is derived from those semantics, not a renaming of an existing enumeration. The scalar minimum, edge-geodetic and weaker distance-edge-monitoring properties do not imply the all-set polynomial.",
+      "searches": [
+        "MEG sets cycle C_n gap composition polynomial minimal number of distinct MEG sets",
+        "monitoring edge geodetic sets simple cycle Cn enumerate all MEG sets inclusion minimal monitoring every edge positive cyclic gaps",
+        "\"monitoring edge geodetic\" \"cycle\" \"minimal\" triples four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic index comparisons returned cycle cover-free families and strong-Morse complexes, which study different invariants",
+        "No published complete cycle-MEG census was identified by the targeted scientific searches",
+        "Direct brute-force data are generated within standalone verify.py, not retrieved from an existing count table"
+      ],
+      "reasoning": "Searches did not expose an exact database sequence or table for all MEG subsets or the parity-separated irredundant census. A search failure is not a uniqueness certificate. Existing scalar cycle minimum is explicitly credited.",
+      "searches": [
+        "monitoring edge geodetic sets simple cycle Cn enumerate all MEG sets inclusion minimal monitoring every edge positive cyclic gaps",
+        "monitoring edge geodetic cycle minimal irredundant sets three four antipodal pairs",
+        "monitoring edge geodetic number cycles polynomial generating function"
+      ]
+    },
+    "rationale": "Closest inspected foundational cycle theorem arXiv:2210.03774 proves meg(C_n) scalar 3 (except C4=4) and exhibits a triple, but it does not count all feasible or inclusion-minimal subsets. Inspected product, extremal, and algorithmic primary literature and semantic indexed-record searches produced no equivalent formula or dominating family theorem; residual unindexed-priority risk is explicitly acknowledged.",
+    "residual_risks": [
+      "Unindexed, unpublished or differently titled work may already count these cyclic MEG subsets; absence of matches is not proof of mathematical priority.",
+      "The result is restricted to unweighted cycles; extensions to weighted cycles and general unicyclic graphs are not claimed.",
+      "No independent external expert audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes scalar cycle MEG numbers and one witness, does not state the complete polynomial or all inclusion-minimal configurations",
+        "evidence": [
+          "Definition 1.1; Theorem 3.4 and its proof, arXiv:2210.03774"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.03774",
+        "material_read": "ArXiv HTML Definition 1.1, Section 3.2 Theorem 3.4 and its complete proof, and relevant structural context",
+        "method": "Read freely accessible primary full text and cycle proof",
+        "title": "Monitoring edge-geodetic sets in graphs",
+        "trigger": "Foundational definition and closest explicit cycle theorem"
+      },
+      {
+        "assessment": "A general Cartesian/strong product MEG number framework; does not directly count cyclic MEG subsets or irredundant placements",
+        "evidence": [
+          "Theorem 1 and Section 2, arXiv:2210.08955"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.08955",
+        "material_read": "ArXiv preprint introduction and Section 2 Theorem 1 and its product-set argument",
+        "method": "Read relevant text from freely available primary arXiv PDF",
+        "title": "Monitoring edge-geodetic sets: hardness and graph products",
+        "trigger": "Known MEG results invoking cycles and Cartesian products"
+      },
+      {
+        "assessment": "No complete cyclic gap polynomial or inclusion-minimal cycle census found; general bounds do not imply claim",
+        "evidence": [
+          "Introduction, structural results and extremal conditions, arXiv:2403.09122"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.09122",
+        "material_read": "Relevant arXiv HTML definitions, structural results, mandatory-vertex and graph-operation sections",
+        "method": "Read and searched full scholarly text",
+        "title": "Bounds and extremal graphs for monitoring edge-geodetic sets in graphs",
+        "trigger": "Plausible general mandatory-vertex and structure coverage"
+      },
+      {
+        "assessment": "Studies optimization and computational complexity, not the complete labeled MEG-subset census of a cycle",
+        "evidence": [
+          "Introduction and Sections 2--5, arXiv:2409.19067"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.19067",
+        "material_read": "ArXiv HTML overview and relevant main results from Sections 2--5",
+        "method": "Read and searched full scholarly text",
+        "title": "Algorithms and complexity for monitoring edge-geodetic sets in graphs",
+        "trigger": "Potential broader algorithmic result and relevant terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c446efe-6ca7-4564-9b28-99da57c789c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete labeled-subset generating function addresses the natural monitoring-network question of how many feasible placements exist at every probe budget, not just the minimum. The independent irredundant-set polynomial quantifies probe indispensability and exhibits a strict even/odd structural boundary: infinitely many even cycles support minimal but non-optimal four-probe arrangements, all exactly unions of antipodal pairs, whereas odd cycles do not. This structural classification and count is neither a mere restatement of the known scalar minimum nor an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
