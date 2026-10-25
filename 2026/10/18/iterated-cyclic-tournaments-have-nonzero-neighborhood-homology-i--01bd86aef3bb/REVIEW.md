@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact three-cone cover, absence of a geometric triple overlap, graph-of-spaces homotopy pushout, and suspension recurrence provide a parameter-uniform proof. The disconnected initial three-point complex is explicitly accounted for: its reduced suspension is two circles. Inductively the wedge multiplicities are correct, and the regularity recurrence is an elementary degree computation. Executable finite tests verify the exact cover, all mod-two homology for the smaller examples, and the Euler characteristic of the 27-vertex stage. They are corroboration, not the universal proof.
+## correctness
 
-## Originality — PASS, qualified
-Dochtermann and Singh (arXiv:2108.10948, relevant Sections 4–5 read) define the same directed neighborhood complex and give general Hom equivalence, Mycielskian suspension and individual-sphere constructions, but not this lexicographic three-cone recurrence. Govc, Levi and Smith (arXiv:2003.00324) treat distinct directed-flag/tournaplex constructions. A publicly accessible 2026 mathematical note on lexicographic regular-tournament directed **flag** complexes was read in full and its overlap assessed by implication: its transitive-subtournament faces differ from the common-out-neighbor faces, and its nine-vertex homology has support in different degrees. Mathematical-record searches with the exact iteration, alternative Hom formulation, output Betti numbers and terminology located no stronger covering statement. The possibility of an unindexed equivalent construction is a genuine unresolved priority risk, not evidence of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result provides an infinite regular family of dimension-growing, mixed-dimensional homotopy types, with free integral homology simultaneously in all lower positive dimensions. The homotopy-pushout transfer formula is a reusable structural explanation, not an unmotivated numerical census. It extends the conceptual range of tournament-neighborhood topology beyond isolated sphere-realization examples. It makes no unsupported claim about arbitrary tournaments, independent verification, or equivariant structure.
+For all finite tournaments U of order at least two, N+(C3[U]) is the union of three contractible cones K_i=N+(U)_i * Delta(B_{i+1}). Their geometric consecutive intersections are precisely N+(U) blocks and the triple geometric intersection is empty (the abstract empty face is not a geometric point). Cofibration homotopy-colimit replacement yields a three-edge loop and reduced suspensions at the edges, so N+(C3[U]) ≃ S1∨(vee^3 Sigma N+(U)), including disconnected N+(U). As N+(C3) is three isolated points, the base suspension supplies six loops plus one outer loop, giving 7 circles at k=2; induction gives 3^(j-1) spheres in lower degree j<=k-2 and 7*3^(k-2) in top degree k-1. Lexicographic outdegree m+(m-1)/2 ensures regularity at all orders 3^k. Finite computations at order 27 check Euler characteristic only, not full homology; the universal proof is the cover and homotopy pushout.
 
-## Limitations
-Originality is based on the specified record and full relevant literature inspections; exhaustive worldwide coverage cannot be guaranteed. The all-parameter result is proved symbolically, not inferred from small finite checks. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
+
+## value
+
+PASS
+
+An explicit all-k homotopy classification for a natural recursively composed family of regular tournaments exhibits simultaneous torsion-free nonzero homology in every lower dimension; the one-step transfer lemma applies to arbitrary finite tournament input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
