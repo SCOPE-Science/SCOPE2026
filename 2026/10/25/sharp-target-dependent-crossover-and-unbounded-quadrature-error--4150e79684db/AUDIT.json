@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The original residual-diagonal sampler reduces exactly to successive sampling without replacement on diagonal weights. Exact product and determinant subset counting give both spike-omission probabilities. Symmetry determines the other m omission marginals, while diagonal RKHS duality supplies the exact optimal-weight squared error. Strict P_R<P_D follows by a derivative comparison from equality at L=1; high-L asymptotics follow from finite products. Every formula is checked against complete rational enumeration on finite parameter ranges. Tests corroborate but do not prove the universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Epperly and Moreno 2023, Section 6, specifically identify stronger comparisons or separations between RPChol and continuous volume sampling as worth investigating.",
+        "Chen et al., Appendix C, compares k-DPP and RPChol for Nyström matrix approximation and discusses differing pivot laws; its quantitative statements are about matrix trace approximations, not all weighted-integration target functionals."
+      ],
+      "reasoning": "A matrix trace-residual bound averages over coordinates and cannot determine the sign of the difference for each target functional or the divergent ratio on an isolated coordinate. Generic quadrature bounds for either sampler do not imply the sharp opposite rankings. Restricting to a finite diagonal kernel leaves no claimed general-ordering theorem.",
+      "searches": [
+        "arxiv:2306.03955 sections 2,3,6 randomly pivoted Cholesky quadrature vs continuous volume sampling",
+        "arxiv:2207.06503 Appendix C k-DPP RPCholesky trace norm comparison",
+        "\"randomly pivoted Cholesky versus determinantal point process diagonal one spike expected trace approximation k\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.03955, sections 1-3 and 6",
+      "arxiv:2002.09677, Definition 1, Theorem 4, appendices",
+      "arxiv:2207.06503, section 2.3 and Appendix C.4",
+      "arxiv:1005.4107, Theorem 1",
+      "2024 Steinerberger arxiv:2404.11487 abstract/method-level context"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu (2010) proves relative concentration of successive versus rejective inclusion probabilities, not exact conditional-quadrature risk identities for arbitrary target densities.",
+        "Belhadji et al. (2020) treats determinant volume sampling; Epperly and Moreno (2023) treat RPChol; Chen et al. (2022 preprint) treats Nyström approximation. The combined case is not explicitly classified there."
+      ],
+      "reasoning": "The new statement genuinely exploits pre-existing algorithmic and probabilistic identities; this provenance is credited. In the strict sense that multiple published ideas can be combined with elementary finite calculations, the discovery is accessible, but the claimed exact all-target error-sign surface, indefinite operator difference, and unbounded gap are not asserted as corollaries/special cases of any identified stronger theorem. The proof stands independently and no unrelated general theorem is claimed.",
+      "searches": [
+        "arxiv:2002.09677 Theorem 4 spectral target decomposition and volume sampling",
+        "arxiv:1005.4107 Theorem 1 majorization first-order inclusion",
+        "arxiv:2306.03955 Section 6 RPCholesky performance separation from volume sampling",
+        "arxiv:2207.06503 Appendix C exact determinant and Cholesky sample comparisons"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu 2010, Theorem 1, supplies prior majorization of fixed-size inclusion probabilities for successive and rejective sampling; in the present model those sampling rules identify with diagonal RPChol and determinant sampling.",
+        "Belhadji et al. 2020, Theorem 4, decomposes determinant-volume-sampling expected RKHS error into target spectral coordinates."
+      ],
+      "reasoning": "The one-spike inclusion-order component is covered by older unequal-probability sampling theory and is excluded from the new contribution. No examined source states the paired optimal-quadrature error difference for all target densities, its exact sign-indefinite quadratic form, and the explicit sharp high-contrast ratio; those statements require additional coupling of sampling and RKHS risk identities. Equivalent specialized formulations outside quadrature remain a residual risk.",
+      "searches": [
+        "arxiv:1005.4107 sections 1-2 successive vs rejective sampling inclusion probabilities",
+        "\"successive sampling rejective sampling one high weight inclusion probability order L^-k sample size\"",
+        "\"randomly pivoted Cholesky discrete diagonal kernel one spike fixed cardinality determinantal volume sampling quadrature expected worst case error target functional\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary papers provide algorithms, sample distributions and some error identities but no exact tabulation for the paired all-target contrast in this two-level model.",
+        "The publicly searchable mathematical research results returned adjacent pivot-selection and quadrature topics but no matching finite diagonal crossover or ratio theorem."
+      ],
+      "reasoning": "There is no identified exact table/database giving the parameterized difference and asymptotics. Nonretrieval is not a proof of uniqueness; classical survey-sampling probability tables may encode partial ingredient identities.",
+      "searches": [
+        "\"RPCholesky quadrature discrete diagonal one spike k-DPP expected squared worst-case error contrast\"",
+        "\"RPCholesky continuous volume sampling target-dependent sharp crossover indefinite mean residual tensor\"",
+        "\"kernel quadrature with randomly pivoted Cholesky negative quadrature weights sharp positivity boundary\""
+      ]
+    },
+    "rationale": "At the level of the joint sharp target-risk theorem, available primary full-text statements and research search results did not identify prior coverage. Yu (2010) already establishes the relevant qualitative inclusion majorization, Belhadji et al. (2020) a determinant-sampling risk expansion, and Epperly–Moreno (2023) the RPChol quadrature method; these are credited rather than presented as new. The claimed contribution is the exact sign-indefinite all-target comparison and sharp unbounded expected-squared-error ratio on one finite kernel family. Earlier classical survey-sampling equivalences remain a residual risk.",
+    "residual_risks": [
+      "An equivalent specialization might exist in classical successive-versus-rejective survey-sampling theory or finite diagonal Nyström literature under another name.",
+      "The qualitative spike-inclusion ordering is already implied by Yu (2010), so no novelty is claimed for that isolated inequality.",
+      "The example is an idealized discrete one-spike kernel and does not establish a generic continuous-domain sampling comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the pivot sampler and quadrature setting; identifies comparisons to continuous volume sampling as interesting. Does not supply the displayed one-spike all-target risk identity.",
+        "evidence": [
+          "First arXiv submission June 6, 2023.",
+          "Section 6 asks for sharper comparisons or counterexample separations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.03955",
+        "material_read": "ArXiv full-text rendering: introduction, RPCholesky update rule, related work, theoretical quadrature formulation, comparison experiments, and section 6 conclusion/open direction",
+        "method": "Read the accessible parsed primary manuscript with targeted section examination",
+        "title": "Kernel quadrature with randomly pivoted Cholesky",
+        "trigger": "Direct methodological source and stated comparison gap"
+      },
+      {
+        "assessment": "Theorem 4 gives exact spectral decomposition for volume-sampling expected squared error; no paired RPChol all-target sign comparison is asserted.",
+        "evidence": [
+          "Definition 1 determinant-proportional joint density.",
+          "Theorem 4 expected squared RKHS error diagonal in target spectral coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.09677",
+        "material_read": "Accessible primary manuscript, definition of fixed-size volume sampling, section 4 Theorem 4, appendix risk-decomposition and associated definitions",
+        "method": "Read accessible full-text theorem statements and relevant proof sections",
+        "title": "Kernel interpolation with continuous volume sampling",
+        "trigger": "Closest determinant quadrature method and spectral risk decomposition"
+      },
+      {
+        "assessment": "Matrix Nyström trace approximation and DPP sampling comparisons; not an arbitrary weighted quadrature target crossover.",
+        "evidence": [
+          "Section 2.3 residual diagonal pivot selection.",
+          "Appendix C.4 defines the determinant subset law and gives trace-error guarantees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+        "material_read": "Accessible primary published full-text sections 2.3 and Appendix C, particularly C.4 theorem and determinant-law discussion",
+        "method": "Read manuscript-method descriptions and Appendix C via publisher HTML and accessible arXiv text",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Potential stronger pre-existing comparisons to fixed-size DPP sampling"
+      },
+      {
+        "assessment": "Covers a qualitative inclusion-probability concentration implication, deliberately credited; not the exact target-dependent RKHS quadrature-error operator and power-law separation.",
+        "evidence": [
+          "Theorem 1: rejective inclusion probabilities are majorized by successive inclusion probabilities.",
+          "Identifies each sampling scheme precisely."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.4107",
+        "material_read": "Accessible primary full-text introduction and Theorem 1 on majorization, with proof context",
+        "method": "Inspected definitions and qualitative theorem implications for successive and rejective sampling",
+        "title": "On the inclusion probabilities in some unequal probability sampling plans without replacement",
+        "trigger": "Sampling-theoretic equivalent naming and possible dominant covering ordering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4150e796-84db-4659-a4bf-6c1c01e0b6e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 RPChol quadrature paper specifically invites sharper comparisons or separations from volume sampling. The theorem answers a concrete, motivated part: for every target density on a natural finite spectral test kernel it identifies which sampler wins, including a nontrivial sign-indefinite difference and a sharp unbounded ratio where volume sampling retains a positive expected squared-error floor. This is a reproducible benchmark on which generic trace-error bounds do not capture target sensitivity. The result is narrow but complete, and makes no unsupported generic kernel superiority claim.",
+    "status": "PASS"
+  }
+}
