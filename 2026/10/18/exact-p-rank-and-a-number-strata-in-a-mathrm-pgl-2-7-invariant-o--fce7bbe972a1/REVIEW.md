@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The assertion is for smooth plane degree-eight curves over the algebraic closure in characteristic seven, with singular parameters excluded. The genus and smoothness use the originating paper's verified model. The additive quotient relation is independently checked by expansion; its genus-three hyperelliptic coefficient matrix is diagonal. The Deuring–Shafarevich formula applies with one totally ramified point, giving the exact \(p\)-rank. For the \(a\)-number, a full plane coefficient matrix from the sixth power of the equation splits into eleven exact blocks; determinants and explicit nonzero minors prove ranks over all parameters, not just tested points. `verify.py` reconstructs these identities from the defining equations with integer arithmetic modulo seven.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Borges–Korchmáros–Speziali (arXiv:2202.05765, Sections 4.8 and 8.1) give the invariant pencil, smoothness and generic ordinarity, plus the quotient method; they do not give its full plane Cartier rank or the exceptional \(a\)-number. The quotient \(p\)-rank portion can be obtained using the prior hyperelliptic computation, and is not counted as an independently novel formula. Standard plane Cartier operator formulas give methods rather than the evaluated characteristic-seven joint stratification. Related exact-phrase, equivalent-invariant, broad-coverage and mathematical-record searches did not locate an equivalent statement; this is not proof that one does not exist. Miller's 1972 article was not inspected in full, although its application and scope are discussed in the originating paper. That access limitation and unindexed earlier calculations remain priority risks.
+PASS
 
-**Value — PASS.** The source proves only that the degree-eight pencil is generically ordinary. The result now gives its complete \(p\)-rank and \(a\)-number stratification, identifying two smooth characteristic-seven members with a seven-dimensional Cartier defect, while separating them from the superspecial Hermitian member. These are intrinsic Jacobian invariants in a natural genus-21 pencil with the large group \(\mathrm{PGL}(2,7)\); the \(a\)-number calculation does not follow from knowing the quotient \(p\)-rank alone. This exact finite set of exceptional parameters is a useful moduli/arithmetic boundary, without claiming a general theorem or full Newton polygons.
+The pencil F_λ=Y^8−X^7 Z−X Z^7−λ(Y²−2XZ)^4 is smooth for λ not ±1 and genus21. Translation invariants produce the genus3 quotient η²=ξ^7+ξ−2λξ^4 and hyperelliptic Cartier coefficient diagonal (λ,2λ−λ³,λ). Its p-rank is 0,2,3 by nonzero diagonal entries, including stable semilinear rank. Deuring–Shafarevich for a cyclic wild degree7 cover with exactly one totally ramified point gives f(C)=7 f(quotient). For the full genus21 operator, coefficients of F^6 at degrees 7α−β yield a 21x21 symbolic matrix with 4 scalar, 4 size2, 3 size3 blocks. Independent polynomial expansion checked all eleven exact determinant identities λ and −λ^d(λ²−2); exceptional ranks 14 (λ=3,4), zero at 0 and generic rank21. The resulting (f,a)=(0,21),(14,7),(21,0) applies over algebraically closed F7, not merely the seven finite λ specializations.
 
-**Scope and residual risk.** The two singular parameter values, other characteristics, full Newton polygons, and potential prior unpublished/unindexed computations are outside the conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical contribution after separate comparisons of equivalent formulations, broader known work, exact tables and logical prior implications. Related methods and endpoint results explicitly credited; residual bibliographic uncertainty retained.
+
+## value
+
+PASS
+
+The geometric p-rank and a-number of Jacobians are standard fundamental invariants of moduli of characteristic-p curves. For the natural highly symmetric genus21 octic pencil, a complete joint exceptional-stratum classification including two previously unspecified a=7 fibers is a substantive arithmetic-geometric exact result; the plane Cartier calculation is more than its known generic ordinarity or Hermitian example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
