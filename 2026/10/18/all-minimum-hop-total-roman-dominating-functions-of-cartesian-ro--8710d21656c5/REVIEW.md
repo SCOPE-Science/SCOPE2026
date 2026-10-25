@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(R_{m,n}=K_m\square K_n\) and \(2\le m\le n\), graph distance two is exactly the different-row, different-column relation. Partition by the number of label-two vertices. The forced positive cells yield sharp lower bounds and equality patterns; the three-defender equality case reduces to a \(2\times2\) L after excluding all-row/all-column triples for \(m,n\ge4\). Each equality pattern is independently shown feasible, and its labeled multiplicity is counted. The attached verifier tests 13 small boards and 4,516,156 candidate assignments. Finite enumeration supports, but does not replace, the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2023 foundational HTR paper (DOI:10.1080/09728600.2023.2184288) was read in full accessible HTML and did not contain the six-family Cartesian-rook census. The closest published mathematical-record treatment of complete prisms uses Roman \(\{3\}\)-domination, a distinct neighbor-sum function with a different optimum already for \(K_2\square K_n\). A later paper on 2-hop Roman product graphs requires two separate distance-two defenders, not the single defender plus total-positive-support condition here. An indexed total Roman polynomial for complete multipartite graphs uses adjacency, not distance two. Actual semantic database searches and relevant existing mathematical claims were compared by mathematical implication, not only matching terms. The ongoing risk is unindexed or differently named literature; an otherwise relevant indexed source was not read in full, but its public statement does not imply the present theorem.
+PASS
 
-## Value — PASS
-The result determines every minimum labeling and its exact multiplicity on an infinite, symmetric, two-parameter graph family. Its stabilizing minimum and the six-per-rectangle count are grounded in the geometry of all possible defender placements, and exceptional square boards produce genuine tie phenomena. This answers a precise optimizer-classification question, not just a routine numerical substitution.
+Case distinction by number t of label-two cells proves lower bound min(mn,m+n,n+2,m+2,6) on K_m square K_n. Equality for t=0,1,2 forces all-one, defender cross, same-row/column, or opposite-defender patterns; at t=3 weight six and total positive support excludes triangles for m,n>=4, leaving 2x2 L. These six feasible disjoint families yield all minima, including tied exceptional widths and exact labeled counts. Read RESULT.md and verify.py at immutable commit; direct checker enumerates small-weight labelings on 13 boards (reported replay not treated as infinite proof).
 
-## Scope and limitations
-Minimum functions only; no complete weight polynomial and no claim for more than two clique factors. The supplied computation treats finitely many small instances, and bibliographic searches do not prove priority. No independent scientific audit or external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent best-of-knowledge statement/implication comparisons distinguish this final theorem from relevant prior source claims. Previously known summation, size, geometric existence, and binary subcases are credited; no absolute priority guarantee is claimed.
+
+## value
+
+PASS
+
+All minimum labelings, not just the extremal weight, of a canonical 2-parameter graph product form a natural classification with nontrivial width-2, width-3, width-4 transitions and exact multiplicities. Such extremizer families are reusable in domination enumerations and graph product comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

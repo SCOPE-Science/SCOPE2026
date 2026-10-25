@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of computational checks
 
-Run `python3 verify.py` with the standard library. The verifier builds Cartesian rook graphs directly and recomputes distance-two pairs using breadth-first search; it then evaluates the defining hop total Roman conditions without invoking the classification.
+# Independent mathematical audit
 
-The run checks 13 distinct boards from \((2,2)\) through \((6,6)\), enumerating **4,516,156** candidate labelings of weight at most six (including all ternary labelings for orders at most six). With more than six vertices, the no-defender case is impossible below weight seven because every cell must be positive. The output lines record the minimum weights, multiplicities, and incidence types, and the final line is `VERIFY_OK cases= 13 candidate_labelings_tested= 4516156`.
+## correctness
 
-These are finite corroborating checks only. The arbitrary-parameter theorem and all cases of optimality are proved combinatorially in RESULT.md. The source paper's earliest verified online date is 2023-03-30; no independent mathematical audit was performed.
+PASS
+
+Case distinction by number t of label-two cells proves lower bound min(mn,m+n,n+2,m+2,6) on K_m square K_n. Equality for t=0,1,2 forces all-one, defender cross, same-row/column, or opposite-defender patterns; at t=3 weight six and total positive support excludes triangles for m,n>=4, leaving 2x2 L. These six feasible disjoint families yield all minima, including tied exceptional widths and exact labeled counts. Read RESULT.md and verify.py at immutable commit; direct checker enumerates small-weight labelings on 13 boards (reported replay not treated as infinite proof).
+
+## originality
+
+PASS
+
+Independent best-of-knowledge statement/implication comparisons distinguish this final theorem from relevant prior source claims. Previously known summation, size, geometric existence, and binary subcases are credited; no absolute priority guarantee is claimed.
+
+## value
+
+PASS
+
+All minimum labelings, not just the extremal weight, of a canonical 2-parameter graph product form a natural classification with nontrivial width-2, width-3, width-4 transitions and exact multiplicities. Such extremizer families are reusable in domination enumerations and graph product comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
