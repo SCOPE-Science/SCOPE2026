@@ -1,0 +1,11 @@
+# Scientific review: two-channel telegraph spectral merger
+
+**Correctness (PASS).** Conditional two-state phase evolution yields the exact susceptibility. For each spectral channel, its derivative with respect to squared detuning has a strictly decreasing quadratic numerator. This proves the exact two-peak/single-peak dichotomy including the degenerate equality case. Strict monotonicity of the ratio of the two merger thresholds as intrinsic linewidth varies proves existence and uniqueness on exactly the stated open domain. The independently evaluated conditional-matrix checker passes 500 parameter reconstruction cases, 1,500 response evaluations and 1,500 peak-sign cases. Finite checks alone are not an infinite proof.
+
+**Originality (PASS; residual priority risk).** Anderson (1954) established the general motionally narrowed line model; Dykman et al. (arXiv:1006.2402) study frequency-jump susceptibilities; Li et al. (arXiv:1205.0675, equation (3)) supply an absorptive forward line; Sun et al. (arXiv:1511.00893) calculate and measure coherent amplitude versus switching. None of the inspected material asserts the joint necessary-and-sufficient inverse map from the *two* channel-specific coalescence rates, or its universal strict ratio obstruction. That theorem requires an additional global comparison of two different threshold functions. No search establishes absolute priority; an equivalent specialized derivation may exist elsewhere.
+
+**Mathematical value (PASS).** The exact rate-ratio obstruction distinguishes incompatible spectral observations from genuine two-state stochastic frequency modulation and yields a calibration-independent (in amplitude) constructive inverse determination of homogeneous damping and frequency-jump strength. The sharp boundary and uniqueness require a nontrivial monotonicity argument, rather than merely a renaming of the known forward spectrum.
+
+**Limits and risk.** Only stationary symmetric two-state switching, known rate-axis units, linear homogeneous broadening, exact spectra and both readout channels are covered. Noise sensitivity, nonstationary switching and nonideal line shapes are unproved. Detailed historical-priority review and independent audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
