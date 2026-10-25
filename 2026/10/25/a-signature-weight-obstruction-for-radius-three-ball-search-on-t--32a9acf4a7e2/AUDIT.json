@@ -1,0 +1,103 @@
+{
+  "claim": "Any nonadaptive family of radius-three Hamming balls that identifies every vertex of the eight-cube must contain at least 10 queries: \\(M(Q_8,3)\\ge10\\).",
+  "correctness": {
+    "rationale": "The signature map is injective exactly when the queries identify all vertices. Eight queries would force a bijection to all eight-bit strings and hence 128 positive answers per coordinate, contradicting ball size 93. Nine queries would have 256 distinct signatures with total weight 837, forcing precisely the weight-at-most-four nine-bit strings; that forces pairwise ball intersections of 29. Exact binomial counting gives intersection sizes 93, 58, 58, 38, 38, 20, 20, 0, 0 for center distances 0 through 8, so 29 is impossible. The included script verifies the finite arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The identifying-code literature studies separation together with a coverage requirement; the ball-search parameter M(G,r) is separation-only.",
+        "The accessible 2015 paper gives the Q7 construction and general estimates, not a stated Q8 lower bound in the material read."
+      ],
+      "reasoning": "Coverage-based identifying-code results are related but not automatically equivalent to the minimum number of nonadaptive radius-three queries. The proof here uses the exact query incidence sets and gives a lower bound not obtained from the generic information bound alone. The incomplete full-text inspection is disclosed as a residual risk.",
+      "searches": [
+        "identifying codes fixed-radius ball queries hypercube Q_8 radius 3 2014 1405.7508",
+        "arXiv:0804.3029",
+        "arXiv:1405.7508"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.7508 / DOI 10.1016/j.dam.2015.03.018",
+      "arXiv:0804.3029 / DOI 10.1016/j.ejc.2009.03.032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic information bound gives only m >= 8 for 256 vertices.",
+        "The 2015 ball-search paper exhibits the neighboring Q7 radius-three construction but no Q8 lower bound in the material read.",
+        "The new proof rules out m=8 by coordinate balance and m=9 by a forced pairwise intersection of 29, whereas actual radius-three ball intersections in Q8 are 93, 58, 38, 20, or 0."
+      ],
+      "reasoning": "Neither the generic information bound nor the Q7 construction implies M(Q_8,3) >= 10. The pair-intersection obstruction is an additional exact argument. Because one related Hamming-space article was not fully inspected, originality is best-knowledge rather than an exhaustive novelty guarantee.",
+      "searches": [
+        "nonadaptive ball search minimum number of radius 3 Hamming balls separating vertices of hypercube Q_8",
+        "arXiv:1405.7508",
+        "arXiv:0804.3029"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1405.7508 defines M(G,r) for nonadaptive fixed-radius ball queries.",
+        "A query family identifies all vertices exactly when its binary membership-signature map is injective."
+      ],
+      "reasoning": "The claim is stated directly in the M(Q_8,3) formulation and proved in its equivalent signature-map formulation. The signature formulation is definitional, not a stronger prior theorem.",
+      "searches": [
+        "nonadaptive ball search minimum number of radius 3 Hamming balls separating vertices of hypercube Q_8",
+        "arXiv:1405.7508"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest search results concerned radius-three Hamming-ball Turan mass, a length-eight binary (2,1)-separating-system parameter, and directional localization; none states M(Q_8,3).",
+        "No standard [n,k,d] linear-code table directly encodes the fixed-radius ball-query separation parameter."
+      ],
+      "reasoning": "A directly applicable database/table was not identified. The closest records use different objects or invariants, so they do not imply or cover the claim.",
+      "searches": [
+        "M(Q_n,r) ball search hypercube exact query number radius 3 n=8",
+        "exact nonadaptive ball search hypercube Q_7 radius 3 and Q_8",
+        "identifying codes fixed-radius ball queries hypercube Q_8 radius 3 2014 1405.7508"
+      ]
+    },
+    "rationale": "Searches for the exact M(Q_8,3) parameter and equivalent ball-search/separating-code formulations returned no matching claim. The closest records use different invariants (Hamming-ball Turan mass, binary (2,1)-separating systems, and directional localization). The 2015 primary source's inspected material treats Q7 and general estimates but not this Q8 lower bound. One related Hamming-space paper was not read end-to-end, and that residual risk is stated rather than represented as exhaustive coverage.",
+    "residual_risks": [
+      "The full text of arXiv:0804.3029 was not inspected end-to-end; it may contain a small-parameter bound not exposed in the accessible page text.",
+      "The exact value of M(Q_8,3) remains undetermined here; this finding is only a lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The material read gives a seven-query radius-three construction for Q7 and general bounds, but does not state the Q8 lower bound proved here. A later portion not read could still contain a related statement.",
+        "evidence": [
+          "The source defines M(G,r) as the minimum number of nonadaptive radius-r ball queries needed to identify an unknown vertex.",
+          "The hypercube section discusses a radius-three construction in Q7; the claim here concerns Q8 and excludes nine queries by a different count."
+        ],
+        "identifier_or_url": "arXiv:1405.7508; DOI 10.1016/j.dam.2015.03.018",
+        "material_read": "Available full-text page text covering the abstract, definitions of M(G,r), the hypercube section, general bounds, and the Q7 radius-three construction. The repository PDF was not inspected end-to-end.",
+        "method": "Compared the exact query model and adjacent dimension with the claim; independently derived the signature-weight and intersection-count obstruction.",
+        "title": "Identifying codes and searching with balls in graphs",
+        "trigger": "This paper defines the exact nonadaptive ball-search parameter M(G,r) and treats radius-three queries in a hypercube."
+      },
+      {
+        "assessment": "Related background, but no direct Q8 radius-three lower bound was established from the material read. This source remains a residual overlap risk rather than evidence of noncoverage of the entire article.",
+        "evidence": [
+          "The accessible text defines r-separating codes and gives a symmetry relation between radii r and n-r-1.",
+          "The displayed results emphasize constructions and upper bounds, not the exact pair-intersection obstruction used here."
+        ],
+        "identifier_or_url": "arXiv:0804.3029; DOI 10.1016/j.ejc.2009.03.032",
+        "material_read": "Accessible page text defining r-separating codes, relating them to identifying codes, and describing construction-based upper bounds; the complete article was not read end-to-end.",
+        "method": "Compared the separation-only query condition with the broader identifying-code condition and checked the displayed symmetry and construction statements against the exact Q8 radius-three claim.",
+        "title": "New identifying codes in the binary Hamming space",
+        "trigger": "Related literature on separating codes in binary Hamming spaces could imply bounds on the same query family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32a9acf4-a7e2-4ab3-9d19-6e0e61c37489",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonadaptive ball search is a natural identification problem with sensor/query applications. The result strengthens the elementary information bound from eight to ten queries at the first dimension after the known seven-query Q7 example, using a reusable signature-weight obstruction rather than a routine computation. It gives a concrete boundary for future constructions without claiming the exact optimum.",
+    "status": "PASS"
+  }
+}
