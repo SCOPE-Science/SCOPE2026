@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verification.py` using Python 3.9 or later; it uses no nonstandard packages. During the self-review, the program returned `PASS: 569 deterministic kernel, finite-resolvent, and boundary-limit checks.` Checked items: the harmonic-oscillator mean, covariance, Dirichlet–Neumann boundary conditions and jump, tridiagonal discretized Brownian resolvent, early/late/cross covariance limits, endpoint factor-of-two variance, saddle stationarity/curvature, and exponential-tilt mean displacement.
+## correctness
 
-The proof of the infinite-time microcanonical joint convergence is analytic in `RESULT.md`. The finite checks do not prove contour inversion, saddle domination, asymptotic independence, path tightness, novelty, or generalizability. Initial-window weak convergence and tightness are imported from the cited primary theorem with the fixed-drift assumptions made explicit. Independent auditing has not been performed.
+PASS
+
+For W_t=x+mu*t+B_t under the exact hard event integral_0^T W_t^2 dt <= theta*T (x,mu fixed, theta>0, S>0 fixed), the Cameron-Martin terminal weighting is e^(mu W_T). The harmonic oscillator Laplace transform L_T(u)=exp[-sqrt(2u)*x^2*tanh(T sqrt(2u))/2]/sqrt(cosh(T sqrt(2u))) has Dirichlet initial/Neumann free-terminal Green kernel. For Re(u)>0 its two disjoint S-windows converge to covariance (e^-omega|s-t| - e^-omega(s+t))/(2omega) initially and (e^-omega|r-v| + e^-omega(r+v))/(2omega) finally; cross-covariance ->0. The hard-inequality Bromwich inversion has unique saddle u*=1/(8theta^2) and f''=4theta^3, giving omega=1/(2theta). Exponential terminal tilt shifts only reversed endpoint mean to 2theta mu and leaves variance 2theta. Initial-window tightness uses the cited initial-limit theorem and terminal fourth-moment contour increment estimates give tightness via Kolmogorov. The 569 finite kernel/resolvent assertions do not establish the infinite-horizon inversion or independence; those depend on the displayed analytic estimates.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
+
+## value
+
+PASS
+
+Sharp two-boundary path-law classification under a hard quadratic Brownian confinement, including the nonstationary free-end covariance and asymptotic independence, isolates a genuine structural distinction missed by initial-window limits and stationary bulk heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

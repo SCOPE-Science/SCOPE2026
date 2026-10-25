@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact quadratic Feynman–Kac Gaussian transform has the required Dirichlet–Neumann Green kernel and reproduces both reflected boundary covariance formulas. Complex Bromwich inversion converts the *hard* inequality into a weighted saddle integral whose unique minimum on the vertical line localizes at \(u_*=1/(8\theta^2)\); the displayed contour bounds and fourth-increment estimate give finite-dimensional convergence and terminal tightness. Initial tightness follows from the cited proved initial-window theorem. A standalone finite-resolvent program independently passed 569 consistency assertions. Residual risk: the contour uniformity and moment tightness estimates deserve independent checking; numerical checks are not substitutes for the analytic argument.
+## correctness
 
-**Originality — PASS, qualified.** The nearest source (Aurzada–Dutta–Wiegand, arXiv:2610.12354v1) already contains the initial-window OU limit, exact small-ball asymptotics, and a terminal drift *heuristic*. Its exact asymptotics give a terminal **scalar Gaussian law** as a corollary; that scalar law is **excluded from the originality assertion**. The claimed advance is the full backward-time Gaussian process, the reflected terminal covariance, and independence jointly with the forward early OU process under the hard constraint. Schmidt's arXiv:2608.19744 proves initial-window equivalence in much greater generality but not this two-edge fixed-window statement; Chetrite–Touchette's driven-process log-equivalence likewise does not imply the exact terminal limit. Published-record index searches for two-ended conditional OU laws gave no matching established claim. Residual risk: general boundary-eigenfunction/ensemble-equivalence literature may provide a broader theorem from which this exact specialization can be derived; independent priority checking is pending.
+PASS
 
-**Mathematical value — PASS.** The free terminal boundary has twice the stationary variance, opposite reflection sign from the pinned starting boundary, and an enduring drift contribution even though the early conditioned dynamics forget their drift. These are directly relevant boundary statistics of a canonical small-deviation Brownian model, and joint endpoint-window independence is a nontrivial path-level refinement rather than a restatement of single-time probabilities.
+For W_t=x+mu*t+B_t under the exact hard event integral_0^T W_t^2 dt <= theta*T (x,mu fixed, theta>0, S>0 fixed), the Cameron-Martin terminal weighting is e^(mu W_T). The harmonic oscillator Laplace transform L_T(u)=exp[-sqrt(2u)*x^2*tanh(T sqrt(2u))/2]/sqrt(cosh(T sqrt(2u))) has Dirichlet initial/Neumann free-terminal Green kernel. For Re(u)>0 its two disjoint S-windows converge to covariance (e^-omega|s-t| - e^-omega(s+t))/(2omega) initially and (e^-omega|r-v| + e^-omega(r+v))/(2omega) finally; cross-covariance ->0. The hard-inequality Bromwich inversion has unique saddle u*=1/(8theta^2) and f''=4theta^3, giving omega=1/(2theta). Exponential terminal tilt shifts only reversed endpoint mean to 2theta mu and leaves variance 2theta. Initial-window tightness uses the cited initial-limit theorem and terminal fourth-moment contour increment estimates give tightness via Kolmogorov. The 569 finite kernel/resolvent assertions do not establish the infinite-horizon inversion or independence; those depend on the displayed analytic estimates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
+
+## value
+
+PASS
+
+Sharp two-boundary path-law classification under a hard quadratic Brownian confinement, including the nonstationary free-end covariance and asymptotic independence, isolates a genuine structural distinction missed by initial-window limits and stationary bulk heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
