@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T10:44:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=2x²−1, direct exact substitutions give f(u)=v, f(v)=u, with u=(sqrt(5)−1)/4, v=−(sqrt(5)+1)/4, and f'(u)f'(v)=−4. Because each site's neighbours equal its local image in X=(u,v,...) and Y=(v,u,...), F_a(X)=Y and F_a(Y)=X at every 0<=a<=1, including the double neighbour for N=2. In each 2-sublattice Fourier mode k=2πm/N, m=0,...,N/2−1, the two step matrix has diagonal K=a² cos²k−4(1−a)² and off-diagonal entries 2a(1−a)f'(v)cos k and 2a(1−a)f'(u)cos k. Its eigenvalues are K±4i a(1−a)cos k, whose moduli equal 4(1−a)²+a²cos²k. The k=0 mode always occurs, giving spectral radius 4(1−a)²+a² uniformly in even N. ρ−1=(a−1)(5a−3), so all multipliers contract precisely for 3/5<a<1, with instability for 0<=a<3/5; the endpoints have neutral multipliers and are not claimed nonlinearly classified. Unique quadratic minimum 4/5 at a=4/5. On the infinite 2-colour background affine ℓ² class, a 2-site Fourier direct integral yields the same spectral radius; the nonlinear remainder h↦h² is bounded ℓ²→ℓ² with norm <=||h||², hence the return map is C¹ and its power contracts locally if ρ<1. Independent from-scratch SymPy substitution and NumPy full-Jacobian eigenspectrum tests on N=2,4,6,8,12,20 and 10 couplings gave maximal absolute discrepancy <=8.89e−16. The unrestricted theorem rests on block algebra and operator theory, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee–Gupte gives a general reduced-matrix method under irreducible nonnegative stability matrices, whereas the Chebyshev checkerboard has a negative local derivative on alternating sites.",
+          "Lippolis 2026 uses all Fourier modes for synchronized states, but not the audited alternating invariant orbit.",
+          "2005 general map definition provides ingredients, not an evaluated exact high-coupling spectrum for every even ring."
+        ],
+        "reasoning": "General Fourier/Floquet methodology is clearly prior art; its existence does not, without the specific scalar two-cycle, two-sublattice block multiplication and derivative-product cancellation, state or directly imply the exact parameter threshold as an explicit known result. No applicable stronger theorem yielding all claimed numerical constants was found. Full comparison with Dettmann 2002 remains inaccessible.",
+        "searches": [
+          "Lippolis arXiv:2510.12532 Sections 2–5 and Appendix A",
+          "Dettmann–Lippolis arXiv:nlin/0312024 Eqs. (4)–(6), Sections 2–4",
+          "Chatterjee–Gupte DOI:10.1103/PhysRevE.63.017202 publisher abstract",
+          "Dettmann arXiv:nlin/0110007 and DOI:10.1016/S0167-2789(02)00624-3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2510.12532",
+        "https://arxiv.org/pdf/nlin/0312024",
+        "https://arxiv.org/abs/nlin/0110007",
+        "https://doi.org/10.1103/PhysRevE.63.017202",
+        "https://research-information.bris.ac.uk/en/publications/stable-synchronised-states-of-coupled-tchebyscheff-maps",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-strong-coupling-window-for-a-two-colour-travelling-wave--9a03241b8715 (identical assigned finding; NOT independent priority evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lippolis 2026 synchronized temporal 2-cycle exists only a<=1/3, so it does not cover the stable staggered branch 3/5<a<1.",
+          "The 2005 two-site 2B+ paper provides a model and a way to compute Jacobians but does not give the exact identity rho=4(1-a)^2+a^2 for every even N.",
+          "The 2001 paper offers a matrix reduction, not the orbit-specific opposite-sign Chebyshev multiplier cancellation."
+        ],
+        "reasoning": "The claim is not the synchronized case reparameterized: its state has spatial period two and propagates a site each iterate. Verifying a special case of an existing universal method is standard, but the explicit invariant orbit and all-mode cancellation yield the new concrete classification. Risk remains that an uninspected prior full text already carries exactly this example.",
+        "searches": [
+          "Lippolis 2026 Eqs. (45)–(50) and Discussion",
+          "Dettmann–Lippolis 2005 exact 2B+ formula and stability sections",
+          "Chatterjee–Gupte 2001 official abstract",
+          "Resultary semantic nearest-neighbor Chebyshev antiphase queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only direct exact-result Resultary hit was the very same assigned record, not independent priority; other hits have different maps.",
+          "Lippolis 2026 Eq. (45) requires spatial synchrony, whereas X=(u,v,...) has u!=v.",
+          "Dettmann–Lippolis 2005 studies same 2B+ model but weak-coupling cycle enumeration without this all-ring travelling-wave law."
+        ],
+        "reasoning": "Aliases checkerboard, anti-phase, staggered, two-colour, period-two travelling wave and 2B+ were considered. No independently equivalent all-even-ring exact spectral law was located. This is bounded best-of-knowledge evidence; inaccessible 2002 text and alternate names remain risks.",
+        "searches": [
+          "Resultary: Quadratic Chebyshev T2 coupled map lattice nearest neighbor state coupling anti-phase checkerboard travelling wave two-step Floquet 3/5 4/5",
+          "Resultary: Two colour spatial period-two temporal period-two orbit CML exact stability strong coupling 0.6 0.8",
+          "Web: \"Chebyshev\" \"checkerboard\" \"coupled map\" stability",
+          "Web: \"Chebyshev\" \"travelling\" \"period-2\" \"coupled map lattice\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct Resultary mathematical finding matched the audited exact quadratic radius or interval.",
+          "2005 Table 1 concerns fitting exponents for tiny couplings a in [10^-6,10^-3] and figures include a<=0.1; these are not an exact strong-coupling Floquet table.",
+          "The known two-site periodic-orbit enumeration is not a complete all-even-size spectral table."
+        ],
+        "reasoning": "Searched for direct exact formula, numeric thresholds 0.6/0.8, Fourier multiplier tables and two-site cycles. Same-record search results are not independent novelty support, and negative search alone cannot prove priority.",
+        "searches": [
+          "Resultary exact query with \"two-step Floquet 3/5 4/5\" and other two-colour queries, 12 hits each; self-record excluded",
+          "Dettmann–Lippolis 2005 Figures 2–8 and Table 1",
+          "Web: \"two coupled Chebyshev\" \"period two\" \"stable\" \"0.6\"",
+          "Web: \"two Tchebyscheff\" \"anti-phase\" stable coupling"
+        ]
+      },
+      "rationale": "Best-of-knowledge original concrete strong-coupling theorem for a spatially alternating travelling 2-cycle. Lippolis (2026) treats synchronized states explicitly, with real period-two cycle only up to a=1/3. Dettmann–Lippolis (2005) defines the same two-site 2B+ coupling, but its complete accessible manuscript emphasizes small-coupling orbit enumeration and cycle expansions, not this exact all-even-N multiplier cancellation, sharp interval, optimum and ℓ² extension. General Floquet and space-frequency reduction methods, as in Chatterjee–Gupte, are prior and not claimed as new. The highly plausible Dettmann (2002) same-model source was readable only at abstract level; cannot exclude appendix coverage, but this access issue alone is not decisive negative evidence.",
+      "residual_risks": [
+        "Dettmann 2002 (arXiv:nlin/0110007, Physica D 172, 88–102) is highly relevant but full mathematical content/appendices inaccessible. Oxford authorized retrieval returned vpn_disconnected; access not bypassed.",
+        "Chatterjee–Gupte 2001 was available at abstract level only; its nonnegative-matrix condition appears inapplicable to the sign-changing Jacobians, but unexpected reductions cannot be entirely excluded.",
+        "A prior differently named staggered or anti-phase solution may have published the same exact multipliers without these keywords.",
+        "The local 2-site orbit and basic Fourier methods are straightforward consequences of earlier Chebyshev studies; the claimed novelty is only the explicit complete strong-coupling all-ring theorem and ℓ² extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Spatially synchronized periodic points only (equal state at all sites), while the audited orbit has distinct alternating site values. No asserted all-even-ring checkerboard Floquet formula. The real synchronized two-cycle ends at a=1/3, whereas the audited checkerboard persists for all a.",
+          "evidence": [
+            "Model Eq. (5) matches linear neighbour coupling.",
+            "Section 4.2 Eq. (45) explicitly uses same value at every site, Eq. (46) has real branch only for a<=1/3.",
+            "Section 5 expects more work on non-synchronized recurrent patterns."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.12532",
+          "material_read": "Complete accessible HTML: introduction, model Eqs. (2),(5), Fourier-space linearization, Sections 4.1 and 4.2, discussion and Appendix A. In particular Eqs. (45)–(50) and real-state parameter range a<=1/3.",
+          "method": "Direct full HTML reading and comparison of spatial hypotheses and the stability statements.",
+          "title": "Spatiotemporal stability of synchronized coupled map lattice states",
+          "trigger": "Exact same Chebyshev T2 nearest-neighbour-state coupling with period-two dynamical stability, hence the most relevant recent source."
+        },
+        {
+          "assessment": "Defines the same backward positive-sign coupling and studies periodic cycles on two sites but concentrates on weak-coupling enumeration/cycle expansion and plots through a=0.1, not the exact strong-coupling window or all even spatial sizes.",
+          "evidence": [
+            "Eq. (4) identifies 2B+ as neighbour-state coupling.",
+            "Section 2.3 studies two-site Jacobian products with numerical stability trends at a<=0.1.",
+            "Figures 2–8 and final discussion concern small-coupling cycles and averages; no explicit rho=4(1-a)^2+a^2 all-even-ring theorem was found."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/nlin/0312024",
+          "material_read": "All 17 pages of accessible arXiv PDF text; inspected original PDF page images 5, 8, 15; focused on Eq. (4), Sections 2.2-2.4, Figures 2–8, Section 4 conclusion and the reported parameter ranges.",
+          "method": "Full PDF text comparison supported by page screenshots for coupling definition, Jacobian discussion, and conclusions.",
+          "title": "Periodic orbit theory of two coupled Tchebyscheff maps",
+          "trigger": "The earlier 2B+ family exactly contains the two-site restriction of this Chebyshev lattice; could have enumerated the same orbit."
+        },
+        {
+          "assessment": "Title, abstract, and the full 2026 follow-up indicate synchronized states; an uninspected appendix or pattern discussion could overlap. Do not infer entire-document noncoverage from the abstract.",
+          "evidence": [
+            "2002 Physica D 172, pp.88–102, DOI:10.1016/S0167-2789(02)00624-3.",
+            "Abstract states analytic periodic-state expressions and linear stability; the detailed mathematical content could not be checked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0110007",
+          "material_read": "Abstract, bibliographic material, and university description only. Full text was NOT accessible: arXiv PDF/HTML and alternative lawful OA routes did not provide it. Authorized Oxford retrieval reported vpn_disconnected.",
+          "method": "Checked arXiv record and alternate arXiv/OA routes, Bristol university bibliography and publication listing; authorized Oxford route attempted without circumvention.",
+          "title": "Stable synchronised states of coupled Tchebyscheff maps",
+          "trigger": "Older primary source on stable periodic states of the same Chebyshev lattice, with possibility of relevant appendices."
+        },
+        {
+          "assessment": "A general reduced-matrix method, not an exact T2 checkerboard threshold. The Jacobians here have derivatives sqrt(5)-1 and -sqrt(5)-1 on opposite sublattices and are not entrywise nonnegative.",
+          "evidence": [
+            "Phys. Rev. E 63, 017202 (published 2000-12-20): abstract assumes irreducible nonnegative stability matrices.",
+            "The audited one-step Jacobian at a<1 has a negative diagonal on one sublattice."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.63.017202",
+          "material_read": "Publisher and PubMed abstract and stated hypothesis only. Full article restricted and not claimed to have been read.",
+          "method": "Read official published abstract, compared its irreducible nonnegative stability-matrix assumption with sign-changing Chebyshev derivatives.",
+          "title": "Analysis of spatiotemporally periodic behavior in lattices of coupled piecewise monotonic maps",
+          "trigger": "General prior reduction for patterns with independent spatial and temporal periods might dominate the Fourier stability method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question of coherent travelling-pattern stability is natural for the same spatially extended Chebyshev system whose synchronized temporal 2-cycle disappears by a=1/3. The result constructs a distinct orbit that persists for all a, gives a complete all-even-ring Floquet phase window 3/5<a<1, and fixes the optimal linear contraction coupling a=4/5. Its cancellation across all Fourier modes and extension to square-summable perturbations are motivated dynamical invariants, not a numerical slice or trivial renamed assertion. The result is local, not a global attractor theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2510.12532",
+    "https://arxiv.org/pdf/nlin/0312024",
+    "https://arxiv.org/abs/nlin/0110007",
+    "https://doi.org/10.1103/PhysRevE.63.017202",
+    "Resultary: four actual subject searches on exact Floquet law, travelling checkerboard, Dettmann and antiphase; identical record excluded from independent evidence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claim concerns the positive backward/state-coupled quadratic Chebyshev nearest-neighbour map, only even N>=2 and 0<=a<=1.",
+    "Strict spectral contraction yields local attraction only for 3/5<a<1; no nonlinear endpoint or basin conclusion.",
+    "The infinite result is for the affine two-colour background with ℓ² perturbations, not the background as an element of ℓ².",
+    "Finite 60-case independent Jacobian checks do not certify the all-N or infinite theorem.",
+    "Materially relevant Dettmann 2002 paper was accessible only at abstract level; Oxford VPN was disconnected.",
+    "Public metadata and dated-status consistency need complete privacy-safe treatment before any publication action."
+  ],
+  "residual_risks": [
+    "Dettmann 2002 (arXiv:nlin/0110007, Physica D 172, 88–102) is highly relevant but full mathematical content/appendices inaccessible. Oxford authorized retrieval returned vpn_disconnected; access not bypassed.",
+    "Chatterjee–Gupte 2001 was available at abstract level only; its nonnegative-matrix condition appears inapplicable to the sign-changing Jacobians, but unexpected reductions cannot be entirely excluded.",
+    "A prior differently named staggered or anti-phase solution may have published the same exact multipliers without these keywords.",
+    "The local 2-site orbit and basic Fourier methods are straightforward consequences of earlier Chebyshev studies; the claimed novelty is only the explicit complete strong-coupling all-ring theorem and ℓ² extension."
+  ],
+  "schema_version": 1
+}
