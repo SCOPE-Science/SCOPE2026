@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:50:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Telescoping yields ||W^k x||_p^p=sum_(j>k)|x_j|^p (j/(j-k))^beta (L(j)/L(j-k))^p. Potter bounds imply bounded weights for positive locally bounded slowly varying L; local uniform slow variation gives finite B_L. If C_L=sup_(j>=s) L(j)/L(s)<infinity, for any hit-time set E of m indices in [0,N) the sharp finite-column inequality sum_(k in E,k<j)(j/(j-k))^beta<=N^beta m^(1-beta)/(1-beta) gives uniform weak-q0 where beta=alpha p, q0=1/alpha. Converse uses x=e_j, N=j and s+1 consecutive residual indices in [s,2s], yielding C_L<=B_L max(1,2^alpha W_q0). Strong q<q0 follows Potter with q(alpha+epsilon)<1, Jensen for q>=p and monotonicity for q<p. At q0, the harmonic weighted ratio sum_(s<=j) s^-1(L(j)/L(s))^q0 diverges by every terminal multiplicative block and slow variation; at q>q0 the one large iterate suffices. The genuine nonmonotone slow-variation class is included; sample L(j)=log(e+j)^gamma has weak endpoint iff gamma<=0. Independent bounded finite-k inequality checks and source numeric_checker.py inspect complement, not replace, all-j arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem3.4 treats strong q-absolute Cesàro quantities.",
+          "Arnold gives strong self-improvement and pure-power example; critical weak bound quantifying L is not stated in relevant primary sections."
+        ],
+        "reasoning": "Broader strong moment theories do not force this critical weak endpoint: positive logarithmic perturbation proves separation.",
+        "searches": [
+          "arXiv:2609.24601 Theorem3.4 weighted shift strong Cesaro bounds",
+          "arXiv:2610.00271 Theorem3.1 Example3.2 weak type",
+          "uniform Marcinkiewicz Lorentz weak orbit bound regularly varying weighted shifts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/numeric_checker.py tree 921603feff131ea5875a8f843bf1e809e1277d13",
+        "arXiv:2609.24601 Theorem3.4/Example3.12",
+        "arXiv:2610.00271 Theorem3.1/Example3.2",
+        "Resultary pure-power endpoint c1795c3e8b5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subcritical q strong estimate does not imply critical q0 weak estimate uniformly in N.",
+          "Weak q0 for L=1 contains no converse requiring almost decreasing ratios for arbitrary L."
+        ],
+        "reasoning": "The new column-density and block necessity proof goes beyond prior special cases and weaker subcritical statements.",
+        "searches": [
+          "arXiv:2609.24601 Theorem3.4",
+          "arXiv:2610.00271 Theorem3.1",
+          "Resultary weak-Lq0 pure-power published RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary theorem fixes a_j=j^alpha (L=1) and proves weak q0, strong q0 failure.",
+          "New claim ranges over arbitrary measurable locally bounded slowly varying L, including unbounded nonmonotone ratios."
+        ],
+        "reasoning": "An explicitly known special case cannot settle an iff property of an entire perturbation class.",
+        "searches": [
+          "Resultary weak L q0 extremal Cesaro shift c1795c3e8b5a",
+          "weak Cesaro orbit Lorentz weighted backward shifts slowly varying L"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known L=1 case is already a covered item.",
+          "Log-power positive-gamma counterexamples and C_L equivalence range over infinitely many L, not numerical data rows."
+        ],
+        "reasoning": "The claim is a criterion on function classes rather than database extrapolation; known endpoint tables for pure powers do not dominate.",
+        "searches": [
+          "Resultary exact feasible strong Cesaro self improvement endpoint",
+          "logarithm gamma weak Cesaro shift critical endpoint",
+          "oscillatory slowly varying shift endpoint"
+        ]
+      },
+      "rationale": "The previous pure-power weak q0 theorem corresponds to special case L=1 and is fully credited. Arnold and Abbar–Arnold–Coine provide strong q self-improvement and logarithmic weights but not the quantified if-and-only-if weak critical characterization for arbitrary, including oscillatory, slowly varying L. A broader Lorentz terminology result remains possible.",
+      "residual_risks": [
+        "No comparison with all possible general Marcinkiewicz/Lorentz weighted-sequence criteria; unindexed equivalence possible.",
+        "The proof uses Potter and UCT under positive measurable locally bounded L assumptions, not arbitrary irregular weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not present weak endpoint iff almost decreasing L",
+          "evidence": [
+            "Theorem3.4 on strong q absolute Cesàro bounds; Example3.12."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24601",
+          "material_read": "Full accessible PDF, Theorem3.4 and Example3.12 including logarithmic weights; page screenshot inspected",
+          "method": "Compare strong vs weak quantifier and function class",
+          "title": "On absolutely Cesàro bounded operators",
+          "trigger": "Direct weighted backward shift strong q theory"
+        },
+        {
+          "assessment": "Special pure-power sharp strong theory; no arbitrary slowly varying weak iff criterion",
+          "evidence": [
+            "Theorem3.1, Example3.2, Section4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00271v1",
+          "material_read": "Full HTML main theorem, proof and Example3.2 and Section4",
+          "method": "Compare exponent q0 and pure-power counterexample",
+          "title": "Self-improvement for absolutely Cesàro bounded operators",
+          "trigger": "Sharp strong q cutoffs and weak estimates"
+        },
+        {
+          "assessment": "Covers L=1 but cannot imply classification of arbitrary L",
+          "evidence": [
+            "Source fixes a_j=j^alpha exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-weak-l-q-0-endpoint-for-the-extremal-ces-ro-self-improvement-shi--c1795c3e8b5a/RESULT.md",
+          "material_read": "Entire public RESULT.md including theorem, argument, relationship and limits fetched from Resultary",
+          "method": "Check L=1 specialization and beyond",
+          "title": "Weak-L^{q0} endpoint for the extremal Cesàro self-improvement shift",
+          "trigger": "Exactly matching base pure power shift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact and necessary weak-endpoint criterion for regularly varying shifts is naturally motivated by instability of endpoint estimates under logarithmic/oscillating perturbation. It sharply distinguishes weak and strong Cesàro behavior; for L increasing logarithmically every subcritical strong estimate survives but weak q0 fails, a meaningful functional-analytic boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/numeric_checker.py tree 921603feff131ea5875a8f843bf1e809e1277d13",
+    "arXiv:2609.24601 Theorem3.4/Example3.12",
+    "arXiv:2610.00271 Theorem3.1/Example3.2",
+    "Resultary pure-power endpoint c1795c3e8b5a"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No comparison with all possible general Marcinkiewicz/Lorentz weighted-sequence criteria; unindexed equivalence possible.",
+    "The proof uses Potter and UCT under positive measurable locally bounded L assumptions, not arbitrary irregular weights."
+  ],
+  "residual_risks": [
+    "No comparison with all possible general Marcinkiewicz/Lorentz weighted-sequence criteria; unindexed equivalence possible.",
+    "The proof uses Potter and UCT under positive measurable locally bounded L assumptions, not arbitrary irregular weights."
+  ],
+  "schema_version": 1
+}

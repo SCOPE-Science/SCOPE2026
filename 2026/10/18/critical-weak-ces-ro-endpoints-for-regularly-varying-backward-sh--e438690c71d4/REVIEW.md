@@ -1,15 +1,21 @@
-# Scientific review of the critical weak Cesàro endpoint classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The norm identity telescopes exactly. For each fixed orbit horizon and cardinality \(m\), the crucial positive kernel is maximized by the largest \(m\) entries in each column; comparison with \(\sum_{r\le m}r^{-\beta}\) proves the weak estimate with the claimed exponent. Necessity uses a positive-density block in a single basis orbit and only local doubling of the slowly varying factor. The strong exponent range uses standard Potter bounds and Jensen; the critical failure uses uniform slow variation on every fixed terminal multiplicative interval. These arguments include all integers, vectors and thresholds in the stated domains. The included finite diagnostics are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-Abbar–Arnold–Coine (arXiv:2609.24601v1, Theorem 3.4) characterize strong Cesàro powers for general weighted shifts, not the uniform weak critical class. Arnold (arXiv:2610.00271v1, Theorem 3.1 and Example 3.2) establishes strong self-improvement and the unmodified power shift; his distinct type-controlled weak endpoint does not apply to a critical exponent exceeding the underlying \(p\). The publicly available *Weak-\(L^{q_0}\) endpoint for the extremal Cesàro self-improvement shift* (identifier `c1795c3e8b5a`) proves the pure-power \(L\equiv1\) case, which is expressly excluded from the novelty claim. The present theorem instead gives an if-and-only-if criterion for **all** positive measurable slowly varying factors, including nonmonotone factors. Strong-exponent classifications and the pure-power weak theorem do not imply the converse or its logarithmic counterexamples. An earlier general weak-type result under different language remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves a sharp, natural stability question at the boundary of the strong self-improvement range. Multiplication by a slowly varying factor never changes the complete strong exponent cutoff, but it can destroy the borderline weak property; an exact almost-decrease test determines precisely when. The logarithmic sign transition and oscillatory possibilities give structural, not merely finite numerical, examples. The exact necessity proof provides a practical diagnostic from a single basis orbit.
+Telescoping yields ||W^k x||_p^p=sum_(j>k)|x_j|^p (j/(j-k))^beta (L(j)/L(j-k))^p. Potter bounds imply bounded weights for positive locally bounded slowly varying L; local uniform slow variation gives finite B_L. If C_L=sup_(j>=s) L(j)/L(s)<infinity, for any hit-time set E of m indices in [0,N) the sharp finite-column inequality sum_(k in E,k<j)(j/(j-k))^beta<=N^beta m^(1-beta)/(1-beta) gives uniform weak-q0 where beta=alpha p, q0=1/alpha. Converse uses x=e_j, N=j and s+1 consecutive residual indices in [s,2s], yielding C_L<=B_L max(1,2^alpha W_q0). Strong q<q0 follows Potter with q(alpha+epsilon)<1, Jensen for q>=p and monotonicity for q<p. At q0, the harmonic weighted ratio sum_(s<=j) s^-1(L(j)/L(s))^q0 diverges by every terminal multiplicative block and slow variation; at q>q0 the one large iterate suffices. The genuine nonmonotone slow-variation class is included; sample L(j)=log(e+j)^gamma has weak endpoint iff gamma<=0. Independent bounded finite-k inequality checks and source numeric_checker.py inspect complement, not replace, all-j arguments.
 
-## Scope and limits
-Only positive telescoping backward shifts on real or complex \(\ell_p\) with \(0<\alpha<1/p\) and slowly varying factors satisfy the hypotheses. The results do not assert a weak endpoint for arbitrary absolutely Cesàro bounded operators. Independent literature priority verification and independent mathematical audit have not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previous pure-power weak q0 theorem corresponds to special case L=1 and is fully credited. Arnold and Abbar–Arnold–Coine provide strong q self-improvement and logarithmic weights but not the quantified if-and-only-if weak critical characterization for arbitrary, including oscillatory, slowly varying L. A broader Lorentz terminology result remains possible.
+
+## value
+
+PASS
+
+An exact and necessary weak-endpoint criterion for regularly varying shifts is naturally motivated by instability of endpoint estimates under logarithmic/oscillating perturbation. It sharply distinguishes weak and strong Cesàro behavior; for L increasing logarithmically every subcritical strong estimate survives but weak q0 fails, a meaningful functional-analytic boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
