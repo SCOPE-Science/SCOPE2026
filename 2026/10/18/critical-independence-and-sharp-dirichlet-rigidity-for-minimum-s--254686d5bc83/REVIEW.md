@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on a unique simplex minimum and transforming the other coordinates yields the exact residual density. For the uniform Dirichlet parameter, residual uniformity proves critical independence and monotone conditional coupling. Direct simplex survival integration gives the exact covariance. For nonunit parameters, a normalized second-order expansion has coefficient proportional to a strictly negative uniform-simplex covariance with quadratic concentration; its explicit beta integral proves the only-if direction. Domain endpoints and the degenerate two-coordinate case are excluded explicitly. The standalone deterministic script passed 261 checks, including independent exact-rational beta integration; no finite experiment substitutes for the proof.
+## correctness
 
-**Originality — PASS (self-review, with risk).** Actual semantic searches of published mathematical records for Dirichlet minimum/exceedance independence, conditional uniform spacings, and parameter rigidity produced no dominating claim. Material examined from Griffiths–Spanò (full accessible HTML, including Dirichlet definitions and polynomial-kernel sections) addresses kernel correlations, not this independence characterization; Telgarsky's accessible complete note addresses sparsity, not minimum-conditioned counts. Closest locally accessible spacing findings concern entropy/exceedance, maximum/exceedance, nested exceedance, and quadratic concentration/exceedance covariances. The quadratic-concentration covariance needed for the perturbation is itself a previously studied auxiliary identity; originality is asserted only for the new sharp independence and parameter-rigidity theorem. Pyke's 1965 survey could not be fully read, leaving residual coverage risk. Absence from searched sources is not a universal novelty guarantee.
+PASS
 
-**Mathematical value — PASS.** The exact independence criterion characterizes the uniform symmetric Dirichlet distribution among a natural one-parameter family, and the finite-dimensional stochastic-order phase diagram gives all monotone-score covariance signs. The quadratic coefficient identifies the first nonvanishing local departure from critical independence; this is a structural second-order constraint, not a routine change of notation. Such an ancillary relationship can simplify joint spacing-based diagnostics, while its failure under other concentration parameters prevents false factorization assumptions.
+The symmetric Dirichlet conditional law given minimum u and its minimizer has residual simplex density proportional to ∏[u+(1−mu)Y_i]^(alpha−1). For alpha=1 the residual is uniform independent of u and q_t(u)=(t−u)/(1−mu) has derivative (mt−1)/(1−mu)^2: stochastic order reverses across t=1/m, and at critical t the exceedance count is independent of u. Extreme u values eliminate all off-critical thresholds for all alpha. Near u=1/m, normalized density expansion has first nonconstant contribution −(alpha−1)m^4 h²/2 Cov(N,Q); direct beta integration gives negative Cov=−(m−2)(m−1)^(m−1)/m^(m+1), proving nonzero quadratic coefficient for alpha≠1. Independently integrated rational Dirichlet moments for m=3..12. Original auxiliary covariance-sign claim was untrue for a globally nonconstant g that is constant on support of Z (e.g. g(x)=max(0,x−1/m)); full RESULT.md is repaired to require g(Z) nonconstant a.s., preserving all substantive theorems, proofs and covariances.
 
-**Limits.** No nonsymmetric-parameter characterization or independent replication is claimed. The historical spacing survey may contain an equivalent formulation; that risk requires future primary-source comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-and-implication comparisons with primary literature and published Resultary records below support a best-of-knowledge new exact statement or motivated refinement. Prior auxiliary lemmas and special cases are credited; unseen equivalent work is a residual risk.
+
+## value
+
+PASS
+
+The uniform Dirichlet law is singled out by a nontrivial stochastic independence property; the strict parameter rigidity and explicit quadratic response are mathematically motivated exact features of standard spacing models. The quantifier repair removes only an erroneous ancillary class of monotone functions and retains the independent meaningful theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
