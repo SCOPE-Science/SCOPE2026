@@ -1,0 +1,245 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:37:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=3 and integers 2<=k<N, the known exact facet description in H_k is nonnegative coordinates, row<=1 and column<=1. Orthogonal projections of coordinate and row/column normals onto the total-zero tangent space have norms q=sqrt(1-N^{-2}) and h=sqrt(N-1). A ball of radius r in H_k is contained iff C_ij>=qr and all row/column sums<=1-hr. Summation gives r<=k/(N sqrt(N^2-1)) and r<=(N-k)/(N sqrt(N-1)); uniform C0=kJ/N^2 attains the min. Equality of bounds occurs at k=N+1-sqrt(N+1). Below or at equality, the coordinate lower bounds sum to total k and force unique C0. Above it, both margin upper bounds sum to total k and force all margins k/N; subtracting sJ, s=(N-k)sqrt(N+1)/N^2, leaves lambda B_N with lambda=[k-(N-k)sqrt(N+1)]/N>0. This proves full center face, dimension (N-1)^2, N! vertices and precise facet contacts. Integer equality iff N=h^2-1,k=h(h-1),h>=2. All k-assignment vertices have squared norm k and uniform barycenter C0; averaging squared distances gives k-k^2/N^2+||Z-C0||^2, forcing unique circumcenter and contact with every vertex. Independent LP checks 45 (N,k) cases through N=11 and enumeration of all vertices in six small cases matched; this finite evidence corroborates but does not replace the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Transportation theorem uses row/column EQUALITIES and projected coordinate norm sqrt((m-1)(n-1)/(mn)). Target uses one fixed-total equality and projected norm sqrt(1-1/N^2), with row/column inequalities.",
+          "The k-assignment polytope is a projected face of a larger transportation polytope, but Gill--Linusson proof explicitly uses a nonorthogonal projection, so intrinsic radii are not preserved.",
+          "John ellipsoid is for all matching cardinalities and is not a sphere; complete-graph theorem uses nonbipartite odd-set facets."
+        ],
+        "reasoning": "No inspected broader Euclidean theorem dominates the stated fixed-cardinality Frobenius classification. Generic LP algorithms solve instances but do not supply the explicit all-parameter center face or exact k-threshold without the new active-face argument.",
+        "searches": [
+          "Resultary query: partial matching polytope k matching complete bipartite all Euclidean Chebyshev incenters",
+          "Resultary query: transportation polytope intrinsic inradius margins Birkhoff polytope geometry",
+          "Resultary published results: exact intrinsic transportation-polytope inradius; exact John ellipsoid doubly substochastic; complete-graph matching-polytope radii"
+        ]
+      },
+      "checked_sources": [
+        "Gill--Linusson, The k-assignment polytope (2009), Theorem 3, facet table, relevant sections; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "Torres, Normality of k-Matching Polytopes of Bipartite Graphs (2023), arXiv:2306.11910v1, Theorem 3.1 and Section 4; https://arxiv.org/pdf/2306.11910",
+        "Resultary 2026/10/11: exact intrinsic inradius and centers of transportation polytopes, full RESULT.md",
+        "Resultary 2026/10/11: exact John ellipsoid of doubly substochastic matrix polytope, full RESULT.md",
+        "Resultary 2026/10/11: exact Euclidean radii and contact-facet phase for complete-graph matching polytopes, full RESULT.md",
+        "Resultary own identical indexed entry 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12 (same submitted result, not an independent earlier theorem)",
+        "Boyd--Vandenberghe convex-optimization Chebyshev-center LP method; https://www.cse.iitb.ac.in/~cs709/notes/code/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/chebyshev_center.html",
+        "Search: \"k-assignment polytope\" inradius incenter; \"partial assignment polytope\" \"Chebyshev center\"; \"doubly substochastic\" \"inradius\" fixed sum",
+        "Search: inradius Chebyshev center k-assignment polytope fixed cardinality matching polytope partial permutation matrices Birkhoff 2025 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining known H-representation with a generic LP gives a computational method, not the claimed symbolic solution and equality-face transition.",
+          "Existing fixed-margin transportation solution is not isometric to a fixed-total partial matching slice; the row/column inequalities become active and leave sJ+lambda B_N.",
+          "Known Birkhoff endpoint k=N lives in a smaller affine hull, not the 2<=k<N fixed-total slice."
+        ],
+        "reasoning": "Prior inputs are correctly acknowledged; none of the inspected results has the target as a direct special case with the same metric and parameters. Derivation requires separately computing projected facet norms, identifying both competing bounds and equality sets; the full nonunique optimal-center locus is not a mere rephrasing of a previously published theorem.",
+        "searches": [
+          "Gill--Linusson Theorem 3 and its table; Torres Theorem 3.1",
+          "Resultary transportation RESULT.md complete",
+          "Resultary John ellipsoid RESULT.md complete",
+          "Resultary nonbipartite matching RESULT.md complete",
+          "general Chebyshev-center LP recipe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gill--Linusson Theorem 3 identifies fixed-k nonattacking rook polytope M(N,N,k) and its facets.",
+          "Torres Theorem 3.1 generalizes k-matching H-representation.",
+          "The synonyms fixed-total doubly substochastic slice, partial permutation, rook, and k-matching have the same target set; inspected same-object texts have no insphere theorem."
+        ],
+        "reasoning": "Searches covered alternate object names together with inradius, Chebyshev center, intrinsic Frobenius ball, all optimizer centers and the radical threshold. The inspected source theorem/proof does not already state the optimum or full center face; routine H-representation is credited, not claimed new.",
+        "searches": [
+          "Resultary query: Birkhoff polytope incenters partial assignment polytopes inradius Chebyshev center doubly substochastic matrices",
+          "Resultary query: fixed-cardinality subpermutation matrix polytope Euclidean insphere all centers inradius",
+          "web: \"k-assignment polytope\" inradius incenter",
+          "web: \"partial assignment polytope\" \"Chebyshev center\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gill--Linusson table gives dimensions and facet counts, not inradii or incenter dimensions.",
+          "Resultary shows an identical indexed item but it is the submitted mathematical record, not independent earlier work.",
+          "Other ranked Resultary entries concern transportation, John ellipsoids, and distinct matching objects."
+        ],
+        "reasoning": "An earlier exact N,k inradius table could constitute direct coverage, but none was found in the inspected primary source tables or indexed related records. A nonappearance in search is not a global novelty certificate.",
+        "searches": [
+          "Resultary query: fixed-cardinality subpermutation matrix polytope Euclidean insphere all centers inradius",
+          "web: \"k-assignment polytope\" inradius incenter",
+          "Gill--Linusson (2009) page 4 facet-count table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact Euclidean radius and all-incenter phase classification for the canonical fixed-k complete-bipartite matching slice. Primary same-object full texts establish the H-representation and combinatorics but not the metric result; the closest published metric polytope results have nonisometric affine hulls or different objects/optimizations. All four structured comparisons and genuine primary full-text inspections are recorded. The identical Resultary hit is the same research record, not independent earlier coverage.",
+      "residual_risks": [
+        "Unindexed older partial-permutation or (1,0)-truncated transportation-polytope literature, including early Mendelsohn--Dulmage formulas, could contain the same Euclidean inball and optimizer-face calculation under different terminology.",
+        "A general exact theorem for Euclidean incenters of fixed-total doubly substochastic slices might cover this family even if indexed results currently refer only to full transportation polytopes or all-cardinality matching polytopes.",
+        "The proof becomes short after the known full facet description; independent rediscovery as an elementary polytope exercise remains possible. Search failure is not absolute priority proof.",
+        "Full local blob-byte rehash was unavailable; assigned tree identity is independently reconstructed from Git tree modes/names/blob SHA-1 identifiers, but individual source blobs were not all independently obtained as complete local bytes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3 and facet table establish exactly the H-representation and N^2+2N facets when 1<k<N. Its diameter is the graph diameter of the 1-skeleton, not the Euclidean enclosing-ball radius. The inspected source does not give the formula for the full incenter locus.",
+          "evidence": [
+            "Theorem 3, printed page 3; complete facet table, printed page 4.",
+            "Section 4 definition identifies diameter as shortest edge count in the 1-skeleton.",
+            "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf"
+          ],
+          "identifier_or_url": "Jonna Gill and Svante Linusson, Discrete Optimization 6(2) (2009) 148-161; DOI 10.1016/j.disopt.2008.10.003; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+          "material_read": "Author-archived 25-page full PDF: abstract/introduction; Theorem 3 and its transportation-facet proof on PDF page 4 (zero-based 3); following full facet and dimension table on PDF page 5 (zero-based 4); structural overview and selected Theorems 20,21,30 and Appendix references; full-document text searches for Euclidean/inradius/sphere/diameter. Rendered source pages 3 and 4 inspected.",
+          "method": "Lawful open-access PDF, parsed text and visual page screenshots.",
+          "title": "The k-assignment polytope",
+          "trigger": "Primary same-object proof of inequality description, facets, dimension, and plausible earlier geometric classification."
+        },
+        {
+          "assessment": "Proves equality of k-matching and fractional k-matching polytopes for bipartite graphs and normality. Supplies needed inequalities but no intrinsic Euclidean-radius optimization or family of incenters.",
+          "evidence": [
+            "Theorem 3.1 and Definition 2.7.",
+            "Section 4 proves normality, not a Frobenius metric statement.",
+            "https://arxiv.org/pdf/2306.11910"
+          ],
+          "identifier_or_url": "Juan Camilo Torres, arXiv:2306.11910v1 (2023); DOI 10.15446/recolma.v57n2.115853; https://arxiv.org/pdf/2306.11910",
+          "material_read": "Full 11-page arXiv PDF available; inspected abstract, introduction, Definitions 2.7-2.9, Theorem 3.1 and its proof, sections 3 and 4 on H-representation, finite graph matchings, normality, and K_{n,n}; full-document searches for radius/inradius; visual inspection of pages 3 and 4.",
+          "method": "Open arXiv full-text PDF plus screenshots of theorem and proof pages.",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "General bipartite theorem potentially covering the complete-graph matching object."
+        },
+        {
+          "assessment": "For fixed row/column equalities the tangent space has dimension (m-1)(n-1) and projected entry norm sqrt((m-1)(n-1)/(mn)); the target has only one fixed TOTAL, dimension N^2-1, plus row/column INEQUALITIES and projected entry norm sqrt(1-1/N^2). A facet-and-projection representation is not a Frobenius isometry, so this transportation theorem does not imply the target radius/threshold/center locus.",
+          "evidence": [
+            "Transportation center family: t_*J+T(r-nt_*,c-mt_*).",
+            "Target center family: sJ+lambda B_N after a different active-constraint transition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, affine tangent-space projection formula, all-center derivation, Birkhoff specialization, limitations and references.",
+          "method": "Published research GitHub full-text source read through authenticated repository connector.",
+          "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+          "trigger": "Published related result with exact inradius and a complete incenter set."
+        },
+        {
+          "assessment": "Full-dimensional all-cardinality doubly substochastic polytope and its maximum-volume ellipsoid, not a fixed-k affine-hyperplane slice nor a maximum Euclidean ball in that slice. Different optimization/object; does not dominate.",
+          "evidence": [
+            "Full-dimensional D_n has dimension N^2, while the target fixed-total slice has dimension N^2-1.",
+            "John ellipsoid has generally unequal squared semiaxes, not an intrinsic sphere."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, full-dimensional D_n definition, John-ellipsoid KKT argument, eigenvalues, contacts, scope and references.",
+          "method": "Published research GitHub full-text.",
+          "title": "Exact John ellipsoid of the doubly substochastic matrix polytope",
+          "trigger": "Same ambient nonnegative row/column inequality system without prescribed matching cardinality."
+        },
+        {
+          "assessment": "Concerns all-cardinality matchings of nonbipartite K_n in dimension binomial(n,2), with odd-set blossom facets. It is not the fixed-cardinality K_{N,N} rook polytope; neither exact center family nor square-root k-threshold follows.",
+          "evidence": [
+            "Nonbipartite K_n odd-set facets vs bipartite k-assignment nonnegativity and row/column bounds.",
+            "All-cardinality matching polytope has unique constant incenter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, edge-incidence metric, nonbipartite full matching polytope, blossom/degree facet proof, sphere, scope and references.",
+          "method": "Published research GitHub full-text.",
+          "title": "Exact Euclidean radii and contact-facet phase of complete-graph matching polytopes",
+          "trigger": "Similar Euclidean extremal-radius classification for matchings."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-k nonattacking-rook polytope is a natural polytope in assignment optimization and combinatorial convexity. The Frobenius largest-ball radius measures simultaneous robustness of entry positivity and row/column capacity constraints. Beyond a computable number, this establishes a sharp rank transition from a singleton center to a full (N-1)^2-dimensional Birkhoff-polytope family, classified through vertices, coordinate tangencies and the rare integer critical ranks. The outer sphere remains uniquely centered and contacts all combinatorial vertices. This is a motivated complete geometric classification rather than an arbitrary finite slice, numerical table, or restatement of the standard Chebyshev LP. The proof is elementary given known facets, but the structural optimizer-face classification is not a textbook numerical plug-in.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gill--Linusson, The k-assignment polytope (2009), Theorem 3, facet table, relevant sections; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+    "Torres, Normality of k-Matching Polytopes of Bipartite Graphs (2023), arXiv:2306.11910v1, Theorem 3.1 and Section 4; https://arxiv.org/pdf/2306.11910",
+    "Resultary 2026/10/11: exact intrinsic inradius and centers of transportation polytopes, full RESULT.md",
+    "Resultary 2026/10/11: exact John ellipsoid of doubly substochastic matrix polytope, full RESULT.md",
+    "Resultary 2026/10/11: exact Euclidean radii and contact-facet phase for complete-graph matching polytopes, full RESULT.md",
+    "Resultary own identical indexed entry 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12 (same submitted result, not an independent earlier theorem)",
+    "Boyd--Vandenberghe convex-optimization Chebyshev-center LP method; https://www.cse.iitb.ac.in/~cs709/notes/code/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/chebyshev_center.html",
+    "Search: \"k-assignment polytope\" inradius incenter; \"partial assignment polytope\" \"Chebyshev center\"; \"doubly substochastic\" \"inradius\" fixed sum",
+    "Search: inradius Chebyshev center k-assignment polytope fixed cardinality matching polytope partial permutation matrices Birkhoff 2025 2026"
+  ],
+  "disposition": "passed",
+  "final_claim": "For N>=3 and integer 2<=k<N, the intrinsic Frobenius inradius of the N-by-N k-assignment polytope is min{k/[N sqrt(N^2-1)],(N-k)/[N sqrt(N-1)]}. Its center is uniquely kJ/N^2 for k<=N+1-sqrt(N+1); at larger k the entire incenter set is sJ+lambda B_N with s=(N-k)sqrt(N+1)/N^2 and lambda=[k-(N-k)sqrt(N+1)]/N, of dimension (N-1)^2 with N! vertices. The unique Euclidean circumcenter is kJ/N^2, outer squared radius k-k^2/N^2, and all k-partial-permutation vertices contact the outer sphere.",
+  "limitations": [
+    "Proof is for N>=3, 2<=k<N square fixed-cardinality partial permutation polytopes with intrinsic Frobenius metric.",
+    "Endpoint k=1,N, rectangular matrices, arbitrary bipartite graphs, John ellipsoids and general affine transformations are not covered.",
+    "The full same-object prior sources provide facets; non-observation of a metric theorem in the inspected material is not proof of absolute novelty.",
+    "The source tree was independently SHA-1-reconstructed from entries; source file blobs were retrieved via connector but complete raw byte Git blob rehash was not performed.",
+    "Current public-facing source metadata/review includes operational provenance or model-related terms, and privacy-neutral replacements were not fully staged/validated; withhold publication."
+  ],
+  "residual_risks": [
+    "Unindexed older partial-permutation or (1,0)-truncated transportation-polytope literature, including early Mendelsohn--Dulmage formulas, could contain the same Euclidean inball and optimizer-face calculation under different terminology.",
+    "A general exact theorem for Euclidean incenters of fixed-total doubly substochastic slices might cover this family even if indexed results currently refer only to full transportation polytopes or all-cardinality matching polytopes.",
+    "The proof becomes short after the known full facet description; independent rediscovery as an elementary polytope exercise remains possible. Search failure is not absolute priority proof.",
+    "Full local blob-byte rehash was unavailable; assigned tree identity is independently reconstructed from Git tree modes/names/blob SHA-1 identifiers, but individual source blobs were not all independently obtained as complete local bytes."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 3 and facet table establish exactly the H-representation and N^2+2N facets when 1<k<N. Its diameter is the graph diameter of the 1-skeleton, not the Euclidean enclosing-ball radius. The inspected source does not give the formula for the full incenter locus.",
+      "evidence": [
+        "Theorem 3, printed page 3; complete facet table, printed page 4.",
+        "Section 4 definition identifies diameter as shortest edge count in the 1-skeleton.",
+        "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf"
+      ],
+      "identifier_or_url": "Jonna Gill and Svante Linusson, Discrete Optimization 6(2) (2009) 148-161; DOI 10.1016/j.disopt.2008.10.003; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+      "material_read": "Author-archived 25-page full PDF: abstract/introduction; Theorem 3 and its transportation-facet proof on PDF page 4 (zero-based 3); following full facet and dimension table on PDF page 5 (zero-based 4); structural overview and selected Theorems 20,21,30 and Appendix references; full-document text searches for Euclidean/inradius/sphere/diameter. Rendered source pages 3 and 4 inspected.",
+      "method": "Lawful open-access PDF, parsed text and visual page screenshots.",
+      "title": "The k-assignment polytope",
+      "trigger": "Primary same-object proof of inequality description, facets, dimension, and plausible earlier geometric classification."
+    },
+    {
+      "assessment": "Proves equality of k-matching and fractional k-matching polytopes for bipartite graphs and normality. Supplies needed inequalities but no intrinsic Euclidean-radius optimization or family of incenters.",
+      "evidence": [
+        "Theorem 3.1 and Definition 2.7.",
+        "Section 4 proves normality, not a Frobenius metric statement.",
+        "https://arxiv.org/pdf/2306.11910"
+      ],
+      "identifier_or_url": "Juan Camilo Torres, arXiv:2306.11910v1 (2023); DOI 10.15446/recolma.v57n2.115853; https://arxiv.org/pdf/2306.11910",
+      "material_read": "Full 11-page arXiv PDF available; inspected abstract, introduction, Definitions 2.7-2.9, Theorem 3.1 and its proof, sections 3 and 4 on H-representation, finite graph matchings, normality, and K_{n,n}; full-document searches for radius/inradius; visual inspection of pages 3 and 4.",
+      "method": "Open arXiv full-text PDF plus screenshots of theorem and proof pages.",
+      "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+      "trigger": "General bipartite theorem potentially covering the complete-graph matching object."
+    },
+    {
+      "assessment": "For fixed row/column equalities the tangent space has dimension (m-1)(n-1) and projected entry norm sqrt((m-1)(n-1)/(mn)); the target has only one fixed TOTAL, dimension N^2-1, plus row/column INEQUALITIES and projected entry norm sqrt(1-1/N^2). A facet-and-projection representation is not a Frobenius isometry, so this transportation theorem does not imply the target radius/threshold/center locus.",
+      "evidence": [
+        "Transportation center family: t_*J+T(r-nt_*,c-mt_*).",
+        "Target center family: sJ+lambda B_N after a different active-constraint transition."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834/RESULT.md",
+      "material_read": "Complete RESULT.md: theorem, affine tangent-space projection formula, all-center derivation, Birkhoff specialization, limitations and references.",
+      "method": "Published research GitHub full-text source read through authenticated repository connector.",
+      "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+      "trigger": "Published related result with exact inradius and a complete incenter set."
+    },
+    {
+      "assessment": "Full-dimensional all-cardinality doubly substochastic polytope and its maximum-volume ellipsoid, not a fixed-k affine-hyperplane slice nor a maximum Euclidean ball in that slice. Different optimization/object; does not dominate.",
+      "evidence": [
+        "Full-dimensional D_n has dimension N^2, while the target fixed-total slice has dimension N^2-1.",
+        "John ellipsoid has generally unequal squared semiaxes, not an intrinsic sphere."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382/RESULT.md",
+      "material_read": "Complete RESULT.md: theorem, full-dimensional D_n definition, John-ellipsoid KKT argument, eigenvalues, contacts, scope and references.",
+      "method": "Published research GitHub full-text.",
+      "title": "Exact John ellipsoid of the doubly substochastic matrix polytope",
+      "trigger": "Same ambient nonnegative row/column inequality system without prescribed matching cardinality."
+    },
+    {
+      "assessment": "Concerns all-cardinality matchings of nonbipartite K_n in dimension binomial(n,2), with odd-set blossom facets. It is not the fixed-cardinality K_{N,N} rook polytope; neither exact center family nor square-root k-threshold follows.",
+      "evidence": [
+        "Nonbipartite K_n odd-set facets vs bipartite k-assignment nonnegativity and row/column bounds.",
+        "All-cardinality matching polytope has unique constant incenter."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7/RESULT.md",
+      "material_read": "Complete RESULT.md: theorem, edge-incidence metric, nonbipartite full matching polytope, blossom/degree facet proof, sphere, scope and references.",
+      "method": "Published research GitHub full-text.",
+      "title": "Exact Euclidean radii and contact-facet phase of complete-graph matching polytopes",
+      "trigger": "Similar Euclidean extremal-radius classification for matchings."
+    }
+  ]
+}
