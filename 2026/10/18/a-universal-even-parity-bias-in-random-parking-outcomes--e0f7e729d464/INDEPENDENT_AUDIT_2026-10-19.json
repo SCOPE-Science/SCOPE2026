@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T19:53:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before the last car parks in vacancy k+1, previous cars split into k left and r=n−1−k right valid parking lists; signed binary interleaving sum is Gaussian binomial at q=−1, zero for even m/odd k and binom(floor m/2,floor k/2) otherwise. The last car contributes (k+1)(−1)^r. This yields exact recurrence; separating even/odd EGF gives O=(zE²)′ and E′=E³+8zE²E′+4z²E²E″. Coefficient of z^m on RHS uses only prior E coefficients with nonnegative weights, while E³ strictly positive, inductively D_{2m}>0, then O positivity yields D_{2m+1}>0. The n=1 base and D0 empty convention addressed. Independent direct brute-force preference enumeration n≤5 and signed recurrence through n≤15 reproduced values D1..D8=1,1,4,11,72,335,2944,19449. No convergence of EGF needed (formal only).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinsky 2026 pointwise law; Stanley–Yin 2023 enumerative parking statistics",
+          "https://arxiv.org/pdf/2404.11529",
+          "https://arxiv.org/pdf/2306.08681"
+        ],
+        "reasoning": "Pinsky is broader at the level of whole outcome distribution, but an unevaluated alternating sum of that law does not establish a strict sign inequality; the last-vacancy factorization + q=-1 shuffles performs a nontrivial cancellation not supplied by a general mass function. Stanley–Yin uses inverse descents, different statistic.",
+        "searches": [
+          "parking functions outcome permutation sign even odd parity bias recurrence signed parking permutation",
+          "Pinsky 2026 pointwise law; Stanley–Yin 2023 enumerative parking statistics"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2404.11529",
+        "https://arxiv.org/pdf/2306.08681",
+        "https://arxiv.org/abs/0806.0440",
+        "https://arxiv.org/abs/2508.11587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinsky Theorem 1 pointwise PMF, Chebikin–Postnikov q=-1 inversion enumerator",
+          "https://arxiv.org/pdf/2404.11529",
+          "https://arxiv.org/pdf/2306.08681"
+        ],
+        "reasoning": "A known exact PMF logically determines D_n by summation over n! outcome permutations, but its positive sign for every n is a separate theorem. Word inversions and outcome inversions differ (n=4 signed totals 5 vs 11), so q=-1 identities for the former do not cover the latter.",
+        "searches": [
+          "parking functions outcome permutation sign even odd parity bias recurrence signed parking permutation",
+          "Pinsky Theorem 1 pointwise PMF, Chebikin–Postnikov q=-1 inversion enumerator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky arXiv:2404.11529 full outcome-permutation pmf; Stanley–Yin arXiv:2306.08681; Chebikin–Postnikov ribbon poset q=-1",
+          "https://arxiv.org/pdf/2404.11529",
+          "https://arxiv.org/pdf/2306.08681"
+        ],
+        "reasoning": "Pinsky gives full mass P(σ), hence a factorial signed sum computes the probability, but no strict even-minus-odd theorem or ODE positivity in read results. Chebikin–Postnikov evaluates a q=-1 inversion sum on *preference-word* or related P-parking stats, not inversion parity of final outcome σ; cannot transfer by relabeling.",
+        "searches": [
+          "parking functions outcome permutation sign even odd parity bias recurrence signed parking permutation",
+          "Pinsky arXiv:2404.11529 full outcome-permutation pmf; Stanley–Yin arXiv:2306.08681; Chebikin–Postnikov ribbon poset q=-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinsky outcome PMF; Resultary parking parity semantic query; small n sequence 1,1,4,11,72,...",
+          "https://arxiv.org/pdf/2404.11529",
+          "https://arxiv.org/pdf/2306.08681"
+        ],
+        "reasoning": "Existing pointwise permutation probability tables could imply small D_n but do not tabulate the all-n recurrence/positivity. No checked independent same sequence in indexed search, with residual historical risk.",
+        "searches": [
+          "parking functions outcome permutation sign even odd parity bias recurrence signed parking permutation",
+          "Pinsky outcome PMF; Resultary parking parity semantic query; small n sequence 1,1,4,11,72,..."
+        ]
+      },
+      "rationale": "Best-of-knowledge: compared mathematical objects, parameter ranges, equivalent transforms, prior stronger results and available exact tables; the specific final theorem is not known to follow from the inspected primary and Resultary findings. Pinsky gives full mass P(σ), hence a factorial signed sum computes the probability, but no strict even-minus-odd theorem or ODE positivity in read results. Chebikin–Postnikov evaluates a q=-1 inversion sum on *preference-word* or related P-parking stats, not inversion parity of final outcome σ; cannot transfer by relabeling. A known exact PMF logically determines D_n by summation over n! outcome permutations, but its positive sign for every n is a separate theorem. Word inversions and outcome inversions differ (n=4 signed totals 5 vs 11), so q=-1 identities for the former do not cover the latter.",
+      "residual_risks": [
+        "An earlier inversion parity theorem for outcome permutations could be hidden in parking-function sign-reversing involutions or q-statistic papers.",
+        "Pinsky full pointwise law implies the result as a computational alternating sum, so novelty is specifically all-n evaluation, positivity and efficient recurrence, not the underlying pmf."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fully identifies outcome PMF, but inspected results do not evaluate even-minus-odd signed sum by a positive recurrence",
+          "evidence": "Theorem 1 gives P_n^park(σ) for each σ and asymptotic results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.11529",
+          "material_read": "Abstract, definition of induced σ, introduction/theorems for pointwise P^park_n(σ) and selected ensuing sections",
+          "method": "arXiv full preprint PDF and first-page image; published version DOI 10.37236/13842 (2026-03-13)",
+          "title": "The Distribution on Permutations Induced by a Random Parking Function",
+          "trigger": "same outcome-permutation distribution in classical uniform parking"
+        },
+        {
+          "assessment": "Inverse descents and related parking statistics not equivalent to global parity sign of final outcome",
+          "evidence": "Inverse outcome descent count does not determine parity of inversion count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.08681",
+          "material_read": "Abstract, overview and selected inverse-descent results",
+          "method": "arXiv preprint with page image",
+          "title": "Some Enumerative Properties of Parking Functions",
+          "trigger": "closest combinatorial distributional statistics"
+        },
+        {
+          "assessment": "q-enumerator for generalized parking preferences/inversions, not final occupancy permutation under deterministic parking dynamics",
+          "evidence": "Prior q=−1 Euler-related evaluations apply to different inversion statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.0440",
+          "material_read": "Abstract, introductory theorems and q-enumerator statistic definition",
+          "method": "lawful open-access preprint/PDF intro",
+          "title": "Generalized parking functions, descent numbers, and chain polytopes of ribbon posets",
+          "trigger": "prior q=−1 inversion sum could cover parity"
+        },
+        {
+          "assessment": "Studies inversion count of preference word rather than left-to-right outcome σ; not direct coverage",
+          "evidence": "For n=4 signed preference-word inversion sum differs from outcome sign imbalance.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.11587",
+          "material_read": "Abstract/introduction and word inversion definition",
+          "method": "arXiv open-access primary preprint intro",
+          "title": "Inversions in parking functions",
+          "trigger": "same inversion language, risk of alternative formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The final outcome-permutation sign is a fundamental but nonuniform statistic of random classical parking. A universal strict even bias (not obvious from pointwise probability weights), an exact quadratic-arithmetic recurrence and a positive formal differential mechanism form a mathematically motivated and reusable parity theorem. Different preference-word inversions are explicitly excluded.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier inversion parity theorem for outcome permutations could be hidden in parking-function sign-reversing involutions or q-statistic papers.",
+    "Pinsky full pointwise law implies the result as a computational alternating sum, so novelty is specifically all-n evaluation, positivity and efficient recurrence, not the underlying pmf.",
+    "Any bounded finite computation only corroborates tested sizes; it is not an infinite proof.",
+    "Best-of-knowledge originality is not historical priority certification; archival source documents may contain equivalent results."
+  ],
+  "schema_version": 1
+}
