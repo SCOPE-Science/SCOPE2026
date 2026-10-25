@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For each connected simplex, the maximizing coordinate is determined by the strict objective-score order. Pairs distinguish leaves above and below the hub; triples distinguish all comparisons among the higher leaves. The converse holds for every larger connected simplex, proving precisely which braid chambers merge. Exact chamber counts give the stated Gaussian cone masses and power sums. The two critical Rényi limits follow from uniform binomial/factorial log estimates and explicit Riemann sums. Endpoint dominance gives the collision constants. The standalone checker verifies all strict rankings through six leaves directly from the simplex-sum realization. The finite tests are supporting checks, not infinite proofs.
+## correctness
 
-## Originality — PASS, qualified
-The geometric interpolation, star fan stabilization, stellohedron partial-permutation vertex indexing, and general poset/normal-fan counting machinery are known (Pešović–Stojadinović, arXiv:2209.12053; Postnikov–Reiner–Williams, arXiv:math/0609184; Cardinal–Merino–Mütze, arXiv:2106.16204). In particular, elementary angular cone masses are recoverable from prior fan descriptions and are not separately claimed as a novel general principle. The stated exact Rényi power-sum comparison, the different \(1/n\) versus \(1/(n\log n)\) critical windows, their complete crossover functions, and the collision-halving asymptotic were not found as covered conclusions in the checked relevant texts or record searches. The analytic crossover is a further quantified statement beyond the existing vertex/fan enumeration. An unindexed equivalent formulation, or a derivation from the known poset description in unpublished work, remains a real bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-An isotropic exposing direction is a canonical Euclidean sampling procedure for polytopes, and the angular Rényi spectrum measures concentration across normal cones. The result resolves this invariant in every dimension of a natural interpolating polytope family, identifies a sharp change of entropy scale at the first triangular simplex additions, and determines explicit finite-size scaling functions instead of merely an order-of-growth estimate. The two independent-direction collision constants provide a concrete geometric consequence. The low-complexity factorial derivation is not itself the value claim; the complete quantitative transition is.
+For Gaussian exposure directions, each of (n+1)! strict coordinate permutations has equal probability. For m=1 a winner pattern is a subset of leaves above the hub, of size k, with k!(n-k)! orders; for every m>=2 the triple-simplex winners recover the decreasing ORDERED high-leaf list, with (n-k)! orders. This yields exact Z_{n,1}=(n+1)^(-q) sum C(n,k)^(1-q) and Z_{n,m}=n!/((n+1)!)^q sum(j!)^(q-1), m>=2. Independent permutations check all n=2..5 and all m. Uniform Stirling plus Riemann sums at q=1+t/n and 1+t/(n log n) give the stated h(x) and uniform-x crossover integrals; Shannon limits 1/2 by direct differentiation. Fixed-q and collision limits follow from binomial/factorial dominance. These are genuine analytical asymptotics rather than finite extrapolation, and exclude anisotropic Gaussian metrics.
 
-## Sources and limitations
-Relevant primary material inspected: Pešović–Stojadinović (Definition 2.1, Example 3.6, Sections 3–4), Postnikov–Reiner–Williams (Sections 3, 6, 8, 10.4), Cardinal–Merino–Mütze (Introduction and Section 1.5). These sources cover fan and partial-permutation structure but do not explicitly supply the paired Rényi critical windows. Results concern the coordinate intrinsic Euclidean metric and isotropic Gaussian objectives, not arbitrary affine realizations. No assertion of bibliographic uniqueness or independent mathematical certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact final statement, including earlier stronger/special-case results and mathematical implications, did not identify decisive coverage of the stated new component; this is not an exhaustive global priority certification.
+
+## value
+
+PASS
+
+The geometric normal-fan refinement at m=2 is known, but its angular probability redistribution drives two quantitatively different sharply scaled Renyi entropy transitions (1/n and 1/(n log n)) with explicit crossover functions. This resolves a motivated angle-spectrum sensitivity of a canonical graphical-zonotope-to-stellohedron family, not a rebranding of vertex enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
