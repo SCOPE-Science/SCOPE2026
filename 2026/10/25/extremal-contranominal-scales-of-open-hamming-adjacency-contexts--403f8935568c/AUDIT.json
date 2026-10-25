@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For two distinct q-ary Hamming words the intersection of exact-distance-one neighborhoods has size q-2, 2 or 0 as their distance is 1, 2 or at least 3. This yields k-2 <= max(q-2,2). In a k>=5 scale pairwise attributes are adjacent, forcing them onto a coordinate line; every object must then lie on that line and equal its matched attribute. At k=4, three objects adjacent to a designated attribute can vary in precisely one, two, or three coordinate directions; the three exhaustive cases force respectively a full line (q=4), two parallel two-point lines with four distinct symbols (q=4), or one parity class of a binary 3-face (q=2,3,4). Each has unique witnesses. Direct disjoint-coordinate counting gives the formulas and the d<=2 exceptions. Reproducibility: python3 verify.py exhaustively checks 4,321,392 support candidates in 14 parameter pairs and 25,000 sampled five-support cases; this is corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson (2020), arxiv:2007.16042, Hamming section proves neighborhood intersections and VCdim <=3, but not the maximum number of co-singleton traces or extremal contranominal subcontexts.",
+        "General Boolean-suborder correspondence (Koyda–Stumme) does not imply this family-specific maximum without the new classification."
+      ],
+      "reasoning": "The known open-neighborhood VC theorem controls shattering of all 2^k traces; a contranominal context requires only k co-singleton traces and can have k=q unbounded. The two invariants do not dominate each other here. The general algorithmic results cover broader input contexts but provide no stronger parameter-specific theorem yielding the classified supports.",
+      "searches": [
+        "arxiv:2007.16042 Section 4 and Theorems 4.6-4.8",
+        "arxiv:2104.07159 Sections 2-7",
+        "arxiv:2106.10978 Sections 2-5",
+        "\"VC dimension\" \"Hamming graph\" \"contranominal\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042 (primary full text, Hamming section)",
+      "arxiv:2104.07159 (primary full text, Boolean correspondence)",
+      "arxiv:2106.10978 (primary full text, induced matching algorithms)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2020 Hamming common-neighbor lemma is a proof ingredient, not the extremal k and equality classification.",
+        "2021 general FCA equivalence translates but does not determine the Hamming-specific sharp scale numbers.",
+        "The earlier closed-radius-one Hamming incidence theorem has fixed maximum 4; opening the incidence relation admits full q-point lines for q>=5 and hence differs in claim and consequence."
+      ],
+      "reasoning": "Neither the intersections by themselves nor the upper VCdim<=3 imply the exact contranominal scale dimension or three families. The manuscript adds a global bound, a rigorous equality-case analysis, and a complete maximal-support count for q>=4 and q<=3,d>=3. Prior closed-incidence claims are not used to relabel equivalent assertions; they concern another relation.",
+      "searches": [
+        "arxiv:2007.16042 Lemmas 4.2–4.5 and Theorem 4.6",
+        "arxiv:2104.07159 Boolean suborder equivalence",
+        "arxiv:2106.10978 contranominal scale induced matching equivalence",
+        "\"open neighborhood\" \"formal concept\" \"Hamming graph\" Boolean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dürrschnabel–Koyda–Stumme (2021), arxiv:2106.10978, identifies contranominal subcontexts with induced matching formulations in the complement incidence graph, providing the relevant equivalence, but gives a general search algorithm.",
+        "Koyda–Stumme (2021), arxiv:2104.07159, gives Boolean-suborder correspondence for general formal contexts."
+      ],
+      "reasoning": "The present condition is also a co-singleton/crown incidence submatrix, or a Boolean suborder of the concept lattice. These equivalences were used to broaden the search rather than treated as disjoint questions. Neither inspected general statement evaluates dimension or equality cases for exact-distance-one Hamming contexts.",
+      "searches": [
+        "\"Hamming graph\" \"contranominal\" scale",
+        "\"Hamming graph\" \"induced matching\" \"bipartite double cover\"",
+        "\"contrascale\" \"Hamming\" \"open\" incidence",
+        "\"Hamming graph\" \"Boolean suborder\" concept lattice",
+        "arxiv:2106.10978 Sections 2-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table for the maximal open-Hamming contranominal dimension or three-family counts was found in the inspected papers or queried bibliographic search results.",
+        "The q-ary intersection formula appears explicitly in Adler–Benediktsson–Macpherson and is credited rather than claimed as new."
+      ],
+      "reasoning": "The counting formulas C(4,d) and C(q,d) refer to induced contranominal object/attribute pairs, not the established neighborhood intersection numbers, VC dimensions, or matching search runtime tables. No inspected exact table or theorem covers those enumerators; negative search alone is not a novelty proof.",
+      "searches": [
+        "\"contranominal\" \"Hamming\" dimension graph",
+        "\"Hamming graph\" \"Boolean suborder\" concept lattice",
+        "\"Boolean substructures\" \"contranominal\" 2021 Koyda Stumme arxiv",
+        "arxiv:2007.16042 Hamming graph neighborhood intersection equations"
+      ]
+    },
+    "rationale": "The claimed sharp open-Hamming contranominal dimension, equality geometries and counts are distinct from the credited general FCA and open-Hamming VC theorems. Full arXiv primary manuscripts inspected, not only titles. No implication from the inspected published claims to the enumerative assertion was found; priority remains qualified by alternative terminology.",
+    "residual_risks": [
+      "Publication priority is not independently certified. A co-matching/crown/graph-theoretic induced-submatrix theorem under another name may already imply the claim.",
+      "The exact count for q=2 or 3 when d<=2 is deliberately not asserted; no all-Boolean-sublattice count follows from this theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides common-neighbor intersection counts and VC dimension, but not contranominal maximum-support geometry, exact counts, or Boolean-suborder breadth. Known portions credited.",
+        "evidence": [
+          "Lemmas 4.2–4.5 give intersections q-2/2/0; Theorem 4.6 bounds VCdim by 3; neither classifies k co-singleton incidence matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Full rendered manuscript, with specific examination of Hamming graph Section 4, Lemmas 4.2–4.5, Theorems 4.6–4.8.",
+        "method": "Read source manuscript text in online arXiv HTML and compared lemma hypotheses and theorem conclusions.",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Same Hamming graphs and exact open neighborhoods; plausible direct domination by VC result."
+      },
+      {
+        "assessment": "General Boolean correspondence, but no sharp q-ary open-Hamming extremal classification or count.",
+        "evidence": [
+          "Contranominal-to-Boolean correspondence is explicitly attributed; enumeration and rigidity are additional family-specific theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.07159",
+        "material_read": "Rendered manuscript Sections 2–7, including statements identifying contranominal subcontexts and Boolean suborders.",
+        "method": "Read full public arXiv HTML source; compared exact assumptions and whether Hamming examples occur.",
+        "title": "Boolean Substructures in Formal Concept Analysis",
+        "trigger": "Boolean suborders and contranominal dimensions may be explicit FCA prior theorem."
+      },
+      {
+        "assessment": "General detection algorithms and complement-incidence matching equivalence; no explicit Hamming family results or formula.",
+        "evidence": [
+          "The generic matching interpretation broadens equivalence searches but does not derive the dimension or geometric families."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.10978",
+        "material_read": "Full arXiv manuscript, especially definitions, induced matching formulation, and algorithmic sections 2–5.",
+        "method": "Opened and read full public arXiv text; compared its input-general algorithmic output with claimed Hamming closed forms.",
+        "title": "Attribute Selection using Contranominal Scales",
+        "trigger": "General induced-matching reformulation could subsume exact Hamming extremizers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "403f8935-568c-4bdd-b313-6d25fad8f46e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum contranominal dimension is a natural concept-lattice Boolean-suborder invariant, not an arbitrary subfamily. The theorem explains why the q=4 transition produces three intrinsically distinct geometric extremizers and gives complete enumerations for every nontrivial large-arity regime. For q>=5, the invariant diverges linearly with alphabet size while the open-neighborhood VC dimension remains bounded by three, a meaningful nonimplication between central FCA and model-theoretic complexity measures. These claims require structural rigidity beyond the standard intersection lemma and offer reusable exact benchmark families.",
+    "status": "PASS"
+  }
+}

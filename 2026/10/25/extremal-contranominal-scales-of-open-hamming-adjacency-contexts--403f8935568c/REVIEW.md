@@ -1,0 +1,19 @@
+# Scientific review: Extremal contranominal scales of open Hamming adjacency contexts
+
+## Correctness
+
+**PASS.** The proof explicitly defines distinct object and attribute copies and the exact-distance-one incidence, including nonincidence on the diagonal. Its common-neighbor lemma covers every pair distance and gives a sharp upper bound. For alphabet sizes at least five, having three common neighbors forces all attributes and then all objects onto one coordinate line; the matching is identical. For alphabet sizes at most four, the classification of three neighbors of one witness into one, two, or three coordinate directions is exhaustive. Each case uniquely forces the other three witnesses and the last object; the three families are distinguished by their six pairwise distances. The counting factors follow from independently identifiable coordinate supports, value choices, pair partitions, and parity choices. The two low-dimensional exceptional cases are treated explicitly. The standalone verifier checks more than four million maximum-support candidates in fourteen small cases, plus larger reproducible samples; the unbounded statements rely on the proof, not extrapolation.
+
+## Originality
+
+**PASS, qualified.** Koyda–Stumme (arXiv:2104.07159, full manuscript, Sections 2–7) establish generic contranominal/Boolean correspondence, but no open-Hamming-specific maximum, rigidity, or enumeration. Dürrschnabel–Koyda–Stumme (arXiv:2106.10978, full manuscript, Sections 2–4) give an algorithm and induced-matching interpretation, not the present formulas. Adler–Benediktsson–Macpherson (arXiv:2007.16042, full Hamming section, Lemmas 4.2–4.5 and Theorems 4.6–4.8) already provide the common-neighbor intersection lemma and the uniform VC-dimension upper bound; these are credited as prior. Neither of those statements gives the maximal co-singleton incidence matrix count or the explicit small-alphabet rigidity cases. The published generic results are broader in objects, but not stronger in the enumerated assertion. Relevant earlier closed-Hamming-incidence results differ from open exact-distance-one incidence, including a fundamentally different large-alphabet maximum. Literature and semantic database searches did not identify covering results. Residual risk: a theorem with equivalent strength may be stated in induced co-matching, crown-free bipartite graph, or concept-lattice breadth terminology, despite negative searches; search absence is not a uniqueness proof.
+
+## Mathematical value
+
+**PASS.** The extremal dimension is a natural invariant of a formal context that measures the size of Boolean suborders in its concept lattice. Complete equality cases are nontrivial at the four-symbol threshold: full lines, coordinate two-pair configurations, and parity tetrahedra coexist, with different exact counts. For all larger alphabets the maximizers collapse to coordinate lines. The theorem provides an infinite, highly symmetric family with bounded open-neighborhood VC dimension and unbounded Boolean-suborder dimension, showing that a familiar model-theoretic complexity bound does not control this FCA breadth invariant. These are motivated structural and enumerative statements, not an arbitrary parameter slice or a restatement of the known VC-dimension result.
+
+## Limits and closest primary literature
+
+The publication-priority comparison is not an exhaustive survey of every unpublished manuscript. The size of lower-dimensional nonmaximal scales, the counts of maximum subcontexts in the two small exceptional dimensions, and the enumeration of all Boolean sublattices are not claimed. The known common-neighbor and VC theorems are explicitly attributed to prior research. The independent audit has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
