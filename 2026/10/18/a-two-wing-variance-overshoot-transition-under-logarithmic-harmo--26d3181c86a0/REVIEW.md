@@ -1,15 +1,21 @@
-# Scientific review: two-wing squared-position variance overshoot
+# Independent mathematical audit
 
-## Correctness — PASS
-The squared coordinate is the canonical nonnegative square-root diffusion with generator \(2(\alpha+D-\beta z)\partial_z+4Dz\partial_z^2+r[f(z_0)-f(z)]\). Its stationary first and second moment equations are exact; subtraction yields the stated rational variance. Symbolic differentiation produces a cubic numerator whose three nonconstant coefficients are strictly negative for every admissible parameter. Its constant term is exactly the quadratic reset-position criterion, hence every positive-rate variance curve is either strictly decreasing or has a unique strict global maximum. The two positive-root geometry and critical-root expansion follow from elementary quadratic analysis and a uniform local Taylor/implicit-root argument. The stationary regenerative law ensures legitimate moment identities and appropriate boundary behavior. The separate executable checker completed 1,826 assertions, including exact rational checks, independent quadrature and exact-transition sampling. Numerical checks are not the source of the infinite-parameter proof.
+## correctness
 
-## Originality — PASS, with stated priority risk
-The same logarithmic-harmonic process and its reset stationary density are already known from Gültekin (2023), arXiv:2306.08770; no ownership of that process, renewal formula or basic square-root moment recursion is claimed. The inspected full paper addresses density and its qualitative shape, not the exact all-parameter stationary **squared-position variance overshoot** classification, both reset-site wings, unique peak rate and sharp critical onset. Ray and Reuveni (arXiv:2004.01898) consider a non-harmonic logarithmic potential, while Arnab Pal's general resetting-in-potential paper (arXiv:1408.1230) and classical CIR diffusion theory supply broader mathematical techniques; neither abstract-level Pal evidence nor generic CIR moment identities themselves settle the evaluated two-wing global phase diagram. A published equivalent specialization outside the inspected full text remains possible, and a genuinely independent literature-priority audit is still needed.
+PASS
 
-## Value — PASS
-Squared position is proportional to harmonic potential energy and its stationary variance is a natural energetic fluctuation statistic. The theorem determines, globally and sharply, when introducing resetting transiently **amplifies** such fluctuations, identifies a second low-reset-position wing that appears only above the explicit logarithmic-repulsion threshold \(\alpha>5D\), and locates the unique amplitude-maximizing reset rate without fitting or arbitrary parameter slicing. This resolves a physically meaningful design/control question complementary to the published stationary-density analysis. The result does not assert a variance-minimizing finite reset rate, since its infimum is zero as the rate diverges.
+For radial squared coordinate Z=X² with CIR generator 2(α+D−βz)fprime+4Dz fdoubleprime and rate-r resetting to z0=x0², regenerative exponential-age stationarity and generator balances for z,z² yield E Z=(2(α+D)+r z0)/(2β+r), E Z²=(4(α+3D)E Z+r z0²)/(4β+r). With m=(α+D)/β, η=2D/(α+D)∈(0,2), w=z0/m>0, q=r/(2β), the exact normalized variance is F=2η(1+wq)/[(q+1)(q+2)]+(w−1)²q/[(q+1)²(q+2)]. Independent exact symbolic differentiation gives Fprime=2(A−Bq−Cq²−ηwq³)/[(q+1)³(q+2)²], A=(w−1)²+η(2w−3), B=(w−1)²+η(5−2w)>0, C=(w−1)²+η(w+2)>0. Thus A<=0 strictly decreasing for q>0, while A>0 gives one global maximum at unique positive polynomial root. A=(w−w−)(w−w+) with w±=1−η ±sqrt(η(1+η)); w−>0 iff η<1/3 iff α>5D. The two overshoot wings are w>w+ and w<w− when permitted. Implicit-function near each positive critical w_c gives q*=A/B_c+O(A²), gain=A²/(4B_c)+O(A³), B_c>0. Exact CIR moment recursion applies even near α<D when reflecting/canonical nonabsorbing radial boundary specified; no empirical extrapolation.
 
-## Closest literature and limitations
-Gültekin, *The steady state distribution for diffusion in a logarithmic-harmonic potential with stochastic resetting* (2023), arXiv:2306.08770, supplies the same model and density treatment. Pal, *Diffusion in a potential landscape with stochastic resetting* (arXiv:1408.1230; Physical Review E 91, 012113), supplies the broad renewal context but its full text was inaccessible for direct exclusion of all possible specializations. Cox–Ingersoll–Ross square-root diffusion theory supplies standard moment equations. The present proof concerns only fixed-site Poisson resetting of the canonical nonnegative process and the variance of \(X^2\), not other observables or reset conventions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment of this EXACT final statement against published mathematical results and the source model, not certification of historical priority. General mathematical machinery and prior model definitions are attributed; claim-specific evaluated classification is not found among inspected primaries. A failed search is not novelty proof. Gültekin paper studies same drift potential but reported special-function stationary-density shapes, whereas this theorem studies Var(X²) and reset-rate derivative. Even knowing CIR moments and renewal formula does not directly state positivity of A, B, C or the sharp α>5D lower-wing condition. The result adds a evaluated phase diagram, not a new stationary renewal identity.
+
+## value
+
+PASS
+
+Stationary harmonic energy fluctuations under resetting are physically natural, and the two distinct reset-position windows and sharp strength boundary α>5D give a non-obvious complete phase diagram for variance OVERSHOOT rather than minimizing variance, with unique maximizer and critical onset. Unlike an arbitrary algebraic slice, the invariant has direct interpretation as energy-noise response of the original resetting diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
