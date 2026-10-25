@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T18:03:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked imported Theorem 22 for all r>=1,n>=2: reduced homology concentrated in odd degree 2r−1 and rank 3q^r+(−1)^r q (q=n−1). In the augmented Lefschetz chain trace, each rotation orbit has length ell and an invariant simplex with t orbits contributes (−1)^(t−1) independently of ell. Allowed orbit-state sets: empty weight 1, singleton colors total n with weight −1 each, multi-color weight q, compatible only with empty; resulting transfer T has characteristic factor (lambda+1)^(n−1)(lambda^3−q). Thus fixed-face signed sum q(−1)^d+1_{3|d}3q^{d/3} with d=gcd(3r,j). Sign of odd-dimensional homology cancels augmented trace. Independently symbolically checked 3x3 block charpoly lambda^3−q, and rational induced-word-module traces and necklace invariant formula for r=1..12 and q=1..5; algebraic proof applies uniformly, not only tested pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antolín Camarena–Carnero Bravo Theorem22 exactly contains the objects but only ordinary homotopy classification.",
+          "Goyal–Shukla–Singh Proposition3.2 gives complete-graph products, not C_{3r}×K_n action."
+        ],
+        "reasoning": "No inspected general theorem computes cyclic representation for these objects; even a wedge-of-spheres result is insufficient to infer the character unless equivariant wedge structure is supplied.",
+        "searches": [
+          "arxiv:2307.12401 rotation action",
+          "arxiv:1905.06926 Proposition 3.2",
+          "C_{3r} K_n categorical product independence complex cyclic shift rotation representation homology"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2307.12401",
+        "https://arxiv.org/pdf/1905.06926",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Topological concentration is a valid imported input; new fixed-orbit Lefschetz evaluation supplies individual rotation traces.",
+          "The representation decomposition is determined by these traces and Maschke semisimplicity."
+        ],
+        "reasoning": "Subtract known homology concentration and rank: nonidentity rotation traces, sign/rho branches, and necklace-invariant rank remain and require new equivariant calculation; finite checks are not independence proof.",
+        "searches": [
+          "arxiv:2307.12401 §3.2 Theorem22",
+          "arxiv:1905.06926 Proposition3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The character value at j=0 matches established sphere rank 3q^r+(−1)^r q.",
+          "Nonzero rotations give gcd-dependent exceptional q^{d/3} traces unrecorded in source."
+        ],
+        "reasoning": "A homotopy wedge count alone determines only identity trace, not rational group action. The new positive representation is equivalent to its new full character, and both were compared against existing nonequivariant statements.",
+        "searches": [
+          "C_{3r} K_n categorical product independence complex cyclic shift rotation representation homology",
+          "arxiv:2307.12401 Theorem 22",
+          "2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published main paper states q-dependent sphere counts but lacks traces for j≠0.",
+          "Neighboring indexed character result concerns 3-cut complexes and has a different exceptional half-turn structure."
+        ],
+        "reasoning": "No exact prior table with all gcd(3r,j) rotation traces on the graph-product independence complex was found; target family remains distinct.",
+        "searches": [
+          "C_{3r} K_n categorical product independence complex cyclic shift rotation representation homology",
+          "C_{3r} K_n categorical product independence complex cyclic shift rotation representation homology",
+          "2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d"
+        ]
+      },
+      "rationale": "The 2023/24 primary homotopy theorem already knows the full nonequivariant top Betti number, hence the identity rotation trace is prior. It does not determine any nonidentity rotation traces or actual cyclic rational representation. Goyal et al cover products of complete graphs with a different parameter. A published cyclic character result for 3-cut complexes of cycle powers is not a reduction because its simplices are distinct. The full all-rotation character, positive induced necklace-module decomposition and fixed-space formula remain noncovered on inspected evidence.",
+      "residual_risks": [
+        "Potential earlier unindexed equivariant treatment of identical C_{3r}×K_n may exist.",
+        "Rational representations only; no integral module splitting, dihedral reflection characters, or cases 3∤ cycle length.",
+        "Reliance on imported homotopy wedge theorem is explicit; not independently reproving that source theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_HOMOLOGY, NOT_EQUIVARIANT: top degree 2r−1 and rank 3(n−1)^r+(−1)^r(n−1) supplied by source, but nonidentity cyclic traces and representations not calculated",
+          "evidence": "Theorem 22 gives wedge of spheres exactly in the parameter range of submitted claim; ranks agree with new character at identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12401",
+          "material_read": "Full 31-page primary PDF; inspected §3.2 and Theorem 22 near printed pp.23-25 (rendered page image); searched rotation and symmetry terms in primary text",
+          "method": "Direct arXiv full PDF and rendered Theorem 22 page",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs (Antolín Camarena–Carnero Bravo)",
+          "trigger": "Precisely same C_{3r}×K_n family and nonequivariant homology wedge rank"
+        },
+        {
+          "assessment": "DIFFERENT_PRODUCT: Ind(K_m×K_n) wedge of (m−1)(n−1) circles; not complete rotation character for C_{3r}×K_n",
+          "evidence": "Proposition 3.2 is complete-graph product, not all cycle lengths divisible by three.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.06926",
+          "material_read": "Full primary 18-page PDF materially inspected §3, Proposition 3.2 p.5; rendered page image",
+          "method": "Direct arXiv full PDF",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs (Goyal–Shukla–Singh, 2019)",
+          "trigger": "Same categorical-product keyword and potentially stronger covering product case"
+        },
+        {
+          "assessment": "DIFFERENT COMPLEX: ordinary 3-cut complex of powers C_n^p, not independence complex of C_{3r}×K_n",
+          "evidence": "Even if cyclic rotation representations share machinery, different underlying complexes and parameter indexing forbid direct implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d/RESULT.md",
+          "material_read": "Full RESULT.md and mathematical scope/proof",
+          "method": "Direct primary published RESULT Git blob 8f67574c05f7b777238c6b11b50c681c85a25c5b",
+          "title": "Rational cyclic homology representations of three-cut complexes of cycle powers",
+          "trigger": "Published cyclic character theorem with necklace-like representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equivariant top homology of a standard infinite two-parameter family resolves the rotation action left open by the earlier wedge theorem, with explicit positive rational module rather than just a dimension. Necklace invariant formula is a natural exact invariant and reveals systematic symmetry effects. It does not claim integral or dihedral splitting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2307.12401",
+    "https://arxiv.org/pdf/1905.06926",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential earlier unindexed equivariant treatment of identical C_{3r}×K_n may exist.",
+    "Rational representations only; no integral module splitting, dihedral reflection characters, or cases 3∤ cycle length.",
+    "Reliance on imported homotopy wedge theorem is explicit; not independently reproving that source theorem."
+  ],
+  "residual_risks": [
+    "Potential earlier unindexed equivariant treatment of identical C_{3r}×K_n may exist.",
+    "Rational representations only; no integral module splitting, dihedral reflection characters, or cases 3∤ cycle length.",
+    "Reliance on imported homotopy wedge theorem is explicit; not independently reproving that source theorem."
+  ],
+  "schema_version": 1
+}

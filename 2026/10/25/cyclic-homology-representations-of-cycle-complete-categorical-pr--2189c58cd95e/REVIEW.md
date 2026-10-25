@@ -1,15 +1,21 @@
-# Scientific review: cyclic homology of cycle–complete graph products
+# Independent mathematical audit
 
-## Correctness — PASS
-The topological input is [1, Theorem 22]: for \(r\ge1\), \(n\ge2\), \(\operatorname{Ind}(C_{3r}\times K_n)\) is a wedge of spheres in the single, odd dimension \(2r-1\). The new calculation reconstructs the reduced Lefschetz trace from the augmented chain complex. Under a rotation of order \(\ell\), every invariant simplex is a union of length-\(\ell\) vertex orbits; the orientation sign cancels all dependence on \(\ell\) except the number of selected orbits. The resulting signed fixed-orbit sum is the trace of a transfer matrix whose characteristic factors are \((\lambda+1)^{n-1}(\lambda^3-(n-1))\). This proves the all-rotation formula. Direct character comparisons prove the stated induced positive rational-module decomposition, and Burnside's count gives the invariant dimension. A standalone verifier enumerates full face sets and rotation actions in six nontrivial small cases, checks transfer powers in seven cases, and checks character multiplicity integrality; its tests all passed. No finite experiment is used as a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary source [1], sections 3.1–3.2 and Theorem 22, determines nonequivariant sphere wedges for the same family; it does not supply the rotation traces or the induced-word module. The earlier source [2], Proposition 3.2, treats complete-graph categorical products and Betti numbers, likewise without cyclic characters. Targeted searches also examined indexed research results for cyclic homology of other graph complexes and for the distinct \(C_7\times K_4\) independence complex. Matching words such as “cyclic” or “categorical product” did not imply the same claim: their underlying complexes or cycle-length scopes differ. No exact or stronger covering result was identified. The search is evidence for a best-knowledge originality judgment, not a proof of global uniqueness; an unindexed equivalent result remains a risk.
+PASS
 
-## Value — PASS
-The object is a standard, parametrized independence-complex family whose homotopy type was studied precisely because categorical graph products produce nontrivial sphere wedges. Its known Betti numbers leave every nonidentity rotation trace undetermined. The finding provides a complete two-parameter rotation representation, an explicit positive module decomposition indexed by color necklaces, and a precise invariant-homology rank that can vanish despite positive Betti rank. It is substantive representation-level topology rather than an arbitrary finite example, restatement of the wedge theorem, or simple parameter substitution.
+Checked imported Theorem 22 for all r>=1,n>=2: reduced homology concentrated in odd degree 2r−1 and rank 3q^r+(−1)^r q (q=n−1). In the augmented Lefschetz chain trace, each rotation orbit has length ell and an invariant simplex with t orbits contributes (−1)^(t−1) independently of ell. Allowed orbit-state sets: empty weight 1, singleton colors total n with weight −1 each, multi-color weight q, compatible only with empty; resulting transfer T has characteristic factor (lambda+1)^(n−1)(lambda^3−q). Thus fixed-face signed sum q(−1)^d+1_{3|d}3q^{d/3} with d=gcd(3r,j). Sign of odd-dimensional homology cancels augmented trace. Independently symbolically checked 3x3 block charpoly lambda^3−q, and rational induced-word-module traces and necklace invariant formula for r=1..12 and q=1..5; algebraic proof applies uniformly, not only tested pairs.
 
-## Residual scientific limits
-Rational cyclic representations only; no integral splitting, dihedral extension, or claim for nonmultiples of three. The original wedge theorem is cited rather than reproved. Indexed record summaries alone cannot rule out stronger results hidden in uninspected full texts. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023/24 primary homotopy theorem already knows the full nonequivariant top Betti number, hence the identity rotation trace is prior. It does not determine any nonidentity rotation traces or actual cyclic rational representation. Goyal et al cover products of complete graphs with a different parameter. A published cyclic character result for 3-cut complexes of cycle powers is not a reduction because its simplices are distinct. The full all-rotation character, positive induced necklace-module decomposition and fixed-space formula remain noncovered on inspected evidence.
+
+## value
+
+PASS
+
+Equivariant top homology of a standard infinite two-parameter family resolves the rotation action left open by the earlier wedge theorem, with explicit positive rational module rather than just a dimension. Necklace invariant formula is a natural exact invariant and reveals systematic symmetry effects. It does not claim integral or dihedral splitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
