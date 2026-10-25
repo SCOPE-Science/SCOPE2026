@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact finite incidence proof: each factor is evaluated at all starts and lengths; a candidate is an attractor iff it hits every factor-position mask. Inclusion-minimal masks are equivalent constraints. Every size-three candidate on T_k for k>=2 uses one position of each alphabet letter, and the exhaustive two-letter-pair/remaining-third-bit intersection enumerates every such candidate. The certificate contains every surviving triple for 0<=k<=11 and was independently recomputed. A separate factor-by-position incidence algorithm reproduced the complete collections through k=9. This proves the exact finite scope but no infinite recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer–Shallit Theorem 2 allows constructing an automaton for fixed-size attractor positions but does not evaluate exact Tribonacci multiplicities.",
+        "Dvořáková treats every episturmian factor but exhibits a minimum-size attractor, rather than classifying all minima.",
+        "Banbara et al. prove exact enumerations for Fibonacci, period-doubling, and Thue–Morse families; their listed theorems do not treat the Tribonacci substitution."
+      ],
+      "reasoning": "The generic decision algorithm is a way in principle to calculate the finite answer, not a published explicit count or classification. No stronger covering formula of the present numbers was found; analogous results in other morphism families are not implication proofs.",
+      "searches": [
+        "arxiv:2012.06840v6 Theorem 2 algorithm for automatic-sequence attractor positions",
+        "arxiv:2211.01660v2 Theorem 7 for arbitrary episturmian factors",
+        "arxiv:2602.16152v3 exact all optimizers for other morphisms"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2012.06840v6 Section 5 / Theorem 6",
+      "arxiv:2211.01660v2 Theorem 7 / Example 8",
+      "arxiv:2602.16152v3 abstract / introduction / results",
+      "arxiv:2610.10950v1 abstract",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91",
+      "published-finding corpus: 2026/9/8/SCOPE079",
+      "published-finding corpus: 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Both older Tribonacci results imply gamma(T_k)=3 for k>=2, so the minimum-size component of the present table is already known.",
+        "They do not imply the 832 distinct optimal triples at length 927 or complete finite position lists.",
+        "Banbara et al. explicitly distinguish size from multiplicity as a finer invariant and cover other word families."
+      ],
+      "reasoning": "The novelty scope excludes gamma=3 and any construction of merely one optimum; it is only the fully enumerated multiplicities and complete finite optimizer sets. Those are not corollaries of the cited theorems without computing the missing incidence information.",
+      "searches": [
+        "arxiv:2012.06840v6 Theorem 6",
+        "arxiv:2211.01660v2 Theorem 7 and Example 8",
+        "arxiv:2602.16152v3 Theorems for Fibonacci, period-doubling, Thue–Morse",
+        "published-finding corpus: Tribonacci episturmian string attractor number size 3 81 149 274"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaeffer–Shallit Theorem 6 computes minimum size three and a single explicit witness for every sufficiently long Tribonacci prefix.",
+        "Dvořáková Example 8 explicitly displays one minimum attractor in selected Tribonacci palindromic prefixes."
+      ],
+      "reasoning": "All source words are the same three-letter Tribonacci fixed-point prefixes up to the canonical substitution convention. Minimum size or one witness does not logically fix the total number of distinct optimum position triples. Neither section contains the finite table or all listed sets.",
+      "searches": [
+        "published-finding corpus: Tribonacci word string attractor exact minimum number positions triples smallest attractors",
+        "published-finding corpus: Tribonacci morphism iterations attractors combinatorial proof count",
+        "published-finding corpus: episturmian Arnoux Rauzy string attractor infinitely many optimal attractors",
+        "arxiv:2012.06840, Theorem 6; arxiv:2211.01660, Example 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results returned general Tribonacci minimum-size results and analogous Thue–Morse and Fibonacci attractor enumerations, not a direct Tribonacci multiplicity table.",
+        "A nearby published mathematical record counts 32 smallest attractors for stable Thue–Morse words; it does not state Tribonacci values."
+      ],
+      "reasoning": "The present displayed twelve-order sequence and the complete location lists were not found as an existing table among inspected results. Negative search evidence is bounded and is not claimed to establish uniqueness.",
+      "searches": [
+        "web: \"Tribonacci\" \"attractors\" \"416\"",
+        "web: \"Tribonacci\" \"attractors\" \"832\"",
+        "web: \"2, 8, 12, 16, 32, 56, 112, 224\"",
+        "published-finding corpus: Tribonacci word smallest string attractors 2 8 12 16 32 56 112 224 exact enumeration"
+      ]
+    },
+    "rationale": "The closest Tribonacci literature proves minimum size and examples, while the recent complete-optimum literature treats Fibonacci, period-doubling and Thue–Morse; precise Tribonacci multiplicities and optimizer lists were not located by actual named searches. No covering implication was identified in inspected primary full texts. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "Unindexed or differently named published Tribonacci multiplicity tables may exist outside examined sources.",
+      "One relevant Thue–Morse minimal-coverage paper was inspected only through its public abstract owing to full-text unavailability; no whole-text absence claim is made.",
+      "A generic finite-state evaluation procedure in earlier literature could be specialized to this particular table; an explicit published specialization was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known minimum size and one witness; all optimum triples are not tabulated or counted. A generic automata method could in principle recover answers but none are specified.",
+        "evidence": [
+          "Theorem 6: three positions for all Tribonacci prefixes n>=4",
+          "Theorem 2: an automaton can recognize fixed-size attractor tuples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+        "material_read": "Theorem 2 and Section 5, Theorem 6 and proof, and surrounding introduction and constructive criterion",
+        "method": "public lawful arXiv complete PDF text inspected at substantive relevant ranges",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Direct Tribonacci minimum-attractor result; possible stronger position-state characterization"
+      },
+      {
+        "assessment": "One minimum attractor constructed for every episturmian factor, and some Tribonacci instances shown; not a classification of all optimum triples or counts.",
+        "evidence": [
+          "Theorem 7 constructs a particular attractor indexed by palindromic prefixes",
+          "Example 8 gives specific marked Tribonacci words"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.01660",
+        "material_read": "Entire 8-page PDF with emphasis on Theorem 7 and Example 8 (Tribonacci)",
+        "method": "public lawful arXiv PDF full text inspected",
+        "title": "String attractors of episturmian sequences",
+        "trigger": "General episturmian coverage potentially subsuming Tribonacci counts"
+      },
+      {
+        "assessment": "Fibonacci, period-doubling and Thue–Morse all-optimum classifications; explicitly mentions Tribonacci only as a known minimum-size case, not as an enumerated family.",
+        "evidence": [
+          "Introduction lists its three resolved families",
+          "Introduction notes total number of optima is a finer poorly understood invariant"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.16152",
+        "material_read": "Abstract, Introduction, statements and family scope, related work and exact enumeration agenda",
+        "method": "public lawful arXiv PDF inspected at substantive theorem/scope ranges",
+        "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+        "trigger": "Recent primary motivation for enumerating all optimum attractors rather than their cardinality"
+      },
+      {
+        "assessment": "Abstract explicitly restricts exact family and minimal coverage certificates to Thue–Morse; inaccessible full text is a residual risk, not whole-document noncoverage proof.",
+        "evidence": [
+          "Public abstract explicitly says finite Thue–Morse words and 32 optimizers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10950",
+        "material_read": "Public abstract and scope only; full PDF retrieval encountered internal unavailability",
+        "method": "arXiv abstract inspected, full text inaccessible during check",
+        "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue--Morse Words",
+        "trigger": "Potentially dominating minimal coverage framework for all substitution words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c390833-d969-4730-9272-d6ca67e0b4d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number and complete locations of all smallest attractors distinguish morphic families with the same minimum size, precisely the gap motivated in 2026 by Banbara et al. This is the canonical ternary episturmian example. Eleven nontrivial natural substitution levels up to length 927 supply a complete structural finite census, with non-obvious transitions (224->416 rather than 448) useful as stringent tests of any future all-order formula. The target is a natural invariant, not an arbitrary numerical statistic. No paper-sized all-order theorem or downstream application is asserted.",
+    "status": "PASS"
+  }
+}
