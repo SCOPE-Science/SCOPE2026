@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is the independence complex on residues modulo sixteen with forbidden cyclic gaps \(1\), \(4\) and \(8\). Exhaustive enumeration gives 80 four-vertex facets and 321 faces including the empty face; a new explicit 80-facet shelling order passes every required earlier-facet comparison in `verify_shelling.py`. The standard shelling theorem therefore proves all links have torsion-free, top-degree-only reduced integral homology. `verify_singular_torus.py` independently enumerates every dihedral face orbit, checks top link Betti numbers over two primes and verifies a coherent integer fundamental cycle on the rank-two triangle locus. The local-homology/link shift, surface incidence and Euler characteristic give the exact pointwise theorem and the torus identification. The proof is finite but **exhaustive** on its explicitly fixed graph; modular boundary ranks alone are not misrepresented as an integral proof.
+PASS
 
-## Originality — PASS
+Enumerating all 2^16 vertex subsets identifies 321 independent faces including the empty simplex, 80 4-facets and a complete explicit 80-facet shelling order (3160 prior-facet comparisons in inspected certificate). Shelling implies X and links of all faces are wedges of spheres in top degree with torsion-free integral homology; the Euler characteristic gives exactly one S3. Independently implemented combinatorial orbit and bitset mod-2 boundary-rank computations on all 321 faces confirm 17 dihedral face orbits and top-link rank 2 on vertices, edge distance 2/5/7 and one 32-triangle orbit, rank 1 elsewhere. Original checker also verifies mod3; shellability supplies integral torsion freeness, not inference from two primes alone. Rank-two triangles have 16 vertices,48 edges,32 triangles, each edge in two triangles, each vertex link a connected six-cycle; explicit oriented 32-triangle chain has zero integer boundary and chi=0, giving a connected orientable torus. The local-homology shift matches top H3.
 
-The 2015 Earl–Vander Meulen–Van Tuyl preprint, arXiv:1505.02837v1, Theorem 6.1(iii), already establishes shellability, 80 facets and failure of vertex decomposability; all are treated here as previously known. Its complete relevant theorem, shelling proof, discussion and Table 1 were inspected. The companion expansion paper arXiv:1505.02838v1, especially Theorems 1.1 and 4.4, extends the original combinatorial phenomenon but does not identify pointwise local homology. A local homology profile is not logically implied by the global shellability assertion or a sphere-wedge homotopy type. Direct searches for this circulant and for alternate singular-link, cyclic-torus and homology-manifold formulations, together with comparison to relevant indexed research, identified no covering result. Priority in unindexed literature is a residual risk, not a proved negative.
+## originality
 
-## Value — PASS
+PASS
 
-The graph is the established minimal circulant example separating shellability from vertex decomposability. Its global topology is as simple as a sphere, yet a full two-dimensional **torus** rather than isolated points supports doubled top local homology. The theorem completely locates the intrinsic homological nonmanifold set and determines its topology. This is a motivated structural refinement of a canonical example, not merely a new facet count or a computational substitute for known shellability.
+Original Earl–Vander Meulen–Van Tuyl 2015 Theorem 6.1 establishes shellability but not vertex decomposability of exactly C16(1,4,8), and prints a shelling. That known component is fully credited. No classification of local homology ranks or embedded toroidal entire rank-two locus appears in its inspected theorem/proof; related lexicographic-product paper addresses shellability rather than the exact singular torus. Resultary hits concern distinct independence complexes and circulant torsion cases.
 
-## Limits
+## value
 
-No ambient PL-local-link classification, ambient homeomorphism to a sphere, integral torsion for unrelated graph families, or priority against inaccessible unindexed sources is asserted. Two finite checker programs and explicit combinatorial proof data accompany the finding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural explicit finite obstruction illustrating that shellable flag S3-homotopy type does not imply integral homology manifold, with complete local homology and nontrivial two-dimensional toroidal singular locus. Exact topology rather than merely recomputing an old shelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
