@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact sixth-moment Laurent expansion is independently reconstructed by the checker. The real-variable identity has a strictly positive coefficient \(1+2X\ge1/2\), giving both extremal bounds and exhaustive equality classifications. The change of variables covers every unimodular coefficient triple. The complete Fourier gauge and nonaliasing argument justify phase-orbit counts and finite-grid extension without extrapolating finite experiments.
+PASS
 
-## Originality
+For S={+-e1,+-e2,+-(e1+e2)} and unimodular coefficients, normalized Haar M6 equals the sum of squared Laurent coefficients of Q^3. I independently convolved the six frequencies, verified the entire 21-nonzero-term Laurent expansion and trigonometric normal form as exact rational Laurent polynomial identities, and evaluated all-ones and primitive-sixth-root endpoints exactly, obtaining 2040 and 546. The source checker also reconstructs the exact real-variable identity M6=708+576X+36(1+2X)cos(phi-alpha), X=cos^2(beta)+cos(beta)cos(phi). The inequalities -1/4<=X<=2 and positivity 1+2X>=1/2 give both global extrema and equality phases, without relying on the finite 216-triple census. Uniqueness of the 3-phase gauge yields two normalized minimizers and one maximizer; q-phase counts 2q^3 iff 6|q and q^3 for maxima. Supports of Q^3 lie in [-3,3]^2, hence sampling grids m,n>=7 do not alias.
 
-PASS on the inspected literature, with priority risk. The six-point **triangular** fourth-moment calculation and the four-mode one-dimensional sharp sixth-moment calculation address neither the same frequency set nor the same optimization. The standard even-exponent majorant result gives an upper absolute-coefficient bound, not this minimum or its sixth-root phase rigidity. Hexagonal signal-processing and perfect-array work are relevant context but do not state this exact six-root sextic moment range in the inspected material. The full hexagonal signal-processing paper was unavailable; older unindexed phase-array tables remain a potential source of equivalent formulas.
+## originality
 
-## Value
+PASS
 
-PASS. The hexagon is the smallest nontrivial root-system shell with antipodal three-pair geometry. A complete sharp moment interval is a natural phase-only array invariant. The two isolated sixth-moment minimizing orbits, distinguished from the fourth-moment equilateral family, and the exact minimal phase-alphabet divisibility condition reveal a motivated phase quantization phenomenon on a canonical lattice aperture. Results are uniform on an infinite collection of finite sampling tori.
+The exact sixth-moment phase optimization uses a hexagonal six-vertex support, unlike published degree-two triangular-six-mode fourth-moment results (three convex-hull vertices rather than six). General majorant and hexagonal transform theory do not directly state the strict sixth-root equality families. Similar sixth-moment results for four-term one-dimensional spectra also do not imply this distinct support; older phased-array literature may contain equivalent formulas and was not fully read.
 
-## Limitations
+## value
 
-Unimodular, six-frequency, sixth-moment and alias-free-grid hypotheses are essential to the proven statement. No claim is made about all possible sparse apertures, higher moments, lower-order grids or independent publication priority. See RESULT.md and VERIFICATION.md for precise boundaries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The A2 root hexagon is a canonical sparse hexagonal Fourier aperture; its exact phase-only sixth-moment attainable interval and complete minimizer orbit structure are natural correlation/energy invariants. The fact that fourth-moment equilateral families collapse to two sixth-root orbits yields a meaningful exact phase-resolution barrier, not a tiny unexplained enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
