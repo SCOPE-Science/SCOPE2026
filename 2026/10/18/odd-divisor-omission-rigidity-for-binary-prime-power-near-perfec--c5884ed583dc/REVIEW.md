@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The divisor-sum identity \(\sigma(2^kp^e)-2\cdot2^kp^e=(2^{k+1}-p)Q-1\), where \(Q=1+\cdots+p^{e-1}\), follows by direct factorization and \(p^e=(p-1)Q+1\). For a subset of odd divisors, the two endpoint exponents contribute at most two copies of the residue one modulo \(Q\). The resulting integer \(R\) is a positive multiple of \(Q\) in \([1,Q+2]\), so it equals \(Q\). Modulo the odd prime \(p\), the endpoint count is zero; all internal powers must then be selected. The identity forces the Mersenne equality, and the converse is direct. This reasoning holds uniformly over all quantified parameters. Recomputations across \(1{,}680\) parameter triples checked \(243{,}840\) candidate odd-only subsets. The finite checks do not substitute for the proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-The originating 2023/2024 work treats exactly two deleted divisors with odd prime exponent at most two. The later 2025/2026 completion treats exactly two deleted divisors for every larger odd prime exponent and proves only the exponent-three Mersenne-cube solution in that case. Neither classifies all odd-only deletion subsets of arbitrary size; the present theorem makes new statements for every exponent \(e\ge4\). Related indexed findings about single-divisor near-perfect numbers, squarefree three-prime two-near-perfect numbers, deficient-perfect numbers, and strongly pseudoperfect numbers have different hypotheses and do not imply the all-odd arbitrary-cardinality classification. The Adajar thesis (2016) could not be fully inspected, and an equivalent result in unindexed work remains an originality risk.
+PASS
 
-## Mathematical value — PASS
-Near-perfect numbers are naturally stratified by the number and arithmetic type of omitted divisors. In the two-prime-support family, odd omissions are the canonical divisor layer supplied by the odd prime power. The theorem classifies the entire set-valued odd-only omission spectrum, proving uniqueness and forcing the Mersenne condition simultaneously for every exponent; the number of such omissions grows without bound even on a fixed prime support. This is a structural classification at the previously untreated higher-cardinality boundary, not a finite instance or a mere substitution in an existing two-deletion theorem.
+For n=2^k p^e, k≥1,e≥2,p odd prime, factor σ(n)−2n = (2^{k+1}−p)Q−1 with Q=1+p+⋯+p^{e−1}. Writing arbitrary odd omitted set T as selected powers p^j (0≤j≤e), use p^e≡1 (mod Q). Let r be number selected from endpoint j∈{0,e} and R=1+r+Σ_{1≤j≤e−1, selected}p^j. Equation forces Q|R, while 1≤R≤Q+2<2Q as p≥3 and Q≥4; thus R=Q. Reduction mod p gives r≡0 mod p with 0≤r≤2<p, hence r=0. Positivity forces every internal power selected and neither endpoint. Substitution in the exact identity gives p=2^{k+1}−1; converse holds for every e, including e=2. This simultaneously proves quantified uniqueness among ALL subsets of odd divisors, not among even-divisor omissions. A fresh separate brute-force test checked 20,832 candidate subsets for k=1..6, odd primes p≤47, e=2..6, yielding precisely 15 predicted matching cases; the argument, not the finite box, proves the infinite statement.
 
-## Scope and residual limitations
-No classification of mixed-parity deletion sets or of the unrestricted minimum omission count follows. Existing open questions about infinitely many Mersenne primes are unaffected. The inspected primary sources establish the respective two-deletion statements but do not exclude possible equivalent results elsewhere. The 2016 thesis is a specific unresolved reference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known two-deletion Mersenne cases e=2 and e=3 are credited to published 2-near-perfect classification. The claim quantifies over arbitrary-size sets consisting entirely of odd divisors and every e≥2; for e≥4 it gives a unique e−1-member set and hence an unbounded-cardinality family at fixed prime support. Best-of-knowledge priority remains conditional on uninspected 2016 Adajar thesis and alternate multi-omission terminology.
+
+## value
+
+PASS
+
+For the standard near-perfect-number sum-of-divisors problem, omission number and parity are intrinsic arithmetical stratifiers. On natural minimal two-prime-support numbers the theorem determines the ENTIRE odd-only omitted-subset spectrum and shows its unique structure for every e, including unbounded cardinality e−1 for each fixed Mersenne prime. This exact set classification closes a meaningful gap left by two-omission results and is neither a small sample nor simply their numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:48:34.552433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=2^k p^e, k≥1,e≥2,p odd prime, factor σ(n)−2n = (2^{k+1}−p)Q−1 with Q=1+p+⋯+p^{e−1}. Writing arbitrary odd omitted set T as selected powers p^j (0≤j≤e), use p^e≡1 (mod Q). Let r be number selected from endpoint j∈{0,e} and R=1+r+Σ_{1≤j≤e−1, selected}p^j. Equation forces Q|R, while 1≤R≤Q+2<2Q as p≥3 and Q≥4; thus R=Q. Reduction mod p gives r≡0 mod p with 0≤r≤2<p, hence r=0. Positivity forces every internal power selected and neither endpoint. Substitution in the exact identity gives p=2^{k+1}−1; converse holds for every e, including e=2. This simultaneously proves quantified uniqueness among ALL subsets of odd divisors, not among even-divisor omissions. A fresh separate brute-force test checked 20,832 candidate subsets for k=1..6, odd primes p≤47, e=2..6, yielding precisely 15 predicted matching cases; the argument, not the finite box, proves the infinite statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fearon Theorem 3 explicitly requires exactly TWO distinct omitted divisors and m≥3, proving m=3; it does not apply to e≥4 with e−1 omissions.",
+          "The k-deficient-perfect record has σ(n)<2n and different sign from here where positive omitted sum requires σ(n)>2n."
+        ],
+        "reasoning": "A known classification of exactly two omissions cannot dominate arbitrary cardinality; the strict sign distinction rules out the strongest superficially related published deficient-perfect result.",
+        "searches": [
+          "Fearon et al arXiv:2508.06651 Theorem 3 and Proposition 20",
+          "Aryan et al arXiv:2310.01305 Theorems 1,2",
+          "Resultary 2026/9/21 even k-deficient-perfect binary classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary near-perfect odd omission 2^k p^e searches; distinct even k-deficient-perfect and strong pseudoperfect results compared",
+        "https://arxiv.org/pdf/2310.01305",
+        "https://arxiv.org/pdf/2508.06651",
+        "https://math.upd.edu.ph/faculty/adajar-carlo-francisco"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-omission classification implies the present subcases when e−1=2 but does not rule out an odd-only set of size 3 or more at e≥4.",
+          "Adajar 2016 thesis titled near-perfect and deficient-perfect numbers with k divisors could overlap but full theorem text was not retrieved."
+        ],
+        "reasoning": "Checked logical quantifiers: e≥4 and T arbitrary separate the claimed extension from earlier exactly-two results. Unknown Adajar content is retained as unresolved historical priority risk, not automatic failure.",
+        "searches": [
+          "arXiv:2508.06651 Theorem 3 and full proof on pp 9–12",
+          "arXiv:2310.01305 Theorems 1–2 and proofs",
+          "Adajar 2016 M.S. thesis bibliographic listing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The omission equation is σ(n)=2n+∑T and can equally be expressed as an exactly deficient set of proper divisors whose sum is n.",
+          "Aryan et al and Fearon et al use s-near-perfect terminology with a fixed number two of omissions; current statement allows e−1 arbitrary."
+        ],
+        "reasoning": "Compared both the sum-of-omissions identity and all-odd subset uniqueness (not simply matching Mersenne parameters). For e=3 the theorem restricts to known {p,p²}, while e≥4 introduces distinct higher-cardinality quantified assertions.",
+        "searches": [
+          "near-perfect s-near-perfect odd omitted divisors 2^k p^e Mersenne prime",
+          "arXiv:2310.01305 2-near perfect numbers",
+          "arXiv:2508.06651 proof Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For e=2 and 3 the omitted sets intersect prior explicit tables; e≥4 values and unique all-odd higher-cardinality sets are not contained in those stated tables."
+        ],
+        "reasoning": "Exact higher-cardinality uniqueness is a set-valued structural theorem rather than an extrapolation of a two-entry table; absence of a discovered duplicate leaves an external priority risk.",
+        "searches": [
+          "Resultary two-prime-support near-perfect and deficient-perfect Mersenne",
+          "Fearon 2026 Theorem 3 explicit 2-omission family",
+          "Aryan 2023 bounded exponent table"
+        ]
+      },
+      "rationale": "Known two-deletion Mersenne cases e=2 and e=3 are credited to published 2-near-perfect classification. The claim quantifies over arbitrary-size sets consisting entirely of odd divisors and every e≥2; for e≥4 it gives a unique e−1-member set and hence an unbounded-cardinality family at fixed prime support. Best-of-knowledge priority remains conditional on uninspected 2016 Adajar thesis and alternate multi-omission terminology.",
+      "residual_risks": [
+        "Adajar 2016 M.S. thesis not read, may contain an exact k-omission theorem.",
+        "Only odd omitted divisors classified; mixed even/odd omission sets not excluded.",
+        "No assertion about infinitely many Mersenne primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exponents 1 and 2 for exactly two omissions; not arbitrary-cardinality all-odd sets.",
+          "evidence": [
+            "Abstract and Theorems 1–2 state n=2^k p^i for i=1,2 and two omitted divisors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.01305",
+          "material_read": "Complete 16-page arXiv PDF used for theorem and proof comparisons: abstract, Theorems 1–2, odd-omission cases and relevant proof pages",
+          "method": "Lawful arXiv PDF, text and selected page screenshots",
+          "title": "On 2-Near Perfect Numbers",
+          "trigger": "Originating exactly-two-omission classifications for p and p²"
+        },
+        {
+          "assessment": "Covers every e≥3 only under the exactly-two-omission hypothesis, forcing e=3, p=M, {p,p²}; does not discuss arbitrary e−1 odd omissions.",
+          "evidence": [
+            "Theorem 3 p2 and its proof p12 explicitly quantify exactly two omitted divisors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.06651",
+          "material_read": "15-page full arXiv PDF; abstract, Introduction, Theorem 3 on p2, proof at pp9–12, Proposition 20",
+          "method": "Lawful arXiv full PDF, text search plus page screenshot",
+          "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+          "trigger": "Nearest later comprehensive two-omission theorem, e≥3"
+        },
+        {
+          "assessment": "Potential overlap unknown. Do not assert NOT_COVERING from missing full text.",
+          "evidence": [
+            "2016 M.S. thesis title verified; unavailable result statements remain priority risk."
+          ],
+          "identifier_or_url": "https://math.upd.edu.ph/faculty/adajar-carlo-francisco",
+          "material_read": "Faculty bibliographic thesis entry only, no full technical manuscript found",
+          "method": "Lawful OA and bibliographic searches; full thesis not retrieved",
+          "title": "On near-perfect and deficient-perfect numbers with k divisors",
+          "trigger": "Thesis title could imply arbitrary-size omitted sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the standard near-perfect-number sum-of-divisors problem, omission number and parity are intrinsic arithmetical stratifiers. On natural minimal two-prime-support numbers the theorem determines the ENTIRE odd-only omitted-subset spectrum and shows its unique structure for every e, including unbounded cardinality e−1 for each fixed Mersenne prime. This exact set classification closes a meaningful gap left by two-omission results and is neither a small sample nor simply their numerical recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Adajar 2016 thesis inaccessible, exact all-cardinality priority remains best-of-knowledge.",
+    "Mixed parity/unrestricted minimum omission count not determined.",
+    "Finite 20,832-case check supports but does not prove all e.",
+    "Independent result is best-of-knowledge scientific assessment, not human expert attestation or Lean proof.",
+    "Verified assigned Git tree object's SHA-1 matched its Git API identity; complete recursive Git tree byte encoding not independently reconstructed.",
+    "Although science passed, the privacy-blocked plan is not import-ready; source packages remain unchanged."
+  ],
+  "schema_version": 1
+}
