@@ -1,0 +1,146 @@
+{
+  "claim": "For every integer \\(p\\ge1\\) and residue \\(r\\in\\{0,\\ldots,p-1\\}\\), let \\(L_{p,r}=\\{a^n:n\\ge0,\\ n\\equiv r\\pmod p\\}\\). The minimum number of states of a loop-free, epsilon-free NFA for \\(L_{p,r}\\) whose transitions all cross a fixed bipartition and whose underlying simple transition graph is a cactus equals \\(\\operatorname{lcm}(p,2)\\); among unrestricted epsilon-free NFAs, which may have self-loops, the minimum is \\(p\\). Thus the structural constraint doubles the exact state minimum when \\(p\\) is odd and adds no states when \\(p\\) is even.",
+  "correctness": {
+    "rationale": "The lower bound follows from a simple directed cycle on an accepting run: its length must be divisible by \\(p\\) because all accepted lengths have residue \\(r\\), and must be even because every transition crosses the bipartition. Thus it is at least \\(\\operatorname{lcm}(p,2)\\) states. The explicit cycle construction of that length recognizes exactly \\(L_{p,r}\\) and has a bipartite-cactus graph. The unrestricted \\(p\\)-cycle (allowing a self-loop when \\(p=1\\)) and matching cycle lower bound establish the baseline \\(p\\). Edge cases \\(p=1\\) and \\(m=2\\) are explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grobler–Koziel–Siebertz, Theorem 1.1: every regular language has an epsilon-free NFA with bipartite-cactus transition graph.",
+        "Czerwiński et al., arXiv:2302.06435, sections on unary automata and Chrobak normal form: general unary NFA/UFA complexity, without the transition-compatible bipartite-cactus constraint in the inspected sections.",
+        "Pighizzini–Shallit (2002), pp. 145–149 and subsequent operation sections: unary DFA periodicity and state complexity of operations, not the constrained NFA class."
+      ],
+      "reasoning": "The general existence theorem does not imply a minimum-state formula. The older unary state-complexity literature addresses different representation classes or operation costs. The present lower bound and construction add an exact constrained minimum for a canonical infinite family, without claiming a general solution.",
+      "searches": [
+        "bipartite NFA unary regular languages eventual period lower bound even cycles",
+        "minimum states epsilon-free NFA for unary periodic language with bipartite underlying graph",
+        "Finite Automata with Undirected State Graphs unary cyclic languages bipartite NFA state complexity",
+        "arXiv:2302.06435",
+        "DOI:10.1142/S012905410200100X"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08898, full proceedings HTML, submitted 2026-10-06; the paper is listed at pp. 117-129.",
+      "arXiv:2610.11717, full article HTML, submitted 2026-10-08; DOI:10.4204/EPTCS.454.9",
+      "arXiv:2302.06435, full HTML; DOI:10.4230/LIPIcs.FSTTCS.2023.22",
+      "Pighizzini and Shallit (2002), author-hosted full PDF; DOI:10.1142/S012905410200100X",
+      "MSC2020 official classification PDF, code 68Q45: Formal languages and automata",
+      "published-finding corpus literature searches for exact and equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary paper explicitly says that it has not established tight state-complexity bounds and names the smallest representation/blow-up as a remaining direction.",
+        "The lower-bound proof forces every pumped cycle on an accepting run to have length divisible by \\(p\\) and, under a transition-compatible bipartition, even; the construction realizes \\(\\operatorname{lcm}(p,2)\\).",
+        "The unrestricted \\(p\\)-cycle construction (allowing a self-loop when \\(p=1\\)) and the constrained \\(\\operatorname{lcm}(p,2)\\)-cycle construction establish matching upper bounds."
+      ],
+      "reasoning": "The result is not merely the primary paper's existence theorem restated: it proves an exact state minimum for each residue class, including the parity-dependent factor-two penalty. The primary paper's own conclusion identifies state complexity as open, while the unary state-complexity papers inspected do not impose this graph constraint.",
+      "searches": [
+        "minimum state complexity of unary language (a^p)* among bipartite transition graph nondeterministic finite automata",
+        "bipartite NFA unary regular languages eventual period lower bound even cycles",
+        "minimum states epsilon-free NFA for unary periodic language with bipartite underlying graph",
+        "Every Regular Language Has a Bipartite Cactus Automaton unary period state complexity",
+        "Finite Automata with Undirected State Graphs unary cyclic languages bipartite NFA state complexity",
+        "exact minimum number of states for unary regular languages with undirected or bipartite transition graph",
+        "arXiv:2610.11717",
+        "arXiv:2302.06435",
+        "DOI:10.1142/S012905410200100X"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The language is equivalently written as \\(a^r(a^p)^*\\) for \\(0\\le r<p\\).",
+        "published-finding corpus searches returned no record stating the exact minimum \\(\\operatorname{lcm}(p,2)\\) for this graph-constrained family; closest returned records concern other automata invariants.",
+        "The primary paper defines a transition-compatible coloring and proves existence of bipartite-cactus NFAs for all regular languages, but does not state this residue-language minimum."
+      ],
+      "reasoning": "The claim is invariant under the standard equivalent notation \\(a^r(a^p)^*\\). The proof compares the actual accepted-length congruence with cycle length, rather than relying on title or parameter-name similarity. No direct equivalent formulation was found in the queried corpus or inspected full texts.",
+      "searches": [
+        "minimum state complexity of unary language (a^p)* among bipartite transition graph nondeterministic finite automata",
+        "bipartite NFA unary regular languages eventual period lower bound even cycles",
+        "minimum states epsilon-free NFA for unary periodic language with bipartite underlying graph",
+        "Every Regular Language Has a Bipartite Cactus Automaton unary period state complexity",
+        "arXiv:2610.11717",
+        "MSC2020 68Q45 official formal languages automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact published-finding corpus searches produced no direct match; the closest returned records were 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba, 2026/9/19/SCOPE-neutral-letter-dfa-constant-circuit-membership--4bebc4817274, and 2026/9/18/SCOPE-qeacom-membership-pspace-neutral-letter--97ba5069cc3b.",
+        "published-finding corpus searches found no claim about unary residue languages under a transition-compatible bipartite-cactus constraint."
+      ],
+      "reasoning": "No canonical exhaustive table for bipartite-cactus NFA state complexity was identified. published-finding corpus is a useful searchable corpus but not a completeness oracle; the no-match result is supporting evidence only, not a proof of novelty.",
+      "searches": [
+        "minimum state complexity of unary language (a^p)* among bipartite transition graph nondeterministic finite automata",
+        "minimum states epsilon-free NFA for unary periodic language with bipartite underlying graph",
+        "Every Regular Language Has a Bipartite Cactus Automaton unary period state complexity",
+        "exact minimum number of states for unary regular languages with undirected or bipartite transition graph"
+      ]
+    },
+    "rationale": "The exact minimum is not stated in the inspected primary paper, whose conclusion identifies tight state complexity as an open direction. The inspected unary state-complexity literature treats other representation classes or operation costs. published-finding corpus searches found no direct overlap. This is a bounded originality judgment, not a claim of exhaustive novelty proof.",
+    "residual_risks": [
+      "The cited 2022 paper 'Finite Automata with Undirected State Graphs' is referenced by the primary paper and is related to graph-restricted automata, but its full text was not separately inspected in this run. Its title indicates a different restriction; a related lower bound may still exist there.",
+      "published-finding corpus is not an exhaustive uniqueness oracle. No direct matching claim was found in the searches or inspected full texts, but the result is not represented as a guarantee of global novelty.",
+      "The theorem is intentionally limited to single-residue unary languages; no general state-complexity statement is inferred for unions of residue classes or multi-letter languages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "This is the earliest verified public proceedings record used for first_public_date; the article-specific arXiv page records 2026-10-08.",
+        "evidence": [
+          "arXiv:2610.08898, submission history and table of contents; article listed at pp. 117-129.",
+          "arXiv:2610.11717 records the article-specific submission on 2026-10-08."
+        ],
+        "identifier_or_url": "arXiv:2610.08898",
+        "material_read": "Full arXiv proceedings HTML; submission history gives 2026-10-06 and the table of contents lists 'Every Regular Language Has a Bipartite Cactus Automaton' at pages 117-129.",
+        "method": "Compared the proceedings-volume date and article listing with the article-specific arXiv record and DOI metadata.",
+        "title": "Proceedings Seventeenth International Symposium on Games, Automata, Logics, and Formal Verification",
+        "trigger": "Date verification for the primary paper appearing in the proceedings volume."
+      },
+      {
+        "assessment": "The paper proves existence for every regular language, but its conclusion explicitly says tight state-complexity bounds have not been established. The inspected full text does not state the residue-language formula proved here.",
+        "evidence": [
+          "Theorem 1.1 states existence of an epsilon-free NFA with bipartite-cactus transition graph.",
+          "Conclusion states that the construction is not optimized and tight state-complexity bounds remain a natural problem."
+        ],
+        "identifier_or_url": "arXiv:2610.11717; DOI:10.4204/EPTCS.454.9",
+        "material_read": "Full arXiv HTML, including the transition-graph and transition-compatible-coloring definitions, Theorem 1.1, the parity-typed construction, and the conclusion and references; especially HTML lines 64-67 and 243-258.",
+        "method": "Compared the exact theorem statement, definitions, proof construction, and conclusion with the claimed state minimum.",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Direct primary source for the new bipartite-cactus representation constraint and the motivation for a sharp state-complexity boundary."
+      },
+      {
+        "assessment": "The work studies unary NFA/UFA decision and size questions, but the inspected results do not impose a transition-compatible bipartite-cactus graph or state the exact constrained minimum.",
+        "evidence": [
+          "The paper describes Chrobak normal form as a stem followed by cycles and studies unary automata complexity.",
+          "The cited periodic-language discussion gives cycle-based lower bounds for a different construction, not the bipartite-cactus state minimum."
+        ],
+        "identifier_or_url": "arXiv:2302.06435; DOI:10.4230/LIPIcs.FSTTCS.2023.22",
+        "material_read": "Full arXiv HTML; automata definitions and Chrobak normal form at lines 78-87 and 104-107, plus the relevant periodic-language lower-bound discussion at lines 321-323.",
+        "method": "Compared the language class, state measure, and graph restrictions in the inspected sections.",
+        "title": "Languages given by Finite Automata over the Unary Alphabet",
+        "trigger": "Relevant primary literature on unary NFAs, periodic length sets, and state complexity."
+      },
+      {
+        "assessment": "The inspected results concern unary DFA state complexity and operations on unary languages; they do not provide the claimed graph-constrained NFA minimum.",
+        "evidence": [
+          "The paper characterizes unary regular languages by eventual periodicity and studies DFA state counts and operation costs."
+        ],
+        "identifier_or_url": "DOI:10.1142/S012905410200100X; author-hosted full PDF",
+        "material_read": "Full 15-page PDF; introduction, unary periodicity and minimal DFA characterization on pp. 145-148, and the state-complexity analyses of language operations.",
+        "method": "Compared its automaton model and optimization target with the loop-free bipartite NFA class in the claim.",
+        "title": "Unary Language Operations, State Complexity and Jacobsthal's Function",
+        "trigger": "Classical primary source on unary periodicity and exact state complexity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21ce1010-d1e0-4c1b-9e34-09b9d62d866b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The main paper explicitly leaves state-complexity bounds open. This theorem gives an exact and sharp infinite-family benchmark for that problem and quantifies the parity cost precisely: a factor of two for odd periods and no increase for even periods. The residue classes are canonical unary regular languages, so the result is a motivated structural boundary rather than an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
