@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:02:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "T(n) counts odd t<=n with gcd(t,n)=gcd((t-1)/2,n)=1, T(1)=0. The proof analyzes odd and n=2m (m odd) by residue inclusion-exclusion, and n divisible by 4 by exact periodicity, establishing |2T(n)-n b(n)|<=3^{omega(n)} for b(2^a)=1/2 and b(p^a)=1-2/p at odd p. Chinese remainder divisibility gives independent Bernoulli I_p for any finite prime collection, uniform tail <=sum_{p>y}1/p², and mean approximation O(log³x/x); therefore T(N_x)/N_x converges weakly to X=1/2 prod_p b_p^{I_p} with bounded moments. For positivity, E sum_p I_p(-log b_p)<infty. Finite prime products are injective in inclusion bits: take largest differing q and use q-adic valuation (earlier factor numerator/denominator smaller than q); max finite atom <=prod_{p<=y}(1-1/p)->0, yielding atomlessness of full product. The Dirichlet convolution h=b*mu, h(2)=-1/2,h(odd p)=-2/p, yields C=(3/16)prod_{p odd}(1-2/p²) in sum T(n)=Cx²+O(x log²x). Independent exact coprimality checks n=1..800 confirmed parity and comparison bounds; they do not prove the infinite limiting law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Renshaw gives definition, exact 4-divisible formula and pointwise errors but not the full weak limit plus atomlessness.",
+          "Generalized Schemmel mean theorems concern multiplicative functions with p=2 vanishing at even integers; they do not directly deliver the parity-corrected normalized random law."
+        ],
+        "reasoning": "A mean-value theorem does not imply weak convergence, all moments and absence of point masses; the present injectivity proof provides an additional structural property.",
+        "searches": [
+          "https://arxiv.org/pdf/2603.13939",
+          "https://doi.org/10.71352/ac.54.307",
+          "https://arxiv.org/abs/1506.05426"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.13939",
+        "https://doi.org/10.71352/ac.54.307",
+        "Resultary semantic: Renshaw variant totient T(n) limiting distribution atomless Euler product mean",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/an-atomless-euler-product-law-for-the-normalized-variant-totient--22abbbb092c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise Renshaw formulas make the normalization plausible, but the continuous limit requires CRT finite-dimensional convergence and prime-tail control.",
+          "The largest-differing-prime valuation gives distinct finite factor products, and divergence sum 1/p controls atoms—neither is implied by a mean asymptotic."
+        ],
+        "reasoning": "The cited prior work provides arithmetic premises/background without a theorem dominating the stated weak limit, moment formula, and atomlessness.",
+        "searches": [
+          "https://arxiv.org/pdf/2603.13939",
+          "https://doi.org/10.71352/ac.54.307"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T(n)/n is approximated by b(n)/2 where odd-prime factors match Schemmel m=2 but b(2^a)=1/2 rather than zero.",
+          "The limiting object is a multiplicative random Euler product with a parity Bernoulli correction."
+        ],
+        "reasoning": "The precise p=2 local modification prevents identifying T with the conventional Schemmel function; alias and general multiplicative limit methods were checked for actual implication.",
+        "searches": [
+          "Resultary semantic: Renshaw variant totient T(n) limiting distribution atomless Euler product mean",
+          "Schemmel totient probabilistic limit distribution p=2 parity factor Renshaw variants",
+          "https://arxiv.org/abs/2603.13939"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite T(n) counts n<=1200 in the package and independently n<=800 check arithmetic formulas only.",
+          "A leading Euler product constant or finite arithmetic table cannot establish the law with no atoms."
+        ],
+        "reasoning": "The exact infinite random product and atomlessness are analytic results rather than a recomputation of tabulated values.",
+        "searches": [
+          "Resultary semantic: Renshaw variant totient T(n) limiting distribution atomless Euler product mean",
+          "https://arxiv.org/pdf/2603.13939"
+        ]
+      },
+      "rationale": "Renshaw 2026 defines the same nonmultiplicative arithmetic count and its pointwise relation to Schemmel-type totients; Steuding–Suriajaya generalized-Schemmel mean values refer to a different multiplicative 2-prime factor and do not state the explicit atomless normalized limit of this variant. Generic number-theoretic probabilistic-limit machinery is technique but no covering application was located.",
+      "residual_risks": [
+        "A general theorem on limiting distributions of multiplicative functions could subsume the weak-limit component; the tailored nonmultiplicative parity correction and atomless injectivity require checking.",
+        "No density formula, quantitative convergence rate or security property is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE, NOT atomless law",
+          "evidence": "The definition and parity-sensitive finite arithmetic estimates precede this theorem; no limiting distribution and no atomlessness theorem identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.13939",
+          "material_read": "Primary preprint full PDF, definition, pointwise estimates and discussion of its relation to Schemmel totient, including PDF page 6",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "A Totient Function Associated with Variants of Groups",
+          "trigger": "Exact same T(n) variant and parity cases"
+        },
+        {
+          "assessment": "RELATED_MEAN_ONLY_IN_EXAMINED_MATERIAL",
+          "evidence": "Generalized Schemmel function has different factor at p=2, so its mean formula alone cannot imply variant atomlessness.",
+          "identifier_or_url": "https://doi.org/10.71352/ac.54.307",
+          "material_read": "Published primary bibliographic/abstract and theorem-description material; not a basis for whole-document noncoverage",
+          "method": "Publisher abstract and cited theorem descriptions",
+          "title": "Mean-values associated with a generalized Schemmel function",
+          "trigger": "Analogous multiplicative means at m=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distribution identifies typical normalized size and all integer moments of a natural recently defined coprimality count; the arithmetic injectivity of finite Euler factors proves a nontrivial atomless property. The asymptotic summatory mean is a concrete quantitative arithmetic invariant; this is more than a known Schemmel table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general theorem on limiting distributions of multiplicative functions could subsume the weak-limit component; the tailored nonmultiplicative parity correction and atomless injectivity require checking.",
+    "No density formula, quantitative convergence rate or security property is claimed."
+  ],
+  "schema_version": 1
+}
