@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every claimed all-weight sign condition follows from the direct Schur resolvent formulas, sector positivity of the leaf-to-leaf reciprocal, and monotonicity of the maximum-spoke scalar factor; the exact equality, zero and tie boundaries are addressed. The verification program replayed exact rational matrices; finite checks are distinct from the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb, Shu and Tadmor (2001), Section 6, discusses universal SSP barriers for general implicit schemes.",
+        "Gottlieb and Gottlieb (2003), Sections 1–4, develops linear-operator SSP coefficient bounds and examples.",
+        "Blanes, Iserles and Macnamara (2022), Section 3, gives exponential-based positivity constructions; it does not analyze the two-stage Gauss rational map on weighted stars."
+      ],
+      "reasoning": "A universal order barrier against method-wide unconditional positivity does not rule out a special star family, and is not itself an exact star characterization. No inspected general graph result implies the new weight-ratio threshold. Previous all-weight result is only for three total vertices, and constant-weight stars are covered by the complete-multipartite case.",
+      "searches": [
+        "Runge Kutta positivity graph Laplacian diffusion implicit Gauss method counterexamples",
+        "SSP absolute monotonicity radius implicit Gauss Runge Kutta Markov semigroup rational approximation",
+        "matrix exponential Padé positivity finite Markov chains graph Gaussian implicit RK",
+        "\"Padé\" \"Gauss\" \"graph\" \"positivity\" Runge Kutta semigroup"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb–Shu–Tadmor, SIAM Review 43 (2001), DOI 10.1137/S003614450036757X",
+      "Gottlieb–Gottlieb, Journal of Scientific Computing 18 (2003), DOI 10.1023/A:1020338228736",
+      "Blanes–Iserles–Macnamara, ESAIM M2AN 56 (2022), DOI 10.1051/m2an/2022042",
+      "Brown–Langer–Tretter, Complex Analysis and Operator Theory 13 (2019), DOI 10.1007/s11785-018-0793-6",
+      "Published mathematical record: Eight-state barrier for Markov positivity of the [2/2] Padé map (2026-09-20)",
+      "Previously established three-site weighted Gauss and complete-multipartite Gauss claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2001 method-wide implicit SSP order barrier does not imply sufficiency for weighted stars.",
+        "2003 coefficient/CFL bounds for linear ODE discretizations do not yield the all-positive-time star threshold.",
+        "Known complete-multipartite result requires equal star spokes and yields only its unweighted special case.",
+        "Known three-site weighted result contains two-spoke stars but does not imply the \\(m\\ge3\\) arbitrary-weight classification."
+      ],
+      "reasoning": "The theorem neither asserts universal positivity for all Metzler matrices nor merely changes parameters in a previously established fixed-size theorem. Its significant new quantification is over all positive vectors of unrestricted length, with strict global sign monotonicity and exact first-failure entries. The source statements do not entail that claim.",
+      "searches": [
+        "strong stability preserving high order time discretization methods Gottlieb Shu Tadmor Section 6 implicit",
+        "strong stability preserving properties Runge Kutta linear constant coefficient operators Gottlieb Gottlieb 2003",
+        "positivity preserving methods ordinary differential equations Blanes Iserles Macnamara graph Laplacian",
+        "prior complete-multipartite Gauss and weighted three-site Gauss classifications"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The paper proves an exact sector-resolvent sign reduction with scalar \\(\\Phi_*\\) for every positive star conductance vector.",
+        "The published 2022 graph-Laplacian positivity paper analyzes exponential, splitting and Magnus steps rather than the rational Gauss endpoint map (Sections 3.1–3.5).",
+        "The earlier two-spoke weighted-network result has an equivalent Green-pseudoinverse criterion only in dimension three."
+      ],
+      "reasoning": "Equivalent labels include two-stage Gauss–Legendre, diagonal [2/2] Padé for exp(-hL), completed implicit RK positivity, Metzler-generator transition positivity, and a complex resolvent/Green-pseudoinverse sign law. The inspected sources do not state the multi-spoke dimensionless criterion or monotone horizon. Inverse-resistance and pseudoinverse translations were explicitly compared.",
+      "searches": [
+        "\"weighted star\" \"Gauss-Legendre\" \"positivity\" \"step\"",
+        "\"fourth-order\" \"Padé\" \"star graph\" \"positivity\"",
+        "weighted star two-stage Gauss Legendre Padé positivity iff largest conductance times sum of inverse conductances at most number vertices",
+        "unconditional Padé [2/2] Markov positivity positive Green Laplacian pseudoinverse star"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantically nearest published mathematical record: Eight-state barrier for Markov positivity of the [2/2] Padé map, 2026-09-20.",
+        "The eight-state record concerns the minimum dimension for arbitrarily-small-step positivity failure on directed pure-birth chains; this theorem studies symmetric star generators, finite horizons, and unlimited star size.",
+        "No inspected exact cutoff table or weight-vector lookup matches the all-weight formula."
+      ],
+      "reasoning": "A finite table, graph census or known scalar Padé positivity radius cannot determine the sign of every entry for arbitrary real weight vectors. The observed database neighbors do not contain the weight-reciprocal condition or star complex-resolvent proof.",
+      "searches": [
+        "fourth order Gauss weighted star edge conductance positivity threshold hub leaf [2/2] Padé",
+        "Gauss Legendre Runge Kutta two stage positivity weighted star graph Laplacian Padé threshold",
+        "\"two-stage Gauss\" \"star\" \"Laplacian\" \"positivity\"",
+        "\"Padé approximation\" \"star graph\" \"positive\" diffusion"
+      ]
+    },
+    "rationale": "The exact arbitrary-weight, arbitrary-leaf-count two-stage Gauss positivity and nonreentry classification is not implied by the inspected general SSP statements, exponential-based positivity methods, published Padé small-state barrier, or the restricted constant-weight/m=2 graph-family results. Comparison addressed implication and invariant translations, not wording. Residual unindexed equivalent specialized results are possible.",
+    "residual_risks": [
+      "Literature searches and selective original-paper inspections cannot rule out equivalent unindexed results, especially in numerical graph filters or finite Markov-chain Padé analysis.",
+      "The metric-star spectral paper was inspected through its primary abstract and theorem synopsis, not line-by-line in every appendix; it uses a materially different operator domain.",
+      "No independent specialist review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General implicit SSP impossibility for all operators, not weighted star-specific endpoint rational positivity. Does not cover the claim.",
+        "evidence": "Section 6 examines convex-coefficient SSP decompositions and implicit-order obstructions; no [2/2] Padé weighted-star threshold.",
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "Original PDF 24 pages accessible; title, abstract, introduction and Section 6 (pp. 107–111), including Propositions 6.2 and 6.3; original publication date footnote p. 89",
+        "method": "Full-text passage and page-image examination",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Foundational archive-aged source for implicit high-order positivity and known method-wide obstructions"
+      },
+      {
+        "assessment": "Studies SSP coefficients and timestepping restrictions on linear ODEs, not the exact two-stage Gauss/weighted-star graph classification.",
+        "evidence": "Printed p. 88 begins Section 2 with linear SSP Runge–Kutta methods and CFL constraints; no arbitrary-spoke conductance criterion.",
+        "identifier_or_url": "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+        "material_read": "Author PDF assembled volume: paper starts PDF page 17 (printed p. 83); title/abstract, Section 2 (printed p. 88 onward), methods and numerical scope",
+        "method": "Full-text textual search and relevant original page-image examination",
+        "title": "Strong Stability Preserving Properties of Runge–Kutta Time Discretization Methods for Linear Constant Coefficient Operators",
+        "trigger": "Potentially stronger published theorem for linear operator positivity"
+      },
+      {
+        "assessment": "Treats exponential, splitting, Magnus and related integrators, not the classical two-stage Gauss completed rational update on arbitrary weighted stars.",
+        "evidence": "Section 3.1 gives positivity for graph-Laplacian exponentials; Section 3.5 considers exponential/Magnus-based higher-order methods.",
+        "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "material_read": "Full-text introduction and Sections 3.1–3.5, especially graph-Laplacian exponentials, resolvent observation and higher-order constructions",
+        "method": "Author open-access PDF text and front-page image examination",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Closest mathematical treatment of graph-Laplacian positivity-preserving high-order methods"
+      },
+      {
+        "assessment": "Works with metric-star differential operators and compressed Weyl resolvents, rather than finite discrete weighted-star Laplacians and the Gauss–Padé positivity threshold.",
+        "evidence": "Theorem 3.1 concerns energy-dependent boundary conditions for metric-star operator domains; numerical time-integrator signs are not treated in the examined description.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11785-018-0793-6",
+        "material_read": "Title, abstract, theorem synopsis and described graph operator domain",
+        "method": "Open-access primary article metadata and abstract review",
+        "title": "Compressed Resolvents and Reduction of Spectral Problems on Star Graphs",
+        "trigger": "Possible equivalent star-resolvent method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f77824b-8f6c-4fd1-af81-d7f46d6cc54f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arbitrary weighted-star diffusion is a natural hub-and-spoke transport class. A nontrivial dimensionless reciprocal-weight boundary completely separates all-step positivity from unique finite-horizon loss for a standard fourth-order A-stable method. The first failing entries and computable scalar root provide graph-structured numerical-step guidance; the four-vertex positive-boundary/counterexample pair shows the sharp phenomenon is not a degree or topology artifact.",
+    "status": "PASS"
+  }
+}
