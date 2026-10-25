@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/AUDIT.json",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/METADATA.json",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/RESULT.md",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/REVIEW.md",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/SLOGAN.txt",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/VERIFICATION.md",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/verify.cpp",
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/verify_output.txt"
+      ],
+      "rationale": "For each original cycle vertex and private leaf, minimum weight per pair is one; attaining weight one forces original label ∅ and leaf a singleton. Collecting those original empty vertices gives an independent set I, so total weight ≥2n−|I|≥2n−floor(n/2). Equality forces I maximum; all other original vertices must be nonempty, and their weight-two original/leaf states are precisely (1,1),(1,2),(2,1),(2,2),(12,∅). Consequently nonzero original state multiplicities are w=(2,2,1), while an empty cycle vertex between original states s,t has 1 permissible leaf singleton if both s,t are the same singleton and 2 otherwise. The transfer T_st=g(s,t)w_t is exactly [[2,4,2],[4,2,2],[4,4,2]]. Even C_{2m} has two alternating maximum independent sets and cyclic transfer trace 2tr(T^m); odd C_{2m+1} has 2m+1 maximum independent sets and path transfer (2m+1)(2,2,1)T^m 1. On the color-symmetric sector T becomes [[6,2],[8,2]], eigenvalues 4±2√5, antisymmetric eigenvalue -2. Independent brute force 4^(2n) labelings for n=3 and n=4 yielded (minimum weight,count)=(5,126),(6,152), corroborating original direct verifier output for n up to six. The proof counts named colors, fixed graph labels, and all equality cases; finite enumeration is not used as infinite proof.",
+      "residual_risks": [
+        "S_n is the ordinary one-leaf corona of a cycle with n≥3; not outer-independent TOTAL rainbow domination, which imposes extra constraints.",
+        "Colors 1 and 2 are named; no orbit quotient under symmetries or color exchange.",
+        "The scalar minimum weight is prior knowledge; the theorem claims the entire number of minimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samadi–Soltankhah Theorem 3.4 establishes the corona optimum weight, with its proof constructing a minimizing function.",
+          "Cabrera-Martínez treats scalar bounds/formulas on coronas; different sunlet graph parameters do not imply rainbow optimizer multiplicity."
+        ],
+        "reasoning": "The more general class of base graphs in the scalar weight theorem does not constitute broader coverage of the stronger number-of-minimizers claim. No general full weight enumerator was found in inspected primary sections.",
+        "searches": [
+          "arXiv:2208.02340 full paper",
+          "doi:10.3390/math10132287",
+          "Resultary semantic query: outer-independent two-rainbow domination sunlet graph C_n corona K1 number of minimum optimal functions transfer matrix"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.02340",
+        "doi:10.3390/math10132287",
+        "doi:10.7494/OpMath.2020.40.5.599",
+        "Resultary: outer-independent two-rainbow domination sunlet graph C_n corona K1 number of minimum optimal functions transfer matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowledge of γ=2n−α(Cn) does not tell how many max-independent-set choices or which two-color assignments to nonzero cores attain it.",
+          "The transfer weights g(s,t) and w_t must be derived separately, yielding parity-distinct matrix products."
+        ],
+        "reasoning": "The scalar prior identity implies only optimal weight; the new count is not a direct corollary unless additional nontrivial optimizer-classification work is supplied.",
+        "searches": [
+          "arXiv:2208.02340 Theorem 3.4 pp10–11",
+          "doi:10.3390/math10132287 Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sunlet is the corona C_n∘K1; its outer-independent two-rainbow function is a four-subset-valued assignment.",
+          "The same scalar minimum value is proven in existing corona literature."
+        ],
+        "reasoning": "Separately count functions at the optimum rather than reprove the scalar optimum; the exact transfer trace/product is not just a different notation for weight minimization.",
+        "searches": [
+          "arXiv:2208.02340 Theorem 3.4",
+          "doi:10.3390/math10132287",
+          "Resultary semantic query: outer-independent two-rainbow domination sunlet graph C_n corona K1 number of minimum optimal functions transfer matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original published sources give numeric γ values rather than M3=126,M4=152,M5=1780 counts.",
+          "Nearest Resultary hits count different rainbow, Roman or domination functions on other families."
+        ],
+        "reasoning": "The local finite counts match direct enumeration but do not become external priority evidence; no exact known table was located.",
+        "searches": [
+          "Resultary semantic query: outer-independent two-rainbow domination sunlet graph C_n corona K1 number of minimum optimal functions transfer matrix",
+          "outer-independent 2-rainbow sunlet optimum enumeration exact number (web search)",
+          "arXiv:2208.02340"
+        ]
+      },
+      "rationale": "The known one-leaf-corona scalar identity γ_{oir2}(H∘K1)=2|V(H)|−α(H) does not encode the multiplicity of all optimum assignments. The exact parity-sensitive transfer formula and three-state classification are additional structural enumerative facts not found in the inspected primary theorem statements.",
+      "residual_risks": [
+        "An unindexed optimizer-enumeration article or supplementary table on sunlets could contain the same matrix formula.",
+        "Only arXiv:2208.02340 is confirmed independently inspected as full text; other relevant original papers have narrower accessible materials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_ONLY_NOT_FULL_ENUMERATION",
+          "evidence": "Derives γ_{oir2}(H∘K1)=2|V(H)|−α(H) and exhibits minimum configuration; does not state the transfer count on sunlets.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.02340",
+          "material_read": "Full lawfully accessible public PDF (13 pages), including Theorem 3.4 and its proof on pp10–11, and relevant definitions.",
+          "method": "Read full primary arXiv PDF and theorem proof.",
+          "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+          "trigger": "Exactly same invariant on a one-leaf corona and possibly complete optimizer description."
+        },
+        {
+          "assessment": "PRIOR_SCALAR",
+          "evidence": "Does not supply the named-color optimal sunlet count in the consulted statement.",
+          "identifier_or_url": "https://doi.org/10.3390/math10132287",
+          "material_read": "Relevant theorem statement/abstract on scalar outer-independent rainbow domination; complete independent full-text reading not established this run.",
+          "method": "Bibliographic and theorem-scope comparison.",
+          "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+          "trigger": "Earlier related corona theorem."
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "The definition does not imply the cycle-specific optimum census.",
+          "identifier_or_url": "https://doi.org/10.7494/OpMath.2020.40.5.599",
+          "material_read": "Accessible bibliographic and definitional material; full paper not independently read in this execution.",
+          "method": "Definitions and primary reference metadata.",
+          "title": "Outer independent rainbow dominating functions in graphs",
+          "trigger": "Introduces the invariant and definitions potentially relevant to generic enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-minimum-outer-independent-two-rainbow-function-counts-on-s--d332d63b3cbb/RESULT.md",
+        "arXiv:2208.02340",
+        "doi:10.3390/math10132287",
+        "doi:10.7494/OpMath.2020.40.5.599",
+        "Resultary: outer-independent two-rainbow domination sunlet graph C_n corona K1 number of minimum optimal functions transfer matrix"
+      ],
+      "rationale": "The exact number of optimal color-label assignments is a natural invariant distinct from the already-known optimum weight. The proof classifies every minimizing function and gives closed alternating-cycle traces, odd-path products and a low-order recurrence; these support exact counting/sampling on a standard graph family, not a small arbitrary slice.",
+      "residual_risks": [
+        "Mathematical usefulness is limited to the specified natural family and invariant; no downstream theorem or exhaustive priority certificate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "S_n is the ordinary one-leaf corona of a cycle with n≥3; not outer-independent TOTAL rainbow domination, which imposes extra constraints.",
+    "Colors 1 and 2 are named; no orbit quotient under symmetries or color exchange.",
+    "The scalar minimum weight is prior knowledge; the theorem claims the entire number of minimizers.",
+    "An unindexed optimizer-enumeration article or supplementary table on sunlets could contain the same matrix formula.",
+    "Only arXiv:2208.02340 is confirmed independently inspected as full text; other relevant original papers have narrower accessible materials.",
+    "No source edits or publication made. Finite checks corroborate, not establish infinite theorems."
+  ],
+  "schema_version": 1
+}
