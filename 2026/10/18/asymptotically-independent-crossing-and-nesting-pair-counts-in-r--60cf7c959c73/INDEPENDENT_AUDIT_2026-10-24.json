@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:53:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformly sorted independent random endpoint pairs produce a uniform perfect matching. Conditional projection on chord endpoints a<b gives gC=2(b-a)(1-b+a), gN=(b-a)^2+2a(1-b). Independently computed exact integrals E gC=E gN=1/3, E gC²=E gN²=2/15, E gCgN=1/9. Thus shared-chord cross covariances vanish and same-pair C*N=0 gives covariance -binom(n,2)/9; within type shared covariances 1/45 yield stated variance. Bounded order-two kernels have degenerate Hoeffding remainders of variance O(n²), so multivariate iid CLT for projection yields independent Gaussian fluctuations. Directly enumerated 3,15,105,945 matchings for n=2..5 and checked covariance. Marginal CLT alone does not prove joint asymptotic independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kasraoui–Zeng 2006 Proposition 3.8 is an exact continued fraction generating full finite joint distributions.",
+          "Flajolet–Noy 2000 Theorem 3 is a crossing marginal CLT/variance; Baik–Jenkins 2011 treats extremal sizes with Tracy–Widom scales."
+        ],
+        "reasoning": "The 2006 generating-function theorem **dominates finite distribution data**, and is acknowledged; however a full joint generating series is not itself a proved n^{-3/2} bivariate Gaussian limit with orthogonal first projections, nor does the inspected paper state this limit. There is residual implication risk if asymptotics of that continued fraction have been worked out elsewhere.",
+        "searches": [
+          "Kasraoui Zeng arxiv math/0601081 Proposition 3.8",
+          "Baik Jenkins maximal crossing nesting matchings arxiv 1111.0269",
+          "Flajolet Noy chord diagrams covariance crossing"
+        ]
+      },
+      "checked_sources": [
+        "Kasraoui–Zeng arXiv:math/0601081 full primary PDF, Proposition 3.8",
+        "Flajolet–Noy INRIA RR3914 Theorem 3 (relevant marginal background)",
+        "Baik–Jenkins arXiv:1111.0269 distinct maximal-statistic theory",
+        "Arenas-Velilla–Arizmendi–Paguyo arXiv:2308.11570v2 full primary PDF, Theorem 1.1 and Section 5.1",
+        "Resultary query: random matchings crossing nesting pair count covariance central limit joint asymptotic independence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop 3.8 generating function has symmetric [k]_{p,q} weights; no cited normal-limit theorem in the full 12-page PDF.",
+          "Baik–Jenkins maximum-size statistics have Tracy–Widom scale, not pair-count n^{3/2}."
+        ],
+        "reasoning": "Full finite distribution prior implies moments computationally, so exact covariance as a stand-alone novelty would be weak. It does NOT logically state the joint limit without additional asymptotic inference; orthogonal one-chord projections and multivariate CLT establish a quantitatively distinct fluctuation theorem.",
+        "searches": [
+          "math/0601081 Proposition 3.8",
+          "arxiv 1111.0269 maximum crossings nestings joint limiting law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kasraoui–Zeng define cr(π),ne(π) exactly as counts of crossing/nesting pairs and give bivariate polynomial L_n(p,q) in Proposition 3.8.",
+          "The audited X,Y are precisely these cr/ne statistics, not maximal pairwise crossing/nesting families."
+        ],
+        "reasoning": "This is the SAME statistics as Kasraoui–Zeng, not merely superficially similarly titled. Their full finite joint generating function contains all mixed moments in principle; the claim cannot assert discovery of the joint distribution, but explicit covariance and asymptotic joint normal independence require substantive evaluation and limit analysis.",
+        "searches": [
+          "random matchings crossing nesting pair count covariance central limit joint asymptotic independence",
+          "Kasraoui Zeng 2006 joint generating function crossing nesting pair numbers perfect matchings",
+          "Klazar 2005 crossing nesting two edges matchings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kasraoui–Zeng display exact L2=1+p+q and L3 polynomial and an all-n continued fraction in §3.2.",
+          "No explicit -n(n-1)/18 covariance or joint asymptotic independence appears in inspected results."
+        ],
+        "reasoning": "The all-n bivariate database/generating function IS prior and can algorithmically produce any finite polynomial and its derivatives. The contribution retained here is the closed covariance simplification and bivariate CLT with a simple projection proof, not a new joint distribution table.",
+        "searches": [
+          "Kasraoui Zeng Ln(p,q) perfect matchings Proposition 3.8",
+          "joint crossing nesting covariance polynomial random perfect matching"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. Full finite distribution prior implies moments computationally, so exact covariance as a stand-alone novelty would be weak. It does NOT logically state the joint limit without additional asymptotic inference; orthogonal one-chord projections and multivariate CLT establish a quantitatively distinct fluctuation theorem.",
+      "residual_risks": [
+        "The exact bivariate finite generating function of Kasraoui–Zeng (2006) already subsumes all finite joint moments; no priority is claimed for joint enumerating distributions, and the new covariance formula alone might be viewed as a computational corollary.",
+        "Uninspected asymptotic analyses of the earlier joint continued fraction could directly imply the bivariate CLT; available best-of-knowledge reading did not identify one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-n generating functions are stronger finite-distribution coverage; audited finite covariance is derivable, but no bivariate n^{-3/2} joint independent Gaussian limit proved in the read paper.",
+          "evidence": [
+            "Kasraoui–Zeng 2006, Theorem 1.2, Prop. 3.8, pp.3-4,11."
+          ],
+          "identifier_or_url": "arXiv:math/0601081",
+          "material_read": "All 12-page primary PDF: definitions pp.1-3, crossing/nesting involution Theorem 1.2, Corollaries 1.3-1.5, §3.2 generating functions, Proposition 3.8 and references",
+          "method": "lawful arXiv full-text PDF plus screenshots printed pp.3,9,11",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "Same pair counts with potentially dominating full bivariate distribution"
+        },
+        {
+          "assessment": "Strong direct coverage of the crossing marginal mean n(n-1)/6, variance n(n-1)(n+3)/45 and one-dimensional CLT, explicitly credited. The read paper does not state nesting counts or their bivariate joint Gaussian limit.",
+          "evidence": [
+            "Arenas-Velilla–Arizmendi–Paguyo arXiv:2308.11570v2, Theorem 1.1 and Section 5.1, printed p.13."
+          ],
+          "identifier_or_url": "arXiv:2308.11570",
+          "material_read": "Full 22-page primary PDF: Introduction, Theorem 1.1 and Section 5.1 (printed page 13), with exact crossing mean and variance and Kolmogorov rate",
+          "method": "lawful arXiv full primary PDF text, find for nesting, and rendered-page screenshots",
+          "title": "Central limit theorem for crossings in randomly embedded graphs",
+          "trigger": "More recent crossing-count CLT with rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural joint second-order geometry of two-chord crossing and nesting counts exhibits a nontrivial cancellation: negative O(n²) finite covariance but asymptotically independent O(n^{3/2}) Gaussian fluctuations. The exact covariance plus joint CLT provide a statistical distinction between finite dependence and fluctuation-scale independence, not an arbitrary tiny finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kasraoui–Zeng arXiv:math/0601081 full primary PDF, Proposition 3.8",
+    "Flajolet–Noy INRIA RR3914 Theorem 3 (relevant marginal background)",
+    "Baik–Jenkins arXiv:1111.0269 distinct maximal-statistic theory",
+    "Arenas-Velilla–Arizmendi–Paguyo arXiv:2308.11570v2 full primary PDF, Theorem 1.1 and Section 5.1",
+    "Resultary query: random matchings crossing nesting pair count covariance central limit joint asymptotic independence"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform perfect matchings of 2n ordered vertices, crossing pair count X and nesting pair count Y have exact common mean n(n-1)/6, exact common variance n(n-1)(n+3)/45, covariance -n(n-1)/18, correlation -5/(2(n+3)), and jointly scaled n^{-3/2} centered counts converge to independent N(0,1/45) variables.",
+  "limitations": [
+    "Original sources and external literature were compared for statements and implications; uninspected full sources and priorities are explicit risks.",
+    "Verification logs and finite calculations are neither infinite proofs nor substitute for independent literature priority.",
+    "The exact bivariate finite generating function of Kasraoui–Zeng (2006) already subsumes all finite joint moments; no priority is claimed for joint enumerating distributions, and the new covariance formula alone might be viewed as a computational corollary.",
+    "Uninspected asymptotic analyses of the earlier joint continued fraction could directly imply the bivariate CLT; available best-of-knowledge reading did not identify one."
+  ],
+  "residual_risks": [
+    "The exact bivariate finite generating function of Kasraoui–Zeng (2006) already subsumes all finite joint moments; no priority is claimed for joint enumerating distributions, and the new covariance formula alone might be viewed as a computational corollary.",
+    "Uninspected asymptotic analyses of the earlier joint continued fraction could directly imply the bivariate CLT; available best-of-knowledge reading did not identify one."
+  ],
+  "schema_version": 1
+}

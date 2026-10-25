@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform matching is realized by independently sampled unordered uniform endpoint pairs. Explicit conditional crossing and nesting probabilities have means \(1/3\), variances \(1/45\), and zero cross-covariance under the density \(2\) on \(0<a<b<1\). Pair-overlap enumeration gives the exact covariance and variance. Hoeffding projection leaves degenerate variance of order \(n^2\), so the two-dimensional iid CLT gives independent Gaussian components after scaling by \(n^{3/2}\). Boundary \(n\ge2\); n=1 has undefined correlation. Exact enumeration corroborates n=2 through 6 but does not substitute for proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The inspected full Flajolet–Noy source gives the crossing marginal variance and univariate limit; Klazar's full arXiv text gives joint-statistic identities and symmetries; Chen et al. give symmetry of maximal patterns, not an explicit joint Gaussian limit for total pair counts. Baik–Jenkins prove asymptotic independence for **maximal collection sizes**, not pair counts. Relevant indexed published records did not yield the same theorem or stronger coverage. This is a best-knowledge comparison, not proof of global uniqueness; a joint generating function might implicitly encode the finite covariance.
+PASS
 
-**Mathematical value — PASS.** Crossing and nesting are mutually exclusive local patterns but have surprisingly orthogonal first-order fluctuations. The exact covariance identifies all negative dependence as arising from individual competing chord pairs; the joint CLT then resolves a natural question unanswered by separate marginal limits. This is a structural joint fluctuation result, not a mere renaming or a marginal reproving exercise.
+Uniformly sorted independent random endpoint pairs produce a uniform perfect matching. Conditional projection on chord endpoints a<b gives gC=2(b-a)(1-b+a), gN=(b-a)^2+2a(1-b). Independently computed exact integrals E gC=E gN=1/3, E gC²=E gN²=2/15, E gCgN=1/9. Thus shared-chord cross covariances vanish and same-pair C*N=0 gives covariance -binom(n,2)/9; within type shared covariances 1/45 yield stated variance. Bounded order-two kernels have degenerate Hoeffding remainders of variance O(n²), so multivariate iid CLT for projection yields independent Gaussian fluctuations. Directly enumerated 3,15,105,945 matchings for n=2..5 and checked covariance. Marginal CLT alone does not prove joint asymptotic independence.
 
-Scientific limitations: standard iid sampling of chord endpoints and bounded order-two kernels are essential. No convergence rate or generalization to nonuniform matchings is established. Independent historical priority audit remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty concerns the explicitly stated combined theorem, not its classical components; direct comparisons and material-reading limitations are recorded. Full finite distribution prior implies moments computationally, so exact covariance as a stand-alone novelty would be weak. It does NOT logically state the joint limit without additional asymptotic inference; orthogonal one-chord projections and multivariate CLT establish a quantitatively distinct fluctuation theorem.
+
+## value
+
+PASS
+
+The natural joint second-order geometry of two-chord crossing and nesting counts exhibits a nontrivial cancellation: negative O(n²) finite covariance but asymptotically independent O(n^{3/2}) Gaussian fluctuations. The exact covariance plus joint CLT provide a statistical distinction between finite dependence and fluctuation-scale independence, not an arbitrary tiny finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
