@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each four-vertex closed neighborhood unique among two colors is equivalent to odd red count. Outer equations determine inner assignments; substituting into inner equations gives homogeneous operator h_k(T), whose kernel dimension over F2 modulo T^n+1 is exactly degree gcd. Proof of this dimension does not rely on squarefree factorization. Explicit h_1=(t+1)^4 and h_2=(t+1)(t^5+1) lead to all stated residue cases; the five-periodicity closure argument is complete. Independent direct enumeration of all binary assignments n=3..8, reduced enumeration n=3..17, and exact polynomial gcd computations are supplied.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sedlar–Škrekovski arXiv:2610.22559v1 Theorem 2: some planar graphs need four colours; gadget and critical families, not exact two-colour GP statistics.",
+        "Fabrici et al., arXiv:2202.02570, proper and improper CF bounds on planar/outerplanar classes.",
+        "Collins et al. (2025), §5.3: generalized Petersen balanced-coloring existence iff n is even and step is odd."
+      ],
+      "reasoning": "General planar palette upper/lower bounds do not determine the number of two-colour assignments for a particular cubic graph. Balanced colourings are disjoint from this predicate at every degree-three vertex; existence/nonexistence for those cannot imply our exact counts. The proper conflict-free variant excludes many of our admissible assignments.",
+      "searches": [
+        "conflict-free closed neighborhood cubic graph two colorings rank of adjacency plus identity over F2 generalized Petersen and circular ladders",
+        "two colour conflict free coloring Petersen graph enumerating all optimal red blue assignments",
+        "\"generalized Petersen\" \"conflict-free\" coloring closed neighbourhood",
+        "arXiv:2610.22559v1",
+        "doi:10.1007/s00373-025-02950-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22559v1",
+      "arXiv:2202.02570",
+      "doi:10.1007/s00373-025-02950-5",
+      "Neighborhood-parity odd colorings of crown graphs (research record dated 2026-10-04)",
+      "Exact proper conflict-free chromatic number of crown graphs (research record dated 2026-09-30)",
+      "Exact rainbow connection of Dirac cycle powers (research record dated 2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Current paper gives explicit exact C(n,k) rather than only a colour-bound or balance criterion.",
+        "2026 planar CF article covers construction of four-needed planar graphs and does not assert any GP(n,k) closed-neighbourhood count.",
+        "2025 GP balanced-coloring paper asks for exactly 2 red bits on degree-three closed neighborhoods, while every coloring enumerated here has odd red count."
+      ],
+      "reasoning": "Neither a general four-colour necessity/existence statement nor a balanced-neighbourhood existence theorem entails an exact two-colour count, and the balanced predicate is mutually exclusive with our CF predicate. The historical proper-CF paper uses a stronger adjacency restriction. No searched claim dominates this exact census.",
+      "searches": [
+        "two-colour closed neighbourhood conflict free vertex colorings of generalized Petersen graphs GP(n,2) enumeration number by n modulo 10 binary adjacency matrix parity",
+        "generalized Petersen GP(n,k) closed-neighborhood conflict-free two named vertex colors exact count polynomial gcd modulo t^n-1",
+        "arXiv:2610.22559v1, sections 1-4",
+        "Collins et al. 2025, §5.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sedlar–Škrekovski arXiv:2610.22559v1, definition of fully coloured improper closed-neighbourhood conflict-free colouring, Section 1.",
+        "Collins et al., Graphs Combin. 41 (2025), §5.3: closed-neighbourhood balanced colorings are exact two-and-two, not the parity-odd one-and-three constraint.",
+        "Closest scientific record Neighborhood-parity odd colorings of crown graphs (research record dated 2026-10-04) concerns crown graphs and parity odd coloring, not generalized Petersen closed-neighbourhood named-colour counts."
+      ],
+      "reasoning": "The equivalent phrasing is an odd red-indicator sum over each closed neighbourhood, a kernel count of I+A over GF(2), or a cyclic code dimension in a quotient polynomial ring. Explicit searches combined these aliases with generalized Petersen/GP(n,k)/Petersen, and the returned results did not present the same kernel, count, or modulus-5 phase transition.",
+      "searches": [
+        "two-colour closed neighbourhood conflict free vertex colorings of generalized Petersen graphs GP(n,2) enumeration number by n modulo 10 binary adjacency matrix parity",
+        "conflict-free closed neighborhood cubic graph two colorings rank of adjacency plus identity over F2 generalized Petersen and circular ladders",
+        "generalized Petersen GP(n,k) closed-neighborhood conflict-free two named vertex colors exact count polynomial gcd modulo t^n-1",
+        "binary colorings cubic graph closed neighborhood red counts 1 or 3 parity linear system A plus identity exact nullity",
+        "\"generalized Petersen\" \"conflict-free\" coloring closed neighbourhood",
+        "\"generalized Petersen\" \"odd\" \"closed neighborhoods\" 2 coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific record Exact proper conflict-free chromatic number of crown graphs (research record dated 2026-09-30): proper conflict-free chromatic number of crown graphs, not an exact table for generalized Petersen graphs.",
+        "Direct exhaustive two-colour test for n=3..8 in checker.py and a separate outer-word census for n=3..17, all agreeing with the all-parameter algebra."
+      ],
+      "reasoning": "Searches for exact Petersen GP(5,2) value 32, the five-divisibility 32/64 jump, and general pair (n,k) did not retrieve an equivalent known table or complete sequence. This is evidence of non-overlap, not a proof that no table exists.",
+      "searches": [
+        "two-colour closed neighbourhood conflict free vertex colorings of generalized Petersen graphs GP(n,2) enumeration number by n modulo 10 binary adjacency matrix parity",
+        "two colour conflict free coloring Petersen graph enumerating all optimal red blue assignments",
+        "n divisible by five count 32 64 of two-colour conflict-free closed neighborhoods Petersen GP(n,2)",
+        "prism graph C_n Cartesian K_2 two-color closed-neighborhood conflict-free count 2 4 16 modulo four",
+        "\"generalized Petersen\" \"conflict-free\" \"GP(n,2)\""
+      ]
+    },
+    "rationale": "No inspected comparison states or logically implies exact two-colour closed-neighbourhood conflict-free enumerations for generalized Petersen graphs. The closest direct shared-object article, Collins et al. (2025), imposes two red/two blue per closed neighbourhood, disjoint from our one/three predicate. The 2026 initiating planar CF paper studies thresholds, not this exact family. Research record scans returned only inapplicable other graph families or other coloring predicates; lack of exhaustive historical coverage remains a caveat.",
+    "residual_risks": [
+      "A prior unpublished, unindexed, coding-theory or exact enumerative treatment could contain this identical binary-kernel census.",
+      "Searches and inspections do not prove historical uniqueness; independent priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact two-colour generalized Petersen enumerations, focus is need for four colours and gadget constructions.",
+        "evidence": [
+          "arXiv:2610.22559v1, Theorem 2, §1, §2-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22559v1",
+        "material_read": "Complete online HTML: abstract, definition, Section 1, gadget construction Section 2, counterexample and criticality Section 3, infinite families Section 4 and references; relevant structures and statements checked.",
+        "method": "Full-text HTML headings/statement/lemma reading, with PDF page screenshots consulted for the original presentation.",
+        "title": "Four colours are needed for closed-neighbourhood conflict-free colouring of all planar graphs",
+        "trigger": "Earliest recent primary paper for the identical colouring predicate and MSC 05C15"
+      },
+      {
+        "assessment": "NOT_COVERING: two-and-two equality condition is logically disjoint from one-and-three closed-neighbourhood uniqueness.",
+        "evidence": [
+          "Collins et al. (2025), §1 and §5.3, Proposition 6 and subsequent characterization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-025-02950-5",
+        "material_read": "Open-access article definition and the full relevant §5.3, including generalized Petersen definition and propositions on balance.",
+        "method": "OA full-article text inspection of definitions, §5.3 statements and proofs.",
+        "title": "Closed Neighborhood Balanced Coloring of Graphs",
+        "trigger": "Highly relevant exact same generalized Petersen graph object and red/blue neighbourhood coloring"
+      },
+      {
+        "assessment": "NOT_COVERING in reviewed relevant portions; proper-colouring restrictions and qualitative bounds do not yield exact GP(n,k) improper two-colour counts.",
+        "evidence": [
+          "Fabrici et al., arXiv:2202.02570, abstract, definitions, planar statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02570",
+        "material_read": "Public abstract, introductory definitions, known results and relevant statements of proper and improper planar bounds.",
+        "method": "arXiv HTML/text sections and cited theorem comparison",
+        "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+        "trigger": "Foundational related conflict-free graph colouring work explicitly credited by Sedlar–Škrekovski"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31f03994-e1a6-494e-81a8-34c8d7e9fffb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generalized Petersen graphs form a canonical two-parameter family of cubic graphs. The just-published four-colour necessity result makes precise low-colour enumeration a timely structural question. The new exact gcd formula counts all named 2-colour assignments for the entire family, and the k=2 five-divisibility jump (2/4 versus 32/64) has a complete difference-word classification. This is more informative than a generic graph-colorability observation or a computation on a few finite graphs.",
+    "status": "PASS"
+  }
+}
