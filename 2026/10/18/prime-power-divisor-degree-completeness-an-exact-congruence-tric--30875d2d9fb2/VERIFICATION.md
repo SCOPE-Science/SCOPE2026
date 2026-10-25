@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-From the directory containing `VERIFY.py`, execute `python VERIFY.py`. This requires only the Python 3 standard library and reports the number of exact modular-order and divisor-degree tests. It completed successfully with `PASS multiplicative-order/subset-degree tests: 1242`.
+## correctness
 
-For an independent polynomial-factorization check, install SymPy separately if necessary, then run `python VERIFY.py --factor`. The second test uses actual factorization of \(X^{r^a}-1\) over \(\mathbb F_p\), not the multiplicative-order formula used in the first test; it completed with `PASS direct polynomial factorization tests: 242`. A nonfatal SymPy deprecation warning can appear.
+PASS
 
-The first test includes every prime \(r\le19\), every exponent \(a\ge1\) with \(r^a\le625\), and every prime \(p\le199\). It checks the exact least missing degree or complete coverage. The second test includes \(r\in\{3,5,7,11\}\), \(r^a\le150\), and every prime \(p<80\). These are bounded computations. No infinite mathematical conclusion is inferred from their successful termination; that conclusion relies on the printed proof using cyclotomic factorization, valuations of multiplicative orders, and contiguous subset-sum intervals.
+Reconstructed actual cyclotomic factor-degree multiset: one degree-one factor and at each j factors of degree e_j=ord_(r^j)(p) with multiplicity r^(j−1)(r−1)/e_j for p!=r; for p=r it is (X−1)^(r^a). The contiguous-degree interval lemma proves sufficiency whenever each next factor degree <= prior attained total+1. For r=2 the order divides 2^(j−1); for r odd p≡1 mod r, lifting gives e_j=r^max(0,j−v_r(p−1)); for p≡−1 mod r, e_j=2r^max(0,j−v_r(p+1)), so if a>=2 and v_r(p+1)=1, degree r+1 is the first gap. For other p mod r, ord_r(p)>=3 so degree 2 is the first gap. Counts of reduced classes modulo r and r² produce stated PNT-in-AP densities. Independently reconstructed 425 (r,a,p) triples with r∈{2,3,5,7,11}, p<100, r^a<=200 by modular orders and bitset subsets; matches all first gaps. Finite checks are not all-prime proof.
 
-The asymptotic prime density relies on the established prime number theorem in arithmetic progressions, not on a finite experiment. Independent scientific assessment has not been performed. No publisher-provided original paper is reproduced in these files.
+## originality
+
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. Prime-power indices form a canonical test family for p-practical polynomial divisor-degree completeness. The exact stability after a=2, sharp first missing degrees, all-characteristic congruence trichotomy and natural densities are useful unknown explicit facts refining the generic degree-subset criterion, not just individual small examples.
+
+## value
+
+PASS
+
+Prime-power indices form a canonical test family for p-practical polynomial divisor-degree completeness. The exact stability after a=2, sharp first missing degrees, all-characteristic congruence trichotomy and natural densities are useful unknown explicit facts refining the generic degree-subset criterion, not just individual small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

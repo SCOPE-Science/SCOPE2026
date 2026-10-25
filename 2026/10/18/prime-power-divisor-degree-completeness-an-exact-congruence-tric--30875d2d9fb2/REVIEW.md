@@ -1,19 +1,21 @@
-# Scientific review: prime-power polynomial divisor degrees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-field factorization of cyclotomic polynomials yields exactly one degree-one factor and, for each prime-power level, a known multiplicity of factors whose degrees are multiplicative orders. The proof independently reconstructs the sufficient classes using the exact valuations of these orders and the interval-filling criterion for bounded coin sums. The obstruction cases prove exact *first* missing degrees, not merely the lack of some factor. The characteristic dividing the index and the even-base cases are included explicitly. Dirichlet's theorem with the prime number theorem in reduced arithmetic progressions supplies the claimed densities without an unproved hypothesis. The standalone checker has passed 1,242 exact factor-degree/order tests; its optional second implementation has passed 242 genuine finite-field polynomial factorizations. These are finite stress tests, not substitutes for the all-primes proof.
+PASS
 
-## Originality — PASS, with disclosed residual risk
+Reconstructed actual cyclotomic factor-degree multiset: one degree-one factor and at each j factors of degree e_j=ord_(r^j)(p) with multiplicity r^(j−1)(r−1)/e_j for p!=r; for p=r it is (X−1)^(r^a). The contiguous-degree interval lemma proves sufficiency whenever each next factor degree <= prior attained total+1. For r=2 the order divides 2^(j−1); for r odd p≡1 mod r, lifting gives e_j=r^max(0,j−v_r(p−1)); for p≡−1 mod r, e_j=2r^max(0,j−v_r(p+1)), so if a>=2 and v_r(p+1)=1, degree r+1 is the first gap. For other p mod r, ord_r(p)>=3 so degree 2 is the first gap. Counts of reduced classes modulo r and r² produce stated PNT-in-AP densities. Independently reconstructed 425 (r,a,p) triples with r∈{2,3,5,7,11}, p<100, r^a<=200 by modular orders and bitset subsets; matches all first gaps. Finite checks are not all-prime proof.
 
-The closest primary sources are Thompson's 2011 preprint and 2012 thesis/2014 journal article, which define the property and establish the general multiplicative-order factorization criterion. They already give the sufficient congruence classes \(p\equiv\pm1\pmod n\) for a fixed index \(n\), characterize same-characteristic powers, and mention \(n=5\) as a prime-index example. Those contributions are fully credited. The present claim simultaneously classifies all odd prime-power indices, finds the exact first missing degree on the complement, proves exponent-two stabilization of qualifying prime characteristics, and computes their prime-density limit. The generic factor-degree lemma implies this result only after the specialized multiplicative-order valuation and subset-sum analysis; no matching specialized statement was found in the inspected primary sections or targeted literature and published-results searches. A differently worded earlier classification, an uninspected appendix, or an unindexed table may still exist; search failure is not a uniqueness guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The problem of divisors of every degree is an established arithmetic question. Prime powers are its first natural indexed family; the result identifies an exact arithmetic progression description of *all* qualifying characteristics, proves that higher powers give no new restrictions beyond the square, locates the least failing degree in every excluded congruence class, and converts the classification into exact prime densities. These features are not an arbitrary chosen numerical slice and can serve as structural benchmarks for more general cyclotomic-index families. The result makes no new claim about non-prime-power indices or uniform errors for prime counts.
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. Prime-power indices form a canonical test family for p-practical polynomial divisor-degree completeness. The exact stability after a=2, sharp first missing degrees, all-characteristic congruence trichotomy and natural densities are useful unknown explicit facts refining the generic degree-subset criterion, not just individual small examples.
 
-## Boundaries and literature comparison
+## value
 
-Thompson, *On the divisors of \(x^n-1\) in \(\mathbb F_p[x]\)* (arXiv:1111.5403), and *Variations on a question concerning the degrees of divisors of \(x^n-1\)* (arXiv:1206.4355; DOI 10.5802/jtnb.866), provide the motivating framework. Chapter 6 of *Products of Distinct Cyclotomic Polynomials* develops the original polynomial property and sufficient characteristic classes. OEIS A336504 and A336505 tabulate related characteristic-specific sequences, but the displayed data and algorithms do not establish the all-prime, all-exponent classification. The comparison with Pollack–Thompson, arXiv:1206.2084, concerns a related number-field formulation, not the same prime-field criterion. The strongest unresolved risk is an obscure original-text formulation of the prime-power case. No claim of a complete survey of all archival literature is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prime-power indices form a canonical test family for p-practical polynomial divisor-degree completeness. The exact stability after a=2, sharp first missing degrees, all-characteristic congruence trichotomy and natural densities are useful unknown explicit facts refining the generic degree-subset criterion, not just individual small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
