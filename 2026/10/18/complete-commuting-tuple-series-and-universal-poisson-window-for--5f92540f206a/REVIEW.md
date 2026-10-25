@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support classification is verified directly against the Brandt product: distinct off-diagonal elements commute exactly when no target equals a source in either order. The full EGF separates zero elements, diagonal local-group tuples, and unique nonempty exact off-diagonal source/target sets. Inclusion-exclusion enforces exact support. Recursive recovery follows because the off-diagonal series has zero constant term. For random sampling, diagonal/zero events are negligible in the \(\sqrt n\) window, and a bipartite equality graph supplies all factorial moments of the Poisson limit. Twelve finite nonabelian/abelian/trivial test configurations independently reproduce the exact formula. The proof covers all quantifiers and the normalization \(|B_n(G)|=1+n^2|G|\).
+PASS
 
-## Originality — PASS within inspected evidence
+In B_n(G) of size 1+n^2|G|, commuting offdiagonal triples require exact disjoint source/target supports U,W. The zero element contributes e^t; diagonal local groups outside U union W contribute the ordered group-commuting EGF C_G(t), and inclusion-exclusion over missing rows/columns gives E_abg(t) for each unique exact nonempty U,W. This is valid for arbitrary nonabelian G because only same-index diagonal labels need commute. Coefficient of t^r in C_G(t)^n equals n c_r(G) plus lower orders and every E_abg has zero constant, proving recursive recovery. For k_n/sqrt(n)->lambda, diagonal and zero samples have o(1) probability uniformly over arbitrary finite G_n; noncommuting pairs agree asymptotically with directed equality constraints J_a=I_b. The factorial moments sum disjoint-edge patterns ->lambda^(2r) and shared-component patterns vanish as n^(1-v/2), establishing Pois(lambda^2). Independently counted literal semigroup multiplication and EGF for n=1..3 trivial G and n=2,C2, examples including [1,9,41,177] for n2,g2. This finite check is only corroboration; the proof covers all n,G and the specified scaling.
 
-The direct same-object prior classification of inclusion-maximal commutative Brandt subsemigroups and its maximum-size enumerator was examined as a genuine overlap risk. It already supplies the fundamental source/target split; that fact is not new. Unlike counting maximal containers, the current EGF counts **all ordered tuples with repetition**, accounts for overlapping diagonal abelian subgroups via the actual group commuting series, recursively recovers that series, and proves a quantitative growing-index Poisson limit. The inspected primary papers focus on Brandt subsemigroup complexes [1], commuting graph structure and clique numbers [2], and Rees commuting graphs [3]; none of their read sections asserts these three quantitative conclusions. Actual Published-finding semantic searches for the full EGF, inverse semigroup commuting words, and the Poisson threshold found no closer exact claim than the same-object historical maximum-size enumerator. Residual historical priority risk remains for an equivalent formula under commuting graph clique polynomials or random sparse relation theory. Absence of a search hit alone is not used as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete ordered-tuple profile is a natural semigroup invariant, beyond extremal commuting-subsemigroup size. Its recoverability identifies local-group information that extremal size enumeration does not provide, while the independent universal \(\sqrt n\) sampling threshold supplies a distributional phenomenon uniform over arbitrary local groups. This is an infinite-family structural enumeration and nondegenerate random limit, rather than a small-parameter table or a mere renaming of the maximal-subsemigroup classification. Its analytic ingredients are standard; the exact combined result is the assessed contribution.
+Prior Kumar--Dalal--Pandey 2020 describes Brandt commuting graphs, disjoint U,W and clique extrema; this same-object structural ingredient is not new. Margolis--Rhodes--Silva study Brandt subsemigroup complexes, and Mitchell 2004 maximal independent sets aperiodic Brandt. A maximal-container or clique-number count cannot directly supply all labelled ordered pairwise commuting tuples with repetition and nonabelian local-group tuple data: those overlapping containers would require exact inclusion-exclusion. Inspected primary material lacks both the full EGF and universal group-independent Poisson window. Rare-edge Poisson factorial moments are classical technique, not claimed novelty; possible prior clique-polynomial restatement is a residual priority risk.
 
-## Limits and closest comparison
+## value
 
-References [1]–[3] provide the relevant older semigroup and commuting-graph context; the same-object historical Brandt maximal-container classification is the most important overlap. Its support dichotomy is subsumed by prior work, but its size-generating polynomial is not the current tuple-count polynomial. The possibility of a preexisting equivalent clique-polynomial identity or probabilistic threshold is a material residual priority risk. All conclusions are self-review, not independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete c_r(B_n(G)) profile for arbitrary r is a natural enumerative invariant extending clique extrema; its triangular coefficient relation recovers the local-group commuting series, an information-preservation property. The sqrt(n) Poisson collision window is universal even as local groups vary, a sharp probabilistic phenomenon with a nondegenerate e^(-lambda^2) limiting commuting probability. This is a meaningful structural and asymptotic classification, not a fixed tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
