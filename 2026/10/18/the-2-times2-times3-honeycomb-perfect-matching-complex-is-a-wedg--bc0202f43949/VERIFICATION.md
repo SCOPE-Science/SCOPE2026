@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite Morse certificate
+# Independent mathematical audit
 
-Run `python3 verify_plane_partitions.py` followed by `python3 verify_triangular_dual.py` with Python 3 and no third-party packages. Both programs are standalone. Their expected exact output is supplied in `plane_partitions_output.txt` and `triangular_dual_output.txt`.
+## correctness
 
-The first program enumerates all monotone \(2\times2\) height arrays, converts them to labeled rhombi, builds all simplices, and applies the specified nine pivot pairings. It also checks the previously known \(2\times2\times1\) and \(2\times2\times2\) cases. The second program builds the \(32\)-triangle hexagonal region, finds adjacent triangle pairs, enumerates perfect matchings recursively without first using the plane partitions, and verifies exact equality with the plane-partition facet family. It then separately repeats the face enumeration and Morse certificate.
+PASS
 
-Both return \(50\) facets, \(41\) complex vertices, \(2,517,788\) faces including the empty face, and three critical nonempty simplices of dimensions \(0,4,4\). Exact bit-mask integers, rather than floating-point computations, certify every pairing and critical-cell count.
+Pinned RESULT.md and both explicit verifier sources define 32 dual triangular cells, 41 usable rhombi, 50 perfect matchings. Independent exhaustive plane-partition enumeration generated 50 facets, 2,517,788 faces including empty, exact complete f-vector, and validated all nine ordered pivot-pair matching stages with counts (1011305,247522,30,26,3,3,1,1,1), leaving exactly one 0-face and two dimension-four critical simplices (masks 16777216, 2155873346, 137439215754). Stagewise element pairing is acyclic by the earliest-pivot invariant, including later-stage unmatched sets; Forman gives a CW with 0-cell and two 4-cells, hence S4∨S4. The exhaustive finite set is fully enumerated, not extrapolated to larger honeycombs.
 
-The proof that the stagewise matching is acyclic is mathematical and given in `RESULT.md`; numerical output alone would not establish acyclicity. The finite check does not assert any classification for larger honeycombs. Independent external mathematical audit has not been performed.
+## originality
+
+PASS
+
+Bayer–Jelić Milutinović–Vega Theorem 17 gives 2x2x2 ≃ S3∨S3 and width-one families; inspection of its full primary paper did not reveal 2x2x3. Chandrakar–Singh concerns polygonal line tilings not the same two-dimensional honeycomb. The theorem at neighboring parameter n=2 does not imply the n=3 wedge or the two 4-sphere count; extension requires 50-facet, 2.5M-face exhaustion and acyclic discrete-Morse proof.
+
+## value
+
+PASS
+
+This is the next natural finite honeycomb in the 2x2xn family after the published 2x2x2 case. Exact homotopy type of the perfect-matching complex is independent of the classical 50-tiling count, and a complete nontrivial Morse reduction of a 2.5-million-face complex provides a potentially reusable computational benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
