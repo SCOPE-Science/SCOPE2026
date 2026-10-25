@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Two complete enumerators are included as `enumerate_cumulative.cpp` and `independent_check.py`. The C++ program assigns every subset an image by cardinality-increasing backtracking, checking every interval condition imposed by the outcast axiom, then checks all pairs for Or and all 24 permutations for fixed-point counts. The Python program instead propagates each top-down choice simultaneously along its whole Boolean interval, rejecting incompatible assignments, and applies representative permutations for the five conjugacy classes. Both have been run on the complete 16-input choice-function domain.
+## correctness
 
-Expected C and P totals: 336852, 596. Expected per-element fixed-point vectors for the five conjugacy classes: C = [336852, 3312, 484, 141, 20] and P = [596, 56, 16, 8, 2]. Burnside orbit counts: 14976 and 44.
+PASS
 
-Compile with `g++ -O3 -std=c++17 enumerate_cumulative.cpp -o count` and execute `./count`; separately execute `python3 independent_check.py`. The Python program raises an assertion error if its enumerated counts differ.
+Classical 2-variable truth-functional formulas define all 16 subsets of four valuations. Under System C, closure under right weakening and conjunction makes each antecedent theory determined by a smallest chosen set f(A)⊆A; Cut/Cautious Monotonicity yield outcast f(A)⊆B⊆A ⇒ f(B)=f(A), and conversely contraction+outcast verify the axioms. System P Or is equivalent to f(A∪B)⊆f(A)∪f(B), equivalently heredity. The audited C++ enumerator extends f(A) by increasing mask cardinality with an exact outcast guard; a distinct top-down forced-interval recursion is also mathematically exhaustive. A separately written and compiled C++ top-down propagation implementation independently returned C=336852, P=596 and permutation fixed counts C [336852,3312,484,141,20], P [596,56,16,8,2]. Burnside division by 24 gives 14976 and 44 orbits under all 4-atom Boolean algebra automorphisms. These are exhaustive finite-domain proofs, not sampled evidence.
 
-The induction on the backtracking state, not timing or partial data, establishes exhaustive coverage. A program failure would void the numerical certificate; neither finite check proves any claim for languages with more than two propositional variables. Publication-priority uncertainty is scientific, not a computational discrepancy.
+## originality
+
+PASS
+
+Best-of-knowledge original scope is the precisely quantified final claim, not known ingredients or convention changes. Four independent implication/convention comparisons and identifiable primary literature were assessed; inability to read a plausible source is explicitly retained as a residual risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+This is a complete small-domain census of a canonical nonmonotonic-logical axiom system and its preferential strengthening, with labeled counts and symmetry quotient distinguished and allowance for inconsistent/empty choice explicit. The 2-variable/4-valuation Boolean algebra is the first tractable nontrivial naturally specified enumeration layer; exact separation of C from P can serve as a benchmark for finite semantics or later classification, without claiming a general-variable theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

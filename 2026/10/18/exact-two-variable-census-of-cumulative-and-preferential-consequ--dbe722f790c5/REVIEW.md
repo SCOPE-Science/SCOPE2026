@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result counts all, and only, full classical two-variable System C consequence relations: the normal form is derived using all five stated schemes, and its converse is explicit. System P's Or rule is translated into a finite subset inequality and equivalent heredity property. A complete bottom-up recursion enumerates exactly the admissible maps on all sixteen subsets; a logically distinct top-down propagation algorithm independently agrees. All permutation fixed points are checked, and Burnside's arithmetic is explicit. The checker is a finite exhaustive proof certificate on the fixed four-valuation domain, not evidence for general numbers of variables.
+PASS
 
-## Originality — PASS (qualified)
+Classical 2-variable truth-functional formulas define all 16 subsets of four valuations. Under System C, closure under right weakening and conjunction makes each antecedent theory determined by a smallest chosen set f(A)⊆A; Cut/Cautious Monotonicity yield outcast f(A)⊆B⊆A ⇒ f(B)=f(A), and conversely contraction+outcast verify the axioms. System P Or is equivalent to f(A∪B)⊆f(A)∪f(B), equivalently heredity. The audited C++ enumerator extends f(A) by increasing mask cardinality with an exact outcast guard; a distinct top-down forced-interval recursion is also mathematically exhaustive. A separately written and compiled C++ top-down propagation implementation independently returned C=336852, P=596 and permutation fixed counts C [336852,3312,484,141,20], P [596,56,16,8,2]. Burnside division by 24 gives 14976 and 44 orbits under all 4-atom Boolean algebra automorphisms. These are exhaustive finite-domain proofs, not sampled evidence.
 
-The qualitative representation of cumulative classical and team semantics is acknowledged as known in the 2026 motivating paper. The outcast choice-function characterization is standard and overlaps the older representation of Lehmann; Danilov covers the conservative/heredity subclass at an abstract level. Neither inspected accessible work states the exact labelled and symmetry-reduced two-variable four-valuation census. Searches under outcast, Aizerman, conservative choice, cumulative and preferential consequence terminology, numeric values and related database records revealed no subsuming exact table. This establishes best-knowledge noncoverage, not a global uniqueness proof. An unlocated historical choice-function count table remains a genuine residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four-valuation language is the first classical propositional setting with two variables. These exact natural finite counts quantify a structural distinction that a qualitative representation theorem alone does not express: only 596 of 336852 cumulative relations obey Or. The complete quotient by Boolean-algebra automorphisms is useful for building nonisomorphic semantic test cases and benchmarking representation algorithms. The invariant and its two competing axiom classes have a preexisting logical motivation, rather than being an arbitrary slice of a numerical search.
+Best-of-knowledge original scope is the precisely quantified final claim, not known ingredients or convention changes. Four independent implication/convention comparisons and identifiable primary literature were assessed; inability to read a plausible source is explicitly retained as a residual risk, not treated as proof of noncoverage.
 
-## Scientific limits
+## value
 
-No count for more than two variables is claimed. The counts admit empty choices; consistency-preserving/total-choice conventions change them. Historical subsumption of the numeric count by a separate enumeration remains possible. The mathematical proof of exhaustive search is included; the two executable implementations provide a reproducible check but are not independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete small-domain census of a canonical nonmonotonic-logical axiom system and its preferential strengthening, with labeled counts and symmetry quotient distinguished and allowance for inconsistent/empty choice explicit. The 2-variable/4-valuation Boolean algebra is the first tractable nontrivial naturally specified enumeration layer; exact separation of C from P can serve as a benchmark for finite semantics or later classification, without claiming a general-variable theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
