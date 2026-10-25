@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "A direct proof bounds admissible codebooks by primitive rotation orbits. Fully specified codebooks at each length 5–11 attain that bound. At length 12 an independently enumerated set of all 128 unbordered weight-four words is partitioned into 39 disjoint pairwise-conflicting groups, forcing an upper bound 39. A listed 39-word code attains it. The pure-stdlib verify.py checks all ambient words, all cyclic orbits, all proper prefix/suffix matches, completeness of the 39 cliques and all code witnesses. The exact claim is limited to lengths 4–12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn, arXiv:1303.1026, sections on general upper bounds and constructions inspected",
+        "Chee et al., arXiv:1209.0236, unrestricted alphabet/length results and table inspected",
+        "Bilotta et al., arXiv:1112.3168, non-expandable binary constructions inspected"
+      ],
+      "reasoning": "General upper bounds for non-overlapping codes are not sharp after the weight-four restriction and cannot prove 39. The primitive necklace upper bound gives 40 at length twelve, so a stronger global incompatibility argument is necessary. Non-expandability of a construction does not entail cardinality maximality. Nothing inspected subsumes the finite exact optimum.",
+      "searches": [
+        "\"non-overlapping\" \"weight four\" \"length 12\" code 39",
+        "\"fixed weight\" \"cross-bifix-free\" maximum binary code size",
+        "binary constant weight four non-overlapping code length 12 maximum 39 while primitive necklaces 40"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A099766",
+      "arXiv:1112.3168",
+      "arXiv:1209.0236",
+      "arXiv:1303.1026",
+      "doi:10.1016/j.tcs.2005.03.040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier weight-three optimal codes yield a primitive-necklace transversal in a different weight class; they do not imply weight-four compatibility",
+        "Bilotta et al., arXiv:1112.3168, gives constructions of cross-bifix-free sets",
+        "Blackburn, arXiv:1303.1026, gives general non-overlap bounds but not an exact fixed-weight-four length-twelve comparison"
+      ],
+      "reasoning": "A weight-three construction does not imply a weight-four packing optimum, as demonstrated by the failure of the necklace bound precisely at weight four, length twelve. Counting primitive or unbordered words is a single-word enumeration, whereas the new upper bound is a simultaneous pair-conflict packing obstruction. Available more general results do not specialize to exact 39.",
+      "searches": [
+        "Exact non-overlapping constant-weight binary codes, prefix suffix intersection, comma-free codes, primitive necklaces; weight 4 versus weight 3",
+        "non-overlapping code weight 4 first failure of primitive cyclic necklace transversal at length 12",
+        "\"cross-bifix-free\" \"constant weight\" code necklace upper bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bilotta–Pergola–Pinzani, arXiv:1112.3168, full construction and definitions examined",
+        "Chee–Kiah–Purkayastha–Wang, arXiv:1209.0236, full introduction and construction tables examined",
+        "Harju–Nowotka, DOI:10.1016/j.tcs.2005.03.040, abstract (count of individual words, not families of pairwise compatible words)"
+      ],
+      "reasoning": "The object is a binary cross-bifix-free/non-overlapping code subject to constant Hamming weight four, not a constant-distance Hamming code or an arbitrary comma-free code. No inspected statement derives the exact length-twelve optimum 39 or the first strict failure of primitive-necklace transversals. The unrestricted optimal-size theorems and word enumerations concern inequivalent constraints and do not imply the fixed-weight optimum.",
+      "searches": [
+        "\"cross-bifix-free\" \"constant weight\" code necklace upper bound",
+        "\"fixed weight\" \"cross-bifix-free\" maximum binary code size",
+        "fixed-weight-four cross-bifix-free binary code length twelve optimum 39 instead of necklace 40"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A099766, https://oeis.org/A099766, first posted 2004-11-11: triangle of unbordered fixed-weight word counts",
+        "Harju–Nowotka 2005: counting primitive and bordered fixed-weight words",
+        "The complete pairwise overlap clique partition and matching codebooks in certificate.json"
+      ],
+      "reasoning": "The count 128 of individually unbordered weight-four words at length twelve is previously tabulated and is not claimed original. The new invariant is the maximum cardinality of a set of pairwise cross-bifix-free words; 128 does not determine 39. Searches did not identify an exact database entry for this code-family optimum. Lack of database matches is not a proof of priority.",
+      "searches": [
+        "OEIS A099766 unbordered binary words fixed weight length 12 128",
+        "fixed content comma free code length 12 four ones optimum cardinality 39, maximal necklace transversal failure",
+        "cross bifix free codes binary weight 4 maximal n=12 n=8 n=10 rotation classes"
+      ]
+    },
+    "rationale": "The earliest inspected literature and tables determine cross-bifix-free constructions or enumerations of eligible fixed-weight words, not a sharp weight-four length-twelve packing number. Primitive necklace counting provides only 40 and earlier weight-three transversal results do not transfer to weight four; the new 39-clique obstruction is needed. Searches and material full-text comparison did not find a covering theorem, although unindexed earlier restricted values remain a residual historical-priority risk.",
+    "residual_risks": [
+      "A restricted cross-bifix-free or comma-free code tabulation not indexed by the searches might already imply 39.",
+      "The Harju–Nowotka journal article was compared at the abstract/table level, not by reading its entire primary full text.",
+      "Independent review and archival priority adjudication have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes non-expandable binary constructions, not this exact length-twelve fixed-weight-four optimum",
+        "evidence": [
+          "arXiv:1112.3168, preprint 2011-12-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1112.3168",
+        "material_read": "Accessible full ten-page preprint, including definition, main construction, proofs and closing discussion; PDF page 4 visually inspected",
+        "method": "Full preprint text and rendered PDF page",
+        "title": "A new approach to cross-bifix-free sets",
+        "trigger": "Foundational construction on exactly the cross-bifix-free property"
+      },
+      {
+        "assessment": "Its unrestricted code bounds and constructions do not imply the weight-four optimum 39 at length twelve",
+        "evidence": [
+          "arXiv:1209.0236, 2012"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+        "material_read": "Accessible eight-page preprint, introduction, principal constructions and tabulated unrestricted parameters; rendered first and third PDF pages",
+        "method": "Full-text PDF reading with visual inspection",
+        "title": "Cross-bifix-free codes within a constant factor of optimality",
+        "trigger": "Plausible stronger coverage through general code-size bounds"
+      },
+      {
+        "assessment": "General bounds and constructions, no exact weight-four length-twelve theorem found in inspected material",
+        "evidence": [
+          "arXiv:1303.1026, 2013"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Accessible fourteen-page preprint, introduction, bound/construction sections and conclusion, with two PDF pages visually inspected",
+        "method": "Full-text PDF reading with page renders",
+        "title": "Non-overlapping codes",
+        "trigger": "General upper bounds and exact non-overlapping-code results could dominate restricted claims"
+      },
+      {
+        "assessment": "Confirms the known count of individually unbordered words; does not tabulate pairwise non-overlapping code optima",
+        "evidence": [
+          "OEIS A099766, first-posted 2004-11-11"
+        ],
+        "identifier_or_url": "https://oeis.org/A099766",
+        "material_read": "Sequence definition, triangle, formula, examples, citations, and first-posted date",
+        "method": "Full HTML page read",
+        "title": "OEIS A099766",
+        "trigger": "Exact fixed-weight unbordered-word count relevant to the complete universe of candidates"
+      },
+      {
+        "assessment": "Covers single-word enumerations rather than pairwise cross-bifix-free packing; limited inspection leaves a modest priority risk",
+        "evidence": [
+          "T. Harju and D. Nowotka, Theoretical Computer Science 340 (2005), 273–279"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2005.03.040",
+        "material_read": "Published abstract and table bibliography; full text not acquired",
+        "method": "Abstract and OEIS references",
+        "title": "Counting bordered and primitive words with a fixed weight",
+        "trigger": "Same fixed-weight primitive and bordered words, possible equivalent enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03fc08f0-d34c-490a-b130-3d9015e2f456",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies the first mathematically sharp obstruction to saturating the primitive-necklace packing bound for fixed-weight-four binary synchronization codes: equality through n=11 and strict one-orbit deficiency at n=12. The upper bound has a nontrivial global clique-partition certificate, rather than being a direct substitution, primitive-word count, or routine increment of the weight-three theorem. Matching codebooks demonstrate attainability, and the finite classification is reproducible without a solver.",
+    "status": "PASS"
+  }
+}
