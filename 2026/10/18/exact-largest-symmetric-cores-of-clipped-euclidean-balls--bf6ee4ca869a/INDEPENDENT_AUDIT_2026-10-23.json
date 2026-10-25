@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:17:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any symmetric S⊂K with center c obeys S⊂M(c)=K∩(2c−K), which is itself convex and centrally symmetric; hence optimization reduces exactly to the centers. For c=(s,z), at axial coordinate x, the transverse section is the overlap of two Euclidean (n−1)-balls of radii sqrt(1−x²), sqrt(1−(2s−x)²). Displacing z≠0 strictly decreases the section area on a positive-measure neighborhood of x=s whenever the core is positive-volume, so the optimum lies on the cut axis. For axial centers the formula is F(s)=2κ_{n−1}∫₀^{min(s−a,1−|s|)}(1−(|s|+u)²)^{(n−1)/2}du. Negative s is strictly inferior to s=0. On 0≤s≤(1+a)/2 the derivative has sign 2 f(2s−a)−f(s) and the ratio f(2s−a)/f(s) strictly decreases; beyond the midpoint F strictly decreases. Thus s=0 is optimal exactly for a≤−sqrt(1−q), q=2^{−2/(n−1)}, else the unique positive quadratic root s=[2a+sqrt(q a²+(4−q)(1−q))]/(4−q). Integrating f_3 gives β_3(0)=2/sqrt(7). Thin cap a=1−h expansion gives ratio (2−q)^{−(n−1)/2}, tending to 1/2 as n→∞. Independent SciPy quadrature/one-dimensional optimization for 81 n,a configurations agreed with the analytic center core value within 8.5×10⁻13; no finite search replaces the proof of transverse optimality or all-dimensional monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer–Schütt–Werner, Adv. Math. 2011 author manuscript main Theorem 1 and Section 1 study affine-covariant point separation and examples, not optimizing volumes of M(c) for spherical caps.",
+          "Taschuk 2015 abstract addresses harmonic mean measure and comparisons, without a cap-specific optimum in text actually accessible."
+        ],
+        "reasoning": "General symmetry comparison inequalities are too coarse to imply the exact threshold a*_n, unique center or thin-cap constant. The inaccessible plausible Taschuk full text is retained as a priority risk, not excluded by its abstract.",
+        "searches": [
+          "largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold",
+          "New affine measures of symmetry for convex bodies Meyer Schütt Werner 2011",
+          "harmonic mean measure of symmetry Taschuk 2015 Kovner Besicovitch inclusion"
+        ]
+      },
+      "checked_sources": [
+        "https://case.edu/artsci/math/werner/publications/MSW-revision07-22-11.pdf ; DOI:10.1016/j.aim.2011.08.002",
+        "DOI:10.1515/advgeom-2014-0021, S. Taschuk (2015)",
+        "https://blog.tanyakhovanova.com/2012/09/a-measure-of-central-symmetry/",
+        "Resultary published identifier 71273748c58f",
+        "Resultary semantic published-results search: largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Macbeath center theorem reduces the optimization to reflected intersections; it does not determine maximal center or evaluate any integral.",
+          "Meyer et al Theorem 1 constructs bodies with separated centroid and Santaló point; it does not optimize the volume of a symmetric subset.",
+          "Reuleaux polygon symmetric centers and plank volume formulas have different defining constraints."
+        ],
+        "reasoning": "Generic existence of maximum symmetric core, or the universal Kovner–Besicovitch lower bound, cannot yield the sharp one-parameter equality, unique optimal center, or the thin-cap asymptotics for this family.",
+        "searches": [
+          "largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold",
+          "Macbeath region ball cap maximal volume reflection overlap",
+          "largest symmetric subset Reuleaux odd-gon exact result",
+          "sharp ball volume profile parallel planks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovner–Besicovitch volume fraction is equivalently max_c vol(K∩(2c−K))/vol(K), a Macbeath-region optimization.",
+          "Meyer–Schütt–Werner 2011 introduction defines distances between affine covariant points such as centroid and Santaló point; despite similar symmetry terminology this is a different scalar."
+        ],
+        "reasoning": "The exact equivalent reflected intersection was analyzed; generic definitions do not compute the maximizing center of a one-cut ball. The principal risk is unindexed specialized circular-segment calculation, not name matching.",
+        "searches": [
+          "largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold",
+          "Kovner Besicovitch symmetry index spherical cap reflection Macbeath region moving center",
+          "maximum centrally symmetric subset circular segment spherical cap overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary Reuleaux odd-gon exact area-ratio calculation concerns intersections of many disks with dihedral symmetry, not one halfspace cut of a Euclidean ball.",
+          "Published parallel-plank ball-volume profile optimizes ball volume under slab constraints, not K∩(2c−K) and moving center."
+        ],
+        "reasoning": "No checked exact table covers q=2^{−2/(n−1)}, threshold a* or all n thin-cap limit; the search is supportive but not a proof of novelty.",
+        "searches": [
+          "largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold",
+          "Macbeath region circular segment max area formula hemisphere 2/sqrt7",
+          "Kovner Besicovitch ratio half ball 2/sqrt7"
+        ]
+      },
+      "rationale": "Classical Macbeath reflected intersections supply the right optimization reduction but not the one-cut ball’s exact moving center and dimensions-dependent threshold. The Meyer–Schütt–Werner paper introduces affine-covariant-point measures, not the volume-maximizing symmetric core; directly relevant 2015 harmonic-mean article full text inaccessible, with only abstract compared and specific residual risk. Resultary Reuleaux-gon symmetric area and parallel-plank ball-volume results concern different bodies/functionals. The multi-dimensional phase law survives as best-of-knowledge new.",
+      "residual_risks": [
+        "Full primary Taschuk 2015 article inaccessible, and older circular-segment/Macbeath region literature might contain a special-case or generalized formula.",
+        "Direct numerical testing covers 81 samples; unrestricted optimization over all centers is proven by geometric slice argument, not by grid searches.",
+        "Thin-cap assertion is fixed dimension before the n→∞ limit; no uniform joint n,a scaling is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different measure: separation of affine-covariant points, not maximal reflected-intersection volume",
+          "evidence": "Theorem 1 constructs C_n with centroid–Santaló distance ratio bounded below; φ defined using 1−point distance/width.",
+          "identifier_or_url": "https://case.edu/artsci/math/werner/publications/MSW-revision07-22-11.pdf ; DOI:10.1016/j.aim.2011.08.002",
+          "material_read": "Read abstract, Introduction, definitions of φ_{π1,π2} and Theorem 1, plus article’s stated section map; viewed page images 1 and 3",
+          "method": "Read full open primary PDF with web text and page screenshots for relevant theorem",
+          "title": "New affine measures of symmetry for convex bodies",
+          "trigger": "Strongly similar symmetry terminology; primary comparison"
+        },
+        {
+          "assessment": "Unable to determine whether article includes one-cut Euclidean-ball exact formulas; risk retained without claiming NOT_COVERING",
+          "evidence": "Abstract compares harmonic-mean symmetry and other symmetry measures. Oxford job bcb6afafb8e487dcd9d5d0f6f3d3d654 inaccessible.",
+          "identifier_or_url": "DOI:10.1515/advgeom-2014-0021, S. Taschuk (2015)",
+          "material_read": "Only accessible abstract and bibliographic description; full primary article was not obtained",
+          "method": "Open/arXiv preprint and lawful OA checked unsuccessfully, then authorized Oxford service returned vpn_disconnected",
+          "title": "The harmonic mean measure of symmetry for convex bodies",
+          "trigger": "Plausible stronger coverage of Kovner–Besicovitch volume measure"
+        },
+        {
+          "assessment": "Supplies context, not the full cap optimizer in all dimensions",
+          "evidence": "Discusses centrally symmetric subset volume fraction and 2/3 planar triangle threshold.",
+          "identifier_or_url": "https://blog.tanyakhovanova.com/2012/09/a-measure-of-central-symmetry/",
+          "material_read": "Definitions of Kovner–Besicovitch volume measure and triangle benchmark in published exposition",
+          "method": "Accessible author exposition",
+          "title": "A Measure of Central Symmetry",
+          "trigger": "Exposition of classical maximum centrally symmetric subset and known bounds"
+        },
+        {
+          "assessment": "Different highly symmetric planar disk intersection; not a truncated ball by one halfspace",
+          "evidence": "Dihedral symmetry forces central construction; target exhibits off-center moving optimal center.",
+          "identifier_or_url": "Resultary published identifier 71273748c58f",
+          "material_read": "Indexed scientific result description of Reuleaux disk intersections and optimal symmetric reflection",
+          "method": "Resultary search/published indexed synopsis, not full-document exclusion",
+          "title": "Exact Kovner–Besicovitch area ratio of regular Reuleaux odd-gons",
+          "trigger": "Closest published exact area-ratio classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kovner–Besicovitch maximal centrally symmetric subset is a classical natural measure, and a unit ball clipped by one plane is a simplest continuous family breaking central symmetry. The sharp locked/unlocked center transition, unique global optimizer over ALL symmetric subsets, hemisphere constant and thin-cap limit are explicit structural information not supplied by general symmetry lower bounds or unrelated clipped-body area calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://case.edu/artsci/math/werner/publications/MSW-revision07-22-11.pdf ; DOI:10.1016/j.aim.2011.08.002",
+    "DOI:10.1515/advgeom-2014-0021, S. Taschuk (2015)",
+    "https://blog.tanyakhovanova.com/2012/09/a-measure-of-central-symmetry/",
+    "Resultary published identifier 71273748c58f",
+    "Resultary semantic published-results search: largest centrally symmetric subset clipped Euclidean unit ball halfspace Kovner Besicovitch Macbeath center threshold",
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/exact-largest-symmetric-cores-of-clipped-euclidean-balls--bf6ee4ca869a/RESULT.md",
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/exact-largest-symmetric-cores-of-clipped-euclidean-balls--bf6ee4ca869a/verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full primary Taschuk 2015 article inaccessible, and older circular-segment/Macbeath region literature might contain a special-case or generalized formula.",
+    "Direct numerical testing covers 81 samples; unrestricted optimization over all centers is proven by geometric slice argument, not by grid searches.",
+    "Thin-cap assertion is fixed dimension before the n→∞ limit; no uniform joint n,a scaling is claimed.",
+    "No public/GitHub modifications, Lean theorem-prover verification, outside expert attestation, formal external certification, or global priority guarantee; finite experiments are only corroboration."
+  ],
+  "residual_risks": [
+    "Full primary Taschuk 2015 article inaccessible, and older circular-segment/Macbeath region literature might contain a special-case or generalized formula.",
+    "Direct numerical testing covers 81 samples; unrestricted optimization over all centers is proven by geometric slice argument, not by grid searches.",
+    "Thin-cap assertion is fixed dimension before the n→∞ limit; no uniform joint n,a scaling is claimed."
+  ],
+  "schema_version": 1
+}
