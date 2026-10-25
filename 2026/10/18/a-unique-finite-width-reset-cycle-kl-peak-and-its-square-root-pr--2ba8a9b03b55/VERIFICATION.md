@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the new Gaussian-reset KL theorem
+# Independent mathematical audit
 
-## Reproduction
-Run `python check.py` with dependencies in `requirements.txt`. The script evaluates both renewal forms by independent quadratures, validates the Gaussian Jeffreys identity and its derivative, and performs independent numerical optimizations. It completed 230 assertions successfully across eleven parameter settings including large temperature ratios; the output explicitly displays the optimized frequencies and rates.
+## correctness
 
-## Direct mathematical checks
-The exact OU variance and centered-Gaussian KL identity supply the observable. The periodic elasticity is a product of two strictly decreasing positive factors. The Poisson kernel's logarithmic-time derivative has concave log because the maps \(u\mapsto\log(1-e^{-e^u})\) and \(v\mapsto\log g(ae^v)\) are concave with the second increasing; Prékopa marginalization and analyticity establish uniqueness. The auxiliary expectation obeys \(0\le qJ_a'(q)\le J_a(q)\) and is \(O(a^{-1/2}\log a)\) when \(q\asymp\sqrt a\). These are analytical statements, not extrapolations from tests.
+PASS
 
-## Quantitative comparisons and limits
-At \(a=10^6\), the checker reports \(q_{\mathrm{pois}}/\sqrt a\approx1.004917\), \(q_{\mathrm{per}}/\sqrt a\approx0.707274\), and \((M_{\mathrm{per}}-M_{\mathrm{pois}})/\sqrt a\approx0.289629\). The corresponding proved limits are \(1\), \(1/\sqrt2\), and \(1-1/\sqrt2\). Numerical tolerance and finite grids do not prove any uniqueness claim or asymptotic formula; those conclusions depend on the preceding analytic argument.
+An Ornstein–Uhlenbeck cold-Gaussian reset evolves a variance ratio rho=1+a(1-exp(-lambda t)), and its endpoint Jeffreys divergence is f_a(x)=a^2(1-exp(-x))^2/[2(1+a(1-exp(-x)))]. Independent renewal averaging leads to periodic H_a(q)=q f_a(1/q) and Poisson G_a(q)=E[f_a'(Y/q)] with Y unit exponential. The periodic elasticity h(x)=x/(exp x-1)*(2+a z)/(1+a z) decreases strictly from 2 to 0, yielding one optimizer. For Poisson, log f_a'(exp u) is strictly concave: write f_a'(x)=(a/2)exp(-x)(1-(1+a z)^-2), and compose the increasing concave log of the latter factor with increasing concave log(z(exp u)); log-time marginalization by Prekopa proves log-concavity in log q. Analyticity and vanishing tails rule out a flat maximizer, giving uniqueness for each a>0. As a grows, controlled expectation J_a(q)=E[(1+a z(Y/q))^-1], J_a=O(log a/sqrt a) at q~sqrt a, gives q_per/sqrt a ->1/sqrt2, q_pois/sqrt a ->1 and maximum rates a/2-sqrt(a/2)+o(sqrt a), a/2-sqrt a+o(sqrt a). Fresh independent quadrature and numerical optimization for a=16,400,10000 confirmed positive gaps and approach to the predicted coefficients; finite optimizations do not establish global uniqueness.
 
-No independent scientific audit has been performed. The physical interpretation is restricted to the symmetrized endpoint KL component, not the total entropy production of a hardware realization.
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
+
+## value
+
+PASS
+
+Optimal resetting of an exactly specified finite-width Gaussian information reward is a natural well-posed optimization problem. Proving exactly one global optimum for two different renewal protocols at every nonzero reset width and a sharp nonzero protocol gap is a meaningful asymptotic comparison, not merely evaluating a Gaussian KL formula. The distinction from hardware-inclusive dissipation is explicit and essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

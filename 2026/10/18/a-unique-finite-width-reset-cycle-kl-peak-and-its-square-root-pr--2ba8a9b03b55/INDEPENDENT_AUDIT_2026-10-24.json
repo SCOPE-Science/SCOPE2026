@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:09:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, check.py and tree 072cb819da3a2d05546490c984c4174fb1e83d4e",
+        "https://arxiv.org/pdf/2605.28445",
+        "https://arxiv.org/abs/1603.01141",
+        "independent_checks.py: reset_KL; independent_checks_output.json"
+      ],
+      "rationale": "An Ornstein–Uhlenbeck cold-Gaussian reset evolves a variance ratio rho=1+a(1-exp(-lambda t)), and its endpoint Jeffreys divergence is f_a(x)=a^2(1-exp(-x))^2/[2(1+a(1-exp(-x)))]. Independent renewal averaging leads to periodic H_a(q)=q f_a(1/q) and Poisson G_a(q)=E[f_a'(Y/q)] with Y unit exponential. The periodic elasticity h(x)=x/(exp x-1)*(2+a z)/(1+a z) decreases strictly from 2 to 0, yielding one optimizer. For Poisson, log f_a'(exp u) is strictly concave: write f_a'(x)=(a/2)exp(-x)(1-(1+a z)^-2), and compose the increasing concave log of the latter factor with increasing concave log(z(exp u)); log-time marginalization by Prekopa proves log-concavity in log q. Analyticity and vanishing tails rule out a flat maximizer, giving uniqueness for each a>0. As a grows, controlled expectation J_a(q)=E[(1+a z(Y/q))^-1], J_a=O(log a/sqrt a) at q~sqrt a, gives q_per/sqrt a ->1/sqrt2, q_pois/sqrt a ->1 and maximum rates a/2-sqrt(a/2)+o(sqrt a), a/2-sqrt a+o(sqrt a). Fresh independent quadrature and numerical optimization for a=16,400,10000 confirmed positive gaps and approach to the predicted coefficients; finite optimizations do not establish global uniqueness.",
+      "residual_risks": [
+        "The claimed reward is per-time symmetrized endpoint KL, not complete physical entropy production.",
+        "Prekopa and asymptotic uniformity are required analytic steps, not certified by finite numerical optimization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prekopa (1973) supplies a log-concavity preservation theorem, not these application-specific hypotheses.",
+          "Farago presents related endpoint cycle rates and approximate slow/fast behavior without the audited uniqueness and optimized-gap law in inspected relevant sections."
+        ],
+        "reasoning": "General renewal-reward and log-concavity tools underlie the proof but do not directly state a stronger result for both finite-width protocols.",
+        "searches": [
+          "Prekopa logconcavity integral Poisson reset reward optimal frequency",
+          "thermodynamic resetting periodic versus Poisson optimal dissipation finite width",
+          "Farago 2026 equations 17 19"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.28445",
+        "https://arxiv.org/abs/1603.01141",
+        "https://acta.bibl.u-szeged.hu/14411/",
+        "Resultary semantic search for Gaussian finite-width Jeffreys reset optima"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farago derives model-specific KL expressions and approximate renewal rates; the present theorem proves global uniqueness via elasticity and log-concavity and derives both optimized asymptotics.",
+          "Physical entropy of Fuchs–Goldt–Seifert differs from the endpoint Jeffreys observable."
+        ],
+        "reasoning": "Exact Gaussian KL and renewal averaging are prior; their use as inputs does not itself give the all-a uniqueness or optimized leading difference, which requires nontrivial global calculus and controlled asymptotics.",
+        "searches": [
+          "Farago 2605.28445 PDF Gaussian KL resetting cycle eq 17 19",
+          "Fuchs Goldt Seifert 1603.01141 stochastic thermodynamics resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farago arXiv:2605.28445 derives harmonic Gaussian reset-cycle endpoint divergences with a sharp-reset approximation.",
+          "Fuchs–Goldt–Seifert 2016 concerns a different stationary resetting-entropy balance."
+        ],
+        "reasoning": "The relevant synonym is Jeffreys or symmetric KL reward, not the generic entropy production of resetting. Matching harmonic parameters alone does not cover finite-width uniqueness and two exact square-root coefficients.",
+        "searches": [
+          "Farago resetting heat engine periodic Poisson KL Gaussian finite width optimal reset rate",
+          "Jeffreys divergence thermal resetting harmonic trap frequency square-root gap",
+          "Resultary: Ornstein Uhlenbeck stochastic resetting finite Gaussian reset temperature Jeffreys symmetrized relative entropy periodic Poisson optimal reset frequency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is a continuous optimization theorem for all a>0 and its a→∞ coefficients.",
+          "No source with a previously tabulated exact maximizer or dominating closed-form table appeared."
+        ],
+        "reasoning": "A finite parameter table is not equivalent to unique maximizer existence or its asymptotic expansion. No known exact database determines the answer.",
+        "searches": [
+          "Gaussian KL reset frequency optimal q finite temperature ratio exact table",
+          "published Resultary OU reset information divergence optimum"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.",
+      "residual_risks": [
+        "Potential alternate thermodynamic normalization might conceal an equivalent limiting coefficient; compare observables before judging equivalence.",
+        "Only the relevant Farago result sections were materially analyzed, not an exhaustive literature survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MODEL_PARTIAL_PRIOR_NO_DEMONSTRATED_OPTIMIZED_LAW",
+          "evidence": "The endpoint Gaussian divergence and approximate periodic/Poisson rates are credited; compared passages do not establish all-finite-width unique maximizers or the gap coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.28445",
+          "material_read": "Relevant PDF introduction, setup, equations (10)–(19), page images and discussions of hot/cold reset rates",
+          "method": "Accessible full-text arXiv PDF text plus page screenshot",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "Very close original finite-temperature harmonic reset KL model"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE_PARTIAL",
+          "evidence": "Resetting entropy and current balance are not automatically equal to symmetrized endpoint KL per cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.01141",
+          "material_read": "Public primary description and pertinent stationary-current/entropy-balance sections",
+          "method": "Accessible preprint HTML/abstract and relevant source descriptions",
+          "title": "Stochastic thermodynamics of resetting",
+          "trigger": "General resetting entropy functional that may dominate a specific cycle reward"
+        },
+        {
+          "assessment": "STANDARD_TOOL_NOT_PRIOR_OPTIMUM",
+          "evidence": "The generic integral theorem is used, but the required composed integrand log concavity is verified for this model.",
+          "identifier_or_url": "https://acta.bibl.u-szeged.hu/14411/",
+          "material_read": "Statement of marginal log-concavity as a known mathematical ingredient",
+          "method": "Bibliographic theorem/standard formulation",
+          "title": "On logarithmic concave measures and functions",
+          "trigger": "Exact standard analytic theorem invoked by Poisson uniqueness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, check.py and tree 072cb819da3a2d05546490c984c4174fb1e83d4e",
+        "https://arxiv.org/pdf/2605.28445",
+        "https://arxiv.org/abs/1603.01141",
+        "independent_checks.py: reset_KL; independent_checks_output.json"
+      ],
+      "rationale": "Optimal resetting of an exactly specified finite-width Gaussian information reward is a natural well-posed optimization problem. Proving exactly one global optimum for two different renewal protocols at every nonzero reset width and a sharp nonzero protocol gap is a meaningful asymptotic comparison, not merely evaluating a Gaussian KL formula. The distinction from hardware-inclusive dissipation is explicit and essential.",
+      "residual_risks": [
+        "Reward is symmetrized Gaussian endpoint KL per cycle divided by mean cycle time, not full physical entropy.",
+        "Large a limit assumes T/Tc→∞ with otherwise fixed dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, check.py and tree 072cb819da3a2d05546490c984c4174fb1e83d4e",
+    "https://arxiv.org/pdf/2605.28445",
+    "https://arxiv.org/abs/1603.01141",
+    "independent_checks.py: reset_KL; independent_checks_output.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reward is symmetrized Gaussian endpoint KL per cycle divided by mean cycle time, not full physical entropy.",
+    "Large a limit assumes T/Tc→∞ with otherwise fixed dynamics.",
+    "Potential alternate thermodynamic normalization might conceal an equivalent limiting coefficient; compare observables before judging equivalence.",
+    "Only the relevant Farago result sections were materially analyzed, not an exhaustive literature survey."
+  ],
+  "schema_version": 1
+}
