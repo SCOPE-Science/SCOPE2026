@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:21:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Y=sum of largest r of m iid Poi(λ), Y=T=sum all Xi whenever Y<r, and at Y=r the only extra configurations have j≥r+1 unit-valued positives; hence q_k=e^(−mλ)(mλ)^k/k! for k<r, q_r adds e^(−mλ)Σ_{j=r+1}^m C(m,j)λ^j. Exact cancellation of Poisson ULC equality gives defect −r e^(−2mλ)(mλ)^(r−2)/(r−2)! times B_{m,r}(λ)<0 for 2≤r<m. At r=m Poisson ULC; at r=1 known discrete order-statistics ULC preservation theorem covers maximum. Ordinary local LC has sign of m^r/[r!(r−1)]−Σ_{j>r}C(m,j)λ^(j−r), strictly decreasing giving a unique λ*. Scaling s=mλ, (m)_j/m^j grows strictly with m and dominated convergence gives the decreasing root to τ_r. Independently recomputed m=3,r=2 coefficients 9/2 and 1, threshold 9/2 and exact deficit −2λ³e^(−6λ), and reviewed finite enumerator polynomial logic. All-parameter proof is symbolic/combinatorial, not finite test extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Goldschmidt 2006 sufficient conditions for dependent-sum LC",
+          "Jakimiuk et al., arXiv:2205.04069 on ULC structure"
+        ],
+        "reasoning": "General LC sufficient conditions and ULC structure do not subsume a Poisson top-r sum nonpreservation and the explicit λ threshold at index r−1.",
+        "searches": [
+          "ultra-log concavity of Poisson order statistics sums of largest r trimmed Poisson counts low-tail",
+          "Johnson Goldschmidt preservation of log concavity on summation dependent variables 2006",
+          "Jakimiuk Murawski Nayar Slobodianiuk log concavity discrete degrees freedom 2022"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py",
+        "Fresh rational m=3,r=2 coefficient enumeration and threshold check",
+        "Badiella et al 2023 indexed theorem and DOI",
+        "Johnson–Goldschmidt 2006 and Jakimiuk et al 2022 abstracts",
+        "Resultary queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Badiella et al positive rank-1 maximum ULC; Poisson convolution r=m ULC",
+          "Negative defect at k=r−1 for each 2≤r<m"
+        ],
+        "reasoning": "The two old positive endpoint statements do not imply a complete failure classification for intermediate retained ranks or quantitative ordinary-LC crossover; presented as new boundary, not rediscovery of endpoints.",
+        "searches": [
+          "ultra-log concavity of Poisson order statistics sums of largest r trimmed Poisson counts low-tail",
+          "ultra log concavity order statistics maximum sums Poisson independent convolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badiella–del Castillo–Puig 2023 theorem: each individual order statistic from ULC parent is ULC"
+        ],
+        "reasoning": "One order statistic r=1 is covered; sum of largest r≥2 dependent order statistics is different and the existing preservation statement does not entail it.",
+        "searches": [
+          "ultra-log concavity of Poisson order statistics sums of largest r trimmed Poisson counts low-tail",
+          "Badiella del Castillo Puig ultra log concavity of discrete order statistics 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned unrelated negative-multinomial mode and Poisson-binomial cumulant results",
+          "For m=3,r=2, direct q2=(9λ²/2+λ³)e^(−3λ) gives defect −2λ³e^(−6λ)"
+        ],
+        "reasoning": "A direct exact elementary obstruction is verified and no same top-r Poisson table identified. Unindexed prior observations remain a meaningful priority risk.",
+        "searches": [
+          "ultra-log concavity of Poisson order statistics sums of largest r trimmed Poisson counts low-tail",
+          "trimmed Poisson top r sum ultra log concavity threshold polynomial binomial m lambda"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.",
+      "residual_risks": [
+        "Unindexed or unpublished predecessors can remain despite database searches; source-result comparisons are based on stated mathematics, not absence of keyword hits.",
+        "Full 2023 publisher text not independently obtained; historical Poisson trimmed-sum special cases may have been noticed without explicit indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_INDIVIDUAL_ORDER_STATISTICS",
+          "evidence": "Preservation for individual order statistics; no retrieved theorem for dependent sums of top r",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Published theorem/abstract and indexed proof exposition, not entire final publisher article",
+          "method": "Primary bibliographic and indexed mathematical statement inspection",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Needed positive r=1 endpoint and possible generalization"
+        },
+        {
+          "assessment": "NO_DIRECT_TOP_R_CLAIM_SHOWN",
+          "evidence": "Structural ULC theory not directly trimmed-Poisson rank classification",
+          "identifier_or_url": "https://arxiv.org/abs/2205.04069",
+          "material_read": "Primary abstract and high-level theorem scope only; full paper not read here",
+          "method": "arXiv abstract comparison",
+          "title": "Log-concavity and discrete degrees of freedom",
+          "trigger": "Relevant general ULC framework"
+        },
+        {
+          "assessment": "SUFFICIENT_LC_CONTEXT",
+          "evidence": "Different notion LC rather than ULC, no known exact trim-r local crossing",
+          "identifier_or_url": "https://arxiv.org/abs/math/0502548",
+          "material_read": "Primary abstract and mathematical statement summary; full text not read independently",
+          "method": "arXiv abstract comparison",
+          "title": "Preservation of log-concavity on summation",
+          "trigger": "Possible general dependent-convolution theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact failure boundary for an important preservation property in dependent sums of discrete order statistics, plus a nontrivial single-index ordinary-LC threshold and monotone rescaled limit; it identifies precisely where positive results for maxima and untrimmed sums cease to apply.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py",
+    "Fresh rational m=3,r=2 coefficient enumeration and threshold check",
+    "Badiella et al 2023 indexed theorem and DOI",
+    "Johnson–Goldschmidt 2006 and Jakimiuk et al 2022 abstracts",
+    "Resultary queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only first local ordinary-LC inequality classified, not global LC; fixed-r m→∞ asymptotic, not r growing."
+  ],
+  "residual_risks": [
+    "Unindexed or unpublished predecessors can remain despite database searches; source-result comparisons are based on stated mathematics, not absence of keyword hits.",
+    "Full 2023 publisher text not independently obtained; historical Poisson trimmed-sum special cases may have been noticed without explicit indexing."
+  ],
+  "schema_version": 1
+}

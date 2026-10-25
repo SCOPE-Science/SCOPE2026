@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact event partition shows agreement with a Poisson total below the retained count and enumerates the only additional configurations at the first exceptional mass. Substitution yields the strict ultra-log-concavity defect for every interior retained rank. The ordinary local threshold and its rescaled limiting value follow from monotone positive polynomials and dominated convergence. Both preservation endpoints are justified: the full sum is Poisson and the maximum case follows from the 2023 published discrete-order-statistic theorem. The embedded program provides 346 finite exact checks; these do not replace the analytical proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with a material access limit.** The nearest 2023 source proves ultra-log-concavity for a *single* order statistic; the present law is a sum of several dependent order statistics and exhibits the opposite behavior. The 2022 source gives general ultra-log-concave distribution inequalities. The 2006 source gives sufficient conditions for ordinary log-concavity of certain dependent sums, without implying a false all-intensity statement for the current trimmed sums. Searches for top-ranked/upper-trimmed Poisson sums, their low-tail mass coefficients, and order-statistic summation revealed no explicit equivalent classification. An inaccessible full-copy comparison with the four-page 2023 article and the general possibility of an earlier implicit low-tail calculation remain residual risks; searches cannot prove uniqueness.
+PASS
 
-**Value — PASS.** Upper trimmed count sums are a natural sample summary between an extreme order statistic and the full aggregate. The complete sharp preservation boundary in both the retention rank and all positive Poisson intensities corrects a plausible extension of two established closure properties. The same first coefficient has an exact ordinary-log-concavity transition and a monotone asymptotic intensity scale, giving a parameter-wide structural explanation rather than an isolated counterexample.
+For Y=sum of largest r of m iid Poi(λ), Y=T=sum all Xi whenever Y<r, and at Y=r the only extra configurations have j≥r+1 unit-valued positives; hence q_k=e^(−mλ)(mλ)^k/k! for k<r, q_r adds e^(−mλ)Σ_{j=r+1}^m C(m,j)λ^j. Exact cancellation of Poisson ULC equality gives defect −r e^(−2mλ)(mλ)^(r−2)/(r−2)! times B_{m,r}(λ)<0 for 2≤r<m. At r=m Poisson ULC; at r=1 known discrete order-statistics ULC preservation theorem covers maximum. Ordinary local LC has sign of m^r/[r!(r−1)]−Σ_{j>r}C(m,j)λ^(j−r), strictly decreasing giving a unique λ*. Scaling s=mλ, (m)_j/m^j grows strictly with m and dominated convergence gives the decreasing root to τ_r. Independently recomputed m=3,r=2 coefficients 9/2 and 1, threshold 9/2 and exact deficit −2λ³e^(−6λ), and reviewed finite enumerator polynomial logic. All-parameter proof is symbolic/combinatorial, not finite test extrapolation.
 
-**Closest literature and limitations.** Badiella–del Castillo–Puig (2023), DOI 10.1016/j.spl.2023.109900; Jakimiuk–Murawski–Nayar–Słobodianiuk (2022), arXiv:2205.04069; Johnson–Goldschmidt (2006), arXiv:math/0502548. The ordinary-log-concavity statement is local to one index; the asymptotic statement fixes the retention rank. Direct full-paper access to the 2023 article was unavailable; its indexed theorem and proof exposition were inspected. Historical priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.
+
+## value
+
+PASS
+
+Exact failure boundary for an important preservation property in dependent sums of discrete order statistics, plus a nontrivial single-index ordinary-LC threshold and monotone rescaled limit; it identifies precisely where positive results for maxima and untrimmed sums cease to apply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
