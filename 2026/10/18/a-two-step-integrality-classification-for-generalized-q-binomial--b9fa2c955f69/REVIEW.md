@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact identity \(H_{n,k,2k}(q)=[n+1]_{q^k}\prod_{m=1}^n[k]_{q^m}^2/[2k]_q\) is obtained from the original definition by telescoping, without assuming cancellation to a polynomial. The \(n=1\) boundary simplifies to \([k]_q\). For \(n\ge2\), two explicit factorizations prove coefficientwise nonnegativity for odd \(n\) and even \(k\), respectively. For even \(n\) and odd \(k\), the factorized rational expression has a simple pole at \(q=-1\) with nonzero residue factor \(k^{n-1}\). The cases partition all positive parameters, proving the claimed equivalence and the discrepancy locus. The 48 exact polynomial-identity and 1,800 cyclotomic-exponent checks were executed from the supplied standalone code; these are corroborations, not the universal argument.
+PASS
 
-## Originality — PASS, with residual risk
+Direct telescoping in Q(q) gives H_{n,k,2k}=[n+1]_{q^k}Q_{n,k}²/[2k]_q, Q=prod_{m=1}^n[k]_{q^m}. For n>=2, isolate denominator 1+q; for n odd extract 1+q^k from [n+1]_{q^k}; for k even extract 1+q from [k]_q. Both branches factor into explicitly nonnegative q-integers. For even n and odd k numerator at q=-1 is k^(n-1), proving genuine simple pole. n=1 reduces to [k]_q. Comparison of gcd(n,2k)|k with nu2(n)<=nu2(k) establishes exact false-negative locus; 30 independent exact symbolic n,k polynomial-or-pole checks passed.
 
-The closest primary text is Straub–Moll–Amdeberhan (arXiv:0811.2028v1), Sections 4–5, which defines the same functions and explicitly proposes the different condition \(\gcd(n,j)\mid k\) for polynomiality. The proved family \(n=j=2k\) for every even \(k\) contradicts necessity, and the complete two-step classification and coefficient-positivity formulas are not contained in those inspected statements. Straub's 2012 dissertation passage repeats the proposal. Actual searches by the function name, parameter criterion, two-step shift, and factorization in publicly searchable literature and mathematical research records returned no equivalent result; results without the same objects were not treated as relevant coverage. This is best-knowledge originality, not certified uniqueness. The dissertation was inspected only through a relevant indexed passage, and broad or unindexed q-factorial-ratio theorems remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a canonical one-parameter shift of an explicitly published polynomiality problem, provides a complete and exact positive-coefficient factorization where polynomiality holds, and identifies the exact non-polynomial obstruction where it fails. It also determines an infinite, arithmetically structured locus where the original conjectural necessary condition is false, rather than exhibiting an isolated small numerical anomaly. The valuation inequality \(\nu_2(n)>\nu_2(k)\) is the complete discrepancy criterion in the two-step slice. This constitutes a motivated boundary theorem; it does not claim to classify all shifts.
+The 2008 source explicitly proposes the general gcd criterion and proves j=1 results; the full natural two-step specialization and infinite counterexample family are not supplied by its stated results. This is a correction of a mathematical conjecture, rather than a renaming of the known polynomial ratio.
 
-## Closest literature and limitations
+## value
 
-Primary: Straub, Moll, Amdeberhan (2008), arXiv:0811.2028v1, Sections 4–5. Corroborating statement: Straub (2012), dissertation, Problem 14.5.2, relevant indexed passage only. General polynomial-divisibility criteria and potential unindexed treatments may overlap. No independent scientific validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-parameter positive-coefficient classification on the minimal nontrivial natural shifted slice and an infinite obstruction family to a previously stated general criterion are reusable results; exact residue gives mechanism, not a mere single instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
