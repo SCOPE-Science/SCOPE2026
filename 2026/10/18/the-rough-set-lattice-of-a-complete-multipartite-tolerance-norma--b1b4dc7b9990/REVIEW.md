@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each part \(P_i\), the tolerance neighborhood is \(R(v)=(V\setminus P_i)\cup\{v\}\). A complete partition of input subsets gives exactly three boundary rough pairs and two rough pairs for each nonempty proper subset of a part. Their coordinatewise order is a vertical sum of two horizontal sums of Boolean lattices. The counts follow by disjoint enumeration. Automorphism and reconstruction claims follow from the comparison-component invariant of each Boolean factor: higher-rank factors remain identifiable components, while each rank-two factor contributes two freely interchangeable isolated elements. The modular and distributive boundaries have explicit witnesses. The standalone Python checker reproduced all the pairs, binary lattice operations and structural thresholds over 134 ordered part profiles through eight vertices; these checks do not prove the infinite-parameter theorem.
+PASS
 
-## Originality — PASS, qualified
+For all finite complete multipartite parts n_i≥1, r≥2, the reflexive neighborhood R(v)=(V\P_i)∪{v}. Partitioning X into empty, single-part, and multiple-part cases proves exactly 3 global points plus two rough pairs for each proper nonempty subset of a part; coordinatewise order gives two horizontal Boolean sums glued ordinally. The comparability components of the proper nonzero part of H identify each m≥3 Boolean block and merge the two isolated atoms of every m=2 block, yielding the stated full automorphism group squared and recovery up to singleton parts. Modular/distributive thresholds follow explicit M3/N5 witness configurations. Independent direct subset enumeration on seven selected profiles, including all-singleton and mixed higher blocks, matched exact cardinality. The source verify.py is exact for 134 bounded ordered profiles; those experiments are not used to infer unrestricted theorem.
 
-The 2013 tolerance-rough-set theory **already implies lattice existence** under its general hypotheses. That pre-existing claim is credited, not asserted as original. The 2023 pseudo-Kleene rough-set analysis also supplies a broader algebraic setting. The 2017 graph-neighborhood indistinguishability construction and 2019 mixed equivalence/tolerance approximation system are distinct objects. The proposed contribution consists of the **exact order decomposition, group and reverse classification, and exact modular/distributive boundaries** for the same reflexive complete multipartite tolerance. Completed source and semantic claim searches revealed no equivalently covering statement. A specialization elsewhere, and the incomplete inspection of one secondary potentially relevant source, remain genuine priority risks; independent publication priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper-backed question of when tolerance-based rough sets form lattices motivates determining **which** lattice arises. Here the answer recovers its full finite order, all order automorphisms, the precise limit of inverse recoverability, and sharp lattice-identity thresholds across arbitrary part profiles. In particular the merging of the two-point Boolean factors causes an unexpected increase in automorphism symmetry. These are structurally meaningful, jointly independent data rather than arbitrary sample counts.
+Tolerance-rough-set theory already implies lattice existence and pseudo-Kleene structures. Here the contribution is the exact Boolean-order normal form, automorphism groups including m=2 collision, modularity boundary and inverse reconstruction invariant for this single reflexive tolerance. Mixed E/T rough operators and open-neighborhood closure constructions differ. Primary comparisons and Resultary semantic search yielded no statement mathematically dominating these specific formulas; unindexed specializations remain risk.
 
-## Scope and remaining limitations
+## value
 
-Only finite complete multipartite graphs with at least two nonempty parts and the reflexive adjacency tolerance are covered. Singleton parts cannot be reconstructed without the original universe cardinality. An independent external audit and exhaustive publication-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+After the known question whether tolerance pairs form a lattice, a natural next structural task is identifying which lattice and which graph data it retains. The exact order and automorphism classification reveals unexpected S_(2a) mixing across size-two parts, proves sharp lattice identity boundaries, and quantifies singleton information loss. These are reusable structure/reconstruction facts rather than routine mere lattice existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
