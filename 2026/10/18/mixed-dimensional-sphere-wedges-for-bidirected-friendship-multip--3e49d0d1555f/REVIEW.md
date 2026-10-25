@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The face classification uses all and only the possibilities for at most one incoming and one outgoing central arc, plus forbidden oriented two- and three-cycles. Its four central-fiber cases cover every face and leave only a two-point join or a cone of exterior choices. The lexicographic fiber matchings are involutive and acyclic by a central-subset monotonicity argument, producing exactly one critical vertex, one critical cell in dimension \(n-1\), and \(2n\) critical cells in dimension \(n\). The \(2n\) explicit integral join cycles have independent coefficients on critical top faces with no higher cofaces. This saturates the Morse cellular-chain upper bound, forces the remaining differential to vanish integrally, and makes every attaching map degree zero (hence nullhomotopic), including the dimension-one base for \(n=2\). The exceptional disconnected \(n=1\) graph is classified separately.
+PASS
 
-The supplied standard-library verifiers reproduce every finite central-fiber matching and its global acyclicity for \(n\le6\), and independent mod-two ranks for \(n\le5\). Finite tests are supporting evidence; the theorem for unbounded \(n\) depends on the written construction.
+For every n≥2 the central hub has no, one or exactly two central arcs of opposing incidence; same-petal central two-arc fibers have an S^(n−2) external-petal join, other nonempty central fibers are cones. The stated fiberwise lexicographic matching leaves one vertex, one (n−1)-cell, and 2n n-cells; monotone central-set/lexicographic arguments establish acyclicity for all n. Integral join cycles consisting of each oriented triangle-boundary circle and S0 choices on all other petals evaluate with coefficient ±1 at a unique critical noncoface top simplex, hence give 2n independent n-homology classes; the cellular boundary is zero, and maps S^(n−1)→S^(n−1) of degree zero are null. Independent direct face and mod-two ranks for n=1,2,3 give n1 reduced H0=1,H1=2, n2 H1=1,H2=4, n3 H2=1,H3=6; these finite checks supplement the uniform proof and cannot replace it. The n1 exception is two disjoint circles.
 
-## Originality — PASS, with residual risk
+## originality
 
-The closest relevant recent works are Caputi–Collari–Smith, *Multipath complexes of bidirectional polygonal digraphs* (arXiv:2601.05670), and Deshpande–Sawant, *Vertex decomposable complexes of directed forests, conflict graphs and chordality* (arXiv:2602.14936). The first describes a single bidirected polygon and does not cover the interacting triangle petals for \(n\ge2\); the second supplies conflict-complex machinery but no classification of the present cyclic bouquet. The complete earlier article by Caputi–Collari–Di Trani–Smith (arXiv:2208.04656) includes the dynamical-module theorem, which has no splitting into separate petals here. Searches using the aliases friendship/Dutch windmill/triangle bouquet and multipath/directed linear forest found no equal or stronger result. A published theorem on bidirected double stars concerns a tree rather than a directed triangle bouquet; a Dutch-windmill matching-complex theorem concerns undirected matchings, not directed path forests. Generalizations or unindexed work remain an ordinary originality risk; failed searches are not novelty proofs.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge statement-level comparison of the precise functor, object and parameter with relevant full-text primary sources and published mathematical results. Directed linear-forest and multipath are the same forbidden-in/out-degree/cycle complex here; ordinary undirected matching complexes and directed path homology are different objects. Each petal is bidirected; the hub prevents their complexes forming a simple independent join. Caputi–Collari–Smith handle single bidirected polygons/paths, not n>=2 triangles glued at a hub. Caputi–Collari–Di Trani–Smith prove dynamical-module decompositions, but shared hub couples petals into a single interacting component. Deshpande–Sawant’s no-2-cycle/chordality reduction excludes bidirected petals. Published bidirected double-star multipath classification concerns trees and is not a table of cycle bouquets. The isolated n=1 single triangle belongs to the prior polygon case; only n≥2 is assessed as new. A bouquet of directed cycles with a common hub is not the disjoint union or join of polygon cases, since central in/out-degree constraints enforce global exclusion; no cited module theorem directly supplies the integral 1+2n critical cells and zero attaching degrees. Any remaining bibliography uncertainty is retained as residual risk, not presented as novelty proof.
 
-This is a complete **integral homotopy** classification for a natural infinite family with many interacting directed cycles, in contrast to purely homological results on individual bidirected polygons or acyclic graph reductions. The two consecutive nonzero dimensions and the exact \(2n\) top-cell generators describe a nontrivial structural phenomenon. The proof supplies an explicit uniform discrete-Morse reduction and primitive geometric top cycles, making the result useful for future multipath-complex calculations on cyclic graph bouquets and for testing candidate general formulas. It is neither a renaming of a known class nor a finite numerical slice.
+## value
 
-## Limits and literature comparison
+PASS
 
-No extension to longer petal cycles or arbitrary cactus graphs is established. The \(n=1\) case has two components and is outside the connected formula. The article's general acyclic-digraph-to-matching-complex reduction does not apply because these digraphs contain directed two- and three-cycles. Searches are bounded and may miss unindexed stronger theorems. Finite verifier outputs are not evidence for all integer sizes independently of the proof.
+A natural infinite family of all bidirected triangular windmills shares one branching hub and has a mixed-dimensional integral sphere-wedge type with a completely determined linear-in-n top multiplicity. The explicit critical-cell construction and integral cycles fill a genuine classification gap for interacting cyclic digraph petals, beyond tree and single-cycle families.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
