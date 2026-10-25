@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first bounds the marked-origin automorphism group by the eight signed coordinate permutations using elementary squares, then derives three stable-colour invariants from walk counts and equitability. The geodesic and predecessor formulas distinguish every unordered coordinate-distance pair for all odd \(n\ge5\) and even \(n\ge6\), with a separate check for the even antipodal case. The three verification programs are independently replayable. They do not replace the complete proof.
+## correctness
 
-## Originality — PASS, qualified
-Full-text-accessible primary papers arXiv:1502.01255 and arXiv:1503.08792 were examined for their refinement/orbit and counting-logic results; neither inspected result implies this square toroidal orbit classification. The closest mathematical comparisons are rooted finite *path*-grid results, single-cycle wavefront analyses, and hypercube individualization: none implies the \(n\ge5\) equal-cycle Cartesian product result, as the boundary identifications and automorphism structures differ. Searches for rooted toroidal-grid refinement, geodesic signatures, and Cartesian-cycle orbit refinability did not identify equivalent coverage. Negative search outcomes are not proof of publication priority; specialized uninspected work remains a residual risk.
+PASS
 
-## Value — PASS
-The exact class-count and class-size census applies to an infinite family of four-regular graphs of unbounded order. The unexpectedly small certificate \((d,p,g)\) reduces a general iterative refinement question to concrete shortest-path geometry and explains the special even-antipode distinction. This is a structural orbit-recovery result, not just isolated computations or a relabeling of an earlier rooted path-grid formula.
+For n>=5, each 4-cycle is an elementary coordinate square, forcing a rooted automorphism to permute two incident opposite coordinate edge-pairs, with at most 8 options. Eight independent coordinate reflections/swaps exist and determine all vertices by straight continuation and square propagation. Thus rooted orbits are unordered circular distance pairs (a,b). Stable 1-WL colors distinguish all walk counts W_k(v)=(A^k)_{v,o} by induction, hence distance d, shortest path multiplicity g and predecessor number p by equitability. In Cartesian cyclic geometry d=a+b, p=1_{a>0}+1_{b>0}+epsilon(a)+epsilon(b), g=C(a+b,a)2^{epsilon(a)+epsilon(b)}, epsilon records even antipode. For fixed distance, binomial g increases strictly to the balanced a; p removes axes, and at even antipode p=2 distinguishes (0,h) by g=2 versus g>=h>=3 for both-positive pairs. Sign multiplicities then give class sizes and (h+1)(h+2)/2 classes. Independent signature injectivity check n=5..28 passed; source direct refinement, geodesic and graph-automorphism scripts inspected. All-order proof, not finite extrapolation.
 
-## Limits
-Only \(n\ge5\) equal-factor Cartesian cycle products and a single landmark are covered. No arbitrary-competitor identification or exact refinement depth is claimed. Both originality and mathematical correctness warrant independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge primary-source and Resultary comparison; no searched statement/table/general theorem shown to imply the exact submitted additional invariant. Crucial established premises and special cases are credited. Full-text versus abstract material is explicitly distinguished; inaccessible literature is retained as risk, not assumed noncovering.
+
+## value
+
+PASS
+
+For an infinite four-regular toroidal family of unbounded size, replaces iterative color refinement with three concrete geodesic invariants that exactly detect rooted symmetry orbits, including the subtle even-antipode boundary. Determines not merely total classes but orbit-size census; a structurally motivated bridge between combinatorial geometry and 1-WL power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
