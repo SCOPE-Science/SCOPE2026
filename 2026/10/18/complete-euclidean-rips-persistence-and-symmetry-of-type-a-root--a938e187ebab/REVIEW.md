@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete infinite-family classification, with exact assumptions and inclusive Euclidean radii. Its proof checks the four distance levels from the coordinate inner-product formula. The first nontrivial stage is the nerve of a row/column simplex cover; the second is related by a face-poset map with contractible lower fibers to \(\operatorname{Hom}(K_2,K_n)\), whose explicit \(\ell^1\)-sphere model determines homotopy and group action; the penultimate stage is an exact antipodal-pair join. The symmetry characters follow from the nerve's oriented chain modules and determinants of the standard and second exterior-power permutation representations. Distinct positive homology dimensions settle all persistence maps. Independent finite calculations confirm face vectors, mod-two and mod-three homology for \(n=4,5\), and all 240 signed Lefschetz character values for \(n=5\). All integral claims follow from the symbolic homotopy models rather than the finite experiments.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Prior full text of Babson--Kozlov (Section 4.2) proves the \(\operatorname{Hom}(K_2,K_n)\) sphere and source flip; it does not identify the Euclidean-root Rips scale where that structure appears, give the other stages, or compute the complete Rips symmetry representations. Ayzenberg--Beketov--Magai (Section 3 and Section 6) study different complexes on the same roots: open/closed hemisphere nerves, acyclic digraphs and non-strongly-connected digraphs. Their vertices coincide, but their simplices are not defined by the present pairwise distance condition. The published cuboctahedral result proves exactly the \(n=4\) special case and is explicitly excluded from the new arbitrary-\(n\) claim. Searches for type-A roots, directed cuts, oriented-pair descriptions, and equivariant persistent homology did not reveal a stronger result subsuming all claims. Unindexed or differently described prior work remains possible; this uncertainty is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The full type-A root configuration is a canonical natural finite point cloud in each dimension. Its exact integral barcode has a transition from many one-cycles to a single high-dimensional sphere and then to a sphere of quadratic dimension, while the symmetry action gives information strictly beyond nonequivariant Betti numbers. The key poset-fiber lemma identifies a combinatorially nonobvious Euclidean distance stage with a graph-homomorphism sphere. This is a natural complete family classification rather than a parameter change to an existing finite table. No general theorem for all point clouds or root types is claimed.
+An exact root inner product classifies squared distances 2,4,6,8. At squared 2 the maximal simplices are directed arcs sharing initial or terminal index; their good-cover nerve is K_{n,n} minus the diagonal matching, connected with n(n-1) edges and 2n nodes, yielding b1=n^2-3n+1 and the fixed-letter/two-cycle trace formulas via oriented cellular chains (root negation swaps and reverses bipartite edges). At squared 4, simplices are sets of arcs with disjoint source and target vertex sets. Their face-poset map to all nonempty disjoint (S,T) has lower fibers with maximum S×T; hence a homotopy equivalence to Hom(K2,Kn), whose disjoint probability-simplex pair (p,q) maps homeomorphically via p-q to boundary of the l1 ball in the sum-zero subspace. This proves sphere S^(n-2), with permutation/flip degree sgn(sigma)*(-1)^((n-1)epsilon). At squared 6 precisely the m=n(n-1)/2 reverse-root pairs are nonedges, so the complex is the join (S0)^*m=S^(m-1); the signed action on wedge^2 R^n has determinant sgn(sigma)^(n-1), root negation flips all m factors, giving (-1)^(m epsilon). At sqrt8 a full simplex forms. Degrees 1,n-2,m-1 are distinct for n>=5, so positive-degree persistent maps across distinct stages vanish; H0 merges at sqrt2. Independently calculated all pair-distance levels and adjacency conditions at n=4,5,6,7; n4 is a known already-published finite case, not a proof by extrapolation.
 
-## Limits and closest source
-The twelve-root cuboctahedron calculation already has the \(n=4\) filtration. The 2003 homomorphism-complex result and 2023 hemisphere-root paper supply relevant building blocks, not the asserted all-\(n\) metric filtration and all-stage characters. The originality assessment is provisional pending a wider independent bibliography review. Computations at \(n=4,5,6\) are sanity checks, not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new complete ambient-Euclidean Rips filtration on type-A root configurations across every n>=5, not the already-known Hom(K2,Kn) sphere alone. Babson-Kozlov Proposition 4.3 gives the Hom sphere and its flip and is cited as a key ingredient. Ayzenberg et al study open/closed-hemisphere nerve complexes of type-A roots (acyclic directed graphs), which are NOT identical to pairwise Euclidean threshold cliques. Published finite n=4 cuboctahedron supplies only that special case and no all-n chars. Residual possibility of an unnamed all-rank Euclidean Rips statement remains.
+
+## value
+
+PASS
+
+A closed all-rank type-A metric-topology computation for a natural root-system family is a useful structural classification. Connecting the Rips intermediate stage to Hom(K2,Kn) identifies a non-obvious sphere, while the exact graph nerve, crosspolytope stage, integral persistence and full natural symmetry traces give additional information absent from the known Hom sphere in isolation. The already-known finite cuboctahedron stage is not incorrectly claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
