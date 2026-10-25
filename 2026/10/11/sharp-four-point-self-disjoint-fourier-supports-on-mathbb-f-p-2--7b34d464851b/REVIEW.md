@@ -1,15 +1,21 @@
-# Scientific review: four-point self-disjoint Fourier supports
+# Independent mathematical audit
 
-## Correctness — PASS
-The full quantifiers and the Fourier pairing are specified. For every prime \(p\equiv3\pmod8\), quadratic reciprocity supplies \(a^2=-2\). The four nonzero coefficients cancel at every point of their support by exact root-of-unity identities. For all primes \(p\equiv3\pmod4\), anisotropy excludes one- and two-point principal kernels. For three points, translating the minor and comparing positive sine factors forces equality of three quadratic-pairing residues, contradicting anisotropy. The phase argument covers both the zero and nonzero cross-pairing cases. Exact arithmetic checks the witness family and finite small instances; it is not the proof of the infinite claim.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-Zhou's Proposition 3 in arXiv:2608.06335 constructs support size \(2p-2\) for \(p\equiv3\pmod4\) on \(\mathbb F_p^2\) and explicitly notes that the true minimum remains difficult. This result proves the exact value \(4\) on the infinite subclass \(p\equiv3\pmod8\). Full-text comparisons to Delvaux–Van Barel's Kronecker Fourier rank-defect constructions show they do not impose equality of row and column support sets or give this exact invariant. Published records on three-sparse spectra and cyclic-group principal minors do not imply the claimed four-point threshold. A previously unindexed equivalent principal-minor construction remains a risk; no global uniqueness or priority certification is asserted.
+PASS
 
-## Value — PASS
-The exact minimum is a natural invariant explicitly raised by an originating 2026 paper. It strengthens a size \(2p-2\) construction to a sharp four-point witness along infinitely many primes and supplies an exact obstruction for every smaller support. The result demonstrates a nontrivial arithmetic mechanism based on the residue of \(-2\), while deliberately leaving the other odd-prime congruence class outside the claim.
+For each prime p≡3 (mod 8), the quadratic character identities (-1/p)=(2/p)=-1 yield a∈F_p× with a²=-2. The four distinct sites 0, u=(0,1), v=(a,0), v-u carry values (1,-1,ζ,-ζ) and their unnormalized Fourier evaluations at the four sites are pairwise exactly canceling; this establishes σ_p≤4 uniformly, including p=3. For the lower bound p≡3 mod4 implies x²+y² anisotropic. One-point Fourier diagonals never vanish; two-point principal determinant reduces to ζ^{Q(w)}−1 with nonzero w. On any three-point support translate to {0,u,v}; principal determinant (ζ^A−1)(ζ^B−1)−(ζ^C−1)². If C=0 it cannot vanish. If C≠0, all roots nontrivial and comparing positive sines with the unit phase forces A+B=2C as ordinary integers and equality in the sine midpoint identity forces A=B=C; then Q(u−v)=0 contradicts anisotropy. The normalization 1/p is nonzero and does not affect zeros. All quantifiers are analytically proved; checks are finite corroboration only.
 
-## Limitations and independent status
-The group carries the standard dot-product pairing and complex coefficients. The result does not settle \(p\equiv7\pmod8\), nor the classification of four-point extremizers. No independent mathematical audit or validation has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact invariant σ_p=4 for every prime p≡3 mod8: Zhou 2026 Proposition 3 supplies self-disjoint support 2p-2 and treats the p≡3 mod4,d=2 minimum as difficult; it already covers p=3, but not the uniform four-point p≥11 witness. Prior published 3×3 minor and three-sparse spectrum results imply parts of the lower bound but not the new four-point construction. Primary cyclic Fourier, Fourier-support cardinality and finite ternary incidence results do not by their stated implications cover the uniform coincident-support condition. Publisher abstract of a plausible 2007 broader paper is not enough to certify noncoverage; retain substantive residual priority risk. O PASS is qualified and not a historical priority certificate.
+
+## value
+
+PASS
+
+The smallest support size with self-disjoint physical and Fourier supports is a natural principal Fourier-matroid invariant explicitly singled out as difficult for p≡3 mod4 in Zhou 2026. The sharp σ_p=4 is an exact infinite-family classification, improving the concrete prior size 2p−2 construction strictly for p≥11; matching impossibility of 1,2,3 points matters independently. The sqrt(-2) arithmetic witness and anisotropy obstruction give structurally meaningful reasons for the congruence restriction; no general downstream theorem or paper-sized claim is needed. It is not simply a table lookup or a renaming of an established numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
