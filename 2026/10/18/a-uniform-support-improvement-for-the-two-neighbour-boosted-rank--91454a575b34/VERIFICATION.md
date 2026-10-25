@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 interpreter. The script does not need nonstandard packages or network access.
+## correctness
 
-It verifies the 24 transition inequalities and 12 terminal inequalities using exact rational arithmetic; it checks the rank-threshold identity and finite bound exhaustively for all permutations of \(2\) through \(9\) ranks (409112 configurations); and it independently computes subset dynamic-programming minima for \(2\le n\le16\), checking 131053 nonempty subset states against the claimed inequality. It also integrates the piecewise-affine support profile exactly and verifies \(13/24\).
+PASS
 
-All runs of this verification program completed without assertion failures. The unlimited-sample theorem is proved in `RESULT.md` by the explicit finite-state certificate and telescoping argument. Finite enumeration alone would not prove the claim. The sharpness of the asymptotic constant as the *attainable* minimum remains unproved.
+Every threshold set S_l of ranks >=l has cardinalities n,n-1,...,1 and the statistic numerator decomposes exactly as sum_l Phi_n(S_l), including the x_(n-1)+2x_n self-neighbour terms. For binary words, the three displayed potentials for (s,t)=(3/2,1/2),(5/2,1),(4,2) have all 8 transition slacks and all 4 endpoint slacks nonnegative; direct independent Fraction check confirmed 24 transitions. Integer rounding yields Phi>=H_n(k) and sum >=L_n. The piecewise affine integrated envelope is 13/24, yielding xi limit -3/8 with the exact (n+1)(2n+3/2) denominator. n>=2; ranks distinct; lower bound only, not attainability. Finite permutation/enumeration checks are corroborative, not proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage is supported by the statement-level comparisons below; this is not a proof of absolute bibliographic novelty.
+
+## value
+
+PASS
+
+A genuine uniform combinatorial improvement to the guaranteed support of a widely used nonparametric dependence statistic, by asymptotic 1/8 in the fixed M=2 case. The boundary-aware finite-state potentials are structurally informative; no unsupported claim that the actual minimum is -3/8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
