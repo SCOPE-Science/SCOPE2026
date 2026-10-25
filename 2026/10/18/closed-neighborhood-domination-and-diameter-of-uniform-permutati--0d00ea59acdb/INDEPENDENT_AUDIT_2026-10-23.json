@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:53:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the encoded caterpillar, all leaf-support spine vertices may be simultaneously selected in a minimum closed-neighborhood dominating set; k consecutive unsupported internal spine vertices between forced supports cost floor(k/3). Verified directly by constructing permutation inversion trees and minimizing closed-neighborhood coverage for all fair-bit words with 3<=n<=9. Geometric run cycles have E(M,R,C)=(4,8/7,2), centered covariance E(U^2)=72/343, E(UV)=12/49, E(V^2)=1. Independent exact rational arithmetic yields slopes (18/343,3/49,1/4), determinant 45/4802. Regenerative CLT with exponential tails and bounded boundary moments justifies the joint distribution and covariance limits; finite checks alone do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan-Hitczenko establishes bit encoding, diameter and a univariate vertex-cover CLT; Baren et al. treats ordinary domination of permutation graphs, extremal counts and algorithmic identities."
+        ],
+        "reasoning": "Neither inspected statement yields the joint ordinary-domination/diameter covariance in this conditioned uniform tree model.",
+        "searches": [
+          "arXiv:1406.3958 Lemma 8, Theorem 20",
+          "Resultary: uniform random permutation inversion tree caterpillar domination Gaussian diameter covariance bit run renewal",
+          "arXiv:1810.03409 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.3958v2 primary PDF",
+        "arXiv:1810.03409 primary PDF",
+        "Resultary query on random tree/inversion covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge-cover gap floor(k/2) differs from closed-neighborhood gap floor(k/3); Baren et al. does not select uniform permutation trees or compute joint diameter law."
+        ],
+        "reasoning": "The previous encoding supplies the underlying stochastic model, but its final distribution does not logically give the new statistic; new renewal rewards and mixed moments are essential.",
+        "searches": [
+          "arXiv:1406.3958 eq (3.8), theorem 20",
+          "arXiv:1810.03409 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan-Hitczenko §3.4 explicitly defines its dominating set as meeting every edge (vertex cover), with formula floor(k/2). Baren et al. define ordinary N[D]=V domination."
+        ],
+        "reasoning": "Two usages share the word domination but define different invariants; the ordinary vertex-domination result is not equivalent to the prior edge-incidence statistic.",
+        "searches": [
+          "Resultary: uniform random permutation inversion tree caterpillar domination Gaussian diameter covariance bit run renewal",
+          "arXiv:1406.3958 §3.4 and eq. (3.8)",
+          "arXiv:1810.03409 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published diameter Bin(n-3,1/2)+2 and n/3 vertex-cover mean are existing exact/asymptotic data; no corresponding 2n/7 normal variance table was found in inspected source sections."
+        ],
+        "reasoning": "Difference of optimization condition is mathematically explicit, not inferred solely from absence of matching numerals.",
+        "searches": [
+          "arXiv:1406.3958 §3.4, theorem 20",
+          "Resultary: uniform random permutation inversion tree caterpillar domination Gaussian diameter covariance bit run renewal"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the standard closed-neighborhood domination number jointly with diameter, with new explicit constants. The 2014/2016 Acan-Hitczenko paper unfortunately calls its edge-incidence vertex-cover statistic domination; direct full-text inspection of §3.4 proves its recurrence floor(k/2) and linear mean n/3, not the present floor(k/3), 2n/7 closed-neighborhood statistic.",
+      "residual_risks": [
+        "Wider random-caterpillar literature might implicitly contain the same regenerative ordinary-domination calculation.",
+        "Uniform L4 bounds for renewal-reward fluctuations follow standard exponential-tail theory and were not established by new full computational certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 20 is for edge incidence (vertex cover), not closed-neighborhood domination. Diameter law is prior.",
+          "evidence": "§3.4 first sentence: each edge incident to selected vertex; eq.(3.8) uses floor(k/2).",
+          "identifier_or_url": "arXiv:1406.3958v2",
+          "material_read": "Read abstract/introduction, permutation bit coding sections, §3.4 definition, eq.(3.8), theorem 20 and asymptotic proof pages 10-13",
+          "method": "primary 17-page PDF textual sections plus page-13 image inspection",
+          "title": "On random trees obtained from permutation graphs",
+          "trigger": "Identical uniform tree model and identical term domination"
+        },
+        {
+          "assessment": "True ordinary domination but enumerative/extremal emphasis, not joint CLT for uniform tree inversion graphs",
+          "evidence": "§1 and abstract",
+          "identifier_or_url": "arXiv:1810.03409",
+          "material_read": "Read full abstract, formal definition N[D]=V and listed theorems/topics in introductory page",
+          "method": "primary PDF page 1 text/image",
+          "title": "On the Domination Number of Permutation Graphs and an Application to Strong Fixed Points",
+          "trigger": "Ordinary closed-neighborhood domination in same wider graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A basic random graph model has a natural and previously conflated parameter: ordinary vertex domination versus edge-incidence coverage. The exact finite-word formula and explicit joint Gaussian covariance with diameter quantify a nontrivial dependence in a canonical model, so this is more than a simple renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1406.3958v2 primary PDF",
+    "arXiv:1810.03409 primary PDF",
+    "Resultary query on random tree/inversion covariance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic CLT relies on standard regenerative random-time arguments and exponential boundary moments; finite enumeration n<=9 is corroboration.",
+    "Known diameter and binary encoding belong to Acan-Hitczenko.",
+    "The inspected public-facing METADATA.json contains scope_run_id and related operational provenance. Exact sanitized final metadata and corresponding review/status changes have not been prepared and rechecked; publication must be withheld without modifying research claims or protected verification channels."
+  ],
+  "residual_risks": [
+    "Wider random-caterpillar literature might implicitly contain the same regenerative ordinary-domination calculation.",
+    "Uniform L4 bounds for renewal-reward fluctuations follow standard exponential-tail theory and were not established by new full computational certificate."
+  ],
+  "schema_version": 1
+}

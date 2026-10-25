@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10 or later and no non-standard packages. The verifier independently generates tree permutations, builds each inversion graph, searches all nonempty vertex subsets for a smallest closed-neighborhood dominating set, computes diameter by breadth-first search, and compares both statistics against the binary-run formula for every bit word of length \(n-2\) with \(3\le n\le11\). It checks exactly \(1{,}022\) such words. It separately evaluates the iid-cycle moment decomposition with exact rational fractions, recovering density \(2/7\), variance slope \(18/343\), covariance slope \(3/49\), diameter variance slope \(1/4\) and determinant \(45/4802\).
+## correctness
 
-The verifier completed successfully for the included source. These are finite identity checks and symbolic rational checks, not exhaustive proofs of the asymptotic central limit or moment convergence. The unrestricted proof uses the closed-neighborhood caterpillar optimization and iid renewal-reward arguments given in RESULT.md. External independent scientific audit has not been performed.
+PASS
+
+On the encoded caterpillar, all leaf-support spine vertices may be simultaneously selected in a minimum closed-neighborhood dominating set; k consecutive unsupported internal spine vertices between forced supports cost floor(k/3). Verified directly by constructing permutation inversion trees and minimizing closed-neighborhood coverage for all fair-bit words with 3<=n<=9. Geometric run cycles have E(M,R,C)=(4,8/7,2), centered covariance E(U^2)=72/343, E(UV)=12/49, E(V^2)=1. Independent exact rational arithmetic yields slopes (18/343,3/49,1/4), determinant 45/4802. Regenerative CLT with exponential tails and bounded boundary moments justifies the joint distribution and covariance limits; finite checks alone do not.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the standard closed-neighborhood domination number jointly with diameter, with new explicit constants. The 2014/2016 Acan-Hitczenko paper unfortunately calls its edge-incidence vertex-cover statistic domination; direct full-text inspection of §3.4 proves its recurrence floor(k/2) and linear mean n/3, not the present floor(k/3), 2n/7 closed-neighborhood statistic.
+
+## value
+
+PASS
+
+A basic random graph model has a natural and previously conflated parameter: ordinary vertex domination versus edge-incidence coverage. The exact finite-word formula and explicit joint Gaussian covariance with diameter quantify a nontrivial dependence in a canonical model, so this is more than a simple renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
