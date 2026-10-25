@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact-arithmetic checker `CHECK.py` was executed with Python 3 and SymPy. It certified all six vertices at each of two heights by symbolic affine inequalities valid for all integers \(m\ge3\). For every intersection that is not a vertex it found an inequality violated strictly throughout the same parameter half-line. It checked all \(15\) vertex-pair squared distances for each polygon using nonnegative rational coefficients after the substitution \(u=m-3\), as well as the exact diametral witnesses and asymptotic limiting gap.
+# Independent mathematical audit
 
-The source's complementary-section Ehrhart theorem was inspected in the public 2022 preprint. No finite experiment is used in place of the symbolic universal proof. No independent audit or external formal proof was performed. Possible equivalent unindexed literature remains a bibliographic limitation.
+## correctness
+
+PASS
+
+From the actual nine section halfspaces, independently reconstructed symbolic intersections of every nonparallel pair for both t=2m and t=4m+3. The two lists have exactly six feasible vertices for all m>=3: a violating affine residual stays strictly positive on the entire ray for every excluded candidate. All 15 vertex-pair squared distances in each section are bounded above by claimed polynomial using nonnegative coefficients after m=u+3, and witness pairs attain them. Independent SymPy symbolic check, not a bounded numerical sample, passed. The quoted Theorem 4.8 supplies Ehrhart equivalence, not the metric assertion; the positive limit follows by rationalization.
+
+## originality
+
+PASS
+
+Chainlink complementary-section Ehrhart equality is explicitly prior theorem, and m=2 boundary example is in that source. The exact pair of Euclidean diameter polynomials for all m>=3 and strictly positive constant asymptotic separation are not supplied by equal Ehrhart data or the distinct Euclidean inradius of the full body. Novelty refers only to this geometric witness, not to the preexisting lattice equivalence.
+
+## value
+
+PASS
+
+The construction takes a naturally motivated published family of Ehrhart-equivalent but geometrically different complementary sections and determines an exact metric invariant in every dimension parameter, including a nonzero unscaled limiting discrepancy. The strict persistent diameter gap is a concrete quantitative witness that lattice-point identity hides Euclidean shape, meaningful for comparing metric and enumerative invariants. Does not claim a general classification of all chainlink sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
