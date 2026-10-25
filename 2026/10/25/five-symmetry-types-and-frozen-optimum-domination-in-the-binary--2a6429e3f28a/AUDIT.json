@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Parity-degree 5 bounds force at least four guards of each parity. Direct weight-one/three/five neighborhood reasoning classifies every eligible parity four-set as one of 40 affine two-plane cosets. Independence of the two parity choices yields exactly 1600 total optima. Their three-point intersection obstruction proves zero exchanges. The finite stabilizer calculation partitions 40 opposite-parity choices into 1+3+12+12+12 and exact perfect-matching checks show four paired strata; this yields 1120 paired optima. The standalone packaged Python verifier checks 1820 4-subsets per parity, all 3840 graph symmetries, 48 stabilizer maps, perfect matching by permutation, zero exchanges, and all 10,518,300 8-subsets; it completed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bresar--Henning--Rall, Paired-domination of Cartesian products of graphs, Utilitas Mathematica 73 (2007), 255-265, https://utilitasmathematica.com/index.php/Index/article/view/485 abstract provides general product lower bounds.",
+        "Gorzkowska--Henning--Pilsniak--Tumidajewicz, Total and paired domination stability in prisms, Discuss. Math. Graph Theory 43 (2023), 1147-1169, DOI 10.7151/dmgt.2421 Sect. 4.1 treats hypercube paired-domination numbers and stability after removal of vertices."
+      ],
+      "reasoning": "Theorem 3 and Table 2 of the 2023 paper determine gamma_pr(Q5)=8, which is explicitly excluded as prior numerical knowledge; those statements do not count the equality cases or imply exchange isolation. Its Theorem 12 studies removal stability in powers-of-two dimensions rather than the Q5 optimum-set exchange graph. No inspected broader theorem forces the five disjoint symmetry types.",
+      "searches": [
+        "paired domination hypercubes enumeration hypercubes n dimensions",
+        "paired-domination of cartesian products of graphs",
+        "\"Total and paired domination stability in prisms\" doi authors 2023"
+      ]
+    },
+    "checked_sources": [
+      "Haynes--Slater, Paired-domination in graphs, Networks 32 (1998) 199-206, DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+      "Bresar--Henning--Rall, Paired-domination of Cartesian products of graphs, Utilitas Mathematica 73 (2007), 255-265, https://utilitasmathematica.com/index.php/Index/article/view/485",
+      "Gorzkowska--Henning--Pilsniak--Tumidajewicz, Total and paired domination stability in prisms, Discuss. Math. Graph Theory 43 (2023), 1147-1169, DOI 10.7151/dmgt.2421",
+      "Research-record semantic searches for Q5 paired/total domination configurations and token-jumping exchange (closest indexed titles concerned paired domination in other graph families, not the five-cube)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haynes--Slater, Paired-domination in graphs, Networks 32 (1998) 199-206, DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F first introduced the backup matching property.",
+        "Bresar--Henning--Rall, Paired-domination of Cartesian products of graphs, Utilitas Mathematica 73 (2007), 255-265, https://utilitasmathematica.com/index.php/Index/article/view/485 established general product inequalities.",
+        "Gorzkowska--Henning--Pilsniak--Tumidajewicz, Total and paired domination stability in prisms, Discuss. Math. Graph Theory 43 (2023), 1147-1169, DOI 10.7151/dmgt.2421 demonstrated the known optimum and deletion stability, neither specifying all minimizing sets."
+      ],
+      "reasoning": "Prior min-cardinality and Cartesian-product inequalities entail that no set of size less than eight is paired-dominating, but cannot imply which eight-subsets work or whether a one-vertex exchange is possible. The explicit affine-plane equality-case theorem plus five-orbit classification proves strictly additional information. No exact dominating equivalence was found in searched records, subject to stated access limits.",
+      "searches": [
+        "\"paired domination\" \"hypercube\" \"Q_5\"",
+        "minimum paired dominating sets of hypercubes token jumping exchange graph",
+        "five dimensional hypercube Q5 minimum paired dominating sets 1120 480 120 40 automorphism orbit frozen token jumping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gorzkowska--Henning--Pilsniak--Tumidajewicz, Total and paired domination stability in prisms, Discuss. Math. Graph Theory 43 (2023), 1147-1169, DOI 10.7151/dmgt.2421 Table 2 lists only the cardinality 8.",
+        "Haynes--Slater, Paired-domination in graphs, Networks 32 (1998) 199-206, DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F defines the parameter and gives general bounds rather than an equivalence to the five orbit classification in its accessible abstract."
+      ],
+      "reasoning": "Also formulated as selecting four even-parity and four odd-parity blocks that each dominate the opposite side, or as minimum paired guard positions admitting a perfect matching. The complete cross-parity block enumeration, matching-orbit split and absence of token exchanges are strictly more information than an optimum cardinality or vertex-deletion stability.",
+      "searches": [
+        "\"Q_5\" \"total domination\" \"1600\"",
+        "\"Q5\" \"paired domination\" \"1120\"",
+        "paired domination hypercubes minimum paired dominating configurations exchange graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gorzkowska--Henning--Pilsniak--Tumidajewicz, Total and paired domination stability in prisms, Discuss. Math. Graph Theory 43 (2023), 1147-1169, DOI 10.7151/dmgt.2421 Table 2: gamma_pr(Q5)=8 (known).",
+        "Direct comparison with that table shows it has one minimum cardinality, not counts of 1600 total or 1120 paired, no orbit/stabilizer counts and no exchange graph."
+      ],
+      "reasoning": "The exact minimum eight is already tabulated, but none of the claimed equality classifications is an entry in the inspected table. The values 1600,1120 and 40,120,480,480,480 were derived by complete parity-block and orbit calculations and verified independently; an unindexed tabulation remains possible.",
+      "searches": [
+        "\"Q5\" \"paired domination\" \"1120\"",
+        "\"Q_5\" \"total domination\" \"1600\"",
+        "paired domination hypercubes minimum paired dominating configurations exchange graphs"
+      ]
+    },
+    "rationale": "The exact optimum eight is already known (Gorzkowska et al. Table 2) and is not presented as new. The new claim determines all optimum total and paired sets, a five-type orbit split and their completely edgeless exchange graphs. Neither the accessible foundational abstracts nor the inspected 2023 hypercube text covers those equality-case and exchange classifications. Closest source comparisons and access limits are explicit.",
+    "residual_risks": [
+      "Full text of Haynes--Slater (1998) and Bresar--Henning--Rall (2007) unavailable; abstract-only comparisons are limited.",
+      "An unindexed exhaustive classification of eight-point hypercube domination or code-theoretic equivalents might already imply the five orbit counts or exchange isolation.",
+      "No independent human priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces paired domination and general bounds; accessible abstract does not present Q5 orbit or exchange classification; full text unavailable, comparison qualified",
+        "evidence": [
+          "First published 1998-12-07 at publisher",
+          "Abstract explicitly defines matching backup requirement and states general inequalities"
+        ],
+        "identifier_or_url": "doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+        "material_read": "Publisher abstract, dated bibliographic information and references, not the entire article",
+        "method": "Publisher webpage and university institutional abstract listing",
+        "title": "Paired-domination in graphs",
+        "trigger": "Original paired-domination definition and earliest source-date anchor"
+      },
+      {
+        "assessment": "Bounds for paired domination of products; no accessible equality-case classification, but full-text implication risk preserved",
+        "evidence": [
+          "Abstract: gamma_pr(G square H) lower bound in terms of 3-packings",
+          "Journal publication date 2007-06-09"
+        ],
+        "identifier_or_url": "https://utilitasmathematica.com/index.php/Index/article/view/485",
+        "material_read": "Journal article abstract and metadata; full text not accessible",
+        "method": "Journal landing-page reading",
+        "title": "Paired-domination of Cartesian products of graphs",
+        "trigger": "General product theorem potentially subsuming hypercube parameter claims"
+      },
+      {
+        "assessment": "Table 2 contains gamma_pr(Q5)=8; section studies numerical invariant and deletion stability. No 1600/1120 equality-case census, symmetry orbit or one-for-one optimum reconfiguration coverage in these relevant sections",
+        "evidence": [
+          "Sect. 4.1 Table 2 shows Q5 paired domination number 8",
+          "Theorem 12 is about gamma_pr removal stability in powers-of-two dimensions",
+          "Sect. 1 defines paired domination and deletion stability"
+        ],
+        "identifier_or_url": "https://galaxy.agh.edu.pl/~pilsniak/51.pdf",
+        "material_read": "Article introduction/definitions, known-results section and complete Sect. 4.1 hypercube subsection incl. Table 2 and Thm 12, plus adjacent subsequent material; not every page of unrelated prism sections",
+        "method": "Lawful open author-hosted PDF, parsed text and visually inspected hypercube page 12",
+        "title": "Total and paired domination stability in prisms",
+        "trigger": "Highly relevant study explicitly mentioning hypercubes and their paired domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a6429e3-f28a-4f46-8e64-4a9f22b0c328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Five-cube guard deployment with an adjacent backup match is a natural finite optimization problem at the smallest five-dimensional nontrivial case: the previously known optimum cardinality does not reveal that 480 of 1600 minimum total solutions fail the matching condition, that the others fall into four matching orbits, or that every optimum total and paired configuration is frozen under one-token exchanges. The exact orbit decomposition is a complete structural classification, not an arbitrary partial enumeration; it is relevant to robustness of optimal deployment under one-at-a-time changes.",
+    "status": "PASS"
+  }
+}
