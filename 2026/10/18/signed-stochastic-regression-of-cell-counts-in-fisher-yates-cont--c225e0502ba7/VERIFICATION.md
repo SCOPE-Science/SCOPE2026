@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The script directly enumerates the stated uniform permutations for 151 selected positive-margin pairs with total size at most six, tests the complete upper-tail conditional-order inequalities using exact rational fractions, and separately verifies all displayed cell-count covariance formulas. The observed output was `PASS: 151 distinct positive-margin pairs; 48818 exact rational conditional tail comparisons and covariance identities; all permutations of size <= 6 used for each case.`
+## correctness
 
-Finite exhaustive checks are corroboration. Arbitrary-size correctness depends on the nested hypergeometric couplings and covariance symmetrization in `RESULT.md`. Independent audit has not been performed.
+PASS
+
+Conditioned on cell count X=x, selected labels in its row outside the specified column form a uniform subset, so a same-row Y is H(N-b_j,b_l,a_i−x); inversion of the permutation gives the corresponding same-column law. Distinct row and column: K=|pi(A_i) cap B_l| is H(N-b_j,b_l,a_i−x), then Y|K=k is H(N-a_i,b_l−k,a_k). Nested-population and nested-sample hypergeometric couplings give K down and therefore Y up when x rises. Condition on admissible supports avoids improper hypergeometric parameters. Symmetrization of Cov(f(X),E[g(Y)|X]) gives signs for nondecreasing transforms, including negatives of empty indicators; elementary permutation indicator expansion yields exact standard count covariances. This proves the full all-N result beyond enumeration.
+
+## originality
+
+PASS
+
+Fisher–Yates mass formula, covariance and sampling without replacement are classical; tested claim is stronger direction-dependent conditional stochastic regression for every cell pair and zero-event signs. Three inspected primary papers address distribution, asymptotics, and double-coset Markov dynamics, not that complete regression theorem. Older negative-regression literature is genuine residual risk.
+
+## value
+
+PASS
+
+Pairwise dependence of sparse and zero cells is a natural question in exact conditional inference for fixed-margin categorical data. The all-threshold signs strictly strengthen linear covariance and distinguish adjacent versus opposite cells, supplying a reusable monotonicity principle with explicit support and finite-sample scope; it does not claim global table association.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
