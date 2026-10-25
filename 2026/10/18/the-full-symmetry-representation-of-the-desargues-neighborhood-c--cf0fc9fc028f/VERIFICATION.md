@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility and limits
+# Independent mathematical audit
 
-Execute `python check_characters.py` and `python check_homology.py` with Python 3 standard library only. Each program builds the simplex list independently rather than relying on stored matrices or screenshots.
+## correctness
 
-`check_characters.py` checks exactly 10 vertices, 30 edges, ten 2-faces per component; all 120 symmetric-group permutations; their 7 conjugacy-class signed chain traces and homology characters; every degree-five Specht character via Jacobi–Trudi; the exact irreducible decomposition; all 60 full flags of a component in one orbit. It also checks that every 1-simplex is associated to just one 2-simplex.
+PASS
 
-`check_homology.py` independently constructs the 10-by-30 first boundary and 30-by-10 second boundary, verifies boundary composition zero and exact ranks 9 and 10 using rational Gaussian elimination, constructs 21 fundamental integral graph cycles, quotients by ten primitive triangle relations, and computes actual quotient-homology linear maps for one representative of each of the seven cycle types. Their traces agree with the claimed character values without relying on signed Lefschetz traces or supplied irreducible tables.
+Independently regenerated one component as the 10 two-subsets of [5], with all 30 edges and 10 triangular facets, and verified that each edge lies in exactly one triangle. The connected triangular graph has rank(∂1)=9 and ten independent primitive triangle boundaries, giving free integral H1 rank 11 and H2=0. Enumerated all 120 S5 permutations and signed fixed-face traces by seven classes: (11,-1,-1,-1,-1,1,1), agreeing with characters of S^(3,1,1) and S^(2,2,1); complementation swaps the two components. Independently checked all 60 vertex-edge-face flags form one S5 orbit; after barycentric subdivision the inversion-free orbit quotient has precisely one simplex of each rank-pattern and is homeomorphic to Δ². No integral Specht lattice decomposition claimed.
 
-The structural derivation of the integral free-abelian homology uses a unit 10-by-10 boundary minor, not merely a finite-field rank. The global orbit-space result uses transitivity of complete flags and the inversion-free barycentric subdivision action, not homology averaging. Both checkers terminate with explicit PASS lines. Independent audit and any claim of exhaustive bibliographic priority remain unperformed.
+## originality
+
+PASS
+
+Shukla covers the wedge-of-circles shape for subcubic neighborhood components, and Mirafzal covers bipartite Kneser graph automorphisms; neither establishes the Desargues-specific full homology character or geometric quotient. Published Resultary matching-complex and Čech results use different functors, and the KG(6,2) character concerns a different graph. The new complete equivariant invariants are not obtained from ordinary Betti ranks or the automorphism-group statement.
+
+## value
+
+PASS
+
+The Desargues graph is the canonical Levi graph of the (10_3) configuration, with natural full automorphism action. Exact irreducible rational constituents and the orbit-quotient topology are meaningful intrinsic equivariant invariants, supplying symmetry information absent from the known general wedge-of-circles theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

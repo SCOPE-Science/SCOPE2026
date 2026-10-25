@@ -1,15 +1,21 @@
-# Scientific review: Desargues neighborhood homology symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definition fixes the open-neighborhood convention, the 20 vertices, and the full symmetry group. Its complex splits into two disjoint components. In one component the ten 2-subset vertices support exactly 30 distinct edges and ten distinct triangular facets, with a unique free edge per triangle. The connected one-skeleton has first graph cycle rank 21; the ten primitive independent triangle boundaries reduce this to free integral first-homology rank 11 and kill second homology. Exact signed oriented simplex traces establish the seven-class \(S_5\) character \((11,-1,-1,-1,-1,1,1)\). The Jacobi–Trudi character calculation and orthogonality identify the two rational Specht constituents. Complementation interchanges components and gives the stated \(C_2\) action. Finally the complete 60 flags of one component form a single \(S_5\) orbit, making the barycentric orbit quotient a single closed triangle. The two supplied checkers independently verify signed-chain characters and explicit rational homology matrices. Correctness does not rely on interpreting finite tests as a proof of an infinite family; the claim itself concerns one finite graph.
+## correctness
 
-## Originality — PASS, residual literature risk
-Kahle's 2005 public account provides the neighborhood-complex setting but addresses random graphs. Shukla's theorem proves that cubic-graph neighborhood components are wedges of circles or contractible, subsuming the **form** of the nonequivariant homotopy classification; the present result does not claim that as a new theorem. Mirafzal's bipartite Kneser theorem supplies the exact automorphism group but no induced topological representation. Schultz's stable-Kneser equivariant theory concerns a different graph family and generally a different symmetry action; none of the material inspected identifies this specific 22-dimensional rational \(S_5\times C_2\) module or proves that the full orbit space is a triangle. Relevant public records on Desargues matching complexes and the icosahedral neighborhood complex involve different simplicial functors or graphs. Equivalence, specialization from a stronger theorem, and unindexed historical computations remain live bibliographic risks, but no stronger applicable coverage has been found.
+PASS
 
-## Value — PASS
-The Desargues Levi graph is a canonical exceptionally symmetric cubic configuration. Distinguishing the nonisomorphic 6- and 5-dimensional Specht constituents inside its two 11-dimensional first-homology components, the sign action on reduced degree zero, and the unexpected simplicity of the full orbit quotient reveals intrinsic equivariant topology not supplied by component counts or ordinary Betti numbers. These are natural, complete invariants of a named object under its entire automorphism group, with a transparent exact independent chain verification method. No broader theorem is implied.
+Independently regenerated one component as the 10 two-subsets of [5], with all 30 edges and 10 triangular facets, and verified that each edge lies in exactly one triangle. The connected triangular graph has rank(∂1)=9 and ten independent primitive triangle boundaries, giving free integral H1 rank 11 and H2=0. Enumerated all 120 S5 permutations and signed fixed-face traces by seven classes: (11,-1,-1,-1,-1,1,1), agreeing with characters of S^(3,1,1) and S^(2,2,1); complementation swaps the two components. Independently checked all 60 vertex-edge-face flags form one S5 orbit; after barycentric subdivision the inversion-free orbit quotient has precisely one simplex of each rank-pattern and is homeomorphic to Δ². No integral Specht lattice decomposition claimed.
 
-## Limitations and risk
-This is a one-graph theorem, with irreducible decomposition over \(\mathbb Q\) only; it does not assert uniqueness in the entire mathematical literature. The exact historical first appearance of any logically equivalent symmetry computation has not been independently established. Standalone code verifies finite data, while the written proof accounts for the structural implications. Independent human review is still necessary for any publication-level priority assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shukla covers the wedge-of-circles shape for subcubic neighborhood components, and Mirafzal covers bipartite Kneser graph automorphisms; neither establishes the Desargues-specific full homology character or geometric quotient. Published Resultary matching-complex and Čech results use different functors, and the KG(6,2) character concerns a different graph. The new complete equivariant invariants are not obtained from ordinary Betti ranks or the automorphism-group statement.
+
+## value
+
+PASS
+
+The Desargues graph is the canonical Levi graph of the (10_3) configuration, with natural full automorphism action. Exact irreducible rational constituents and the orbit-quotient topology are meaningful intrinsic equivariant invariants, supplying symmetry information absent from the known general wedge-of-circles theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
