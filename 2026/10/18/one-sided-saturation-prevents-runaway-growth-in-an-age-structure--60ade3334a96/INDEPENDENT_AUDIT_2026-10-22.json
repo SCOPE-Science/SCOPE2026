@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T21:03:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Logistic comparison gives x(t)<=2(r+sh)/a=L eventually. The renewal birth flux is bounded by KxP, mortality between m=mu_M exp(-rho L)>0 and M=gL+||mu_B||inf+mu_M, so P'<=KLP. On every full maturation interval all age-t−T survivors are adults at t, and survival>=e^(-MT), hence y2(t)>=e^(-MT)P(t−T)>=exp[-(M+KL)T]P(t)=cP(t). Choosing q=bc/(2K) and V=x+qP cancels half the xP growth and gives V'<=(C+m)L-mV for t after t0+T. Comparison supplies exact stated absorbing bound; local continuation follows prey logistic and finite-time Gronwall P bound with renewal flux controlled. Uniform global background-mortality bound is essential and explicitly assumed. Independently tested 30,000 admissible parameter/point configurations for coercive mixed-term algebra and bounds. Neither prior numerical plots nor these finite tests are a universal PDE proof; the characteristic inequality is.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original model article provides local theory and describes saturation of both mechanisms for boundedness, not an absorbing bound with original kxA_nu.",
+          "Prior weighted-mass theorem is conditional finite-time continuation and expressly does NOT prove uniform long-time boundedness.",
+          "Age-structured delayed model in Cai et al uses different recruitment/feedback terms; model equivalence not established."
+        ],
+        "reasoning": "Neither a broader boundedness theorem nor a general comparison theorem with assumptions demonstrably encompassing the present exact renewal cohort bounds was located in sources read.",
+        "searches": [
+          "Original Suarez et al Journal of Mathematical Biology 92 (2026) 73 Sections 2 and 7",
+          "Resultary 2026/10/4/SCOPE-a-weighted-mass-criterion-rules-out-finite-time-blow-up-in-the-u--f7bb68e6217e",
+          "Cai–Li–Song–Yu 2007 age-structured prey predator delay stability"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2502.19748 full original role-reversal model and saturation discussion",
+        "doi:10.1007/s00285-026-02402-5 current journal version overview",
+        "Resultary/2026 earlier unsaturated finite-time weighted mass complete RESULT.md",
+        "doi:10.1155/2007/54861 bibliographic/abstract scope",
+        "Frozen assigned result, age characteristic proof and verification scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier two-sided saturation changes recruitment kx to a bounded function of x; present theorem retains kxAν.",
+          "Earlier unsaturated theorem yields at most exponential V(t) under balance inequalities; here ultimate P bound is independent of initial masses and balance assumptions."
+        ],
+        "reasoning": "The delayed adult-fraction inequality y2(t)>=cP(t) after transient is specific, nontrivial mechanism not provided by weaker global continuation or bounded-recruitment statements.",
+        "searches": [
+          "arxiv:2502.19748 full Section 7 saturation equations (42) and (43)",
+          "Resultary/2026 2026/10/4/SCOPE-a-weighted-mass-criterion-rules-out-finite-time-blow-up-in-the-u--f7bb68e6217e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original 2026 Suarez–Cameron–Fagan–Levy discussion proposes saturating prey term AND fecundity, not only prey benefit.",
+          "Closest Resultary weighted-mass finite-time continuation criterion applies to original unsaturated prey term under g>k and 2sk<=b(g−k) and gives at most V<=V0e^{Ct}, not uniform limsup."
+        ],
+        "reasoning": "Different notions of numerical runaways, finite-time non-blowup and uniform-in-initial-mass ultimate dissipativity were not conflated. No same mathematical model implication from the original conditional Gronwall bound was found.",
+        "searches": [
+          "Resultary: age structured role reversal predator prey one sided saturation juvenile benefit unsaturated fecundity uniform ultimate boundedness renewal cohort adult fraction",
+          "Suarez et al role reversal model saturation discussion",
+          "weighted Lyapunov predator renewal absorbing ball"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical simulations/parameter tables cannot supply the all-initial-state, all-admissible-parameter absorbing estimates or full-age survivor fraction."
+        ],
+        "reasoning": "An exact quantitative PDE absorbing bound, not a finite invariant table; no precomputed source or empirical chart supplies or dominates it.",
+        "searches": [
+          "Resultary age structured role reversal boundedness",
+          "Suarez 2026 numerical Latin hypercube phase diagrams"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/statement comparison, not mere keyword or parameter match: Different notions of numerical runaways, finite-time non-blowup and uniform-in-initial-mass ultimate dissipativity were not conflated. No same mathematical model implication from the original conditional Gronwall bound was found. Neither a broader boundedness theorem nor a general comparison theorem with assumptions demonstrably encompassing the present exact renewal cohort bounds was located in sources read. The delayed adult-fraction inequality y2(t)>=cP(t) after transient is specific, nontrivial mechanism not provided by weaker global continuation or bounded-recruitment statements.",
+      "residual_risks": [
+        "Requires global upper bound on μ_B over all ages; the theorem does NOT hold for arbitrary locally bounded age mortality by the given cohort proof.",
+        "The explicit attracting bound is conservative and no persistence/periodic orbit stability is established.",
+        "Other dissipativity theory for semilinear age PDEs may contain a logically equivalent criterion under a general theorem; no absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The proposed stabilizing change saturates two mechanisms; source does not state one-sided absorbing theorem",
+          "evidence": [
+            "Age-structured KMRE renewal model; Section 7 modifies prey benefit and predator fecundity"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.19748",
+          "material_read": "Accessible full original text, model definitions, local existence and Section 7 saturation discussion including equations (42),(43)",
+          "method": "Primary full-text comparative reading",
+          "title": "A predator-prey model with age-structured role reversal",
+          "trigger": "Original exact age-structured birth/death equation and saturation proposal"
+        },
+        {
+          "assessment": "Parameter-restricted Gronwall continuation theorem; explicitly not an ultimate absorbing estimate",
+          "evidence": [
+            "Its V'<=CV gives V0 exp(Ct), and limitation says does not prove uniform t→∞ bound"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-weighted-mass-criterion-rules-out-finite-time-blow-up-in-the-u--f7bb68e6217e/RESULT.md",
+          "material_read": "Entire primary RESULT.md including model, proof and explicit limitations",
+          "method": "Read published Git result in full",
+          "title": "A weighted-mass criterion rules out finite-time blow-up in the unsaturated age-structured role-reversal model",
+          "trigger": "Closest same mathematical model Resultary bound"
+        },
+        {
+          "assessment": "Different age/stage dynamics, incomplete whole-document comparison",
+          "evidence": [
+            "Cai–Li–Song–Yu 2007 different system; noncoverage beyond visible source not asserted"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2007/54861",
+          "material_read": "Published bibliographic/title/abstract context only; not full text",
+          "method": "Bibliographic and accessible topical comparison",
+          "title": "Permanence and stability of an age-structured prey-predator system with delays",
+          "trigger": "Potential earlier broad delayed predator-prey dissipativity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mathematically consequential ecological-model design question is whether saturating BOTH interacting birth and benefit terms is necessary to rule out runaway growth. This theorem proves one-sided prey-benefit saturation suffices even with unbounded predator fecundity as prey increases and without cross-conversion restrictions, using delayed adult-cohort coercivity; gives quantitative absorbing bounds for infinite-age renewal equations rather than simulation-based claims.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2502.19748 full original role-reversal model and saturation discussion",
+    "doi:10.1007/s00285-026-02402-5 current journal version overview",
+    "Resultary/2026 earlier unsaturated finite-time weighted mass complete RESULT.md",
+    "doi:10.1155/2007/54861 bibliographic/abstract scope",
+    "Frozen assigned result, age characteristic proof and verification scope"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires global upper bound on μ_B over all ages; the theorem does NOT hold for arbitrary locally bounded age mortality by the given cohort proof.",
+    "The explicit attracting bound is conservative and no persistence/periodic orbit stability is established.",
+    "Other dissipativity theory for semilinear age PDEs may contain a logically equivalent criterion under a general theorem; no absolute priority claim."
+  ],
+  "residual_risks": [
+    "Requires global upper bound on μ_B over all ages; the theorem does NOT hold for arbitrary locally bounded age mortality by the given cohort proof.",
+    "The explicit attracting bound is conservative and no persistence/periodic orbit stability is established.",
+    "Other dissipativity theory for semilinear age PDEs may contain a logically equivalent criterion under a general theorem; no absolute priority claim."
+  ],
+  "schema_version": 1
+}
