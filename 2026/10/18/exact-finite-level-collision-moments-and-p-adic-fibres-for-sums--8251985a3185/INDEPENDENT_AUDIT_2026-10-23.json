@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:14:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p≥5 and all n≥0, count R_(p,n)(a) for x³+y³=a mod p^n. Mod p, nonsingular roots at all (x,y)≠(0,0); unit fibres lift with p^(n−1), divisible target nonsingular fibres contribute c_p p^n (c_p=gcd(3,p−1)(p−1)/p). Singular branch with x,y divisible by p exists only if p³|a and contributes p^4 R_(p,n−3)(a/p³), accounting for redundant last digits. Cubic character convolution gives sum of squares S_p, including |Jacobi(χ,χ)|²=p; averaging squared recurrences yields M_n−L_p=p^(−1)(M_(n−3)−L_p), with explicit initial M0/M1/M2 and L_p=1+gamma_p/p+1/p² (gamma=7 or1 mod3). Iterating valuation shells produces F_p(T)=c_p(p^k−1)/(p−1)+p^k B(U), Haar shell mass ≍p^(−3k), and sharp L^s iff 0<s<3. Independent complete convolution of residues for ten tested (p,n) pairs corroborated all exact rational formulas, not a proof for unbounded n,p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Massarenti 2026 Corollary 8.3 full open paper; Brüdern–Vaughan 2021 Theorems 1.1–1.4 and definitions"
+        ],
+        "reasoning": "Massarenti Corollary 8.3 gives #F_p points of Fermat cubic surface p²+γp+1, explaining L_p; this yields only the limit moment constant, not the n mod3 geometric correction or all limiting target densities. Brüdern–Vaughan proves global progression variance, whose broad analytic setting does not mechanically furnish the exact finite-level arithmetic statement.",
+        "searches": [
+          "two cubes x^3+y^3 p-adic fibre density collision second moments recurrence Lp integrability",
+          "Fermat cubic p-adic collision moments",
+          "https://link.springer.com/article/10.1007/s40879-021-00495-4",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/tlm3.70028",
+          "https://doi.org/10.1017/S0305004110000320"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "Brüdern–Vaughan 2021 primary OA HTML",
+        "Massarenti 2026 primary OA HTML Section 8 Corollary 8.3",
+        "Swinnerton-Dyer 2010 bibliographic reference",
+        "Resultary cube/collision queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Massarenti Corollary 8.3; frozen RESULT.md Steps 2–4 singular p^4 branch; Brüdern–Vaughan modular count definitions"
+        ],
+        "reasoning": "Standard Hensel lifting and local zeta recursions may recover the p^(−1) three-step moment law once cubic surface counts are known, so novelty is a concrete explicit joint theorem rather than claiming new tools. It is not an immediate inference from the single limiting constant alone; the isolated singular residue and sharp L³ threshold require additional analysis.",
+        "searches": [
+          "two cubes x^3+y^3 p-adic fibre density collision second moments recurrence Lp integrability",
+          "Fermat cubic p-adic collision moments",
+          "https://link.springer.com/article/10.1007/s40879-021-00495-4",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/tlm3.70028",
+          "https://doi.org/10.1017/S0305004110000320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "frozen RESULT.md theorem and Step 3; modular ρ(q,a) notation in Brüdern–Vaughan 2021"
+        ],
+        "reasoning": "The moment M_n is a normalized additive energy of the cubic-sum map, equivalently an ordered quadruple count of x³+y³=u³+v³ mod p^n. The p-adic fibre recurrence is an equivalent local-density formulation; these are the same mathematical claim, not two independent discoveries.",
+        "searches": [
+          "two cubes x^3+y^3 p-adic fibre density collision second moments recurrence Lp integrability",
+          "Fermat cubic p-adic collision moments",
+          "https://link.springer.com/article/10.1007/s40879-021-00495-4",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/tlm3.70028",
+          "https://doi.org/10.1017/S0305004110000320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Massarenti 2026 Corollary 8.3; frozen RESULT.md M_n recursion and fibre law"
+        ],
+        "reasoning": "The finite-field Fermat surface point-count table is already known and explicitly excluded from novelty. The result goes beyond it by giving all n and valuation-class-dependent fibres, which no exact p-adic fibre table was located among inspected sources.",
+        "searches": [
+          "two cubes x^3+y^3 p-adic fibre density collision second moments recurrence Lp integrability",
+          "Fermat cubic p-adic collision moments",
+          "https://link.springer.com/article/10.1007/s40879-021-00495-4",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/tlm3.70028",
+          "https://doi.org/10.1017/S0305004110000320"
+        ]
+      },
+      "rationale": "The finite-field limiting numeric constant L_p is already available from Fermat cubic surface point counts (Massarenti 2026 Corollary 8.3) and is not claimed alone novel. Brüdern–Vaughan 2021 analyzes asymptotic variance of positive two-cube representations over progressions and uses modular counts, but does not in inspected relevant primary text give every finite p-power collision moment and Haar fibre law. The new joint all-prime finite-level closed formula plus exact limiting target densities and endpoint L^3 divergence remains a distinct assertion; Igusa local zeta/Poincare machinery may imply portions or all indirectly, priority residual.",
+      "residual_risks": [
+        "General Igusa local zeta function or Poincare-series literature may subsume finite-level fibre counts and integrability; full exhaustive coverage not established.",
+        "Finite-field limit constant L_p is demonstrably known and cannot be promoted as a new standalone finding.",
+        "No claims for p=2 or3 or global integer representation sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "studies global positive-cube arithmetic progressions and large-scale variance, distinct from all p^n finite residue fibre and Haar law",
+          "evidence": [
+            "Theorems 1.1–1.4 describe global asymptotic variances",
+            "ρ(q,a) appears as auxiliary congruence count"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40879-021-00495-4",
+          "material_read": "open-access full-text article introduction, theorem statements, modular-count notation and relevant arguments",
+          "method": "publisher OA HTML primary source",
+          "title": "A Montgomery–Hooley Theorem for sums of two cubes",
+          "trigger": "same arithmetic object x³+y³ and local modular representation counts"
+        },
+        {
+          "assessment": "covers limiting projective point count p²+γp+1; does not state full prime-power moment sequence/fibre distribution in inspected material",
+          "evidence": [
+            "Corollary 8.3 count q²+7q+1 if p≡1 mod6 and q²+q+1 for other prime q=p, p≥5",
+            "new theorem studies complete residue fibres for every p^n"
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/tlm3.70028",
+          "material_read": "open-access primary article, Theorem 1.1 and Section 8 Lemma 8.2/Corollary 8.3 with point-count proof",
+          "method": "publisher OA HTML primary full text",
+          "title": "Rational points on even-dimensional Fermat cubics",
+          "trigger": "potential stronger same normalized collision constant via Fermat cubic surface"
+        },
+        {
+          "assessment": "prior finite-field point counts plausibly known; no claim of noncoverage of unread full text",
+          "evidence": [
+            "finite-field cubic-surface arithmetic, not independently inspected p-adic fibres"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0305004110000320",
+          "material_read": "bibliographic details only, mathematical full text not inspected",
+          "method": "source-package bibliographic reference",
+          "title": "Cubic surfaces over finite fields",
+          "trigger": "classical cubic surface finite-field point counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural map (x,y)↦x³+y³ over Z/p^n has exact collision energy and local fibre densities; the exact modulus-depth correction and sharp integrability threshold quantify concentration at the isolated cubic singularity. These are natural arithmetic invariants useful independently of global positive integer sums, not a known-table recomputation or a one-prime finite curiosity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md and verify.py",
+    "Brüdern–Vaughan 2021 primary OA HTML",
+    "Massarenti 2026 primary OA HTML Section 8 Corollary 8.3",
+    "Swinnerton-Dyer 2010 bibliographic reference",
+    "Resultary cube/collision queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General Igusa local zeta function or Poincare-series literature may subsume finite-level fibre counts and integrability; full exhaustive coverage not established.",
+    "Finite-field limit constant L_p is demonstrably known and cannot be promoted as a new standalone finding.",
+    "No claims for p=2 or3 or global integer representation sums."
+  ],
+  "schema_version": 1
+}

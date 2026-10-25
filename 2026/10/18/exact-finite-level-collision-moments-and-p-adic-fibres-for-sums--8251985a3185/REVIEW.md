@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The result is a single uniform classification for primes at least five. Finite-field cubic-character convolution gives the unit representation counts and exact square sum; nonsingular Hensel lifting and the \(p^4\) singular origin count give the recursive target law. Averaging its square yields an explicit three-step moment recurrence, with independently checked base cases, and shell-wise domination gives the \(L^s\) boundary. The provided verifier checks 22 complete residue distributions and all associated exact moments. The infinite quantifiers are supported by the symbolic proof, not finite sampling. The singular point and primes two and three are explicitly excluded as appropriate.
+## correctness
 
-## Originality: PASS with residual risk
-The motivating 2021 variance paper does not state the uniform finite-level or fibre-distribution theorem. A separately known seven-adic specialization is subsumed and is not independently claimed. The 2026 Fermat cubic finite-field point-count result already implies the limiting collision constant; that constant is not independently claimed as new. The additional exact depth-by-depth correction, all-prime fibre law and critical moment threshold have not been located as a previously stated joint theorem. A generic local-zeta or Poincare-series theorem could implicitly contain the finite-level formula, and this is the leading unresolved priority risk; no uniqueness claim follows from the search.
+PASS
 
-## Mathematical value: PASS
-The local collision sequence controls a natural arithmetic variance at every prime power, with explicit ramification-depth dependence unavailable from a finite-field count alone. The exact distribution identifies how p-adic singular fibres create divergence at the cubic exponent. The prime-splitting dichotomy and the uniform extension beyond one isolated prime provide structural motivation rather than an arbitrary finite invariant.
+For p≥5 and all n≥0, count R_(p,n)(a) for x³+y³=a mod p^n. Mod p, nonsingular roots at all (x,y)≠(0,0); unit fibres lift with p^(n−1), divisible target nonsingular fibres contribute c_p p^n (c_p=gcd(3,p−1)(p−1)/p). Singular branch with x,y divisible by p exists only if p³|a and contributes p^4 R_(p,n−3)(a/p³), accounting for redundant last digits. Cubic character convolution gives sum of squares S_p, including |Jacobi(χ,χ)|²=p; averaging squared recurrences yields M_n−L_p=p^(−1)(M_(n−3)−L_p), with explicit initial M0/M1/M2 and L_p=1+gamma_p/p+1/p² (gamma=7 or1 mod3). Iterating valuation shells produces F_p(T)=c_p(p^k−1)/(p−1)+p^k B(U), Haar shell mass ≍p^(−3k), and sharp L^s iff 0<s<3. Independent complete convolution of residues for ten tested (p,n) pairs corroborated all exact rational formulas, not a proof for unbounded n,p.
 
-## Closest literature and limitations
-Brüdern--Vaughan (2021) concerns global arithmetic-progressions variance. Massarenti (2026), Corollary 8.3, contains a stronger prior statement for the *limiting numerical constant*, but does not state the finite-depth correction or the fibre distribution. General smooth-cubic point counts, e.g. Swinnerton-Dyer (2010), are relevant background. No result for primes two or three, global integer representations, or independent expert certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-field limiting numeric constant L_p is already available from Fermat cubic surface point counts (Massarenti 2026 Corollary 8.3) and is not claimed alone novel. Brüdern–Vaughan 2021 analyzes asymptotic variance of positive two-cube representations over progressions and uses modular counts, but does not in inspected relevant primary text give every finite p-power collision moment and Haar fibre law. The new joint all-prime finite-level closed formula plus exact limiting target densities and endpoint L^3 divergence remains a distinct assertion; Igusa local zeta/Poincare machinery may imply portions or all indirectly, priority residual.
+
+## value
+
+PASS
+
+The natural map (x,y)↦x³+y³ over Z/p^n has exact collision energy and local fibre densities; the exact modulus-depth correction and sharp integrability threshold quantify concentration at the isolated cubic singularity. These are natural arithmetic invariants useful independently of global positive integer sums, not a known-table recomputation or a one-prime finite curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
