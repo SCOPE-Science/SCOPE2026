@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T15:13:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/logarithmic-singular-value-counting-and-spectral-band-splitting--8b8cd7b837b4/RESULT.md",
+        "/mnt/data/scope_worker_08_20261022T1454_delivery/independent_checks.py",
+        "/mnt/data/scope_worker_08_20261022T1454_delivery/independent_checks_output.txt"
+      ],
+      "rationale": "At fixed ω≠0, piecewise constant embedding of A_N=[C_N,diag(j^{iω})] into [H,M_{x^{iω}}] on [1,N+1] has uniformly bounded S2 error by summing cell derivative bounds O_w(1/(jk)+1/j²). Logarithmic unitary conjugation gives finite Wiener-Hopf convolution with h(s)=1_{s≥0}e^{-s/2}(e^{-iωs}−1), symbol σ_w(ξ)=w/√((ξ²+1/4)((ξ+w)²+1/4)). Boundary compression correction E_L≥0 has uniformly bounded S1 trace ∫s|h|²; cyclic kernel integration proves 1/log N trace(A*A)^m→(2π)^−1∫σ_w^{2m}. Uniform S2 discrepancy transfers moments with O(sqrt(log N)) error. Weighted positive spectral measures, compact supports and no atoms at fixed t>0 imply normalized threshold counts. Completing square in ξ+w/2 yields q± roots and two-component superlevel set iff w>1 and 4w/(1+w²)<t<2; HS coefficient =2w²/(1+w²). Independent finite double-checks across w/t bands and N=128,512,2048 show expected convergence but do not prove the limit.",
+      "residual_risks": [
+        "Fixed positive frequency ω and threshold t; no uniformity as t→0 or growing ω.",
+        "Trace-moment proof requires S1 compression boundary control, explicitly inspected, not inferred from verifier logs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General singular-value distribution and Wiener-Hopf asymptotics are prior frameworks; explicit quartic σ_w and band threshold are not shown in examined source statements."
+        ],
+        "reasoning": "One can combine known general machinery with a nontrivial discrete HS transfer and quartic computation, so not claiming novel trace-moment principle. No directly dominating stated formula located.",
+        "searches": [
+          "Widom On Singular Values of Toeplitz Matrices",
+          "Rogozhin finite sections block Toeplitz",
+          "Bellavita/Stylogiannis Mellin calculus"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: oscillatory Cesàro matrix commutator j^{iω} singular value logarithmic distribution Mellin two spectral bands",
+        "Bellavita/Stylogiannis arXiv:2609.09453",
+        "Widom DOI:10.4171/ZAA/350",
+        "Resultary phase-velocity thresholds for Cesàro commutators",
+        "Resultary logarithmic spectral edge finite Cesàro matrices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mellin symbol computation is related to existing calculus but full text inspected lacks the present normalized count and explicit two-band transition; Widom concerns a general Toeplitz singular-value scheme."
+        ],
+        "reasoning": "The specific log-section asymptotic and sharp frequency splitting are not stated corollaries of the accessed prior results without mapping finite matrices and deriving geometry; residual general-theorem priority overlap remains.",
+        "searches": [
+          "Resultary discrete Mellin and phase velocity",
+          "Bellavita/Stylogiannis 2026 preprint full text",
+          "Widom 1989 singular values abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Discrete Mellin calculus identifies symbol/Calkin structure modulo compact/S2 perturbation, but does not state fixed-positive-t counting of finite modulated commutator sections.",
+          "Phase-velocity result concerns real-variable Cesàro and compactness/S2 classes, not discrete finite log-density."
+        ],
+        "reasoning": "Mellin equivalence is a proof ingredient, not the claimed sharp count/band split. A general Toeplitz/Szegő distribution theorem may subsume moment mechanics but explicit symbol and geometry still require validation.",
+        "searches": [
+          "Bellavita/Stylogiannis arXiv:2609.09453",
+          "Resultary phase-velocity Cesàro commutators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published finite Cesàro edge theorem gives fixed rank j≥2 for unmodulated C_N, not empirical tables of modulated commutator distribution; no exact database match."
+        ],
+        "reasoning": "Finite-rank singular-value data do not imply log N normalized all-positive-threshold count; generic tables are inapplicable to the all-N claim.",
+        "searches": [
+          "Resultary logarithmic spectral edge of higher singular values of finite Cesàro matrices",
+          "search Cesàro commutator singular-value table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Normalized modulated finite-section log spectral count and two-band algebra exceed cited generic Wiener–Hopf/Mellin frameworks as explicitly stated results.",
+      "residual_risks": [
+        "Complete historical-priority assurance is not possible from bounded literature search.",
+        "Full texts not read are not declared not covering; relevant inaccessible/unread literature remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general symbolic/essential norm results overlap framework, no stated normalized finite-section singular count/two-band transition",
+          "evidence": "Main results discuss discrete Mellin product calculus modulo compact/S2 and essential spectral behavior; not explicit M_N(t)/log N.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+          "material_read": "full accessible manuscript text ~1148 lines, including main theorem statements, symbols and compact/S2 remainders",
+          "method": "web HTML full text read",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "same discrete Mellin ratio-operator symbol and potential universal covering"
+        },
+        {
+          "assessment": "different real-variable space and compactness/Hilbert-Schmidt vs discrete finite-section counting",
+          "evidence": "Thresholds θ=1/2,1 for phase velocity; not a one/two-band symbol at frequency w=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-phase-velocity-thresholds-for-ces-ro-commutators-with-oscillator--b2f67a1e1e7a",
+          "material_read": "complete published RESULT.md through proof and limitations",
+          "method": "GitHub full file read",
+          "title": "Phase-velocity thresholds for Cesàro commutators with oscillatory multipliers",
+          "trigger": "another Cesàro commutator with phase frequencies"
+        },
+        {
+          "assessment": "fixed-rank unmodulated C_N edge not same operator or log-normalized bulk counts",
+          "evidence": "S_j(C_N)=2−4π²j²/(log N)²+o(...), j fixed, distinct from [C_N,D_ω] threshold density.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69",
+          "material_read": "complete published RESULT.md including Dirichlet minmax proof",
+          "method": "GitHub full file read",
+          "title": "Logarithmic spectral edge of higher singular values of finite Cesàro matrices",
+          "trigger": "log N finite Cesàro spectral asymptotics might dominate"
+        },
+        {
+          "assessment": "priority risk for moment method; no full-document noncoverage conclusion",
+          "evidence": "Generic Toeplitz singular value asymptotics potentially supply moment machinery.",
+          "identifier_or_url": "https://doi.org/10.4171/ZAA/350",
+          "material_read": "abstract/bibliographic description, no full article",
+          "method": "web abstract",
+          "title": "On the Singular Values of Toeplitz Matrices",
+          "trigger": "general spectral distribution theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/logarithmic-singular-value-counting-and-spectral-band-splitting--8b8cd7b837b4/RESULT.md",
+        "https://arxiv.org/abs/2609.09453",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-phase-velocity-thresholds-for-ces-ro-commutators-with-oscillator--b2f67a1e1e7a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69",
+        "https://doi.org/10.4171/ZAA/350"
+      ],
+      "rationale": "A sharp logarithmic density law for singular values of a naturally modulated discrete averaging operator, with complete even moments and explicit frequency-dependent topological splitting of its spectral superlevel bands at w=1. This gives nontrivial quantitative spectral geometry beyond general convolution calculus.",
+      "residual_risks": [
+        "The result establishes its stated exact invariant/domain, not a stronger universal theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive frequency ω and threshold t; no uniformity as t→0 or growing ω.",
+    "Trace-moment proof requires S1 compression boundary control, explicitly inspected, not inferred from verifier logs.",
+    "Potential public metadata privacy blocker is operational, not mathematical failure.",
+    "No formal Lean/expert certification inferred from code or independent calculations."
+  ],
+  "schema_version": 1
+}

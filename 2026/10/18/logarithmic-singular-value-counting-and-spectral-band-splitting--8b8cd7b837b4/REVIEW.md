@@ -1,15 +1,21 @@
-# Scientific review: modulated Cesàro singular-value counting
+# Independent mathematical audit
 
-## Correctness
-PASS. The comparison of the unit-cell sampled commutator with a truncated Hardy integral gives a uniform Hilbert–Schmidt error; the kernel inequality sums as a convergent series over lattice cells. The logarithmic unitary transform identifies a causal exponential convolution. The difference between the finite Gram operator and compressed full-line Gram convolution is positive trace class of uniformly bounded trace, permitting fixed-power trace comparison. Cyclic kernel integration proves moment limits; a weighted compactly supported spectral-measure argument recovers threshold counts, and solving the denominator quartic gives the two-band formula. The independent standard-library checker tests the explicit roots, density, and finite Frobenius sums; it is not offered as an infinite proof.
+## correctness
 
-## Originality
-PASS to the extent established by the documented searches, with residual historical priority risk. Brown–Halmos–Shields and Arvanitidis–Siskakis develop classical Cesàro operator theory. Bellavita–Stylogiannis establish a strong discrete Mellin operator calculus (including information modulo compacts), but the inspected result does not supply the logarithmic count of singular values exceeding a fixed level in the oscillatory finite sections, or the explicit two-band transition. Classical Wiener–Hopf and Toeplitz singular-value distribution theory contributes standard tools; no general Szegő principle, Fourier multiplier identity, or essential-norm theorem is claimed as new. A published result on Cesàro phase-velocity commutators concerns compactness and Hilbert–Schmidt criteria for a different real-variable operator, not this finite-section count. An equivalent special case under generalized locally Toeplitz or Mellin finite-section language cannot be ruled out by searches alone.
+PASS
 
-## Value
-PASS. The theorem yields a fully explicit, nontrivial count of singular values above each positive threshold on the correct logarithmic scale for a natural unitary modulation of a canonical averaging matrix. It distinguishes single-band and double-band superlevel geometry at a critical modulation frequency. These data go beyond operator norms and are pertinent to effective rank, finite-section approximation and spectral stability, with a standalone proof and verifier.
+At fixed ω≠0, piecewise constant embedding of A_N=[C_N,diag(j^{iω})] into [H,M_{x^{iω}}] on [1,N+1] has uniformly bounded S2 error by summing cell derivative bounds O_w(1/(jk)+1/j²). Logarithmic unitary conjugation gives finite Wiener-Hopf convolution with h(s)=1_{s≥0}e^{-s/2}(e^{-iωs}−1), symbol σ_w(ξ)=w/√((ξ²+1/4)((ξ+w)²+1/4)). Boundary compression correction E_L≥0 has uniformly bounded S1 trace ∫s|h|²; cyclic kernel integration proves 1/log N trace(A*A)^m→(2π)^−1∫σ_w^{2m}. Uniform S2 discrepancy transfers moments with O(sqrt(log N)) error. Weighted positive spectral measures, compact supports and no atoms at fixed t>0 imply normalized threshold counts. Completing square in ξ+w/2 yields q± roots and two-component superlevel set iff w>1 and 4w/(1+w²)<t<2; HS coefficient =2w²/(1+w²). Independent finite double-checks across w/t bands and N=128,512,2048 show expected convergence but do not prove the limit.
 
-## Boundaries and literature risk
-The result holds at each fixed positive frequency and positive level. No uniform small-level law, individual singular-value asymptotic, second-order counting remainder, or new general Wiener–Hopf theorem is claimed. The general 2026 Mellin calculus and classical singular-value asymptotic theories are significant nearby literature, and a known general theorem may imply parts of the result after additional identification. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Normalized modulated finite-section log spectral count and two-band algebra exceed cited generic Wiener–Hopf/Mellin frameworks as explicitly stated results.
+
+## value
+
+PASS
+
+A sharp logarithmic density law for singular values of a naturally modulated discrete averaging operator, with complete even moments and explicit frequency-dependent topological splitting of its spectral superlevel bands at w=1. This gives nontrivial quantitative spectral geometry beyond general convolution calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
