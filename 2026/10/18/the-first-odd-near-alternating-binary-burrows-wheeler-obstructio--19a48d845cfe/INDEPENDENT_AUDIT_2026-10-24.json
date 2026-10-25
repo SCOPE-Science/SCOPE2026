@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A primitive binary BWT word must start with 1 and end with 0, so for odd n>1 its run count is even and <=n-1. By published Lemma 8 (standard stable-rank LF permutation one n-cycle criterion), every candidate with n-1 runs corresponds exactly to one equal-adjacent gap, among n-1 positions; at n=49 every one of 48 candidates has orbit strictly <49, whereas each preceding odd n from 3 to 47 has at least one full-cycle candidate. A 46-run n=49 BWT has precisely three equal gaps; the complete 17296 possible gap triples contain exactly 1128 with one LF cycle, matching witness gap set (0,1,8). Independently recoded exhaustive singleton/triple enumeration and independently recreated results. Periodic necklace repetition leaves run number bounded by shorter primitive root length (for 49, 1 or 7), hence no missed extremizer. Finite result only for odd n<=49.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CPM 2026 nonbinary full-unclustered any-length and binary even-length discussion; 2017 studies clustering measure, not length-49 46-run extremizers."
+        ],
+        "reasoning": "Neither source, as inspected, implies the sharp odd-length census; nonbinary alphabet and even-length full-unclustered results have different quantification.",
+        "searches": [
+          "binary necklace Burrows Wheeler transform maximal run number odd length n=49 near alternating primitive cycle",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html",
+          "doi:10.1016/j.tcs.2017.07.015"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.tcs.2017.07.015",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published LF one-cycle test gives a method, not the evaluated 48 and 17296 candidate counts."
+        ],
+        "reasoning": "Deduction requires substantive exhaustive arithmetic; prior structural lemma alone cannot imply the specific first cutoff and extremizer multiplicity without that computation.",
+        "searches": [
+          "binary necklace Burrows Wheeler transform maximal run number odd length n=49 near alternating primitive cycle",
+          "doi:10.4230/LIPIcs.CPM.2026.13",
+          "doi:10.1016/j.tcs.2017.07.015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aperiodic necklace BWT images are exactly binary words whose stable LF permutation has one full n-cycle (published Lemma 8).",
+          "Near-alternating BWT with n-1 runs equals a one-equal-gap binary word for odd n."
+        ],
+        "reasoning": "The cycle criterion is known but enumeration of its very high-run cases at 49 and first failure is not the statement of earlier general BWT theory.",
+        "searches": [
+          "binary necklace Burrows Wheeler transform maximal run number odd length n=49 near alternating primitive cycle",
+          "doi:10.4230/LIPIcs.CPM.2026.13",
+          "doi:10.1016/j.tcs.2017.07.015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete 48-case singleton orbit table and C(48,3)=17296 triple table is computed at n=49."
+        ],
+        "reasoning": "Found no prior exact n=49 table with 1128 primitive 46-run binary BWT images; an unindexed computation remains a realistic priority risk.",
+        "searches": [
+          "binary necklace Burrows Wheeler transform maximal run number odd length n=49 near alternating primitive cycle",
+          "Resultary semantic search query #3",
+          "doi:10.4230/LIPIcs.CPM.2026.13"
+        ]
+      },
+      "rationale": "Fici–Gabory–Romana–Sciortino CPM 2026 supply the standard permutation criterion and nonbinary fully unclustered results; the published lemma number 8 was directly verified. Their binary even-length fully alternating topics and Mantaci et al ratio framework do not cover a first odd failure of near-alternating n-1 runs at 49 with multiplicity 1128.",
+      "residual_risks": [
+        "A nonindexed BWT run experiment may have already enumerated odd n=49 and the 1128 multiplicity, especially in the 2017 clustering literature.",
+        "The result is a sharp finite cutoff only; no assertion of later odd-length profile or an unbounded full-unclustered classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLE LEMMA PRIOR, SPECIFIC ODD 49 CENSUS NOT OBSERVED",
+          "evidence": [
+            "Lemma 8 states BWT primitive iff standard permutation is a full cycle; nonbinary main theorems do not tabulate odd binary length 49."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html",
+          "material_read": "Full accessible CPM 2026 HTML, including definitions, Lemma 8 and statements on alphabet-size cases.",
+          "method": "Read primary publication full HTML and arXiv PDF pages",
+          "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+          "trigger": "Same BWT image and permutation criterion; plausible broader run result"
+        },
+        {
+          "assessment": "PARTIAL RELEVANT, PRIORITY RISK",
+          "evidence": [
+            "Related binary run-count study could contain less-indexed finite extremum data."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.07.015",
+          "material_read": "Abstract/bibliography and scope from current research record; complete primary text not read.",
+          "method": "Abstract and existing scholarly summary",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "Binary BWT run maxima in prior clustering literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal BWT run count is natural for run-length-compressed string indexing and distinguishes almost fully unclustered binary necklaces. First parity-allowed extremum failure and exact count of extremizing necklaces are a sharp finite structural boundary at a nontrivial length, independently valuable despite no all-length asymptotic theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.tcs.2017.07.015",
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A nonindexed BWT run experiment may have already enumerated odd n=49 and the 1128 multiplicity, especially in the 2017 clustering literature.",
+    "The result is a sharp finite cutoff only; no assertion of later odd-length profile or an unbounded full-unclustered classification.",
+    "Administrative publication plan is not_ready because sanitized guarded public-file replacements were not supplied; scientific assessment alone does not change repository or certify publication."
+  ],
+  "schema_version": 1
+}

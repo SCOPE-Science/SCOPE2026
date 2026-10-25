@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A standard single-cycle BWT criterion, parity of binary transitions, and a bijective encoding by equal-adjacency positions reduce the entire finite claim to \(48\) candidate words for the upper bound at length \(49\), one candidate per position for each earlier odd length, and \(\binom{48}{3}=17296\) candidates for the sharp extremizer count. The standalone checker reconstructs each permutation from two independent descriptions and directly recomputes the BWT for all accepted candidates. Periodic necklaces have too few runs to change the extremum. The complete code and recorded output are included. The result does not extrapolate from finite samples.
+## correctness
 
-**Originality — PASS within the checked literature.** The full text of Fici–Gabory–Romana–Sciortino (2025 preprint; CPM 2026) establishes the nonbinary no-clustering constructions and the binary fully-unclustered Artin correspondence, but not the parity-ceiling first failure among odd lengths or this exact length-\(49\) count. The inspected Mantaci–Restivo–Rosone–Sciortino–Versari (2017) full-text postprint covers the fully-unclustered criterion and clustering ratios, not the stated odd-length extremum. Available indexed mathematical results were compared on implication; none established the binary length-49 result. Unindexed or differently formulated extremal BWT tables remain a risk, so this assessment is not independent certification.
+PASS
 
-**Value — PASS.** Binary BWT images are the exceptional alphabet in recent work on maximal run counts. The result identifies the first finite odd length where the natural parity ceiling actually fails and completely counts the sharp extremizers; it is a motivated and reproducible boundary phenomenon, not an arbitrary example or an incremental search record. The statement is finite and does not resolve the open infinite-length behavior.
+A primitive binary BWT word must start with 1 and end with 0, so for odd n>1 its run count is even and <=n-1. By published Lemma 8 (standard stable-rank LF permutation one n-cycle criterion), every candidate with n-1 runs corresponds exactly to one equal-adjacent gap, among n-1 positions; at n=49 every one of 48 candidates has orbit strictly <49, whereas each preceding odd n from 3 to 47 has at least one full-cycle candidate. A 46-run n=49 BWT has precisely three equal gaps; the complete 17296 possible gap triples contain exactly 1128 with one LF cycle, matching witness gap set (0,1,8). Independently recoded exhaustive singleton/triple enumeration and independently recreated results. Periodic necklace repetition leaves run number bounded by shorter primitive root length (for 49, 1 or 7), hence no missed extremizer. Finite result only for odd n<=49.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fici–Gabory–Romana–Sciortino CPM 2026 supply the standard permutation criterion and nonbinary fully unclustered results; the published lemma number 8 was directly verified. Their binary even-length fully alternating topics and Mantaci et al ratio framework do not cover a first odd failure of near-alternating n-1 runs at 49 with multiplicity 1128.
+
+## value
+
+PASS
+
+Maximal BWT run count is natural for run-length-compressed string indexing and distinguishes almost fully unclustered binary necklaces. First parity-allowed extremum failure and exact count of extremizing necklaces are a sharp finite structural boundary at a nontrivial length, independently valuable despite no all-length asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
