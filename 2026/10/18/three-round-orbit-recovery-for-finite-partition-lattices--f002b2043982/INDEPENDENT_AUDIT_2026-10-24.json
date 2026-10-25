@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:08:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 23fb02bfc8871a620ceee484565bf249c4fa51ff",
+        "independent_checks.py: partitions n=1..7; full predecessor/successor colour counts, no mismatches",
+        "Symbolic Bell-number counts, unique extremal atom count and triangular inversion inspected independently"
+      ],
+      "rationale": "For a partition with k blocks, exactly B_k-1 strict coarsenings determine k at round one. At fixed k=n-r+1, the round-two count of strict atomic refinements with one pair is sum_i C(s_i,2), uniquely maximized at C(r,2) by type (r,1^(n-r)) for r>=3; T_2 was detected by round one. At round three, the counts of strict T_r predecessors yield b_r=sum_i C(s_i,r) after correcting the known self-exclusion. Upper-triangular binomial inversion reconstructs the full block-size multiplicity vector, exactly the S_n/full-order-automorphism orbit. The proof handles n=1,2. Independent construction of full strict-order pairs and bidirectional 1-WL for all partition lattices n=1..7 matched exactly the type classes.",
+      "residual_risks": [
+        "Requires all strict refinement pairs and separate in-/out-neighbour counts; neither Hasse graph nor arbitrary poset identification covered. Three is an upper bound, not proved optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph refinability discussion",
+          "No general result giving 3 rounds for this full strict order reduct"
+        ],
+        "reasoning": "Graph refinability or lattice automorphism classification alone does not imply a bounded time-to-stability of this particular relational 1-WL process.",
+        "searches": [
+          "partition lattice strict partial order two sided color refinement three rounds automorphism orbit block sizes Bell moments",
+          "arXiv:1502.01255"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.3976",
+        "arXiv:1606.01443",
+        "arXiv:1502.01255",
+        "Resultary semantic query: partition lattice strict partial order two sided color refinement three rounds automorphism orbit block sizes Bell moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old results imply p(n) orbit count and classical class sizes",
+          "They do not supply the three-step Bell–extremal–moment refinement construction"
+        ],
+        "reasoning": "Prior orbit-count formula is strictly weaker; a partition into p(n) orbits need not be recovered by counting refinement at all, let alone within 3 rounds.",
+        "searches": [
+          "partition lattice strict partial order two sided color refinement three rounds automorphism orbit block sizes Bell moments",
+          "arXiv:1502.01255",
+          "arXiv:1009.3976"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known S_n partition-type orbits are classical",
+          "New component is exact 1-WL round depth on full strict directed comparability"
+        ],
+        "reasoning": "Computing symmetry types in classical partition-lattice representation theory is not equivalent to recovering them by three bidirectional counting rounds.",
+        "searches": [
+          "partition lattice strict partial order two sided color refinement three rounds automorphism orbit block sizes Bell moments",
+          "arXiv:1009.3976",
+          "arXiv:1606.01443",
+          "arXiv:1502.01255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both papers classify or use block-size types and restricted partition filters",
+          "Neither provides the claimed exact refinement-depth table"
+        ],
+        "reasoning": "There is no identified pre-existing exact database of bidirectional colour refinement on Pi_n; the small finite tests here are reproducibility evidence, not novelty evidence.",
+        "searches": [
+          "partition lattice strict partial order two sided color refinement three rounds automorphism orbit block sizes Bell moments",
+          "arXiv:1009.3976",
+          "arXiv:1606.01443"
+        ]
+      },
+      "rationale": "Block-type orbit classification is classical and not treated as new. The identified primary partition-lattice papers study Möbius functions, filters, homology and representation theory, not colour-refinement depth; Arvind et al. describe graph refinability generally but give no constant three-round partition-lattice result. The full strict-order relation is a material hypothesis. Semantic and focused literature searches found no theorem dominating this exact statement. The priority judgment is best-of-knowledge with possible specialized finite-model-theory overlap.",
+      "residual_risks": [
+        "Alternative formulation in counting logic of finite posets could already encode this result; exact priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give colour refinement; its exact block-size terminology is antecedent",
+          "evidence": "Studies Möbius function of type-restricted filters and permutation descent statistics.",
+          "identifier_or_url": "arXiv:1009.3976",
+          "material_read": "Abstract, introduction, main theorem outlines and key terminology throughout parsed paper",
+          "method": "Primary arXiv PDF text and visual p1",
+          "title": "The Möbius function of partitions with restricted block sizes",
+          "trigger": "Same partition lattice and block-size types"
+        },
+        {
+          "assessment": "No three-round WL or predecessor-moment orbit theorem found in inspected text",
+          "evidence": "Homology, Specht modules and filter order complexes are distinct invariants.",
+          "identifier_or_url": "arXiv:1606.01443",
+          "material_read": "Abstract, introduction and principal homology/filters framing; searched text for refinement",
+          "method": "Primary arXiv PDF text and visual p1",
+          "title": "Filters in the partition lattice",
+          "trigger": "Same finite partition lattice and Sn-actions"
+        },
+        {
+          "assessment": "Does not supply full strict-order partition-lattice constant bound",
+          "evidence": "Graph setting and broad structural criteria differ from fixed partition poset.",
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "Introduction and relevant general theorem formulations",
+          "method": "Primary bibliographic/theorem comparison",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Foundational refinability/automorphism orbits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lattices Pi_n have B_n vertices but third refinement round stabilizes at p(n) orbits",
+        "Proof supplies explicit moment extraction and inversion rather than a known block-type restatement"
+      ],
+      "rationale": "Uniform orbit reconstruction in just three local counting rounds, independent of Bell-number-sized lattice order, is a nontrivial structural algorithmic lemma for a canonical combinatorial poset. The explicit mechanisms (atomic extremum and binomial moment inversion) may be reused for other relational structures and distinguish the full strict-order language from the cover graph.",
+      "residual_risks": [
+        "Not a graph-isomorphism procedure against arbitrary inputs and no proven optimality of three rounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
