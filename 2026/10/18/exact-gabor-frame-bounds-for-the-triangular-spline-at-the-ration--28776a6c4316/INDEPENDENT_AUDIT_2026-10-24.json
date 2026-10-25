@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:59:22.043672Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim fixes unit-height g(x)=(1−|x|)_+, translation a=1, and b=m/(m+1), integer m>=2. From the compact-support Walnut identity, only lag 0 and ±(1+1/m) survive, decomposing the infinite frame operator as a direct integral of m-by-m symmetric tridiagonal Jacobi fibers M_m(τ)/b. The diagonal entries D_j=((m-j-τ)^2+(j+τ)^2)/m^2 and offdiagonals e_j=(j+τ−1)(m−j−τ)/m^2 are explicit, with all endpoint phase terms treated a.e. A nonnegative row-sum bound ≤1 and endpoint eigenvalue 1 give sharp B_m=1/b. For the alternating-sign conjugate J, set μ_m=2(m−1)/m^2; positive gamma-binomial ground-state ratios v_(j+1)/v_j=(m−j−τ−1)/(j+τ) yield an exact PSD sum-of-squares with endpoint residuals, so eigenvalues ≥μ_m. At τ=0 the explicit binomial eigenvector on sites 1..m−1 attains μ_m in the spectral-edge limit. Thus A_m=μ_m/b=2(m²−1)/m³, condition ratio m²/[2(m−1)], A_m/(1−b)→2. An independent numpy implementation evaluated all Jacobi fibers for m=2..15 at τ=0,0.02,0.11,0.5,0.89,0.98: edge eigenvalues exactly μ_m and 1 to 1e−10, every tested interior eigenvalue above μ_m and max ≤1. This finite check corroborates the algebraic all-m ground-state proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kloos–Stöckler give lower estimates approaching critical density, not sharp constants of this family.",
+          "Stangl–Frederick arXiv:2609.00481 classifies frame-set regions on ab=1/q with q integer, whereas m/(m+1) is not on those curves for m>=2."
+        ],
+        "reasoning": "Neither inclusion of these parameters as known frames nor a related lower estimate implies the exact two-edge formula for every m.",
+        "searches": [
+          "arXiv:1311.7359 Theorem 5.3 Remark 5.4",
+          "arXiv:2609.00481",
+          "arXiv:2603.16986"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md verify_frame_bounds.py",
+        "independently computed m=2..15 Jacobi spectra",
+        "arXiv:1806.05614",
+        "arXiv:1311.7359",
+        "arXiv:2310.01141",
+        "arXiv:2609.00481",
+        "Resultary tent spline query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative frame-set membership permits many pairs of nonoptimal bounds; present Jacobi ground state pins both optimal spectral edges.",
+          "Existing same-window exact bounds treat different a,b satisfying incompatible density constraints."
+        ],
+        "reasoning": "The evaluated A_m and B_m are not literal corollaries of inspected frame-set membership or these lower estimates; direct algebraic spectral proof is necessary.",
+        "searches": [
+          "arXiv:1806.05614 frame-set theorems",
+          "arXiv:1311.7359 lower bound",
+          "arXiv:2609.00481 ab=1/q",
+          "Resultary 2026/10/11 sharp hat-spline family records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Second-order cardinal B-spline is the translated tent g, so these papers concern the SAME window.",
+          "The known frame-set theorem proves membership but does not specify sharp A_m,B_m on a=1,b=m/(m+1)."
+        ],
+        "reasoning": "The complete Jacobi spectral edges are stronger than the mere existence of finite frame bounds and can be re-expressed using Ron–Shen/Walnut/Zak representations.",
+        "searches": [
+          "Resultary semantic exact Gabor tent-spline frame bounds nearcritical",
+          "arXiv:1806.05614",
+          "arXiv:1311.7359"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned two same-window sharp-bound findings on distinct lattice families (half-density and b>2 regimes).",
+          "No matching table of sharp constants (2(m²−1)/m³, (m+1)/m) was located in inspected sources."
+        ],
+        "reasoning": "This absence is best-of-knowledge only, not proof of novelty; an older unindexed Jacobi/polyphase calculation remains possible.",
+        "searches": [
+          "Resultary semantic tent spline exact m/(m+1) constants",
+          "arXiv:2603.16986 finite/truncated Gram blocks",
+          "arXiv:1806.05614 frame regions"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.",
+      "residual_risks": [
+        "An older unindexed Jacobi/polyphase formula could already imply these same sharp constants under another normalization.",
+        "Broader 2026 frame-set paper only abstract/introduction examined; do not treat unread full text as conclusively noncovering.",
+        "The result applies only to unit-height g, a=1, b=m/(m+1), not arbitrary rational lattice parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative membership and dual-window construction, not displayed sharp A_m/B_m",
+          "evidence": "arXiv:1806.05614 abstract, theorem and examples",
+          "identifier_or_url": "arXiv:1806.05614; https://arxiv.org/abs/1806.05614",
+          "material_read": "Open arXiv full HTML Introduction and principal theorem statements/parameter regions",
+          "method": "Matched the exact rational parameter curve and whether optimal eigenvalues are computed",
+          "title": "On the frame set of the second-order B-spline",
+          "trigger": "Identical g, a=1 frame membership"
+        },
+        {
+          "assessment": "Provides useful nonsharp lower bounds, not the submitted exact two optimal edges",
+          "evidence": "arXiv:1311.7359 Theorem 5.3 and Remark 5.4",
+          "identifier_or_url": "arXiv:1311.7359; https://arxiv.org/abs/1311.7359",
+          "material_read": "Full accessible HTML Section 5, Theorem 5.3, Remark 5.4 and discussion of critical linear lower estimate",
+          "method": "Compared explicit lower estimate, normalization and equality claims",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Same triangular spline as limiting exponential B-spline"
+        },
+        {
+          "assessment": "Different lattice density; no direct corollary yielding sharp constants",
+          "evidence": "arXiv:2609.00481 abstract (frame-set classification only)",
+          "identifier_or_url": "arXiv:2609.00481",
+          "material_read": "arXiv abstract and available article introductory text; complete paper not read",
+          "method": "Compared ab=1/q to ab=m/(m+1)",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "Recent potentially dominating complete frame-set curve"
+        },
+        {
+          "assessment": "Non-frame obstructions do not cover positive sharp-frame family",
+          "evidence": "arXiv:2310.01141 abstract and parameter hypotheses",
+          "identifier_or_url": "arXiv:2310.01141",
+          "material_read": "Accessible arXiv abstract and fully stated obstruction parameter families",
+          "method": "Compared non-frame hypotheses and conclusion with positive family a=1, b=m/(m+1)",
+          "title": "Obstructions for Gabor frames of the second order B-spline",
+          "trigger": "Identical g, rational non-frame regions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compactly supported canonical hat spline is a model Gabor frame and b=m/(m+1) is the natural sequence approaching critical density with increasing rational denominator. Exact optimal spectral constants, condition number and linear critical slope go substantially beyond qualitative frame membership/nonsharp estimates and expose a motivated growing-family conditioning law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older unindexed Jacobi/polyphase formula could already imply these same sharp constants under another normalization.",
+    "Broader 2026 frame-set paper only abstract/introduction examined; do not treat unread full text as conclusively noncovering.",
+    "The result applies only to unit-height g, a=1, b=m/(m+1), not arbitrary rational lattice parameters.",
+    "All passes are best-of-knowledge scientific assessments, not independent external attestation of worldwide priority.",
+    "Operational publication not_ready does not reverse the separate PASS C/O/V finding."
+  ],
+  "schema_version": 1
+}

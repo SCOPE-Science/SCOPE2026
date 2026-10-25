@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standard-library verifier `verify_frame_bounds.py` executes exact rational checks for 27 integer sizes \(2\le m\le28\), a boundary eigenvector, and five interior rational phases per size. It checks 1,091 instances, including full tridiagonal LDL pivot positivity and independently evaluated Walnut overlap sums. Execute `python3 verify_frame_bounds.py` from a directory containing this file and the standalone program; the expected output is supplied as `verify_frame_bounds_output.txt`. The mathematical generality for unbounded integer \(m\) comes from the displayed algebraic quadratic-form proof, not the finite checks.
+# Independent mathematical audit
 
-No independent audit or external formal proof certificate is represented here.
+## correctness
+
+PASS
+
+The final claim fixes unit-height g(x)=(1−|x|)_+, translation a=1, and b=m/(m+1), integer m>=2. From the compact-support Walnut identity, only lag 0 and ±(1+1/m) survive, decomposing the infinite frame operator as a direct integral of m-by-m symmetric tridiagonal Jacobi fibers M_m(τ)/b. The diagonal entries D_j=((m-j-τ)^2+(j+τ)^2)/m^2 and offdiagonals e_j=(j+τ−1)(m−j−τ)/m^2 are explicit, with all endpoint phase terms treated a.e. A nonnegative row-sum bound ≤1 and endpoint eigenvalue 1 give sharp B_m=1/b. For the alternating-sign conjugate J, set μ_m=2(m−1)/m^2; positive gamma-binomial ground-state ratios v_(j+1)/v_j=(m−j−τ−1)/(j+τ) yield an exact PSD sum-of-squares with endpoint residuals, so eigenvalues ≥μ_m. At τ=0 the explicit binomial eigenvector on sites 1..m−1 attains μ_m in the spectral-edge limit. Thus A_m=μ_m/b=2(m²−1)/m³, condition ratio m²/[2(m−1)], A_m/(1−b)→2. An independent numpy implementation evaluated all Jacobi fibers for m=2..15 at τ=0,0.02,0.11,0.5,0.89,0.98: edge eigenvalues exactly μ_m and 1 to 1e−10, every tested interior eigenvalue above μ_m and max ≤1. This finite check corroborates the algebraic all-m ground-state proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.
+
+## value
+
+PASS
+
+The compactly supported canonical hat spline is a model Gabor frame and b=m/(m+1) is the natural sequence approaching critical density with increasing rational denominator. Exact optimal spectral constants, condition number and linear critical slope go substantially beyond qualitative frame membership/nonsharp estimates and expose a motivated growing-family conditioning law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
