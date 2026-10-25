@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit identity of all minimal absent factors follows from exact occurrences of the two-step Fibonacci block, trapezoidal factor complexity, the known central bispecial factors, and a derived finite-word minimal-absence counting identity. The two boundary words are checked through their only possible occurrences. Independent factor-set enumeration in the included Python checker verifies complete sets for seven indices, not an infinite claim.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2017 primary result characterizes the circular Fibonacci antidictionary, while the 2023 primary result addresses forbidden factors of the infinite word. The 2012 trapezoid and 2025 occurrence theorems supply premises, not the proposed finite-linear classification. Searches of indexed research findings and accessible prior records did not identify the exact finite-prefix conclusion; an equivalent unindexed source remains possible.
+PASS
 
-**Mathematical value — PASS.** This is an infinite, complete antidictionary classification for a fundamental family of recursively defined strings. It pinpoints a unique, explicit nonpalindromic boundary obstruction despite the palindromic infinite forbidden language. Such boundary-sensitive finite string invariants are relevant to factor reconstruction and compressed word combinatorics.
+For binary Fibonacci prefixes F_0=0,F_1=01,F_k=F_(k-1) F_(k-2), k>=5, the length-q block B=F_(k-2) occurs only at offsets 0,q,p, making shortest unique suffix K=q+1. Standard finite Sturmian/trapezoidal complexity gives c(t)=min(t+1,q+2,N-t+1); only central palindromes U_1,...,U_(k-2) are bispecial in the finite word. The counting identity m(t)=b(t-2)+2c(t-1)-c(t-2)-c(t), derived by two-sided extension grouping, gives one absent word at each asserted k length, with no others. Explicit y_j U_j y_j, xUx and d F_(k-2)0 each have both proper adjacent factors present and do not occur; only the last fails reversal symmetry. An independent full factor-set enumeration for k=5..10 reproduced complete set, count, lengths and one nonpalindrome; unbounded proof depends on accurately indexed primary occurrence/Sturmian results, not finite sampling.
 
-**Limitations.** Only the stated Fibonacci family and \(k\ge5\) are covered. Full mathematical independence of the review has not been established; originality remains contingent on literature coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage of the specific new claim: Classifying every minimal absent contiguous factor of a standard finite Fibonacci word, including the exact two linear boundary exceptions and the sole nonpalindromic element, is a natural complete combinatorics-on-words invariant. Prior overlapping premises and historical-priority caveats are explicitly credited and scoped.
+
+## value
+
+PASS
+
+Classifying every minimal absent contiguous factor of a standard finite Fibonacci word, including the exact two linear boundary exceptions and the sole nonpalindromic element, is a natural complete combinatorics-on-words invariant. It distinguishes finite linear from infinite or cyclic factor languages and provides directly usable anti-dictionary data, rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:12:47.337350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary Fibonacci prefixes F_0=0,F_1=01,F_k=F_(k-1) F_(k-2), k>=5, the length-q block B=F_(k-2) occurs only at offsets 0,q,p, making shortest unique suffix K=q+1. Standard finite Sturmian/trapezoidal complexity gives c(t)=min(t+1,q+2,N-t+1); only central palindromes U_1,...,U_(k-2) are bispecial in the finite word. The counting identity m(t)=b(t-2)+2c(t-1)-c(t-2)-c(t), derived by two-sided extension grouping, gives one absent word at each asserted k length, with no others. Explicit y_j U_j y_j, xUx and d F_(k-2)0 each have both proper adjacent factors present and do not occur; only the last fails reversal symmetry. An independent full factor-set enumeration for k=5..10 reproduced complete set, count, lengths and one nonpalindrome; unbounded proof depends on accurately indexed primary occurrence/Sturmian results, not finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite Sturmian trapezoid provides factor-complexity curve; exact shorter-block occurrences are structural inputs, but neither theorem explicitly classifies all finite minimal absent words."
+        ],
+        "reasoning": "The new result combines known structural inputs with a nontrivial bispecial-extension count and explicit boundary witnesses; no single broader published theorem was identified that implies full description without additional work.",
+        "searches": [
+          "arXiv:1203.1203 Proposition 2.8",
+          "DOI:10.4230/LIPIcs.CPM.2025.16 Lemma 15"
+        ]
+      },
+      "checked_sources": [
+        "Fici–Restivo–Rizzo arXiv:1707.04450v3 Theorem 7 (circular)",
+        "Bucci–De Luca–Fici arXiv:1203.1203 Proposition 2.8",
+        "Rampersad–Wiebe arXiv:2309.07070 (infinite)",
+        "Guo–Kishi CPM 2025 DOI:10.4230/LIPIcs.CPM.2025.16 Lemma 15",
+        "Resultary finite Fibonacci factor search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circular theorem includes wraparound occurrences absent linearly; infinite forbidden factors do not detect finite-prefix boundary absences.",
+          "Proposition on complexity yields only counts of substrings, not the precise two exceptional absent words."
+        ],
+        "reasoning": "The explicit finite linear classification is not a corollary by parameter renaming; it depends on actual finite boundary and bispecial extension analysis.",
+        "searches": [
+          "arXiv:1707.04450v3 Theorem 7",
+          "arXiv:1203.1203 finite trapezoidal theorem",
+          "arXiv:2309.07070 infinite factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Restivo–Rizzo Theorem 7 explicitly describes M_[f_n] for circular factor language of f_n f_n, not linear M(f_n).",
+          "Rampersad–Wiebe deals with infinite Fibonacci minimal forbidden factors, omitting finite endpoint absences."
+        ],
+        "reasoning": "Linear contiguous absent words cannot be inferred unchanged from circular or bi-infinite factor sets because linear boundary effects introduce precisely the additional terms.",
+        "searches": [
+          "arXiv:1707.04450v3 Section 4 Theorem 7",
+          "arXiv:2309.07070",
+          "Resultary:finite Fibonacci words linear minimal absent words antidictionary boundary asymmetry palindrome"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fici Table 3 enumerates circular Fibonacci forbidden factors.",
+          "Closest published SCOPE 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 concerns scattered subsequences, not contiguous factors."
+        ],
+        "reasoning": "Tables/index refer to different languages; no exact finite linear k-word antidictionary matching all lengths and unique boundary asymmetry observed.",
+        "searches": [
+          "arXiv:1707.04450v3 Table 3",
+          "arXiv:2309.07070",
+          "Resultary:finite Fibonacci words linear minimal absent words antidictionary boundary asymmetry palindrome"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncoverage of the specific new claim: Classifying every minimal absent contiguous factor of a standard finite Fibonacci word, including the exact two linear boundary exceptions and the sole nonpalindromic element, is a natural complete combinatorics-on-words invariant. Prior overlapping premises and historical-priority caveats are explicitly credited and scoped.",
+      "residual_risks": [
+        "Published central-word/bispecial and exact q-block occurrence statements require the conventional index translation; the independent finite ranges do not prove the imported lemmas.",
+        "A differently indexed finite-linear-antidictionary theorem may be absent from semantic search; best-of-knowledge priority, not novelty proof.",
+        "Only binary standard finite Fibonacci words k>=5, contiguous not circular or scattered factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 7 is of circular word [f_n], equivalent to factors of f_n f_n; does not state finite linear antidictionary",
+          "evidence": "Theorem 7 formula M_[f_n] and explicit circular language definition before Section 4",
+          "identifier_or_url": "https://arxiv.org/html/1707.04450v3",
+          "material_read": "Full public HTML, especially Section 4, Tables 1/3, Theorem 7 and proof",
+          "method": "Read arXiv primary full-text section and theorem wording",
+          "title": "Minimal Forbidden Factors of Circular Words",
+          "trigger": "Same Fibonacci object and closest published forbidden-factor theorem"
+        },
+        {
+          "assessment": "Proves input factor-complexity shape, not complete minimal absent factors of finite Fibonacci prefixes",
+          "evidence": "Proposition 2.8 finite trapezoidal complexity",
+          "identifier_or_url": "https://arxiv.org/abs/1203.1203",
+          "material_read": "Full available primary paper including Proposition 2.8 and finite trapezoid properties",
+          "method": "Read accessible arXiv full-text mathematical statements",
+          "title": "Enumeration and Structure of Trapezoidal Words",
+          "trigger": "Used finite Sturmian complexity structure"
+        },
+        {
+          "assessment": "Treats infinite language and its correlations, not endpoint-specific absent factors of finite F_k",
+          "evidence": "Definition of infinite Fibonacci minimal forbidden factors and correlation sections",
+          "identifier_or_url": "https://arxiv.org/abs/2309.07070",
+          "material_read": "Available primary PDF Sections 1–3 mathematical statements",
+          "method": "Read open primary text on infinite forbidden factors",
+          "title": "Correlations of Minimal Forbidden Factors of the Fibonacci Word",
+          "trigger": "Same binary Fibonacci infinite forbidden factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying every minimal absent contiguous factor of a standard finite Fibonacci word, including the exact two linear boundary exceptions and the sole nonpalindromic element, is a natural complete combinatorics-on-words invariant. It distinguishes finite linear from infinite or cyclic factor languages and provides directly usable anti-dictionary data, rather than an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
