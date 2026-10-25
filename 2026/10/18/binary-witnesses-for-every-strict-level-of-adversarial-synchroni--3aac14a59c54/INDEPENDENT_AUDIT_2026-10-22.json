@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:05:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B_n (n≥3), b is cyclic rotation, c fixes 0 and sends all other states to 1. The pair {0,1} persists under c, but c collapses any distinct pair avoiding 0. When k≤n−2 Bob responses have length ≤n−3. Alice first uses c, then if the response pair avoids 0 chooses c; if it is {0,1}, she uses b, forcing {1,2}, and a bounded response either collapses or leaves a pair avoiding 0, so the third move c wins. If k≥n−1, Bob indefinitely preserves a distinguished two-token pair {0,j} by responding after b with b^(n−1−j), length≤n−2, or the empty word after c / appropriate b, proving nonwin. No length≤2 word resets; cbc resets, so minimum worst-case Alice turns is exactly 3. Unary synchronizability is equivalent to a constant power, giving no hierarchy separation; binary is minimal. Independently computed entire subset-game attractors for n=3..7 and k=1..n+1, exactly matching the threshold and three-turn worst case. Finite enumeration does not establish all n; explicit strategies do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2601.18362 Lemma 2.1, Corollary 2.2, §3",
+          "arxiv:2512.11007"
+        ],
+        "reasoning": "The general strict hierarchy is previously proved with alphabet three, not a dominating fixed-binary theorem. Uniform-strategy work concerns different game conditions. The new claim strengthens alphabet-size economy.",
+        "searches": [
+          "Resultary semantic query: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+        ]
+      },
+      "checked_sources": [
+        "Lipin–Volkov arxiv:2601.18362 Lemma 2.1 Corollary 2.2 and §3",
+        "Fernau–Haase–Hoffmann–Volkov arxiv:2512.11007",
+        "Resultary semantic search: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "three-letter source E_n threshold n−1",
+          "binary B_n threshold n−2",
+          "unary automata have all levels equal"
+        ],
+        "reasoning": "Known unrestricted strictness is a corollary of existence of binary witnesses, but source unrestricted strictness cannot imply binary strictness. Difference in cutoff identifies the genuinely necessary recomputation.",
+        "searches": [
+          "Resultary semantic query: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "two-letter subautomaton of Lipin–Volkov three-letter E_n",
+          "Alice one letter; Bob <k letters with empty response allowed"
+        ],
+        "reasoning": "The transformation pair b,c is literally a restriction of the source E_n, but restriction changes the legal game for *both players*. Hence its exact cutoff does not follow from monotonicity in Alice strategies alone.",
+        "searches": [
+          "Resultary semantic query: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "n=3..7 independent complete subset-game attractors",
+          "all-n explicit Alice and Bob strategy"
+        ],
+        "reasoning": "Finite subsets verify specific n,k outcomes, but no prior complete binary exact-level table was found and finite cases do not prove the family-wide separation.",
+        "searches": [
+          "Resultary semantic query: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+        ]
+      },
+      "rationale": "Lipin–Volkov (arxiv:2601.18362 §2.2, Lemma 2.1/Corollary 2.2) already constructs strict adversarial synchronization levels with three-letter E_n, whose b,c maps match B_n but with an additional d action. Removing d changes both Alice and Bob action sets; their strictness proof does not by itself prove the exact binary threshold n−2, as witnessed by the different cutoff. Other alphabet-restricted results in §3 do not supply the all-level two-letter witness. The binary minimum and explicit all-n cutoff survive the checked prior implications; older binary-game constructions remain priority risk.",
+      "residual_risks": [
+        "An unindexed two-letter automata-game witness may establish the same alphabet-size optimum",
+        "No proof of minimal state number for each separation; only minimum alphabet size and this family exact cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unrestricted-alphabet strictness via 3 letters; does not settle the two-letter restriction or exact cutoff n−2",
+          "evidence": "Removing letter d changes both Alice and Bob options; known E_n has different transition threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.18362",
+          "material_read": "§2.2, Lemma 2.1 and Corollary 2.2; §3 alphabet-size variants and definitions",
+          "method": "arXiv full primary PDF relevant sections",
+          "title": "Adversarial Synchronization",
+          "trigger": "exact same game and three-letter witness with matching b,c maps"
+        },
+        {
+          "assessment": "Studies uniform strategies under different restrictions; no identified covering two-letter B_n family theorem",
+          "evidence": "Related but distinct quantification of game constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.11007",
+          "material_read": "abstract and indexed description",
+          "method": "arXiv public record (not claimed whole-PDF inspected)",
+          "title": "Uniform winning strategies for the synchronization games on subclasses of finite automata",
+          "trigger": "related synchronization-game restrictions and strategies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least alphabet size maintaining every strict level of the synchronization-game hierarchy is a natural exact complexity parameter. This gives the sharp bound two versus one, a uniform family for every level, and exact three-turn Alice strategy/Bob invariant. The result is not merely a renaming of the known three-letter witness because deleting d alters both participants’ legal dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lipin–Volkov arxiv:2601.18362 Lemma 2.1 Corollary 2.2 and §3",
+    "Fernau–Haase–Hoffmann–Volkov arxiv:2512.11007",
+    "Resultary semantic search: adversarial synchronization binary automata hierarchy game Alice Bob bounded response length strict"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Primary originality judgments are best-of-knowledge, not exhaustive global priority certification.",
+    "Finite independent checks do not replace the general analytic argument.",
+    "An unindexed two-letter automata-game witness may establish the same alphabet-size optimum",
+    "No proof of minimal state number for each separation; only minimum alphabet size and this family exact cutoff.",
+    "Publication withholding is a public-metadata confidentiality guard, not a failure of scientific C/O/V."
+  ],
+  "residual_risks": [
+    "An unindexed two-letter automata-game witness may establish the same alphabet-size optimum",
+    "No proof of minimal state number for each separation; only minimum alphabet size and this family exact cutoff."
+  ],
+  "schema_version": 1
+}
