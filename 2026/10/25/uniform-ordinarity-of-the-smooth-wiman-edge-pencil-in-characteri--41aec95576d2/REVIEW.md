@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The proof directly reduces the sextic to a fourfold sign cover of a nodal plane cubic. Exact resultants certify nine pairwise distinct transverse branch points for precisely the claimed parameters, yielding a connected genus-six normalization with four ordinary plane nodes. The three genus-two quotients and the isogeny follow from the tame Klein-four action. The explicit coefficient-form Cartier–Manin matrix, verified by independent symbolic expansion, has determinant \(t^8\), proving uniform ordinarity. Finite-field point counts are merely secondary checks.
+
+**Originality (PASS, qualified).** The classical geometric literature establishes the pencil and its genus-six fibers, not the characteristic-five ordinary locus. The full text of Edge (1981), the pertinent Wiman-pencil sections of Candelas et al. (2012), and later geometry/positive-characteristic sources were compared for corresponding Cartier, Hasse–Witt, Newton, \(p\)-rank, genus-two quotient, or Jacobi-isogeny statements. The 2018 special-fiber rationality statement concerns \(t=0\) and does not imply ordinarity for all \(t\ne0\). Previously published descriptions of the exceptional Wiman sextic address the singular parameter and do not imply ordinarity for the entire smooth family. Residual risk: an equivalent computation may be implicit in older genus-two quotient or modular Jacobian literature; negative search results do not prove uniqueness.
+
+**Mathematical value (PASS).** The natural ordinary/nonordinary stratification for a classical one-parameter family of genus-six curves is determined completely on its smooth locus, despite exceptional degeneration of the famous Wiman fiber in characteristic five. The structural reduction to genus-two quotients and the exact \(t^8\) determinant explain a uniform phenomenon, rather than a one-parameter numerical sample. Applications include understanding ordinary reduction, isogeny factors, and Newton polygon geometry in the family.
+
+**Scope.** The normalized genus-six locus only: characteristic \(5\), \(t\ne0\), \(t^2\ne2\), finite pencil parameter. Priority is not independently certified; no claim of an external proof review is made.
+
+Self-review: passed. Independent audit: not yet performed.
