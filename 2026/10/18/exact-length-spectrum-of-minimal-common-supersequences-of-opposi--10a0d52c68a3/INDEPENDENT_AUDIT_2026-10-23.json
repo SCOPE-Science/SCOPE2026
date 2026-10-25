@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T17:51:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Minimality in subsequence order is equivalent to all single deletions destroying at least one target. For A=0^m1^m and B=1^m0^m, any minimal W must be union-covered by chosen embeddings; disjoint embeddings can be replaced with intersecting embeddings, contradicting deletion-minimality. Shared positions must all have one symbol, since the order of any shared zero and one is opposite in A and B. After complementing, exactly 2m zeros straddle a central positive ones run of length g; extremal deletion arguments force j=m-g ones on each side, so W=P1^(m-j)Q, with P/Q each having m zeros and j ones. The forced boundary zero leaves C(m+j-1,j)^2 per complement orientation; j=0..m-1, otherwise no minimal words. Dominated geometric tail (ratio <=1/4^k) and Stirling give T_m~16^m/(6 pi m). Independent exhaustive subsequence and deletions agrees for 24 (m,L) strata m=1..4. Finite m<=4 is not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fraser thesis has algorithms for possible lengths; Sopp 2026 supplies general enumeration. Explicit pair-specialized 2*C^2 multiplicities are additional."
+        ],
+        "reasoning": "A generic polynomial-delay enumerator potentially allows algorithmic counting but does not by itself give closed exact multiplicities and asymptotics. The closest general prior minimal-supersequence theorems were checked for implications, not just matching words.",
+        "searches": [
+          "Resultary:semantic:minimal common supersequences 0^m1^m 1^m0^m number by length 3m+j",
+          "Glasgow thesis Fraser 1995",
+          "doi:10.1006/inco.1996.0011",
+          "arXiv:2603.22591",
+          "arXiv:2209.11882"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof; frozen verify.c source; independent deletion predicate exhaustive 24 (m,length) strata for m<=4",
+        "Fraser 1995 thesis original Chapters 6.2–6.3; Fraser–Irving–Middendorf 1996 bibliographic record",
+        "Resultary semantic exact 0^m1^m opposite-block query",
+        "Sopp et al arXiv:2603.22591 generic polynomial-delay enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work credibly motivates and may eventually subsume the result; complete 1996 article remains uninspected, explicitly preventing absolute priority claims."
+        ],
+        "reasoning": "General minimal common supersequence existence, length sets, and enumeration algorithms do not imply the particular closed distribution without carrying out the pair-specific embedding-intersection and essentiality analysis.",
+        "searches": [
+          "Resultary:semantic:minimal common supersequences 0^m1^m 1^m0^m number by length 3m+j",
+          "Glasgow thesis Fraser 1995",
+          "doi:10.1006/inco.1996.0011",
+          "arXiv:2603.22591",
+          "arXiv:2209.11882"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim assigns 2*C(m+j-1,j)^2 for each exact length 3m+j, unlike the mere set of available lengths or a shortest-common-supersequence count."
+        ],
+        "reasoning": "Minimal supersequence is minimal in the subsequence partial order, not a shortest common supersequence. The Fraser thesis studies minimal-word length spectra algorithmically, but the full length-multiplicity formula for opposite equal binary runs was not found in read material.",
+        "searches": [
+          "Resultary:semantic:minimal common supersequences 0^m1^m 1^m0^m number by length 3m+j",
+          "Glasgow thesis Fraser 1995",
+          "doi:10.1006/inco.1996.0011",
+          "arXiv:2603.22591",
+          "arXiv:2209.11882"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The whole infinite m,j formula and asymptotic are asserted beyond any finite tabulation."
+        ],
+        "reasoning": "A bounded table of minimal-supersequence length sets or shortest supersequence counts is not the all-m exact distribution; the independent exhaustive m<=4 check only confirms small inputs.",
+        "searches": [
+          "Resultary:semantic:minimal common supersequences 0^m1^m 1^m0^m number by length 3m+j",
+          "Glasgow thesis Fraser 1995",
+          "doi:10.1006/inco.1996.0011",
+          "arXiv:2603.22591",
+          "arXiv:2209.11882"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.",
+      "residual_risks": [
+        "The exact 1996 Fraser–Irving–Middendorf article was not accessible, though the related original thesis was materially read; special-case equivalent counts may exist there.",
+        "General m is established by embedding-union and essential-letter arguments, not by exhaustive m<=4 data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest inspected treatment supplies general length algorithms; no directly equivalent closed length multiplicity for the repeated opposite-block pair identified in the inspected sections.",
+          "evidence": "The chapter computes lengths of possible minimal common supersequences; it does not give the claimed 2 binomial-square count in inspected sections.",
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "Full accessible thesis searched and original Chapters 6.2–6.3 materially read, including presentation of algorithms producing minimal supersequence length sets",
+          "method": "Full-text navigation of primary thesis, inspection of relevant original chapters and screenshots",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences (doctoral thesis)",
+          "trigger": "Original theory of minimal rather than merely shortest supersequences, potentially covering opposite blocks"
+        },
+        {
+          "assessment": "Original 1996 article remains a real priority risk; no whole-document noncoverage judgment.",
+          "evidence": "Exact object overlaps; accessible thesis frames general length characterization.",
+          "identifier_or_url": "doi:10.1006/inco.1996.0011",
+          "material_read": "Bibliographic statement and related available doctoral thesis; complete 1996 article not accessed",
+          "method": "Related-thesis primary text comparison and bibliographic search, not full-paper inspection",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Highly relevant 1996 primary paper on exactly minimal common supersequences"
+        },
+        {
+          "assessment": "Polynomial-delay generic enumeration is not itself the exact length multiplicity formula; complete text remains a residual comparison risk",
+          "evidence": "General enumeration algorithm rather than quoted all-m count formula.",
+          "identifier_or_url": "arXiv:2603.22591",
+          "material_read": "Abstract, theorem descriptions available from arXiv/search; complete article not independently read",
+          "method": "Statement-level general algorithm versus explicit opposite-block formula comparison",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "Recent general enumeration method might imply target profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Minimal, not shortest, common supersequences are a natural subsequence-poset invariant central to string algorithms; the opposite long two-run input family gives exact nontrivial spectrum spanning 3m..4m-1 and asymptotic count with a clean structural decomposition. This supplies a precise benchmark for general enumeration algorithms and distinguishes minimality from shortest length; not just brute recomputation or parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md proof; frozen verify.c source; independent deletion predicate exhaustive 24 (m,length) strata for m<=4",
+    "Fraser 1995 thesis original Chapters 6.2–6.3; Fraser–Irving–Middendorf 1996 bibliographic record",
+    "Resultary semantic exact 0^m1^m opposite-block query",
+    "Sopp et al arXiv:2603.22591 generic polynomial-delay enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The scientific finding is best-of-knowledge and rests on its identified full proof, mathematical hypotheses and bounded computational corroboration.",
+    "Primary literature not completely accessible is named accurately in source_inspections, not claimed ruled out.",
+    "Unsanitized publication source remains frozen and has not been edited or published."
+  ],
+  "residual_risks": [
+    "The exact 1996 Fraser–Irving–Middendorf article was not accessible, though the related original thesis was materially read; special-case equivalent counts may exist there.",
+    "General m is established by embedding-union and essential-letter arguments, not by exhaustive m<=4 data."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The embedding-union and shared-letter lemmas are proved, followed by forced central-run equalities and five classes of essential-symbol deletions. This yields an exact all-length classification and the asymptotic through a dominated geometric sum and Stirling. The C11 checker exhausts 2,235,596 binary words for \(1\le m\le5\), supporting but not replacing the infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** Primary arXiv:2603.22591 treats general polynomial-delay enumeration, not the explicit reverse-block formula. Primary arXiv:2209.11882 counts shortest common supersequences only. published-finding corpus searches of exact count, aliases, and stronger implications found no dominating published record; the closest entries concern other word invariants. The relevant Fraser–Irving–Middendorf 1996 full text was unavailable, so possible unindexed coverage remains expressly unresolved.
+PASS
 
-**Value — PASS.** The result provides a complete natural infinite family with only two shortest solutions but exponentially many distinct minimal solutions, exact length spectrum, and a sharp maximum minimal length. It contributes a meaningful benchmark to output-sensitive MCS enumeration beyond routine numerical examples.
+PASS. Minimality in subsequence order is equivalent to all single deletions destroying at least one target. For A=0^m1^m and B=1^m0^m, any minimal W must be union-covered by chosen embeddings; disjoint embeddings can be replaced with intersecting embeddings, contradicting deletion-minimality. Shared positions must all have one symbol, since the order of any shared zero and one is opposite in A and B. After complementing, exactly 2m zeros straddle a central positive ones run of length g; extremal deletion arguments force j=m-g ones on each side, so W=P1^(m-j)Q, with P/Q each having m zeros and j ones. The forced boundary zero leaves C(m+j-1,j)^2 per complement orientation; j=0..m-1, otherwise no minimal words. Dominated geometric tail (ratio <=1/4^k) and Stirling give T_m~16^m/(6 pi m). Independent exhaustive subsequence and deletions agrees for 24 (m,L) strata m=1..4. Finite m<=4 is not the infinite proof.
 
-**Limitations.** Only opposite binary blocks of equal run lengths; finite checker covers \(m\le5\); no general arbitrary-word counting claim. The 1996 source and unindexed literature remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.
+
+## value
+
+PASS
+
+PASS. Minimal, not shortest, common supersequences are a natural subsequence-poset invariant central to string algorithms; the opposite long two-run input family gives exact nontrivial spectrum spanning 3m..4m-1 and asymptotic count with a clean structural decomposition. This supplies a precise benchmark for general enumeration algorithms and distinguishes minimality from shortest length; not just brute recomputation or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
