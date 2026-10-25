@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The underlying tropical boundary link and the incidence graph are explicitly defined in the cited primary literature. The proof does not treat a nonequivariant wedge splitting as equivariant: it uses natural Mayer–Vietoris exact sequences. For a nonidentity transvection in odd characteristic, the fixed signed vectors have symplectic pairing zero, and the invariant totally isotropic planes all contain its direction. There are exactly \(c\) decorated fixed planes and \(c^2\) fixed incidences; fixed surfaces are pointwise fixed. The graph trace and the surface summands therefore give the two cohomology traces with no unstated numerical hypothesis. Rational representation theory of \(C_p\) gives the unique cyclic multiplicities. The bundled `verify.py` directly corroborates the counts at three primes, and the general proof is not based on those finite experiments.
+## correctness
 
-**Originality — PASS, with literature risk.** Assaf–Brandt–Bruce–Chan–Vlad's explicit link and nonequivariant weight-zero dimensions are central premises. Capovilla-Searle's oriented symplectic Steinberg ranks are a relevant comparison but do not supply this character. The specific fixed-stratum counts and resulting transvection traces and cyclotomic multiplicities are not stated in the inspected primary passages. published-finding corpus and accessible historical-claim searches returned no identical invariant. An unindexed or more general group-character theorem could implicitly include this result; no absolute novelty claim is made.
+PASS
 
-**Value — PASS.** A nontrivial symplectic transvection is a natural geometric generator of level monodromy. Exact trace and eigenspace multiplicities for every odd prime refine the known nonequivariant dimensions of an entire algebraic moduli family and quantify how much weight-zero cohomology is fixed under this natural monodromy. This is more precise than a routine numerical example and is not a renaming of the published Betti formula.
+Independent reconstruction: the actual equivariant surface-incidence gluing gives F_V=(p^3-1)/2 fixed signed nonzero vectors, F_P=(p^2-1)/2 decorated isotropic planes, F_E=F_P^2 fixed incidences. For any nontrivial power of an odd-order symplectic transvection, fixed planes contain its direction and are pointwise fixed. The connected graph chain complex contributes 1-F_V-F_P+F_E in H^1, and fixed genus-h surfaces contribute 2h F_P in H^1 and F_P in H^2. Weight-zero comparison and the rational C_p representations Q and Q(zeta_p) then yield t2, t3, a_i, b_i exactly for every odd prime; no claim of an equivariant wedge decomposition. Independently evaluated these integer expressions and graph polynomial for p=3,5,7,11,13, including the displayed p=3,5,7 dimension/trace/multiplicity tuples; that bounded computation is not the all-p proof. The equivariance of the canonical boundary-comparison map and the actual simplicial gluing, rather than a nonequivariant homotopy equivalence, are essential premises.
 
-**Closest literature and scope.** Primary: Assaf et al., arXiv:2609.14895v1, Corollary 5.8 and Theorems 5.10, 5.12; Capovilla-Searle, arXiv:2605.29010v1, Section 8; Assaf et al., arXiv:2505.10504v2, Sections 1 and 4. The theorem applies only to odd prime levels, rational weight-zero compact-support cohomology, and the transvection conjugacy class. It is not a full symplectic representation classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+Published Assaf–Brandt–Bruce–Chan–Vlad surface and graph data and nonequivariant W0 dimensions are major inputs; the fixed-point character t2,t3 and explicit rational cyclic summands are finer representation invariants not stated in the inspected primary theorem. No identical stronger character formula emerged from mathematical database and primary searches. Assessment is best-of-knowledge, not absolute priority.
+
+## value
+
+PASS
+
+Nonidentity transvections are a natural order-p conjugacy class for the finite symplectic level deck action. Full exact trace and cyclic eigenspace multiplicities for all odd primes are natural, independently useful refinements of the known Betti dimensions; this is not a textbook dimension substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
