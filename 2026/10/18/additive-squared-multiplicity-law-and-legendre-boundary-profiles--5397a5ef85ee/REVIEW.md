@@ -1,19 +1,21 @@
-# Review of the mixed-multiplicity Hardy approximation law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact divisibility by a polynomial with distinct roots and prescribed multiplicities is equivalent to the fixed Euler-jet constraints. The Hermite interpolation matrix has full row rank, so the residual has an exact minimum-Hardy-norm Gram representation. Dividing rows by \(K^{\ell+1/2}\) produces positive Hilbert moment blocks and cross-node oscillatory blocks of size \(O_f(K^{-1})\). Stable finite-dimensional inversion proves the claimed squared-error \(O_f(K^{-2})\) remainder and the index-uniform coefficient remainder. Shifted Legendre orthogonality proves the precise reproducing kernel and \((H_m^{-1})_{00}=m^2\). The packaged checker independently confirms small-block algebra and several finite-degree residuals; finite experiments are not treated as the asymptotic proof.
+PASS
 
-## Originality
+For H² and f=c∏(z−ζ_j)^{m_j} with ≥2 fixed distinct unit-circle nodes and at least one repeated zero, polynomial residual R=1−fq_n has exact Euler jet constraints (E^ℓR)(ζ_j)=δ_(ℓ,0). Evaluation matrix A_(jℓ),k=k^ℓ ζ_j^k for k=0..K−1 (K=n+d+1) has full row rank by Hermite interpolation; min-norm coefficients equal a=A*(AA*)^(−1)b. Scaling its Gram by D_K,jℓ=K^(ℓ+1/2) yields block diag H_(m_j) plus O_f(K^−1): diagonal Hilbert moment blocks from Riemann sums and cross-node oscillatory sums O(K^(ℓ+v)) by summation by parts. Positive block inverse perturbation gives K||a||²=Σ(H_m^(−1))_00+O_f(K^−1). The Hilbert inverse first column is the shifted-Legendre evaluation-at-zero reproducer Q_m(t)=Σ_(ν<m)(2ν+1)(−1)^νP_ν(2t−1), with Q_m(0)=m²; thus ||a||²=(Σm_j²)/K+O_f(K^−2) and the simultaneous all-index profile Ka_k=Σconjζ_j^k Q_(m_j)(k/K)+O_f(K^−1). Independent exact Hilbert inverse first entries 1,4,9,16 (m=1..4) and normalized finite mixed-multiplicity Gram residuals converge toward 5 and13. Uniformity is in 0≤k<K with fixed nodes, not coalescing nodes.
 
-**PASS, best knowledge with explicit residual risk.** Bénéteau–Manolaki–Seco (2019), Theorem 1.1 and Section 7, treat respectively simple zeros and one higher-multiplicity zero. Their conclusion 8(G) explicitly identifies different zeros with different multiplicities as a case not pursued. Related survey material and derivative-kernel literature were inspected. The present all-index Legendre profile and the additive **squared** multiplicity leading norm are not restatements of those theorem hypotheses. Indexed mathematical-result comparisons located related bidisk and weighted-polydisk approximation, not this one-variable mixed-jet result. An equivalent or dominating statement under older confluent Christoffel-kernel terminology remains possible; a relevant 2018 article was available only by abstract and is not certified non-covering.
+## originality
 
-## Value
+PASS
 
-**PASS.** Multiple boundary roots alter inverse-filter error at leading order by multiplicity squares. This provides an exact quantitative obstruction for fixed-degree Hardy inversion and the first-order shape of *every* residual coefficient, beyond isolated single-root examples. The result is for fixed root locations: it does not claim stability uniform under node collision or growing multiplicities.
+The nearest 2019 primary paper provides the finite matrix kernel method, simple distinct boundary zeros and a single higher-order boundary zero; concluding remark 8(G) explicitly treats different boundary zeros with different multiplicities as a future direction. The inspected material does not give the mixed-jet decoupled Σm_j² constant or the uniform oscillatory full coefficient profile. Known general confluent Christoffel/derivative-kernel ideas could potentially imply related asymptotics, a documented risk.
 
-## Closest literature and limitations
+## value
 
-Primary: *Boundary behavior of optimal polynomial approximants*, arXiv:1901.00694. Supporting work: the Bénéteau–Centner survey arXiv:2102.01725; earlier single-root examples arXiv:1606.08615; derivative kernels arXiv:2105.01766. See the mathematical comparison record and references in the result. Broader indexed coverage remains uncertain, not excluded by failed search alone. Independent mathematical examination is not yet complete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Repeated boundary zeros control inverse-filter approximation difficulty; the leading constant is quadratic in multiplicities rather than linear, and the result identifies the complete shape of every residual coefficient with explicit Legendre profiles. This gives a natural sharp quantitative extension of simple-root Hardy approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

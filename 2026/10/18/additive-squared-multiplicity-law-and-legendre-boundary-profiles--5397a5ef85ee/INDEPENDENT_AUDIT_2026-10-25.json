@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T00:06:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H² and f=c∏(z−ζ_j)^{m_j} with ≥2 fixed distinct unit-circle nodes and at least one repeated zero, polynomial residual R=1−fq_n has exact Euler jet constraints (E^ℓR)(ζ_j)=δ_(ℓ,0). Evaluation matrix A_(jℓ),k=k^ℓ ζ_j^k for k=0..K−1 (K=n+d+1) has full row rank by Hermite interpolation; min-norm coefficients equal a=A*(AA*)^(−1)b. Scaling its Gram by D_K,jℓ=K^(ℓ+1/2) yields block diag H_(m_j) plus O_f(K^−1): diagonal Hilbert moment blocks from Riemann sums and cross-node oscillatory sums O(K^(ℓ+v)) by summation by parts. Positive block inverse perturbation gives K||a||²=Σ(H_m^(−1))_00+O_f(K^−1). The Hilbert inverse first column is the shifted-Legendre evaluation-at-zero reproducer Q_m(t)=Σ_(ν<m)(2ν+1)(−1)^νP_ν(2t−1), with Q_m(0)=m²; thus ||a||²=(Σm_j²)/K+O_f(K^−2) and the simultaneous all-index profile Ka_k=Σconjζ_j^k Q_(m_j)(k/K)+O_f(K^−1). Independent exact Hilbert inverse first entries 1,4,9,16 (m=1..4) and normalized finite mixed-multiplicity Gram residuals converge toward 5 and13. Uniformity is in 0≤k<K with fixed nodes, not coalescing nodes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General derivative-kernel RKHS methods underpin the proof",
+          "2019 article remark 8(G) identifies different nodes with different multiplicities as unpursued",
+          "Bénéteau–Centner 2021 survey concerns polynomial approximants in filtering and broader spaces"
+        ],
+        "reasoning": "A general abstract Hermite-kernel theorem might imply the mixed-node result, but the reviewed cited paper separates it from established single-root results. Full uniform coefficient asymptotic is a stronger deliverable.",
+        "searches": [
+          "Bénéteau Manolaki Seco 2019 arxiv 1901.00694 multiple zeros multiplicity",
+          "Resultary: optimal polynomial approximants Hardy space multiple boundary zeros mixed multiplicity Gram matrix Hilbert Legendre coefficient asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Bénéteau–Manolaki–Seco (2019), arXiv:1901.00694",
+        "Bénéteau–Centner (2021), arXiv:2102.01725",
+        "Bénéteau–Khavinson–Liaw–Seco–Simanek, arXiv:1606.08615",
+        "Felder–Le (2021), arXiv:2105.01766",
+        "Resultary and published SCOPE repository semantic/code searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7.3 covers one boundary zero with high multiplicity; Remark 8(G) explicitly leaves different zeros/multiplicities",
+          "The multi-node off-diagonal O(1/K) estimate plus inverse block perturbation are essential to rule out leading interference"
+        ],
+        "reasoning": "Prior one-node constant and simple-root findings cannot be naively multiplied: each root of multiplicity m contributes m², not m. A general confluent Christoffel theorem might encode the same conclusion under different terminology.",
+        "searches": [
+          "Bénéteau et al 2019 theorem 7.3 remark 8(G)",
+          "Bénéteau Centner 2021 optimal polynomial approximants survey",
+          "Resultary: optimal polynomial approximants Hardy space multiple boundary zeros mixed multiplicity Gram matrix Hilbert Legendre coefficient asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bénéteau–Manolaki–Seco arXiv:1901.00694 simple-node Theorem 1.1, one-node multiplicity Theorem 7.3 and open mixed-node remark 8(G)",
+          "Hilbert inverse and shifted Legendre Christoffel reproducer are standard ingredients"
+        ],
+        "reasoning": "The exact mixed-node squared-multiplicity constant and *simultaneous* all-coefficient profile are beyond the theorem hypotheses of simple or one-node results.",
+        "searches": [
+          "Resultary: optimal polynomial approximants Hardy space multiple boundary zeros mixed multiplicity Gram matrix Hilbert Legendre coefficient asymptotic",
+          "SCOPE GitHub: Hardy polynomial approximant boundary zero mixed multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite Hilbert inverse tables give m² at individual nodes but do not determine cross-node convergence under oscillatory Gram coupling",
+          "Known tabulated single-node errors cannot directly generate full mixed-node coefficient profile"
+        ],
+        "reasoning": "An all-degree asymptotic for arbitrary distinct unit nodes is not a finite database question; indexed published finding search showed adjacent bidisk and weighted-polydisk results, not this formula.",
+        "searches": [
+          "Resultary: optimal polynomial approximants Hardy space multiple boundary zeros mixed multiplicity Gram matrix Hilbert Legendre coefficient asymptotic",
+          "SCOPE GitHub: Hardy polynomial approximant boundary zero mixed multiplicity"
+        ]
+      },
+      "rationale": "The nearest 2019 primary paper provides the finite matrix kernel method, simple distinct boundary zeros and a single higher-order boundary zero; concluding remark 8(G) explicitly treats different boundary zeros with different multiplicities as a future direction. The inspected material does not give the mixed-jet decoupled Σm_j² constant or the uniform oscillatory full coefficient profile. Known general confluent Christoffel/derivative-kernel ideas could potentially imply related asymptotics, a documented risk.",
+      "residual_risks": [
+        "General confluent Christoffel-kernel asymptotics or derivative interpolation literature may state an equivalent mixed-node result; search failure alone does not certify priority.",
+        "Only fixed distinct boundary roots of a polynomial in unweighted one-variable Hardy H²; no moving roots, root coalescence, or weighted spaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior kernel method and simple/one-node results are acknowledged; concluding remark explicitly leaves mixed distinct zero/multiplicity case uninvestigated",
+          "evidence": [
+            "Theorem 7.3 one repeated boundary zero; remark 8(G) multiple distinct zeros of distinct multiplicities"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.00694",
+          "material_read": "Full open PDF accessed; relevant Theorem 1.1, section 7 including Theorem 7.3, conclusion section 8(G), inspected page images of sections 7 and 8",
+          "method": "arXiv PDF text plus page screenshots",
+          "title": "Boundary behavior of optimal polynomial approximants",
+          "trigger": "Closest source: optimal H² inverse approximation with boundary zeros and multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Repeated boundary zeros control inverse-filter approximation difficulty; the leading constant is quadratic in multiplicities rather than linear, and the result identifies the complete shape of every residual coefficient with explicit Legendre profiles. This gives a natural sharp quantitative extension of simple-root Hardy approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Distinct fixed unit-circle zeros, fixed multiplicities and unweighted H². Implicit constants depend on the nodes; no uniformity under merging zeros.",
+    "General confluent Christoffel-kernel asymptotics or derivative interpolation literature may state an equivalent mixed-node result; search failure alone does not certify priority.",
+    "Only fixed distinct boundary roots of a polynomial in unweighted one-variable Hardy H²; no moving roots, root coalescence, or weighted spaces."
+  ],
+  "schema_version": 1
+}
