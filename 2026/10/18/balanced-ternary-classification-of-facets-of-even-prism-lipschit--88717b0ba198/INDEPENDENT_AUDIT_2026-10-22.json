@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:58:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 12c49faa3874b47edccfe62e08a299ee319c75af",
+        "assigned verify.py blob cdc6c6758526c2d4c8e7fbb3da876ea8711c6a57 (read, not executed)",
+        "D’Alì–Delucchi–Michałek arXiv:1910.05193v1 full HTML Proposition 4.33",
+        "independent n=4,6 exact integer signed-flow enumeration"
+      ],
+      "rationale": "The unit ball of the real Lipschitz-free space for unweighted connected graph metric equals the symmetric edge polytope, since every nonedge molecule is a convex combination of unit-length edge molecules along a shortest path. For even n>=4 the prism C_n□K_2 is connected planar bipartite, so D’Alì–Delucchi–Michałek Proposition 4.33 equates facets with nowhere-zero integer 2-flows (signed ±1) on the dual n-gonal bipyramid. With ring signs c_i and two apex-spoke signs a_i,b_i, conservation is a_i+b_i=c_(i-1)-c_i; x_i=(a_i-b_i)/2 lies in {-1,0,1}, equals zero precisely at ring-sign flips. Both apex constraints are equivalent to sum x_i=0. Balanced ternary words have an even number of nonzero symbols and, because n is even, an even number of zeros, so any initial ring sign closes cyclically and produces exactly one flow; both choices give distinct facets. Thus exactly 2*[z^0](z^-1+1+z)^n facets, and Laplace/Fourier analysis gives sqrt(3/(pi*n))*3^n for even n. Independently enumerating signed bipyramid 2-flows for n=4 and 6 produced 38 and 282, and independently computing coefficients gave 38, 282, 2214, 17906, 147578, 1232454 for n=4,6,8,10,12,14; finite checks are only diagnostics, not the all-n proof.",
+      "residual_risks": [
+        "The exact signed-flow/facet theorem uses planar duality only for connected bipartite graph G_n, which requires even n; no claim about odd or weighted prisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.33 covers the reduction of facets to 2-flows for every connected planar bipartite graph; no explicit bipyramid word count appears.",
+          "Proposition 4.29 gives outerplanar graph formulas applicable to open ladders, but the closed prism contains a non-outerplanar obstruction.",
+          "General facet-subgraph characterizations are broad but do not by themselves state this family’s closed evaluation."
+        ],
+        "reasoning": "Prior general theorems supply nontrivial foundational machinery but do not logically evaluate the particular bipyramid orientation count; the submitted cyclic parity argument and generating coefficient are additional.",
+        "searches": [
+          "D’Alì–Delucchi–Michałek arXiv:1910.05193 Propositions 4.29 and 4.33",
+          "Chen–Davis–Korchevskaia arXiv:2107.12315 facet subgraphs",
+          "Higashitani–Jochemko–Michałek DOI:10.1112/S0025579319000147"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.05193v1 full HTML",
+        "arXiv:2107.12315 full rendered paper",
+        "DOI:10.1112/S0025579319000147 publisher abstract",
+        "Resultary semantic prism facet and dual-flow searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar-flow bijection yields a computation target φ_(bipyramid)(2), but does not give φ for every n.",
+          "An open ladder has no cyclic ring closure; the closed ladder imposes even parity and a zero-sum ternary word, so cannot be plugged into the outerplanar product expression."
+        ],
+        "reasoning": "The prior general correspondence is acknowledged, while the explicit cyclic constraints and central coefficient evaluation are a distinct natural exact invariant of the prism metric family.",
+        "searches": [
+          "arXiv:1910.05193v1 Proposition 4.33",
+          "arXiv:2107.12315 general facet-subgraph correspondence",
+          "arXiv:1910.05193v1 Proposition 4.29 outerplanar case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The even-prism Lipschitz-free ball equals the symmetric-edge polytope of C_n□K_2.",
+          "For bipartite planar graphs its facets are in bijection with nowhere-zero integer 2-flows/equal-indegree-outdegree orientations on the planar dual, here a bipyramid."
+        ],
+        "reasoning": "These dual formulations are correctly equivalent. The uncomputed dual flow count is not a mere title change; ring/apex conservation yields the explicit balanced-word classification.",
+        "searches": [
+          "symmetric edge polytope prism graph circular ladder even cycle facet count bipyramid nowhere zero 2 flow balanced ternary",
+          "arXiv:1910.05193v1 Proposition 4.33 nowhere-zero 2-flows planar dual",
+          "Eulerian orientations bipyramid graph central trinomial coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The central trinomial sequence 1,3,7,19,51,141,... is classical but not the same statement as a facet enumeration of these exact prisms.",
+          "Targeted searches and nearby published records returned other prism topology/inradius and symmetric edge polytope families, not an identified same-object all-n facet table."
+        ],
+        "reasoning": "A numerical coefficient sequence is not scientific evidence that these graph facets have those values. The complete reversible flow encoding makes the exact family enumeration more than reading off a table. Residual equivalent Eulerian-orientation literature remains a risk.",
+        "searches": [
+          "Resultary query: symmetric edge polytope prism graph circular ladder even cycle facet count bipyramid nowhere zero 2 flow balanced ternary",
+          "even prism circular ladder symmetric edge polytope facets central trinomial coefficient Eulerian orientation bipyramid",
+          "arXiv:1910.05193v1 Sections 4.4 and 4.5"
+        ]
+      },
+      "rationale": "The general planar bipartite facet/dual nowhere-zero 2-flow correspondence is explicitly prior work and is not claimed new, nor is the symmetric edge polytope identification. The surviving contribution is the complete even-circular-ladder evaluation and an explicit reversible parameterization of its dual bipyramid flows by one sign and a balanced ternary word, plus sharp growth. The 2019 D’Alì et al outerplanar facet formula does not cover circular ladders, and Chen–Davis–Korchevskaia gives general facet-subgraph descriptions rather than this explicit count. The central trinomial sequence itself is classical, but its identification with these facets via the flow bijection is mathematically additional.",
+      "residual_risks": [
+        "An older explicit bipyramid Eulerian orientation/flow polynomial evaluation under a different name could imply the result; further primary literature may clarify this.",
+        "The exact central trinomial coefficient sequence itself is known; the contribution is the prism-facet identification and classification, not the arithmetic sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DUALITY_NOT_EXPLICIT_PRISM",
+          "evidence": "Proposition 4.33 states facet number equals number of nowhere-zero 2-flows on planar dual; Proposition 4.29 is outerplanar only. No prism-specific full balanced-ternary evaluation appears in inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/1910.05193v1",
+          "material_read": "Complete original arXiv HTML, especially Section 2.3 fundamental metric polytopes, Proposition 4.29 outerplanar counts, Section 4.5 Proposition 4.33 dual 2-flows",
+          "method": "primary full arXiv HTML",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Same general graph metric/symmetric-edge polytope and potential exact facet reduction"
+        },
+        {
+          "assessment": "GENERAL_FACET_METHODS",
+          "evidence": "Theorems characterize facets/face subgraphs of connected graphs but a search of whole article found no “prism” or “bipyramid” evaluation. This is not claimed to be exhaustive priority exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Full accessible arXiv rendered paper, introduction and principal facet-subgraph methods",
+          "method": "primary full rendered HTML",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General facets and maximal bipartite subgraphs could yield stronger coverage"
+        },
+        {
+          "assessment": "RESIDUAL_PRIORITY_RISK",
+          "evidence": "Abstract states complete combinatorial description of facets and an h* formula for complete bipartite graphs; no prism specific statement in abstract, full article remains a risk.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579319000147",
+          "material_read": "Abstract and bibliographic statement accessible on publisher site; full text was not read",
+          "method": "publisher original abstract only",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Earlier complete combinatorial facet description might dominate family evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "D’Alì et al planar dual flow correspondence",
+        "assigned RESULT.md exact all-even-n classification"
+      ],
+      "rationale": "Facet numbers are a natural combinatorial-geometric invariant of Lipschitz-free unit balls; even circular ladders form a canonical infinite graph family with a planar dual of manageable but nontrivial cyclic topology. A closed formula, full balanced-word structural classification and n-dependent sharp asymptotic furnish independently useful data beyond general facet-flow duality and beyond a handful of small graph instances. The zero-sum/cyclic parity constraint is a mathematically meaningful distinction from open-ladder formulas.",
+      "residual_risks": [
+        "Odd prism and weighted edge cases remain open outside stated scope; no general/downstream theorem is required for a natural complete classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is a best-of-knowledge conclusion based on actual literature inspection, not exhaustive priority certification.",
+    "No new public certificate or expert/Lean attestation created; unchanged source package science and external channels preserved.",
+    "All seven files in the assigned Git tree were read, but opaque repository checker scripts were not executed; separately stated bounded independent diagnostics do not replace infinite proofs.",
+    "The source tree snapshot is immutable and matched the seven-blob verified tree listing."
+  ],
+  "schema_version": 1
+}
