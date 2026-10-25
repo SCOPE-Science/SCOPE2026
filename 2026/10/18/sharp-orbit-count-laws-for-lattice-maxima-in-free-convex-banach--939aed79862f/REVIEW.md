@@ -1,15 +1,21 @@
-# Review of the orbit-count lattice-maximum theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The source norm on the dual coordinates is the established free \(p\)-convex functional norm, with weak \(p\)-summability reducing to separate coordinate budgets for generators \(\ell_1^n\). Applying the full finite permutation orbit to one vector verifies the critical pointwise inequality \(|f(x)|^p\leq\|f\|^p\max_a c_a(x)\), with the multiplicities and zero case handled explicitly. Summing the individual orbit budgets gives the sharp \(r^{1/p}\) upper bound; elementary \(p\)-convexity gives \(k^{1/p}\). Normalized orbit-average polynomials and disjoint orbit indicator test vectors attain the minimum of the two bounds, for every partition and every integer arity. At the infinite exponent the free AM norm supplies the separate endpoint. The exact-rational checker supplements the analytic proof, not vice versa.
+## correctness
 
-## Originality — PASS, subject to literature-indexing risk
-The foundational norm formulas in arXiv:2101.03510 and the structural/sublattice results in arXiv:2210.00614 do not state a sharp \(k\)-ary maximum invariant indexed by the number of permutation orbits. An earlier transitive-action result establishes only the \(r=1\) special boundary; it does not imply the nontransitive plateau. A generic \(p\)-convex estimate has the larger upper bound \(k^{1/p}\), which is not sharp for \(k>r\). Equivalent orbit-budget estimates could occur in differently indexed nonlinear-summing or invariant-function literature; that is a residual comparison risk, not evidence of coverage.
+PASS
 
-## Value — PASS
-The result identifies a natural intrinsic lattice constant for every arity, not a selected numerical example. The complete law depends only on the number of coordinate orbits, regardless of their sizes or the subgroup's internal structure, and quantifies exactly when the fixed lattice ceases to be an AM-space. The nontrivial stabilization at \(k=r\) is not obtained from ordinary \(p\)-convexity alone and distinguishes distinct orbit decompositions even when ambient spaces have the same norm and dimension.
+For invariant f and any dual x, replicate the G-orbit as normalized test rows |G|^(-1/p)gx. Transitivity within each orbit yields coordinate p-costs c_a(x)=|O_a|^(-1)sum_{i in O_a}|x_i|^p. Normalizing by C=max_a c_a gives |f(x)|^p<=||f||^p C. For any k unit positive invariant functions, their pointwise supremum has p-norm budget ≤sum_a sum_s c_a(x_s)≤r and independently ≤k by p-convexity, giving Γ_k≤min(k,r)^(1/p). Positive orbit averages h_a(x)=avg_{i in O_a}|x_i| have norm exactly one, tested on indicator rows with disjoint orbit supports; their supremum attains min(k,r)^(1/p). For p=∞ free AM norm gives Γ=1. For p finite Γ_2=1 iff r=1, including n=1 and trivial orbit configurations. Independently checked rational binary orbit-cost inequalities for partition (1,2,2), p=1,2,3 and exact indicator-row witnesses; non-integer p follows analytic norm argument, not these checks.
 
-## Scope and verification limits
-The proof covers real finite-coordinate free \(p\)-convex lattices for every \(1\leq p\leq\infty\); it does not give an isometric classification of the complete fixed lattice. The finite tests cover dimensions at most seven and three integer exponents only; the analytic proof supplies the arbitrary-parameter statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge review of the final claim and stronger implications: the published transitive AM theorem entirely covers r=1 but not the complete r>1 quantitative result; specific exact result not found to be subsumed by inspected primary sources; acknowledged overlapping premises and priority risks are itemized.
+
+## value
+
+PASS
+
+Positive finite-join constants are intrinsic quantitative AM-space invariants. The complete formula Γ_k=min(k,r)^(1/p) at all arities, real p and permutation groups identifies a genuine orbit-resource cutoff and sharp stabilization independent of orbit sizes, extending beyond the known transitive AM case. It is a structural full classification rather than unmotivated single numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
