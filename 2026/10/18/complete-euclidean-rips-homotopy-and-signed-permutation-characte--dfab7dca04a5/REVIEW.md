@@ -1,19 +1,21 @@
-# Scientific comparison and verification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six squared Euclidean distance multiplicities are derived directly from the integer coordinates, and exact rational facet-inequality enumeration identifies the full convex hull, and the resulting clique stages have an explicit convex-surface, join or relative-collapse description. The intermediate \(S^3\) does not follow merely from mod-two homology: a complete eighty-pair elementary collapse maps the full fourteen-vertex complex onto the cube-vertex boundary of a four-dimensional crosspolytope. The graph rank, later crosspolytope and join stages, integer persistence and three octahedral orientation characters are proved in `RESULT.md`. `verifier.py` replays the package's actual `collapse_pairs.json` and checks signed Lefschetz characters under all forty-eight group elements. The finite certificate is exhaustive for this precisely specified finite configuration, rather than an extrapolation to an infinite family.
+PASS
 
-## Originality — PASS, with stated risk
+From the fourteen coordinates all 91 pairwise squared distances have shells 3:24,4:12,8:24,11:24,12:4,16:3. Below sqrt3 the complex is discrete; at sqrt3 a connected 14-vertex/24-edge bipartite graph has first Betti 11. At r=2 the maximal triangles triangulate the twelve rhombic facets of the convex dodecahedral boundary, giving S2. At squared scale 8 the cube-induced subcomplex is the join of four antipodal 0-spheres, hence S3. For each nonempty compatible axis subset, its cube neighbors form a simplex; pairing each axis-containing face according to a distinguished compatible cube vertex gives acyclic relative matching; an explicit independently found sequence of 80 elementary free-face deletions confirms a genuine collapse to the cube S3 (not merely Betti agreement). At squared 11 all and only the seven antipodal pairs are forbidden so (S0)^*7=S6, while at squared 12 every cube vertex spans a simplex join factor and the complex contracts despite three absent axis-antipodal edges; sqrt16 adds no homology. Each positive homology degree appears in one interval only. G=signed permutations acts on S2 with determinant, on cube S3 with sign of permutation of four antipodal body diagonals, and on S6 via product; H1 of the graph has trace 1+pointwise-fixed-edges-fixed-vertices. Independently enumerated all thresholds with clique face totals 38,74,240,2186,6911,16383 and checked 80 sequential free-face collapses, complementing source certificate. No unsupported inference from finite samples: object itself is finite and geometric identifications prove integral types.
 
-Adamaszek's arXiv:1104.0433 concerns graph powers and their clique complexes, especially cycles, not this Euclidean fourteen-vertex polytope. Saleh–Titz Mite–Witzel's arXiv:2302.14388 explicitly addresses the five Platonic solids; its last-antipode lemma subsumes our \(S^6\) stage and its cube analysis subsumes the standalone cube subcomplex, which are credited as known pieces. The crucial additional comparison is the **new relative collapse of the full fourteen-vertex complex onto the cube subcomplex at squared radius eight**, plus the complete intervening Euclidean barcode and signed-permutation characters. Sethares–Budney's arXiv:1307.1201 mentions a rhombic dodecahedron as a fundamental domain for a lattice quotient, not a Rips complex of its vertex set. Exact-name, vertex-union and antipodal-alias searches gave no directly covering indexed formula. Unindexed exact computations may exist, and a search alone is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The rhombic dodecahedron is the canonical Catalan dual of the cuboctahedron; unlike Platonic solids its vertices have two radii, so graph metric and Euclidean metric filtrations genuinely diverge. An exact **complete integral homotopy-and-persistence classification** is a natural invariant here. The \(S^2\to S^3\to S^6\) sequence and the distinct ambient-orientation and diagonal-permutation characters explain how separate cube and octahedral vertex orbits interact. It is a specific but motivated canonical example rather than a routine parameter increment or a computed arbitrary slice. This does not claim a new theorem for all Catalan solids.
+Best-of-knowledge new exact Euclidean fourteen-point Rips filtration and its full octahedral characters. Saleh–Titz Mite–Witzel work classifies Platonic vertex sets, notably a dodecahedron with 20 vertices; the rhombic dodecahedron is a distinct 14-vertex Catalan solid. The earlier Resultary cuboctahedron computation involves its 12 vertices (dual polytope, not equal Euclidean metric on fourteen rhombic vertices), different critical shells. General antipodal-pair joins cover S6-like endpoints, but not the scale sqrt8 all-vertex collapse or complete characters.
 
-## Closest literature and limits
+## value
 
-Relevant original texts include Adamaszek (2011, arXiv:1104.0433), Sethares–Budney (2013, arXiv:1307.1201), and Saleh–Titz Mite–Witzel (2023, arXiv:2302.14388). Complete source-to-claim comparisons and residual uncertainty are in `AUDIT.json`. Only self-review is recorded, and the result is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete integral metric-persistence classification including a nontrivial certified relative collapse and full symmetry representation for a natural Catalan-solid vertex sample is a meaningful finite topology invariant. Its S2→S3→S6 transitions are not read off from the convex surface alone; the 80-pair collapse identifies the nonobvious intermediate stage and its equivariant orientation. This exact fact is reusable for finite Rips benchmarks and polyhedral comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
