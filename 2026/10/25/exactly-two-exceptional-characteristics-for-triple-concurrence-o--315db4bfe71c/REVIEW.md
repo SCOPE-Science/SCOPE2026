@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** All 28 bitangents are exhibited and their tangencies proved for arbitrary characteristic at least five; the 28-count for genus-three canonical curves establishes exhaustion. The determinant norm identity in the degree-four cyclotomic extension is algebraically derived, and the exact 3276-triple calculation shows no additional characteristic primes except five and seventeen. Fully exhaustive projective pair-intersection enumerations over the appropriate finite extension establish each exceptional row and the generic row. Direct execution of the embedded standalone checker printed `VERIFY_OK`. Boundary cases characteristic two and three are explicitly excluded.
+
+**Originality — PASS within checked literature, with residual risk.** Janasz–Pokora–Zieliński [1] explicitly restrict to complex quartics, and their Fermat/Dyck count is the \(p\)-generic incidence row, not the characteristic-five or seventeen jumps or the all-prime exception sieve. Ottaviani [2] treats bitangent and theta-characteristic constructions, not finite-characteristic triple-concurrence counts for this arrangement. Semantic searches for arithmetic Fermat-quartic bitangent incidences and comparison with related mathematical statements did not reveal a statement implying the claimed exceptional-prime classification. This cannot exclude unindexed classical or computational sources.
+
+**Mathematical value — PASS.** The arithmetic degeneration of an especially symmetric classical bitangent arrangement is natural: the incidence lattice changes in exactly two good characteristics, although the underlying quartic remains smooth and retains all 28 bitangents. The exact cyclotomic-norm spectrum identifies the exceptional primes structurally instead of giving an arbitrary finite-field census, and the complete intersection multiplicities at both jumps make the result useful for positive-characteristic arrangement geometry.
+
+**Scope and risk.** The conclusion is restricted to the Fermat quartic and characteristics at least five; it does not assert an analogous phenomenon for other quartics. The novelty assessment depends on accessible literature and is not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
