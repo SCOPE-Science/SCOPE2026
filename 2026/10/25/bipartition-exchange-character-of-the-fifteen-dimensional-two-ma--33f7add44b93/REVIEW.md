@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact face-mask enumeration visits all 7342 admissible simplices, the 3663 acyclic discrete-Morse pairs are verified against 37728 Hasse incidences, and the only critical cells are one 0-cell and fifteen 5-cells. For every one of 1152 bipartite automorphisms, a signed fixed-cycle subset sum matches the explicit representation character. A separate fixed-simplex signed Lefschetz implementation checks 25 side-preserving cycle-type pairs and five side-exchanging types. The proof spells out the parity of each selected orbit and the Hopf trace normalization. The group-representation identification is a consequence of equality of characters in characteristic zero.
+
+**Originality — PASS, qualified.** Reiner and Roberts' Theorem 3.3 already controls the characteristic-zero representation restricted to row and column permutations. It does not specify the involution exchanging the two parts; in particular, the positive versus negative flip extension of the 9-dimensional diagonal tensor summand remains undecided by the restriction alone. The new five swapped-class traces and the full wreath-product decomposition settle that precise missing datum. The prior nonequivariant 15-sphere classification is cited and not claimed as new. Search cannot rule out unindexed equivariant computations.
+
+**Mathematical value — PASS.** The full automorphism group naturally contains a part-exchanging involution, and classifying its action is necessary for a complete representation-level description of this canonical 4-by-4 capacity-two chessboard complex. The extra trace resolves a genuine representation-extension ambiguity not recorded by ordinary homology ranks or the side-preserving character. The exact nontrivial class values are a useful finite benchmark for higher-matching equivariant topology. No sweeping infinite-family conclusion is claimed.
+
+**Limitations and closest coverage.** The result is rational and graph-specific. Reiner–Roberts provides the base side-preserving weight-space description; Singh treats different capacity parameters; the published explicit 15-sphere result provides nonequivariant homotopy only. An unindexed equivalent characterization or a representation-theoretic strengthening of the 2000 work could reduce historical novelty.
+
+Self-review: passed. Independent audit: not yet performed.
