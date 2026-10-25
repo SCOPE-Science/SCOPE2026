@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is for precisely the eighteen arcs of the triangular prism, with arc sets that have indegree/outdegree at most one and no directed cycles. Two exhaustive simplex enumerators agree on all 687 faces including the empty face. The 326-pair matching is globally acyclic over 2256 Hasse incidences, leaving critical-cell vector (1,0,5,22,6). Exact integer Morse projection gives zero differentials. Five integral degree-two cocycles and six exact rational degree-four cycles give 90 zero Alexander–Whitney cup evaluations, eliminating the five Hopf and ten pairwise Whitehead attaching coefficients for each of six four-cells. Direct mod-2 and mod-101 ranks independently corroborate homology. The standard discrete-Morse, Hilton–Milnor and cup/attaching arguments are necessary to pass from the computations to the integral homotopy equivalence. Risk: these standard abstract results and the executable certificate should be checked independently; independent mathematical review has not occurred.
+## correctness
 
-## Originality
-PASS with residual priority risk. Relevant full primary treatments were inspected: Caputi–Collari–Di Trani–Smith, *On the homotopy type of multipath complexes*, arXiv:2208.04656, and Caputi–Collari–Smith, *Multipath complexes of bidirectional polygonal digraphs*, arXiv:2601.05670. The former does not classify bidirected triangular prisms among its directed path/polygon/grid families; the latter studies bidirected paths and cycles, not this prism. Equivalently the faces are arc sets with no repeated source, repeated target, or directed cycle. A published calculation on the triangular-prism *discrete-Morse matching complex* concerns different simplices, and the published six-vertex bidirected complete-bipartite multipath example concerns a different graph. Direct comparisons with accessible research records and literature identified no dominating statement. Unindexed equivalent work or broader unnoticed structural coverage remains possible; no absence-of-proof is treated as proof of novelty.
+PASS
 
-## Value
-PASS. The triangular prism is the unique connected nonbipartite cubic graph on six vertices and a basic trivalent polyhedral graph combining triangular and rectangular cycles. This calculation supplies its full integral multipath homotopy type with nontrivial sphere summands in three consecutive dimensions. Determining and eliminating the dimension-four Hopf and Whitehead attaching maps adds genuine information beyond its integer or finite-field homology and makes the example a natural comparator for bidirected cycle and cubic graph families. No infinite-family claim is made.
+For the 18 arcs of the fully bidirected triangular prism, exact independent enumerations of all 2^18 masks give 687 augmented faces, f-vector by size (1,18,108,260,240,60); our new independent mod-2 boundary ranks are (17,91,164,54), giving reduced Betti (0,0,5,22,6). Inspected greedy acyclic matching certifies 326 Hasse pairs and critical counts one 0-cell, five 2-cells, 22 3-cells, six 4-cells; exact integral Morse projection has both d3 and d4 zero. Independently reconstructed integer matching, its Morse boundaries, five independent degree-two cocycles and six exact integral four-cycles; all 90 Alexander–Whitney cup evaluations (15 unordered H² pairings times six cycles) vanish. π3 of wedge of five S2 plus 22 S3 has Hopf and pairwise Whitehead components (15 total) plus 3-sphere degrees. Zero integer d4 and cup products imply all four-cell attaching maps null since relevant π3 is torsion-free. Therefore true integral wedge, not just Betti computation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Directed-arc path-system complex with at most one source/sink incident arc and no directed cycles on bidirected C3-square-K2. Must not confuse with ordinary matching or Forman discrete-Morse matching complex on same undirected prism. Published prism ordinary discrete-Morse complex has wedge 64 S4; different vertex set and face incidence. General multipath 2022 paper and bidirectional polygon 2026 do not include branched bidirected prism or full mixed-dimensional wedge. A known graph name shared with 64-S4 discrete Morse complex is not theorem coverage: that complex parametrizes acyclic matchings on graph-cell incidences, whereas multipath vertices are 18 directed arcs. Directed polygon theorems omit all prism rungs.
+
+## value
+
+PASS
+
+Triangular prism is canonical smallest connected nonbipartite cubic graph; fully bidirected multipath complexes are natural directed path-system objects. Complete integral homotopy, including nontrivial 4-cell Hopf/Whitehead attaching data that bare Morse ranks do not resolve, is a self-contained exact invariant useful as benchmark for multipath topology, not merely an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
