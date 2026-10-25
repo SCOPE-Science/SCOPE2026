@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A selected hub-spoke count of s>=2 prohibits every unselected hub spoke, yielding exactly s=0,1,2k. For fixed spoke boundary conditions, every omitted internal edge is adjacent to exactly one selected edge iff all maximal runs of omitted edges have length two (except the forced boundary bits in the s=1 case). The binomial zero-pair lemma yields \\(F_n\\) and the three explicit \\(G_n,J_n,H_n\\) hub-case products; these partition the entire PED family without duplication. Prohibiting adjacent selected edges further imposes unique 100 and 001/010 periodic patterns with exact modulo-three length conditions. A fresh standalone verifier enumerated 132 explicit bouquet tuples, 1679 PED sets, and 30 DIMs, comparing every bivariate coefficient; infinite correctness derives from the complete proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.03894v1, Section 4.1, general GSP PED count using terminal-state recurrences, and Section 4.2, DIM count; all cycle bouquets are GSP graphs.",
+        "arXiv:2509.04598v2, Section 6, counting algorithm specialized to P6-free graphs.",
+        "Lu--Ko--Tang (2002), DOI 10.1016/S0166-218X(01)00198-6, generalized-series-parallel optimization framework; publisher full text inaccessible."
+      ],
+      "reasoning": "The 2026 algorithm does cover unrefined total counts of PED sets and DIMs for every individual bouquet. The final claim is intentionally finer: all cardinality coefficients jointly with hub-spoke support, a separable arbitrary-petal product expression, and an exact zero/one/two DIM residue criterion. The general algorithm does not present those closed formulas; symbolic weighting might be adapted to recover the polynomial, a residual overlap risk.",
+      "searches": [
+        "edge perfect domination flower cactus graph all edge cardinalities generating polynomial F_n",
+        "exact perfect edge dominating set counting polynomial on cycles cactus graphs and bouquets of cycles with shared central vertex",
+        "\"perfect edge dominating\" cactus graph counting cycle",
+        "\"perfect edge dominating sets\" \"cactus\" polynomial",
+        "\"counting perfect edge dominating sets\" \"flower\" \"cactus\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03894v1 full arXiv HTML, Sections 1,2,4,5",
+      "arXiv:2509.04598v2 full arXiv HTML, Sections 2,5,6",
+      "Lu--Ko--Tang (2002), DOI 10.1016/S0166-218X(01)00198-6, bibliographic and abstract only",
+      "Semantic mathematical-record searches for bouquets, efficient edge domination, DIM, counting polynomials and cactus graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.03894v1, Sections 4.1--4.2 establishes linear-time unrefined counts in GSP, and Section 5 treats single-cycle totals.",
+        "arXiv:2509.04598v2, Section 6, adapts P6-free optimization to counts, without bouquet formulas.",
+        "The current proof classifies the possible selected-spoke counts and obtains zero-pair factorization and modular constraints directly."
+      ],
+      "reasoning": "Since the GSP result computes a total, the assertion that bouquets have computable PED or DIM counts would be subsumed and is explicitly excluded from the novel claim. Its counting recurrence could be lifted to formal polynomial weights, potentially implying a procedure for the new enumerator, but no evaluated closed form or sharp 0/1/2 structure is stated there. No claim of an asymptotically faster algorithm, stronger complexity class, or independent discovery of prior unrefined results is made.",
+      "searches": [
+        "dominating induced matching number of edge-disjoint cycle bouquet single cut vertex, lengths congruent 0 and 2 modulo 3 at most two",
+        "exact perfect edge dominating set counting polynomial on cycles cactus graphs and bouquets of cycles with shared central vertex",
+        "\"dominating induced matching\" friendship graph rose cactus cycles",
+        "\"perfect edge domination\" \"bouquet\" cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grippo--Lin--Moyano--Vera (2026), arXiv:2607.03894v1, Sections 2.2 and 4.1, defines perfect edge domination and efficient edge domination, and computes total PED/DIM counts.",
+        "Grippo--Lin--Vera (2025), arXiv:2509.04598v2, Sections 2.1 and 6, uses equivalent PED and DIM terminology, including efficient edge domination.",
+        "No mathematical claim among the checked same-object search results stated a cardinality-and-hub-spoke polynomial or the exact three-residue DIM multiplicities."
+      ],
+      "reasoning": "Efficient edge dominating sets and dominating induced matchings are equivalent, and a cycle bouquet is also a one-vertex wedge of cycles, a rose or flower cactus. The comparisons deliberately include these aliases, but full-query nondetection is not uniqueness evidence.",
+      "searches": [
+        "perfect edge dominating set polynomial of a cycle bouquet B(l_1,...,l_k), counting by size with hub spoke occupancy zero one all",
+        "dominating induced matching number of edge-disjoint cycle bouquet single cut vertex, lengths congruent 0 and 2 modulo 3 at most two",
+        "\"perfect edge domination\" \"flower graph\" bouquet cycles polynomial",
+        "\"dominating induced matching\" \"bouquet\" cycles",
+        "\"perfect edge dominating\" \"bouquet\" counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary 2026 source Section 5 derives a recurrence for the unrefined PED counts of single cycles, not a table of hub-marked bouquets.",
+        "Related retrieved mathematical records concerned vertex power domination of books, dissociation polynomials of windmills, or matching/induced-matching inequalities, not this PED coefficient dataset."
+      ],
+      "reasoning": "No checked enumerative table directly gives this bivariate coefficient family; no finite database search can certify absence of equivalent formulas. The result gives a parameterized theorem, not a recomputation of a finite numerical table.",
+      "searches": [
+        "perfect edge dominating set polynomial of a cycle bouquet B(l_1,...,l_k), counting by size with hub spoke occupancy zero one all",
+        "edge perfect domination flower cactus graph all edge cardinalities generating polynomial F_n",
+        "perfect edge domination of flower graphs rosettes friendship graph cactus graph complete enumeration",
+        "counting all perfect edge dominating sets in cactus graphs 2025 algorithms",
+        "\"perfect edge domination polynomial\" cycles path",
+        "\"perfect edge domination polynomial\" generating function coefficients graphs"
+      ]
+    },
+    "rationale": "The explicit bivariate cardinality/hub-spoke polynomial and the structural exact 0/1/2 DIM classification are absent from the materially inspected closest primary GSP counting article and other checked sources. This is a limited new refinement, not a novelty claim for unrefined counts or the computational solvability of this graph class. Equivalent formulas might exist under other notation; the known unweighted GSP state recurrence is a substantial near-prior and potential source of a weighted specialization.",
+    "residual_risks": [
+      "The 2026 generalized-series-parallel algorithm already computes unrefined totals and could be adapted with polynomial weights; a near-trivial symbolic specialization would diminish the originality of some coefficient-level calculations.",
+      "Lu--Ko--Tang (2002) could not be inspected in full; possible exact special-family statement or equivalent representation remains unexcluded.",
+      "Unindexed literature or a result using line-graph efficient domination, flower graphs, roses or wedges might contain an equivalent modular classification.",
+      "This is a self-review, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unrefined counts on all cycle bouquets via general GSP algorithms; no explicit bivariate hub-spoke enumerator or modular 0/1/2 bouquet DIM classification found",
+        "evidence": "Section 4.1 terminal-state counts \\(p_{\\alpha,\\beta}\\), Section 4.2 DIM counting, Section 5 cycle recurrence and conclusion; arXiv v1 date 2026-07-04",
+        "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+        "material_read": "Primary full text: Sections 1, 2.2--2.3, 4.1--4.2 and 5, including GSP terminal-state recurrence and cycle-count conclusions",
+        "method": "Read public full-text HTML rendered from the arXiv work; compared definitions, statement scope, parameter outputs and numbered recurrences",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Exact primary 2026 source with stronger graph-class coverage and PED/DIM counting algorithms"
+      },
+      {
+        "assessment": "Establishes equivalent terminology and P6-free counting, but not this exact bouquet coefficient-level classification",
+        "evidence": "Definition in Section 2.1; count adaptation in Section 6; first arXiv submission 2025-09-04",
+        "identifier_or_url": "https://arxiv.org/html/2509.04598v2",
+        "material_read": "Full-text Sections 2.1, 5, 6, including the definitions and count-adjustment procedure",
+        "method": "Read primary freely accessible arXiv HTML and compared with the precise graph family and polynomial claims",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "Earlier PED definitions and counting algorithm, plausible direct overlap"
+      },
+      {
+        "assessment": "High-relevance but not fully inspected; possible older structural account remains a residual risk",
+        "evidence": "Lu, Ko, Tang; Discrete Applied Mathematics 119 (2002), 227--250; cited as basis for GSP graph algorithms in 2026 primary paper",
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(01)00198-6",
+        "material_read": "Bibliographic citation and abstract-level description available from newer primary references; publisher full text unavailable (403)",
+        "method": "Attempted primary publisher access, relied on direct bibliographic attributions without asserting unseen passages",
+        "title": "Perfect edge domination and efficient edge domination in graphs",
+        "trigger": "Foundational graph-class algorithms and potential historical source of decomposition equivalences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e80dff1-9ef1-473a-a13b-f2b9b36563b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Explicit cardinality-refined PED counts together with a selected-spoke marker determine all coefficients on a natural multi-parameter cactus subfamily, not merely totals computable by an existing general algorithm. The local-to-global hub split is a structural theorem, and the sharp mod-three dichotomy for existence of efficient edge domination plus an at-most-two multiplicity gives an interpretable invariant and infinite positive/negative families. This is a modest explicit classification with directly stated limitations and genuine use beyond one numerical example.",
+    "status": "PASS"
+  }
+}
