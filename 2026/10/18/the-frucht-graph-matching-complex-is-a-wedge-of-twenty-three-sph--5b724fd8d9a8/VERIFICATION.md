@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone Python standard-library scripts `verify_frucht_matching.py` and `verify_frucht_homology.py` were executed successfully from the packaged source directory; complete actual stdout is included in `morse_output.txt` and `homology_output.txt`.
+# Independent mathematical audit
 
-The first checks all nonzero masks among 18 edges, finds exactly 1,025 faces, forms 502 pairwise disjoint codimension-one matches, and builds the complete 3,629-cover directed Hasse graph. A complete directed topological sort visits all 1,025 nodes. Critical-cell dimensions are 0 (one) and 3 (twenty). Therefore the exact integral wedge follows by elementary discrete-Morse CW arguments.
+## correctness
 
-The second constructs the Frucht graph independently from its published LCF representation, tests an explicit isomorphism against the first script's edge list, and exhaustively calculates all mod-two boundary ranks and Betti numbers. This independent chain calculation is a consistency check, not the source of the integral homotopy theorem. The result is graph-specific and no external validation is asserted.
+PASS
+
+The eighteen graph edges and ordinary matching predicate (disjoint endpoints) were checked against the complete RESULT.md and standard-library code. Independent enumeration of all 2^18 bitmasks recovered 1025 nonempty faces, dimensions (18,117,333,397,152,8), the specified 502 disjoint codimension-one Morse pairs, 21 critical cells (one 0-cell and twenty 3-cells), and acyclicity of the entire 3629-cover oriented face poset by topological sort. Since the Morse CW complex has no 1/2-cells, all 3-cell attachments to the lone 0-cell are null; the complete integral homotopy claim is wedge^20 S^3, not merely mod-two Betti numbers. An independent LCF-label isomorphism and boundary check in the separate inspected code agree. Finite enumeration is exhaustive for this specified graph but no family inference is made.
+
+## originality
+
+PASS
+
+The full published Frucht graph vertex-independence result computes Ind(F), not its line-graph independence complex Ind(L(F))=M(F); their homotopy ranks 3 in degree 2 and 20 in degree 3 differ. The entire published Franklin graph matching result concerns a distinct 12-vertex cubic graph and yields 12 third spheres, not 20. Indexed semantic search for ordinary Frucht matching, line graph and 20 three-spheres found no equivalent numerical or dominating classification. Engström claw-free connectivity techniques and ordinary graph-specific discrete Morse methods do not supply the exact new Frucht homotopy result. Best-of-knowledge PASS with unindexed-paper risk.
+
+## value
+
+PASS
+
+The Frucht graph is the canonical smallest cubic asymmetric graph; its edge-matching topology is natural when comparing symmetric Franklin, Möbius and asymmetric cubic benchmarks. A finite complex with maximal dimension five but integral homotopy wedge^20 S^3 is a nontrivial exact classification, reproducible with a complete directed acyclic matching; numerical shape is not automatic from graph identity or previously known vertex-independence homotopy. No general theorem or arbitrary-slice significance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

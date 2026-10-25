@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is pinned down by eighteen explicit edges and independently identified through its LCF representation. Exhaustive enumeration yields 1,025 valid nonempty matching faces with counts \((18,117,333,397,152,8)\). The deterministic pairing algorithm produces 502 disjoint codimension-one matches; a complete directed topological sort verifies all 3,629 face-poset incidences and all 1,025 vertices. The only critical cells are one vertex and twenty three-cells, which *topologically*, by Forman's theorem and the absence of 1- and 2-cells, give \(\bigvee^{20}S^3\). Independent mod-two chain ranks and the Euler characteristic agree. This is a complete finite proof of the exact graph result, not extrapolation.
+## correctness
 
-**Originality — PASS, with residual risk.** The August 31, 2026 primary paper on Möbius ladders was inspected through its definitions and Section 4: it calculates perfect-matching complexes of a different symmetric graph family. Its conclusions do not imply this ordinary Frucht-graph result. The published Frucht independence-complex theorem concerns \(\operatorname{Ind}(F)\), not \(\operatorname{Ind}(L(F))\), and its full statement was compared. The published Franklin-graph ordinary matching-complex result concerns a nonisomorphic twelve-vertex graph, whose twelve-sphere wedge does not imply the twenty-sphere Frucht result. A published all-five asymmetric-graph Rips calculation uses shortest-path clique complexes on *graph vertices*, not matching complexes on *graph edges*. General claw-free-complex connectivity bounds do not yield this exact integral homotopy type. Direct searches for the graph, its matching/line-graph formulation, the dimension and multiplicity uncovered no equivalent or stronger statement. Unindexed equivalence remains possible.
+PASS
 
-**Value — PASS.** The Frucht graph is the standard smallest cubic graph with trivial automorphism group, a natural counterpoint to the Möbius ladder and Franklin symmetric cubic benchmarks. Its ordinary matching complex has maximal face dimension five yet collapses in the homotopy category to a pure wedge of twenty three-spheres; this cannot be read off from the 2026 symmetric-family theorem or the graph's symmetry class. The exact integral homotopy type supplies a motivated finite benchmark for graph-complex topology; no broad all-cubic-graph theorem is asserted.
+The eighteen graph edges and ordinary matching predicate (disjoint endpoints) were checked against the complete RESULT.md and standard-library code. Independent enumeration of all 2^18 bitmasks recovered 1025 nonempty faces, dimensions (18,117,333,397,152,8), the specified 502 disjoint codimension-one Morse pairs, 21 critical cells (one 0-cell and twenty 3-cells), and acyclicity of the entire 3629-cover oriented face poset by topological sort. Since the Morse CW complex has no 1/2-cells, all 3-cell attachments to the lone 0-cell are null; the complete integral homotopy claim is wedge^20 S^3, not merely mod-two Betti numbers. An independent LCF-label isomorphism and boundary check in the separate inspected code agree. Finite enumeration is exhaustive for this specified graph but no family inference is made.
 
-**Limitations.** The finding covers only this named graph and requires trusting or replaying exhaustive checks on its finite face poset. It neither classifies perfect-matching complexes nor all asymmetric cubic graphs, and it makes no claim of global bibliographic priority beyond checked sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full published Frucht graph vertex-independence result computes Ind(F), not its line-graph independence complex Ind(L(F))=M(F); their homotopy ranks 3 in degree 2 and 20 in degree 3 differ. The entire published Franklin graph matching result concerns a distinct 12-vertex cubic graph and yields 12 third spheres, not 20. Indexed semantic search for ordinary Frucht matching, line graph and 20 three-spheres found no equivalent numerical or dominating classification. Engström claw-free connectivity techniques and ordinary graph-specific discrete Morse methods do not supply the exact new Frucht homotopy result. Best-of-knowledge PASS with unindexed-paper risk.
+
+## value
+
+PASS
+
+The Frucht graph is the canonical smallest cubic asymmetric graph; its edge-matching topology is natural when comparing symmetric Franklin, Möbius and asymmetric cubic benchmarks. A finite complex with maximal dimension five but integral homotopy wedge^20 S^3 is a nontrivial exact classification, reproducible with a complete directed acyclic matching; numerical shape is not automatic from graph identity or previously known vertex-independence homotopy. No general theorem or arbitrary-slice significance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
