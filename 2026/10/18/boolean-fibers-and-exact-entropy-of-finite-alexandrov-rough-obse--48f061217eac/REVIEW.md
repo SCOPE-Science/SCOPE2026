@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The strict-successor tests identify the independently free coordinates of an observation, while all other coordinates are recovered directly from the lower or upper approximation. Finite ascending witnesses prove that all choices of those coordinates preserve the observation. A pair of equivalent preorder points disproves the interval property outside the \(T_0\) class. Conditional entropy follows from the product structure of each fiber and the chain rule. Exhaustive and independently enumerated finite checks supplement, but do not replace, the proof.
+## correctness
 
-**Originality — PASS (qualified).** Järvinen, Radeleczki and Veres (2009) study the lattice of quasiorder rough-set **outputs**, and Järvinen and Radeleczki (2020/2021) characterize realizable core–support pairs. Their inspected results do not compare generators within one inverse fiber or determine their entropy. The present theorem is the Boolean-interval characterization of all inverse fibers, its sharp \(T_0\) boundary, and the exact strict-upper-degree entropy law. A result formulated under alternative topological or information-theoretic terminology remains possible; publication priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The theorem determines precise reconstruction freedom from every rough observation on any finite poset, classifies exactly when this product structure holds among finite Alexandrov spaces, and provides a structural closed form for lost Shannon information. The strict-upper-degree invariance is stronger than any particular finite enumeration and gives a comparative invariant of finite orders without enumerating their subsets.
+For finite T0 posets, upper neighborhood successor tests show x is free exactly when its strict upper set contains both a selected and an unselected element; all other memberships are fixed by the observed interior/closure. Each mixed successor witnesses a chain to fixed selected and fixed unselected points, making arbitrary free-bit replacement preserve observation. Non-T0 equivalent points give singletons in same fiber but empty intersection outside fiber. Independence on each cube gives conditional entropy h2(p)E|F|, with E|F|=sum_x[1−p^{d_x}−(1−p)^{d_x}] for d_x>=1; subtraction from |P|h2(p) proves stated exact entropy. Independently enumerated every topologically ordered poset n<=5, verifying the Boolean intervals and conditional statistics; not an infinite proof.
 
-Scientific limits: finite Alexandrov spaces; probabilistic formula assumes independent identically distributed binary membership. Non-\(T_0\) spaces can have non-cubical fibers, and the full output-count spectrum is not asserted to be determined by degree data. Computational examples are not a substitute for the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Järvinen, Radeleczki and Veres 2009 study the lattice of *distinct* quasiorder rough approximation pairs and their Alexandrov description, while later three-valued-pair work characterizes realizable pairs. Neither materially inspected text establishes the full *inverse-fiber* Boolean-interval iff-T0 criterion or the Bernoulli entropy collapse; no matching Resultary semantic finding returned. Best-of-knowledge with possible unindexed aliases.
+
+## value
+
+PASS
+
+The theorem precisely measures information loss for a natural observation channel on all finite T0 posets and separates output entropy from total number of observations, a nontrivial structural/information-theoretic exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

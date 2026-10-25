@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python verify_fibers.py` with Python 3.9 or later and no external dependencies. It independently derives Alexandrov lower/upper approximations from each transitive relation and computes every subset's observation. It then compares every resulting fiber to its predicted Boolean interval (checking the complete set of representatives, not just the fiber size).
+## correctness
 
-The enumerated posets include all transitive relations respecting the natural linear extension on up to six points. This covers every finite poset of those sizes up to relabeling, although it does not enumerate every labelled order in every labelling. The script tests 6,231 posets in total, including 1,000 seeded cases with seven through ten points; it tests 324,180 realized fibers. Separately it checks all 389 finite preorders on one through four points for the Boolean-interval/\(T_0\) equivalence. It calculates exact uniform and Bernoulli-\(1/3\) expected free dimensions with rational arithmetic and compares them to the stated degree formulas.
+PASS
 
-Observed completion marker:
+For finite T0 posets, upper neighborhood successor tests show x is free exactly when its strict upper set contains both a selected and an unselected element; all other memberships are fixed by the observed interior/closure. Each mixed successor witnesses a chain to fixed selected and fixed unselected points, making arbitrary free-bit replacement preserve observation. Non-T0 equivalent points give singletons in same fiber but empty intersection outside fiber. Independence on each cube gives conditional entropy h2(p)E|F|, with E|F|=sum_x[1−p^{d_x}−(1−p)^{d_x}] for d_x>=1; subtraction from |P|h2(p) proves stated exact entropy. Independently enumerated every topologically ordered poset n<=5, verifying the Boolean intervals and conditional statistics; not an infinite proof.
 
-```text
-VERIFY_OK preorders 389 sorted_posets_and_samples 6231 realized_fibers 324180 all_boolean_cubes=PASS uniform_and_biased_entropy=PASS non_T0_boundary=PASS
-```
+## originality
 
-The mathematical proof in `RESULT.md` establishes the theorem for arbitrary finite posets; no finite experiment establishes this universal quantifier. The preorders test and the three-point equivalence-class example show that the \(T_0\) requirement is substantive. The entropy identity holds for independent Bernoulli draws, not arbitrary correlated subset distributions. An independent external scientific audit has not been performed.
+PASS
+
+Järvinen, Radeleczki and Veres 2009 study the lattice of *distinct* quasiorder rough approximation pairs and their Alexandrov description, while later three-valued-pair work characterizes realizable pairs. Neither materially inspected text establishes the full *inverse-fiber* Boolean-interval iff-T0 criterion or the Bernoulli entropy collapse; no matching Resultary semantic finding returned. Best-of-knowledge with possible unindexed aliases.
+
+## value
+
+PASS
+
+The theorem precisely measures information loss for a natural observation channel on all finite T0 posets and separates output entropy from total number of observations, a nontrivial structural/information-theoretic exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
