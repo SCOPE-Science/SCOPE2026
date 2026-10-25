@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:53:12Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual tree 16cf8a4b0c0bb4840c34421cbe9f7d1ec83126d8 and RESULT.md 7e64d50faf042d5db1dfe8cdf0a41afba00a84a2 and check.py 49c6c405f8ac4a673800487773e4f7589d45a8b2 read.",
+        "Independently reconstructed 6x6 symbolic generator and verified six master equations and exact bond correlations.",
+        "The last numerical optimizer root is characterized by a monotone analytic equation, not a finite grid search."
+      ],
+      "rationale": "Full six-state half-filled Ising generator at per-edge attempt rate one has three global-reversal pairs with exact stationary probabilities for each microstate a=(p+q)/(2D), b=q(p+q)/(2D), c=q/D, D=p(1+q)+3q+q². Independent symbolic construction of all original six microscopic transition rates verified each master equation and both hot/cold correlation formulas (not only aggregated chain). Hot/opposite correlation is 4a−1, other cold 4c−1, yielding exact strict sign boundary and feasibility q<sqrt2−1. Hot uphill net flux 2cp−2b=q(p−q)/D gives heat 4J times this and entropy rate q(p−q)log(p/q)/D. For p=1, derivative A'=(1−2q−5q²)/(1+4q+q²)^2, and strictly increasing right side of the stationary equation establishes unique maximum q≈0.13001877. All q>0 and T_h finite/infinite boundaries covered; no cold zero-temperature claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glauber spin-flip is a different generator from conserved Kawasaki exchange; two-dimensional models do not specialize trivially to the four-site ring."
+        ],
+        "reasoning": "Simulation and larger/different geometries do not automatically imply the exact finite rational stationary correlations or the unique entropy optimum.",
+        "searches": [
+          "Borchers–Pleimling–Zia 1411.6180 and dissertation 2015",
+          "Schmittmann–Schmüser 2002 Glauber dynamics comparison",
+          "Renklioglu–Yalabik 2012 two-dimensional Kawasaki source"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1411.6180",
+        "Borchers dissertation 2015 bibliographic source",
+        "Resultary two-bath four-spin query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior large-ring simulations describe freezing-by-heating; the current claim isolates a one-hot-edge state space and obtains strict region p>q(1+q)/(1-q), q<sqrt2−1."
+        ],
+        "reasoning": "General freezing-by-heating does not mathematically imply the rational sign curve or dissipation formula, and finite size matters.",
+        "searches": [
+          "1411.6180 accessible abstract and related thesis reference",
+          "four-site explicit generator and current model comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier work studies spatially partitioned conserved Ising dynamics; the thesis reports a six-site, two-hot-bond slice in the inspected package and search evidence."
+        ],
+        "reasoning": "Same physical class is not enough to imply exact stationary law for this different one-hot-bond four-site geometry; no direct equality of states/rates was found.",
+        "searches": [
+          "Resultary: two temperature Kawasaki four site Ising ring heat current stationary local correlation sign",
+          "Borchers–Pleimling–Zia 2014 arXiv:1411.6180 abstract",
+          "Borchers 2015 thesis small finite-ring analysis described in source package"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six-state generator admits an exact stationary rational law for a continuum of p,q, rather than a finite numerical lookup."
+        ],
+        "reasoning": "A six-state table could in principle entail the claim if published; none was located in the bounded search. The four-site computation was checked analytically rather than novelty asserted by number alone.",
+        "searches": [
+          "Resultary exact two-temperature four-spin Kawasaki search",
+          "primary 2014 model and accessible bibliographic records"
+        ]
+      },
+      "rationale": "The bounded search found previous simulation and small-system work on two-temperature Kawasaki rings but did not locate the exact four-site one-hot-bond formulas, sign boundary, and current/entropy optimum. Full 2014 article was unavailable, so coverage risk is acknowledged.",
+      "residual_risks": [
+        "Full 2014 primary text and dissertation relevant chapter not read; could contain an equivalent four-site calculation.",
+        "No thermodynamic transition is claimed; q=0 excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important overlap risk; accessible portions do not establish exact four-site formula",
+          "evidence": [
+            "2014 primary model abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.6180",
+          "material_read": "Accessible abstract/bibliographic material; full paper was not retrieved through arXiv/OA; authorized institutional access blocked by disconnected VPN",
+          "method": "Compared physical dynamics and claimed geometry/parameter formulas; did not infer noncoverage from abstract alone",
+          "title": "Non-equilibrium statistical mechanics of a two-temperature Ising ring with conserved dynamics",
+          "trigger": "Primary same Kawasaki two-bath ring model"
+        },
+        {
+          "assessment": "Plausible antecedent; explicit prior four-site formulas cannot be excluded without full reading",
+          "evidence": [
+            "Source identifies Chapter 4 §4.4 as six-site two-hot-bond example"
+          ],
+          "identifier_or_url": "https://scispace.com/pdf/nonequilibrium-statistical-mechanics-of-a-two-temperature-2lcb77q8tr.pdf",
+          "material_read": "Source citation/description of Chapter 4 §4.4 only; full dissertation not read in this run",
+          "method": "Compared described six-site/two-hot-bond example with four-site one-hot-bond geometry",
+          "title": "Non-equilibrium statistical mechanics of a two-temperature Ising ring with conserved dynamics (dissertation)",
+          "trigger": "Primary small-system predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "New sharp curve, exact heat-current relation, and entropy-production optimum are interpretable observables in the established two-bath Kawasaki geometry."
+      ],
+      "rationale": "The smallest energy-sensitive conserved-spin cycle yields an exact finite-size local-order threshold distinct from positive entropy production; a useful model-motivated boundary rather than an arbitrary numerical special case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1411.6180",
+    "Borchers dissertation 2015 bibliographic source",
+    "Resultary two-bath four-spin query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite 4-site model, half filling, one hot edge, positive q, exact per-edge rate normalization."
+  ],
+  "residual_risks": [
+    "Full 2014 primary text and dissertation relevant chapter not read; could contain an equivalent four-site calculation.",
+    "No thermodynamic transition is claimed; q=0 excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Important overlap risk; accessible portions do not establish exact four-site formula",
+      "evidence": [
+        "2014 primary model abstract"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1411.6180",
+      "material_read": "Accessible abstract/bibliographic material; full paper was not retrieved through arXiv/OA; authorized institutional access blocked by disconnected VPN",
+      "method": "Compared physical dynamics and claimed geometry/parameter formulas; did not infer noncoverage from abstract alone",
+      "title": "Non-equilibrium statistical mechanics of a two-temperature Ising ring with conserved dynamics",
+      "trigger": "Primary same Kawasaki two-bath ring model"
+    },
+    {
+      "assessment": "Plausible antecedent; explicit prior four-site formulas cannot be excluded without full reading",
+      "evidence": [
+        "Source identifies Chapter 4 §4.4 as six-site two-hot-bond example"
+      ],
+      "identifier_or_url": "https://scispace.com/pdf/nonequilibrium-statistical-mechanics-of-a-two-temperature-2lcb77q8tr.pdf",
+      "material_read": "Source citation/description of Chapter 4 §4.4 only; full dissertation not read in this run",
+      "method": "Compared described six-site/two-hot-bond example with four-site one-hot-bond geometry",
+      "title": "Non-equilibrium statistical mechanics of a two-temperature Ising ring with conserved dynamics (dissertation)",
+      "trigger": "Primary small-system predecessor"
+    }
+  ]
+}

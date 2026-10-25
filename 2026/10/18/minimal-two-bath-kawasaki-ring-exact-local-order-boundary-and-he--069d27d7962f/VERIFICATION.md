@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of finite two-bath Kawasaki-ring identities
+# Independent mathematical audit
 
-Reproduce with Python 3.10+ and SymPy 1.12+: `python check.py` in the same directory as this document. The checker has no external data input. It constructs the complete six-state generator from the four-spin energy and Metropolis exchange rule, verifies the proposed distribution against every original stationary master equation, and recomputes four local spin products and the hot-edge energy flux. It symbolically tests equilibrium, hot-bath derivative and entropy-optimization identities. It solves eighteen independent six-by-six exact rational stationary systems and checks associated Schnakenberg entropy-production rates, and enumerates the smaller cyclic sectors to confirm the claimed minimality. All these checks passed when executed on the packaged source.
+## correctness
 
-The all-parameter inequalities and unique dissipation maximum follow from algebraic proofs in RESULT.md. The finite program is a check of identities and sample parameters, not an infinite-domain numerical proof. No thermodynamic-limit result, independent scientific audit, or externally certified calculation is asserted.
+PASS
+
+Full six-state half-filled Ising generator at per-edge attempt rate one has three global-reversal pairs with exact stationary probabilities for each microstate a=(p+q)/(2D), b=q(p+q)/(2D), c=q/D, D=p(1+q)+3q+q². Independent symbolic construction of all original six microscopic transition rates verified each master equation and both hot/cold correlation formulas (not only aggregated chain). Hot/opposite correlation is 4a−1, other cold 4c−1, yielding exact strict sign boundary and feasibility q<sqrt2−1. Hot uphill net flux 2cp−2b=q(p−q)/D gives heat 4J times this and entropy rate q(p−q)log(p/q)/D. For p=1, derivative A'=(1−2q−5q²)/(1+4q+q²)^2, and strictly increasing right side of the stationary equation establishes unique maximum q≈0.13001877. All q>0 and T_h finite/infinite boundaries covered; no cold zero-temperature claim.
+
+## originality
+
+PASS
+
+The bounded search found previous simulation and small-system work on two-temperature Kawasaki rings but did not locate the exact four-site one-hot-bond formulas, sign boundary, and current/entropy optimum. Full 2014 article was unavailable, so coverage risk is acknowledged.
+
+## value
+
+PASS
+
+The smallest energy-sensitive conserved-spin cycle yields an exact finite-size local-order threshold distinct from positive entropy production; a useful model-motivated boundary rather than an arbitrary numerical special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
