@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of checks
+# Independent mathematical audit
 
-Use a standard Python 3 interpreter: `python3 check.py`. No third-party modules or external data are needed. The script compares the coordinate-support/inclusion-exclusion expression with the independently simplified closed polynomial for each integer \(5\le n\le15\) and checks its Euler specialization. It then enumerates all projective \(\mathbb F_7\)-points with normalized leading nonzero coordinate, reproducing \(365\) points for \(n=5\) and \(3102\) points for \(n=6\). The latter count is smaller by \(2\cdot7^2\) than the algebraically closed polynomial evaluated at seven because the relevant finite-field quadric is nonsplit. These are exact finite checks, not a replacement for the arbitrary-\(n\) proof.
+## correctness
 
-The mathematical proof is in `RESULT.md`, and the checker is entirely self-contained. The proof assumes an algebraically closed characteristic-zero field, particularly for nonsingularity of the quadratic form and its split-cell decomposition. No independent external audit has occurred.
+PASS
+
+Stratify projective points by exactly s nonzero coordinates. For 1<=s<=n-3 the entire torus (L-1)^(s-1) lies in e_(n-2)=0; s=n-2 contributes zero. For s=n-1 invert all coordinates to a coordinate hyperplane whose torus class is H_(n-1)(L). Full support inversion yields a nonsingular split projective e2 quadric; inclusion-exclusion Q_s through coordinate hyperplanes requires exceptional Q_1=1 and gives the parity-power terms. Every projective component has dimension n-2, while the boundary is <=n-3; full-support section is dense irreducible. Independently recomputed both K0 expressions for n5..12 and the predicted Euler parity laws; direct F7 projective point checks produced 365 at n5 and 3102 at n6, including nonsplit correction.
+
+## originality
+
+PASS
+
+Banana graph e_(n-1) motivic classes are prior, directly read in Aluffi–Marcolli; under torus inversion they yield hyperplanes, whereas target e_(n-2) becomes a nondegenerate quadric. General smooth-quadric and scissor identities are prior tools but no checked theorem publishes the combined all-n K0 class, Hodge–Deligne specialization, or exponential Euler parity. Best-of-knowledge O; equivalences may exist in uniform matroid hypersurface literature.
+
+## value
+
+PASS
+
+Next-to-banana elementary symmetric hypersurfaces are natural symmetric/uniform-matroid models adjacent to well-studied banana Feynman graph motives. Computing their all-n class in K0 and Hodge–Deligne/Euler characteristics is a complete motivated invariant, with a middle-cell parity jump explained by the inverse-torus quadric; this is not only n5 sample recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
