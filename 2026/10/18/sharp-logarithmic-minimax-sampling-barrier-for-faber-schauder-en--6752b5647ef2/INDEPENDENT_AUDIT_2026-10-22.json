@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:13:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob b78694c7a3661388e9036740cbc901e05b03f073",
+        "Kim arxiv:2606.13331 Definition 3.19, Proposition 3.24 (primary text)",
+        "independent_checks.py R4"
+      ],
+      "rationale": "Kim Definition 3.19 fixes ||f||_{E^p}=||f||_infty+||Z||_p+||H||_p. A level-m elementary tent has maximum 2^{-m/2-1}, one Z_m=2^{-m/2}, and H_j=2^{-m/2} exactly for 0<=j<=m, producing norm 2^{-m/2}[(m+1)^{1/p}+3/2]. The half-tail estimate (Kim Proposition 3.24) and monotonicity yield ||f-Pi_N f||_infty<=1/[2(N+1)^{1/p}] on the unit ball. Interpolating at 2^N+1 nodes gives that sampling upper bound. For any deterministic adaptive algorithm given at most n exact queries, its all-zero transcript visits at most n interiors of 2^m>n dyadic cells; a unit tent and its negative supported in an unvisited cell produce identical transcripts and have unavoidable supremum error at least their amplitude. The two levels m=ceil(log2(n+1)) and M=floor(log2(n-1)) differ from log2(n) by O(1), squeezing the exact coefficient 1/2. Uniform convergence of finite-rank interpolants proves compact inclusion. The independent finite identity checks are only corroborative.",
+      "residual_risks": [
+        "The proof only defeats deterministic adaptive point queries in worst-case supremum norm; it does not cover randomized average-error or noisy algorithms.",
+        "The exact leading 1/2 is norm-sensitive; equivalently renormed Besov spaces need not have the same coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Byrenheid et al treat Smolyak recovery of small-mixed-smoothness Besov/Triebel-Lizorkin classes in finite Lq, chiefly q<infinity. Derevianko–Ullrich treat higher mixed-regularity spline bases and nonlinear sparse selection."
+        ],
+        "reasoning": "Their source balls, sampling model and target loss differ from Kim’s tail-energy norm with supremum-error constant 1/2; no norm-preserving domination was identified.",
+        "searches": [
+          "arxiv:2210.01704 Byrenheid Stasyuk Ullrich Lp-sampling recovery",
+          "arxiv:2004.03556 Derevianko Ullrich adaptive sampling recovery higher mixed regularity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.13331",
+        "https://arxiv.org/pdf/2210.01704",
+        "https://arxiv.org/pdf/2004.03556",
+        "Resultary mathematical research records (targeted semantic search)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim establishes only ||f-Pi_N f|| <= H_f(N)/2 and E^p density; no quantified worst-case lower bound for arbitrary adaptive methods follows from an upper estimate alone."
+        ],
+        "reasoning": "Even excellent linear sampling performance cannot alone certify optimality under adaptive nonlinear selection; the missed-cell ±tent argument supplies that missing bound.",
+        "searches": [
+          "Kim arxiv:2606.13331 Proposition 3.24",
+          "arxiv:2210.01704 introduction and sampling theorem context",
+          "arxiv:2004.03556 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim norm and half-tail inequality are exactly the starting point. The normalized single tent and adaptive zero-transcript argument are absent from the inspected main theorem sections."
+        ],
+        "reasoning": "The published upper bound and finite-dimensional density are covered; equality of minimax asymptotics requires a lower bound for every adaptive query strategy.",
+        "searches": [
+          "Resultary: Faber Schauder energy spaces optimal sampling recovery logarithmic minimax uniform error sharp coefficient adaptive point queries",
+          "arxiv:2606.13331 Definition 3.19 Proposition 3.24",
+          "Faber Schauder tail energy sampling information radius log n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact n-th sampling-radius table for Kim’s E^p norm found; original Kim source is analytic truncation/integration rather than information-based complexity."
+        ],
+        "reasoning": "A known general information-radius principle may reproduce the two-sign argument; the novelty assessment is attached to this exact named space, normalization and sharp minimax constant, not the abstract adversary itself.",
+        "searches": [
+          "Resultary dyadic energy optimal recovery sampling exact logarithmic coefficient",
+          "arxiv:2606.13331 sampling lower bound text search",
+          "Byrenheid Stasyuk Ullrich critical smoothness rate"
+        ]
+      },
+      "rationale": "The specified energy norm, truncation and half-tail upper bound are explicitly Kim’s prior work. The new assessment is the matching zero-transcript lower bound uniformly over nonlinear adaptive deterministic samplers and the resulting exact leading information radius. The two potentially broader sampling papers work with different smoothness balls and/or Lq losses; similarity of sampling vocabulary alone gives no implication.",
+      "residual_risks": [
+        "A general existing information-radius theorem in a norm-preserving equivalent log-smoothness space could imply the exact conclusion; no exhaustive such equivalence review was possible.",
+        "Only targeted primary sections of both broader adaptive sampling papers read, not their entire 19- and 30-page bodies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_NORM_AND_UPPER_BOUND",
+          "evidence": "Norm is exactly three-term energy norm; Proposition 3.24 proves half-tail truncation and density, not adaptive sampling lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13331",
+          "material_read": "Full primary text mirrored on ResearchGate, Definition 3.19 around source lines 2997-3018; Proposition 3.24 around 3426-3550 and coefficient definitions",
+          "method": "Public full-text scholarly mirror; targeted section-by-section reading",
+          "title": "Pathwise integration beyond Young via Faber–Schauder energy spaces",
+          "trigger": "Defines identical energy space and half-tail interpolation inequality"
+        },
+        {
+          "assessment": "DIFFERENT_CLASS_AND_LOSS",
+          "evidence": "Mixed-smoothness Besov/Triebel-Lizorkin and finite Lq error; not same Banach ball and supremum minimax constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.01704",
+          "material_read": "Primary PDF abstract and Introduction, pages 1-3; explicit function class and target loss",
+          "method": "Open arXiv PDF, text and screenshot",
+          "title": "Lp-Sampling recovery for non-compact subclasses of L-infinity",
+          "trigger": "Possibly stronger generic critical sampling theorem"
+        },
+        {
+          "assessment": "DIFFERENT_REGULARITY",
+          "evidence": "Higher mixed regularity with higher-order Faber splines and adaptive sparse approximation, not Kim tail energy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.03556",
+          "material_read": "Primary PDF abstract and Introduction pages 1-2, class/regularity description",
+          "method": "Open arXiv PDF text and screenshot",
+          "title": "Adaptive sampling recovery of functions with higher mixed regularity",
+          "trigger": "Potential adaptive sampling domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kim 2026 E^p framework",
+        "Byrenheid–Stasyuk–Ullrich related sampling theory",
+        "complete pinned recovery proof"
+      ],
+      "rationale": "The E^p norm was introduced for pathwise integration but its attainable recovery rate from exact observations was not previously quantified at the information-theoretic level. A sharp lower bound against all adaptive nonlinear deterministic algorithms and exact 1/2 coefficient turns a qualitative tail upper bound into a complete optimal recovery theorem. The adversary is simple but its exact norm calculation, matching of dyadic scales and robustness to adaptivity establish a motivated missing boundary fact rather than a restated textbook interpolation inequality.",
+      "residual_risks": [
+        "The logarithmic rate is slow and the class is narrow; the mathematical result does not imply randomized or noisy-sampling optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V rests on independently reconstructed analytical arguments, not solely on scripts or self-review.",
+    "Originality is a best-of-knowledge primary-source comparison, not worldwide priority certification.",
+    "No public replacement bytes staged; publication is withheld pending verified sanitization."
+  ],
+  "schema_version": 1
+}

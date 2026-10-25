@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The norm and its normalization are explicitly reconstructed from the introduced energy class [1]. At any time, at most one dyadic tent survives per level, yielding the half-tail bound; monotonicity of the accumulated tail gives the exact \((N+1)^{-1/p}\) envelope. A single normalized tent has one nonzero coefficient, permitting an exact three-term energy norm calculation. On the all-zero response transcript, at most \(n\) evaluation points cannot meet the interiors of all \(2^{\lceil\log_2(n+1)\rceil}\) cells. The two opposite normalized tents then produce the same complete adaptive transcript and force the stated lower bound. The upper and lower bounds squeeze to the constant \(1/2\). Infinite-dimensional claims follow analytically, not from testing.
+PASS
 
-## Originality (O): PASS, with priority limitations
+Kim Definition 3.19 fixes ||f||_{E^p}=||f||_infty+||Z||_p+||H||_p. A level-m elementary tent has maximum 2^{-m/2-1}, one Z_m=2^{-m/2}, and H_j=2^{-m/2} exactly for 0<=j<=m, producing norm 2^{-m/2}[(m+1)^{1/p}+3/2]. The half-tail estimate (Kim Proposition 3.24) and monotonicity yield ||f-Pi_N f||_infty<=1/[2(N+1)^{1/p}] on the unit ball. Interpolating at 2^N+1 nodes gives that sampling upper bound. For any deterministic adaptive algorithm given at most n exact queries, its all-zero transcript visits at most n interiors of 2^m>n dyadic cells; a unit tent and its negative supported in an unvisited cell produce identical transcripts and have unavoidable supremum error at least their amplitude. The two levels m=ceil(log2(n+1)) and M=floor(log2(n-1)) differ from log2(n) by O(1), squeezing the exact coefficient 1/2. Uniform convergence of finite-rank interpolants proves compact inclusion. The independent finite identity checks are only corroborative.
 
-Kim [1, Definition 3.19; Proposition 3.24] gives this space and the half-tail interpolation estimate. That published estimate supplies only the upper bound here; it does not establish the exact worst-case constant or an adversarial lower bound against adaptive nonlinear sampling. Byrenheid–Stasyuk–Ullrich [2] address \(L_q\)-sampling of different borderline smoothness classes, with \(q<\infty\), while Derevianko–Ullrich [3] treat higher mixed smoothness and higher-order splines. Neither inspected class/norm/theorem implies the exact present claim as stated. Comparisons of related publicly indexed results on dyadic sampling, Schauder tails, and logarithmic recovery did not expose a same-class exact theorem. A more general existing theorem may still imply the result via an unidentified norm-preserving equivalence, and priority is not independently certified.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The original space is designed for pathwise problems, where functions are naturally known from pointwise traces and dyadic approximations. The present classification solves its entire deterministic worst-case sampling complexity with a sharp leading coefficient, establishes the optimality of a standard linear scheme against all adaptive nonlinear alternatives, and identifies compactness quantitatively. The exact normalized-tent extremal mechanism is intrinsic to this particular energy norm; the result is not only an upper-bound restatement.
+The specified energy norm, truncation and half-tail upper bound are explicitly Kim’s prior work. The new assessment is the matching zero-transcript lower bound uniformly over nonlinear adaptive deterministic samplers and the resulting exact leading information radius. The two potentially broader sampling papers work with different smoothness balls and/or Lq losses; similarity of sampling vocabulary alone gives no implication.
 
-## Limits
+## value
 
-Sampling is exact, deterministic, and measured in the supremum norm. No claim is made about randomization, noise, or recovering a pathwise integral itself. An equivalence with a more general pre-existing optimal-recovery theorem remains a residual novelty risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The E^p norm was introduced for pathwise integration but its attainable recovery rate from exact observations was not previously quantified at the information-theoretic level. A sharp lower bound against all adaptive nonlinear deterministic algorithms and exact 1/2 coefficient turns a qualitative tail upper bound into a complete optimal recovery theorem. The adversary is simple but its exact norm calculation, matching of dyadic scales and robustness to adaptivity establish a motivated missing boundary fact rather than a restated textbook interpolation inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
