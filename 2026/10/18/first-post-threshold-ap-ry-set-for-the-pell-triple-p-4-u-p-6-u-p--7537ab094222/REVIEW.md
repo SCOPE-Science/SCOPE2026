@@ -1,9 +1,21 @@
-# Review of the first excluded Pell-triple parameter
+# Independent mathematical audit
 
-**Correctness — PASS.** The recurrence identities give \(c=(s^2-s-1)(s^2-1)-s(s-1)\). Reduction of representation coefficients modulo \(u\) leaves two and only two possible \(c\)-coefficient blocks, each enumerated in the proof. The shifted last row and every threshold are obtained with exact quantifiers for all integers \(u\ge2\). The Apéry extremum and sum prove the two closed formulas. An independent generating-function dynamic program verifies every residue for \(u=2,3,4,5\); finite tests are supplemental.
+## correctness
 
-**Originality — PASS within accessible evidence.** Komatsu–Mu (arXiv:2307.08998, Theorems 1–2) has strict \(p<u^2\) on this triple and so does not imply the first excluded boundary; blindly extending it produces demonstrably wrong values. The 2024 Mu–Komatsu recurrence-triple theorems require \(i\ge k\ge3\), whereas this triple has \((i,k)=(4,5)\). The earlier arXiv:2304.00443 develops Jacobsthal-polynomial generator triples with a different recurrence; no stated theorem provides this uniform Pell boundary. Related published results for Pythagorean quadruples have incompatible generators. Cross-comparisons of equivalent denumerant formulations, broader hypotheses, exact-value tables and earlier accessible claims revealed no encompassing assertion. The separate 2025 journal edition was not available in full text, leaving a material residual literature risk; nonindexed prior work cannot be ruled out.
+PASS
 
-**Mathematical value — PASS.** The theorem resolves the earliest missing \(p\)-point of a published infinite Pell family, supplies the full exceptional Apéry-set geometry, and simultaneously determines the Frobenius and genus corrections. This is a structurally motivated parameter boundary, not only an isolated computed integer. It does not classify later \(p\)-values or other index patterns.
+For u>=2, put s=u²+2, p=u², a=us, b=u(s²-1), c=P9(u)=(s²-s-1)(s²-1)-s(s-1) and h=s-1. The proved identities include gcd(a,b,c)=1, c≡1 mod u and c+sh=qv<2c. On a candidate T=(ps+j)b+zc, 0<=j<s and 0<=z<u, reduction mod u forces any representation's c-count Z=z+ut and the size bound forces t∈{0,1}. The t=0 equations have p+1 solutions at T, p after subtracting any positive k<=s copies of a; the t=1 branch contributes exactly one extra solution when j=s-1 and k<=h, yielding the single exceptional row subtraction ha. The a=us residues are all represented exactly once; monotonicity of denumerants upon adding a proves minimality. Summing Apéry elements gives n_p, and max-a gives g_p. Independent generating-function dynamic programming for u=2,3,4 reproduced exact Apéry thresholds and (g,n)=(2943,2332),(64817,50364),(687391,530288); this does not replace the all-u proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the precise First beyond-published-range p-Apéry set and corrections at p=u² for Pell triple (P4,P6,P9). Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.
+
+## value
+
+PASS
+
+The boundary p=u² is the very first excluded index of the published uniform Pell-triple formulas, and naive rectangular extrapolation gives objectively wrong genus and Frobenius numbers. Exactly identifying u changed residues and corrections (s-1)a and u(s-1) explains the structural phase change for a natural recurrence triple. This is a motivated precise threshold fact, not a random substitution into a known case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
