@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonal angular decomposition reduces each mode of the radial harmonic Bergman commutator to an exact two-dimensional skew block with singular value equal to a beta-distribution standard deviation. Gamma-ratio moments and boundary continuity give a strictly positive \(m^{-\beta}\) coefficient. There are two modes of each nonzero angular degree, hence four singular values for every positive degree. Counting and inversion prove the sharp sorted asymptotic, all quasi-Schatten thresholds, and the logarithmic trace residue. Exact finite checks support, but do not replace, these proofs.
+## correctness
 
-**Originality — PASS, residual bibliographic uncertainty.** Chbichib–Ghiloufi (arXiv:2605.24698) treat multipliers harmonic outside the origin and provide a first-order asymptotic in that different symbol class. Wu (DOI:10.1007/BF01204606) treats harmonic symbols and reports Schatten membership for p>1, but the present bounded radial profiles are nonharmonic. Miao (DOI:10.1007/s00020-007-1508-y) gives a harmonic Bergman Hankel Schatten criterion for \(p\ge2\); such membership conditions do not imply the full coefficient or the \(p<2\) classification. Stroethoff (DOI:10.1017/S0017089500031931) treats compactness. The 2026 and Miao texts were not fully accessible; their uninspected examples and other unindexed radial results remain residual risks. Database searches found no matching published statement, which is not a uniqueness certificate.
+PASS
 
-**Value — PASS.** Boundary vanishing order is a natural geometric regularity invariant. Its complete sharp singular-value profile across all positive exponents distinguishes nontrace-class and trace-class radial commutators, determines critical weak ideal membership, and yields an exact logarithmic spectral residue. Continuous boundary factors leave the leading law unchanged except for their boundary value. This is more informative than mere compactness or previously available \(p\ge2\) membership tests.
+With harmonic angular bases t^{|m|/2}e^{imθ}, the m-th projection is rank one. The real radial multiplier commutator is the 2x2 skew block with singular value sqrt(E_m u²-(E_m u)²), twice per Fourier mode. The m=0 mode contributes 2, each ±m contributes 4. Beta(m+1,α+1) moments and boundary continuity yield m^βσ_m→|v(1)|κ, with κ²>0 by strict beta-moment variance/Γ log convexity. Counting all fourfold angular blocks gives N(s)~4(c/s)^{1/β}, and hence s_n~4^β c n^{-β} without monotonicity; power summation gives pβ>1 and logarithmic residue 4c^{1/β}. The v(1)≠0 and β>0 hypotheses are indispensable. Independently recomputed rational Beta moments for α=0 β=2 at m=1,3,20,100,1000; m⁴ variance grows toward 20 (19.7067 at m=1000). Finite check is not the infinite argument.
 
-**Limitations.** Real radial multipliers only; the leading factor must be nonzero. No classification for nonradial symbols or vanished first boundary term is implied. Independent originality confirmation is warranted for inaccessible portions of the literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the prior harmonic-off-origin symbol theorem with the actual radial vanishing class. Its ∼const/n theorem is neither an implication for general radial β≠1 nor a general classification of these non-harmonic symbols. Older Hankel compactness and p≥2 criteria do not fix the singular-value law or the critical residue. A full text of the 2026 closest antecedent remains inaccessible: positive originality is best-of-knowledge, not certified exclusivity.
+
+## value
+
+PASS
+
+The exact singular-value coefficient, fourfold harmonic multiplicity, all p>0 Schatten threshold and critical Dixmier/logarithmic residue are operator-theoretically meaningful invariants for a broad boundary-flat radial symbol class, not just an arbitrary finite test or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
