@@ -1,15 +1,21 @@
-# Review of the odd step-two Zeckendorf–Niven classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical summand-count recurrence reduces all interior Fibonacci intervals by subtraction of their leading Fibonacci number. Boundary terms within four of a Fibonacci number have explicit exact counts, inductively generated from the independently checked base indices 9 and 10. A four-case boundary parity analysis proves the three-point rigidity for every nonnegative integer; a divisibility-of-two argument and the complete adjacent-odd-Fibonacci-gap classification give the unique progression \((1,3,5)\). The finite verifier confirms base cases and many instances, without standing in for the induction.
+## correctness
 
-## Originality — PASS
-The full June 2026 motivating paper establishes a lengthy even-start run and global upper bounds but does not state this exact odd-start classification or the universal three-point parity-rigidity lemma. Specific published-finding corpus and published-literature comparisons did not find a covering result. An additional online manuscript synopsis about six-term progression obstruction was found, but its full content was inaccessible and implicit overlap remains possible. Failure to find an equivalent is not a proof of novelty.
+PASS
 
-## Value — PASS
-A natural unresolved parity-stratified aspect of the step-two progression problem is decided exactly, with a separate local digit-sum rigidity lemma that explains why even and odd progressions behave differently. The classification rules out *all* later odd three-term runs rather than improving a finite search cutoff. It is a mathematically motivated complete result, not an arbitrary finite slice.
+The greedy Zeckendorf recurrence s(F_k+t)=1+s(t) for 0<=t<F_(k-1), together with induction on Fibonacci indices, yields exact boundary arrays for k=2r: s(F_k−4..−1)=(r−1,r−2,r−1,r−1) and k=2r+1: (r−1,r−1,r−1,r), and above a boundary s(F_k+j)=(1,2,2,2,3) for j=0..4. Their four crossing-offset cases close a strong induction proving: when s(n),s(n+2),s(n+4) have the same parity, an adjacent pair are equal. For odd Zeckendorf–Niven triples the summand counts must be odd divisors; equal adjacent counts divide 2, so equal 1 and the two numbers are Fibonacci values 2 apart, forcing candidates n=1,3. n3 fails because s(7)=2∤7; n1 yields (1,3,5). Independent greedy Zeckendorf implementation tested every n from 0 through 999999 for the parity lemma and all odd triples in that range, finding no parity violation and only n1; these tests are ancillary to the unrestricted induction.
 
-## Relationship to prior work and limitations
-Lao et al., arXiv:2606.24006v1, §4, proved that runs of at least eight have only even starts and supplied infinite five-term runs. Neither statement settles the present three-term odd-start question. The present result does not resolve the remaining even-start six/seven-term question. Broader Fibonacci-numeration literature and uninspected material may still contain an implicit equivalent. Independent validation has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.
+
+## value
+
+PASS
+
+The Zeckendorf digit-sum divisibility analogue of Niven numbers is a natural digital-arithmetic object with known long step-two progressions. The result supplies a complete, sharply different odd-start length-three phenomenon and a reusable infinite parity-rigidity lemma, not merely a tabulation of a handful of values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

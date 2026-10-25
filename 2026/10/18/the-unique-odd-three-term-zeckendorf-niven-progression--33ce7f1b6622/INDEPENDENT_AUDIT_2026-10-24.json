@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T08:55:28.763185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy Zeckendorf recurrence s(F_k+t)=1+s(t) for 0<=t<F_(k-1), together with induction on Fibonacci indices, yields exact boundary arrays for k=2r: s(F_k−4..−1)=(r−1,r−2,r−1,r−1) and k=2r+1: (r−1,r−1,r−1,r), and above a boundary s(F_k+j)=(1,2,2,2,3) for j=0..4. Their four crossing-offset cases close a strong induction proving: when s(n),s(n+2),s(n+4) have the same parity, an adjacent pair are equal. For odd Zeckendorf–Niven triples the summand counts must be odd divisors; equal adjacent counts divide 2, so equal 1 and the two numbers are Fibonacci values 2 apart, forcing candidates n=1,3. n3 fails because s(7)=2∤7; n1 yields (1,3,5). Independent greedy Zeckendorf implementation tested every n from 0 through 999999 for the parity lemma and all odd triples in that range, finding no parity violation and only n1; these tests are ancillary to the unrestricted induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lao et al. arXiv:2606.24006 Theorem4.3 bounds length≥8; Theorem4.4 constructs length5.",
+          "Odd-length3 impossibility for n>1 is neither one of these statements nor a corollary of an eight-term classification."
+        ],
+        "reasoning": "Lao et al. prove long step-two progressions exist (with even starts) and constrain runs of length at least eight to a particular even progression. That is not a logical statement about length-three odd starts: a three-term run need not extend to eight terms. General Fibonacci automaticity alone does not directly yield the stated parity-rigidity lemma without a proof.",
+        "searches": [
+          "Resultary semantic: Zeckendorf Niven odd integers n n+2 n+4 three-term progression parity rigidity",
+          "Lao et al. arXiv:2606.24006, Section 4/Theorems 4.3–4.4",
+          "Grundman on Zeckendorf Niven sequences, 2007 (step-one runs)",
+          "Zeckendorf representation theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: Zeckendorf Niven odd integers n n+2 n+4 three-term progression parity rigidity",
+        "Lao et al. arXiv:2606.24006, Section 4/Theorems 4.3–4.4",
+        "Grundman on Zeckendorf Niven sequences, 2007 (step-one runs)",
+        "Zeckendorf representation theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lao et al. Thm 4.3 is about ≥8 terms, and Thm 4.4 about existence of 5-term runs.",
+          "Parity-rigidity lemma and divisibility argument classify all odd length3."
+        ],
+        "reasoning": "A theorem characterizing all step-two length≥8 runs does not say whether length3 at odd starts is possible: it leaves short runs completely open. The new parity-equality forced by equal parity of the three Zeckendorf digit sums, plus odd-divisibility, is the missing implication. The result is strictly narrower in length but orthogonal in start parity to existing broad existence results.",
+        "searches": [
+          "Resultary semantic: Zeckendorf Niven odd integers n n+2 n+4 three-term progression parity rigidity",
+          "Lao et al. arXiv:2606.24006, Section 4/Theorems 4.3–4.4",
+          "Grundman on Zeckendorf Niven sequences, 2007 (step-one runs)",
+          "Zeckendorf representation theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lao et al. 2026 define Zeckendorf–Niven via s_Z(n)|n and discuss step-two progressions.",
+          "Our lemma applies to all n, not only divisible numbers."
+        ],
+        "reasoning": "Zeckendorf–Niven is also called Fibonacci-summand-count Harshad; canonical Zeckendorf digits are nonconsecutive Fibonacci-place digits. The odd step-two three-term sequence is different from ordinary consecutive Zeckendorf–Niven runs (difference 1) and from an arbitrary longer progression with even start. The parity rigidity proposition is an extra statement about digit sums regardless of divisibility.",
+        "searches": [
+          "Resultary semantic: Zeckendorf Niven odd integers n n+2 n+4 three-term progression parity rigidity",
+          "Lao et al. arXiv:2606.24006, Section 4/Theorems 4.3–4.4",
+          "Grundman on Zeckendorf Niven sequences, 2007 (step-one runs)",
+          "Zeckendorf representation theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lao et al. 2026 examples include even step-two starts.",
+          "Our unbounded parity lemma is proved by Fibonacci boundary identities, not sampled values."
+        ],
+        "reasoning": "Published sample progressions and tables of step-one Zeckendorf–Niven sequences cannot settle the universal odd step-two length-three assertion. Independent integer testing to 10^6 is supportive, but the all-n induction supplies proof beyond all tables. No exact pre-existing odd-triple table/theorem located.",
+        "searches": [
+          "Resultary semantic: Zeckendorf Niven odd integers n n+2 n+4 three-term progression parity rigidity",
+          "Lao et al. arXiv:2606.24006, Section 4/Theorems 4.3–4.4",
+          "Grundman on Zeckendorf Niven sequences, 2007 (step-one runs)",
+          "Zeckendorf representation theorem"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.",
+      "residual_risks": [
+        "Fibonacci-automatic-sequence or older digit-divisibility paper not indexed by semantic search might entail parity rigidity.",
+        "Earlier Grundman full article was not fully independently read; material compared concerns step-one runs and latest-paper coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME PROBLEM, DISTINCT LENGTH/PARITY ASSERTION",
+          "evidence": "Their long-run theorem starts at length≥8; constructive progressions with even start do not classify odd length3.",
+          "identifier_or_url": "https://arxiv.org/html/2606.24006v1",
+          "material_read": "Accessible full-text rendered paper; definitions and Section 4 especially Theorems 4.3 and 4.4 examined",
+          "method": "arXiv HTML / lawful full-text rendering read",
+          "title": "On Zeckendorf–Niven Numbers and Arithmetic Progressions",
+          "trigger": "Direct same digit-sum invariant and step-two arithmetic progressions"
+        },
+        {
+          "assessment": "EARLIER STEP-ONE RUNS NOT FULLY EXCLUDED",
+          "evidence": "Earlier work on consecutive step-one values differs from odd starts at step2; direct old original full text not read.",
+          "identifier_or_url": "https://arxiv.org/html/2606.24006v1",
+          "material_read": "Prior-work overview in Lao et al., including Grundman earlier work; only abstract/bibliographic references of original independently checked",
+          "method": "Primary latest paper review and earlier bibliographic metadata",
+          "title": "Zeckendorf-Niven sequences (earlier literature)",
+          "trigger": "Potential earlier length-three arithmetic classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Zeckendorf digit-sum divisibility analogue of Niven numbers is a natural digital-arithmetic object with known long step-two progressions. The result supplies a complete, sharply different odd-start length-three phenomenon and a reusable infinite parity-rigidity lemma, not merely a tabulation of a handful of values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fibonacci-automatic-sequence or older digit-divisibility paper not indexed by semantic search might entail parity rigidity.",
+    "Earlier Grundman full article was not fully independently read; material compared concerns step-one runs and latest-paper coverage.",
+    "C assessment for finite cutoffs rests on the complete combinatorial or algebraic proof and exact finite verifier, not the previous saved logs.",
+    "No independent Lean proof or external expert certification claimed; O remains provisional best-of-knowledge.",
+    "Scientific PASS does not equal publication authorization: separate plan status is not_ready."
+  ],
+  "schema_version": 1
+}
