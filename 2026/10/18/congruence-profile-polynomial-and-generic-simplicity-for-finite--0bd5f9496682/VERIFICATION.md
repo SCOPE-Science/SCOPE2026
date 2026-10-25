@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-From a directory containing `verify_congruence.py`, execute:
+## correctness
 
-```
-python verify_congruence.py
-```
+PASS
 
-This uses only the Python standard library. On completion it prints `VERIFY_OK`. The program independently checks exact profiles using endpoint weights and direct enumeration of admissible Ferrers-block relations for parameter vectors \((1,1)\), \((1,2)\), \((2,2)\), \((2,3)\), and \((3,3)\). It also brute-forces all raw binary relations for vectors \((1,1)\), \((1,2)\), \((2,2)\), and evaluates all defining WHB axioms on the induced algebras for \((1,1)\) and \((1,2)\).
+The cited WHB duality sends an expansion of the fixed product ∏C_(n_i+1) to independent monotone Ferrers blocks on disjoint dual chains. Nonzero block endpoints u,v have exactly binom(u+v−2,u−1) interior threshold fillings. The active graph within one block is connected through the first source and final target point, even in diagonal blocks; the overlap graph H of endpoint supports therefore gives its union-components. Remaining uncovered dual vertices number Σ_i max(0,n_i−U_i−V_i), proving Boolean congruence rank I+κ(H) via Theorem 5.10. Direct independent enumeration of all relations on (1,1) gives {1:12,2:4} and on (2,2) gives {1:1213,2:70,3:12,4:1}; these agree with the formula but are not proof for all vectors. For uniformly random s×t Ferrers blocks, the binomial ratio for at least half zero rows is at most exp[−min(s,t)/4]; similarly for target columns. Union bound over both tails in k² blocks ensures overlapping longer-than-half prefixes and suffixes, no isolates, and connected H, hence simplicity probability ≥1−2k² exp(−m/4). Boundary k≥2,n_i≥1, named operations and fixed-k complexity are respected.
 
-For \((2,2)\), the four coefficient counts are \(1213,70,12,1\), totaling \(1296\). For \((2,3)\), the coefficients are \(11632,309,50,8,1\), totaling \(12000\). The checker confirms these values from different representations. The endpoint formula for arbitrary factor sizes and the uniform asymptotic probability inequality are mathematical arguments in `RESULT.md`, not extrapolations from finite experiments. The quoted duality and congruence correspondence are external published premises and are not independently re-proved by the checker. No independent external audit is claimed.
+## originality
+
+PASS
+
+PASS on a qualified best-of-knowledge comparison: Celani–Nagy–Zuluaga Botero cover general duality and congruence representation, but the all-factor-size weighted overlap rank polynomial and uniform generic-simplicity tail law are separately derived. Finite Ferrers counts alone are old, and the 2015 one-connective count is not claimed absent from literature without reading the full paper.
+
+## value
+
+PASS
+
+Simplicity and full congruence-rank spectra are intrinsic algebraic invariants for subdirect decomposition. A compact exact endpoint-weight generating function replaces an enormous enumeration of operations for any fixed factor count and yields quantitative generic simplicity across a natural infinite class of distributive lattice reducts; these are mathematically motivated objects, not arbitrary tiny tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

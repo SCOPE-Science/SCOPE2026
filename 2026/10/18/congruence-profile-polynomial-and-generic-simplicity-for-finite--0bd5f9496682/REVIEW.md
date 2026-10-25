@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the verified WHB Priestley duality and congruence theorem as explicit cited premises. It independently derives Ferrers endpoint multiplicities, connectedness of each nonzero block on its support, the support-intersection component formula, and a uniform binomial-ratio tail bound. The separate standalone checker reproduces finite polynomial profiles by independently enumerating actual admissible relations, checks all binary relations on small dual posets, and evaluates WHB equations on small induced algebras. This is not a claim that finite tests prove the all-size statements.
+## correctness
 
-**Originality — PASS, qualified.** The cited 2023 primary full text establishes duality and congruence representation, so those facts and the immediate finite undirected-component consequence are acknowledged as established. The identified gap is the exact weighted **congruence-rank profile** on arbitrary named products of at least two finite chains and the asymptotic simplicity bound. Searches compared the claimed combined implications against this source, broad Ferrers/tense terminology, the available mathematical finding database, and accessible earlier research claims. No equivalent combined theorem was identified. An equivalent unpublished or poorly indexed combinatorial formulation remains a residual risk. The earlier finite-chain-only WHB count is not claimed to be new or used as the target result.
+PASS
 
-**Mathematical value — PASS.** Simplicity and congruence structure are intrinsic invariants for the subdirect decomposition of algebras. The result compresses enumeration of exponentially many operations into a polynomial-time endpoint-state sum for fixed factor count, determines every finite congruence rank rather than a single small instance, and proves asymptotically generic simplicity throughout a natural family of distributive-lattice reducts. Its novelty is not inferred solely from software checks or absence of search hits.
+The cited WHB duality sends an expansion of the fixed product ∏C_(n_i+1) to independent monotone Ferrers blocks on disjoint dual chains. Nonzero block endpoints u,v have exactly binom(u+v−2,u−1) interior threshold fillings. The active graph within one block is connected through the first source and final target point, even in diagonal blocks; the overlap graph H of endpoint supports therefore gives its union-components. Remaining uncovered dual vertices number Σ_i max(0,n_i−U_i−V_i), proving Boolean congruence rank I+κ(H) via Theorem 5.10. Direct independent enumeration of all relations on (1,1) gives {1:12,2:4} and on (2,2) gives {1:1213,2:70,3:12,4:1}; these agree with the formula but are not proof for all vectors. For uniformly random s×t Ferrers blocks, the binomial ratio for at least half zero rows is at most exp[−min(s,t)/4]; similarly for target columns. Union bound over both tails in k² blocks ensures overlapping longer-than-half prefixes and suffixes, no isolates, and connected H, hence simplicity probability ≥1−2k² exp(−m/4). Boundary k≥2,n_i≥1, named operations and fixed-k complexity are respected.
 
-**Closest literature and limitations.** Celani–Nagy–Zuluaga Botero (arXiv:2312.10873, Theorems 5.7 and 5.10) is the main structural predecessor. Individual Ferrers counts and the finite Boolean congruence description are pre-existing ingredients. The result counts named expansions, not isomorphism types, and its probability bound need not be sharp. Primary-source and database searches cannot eliminate every alternative formulation; external verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on a qualified best-of-knowledge comparison: Celani–Nagy–Zuluaga Botero cover general duality and congruence representation, but the all-factor-size weighted overlap rank polynomial and uniform generic-simplicity tail law are separately derived. Finite Ferrers counts alone are old, and the 2015 one-connective count is not claimed absent from literature without reading the full paper.
+
+## value
+
+PASS
+
+Simplicity and full congruence-rank spectra are intrinsic algebraic invariants for subdirect decomposition. A compact exact endpoint-weight generating function replaces an enormous enumeration of operations for any fixed factor count and yields quantitative generic simplicity across a natural infinite class of distributive lattice reducts; these are mathematically motivated objects, not arbitrary tiny tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
