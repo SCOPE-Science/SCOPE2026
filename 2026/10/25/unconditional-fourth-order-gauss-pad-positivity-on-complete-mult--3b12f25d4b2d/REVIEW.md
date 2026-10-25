@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Laplacian projector decomposition establishes every eigenvalue and entry orbit for arbitrary positive integer part sizes. The scalar numerator is strictly positive and its real-axis stability function lies in \((0,1]\); the off-diagonal entries reduce exactly to rational expressions with positive factors. Symmetric positive definiteness establishes the remaining diagonals and the row-sum eigenvector establishes stochasticity. The four-vertex path boundary uses an independently derived rational expression and a unique-positive-root sign argument. Symbolic identities and independently assembled rational matrices checked 53 multipartite graphs and 12,760 entries. These finite checks are supporting evidence only.
+
+**Originality — PASS, with residual risk.** Original 2001 SSP theory does not classify the graph-family endpoint map. The 2010 and 2012 Padé-positive-system papers concern general or Hurwitz systems and do not state the all-step result for symmetric singular complete multipartite Laplacians in the inspected material. The published eight-state Padé Markov obstruction concerns a directed pure-birth generator; it does not imply this positive graph-family result. Public mathematical-record searches did not identify an implication covering the exact claim, although specialized unindexed literature and reduction to other symmetry-based results remain risks. Earlier graph-specific fourth-order explicit RK4 findings use a different stability function and do not imply the rational theorem.
+
+**Value — PASS.** It is not an arbitrary finite computation: the complete multipartite family models fully connected interactions across heterogeneous communities, and the property is invariant under every permitted partition and all timestep magnitudes. A fourth-order implicit method with no general positivity guarantee is proved unconditionally safe on this class, while a four-vertex undirected path provides a sharp natural structural boundary. The formulas can replace timestep-by-timestep matrix nonnegativity tests in the stated model.
+
+Scientific limits: exact endpoint step only, unweighted graphs, no floating-point/internal-stage guarantee; not a characterization of all networks and not an assertion of global literature novelty.
+
+Self-review: passed. Independent audit: not yet performed.
