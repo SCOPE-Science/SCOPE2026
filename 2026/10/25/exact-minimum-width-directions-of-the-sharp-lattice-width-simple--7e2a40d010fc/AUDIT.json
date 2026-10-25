@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The vertex evaluation identity reduces width to an exact integer range. The congruence condition rules out every nonzero vector with range below two; the three range-two cases are exhaustive and give 18 vectors. The edge determinant is exactly 1/2, giving volume 1/12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Draisma et al. prove the universal bound \\(3^d-1\\) and identify the regular lattice cross-polytope as the equality case.",
+        "Aliev proves \\(\\operatorname{Vol}(K)\\ge\\omega(K)^3/12\\) in \\(\\mathbb R^3\\) and provides this simplex as a sharpness example."
+      ],
+      "reasoning": "The universal count theorem allows 26 directions in dimension three but does not determine which directions occur for this simplex. The volume inequality fixes the extremal ratio but does not determine the active lattice directions.",
+      "searches": [
+        "https://doi.org/10.1137/120877635",
+        "https://arxiv.org/abs/2306.14576",
+        "lattice-width directions minimum width convex body number of directions theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.14576",
+      "https://doi.org/10.1137/120877635",
+      "https://arxiv.org/abs/0901.1375"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aliev's equality example gives the vertices and volume-width equality but not the full direction list in the inspected text.",
+        "Draisma et al.'s theorem bounds the count by \\(26\\) in dimension three and singles out the regular lattice cross-polytope at that count; it does not imply the exact 18-vector classification."
+      ],
+      "reasoning": "The new statement is a strict refinement of the equality example's direction-level data, not a restatement of either prior theorem. The proof supplies the exact list independently from the displayed coordinates.",
+      "searches": [
+        "https://arxiv.org/abs/2306.14576",
+        "https://doi.org/10.1137/120877635",
+        "Aliev 2023 equality simplex minimum lattice-width directions exact list"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For \\(u=(a,b,c)\\), \\(s=a+b+c\\), and \\(x_i=s+u_i\\), the vertex evaluations are \\(0,x_1/2,x_2/2,x_3/2\\).",
+        "The map \\(u\\mapsto x\\) is a bijection from \\(\\mathbb Z^3\\) to \\({x\\in\\mathbb Z^3:\\sum_i x_i\\equiv0\\pmod4}\\).",
+        "Draisma et al. define lattice-width directions as the lattice vectors attaining minimum width."
+      ],
+      "reasoning": "The claim is equivalent to listing all points of that congruence sublattice for which the range of {0,x_1,x_2,x_3} is exactly two. The proof classifies these points into three exhaustive sign cases.",
+      "searches": [
+        "lattice-width directions simplex minimum-width directions exact set",
+        "Aliev 2023 equality simplex vertices minimum lattice-width directions exact list",
+        "exact lattice-width direction set of tetrahedron volume one twelfth lattice width cubed",
+        "https://arxiv.org/abs/2306.14576",
+        "https://doi.org/10.1137/120877635"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected general theorem gives a bound and an equality characterization for the maximal count, not a table for this tetrahedron.",
+        "No published direction table was identified in the inspected sources."
+      ],
+      "reasoning": "No external table is required: the finite contact set is computed from the explicit vertices and then proved exhaustive analytically. The absence of an indexed table is not used as proof of novelty.",
+      "searches": [
+        "lattice-width directions simplex minimum-width directions exact set",
+        "exact lattice-width direction set of tetrahedron volume one twelfth lattice width cubed",
+        "https://arxiv.org/abs/0901.1375"
+      ]
+    },
+    "rationale": "The inspected primary sources cover the sharp inequality/example and a universal direction-count theorem, but not the exact active-direction set of this particular equality simplex. The claim is a coordinate-level classification with a direct proof; search failure alone is not used as novelty evidence.",
+    "residual_risks": [
+      "An unindexed paper, thesis, or notes may contain the same finite direction list.",
+      "The literature search was targeted rather than exhaustive; no claim is made that search failure proves novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the inequality and the equality example, but the inspected text does not enumerate the minimum-width directions of this simplex.",
+        "evidence": [
+          "Aliev, arXiv:2306.14576, lines 3-4 and 90-96 of the accessible HTML full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.14576",
+        "material_read": "Abstract and the full-text sections defining lattice width and stating Corollary 2.2; especially the displayed equality simplex in the introduction.",
+        "method": "Read the arXiv HTML full text at the definition of lattice width and the corollary; compared the exact claim and the displayed vertices.",
+        "title": "The exact bound for the reverse isodiametric problem in 3-space",
+        "trigger": "The paper gives the sharp lattice-width volume inequality and the candidate equality simplex."
+      },
+      {
+        "assessment": "Proves at most 3^d-1 oriented directions and characterizes equality in that count; it does not give the 18 directions for this non-cross-polytope simplex.",
+        "evidence": [
+          "Draisma, McAllister, and Nill, pp. 1104-1105, Theorem 1.1 and the proof at pp. 1105-1106."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120877635",
+        "material_read": "Full five-page publisher PDF, including the definition of lattice-width directions, Theorem 1.1, and its proof.",
+        "method": "Read the complete open PDF and compared the quantified theorem with the particular simplex claim.",
+        "title": "Lattice-width directions and Minkowski’s 3^d-theorem",
+        "trigger": "This is the principal general reference on the number and structure of lattice-width directions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e2a40d0-10fc-411b-99ba-6c26f0a384bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact active-direction set is a natural structural invariant of the simplex that attains the sharp three-dimensional volume–lattice-width bound. It distinguishes this equality witness from the regular lattice cross-polytope that uniquely maximizes the general direction count; no stability theorem or broader equality classification is claimed.",
+    "status": "PASS"
+  }
+}
