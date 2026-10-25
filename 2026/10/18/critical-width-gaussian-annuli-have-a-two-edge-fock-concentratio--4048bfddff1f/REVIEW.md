@@ -1,11 +1,21 @@
-# Self-review: critical annular Fock concentration
+# Independent mathematical audit
 
-**Correctness — PASS.** Radial diagonalization gives positive gamma-integral eigenvalues for every nonnegative monomial degree. The integration-by-parts adjacent-eigenvalue identity implies exact unimodality and hence consecutive-monomial optimizers for every finite rank. The exponential-sum Berry–Esseen estimate supplies a uniform normal-CDF difference on degrees within \(O(\sqrt R)\) of \(R\). This, the exact logarithmic-mean mode, and a uniform Riemann-sum argument prove the \(O(1)\) absolute error for the sharp Ky Fan concentration sum. Concavity of its partial sums yields the full ordered spectral law. The strict filling deficit follows from integral convolution and the fact that a Gaussian window has positive tails and peak below one. No step infers an infinite-dimensional result solely from finite computation. The 128 finite checker diagnostic groups passed in the development environment; the analytic proof is independent of those tests.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest analyzed primary papers are Halvdansson (2025, arXiv:2502.11805), Nicola–Riccardi–Tilli (2025, arXiv:2503.07069), and Alvarez–Camper–Mitkovski (2026, arXiv:2610.02484). Halvdansson's Proposition 2.4 requires a fixed annular radius ratio, and its displayed error estimate does not extend to a fixed physical radial thickness. Nicola–Riccardi–Tilli establish isoperimetry over variable domains at each fixed rank, not the growing-rank, critically moving-annulus spectrum. Alvarez–Camper–Mitkovski give general geometric filling bounds and van-Hove asymptotics, whereas these annuli are boundary dominated and fail that hypothesis. The exact finite gamma eigenvalues are classical and are not claimed as new. No directly dominating or identical critical-width, sorted-spectral and growing-Ky-Fan statement was identified in primary full-text checks or relevant scientific searches. Since Gaussian rearrangement and central-limit techniques are established, independent publication-priority checking, including other nomenclature for boundary crossover laws, remains appropriate.
+PASS
 
-**Mathematical value — PASS.** The radius and annular thickness introduce two Gaussian spectral edges that overlap at precisely this scaling. The theorem supplies an explicit, nonconstant entire ordered spectral profile, an absolute-error sharp formula for the optimal concentration of a growing orthonormal family, and strict sharp gaps from both naive rank and trace limits. These are the critical-regime quantitative data missing from the two standard outer regimes: homothetic thick-annulus plunge and van-Hove state counting. The exact consecutive-block optimizer and dimension-free nonradial variational interpretation connect the special-functions calculation to a natural operator extremal problem. The result does not claim a general universality theorem for noncircular domains.
+The monomial Fock basis exactly diagonalizes the radial concentration operator: tau_k=Gamma(k+1)^(-1) integral_A^B t^k exp(-t)dt, trace B-A. Its exact adjacent difference equals [A^(k+1)e^-A-B^(k+1)e^-B]/(k+1)!, proving unimodality and an optimal consecutive-index Ky Fan block for arbitrary orthonormal Fock families. The logarithmic mean locates the mode at R+m sqrt R+O(1), and uniform Berry–Esseen for Gamma(k+1,1) on k=R+O(sqrt R) gives f(x)=Phi(b-x)-Phi(a-x)+O(R^-1/2). Symmetric unimodality and Riemann summation imply sqrt R Q(c,w)+O(1) with Q=2[G((w+c)/2)-G((w-c)/2)]-c; slope sandwich of concave top-N sums yields sorted eigenvalue limit Q_c, and Gaussian strict support gives Q<min(c,w). Independent gamma evaluations at R=400 and 3600 match the leading predictions within O(1) and verify contiguous maxima on the tested windows; the analytic argument establishes the all-R result.
 
-**Risks and scientific limits.** The method uses circular symmetry, one complex dimension, Gaussian window, and fixed positive parameters. The available literature can contain equivalent critical-boundary formulas under Gaussian convolution or semiclassical Toeplitz language. An inaccessible or unexamined earlier treatment could change priority. Numerical diagnostics cover finite cases and cannot certify all real parameter values. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The associated classical Fock diagonalization and Ky Fan principle are not novel. Relevant primary work studies fixed-ratio annuli, radial-shape optimization, or van-Hove occupied regions, rather than the fixed-radial-width and rank sqrt R double scaling whose two edges interact.
+
+## value
+
+PASS
+
+Natural critical annulus of fixed nonzero physical thickness but outward-moving radius, outside separated-edge/van-Hove scaling. Two-edge sharp filling profile, exact loss below rank and geometric trace and finite-N consecutive monomial optimizer form motivated spectral boundary analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

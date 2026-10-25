@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof rests on four independently reconstructible ingredients: explicit radial diagonalization, an integration-by-parts recurrence, a uniform gamma-to-Gaussian approximation, and a sharp Riemann-sum/concavity argument. The recurrence sign is determined by the logarithmic mean of the two squared radial endpoints, and so determines all finite-rank optimal monomial blocks. The gamma distribution is the law of a sum of independent exponential variables, to which the standard Berry–Esseen inequality applies with rate proportional to the inverse square root of the degree. The sum-to-integral error is uniformly bounded because an optimal block contains a modal degree and comprises only order-\(\sqrt R\) nearby indices.
+## correctness
 
-Run `python3 check.py` in the directory containing the standalone checker after installing the dependency in `requirements.txt`. It calculates the incomplete-gamma eigenvalues, checks finite adjacent identities, tests consecutive-block spectral ordering locally, and compares their partial sums and cutoff eigenvalues with the asserted Gaussian limits for four parameter triples and three increasing radii. It reports 128 diagnostic groups passed. These are numerical samples, not a proof of global spectral sorting or a certificate of uniform asymptotics; the analytic arguments in RESULT.md provide those conclusions.
+PASS
 
-Independent audit has not been performed. No external certification, independent validation, or claim of uniqueness of the scientific contribution is made.
+The monomial Fock basis exactly diagonalizes the radial concentration operator: tau_k=Gamma(k+1)^(-1) integral_A^B t^k exp(-t)dt, trace B-A. Its exact adjacent difference equals [A^(k+1)e^-A-B^(k+1)e^-B]/(k+1)!, proving unimodality and an optimal consecutive-index Ky Fan block for arbitrary orthonormal Fock families. The logarithmic mean locates the mode at R+m sqrt R+O(1), and uniform Berry–Esseen for Gamma(k+1,1) on k=R+O(sqrt R) gives f(x)=Phi(b-x)-Phi(a-x)+O(R^-1/2). Symmetric unimodality and Riemann summation imply sqrt R Q(c,w)+O(1) with Q=2[G((w+c)/2)-G((w-c)/2)]-c; slope sandwich of concave top-N sums yields sorted eigenvalue limit Q_c, and Gaussian strict support gives Q<min(c,w). Independent gamma evaluations at R=400 and 3600 match the leading predictions within O(1) and verify contiguous maxima on the tested windows; the analytic argument establishes the all-R result.
+
+## originality
+
+PASS
+
+The associated classical Fock diagonalization and Ky Fan principle are not novel. Relevant primary work studies fixed-ratio annuli, radial-shape optimization, or van-Hove occupied regions, rather than the fixed-radial-width and rank sqrt R double scaling whose two edges interact.
+
+## value
+
+PASS
+
+Natural critical annulus of fixed nonzero physical thickness but outward-moving radius, outside separated-edge/van-Hove scaling. Two-edge sharp filling profile, exact loss below rank and geometric trace and finite-N consecutive monomial optimizer form motivated spectral boundary analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

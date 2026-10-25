@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:52:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The monomial Fock basis exactly diagonalizes the radial concentration operator: tau_k=Gamma(k+1)^(-1) integral_A^B t^k exp(-t)dt, trace B-A. Its exact adjacent difference equals [A^(k+1)e^-A-B^(k+1)e^-B]/(k+1)!, proving unimodality and an optimal consecutive-index Ky Fan block for arbitrary orthonormal Fock families. The logarithmic mean locates the mode at R+m sqrt R+O(1), and uniform Berry–Esseen for Gamma(k+1,1) on k=R+O(sqrt R) gives f(x)=Phi(b-x)-Phi(a-x)+O(R^-1/2). Symmetric unimodality and Riemann summation imply sqrt R Q(c,w)+O(1) with Q=2[G((w+c)/2)-G((w-c)/2)]-c; slope sandwich of concave top-N sums yields sorted eigenvalue limit Q_c, and Gaussian strict support gives Q<min(c,w). Independent gamma evaluations at R=400 and 3600 match the leading predictions within O(1) and verify contiguous maxima on the tested windows; the analytic argument establishes the all-R result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola–Riccardi–Tilli optimize radial sets, not a fixed annulus double-scale spectrum; Alvarez–Camper–Mitkovski require van-Hove/boundary-negligible growth; fixed-thickness annulus has boundary order comparable to its area."
+        ],
+        "reasoning": "The geometric optimization theorems and van-Hove limits do not imply the exact non-van-Hove spectral filling function Q(c,w). Full-source checks were limited for two highly relevant articles.",
+        "searches": [
+          "arXiv:2503.07069",
+          "arXiv:2610.02484",
+          "arXiv:2502.11805"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2502.11805",
+        "https://arxiv.org/abs/2503.07069",
+        "https://arxiv.org/abs/2610.02484",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/critical-width-gaussian-annuli-have-a-two-edge-fock-concentratio--4048bfddff1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Halvdansson fixed ratio of radii versus current ratio tending 1; regular-set general occupancy differs since boundary/area ratio does not vanish."
+        ],
+        "reasoning": "Known diagonalization is a premise, not whole-theorem prior coverage; given asymptotic hypotheses do not yield the interacting two-edge profile by direct substitution.",
+        "searches": [
+          "Halvdansson arXiv:2502.11805 Section 2",
+          "Nicola–Riccardi–Tilli arXiv:2503.07069",
+          "Alvarez–Camper–Mitkovski arXiv:2610.02484"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Halvdansson examined homothetically scaled annuli with fixed inner/outer ratio; the moving family here has ratio approaching 1 and two transition edges at bounded separation."
+        ],
+        "reasoning": "The error-function separated-edge plunge can be written in related coordinates, but holding two boundaries a finite Gaussian width apart produces a difference of two CDFs; equivalence from prior theorem would require uniform r->1 control not shown.",
+        "searches": [
+          "Fock Toeplitz localization annulus shrinking relative width Gaussian boundary eigenvalue spectrum two edge error functions",
+          "arXiv:2502.11805 Proposition 2.2 / Conjecture 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tau_k incomplete-gamma expression is classical and exactly computed; the claim concerns sorting growing blocks and a critical asymptotic spectral profile."
+        ],
+        "reasoning": "No precomputed gamma table alone determines the optimized O(sqrt R)-rank sum and all-c limiting sorted-eigenvalue profile; it requires unimodality plus gamma CLT.",
+        "searches": [
+          "Fock Toeplitz localization annulus shrinking relative width Gaussian boundary eigenvalue spectrum two edge error functions",
+          "Fock Toeplitz radial eigenvalues Gamma incomplete"
+        ]
+      },
+      "rationale": "The associated classical Fock diagonalization and Ky Fan principle are not novel. Relevant primary work studies fixed-ratio annuli, radial-shape optimization, or van-Hove occupied regions, rather than the fixed-radial-width and rank sqrt R double scaling whose two edges interact.",
+      "residual_risks": [
+        "Highly relevant partial-sum Fock author manuscript and latest general spectral-filling preprint were not inspected through complete full text; an extension in their appendices could affect priority.",
+        "Only fixed a<b and c>0, one-dimensional Gaussian Fock, no noncircular universality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proven annulus regime keeps a fixed ratio and separated edges; it does not establish the critical a+b sqrt R window.",
+          "evidence": [
+            "Proposition 2.2 fixed-ratio radial annulus; comparison of erfc plunges with current two Gaussian-CDF difference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.11805",
+          "material_read": "Readable primary full-text rendering, including Section 2 and Proposition 2.2; the generalization appears as Conjecture 2.4, not Proposition 2.4",
+          "method": "Primary text comparative reading",
+          "title": "Empirical plunge profiles of time-frequency localization operators",
+          "trigger": "Gaussian Fock annular plunge is the closest prior analogue"
+        },
+        {
+          "assessment": "Controls optimization over radial domains, not observed fixed moving annulus. Whole-document noncoverage not claimed.",
+          "evidence": [
+            "Objective varies support domain rather than deriving sqrt R two-edge law for fixed Omega_R"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.07069",
+          "material_read": "Abstract and descriptive theorem-level metadata; complete author manuscript returned restricted web access",
+          "method": "Publisher/OA metadata and mathematical conclusion comparison",
+          "title": "The isoperimetric inequality for partial sums of Toeplitz eigenvalues in the Fock space",
+          "trigger": "Same Fock Toeplitz partial eigenvalue sum"
+        },
+        {
+          "assessment": "Van-Hove assumptions plausibly exclude critical annulus; further appendix verification is a residual risk.",
+          "evidence": [
+            "Boundary and area both grow as sqrt R for the current annulus"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02484",
+          "material_read": "Abstract and cited hypothesis context, not full preprint",
+          "method": "Citation/abstract and assumptions comparison",
+          "title": "Orthogonality, Spectral Filling, and Uncertainty",
+          "trigger": "General spectral-filling results may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural critical annulus of fixed nonzero physical thickness but outward-moving radius, outside separated-edge/van-Hove scaling. Two-edge sharp filling profile, exact loss below rank and geometric trace and finite-N consecutive monomial optimizer form motivated spectral boundary analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2502.11805",
+    "https://arxiv.org/abs/2503.07069",
+    "https://arxiv.org/abs/2610.02484",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/critical-width-gaussian-annuli-have-a-two-edge-fock-concentratio--4048bfddff1f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "O(1) partial-sum remainder for fixed parameters, not uniform in c or w varying with R.",
+    "Numerical gamma eigenvalues verify finite instances only."
+  ],
+  "residual_risks": [
+    "Highly relevant partial-sum Fock author manuscript and latest general spectral-filling preprint were not inspected through complete full text; an extension in their appendices could affect priority.",
+    "Only fixed a<b and c>0, one-dimensional Gaussian Fock, no noncircular universality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proven annulus regime keeps a fixed ratio and separated edges; it does not establish the critical a+b sqrt R window.",
+      "evidence": [
+        "Proposition 2.2 fixed-ratio radial annulus; comparison of erfc plunges with current two Gaussian-CDF difference"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2502.11805",
+      "material_read": "Readable primary full-text rendering, including Section 2 and Proposition 2.2; the generalization appears as Conjecture 2.4, not Proposition 2.4",
+      "method": "Primary text comparative reading",
+      "title": "Empirical plunge profiles of time-frequency localization operators",
+      "trigger": "Gaussian Fock annular plunge is the closest prior analogue"
+    },
+    {
+      "assessment": "Controls optimization over radial domains, not observed fixed moving annulus. Whole-document noncoverage not claimed.",
+      "evidence": [
+        "Objective varies support domain rather than deriving sqrt R two-edge law for fixed Omega_R"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2503.07069",
+      "material_read": "Abstract and descriptive theorem-level metadata; complete author manuscript returned restricted web access",
+      "method": "Publisher/OA metadata and mathematical conclusion comparison",
+      "title": "The isoperimetric inequality for partial sums of Toeplitz eigenvalues in the Fock space",
+      "trigger": "Same Fock Toeplitz partial eigenvalue sum"
+    },
+    {
+      "assessment": "Van-Hove assumptions plausibly exclude critical annulus; further appendix verification is a residual risk.",
+      "evidence": [
+        "Boundary and area both grow as sqrt R for the current annulus"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.02484",
+      "material_read": "Abstract and cited hypothesis context, not full preprint",
+      "method": "Citation/abstract and assumptions comparison",
+      "title": "Orthogonality, Spectral Filling, and Uncertainty",
+      "trigger": "General spectral-filling results may dominate"
+    }
+  ]
+}
