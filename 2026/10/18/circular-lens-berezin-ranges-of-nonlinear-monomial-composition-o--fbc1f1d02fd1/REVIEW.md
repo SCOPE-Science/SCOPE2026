@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reproducing-kernel formula is exact. The key surjectivity lemma is solved by an explicit positive quadratic root, and the inverse Möbius map converts the resulting cone into an intersection of circles. Endpoint limits and their different boundary attainments are handled separately. The deterministic checker passed from the actual supplied path; numerical tests are not substituted for the proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The July 2025 Augustine–Das–Bhunia–Shankar preprint examines Hardy Berezin convexity; accessible Theorem 3.5 has a radial symbol rather than an analytic nonlinear monomial. The later Bourdon–Le–Thompson abstract describes general Berezin-range properties and a linear-symbol convexity classification, not the nonlinear monomial lens formula. The 2023 Augustine–Garayev–Shankar accessible Section 4 treats linear symbols; the Cowen–Felder accessible Section 4 concerns linear and automorphic symbols. Searches of published mathematical research records using the lens and monomial equivalents returned no matching theorem. A recent relevant full paper was inaccessible; equivalent statements in it remain a material residual risk. Searches cannot independently establish novelty.
+PASS
 
-**Value — PASS.** This is a complete, natural nonlinear composition-symbol class, not a chosen numerical slice: all exponents and complex phases collapse to one parameter, whose ranges are explicit circular lenses with sharp boundary-attainment transition, area, perimeter and height. It supplies exact geometry in a setting where convexity itself has been an explicit research topic. No general theorem about arbitrary symbols is claimed.
+The normalized Hardy reproducing kernel gives z=(1-t)/(1-a t e^{iψ}); m>=2 makes phase ψ cover the circle for any λ phase. The inverse u=(1-z)/z=s(1-ae^{iψ}) sweeps exactly the closed sector Re u≥sqrt(1-a²)|u| for 0<a<1 via the positive quadratic root. Möbius inversion gives intersection of the two closed disks centered at 1/2±i√(1-a²)/(2a), radius 1/(2a), omitting origin. The origin is an extreme point so the punctured lens stays convex. Chord area and arc length give the stated A, P, H. For a=0 the range is (0,1]; for a=1 the open diameter disk plus {1}, because u in right half-plane except origin. Independent chord quadrature at a=.1,.5,.9 reproduces exact areas and finite phase samples lie in both disks. Finite samples are corroboration, not complete image equality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior exact convexity results for linear/automorphism symbols and radial nonholomorphic maps are not equivalent to the angularly surjective nonlinear monomials. Latest Bourdon–Le–Thompson manuscript abstract explicitly classifies linear maps, while its full text could still include the lens as another theorem. Full text unavailable, recorded as priority uncertainty; no decisive coverage seen.
+
+## value
+
+PASS
+
+Classifies a canonical nonlinear composition-operator family (m>=2) with an unexpectedly universal parameter a, exact convex lens metric invariants, and a real boundary-attainment transition at a=1; the operator-theoretic geometry is a natural exact example, not arbitrary coordinate manipulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
