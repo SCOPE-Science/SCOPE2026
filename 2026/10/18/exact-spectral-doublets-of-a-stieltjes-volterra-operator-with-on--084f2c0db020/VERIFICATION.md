@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained once the standard compact-Hilbert singular-value variational principle and compact one-dimensional Sobolev embedding are admitted. Verify first that the target's point coordinate uses the **left** state value at the atom. The correct two interface identities are
-\[
- u_-'(1/2)-u_+'(1/2)=a\kappa^2u_-(1/2),\quad
- u_+'(1/2)=\bigl(u_+(1/2)-u_-(1/2)\bigr)/a.
-\]
-Both are needed before the characteristic determinant can be factored. The resulting two monotone cotangent root branches give all eigenvalues, without finite-rank extrapolation.
+## correctness
 
-The executable `verify_atom.py` uses `numpy` (dependency declared in `requirements.txt`) to check: four distinct positive atomic masses; root ordering and interface branch identities; a separate unfactored determinant identity; fourth-power singular-gap values at ranks corresponding to \(m=100\) and \(m=300\); and a weighted Nyström matrix with a separately represented atomic coordinate and a direct Hilbert–Schmidt sum. Run from the directory containing the files with `python verify_atom.py`. Successful output ends with the literal marker `ATOMIC_STIELTJES_SPECTRUM_CHECKS_OK`.
+PASS
 
-Numerical singular values of finite quadrature matrices are approximate and do not prove an infinite spectrum. Large-index cancellation restricts direct double-precision accuracy of the quartic coefficient, so tests use moderate indices and loose diagnostic thresholds. No computer algebra or external infinite-dimensional certificate is claimed. Independent audit has not been performed.
+The Hilbert–Schmidt kernel 1_{s<t} on L²(dt+aδ_{1/2}) has trace norm-square 1/2+a, excluding the atom self-pair. The range is an energy space with u(0)=0, atomic value u_-(1/2), independent one-sided traces and jump stiffness [u]²/a; norm includes a|u_-(1/2)|². The variational problem E(u,v)=κ²N(u,v) has Dirichlet/Neumann endpoints and two interface laws, whose determinant factors into cos(κ/2)-(aκ±1)sin(κ/2). Because cot(κ/2)-aκ is strictly decreasing on every (2πm,2π(m+1)), each branch has exactly one simple root, in strict order; no pole roots are missed. Expanding κ=2πm+2/(a2πm)±2/(a²(2πm)²)+... gives m⁴(s_{2m+1}-s_{2m+2})→1/(4π⁴a²), s_n~1/(πn), and S_p iff p>1. Independently checked algebraic determinant factorization and high-m roots for a=0.7,2 at m=40,150,600; for a=2, m=600 gives 0.000641623665 vs predicted 0.000641623891. Finite roots are diagnostic, not infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS restricted to the explicit singular-doublet classification and sharp quartic gap for this strict one-atom mixed measure. Ordinary Volterra n⁻¹ asymptotics, Sturm–Liouville transfer techniques and embedded-mass string theory are prior art. A very plausible older point-mass string paper was inaccessible in full and is a material originality risk, not automatically a failure.
+
+## value
+
+PASS
+
+The midpoint one-atom Stieltjes clock is the simplest symmetric model with both continuous integration and an impulse; its exact two-branch spectrum and m⁻⁴ near-degenerate pair splitting are natural operator invariants, sharply distinct from m⁻² interpair gaps. A quantitative model benchmark remains useful even without a general several-atom theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

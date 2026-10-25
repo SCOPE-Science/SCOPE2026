@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:56:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 988dd3880bcc9d47075f0471716f97f232bd61e0",
+        "Frozen verify_atom.py blob 08687c8282863bd13affa65d61e32d77c1006d45",
+        "Independent high-precision cotangent asymptotic checks",
+        "Variational energy form and transmission-boundary reconstruction"
+      ],
+      "rationale": "The Hilbert–Schmidt kernel 1_{s<t} on L²(dt+aδ_{1/2}) has trace norm-square 1/2+a, excluding the atom self-pair. The range is an energy space with u(0)=0, atomic value u_-(1/2), independent one-sided traces and jump stiffness [u]²/a; norm includes a|u_-(1/2)|². The variational problem E(u,v)=κ²N(u,v) has Dirichlet/Neumann endpoints and two interface laws, whose determinant factors into cos(κ/2)-(aκ±1)sin(κ/2). Because cot(κ/2)-aκ is strictly decreasing on every (2πm,2π(m+1)), each branch has exactly one simple root, in strict order; no pole roots are missed. Expanding κ=2πm+2/(a2πm)±2/(a²(2πm)²)+... gives m⁴(s_{2m+1}-s_{2m+2})→1/(4π⁴a²), s_n~1/(πn), and S_p iff p>1. Independently checked algebraic determinant factorization and high-m roots for a=0.7,2 at m=40,150,600; for a=2, m=600 gives 0.000641623665 vs predicted 0.000641623891. Finite roots are diagnostic, not infinite proof.",
+      "residual_risks": [
+        "The result uses strict [0,t) integration, an atom exactly at midpoint, and fixed a>0; changing these conventions changes interface conditions.",
+        "No uniform a→0 spectral asymptotics claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fernández treats compact Stieltjes–Bochner graphs, not explicitly their singular doublets; Carlson’s abstract addresses point masses on a string and could overlap; Bird–Ngai–Teplyaev require continuous measures in their stated setup."
+        ],
+        "reasoning": "General compactness does not imply two cotangent branches and quartic splitting. Carlson could provide a dominating characteristic framework or asymptotics; that comparison remains at-risk owing to access, without positive evidence for the precise coefficient.",
+        "searches": [
+          "Fernández arXiv:2609.10064",
+          "Carlson DOI:10.1137/S0036141093244283",
+          "Bird–Ngai–Teplyaev (2003) continuous-measure interval Laplacians"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10064 abstract",
+        "Carlson 1995 DOI:10.1137/S0036141093244283 abstract",
+        "Resultary: Volterra operator singular values interval point mass atomic Stieltjes integration cotangent eigenvalue doublets",
+        "Resultary published 2026/10/11 radial singular-value majorization full RESULT",
+        "Resultary published 2026/10/11 Hardy–Volterra commutator full RESULT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial theorem uses smooth positive input weight on Lebesgue L² and a rank-one correction; the commutator uses kernel (1-t/x)1_{t<x}, unlike an atom plus strict integral. Carlson’s title/abstract strongly implicate spectral techniques but exact theorem was inaccessible."
+        ],
+        "reasoning": "Neither fully inspected SCOPE result implies the atom-dependent doublet spacing. A classical general theorem might imply its characteristic roots and possibly asymptotics, which must be checked before priority claims are upgraded.",
+        "searches": [
+          "Resultary/2026 radial singular-value majorization (2026/10/11)",
+          "Resultary/2026 Hardy–Volterra commutator (2026/10/11)",
+          "Carlson 1995 DOI:10.1137/S0036141093244283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carlson studies string eigenvalues with embedded point masses; one might transform the variational energy here to a point-mass/point-spring Sturm–Liouville problem."
+        ],
+        "reasoning": "This is the strongest alias/reduction risk, but the exact jump-energy form with both stiffness and atomic kinetic mass is not shown to fall under Carlson’s stated result, and no full theorem text was available. No whole-document NOT_COVERING claim is made.",
+        "searches": [
+          "Resultary: Volterra operator singular values interval point mass atomic Stieltjes integration cotangent eigenvalue doublets",
+          "Carlson, Hearing Point Masses in a String, DOI:10.1137/S0036141093244283"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary results concern smooth weighted Lebesgue integration or Hardy–Volterra commutator, neither uses dt+aδ_{1/2}."
+        ],
+        "reasoning": "No identical atom-mass singular table or quartic-gap formula was found in searched records, but point-mass string literature might contain one under another label.",
+        "searches": [
+          "Resultary: Volterra operator singular values interval point mass atomic Stieltjes integration cotangent eigenvalue doublets",
+          "Resultary exact singular-value and Volterra searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to the explicit singular-doublet classification and sharp quartic gap for this strict one-atom mixed measure. Ordinary Volterra n⁻¹ asymptotics, Sturm–Liouville transfer techniques and embedded-mass string theory are prior art. A very plausible older point-mass string paper was inaccessible in full and is a material originality risk, not automatically a failure.",
+      "residual_risks": [
+        "Carlson (1995) full paper and possible point-mass string appendices were not read because authorized Oxford VPN was disconnected; the potential general spectral implication is significant.",
+        "Unindexed point-interaction and Krein string spectral results may derive the same quartic gap.",
+        "Primary arXiv Fernández full text unavailable in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States a general graph compactness framework, not demonstrated to contain exact singular values",
+          "evidence": "Abstract does not give two cotangent branches; full text not independently marked not covering.",
+          "identifier_or_url": "arXiv:2609.10064v1",
+          "material_read": "Accessible abstract and bibliographic description; full primary text not obtained",
+          "method": "ArXiv/OA search",
+          "title": "Aubin–Lions Compactness for Stieltjes–Bochner Evolution Graphs",
+          "trigger": "Same mixed atomic continuous Stieltjes measure family"
+        },
+        {
+          "assessment": "Highly relevant inaccessible primary text; strong priority uncertainty retained",
+          "evidence": "Point masses and string eigenproblem are analogous; no exact one-atom gap theorem was verified.",
+          "identifier_or_url": "DOI:10.1137/S0036141093244283",
+          "material_read": "Bibliographic record and abstract, not full paper or appendices",
+          "method": "arXiv/preprint/OA attempts then authorized Oxford paper fetch; status vpn_disconnected, job 84fec8a1b712ea3503a03d2e56b0e0cf",
+          "title": "Hearing Point Masses in a String",
+          "trigger": "Plausible classical equivalent point-mass Sturm–Liouville operator"
+        },
+        {
+          "assessment": "Different smooth Lebesgue weighted rank-one-corrected model",
+          "evidence": "No positive point mass or strict atomic jump energy in assumptions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-radial-singular-value-majorization-for-reflection-symmetric-weig--2b376b3b891a",
+          "material_read": "Entire RESULT.md fetched and read from frozen published Git blob 45a374061e4633928480e1a433250882e8762546",
+          "method": "Read actual Git source text",
+          "title": "Radial singular-value majorization for reflection-symmetric weighted integration",
+          "trigger": "Nearby Volterra singular spectral theorem"
+        },
+        {
+          "assessment": "Different Hardy–Volterra commutator kernel with no atom",
+          "evidence": "Operator x^{-1}∫_0^x(x-t)f(t)dt is not strict integration on dt+aδ_{1/2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-entire-characteristic-determinant-for-the-singular-spectrum-o--2a37cf33f373",
+          "material_read": "Entire RESULT.md fetched and read from Git blob 6a190760b1c15720d18c7845ea8ebf466183a3b8",
+          "method": "Read actual Git source text",
+          "title": "An entire characteristic determinant for the singular spectrum of the Hardy–Volterra commutator",
+          "trigger": "Nearby exact Volterra-type characteristic determinant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen one-atom result and variational energy formula",
+        "Fernández Stieltjes–Bochner compactness framework",
+        "Point-mass string spectral motivation"
+      ],
+      "rationale": "The midpoint one-atom Stieltjes clock is the simplest symmetric model with both continuous integration and an impulse; its exact two-branch spectrum and m⁻⁴ near-degenerate pair splitting are natural operator invariants, sharply distinct from m⁻² interpair gaps. A quantitative model benchmark remains useful even without a general several-atom theorem.",
+      "residual_risks": [
+        "The result only treats a single centered positive atom; more general string spectra are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Most relevant point-mass string source not read in full; possible priority overlap retained.",
+    "Fixed a>0 and strict half-open convention; no claim for moving or multiple atoms."
+  ],
+  "schema_version": 1
+}
