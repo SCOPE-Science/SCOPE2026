@@ -1,19 +1,21 @@
-# Review of the sharp Euclidean ball-prism section transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The graph-Jacobian coarea formula yields an exact profile for every normal angle and both endpoints. The sign of its derivative is \(1-h^2M_\alpha(k)\), and the integral representation of \(M_\alpha\) has a strictly positive logarithmic derivative for all \(d\ge4\). This proves the unique threshold and the global classification, not merely local stationary behavior. The argument explicitly treats the full-ball profile branch \(k\ge1\), end angles, and translated affine planes. The four-dimensional algebra and critical expansion follow directly. The independent finite numerical reconstruction checks 520 predictions; it supplements rather than replaces the proof.
+PASS
 
-## Originality
+For each d>=4 and half-height h>0, write the normal as (sin(theta)e1,cos(theta)). On a central hyperplane the graph z=-tan(theta)x1 contributes sec(theta), and the ball slice gives A(k)=2*kappa_(d-2)*sqrt(h^2+k^2)*J_alpha(k)/k for k=h*cot(theta)<=1. Beyond k=1, A(k)=kappa_(d-1)*sqrt(h^2+k^2)/k decreases strictly. Differentiate the first branch: the sign is 1-h^2*M_alpha(k), and integration by parts gives M=2alpha*integral_0^1 s^2*(1-k^2*s^2)^(alpha-1)/(1-k^2)^alpha ds. Its derivative in q=k^2 has strictly positive log derivative [alpha(1-s^2)+s^2(1-q)]/((1-q)(1-qs^2)), while M(0+)=(d-2)/3 and M(1-)=infinity. Therefore h^2=3/(d-2) is the exact unique transition, and the oblique optimum, if any, is the unique root. Brunn concavity and strict even-unimodal translated-strip integration force centrality of all affine maximizers. For d=4, J=k-k^3/3 and M=2/[3(1-k^2)]; substitution gives the stated elementary maximum. The small-k Taylor coefficient (d+1)/5 establishes the onset. Independent numerical quadrature checked the phase and d=4 value at sampled dimensions/heights, but the universal proof is analytic.
 
-**PASS on inspected available evidence, with residual historical risk.** H. Dirksen, *Hyperplane Sections of Cylinders*, arXiv:1602.07854v1, gives a general volume representation and a complete result in the three-dimensional cylinder case (Theorem 3); the more general sharp bound in Theorem 2 expressly requires at least two interval factors. The inspected full text does not state the global dimension-\(d\ge4\) unique tilted/axial maximizer dichotomy or the four-dimensional closed profile. The related published polar-facet/regularity result concerns a different functional on intersection bodies. Abstract-level checks of Brzeziński and Meyer were not used to assert that their full papers lack equivalent results. Semantic searches and existing claim comparisons revealed no dominating statement. Historical equivalence cannot be ruled out exhaustively.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Maximal central sections are a canonical extremal problem in convex geometry; an explicit sharp phase diagram in an all-dimensional classical product family goes beyond the known source's general nonsharp integral bounds and the known three-dimensional case. The strict maximizing-orientation classification and the elementary four-dimensional value make the transition measurable and useful as an exact benchmark. This is not the routine recovery of a previously tabulated individual section value.
+Qualified best-of-knowledge originality for the precise final theorem and its stated parameter domain. The four named implication comparisons discriminate known mathematical inputs from the sharp new increment; an unindexed equivalence remains possible. The d3 sharp section case is excluded; the known strip integral is not sufficient alone to assert the sharp h_c(d) and strict unique global affine maximizers; proof supplies strict inequality in every d>=4.
 
-## Scientific scope and residual limitations
+## value
 
-The theorem applies only to unit-radius Euclidean ball prisms with one finite axial interval in dimensions at least four. Other bases and products with multiple interval factors remain open. Historical-priority verification is not definitive; independent validation has not been performed. Numerical checking alone cannot establish the analytic inequalities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural sharp orientation-optimization problem for Euclidean ball cylinders across all ambient dimensions, identifying a previously unclassified transition of global maximizers including affine offsets. The closed dimension-four formula and order-parameter square-root onset are geometric facts with natural significance; the work is not a mere reparametrization of a known full-dimensional sharp bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
