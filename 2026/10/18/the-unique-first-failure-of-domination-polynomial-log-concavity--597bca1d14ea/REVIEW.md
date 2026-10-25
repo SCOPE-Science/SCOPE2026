@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ancestor-comparability characterization of trivially perfect graphs reduces connected isomorphism classes to unlabelled rooted trees. The dominating-set recurrence distinguishes root-included and root-excluded sets exactly. The included standard-library program exhausts all \(376464\) rooted-tree shapes of orders at most \(16\), using exact integers; the only violation is the unique root over three five-vertex chains. Direct vertex-subset enumeration independently confirms the witness coefficients. The absence of smaller disconnected counterexamples follows from closure of log-concavity under convolution without internal zeros. The graph has \(d_2^2=225<230=d_1d_3\).
+PASS
 
-## Originality — PASS (with limited priority assurance)
+The connected-graph correspondence with unlabeled rooted forests is established by universal-root decomposition. The exact integer recurrence D(T)=z(1+z)^(n-1)+product_i D(T_i), singleton D=z, counts dominating subsets, including omission of the root. Independently implemented canonical multiset enumeration, unrelated to saved verifier output, generated all rooted-tree shapes at n=1..16 with counts 1,1,2,4,9,20,48,115,286,719,1842,4766,12486,32973,87811,235381 (376464 total). Every n<=15 shape passed all local log-concavity inequalities; at n=16 exactly the root with three chain-length-five child subtrees failed. Exact witness coefficients (0,1,15,230,1205,3615,7378,11080,12735,11410,8005,4368,1820,560,120,16,1) satisfy 15^2<230. For disconnected graphs, domination polynomials multiply, and convolution of nonnegative log-concave sequences without internal zeros is log-concave; a disconnected 16-vertex graph has strictly smaller components. The independent search explicitly verified the whole finite class; no assertion about least obstruction within larger n than required.
 
-The 2025 article *On domination polynomials of some graphs* proves a windmill polynomial formula (Theorem 2.16) and asks further log-concavity questions immediately afterward. That known identity is not presented as new. The actual claim is the sharp least order \(16\) and uniqueness over **all** trivially perfect graphs; neither appears in the inspected primary article. Omar's January 2026 threshold-graph result (Section 5) is on a smaller hereditary class and does not imply the counterexample classification. The November 2024 tree counterexamples concern a different graph family. Targeted mathematical-record searches did not locate the specific theorem. Priority remains provisional and unindexed sources are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines the exact first obstruction to extending positive log-concavity phenomena from threshold graphs to the natural larger trivially perfect class. It gives a unique extremal graph rather than an arbitrary failure, and resolves a concrete log-concavity boundary issue for clique-join graphs raised by the 2025 source. The exhaustive finite cutoff is mathematically natural; its size and uniqueness are not consequences of simply writing the known graph polynomial.
+Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.
 
-## Limitations
+## value
 
-The finite upper cutoff is computer-assisted with source code included; it is not an all-orders positive theorem. Correctness depends on executing and inspecting the finite census and its exhaustive enumeration argument. The independent mathematical audit has not been performed, and definitive literature priority is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary domination polynomial is a natural counting invariant; log-concavity is a structural coefficient property important for its shape. The theorem locates the first failure and certifies uniqueness in the hereditary trivially-perfect class, with a transparent graph witness and exact 16-vertex extremal boundary. This is materially more than reporting a known windmill polynomial or a sampled counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

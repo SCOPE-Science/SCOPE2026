@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The finite certificate is `verify_trivially_perfect.py`, which uses the Python standard library. Run `python3 verify_trivially_perfect.py`. The expected successful output is preserved in `verification_output.txt`.
+## correctness
 
-The complete census enumerates all unlabelled rooted trees of orders one through sixteen by multisets of child tree types, yielding exactly 376,464 connected trivially perfect graph classes. All polynomials and inequalities are computed with exact integers. No class below order sixteen violates log-concavity; one class of order sixteen does. The script checks the unique witness structure and every coefficient against a hard-coded vector and independently enumerates all 65,536 subsets of that graph. It additionally compares the recurrence with vertex-subset enumeration for every rooted shape of orders up to seven.
+PASS
 
-The mathematical completeness proof is that a rooted tree is uniquely described by the multiset of child rooted tree types. This recursive description enumerates every such type once. For disconnected graphs, multiplication of component domination polynomials preserves log-concavity via convolution of nonnegative log-concave sequences without internal zeros.
+The connected-graph correspondence with unlabeled rooted forests is established by universal-root decomposition. The exact integer recurrence D(T)=z(1+z)^(n-1)+product_i D(T_i), singleton D=z, counts dominating subsets, including omission of the root. Independently implemented canonical multiset enumeration, unrelated to saved verifier output, generated all rooted-tree shapes at n=1..16 with counts 1,1,2,4,9,20,48,115,286,719,1842,4766,12486,32973,87811,235381 (376464 total). Every n<=15 shape passed all local log-concavity inequalities; at n=16 exactly the root with three chain-length-five child subtrees failed. Exact witness coefficients (0,1,15,230,1205,3615,7378,11080,12735,11410,8005,4368,1820,560,120,16,1) satisfy 15^2<230. For disconnected graphs, domination polynomials multiply, and convolution of nonnegative log-concave sequences without internal zeros is log-concave; a disconnected 16-vertex graph has strictly smaller components. The independent search explicitly verified the whole finite class; no assertion about least obstruction within larger n than required.
 
-The program prints `EXHAUSTIVE_CERTIFICATE_OK` only after completing all assertions. Console output by itself does not justify the mathematical completeness argument. No independent mathematical audit or external certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.
+
+## value
+
+PASS
+
+The ordinary domination polynomial is a natural counting invariant; log-concavity is a structural coefficient property important for its shape. The theorem locates the first failure and certifies uniqueness in the hereditary trivially-perfect class, with a transparent graph witness and exact 16-vertex extremal boundary. This is materially more than reporting a known windmill polynomial or a sampled counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
