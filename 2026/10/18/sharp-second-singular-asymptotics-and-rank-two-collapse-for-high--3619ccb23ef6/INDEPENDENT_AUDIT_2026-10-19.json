@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T12:59:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6/RESULT.md",
+        "da8979cda20563342462235f78bb3edc76b4dc24",
+        "independent arithmetic/geometric checks 2026-10-19; independent_checks.py (private)"
+      ],
+      "rationale": "After independent unitary scaling of input/output near opposite endpoints, Γ(α+1)I^α becomes the selfadjoint Hankel kernel (1-(u+v)/α)_+^(α-1). For epsilon=1/alpha expand e^(-s)[1+epsilon(s-s²/2)] with uniform HS remainder O(epsilon²), using ∫∫F(u+v)² dudv=∫s F(s)²ds and exponential tail. With g=e^-u, h=(u-1/2)e^-u, a=(u/2-u²/2+1/8)e^-u, independently checked symbolic identity a(u)g(v)+g(u)a(v)-h(u)h(v)=e^(-(u+v))[(u+v)-(u+v)²/2]. Since <g,h>=0 and ||h||²=1/8, the rank-two model has one order-one positive and one -epsilon/8 negative eigenvalue: minmax and best-rank approximation imply s2=epsilon/8+O(epsilon²), higher squared singular tail O(epsilon^4). Exact total HS²=1/(4-2epsilon) gives s1=1/2+epsilon/8+epsilon²/32+O(epsilon³). Independent SymPy expansion reproduces 1/32. The asymptotics depend on analytic uniform HS bound, not Nyström numerics.",
+      "residual_risks": [
+        "Finite numerical checks establish only their finite instances; mathematical conclusions rest on analytical proof or complete finite enumeration as described."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eveson (2003) same-operator leading norms",
+          "Eveson (2004) arXiv:math/0409516 rank-one limit",
+          "Thorpe/Dostanić abstracts only"
+        ],
+        "reasoning": "General norm-equivalence and qualitative rank-one-collapse results are broader in Lp but weaker in fixed-index α-asymptotic precision; they cannot establish the constant 1/8 or the 1/32 norm term. Older uninspected singular-value estimates remain a genuine possible stronger-coverage risk.",
+        "searches": [
+          "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+          "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+          "Eveson, arXiv:math/0409516"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6/RESULT.md",
+        "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+        "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+        "Eveson, arXiv:math/0409516",
+        "Thorpe (1998), DOI:10.1112/S0024609398004810",
+        "Dostanić (2001), DOI:10.1007/PL00004837",
+        "Burman (2007), DOI:10.1016/j.jmaa.2006.03.073",
+        "2026/10/11/SCOPE-radial-singular-value-majorization-for-reflection-symmetric-weig--2b376b3b891a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eveson JOT (2003) rank-one comparison",
+          "α s2→1/8 and Σ_{j≥3}s_j²=O(α^-4) via rank2 model"
+        ],
+        "reasoning": "Prior limiting s1→1/2 with asymptotic rank one yields only s2=o(1) and cannot imply α s2→1/8; the new centered negative mode fixes it, and combining with exact HS mass fixes norm coefficient 1/32.",
+        "searches": [
+          "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+          "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+          "Eveson, arXiv:math/0409516"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eveson JOT (2003) full paper sections on rank-one comparison",
+          "Hankel kernel (1-(u+v)/alpha)_+^(alpha-1)"
+        ],
+        "reasoning": "Large integer Volterra powers, fractional Riemann–Liouville integral of real α, and the unitarily equivalent near-endpoint truncated Hankel kernel are compared as the same operator asymptotics. Eveson's rank-one limit lacks the sharp second singular coefficient.",
+        "searches": [
+          "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+          "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+          "Eveson, arXiv:math/0409516"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/11/SCOPE-radial-singular-value-majorization-for-reflection-symmetric-weig--2b376b3b891a"
+        ],
+        "reasoning": "Related indexed results study reflected Volterra rank-one corrections, Cesàro singular values or discrete resolvents; they do not report this exact high-order fractional-integration fixed-second-singular table. A missing index match does not certify priority.",
+        "searches": [
+          "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+          "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+          "Eveson, arXiv:math/0409516"
+        ]
+      },
+      "rationale": "Eveson's 2003 Journal of Operator Theory article and his complete 2004 arXiv followup were directly materially read. Their same-operator large-power results establish leading Γ(α+1)||I^α||→1/2 and qualitative rank-one collapse, but inspected statements do not specify α s2→1/8, the rank-two HS tail, or the 1/32 second-order norm correction. Thorpe (1998) and Dostanić (2001) are particularly plausible closer precursors but full works inaccessible in this run; this limitation is explicitly recorded as priority risk, not an access-only FAIL.",
+      "residual_risks": [
+        "Thorpe (1998) and Dostanić (2001) primary complete texts inaccessible: exact coefficient possibly covered or implied there.",
+        "The statement provides no exact higher individual singular coefficients beyond rank two."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes leading asymptotic and qualitative rank-one collapse but inspected results not sharp fixed-second singular coefficient",
+          "evidence": [
+            "J. Operator Theory 50 (2003), 369–386"
+          ],
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2003-050-002/2003-050-002-010.pdf",
+          "material_read": "Complete lawful primary PDF with theorem statements and rank-one norm approximation discussion",
+          "method": "Read and compared operator normalization and asymptotic strength",
+          "title": "Norms of Iterates of Volterra Operators on L²",
+          "trigger": "Same operator, same high-power large-order limit"
+        },
+        {
+          "assessment": "Covers leading asymptotics and qualitative collapse, not displayed 1/8 fixed s2 and 1/32 correction",
+          "evidence": [
+            "arXiv:math/0409516v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409516",
+          "material_read": "Complete eight-page open primary PDF, especially rank-one corollaries and normalized limit",
+          "method": "Full text read for mathematical implication",
+          "title": "Asymptotic Behaviour of Iterates of Volterra Operators on Lᵖ(0,1)",
+          "trigger": "Same normalized iterated Volterra operator"
+        },
+        {
+          "assessment": "Potential closer asymptotics cannot be fully excluded",
+          "evidence": [
+            "Thorpe, Bull. LMS 30 (1998), 543–548"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0024609398004810",
+          "material_read": "Publisher abstract only; no entire article read",
+          "method": "Abstract/title comparison",
+          "title": "The Norm of Powers of the Indefinite Integral Operator on (0,1)",
+          "trigger": "Same family leading high powers"
+        },
+        {
+          "assessment": "Serious plausible priority risk, with whole document not inspected",
+          "evidence": [
+            "Dostanić, Math. Z. 236 (2001)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/PL00004837",
+          "material_read": "Bibliographic abstract only, not paper text",
+          "method": "Abstract/title comparison",
+          "title": "Estimates for the norm of powers of Volterra’s operator through its singular values",
+          "trigger": "Same operator and explicit singular values in title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6/RESULT.md",
+        "Resultary: Volterra powers fractional integration second singular value large order rank two asymptotic",
+        "S. P. Eveson, Norms of Iterates of Volterra Operators on L², J. Operator Theory 50 (2003) 369–386",
+        "Eveson, arXiv:math/0409516",
+        "Thorpe (1998), DOI:10.1112/S0024609398004810",
+        "Dostanić (2001), DOI:10.1007/PL00004837",
+        "Burman (2007), DOI:10.1016/j.jmaa.2006.03.073",
+        "2026/10/11/SCOPE-radial-singular-value-majorization-for-reflection-symmetric-weig--2b376b3b891a"
+      ],
+      "rationale": "The second singular mode and exact first two norm corrections quantify how fast a classical compact Volterra power becomes rank one, and the sharp rank-two tail can support more refined approximate spectral calculations. This is a nontrivial quantitative spectral refinement with natural fixed-order singular index, not a routine restatement of leading norm asymptotics.",
+      "residual_risks": [
+        "Value is for the precise restricted theorem and object; no unproved broader applications or exhaustive novelty guarantee are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Thorpe (1998) and Dostanić (2001) primary complete texts inaccessible: exact coefficient possibly covered or implied there.",
+    "The statement provides no exact higher individual singular coefficients beyond rank two.",
+    "The independent comparison is best-of-knowledge, not a historical-priority certificate.",
+    "All scientific files were read-only; no Github write, publication or dispatcher closeout was performed.",
+    "Public metadata provenance remains unsanitized, so publication is withheld despite a completed scientific assessment."
+  ],
+  "schema_version": 1
+}

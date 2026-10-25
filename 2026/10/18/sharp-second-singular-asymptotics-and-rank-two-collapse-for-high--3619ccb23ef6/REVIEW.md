@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The kernel is exactly unitarily transformed into a self-adjoint Hankel operator; the displayed rank-two first-order approximation has a rigorously controlled Hilbert–Schmidt remainder in the whole quadrant, not just pointwise. Orthogonality and the negative-mode Rayleigh quotient give the optimal \(1/8\) second-singular coefficient. Hilbert–Schmidt rank-two truncation and the exact squared norm force the stated tail and the second-order operator-norm coefficient. The executable finite tests are corroboration, not proof; the complete argument has no unproved infinite-rank numerical step.
+PASS
 
-## Originality — PASS, subject to named source-access limitations
+After independent unitary scaling of input/output near opposite endpoints, Γ(α+1)I^α becomes the selfadjoint Hankel kernel (1-(u+v)/α)_+^(α-1). For epsilon=1/alpha expand e^(-s)[1+epsilon(s-s²/2)] with uniform HS remainder O(epsilon²), using ∫∫F(u+v)² dudv=∫s F(s)²ds and exponential tail. With g=e^-u, h=(u-1/2)e^-u, a=(u/2-u²/2+1/8)e^-u, independently checked symbolic identity a(u)g(v)+g(u)a(v)-h(u)h(v)=e^(-(u+v))[(u+v)-(u+v)²/2]. Since <g,h>=0 and ||h||²=1/8, the rank-two model has one order-one positive and one -epsilon/8 negative eigenvalue: minmax and best-rank approximation imply s2=epsilon/8+O(epsilon²), higher squared singular tail O(epsilon^4). Exact total HS²=1/(4-2epsilon) gives s1=1/2+epsilon/8+epsilon²/32+O(epsilon³). Independent SymPy expansion reproduces 1/32. The asymptotics depend on analytic uniform HS bound, not Nyström numerics.
 
-Eveson's 2003 and 2004 full texts, and relevant mathematical record searches, were compared by normalizations, quantifiers, and implication: leading norm equivalence and qualitative rank-one collapse do not fix the nonleading singular mode or the higher-order coefficient. Related results on rank-one-corrected weighted Volterra integration and finite Cesàro matrices treat different operators or asymptotic limits. Thorpe's 1998 and Dostanić's 2001 full texts were not accessible; their abstracts do not establish coverage, but their possible stronger unpublished-to-us content remains a real originality risk. Searches cannot prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This result quantifies a classical spectral rank-collapse phenomenon using natural singular-value invariants across all large real fractional orders. It provides the sharp size of the first nonprincipal spectral mode, a controlled tail beyond rank two, and a nontrivial second-order correction to a historically studied norm. The full trace-defect rate, third singular coefficient and optimal error constants are not claimed.
+Eveson's 2003 Journal of Operator Theory article and his complete 2004 arXiv followup were directly materially read. Their same-operator large-power results establish leading Γ(α+1)||I^α||→1/2 and qualitative rank-one collapse, but inspected statements do not specify α s2→1/8, the rank-two HS tail, or the 1/32 second-order norm correction. Thorpe (1998) and Dostanić (2001) are particularly plausible closer precursors but full works inaccessible in this run; this limitation is explicitly recorded as priority risk, not an access-only FAIL.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The second singular mode and exact first two norm corrections quantify how fast a classical compact Volterra power becomes rank one, and the sharp rank-two tail can support more refined approximate spectral calculations. This is a nontrivial quantitative spectral refinement with natural fixed-order singular index, not a routine restatement of leading norm asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

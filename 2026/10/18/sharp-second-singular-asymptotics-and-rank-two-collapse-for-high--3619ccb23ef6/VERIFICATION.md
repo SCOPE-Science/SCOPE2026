@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The proof is analytic. Direct algebra checks the kernel expansion \(e^{-(u+v)}[(u+v)-(u+v)^2/2]=a(u)g(v)+g(u)a(v)-h(u)h(v)\), and exponential moments yield \(\langle g,h\rangle=0\), \(\|g\|_2^2=1/2\), \(\|h\|_2^2=1/8\). The high-order remainder is bounded in Hilbert–Schmidt norm using a weighted integral over \(u+v\). The spectral conclusions follow by self-adjoint min–max and Eckart–Young, and the norm coefficient by the exact Hilbert–Schmidt mass.
+## correctness
 
-For reproducible finite checks, execute `python check_volterra.py` with NumPy >=1.24 and SciPy >=1.10. The script uses 70-point Gauss–Laguerre Nyström discretization at five specified real orders and prints `FINITE_NUMERICAL_CHECKS_OK`. It compares \(\alpha s_2\), a second-order scaled norm residual, and finite quadrature against \(1/(4-2/\alpha)\). These calculations cannot establish the infinite-order limits; they only check representative finite cases. No formal proof assistant or external auditor is involved.
+PASS
 
-Known limits: no exact third-or-later singular coefficients; no sharp trace-norm correction; incomplete full-text access to specific early papers. Independent external audit was not performed.
+After independent unitary scaling of input/output near opposite endpoints, Γ(α+1)I^α becomes the selfadjoint Hankel kernel (1-(u+v)/α)_+^(α-1). For epsilon=1/alpha expand e^(-s)[1+epsilon(s-s²/2)] with uniform HS remainder O(epsilon²), using ∫∫F(u+v)² dudv=∫s F(s)²ds and exponential tail. With g=e^-u, h=(u-1/2)e^-u, a=(u/2-u²/2+1/8)e^-u, independently checked symbolic identity a(u)g(v)+g(u)a(v)-h(u)h(v)=e^(-(u+v))[(u+v)-(u+v)²/2]. Since <g,h>=0 and ||h||²=1/8, the rank-two model has one order-one positive and one -epsilon/8 negative eigenvalue: minmax and best-rank approximation imply s2=epsilon/8+O(epsilon²), higher squared singular tail O(epsilon^4). Exact total HS²=1/(4-2epsilon) gives s1=1/2+epsilon/8+epsilon²/32+O(epsilon³). Independent SymPy expansion reproduces 1/32. The asymptotics depend on analytic uniform HS bound, not Nyström numerics.
+
+## originality
+
+PASS
+
+Eveson's 2003 Journal of Operator Theory article and his complete 2004 arXiv followup were directly materially read. Their same-operator large-power results establish leading Γ(α+1)||I^α||→1/2 and qualitative rank-one collapse, but inspected statements do not specify α s2→1/8, the rank-two HS tail, or the 1/32 second-order norm correction. Thorpe (1998) and Dostanić (2001) are particularly plausible closer precursors but full works inaccessible in this run; this limitation is explicitly recorded as priority risk, not an access-only FAIL.
+
+## value
+
+PASS
+
+The second singular mode and exact first two norm corrections quantify how fast a classical compact Volterra power becomes rank one, and the sharp rank-two tail can support more refined approximate spectral calculations. This is a nontrivial quantitative spectral refinement with natural fixed-order singular index, not a routine restatement of leading norm asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
