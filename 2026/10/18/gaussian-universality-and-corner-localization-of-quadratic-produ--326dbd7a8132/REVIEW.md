@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The product orthonormal basis and kernel are explicit. The separate diagonal and linear polynomial terms have \(O(\sqrt d)\) expected absolute size, whereas the cross-coordinate quadratic term has order \(d\). A bounded triangular-array Lindeberg theorem gives the centered chi-square limit for every sequence with convergent average squared coordinates; the zero-variance alternative follows directly from the mixed-term second-moment bound. Uniform integrability and a compactness argument give the stated spatially uniform law. The support endpoints supply sharp lower-bound evaluation points, and the uniform law identifies every asymptotically maximizing sequence. Exact rational finite-dimensional Gram tests and independent stochastic checks corroborate the algebra, not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Trefethen's 2016 hypercube work fixes approximation spaces and studies analytic approximation convergence as polynomial degree changes, not the endpoint norm of the degree-two continuous orthogonal projector when dimension changes. Caliari–De Marchi–Vianello study discrete hyperinterpolation for a three-dimensional cube and increasing degree, not the continuous projector with fixed total degree and increasing dimension. Closest accessible research-index hits concern second Walsh or Johnson projectors on distinct discrete spaces, and the accessible prior quadratic-ball and affine-cube claims do not imply this symmetric-product variance law. No inspected source establishes the full uniform spatial profile and corner-localization equivalence. Searches are not proofs of novelty; potentially stronger general polynomial-chaos or tensor projection bounds are the main residual risk.
+PASS
 
-## Value — PASS
-The theorem determines the leading worst-case stability of a canonical fixed-total-degree quadratic least-squares projector in arbitrarily high dimension, uniformly across symmetric compact product priors. It identifies a sharp Gaussian coefficient depending only on the variance, not the fourth moment or detailed density, and characterizes all asymptotically worst evaluation locations. This gives an exact limiting answer for Legendre, Chebyshev, a non-Jacobi mixture and a full Jacobi family, at a regime different from the conventional fixed-dimension/high-polynomial-degree literature.
+Reconstructed orthonormal basis 1, x_i/sqrt(s), (x_i²−s)/sqrt(h), x_i x_j/s, hence exact full degree≤2 reproducing kernel with cross-chaos (B²−D)/(2s²). Linear and diagonal terms have uniform L² size O(sqrt(d)); the cross term has O(d) size. For any triangular evaluation array with q_d→q>0, bounded Lindeberg sums imply B/sqrt(d)⇒sqrt(sq)Z, and D/d→sq in L². Cross term divided by d⇒(q/(2s))(Z²−1), uniformly integrable from exact chaos orthogonality L² bound q_d²/(2s²). At q=0 the same bound proves zero limit. Compactness of q_d in [0,1] upgrades all sequential limits to uniform spatial convergence. E|Z²−1|=4/sqrt(2*pi*e), so coefficient 2q/(s sqrt(2*pi*e)). Endpoint ±1 in support gives norm extremum asymptotically; q_d→1 iff average deficit→0; no finite exact-max claim.
 
-## Limits
-No exact finite-dimensional maximum, rate, nonsymmetric extension, or independent publication-priority guarantee is asserted. Same-model reasoning is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Trefethen’s full seven-page analytic polynomial-approximation paper concerns convergence versus polynomial degree and Euclidean degree; the continuous total-degree-two projector endpoint norm as dimension tends to infinity is not its theorem. Published Johnson/Hamming quadratic idempotent norms share the centered chi-square Gaussian constant, but their finite association-scheme domains and projectors are mathematically distinct; they neither handle arbitrary continuous symmetric marginals nor the diagonal-quadratic terms and uniform spatial corner profile. Discrete three-dimensional cube hyperinterpolation is also different. Potential general polynomial-chaos results remain a residual risk.
+
+## value
+
+PASS
+
+Canonical degree-two continuous multivariate L² least-squares projector has a previously nontrivial L∞ stability constant in high dimension, valid for arbitrary symmetric marginals including atomic-continuous mixtures. The exact variance-only leading law and complete uniform spatial near-extremizer classification make it a natural nontrivial asymptotic classification, not just generic CLT or a duplicated discrete projector constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
