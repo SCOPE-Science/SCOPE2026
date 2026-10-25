@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T10:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA 66c169aef52cc55eaee3044c526442e7456029be",
+        "check.py SHA 5a871d6fe463beef44c10900ecf7c8f82e5e94d0",
+        "certificate.json SHA 028b5edc110c3fadbcbd7c3f060f6a9ac68a3b01",
+        "Independent exact rational covariance checks: check_independent.py and check_results.json"
+      ],
+      "rationale": "Uniform sampling of m labeled individuals without replacement makes Rao Q_m the sum of sampled off-diagonal species distances divided by C(m,2). For N<=4, m=N gives constant richness; m=2 has Q=0 at richness one and Q>=0 otherwise. At N=4,m=3, all abundance types are trivial except (2,1,1), where the two omitted-individual categories have probability one-half, conditional mean-Q difference d(B,C)/3 and covariance d(B,C)/12>=0. In a population (2,1,...,1) with r singleton species sampled at m=r+1, omission of a doubleton member has probability 2/(r+2), while omission of singleton has r/(r+2); conditional distance-counting gives 4*(2V−(r−2)U)/((r+2)^2*r*(r+1)) exactly. Substituting U=rH,V=C(r,2)ℓ gives 4*((r−1)ℓ−(r−2)H)/((r+2)^2*(r+1)); negative iff H/ℓ>(r−1)/(r−2). For r=3, (H,ℓ)=(3,1), exact covariance for m2..m5 is (21/100,3/100,-1/25,0). For fixed H/ℓ>1 choose r>2+1/(H/ℓ−1), proving star-limit instability, not a finite extrapolation. Independent exact Fraction labeled-subset enumerations and inspected check.py corroborate all bounded instances.",
+      "residual_risks": [
+        "The m-dependent empirical Rao normalization rescales covariance; result correctly fixes unordered-distinct-individual normalization.",
+        "Strict ultrametric case requires positive branch lengths and positive H>ℓ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Rao literature compares deterministic species-addition effects, maximizing abundance distributions or expected rarefaction curves, rather than the joint random-sample covariance.",
+          "Published positive Gini–Simpson covariance uses iid sampling, not variable ultrametric phylogenetic distances."
+        ],
+        "reasoning": "A first-moment result cannot determine covariance with sampled richness. The 2009 full text was inaccessible; its complete possible coverage is retained as risk rather than asserted negative.",
+        "searches": [
+          "Botta-Dukát DOI:10.1111/j.1654-1103.2005.tb02393.x",
+          "Pavoine–Bonsall DOI:10.1016/j.tpb.2009.01.008",
+          "Ricotta et al 2012",
+          "Resultary published finding semantic search: Covariance species richness and Rao quadratic diversity under finite-sample rarefaction and ultrametric distances, five-individual minimal negative"
+        ]
+      },
+      "checked_sources": [
+        "Ricotta–Pavoine–Bacaro–Acosta 2012 DOI:10.1111/j.2041-210X.2011.00178.x (main full text)",
+        "Botta-Dukát 2005 DOI:10.1111/j.1654-1103.2005.tb02393.x (abstract)",
+        "Pavoine–Bonsall 2009 DOI:10.1016/j.tpb.2009.01.008 (abstract; authorized PDF VPN disconnected)",
+        "Pavoine 2026 DOI:10.1016/j.ecolind.2025.114512 (abstract)",
+        "Resultary published finding Universal positive covariance of sample richness and unbiased Gini-Simpson diversity",
+        "Resultary 2026-10-23 ultrametric Rao covariance semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expected Rao diversity under rarefaction does not give Cov(K_m,Q_m), since joint fluctuations require mixed second moments.",
+          "Constant-distance iid positive result does not imply a universal ultrametric sign under hypergeometric sampling."
+        ],
+        "reasoning": "The current omission-conditioning computes a separate mixed moment with sharp sign reversal not entailed by a mean-accumulation formula.",
+        "searches": [
+          "Ricotta et al 2012 primary main text",
+          "Resultary positive richness Gini-Simpson theorem",
+          "Resultary published finding semantic search: Covariance species richness and Rao quadratic diversity under finite-sample rarefaction and ultrametric distances, five-individual minimal negative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary empirical with-replacement Rao equals (m−1)/m times the distinct-individual Q_m when within-species dissimilarity vanishes; signs therefore match at fixed m.",
+          "Gini–Simpson corresponds to uniform cross-species distances, not general ultrametric contrasts."
+        ],
+        "reasoning": "Equivalent normalizations and equal-distance subcases were accounted for, but neither gives the arbitrary-distance near-census covariance identity.",
+        "searches": [
+          "Resultary published finding semantic search: Covariance species richness and Rao quadratic diversity under finite-sample rarefaction and ultrametric distances, five-individual minimal negative",
+          "Ricotta et al DOI:10.1111/j.2041-210X.2011.00178.x",
+          "Resultary universal positive richness/Gini–Simpson covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact five-individual m2..m5 covariance vector (21/100,3/100,-1/25,0) and arbitrary-r near-census criterion were independently computed and were not located in compared source tables."
+        ],
+        "reasoning": "No known-table recomputation established; absence of a match is not by itself novelty proof, particularly when a complete 2009 source remains unread.",
+        "searches": [
+          "Resultary published finding semantic search: Covariance species richness and Rao quadratic diversity under finite-sample rarefaction and ultrametric distances, five-individual minimal negative",
+          "Ricotta et al 2012 article main text",
+          "Pavoine 2026 rich-Rao indexed abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge: prior diversity sources establish expected functional rarefaction or deterministic nonmonotonicity under species additions, not the cross-statistic covariance and sharp minimum N=5. A published positive richness–unbiased Gini–Simpson covariance theorem is limited to iid sampling and equal-distance specialization, so it cannot rule out or imply an ultrametric negative result with sampling without replacement. Highly relevant 2009 Rao optimization full text could not be obtained: authorized institutional retrieval reported VPN disconnected; treated as explicit residual risk, not scientific failure.",
+      "residual_risks": [
+        "Full Pavoine–Bonsall 2009 paper was not accessed; authorized institutional job blocked by disconnected VPN, so complete noncoverage is NOT asserted.",
+        "Full 2005 Botta-Dukát and 2026 rich-Rao technical texts were not independently read.",
+        "Prior U-statistics survey-sampling covariance formula might encompass this family even without ecological terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPECTED_DIVERSITY_NOT_JOINT_COVARIANCE",
+          "evidence": "The claimed curves govern expected Rao functional rarefaction, not Cov(sampled richness, Rao).",
+          "identifier_or_url": "https://doi.org/10.1111/j.2041-210X.2011.00178.x",
+          "material_read": "Accessible complete main HTML: abstract, method, expected accumulation and discussion; supplementary appendices themselves not inspected.",
+          "method": "Compared sampling model, Rao normalization, moment order and stated conclusions.",
+          "title": "Functional rarefaction for species abundance data",
+          "trigger": "Central published primary paper on random sampling and Rao diversity"
+        },
+        {
+          "assessment": "FULL_TEXT_UNAVAILABLE_PRIORITY_RISK",
+          "evidence": "Abstract discusses Rao maximizers; full original could contain related covariance consequences, unknown.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2009.01.008",
+          "material_read": "Publisher/PubMed abstract and metadata; same paper unavailable from arXiv/preprint and lawful OA searches, institutional source returned vpn_disconnected, no pages or full technical text read.",
+          "method": "Lawful arXiv/OA attempt followed by authorized institutional request; no access controls bypassed.",
+          "title": "Biological diversity: distinct distributions can lead to maximization of Rao quadratic entropy",
+          "trigger": "Early primary Rao optimization with possible nontrivial hidden moments"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_NONCOVERAGE_NOT_ASSERTED",
+          "evidence": "Species addition can reduce Rao; this is not itself a covariance theorem.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1654-1103.2005.tb02393.x",
+          "material_read": "Indexed abstract and publication metadata, complete paper not inspected.",
+          "method": "Checked abstract claim against stochastic covariance statement.",
+          "title": "Rao’s quadratic entropy as a measure of functional diversity based on multiple traits",
+          "trigger": "Original deterministic richness/Rao nonmonotonicity"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL_WITH_ACCESS_RISK",
+          "evidence": "Richness-weighted diversity is different from the mixed sample covariance.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ecolind.2025.114512",
+          "material_read": "Indexed abstract, 2026 publication; full text not inspected.",
+          "method": "Compared proposed functional definition to joint fixed-sample covariance.",
+          "title": "The rich-Rao quadratic entropy",
+          "trigger": "Recent product of richness and Rao statistic might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ricotta et al 2012 functional rarefaction expectation theory",
+        "Independent finite-sample mixed-moment enumeration"
+      ],
+      "rationale": "The dependence of two established biodiversity sample statistics is an intrinsically motivated mathematical question, not a cosmetic reparametrization. The result gives a universal sharp minimum population N=5 for negative sample richness–Rao covariance, an exact arbitrary-distance near-census criterion, and an ultrametric sign reversal arbitrarily close to equal distances as the clade grows. This supplies an explicit boundary and interpretable phenomenon that first-moment rarefaction or uniform Gini–Simpson positivity would miss.",
+      "residual_risks": [
+        "The threshold pertains to one-doubleton near-census sampling for arbitrary r, not a classification of all population profiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The m-dependent empirical Rao normalization rescales covariance; result correctly fixes unordered-distinct-individual normalization.",
+    "Strict ultrametric case requires positive branch lengths and positive H>ℓ.",
+    "Full Pavoine–Bonsall 2009 paper was not accessed; authorized institutional job blocked by disconnected VPN, so complete noncoverage is NOT asserted.",
+    "Full 2005 Botta-Dukát and 2026 rich-Rao technical texts were not independently read.",
+    "Prior U-statistics survey-sampling covariance formula might encompass this family even without ecological terminology.",
+    "The threshold pertains to one-doubleton near-census sampling for arbitrary r, not a classification of all population profiles."
+  ],
+  "schema_version": 1
+}

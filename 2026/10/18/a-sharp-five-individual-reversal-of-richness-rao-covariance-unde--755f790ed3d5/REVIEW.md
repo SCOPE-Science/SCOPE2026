@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal small-population boundary follows from an exhaustive symbolic classification: all nontrivial cases reduce to two richness levels, with the sole four-individual three-species case having covariance \(d(B,C)/12\). For the one-doubleton family, omission of one individual has exactly two richness outcomes. Directly averaging pairwise distances conditional on the omitted class yields the identity
-\[
-\operatorname{Cov}(K_{N-1},Q_{N-1})=\frac{4(2V-(r-2)U)}{(r+2)^2r(r+1)}.
-\]
-The ultrametric formula and sign threshold follow by substitution. Exact standalone enumeration agrees with every stated finite witness and with the general formula in the documented test range. The proof covers the infinite parameter family algebraically, not by extrapolation.
+PASS
 
-## Originality — PASS, subject to independent confirmation
+Uniform sampling of m labeled individuals without replacement makes Rao Q_m the sum of sampled off-diagonal species distances divided by C(m,2). For N<=4, m=N gives constant richness; m=2 has Q=0 at richness one and Q>=0 otherwise. At N=4,m=3, all abundance types are trivial except (2,1,1), where the two omitted-individual categories have probability one-half, conditional mean-Q difference d(B,C)/3 and covariance d(B,C)/12>=0. In a population (2,1,...,1) with r singleton species sampled at m=r+1, omission of a doubleton member has probability 2/(r+2), while omission of singleton has r/(r+2); conditional distance-counting gives 4*(2V−(r−2)U)/((r+2)^2*r*(r+1)) exactly. Substituting U=rH,V=C(r,2)ℓ gives 4*((r−1)ℓ−(r−2)H)/((r+2)^2*(r+1)); negative iff H/ℓ>(r−1)/(r−2). For r=3, (H,ℓ)=(3,1), exact covariance for m2..m5 is (21/100,3/100,-1/25,0). For fixed H/ℓ>1 choose r>2+1/(H/ℓ−1), proving star-limit instability, not a finite extrapolation. Independent exact Fraction labeled-subset enumerations and inspected check.py corroborate all bounded instances.
 
-The closest directly inspected technical article, Ricotta et al. (2012), addresses marginal expectation curves for functional diversity under pooling, not the covariance of richness with unbiased pairwise diversity on individual samples. Botta-Dukát (2005) demonstrates deterministic richness/dissimilarity tension, and Pavoine and Bonsall (2009) study maximizing Rao diversity, neither of which implies the exact stochastic statement solely from the material available. A related published result concerning positive richness–Gini–Simpson covariance covers equal interspecies distances, while the new counterexample requires unequal ultrametric distances. The exact five-individual cutoff, general mean-distance identity, and any-contrast ultrametric effect were not identified in the searched accessible literature or related mathematical records. Full-text access to Pavoine and Bonsall (2009) was unavailable, and an unrecognized equivalent calculation under other conventions remains a concrete bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Richness and Rao quadratic entropy are standard but distinct measures of ecological diversity. A negative finite-sampling covariance on a rooted ultrametric tree is not a restatement of deterministic species-addition nonmonotonicity: it is a distributional dependence reversal with a sharp smallest community, a complete near-census sign criterion for a natural class of abundance profiles, and counterexamples at arbitrarily small relative phylogenetic disparity. The result also separates pairwise Rao diversity from equally weighted Simpson diversity and rooted Faith diversity, whose sampling-covariance boundaries can differ. Applications are restricted to the specified random-sampling and dissimilarity assumptions.
+Best-of-knowledge: prior diversity sources establish expected functional rarefaction or deterministic nonmonotonicity under species additions, not the cross-statistic covariance and sharp minimum N=5. A published positive richness–unbiased Gini–Simpson covariance theorem is limited to iid sampling and equal-distance specialization, so it cannot rule out or imply an ultrametric negative result with sampling without replacement. Highly relevant 2009 Rao optimization full text could not be obtained: authorized institutional retrieval reported VPN disconnected; treated as explicit residual risk, not scientific failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The dependence of two established biodiversity sample statistics is an intrinsically motivated mathematical question, not a cosmetic reparametrization. The result gives a universal sharp minimum population N=5 for negative sample richness–Rao covariance, an exact arbitrary-distance near-census criterion, and an ultrametric sign reversal arbitrarily close to equal distances as the clade grows. This supplies an explicit boundary and interpretable phenomenon that first-moment rarefaction or uniform Gini–Simpson positivity would miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
