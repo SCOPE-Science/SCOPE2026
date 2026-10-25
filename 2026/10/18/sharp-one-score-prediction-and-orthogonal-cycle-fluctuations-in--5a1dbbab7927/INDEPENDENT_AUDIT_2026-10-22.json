@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:23:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The deterministic score formula C=binom(n,3)−sum_v binom(S_v,2) follows by counting unique 2-outdegree winners of transitive triples. Completing squares gives C−EC=−(1/2)sum_v Q_v. For v≠w, conditioning on edge vw, the residual Bernoulli edge sums are independent, and each conditional centered square has zero mean; hence Cov(Q_v,Q_w)=0. Binomial fourth moment gives Var Q_v=m(m−1)/8, so Var C=n m(m−1)/32. Given S_v=s, non-v edges remain fair; conditional mean is binom(m,3)/4+s(m−s)/2. With specific winning set A and losing set B, triangles through v are Binomial(s(m−s),1/2); the induced tournament C0 is uncorrelated with these cross-edge indicators, establishing conditional variance 3binom(m,3)/16+s(m−s)/4. Conditional projection explains exactly 1/n of variance; symmetry implies zero linear Cov(C,S_v). Independently exhausted orientations at n=3,4,5 and every feasible s; all rational moments agreed, without using finite enumeration as an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2008.06577",
+          "https://arxiv.org/abs/2009.09322"
+        ],
+        "reasoning": "Published cycle-extremal theorem and mean-score geometry do not supply conditional first/second moments for fair random tournament edge orientations. No verified broader theorem implying both conditional moments and 1/n ratio found.",
+        "searches": [
+          "random tournament score sequence triangular cycle distribution conditional expectation variance local wins",
+          "uniform random tournament cyclic directed triangle count given one vertex outdegree conditional variance orthogonal quadratic scores"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2008.06577",
+        "https://arxiv.org/abs/2009.09322"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deterministic identity C=binom(n,3)−sum_v binom(S_v,2) is already classical",
+          "New conditional Var(C|S_v=s)=3binom(n−1,3)/16+s(n−1−s)/4 and explained fraction exactly 1/n require random pairwise score orthogonality and cross-edge decomposition"
+        ],
+        "reasoning": "Existing deterministic formula is a starting point, but the full asserted probabilistic conditional formulas are not explicitly implied by cited tournament extremal or score-geometry statements without additional probability analysis.",
+        "searches": [
+          "Grzesik Kral Lovasz Volec tournament cycle number determined by scores",
+          "Kolesnik Sanchez geometry random tournament score vectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grzesik–Kráľ–Lovász–Volec arXiv:2008.06577 credits the deterministic score-sequence cyclic-triangle identity",
+          "Conditional nonlinear projection is derived from Q_v and score-binomial conditional means"
+        ],
+        "reasoning": "Equivalence with transitive-triple count and outdegree-square statistic is credited. A classical deterministic identity itself does not specify the conditional variance given a single local score, nor the 1/n optimal one-score fraction without probabilistic orthogonality.",
+        "searches": [
+          "uniform random tournament cyclic directed triangle count given one vertex outdegree conditional variance orthogonal quadratic scores",
+          "tournament directed 3-cycles conditioned on vertex score outdegree quadratic score identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exhaustive rational tournament laws independently enumerated for n=3,4,5; no external exact table found that yields the all-n expression"
+        ],
+        "reasoning": "Small-tournament enumerations do not prove the arbitrary-n conditional-variance and nonlinear predictor formulas; no known exact database identified that lists these general expressions.",
+        "searches": [
+          "tournament cyclic triangle joint distribution outdegree n=3 n=4 n=5 table",
+          "uniform random tournament cyclic directed triangle count given one vertex outdegree conditional variance orthogonal quadratic scores"
+        ]
+      },
+      "rationale": "Best-of-knowledge review of the final claim and stronger implications: specific exact result not found to be subsumed by inspected primary sources; acknowledged overlapping premises and priority risks are itemized.",
+      "residual_risks": [
+        "Classical probabilistic tournament literature may contain the same conditional moment identities implicit in score-vector formulas; a full historical census was not possible.",
+        "The conditional mean arises quickly from a known deterministic identity; its value rests on the complete conditional variance and quantitative nonlinear prediction theorem, not on rebranding that identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS deterministic identity only; NOT conditional variance/score-prediction formulas",
+          "evidence": "Study of cycle extremal numbers and densities, with deterministic degree/triangle count identity credited to classical tournament results.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.06577",
+          "material_read": "Full arXiv HTML introduction, main extremal cycle results, score relationship",
+          "method": "primary full HTML reading",
+          "title": "Cycles of a given length in tournaments",
+          "trigger": "Same cyclic triangle statistic and classical score-sequence identity"
+        },
+        {
+          "assessment": "ADJACENT score support geometry rather than conditional cyclic triangle fluctuations",
+          "evidence": "Treats score polytope/geometric distribution questions, not E/Var of cyclic triangles conditioned on one outdegree.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.09322",
+          "material_read": "Full accessible arXiv HTML of short primary paper on score vector geometry",
+          "method": "primary full HTML reading",
+          "title": "The geometry of random tournaments",
+          "trigger": "Same independent fair random tournament and degree/score vectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Predicting cyclic-triangle counts from one vertex outdegree in the canonical fair tournament is a natural local-to-global inference problem. The exact nonlinear optimal predictor, complete conditional mean/variance at each score, and precisely 1/n explained-variance fraction give a meaningful finite-parameter fluctuation law, rather than simply rewriting the classical deterministic score identity. The shortness of some deductions is not by itself a value failure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2008.06577",
+    "https://arxiv.org/abs/2009.09322"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only independent fair-edge uniform random tournaments, n>=3.",
+    "Conditional first/second moments do not give the full conditional law or independence of quadratic scores.",
+    "Historical priority of exact one-score conditional variance remains best-of-knowledge."
+  ],
+  "residual_risks": [
+    "Classical probabilistic tournament literature may contain the same conditional moment identities implicit in score-vector formulas; a full historical census was not possible.",
+    "The conditional mean arises quickly from a known deterministic identity; its value rests on the complete conditional variance and quantitative nonlinear prediction theorem, not on rebranding that identity."
+  ],
+  "schema_version": 1
+}
