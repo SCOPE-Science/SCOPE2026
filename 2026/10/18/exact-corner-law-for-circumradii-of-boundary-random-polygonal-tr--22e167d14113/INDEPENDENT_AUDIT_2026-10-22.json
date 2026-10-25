@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:53:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed nondegenerate convex polygon, circumradius≤t forces pairwise distances≤2t. Compactness and absence of noncollinear same-edge triples localize sufficiently small triangles at one vertex on its two incident rays; finite positive threshold depends on the polygon. For two ordered ray coordinates a,b and one c the exact circumradius factor is sqrt(a²+c²−2ac cosθ)sqrt(b²+c²−2bc cosθ)/(2c sinθ); substituting a=cu,b=cv with Jacobian c² gives an integral of 8t³ sin³θ/3 times the square of an explicit 1D integral (1+cosθ)/sin²θ. Exactly six ordered assignments across two rays yield factor 16t³(1+cosθ)²/sinθ per vertex, including the collinear positive-mass atom at +∞ outside the event. Exterior turns δ_i sum to 2π and the angle score f(δ)=2tan³(δ/2)/(1+tan²(δ/2)) has f″=tan(δ/2)(1+tan²(δ/2))+2tan(δ/2)/(1+tan²(δ/2))>0. Exact symbolic differentiation independently checked this identity, proving Jensen and equality exactly at equiangular polygons. Regular m-gon formula agrees algebraically. Checker.py uses finite quadrature and MC only as diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Interior sampling weights area not boundary arclength, and smooth-body local scaling differs",
+          "polygon random hull results study different events"
+        ],
+        "reasoning": "General stochastic polygon approximation does not dominate an exact three-point boundary circumradius CDF without a theorem explicitly handling it.",
+        "searches": [
+          "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+          "random triangle fixed polygon boundary circumradius CDF",
+          "Werner 2022 random polytopes",
+          "interior random triangle small circumradius"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.33401/fujma.692916",
+        "https://doi.org/10.5206/mt.v3i4.17136",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-corner-law-for-circumradii-of-boundary-random-polygonal-tr--22e167d14113",
+        "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+        "corner small circumradius boundary points polygon",
+        "Labelle 2023 random triangle circumradius",
+        "random triangle fixed polygon boundary circumradius CDF",
+        "Werner 2022 random polytopes",
+        "interior random triangle small circumradius",
+        "Resultary ID 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "DOI:10.33401/fujma.692916",
+        "DOI:10.5206/mt.v3i4.17136"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kórus 2020 concerns circle sample / random perimeter-related side lengths",
+          "Labelle 2023 derives laws for random length triples"
+        ],
+        "reasoning": "No transformation of these distinct sampling laws yields the fixed arbitrary polygon corner-angle sum. A related two-point boundary tail cannot be substituted for a three-point circumcircle theorem.",
+        "searches": [
+          "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+          "DOI:10.33401/fujma.692916",
+          "DOI:10.5206/mt.v3i4.17136"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact local ray integral Iθ(t)=8t³/3*(1+cosθ)²/sinθ",
+          "Kórus 2020 fixed circle / side-length sampling"
+        ],
+        "reasoning": "A local ray-angle formula or distribution of 3-point circumcircle diameters would be equivalent. Sources surveyed use different random sampling measures; no formula with this angle sum and t³ exactness found.",
+        "searches": [
+          "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+          "corner small circumradius boundary points polygon",
+          "Labelle 2023 random triangle circumradius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary item gives short pair-distance coefficient for two boundary points"
+        ],
+        "reasoning": "Two-point pair-distance tables do not compute joint three-point circumradius or the six labeled corner configurations; regular polygon numeric special case is not the full general statement.",
+        "searches": [
+          "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+          "Resultary ID 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b"
+        ]
+      },
+      "rationale": "Primary random-triangle studies Kórus 2020 and Labelle 2023 select circle points or random side lengths, not three independent fixed-polygon perimeter points; their law cannot directly imply this exact corner-angle distribution. Nearby published short-distance coefficient concerns TWO sampled polygon-boundary points, not triangle circumradius (three-point noncollinearity). Smooth-body interior-uniform random triangles have different measure and tail exponent. Search yielded no exact cubic corner-coefficient or sharp equiangular minimization for the specified observable; unindexed stochastic-geometry literature remains a risk.",
+      "residual_risks": [
+        "Older integral-geometry polygonal corner laws might use equivalent circumcircle or curvature language and remain unindexed.",
+        "Labelle primary full publication text was not read; only its sampling model and accessible abstract supported the distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Samples circle points or side-length model, not arbitrary polygon arclength sampling",
+          "evidence": "Kórus 2020",
+          "identifier_or_url": "https://doi.org/10.33401/fujma.692916",
+          "material_read": "Full four-page accessible PDF and calculation/object description",
+          "method": "Read article full text and PDF page image",
+          "title": "Average Values of Triangles",
+          "trigger": "Nearest title mentioning circumradius random triangles"
+        },
+        {
+          "assessment": "Random side-length triangle, distinct from boundary points; full body not used as a negative certificate",
+          "evidence": "Labelle 2023",
+          "identifier_or_url": "https://doi.org/10.5206/mt.v3i4.17136",
+          "material_read": "Journal summary/abstract and described perimeter-segmentation construction; publisher full PDF not established as read",
+          "method": "Read accessible metadata and abstract",
+          "title": "Probability distributions arising from isoperimetric random triangles",
+          "trigger": "Circumradius distributions for random triangles"
+        },
+        {
+          "assessment": "Two boundary points pair distance, not three-point circumradius",
+          "evidence": "Resultary short-pair-distance result",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+          "material_read": "Published Resultary title and semantic summary",
+          "method": "Compared research database statement",
+          "title": "Sharp uniform angular stability for the short-pair-distance coefficient of convex polygons",
+          "trigger": "Closely related polygon boundary statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact (not asymptotic only) local CDF gives a universal cubic corner exponent and an explicit angle/perimeter fingerprint across all convex polygons, plus sharp equiangular shape ordering, a natural geometrical probability question with motivated boundary nonsmoothness. The shape-dependent t_K is an honest limitation rather than an incomplete finite census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.33401/fujma.692916",
+    "https://doi.org/10.5206/mt.v3i4.17136",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-corner-law-for-circumradii-of-boundary-random-polygonal-tr--22e167d14113",
+    "circumradius small tail three independent uniform boundary polygon vertices exact cubic corner angles",
+    "corner small circumradius boundary points polygon",
+    "Labelle 2023 random triangle circumradius",
+    "random triangle fixed polygon boundary circumradius CDF",
+    "Werner 2022 random polytopes",
+    "interior random triangle small circumradius",
+    "Resultary ID 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+    "DOI:10.33401/fujma.692916",
+    "DOI:10.5206/mt.v3i4.17136"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly cubic only 0≤t<t_K for each fixed nondegenerate convex polygon; no positive uniform t_K across degenerating polygons.",
+    "Collinear triples assigned infinite circumradius and included in unconditional denominator."
+  ],
+  "residual_risks": [
+    "Older integral-geometry polygonal corner laws might use equivalent circumcircle or curvature language and remain unindexed.",
+    "Labelle primary full publication text was not read; only its sampling model and accessible abstract supported the distinction."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Samples circle points or side-length model, not arbitrary polygon arclength sampling",
+      "evidence": "Kórus 2020",
+      "identifier_or_url": "https://doi.org/10.33401/fujma.692916",
+      "material_read": "Full four-page accessible PDF and calculation/object description",
+      "method": "Read article full text and PDF page image",
+      "title": "Average Values of Triangles",
+      "trigger": "Nearest title mentioning circumradius random triangles"
+    },
+    {
+      "assessment": "Random side-length triangle, distinct from boundary points; full body not used as a negative certificate",
+      "evidence": "Labelle 2023",
+      "identifier_or_url": "https://doi.org/10.5206/mt.v3i4.17136",
+      "material_read": "Journal summary/abstract and described perimeter-segmentation construction; publisher full PDF not established as read",
+      "method": "Read accessible metadata and abstract",
+      "title": "Probability distributions arising from isoperimetric random triangles",
+      "trigger": "Circumradius distributions for random triangles"
+    },
+    {
+      "assessment": "Two boundary points pair distance, not three-point circumradius",
+      "evidence": "Resultary short-pair-distance result",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+      "material_read": "Published Resultary title and semantic summary",
+      "method": "Compared research database statement",
+      "title": "Sharp uniform angular stability for the short-pair-distance coefficient of convex polygons",
+      "trigger": "Closely related polygon boundary statistic"
+    }
+  ]
+}
