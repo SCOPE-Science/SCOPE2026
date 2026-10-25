@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T22:01:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform barycentric Y~Dirichlet(1,...,1), at a vertex T=Y1~Beta(1,n-1). Reproducing endpoint moments yield kernel n(n+1)/4*[(n+2)(n+3)T²-4(n+2)T+2] and sign-change roots r±; exact norm follows integrating its negative interval. Independently evaluated n=3 norm 1+128sqrt(10)/135=3.9983077 and verified vertex moment matrix. Permutation averaging at centroid reduces degree-two symmetric polynomials to span{1,S=sum Yi²}; E S=2/(n+1), Var S=4(n-1)/[(n+1)²(n+2)(n+3)] give K_c=1-[(n+1)(n+2)(n+3)/(4n)](S-2/(n+1)), reproducing all quadratics. nY1→Exp(1), uniformly integrable vertex rescaled kernels -> gamma. Expressing Y_i=E_i/sum E_j and bivariate CLT for sample means E,E² gives sqrt(n)(nS-2)⇒N(0,4), K_c/sqrt(n)⇒N(0,1/4). Reproducing E[K_c²]=K_c(c)=O(n) yields UI and limit E|N(0,1/4)|=1/sqrt(2pi). Projection of indicator of negative kernel gives exact undershoot. Source check.py claims standard library but imports sympy; reproducibility caveat, not mathematical refutation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Melenk–Wurzer prove trace stability on triangles/tetrahedra for p-degree families; Chernov concerns simplex L2 projection trace convergence, complete text unavailable."
+        ],
+        "reasoning": "Trace L2 estimates do not determine L∞ point-evaluation kernels with d→∞ and fixed degree two; a hidden general reproducing-kernel identity remains possible.",
+        "searches": [
+          "arxiv:1302.7189 main boundary trace theorem",
+          "DOI:10.1090/S0025-5718-2011-02513-5",
+          "RESULTARY:quadratic L2 projection simplex vertex barycenter kernel Lebesgue function norm growing dimension"
+        ]
+      },
+      "checked_sources": [
+        "Aktaş and Xu, Sobolev orthogonal polynomials on a simplex, arxiv:1111.2994 (primary PDF sections inspected)",
+        "Melenk and Wurzer, On the stability of the boundary trace of the polynomial L2-projection on triangles and tetrahedra, arxiv:1302.7189 (primary PDF theorem inspected)",
+        "Chernov, Optimal convergence estimates for the trace of the polynomial L2-projection operator on a simplex, DOI:10.1090/S0025-5718-2011-02513-5, only abstract",
+        "Resultary RESULTARY:quadratic L2 projection simplex vertex barycenter kernel Lebesgue function norm growing dimension",
+        "Resultary published affine projector norm result 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Affine L² projector barycenter kernel is identically one; quadratic projector barycenter kernel changes sign and has increasing norm."
+        ],
+        "reasoning": "Monotonicity of L∞ projection norm does not follow simply from nested polynomial subspaces, and fixed-dim trace theorems do not yield exact constants. The evaluation and CLT are substantive added steps.",
+        "searches": [
+          "Resultary:2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "arxiv:1111.2994",
+          "arxiv:1302.7189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical multivariate Jacobi polynomials and Christoffel/reproducing kernels can express these functionals, but degree-dependent boundary trace estimates are different norms/limits."
+        ],
+        "reasoning": "Jacobi theory provides the basis to derive the kernel; it does not itself print the exact vertex-centroid L1 two-scale limit. No relabeling of affine-degree-one result gives degree two.",
+        "searches": [
+          "arxiv:1111.2994",
+          "arxiv:1302.7189",
+          "RESULTARY:quadratic L2 projection simplex vertex barycenter kernel Lebesgue function norm growing dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary exact simplex positivity-defect record covers degree one, with vertex norm O(n), whereas the proposed degree-two vertex law is O(n²) and centroid O(sqrt n)."
+        ],
+        "reasoning": "Known-table recomputation is ruled out only to the extent inspected. No matching degree-two growing-dimension exact table found.",
+        "searches": [
+          "RESULTARY:quadratic L2 projection simplex vertex barycenter kernel Lebesgue function norm growing dimension",
+          "Resultary exact positivity defect affine least squares simplex degree one"
+        ]
+      },
+      "rationale": "Classical Jacobi/simplex polynomial machinery contains endpoint kernels; Melenk–Wurzer and Chernov treat trace stability for fixed low-dimensional simplices with polynomial degree increasing, not fixed degree two as dimension grows. Related published affine degree-one positivity-defect formula does not imply quadratic degree-two norm. Joint vertex n² versus centroid sqrt(n) asymptotics and sharp pointwise loss are not located as a prior exact theorem.",
+      "residual_risks": [
+        "Standard multivariate Christoffel function, Jacobi endpoint kernels and Dirichlet quadratic functionals may already contain the same pair of constants in an alternate form.",
+        "Source check.py uses sympy despite being described as using only Python standard library; this is a reproducer dependency mismatch, not a counterexample to analytic proof.",
+        "Chernov full original text unavailable; an uninspected exact comparison may alter novelty assessment.",
+        "Pointwise vertex/centroid asymptotics do not prove that the vertex maximizes the global operator norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides basis machinery and different Sobolev variants; no identified d→infty degree-two evaluation norm asymptotic.",
+          "evidence": "Jacobi polynomial coordinates and simplex weights.",
+          "identifier_or_url": "arxiv:1111.2994; https://arxiv.org/pdf/1111.2994",
+          "material_read": "Full PDF accessible; Section 2 classical Jacobi simplex basis and main basis constructions materially inspected.",
+          "method": "primary PDF mathematical reading",
+          "title": "Sobolev orthogonal polynomials on a simplex",
+          "trigger": "Classical simplex Jacobi orthogonal basis, potentially stronger kernel formulas"
+        },
+        {
+          "assessment": "Analyzes fixed spatial dimension and degree increasing; not the claimed fixed-degree/dimension-growing endpoint and centroid L1 kernels.",
+          "evidence": "Boundary trace stability in d=2,3.",
+          "identifier_or_url": "arxiv:1302.7189; https://arxiv.org/pdf/1302.7189",
+          "material_read": "Full PDF available; abstract, introduction, main stated trace estimates and associated dimensions materially read.",
+          "method": "primary PDF theorem comparison",
+          "title": "On the stability of the boundary trace of the polynomial L2-projection on triangles and tetrahedra",
+          "trigger": "Potentially dominating projection stability results"
+        },
+        {
+          "assessment": "Possible coverage remains an explicit risk; abstract concerns convergence/trace, no direct same-norm classification established.",
+          "evidence": "Journal topic alone cannot justify NOT_COVERING.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-2011-02513-5",
+          "material_read": "Abstract and bibliographic record only; complete source not retrieved.",
+          "method": "abstract/metadata, not full-text review",
+          "title": "Optimal convergence estimates for the trace of the polynomial L2-projection operator on a simplex",
+          "trigger": "Highly relevant trace projection source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural and previously unquantified stability/positivity contrast at geometrically canonical points under fixed polynomial degree and growing dimension, with explicit constants and exact Dirichlet-kernel proof, useful for interpreting multidimensional polynomial projection instability without claiming a global maximum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Aktaş and Xu, Sobolev orthogonal polynomials on a simplex, arxiv:1111.2994 (primary PDF sections inspected)",
+    "Melenk and Wurzer, On the stability of the boundary trace of the polynomial L2-projection on triangles and tetrahedra, arxiv:1302.7189 (primary PDF theorem inspected)",
+    "Chernov, Optimal convergence estimates for the trace of the polynomial L2-projection operator on a simplex, DOI:10.1090/S0025-5718-2011-02513-5, only abstract",
+    "Resultary RESULTARY:quadratic L2 projection simplex vertex barycenter kernel Lebesgue function norm growing dimension",
+    "Resultary published affine projector norm result 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+    "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, check.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Standard multivariate Christoffel function, Jacobi endpoint kernels and Dirichlet quadratic functionals may already contain the same pair of constants in an alternate form.",
+    "Source check.py uses sympy despite being described as using only Python standard library; this is a reproducer dependency mismatch, not a counterexample to analytic proof.",
+    "Chernov full original text unavailable; an uninspected exact comparison may alter novelty assessment.",
+    "Pointwise vertex/centroid asymptotics do not prove that the vertex maximizes the global operator norm.",
+    "The source Git-tree ancestry was not independently traversed; source content and frozen commit SHA were checked via file blob fetches.",
+    "The original metadata contains operational provenance; no publication or Git write occurred. Scientific acceptance and publication readiness are separate."
+  ],
+  "residual_risks": [
+    "Standard multivariate Christoffel function, Jacobi endpoint kernels and Dirichlet quadratic functionals may already contain the same pair of constants in an alternate form.",
+    "Source check.py uses sympy despite being described as using only Python standard library; this is a reproducer dependency mismatch, not a counterexample to analytic proof.",
+    "Chernov full original text unavailable; an uninspected exact comparison may alter novelty assessment.",
+    "Pointwise vertex/centroid asymptotics do not prove that the vertex maximizes the global operator norm."
+  ],
+  "schema_version": 1
+}

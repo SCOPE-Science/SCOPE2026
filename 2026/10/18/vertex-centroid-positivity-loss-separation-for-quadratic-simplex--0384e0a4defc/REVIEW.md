@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The vertex kernel is independently determined by the Beta marginal and reproduced monomials; the barycenter kernel is determined by the symmetric degree-two subspace and exact Simpson-index variance. The distinct asymptotics follow from exponential and Gaussian distributional limits with the requisite uniform-integrability estimates. The included checker verifies 333 exact and precision-level identities, including the nontrivial triangle constant; finite checks are not substituted for the limit proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest published simplex orthogonal-polynomial and projection analyses provide Jacobi bases, reproducing machinery and boundary trace stability, not the two dimension-growth laws for pointwise \(L^1\) kernel amplitudes. The closest published affine-simplex norm theorem treats degree one only. A classical endpoint Jacobi kernel is a premise, not a novelty claim. Chernov's full text and Xu's 2013 reproducing-kernel full text were inaccessible, leaving identifiable priority risk for an equivalent consequence.
+PASS
 
-**Value — PASS.** Least-squares local polynomial projections need not preserve nonnegativity. The sharp negative response to bounded nonnegative data grows at fundamentally different rates at corners and at the geometric center, even though the input polynomial degree is fixed. At degree one the barycenter evaluation is positive and has norm one, so the square-root barycenter amplification for degree two identifies a genuine structural change. Such precise geometric conditioning helps distinguish pointwise stability from a single global projector bound.
+Uniform barycentric Y~Dirichlet(1,...,1), at a vertex T=Y1~Beta(1,n-1). Reproducing endpoint moments yield kernel n(n+1)/4*[(n+2)(n+3)T²-4(n+2)T+2] and sign-change roots r±; exact norm follows integrating its negative interval. Independently evaluated n=3 norm 1+128sqrt(10)/135=3.9983077 and verified vertex moment matrix. Permutation averaging at centroid reduces degree-two symmetric polynomials to span{1,S=sum Yi²}; E S=2/(n+1), Var S=4(n-1)/[(n+1)²(n+2)(n+3)] give K_c=1-[(n+1)(n+2)(n+3)/(4n)](S-2/(n+1)), reproducing all quadratics. nY1→Exp(1), uniformly integrable vertex rescaled kernels -> gamma. Expressing Y_i=E_i/sum E_j and bivariate CLT for sample means E,E² gives sqrt(n)(nS-2)⇒N(0,4), K_c/sqrt(n)⇒N(0,1/4). Reproducing E[K_c²]=K_c(c)=O(n) yields UI and limit E|N(0,1/4)|=1/sqrt(2pi). Projection of indicator of negative kernel gives exact undershoot. Source check.py claims standard library but imports sympy; reproducibility caveat, not mathematical refutation.
 
-Limitations: No global projection norm, no maximum-location theorem, no growing-degree regime, and no independent validation are claimed. All mathematical limits are proved analytically, not inferred from simulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Jacobi/simplex polynomial machinery contains endpoint kernels; Melenk–Wurzer and Chernov treat trace stability for fixed low-dimensional simplices with polynomial degree increasing, not fixed degree two as dimension grows. Related published affine degree-one positivity-defect formula does not imply quadratic degree-two norm. Joint vertex n² versus centroid sqrt(n) asymptotics and sharp pointwise loss are not located as a prior exact theorem.
+
+## value
+
+PASS
+
+A natural and previously unquantified stability/positivity contrast at geometrically canonical points under fixed polynomial degree and growing dimension, with explicit constants and exact Dirichlet-kernel proof, useful for interpreting multidimensional polynomial projection instability without claiming a global maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
