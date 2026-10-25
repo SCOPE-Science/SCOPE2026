@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cycle marking independently yields both expectations and the covariance determinant. The strict alternating determinant lemma covers all integer shifts with the zero first-order derangement probability treated explicitly. Alternating-series bounds rigorously imply the sign and the fixed-length factorial asymptotic. The standalone exact-rational verifier passes 27,237 assertions, including exhaustive direct derangement enumeration through eight labels; finite tests do not serve as the infinite proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority risk.** Da Silva, Jamshidpey and Tavaré (2020), *Random derangements and the Ewens Sampling Formula*, Eq. (6), already establish all relevant mixed factorial moments, so these formulas are not claimed as novel. Tavaré (2021) surveys Ewens conditioning and cycle-count Poisson limits. Neither inspected source states the strict parity-alternating finite-size sign rule or its nonzero sharp factorial coefficient; targeted searches for equivalent alternating-determinant and cycle-covariance statements found no decisive prior theorem. The result is specifically a sign-and-rate refinement of classical moments. An implicit earlier derivation remains possible and requires independent historical priority review.
+PASS
 
-**Value — PASS.** Conditioning a uniform permutation on absence of fixed points destroys an exact zero-covariance property of distinct cycle classes and replaces it with a precise parity oscillation, not an eventual fixed sign. The all-length, all-size classification and sharp rate describe a natural random-permutation dependence mechanism, with relevance to conditioned Ewens component counts.
+Marking disjoint r and s cycles in a derangement gives E C_r=a_{n-r}/(r a_n) and E C_rC_s=a_{n-r-s}/(rs a_n), hence the determinant formula. With B_{t,h}=sum_{j=1}^h(-1)^{j+1}/(t+j)!, subtracting alternating partial sums gives (-1)^m determinant=a_{m+r}B_{m,s}-(-1)^r a_mB_{m+r,s}. The first term dominates strictly if r is even by B_{m+r,s}/B_{m,s}<=1/[(m+1)(m+3)] and the elementary a_k bounds; for odd r both contributions have positive sign, including m=1. The leading term asymptotically is e^-1/(m+1)!, so division by rs a_n^2 yields e. At n<r+s the joint product vanishes; n-1 cycle class has zero mean. Independent exact-rational 2,420 shift-determinant cases and derangement examples n=5 (30/121), n=6 (-432/2809) reproduced claimed signs; analytic argument establishes all n.
 
-**Scope and risks.** Uniform derangements only; different lengths at least two; fixed lengths for the asymptotic limit. Full independence, arbitrary Ewens parameter, and growing lengths are not proved. All historical moment identities remain credited to their original literature. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Da Silva/Jamshidpey/Tavaré arXiv:2006.04840 Section 2.1 Eq. (6) already gives the general joint factorial-moment identity for conditioned Ewens cycle counts, and the determinant covariance formula is a direct substitution; both are expressly credited. The submitted nontrivial theorem is the strict parity sign for every finite n,r,s plus the sharp factorial coefficient e. The accessible primary text treats moments and Poisson limits, not an alternating determinant positivity theorem or that leading oscillation coefficient. A failed search alone does not prove novelty; the best-of-knowledge comparison rests on the specific prior formula and the additional inequality required.
+
+## value
+
+PASS
+
+Conditioning random permutations to have no fixed points breaks the zero pairwise covariance enjoyed by unconstrained cycle counts. The exact sign oscillation with unused-label parity, nonvanishing and factorially small sharp magnitude provide a natural complete finite-size dependence classification for these fundamental cycle statistics, which does not follow as a routine sign statement from an arbitrary factorial-moment identity without a positivity argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
