@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this document and the verification program. The checker uses only the Python standard library and rational arithmetic. Successful output states that 103746 five-weight/parameter combinations were checked, including 1865 light-stake combinations, and that the exact polynomial identities and extremizing construction checks passed.
+## correctness
 
-The analytical proof in `RESULT.md` establishes all real weights and parameters in the specified interval. Finite enumeration alone is not a proof for real weights, and the numerical checks cannot assess priority in the wider literature. The proof requires independent Bernoulli variables with a common parameter, at most five nonnegative normalized weights, and the weak threshold event; no other model is certified by these checks.
+PASS
 
-Independent audit: not performed.
+Heavy weight w_i≥p immediately gives probability at least p. Otherwise all five weights <p implies p>1/5, and every ≥3-success subset wins since complement two weights sum<2p and 1−2p≥p for p≤1/3. For p≤1/4 all pairs win by complement-of-pair argument. For 1/4<p≤1/3 sorting five weights shows at least six winning pairs; therefore P≥Bin(5,p) tail ≥3 +6p²(1−p)³ and excess F(p)=p(p−1)(3p²−5p+1), with F'=12p(1−p)²−1>0 on [1/4,1/3], F(1/4)=3/256. Analytic sharp family p=1/4+ε, w=(ε,(1−ε)/4×4) has event exactly at least two large successes and excess approaches 3/256, never attains; heavy dominant weight yields equality of baseline even all w_i>0. Recomputed F factor and rational 67/256, 3/256 independently; finite tests not universal proof.
+
+## originality
+
+PASS
+
+Milojević–Sudakov's 2026 primary paper poses broad mean-crossing lower bound and proves limited p cases, not the full all-p at most five-support case or sharp light-stake stability. Fokkink–Meester–Pelekis optimize an upper probability over stakes, not the lower mean-threshold infimum. The 3/256 pair-combinatorial quantitative gap is additional; exact small-support prior results in older chance-constrained gambling literature remain possible.
+
+## value
+
+PASS
+
+A motivated finite-support instance of an explicit open Bernoulli mean-crossing conjecture, with new quantified sharp gap distinguishing automatic heavy-coordinate witnesses from light-stake configurations. It pins down minimal possible counterexample support at six and is useful as a tractable exact boundary rather than arbitrary five-variable calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For five padded weights, a weight at least the threshold gives a direct probability \(p\) event. Otherwise \(p>1/5\), all triples meet the threshold, and pair counting gives ten winning pairs for \(p\le1/4\) or at least six for \(1/4<p\le1/3\). The resulting binomial lower bounds give the strict excess \(3/256\). The parameter family with four near-quarter weights and one vanishing weight converges to that exact excess, and a dominant weight attains the baseline \(p\). The proof handles zero padding, endpoints, and strictness. Exact-arithmetic tests cover the stated identities and 103746 finite parameter combinations; these are diagnostics, not infinite proofs.
+PASS
 
-## Originality — PASS (with priority risk)
+Heavy weight w_i≥p immediately gives probability at least p. Otherwise all five weights <p implies p>1/5, and every ≥3-success subset wins since complement two weights sum<2p and 1−2p≥p for p≤1/3. For p≤1/4 all pairs win by complement-of-pair argument. For 1/4<p≤1/3 sorting five weights shows at least six winning pairs; therefore P≥Bin(5,p) tail ≥3 +6p²(1−p)³ and excess F(p)=p(p−1)(3p²−5p+1), with F'=12p(1−p)²−1>0 on [1/4,1/3], F(1/4)=3/256. Analytic sharp family p=1/4+ε, w=(ε,(1−ε)/4×4) has event exactly at least two large successes and excess approaches 3/256, never attains; heavy dominant weight yields equality of baseline even all w_i>0. Recomputed F factor and rational 67/256, 3/256 independently; finite tests not universal proof.
 
-The June 2026 conjecture concerns arbitrary numbers of weights and proves only a tiny continuous \(p\) interval and certain reciprocal parameters; no five-weight completion or uniform sharp gap was found in its full text. The 2020 convex-combination paper optimizes a supremum rather than the required infimum. The August 2026 solution of Samuels' conjecture controls upper-tail probabilities above the mean, and the October 2026 Feige exposition also uses a strictly larger-than-mean threshold. Focused semantic and bibliographic searches uncovered related Bernoulli-tail findings but no statement implying the five-weight sharp gap. The 2013 adversarial-leakage article was only available through its bibliographic abstract and citation by the June 2026 source; unknown equivalent coverage in that or unindexed literature is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source explicitly poses a sharp lower-bound conjecture for all weights. The theorem establishes its entire probability range for the first five-weight cutoff and rules out every counterexample with at most five nonzero weights. Beyond that finite verification it isolates an exact, nonzero and globally sharp stability gap for weights too small to cross the threshold alone. This is an extremal structural fact, not an arbitrary parameter substitution. The result does not settle the unrestricted conjecture.
+Milojević–Sudakov's 2026 primary paper poses broad mean-crossing lower bound and proves limited p cases, not the full all-p at most five-support case or sharp light-stake stability. Fokkink–Meester–Pelekis optimize an upper probability over stakes, not the lower mean-threshold infimum. The 3/256 pair-combinatorial quantitative gap is additional; exact small-support prior results in older chance-constrained gambling literature remain possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A motivated finite-support instance of an explicit open Bernoulli mean-crossing conjecture, with new quantified sharp gap distinguishing automatic heavy-coordinate witnesses from light-stake configurations. It pins down minimal possible counterexample support at six and is useful as a tractable exact boundary rather than arbitrary five-variable calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
