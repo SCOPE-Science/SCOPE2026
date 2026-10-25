@@ -1,123 +1,151 @@
 {
   "correctness": {
-    "rationale": "Intrinsic hyperplane facet distances and all constraints are explicit. Sharp normalized Monge-array inequality follows from the exact D0 quadratic baseline, ordinary Monge assignment minimization, permutation averaging and rigid equality. The complete cube of equality cases is feasible and normalized. Coordinate and Monge facet contact counts follow from exact zeros. A standard-library exact checker n=2..10 and independent numerical LP n=2..11 corroborate without standing in for the all-n proof.",
+    "rationale": "In the affine sum-one hyperplane, coordinate normals have norm sqrt(1−n^−2) and adjacent Monge normals have norm 2. Rescale any admissible ball to a nonnegative array D with all Monge slacks at least 1. The quadratic baseline D0_ij=(j−i)(j−i−1)/2 has all slacks 1 and sum T_n. Subtracting D0 yields an ordinary Monge array E, so the identity assignment is minimal and uniform averaging gives sum(E)/n >= sum(diag(E))>=0. Equality forces all diagonal entries zero and every permutation assignment tied, hence every 2x2 mixed difference vanishes and E_ij=u_i−u_j. Nonnegativity reduces to 0<=u_i−u_(i+1)<=1, giving exactly the full center cube. Exact coordinate zeros yield the facet-contact count. No finite check is substituted for this all-n proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Erickson–Kretschmann Theorems 5.3 and 5.6 respectively give a facet theorem and normalized volumes.",
-        "Rudolf–Woeginger (1995) title and abstract describe extremal rays of the cone.",
-        "Erickson–Jones arxiv:2609.09508 abstract describes volumes, lattice-path decompositions and Ehrhart results; complete text unavailable."
+        "The 2023 source gives the full nonsymmetric Monge facet system and combinatorial faces, not the min-max Frobenius distance.",
+        "The 1995 source describes a generating-ray decomposition of the Monge cone and TSP application, not a stated Euclidean inball theorem.",
+        "The available 2026 full-text extract describes a Stanley decomposition, volume and Ehrhart formula; it also uses Euclidean volume, which is a different invariant from inradius."
       ],
-      "reasoning": "Facet systems, vertex/ray classifications and volumes are broader combinatorial data for the same object but do not, by themselves, imply the Frobenius maximal ball and all its centers. A stronger statement hidden in the inaccessible recent full text is a residual, not dismissed, risk.",
+      "reasoning": "An additive cone-ray characterization may make linear optimization possible but no inspected result supplies the explicit sharp objective, equality classification and contact spectrum. The inaccessible remainder of the 2026 paper is not declared non-covering.",
       "searches": [
-        "arxiv:2311.07522",
-        "arxiv:2609.09508",
-        "The cone of Monge matrices extremal rays applications",
-        "Monge inequalities permutation assignment lower bound incenter polytope and facet tangencies"
+        "Erickson–Kretschmann 2023 arXiv:2311.07522v2 Theorem 5.3, Section 5",
+        "Rudolf–Woeginger 1995 DOI:10.1007/BF01415751",
+        "Erickson–Jones 2026 arXiv:2609.09508 HTML accessible extract and abstract",
+        "Resultary semantic query: Monge matrix polytope equality assignment minimal total mass inradius"
       ]
     },
     "checked_sources": [
-      "Erickson–Kretschmann, arxiv:2311.07522 HTML Sections 1,2,5 including Theorem 5.3",
-      "Rudolf–Woeginger 1995 abstract, DOI 10.1007/BF01415751",
-      "Erickson–Jones, arxiv:2609.09508 abstract (full text unavailable)",
-      "Published geometry record titles for orthotope inradii and parallelotope spectra, different families"
+      "Erickson–Kretschmann (2023), arXiv:2311.07522v2, definition and Theorem 5.3 complete statement and proof, Fig. 1, Theorem 5.6",
+      "Erickson–Jones (2026), arXiv:2609.09508, accessible primary abstract and partial HTML body, sections 1–3; 31-page PDF not obtained",
+      "Rudolf–Woeginger (1995), DOI:10.1007/BF01415751, publisher abstract and bibliographic record",
+      "Resultary semantic searches (three queries) for square Monge inradius, Chebyshev center and Monge assignment mass; excluded exact self-match",
+      "Additional web searches for Monge polytope inradius/Chebyshev centers and broader Monge-cone results"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arxiv:2311.07522 gives the explicit irredundant adjacent-Monge and positivity facets but no complete inball optimization.",
-        "arxiv:2609.09508 abstract treats lattice paths, volume and Ehrhart rather than metric centers.",
-        "The new theorem identifies the minimum-sum slack optimization and every equality array."
+        "The 2023 facet normals imply the inball constraints c_ij >= alpha r and adjacent Monge slack >=2r, but do not themselves optimize them.",
+        "The new bound sum(D)>=n²(n²-1)/12 uses uncrossing, uniform permutation averaging and rigidity of equality of *every* assignment; this is the critical extra derivation.",
+        "The 2026 primary extracts concern Stanley decompositions and volume/Ehrhart rather than Euclidean ball constraints."
       ],
-      "reasoning": "The new claim is not an immediate corollary of facet counts or a volume formula: its exact center set requires a sharp permutation-assignment mass inequality and equality rigidity. Other published descriptions do not directly cover the radius/contact spectrum; hidden coverage in unavailable full text remains possible.",
+      "reasoning": "The prior facet theorem is a needed hypothesis, not the same conclusion: deriving the radius and an n−1 dimensional complete center cube requires the all-n equality theorem. No identified sound prior statement directly yields this exact result; possible uninspected full-text coverage remains a stated risk.",
       "searches": [
-        "arxiv:2311.07522",
-        "arxiv:2609.09508",
-        "Monge matrix polytope",
-        "normalized Monge cost matrices Chebyshev Frobenius ball centered symmetries square n by n"
+        "arXiv:2311.07522v2 Theorem 5.3, 5.6",
+        "arXiv:2609.09508 extracted sections 1–3 and accessible abstract",
+        "Rudolf–Woeginger DOI:10.1007/BF01415751 Springer abstract",
+        "web searches: normalized Monge polytope largest inscribed ball and Frobenius inradius"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Erickson–Kretschmann arxiv:2311.07522 Section 5: the normalized Monge inequalities and their facets.",
-        "Monge optimal-assignment uncrossing reduces the new inball optimization to a sharp assignment-equality extremizer."
+        "Erickson–Kretschmann 2023 Theorem 5.3 gives adjacent Monge and coordinate facets but no inball equality-face theorem; its Section 5 studies faces, vertices, edges and two-row volume.",
+        "Monge uncrossing/minimum diagonal assignment provides a component in the new mass certificate, but prior inspected sources did not determine the equality locus of that minimum-mass problem."
       ],
-      "reasoning": "Search covered the aliases Monge matrices, normalized Monge polytope, Chebyshev/inball, assignment arrays, and projected Frobenius normals. Existing descriptions determine the feasible inequalities but not the derived equality locus or exact radius. No equivalent statement identified; this is a literature assessment, not a uniqueness proof.",
+      "reasoning": "The normalized Monge cost array equals an intersection of the nonnegative Monge cone with the mass-one hyperplane. Intrinsic Chebyshev inball and minimum-total-mass unit-slack arrays are equivalent optimizations after projected-normal scaling. The inspected literature did not state the sharp mass/equality formula, though the n=2 triangular prism appears in 2023 geometry; that special case is not all-dimensional coverage.",
       "searches": [
-        "Monge polytope",
-        "2311.07522",
-        "Monge matrix polytope",
-        "Erickson Kretschmann Monge polytope Chebyshev center inscribed ball",
-        "two row Monge matrices largest ball intrinsic Euclidean radius median odd even",
-        "arxiv:2311.07522"
+        "Resultary semantic query: square Monge polytope Euclidean inradius Frobenius incenter cube of optimal centers",
+        "Resultary semantic query: Monge polytope Chebyshev center exact inscribed ball tangent facets",
+        "web search: inradius Chebyshev center Monge polytope Frobenius cube of centers",
+        "arXiv:2311.07522v2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Known Monge-polytope tabulations in arxiv:2311.07522 concern vertices, faces, and normalized volumes rather than the intrinsic Euclidean inradius or full center locus.",
-        "Published exact inradius results for orthotopes and spectral parallelotope classifications concern different polytope families, with no reduction identified to normalized Monge cost matrices."
+        "Three Resultary queries returned the assigned claim as a self-match and other inball theorems for different polytopes, not independent normalized Monge inball data.",
+        "The 2023 paper has the two-by-two triangular-prism figure and facet counts, but no complete parameterized n-by-n inball table.",
+        "Erickson–Jones 2026 gives computational volume data, not an inspected exact radius table."
       ],
-      "reasoning": "No inspected exact database or table records this normalized Monge polytope inradius, its affine cube of centers, or the contact spectrum. Search-result noncoverage is limited to the inspected materials; it does not prove global novelty.",
+      "reasoning": "Tables of volumes, Ehrhart series or vertex/facet counts are not tables of Euclidean inradii. Resultary self-match is excluded as independent priority evidence. This nonidentification is limited to actual inspected records, not a universal novelty proof.",
       "searches": [
-        "Monge polytope",
-        "2311.07522",
-        "square Monge polytope exact inradius complete incenter cube",
-        "Erickson Kretschmann square Monge polytope radius 52B05"
+        "Resultary semantic query: square Monge polytope Euclidean inradius Frobenius incenter cube of optimal centers",
+        "Resultary semantic query: Monge polytope Chebyshev center exact inscribed ball tangent facets",
+        "Resultary semantic query: Monge matrix polytope equality assignment minimal total mass inradius",
+        "Erickson–Kretschmann 2023 Figure 1 and facet/volume tables"
       ]
     },
-    "rationale": "Full-text 2023 source gives facet equations, volume, and vertices, but not their Frobenius inball, sharp sum-minimization equality, the complete affine-cube incenter locus or tangent-facet enumeration. Scientific literature and published-record searches found no implication-equivalent result. The 2026 same-family paper is abstract-only, documented as a residual rather than falsely excluded.",
+    "rationale": "Best-of-knowledge originality: the 2023 paper gives the facet system and the 2026 same-family paper accessible portion concerns volume and Ehrhart data, not a known metric-optimal-center classification. The independently reconstructed equality rigidity is needed. Complete 2026 PDF was not accessible and remains a residual risk.",
     "residual_risks": [
-      "The complete text of arxiv:2609.09508 could contain relevant Euclidean geometry despite its volume/Ehrhart abstract.",
-      "The Rudolf–Woeginger full text was not obtained, although its cone-ray subject appears distinct.",
-      "A semantic search and limited inspected primary literature cannot establish absolute global novelty."
+      "Erickson–Jones 2026 full PDF could contain an otherwise unextracted special geometric result; institutional fallback unavailable because VPN disconnected; no complete-document exclusion asserted.",
+      "Rudolf–Woeginger 1995 full body was not obtained and may support a reduction despite abstract topic.",
+      "Other older or non-indexed Euclidean metric studies may contain equivalent inradius/cube-center theorem.",
+      "The exact n=2 special case may be deducible from the previously pictured triangular prism; the all-n classification is the assessed claim."
     ],
     "source_inspections": [
       {
-        "assessment": "Same object and known facet system, but no radius, all-center formula, or tangent-contact spectrum in material inspected.",
+        "assessment": "Theorem 5.3 supplies adjacent-Monge and nonnegativity facets; Section 5 supplies structural/volume results, not the claimed inball center classification.",
         "evidence": [
-          "Theorem 5.3 identifies the irredundant positivity and adjacent Monge facets.",
-          "Theorem 5.6 is a two-row volume evaluation."
+          "Theorem 5.3: precisely (p−1)(q−1)+pq facets, from adjacent inequalities and c_ij>=0.",
+          "Figure 1: M_(2x2) is a triangular prism; Theorem 5.6: normalized volume of M_(2xp) is 1/p!."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2311.07522v2",
-        "material_read": "HTML full text: definitions, Section 2 background, Section 5 including Theorems 5.3 and 5.6, and surrounding facet/volume argument",
-        "method": "Open-access arXiv HTML reading and claim-versus-theorem comparison",
+        "identifier_or_url": "https://arxiv.org/pdf/2311.07522",
+        "material_read": "Full 17-page PDF opened; abstract/introduction, definition, Section 5 Theorem 5.3 and proof on PDF pages 9–10, Figure 1 and Theorem 5.6 on PDF pages 12–13, plus surrounding relevant sections and text searched. Page 10 was visually inspected.",
+        "method": "Lawful open-access arXiv full-text search and PDF page screenshot for theorem-bearing page.",
         "title": "The structure and normalized volume of Monge polytopes",
-        "trigger": "Identical normalized Monge polytope and primary 52B05 source"
+        "trigger": "Primary paper defining precisely the same normalized Monge cost polytope and facets"
       },
       {
-        "assessment": "Extreme-ray subject does not directly state a Frobenius inball result, but full-document exclusion is not asserted.",
+        "assessment": "Accessible material develops Stanley decomposition and volume/Ehrhart quantities. No inradius theorem located in the readable portion; no unsupported entire-document noncoverage claim.",
         "evidence": [
-          "1995 article is about extremal rays and applications."
-        ],
-        "identifier_or_url": "https://doi.org/10.1007/BF01415751",
-        "material_read": "Bibliographic record and abstract; original full text not obtained",
-        "method": "Open bibliographic/abstract metadata; no full text claim",
-        "title": "The cone of Monge matrices: Extremal rays and applications",
-        "trigger": "Plausible older cone classification possibly dominating the metric question"
-      },
-      {
-        "assessment": "Volume/Ehrhart abstract appears separate; inaccessible full text remains residual coverage risk.",
-        "evidence": [
-          "Abstract emphasizes volume and Ehrhart series via a lattice-path model; not a whole-text noncoverage assertion."
+          "Introduction Theorem A describes normalized volume via Z-avoiding Delannoy paths.",
+          "Section 2 defines intrinsic Euclidean volume, not intrinsic Euclidean inradius.",
+          "Incomplete full-text access remains a coverage risk."
         ],
         "identifier_or_url": "https://arxiv.org/abs/2609.09508",
-        "material_read": "Abstract and publication metadata only; attempted lawful open-access full text, unavailable",
-        "method": "Open preprint and alternate lawful full-text retrieval attempts; only the abstract was readable.",
+        "material_read": "ArXiv abstract and accessible HTML-extracted body including introduction, Theorem A discussion, preliminaries, and the beginning of Section 3; complete 31-page PDF and remaining text not obtained.",
+        "method": "Lawful arXiv PDF/HTML direct attempts, OA mirror searches and web-retrieved primary full-text excerpt; protected institutional fallback returned VPN disconnected.",
         "title": "A lattice path model for the volume of the Monge polytope",
-        "trigger": "2026 same-family paper potentially covering previously unknown geometry"
+        "trigger": "More recent 2026 paper treating the identical polytope family, possible stronger coverage"
+      },
+      {
+        "assessment": "The abstract establishes additive cone-ray decomposition and TSP application, but no full-document exclusion of an inball deduction is asserted.",
+        "evidence": [
+          "Abstract describes extremal-ray additive characterization of nonnegative Monge cone and derivation of Supnick TSP theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01415751",
+        "material_read": "Springer bibliographic page and abstract, no paper body.",
+        "method": "Public publisher preview; full document not available in this execution.",
+        "title": "The cone of Monge matrices: Extremal rays and applications",
+        "trigger": "Older general cone classification that might dominate a metric optimization"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previous_scientific_review": {
+    "correctness": {
+      "rationale": "The previous proof computed intrinsic projected facet distances, a sharp quadratic-base Monge mass inequality by permutation averaging, and its complete equality cube. It checked the normalization and all tangent-facet counts with bounded exact and LP tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "prior_comparison_findings": [
+        "Normalized Monge facets and two-row volumes were known.",
+        "Cone ray decompositions concern a different invariant.",
+        "The newer paper full text was unavailable to the earlier review and remains a priority risk."
+      ],
+      "prior_comparison_sources": [
+        "arxiv:2311.07522 HTML Sections 1, 2, 5, Theorem 5.3",
+        "arxiv:2609.09508 abstract only, not full text",
+        "Rudolf–Woeginger 1995 abstract, DOI:10.1007/BF01415751"
+      ],
+      "rationale": "Prior literature comparison had examined Erickson–Kretschmann facet/volume results, Rudolf–Woeginger cone-ray results and Erickson–Jones volume/Ehrhart claims. It did not identify complete Frobenius inball coverage and explicitly preserved the unavailable-paper risk.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mass-one Monge polytope is natural in combinatorial optimization; its exact Euclidean inball, full affine cube of optima, and tangency spectrum are meaningful metric geometry.",
+      "status": "PASS"
+    }
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "b3dc6b94-166a-4ee3-ae20-11682daa9304",
+  "scope": "Nonsymmetric n-by-n nonnegative mass-one Monge polytopes, n>=2, intrinsic Frobenius metric. No rectangular-size inradius, other norms or enclosing sphere/ellipsoid is asserted.",
   "value": {
-    "rationale": "The exact intrinsic Frobenius inradius of the researched mass-one nonsymmetric Monge cost polytope measures sharp perturbation robustness; identifying a full affine cube of dimension n-1 of optimal centers is an unexpected degeneracy absent from the published facet census. The natural contact classification and a uniform sharp n^-4 asymptotic have mathematical geometric content beyond a routine facet substitution.",
+    "rationale": "An exact intrinsic Frobenius inradius and all its maximizing centers for a natural all-size polytope are meaningful robust-geometry invariants. The dimension n−1 cube of centers and varying facet-tangencies are structural and not a routine consequence of known face counts.",
     "status": "PASS"
   }
 }
