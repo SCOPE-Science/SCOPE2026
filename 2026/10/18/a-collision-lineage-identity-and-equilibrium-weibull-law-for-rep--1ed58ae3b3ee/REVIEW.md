@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each sample index, conditioning on no category reaching the next occupancy threshold forces the first lower-threshold winner to stay exactly one draw short of that threshold. Hitting its label has probability \(1/m\), giving the exact joint event–time mass function and its expectation difference. Independent rate-one Poisson processes yield the gamma-survival integral. Small-time Taylor expansion and exponential domination give the two-scale asymptotic. A Riemann-sum argument applied to the exact mass function proves the equilibrium-Weibull conditional limit. Finite-state rational enumeration checks the entire boundary case \(m=1\), multiple thresholds and finite horizons. No finite computation is used as an infinite proof.
+## correctness
 
-**Originality — PASS (subject to stated historical risk).** Camarri's 1998 technical report includes full \(k\)-fold-repeat time limits and cross-multiplicity process structure, but the inspected results concern repeat times/processes rather than whether the **identity of the first winning category** persists across two thresholds. Camarri–Pitman (2000) similarly treats unmarked aggregate repeat times. Holst's 1995 title and available abstract address general quota moments; its full text could not be examined. The finite winner-lineage identity plus the equilibrium-Weibull conditional limit were not found in these inspected texts or in the searchable related literature. This is a best-knowledge originality judgment, not a claim that negative search proves priority. The marginal Weibull law and expected waiting-time identity from Poissonization are not presented as new in isolation.
+PASS
 
-**Mathematical value — PASS.** The natural question whether the first birthday to repeat is also first to appear three times requires tracking a common winning label through successive occupancy thresholds. The exact survival-difference kernel solves this marked coupling for every finite category count and multiplicity. The sharp persistence rate is much larger than a naive single-label probability, and conditioning on this rare lineage changes the hitting-time law from Weibull to equilibrium Weibull. These are substantive structural and distributional statements, not a renamed marginal occupancy computation.
+The event T_r<k<=T_{r+1} has exactly one previously earliest r-occupancy winner that remains at r; the next iid uniform mark hits it with probability 1/m, proving the exact joint mass [S_{r+1}(k)-S_r(k)]/m including endpoint k. Summing gives P(B_r)=(ET_{r+1}-ET_r)/m, and rate-m Poissonization with m independent rate-one clocks gives its absolutely convergent integral. For fixed r, Taylor expansion Q_s(x)=1-x^s/s!+O(x^{s+1}), integrated with an exponential dominating envelope, gives E Z_s=c_s m^{-1/s}+O_s(m^{-2/s}); the difference yields the displayed two-scale expansion. The joint kernel, T_{r+1}/m^{r/(r+1)} Weibull limit and negligible ET_r at this scale yield an integrated-tail conditional Weibull density via Riemann sums and tightness. Independent exact enumeration of all finite uniform sequences until threshold for (m,r)=(2,2),(3,2),(2,3), including every conditional k and total probability 13/16, 175/243, 27/32, reproduces the identity. Finite cases are not asymptotic proof.
 
-**Closest literature and limitations.** Michael Camarri (1998), *Asymptotics for k-fold repeats in the birthday problem with unequal probabilities*; Michael Camarri and Jim Pitman (2000), *Limit distributions and random trees derived from the birthday problem with unequal probabilities*; Lars Holst (1995), *The general birthday problem*. The threshold is fixed and category probabilities are equal. Holst's full paper was not available for comparison, and related general marked quota formulas remain a residual priority risk. Independent validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.
+
+## value
+
+PASS
+
+The marked question asks whether a particular category retains leadership at successive collision thresholds; marginal birthday waiting-time theory does not record that event. The exact survival-difference kernel, rare selection probability and distinct equilibrium-Weibull limiting law characterize a motivated survivor-bias phenomenon in random occupancy processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

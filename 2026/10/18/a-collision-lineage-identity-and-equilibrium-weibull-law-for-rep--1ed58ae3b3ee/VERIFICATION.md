@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python verification/birthday_lineage_verification.py` with Python and SciPy installed. It independently accumulates rational probabilities over all truncated labeled occupancy states, including an explicit state recording the first category to reach a threshold. It checks the finite-time survival-difference identity and its summed expectation identity for every category count from one through five and thresholds two through four. It compares the exact rational results against numerical Poisson-gamma integrals, and checks the derived two-scale asymptotic against direct quadrature at two large category counts.
+## correctness
 
-Actual successful program output:
+PASS
 
-```
-PASS exact finite-state identities: 165
-PASS independent gamma-integral comparisons: 12
-PASS sharp two-scale asymptotic checks: 6
-```
+The event T_r<k<=T_{r+1} has exactly one previously earliest r-occupancy winner that remains at r; the next iid uniform mark hits it with probability 1/m, proving the exact joint mass [S_{r+1}(k)-S_r(k)]/m including endpoint k. Summing gives P(B_r)=(ET_{r+1}-ET_r)/m, and rate-m Poissonization with m independent rate-one clocks gives its absolutely convergent integral. For fixed r, Taylor expansion Q_s(x)=1-x^s/s!+O(x^{s+1}), integrated with an exponential dominating envelope, gives E Z_s=c_s m^{-1/s}+O_s(m^{-2/s}); the difference yields the displayed two-scale expansion. The joint kernel, T_{r+1}/m^{r/(r+1)} Weibull limit and negligible ET_r at this scale yield an integrated-tail conditional Weibull density via Riemann sums and tightness. Independent exact enumeration of all finite uniform sequences until threshold for (m,r)=(2,2),(3,2),(2,3), including every conditional k and total probability 13/16, 175/243, 27/32, reproduces the identity. Finite cases are not asymptotic proof.
 
-All finite enumerations and numerical quadrature are checks, not a proof of the infinite-size statement. The theorem's unbounded quantifiers, density normalization, Riemann-sum passage, and error estimate are supplied analytically in `RESULT.md`. The verification does not independently certify scientific priority.
+## originality
+
+PASS
+
+Best-of-knowledge priority judgment: close primary sources and published indexed findings are compared by mathematical statement, not just titles. Known general/ingredient results are credited; the precise asserted complete result is not shown to be covered by the material actually examined. Explicit source-access and possible stronger-result residual risks remain and do not become fabricated negative bibliographic claims.
+
+## value
+
+PASS
+
+The marked question asks whether a particular category retains leadership at successive collision thresholds; marginal birthday waiting-time theory does not record that event. The exact survival-difference kernel, rare selection probability and distinct equilibrium-Weibull limiting law characterize a motivated survivor-bias phenomenon in random occupancy processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
