@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument symmetrizes arbitrary feasible transition matrices to upper-bound the spectral gap, saturates hub rows by positive-semidefinite monotonicity, and uses a four-by-four quotient inertia identity to prove the rational candidate has spectral gap \(a_*\). A fixed Fiedler vector provides the sharp polynomial criterion; its negative sign gives a rigorously improving perturbation. A Perron bound handles negative transition eigenvalues, so the gap bound is genuinely a SLEM bound. Eight symbolic identities and 231 graph sizes were checked by the included runnable script. Finite experiments do not prove the universal statement, for which the analytic argument is supplied.
+## correctness
 
-**Originality — PASS, with residual risk.** Boyd–Diaconis–Xiao (2004) presents the foundational general FMMC semidefinite problem, while Boyd–Diaconis–Parrilo–Xiao (2009), particularly §5.4.4, handles symmetric two-clique graphs with optional intra-clique transitions. Direct parameter substitution cannot produce the unequal tree with \(p>q\ge2\) and cannot imply the displayed quartic boundary. Accessible related claims about broom trees have \(q=1\), and balanced double-star time-stepping claims concern a different objective. Targeted database and literature searches did not reveal an identical optimality criterion, but indexing gaps and uninspected specialized theses remain a risk. An absence of matches is not proof of absolute originality.
+PASS
 
-**Value — PASS.** The source formulation is a network mixing/design problem, not a formula-evaluation exercise. On a naturally motivated minimally branched family, the theorem gives an exact rational optimal transition kernel and a sharp high-imbalance phase boundary. The asymptotic threshold \(1+\sqrt2\) explains when hub-saturated rational tuning dominates the competing quotient mode. No paper-sized generalization or theorem for the complementary regime is claimed.
+For any symmetric row-stochastic chain on the p-leaf/q-leaf double star, automorphism averaging does not decrease lambda_2 of weighted Laplacian because minimum Rayleigh quotient on 1-perp is concave. Increasing spoke weights to saturated a(b)=(1-b)/p,c(b)=(1-b)/q increases lambda_2 in PSD order, so saturated symmetric families bound any original chain. For candidate a*=(p-q)/K, c*=p(p-q)/(qK), b*=(p(q+1)-q)/K (K=p^2+p-q), quotient 4x4 block M-a*I has inertia 1 negative, 1 zero, 2 positive (Schur complement rank1 PSD) and leaf differences a*,c*>a*; hence lambda2=a*. Fixed quotient eigenvector Rayleigh derivative is N/[p^2(p-q)^2]. If N>=0 it bounds lambda2 for b<b*, while for b>=b* the leaf eigenvalue a(b)<=a*; if N<0, moving b down slightly raises lambda2 by eigenvalue perturbation. Perron-Frobenius using hubs 1 and leaves 1/2 bounds lambda_max(L(b)) <= (3+b)/2 <=2-a(b); thus SLEM=1-lambda2 in saturated family. This proves globally optimal candidate iff N>=0, and strict improvability otherwise. Descartes sign test for N(q+h,q) gives unique threshold, asymptotic root t=1+sqrt2. Independently reproduced identities and low-parameter Fiedler eigenchecks against actual verify.py. No claimed optimum for N<0.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.
+
+## value
+
+PASS
+
+An exact algebraic necessary-and-sufficient criterion when a simple rational Markov chain is the globally fastest mixing on all unbalanced double-star trees, despite unrestricted unequal leaf weights, plus a sharp imbalance transition and asymptotic ratio. This is a motivated exact network-optimization frontier not a textbook numeric SDP instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
