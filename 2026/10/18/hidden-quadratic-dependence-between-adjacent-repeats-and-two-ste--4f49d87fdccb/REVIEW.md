@@ -1,12 +1,21 @@
-# Review: hidden quadratic dependence of word coincidence counts
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The forest-edge equality argument proves both binomial marginal laws and every pairwise cross-indicator independence. Conditional on the complete adjacent-equality pattern, a lag-two equality is certain across two adjacent equalities, impossible across exactly one, and has probability \(1/(q-1)\) across two adjacent inequalities. Uniform conditioning on the binomial sum yields the regression. The independent centered-pair expansion proves the exact variance ratio and the triangle expansion gives the third mixed moment. All boundary cases \(q\ge2\), \(n\ge3\) are covered; 18 complete finite word-space censuses passed all checked identities. Finite checks do not certify the infinite parameter range independently of the proof.
+## correctness
 
-## Originality (O): PASS on inspected sources, with residual priority risk
-The accessible primary papers arXiv:1905.05646v1 and arXiv:2203.14773v1 address distinct word-pattern counting problems. Their inspected abstracts, main-result statements and relevant sections do not state the present finite conditional regression or correlation ratio; neither standard binomial marginal formulas nor generic finite pattern counts imply this conditional expectation without the additional computation. The nearest published research-record matches concern fixed-composition transitions and distinct-substring complexity, rather than iid word lag-one/lag-two equality counts. An older word-moment or automata computation could imply the same formula, and independent priority verification has not been performed.
+PASS
 
-## Value (V): PASS
-The result detects a concrete, universal nonlinear statistical dependence invisible to covariance, identifies the exact optimal variance explained using one natural pattern count to predict another, and describes its sharp finite-length and alphabet-size scale. The all-parameter classification and orthogonal quadratic mechanism are meaningful for statistical diagnostics of word-pattern counts, beyond a solitary numerical example.
+For independent uniform letters U_1,...,U_n with q>=2 and n>=3, the two edge families each form forests, hence A~Bin(n-1,1/q), B~Bin(n-2,1/q) and each cross edge pair is independent. Conditioning on the entire adjacent equality vector gives P(b_i=1 | a_i,a_{i+1}) equal to 1, 0, 1/(q-1) in cases (1,1), mixed, and (0,0). Hypergeometric sampling of the k successes conditional on A=k proves E[B|A=k]=[k(k-1)+(L-k)(L-k-1)/(q-1)]/L, L=n-1. The centered degree-two Krawtchouk polynomial equals twice the sum of independent centered pair products, whose orthogonal variance gives eta^2=2/((q-1)L). An explicit triangular centered mixed third moment is 2(n-2)q^-2(1-q^-1)>0; Cov(A,B)=0. Independently enumerated all q^n words for 12 (q,n) with 2<=q<=4 and 3<=n<=6 using rational arithmetic; every conditional mean, covariance and ratio agrees. The universal result follows from the symbolic proof, not finite experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The precise all-(q,n) quadratic conditional regression and nonzero correlation ratio concern two jointly defined local equality counts. Neither single-pattern occurrence asymptotics in Mansour et al. nor a count of distinct adjacent pair types in geometric words logically determines their joint conditional expectation. An equality-forest argument itself is standard and not claimed new. Resultary semantic search returned no equivalent mixed A,B regression; an unindexed transfer-matrix or run-statistics identity might still imply it.
+
+## value
+
+PASS
+
+A and B are canonical local pattern counts in random strings. Exactly zero covariance would ordinarily conceal their dependence; the exact nonlinear conditional predictor and its sharp explained-variance coefficient for every alphabet and length provide a useful structural and statistical diagnostic. It is not a mere renaming of binomial marginals or an isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
