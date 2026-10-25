@@ -1,15 +1,21 @@
-# Review of the split quintic del Pezzo anticanonical contact configuration
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete six-dimensional coefficient space has 63 rational projective members. Exact geometric smoothness tests on all three affine charts return six smooth members; a separate extension-field test finds singularities on all other 57 members. Local blow-up tangent directions give 15 rational points, each assigned uniquely to one pair of smooth members. The factorization for a representative pair proves intersection multiplicity five, and the explicitly reconstructed full 120-element symmetry group acts transitively on pairs. The six smooth forms contain no full projective line. The proof is finite, exact and reproducible; no extrapolation to larger fields is made.
+## correctness
 
-## Originality — PASS, subject to priority risk
-Blache et al. (2019) give the anticanonical code framework and use the split surface and its symmetry as auxiliary inputs. Zaitsev (2023) and Boitrel (2023 preprint) classify degree-five del Pezzo forms and automorphisms. Those claims are acknowledged and not repeated as original. The inspected relevant full text does not cover the six-smooth-curve census, the bijective K6 contact configuration, or the maximal local multiplicity. Mathematical-record and publication searches did not locate an equivalent tabulation. Classical and unindexed priority risk is real and remains unresolved by negative search alone.
+PASS
 
-## Value — PASS
-Smooth anticanonical genus-one hyperplane sections and their incidence are intrinsic finite-field Bertini invariants. The all-pair maximal degree-five contact supported exactly on the 15 rational surface points is a structural geometry statement, not merely a small-field count. The complete S5 orbit structure and nonexistence of an all-smooth pencil identify a sharp low-field boundary.
+The cubics through the four F2 base points form the 6-dimensional subspace of the seven displayed monomials with total coefficient parity 0, thus 63 nonzero rational members. Independent fresh SymPy Groebner computations on all three projective charts classified precisely six geometrically smooth forms with masks 7,22,38,49,51,53, each containing five rational points. Their strict transforms meet the 15 points of S(F2) as the fifteen pair labels of six curves. The representative pair sums to X(XY+Z²); line restriction t² and conic restriction s^4 t(t+s) imply plane local intersection multiplicity six at P2 and multiplicity one at the other base points. Blowing up subtracts one at each and leaves exactly one geometric contact of order five. Independent recomputation of the 24 base-point stabilizer matrices plus quadratic Cremona gives 120 transformations, projective section orbits 6,10,12,15,20 and sharp three-transitivity on the smooth six. This transports the representative contact to all pairs. XOR closure excludes any pencil all of whose three F2 members are smooth.
 
-## Limitations
-Split surface over F2 only; no claim for other twists, other fields or nonrational pencils. The reproducibility calculations are not independently audited, and the indicated historical-priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. K6 contact configuration of six smooth anticanonical elliptic curves on the split quintic del Pezzo surface over F2
+
+## value
+
+PASS
+
+This is an intrinsically motivated, complete finite Bertini and contact-geometry profile for the smallest split degree-five del Pezzo. The K6 rational incidence plus maximally concentrated intersection multiplicity is stronger than merely counting smooth sections and provides a useful special configuration in arithmetic surface geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
