@@ -1,0 +1,11 @@
+# Scientific comparison and self-review
+
+**Correctness — PASS.** Source [1, Section 3.1] explicitly defines \(J_n^{\times}\) as the complete graph on Boolean vertices and defines the normalized alternating-face boundary. The proof identifies every admissible singular cube exactly with a cube whose image is a simplex of the two-section flag complex. The explicit corner-cube formula is checked against all boundary faces. Contractibility of complete-simplex cube chains is established by an integral cone contracting homotopy. The degreewise short exact union sequence and induction transfer the quasi-isomorphism to arbitrary finite complexes without relying on experiments. Six independent finite-chain tests in `verify.py` also passed.
+
+**Originality — PASS with residual priority uncertainty.** The closest source is Zaidi–Jamil [1], whose primary full text was inspected for the precise complete-graph domain, definitions, calculations, and excision. It introduces the theory but does not state the all-degree flag comparison, its chain map, or loss-of-hyperedge-information implication. Published mathematical-record queries for the same complete-graph test domain, flag/2-section identification, and normalization returned no equivalent theorem. Staecker [2] concerns the different digital cubical theory based on ordinary cube adjacency, and its known disagreement with clique homology prevents treating it as coverage of this claim. Abstract-level access to some secondary historical literature leaves residual priority risk.
+
+**Value — PASS.** This all-parameter integral comparison reduces every degree of a newly defined hypergraph homology theory to familiar simplicial homology, with torsion and filtered calculations automatically available. Its information-loss conclusion delineates exactly which higher-order hyperedge data the construction can and cannot detect; it is not just another finite example or a tautological renaming of previously computed homology groups.
+
+**Residual limits.** No independent audit or exhaustive priority certification has occurred. The comparison is restricted to the complete-graph \(\times\) variant, and strict functoriality of the displayed order-dependent chain map beyond order-preserving inclusions is not asserted.
+
+Self-review: passed. Independent audit: not yet performed.
