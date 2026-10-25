@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Projectors onto eigenvalues 0,n-2,n,2(n-1) give every matrix entry exactly. The antipodal/distance-3 entry is h^3(n-2)(n-1)(1-(n-1)h)/6, changing sign once and excluding return. For 0<h<=1/(n-1), all edge entries are h[(1-z)(1+A_m z^2)+z^2/3]>0, all same-part offdiagonal entries have a globally positive quadratic, and diagonal entries are positive because the scalar RK4 stability polynomial is positive on the negative real axis. Intact biclique positivity follows from strictly convex R_4(-z), and the n=3/n>=4 reversal from 8/3<rho<3. Independent exact matrix construction for 10020 entries and three symbolic identities was replayed from actual candidate verify.py. Infinite conclusions rely on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb--Shu--Tadmor 2001 section 3: general SSP linear Runge--Kutta CFL results, not a closed crown graph threshold; section 4: classical order-four nonnegative-stage coefficient obstruction.",
+        "Gottlieb--Gottlieb 2003 sections 2--4: optimal SSP coefficients and linear diffusion finite-difference examples, no crown or perfect-matching deletion.",
+        "The previously available complete-multipartite RK4 theorem has G=K_(n,n) as a special case but crown graphs Cr_n for n>=4 are not complete multipartite."
+      ],
+      "reasoning": "General SSP theory applies at the level of time-stepping coefficients, and in principle gives general matrix algebra tools, but neither consulted source supplies the explicit sharp all-parameter crown matrix-entry sign classification. Complete multipartite results control the intact comparator; the matching-deleted graph does not satisfy the complete multipartite structure for n>=4. The strong stability/positivity distinction is explicitly compared.",
+      "searches": [
+        "Exact classical fourth order Runge Kutta positivity horizon on graph Laplacian, spectral radius comparison, sharp graph-specific positivity across edge deletion",
+        "RK4 positivity preserving graph diffusion exact all-step criterion Hamming rook strongly regular Johnson complete multipartite",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1023/A:1020338228736"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb, Shu, Tadmor (2001), DOI 10.1137/S003614450036757X; author-hosted primary PDF, sections 2--4 inspected.",
+      "Gottlieb, Gottlieb (2003), DOI 10.1023/A:1020338228736; author-hosted primary PDF pp.16--42 material inspected.",
+      "MathWorld Crown Graph; standard object definition.",
+      "Published 2026/09/20 eight-state Padé Markov positivity record (title/summary; different rational method, not full text).",
+      "Published 2026/10/04 crown sequence b-spectrum record (title/summary; different invariant, not full text).",
+      "Existing degree-two and complete-multipartite RK4 classifications were compared at the statement level to delimit the uncovered n>=4 matching-deleted family."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously established maximum-degree-two RK4 classification covers the cycle Cr_3=C_6, but does not imply the noncycle family Cr_n for n>=4 (degree n-1>=3).",
+        "An existing complete-multipartite RK4 theorem covers intact K_(n,n), not its n>=4 matching-deleted counterpart.",
+        "The classical RK4 stability polynomial R_4(-z) is also used in SSP theory; graph-specific nonnegativity requires signs of all distinct offdiagonal entries. The inspected primary results do not supply the antipodal sign law or sharp deletion reversal."
+      ],
+      "reasoning": "The six-cycle is already covered as a single special case and the intact graph is a previously covered comparator; neither implies the noncycle crown theorem. The exact antipodal entry and comparison require a separate spectral decomposition and algebraic sign proof, included in the present package. No claim of unconditional uniqueness is made.",
+      "searches": [
+        "Exact classical fourth order Runge Kutta positivity horizon on graph Laplacian, spectral radius comparison, sharp graph-specific positivity across edge deletion",
+        "RK4 positivity preserving graph diffusion exact all-step criterion Hamming rook strongly regular Johnson complete multipartite",
+        "Crown graph paired antipodes first sign loss Runge Kutta Taylor 4, spectral stability, forward Euler"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown Cr_n is K_(n,n) minus a 1-factor, equivalently the canonical bipartite double cover of K_n (MathWorld Crown Graph).",
+        "The four exact orbits use eigenvalues 0,n-2,n,2(n-1), and the critical antipodal entry h^3(n-2)(n-1)(1-(n-1)h)/6 is not stated in the inspected classical SSP works."
+      ],
+      "reasoning": "Crown, deleted perfect matching, bipartite double cover, Taylor-four exponential, scalar-Laplacian diffusion and RK4 endpoint describe the same object/method. Searches over these aliases returned adjacent graph or integrator records but no exact threshold covering this orbit law. The absence of hits is not itself a uniqueness argument.",
+      "searches": [
+        "crown graph K_n,n minus perfect matching exact classical RK4 positivity threshold 1/(n-1) paired nonedge graph diffusion",
+        "fourth order Taylor exponential positivity on distance regular crown graph diameter three Laplacian regular bipartite",
+        "Runge-Kutta Euler identical sharp positivity timestep crown graphs bipartite double covers complete graphs",
+        "classic RK4 positivity bipartite double covers complete graph graph Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Crown Graph gives the x_i-to-y_j iff i≠j construction without an RK4 timestep table.",
+        "Published mathematical record 2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff addresses sequence b-spectra rather than time stepping.",
+        "Related published 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab analyzes rational Padé/Gauss endpoint maps, which have a different stability function."
+      ],
+      "reasoning": "No exact crown RK4 entry table or cutoff was returned by the targeted database/literature searches. The only nearest named crown records involve distinct coloring, domination, combinatorial or b-spectrum invariants. The rational Padé result cannot imply the polynomial RK4 threshold. This comparison remains limited by indexing and discoverability.",
+      "searches": [
+        "crown graph K_n,n minus perfect matching exact classical RK4 positivity threshold 1/(n-1) paired nonedge graph diffusion",
+        "fourth order Taylor exponential positivity on distance regular crown graph diameter three Laplacian regular bipartite",
+        "Crown graph paired antipodes first sign loss Runge Kutta Taylor 4, spectral stability, forward Euler",
+        "Crown Graph Wolfram MathWorld adjacency K_n,n perfect matching"
+      ]
+    },
+    "rationale": "Directly inspected two historical primary full-text journal sources on SSP Runge--Kutta time stepping. Their general method analysis does not state the exact all-n crown-graph orbital positivity law or its sharp reversal relative to intact complete bipartite graphs. Relevant published-record queries for aliases (bipartite double cover, matching deletion, RK4 and Taylor-four graph diffusion), broader schemes, and own adjacent claims revealed the covered six-cycle n=3 and the intact-biclique comparator, but no result covering the infinite noncycle crown family n>=4 or the reversal. An incomplete specialized-literature risk remains and search absence is not treated as proof of novelty.",
+    "residual_risks": [
+      "A specialized theorem on RK4 positivity in association schemes or bipartite double covers, incompletely indexed or outside the inspected sources, might cover this result; current searches do not prove historical uniqueness.",
+      "The graph n=3 is the previously covered six-cycle, not an independently new case; the new infinite noncycle family starts at n=4.",
+      "The intact K_(n,n) positivity result was already a case of known complete-multipartite results and is used only as an independently derived comparator, not presented alone as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Proposition 3.1 shows optimal SSP CFL restriction c=1 for a class of m-stage m-th order linear methods, not entrywise classical RK4 on Cr_n.",
+          "Proposition 4.2 addresses fourth-order nonnegative Shu--Osher coefficients, not exact transition entries on a matching-deleted biclique."
+        ],
+        "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "Author-hosted primary full-text PDF, title/abstract and introduction, section 2 on SSP assumptions, section 3 on linear SSP and CFL bounds, section 4 on fourth-order schemes and explicit positivity-related coefficient obstruction; searched full document for graph-specific terms.",
+        "method": "Publisher-preserved primary PDF text and first-page visual inspection.",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Foundational 2001 method-level paper; also explicitly supplies primary MSC 65L06 and earliest verified public date 2001-02-02."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The actual 2003 article characterizes and constructs optimal linear SSP Runge--Kutta methods and gives finite-difference examples, not a complete crown-graph RK4 positivity boundary.",
+          "Term searches returned no matching crown or bipartite graph theorem in that article."
+        ],
+        "identifier_or_url": "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+        "material_read": "Article segment pp.16--42 of bundled PDF: title, abstract, introduction, linear SSP method constructions (section 2), PDE finite-difference applications and numerical examples, and concluding remarks. Full PDF text searched for crown, bipartite and method keywords.",
+        "method": "Author-hosted primary full-text article text and first-page visual inspection.",
+        "title": "Strong Stability Preserving Properties of Runge--Kutta Time Discretization Methods for Linear Constant Coefficient Operators",
+        "trigger": "Closest linear-autonomous SSP methodology paper from 2003."
+      },
+      {
+        "assessment": "DEFINITION_ONLY",
+        "evidence": [
+          "Edges join x_i and y_j exactly when i≠j.",
+          "No fourth-order timestep formula is supplied."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CrownGraph.html",
+        "material_read": "Definition identifying K_(n,n) minus a matching and vertex-indexed edges, plus cited graph background.",
+        "method": "Secondary mathematical reference page.",
+        "title": "Crown Graph",
+        "trigger": "Check graph aliases and definition, not originality of numerical method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "140124be-d819-4998-9cd5-b59604319081",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-step positivity/no-reentry law on dense diameter-three regular crown graphs establishes that classical RK4 gains no nonnegative-step room over forward Euler while its spectral-stability window is larger by factor rho/2. Deleting a full matching from K_(n,n) counterintuitively lowers the absolute safe RK4 step for every n>=4, although every vertex loses one edge; n=3 is the precise opposite case. Both the exact first-negative entries and sharp graph-size threshold support positivity-sensitive numerical design. This structural graph-operation comparison is not merely an arbitrary invariant or reparameterization.",
+    "status": "PASS"
+  }
+}
