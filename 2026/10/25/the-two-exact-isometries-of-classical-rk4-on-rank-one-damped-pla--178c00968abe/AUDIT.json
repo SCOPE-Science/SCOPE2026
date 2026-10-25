@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Cayley-Hamilton gives R4(A)=UI+VA and the positive offdiagonal Gram entry xyV², forcing V=0 for isometries. The +I cubic has one real root and one left conjugate pair; the -I shifted quartic factors into precisely one left conjugate pair and one right pair by a unique cubic root. Full root isolation, nondegeneracy, sign perturbation derivatives and strict continuous-time decay are analytically proved. Exact-rational matrix tests and Decimal root checks are reproducible in verify.py; tests are not substituted for uniqueness proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2201.06501v1 derives energy identities and strong-stability criteria rather than an explicit all-parameter isometry classification.",
+        "arxiv:1811.10680v1 studies sufficiently small-step strong stability, not the isolated finite nonzero RK4 ±I resonances."
+      ],
+      "reasoning": "General small-step contractivity and multistep norm bounds do not imply the exact two nonzero frequency/damping resonances or their first-order singular-value signatures. The full texts were inspected selectively in relevant theorem and example sections.",
+      "searches": [
+        "arxiv:2201.06501v1 energy laws Runge Kutta linear seminegative",
+        "arxiv:1811.10680v1 Runge Kutta strong stability semibounded",
+        "fourth order Runge Kutta semidissipative 2 by 2 rank one damping hypocoercivity contractivity stability interval"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.05689v1",
+      "arxiv:2201.06501v1",
+      "arxiv:1811.10680v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Achleitner–Arnold–Jüngel: method-order and hypocoercivity-index criteria, primarily local in step size.",
+        "Sun–Wei–Wu: algebraic energy laws for seminegative systems.",
+        "Sun–Shu: contractivity over multiple sufficiently small steps."
+      ],
+      "reasoning": "Prior general contractivity criteria neither preclude norm preservation at selected finite positive timesteps nor classify all such exact identities. The proposed result uses a separate global polynomial-root argument. No earlier statement directly implying both the exact classification and perturbation dichotomy was identified.",
+      "searches": [
+        "arxiv:2308.05689v1",
+        "arxiv:2201.06501v1",
+        "arxiv:1811.10680v1",
+        "RK4 exact anti-identity resonance gyroscopic rank-one damped oscillator conservation stable semidissipative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical RK4 level-polynomial roots R4(z)=+1 and R4(z)=-1 reduce the isometry question to complex conjugate pairs; arxiv:2308.05689v1 concerns hypocoercive strong stability but does not state a classification of these exact scalar matrix identities in the inspected sections."
+      ],
+      "reasoning": "The matrix isometry forces the coefficient of the nonscalar matrix term to vanish. Scalar polynomial level sets are the natural possible equivalent formulation, so an older complete classification of their strictly left conjugate root pairs would subsume the theorem; no such complete classification was located in the inspected material.",
+      "searches": [
+        "RK4 exact anti-identity resonance gyroscopic rank-one damped oscillator conservation stable semidissipative",
+        "Runge Kutta fourth order matrix stability polynomial equals negative identity on two-dimensional damped oscillator",
+        "arxiv:2308.05689v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches found nearby RK4 embedded-pair estimator resonances and standard scalar stability bounds, but no exact matrix-isometry parameter table with the paired cubic root equations."
+      ],
+      "reasoning": "A preexisting stability-polynomial level-set table could imply the root calculations. Absence of a matched table in searches does not establish independent priority; this remains a stated residual risk.",
+      "searches": [
+        "classical fourth order Runge Kutta RK4 norm contractivity damped planar oscillator rank one damping exact timestep threshold",
+        "sharp contractivity time step RK4 A=[[-a,-omega],[omega,0]] Euclidean energy",
+        "RK4 semidissipative two state stability disjoint time step windows"
+      ]
+    },
+    "rationale": "Published relevant 2018–2023 works treat semibounded RK strong stability, energy identities and small-step hypocoercivity, but the inspected relevant full text does not give the rigid classification of all positive planar RK4 isometries ±I or their opposite frequency perturbation signatures. The theorem is not claimed novel merely for observing scalar RK4 stability-polynomial level roots. A possible equivalent old polynomial/root-locus tabulation remains a concrete risk.",
+    "residual_risks": [
+      "An older exact stability-polynomial level-set root classification could subsume these cubic identities under a different name.",
+      "Relevant portions of the long energy-law literature were inspected selectively; unseen appendices or independent older RK4 analyses could contain equivalent results.",
+      "Independent literature and proof audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the full exact-isometry classification in inspected relevant material; small-step stability conclusions do not imply it.",
+        "evidence": [
+          "2023-08-10 v1, primary MSC65L06",
+          "Theorems concern local strong stability depending on order and hypocoercivity index."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+        "material_read": "Abstract, introduction, main strong-stability theorems and RK examples in full paper",
+        "method": "Open-access full-PDF inspection, including definitions, statements and examples",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+        "trigger": "Same fourth-order explicit RK family and planar hypocoercive noncoercive damping"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected sections: energy identities are more general but do not state full ±I resonance classification.",
+        "evidence": [
+          "General energy identities and RK strong stability criteria, not an all-frequency exact-isometry table."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.06501",
+        "material_read": "Abstract, introduction and targeted RK4-related results in complete open-access paper",
+        "method": "Full-document keyword and targeted section inspection",
+        "title": "On Energy Laws and Stability of Runge–Kutta Methods for Linear Seminegative Problems",
+        "trigger": "RK matrix energy identity for semidissipative linear systems"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected results: focuses on small-step RK4 multistep strong stability; exact positive-step orthogonal resonances and their first-order frequency signature are not established.",
+        "evidence": [
+          "Theorem 3.2 and subsequent RK4 discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+        "material_read": "Abstract and proof/theorem discussion of RK4 small-step and multistep stability in full paper",
+        "method": "Open-access PDF text and page inspection",
+        "title": "Stability of the fourth order Runge–Kutta method for a linear semi-bounded operator",
+        "trigger": "Classical RK4 and semibounded continuous operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "178c0096-8abe-409b-925c-851919af0f77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fully characterizes pathological exact energy conservation for the canonical simplest noncoercively damped coupled oscillator, distinguishes a spurious frozen trajectory from a spurious period-two orbit, and proves sharply different local frequency-perturbation effects. This structural distinction is useful in interpreting discrete energy-preservation and resonance tests; no assertion of general solver performance or high-dimensional extension is needed.",
+    "status": "PASS"
+  }
+}
