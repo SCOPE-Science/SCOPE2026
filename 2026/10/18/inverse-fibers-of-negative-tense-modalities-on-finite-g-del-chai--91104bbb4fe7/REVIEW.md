@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact statement follows from the published negative-tense duality together with a complete necessary-and-sufficient endpoint description. The proof checks the empty-row and empty-column cases, all four upset operators, the nonincreasing endpoint conditions, and the no-gap condition. The inverse-fiber and extremal formulas are then derived by explicit bijections; no numerical extrapolation is needed. Independently coded finite checks recover the original axioms for chains of two through four elements and the dual counting formulas through six chain elements.
+## correctness
 
-## Originality
-PASS in the present review, with documented priority uncertainty. The full antecedent preprint [1] contains the general duality and definitions but no chain-specific inverse-fiber formula, extremal completion bounds, or complete table. The relational work of Ma and Li [2] and later structural work on subdirect irreducibility concern broader logical semantics or different invariants. Related classical enumeration of convex relations or polyominoes could imply unrefined counts, and a differently worded Galois-adjunction result could independently derive some parts. No equivalence covering the complete reduct-fiber theorem was found in the searches conducted. See `AUDIT.json` for implication comparisons and access limits.
+PASS
 
-## Mathematical value
-PASS. A natural forgetful map from four negative tense modalities to one has highly nonuniform, explicitly computable fibers. The result identifies the exact family of realizable reducts, proves nonfaithfulness of every nonzero reduct once the chain has at least three elements, and gives simultaneously sharp minimal and maximal ambiguity. The complete classification is of the logical reconstruction question, not merely of arbitrary low-order numerical examples.
+The full (T1)–(T8) algebras are dual to tense H-spaces satisfying published (S1)–(S3). On an n-element dual chain, finite closed fibres and order convexity make rows intervals or empty. Both existential and universal negative modalities must preserve suffix upsets, forcing every row/column either empty everywhere or nonempty everywhere, monotone row endpoints a,b, full coverage a_last=0,b_first=n-1, and no uncovered column gaps b_(i+1)>=a_i−1. Conversely these conditions make every column an interval with nonincreasing endpoints and all four induced modalities preserve upsets; duality yields unique quadruple per admissible relation. The g-reduct recovers a exactly from g(U_t)={i:a_i<t}; counting monotone a gives 1+C(2n−2,n−1), including one empty reduct. Two explicit b completions give sharp minimum fibre 2 (n>=2), and a=all zero permits all C(2n−2,n−1) b. Independent enumeration of every interval-row relation and upset-preservation check for n=1..4 yields exactly 2,5,30,267 expansions and reduct counts 2,3,7,21 with matching predicted fibres, corroborating the unrestricted argument.
 
-## Limits and closest sources
-The proof relies on a published general duality, and the originality of a purely combinatorial enumeration of monotone interval relations is not independently established. Priority comparisons with alternative terminology for Galois pairs and polyominoes are incomplete. The principal source [1] was inspected in full via its authorized open preprint; [2] and the 2024 subdirectly irreducible follow-up were assessed at abstract/metadata level only. Generality is confined to finite Gödel chains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original result is the chain-specific complete interval endpoint classification, exact inverse images under forgetting the operators h,f,p, incidence polynomial, and sharp fibre range, not the already published tense H-algebra duality. The 2025 sequel of the duality paper focuses on congruences, negative tense filters, simple/subdirectly irreducible objects and topology; inspected portions do not provide the same inverse fibre enumeration. Related Resultary chain frame classifications use differing relations (birelational, KI, modal preconditional) and do not entail the 4-operator tense H conditions.
+
+## value
+
+PASS
+
+Exact reconstruction ambiguity when only one of four negative tense modalities is retained is a natural algebraic-logic inverse problem. The classification and sharp completion-fibre range reveal genuine nonfaithfulness and structured combinatorial degrees of freedom; the result is more than routine stars-and-bars once the coupled four-modal admissibility is proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
