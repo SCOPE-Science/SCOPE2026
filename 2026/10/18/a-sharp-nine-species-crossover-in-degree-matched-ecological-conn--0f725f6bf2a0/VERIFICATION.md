@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Execute `python3 check_robustness.py`. Only the Python standard library is required. The complete graph universe is finite: for every \(2\le n\le8\), each split \(a+b=n\) with both guilds nonempty is represented by all nondecreasing \(a\)-tuples of nonzero masks on \(b\) pollinators. This loses only redundant plant relabelings. Connectivity is checked directly; surviving subsets are exhausted, not sampled. For each graph, component sizes from disjoint-set union and graph flood fill agree for every surviving subset.
+# Independent mathematical audit
 
-The checked small-graph totals, ordered by total vertex counts \(n=2,\ldots,8\), are \((1,2,5,18,89,590,5160)\) connected incidence-row profiles, in \((1,2,4,10,27,80,241)\) degree-signature groups. Their distinct coefficient vectors number \((1,2,4,10,27,85,285)\). All 55 comparisons between unequal vectors sharing a signature had a componentwise sign.
+## correctness
 
-The two exhibited nine-vertex graphs are independently connected, degree-matched, and have coefficient vectors \((1,14,40,59,40,9)\) and \((1,14,41,58,38,9)\). Exact binomial expansion gives the difference polynomial \(2q-7q^2+8q^3-3q^4=q(1-q)^2(2-3q)\). A dynamic program checks matching equality for all 32 survival masks. These are finite exact certificates; no general claim for larger orders or stochastic models beyond the defined assumptions is verified. No independent audit has been performed.
+PASS
+
+The order-n<=8 theorem is finite and is genuinely established by full exhaustive enumeration modulo plant row permutations: every nonzero plant-neighborhood incidence row is drawn with repetition from 1..2^b-1 for all a+b<=8, connected initial graphs filtered, every survivor mask considered, component order computed, pairs compared within exact sorted plant/pollinator degree signatures. An independent implementation used BFS rather than the package DSU and reproduced connected profiles 1,2,5,18,89,590,5160; signature counts 1,2,4,10,27,80,241; distinct vectors 1,2,4,10,27,85,285; 55 unequal-vector comparisons, all componentwise ordered. Direct independent nine-witness enumeration gave A(G)=(1,14,40,59,40,9), A(H)=(1,14,41,58,38,9); their difference expands q(1-q)^2(2-3q). Distinct independent set-DP computed max matching equal for all 32 surviving pollinator sets. This is exhaustive only through eight vertices, not a theorem for arbitrary order.
+
+## originality
+
+PASS
+
+The related ecology papers measure fragmentation, removal robustness and mesoscopic dependence, but accessible inspected statements do not classify every degree-matched connected network through eight vertices or provide this exact nine-species reliability crossing with pointwise matching equality. The highly relevant Chabert-Liddell full text is inaccessible; retained as explicit residual risk rather than assumed absent.
+
+## value
+
+PASS
+
+The first order at which two degree-matched ecological networks have crossing largest-component robustness is a natural finite cutoff. Exhaustion rules out every smaller bipartite graph, and a pair with identical survivor-subset matching numbers isolates genuine connectivity architecture rather than degree or allocation capacity. This is a substantive finite structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

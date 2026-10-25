@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact reliability expansion expresses expected largest-component size as a positive-basis polynomial. Every connected binary incidence graph of at most eight vertices is captured by sorted nonzero adjacency rows. The included executable verifies the 5,160 connected profiles at order eight, compares every distinct coefficient vector in each matched-degree class, and independently computes every survivor-subset component size via both disjoint-set union and flood fill. All 55 nontrivial comparisons through order eight are coefficientwise ordered. Two nine-vertex graphs have exact difference \(q(1-q)^2(2-3q)\), with an interior sign crossing. An exhaustive set-based matching dynamic program also verifies equality of the matching size on every survivor subset. These are finite exhaustive calculations with fully specified boundaries, not numerical guesses or extrapolations.
+## correctness
 
-**Originality: PASS, with a specific bibliographic risk.** Solé and Montoya (2000) measure largest-cluster behavior after random removal of species, and their accessible full paper was read, but their study is a simulation of three large webs and gives no sharp matched-degree small-network classification. Dunne, Williams and Martinez (2002) analyze a different extinction-robustness response. Kitsak et al. (2017) treat an edge-percolation stability question. Chabert-Liddell et al. (2021) study sequential bipartite ecological robustness using a stochastic block model; accessible abstracts describe a different statistic. Their full paper/supplement remained inaccessible through attempted routes, so equivalent results in that material or other graph-reliability sources cannot be conclusively excluded. The research-index searches found no statement subsuming the present exact theorem. Matching is a separate invariant: the exhibited graphs retain identical matching size for *every* survivor subset.
+PASS
 
-**Mathematical value: PASS.** The largest surviving connected component is a standard structural measure of ecological fragmentation. A natural class—initially connected, degree-matched bipartite networks under independent guild-specific removal—is completely classified up to the sharp first possible size for a ranking reversal. The exact witness isolates connectivity differences not attributable to degrees or even the maximum number of simultaneously matchable plant–pollinator pairs. Neither a general theory of large networks nor ecological persistence dynamics follows from the result.
+The order-n<=8 theorem is finite and is genuinely established by full exhaustive enumeration modulo plant row permutations: every nonzero plant-neighborhood incidence row is drawn with repetition from 1..2^b-1 for all a+b<=8, connected initial graphs filtered, every survivor mask considered, component order computed, pairs compared within exact sorted plant/pollinator degree signatures. An independent implementation used BFS rather than the package DSU and reproduced connected profiles 1,2,5,18,89,590,5160; signature counts 1,2,4,10,27,80,241; distinct vectors 1,2,4,10,27,85,285; 55 unequal-vector comparisons, all componentwise ordered. Direct independent nine-witness enumeration gave A(G)=(1,14,40,59,40,9), A(H)=(1,14,41,58,38,9); their difference expands q(1-q)^2(2-3q). Distinct independent set-DP computed max matching equal for all 32 surviving pollinator sets. This is exhaustive only through eight vertices, not a theorem for arbitrary order.
 
-**Principal limitations.** The theorem concerns binary undirected interactions, homogeneous independent failures on one guild, and instantaneous connectivity without cascading extinctions; no uniqueness of the nine-vertex example is claimed. A related full paper and supplement were not accessible, leaving bibliographic uncertainty. Independent confirmation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The related ecology papers measure fragmentation, removal robustness and mesoscopic dependence, but accessible inspected statements do not classify every degree-matched connected network through eight vertices or provide this exact nine-species reliability crossing with pointwise matching equality. The highly relevant Chabert-Liddell full text is inaccessible; retained as explicit residual risk rather than assumed absent.
+
+## value
+
+PASS
+
+The first order at which two degree-matched ecological networks have crossing largest-component robustness is a natural finite cutoff. Exhaustion rules out every smaller bipartite graph, and a pair with identical survivor-subset matching numbers isolates genuine connectivity architecture rather than degree or allocation capacity. This is a substantive finite structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
