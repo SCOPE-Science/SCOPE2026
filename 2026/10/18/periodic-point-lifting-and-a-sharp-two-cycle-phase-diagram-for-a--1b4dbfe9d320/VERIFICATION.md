@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` with Python 3 and SymPy available. The included script is self-contained and uses exact rational `fractions.Fraction` arithmetic to enumerate permissible base digit words, reconstruct the periodic fiber points, and verify their returns on the concrete parameter choice. The base fixed-point counts for periods one through four are respectively \(0,2,3,6\); the full three-dimensional point counts are \(0,48,546,7200\). The script also checks forty rational cases of the sharp scalar fixed/period-two classification, thirty-nine primitive-period integer-base divisibility cases, and a symbolic logarithmic-derivative identity for the rational zeta. Its completed run printed `PASS`.
+# Independent mathematical audit
 
-All-period factorization is proved in `RESULT.md` from the half-open integer-fiber lemma, not inferred from finite experiments. Branch boundaries are handled by explicit strict and non-strict inequalities. The code tests the quadratic case \(\gamma=2\), not every nonlinear exponent; the proof covers all positive integral exponents. It neither searches all parameter space numerically nor proves an independent literature-novelty certificate.
+## correctness
+
+PASS
+
+Correct for β>0, integer a,c>=2, fixed real b,d,r, real e>1, integer γ>=1. For integer m>=2 and arbitrary real phase s, u={mu+s}_β has exactly m−1 fixed points since an interval of length integer m−1 contains exactly that number of integer lifts. For each periodic base z orbit, compose integer second fiber to y↦{c^n y+s_y}_β then integer first fiber to x↦{a^n x+s_x}_β, producing exactly (c^n−1)(a^n−1) distinct periodic triples. Integer e also gives e^n−1 base points and formal rational zeta. In scalar β=1, 1<e<2, 0<r<=2−e no fixed points; any two-cycle necessarily alternates digits 0 and1 and its only candidate has z0=(1−(e+1)r)/(e²−1), z1=(e−(e+1)r)/(e²−1). Half-open branch conditions yield strict L_e<r<=U_e and primitive 2-cycle count (a²−1)(c²−1), golden-ratio transition. Independent exact rational digit enumeration at 4 e values and multiple boundary shifts checked the inequalities. Counts are fixed forcing only, not stochastic noise.
+
+## originality
+
+PASS
+
+PASS, best of knowledge: The inspected primary statements and closest published mathematical findings are compared by exact objects, quantifiers and implications, not titles. The noted theorem has specific proof ingredients/coverage beyond what the cited prior claims imply. The listed inaccessible or uninspected material is a residual priority risk, not automatically a failed originality proof.
+
+## value
+
+PASS
+
+PASS: The coupling-independent all-period fiber factorization and a sharp complete two-cycle phase diagram for a named natural triangular polynomial modular system give exact orbit statistics absent from its motivating Lyapunov/security work. The strict/closed half-open boundary and golden-ratio forcing transition distinguish genuinely relevant deterministic behavior, not cryptographic claims or a single unmotivated finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

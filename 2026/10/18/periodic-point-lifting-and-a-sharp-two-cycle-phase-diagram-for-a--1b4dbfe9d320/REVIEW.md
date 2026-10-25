@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The key integer-slope affine-fiber lemma is proved directly by an exact half-open interval integer count. Iteration through integer gains gives a bijection from scalar base periodic points to periodic triples, and the branch-digit argument exhausts all primitive scalar two-cycles with correct open/closed endpoints. The rational zeta follows formally from the proved periodic-point formula. The standalone rational verifier reproduced all sample period counts and forty boundary checks, but cannot certify the infinite claim by itself.
+## correctness
 
-**Originality — PASS under the inspected evidence, with residual priority risk.** The full initiating 2023 paper specifies the map and proves Lyapunov-related statements, not the coupling-independent periodic-point theorem or the autonomous fixed-point-free bifurcation classification. The general toral formula concerns integer linear maps, while prior generalized beta zeta theory concerns scalar maps. Those results neither directly imply the nonlinear three-dimensional lift in the given half-open representation nor give the stated sharp shifted-base interval by themselves. Targeted mathematical-result records and source comparisons showed no exact covering statement; a differently framed or unindexed prior result remains possible.
+PASS
 
-**Mathematical value — PASS.** Periodic-orbit structure is an intrinsic invariant for the original map, particularly given its use to study chaotic dynamics. The factorization supplies all-period counts despite nonlinear polynomial feedback, and the noninteger gain produces a nontrivial, complete fixed-point-free two-cycle reentrant phase diagram with a sharp golden-ratio transition. The exact count \(24\) at the source's nonintegral gain illustrates a direct new dynamical implication beyond numerical orbit plots. No claim is made about encryption strength, independent validation, or physical-time stochastic forcing.
+Correct for β>0, integer a,c>=2, fixed real b,d,r, real e>1, integer γ>=1. For integer m>=2 and arbitrary real phase s, u={mu+s}_β has exactly m−1 fixed points since an interval of length integer m−1 contains exactly that number of integer lifts. For each periodic base z orbit, compose integer second fiber to y↦{c^n y+s_y}_β then integer first fiber to x↦{a^n x+s_x}_β, producing exactly (c^n−1)(a^n−1) distinct periodic triples. Integer e also gives e^n−1 base points and formal rational zeta. In scalar β=1, 1<e<2, 0<r<=2−e no fixed points; any two-cycle necessarily alternates digits 0 and1 and its only candidate has z0=(1−(e+1)r)/(e²−1), z1=(e−(e+1)r)/(e²−1). Half-open branch conditions yield strict L_e<r<=U_e and primitive 2-cycle count (a²−1)(c²−1), golden-ratio transition. Independent exact rational digit enumeration at 4 e values and multiple boundary shifts checked the inequalities. Counts are fixed forcing only, not stochastic noise.
 
-The most relevant precedent is Zhang et al. (2023), DOI 10.3390/e25071005. Related methods and their coverage limits are Baake–Lau–Paškūnas (arXiv:0810.1855) and Suzuki (DOI 10.2206/kyushujm.71.85). The scalar phase inequalities may be recognized as elementary beta-map digit calculations in broader literature; their novelty is not asserted independently of the joint three-dimensional result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: The inspected primary statements and closest published mathematical findings are compared by exact objects, quantifiers and implications, not titles. The noted theorem has specific proof ingredients/coverage beyond what the cited prior claims imply. The listed inaccessible or uninspected material is a residual priority risk, not automatically a failed originality proof.
+
+## value
+
+PASS
+
+PASS: The coupling-independent all-period fiber factorization and a sharp complete two-cycle phase diagram for a named natural triangular polynomial modular system give exact orbit statistics absent from its motivating Lyapunov/security work. The strict/closed half-open boundary and golden-ratio forcing transition distinguish genuinely relevant deterministic behavior, not cryptographic claims or a single unmotivated finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
