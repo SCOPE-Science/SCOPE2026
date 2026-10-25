@@ -1,19 +1,21 @@
-# Review of minimum monitors on four-edge theta networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, terminal and arm coordinates, geodesic uniqueness conditions, and two-selected-vertex MEG definition are explicit. The arm-intersection lemma proves that one internal selected vertex on every arm is necessary. The coordinate-sum comparison shows why singleton depths one and three cannot suffice without a terminal. This excludes all size-\(r\) sets. At size \(r+1\), a complete split by selected-terminal count yields exactly the three displayed families; explicit cross-arm paths prove their feasibility. Token-jump adjacency follows by exact symmetric differences. Counting the punctured-hypercube edges and exhibiting extremal reconfiguration paths prove the graph formulas and diameter. The independent finite checker tests the edge-deletion distance condition itself; finite cases are not substituted for the proof.
+PASS
 
-## Originality — PASS subject to stated bibliographic risk
+Without a selected internal vertex on an arm no chosen pair can force any of its edges, because an entire terminal-to-terminal arm has alternate equal geodesics. Thus every MEG set has ≥r selected interiors. Exactly r forces all centers c_i, which monitor no edge, yielding lower bound r+1. With r+1, classify by whether terminal u, v or neither is selected: respectively U(B), V(A) with nonempty B,A, and one doubled arm W_i choosing a_i,b_i. Strict comparison of cross-arm routes p+q versus 8−p−q checks all witness pairs and completeness. Exactly 2(2^r−1)+r sets follow. One-token changes form two punctured cubes joined by r two-edge links; direct Hamming metric gives edge count r2^r and diameter 2r. Independent deletion-distance masks exhaust all r and r+1 candidate sets and reconfiguration for r=3,4,5; observed (optima,edges,diameter)=(17,24,6),(34,64,8),(67,160,10).
 
-The 2022 definition and basic-class classifications [1], 2022 hardness/product results [2], 2024 graph-operations and subdivision bounds [3], 2025 structured-class classifications [4], and 2025 cyclomatic-number bounds [5] do not state the complete four-edge multi-theta optimum classification or token-jump reconfiguration graph. In particular [3, Theorem 7.2] is a general inequality for at least two subdivisions of each edge; the analyzed family subdivides \(K_{2,r}\) only once. Results about edge-general-position and one-source distance-edge monitoring are not equivalent: they use different feasibility quantifiers. Relevant full primary texts, topical searches and existing accessible mathematical-result records were compared by implication. No stronger covering statement was identified. Unindexed equivalent work or a result within an inaccessible appendix remains a priority risk; absence of a search hit does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A parallel-path network is a natural model of multiple equally short redundant connections, where shortest-path ties make failed-edge detection structurally delicate. The classification determines all optimal probe locations, not just the scalar minimum; their number grows exponentially with the number of arms. The exact token-jump network quantifies the feasibility of single-probe replacements, establishing connectedness, complete degrees and a sharp diameter. These are distinct, useful configuration-space facts not determined by general MEG bounds.
+This is a precise optimizer and reconfiguration classification in the original two-endpoint MEG parameter, not a general scalar bound or an adjacent graph covering notion.
 
-## Boundaries
+## value
 
-Only \(r\ge3\) with equal four-edge paths is proved. Unequal arms, token sliding and independent peer validation are outside the claim. A symbolic argument covers all integer parameters, while exhaustive checking covers only \(3\le r\le7\). References [1]–[5] are listed in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact optimum-set structure and connected reconfiguration network for a natural once-subdivided complete bipartite family; characterizing all optima and diameter supplies structural reconfiguration information absent from a mere minimum cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof derives the minimum size and exhausts its equality cases for every integer \(r\ge3\). In the independent checker, the graph has \(3r+2\) vertices and \(4r\) edges; for each edge a breadth-first-search distance matrix is recomputed after deleting that edge. A selected pair monitors the edge if and only if the corresponding distance strictly increases. Every size-\(r\) subset and every size-\(r+1\) subset is tested for \(r=3,4,5,6,7\). The complete successful collections are compared to the stated families, not merely their counts.
+# Independent mathematical audit
 
-The code then constructs reconfiguration adjacency by the condition that two minimum sets have symmetric difference of size two. It verifies the exact two-punctured-cubes-plus-links description, expected degrees, connectedness, total number of edges, and graph diameter. There are 873813 candidate sensor sets across all five graph sizes, and all tests pass. The companion `verification_output.txt` records the exact per-size counts and success marker; `verify.py` recreates that output with the Python standard library.
+## correctness
 
-Finite enumeration alone cannot establish the statements for unbounded \(r\); those conclusions depend on the symbolic proof in `RESULT.md`. The checker and the proof use different representations of the monitoring condition: edge-deleted distance matrices versus geodesic lengths. Independent external validation has not been performed.
+PASS
+
+Without a selected internal vertex on an arm no chosen pair can force any of its edges, because an entire terminal-to-terminal arm has alternate equal geodesics. Thus every MEG set has ≥r selected interiors. Exactly r forces all centers c_i, which monitor no edge, yielding lower bound r+1. With r+1, classify by whether terminal u, v or neither is selected: respectively U(B), V(A) with nonempty B,A, and one doubled arm W_i choosing a_i,b_i. Strict comparison of cross-arm routes p+q versus 8−p−q checks all witness pairs and completeness. Exactly 2(2^r−1)+r sets follow. One-token changes form two punctured cubes joined by r two-edge links; direct Hamming metric gives edge count r2^r and diameter 2r. Independent deletion-distance masks exhaust all r and r+1 candidate sets and reconfiguration for r=3,4,5; observed (optima,edges,diameter)=(17,24,6),(34,64,8),(67,160,10).
+
+## originality
+
+PASS
+
+This is a precise optimizer and reconfiguration classification in the original two-endpoint MEG parameter, not a general scalar bound or an adjacent graph covering notion.
+
+## value
+
+PASS
+
+A complete exact optimum-set structure and connected reconfiguration network for a natural once-subdivided complete bipartite family; characterizing all optima and diameter supplies structural reconfiguration information absent from a mere minimum cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
