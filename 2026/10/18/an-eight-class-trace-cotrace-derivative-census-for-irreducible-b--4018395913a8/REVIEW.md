@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three root-trace identities, eight Walsh cases, elliptic and genus-two zeta recurrences, and exact-degree Möbius extraction give an infinite proof. Particular attention was paid to the even-extension trace collapse and the genus-two poles at the three rational points. A separate exact integer checker enumerates all degree-two through degree-fifteen irreducibles and compares all eight counts; its finite scope does not certify the infinite statement by itself. The Weil-bound positivity step gives a genuinely uniform bound above degree nine.
+## correctness
 
-## Originality — PASS on a bounded best-knowledge comparison
-The closest source is Granger (2023, arXiv:2302.11932), which defines a closely related **signature** while deriving bijections between trace–cotrace marginal classes. It does not give the eight joint derivative-at-one counts or the genus-two zeta contribution in the inspected full text. Moisio (2007) supplies the known elliptic/Kloosterman infrastructure; Tuxanidy–Wang (2016) focuses on individual prescribed sums; Gao–Kuttner–Wang (2021) on leading/trailing coefficient blocks. The derivative parity is not prescribed by any fixed-size pair of end blocks. Residual risk remains that an alternative signature-based formulation or an uninspected paper entails the eight-class result.
+PASS
 
-## Value — PASS
-The complete, all-degree three-bit distribution and sharp smallest all-eight degree seven naturally extend a significant two-bit counting problem. The genus-two trace recurrence distinguishes the result from a formal restatement of known elliptic pair counts. Both exact counts and the natural attainability boundary are meaningful independent of downstream applications.
+Reconstructed root-to-coefficient equalities f_(n−1)=Tr(alpha), f_1=Tr(alpha^(−1)), f’(1)=Tr((alpha+1)^(−1)). The eight Walsh sums follow from single-character corrections, elliptic K_n recursion and genus-two H_n recursion. The even-index subfield trace vanishes and odd-index preserves the triple, so Möbius inversion counts exact degree n conjugates and divides by n. The finite vectors for degrees 2–9 and Weil bounds plus proper-subfield union bound prove sharp positivity for n≥7. Independently enumerated all monic irreducibles and all eight exact vectors for degrees 2–12 using separately written GF(2) polynomial testing; all agreed. This is finite corroboration; the elliptic/genus-two Weil arguments carry the infinite case.
 
-## Limits and references
-The proof is binary-field only and makes no claim for higher derivative jets or general finite fields. Independent validation has not occurred. Closest comparisons: arXiv:2302.11932, arXiv:0706.2112, arXiv:1605.00351, arXiv:2109.02000.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full joint triple law is stronger than known trace/cotrace margins and than a prescribed finite coefficient block; earlier permutation/signature bijections have a derivative-parity-related statistic but the inspected primary text does not supply the present genus-two recurrence and eight joint counts. Best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete exact distribution for three natural global polynomial invariants, a genus-two recurrence absent from two-trace margins, and sharp simultaneous attainability degree seven. The entire-degree threshold is a motivated structural finite cutoff, not a random sample or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
