@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T16:00:51.348698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned Git RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py and verification_output.txt; exact tree 791cb95d6cb4ba4736873718485f916eba4450e9",
+        "Independent symbolic check independent_checks.py (EXACT_SYMBOLIC_CHECKS_OK)",
+        "https://arxiv.org/pdf/1807.08956 §2 moment equations; https://arxiv.org/pdf/1807.00754 p.7 moment functional"
+      ],
+      "rationale": "For each compactly supported invariant probability µ, ∫x dµ=∫F_1 dµ and ∫y dµ=∫F_2 dµ are valid. Substitution of the displayed quadratic coordinate map gives E[x²−y²]=(1−a)u−bv and 2E[xy]=−cu+(1−d)v. By definitions p=E[x²]−u², r=E[y²]−v², q=E[xy]−uv, the claimed A=p−r and B=2q follow exactly. A real symmetric 2×2 covariance has spectral gap sqrt((p−r)²+4q²), eigenvalues (T±D)/2, and PSD forces T≥D. Equality iff detΣ=0; a zero-variance linear functional forces µ onto an affine line, including a point atom. u=v=0 forces isotropic Σ; complex pseudocovariance is A+iB. The checker in the package merely verifies some rational substitutions; independently recreated general symbolic proof and exact specialization. A full symbolic test and a pure-squaring invariant three-point probability example corroborate the boundaries. No existence, uniqueness or nontrivial sharpness at arbitrary prescribed barycenter follows.",
+      "residual_risks": [
+        "The adjective “sharp” should only mean the universal 2×2 PSD algebraic bound; realization of equality for a given nonzero prescribed mean was not proved.",
+        "The theorem is a necessary constraint, not existence or uniqueness of a nontrivial physical stationary law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magron–Forets–Henrion (2018) define for discrete-time polynomial f the invariant-moment equations ℓ_y(f(x)^α)−ℓ_y(x^α)=0 for all α (p.7).",
+          "Korda–Henrion–Mezić (2020) derive the same all-multiindex moment equations and their linear operator A(y)=0 (p.4).",
+          "These sources cover arbitrary compactly supported invariant measures of polynomial maps, a strictly broader model class than the specific two-dimensional quadratic map."
+        ],
+        "reasoning": "The audited law uses only the α=e1,e2 equations of an already established exact all-monomial stationarity system. No additional dynamical constraint beyond standard positive semidefiniteness or new exceptional-case theorem is proved. Broader prior coverage dominates the mathematical content even without mentioning Tinkerbell by name.",
+        "searches": [
+          "arXiv:1807.08956 §2 general polynomial maps and invariant measures",
+          "arXiv:1807.00754 §2.2 and moment-functionals at p.7",
+          "web: invariant probability measures polynomial dynamical systems stationary moment linear constraints test monomials discrete time Korda Henrion",
+          "Resultary: quadratic complex dynamical map stationary invariant measure E[z^2] covariance pseudocovariance determined by mean"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1807.08956 §2 pp.3–4 eqs.3–6",
+        "https://arxiv.org/pdf/1807.00754 §2 pp.4–7",
+        "https://artefacts-discovery.researcher.life/full_text_files/DA-2/26/2683e10630573aaaa435452e6efd1792/full_text/467tVCAYAataa0UjGwDMknqN8t_Wzu6B3US%2BcTdySL4=.pdf pp.10–12,21–22",
+        "https://www.researchgate.net/publication/220403019_Tinkerbell_Is_Chaotic §5.2",
+        "https://pubmed.ncbi.nlm.nih.gov/30501229/ abstract only",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-barycenter-determined-covariance-anisotropy-in-the-tinkerbell-ma--53c96a94ab48",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-radial-distribution-law-and-sharp-mean-variance-disk-f--8dbfa15fc1f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general moment equation α=e1 gives u=E[x²−y²]+au+bv; α=e2 gives v=2E[xy]+cu+dv. These imply the audited A,B identities by subtracting u²−v² and 2uv.",
+          "The covariance formula D²=(p−r)²+4q² and 4detΣ=T²−D² holds for every symmetric 2×2 matrix, while T≥D and detΣ=0 are the elementary PSD conditions.",
+          "Goldsztejn–Hayes–Collins and Bremer–Kaplan establish the exact map and its contexts, but their chaos and inference results do not themselves state this special-case covariance formula."
+        ],
+        "reasoning": "Unlike a mere similarity of titles, the substitution gives a complete, short implication from older general mathematical statements to every part of the proposed theorem. The centered and rank-one consequences are direct substitutions and linear algebra, not a new lemma requiring separate scientific work.",
+        "searches": [
+          "arXiv:1807.08956 equation (5) ∫T^α=∫x^α",
+          "arXiv:1807.00754 discrete-time invariant measures moment constraint for all α",
+          "doi:10.1016/S0167-2789(01)00323-2 full author manuscript and Tinkerbell appendix",
+          "doi:10.1137/100819011 §§1,4,5.2 and Tinkerbell map (5.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korda–Henrion–Mezić §2 eqs. (3)–(6) explicitly assert ∫ T(x)^α dμ = ∫ x^α dμ for every multi-index α of every polynomial map.",
+          "For α=(1,0),(0,1) and Tinkerbell F, the two instances are exactly E[x²−y²]=(1−a)u−bv and 2E[xy]=−cu+(1−d)v.",
+          "The complex pseudocovariance and covariance eigenvalue-gap expressions are algebraic rewritings of those same two moments and the elementary real 2×2 covariance formula."
+        ],
+        "reasoning": "The real-coordinate, complex E[(Z−EZ)^2], and covariance-spectral formulations are mathematically equivalent; the apparent multiple conclusions are not independent theorems. Earlier general monomial stationarity, specialized to degree-one coordinate tests, covers the generating identities completely.",
+        "searches": [
+          "Resultary: Tinkerbell map invariant probability measure barycenter determines centered covariance anisotropy trace eigenvalue gap second harmonic moment",
+          "Resultary: quadratic complex dynamical map stationary invariant measure E[z^2] covariance pseudocovariance determined by mean",
+          "web: Tinkerbell map invariant measure covariance moment equations stationary barycenter pseudocovariance",
+          "web: polynomial discrete-time map invariant measure moments equations ∫(p∘f - p)dμ 2018 2019",
+          "arXiv:1807.08956 §2, equations (3)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary exact hit was this same submitted Tinkerbell claim, not independently published precedent.",
+          "Other Resultary stationary covariance laws concern Bogdanov, Ikeda, Hénon and different maps; no identical finite exact table is needed to decide this mathematical implication.",
+          "The general polynomial moment equations are exact formulas for every monomial rather than a lookup table, and include the two needed entries."
+        ],
+        "reasoning": "Absence of the same wording from a search index is not evidence of novelty. No table lookup is essential: exact known all-monomial equations dominate these two specific instances.",
+        "searches": [
+          "Resultary: Tinkerbell map centered invariant measure isotropic covariance stationary moments",
+          "Resultary: Tinkerbell map invariant probability measure barycenter determines centered covariance anisotropy trace eigenvalue gap second harmonic moment",
+          "web: Tinkerbell map moments covariance mean ergodic invariant probability complex",
+          "web: Tinkerbell map Markov chain Monte Carlo estimation nonlinear dynamics Kaplan Bremer full text pdf"
+        ]
+      },
+      "rationale": "The mathematical content is exactly a two-coordinate specialization of established invariant-moment equations for all compactly supported invariant measures of arbitrary polynomial maps. Korda–Henrion–Mezić (arXiv:1807.08956, §2 eqs.3–6) and Magron–Forets–Henrion (arXiv:1807.00754, p.7) explicitly give ∫F^αdµ=∫x^αdµ for every multiindex α. Choosing α=(1,0),(0,1) on the already published Tinkerbell equations yields both raw second-moment identities verbatim; centering and applying the textbook 2×2 PSD eigenvalue identity yields every other claimed conclusion. This is positive stronger prior implication, not an absence-of-search inference. Exact Tinkerbell-specific typography is not required for coverage. Separate same-object chaos and time-series papers do not independently state these relations, but that does not restore novelty.",
+      "residual_risks": [
+        "A differently named Tinkerbell-specific stationary covariance formula may be in unindexed literature; this is not material to the failure because exact prior general equations imply this result.",
+        "The q-deformed 2018 work was inspected only at the abstract; no full-document noncoverage inference was made.",
+        "Relevant earlier author book descriptions of the map were not fully read; they cannot defeat the directly demonstrated all-polynomial implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: equations (3)–(6) prove exact general moment constraints; the entire audited raw-moment claim and its covariance repackaging follow directly.",
+          "evidence": "§2, p.4, equations (3)–(6): ∫f∘T dμ=∫f dμ for all continuous f and ∫T^αdμ=∫x^αdμ for every monomial α. URL https://arxiv.org/pdf/1807.08956",
+          "identifier_or_url": "arXiv:1807.08956",
+          "material_read": "Full preprint accessible; read abstract, introduction and §2 pages 3–4 with equations (1)–(7), especially all-multiindex stationarity equations (3)–(6).",
+          "method": "Opened the full PDF, inspected relevant page image, parsed theorem/equation text and specialized α=(1,0),(0,1) to actual map.",
+          "title": "Convex computation of extremal invariant measures of nonlinear dynamical systems and Markov processes",
+          "trigger": "Published broader theorem for compact invariant measures of arbitrary discrete-time polynomial maps; potential decisive implication."
+        },
+        {
+          "assessment": "COVERING for basic moment identities, providing a separate primary general source.",
+          "evidence": "p.7: ℓ_y(f(x)^α)−ℓ_y(x^α)=0 for all α for discrete-time invariant measures. URL https://arxiv.org/pdf/1807.00754",
+          "identifier_or_url": "arXiv:1807.00754",
+          "material_read": "Full PDF accessible; inspected §2 discrete-time polynomial setup and §2.2 invariant measures through p.7 where general discrete-time moment equations are printed.",
+          "method": "Opened full PDF and page images at pp.4 and 7; compared moment-functional equations exactly.",
+          "title": "Semidefinite Approximations of Invariant Measures for Polynomial Systems",
+          "trigger": "Independent earlier published general moment constraints for polynomial dynamical maps."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_STATING this covariance theorem: inference of hidden states and parameters rather than stationary invariant measures. Does not undo independent general-coverage result.",
+          "evidence": "pp.10–12 give exact F and study de-noising, with no static invariant covariance claim; appendix pp.21–22 reproduces dynamical equations. https://artefacts-discovery.researcher.life/full_text_files/DA-2/26/2683e10630573aaaa435452e6efd1792/full_text/467tVCAYAataa0UjGwDMknqN8t_Wzu6B3US%2BcTdySL4=.pdf",
+          "identifier_or_url": "doi:10.1016/S0167-2789(01)00323-2",
+          "material_read": "Full 27-page author preprint available; read abstract, §§ on indirect measurement pp.10–12, discussion and appendix pp.21–22 with the complete Tinkerbell BUGS model.",
+          "method": "Full source opened as PDF and page 11 visually inspected; searched for covariance and moment; compared the Tinkerbell equations and stated objectives.",
+          "title": "Markov Chain Monte Carlo Estimation of Nonlinear Dynamics from Time Series",
+          "trigger": "Original same-map paper using the exact Tinkerbell quadratic equations."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_STATING: proves chaotic dynamics via containment shadowing; no identified covariance moment identity. General polynomial moment theory separately covers audited result.",
+          "evidence": "§5.2 equation (5.2) gives the exact map and a=0.9,b=−0.6013,c=2,d=0.5; subsequent paragraph invokes Theorem 4.2 to prove chaos. https://www.researchgate.net/publication/220403019_Tinkerbell_Is_Chaotic",
+          "identifier_or_url": "doi:10.1137/100819011",
+          "material_read": "Author-uploaded full article text (SIAM J. Appl. Dyn. Syst. 2011); inspected abstract, main theorem material §4 and dedicated Tinkerbell §5.2 pp.1499–1500.",
+          "method": "Read actual full-text HTML and searched for covariance and invariant-measure statements; checked system (5.2) and parameters.",
+          "title": "Tinkerbell Is Chaotic",
+          "trigger": "Highly relevant rigorous same-object chaos theorem and classical parameter values."
+        },
+        {
+          "assessment": "The abstract focuses on q-dependent bifurcations, multistability and encryption; no whole-document NOT_COVERING claim is made.",
+          "evidence": "https://pubmed.ncbi.nlm.nih.gov/30501229/",
+          "identifier_or_url": "doi:10.1063/1.5048798",
+          "material_read": "Public abstract and bibliographic information only, not the article full text.",
+          "method": "Compared scope and stated results in PubMed abstract.",
+          "title": "The q-deformed Tinkerbell map",
+          "trigger": "Same-family model with potential statistical invariant claims, but explicitly deformed."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md proof and scope; https://arxiv.org/pdf/1807.08956 all-monomial invariant moments",
+        "https://arxiv.org/pdf/1807.00754 all-monomial invariant moments",
+        "https://www.researchgate.net/publication/220403019_Tinkerbell_Is_Chaotic dynamical relevance and chaotic context",
+        "Independent symbolic check exact checks output"
+      ],
+      "rationale": "For this well-known quadratic map, the submission only writes the two degree-one cases of standard invariant-measure moment balance, subtracts mean squares, and applies universally known 2×2 covariance spectral/PSD identities. The centered isotropy is substitution u=v=0, and the “sharp” trace inequality is not shown to be an attainable nontrivial constraint for any prescribed barycenter; equality at the always-present origin point atom is trivial. No new invariant-state existence, exclusion, support restriction beyond rank-one PSD, sharp parameter region, difficult boundary, extremal classification, or empirically nontrivial dynamical prediction is established. A covariance consistency identity is potentially useful for teaching and checking simulations, but this routine algebraic repackaging without a substantive new mathematical constraint does not pass the research-value standard.",
+      "residual_risks": [
+        "The identity may be useful as an elementary diagnostic of empirical trajectories; practical utility alone does not make this a substantive new research theorem.",
+        "This rejection does not imply such stationary-covariance identities lack value when accompanied by new exact obstructions, realizability or nontrivial consequences."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for lack of original/value-producing structure, not a proof error or literature access failure.",
+    "All eight assigned text files inspected at frozen commit; no GitHub writes, no dispatcher closeout.",
+    "Public-facing AUDIT.json and METADATA.json include operational provenance identifiers; an unchanged failed-record relocation would disclose private metadata and is withheld pending complete sanitization.",
+    "The 2018 q-deformed paper was only assessed at abstract level; no assertion about its entire text."
+  ],
+  "schema_version": 1
+}
