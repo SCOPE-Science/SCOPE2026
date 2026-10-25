@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Compile `verify.cpp` using a C++17 compiler with `g++ -O3 -std=c++17 -Wall -Wextra -Werror verify.cpp -o verify`, then run `./verify`. The test directly builds all two-subset Kneser distances and independently applies the four-obstruction graph-component test.
+## correctness
 
-Every ground graph on \(5\), \(6\), and \(7\) labeled vertices was checked: \(1024\), \(32768\), and \(2097152\) selected-edge masks. The number of resolving cases was \(843\), \(31232\), and \(2056474\), respectively. Another \(150000\) independently seeded samples on \(8\), \(9\), and \(10\) ground vertices were checked at selected-edge probabilities of \(0.05\), \(0.15\), \(0.25\), \(0.50\), and \(0.75\). No disagreements occurred. Detailed output is recorded in `verification_output.txt`.
+PASS
 
-The C++ verifier is finite evidence for the deterministic equivalence, not an infinite proof or a numerical test of the Poisson theorem. The infinite deterministic and asymptotic claims rely on the explicit arguments in `RESULT.md`. Full-text bibliographic checking is not exhaustive, and independent scientific validation was not performed.
+For n>=5 the Kneser distance is 0 for equal probes, 1 for disjoint ground edges, 2 otherwise. For intersecting targets {a,b},{a,c}, the distinguishing probes are exactly ground edges crossing {b,c}, giving two isolates or a K2 component as the only failures. For disjoint targets the distinguishing set consists of the targets and edges leaving their four-point union. If this union is edge-closed, the target partition must be a balanced K2,2 bipartition; after excluding K2 and two isolates, the remaining connected obstruction is P4 or C4 or P3 plus one isolate. The equivalence holds for every n>=5 (including n=5). For G(n,p) at p=(log n+c)/n, factorial moments of isolates yield Poisson(exp(-c)); Cayley spanning tree bounds eliminate order-2/3/4 components, so P(resolve)->exp(-exp(-c))(1+exp(-c)). Monotonicity justifies drifting windows. An independently written direct metric-distance/subset enumerator agreed with component recognition for all 1024 n=5 and 32768 n=6 ground graphs (resolving counts 843 and 31232). The finite check is not the all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A complete linear-time recognition criterion for every resolving probe set of KG(n,2) is a structural strengthening of mere metric dimension. It identifies exact smallest obstruction types and changes the random critical-window limit from the connectivity zero-isolate probability to a one-isolate Poisson tail. Both classifications and the sharp threshold are mathematically motivated and independently usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
