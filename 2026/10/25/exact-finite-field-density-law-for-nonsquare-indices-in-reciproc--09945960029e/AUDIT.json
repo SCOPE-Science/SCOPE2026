@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact reduced numerator identity Q_{j+1}=(u_{j-1}+v_{j-1})^2/gcd(h,u_j). Every nontrivial gcd destroys integer-square status by an odd or negative prime valuation. For each p^alpha||h, only x0 of exact p-adic valuation alpha can give a post-initial zero, and one residue modulo p^(alpha+1) corresponds to each unit residue. Negative and positive valuation alternatives both escape and never hit. First-zero orbits are of depth at most p-1. CRT and idempotent monomial reduction count the union of local singleton obstruction sets, proving periodicity and rational density. Standard-library exhaustive verifier checked h=1,2,4,5,10,13,17,25,29,65,145 and the h=145 pattern counts; the unbounded statement rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem B of 2610.00765v1 has a universal upper bound omega_1(h), not pattern probabilities.",
+        "Jones–Manes 2014 studies Galois images on preimage trees, not densities of initial seeds whose rational-square identity fails.",
+        "Own accessible claim dbb6afaf-e2e9-495f-8dba-3929ae25a084 is a restricted 0/1-bad-index case for special prime factors."
+      ],
+      "reasoning": "All these sources provide weaker bounds, partial density regimes, or different invariants. Their stated conclusions do not imply the unrestricted index-set law with multiple simultaneous obstructions.",
+      "searches": [
+        "For x_{n+1}=h^2/(x_0+...+x_n), exact rational density for each finite set of non-square indices of 2a_n/h+b_n, obtained from finite-field backward basin of zero and Chinese remainder theorem",
+        "Perfect squares in reciprocal-sum sequences and primes inert in quadratic fields Theorem B Question 7 distribution of failure counts for fixed h",
+        "arXiv:1101.4339 Jones Manes arboreal rational quadratic maps",
+        "arXiv:2610.00765v1 Theorems A–D"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00765v1 (full HTML read)",
+      "arXiv:1101.4339 (abstract checked)",
+      "Matijasevick 2026 cited companion preprint (bibliographic reference only)",
+      "published-finding corpus live semantic results from six queries, actual closest IDs in checks",
+      "Earlier restricted-case theorem with opaque claim ID dbb6afaf-e2e9-495f-8dba-3929ae25a084 (claim comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recovered earlier claim restricts h to primes 2,3 mod4,13 or17 mod20 and asserts only Q2 may fail.",
+        "Here h=145 has local first-zero depths up to 3 and positive density 20/21025 of two distinct bad indices, impossible in that earlier domain.",
+        "The source describes each p spoiling at most one index, which is insufficient to count coincidences when two primes spoil the same index."
+      ],
+      "reasoning": "The earlier special-case formula is implied by the new theorem on its domain, but it cannot imply the new theorem: h=145 is outside its assumptions and has a new two-failure phenomenon. A general upper bound per prime does not imply which residue classes cause each failure. Thus the accepted claim is a meaningful strict extension with a new arithmetic-collision case, not a duplicate, renaming or numerical increment.",
+      "searches": [
+        "reciprocal sum sequences t_{n+1}=t_n+1/t_n finite fields preimages zero squares",
+        "Perfect squares in reciprocal-sum sequences and primes inert in quadratic fields Theorem B Question 7 distribution of failure counts for fixed h",
+        "Own ledger claim dbb6afaf-e2e9-495f-8dba-3929ae25a084",
+        "arXiv:2610.00765v1 Section 7 Question (1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matijasevick–Rodríguez–Salazar (2026) Proposition 4.1: first failure is p|u_j, at most one for each p; Remark 4.2: finite-field first-zero dynamics; Section 7: open proportion question.",
+        "published-finding corpus top-hit 2026/10/11/SCOPE-sharp-positivity-frontier-and-uniqueness-of-prime-three-cycles-i--cc6ae1f321fa is another map on positive real numbers, not the same arithmetic sequence."
+      ],
+      "reasoning": "A probabilistic law for square-failure index sets is equivalent to the residue-class enumeration once Q_{j+1} is translated into first-zero hitting times. Source gives local obstruction but does not state its idempotent CRT distribution. Other rational-map cycle results concern different recurrences and quantities.",
+      "searches": [
+        "finite field dynamics rational map x+1/x preimage tree zero hitting time quadratic reciprocal recurrence bad reduction primes",
+        "reciprocal sum sequences t_{n+1}=t_n+1/t_n finite fields preimages zero squares",
+        "For x_{n+1}=h^2/(x_0+...+x_n), exact rational density for each finite set of non-square indices of 2a_n/h+b_n, obtained from finite-field backward basin of zero and Chinese remainder theorem",
+        "arXiv:2610.00765v1 Remark 4.2, Section 7 Question (1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Section 7 asks for distribution rather than providing an exact table.",
+        "Direct finite-field counts for 5 and 29 were derived and verified: b5=(2,2), b29=(2,4,2), density counts for h=145 are 17493,3512,20 modulo 21025.",
+        "published-finding corpus top hit 2026/10/4/SCOPE-finite-resultant-correction-for-coprime-values-of-homogeneous-bi--0efa4a963ad2 counts a different CRT coprimality invariant."
+      ],
+      "reasoning": "A search for tables and synonymous formulations did not recover this pairwise collision census or the global law. Absence of indexed results is not a proof that no unindexed table exists.",
+      "searches": [
+        "finite field splitting x^8+7x^6+13x^4+7x^2+1 preimages 0",
+        "Poisson-binomial collision idempotent generating function finite-field orbit hitting times x+1/x, initial x0 mod p^{v_p(h)+1}",
+        "\"reciprocal-sum sequences\" \"exactly j\" \"failures\" density",
+        "\"Matijasevick\" \"Arithmetic dynamics of z+k/z\" preprint 2026"
+      ]
+    },
+    "rationale": "The 2026 motivating full text explicitly poses density of exactly j nonsquare terms as Question 1 of Section 7, after proving only a per-prime at-most-one-failure statement and describing finite-field zero preimages. This new full index-set generating law computes those densities for all h and handles cross-prime index collisions (h=145 gives 12 coincident obstructions). Own recoverable earlier claim dbb6afaf-e2e9-495f-8dba-3929ae25a084 concerns only a special prime class with at most one possible bad index, so it is strictly subsumed and does not imply this unrestricted multi-index theorem. published-finding corpus queries matched other rational dynamical or CRT counting phenomena, none known to imply this statement. The companion preprint referenced by the source was not located, recorded as a genuine residual risk.",
+    "residual_risks": [
+      "The Matijasevick companion preprint was referenced but its original complete manuscript could not be located; potential equivalent coverage remains unverified.",
+      "Unindexed residue-class computations or finite-field tree tables might contain particular h examples.",
+      "The exact formula is algorithmic, not a uniform closed form in h or an error bound uniform as h varies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves per-prime obstruction and asks for exact densities; no exact all-h pattern generating law stated.",
+        "evidence": [
+          "arXiv v1 posted 2026-09-30, primary MSC 11A07 and 11B37.",
+          "Proposition 4.1(a,b), Remark 4.2, Section 7 Question (1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00765v1",
+        "material_read": "Full open-access HTML, abstract, Sections 1–7, notably equations (1.2),(2.3), Proposition 4.1, Remark 4.2, and Section 7 Question (1).",
+        "method": "Read the actual complete primary HTML text and compared hypotheses, assertion, quantifiers, and probability question.",
+        "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+        "trigger": "Exact same sequence and question about density of failures."
+      },
+      {
+        "assessment": "Background Galois-representation statements do not assert reciprocal-sum square-failure frequency. Full-text coverage not claimed.",
+        "evidence": [
+          "Jones and Manes (2014), Comment. Math. Helv. 89, 173–213; arXiv:1101.4339."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1101.4339",
+        "material_read": "Abstract and paper metadata; full article not inspected.",
+        "method": "Read arXiv abstract and journal abstract and compared object/invariant.",
+        "title": "Galois theory of quadratic rational functions",
+        "trigger": "Preimage trees and quadratic rational-map arithmetic cited by the source."
+      },
+      {
+        "assessment": "Unresolved possible overlap. Not asserted not covering; source authors nevertheless pose the failure-density question.",
+        "evidence": [
+          "Motivating paper §1 related-work paragraph and bibliography ref [2]."
+        ],
+        "identifier_or_url": "Reference [2] of https://arxiv.org/html/2610.00765v1",
+        "material_read": "Bibliographic citation within the motivating full text; no downloadable full text located by exact-title and author search.",
+        "method": "Searched arXiv/open-access web by title and author before considering inaccessible; no DOI or publisher access path was identifiable.",
+        "title": "Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+        "trigger": "Potentially related same-map companion explicitly cited in source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09945960-029e-482e-a7b8-77e0fa86f684",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves a specific distribution question openly stated by the source, determining every exact set of bad indices for all positive h, with finite CRT period and computable rational densities. The novel collision structure is mathematically necessary: the two-prime h=145 example has 32 two-prime obstruction classes but only 20 with two distinct failures. This is not a textbook coprimality restatement, arbitrary parameter slice, or a computation without object motivation.",
+    "status": "PASS"
+  }
+}
