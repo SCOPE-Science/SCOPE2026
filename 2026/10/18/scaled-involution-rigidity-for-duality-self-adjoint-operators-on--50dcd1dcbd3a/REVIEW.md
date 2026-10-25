@@ -1,19 +1,21 @@
-# Scientific review: scaled-involution rigidity on \(\ell_p\)
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact identity for two unit vectors follows from the normalized duality map and its homogeneous exponent. For \(1<p<2\), the fractional-power coefficient at a nonzero coordinate forces disjoint columns. For \(p>2\), the positive semidefinite real Hessian of one-half the squared norm has a kernel consisting precisely of directions outside the original coordinate support; the \(o(t)\) identity forces that kernel. Matrix row--column symmetry then makes the operator monomial; a zero column contradicts the identity at a mixed vector, while a second mixed vector enforces equal moduli. Conjugate-paired weights and an involutive permutation give the exact converse. The infinite-dimensional compactness statement follows because an invertible compact operator would make the identity compact. The proof covers real and complex scalar fields and arbitrary index sets, with \(1<p<\infty\), \(p\ne2\).
+PASS
 
-## Originality
+For normalized conjugate-linear duality map J_p(x)=norm(x)^(2-p)(|x_i|^(p-2)conj(x_i)), evaluate at e_j+t e_k to obtain exact identity J_p(v+tw)=(1+t^p)^((2-p)/p)[J_p(v)+t^(p-1)J_p(w)]. For p<2, t^(p-1) dominates O(t) response at each nonzero v coordinate, forcing disjoint column supports. For p>2, first real derivative in w vanishes while real Hessian of norm² is bounded below by norm(v)^(2-p) sum_i |v_i|^(p-2)|w_i|², again implying disjoint supports. Basis evaluations identify row j with J_p(column j); disjoint columns and row-column support equality yield exactly one nonzero per row and column or T=0 (mixed zero/nonzero columns contradicted by scaling factor). Resulting support permutation is involutive, weights obey a_pi(j)=conj(a_j), and two-column coefficient comparison forces equal modulus c>0. Weighted involutive isometry satisfies converse by the duality map isometry covariance. Then T²=c²Id excludes compact T on infinite ell_p; p=2 exception explicit. Argument accommodates complex phases, countable supports within arbitrary I. Random matrix spot checks in package are only diagnostics; classification proof is analytic.
 
-**PASS, with residual priority risk.** The 2026 Shameem--Deepesh source characterizes compact duality-self-adjoint operators spectrally but does not classify all such operators on non-Hilbert \(\ell_p\); the current theorem is stronger on that narrower domain and handles noncompact operators. García-Pacheco's 2023 open-access full text establishes the adjoint formalism and elementary unitary implications, but does not assert necessity of a scaled involutive isometry on \(\ell_p\). A published result on contractive spectral tails makes a general statement for compact operators under the same identity, but the exact \(\ell_p\) rigidity is not among its claims. Searches for coordinate-permutation, duality-map, Lamperti-isometry, adjoint, compactness and spectral aliases in published records and accessible local research claims found no direct coverage. The García-Pacheco 2020 precursor could be inspected only at abstract level; its complete text remains a specific unresolved priority risk rather than evidence of noncoverage.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a full classification of a natural, non-Hilbert duality-adjoint operator class, not an arbitrary finite-dimensional slice. It proves that all nonzero operators in the class are automatically invertible, isometric after scalar normalization, and quadratic with exactly two possible spectral points. The absence of nonzero compact members on infinite-dimensional non-Hilbert \(\ell_p\) gives a sharp structural contrast to the Hilbert-space case and clarifies the practical scope of the recent compact spectral theorem. The argument also identifies the singular dependence on the exponent through a discrete fractional-power/Hessian transition.
+Published compact smooth-space spectral theorems and general duality-map adjoint constructions do not mathematically imply this uniform classification of all bounded (especially noncompact) non-Hilbert ell_p operators. Resultary closely related compact spectral-tail result does not assert monomial necessity. 2020 García-Pacheco precursor may contain unknown special cases; only abstract/access status known, hence real residual risk but no decisive contrary coverage.
 
-## Limitations and closest sources
+## value
 
-The theorem does not cover general \(L_p\) spaces, endpoints \(p=1,\infty\), or weaker Hermitian notions. The inaccessible García-Pacheco 2020 full text and possible older equivalent formulations require subsequent human priority review. Standalone diagnostics confirm concrete examples and exclusions only; the analytic proof establishes the universal theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classification converts a nonlinear every-vector Banach duality commutation relation into explicit coordinate involutions, forcing an unexpectedly strong spectral/compactness obstruction on standard non-Hilbert ell_p spaces. This is a natural structural gap, not merely a small finite check or restatement of the compact spectral theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
