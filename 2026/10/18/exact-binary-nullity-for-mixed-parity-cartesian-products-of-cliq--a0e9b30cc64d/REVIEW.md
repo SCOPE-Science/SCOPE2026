@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Over \(\mathbb F_2\), the closed toggle operator is \((d+1)I+\sum_iJ_i\). For odd factors, each \(J_i\) splits into its zero and one eigenspaces. For even factors, each \(J_i\) has one Jordan block of size two and \(q_i-2\) trivial blocks. On tensor summands containing such a block, the explicitly defined homotopy gives \(Nh+hN=I\), and \(N^2=0\), forcing half-dimensional kernel; the all-trivial summand contributes its full dimension. The resulting formula and all-on witness are algebraically complete for all integers in scope. The independent brute-force verifier checked 109 finite cases and 6,230 press equations; these tests are supportive only, not an infinite proof.
+## correctness
 
-## Originality — PASS, with explicit strong-prior comparison
-The 2017 Peters–Goldwasser–Young paper has a full general determinant/solvability test and already gives the even–even two-factor universal-solvability conclusion. The 2018 Curtis–Earl–Livingston–Shader paper gives an exact invariant-factor/Jordan-block nullity computation for arbitrary two-factor Cartesian products. These broad methods do imply a procedure for calculating any individual instance; their scope is not denied. Their published results do not state the uniform product-of-parity-sums closed evaluation for arbitrary numbers of clique factors or the explicit unbounded gap family. This is a genuinely evaluated infinite-family formula, not a new general rank mechanism. All-odd factors are excluded in recognition of Ducey–Jalil's semisimple regime. The 2021 graph-products extension and 2026 Lights Out work also do not report this closed formula. Remaining risk: a separately published or otherwise indexed equivalent evaluation may exist.
+PASS
 
-## Value — PASS
-The theorem gives an exact count of binary null patterns and all-on solutions over a natural family of graph products with arbitrarily many coordinates and arbitrarily large factor sizes. The characteristic-two even-factor Jordan structure is inaccessible to the semisimple eigenvalue recipe for odd-order graph products. Moreover, the family \(K_{2r}\square K_3\) explicitly shows that a previously studied gcd-based lower bound can underestimate nullity by \(2r-2\); this is a mathematically motivated, unbounded discrepancy rather than an arbitrary finite enumeration. The 2017 two-factor uniqueness statement alone is not claimed as new.
+For q_i>=2, d>=2 and at least one even q_i, M=(d+1)I+sum J_i over F2. Odd J_i split into 0/1 eigenspaces of dimensions q_i-1/1; even J_i have one 2-block and q_i-2 zero blocks, and a contracting homotopy shows ker N=im N on every summand containing a 2-block. Parity extraction yields ((P_E+R_E)/2)((P_O+(-1)^(d+1)R_O)/2), including empty products. An explicit all-on solution covers both parities of the number of even factors. The uniqueness boundary and K_2r x K_3 gap follow. Independently rebuilt 109 toggle matrices by GF2 elimination, all matching the formula; finite checks corroborate, do not prove all sizes.
 
-## Limits
-The result does not classify minimum presses or weight enumerators. It applies only when at least one factor size is even. The general 2018 nullity formula can in principle recover the numerical values after performing the relevant nonsemisimple tensor calculations. The same mathematical account is not a substitute for independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. The old two-factor even-clique criterion is a special case of the uniqueness statement and is PRIOR. The arbitrary-factor nullity formula and infinite K_2r x K_3 separation are not explicit consequences quoted in the inspected 2018 Theorem 2.1 without further nontrivial specialization; claim is only to that specialization.
+
+## value
+
+PASS
+
+The explicit multi-factor closed kernel dimension, all-on witness and unbounded gap from a characteristic-polynomial gcd bound are useful structural information about a natural graph-product switching invariant; not merely the known two-factor solvability condition or a restatement of a Jordan-algorithm formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
