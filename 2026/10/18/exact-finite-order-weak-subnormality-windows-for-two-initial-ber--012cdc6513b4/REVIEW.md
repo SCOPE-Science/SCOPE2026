@@ -1,19 +1,21 @@
-# Scientific review — two independently perturbed Bergman-shift weights
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the unilateral shift whose first two squared weights are \(u,v>0\) and subsequent weights are \((j+1)/(j+2)\), the moment sequence is exactly \(\gamma_0=1\), \(\gamma_1=c/2+d\), \(\gamma_j=c/(j+1)\) for \(j\ge2\), with \(c=3uv>0\) and \(d=u-c/2\). The only exceptional shifted Hankel tests are those starting at zero and one. Their exact Schur complements are independently checked, including the endpoint Jacobi and Legendre inverse-Gram formulas. The two resulting inequalities classify \(k\)-hyponormality for all integers \(k\ge1\). Two exact scalar Agler-defect expressions similarly classify \(n\)-contractivity for every \(n\ge1\). All-order equivalence is supported by the explicit representing probability measure \(c\,dt+(1-c)\delta_0\). The analytic expansions of the exact endpoints prove the stated cubic/fourth-order versus first/second-order collapse, including the critical mass \(c=1\). The standalone checker passes 315 exact or finite consistency assertions; none is substituted for the infinite-dimensional argument.
+PASS
 
-## Originality — PASS, with priority qualification
+For squared weights u,v>0, the moment sequence is gamma_0=1, gamma_1=c/2+d, gamma_m=c/(m+1) for m>=2. The k-hyponormal tests reduce to two nonautomatic Hankel starts: the r=1 matrix is cH'_N+dE_00, whose inverse-Gram rank-one condition yields H1; the r=0 matrix is cH_N+(1-c)e_0e_0^T+d(e_0e_1^T+e_1e_0^T), whose two-coordinate Schur complement yields H2. Starts r>=2 are positive moments of c t^r dt. The Agler alternating sums reduce exactly to the two scalar inequalities C. The explicit roots give the fixed-c asymptotics and the c=1 transition. The measure c dt+(1-c)delta_0 proves the all-orders locus for c<=1,d=0. The inspected checker verifies inverse-Gram identities, finite principal-minor equivalences and asymptotic coefficients; these checks corroborate rather than replace the analytic proof.
 
-The closest inspected source is Curto–Lee (arXiv:math/0507065, 2005), whose Example 3.1 determines a \(k=2\) slice with the first squared weight fixed at \(1/2\); the new formula reproduces that published slice exactly and does not claim it as new. Adams–Exner (Journal of Operator Theory 71 (2014), DOI:10.7900/jot.2012aug08.1965) classify single-initial-weight perturbations and discuss the same weak-subnormality hierarchies. Their fixed-tail and single-parameter results are compatible restrictions, not a two-parameter sharp window with the full order dependence and side-dependent asymptotic collapse. The named comparison searches against published findings likewise revealed other weighted-shift invariants, not this claim. Since equivalent early operator theory literature might exist under different notation, publication priority requires independent bibliographic examination.
+## originality
 
-## Value — PASS
+PASS
 
-The second independently variable initial weight makes the first two moment matrices nontrivial simultaneously. A sharp classification identifies where the two weak-subnormality tests fail to approximate the subnormal locus at the same rate, and isolates an exact degeneracy when the continuous Berger mass reaches one. These order-sensitive, asymmetrically shrinking windows give a quantitative counterpart to the classical separation between \(k\)-hyponormality and \(n\)-contractivity. This is not a routine restatement of one-weight results or an arbitrarily selected finite test.
+The exact k=2, fixed-first-weight slice in Curto–Lee Example 3.1 is prior-covered and is not claimed as new. The full 19-page arXiv PDF was inspected at that example and the surrounding theorem: it gives a one-slice finite-order interval and general perturbation observations, not the two-independent-initial-weight all-k and all-n windows. The full Adams–Exner article was inspected at the definitions and perturbed Agler-shift section; its parameter perturbs only the zeroth weight. Resultary's closest weighted-shift hits are different operator families. The exact two-parameter phase diagram and asymmetric endpoint scaling are not implied by those special cases. Historical equivalence under another parametrization remains a risk.
 
-## Limits and verification
+## value
 
-No claim is made about shifts with any other modified weights, polynomial hyponormality, variable \(c\) uniformity, or definitive bibliographic priority. The included symbolic and exact-rational checks support specific algebra; universal correctness follows from the stated proof. The review does not constitute external confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first two independent perturbations create two distinct nonautomatic Hankel obstructions. Exact finite-order regions for every k and n, together with different shrinking rates and the critical c=1 exponent change, answer a natural stability question about weak subnormality. This is more than a known k=2 table recomputation; the infinite family of exact criteria and side-dependent rates are the useful mathematical result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
