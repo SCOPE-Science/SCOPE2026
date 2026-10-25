@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T19:54:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 2ff967a5e312b42131e813607a9fcfca2daf8c8d",
+        "RESULT.md Git blob e1acb021debbcd57a0729d75720107a663ab73b8",
+        "Independent graph contraction/Euler-tour computations for six small (q,n) instances",
+        "Analytic lower-order de Bruijn Hamiltonian connectivity lemma and balanced shortcut proof",
+        "Read primary de Bruijn sampling and analogues"
+      ],
+      "rationale": "An order-n de Bruijn cycle is an Euler circuit of the directed de Bruijn graph with vertices length n-1 and arcs length n. Prescribing an (n+1)-word is equivalent to demanding two specified arcs e and f be consecutive. Identical arcs arise exactly for constants and are impossible. For distinct arcs contracting the two-arc path to a shortcut gives a balanced directed graph; such a graph is Eulerian iff its nonisolated support is weakly connected. Deleting any middle vertex leaves the other vertices connected because a lower-order de Bruijn Hamilton cycle supplies a spanning path after deletion. Only the middle vertex can be separated by removing e,f: nonconstant vertices retain nonloop incident arcs for q≥2; constant vertices retain the loop and q-2 other incident edges unless q=2, when choosing the two unique nonloop entering and exiting arcs isolates them. This yields precisely ba^(n-1)b with a≠b in binary. Independently enumerated all candidate shortcut circuits at (q,n)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2), matching the exact forbidden sets. These finite checks do not replace the Eulerian all-q,n proof.",
+      "residual_risks": [
+        "Older prescribed-word work could dominate the support classification; marked explicitly.",
+        "No claim to probabilities or multiple jointly prescribed factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sampling all Euler circuits can in principle realize supported factors, but a sampling correctness theorem does not determine which pairs are supportable. Dayhoff addresses prescribed word sets, a potentially stronger covering framework not read in full."
+        ],
+        "reasoning": "The exact factor-support classification is not a logical consequence of generic uniform generation alone; source Dayhoff remains a real coverage risk, explicitly unverified instead of falsely ruled out.",
+        "searches": [
+          "Sawada–Gabrić arXiv:2510.16545",
+          "Nellore–Ward arXiv:2108.07759",
+          "Dayhoff 1984 DOI:10.1016/0012-365X(84)90048-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.16545 full HTML",
+        "arXiv:2108.07759 full HTML",
+        "Dayhoff (1984), Discrete Mathematics 50, 193–219 (abstract only)",
+        "Resultary search: de Bruijn cycles order n which n+1 words occur in any cycle forbidden patterns binary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Euler-circuit existence and random generation hold for all words of length n as arcs; they do not force a specified pair of distinct arcs to appear consecutively in some circuit."
+        ],
+        "reasoning": "The residual binary obstruction precisely contradicts any simplistic all-n+1-factors inference from order-n coverage. The contraction connectedness proof supplies the additional structural classification.",
+        "searches": [
+          "Sawada–Gabrić arXiv:2510.16545 Sections 1–5",
+          "Nellore–Ward arXiv:2108.07759",
+          "de Bruijn cycles order n which n+1 words occur in any cycle forbidden patterns binary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An (n+1)-factor occurs iff an Euler circuit of the q-regular order-n de Bruijn arc graph traverses the prescribed directed length-two walk consecutively; equivalent to Eulerian shortcut connectivity."
+        ],
+        "reasoning": "The constraint is a consecutive-arcs Euler tour existence problem, rather than a de Bruijn sequence existence/number-counting problem. No mathematically equivalent full classification located in read recent primary sources.",
+        "searches": [
+          "de Bruijn cycles order n which n+1 words occur in any cycle forbidden patterns binary",
+          "Sawada–Gabrić arXiv:2510.16545",
+          "Nellore–Ward arXiv:2108.07759"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 paper illustrates next-order words of one order-three cycle, whereas the theorem quantifies union across all cycles and all q,n."
+        ],
+        "reasoning": "A one-cycle factor frequency table is not a union-of-support table. No exhaustive all-parameter table retrieved; finite program tests are independent corroboration not novelty evidence.",
+        "searches": [
+          "de Bruijn cycles order n which n+1 words occur in any cycle forbidden patterns binary",
+          "Nellore–Ward arXiv:2108.07759 next-order example",
+          "Resultary de Bruijn factor-support search"
+        ]
+      },
+      "rationale": "Primary published random-generation and arbitrary-length de Bruijn analogues were compared: an Euler sampling algorithm and a single-cycle factor-frequency illustration do not automatically give positive support for each prescribed consecutive arc pair. The complete q,n classification appears original among inspected sources, but Dayhoff 1984 studies prescribed words and is a plausible inaccessible prior equivalence.",
+      "residual_risks": [
+        "Dayhoff 1984 could contain an equivalent prescribed-factor Eulerian criterion; complete paper inaccessible.",
+        "No claim about frequency/probability or simultaneous prescriptions of multiple next-order words.",
+        "The theorem starts n≥2 and uses labelled alphabet symbols."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and uniform Euler-cycle generation, not the explicit q-ary one-pair support formula in the material read.",
+          "evidence": "Algorithmic Euler-circuit sampling is distinct from deciding which consecutive arcs can be forced.",
+          "identifier_or_url": "arXiv:2510.16545",
+          "material_read": "Accessible full HTML including Sections 1–5, Eulerian graph representation and sampling algorithm.",
+          "method": "Read primary arXiv HTML algorithm and theorem sections.",
+          "title": "Random generation of universal cycles and de Bruijn sequences",
+          "trigger": "Direct random sampling of all de Bruijn cycles"
+        },
+        {
+          "assessment": "Different near-balanced substring-frequency objective; examples do not classify union over all order-n cycles.",
+          "evidence": "Focus on arbitrary-length analogs and frequencies, not all attainable individual next-order motifs.",
+          "identifier_or_url": "arXiv:2108.07759",
+          "material_read": "Accessible full HTML, especially motivating examples and discussion of factors longer than order n.",
+          "method": "Read arXiv HTML mathematical description and examples.",
+          "title": "Arbitrary-length analogs to de Bruijn sequences",
+          "trigger": "Explicit discussion of factors beyond the defining order"
+        },
+        {
+          "assessment": "HIGH-RELEVANCE UNREAD source; cannot assert theorem is not covered.",
+          "evidence": "Title concerns independently prescribable sets; applicability to consecutive length-n arcs is plausible but unresolved.",
+          "identifier_or_url": "DOI:10.1016/0012-365X(84)90048-7",
+          "material_read": "Bibliographic record and abstract only; full 1984 article unavailable.",
+          "method": "Lawful open-access discovery then authorized Oxford institutional retrieval (vpn_disconnected).",
+          "title": "Independently prescriable sets of n-letter words",
+          "trigger": "Potential predecessor addressing prescribed word sets and Euler tours"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2510.16545 full HTML",
+        "arXiv:2108.07759 full HTML",
+        "Dayhoff (1984), Discrete Mathematics 50, 193–219 (abstract only)",
+        "Resultary search: de Bruijn cycles order n which n+1 words occur in any cycle forbidden patterns binary"
+      ],
+      "rationale": "Exact support of a single next-order factor under random or enumerated de Bruijn cycles is a natural and precisely motivated combinatorial invariant. The all-parameter theorem exhibits a genuinely exceptional binary obstruction and classifies feasible motifs constructively, an independent exact fact useful to sequence design and sampling beyond mere sequence existence.",
+      "residual_risks": [
+        "Older prescribed-word work could dominate the support classification; marked explicitly.",
+        "No claim to probabilities or multiple jointly prescribed factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older prescribed-word work could dominate the support classification; marked explicitly.",
+    "No claim to probabilities or multiple jointly prescribed factors."
+  ],
+  "schema_version": 1
+}

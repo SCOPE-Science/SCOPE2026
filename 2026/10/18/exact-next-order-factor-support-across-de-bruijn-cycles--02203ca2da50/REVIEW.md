@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers all labelled alphabets of size \(q\ge2\) and every \(n\ge2\). A candidate next-order word fixes two consecutive length-\(n\) arcs of the Eulerian graph. Contracting that two-arc walk yields a balanced graph with one fewer arc. A Hamilton cycle of the lower-order de Bruijn graph proves that deleting any one vertex cannot disconnect the other vertices. The sole possible disconnection after contraction is therefore isolation of the connecting vertex; complete residual-degree analysis gives precisely the two additional binary cases. The converse follows by Euler expansion. The proof handles loops, nonconstant vertices, and the smallest admissible span. The 1,175 contracted-graph checks and three complete small binary-cycle enumerations are supplementary and do not certify the infinite theorem.
+## correctness
 
-## Originality — PASS within searched sources
-The nearest recent source, Sawada–Gabrić (arXiv:2510.16545), studies uniform random Eulerian cycles but does not formulate or prove the support of individual length-\(n+1\) factors. Nellore–Ward (arXiv:2108.07759) illustrate next-order factors for a single cycle and analyze arbitrarily long near-balanced sequences, not the exact union over all cycles. Moreno (2005) focuses on restricted allowed length-\(n\) dictionaries; this does not directly imply the precise consecutive-pair compatibility test for the unrestricted dictionary. Searches of mathematical records and accessible preceding claims did not reveal an equivalent or stronger result. This is a qualified originality finding, not a proof of uniqueness: Dayhoff's 1984 paper on independently prescribable words and other unindexed literature could contain an equivalent formulation; its full text was inaccessible.
+PASS
 
-## Value — PASS
-The support of the next-order factor distribution is a natural invariant of random de Bruijn-cycle generation. This exact infinite, all-alphabet classification reveals a sharp binary/nonbinary change and identifies every feasible prescribed motif using a constructive Euler-circuit criterion. It supplies information that existence, sequence counting, and random generation alone do not determine. The theorem does not claim probabilities for attainable factors or simultaneous multi-factor prescription.
+An order-n de Bruijn cycle is an Euler circuit of the directed de Bruijn graph with vertices length n-1 and arcs length n. Prescribing an (n+1)-word is equivalent to demanding two specified arcs e and f be consecutive. Identical arcs arise exactly for constants and are impossible. For distinct arcs contracting the two-arc path to a shortcut gives a balanced directed graph; such a graph is Eulerian iff its nonisolated support is weakly connected. Deleting any middle vertex leaves the other vertices connected because a lower-order de Bruijn Hamilton cycle supplies a spanning path after deletion. Only the middle vertex can be separated by removing e,f: nonconstant vertices retain nonloop incident arcs for q≥2; constant vertices retain the loop and q-2 other incident edges unless q=2, when choosing the two unique nonloop entering and exiting arcs isolates them. This yields precisely ba^(n-1)b with a≠b in binary. Independently enumerated all candidate shortcut circuits at (q,n)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2), matching the exact forbidden sets. These finite checks do not replace the Eulerian all-q,n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary published random-generation and arbitrary-length de Bruijn analogues were compared: an Euler sampling algorithm and a single-cycle factor-frequency illustration do not automatically give positive support for each prescribed consecutive arc pair. The complete q,n classification appears original among inspected sources, but Dayhoff 1984 studies prescribed words and is a plausible inaccessible prior equivalence.
+
+## value
+
+PASS
+
+Exact support of a single next-order factor under random or enumerated de Bruijn cycles is a natural and precisely motivated combinatorial invariant. The all-parameter theorem exhibits a genuinely exceptional binary obstruction and classifies feasible motifs constructively, an independent exact fact useful to sequence design and sampling beyond mere sequence existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
