@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The graph and all face masks are specified without ambiguity; the bundled standard-library checker enumerates all 2881 augmented faces and all 12945 Hasse arrows, checks the 1395 toggling pairs and the complete directed acyclicity, and thereby proves a genuine integral wedge of 91 three-spheres. Signed Lefschetz traces for all 720 permutations determine the actual degree-three rational action, and independent rim-hook character calculations verify all eleven multiplicities. This exhaustive finite certificate is a proof for the one fixed graph, not an infinite-sample inference.
+
+**Originality — PASS with identified risk.** The indexed triangular-graph neighborhood census proves the already-known mod-two Betti rank 91 but disclaims integral homotopy and symmetry. The separately indexed four-cut result is for \(T_5\), whose open-neighborhood complex is indeed the same five-label object, but the present six-label result is different and neither a relabeling nor a corollary of its S5 character. The Kneser complement has different neighborhood facets and different homology. Shukla's scope excludes the present 8-regular graph; Matsushita–Wakatsuki's general dualities do not compute this attaching data or full group representation. No covering theorem was identified in targeted source and database comparisons. Residual risk: a complete equivalent computation may exist under the \(\operatorname{Hom}(K_2,L(K_6))\) or representation-theoretic naming.
+
+**Mathematical value — PASS.** This determines the exact integral homotopy type for the canonical last single-degree example before the mixed-dimensional \(T_7\) behavior, and it classifies the nontrivial 91-dimensional S6 representation, distinguishing eight isotypic types and showing the absence of full symmetry invariants. Such conclusions do not follow from the earlier characteristic-two Betti table, and the six-label cutoff is motivated by that documented topological transition.
+
+**Limits.** No uniform theorem for all triangular graphs, no integral group-lattice decomposition, no assertion that the quotient is contractible; independent audit has not taken place.
+
+Self-review: passed. Independent audit: not yet performed.
