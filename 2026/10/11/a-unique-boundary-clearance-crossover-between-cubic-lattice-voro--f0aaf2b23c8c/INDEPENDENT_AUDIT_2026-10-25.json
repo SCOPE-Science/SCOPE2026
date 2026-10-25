@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T11:06:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md full proof, VERIFICATION.md, verify_clearance.py",
+        "Fresh independent_checks.py exact SymPy expansion/integration and rational interval certificate",
+        "Voronoi supporting-bisector and cap-volume geometry reconstructed from declared halfspaces."
+      ],
+      "rationale": "For B={|x_i|≤1, ∑|x_i|≤3/2}, axial and body-diagonal Voronoi bisectors give exactly the displayed facets, and FCC H={|x_i|+|x_j|≤2} has volume 16 while B has volume 4. Scaling H by 4^{-1/3} makes both volumes 4. Distances to a polytope boundary are minima of signed supporting-facet Euclidean distances; B_t is {|x_i|≤1−t, ∑|x_i|≤3/2−sqrt(3)t}. In 0≤t≤T=(1+sqrt(3))/4 one has 0≤b−a and b<2a, making six removed axial octahedron caps pairwise disjoint; each has exactly 2(b−a)^3/3 volume. Thus normalized S_B=b^3/3−(b−a)^3 and on T≤t≤r_B=sqrt(3)/2 cube facets become redundant so S_B=b^3/3. Rhombic dodecahedron is tangential and its inward facets homothetically scale, giving S_F=(1−t/2^{-1/6})^3 to r_F. Fresh independent SymPy exact integration confirms E D_B=(17sqrt(3)−1)/128 and E D_F=2^{-1/6}/4, plus the BCC second moment. On the early interval S_B−S_F=tQ(t) with Q0>0, Q2>0, Q(T)<0 certified by rational brackets, proving exactly one positive root. After T the cube roots b/3^(1/3) and 1−t/r_F are affine, strictly ordered at T and r_B; no additional positive nonterminal crossover. r_B<r_F and exact rational bounds prove the FCC mean advantage. The signed inequalities, domain endpoints t=0,T,r_B,r_F and zero-tail cases are covered, not numerically extrapolated.",
+      "residual_risks": [
+        "Monte Carlo diagnostics in original package establish no continuum theorem and were not relied upon.",
+        "The result concerns only these canonical Euclidean volume-four bodies; affine distortions and other lattices are unproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koçak–Ratiu proves existence of piecewise polynomial inner parallel volumes for polytopes; FCC tangential case is explicit but BCC coefficients and comparison are not an immediate theorem statement.",
+          "Cesaroni–Novaga proves BCC minimizes surface area at fixed volume; that means only -S′_BCC(0)≤-S′_FCC(0), not S_BCC(t)≥S_FCC(t) for all t.",
+          "Lángi proves BCC extremal mean width, a distinct functional; rhombic dodecahedral inradius/surface results likewise do not compare interior-clearance CDFs."
+        ],
+        "reasoning": "General polytope tube theory and stronger isoperimetric statements cover prerequisites but do not dominate a complete two-shape stochastic comparison with one reversal and oppositely ordered means. Explicitly exclude the already-known generic structure and FCC tangential law from the original contribution.",
+        "searches": [
+          "Resultary: Euclidean inner parallel volume erosion profile cubic lattice Voronoi cell truncated octahedron rhombic dodecahedron crossing",
+          "arXiv:1008.2040v1 Theorem 1",
+          "arXiv:2609.02384v2 Theorem 1.1",
+          "arXiv:2102.11621v4 mean width theorem",
+          "arXiv:2610.13975v1 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Ş. Koçak and A. V. Ratiu, Inner tube formulas for polytopes, arXiv:1008.2040v1, PDF sections 1–3 / Theorem 1.",
+        "V. Lucarini, Three-dimensional Random Voronoi Tessellations: From Cubic Crystal Lattices to Poisson Point Processes, arXiv:0805.2705v1, PDF sections 1–3.",
+        "A. Cesaroni and M. Novaga, The truncated octahedron minimizes surface area among parallelohedra of equal volume, arXiv:2609.02384v2, PDF introduction and Theorem 1.1.",
+        "Z. Lángi, An isoperimetric problem for three-dimensional parallelohedra, arXiv:2102.11621v4, PDF introduction and theorem.",
+        "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, arXiv:2610.13975v1, original arXiv HTML theorem and relevant geometry.",
+        "Resultary semantic searches for Voronoi clearance CDF / lattice contact distribution / Euclidean inner parallel profile, three queries, including self-match and related non-covering published findings.",
+        "Wolfram MathWorld geometric reference entries for truncated octahedron and rhombic dodecahedron (static shape quantities only)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source theorem BCC surface-area minimality implies a strict local shallow-depth advantage by -S′(0)=surface/volume, not a global stochastic order or reversal of integrated means.",
+          "The tangential-polytope result fixes the FCC cubic, while BCC has a non-tangential six-cap correction and a distinct phase boundary T=(1+sqrt3)/4.",
+          "Related Resultary record 2026/10/4/SCOPE-exact-illumination-phase-profile-of-the-cube-octahedron-intersec--20022a556c31 and 2026/10/4/SCOPE-exact-shortest-path-metric-of-the-cube-cross-polytope-intersecti--55d5baa0a495 address illumination or graph distances rather than Euclidean interior erosion."
+        ],
+        "reasoning": "The strongest established results imply individual prerequisites or local derivatives only. The complete piecewise BCC erosion calculation, exact singleton positive crossing, and mean reversal require additional specific geometry, algebra and integration. No independent statement implying these combined conclusions was located in reviewed relevant material.",
+        "searches": [
+          "Resultary: Euclidean inner parallel volume erosion profile cubic lattice Voronoi cell truncated octahedron rhombic dodecahedron crossing",
+          "Resultary: periodic lattice contact distribution distance to cell boundary bcc fcc mean chord empty space lineal path",
+          "arXiv:1008.2040v1, Theorem 1 and phase polynomiality",
+          "arXiv:2609.02384v2, Theorem 1.1",
+          "arXiv:0805.2705v1, cell metric sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_K(t)=vol(K⊖t B_2^3)/vol(K) exactly, so the searched equivalent terms are inner tube, interior erosion volume, clearance CDF, and nearest Voronoi boundary linear contact distribution.",
+          "The tangential-polytope theorem of Koçak–Ratiu (arXiv:1008.2040v1) gives the complete FCC cubic as an existing immediate corollary; it does not give the BCC/FCC crossing.",
+          "Resultary self-match 2026/10/11/SCOPE-a-unique-boundary-clearance-crossover-between-cubic-lattice-voro--f0aaf2b23c8c is this assigned finding, not prior independent coverage."
+        ],
+        "reasoning": "Sought equivalent eroded-volume and lattice-contact formulations, not merely title matches. Known tangential-polytope generality directly covers FCC homothetic erosion, but it does not produce the BCC piecewise coefficients and the unique two-cell stochastic-order reversal. Searches did not reveal an independent equivalent calculation; absence is not proof of novelty.",
+        "searches": [
+          "Resultary: body centered cubic face centered cubic Voronoi truncated octahedron rhombic dodecahedron exact boundary clearance distance to nearest facet interior point CDF mean crossover",
+          "Resultary: periodic lattice contact distribution distance to cell boundary bcc fcc mean chord empty space lineal path",
+          "web: bcc fcc Voronoi \"distance to boundary\" \"distribution\" \"mean\" cubic lattice",
+          "web: Voronoi tessellation periodic lattice linear contact distribution boundary bcc fcc",
+          "arXiv:1008.2040v1 §2 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known shape data tabulate BCC/FCC cell volume, surface area, inradius, radii and combinatorics; such static entries suffice to normalize, not to tabulate the BCC two-phase inner-volume law and the pairwise crossover.",
+          "Lucarini (arXiv:0805.2705v1) tabulates and compares static and perturbed cell descriptors, not the distance-from-uniform-interior-point law."
+        ],
+        "reasoning": "The narrow exact lookup is a CDF/erosion table, crossover and mean comparison for the two equal-volume cells; these are not the quantities in the checked standard geometric tables. Unindexed tables or earlier contact-distribution calculations are retained as residual risk.",
+        "searches": [
+          "Resultary: body centered cubic face centered cubic Voronoi truncated octahedron rhombic dodecahedron exact boundary clearance distance to nearest facet interior point CDF mean crossover",
+          "web: rhombic dodecahedron truncated octahedron \"inner parallel\" volume \"distribution\"",
+          "web: \"truncated octahedron\" \"distance to boundary\" mean",
+          "web: Wolfram MathWorld rhombic dodecahedron volume inradius radius formula",
+          "arXiv:0805.2705v1 FCC/BCC cell-descriptor tables",
+          "Wolfram MathWorld Truncated Octahedron; Rhombic Dodecahedron"
+        ]
+      },
+      "rationale": "The general polytope piecewise-cubic inner-tube result and special tangential-polytope FCC law are prior mathematics, as are static Voronoi cell parameters and global BCC surface-area minimization. Reviewed closest original sources do not state or imply the exact non-tangential BCC two-phase clearance law together with the single BCC/FCC survival crossing and strict reversed clearance-mean order. Three new semantic searches of published mathematical findings and targeted alias queries did not identify independent coverage; self-match is not priority evidence. Best-of-knowledge PASS subject to documented unindexed contact/erosion literature risk; this decision does not declare the FCC formula itself novel.",
+      "residual_risks": [
+        "Older unindexed contact-distribution, erosion/inner-parallel volume, or periodic Voronoi interface-distance research may tabulate the exact same two-cell functions under different terminology.",
+        "A short general theorem about stochastic order of convex polytope erosions could conceivably imply the crossing; no dominating statement identified in examined primary literature.",
+        "The FCC cubic is not independently novel; it follows directly from the tangential-polytope inner-volume theorem. The BCC/FCC combined crossing and mean reversal are the assessed novelty.",
+        "Best-of-knowledge historical comparison is not a claim of exhaustive publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_FCC_AND_GENERAL_STRUCTURE_NOT_PAIRWISE_CROSSOVER",
+          "evidence": "For a tangential polytope P of inradius r the inner-volume law vol(P_t)=vol(P)(1-t/r)^d is a consequence of Theorem 1; this yields the FCC cubic after substituting its known inradius. General piecewise-polynomiality alone supplies no explicit two-phase BCC coefficients or the unique BCC–FCC crossing and mean reversal.",
+          "identifier_or_url": "arXiv:1008.2040v1; https://arxiv.org/pdf/1008.2040",
+          "material_read": "Abstract, introduction, Section 2 including Theorem 1 and proof of homothetic inner erosion for tangential polytopes; Section 3 and examples. Inspected rendered PDF page 4 (zero-index 3).",
+          "method": "Primary PDF full-text inspection, theorem comparison and rendered-page inspection.",
+          "title": "Inner tube formulas for polytopes",
+          "trigger": "Same invariant: Euclidean inner parallel volume, including a theorem for tangential polytopes relevant to FCC."
+        },
+        {
+          "assessment": "STATIC_CELL_STATISTICS_NOT_INTERIOR_CLEARANCE_CDF",
+          "evidence": "Analyzes geometric properties, volume, surface area and distribution of Voronoi-cell descriptors under perturbed lattices, which are not the probability law of distance to a face from one uniform point within an unperturbed cell.",
+          "identifier_or_url": "arXiv:0805.2705v1; https://arxiv.org/pdf/0805.2705",
+          "material_read": "Abstract, introduction, Sections 1–3, descriptions and numerical tables of FCC/BCC cell geometry; inspected rendered PDF page 4 (zero-index 3).",
+          "method": "Full-text PDF inspection with targeted search for interior boundary-distance distribution.",
+          "title": "Three-dimensional Random Voronoi Tessellations: From Cubic Crystal Lattices to Poisson Point Processes",
+          "trigger": "Closest lattice Voronoi geometry, computing metrics of FCC/BCC and their perturbations."
+        },
+        {
+          "assessment": "SURFACE_AREA_DOMINATION_NOT_STOCHASTIC_CLEARANCE",
+          "evidence": "Theorem 1.1 proves the BCC surface-area optimum among parallelohedra; it constrains only -S_K′(0) of the clearance law, neither its depth-wise sign nor integrated mean. No BCC/FCC interior-clearance crossing in inspected relevant sections.",
+          "identifier_or_url": "arXiv:2609.02384v2; https://arxiv.org/pdf/2609.02384",
+          "material_read": "Abstract, Introduction including Theorem 1.1, geometric definitions and Sections 2–3; inspected rendered PDF page 2 (zero-index 1).",
+          "method": "Primary 34-page PDF full-text retrieval, targeted theorem and statement inspection, page image.",
+          "title": "The truncated octahedron minimizes surface area among parallelohedra of equal volume",
+          "trigger": "Same BCC/FCC cells; strongest global fixed-volume surface-area comparison."
+        },
+        {
+          "assessment": "MEAN_WIDTH_OPTIMIZATION_DIFFERENT_FROM_UNIFORM_INTERIOR_CLEARANCE",
+          "evidence": "The extremized mean width is an average of directional support widths, not E[distance of an interior uniform point to boundary]. It does not yield the claimed crossover.",
+          "identifier_or_url": "arXiv:2102.11621v4; https://arxiv.org/pdf/2102.11621",
+          "material_read": "Abstract, introductory theorem on mean width, Section 2 defining intrinsic geometric quantities; inspected rendered PDF page 1.",
+          "method": "Primary PDF and rendered-page reading, statement-to-claim comparison.",
+          "title": "An isoperimetric problem for three-dimensional parallelohedra",
+          "trigger": "A related stronger geometric optimization, possible same-parameter coverage of BCC/FCC."
+        },
+        {
+          "assessment": "INRADIUS_AND_SURFACE_EXTREMALITY_NOT_INTERIOR_DISTANCE_DISTRIBUTION",
+          "evidence": "Geometric inequality for a polyhedral shape at fixed inradius; does not provide the complete normalized uniform-point boundary-clearance survival order against BCC.",
+          "identifier_or_url": "arXiv:2610.13975v1; https://arxiv.org/html/2610.13975v1",
+          "material_read": "Primary full-text HTML introduction, Theorem 1.1, and relevant later sections on facet geometry and inradius.",
+          "method": "Open-access primary HTML reading, targeted implication comparison.",
+          "title": "The rhombic dodecahedral conjecture",
+          "trigger": "Same FCC rhombic-dodecahedral cell with inradius/surface extremality potentially covering mean clearance."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Koçak–Ratiu general inner-tube theorem",
+        "Cesaroni–Novaga BCC surface-area global theorem",
+        "Pinned RESULT.md exact pairwise CDF and independently checked mean comparison"
+      ],
+      "rationale": "Uniform interior clearance is a canonical geometric/integral-geometric invariant for Voronoi tessellation cells. The BCC and FCC cells are canonical equal-volume lattice comparators, not arbitrary slices. The full distributional crossover supplies a geometric counterexample to inferring mean or deep-boundary-clearance optimality from the known BCC surface-area optimum: BCC wins at shallow depths but loses for all deeper nonterminal depths and has strictly smaller mean. The mean gap is small, but its sign and the uniquely classified full-depth reversal are exact and mathematically motivated. This is an independently useful benchmark for lattice contact distributions and erosion, without claiming a global lattice optimum or new generic polytope tube theorem.",
+      "residual_risks": [
+        "The result does not classify all parallelohedra, optimize clearance among lattices, or quantify perturbation stability.",
+        "FCC mean advantage is about 0.000499 in the volume-four normalization; significance rests on full strict CDF reversal, not the magnitude of the mean gap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Euclidean metric, uniform 3D volume distribution, and these two fixed volume-four canonical shapes only; no arbitrary lattice extremal theorem.",
+    "Independence of scientific audit from external certification: no Lean proof or expert attestation was obtained.",
+    "Publication transport withheld pending privacy-safe complete replacements; positive science does not authorize public posting of operational metadata."
+  ],
+  "schema_version": 1
+}
