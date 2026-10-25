@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The edge-disjoint-ring argument proves that the minimum cut cardinality is at least m: with fewer than m deleted edges, at least one homologous generator ring survives in each annulus, so the target homology class remains in the image. A dual-seam cocycle on the second annulus, scaled by the reciprocal of m and extended by zero on the first, is feasible and has sum of absolute coefficients at most (2m-1)/m, which is less than two. Therefore the ratio exceeds half the integer parameter for every allowed parameter value.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maxwell–Nayyeri distinguish topological cuts from combinatorial cuts and formulate flows for null-homologous boundary classes; their problem is not the nonzero first-homology edge-cut formulation used here.",
+        "Chambers–Erickson–Nayyeri study surface-embedded graph flows and cohomology cuts, not this simplicial-complex support-cardinality versus sum-of-absolute-values relaxation for a nonzero first-homology class.",
+        "The recent primary source explicitly studies the same edge-cut relaxation and supplies a finite gap example, but no annulus family was found in the relevant sections or appendices."
+      ],
+      "reasoning": "The related flow/cut literature establishes neighboring dualities and fractional-flow phenomena, but its objectives and class hypotheses do not yield the claimed ratio for the present MHC problem. The new family strengthens the directly relevant finite example to an unbounded gap.",
+      "searches": [
+        "Generalized Max-Flows and Min-Cuts in Simplicial Complexes Maxwell Nayyeri 2021 full text",
+        "Homology Flows, Cohomology Cuts Chambers Erickson Nayyeri 2012",
+        "minimum homological edge cut LP l1 support unbounded gap"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.23154v1, full PDF",
+      "doi:10.4230/LIPIcs.SoCG.2026.87, published version metadata",
+      "doi:10.4230/LIPIcs.ESA.2021.69, full open-access PDF",
+      "doi:10.1137/090766863, publisher abstract and theorem excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior explicit example has cut size three and relaxation value three-halves, hence a finite ratio of two.",
+        "The new proof gives a cut lower bound growing linearly with the integer parameter while an explicit feasible cocycle keeps the relaxation value below two for every allowed parameter."
+      ],
+      "reasoning": "No inspected source implies a ratio growing without bound for primitive integral cycle chains. The finite prior example establishes non-tightness only; the annulus-wedge argument supplies a new family-level quantitative conclusion.",
+      "searches": [
+        "arXiv:2602.23154v1 Section 6 Example 6.3 Appendix A.1-A.3",
+        "arXiv:2106.14116 full version; LIPIcs.ESA.2021.69 full text",
+        "Literature query: unbounded integrality gap LP relaxation minimum homological edge cut cocycle L1 versus support size annulus multiple holes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoefgeest–Slot define the minimum edge cut as the minimum number of nonzero cocycle coefficients under the cocycle equation and unit-evaluation constraint, then replace support cardinality by the sum-of-absolute-values objective.",
+        "Their Example 6.3 reports minimum cut 3 and LP value 3/2; the full relevant section and appendix were read."
+      ],
+      "reasoning": "The claim uses the same optimization problem, but proves an unbounded parameterized ratio by combining m disjoint homologous rings with a class whose coefficients on the two annulus generators are 1 and m. The cited finite counterexample does not imply the lower bound growing with m.",
+      "searches": [
+        "unbounded integrality gap LP relaxation minimum homological edge cut cocycle L1 versus support size annulus multiple holes",
+        "annulus triangulation minimum homological cut m disjoint parallel cycles cocycle support linear programming fractional homological flow",
+        "minimum homological cut LP non-tightness unbounded gap homology flows cohomology cuts",
+        "homological edge cut support cocycle LP l1 l0",
+        "arXiv:2602.23154v1, Proposition 6.2 and Example 6.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concern a mod-two Klein-bottle cosystolic profile, a mod-three lens-space cosystole, and a codimension-one vertex-support invariant; none compares minimum edge-cut cardinality with the real sum-of-absolute-values relaxation.",
+        "No exhaustive published table of integrality gaps for this LP was located."
+      ],
+      "reasoning": "An exact-table comparison is inapplicable because the claim is an infinite-family theorem about a specific optimization relaxation; semantic database results were used only to locate closest formulations, not as a proof of novelty.",
+      "searches": [
+        "unbounded integrality gap LP relaxation minimum homological edge cut cocycle L1 versus support size annulus multiple holes",
+        "annulus triangulation minimum homological cut m disjoint parallel cycles cocycle support linear programming fractional homological flow",
+        "minimum homological cut LP non-tightness unbounded gap homology flows cohomology cuts",
+        "homological edge cut support cocycle LP l1 l0"
+      ]
+    },
+    "rationale": "The inspected primary source establishes the support-minimization formulation and a single gap of 3 versus 3/2, but does not state or imply this family with unbounded ratio. The reviewed literature searches did not surface an equivalent or stronger matching claim. The result is a general infinite-family bound, not a renamed finite example.",
+    "residual_risks": [
+      "Semantic literature/database searches and the inspected sources are not exhaustive; an unindexed or differently formulated unbounded-gap construction may exist.",
+      "The annulus-wedge construction is a planar simplicial complex but is not a 2-manifold at the wedge vertex; no conclusion is asserted for manifold-only subclasses.",
+      "The exact LP optimum is not computed; the explicit feasible cochain gives the upper bound sufficient for the ratio result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior source, but it does not cover the claim: it gives one explicit gap of 3 versus 3/2 and does not state the annulus-wedge family or an unbounded ratio.",
+        "evidence": "Section 6 formulates the support-cardinality objective with a cocycle constraint and unit evaluation, then replaces support size by the sum of absolute coefficients; Example 6.3 reports cut size three versus relaxation value three-halves. The new family proves a linearly growing cut lower bound while the relaxation remains below two.",
+        "identifier_or_url": "arXiv:2602.23154v1; doi:10.4230/LIPIcs.SoCG.2026.87",
+        "material_read": "Full open-access PDF; Section 1.2, Section 4.3, Section 6 including Proposition 6.2 and Example 6.3, plus relevant Appendix A.1-A.3 material.",
+        "method": "Statement/implication comparison of definitions, coefficients, cut cardinality, LP objective and family quantifiers; searched the full text for annulus and unbounded-gap formulations.",
+        "title": "Robustness of Persistent Topological Features and Minimum Homological Cuts",
+        "trigger": "Primary recent source for the exact MHC edge-cut objective and its l1 LP relaxation."
+      },
+      {
+        "assessment": "Related but not covering the claim: its central flow problem uses a null-homologous boundary class and distinguishes topological from combinatorial cuts; it does not state the support-cardinality versus sum-of-absolute-values gap for a nonzero first-homology edge-cut class.",
+        "evidence": "The paper defines gamma-flow for a null-homologous (d-1)-cycle and separately defines topological and combinatorial gamma-cuts; its LP results concern that distinct formulation.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.ESA.2021.69; arXiv:2106.14116",
+        "material_read": "Full open-access LIPIcs PDF, including Sections 1-4 and definitions of topological and combinatorial cuts.",
+        "method": "Compared the exact class, chain dimension, cut operation, and optimization objective.",
+        "title": "Generalized Max-Flows and Min-Cuts in Simplicial Complexes",
+        "trigger": "Closely related prior work on LP duality and nonintegral flows in simplicial complexes."
+      },
+      {
+        "assessment": "Related but not a decisive comparison: it concerns flows in surface-embedded graphs and minimum-cost circulations in fixed homology classes; it does not directly state the present simplicial MHC LP gap.",
+        "evidence": "The accessible abstract describes maximum s-t flows on surface-embedded graphs and a dual minimum-cost circulation problem.",
+        "identifier_or_url": "doi:10.1137/090766863",
+        "material_read": "Publisher abstract and accessible theorem excerpt; full article text was not completely inspected.",
+        "method": "Checked the stated domain and objective against the new claim.",
+        "title": "Homology Flows, Cohomology Cuts",
+        "trigger": "Foundational related surface-embedded graph flow/cut duality cited by the recent MHC paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9dbf21e7-d738-44ac-9141-efb92264b62e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family proves the raw l1 relaxation can underestimate the cardinality minimum by an arbitrarily large factor, so its objective alone cannot provide a universal constant-factor estimate for this homological edge-cut problem. This directly informs interpretation of the relaxation used to estimate adversarial robustness, beyond a finite non-tightness example.",
+    "status": "PASS"
+  }
+}
