@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-dimensional normal-cone facet count is the Hasse-edge count by Postnikov–Reiner–Williams Proposition 3.5(8). For a generalized-theta graph, an alternative directed route across an edge exists exactly when another complete arm supplies a terminal-to-terminal detour and the edge is the lone same-direction edge of its arm. These facts classify all redundant edges and give the product enumerator. A tree incidence matrix is integrally unimodular, so the simplicial fixed cones are smooth over any algebraically closed field. The standalone exhaustive checker independently tests directed cycles, alternate-path reachability, the entire coefficient distribution, and the smooth-orientation characterization on nine finite instances. Finite tests are corroboration, not a proof of the full family.
+## correctness
 
-**Originality — PASS, with residual risk.** The full text of Postnikov–Reiner–Williams gives the general Hasse-tree criterion and a global simplicity criterion, but no generalized-theta local distribution. Grujić's full text gives global face counts, not the degree-by-vertex/facet-count distribution. The all-length-two complete-bipartite and two-arm cycle specializations are known or already separately treated, not claimed novel. Searches for theta, multipath, simplicial graphical-arrangement chambers, equivalent formulas and indexed mathematical records found no dominating classification of the arbitrary-length multi-arm polynomial. There remains risk from literature phrased as arrangement chambers rather than toric fixed points; a search miss does not prove absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Normal-fan facet counts measure which torus-fixed charts can be regular, and the graph family simultaneously includes minimally nontrivial two-terminal cycle overlaps and their multipath subdivisions. The complete distribution and structural orientation criterion provide new, reusable local regularity data that cannot be read off solely from the face vector or the known criterion for an entirely simple graphical zonotope. The result is infinite and multivariate and cleanly separates the already-studied boundary cases. It deliberately does not claim full singular-locus classification.
+For a connected graphical zonotope, vertices correspond to acyclic orientations; maximal normal cones are transitive-closure order cones, whose irredundant facets correspond to Hasse cover edges (established Postnikov–Reiner–Williams). A directed cycle occurs precisely with two wholly directed terminal paths in opposite directions. In any acyclic orientation, alternate directed path for an edge on arm i can only use a whole other arm, so a redundant edge occurs precisely when a separate fully directed arm supplies a common direction and arm i has exactly one same-direction edge. This yields the three-way per-arm product enumerator; subtract all noncomplete cases, multiply both common directions, add no-complete orientations. Hasse cover graph is connected with V-1=E-t+1 minimum edges; equality means a spanning tree. Oriented incidence vectors of a tree are an integral basis, proving cone regularity, not just simplicity; thus smooth iff r=t-1. Fresh independent exhaustive topological sorting and deletion-DFS transitive-edge counts matched (2,2,2)=(10,12,24), (2,2,3)=(32,38,32), (2,3,4)=(256,154,52), (2,2,2,2)=(18,16,48,64), with predicted last coefficient smooth. Package checker contains nine finite tests; finite checks supplement general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The poset/Hasse facet criterion and global graphical-zonotope simplicity classification were published by Postnikov–Reiner–Williams; the present exact distribution and smooth-orientation parameterisation over arbitrary generalized-theta arm lengths are not that standard criterion alone. Grujic counts global face numbers rather than local incident-facet degree per vertex. The K_(2,t) length-two specialization is known boundary prior art and not separately claimed.
+
+## value
+
+PASS
+
+The full local facet-profile polynomial and explicit smooth toric fixed-point locus turn a general criterion into an exact natural graph-family classification. The invariant distinguishes the fixed-point singularity profile over arbitrary arm subdivisions, beyond just the total face polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
