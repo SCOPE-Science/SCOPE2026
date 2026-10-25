@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The projector decomposition H=A^{1/2}ΠA^{1/2} yields exactly two positive Nyström eigenvalues λ and 1, λ∈[1,k]. The nontrivial generalized pencil yields exact trace T and determinant D, with its extreme eigenvalues straddling the untouched eigenvalue 1+m. The condition-number sign equals minus the sign of G(λ), whose t=(λ−1)/(k−λ) transform is a cubic with strictly positive cubic/quadratic coefficients and strictly negative linear/constant coefficients, yielding exactly one root. Exact rational substitution verifies the explicit worsening witness; Gaussian full support and continuity prove positive probability. Dimension-two cases and the 32/27 limit are separately proved. SymPy verifies identities and a direct-scatter numerical experiment checks 500 sketches (2008 assertions) without treating finite evidence as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frangella–Tropp–Udell, arXiv:2110.02820v1, high-probability and expected condition-number guarantees at prescribed sketch sizes.",
+        "Daužickaitė–Lawless–Scott, doi:10.1002/qj.4151, randomized spectral limited-memory preconditioning, discussion of below-one preconditioned eigenvalues.",
+        "Dereziński–Musco–Yang, arXiv:2405.05865v1, abstract only, different multilevel sketched construction."
+      ],
+      "reasoning": "Large-rank probabilistic bounds do not imply that every smaller sketch improves upon no preconditioning. Below-one eigenvalues in a different limited-memory spectral scheme do not determine the *ratio* of extreme eigenvalues for normalized Nyström. The multilevel algorithm is not the rank-two Nyström normalization, and only its abstract was accessible; this remains a priority risk, not proof of noncoverage.",
+      "searches": [
+        "Nyström PCG relative condition number loss when sketch inaccurate Gaussian",
+        "Nyström PCG condition number can increase versus unpreconditioned despite positive semidefinite Nyström approximation",
+        "rank two Nyström preconditioner regularized linear system spectral condition number phase transition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.02820v1 (mathematical full-text sections 1.1, 2.1, 5.1–5.2)",
+      "doi:10.1002/qj.4151 (full HTML sections 3–5.1)",
+      "arXiv:2405.05865v1 (abstract only; full text unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frangella–Tropp–Udell, arXiv:2110.02820v1, its equation (17), expected preconditioned conditioning results and ideal-eigenspace case.",
+        "Daužickaitė–Lawless–Scott, doi:10.1002/qj.4151, studies randomized LMP whose low-eigenvalue behavior does not determine this Nyström ratio.",
+        "Dereziński–Musco–Yang, arXiv:2405.05865v1, abstract indicates multilevel approximation and spectral complexity rather than the exact pencil."
+      ],
+      "reasoning": "The previous normalized preconditioner formula permits deriving this result but does not state or directly imply the unique crossover and its strict sign without the new generalized-eigenvalue calculation. Its expectation/high-probability bounds concern sketch dimension versus an effective rank, not every rank-two sketch for a three-state spike. The other algorithms are different, so transferring their spectral conclusions requires an unestablished reduction.",
+      "searches": [
+        "Nyström preconditioner condition number increase worse than unpreconditioned matrix small dimensional counterexample",
+        "Nyström PCG relative condition number loss when sketch inaccurate Gaussian",
+        "Nyström PCG condition number can increase versus unpreconditioned despite positive semidefinite Nyström approximation",
+        "rank two Nyström preconditioner regularized linear system spectral condition number phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frangella–Tropp–Udell, arXiv:2110.02820v1, normalized preconditioner formula (17), and condition-number results in sections 2.1 and 5.1–5.2.",
+        "The condition-number comparison is formulated equivalently as the sign of a generalized-eigenvalue trace/determinant invariant and as a unique positive cubic root in the sketch angle."
+      ],
+      "reasoning": "A title match to Nyström preconditioning alone does not cover the result. In the exact original normalized operator, no identified theorem gives the per-sketch generalized-eigenvalue ratio comparison or the cubic root for the spiked three-dimensional spectrum. Comparing the eigenvalue formula rather than names avoids falsely treating a new coordinate parameter as originality.",
+      "searches": [
+        "Nyström preconditioner condition number increase worse than unpreconditioned matrix small dimensional counterexample",
+        "Exact condition number comparison for rank-two Gaussian Nyström preconditioner on diagonal three by three spiked spectrum",
+        "spiked spectrum 3x3 Nystrom preconditioner unique sketch-angle threshold condition inflation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The output is an analytic theorem for all real k>1 and m>0, with a unique cubic threshold; it is not a fixed-size numerical catalogue.",
+        "Searches for randomized Nyström rank-two condition-number counterexamples and exact three-dimensional sketch-angle thresholds returned no matching tabulation or identity."
+      ],
+      "reasoning": "No table/database of finite examples can by itself imply the universal sign classification without a corresponding symbolic theorem. No directly equivalent analytical table was located, though absence from search is not proof of novelty.",
+      "searches": [
+        "preconditioner can worsen condition number random Nystrom sketch spectral ordering",
+        "Exact condition number comparison for rank-two Gaussian Nyström preconditioner on diagonal three by three spiked spectrum",
+        "spiked spectrum 3x3 Nystrom preconditioner unique sketch-angle threshold condition inflation"
+      ]
+    },
+    "rationale": "The initiating paper defines and analyzes the same normalized Nyström preconditioner, but its large-sketch expected-condition-number bound is not a deterministic per-sketch comparison. This result obtains a complete and sharp three-dimensional one-parameter condition-number sign classification, including both positive-measure worsening and improving sketches for every spike and regularization, explicit exact witness and minimal dimension. A targeted comparison with spectral limited-memory and multilevel sketched preconditioning found differing operators/claims rather than an implication of the exact cubic threshold. The priority risk of an unobserved equivalent elementary-pencil calculation remains.",
+    "residual_risks": [
+      "An unobserved equivalent rank-two spectral-pencil computation in numerical preconditioning literature cannot be ruled out by searches.",
+      "The multilevel preconditioning paper was compared at abstract level only; no full-text NOT_COVERING assertion is made.",
+      "The model is diagonal with a repeated eigenvalue, rank-two and exact arithmetic; broad numerical conclusions outside the stated domain are not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same operator; no identified statement asserts all per-sketch condition numbers improve, or gives this unique cubic sketch-angle threshold. Expected large-sketch bounds neither refute nor cover the result.",
+        "evidence": [
+          "arXiv:2110.02820v1, equation (17), sections 2.1, 5.1–5.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.02820",
+        "material_read": "Accessible full open HTML mathematical text, sections 1.1, 2.1 and 5.1–5.2; in particular the normalized Nyström formula (17) and sketch-size hypothesis of condition-number bounds.",
+        "method": "Read source mathematical statements, reconstructed and specialized the exact normalized preconditioner to the rank-two spiked case.",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "Identical source preconditioner, source date and closest expected-conditioning theorem"
+      },
+      {
+        "assessment": "Different randomized limited-memory spectral preconditioner; its below-one eigenvalues do not imply the exact condition-number ratio for normalized rank-two Nyström.",
+        "evidence": [
+          "Daužickaitė–Lawless–Scott (2021), doi:10.1002/qj.4151, §§3–5.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qj.4151",
+        "material_read": "Accessible full article HTML, sections 3–4 and 5.1 discussing randomized spectral LMP eigenvalue displacement.",
+        "method": "Compared the mathematical preconditioner formula and spectral object, not just the description of occasional poor conditioning.",
+        "title": "Randomised preconditioning for the forcing formulation of weak-constraint 4D-Var",
+        "trigger": "Potential stronger spectral condition-number failure for randomized spectral preconditioning"
+      },
+      {
+        "assessment": "Multilevel operator is distinct; insufficient text for definitive noncoverage of every related lemma. Residual publication-priority risk explicitly retained.",
+        "evidence": [
+          "Dereziński–Musco–Yang, arXiv:2405.05865v1, abstract only."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.05865",
+        "material_read": "Public abstract and metadata only; accessible full preprint was not obtained.",
+        "method": "Compared reported scope and preconditioner type in abstract, recorded noninspection of its mathematical sections.",
+        "title": "Faster Linear Systems and Matrix Norm Approximation via Multi-level Sketched Preconditioning",
+        "trigger": "Potential general sketched preconditioning claims about condition numbers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1347e7d4-9a8c-4ce3-8999-c88665c1de44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An SPD preconditioner can be computationally worthwhile yet worsen conditioning for a particular sketch; determining whether its intended improvement is guaranteed is a natural structural safety question. This theorem establishes a complete sharp sketch-angle classification for the smallest possible dimension, all spike strengths and all positive regularizations; the deterioration and improvement each have positive Gaussian probability, with an exact rational witness and a nontrivial asymptotic 32/27 amplification family. The threshold is more informative than a bare single counterexample. It does not purport to establish iteration-count worsening or universal higher-dimensional bounds.",
+    "status": "PASS"
+  }
+}
