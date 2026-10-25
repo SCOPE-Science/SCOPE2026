@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:12:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 cyclic gaps of iid uniform points have Dirichlet(1,...,1) law and twice each cell length is a sum of two adjacent gaps. Aggregation gives Beta(2,n-2) tail p_n=(1-q)^{n-2}(1+(n-2)q). Conditioning on the common spacing gives adjacent joint tail 2(1-q)^{n-1}-(1-2q)_+^{n-1}; aggregating four disjoint gaps gives the displayed three-term nonadjacent joint tail. For n=3 covariance factors strictly negative; for n=4 it factors into nonnegative expressions with unique interior zero at q=1/2. For n>=5, the proof shows F(q)+G(q) decreases below 2 when q<=1/2 (via an exponential strict bound), and F(q)<2 for q>=1/2, so adjacent covariance is positive. Conditional Beta decrease yields strict nonadjacent negativity even at n=4 via B=1-A. Fixed-x expansions at q=x/n give the positive adjacent limit and negative order-1/n nonadjacent term. Independent exact rational calculations checked signs at 185 sample-size/threshold points, n=3..39, not the continuum all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devroye et al. arXiv:1512.04267 obtain one-cell moment/asymptotic laws for iid samples in Euclidean space.",
+          "Gabrielli and Torquato arXiv:cond-mat/0405115 study finite-neighbor cell statistics in the shuffled-lattice point process."
+        ],
+        "reasoning": "A general exchangeable-spacing dependence theorem could imply the sign pattern, but neither cited broader theorem was found to give the sharp n3,n4,n>=5 common-threshold break and n=4 independence for fixed iid circular sites.",
+        "searches": [
+          "Devroye Gyorfi Lugosi Walk On the Measure of Voronoi Cells arxiv 1512.04267",
+          "Gabrielli Torquato Voronoi and Voids Statistics for Super-homogeneous Point Processes cond-mat 0405115"
+        ]
+      },
+      "checked_sources": [
+        "Devroye et al. arXiv:1512.04267",
+        "Gabrielli and Torquato arXiv:cond-mat/0405115",
+        "Resultary semantic search: iid uniform circular Voronoi cells adjacent and nonadjacent threshold exceedance covariance sign four cells independent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A marginal law fixes P(I_i=1), not P(I_i=I_j=1) or covariance sign.",
+          "Changing from shuffled lattice to iid uniform positions changes the joint cyclic spacing distribution and separation-dependent correlations."
+        ],
+        "reasoning": "Neither one-cell asymptotics nor a two-cell law in a different point process logically entails the finite iid circular threshold sign theorem.",
+        "searches": [
+          "Devroye 1512.04267 typical cell size versus joint threshold",
+          "Gabrielli Torquato cond mat 0405115 shuffled lattice joint cell length"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Circle Voronoi cell arclength equals one-half sum of its two bordering cyclic spacings; the relevant joint indicator law is a pair of overlapping or disjoint two-spacing Dirichlet aggregates.",
+          "The iid fixed-n model is distinct from the shuffled-lattice or Poisson point process in previously indexed two-cell statistics."
+        ],
+        "reasoning": "Equivalent formulations include neighboring two-gap sum exceedance association and Dirichlet spacing covariance sign. One-cell Beta tails alone cannot imply the two-cell strict-sign classification.",
+        "searches": [
+          "iid uniform circular Voronoi cells adjacent and nonadjacent threshold exceedance covariance sign four cells independent",
+          "finite iid random points circle Dirichlet spacings consecutive gap sums exceedance covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One-cell Beta(2,n-2) distribution is classical and not assessed as new.",
+          "No indexed full all-n adjacent/nonadjacent threshold-covariance sign table was found in the Resultary search or primary abstracts."
+        ],
+        "reasoning": "The isolated equality q=1/2 at n=4 could be calculated from simplex integration, but the natural contribution is its uniqueness within a complete all-threshold sign classification; unindexed finite tables remain possible.",
+        "searches": [
+          "iid uniform circular Voronoi cells adjacent and nonadjacent threshold exceedance covariance sign four cells independent",
+          "four iid sites circle Voronoi adjacent large cells independent threshold quarter"
+        ]
+      },
+      "rationale": "The exact model is fixed-number iid uniform sites on a circle, not a Poisson/Voronoi limit or a shuffled lattice. Devroye et al. study the one-cell typical measure and asymptotics; Gabrielli–Torquato's two-cell laws concern a shuffled-lattice point process with a different dependence structure. The sharp adjacent covariance sign change at n=4/5 and independence at four cells are not implied by either distinct-model result. Search absence is not proof: older special exact circle calculations remain a risk.",
+      "residual_risks": [
+        "Older finite iid-circle Dirichlet-spacing tables or a general negative/positive dependence theorem might encode part of the classification.",
+        "Only equal thresholds and fixed sample size; unequal thresholds, nonuniform point laws and higher dimensions not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "The declared results are typical-cell measure and moments and asymptotic laws, not a finite-circle all-threshold joint exceedance sign theorem. This does not claim a whole-document negative from abstract alone.",
+          "identifier_or_url": "Devroye, Györfi, Lugosi and Walk arXiv:1512.04267 (2015)",
+          "material_read": "Primary arXiv abstract and article scope/model description; full paper not read during this execution",
+          "method": "Compared single-cell vs two-cell quantities and Euclidean/circular domains",
+          "title": "On the measure of Voronoi cells",
+          "trigger": "IID Voronoi cells, closest same-sampling general literature"
+        },
+        {
+          "assessment": "DIFFERENT_POINT_PROCESS",
+          "evidence": "The paper addresses independently displaced lattice sites and cell correlations; it is not the fixed sample-size iid uniform circle experiment, so its two-cell law does not alone imply the claimed sign diagram.",
+          "identifier_or_url": "Gabrielli and Torquato arXiv:cond-mat/0405115 (2004)",
+          "material_read": "Primary preprint abstract and stated point-process model, with source's identified comparison; no complete manuscript reading in this execution",
+          "method": "Compared shuffled lattice point process with fixed-n iid uniform points on a circle",
+          "title": "Voronoi and Voids Statistics for Super-homogeneous Point Processes",
+          "trigger": "Joint neighboring Voronoi size correlations in one dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adjacent-cell threshold dependence is a natural geometric-probability observable for finite samples. An all-threshold, all-finite-n phase diagram has a sharp sample-size transition and an exceptional exact independence point, alongside a strict sign distinction for nonadjacent cells and a Poisson-scale limiting separation. These structural facts extend beyond routine single-cell Dirichlet tails.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older finite iid-circle Dirichlet-spacing tables or a general negative/positive dependence theorem might encode part of the classification.",
+    "Only equal thresholds and fixed sample size; unequal thresholds, nonuniform point laws and higher dimensions not covered."
+  ],
+  "schema_version": 1
+}
