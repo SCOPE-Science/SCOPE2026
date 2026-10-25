@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for fixed convex Euclidean polygons and finite boundary sets hitting every open side. The polygon dissects exactly into the inscribed hull and disjoint corner triangles. Writing chord shortening as \(u_i\) and triangle area as \(v_i\), the exact local ratio satisfies \(v_i/u_i^2\ge\kappa_i\) because the normalized chord length is at least \(\sin(\theta_i/2)\). Weighted Cauchy then gives the claimed global optimum. The nonnegative slack decomposition is verified algebraically, and a common positive scale constructs genuine equality cases with all constraints satisfied. Finite independent hull computations passed 1,800 tests and three sharpness configurations; they are corroboration rather than infinite proof.
+PASS
 
-## Originality — PASS, subject to residual bibliographic uncertainty
+For every nondegenerate convex Euclidean m-gon m>=3 and finite S meeting every open side, removed hull corners are disjoint triangles. Exact perimeter/area losses are u_i=x_i+y_i-d_i and v_i=xy sin(theta_i)/2. With z=d/(x+y)>=sin(theta_i/2), the local sharp ratio v_i/u_i²>=kappa_i=sin(theta_i)/[8(1-sin(theta_i/2))²] holds, with balanced cuts x_i=y_i. The displayed algebraic local slack and weighted variance identity sum to exact DeltaA-C(K)DeltaP². Weighted Cauchy gives C=(sum 1/kappa_i)^(-1); small common t yields feasible positive equality on every side. Boundary zero cuts checked by continuity/convention. Independently verified 1000 random local exact slack identities (5 angles, 200 pairs each), distinct from full universal corner geometric proof.
 
-Primary full-text comparisons covered Reitzner–Schütt–Werner (2019), Prochno–Schütt–Sonnleitner–Werner (2024), and Indrei (2015). The first two investigate boundary-random means or Hausdorff approximation; Indrei treats the isoperimetric deficit of one polygon and its regularity. None of their examined theorems implies the best possible nested loss comparison for every side-spanning inner hull with complete equality and stability. The elementary corner geometry is preexisting background; the claimed contribution is its sharp global angular optimization. Database queries for corner truncation, paired deficits, and nested-polygon Bonnesen inequalities did not identify coverage, which does not eliminate the possibility of unindexed equivalent results. The classical long boundary-random chapter was inspected selectively.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise invariant is the optimal ratio of removed area to squared removed perimeter for a prescribed outer polygon. It is motivated by deterministic and boundary-sampling convex approximation, nonzero, explicitly angular, and attained. The exact stability identity separates two genuinely geometric mechanisms of inefficiency and classifies all nontrivial equality configurations; these are structural and sharp properties beyond individual asymptotic marginal observations.
+Known boundary-polytope approximation papers focus on expected random volume/Hausdorff error and isoperimetric deficits relative to round shapes. A fixed outer polygon and every side-spanning inner boundary hull give a distinct deterministic ratio, best angular coefficient, attained equality and exact two-term stability. Survey may miss a classical corner-chopping inequality.
 
-## Limitations
+## value
 
-The theorem is restricted to side-spanning boundary-inscribed polygonal hulls; empty sides and arbitrary interior sampling fall outside the proof. No uniform positive constant over all possible angle patterns is claimed. Additional historical literature could contain the same optimization. Independent mathematical audit has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp simultaneously controlled area and perimeter losses for a fixed polygon form a natural quantitative problem in finite boundary approximation. Exact attained optimal constant, full nontrivial equality configurations, and a two-mechanism stability decomposition are useful structural facts; this is not a generic area monotonicity or a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

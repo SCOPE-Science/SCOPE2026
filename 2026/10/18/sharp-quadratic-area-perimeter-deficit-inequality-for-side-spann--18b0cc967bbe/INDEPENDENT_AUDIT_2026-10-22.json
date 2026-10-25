@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:02:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-quadratic-area-perimeter-deficit-inequality-for-side-spann--18b0cc967bbe/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-quadratic-area-perimeter-deficit-inequality-for-side-spann--18b0cc967bbe/check.py"
+      ],
+      "evidence": [
+        "RESULT.md blob e258d900057f00704ee07062c6c73aab8cd1894b proof steps 1-4; check.py blob f8bffc8dc7bcc841333311db1ef187d85b0e13c0 inspected and independent slack calculations.",
+        "Exact side feasibility: on side i the outgoing previous cut plus next incoming cut is below positive length; sufficiently small common scale gives strict feasible equality."
+      ],
+      "rationale": "For every nondegenerate convex Euclidean m-gon m>=3 and finite S meeting every open side, removed hull corners are disjoint triangles. Exact perimeter/area losses are u_i=x_i+y_i-d_i and v_i=xy sin(theta_i)/2. With z=d/(x+y)>=sin(theta_i/2), the local sharp ratio v_i/u_i²>=kappa_i=sin(theta_i)/[8(1-sin(theta_i/2))²] holds, with balanced cuts x_i=y_i. The displayed algebraic local slack and weighted variance identity sum to exact DeltaA-C(K)DeltaP². Weighted Cauchy gives C=(sum 1/kappa_i)^(-1); small common t yields feasible positive equality on every side. Boundary zero cuts checked by continuity/convention. Independently verified 1000 random local exact slack identities (5 angles, 200 pairs each), distinct from full universal corner geometric proof.",
+      "residual_risks": [
+        "Requires one boundary sample in relative interior of each side, not arbitrary interior or missing-side hulls.",
+        "Finite local tests do not replace global convex hull corner decomposition and sharpness construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+          "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870",
+          "Published angular stability of tangential quadrilaterals compares a different family under fixed inradius, not nested side-spanning hull deficits."
+        ],
+        "reasoning": "The literature’s stronger-sounding convex approximation results do not dominate this deterministic angle-weighted two-deficit comparison.",
+        "searches": [
+          "arXiv:1911.05917",
+          "arXiv:2404.02870",
+          "Resultary: convex polygon inscribed side spanning area perimeter deficit quadratic angle sharp stable corner inequality"
+        ]
+      },
+      "checked_sources": [
+        "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+        "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870",
+        "Resultary: convex polygon inscribed side spanning area perimeter deficit quadratic angle sharp stable corner inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+          "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870",
+          "Sample-by-sample area-perimeter inequality yields an inequality after averaging but neither cited asymptotic paper states it or determines its attained C(K)."
+        ],
+        "reasoning": "The claimed deterministic law supplies information unavailable from expectations of individual errors, even for a random boundary sample conditioned on hitting all sides.",
+        "searches": [
+          "arXiv:1911.05917 principal volume-loss theorems",
+          "arXiv:2404.02870 expected Hausdorff estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+          "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870",
+          "The proposed invariant is inf of (A(K)-A(H))/(P(K)-P(H))² over all side-spanning H inside a prescribed K."
+        ],
+        "reasoning": "Not equivalent to the isoperimetric deficit P(H)^2-4πA(H) or one marginal expected Hausdorff/volume error.",
+        "searches": [
+          "convex polygon inscribed side spanning area perimeter deficit quadratic angle sharp stable corner inequality",
+          "side-spanning boundary random polygons area perimeter deficits angle corner",
+          "arXiv:1911.05917",
+          "arXiv:2404.02870"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of sharp C(K) or exact cut-balance/dispersion identity identified in these searches."
+        ],
+        "reasoning": "C(K) depends continuously on every genuine interior angle; no exact database of this invariant was identified; negative search remains nonconclusive.",
+        "searches": [
+          "Resultary: convex polygon inscribed side spanning area perimeter deficit quadratic angle sharp stable corner inequality",
+          "Resultary: side-spanning boundary random polygons area perimeter deficits angle corner"
+        ]
+      },
+      "rationale": "Known boundary-polytope approximation papers focus on expected random volume/Hausdorff error and isoperimetric deficits relative to round shapes. A fixed outer polygon and every side-spanning inner boundary hull give a distinct deterministic ratio, best angular coefficient, attained equality and exact two-term stability. Survey may miss a classical corner-chopping inequality.",
+      "residual_risks": [
+        "Older polygon corner clipping/Bonnesen inequalities could hide this exact weighted inequality under alternate names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes expected facets/vertices and volume-difference asymptotics of random hulls, not deterministic per-configuration sharp quadratic relation to perimeter deficits.",
+          "evidence": [
+            "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+            "Abstract and main theorem target expected combinatorial counts and volume losses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Public preprint abstract and examined main expectation/volume-deficit statements; full PDF available but not exhaustively compared section by section",
+          "method": "Primary article theorem/aim comparison",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Shared boundary-sampled inscribed hull object"
+        },
+        {
+          "assessment": "Hausdorff error expectation and large-N behavior do not imply the claimed exact angle-optimal area-versus-perimeter inequality and equality cases.",
+          "evidence": [
+            "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+          "material_read": "Abstract and principal expected Hausdorff-distance results for boundary random polygons",
+          "method": "Primary arXiv paper abstract/main result comparison",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Same polygon boundary sampling model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-quadratic-area-perimeter-deficit-inequality-for-side-spann--18b0cc967bbe/RESULT.md",
+        "M. Reitzner, C. Schütt and E.M. Werner, The convex hull of random points on the boundary of a simple polytope, arXiv:1911.05917",
+        "J. Prochno, C. Schütt, M. Sonnleitner and E.M. Werner, Random approximation of convex bodies in Hausdorff metric, arXiv:2404.02870"
+      ],
+      "rationale": "The sharp simultaneously controlled area and perimeter losses for a fixed polygon form a natural quantitative problem in finite boundary approximation. Exact attained optimal constant, full nontrivial equality configurations, and a two-mechanism stability decomposition are useful structural facts; this is not a generic area monotonicity or a known-table recomputation.",
+      "residual_risks": [
+        "No claim for missed sides, curved boundaries, higher-dimensional analogues or global uniform constant across polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
