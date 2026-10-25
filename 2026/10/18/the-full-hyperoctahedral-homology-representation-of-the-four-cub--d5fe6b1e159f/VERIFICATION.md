@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify_q4_character.py` with standard Python 3. The code uses no downloaded datasets, external packages or auxiliary files. It enumerates all 65,536 vertex subsets and verifies exactly 742 nonempty independent faces. It reconstructs the greedy acyclic matching on 742 faces, checks 367 distinct pairs, reconstructs and topologically sorts all 2,816 oriented cover relations, and verifies critical-cell profile one in degree zero and seven in degree three. It then enumerates all 16 translations times 24 coordinate permutations, checking the derived character through both the independent orbit-conflict evaluation and direct oriented fixed-face Lefschetz sums, plus the full formula and exact Fourier projections.
+## correctness
 
-Expected successful output:
+PASS
 
-`VERIFY_OK vertices=16 faces=742 matching_pairs=367 critical=1x0+7x3 acyclic_incidences=2816 group=384 rank_H3=7 translation=3+4 all_character_checks=384 globally_fixed=0`
+Independently constructed the 16-vertex Hamming-one four-cube and all 742 nonempty independence faces; pivot matching yields 367 pairs, one critical 0-cell and seven critical 3-cells, with all 2816 Hasse-cover directions acyclic. This establishes Ind(Q4)≃∨7 S3 integrally and places reduced homology only in degree3. Independently enumerated every (t,p)∈F2^4⋊S4 (384 elements), applying oriented-simplex permutation signs to fixed independent faces to compute reduced Lefschetz traces; all 384 match the proposed character formula. Trace value distribution {7:1,5:4,3:6,1:188,-1:161,-3:24}; translation traces for t of weights 0–4 are (7,1,3,5,-1). Fourier inversion yields m0=3, m_|u|=3=1, other m=0. On translation-fixed block S4 trace is sign⊗Std3, and weight-three stabilizer S3 acts by sign; hence Q[G] decomposition into irreducible dimensions 3 and 4, with zero global invariants.
 
-An observed successful execution produced this output. The acyclic matching implies the integral nonequivariant homotopy claim; the character computations prove the claimed rational action, not an integral representation lattice. Neither completeness of global mathematical literature nor independent external scientific validation is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge original full natural 384-symmetry rational degree-three homology character and its 3+4 irreducible decomposition. The nonequivariant seven-sphere wedge was established earlier for this exact Q4 complex and is explicitly credited; other cube-symmetry results concern distinct Čech or cut complexes.
+
+## value
+
+PASS
+
+Refines a known natural finite graph homotopy type by a complete hyperoctahedral module, detects translation spectrum and lack of globally fixed homology. It is a reproducible exact case useful for testing equivariant independence-complex theory; not merely a recomputation of seven Betti generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite proof reconstructs the full sixteen-vertex graph and its 742 independent faces, verifies 367 disjoint Morse pairs and a directed acyclic matching on all 2816 Hasse incidences, leaving one zero-cell and seven three-cells. This establishes homological concentration and the seven-dimensional rank, including over the integers. Two independent signed-Lefschetz evaluations agree on every one of the 384 automorphisms and give the explicit rational character. Character Fourier projections and the weight-three stabilizer calculations verify both irreducible constituents. `python3 verify_q4_character.py` was executed successfully against the packaged source; no unproved infinite extension is claimed.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Independently constructed the 16-vertex Hamming-one four-cube and all 742 nonempty independence faces; pivot matching yields 367 pairs, one critical 0-cell and seven critical 3-cells, with all 2816 Hasse-cover directions acyclic. This establishes Ind(Q4)≃∨7 S3 integrally and places reduced homology only in degree3. Independently enumerated every (t,p)∈F2^4⋊S4 (384 elements), applying oriented-simplex permutation signs to fixed independent faces to compute reduced Lefschetz traces; all 384 match the proposed character formula. Trace value distribution {7:1,5:4,3:6,1:188,-1:161,-3:24}; translation traces for t of weights 0–4 are (7,1,3,5,-1). Fourier inversion yields m0=3, m_|u|=3=1, other m=0. On translation-fixed block S4 trace is sign⊗Std3, and weight-three stabilizer S3 acts by sign; hence Q[G] decomposition into irreducible dimensions 3 and 4, with zero global invariants.
 
-The earliest relevant public grid-topology source is arXiv:math/0701890 (2007-01-30), which treats open/cylindrical homotopy and related toroidal enumeration, not the natural 384-automorphism homology representation. Barmak's general triangle-free suspension theorem does not specify the character. The complete same-object published record *The four-cube independence complex is a wedge of seven three-spheres* establishes the nonequivariant wedge but explicitly does not claim an equivariant decomposition. Other indexed full-hyperoctahedral work uses the distinct three-cut and Čech complexes. Targeted searches under four-cube, fully periodic four-by-four grid, signed Lefschetz, and exact weight-three Fourier/induced-module formulations found no covering statement. This is best-knowledge originality, not a proof of uniqueness across all literature; unindexed equivalents remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete two-irreducible decomposition and all-element trace formula determine an invariant that ordinary Betti numbers and a sphere-wedge classification cannot see. For a canonical 16-vertex periodic graph, the surviving translation-invariant dimension three contrasts with zero invariance under all graph symmetries. The four weight-three Fourier eigendirections and sign action of their stabilizers have intrinsic symmetry meaning. The finding makes no unsupported downstream claims.
+Best-of-knowledge original full natural 384-symmetry rational degree-three homology character and its 3+4 irreducible decomposition. The nonequivariant seven-sphere wedge was established earlier for this exact Q4 complex and is explicitly credited; other cube-symmetry results concern distinct Čech or cut complexes.
 
-## Boundaries
+## value
 
-The rational homology representation only is classified. No integral equivariant lattice theorem, uniform higher-dimensional cube character, external independent audit or literature-exhaustiveness certificate is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Refines a known natural finite graph homotopy type by a complete hyperoctahedral module, detects translation spectrum and lack of globally fixed homology. It is a reproducible exact case useful for testing equivariant independence-complex theory; not merely a recomputation of seven Betti generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
