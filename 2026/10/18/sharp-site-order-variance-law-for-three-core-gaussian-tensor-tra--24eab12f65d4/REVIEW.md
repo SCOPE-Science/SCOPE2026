@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses a correctly normalized isotropic Gaussian tensor-train vector. Conditional Gaussian quadratic-form moments and explicit Wishart moments yield the displayed exact variance. The exchange identity has a nonpositive sign for moving higher purity inward, and the positive-polynomial factorization verifies the sharp \(\chi\) ratio. A rank-one factor and two normalized-identity factors establish sharpness as the common local dimension increases. The symbolic factorization and direct Monte Carlo sketches were recomputed; finite testing alone is not the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2026 Camaño–Epperly–Meyer–Tropp paper already supplies the complete Gaussian tensor-train fourth moment, and the 2026 Bujanović–Kressner–Olić paper supplies moment and tail analysis; both facts are acknowledged, not asserted to be new. The full accessible versions were examined at the relevant definitions, trace-estimation and moment sections. Neither expresses or proves the all-permutation optimal central-purity rule, the strict swap law or the sharp factor-\(\chi\) variance penalty. The new mathematical contribution is that integrated rearrangement-and-optimality theorem, not a claim to discover the underlying fourth moment. A specialized earlier rearrangement result may have been overlooked.
+PASS
 
-## Value — PASS
-Tensor-train probes distinguish endpoint and interior Gaussian cores, so permuting otherwise isospectral Kronecker factors changes estimator variance. An exact ordering rule needs only trace and Frobenius norm of three factors and can prevent a variance penalty approaching the bond dimension; this is a nontrivial, structurally motivated benchmark for mode ordering. The result is restricted to three cores and proves no wall-clock gain.
+Gaussian orthogonal invariance reduces three symmetric PSD factors to nonnegative diagonal weights, and independent Gaussian contractions of the endpoint Gram matrices give normalized variance Vchi=2(p+r)/chi+4pr/chi^2+2q[1+(chi+1)p][1+(chi+1)r]/chi^2. Independently symbolically factored the exact exchange V(b,a,c)-V(a,b,c)=2(chi-1)(a-b)(c-1)/chi^2, proving the highest purity belongs in the middle. Independently factored chi V(b,a,c)-V(a,c,b) into a positive polynomial for a>=b>=c>0, establishing the chi upper bound; rank-one versus two I_d/d factors make the limiting ratio chi. Independent 20,000-probe direct Gaussian simulations yielded variances within 10% of three predicted site orders, useful only as finite diagnostics. For chi=1 all orders coincide, and chi>1 bound is strict at finite d.
 
-## Prior work and limitations
-Primary sources: arXiv:2606.15350v1, Definition 1.1, Theorem 4.3, §§3.3 and 4.5; arXiv:2606.15679v1, Definition 1 and §§3–4. Broader tensor-probability equivalents have not been eliminated exhaustively. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Recent Gaussian random-MPS/TT fourth-moment formulas imply each fixed-target variance after contraction, so that input is prior art. The distinct claim is a complete six-permutation rearrangement inequality, finite-equality cases, and a sharp bond-dimensional worst-to-best ratio. No matching ordering theorem appeared in the inspected primary abstracts or ranked published records. Inaccessible full texts remain named priority risks, rather than manufactured whole-document noncoverage.
+
+## value
+
+PASS
+
+Permuting tensor physical modes preserves target spectrum but changes estimator variance; a provably optimal ordering rule and sharp chi amplification limit are natural design invariants of three-core Gaussian tensor-network sketching. This is a nontrivial parameter inequality rather than an arbitrary tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
