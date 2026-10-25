@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two squared singular values of each rank-one signed sum are determined by their trace and determinant. The trace contains the phase-sensitive product of two ray overlaps; the determinant contains the two complementary squared overlaps. For \(0<p<1\), their Schatten-power sum increases with either invariant, and \(cd\le (c^2+d^2)/2\) gives the exact envelope. A Stieltjes representation and justified interior differentiation prove the strict convexity of the resulting deficit. Direct differentiation at orthogonality gives the best possible tangent coefficient. Positively aligned rank-one projections attain the entire envelope and prove sharpness of the tangent inequality. Reconstructed boundary cases and the coincident-scale limit agree; the numerical diagnostic is supplementary, not a proof.
+PASS
 
-## Originality — PASS, with priority risk
+The two singular-value squares of A±B are determined by s=a²+b²±2ab Re(<u,x><y,v>) and P=a²b²(1−c²)(1−d²). For r=p/2 in (0,1), their power sum Psi_r(s,P) increases separately with s and P, including degeneracies by limiting argument. For fixed Q=c²+d², t=cd≤Q/2 increases both possible maxima, giving a positive-projection extremizer with eigenvalues (a+b±sqrt((a-b)²+2abQ))/2. Stieltjes z^p integral differentiated in interior gives F'<0 and F''<0, hence G=a^p+b^p−F strictly increasing/convex; its tangent at Q=0 gives sharp K for unequal/equal amplitudes and limiting Q→0 proves optimality. Checked Q=0 and Q=2 boundaries and infinite-dimensional reduction to rank-two corners.
 
-Zhang and Liu (arXiv:2610.13271, 2026-10-09) establish equality-driven two-sided support rigidity, rank-one trace/determinant formulas, and exact max-phase isometry classifications. Those spectral identities and qualitative equivalence are explicitly prior. Huang and Zhu (arXiv:2607.11244, Lemmas 3.3–3.4) likewise prove qualitative phase recovery. This finding instead solves the constrained variational problem of optimizing the max-phase \(p\)-moment over every pair with fixed summed squared support overlaps, allowing unequal singular amplitudes, and derives the optimal quantitative modulus. The primary full text and relevant companion PDF sections were read; actual published-record searches found no covering statement. Residual risk: a broader matrix stability or concavity result could subsume the optimization, and semantic-index searches are not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp profile quantifies how approximately saturated Schatten quasi-triangle equality forces both left and right rank-one supports to be nearly orthogonal. It supplies a tight estimate for every \(0<p<1\), unequal-amplitude scaling, exact optimizing pairs, and a nonlinear inverse modulus. These are substantive quantitative extensions of a natural qualitative operator-ideal rigidity threshold.
+Best-of-knowledge original as an exact, Q-conditioned, unequal-amplitude sharp max-phase Schatten envelope and optimal near-orthogonality modulus, not as the underlying known rank-one spectrum or qualitative support rigidity. Close full 2026 source was inaccessible; priority remains qualified.
 
-## Scientific limitations
+## value
 
-Only rank-one operators are treated. No quantitative stability of general max-phase-preserving maps and no higher-rank bound is established. Exact priority and full generality remain subject to external mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact sharp stability modulus answers a natural quantitative follow-up to max-phase support rigidity. It identifies two left/right support overlaps simultaneously, handles unequal rank-one amplitudes, and is dimension independent and optimally attainable. The fixed-Q envelope provides usable near-equality control beyond an isolated algebraic rewriting, while scope is honestly restricted to rank one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
