@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each r>=3 and each positive integer vector of block sizes, optimization of a linear form over the union of disjoint coordinate cubes gives exact Gaussian support as maximum of rectified normal sums. The Euclidean width denominator is the expectation of the Gaussian radius, not its square root variance. For each outward unit transfer, a nondecreasing max-difference has zero expectation at exchangeable base blocks and a strict positive event, proving finite strictness including singleton boundaries. Exchange paths prove sharp extremal orbits. Fixed-r multivariate CLT with uniform L2 expectation control and Gaussian-radius asymptotics proves the critical window and macroscopic law; Gaussian full support proves strict convexity of the correction modulo translations. Exact rational surrogate checks and direct enumerations were executed from the actual packaged checker but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahmad–Fourier–Joswig arXiv:2309.01626 revised full PDF Theorem 4.1 and Corollary 4.2 give face-number injections/inequalities, not widths.",
+        "Aliniaeifard et al. arXiv:1804.00360 revised full PDF Theorem 4 gives vertices/edges and subsequent sections give graph diameters, not mean widths.",
+        "The general regular-polytope Gaussian mean-width formulas of Kabluchko–Litvak–Zaporozhets concern regular simplices and crosspolytopes, not a strict multipartite block majorization theorem."
+      ],
+      "reasoning": "The exact Gaussian support construction is compatible with known vertex theory, but face counts, radii and unrelated regular-polytope width identities do not entail a strict transfer inequality for a variable number of independent classes. No dominating result was identified in inspected source theses or accessible indexed records.",
+      "searches": [
+        "Mean width of chain polytopes of maximal ranked posets complete multipartite three or more antichains",
+        "mean width extremal Schur convex complete multipartite independence polytope balanced block sizes",
+        "Gaussian width graph stable set polytope complete multipartite asymptotic central limit maximum independent block Gaussian positive parts"
+      ]
+    },
+    "checked_sources": [
+      "Aliniaeifard et al., arXiv:1804.00360, accessible revised PDF Sections 2–3/6–7, Theorem 4.",
+      "Ahmad–Fourier–Joswig, arXiv:2309.01626, accessible revised PDF definitions and Theorem 4.1/Corollary 4.2.",
+      "Kabluchko–Litvak–Zaporozhets, DOI:10.1007/s10958-017-3492-3, abstract only.",
+      "Published indexed records: fc5ba86494aa (John ellipsoid), 2a7050b5d350 (minimum sphere), 482983ab9269 (zonotope width variance), c907c96c56a6 (unrelated Schur-concavity)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older local two-block claim 8d4e89a9 gives exact expected absolute difference and a one-dimensional folded normal; the new r>=3 Gaussian correction is a maximum of r independent shifted Gaussians.",
+        "Published fc5ba86494aa obtains maximum inscribed ellipsoid for balanced multipartite stable sets; the new theorem compares unbalanced profiles and spherical integral means.",
+        "Published 2a7050b5d350 obtains enclosing spheres with a screening threshold; those extremal Euclidean radii cannot determine average support."
+      ],
+      "reasoning": "Two-block congruence explicitly resolves the strongest direct collision. Replacing two by r>=3 is not merely restating the older two-block theorem: a nontrivial monotonic-max coupling proves a parameter-majorization inequality for all r and the r-dimensional normal max has different values and geometry. Distinct 2018/2023 face results are insufficient to imply even the exact width normalization, still less strict finite transfer and asymptotic profile.",
+      "searches": [
+        "complete bipartite graph stable set polytope spherical mean width central limit folded normal critical window",
+        "Complete multipartite stable set polytope exact Euclidean mean width strict Schur convex part sizes all ranks",
+        "Gaussian width free sum of coordinate cubes k blocks Schur convexity and multivariate Gaussian maximum critical window"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The multipartite stable-set body is the convex hull of coordinate cubes on orthogonal summands, so Gaussian width and Euclidean spherical mean width are equivalent via a fixed Gaussian-radius factor.",
+        "A previously established two-block mean-width theorem (opaque identifier 8d4e89a9-89a3-4d48-bee3-283144a0d6ad) is equivalent after reflecting one coordinate block; it covers only the two-block case.",
+        "The available related same-object published result fc5ba86494aa computes a John ellipsoid, not a spherical support expectation."
+      ],
+      "reasoning": "Aliases included stable-set polytope, chain polytope of a maximal ranked poset, free sum of coordinate cubes, Gaussian support, mean width and Schur convexity. An actual two-block equivalent was found and explicitly excluded; its folded-normal two-block law does not state the r>=3 r-way max normal crossover or arbitrary-r strict majorization.",
+      "searches": [
+        "Gaussian width free sum of coordinate cubes k blocks Schur convexity and multivariate Gaussian maximum critical window",
+        "Complete multipartite stable set polytope exact Euclidean mean width strict Schur convex part sizes all ranks",
+        "mean width Gaussian support stable set polytope of complete multipartite graph polyhedral geometry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior exact two-block width theorem and a balanced multipartite John ellipsoid are the closest comparable existing results; no directly covering three-or-more-block Gaussian width formula was identified in the material checked.",
+        "Indexed published records returned exact same-object John ellipsoid ID fc5ba86494aa and enclosing-sphere ID 2a7050b5d350, but no r>=3 width table/formula."
+      ],
+      "reasoning": "There are exact parametrized expected maxima rather than a published table of complete multipartite Euclidean widths in material checked. No exhaustive worldwide tabulation search is asserted; finite package tests are independent of any database and do not substitute for originality evidence.",
+      "searches": [
+        "complete bipartite stable set polytope Euclidean mean width exact monotone part size imbalance sharp balanced",
+        "Sharp Schur convexity of mean width for complete multipartite stable set polytopes; balanced equal parts minimize, singleton large part maximizes; Gaussian max asymptotic critical block imbalance"
+      ]
+    },
+    "rationale": "The r=2 result is documented in a prior theorem in orthogonally reflected height-two order-polytope form; the new statement explicitly excludes it. At r>=3, the strict all-profile Schur-convexity, r-variate Gaussian-max window and r-fold extremal ratio are not implications of the inspected stable-set 1-skeleton or ranked-poset face inequalities, nor of available ellipsoid/sphere/zonotope claims. Related claims, aliases, and mathematical implications were compared. Full texts of the two directly relevant primary papers were inspected in their relevant portions. Possible less-indexed general probabilistic inequality remains a stated priority risk.",
+    "residual_risks": [
+      "Some older and less-indexed probability literature may contain the general rectified-sum maximum majorization lemma under a different name.",
+      "The regular-polytope Gaussian mean-width source was available only as an abstract; it does not appear as a direct object match, but its full text was not obtained.",
+      "Access to every historical publication worldwide is impossible; lack of search hits is not a priority certificate.",
+      "Independent mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides vertices, edges, graph-diameter bounds and combinatorial generality, not mean width of the multipartite stable-set polytopes.",
+        "evidence": "Theorem 4 characterizes 0/1 vertices and edges; Sections 6–7 concern graph diameter and open problems; full-text mean-width phrase not present.",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.00360 (arXiv:1804.00360; v1 first public 2018-04-02)",
+        "material_read": "Revised full PDF searchable text (21 pages), inspected contents and Theorem 4 in Section 3 on PDF page 7; surveyed later theorem and diameter sections plus final material and searched explicit mean-width text.",
+        "method": "Accessible open preprint PDF, visual page inspection and full-text search",
+        "title": "Stable set polytopes and their 1-skeleta",
+        "trigger": "Primary source for 0/1 stable-set incidence polytope, related polytope metric investigations"
+      },
+      {
+        "assessment": "Establishes inequalities/injections of faces and f-vectors for ranked-poset chain-order polytopes, not Gaussian support or width majorization.",
+        "evidence": "Theorem 4.1 proves injectivity of face maps and Corollary 4.2 compares f-vectors; Definition 3.1 treats rank profiles, but no mean-width theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.01626 (arXiv:2309.01626; v1 first public 2023-09-04)",
+        "material_read": "Revised full PDF searchable text (16 pages); inspected initial definitions, Section 2, Section 3, main Theorem 4.1 and Corollary 4.2 in Section 4, searched mean-width text.",
+        "method": "Accessible open preprint PDF, visual page inspection and full-text search",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Highly relevant multipartite comparability / chain polytope alias, plausible stronger source"
+      },
+      {
+        "assessment": "Only general technique context, no full-document exclusion asserted.",
+        "evidence": "Abstract describes regular simplex, regular crosspolytope and projection-width formulas, not complete multipartite stable sets.",
+        "identifier_or_url": "DOI:10.1007/s10958-017-3492-3",
+        "material_read": "Publication abstract, bibliographic summary and theorem-topic descriptions, not full article.",
+        "method": "Open journal abstract; full text not accessed",
+        "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+        "trigger": "Potential broader mean-width Gaussian-max technique"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34f994ef-99fd-475c-afc6-a416978d7652",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a canonical natural graph invariant realized as a full-dimensional convex polytope, where changing block sizes changes geometry while preserving total vertex count and number of classes. The exact sharp fixed-(N,r) majorization law gives unique optimal Turan-balanced and largest-star-like profiles. The nontrivial r-dimensional critical normal-maximum law, its strict shift convexity and the sharp asymptotic extremal factor r quantify the full transition from balanced to imbalanced geometries. The statement is not a narrow arbitrary computation or reparameterization of the earlier bipartite theorem.",
+    "status": "PASS"
+  }
+}
