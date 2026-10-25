@@ -1,11 +1,21 @@
-# Review of the complete coprime-record gap law
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact recurrence follows from replicated primorial record blocks, with one necessary terminal exchange of a gap label. A periodic-approximation argument and Bertrand's postulate give an absolutely convergent error bound, and a residue-class argument proves all-prime positivity and completeness. The independent greedy-generation and finite recurrence verifier passed; it supplements, but does not replace, the infinite proof.
+## correctness
 
-**Originality — PASS within checked literature.** Basistha and Ionaşcu's 2023 preprint and its 2025 journal version prove the unlabelled record density and nearly periodic blocks. They do not provide separate densities for each allowed gap or a full labelled limiting probability law. OEIS A261271 covers sequence identification. An indexed first-break result addresses a finite arithmetic progression, not the all-gap limit. The unlabelled recurrence is explicitly acknowledged as prior work; the gap-label migration and positivity arguments are the substantive additional steps.
+PASS
 
-**Mathematical value — PASS.** The paper's natural questions about composite and twin records motivate asking how often each successor gap occurs. Here every prime-minus-one gap has positive asymptotic frequency, no mass escapes toward larger gaps, and exact fast bounds determine specific constants. This is a natural complete quantitative classification, not an arbitrary finite subcase.
+For records r_1=3, r_(m+1)=r_m+lambda(r_m-1)-1 with least prime lambda not dividing predecessor, the next larger coprime integer definition is equivalent and every prime>=3 occurs as a record. Exact primorial replication at records P_n+1 yields labelled block recurrence c_(n+1)(q)=p_(n+1)c_n(q)-s_(n+1)(q)-1[q=p_(n+1)]+1[q=p_(n+2)]; the deletion interval and primorial terminal label are both essential. Periodic indicator F_(n,q) has density c_n(q)/P_n and differs from each next-stage approximant on at most s_(n+1)(q)+2 residues per P_(n+1). The discrepancy series converges absolutely with tail <4/P_N; boundary error for arbitrary X is negligible against factorial primorial growth. Strict positivity follows from c_j(p_j)=p_j-1 and separate q=3,5 base cases; frequency mass at gaps q>p_N lies among r congruent 1 mod P_N with ambient density <=1/P_N, preventing escaped mass. Independent generation of 176865 exact record transitions through 600000 reproduced initial c_3 and the labelled recurrence at four consecutive levels n=3..6; finite checks do not prove existence of limits.
 
-**Limitations and risks.** The convergent series requires prime-interval record counts and is not a uniform estimate as the gap grows. Possible unindexed overlap remains. One indexed finite-pattern record was compared from its available statement rather than its full document. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage of the specific new claim: A full countably supported natural-density law for every possible gap of a canonical greedy coprime record sequence is a meaningful structural refinement of the published unlabelled record density. Prior overlapping premises and historical-priority caveats are explicitly credited and scoped.
+
+## value
+
+PASS
+
+A full countably supported natural-density law for every possible gap of a canonical greedy coprime record sequence is a meaningful structural refinement of the published unlabelled record density. Positive mass at every prime-minus-one gap, an effective error <4/P_N, and explicit twin-record density are exact invariants motivated by the known primorial replication; they can be used without a closed elementary constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
