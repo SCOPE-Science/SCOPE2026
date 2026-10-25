@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The complex is defined without ambiguity as directed path forests of the fourteen explicitly ordered arcs. An exhaustive face test gives \(290\) nonempty simplices. The embedded certificate specifies \(140\) matched face-poset covering pairs, its independent topological ordering checks all \(876\) arrows, and a replay of signed integral unit-pivot cancellations produces a zero differential with critical counts \((1,0,3,4,2)\). Signed cycle lifts, projection, and all four symmetry maps reproduce the character table; a separate finite-field implementation checks homology and Lefschetz numbers. The claim is integral homology and rational symmetry, not a homotopy-type classification.
+## correctness
 
-**Originality (PASS, bounded).** The 2026 bidirected-path-and-polygon paper does not treat the shared-edge two-square ladder. The oriented-grid classification in the 2022/2024 foundational paper excludes the two-direction arcs and their two-cycles. Closest indexed mathematical records for the same underlying ladder treat ordinary discrete-Morse complexes or cut complexes, not directed path-forest simplices; the closest bidirected multipath classification treats trees. Full repository texts of some indexed records could not be inspected, and bibliographic overlap remains a risk. An inaccessible item has not been declared wholly non-covering on the basis of its title alone.
+PASS
 
-**Mathematical value (PASS).** This canonical first nonpolygonal bidirected grid supplies a motivated exact benchmark for how two square cells glued along an edge change the topology. The three consecutive degrees of free integral homology, and the different row/column symmetry characters, are nontrivial exact invariants not supplied by the identified path, polygon or oriented-grid results. The significance is this explicit finite boundary example and its symmetry; no downstream all-ladder theorem is claimed.
+For 14 oriented arcs of the bidirected P3 x K2 graph, independently enumerated all 2^14 masks with indegree/outdegree <=1 and cycle elimination, obtaining 290 faces with f-vector (14,64,116,80,16). Independent mod-2 boundary ranks (13,51,62,14) match free ranks (3,4,2). Fetched signed matching_certificate.json from frozen commit; independently checked all 140 pairs, 876 Hasse arrows against its 290-entry topological order, every integral unit cancellation and the 10 critical cells. All reduced integral Morse boundaries vanish. Degreewise rational V4 characters (3,1,-1,1),(4,0,0,0),(2,0,0,-2) follow from the inspected signed cycle lift/projection construction and have alternating reduced Lefschetz traces (1,1,-1,-1). The check proves homology, not a wedge-of-spheres homotopy type.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Caputi–Collari–Smith studies bidirected PATHS and POLYGONS, not adjacent-square ladder multipath homology or its V4 characters. Separate oriented-grid literature has different digraph orientations. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+First two-square gluing is a natural finite test of path/polygon multipath theory; three consecutive homology degrees and integral symmetry characters identify a nontrivial transition. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
