@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Rotational invariance gives exact monomial norms, and the Hardy component bounds these above and below, establishing the reproducing series. Interior support makes the monomial moments decrease to zero. Their reciprocal increments are nonnegative and have an exact telescoping total, proving the sharp radial modulus inequality. The point-mass model attains the lower bound; smooth beta weights converge locally uniformly to it, giving zeros for every subcritical boundary mass. Their first two moments also yield the explicit exterior displacement law by a uniform first-order kernel expansion. The separate exact-rational sign check certifies one finite smooth example without being used to prove the general case.
+
+**Originality — PASS, qualified.** The close literature addresses radial Bergman weights and kernel zeros (Zeytuncu), Hardy/Bergman interpolation regimes (Seip), and operator-theoretic reproducing-kernel criteria (Mitkovski–Wick). Their inspected mathematical statements do not contain a sharp *all-radial-measures* boundary-mass/radius theorem for the sum of a Hardy and an interior squared norm. Comparisons with published radial-weight nonvanishing statements concern different norms; those statements neither imply the present two-measure criterion nor refute it. Earlier equivalent formulations under radial moments or positive-coefficient transforms remain a publication-priority risk.
+
+**Value — PASS.** The exact cutoff \(\kappa=1\) is a robust uniform Lu Qi-Keng condition independent of the interior weight, and the sharp zero-free radius \(\min\{\kappa,1\}\) survives arbitrary radial singular measures. Smooth weights demonstrate unavoidable zeros below that cutoff even though both constituent spaces have zero-free kernels. The normalized threshold, optimal quantitative bound, explicit exterior root displacement, and counterexamples give a structural stability boundary rather than an isolated computational fact.
+
+The result does not determine every zero for a fixed subcritical measure and does not address nonradial perturbations or other norm normalizations. The source search is substantial but not exhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
