@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For rooted Yule leaf-splitting trees, uniform root-split sizes and conditional independence give an exact total-covariance recurrence. The only differences between the cherry expectation and its bulk linear law occur at the one- and two-leaf subtree sizes; their contributions produce the harmonic forcing term, which telescopes against the covariance recurrence to yield \(\operatorname{Cov}(C_n,S_n)=-n/9+2/[3(n-1)]\). Small-size boundaries were checked explicitly. A separate total-variance recurrence establishes the cherry variance needed for the regression slope; the published exact Sackin variance independently gives the correlation rate. The included Python checker passed 754 exact-rational assertions, including exhaustive independent leaf-splitting-history enumeration through nine leaves and a separate recurrence verification through 120 leaves. The analytic induction, rather than finite testing, establishes the statement for all admissible sizes.
+PASS
 
-## Originality — PASS on inspected evidence
+Under equal-rate uniform leaf splitting, designated root subtree size K is uniform on {1,...,n-1}; given K, independent Yule subtrees satisfy C_n=C_K+C_(n-K), S_n=S_K+S_(n-K)+n for n>=3, with C1=0,C2=1,S1=0,S2=2. Recurrences yield c_n=n/3 (n>=3) and s_n=2n(H_n-1). Setting delta_j=c_j-j/3 gives delta_1=-1/3, delta_2=+1/3, delta_j=0 for j>=3. Total covariance v_n=2/(n-1)sum_{j<n}v_j+F_n with F_n=2/[3(n-1)][s2+s_(n-2)-s1-s_(n-1)]=4(1-H_(n-2))/[3(n-1)] using s_(m+1)-s_m=2H_m; substitution and induction cancel harmonic terms exactly to v_n=-n/9+2/[3(n-1)]. This gives v3=0 and strict negativity n>=4, no all-n claim for n2. Independent rational root-moment recursion through n=50 reproduced n4=-2/9, n5=-7/18, n8=-50/63, n20=-374/171, n50=-2444/441. Total cherry variance recurrence plus n4=2/9,n5=2/9 gives w_n=2n/45 for n>=5. Thus slope v_n/w_n=-5/2+15/[n(n-1)]; substituting published Sackin variance 7n²−4n²H_n^(2)−2nH_n−n yields rho~−sqrt(45/[2(7−2pi²/3)])/9 /sqrt(n), approx −0.812994847/sqrt(n). Source checker separately enumerates leaf-splitting histories to n9, but these finite checks are not the proof of induction.
 
-The closest papers calculate Yule cherry/pitchfork distributions (Choi, Thompson and Wu, arXiv:2002.12643), Sackin variances and Sackin–cophenetic covariances (Cardona, Mir and Rosselló, arXiv:1202.6573), and model-specific empirical associations among tree metrics (Janzen and Etienne, DOI:10.1016/j.ympev.2024.108168). Inspection found neither the exact cherry–Sackin cross-moment nor a previously evaluated equivalent or stronger formula. The generic recursive-index variance framework of Cardona and colleagues could be adapted through polarization, but does not state or evaluate the present joint moment. The similarly denoted Colless index in that work is not a cherry count. Checked records of other tree ensembles concern different probability measures or observables. The strongest residual risk is an unlocated earlier specialization of a general tree-index moment method; independent bibliographic verification remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-Cherries are a local two-tip clade statistic, whereas the Sackin index measures aggregate root-to-tip depth. An exact finite-size relation between these widely used but differently motivated phylogenetic summaries supplies a reference calibration under the Yule neutral model, rather than only marginal expectations or numerical correlations. The persistent negative covariance of linear magnitude, exact optimal linear prediction slope, and vanishing Pearson correlation with explicit scaling distinguish dependence at different normalizations. This is a substantive joint-statistic question motivated by comparative phylogenetics, not an arbitrary slice of parameter space.
+Best-of-knowledge PASS for evaluated cherry–Sackin finite covariance, negative sign and corresponding regression/correlation, not for standard Yule root splits, cherry marginals, or Sackin variance. Direct examination of Wu–Choi 2016 and Choi–Thompson–Wu 2020 accepted full PDFs shows their joint statistics are cherries with pitchforks (two- and three-leaf clades), not with Sackin depth; Cardona–Mir–Rosselló 2013 computes Sackin variance and correlations/covariance with other balance indices including total cophenetic, not cherry count (capital C there can mean Colless). Their general recursive shape-index method is known and could be specialized, but does not algebraically state or supply the evaluated cross-moment without a mixed recursion and harmonic cancellation. Current exact numerical and empirical tree metric papers are not equivalent finite formulas.
 
-## Limits
+## value
 
-Results apply only to the specified rooted Yule law and combinatorial edge depths, not to uniformly sampled/PDA tree topologies, branch-time distances, or arbitrary empirical trees. The displayed correlation combines the newly computed covariance with previously known marginal variance formulas. No full joint distribution, asymptotic joint normality, independent certification, or bibliographic priority beyond inspected evidence is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cherries are local clade structure while Sackin is global root-to-leaf imbalance. Exact dependence under the canonical Yule null model is a natural question for calibrating joint tree-shape statistics, not an arbitrary finite parameter slice. The covariance is negative linear in n, yet normalized Pearson correlation vanishes as n^-1/2 with explicit constant; the exact finite-size regression slope quantifies conditional predictive association. No claim of novel generation law or joint CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

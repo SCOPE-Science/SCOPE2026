@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T22:55:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under equal-rate uniform leaf splitting, designated root subtree size K is uniform on {1,...,n-1}; given K, independent Yule subtrees satisfy C_n=C_K+C_(n-K), S_n=S_K+S_(n-K)+n for n>=3, with C1=0,C2=1,S1=0,S2=2. Recurrences yield c_n=n/3 (n>=3) and s_n=2n(H_n-1). Setting delta_j=c_j-j/3 gives delta_1=-1/3, delta_2=+1/3, delta_j=0 for j>=3. Total covariance v_n=2/(n-1)sum_{j<n}v_j+F_n with F_n=2/[3(n-1)][s2+s_(n-2)-s1-s_(n-1)]=4(1-H_(n-2))/[3(n-1)] using s_(m+1)-s_m=2H_m; substitution and induction cancel harmonic terms exactly to v_n=-n/9+2/[3(n-1)]. This gives v3=0 and strict negativity n>=4, no all-n claim for n2. Independent rational root-moment recursion through n=50 reproduced n4=-2/9, n5=-7/18, n8=-50/63, n20=-374/171, n50=-2444/441. Total cherry variance recurrence plus n4=2/9,n5=2/9 gives w_n=2n/45 for n>=5. Thus slope v_n/w_n=-5/2+15/[n(n-1)]; substituting published Sackin variance 7n²−4n²H_n^(2)−2nH_n−n yields rho~−sqrt(45/[2(7−2pi²/3)])/9 /sqrt(n), approx −0.812994847/sqrt(n). Source checker separately enumerates leaf-splitting histories to n9, but these finite checks are not the proof of induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardona et al. full PDF p.3, p.12 gives Sackin variance and total cophenetic moments; no cherry statistic evaluated jointly with Sackin.",
+          "Wu–Choi p.1–5 define cherries/pitchforks and compute their joint distribution and covariance under YHK/PDA, not external path length.",
+          "Choi–Thompson–Wu full accepted primary p.1–3 clarifies same pairs; method is general but observable pair differs."
+        ],
+        "reasoning": "The strongest general recursive theory is an applicable computational method but its statements do not directly imply the closed cherry–Sackin covariance without a new mixed conditional-mean forcing calculation. Exact separate marginals alone do not determine covariance.",
+        "searches": [
+          "Cardona Mir Rossello arXiv:1202.6573 exact Yule variances recursive shape indices",
+          "Wu Choi On joint subtree distributions under two evolutionary models 2016 full PDF",
+          "Choi Thompson Wu On cherry and pitchfork distributions 2020 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1202.6573 Cardona–Mir–Rosselló 2012/13 complete original PDF",
+        "Wu–Choi 2016 DOI:10.1016/j.tpb.2015.11.004 full OA accepted PDF",
+        "Choi–Thompson–Wu 2020 arXiv:2002.12643 full OA accepted 26-page PDF",
+        "Coronado et al. 2020 DOI:10.1186/s12859-020-3405-1 published abstract and citation",
+        "Janzen–Etienne 2024 DOI:10.1016/j.ympev.2024.108168 published description",
+        "Resultary semantic exact Yule cherry–Sackin covariance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general recursive shape index framework can be extended by polarization, but does not already evaluate the mixed forcing delta_1,delta_2 harmonic cancellation.",
+          "Known cherry variance is credited; known Sackin variance is credited. Neither fixes joint moment under a shared distribution."
+        ],
+        "reasoning": "Accept the new evaluated cross-covariance while explicitly excluding known marginal and generic recurrence ideas; if a prior mixed-index identity evaluated this exact cherry/Sackin pair it would dominate, but none emerged from relevant full primary text.",
+        "searches": [
+          "Cardona Mir Rossello 2013 generic second-moment recurrence for recursive shape indices",
+          "Choi Thompson Wu 2020 cherry distribution and covariance with pitchforks",
+          "Wu Choi 2016 YHK fringe subtree counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cherries equal count of rooted two-leaf fringe subtrees or two-pronged nodes; Sackin is external path length/total leaf-depth sum.",
+          "A planted one-child root can add n to total Sackin index, leaving covariance with C unchanged; this normalization alias does not produce an equivalent prior cross-moment."
+        ],
+        "reasoning": "Aliases including 2-pronged node counts and external path length were checked, so a renamed cherry/Sackin theorem would be detected in relevant primary papers; their evaluated pair is cherries with pitchforks.",
+        "searches": [
+          "Resultary semantic: Yule phylogenetic rooted trees covariance cherry count Sackin index exact formula regression correlation",
+          "web: phylogenetic Yule tree joint moments cherries Sackin index covariance",
+          "Wu Choi 2016, Choi Thompson Wu 2020 synonyms 2-pronged clades/cherries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact tables involve cherries plus pitchforks or Sackin alone; different joint law.",
+          "No earlier directly tabulated values -n/9+2/[3(n-1)] for cherry versus Sackin were located."
+        ],
+        "reasoning": "A table for cherry/pitchforks cannot determine the covariance with a depth sum, and Sackin second moment does not give cross moments with cherries. Non-discovery is not priority proof.",
+        "searches": [
+          "Resultary Yule cherry Sackin covariance search",
+          "Wu Choi 2016 cherry-pitchfork joint distribution",
+          "Cardona Mir Rossello Yule Sackin variance"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for evaluated cherry–Sackin finite covariance, negative sign and corresponding regression/correlation, not for standard Yule root splits, cherry marginals, or Sackin variance. Direct examination of Wu–Choi 2016 and Choi–Thompson–Wu 2020 accepted full PDFs shows their joint statistics are cherries with pitchforks (two- and three-leaf clades), not with Sackin depth; Cardona–Mir–Rosselló 2013 computes Sackin variance and correlations/covariance with other balance indices including total cophenetic, not cherry count (capital C there can mean Colless). Their general recursive shape-index method is known and could be specialized, but does not algebraically state or supply the evaluated cross-moment without a mixed recursion and harmonic cancellation. Current exact numerical and empirical tree metric papers are not equivalent finite formulas.",
+      "residual_risks": [
+        "A historical application of general recursive-shape-index moment machinery may have already computed this exact cross covariance without putting it in the title.",
+        "Different rooted/planted conventions can shift Sackin by n but not the covariance; all literature comparisons must account for this alias."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: exact Sackin variance and coproduct/total cophenetic index, not cherries/Sackin cross-moment",
+          "evidence": "Corollary for variance(S_n) supplies 7n²-4n²H_n^(2)-2nH_n-n; text has no cherry occurrence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.6573",
+          "material_read": "Full 32-page original PDF; introduction, tree generation/root split p.3, Sackin variance section pp.10–12, cophenetic section p.12 and comparison with Colless read, pages rendered",
+          "method": "Primary full PDF indexed text search for cherry and rendered original theorem pages",
+          "title": "Exact formulas for the variance of several balance indices under the Yule model",
+          "trigger": "Exact same Yule process and Sackin second moment; possible stronger mixed moment source"
+        },
+        {
+          "assessment": "NOT_COVERING: joint 2- and 3-leaf subtree counts, no Sackin leaf-depth variable",
+          "evidence": "Their C_n is cherry count, A_n pitchfork count; their correlation is between C_n and A_n, not S_n.",
+          "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/55603/1/Pattern_stat_TPB_final.pdf",
+          "material_read": "Complete 22-page accepted manuscript; abstract, introduction pp.1-3, Yule model and cherry/pitchfork definitions pp.3–5, theorem/topic headings read",
+          "method": "Lawful OA accepted-version PDF text and relevant page inspection",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Prior Yule exact joint shape-index moments and cherries"
+        },
+        {
+          "assessment": "NOT_COVERING: unrooted/rooted cherry–pitchfork distributions; no Yule cherry–Sackin covariance",
+          "evidence": "Introduction describes joint distributions and covariances of cherries and pitchforks; tree shape depth sum not among studied pairs.",
+          "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/74353/2/unrooted_TPB_Rev_20200120.pdf",
+          "material_read": "Complete 26-page accepted manuscript; introduction, definitions rooted/unrooted models, cherry/pitchfork joint covariance pp.1–4 inspected",
+          "method": "Lawful OA PDF text inspection, relevant page-level review",
+          "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+          "trigger": "Strongest published recent cherry joint-moment source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cherries are local clade structure while Sackin is global root-to-leaf imbalance. Exact dependence under the canonical Yule null model is a natural question for calibrating joint tree-shape statistics, not an arbitrary finite parameter slice. The covariance is negative linear in n, yet normalized Pearson correlation vanishes as n^-1/2 with explicit constant; the exact finite-size regression slope quantifies conditional predictive association. No claim of novel generation law or joint CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Yule–Harding–Kingman rooted leaf-split tree model, unweighted edge depths; no PDA covariance, branch-length process or joint CLT.",
+    "Publication transport blocked: both METADATA.json and AUDIT.json contain the private scope_run_id; verified confidentiality-safe COMPLETE replacement bytes plus source-blob guards for BOTH have not been prepared. Withhold publication."
+  ],
+  "schema_version": 1
+}
