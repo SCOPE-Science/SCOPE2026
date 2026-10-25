@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary perfect-matchings \(E,F\), alternating components are doubled-edge or even cycles. The proof reconstructs every iterate by pairwise conjunction, including cyclic wraparound and the component of size two. Each marked maximal-run start requires one zero followed by \(t\) ones; a collection of such starts exists precisely when successive cyclic distances are at least \(t+1\). The exact integer \(A(n,t)\) follows from circular spacing counts and inclusion–exclusion, with one all-ones correction; disjoint components multiply. A factorial-moment calculation proves the Poisson lattice limit. The attached checker evaluates the actual lower operators independently for 87,380 connected initial sets and 6,736 disconnected initial sets. The general proof, not the finite checker, establishes all \(n,t\) and the limit.
+PASS
 
-## Originality — PASS, with residual risk
+With the E matching pairs e_i=(u_i,v_i), F matching pairs f_i=(v_i,u_(i+1)), frozen proof inductively identifies occupied output pairs at step t with cyclic windows of t fully present original E-pairs, respecting parity of step. Full e_i occurs with probability 1/4 independently across i. For nonall-one cyclic words, mark starts of t runs after a zero. Inclusion–exclusion over r cyclic starts separated by at least t+1 yields A(n,t)=4^n−1+Σ(-1)^r(n/r)C(n−rt−1,r−1)3^r4^(n−r(t+1)); all-ones is excluded explicitly. Independent disjoint components multiply extinction CDFs; infinite survival =1−Π(1−4^(−n_i)); a nonfull connected component dies by time n and the single-zero word attains n. Factorial moments for markers at t=floor(log_4n)+j converge to Poisson mean (3/4)4^(theta−j), giving lattice cutoff and phase-dependent limit; finite enumeration is not its proof. Independent direct subset experiment checked 5,460 inputs n≤6.
 
-Gopaulsingh (arXiv:1612.03814, 2016) treats reconstruction of double successive approximations, not the distribution of random initial-state extinction times under indefinite alternation. Established run-statistic methods already include the underlying Bernoulli-run asymptotics; the new mathematical assertion is the exact dynamical reduction for arbitrary pairs of two-element equivalences, the component product spectrum, and the lattice-cutoff law. Earlier exact cyclic erosion or epistemic-knowledge formulations may exist. Search and semantic comparison did not reveal a covering published result; that absence is not proof of publication priority. The scientifically closest accessible historical results concerned worst-case knowledge depth and two-step order commutation, neither of which entails the stochastic extinction-time distribution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sequential lower approximations model repeated information refinement in two granulations. It is mathematically useful to distinguish eventual persistence, worst-case finite depth, and typical finite depth. This result completely solves those questions for the natural and nontrivial class of two matchings: arbitrary cycles factor exactly, their finite-time probabilities are explicit integers, and typical depth on one long cycle is logarithmic although worst-case depth is linear. This is a full natural-family classification, not an arbitrary finite numerical slice. An equivalent earlier theorem would affect originality, not the validity or motivation of this mathematical problem.
+Rough approximation compositions are classical; Gopaulsingh 2016 studies decomposition/reconstruction of two successive operators, which is not a law for random extinction under arbitrarily many alternating matching erosions. Classical iid longest-run Poisson techniques cover run probabilities and are expressly not novel. The surviving statement is the exact identification of the alternating rough-set process with a cyclic run plus the all-cycle-component product CDF and lattice cutoff. Potential equivalent mathematical morphology or automata treatment remains residual.
 
-## Principal risks and scope
+## value
 
-The exceptional all-full component must be separated from finite extinction; dropping its correction invalidates the formula. The discrete extreme-value limit has a phase and must not be presented as a continuous Gumbel law. Results are restricted to two-element classes and uniform random initial subsets. The relevant primary source was reviewed for its main theorem structure; no independent audit or priority adjudication has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact extinction-time law links repeated rough set approximation to random cyclic-run extremes for pair partitions, resolving transient duration and permanent persistence in a natural finite operator class. The complete distribution, disconnected component factorization, sharp worst case, and phase-dependent cutoff have independent use; this goes beyond counting isolated small cases or a textbook erosion observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

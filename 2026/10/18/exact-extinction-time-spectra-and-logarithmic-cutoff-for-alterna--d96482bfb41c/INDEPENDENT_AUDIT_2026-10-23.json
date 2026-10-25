@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:14:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the E matching pairs e_i=(u_i,v_i), F matching pairs f_i=(v_i,u_(i+1)), frozen proof inductively identifies occupied output pairs at step t with cyclic windows of t fully present original E-pairs, respecting parity of step. Full e_i occurs with probability 1/4 independently across i. For nonall-one cyclic words, mark starts of t runs after a zero. Inclusion–exclusion over r cyclic starts separated by at least t+1 yields A(n,t)=4^n−1+Σ(-1)^r(n/r)C(n−rt−1,r−1)3^r4^(n−r(t+1)); all-ones is excluded explicitly. Independent disjoint components multiply extinction CDFs; infinite survival =1−Π(1−4^(−n_i)); a nonfull connected component dies by time n and the single-zero word attains n. Factorial moments for markers at t=floor(log_4n)+j converge to Poisson mean (3/4)4^(theta−j), giving lattice cutoff and phase-dependent limit; finite enumeration is not its proof. Independent direct subset experiment checked 5,460 inputs n≤6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gopaulsingh arXiv:1612.03814 Sections 3–5, Algorithm 4.1, definitions"
+        ],
+        "reasoning": "Gopaulsingh treats arbitrary equivalence relations but only two-step decomposition/reconstruction, not an exact all-time law. General rough set convergence or common knowledge reachability gives eventual fixed points/worst case, but no inspected stronger result determines the entire random law and lattice cutoff.",
+        "searches": [
+          "alternating lower approximations two equivalence relations perfect matchings extinction time distribution cyclic runs lattice logarithmic cutoff",
+          "rough set lower approximation two matchings extinction time",
+          "https://arxiv.org/pdf/1612.03814",
+          "https://arxiv.org/abs/2009.08678"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "Gopaulsingh arXiv:1612.03814 inspected primary PDF",
+        "Hao–Ma arXiv:2009.08678 abstract",
+        "Resultary rough-set/matching queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gopaulsingh arXiv:1612.03814 Algorithm 4.1; frozen RESULT.md trajectory induction"
+        ],
+        "reasoning": "Classical run avoidance/Poisson approximation plus the explicit trajectory conjugacy imply the proposed cutoff. That reduces the new probabilistic ingredient but not the transformation from two matching lower operators. Gopaulsingh two-step decompositions do not on their face imply the exact multi-step cyclic marker law.",
+        "searches": [
+          "alternating lower approximations two equivalence relations perfect matchings extinction time distribution cyclic runs lattice logarithmic cutoff",
+          "rough set lower approximation two matchings extinction time",
+          "https://arxiv.org/pdf/1612.03814",
+          "https://arxiv.org/abs/2009.08678"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "frozen RESULT.md Steps 1–5; classical longest-head-run literature arXiv:2009.08678"
+        ],
+        "reasoning": "Alternating E,F lower approximations correspond to successive nearest-neighbor erosions on a 2-colored cycle after first E projection; the run-length formulation is exactly equivalent and is intentionally used. Known runs theory can infer CDF once the dynamical conjugacy is proved, not automatically supply the original operator trajectory or all-component statement.",
+        "searches": [
+          "alternating lower approximations two equivalence relations perfect matchings extinction time distribution cyclic runs lattice logarithmic cutoff",
+          "rough set lower approximation two matchings extinction time",
+          "https://arxiv.org/pdf/1612.03814",
+          "https://arxiv.org/abs/2009.08678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "frozen RESULT.md cyclic count; independent direct subset count n≤6; Resultary searches"
+        ],
+        "reasoning": "A(n,t) is a closed cyclic-run inclusion-exclusion count for every n,t; small enumeration is only validation. Traditional Bernoulli longest-run tables may give equivalent cyclic CDFs, but the mathematical connection to exact alternating pair-partition extinction must also be compared; no exact rough-set table covering it was located.",
+        "searches": [
+          "alternating lower approximations two equivalence relations perfect matchings extinction time distribution cyclic runs lattice logarithmic cutoff",
+          "rough set lower approximation two matchings extinction time",
+          "https://arxiv.org/pdf/1612.03814",
+          "https://arxiv.org/abs/2009.08678"
+        ]
+      },
+      "rationale": "Rough approximation compositions are classical; Gopaulsingh 2016 studies decomposition/reconstruction of two successive operators, which is not a law for random extinction under arbitrarily many alternating matching erosions. Classical iid longest-run Poisson techniques cover run probabilities and are expressly not novel. The surviving statement is the exact identification of the alternating rough-set process with a cyclic run plus the all-cycle-component product CDF and lattice cutoff. Potential equivalent mathematical morphology or automata treatment remains residual.",
+      "residual_risks": [
+        "Equivalent complete law may exist under mathematical morphology, erosion processes or common knowledge dynamics terminology.",
+        "Finite checks do not establish the infinite Poisson factorial-moment limit; proof relies on the explicit separation estimate and moment determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "material examined concerns two-step operator reconstruction, not full alternating-extinction distribution; no claim about entire document beyond read scope",
+          "evidence": [
+            "Section 4 Algorithm 4.1 for partial decomposition of L2L1; formula L2(L1(X))",
+            "the audited theorem iterates E/F arbitrarily many times and computes a random hitting-time law"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.03814",
+          "material_read": "definitions and operators, introductory motivation, Section 4 decomposition and algorithm, related theorems and conclusion",
+          "method": "lawful arXiv primary full-text PDF, including page visualization and text passages",
+          "title": "Double Successive Rough Set Approximations",
+          "trigger": "exactly same pair-of-equivalence lower operators"
+        },
+        {
+          "assessment": "underlying run asymptotics are classical and not asserted original",
+          "evidence": [
+            "runs/switches on IID Bernoulli words rather than iterated rough lower approximations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.08678",
+          "material_read": "title, abstract, bibliographic subject",
+          "method": "arXiv research search",
+          "title": "Limiting behaviors for longest consecutive switches in an IID Bernoulli sequence",
+          "trigger": "classical lattice run cutoff and extreme event theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact extinction-time law links repeated rough set approximation to random cyclic-run extremes for pair partitions, resolving transient duration and permanent persistence in a natural finite operator class. The complete distribution, disconnected component factorization, sharp worst case, and phase-dependent cutoff have independent use; this goes beyond counting isolated small cases or a textbook erosion observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md and verify.py",
+    "Gopaulsingh arXiv:1612.03814 inspected primary PDF",
+    "Hao–Ma arXiv:2009.08678 abstract",
+    "Resultary rough-set/matching queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent complete law may exist under mathematical morphology, erosion processes or common knowledge dynamics terminology.",
+    "Finite checks do not establish the infinite Poisson factorial-moment limit; proof relies on the explicit separation estimate and moment determination."
+  ],
+  "schema_version": 1
+}
