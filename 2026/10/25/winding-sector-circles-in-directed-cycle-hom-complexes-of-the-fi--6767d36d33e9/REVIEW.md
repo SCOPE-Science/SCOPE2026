@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact cubical correspondence reduces each winding sector to a five-sheeted cover of \(UD_r(C_k)\), with \(0<r<k\). The discretized graph-configuration equivalence applies since the circle has \(k\ge r+1\) edges. An explicit loop carrying one particle across a cut induces monodromy \(-1\) in \(C_5\), so every sector is connected and circle-like. This proves all lengths in the claimed range, not only the finite checker cases. Direct enumeration, sector face counting, and boundary-rank checks corroborate the theorem for \(4\le k\le9\) in the claimed range.
+
+**Originality: PASS on inspected evidence.** The closest directed Hom literature develops the machinery and treats tournament examples but does not give the length-uniform winding-sector classification for sources of length at least four. The 2024 theorem for undirected cycle targets implies the point/circle pattern only for ordinary graph-Hom, not for the non-periodically twisted systems here. The coordinate change \(g_i=2f(i)-3i\pmod5\) *does* recover ordinary graph-Hom when \(5\mid k\); all such cases are excluded. A previously recorded directed-triangle circle theorem covers length three and is also excluded. Targeted published-finding corpus and primary-literature checks found no stronger theorem implying the full asserted cyclic covering and sector count. Residual risk: equivalent work in a differently indexed voltage-graph or cubical-configuration language.
+
+**Value: PASS.** The result gives a closed-form component classification for infinitely many source cycles into a canonical regular tournament. It identifies the components geometrically as nontrivial connected five-fold particle-configuration covers, rather than inferring topology from a small-cell computation; it also determines the action of target rotations on all homology. The winding constraint and primitive monodromy supply the structural explanation and potential reusable method for other cyclic digraphs.
+
+Independent confirmation of the general theorem has not been performed. The checker tests finite parameters only, and searches cannot establish absolute novelty.
+
+Self-review: passed. Independent audit: not yet performed.
