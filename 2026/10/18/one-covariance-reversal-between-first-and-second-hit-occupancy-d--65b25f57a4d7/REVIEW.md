@@ -1,11 +1,21 @@
-# Review of a covariance reversal for uniform occupancy
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact covariance is reconstructed from pairwise multinomial occupancy indicators, then analytically continued. The distinct exponential bases provide a zero-count theorem with at most four real roots; two known roots, the derivative sign, the two-draw sign and eventual positivity prove one and only one additional root above one. The limiting threshold follows from a uniform expansion and a unique positive root. The two-box boundary is enumerated analytically. The independent standalone program checks rational identities and small exhaustive allocations but does not substitute for the infinite-parameter proof.
+## correctness
 
-**Originality (O): PASS on inspected evidence.** The 2026 public *A one-switch covariance law for occupancy richness and frequency counts* is closest: its exact-frequency covariance formula implies the raw covariance here after summing over frequency indices. The distinct sample-size one-root classification, analytic interpolation, and universal limiting critical load are not given there. Derbazi, Gnedin and Marynych (arXiv:2308.01739v1), and Barbour and Gnedin (arXiv:0809.4387v1), study record-process limits and exact-frequency asymptotics, respectively, without this finite uniform sign transition. Targeted public-record searches included the closest hit and implication comparison. Not all classical sources were assessable, so an unindexed equivalent remains a genuine residual risk.
+PASS
 
-**Value (V): PASS.** The crossover is a natural dependence boundary between first-hit and second-hit occupancy counts, not an arbitrary statistic. It gives a complete all-integer sample-size single-reversal theorem for every fixed number of boxes and a universal critical load as boxes grow, revealing a sharp structural distinction between sparse and saturated fixed-size samples. The bivariate two-box exception is explicit.
+In the fixed-s balls, b equally likely boxes model, U counts boxes with N_i>=1 and V those with N_i>=2. Summing diagonal and off-diagonal indicator covariances yields Cov(U,V)=bH_b(s), q=(b-1)/b,r=(b-2)/b. Independently enumerated all labelled allocations and compared exactly for b=3..6,s=2..6 (20 exact cases). H_b(x) combines three distinct real exponential bases r<q²<q with polynomial coefficients of degrees 1,1,0, so generalized Rolle bounds all real zeros counting multiplicity by 4; H(0)=H(1)=0, H′(1)<0, H(2)<0, H(x)>0 eventually; multiplicity/sign parity forces a unique root ξ_b>2. For b=2 direct allocation gives negative at s=2, zero at s=3, positive for s≥4. Uniform asymptotic expansion x=lambda b gives e^-lambda-(1+lambda+lambda²)e^-2lambda and yields ξ_b/b→unique positive λ solving exp(lambda)=1+lambda+lambda². Numerical ξ_3≈5.0464, ξ_10≈17.7317, ξ_100≈179.1617 corroborate but not prove infinite assertions.
 
-Scientific limits: equal box probabilities are essential; whether a finite threshold is an integer for any number of boxes at least three is left open. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2026 published paper gives Cov(K,K_r) and one sign switch in **frequency r**; summing over r>=2 recovers the raw finite covariance, which is not claimed novel. It does NOT itself establish a unique change across ball number s for fixed b, nor the universal limiting λ*. The latter analytic zero-count parameter-direction phase diagram is the distinct increment.
+
+## value
+
+PASS
+
+The negative-to-positive covariance crossover links first-hit richness and repeated-hit diversity for a canonical occupancy model; its **unique load transition** and universal λ* are structural probabilistic information beyond a raw covariance identity or frequency-index sign theorem, useful for occupancy dependence and de-Poissonization intuition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

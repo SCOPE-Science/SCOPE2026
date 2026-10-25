@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T15:03:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/one-covariance-reversal-between-first-and-second-hit-occupancy-d--65b25f57a4d7/RESULT.md blob 1f45ccb1a7ecea1eecaedf4b6ed29d8cfcba4832",
+        "2026/10/18/one-covariance-reversal-between-first-and-second-hit-occupancy-d--65b25f57a4d7/check_occupancy.py blob b439faf208f21f3e85833b4892cb15cf2a644610"
+      ],
+      "evidence": [
+        "Exact indicator covariance and exponential-polynomial zero-count argument in RESULT.md",
+        "Independent exact allocation enumeration b=3..6,s=2..6 and numerical root sanity checks in independent_science_checks_1443.py"
+      ],
+      "rationale": "In the fixed-s balls, b equally likely boxes model, U counts boxes with N_i>=1 and V those with N_i>=2. Summing diagonal and off-diagonal indicator covariances yields Cov(U,V)=bH_b(s), q=(b-1)/b,r=(b-2)/b. Independently enumerated all labelled allocations and compared exactly for b=3..6,s=2..6 (20 exact cases). H_b(x) combines three distinct real exponential bases r<q²<q with polynomial coefficients of degrees 1,1,0, so generalized Rolle bounds all real zeros counting multiplicity by 4; H(0)=H(1)=0, H′(1)<0, H(2)<0, H(x)>0 eventually; multiplicity/sign parity forces a unique root ξ_b>2. For b=2 direct allocation gives negative at s=2, zero at s=3, positive for s≥4. Uniform asymptotic expansion x=lambda b gives e^-lambda-(1+lambda+lambda²)e^-2lambda and yields ξ_b/b→unique positive λ solving exp(lambda)=1+lambda+lambda². Numerical ξ_3≈5.0464, ξ_10≈17.7317, ξ_100≈179.1617 corroborate but not prove infinite assertions.",
+      "residual_risks": [
+        "Finite symbolic/numerical checks supplement, not replace, the quantified argument reconstructed from actual source; proof limitations stated explicitly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Derbazi–Gnedin–Marynych arXiv:2308.01739 full original PDF: infinite-occupancy records and Poisson limits",
+          "Barbour–Gnedin arXiv:0809.4387 infinite unequal-frequency scheme as distinguished in published source"
+        ],
+        "reasoning": "Barbour–Gnedin/Derbazi et al study infinite-occupancy frequency/record limits, not this fixed finite-equiprobable b exact sign regime; the published frequency-index theorem gives exact constituent covariances but no monotone sign in s or asymptotic ξ_b/b. No inspected theorem implies this unique-root statement.",
+        "searches": [
+          "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+          "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+          "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF",
+          "Barbour Gnedin arxiv:0809.4387 Small counts in infinite occupancy scheme, abstract/known results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+        "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+        "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF",
+        "Barbour Gnedin arxiv:0809.4387 Small counts in infinite occupancy scheme, abstract/known results",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "https://arxiv.org/abs/2308.01739"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published exact-frequency sign threshold r* depends on r at fixed n,m, whereas new ξ_b depends on s at fixed b",
+          "Explicit three-exponential H_b(s) has ≤4 real zeros with H(0)=H(1)=0, giving uniqueness beyond finite tables"
+        ],
+        "reasoning": "From each Cov(K,K_r) switching once across r, their sum over r>=2 need not switch once as s varies; varying s changes both exponents and the summation range. The new exponential-polynomial zero-count lemma and H_b limiting expansion supply exactly the missing implication.",
+        "searches": [
+          "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+          "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+          "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF",
+          "Barbour Gnedin arxiv:0809.4387 Small counts in infinite occupancy scheme, abstract/known results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full Resultary published October 4, 2026 paper eq.(1): Cov(K,K_r)=C(n,r)(m-1)/m^(r-1)(q^(2n-r-1)-r_base^(n-r))",
+          "Sum r>=2 identifies V and raw covariance without implying parameter-direction sign"
+        ],
+        "reasoning": "V=Σ_{r>=2}K_r, U=K in uniform occupancy, so covariance here is the sum of Cov(K,K_r) in the published one-switch frequency paper. The **numerical identity** is therefore covered, but the unique sign switch in the **number of balls** at each fixed b is a different theorem (sum of differently sign-changing frequency terms).",
+        "searches": [
+          "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+          "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+          "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF",
+          "Barbour Gnedin arxiv:0809.4387 Small counts in infinite occupancy scheme, abstract/known results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 treats individual indicator precision geometry, not H_b(s) roots"
+        ],
+        "reasoning": "Finite tables of b,s covariances or zeros would only show some sign patterns. The new all-b one-real-root bound and explicit universal transcendental limit are not reproduced in the retrieved published corpus; Resultary related box-indicator precision theorem concerns a different matrix.",
+        "searches": [
+          "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+          "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+          "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF",
+          "Barbour Gnedin arxiv:0809.4387 Small counts in infinite occupancy scheme, abstract/known results"
+        ]
+      },
+      "rationale": "A 2026 published paper gives Cov(K,K_r) and one sign switch in **frequency r**; summing over r>=2 recovers the raw finite covariance, which is not claimed novel. It does NOT itself establish a unique change across ball number s for fixed b, nor the universal limiting λ*. The latter analytic zero-count parameter-direction phase diagram is the distinct increment.",
+      "residual_risks": [
+        "Classical urn references or exact occupancy cumulant identities not exhaustively reviewed; same limiting load or Chebyshev zero argument could exist under another name.",
+        "No claim made that ξ_b is never integer for b>=3; equality at the threshold remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Raw covariance obtained by summation is known; the published index-r sign threshold does not imply one switch in ball count s for fixed boxes.",
+          "evidence": [
+            "Full source path .../RESULT.md eqs.(1)–(8), count and index scopes checked"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Entire publicly available RESULT.md including formula, proof, boundary, and index r* sign theorem.",
+          "method": "Fetched actual published Git blob full text and compared parameter of sign change and implication.",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Most directly overlapping prior covariance theorem for same occupancy model"
+        },
+        {
+          "assessment": "Asymptotic infinite frequency records are not the fixed-b equal-probability finite exact sign reversal in s.",
+          "evidence": [
+            "arxiv:2308.01739, Derbazi–Gnedin–Marynych"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.01739",
+          "material_read": "Accessible 2023 primary PDF, abstract, definitions and core results on infinite scheme and record process; full text obtainable; main theorem scope inspected.",
+          "method": "Read mathematical PDF including core theorem statements and geometry pages.",
+          "title": "Records in the Infinite Occupancy Scheme",
+          "trigger": "Potential general occupancy record theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/one-covariance-reversal-between-first-and-second-hit-occupancy-d--65b25f57a4d7/RESULT.md blob 1f45ccb1a7ecea1eecaedf4b6ed29d8cfcba4832",
+        "Resultary semantic: occupancy coupon collector fixed s boxes number seen twice at least once covariance number seen once sign change balls asymptotic",
+        "Published 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 full RESULT.md",
+        "Derbazi Gnedin Marynych arxiv:2308.01739 Records in the Infinite Occupancy Scheme full PDF"
+      ],
+      "rationale": "The negative-to-positive covariance crossover links first-hit richness and repeated-hit diversity for a canonical occupancy model; its **unique load transition** and universal λ* are structural probabilistic information beyond a raw covariance identity or frequency-index sign theorem, useful for occupancy dependence and de-Poissonization intuition.",
+      "residual_risks": [
+        "Value is for the precise proved claim and motivating object, without claiming larger unsolved classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
