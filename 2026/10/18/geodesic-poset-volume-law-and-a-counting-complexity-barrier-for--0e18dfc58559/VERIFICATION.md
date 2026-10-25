@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 verify_caps.py` using Python 3; no third-party packages are needed. The script constructs directed geodesic graph examples, independently counts linear extensions by subset dynamic programming, counts lattice-valued feasible Lipschitz potentials directly from graph edge inequalities, and obtains an exact leading-volume coefficient from the forward difference of the degree-\(d\) Ehrhart counting polynomial. It runs \(11\) weighted examples plus \(3\) unweighted diameter-three examples and finishes with `ALL EXACT TESTS PASS`.
+## correctness
 
-The checker tests concrete finite instances only. Its use of forward differences is valid for the stated integral constraint polytopes and half-open caps, but its finite runs do not prove the asserted identity for arbitrary graph size or nonintegral weights. The general proof is given in `RESULT.md`. No independently authored or externally certified audit has been performed.
+PASS
+
+Every edge on a shortest terminal u–v path has forward distance potential φ(b)−φ(a)=ell_ab and the oriented graph is a terminal DAG. In the positive cap s=L−f(v)∈[0,eps], z_x=φ(x)−f(x), each edge becomes 0≤z_b−z_a≤2ell_ab. Every vertex lies on a directed u–v path, so 0≤z_x≤s; eps≤2ell_* makes all upper bounds automatic. At fixed s the internal coordinate set is exactly s times the reachability order polytope, with anchored Jacobian one; Stanley’s volume=e(P)/(N−2)! integrates to each cap e(P)eps^(N−1)/(N−1)!, doubled by central symmetry. For an isolate-free height-two poset, H_P edges u–A–B–v realize every relation and have terminal distance and graph diameter exactly 3; no-isolates ensures all edges lie on length-three terminal geodesics. eps=1 recovers 2e(P)/(n+1)! and polynomial time counting reduction from Dittmer–Pak #H2LE. Finite rational tests corroborate rather than prove the exact all-graph identity.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, accounting for Stanley and Sanyal–Stump as prior. Classical order-polytope volume=e(P)/n! alone does not state the symmetric graph-metric shortcut cap law, nor the strong unweighted bipartite diameter-three realization of arbitrary height-two posets and its consequent #P-hard exact volume difference. Sanyal–Stump Corollary 5.2 is a different poset-hypersimplex order-polytope slice; Dittmer–Pak Theorem 1.1 provides #P-hardness of height-two linear extensions, used explicitly. A previous specialized one-stretched-edge complete-bipartite cap formula is a covered special case and not claimed as separately novel.
+
+## value
+
+PASS
+
+A natural metric response under shortening one redundant terminal distance is exactly quantified by the geodesic reachability poset linear-extension invariant. Its order-d flatness and an explicit #P-hard exact evaluation already on diameter-three unweighted bipartite graphs give structural geometry and a genuine complexity barrier, not a trivial restatement of Stanley without geometric reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Every oriented edge is a forward terminal-geodesic edge, so the translation \(z_x=d_G(u,x)-f(x)\) converts the upper terminal cap into the cone over the reachability order polytope. Its upper edge inequalities are automatic throughout \(\varepsilon\le2\ell_*\), the Jacobian is unimodular in anchored coordinates, and Stanley's triangulation yields exactly \(2e(P)\varepsilon^d/d!\). The finite diameter-three bipartite construction realizes every isolate-free height-two poset, and Dittmer–Pak's theorem supplies the valid counting-hardness reduction. Fourteen exact finite checks reproduce the normalized cap volumes; those checks are corroborative rather than substitutes for the proof.
+PASS
 
-## Originality: PASS, with residual risk
+Every edge on a shortest terminal u–v path has forward distance potential φ(b)−φ(a)=ell_ab and the oriented graph is a terminal DAG. In the positive cap s=L−f(v)∈[0,eps], z_x=φ(x)−f(x), each edge becomes 0≤z_b−z_a≤2ell_ab. Every vertex lies on a directed u–v path, so 0≤z_x≤s; eps≤2ell_* makes all upper bounds automatic. At fixed s the internal coordinate set is exactly s times the reachability order polytope, with anchored Jacobian one; Stanley’s volume=e(P)/(N−2)! integrates to each cap e(P)eps^(N−1)/(N−1)!, doubled by central symmetry. For an isolate-free height-two poset, H_P edges u–A–B–v realize every relation and have terminal distance and graph diameter exactly 3; no-isolates ensures all edges lie on length-three terminal geodesics. eps=1 recovers 2e(P)/(n+1)! and polynomial time counting reduction from Dittmer–Pak #H2LE. Finite rational tests corroborate rather than prove the exact all-graph identity.
 
-Stanley's classical order-polytope volume and Sanyal–Stump's first poset-hypersimplex are prior foundations and are expressly credited. The novel comparison target is the symmetric graph-metric shortcut cap together with its realization of arbitrary geodesic reachability orders and the exact counting-hardness consequence on diameter-three unweighted bipartite graphs. The finite-Lipschitz-free volume-product literature concerns different invariants. The previously obtained complete-bipartite one-edge response is a covered special case, not an additional finding. Searches did not identify the full graph-cap-plus-complexity theorem; an unindexed equivalent formulation remains possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Exact rational volume evaluation on natural finite Lipschitz dual balls has a genuine complexity obstruction already under strong graph restrictions. The entire local volume response is characterized by a combinatorial invariant—linear extensions of the terminal-geodesic order—which links Banach geometry, finite metric structure, and exact enumeration. This goes beyond a single small-case volume or an arbitrary parameter slice.
+Best-of-knowledge PASS, accounting for Stanley and Sanyal–Stump as prior. Classical order-polytope volume=e(P)/n! alone does not state the symmetric graph-metric shortcut cap law, nor the strong unweighted bipartite diameter-three realization of arbitrary height-two posets and its consequent #P-hard exact volume difference. Sanyal–Stump Corollary 5.2 is a different poset-hypersimplex order-polytope slice; Dittmer–Pak Theorem 1.1 provides #P-hardness of height-two linear extensions, used explicitly. A previous specialized one-stretched-edge complete-bipartite cap formula is a covered special case and not claimed as separately novel.
 
-## Closest sources and boundaries
+## value
 
-Stanley (1986), Sanyal–Stump (arXiv:1703.10586v1, Corollary 5.2), Dittmer–Pak (arXiv:1802.06312v1, Theorem 1.1), and Alexander et al. (arXiv:1911.10642v1) were compared by mathematical implication. The identity is local to an explicit shortcut window. Exact approximation complexity is not addressed. A source written in equivalent graph/poset terminology might cover the result despite the completed searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural metric response under shortening one redundant terminal distance is exactly quantified by the geodesic reachability poset linear-extension invariant. Its order-d flatness and an explicit #P-hard exact evaluation already on diameter-three unweighted bipartite graphs give structural geometry and a genuine complexity barrier, not a trivial restatement of Stanley without geometric reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
