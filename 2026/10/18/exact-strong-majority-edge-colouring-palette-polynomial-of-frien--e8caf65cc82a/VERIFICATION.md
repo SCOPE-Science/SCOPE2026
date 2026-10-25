@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and proof limits
 
-`verification/verify_friendship.py` implements the original graph-theoretic strong-majority predicate, starting only from the labelled edges and their endpoint intersections. Separately it implements the proposed universal-spoke-colour characterization and the symbolic closed count. Execute `python3 verification/verify_friendship.py`; its expected output is embedded in `verification/output.txt`.
+# Independent mathematical audit
 
-The test covers exactly 834,518 labelled colour assignments over twelve parameter pairs, including all named palettes of sizes two through five across the documented small friendship graphs. The checker compares every assignment's original predicate to the proposed structural one, and all totals to the formula. There are no random or approximate computations, and no inaccessible package dependencies beyond Python 3's standard library.
+## correctness
 
-The finite checker is not a proof for unrestricted graph size or palette; the structural necessity/sufficiency and inclusion-exclusion in `RESULT.md` establish the infinite claim. The check does not establish bibliographic originality or provide independent external mathematical validation.
+PASS
+
+PASS: For friendship graph F_n, each triangle base edge has two spoke neighbours and forces its spoke colours to differ. For a spoke edge colour beta and test colour alpha, adjacent alpha count is S_alpha - 1_{alpha=beta} + 1_{alpha=c_i} out of 2n neighbouring edges. Since a fixed alpha occurs at most once in each triangle, S_alpha<=n; the only possible violation is choosing a base colour alpha with S_alpha=n. Thus each triangle base has q-k available colours where k=0,1,2 are universally present spoke colours. Inclusion-exclusion on q(q-1) ordered spoke pairs per triangle gives A0,A1,A2 and P_n(q)=q^n A0+(q-1)^n A1+(q-2)^n A2. P_n(2)=0 and fixed pair of spoke colours plus a third base colour works, so index is 3; this index was previously known.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Kalinowski et al Proposition21 already implies index three for Eulerian friendship graph with 3n edges, and Antoniuk et al and Pękała–Przybyło improve general upper bounds. Those existence theorems are expressly credited and do not imply the full labelled-palette counting polynomial, with every number q of named colours. The universal-spoke-colour filtration is a new exact counting detail in the bounded comparisons.
+
+## value
+
+PASS
+
+PASS: The friendship/windmill graph is a standard infinite triangle family and strong-majority edge colouring a newly developed nonproper colouring invariant. An exact named-palette counting polynomial is a natural enumerative strengthening of its already-known chromatic threshold, resolving multiplicities and asymptotic growth, not merely recomputing the index 3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

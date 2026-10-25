@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:00:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For friendship graph F_n, each triangle base edge has two spoke neighbours and forces its spoke colours to differ. For a spoke edge colour beta and test colour alpha, adjacent alpha count is S_alpha - 1_{alpha=beta} + 1_{alpha=c_i} out of 2n neighbouring edges. Since a fixed alpha occurs at most once in each triangle, S_alpha<=n; the only possible violation is choosing a base colour alpha with S_alpha=n. Thus each triangle base has q-k available colours where k=0,1,2 are universally present spoke colours. Inclusion-exclusion on q(q-1) ordered spoke pairs per triangle gives A0,A1,A2 and P_n(q)=q^n A0+(q-1)^n A1+(q-2)^n A2. P_n(2)=0 and fixed pair of spoke colours plus a third base colour works, so index is 3; this index was previously known.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eulerian |E| divisible by 3 gives the known index <=3; later papers give uniform existence bounds and minimum-degree effects. No inspected statement furnishes P_n(q) for all n>=1,q>=2."
+        ],
+        "reasoning": "A bound on the least palette size is weaker than the entire distribution of valid colour assignments and cannot dominate the count without further combinatorics.",
+        "searches": [
+          "Kalinowski et al arXiv:2605.23828 Proposition21",
+          "Antoniuk–Prorok–Salia arXiv:2607.00212 general five-colour bound",
+          "Pękała–Przybyło arXiv:2608.04122 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verified verification/verify_friendship.py",
+        "Kalinowski–Kamyczura–Pilśniak–Woźniak arXiv:2605.23828 Section3 Proposition21",
+        "Antoniuk–Prorok–Salia arXiv:2607.00212",
+        "Pękała–Przybyło arXiv:2608.04122 abstract",
+        "Resultary related edge majority entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted P_n(q) has q-dependent exponential weights by number of common spoke colours. Proposition21 and general 3/5 colour upper bounds imply existence only, not assignment counts; friendship graph has peripheral degree 2, outside stronger minimum-degree >=5 result."
+        ],
+        "reasoning": "Only the index=3 corollary is prior-implied; the polynomial requires a distinct local-and-global counting characterization.",
+        "searches": [
+          "Kalinowski et al 2026 Proposition21",
+          "Pękała–Przybyło 2026 three-colour existence minimum-degree theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_n is the windmill graph K1 join nK2; equivalent counting is over ordered spoke-pairs and independently chosen base colours, not vertex-colouring or proper graph chromatic polynomial."
+        ],
+        "reasoning": "Relating edge colouring to a hypergraph neighbourhood constraint does not make a vertex-colouring polynomial or index theorem equivalent to counting all named-palette colourings.",
+        "searches": [
+          "Strong majority edge colouring friendship windmill graph exact number of q-colour labelled palette assignments polynomial",
+          "Kalinowski et al 2026 strong majority edge-colouring definitions",
+          "Resultary strong-majority-index records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary exact strong-majority index of complete graphs and graph polynomial for windmills concern different objects/invariants; no matching palette count was found.",
+          "Independent direct-edge counts P1(3)=6 P2(3)=108 P3(3)=2472 P2(4)=1344."
+        ],
+        "reasoning": "The known q=3 existence result cannot supply this entire polynomial; negative search evidence remains limited.",
+        "searches": [
+          "Resultary search Strong majority edge colouring friendship windmill graph exact number of q-colour labelled palette assignments polynomial",
+          "friendship graph windmill strong majority edge-colouring palette number n q"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Kalinowski et al Proposition21 already implies index three for Eulerian friendship graph with 3n edges, and Antoniuk et al and Pękała–Przybyło improve general upper bounds. Those existence theorems are expressly credited and do not imply the full labelled-palette counting polynomial, with every number q of named colours. The universal-spoke-colour filtration is a new exact counting detail in the bounded comparisons.",
+      "residual_risks": [
+        "Strong-majority index three is known, not claimed new. Graph/colour permutation orbits and surjectivity are not counted.",
+        "Pękała–Przybyło full manuscript not material-inspected; any stronger unindexed all-palette formula would change priority assessment; current abstract concerns bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS index 3 for Eulerian friendship graph with edge count multiple 3; not labelled q-palette count",
+          "evidence": "Proposition21 addresses existence of a three-colour strong-majority edge-colouring, not number of assignments.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "Accessible full preprint HTML transcription; Section3 definition of strong-majority edge colouring, existence classes, Proposition21 and conclusion",
+          "method": "full article HTML",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "First definition and Proposition21 already covering index consequence"
+        },
+        {
+          "assessment": "COVERS existence bound for admissible graphs, not counting polynomial",
+          "evidence": "Main theorem improves universal upper bound from 8 to 5.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.00212",
+          "material_read": "Accessible full-text article transcription covering the main five-colour bound and graph reduction arguments",
+          "method": "open preprint HTML",
+          "title": "Strong Majority Edge-Coloring",
+          "trigger": "Subsequent stronger general colouring bound"
+        },
+        {
+          "assessment": "ABSTRACT ONLY; high-level minimum-degree existence theorem not a documented polynomial comparison",
+          "evidence": "Abstract addresses 3-colour existence when minimum degree at least 5; F_n has minimum degree 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Abstract and bibliographic metadata only; full paper not inspected",
+          "method": "arXiv abstract search",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Further improvement to existence bound with potentially broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The friendship/windmill graph is a standard infinite triangle family and strong-majority edge colouring a newly developed nonproper colouring invariant. An exact named-palette counting polynomial is a natural enumerative strengthening of its already-known chromatic threshold, resolving multiplicities and asymptotic growth, not merely recomputing the index 3.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verified verification/verify_friendship.py",
+    "Kalinowski–Kamyczura–Pilśniak–Woźniak arXiv:2605.23828 Section3 Proposition21",
+    "Antoniuk–Prorok–Salia arXiv:2607.00212",
+    "Pękała–Przybyło arXiv:2608.04122 abstract",
+    "Resultary related edge majority entries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality from bounded searches and inspected published sources, not absolute priority guarantee.",
+    "Finite independent enumerations corroborate special cases only; unrestricted scope established by proof reconstruction.",
+    "Publication not_ready due to unsanitized operational provenance; no GitHub writes or public acceptance."
+  ],
+  "residual_risks": [
+    "Strong-majority index three is known, not claimed new. Graph/colour permutation orbits and surjectivity are not counted.",
+    "Pękała–Przybyło full manuscript not material-inspected; any stronger unindexed all-palette formula would change priority assessment; current abstract concerns bounds."
+  ],
+  "schema_version": 1
+}
