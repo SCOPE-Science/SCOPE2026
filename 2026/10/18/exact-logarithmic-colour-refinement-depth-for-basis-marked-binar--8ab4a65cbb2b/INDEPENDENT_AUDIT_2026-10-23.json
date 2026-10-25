@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/AUDIT.json",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/METADATA.json",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/RESULT.md",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/REVIEW.md",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/SLOGAN.txt",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/VERIFICATION.md",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/checks/check_combinatorics.py",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/checks/check_refinement.py",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/checks/combinatorics_output.txt",
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/checks/refinement_output.txt"
+      ],
+      "rationale": "Over F_2, every projective line is {x,y,x+y}, uniquely determined by two distinct points. At an even 1-WL round, any two named points give a singleton line at the next odd round and hence a singleton third point at the next even round. All unnamed y without an expression y=x+z for named x,z have identical line-colour multisets: exactly one line through each named x and uniform all-unnamed remainder. The identity T_j ∪ (T_j+T_j\\{0})=T_{j+1}, with T_j all nonzero support weights ≤2^j, proves the exact induction. At the final even point-discrete round, threshold t=2^(k−1), the only possible late line collisions arise when d≥t+3, witnessed by two different t-subsets off coordinates 1,2; d≤t+2 separates already by 2k. Fewer than d named points span a proper subspace fixed pointwise by a nontrivial linear automorphism, so cannot discretize. Independent rebuilt 1-WL checks for d=2..5 returned graph-round depths 0,2,4,5. Original source checkers cover graph d=2..9 and combinatorial tests to 17 but stored logs are not proof.",
+      "residual_risks": [
+        "Hypotheses strictly specify simultaneous 1-dimensional refinement on the point-line incidence graph, not the complete point collinearity graph or graphs over larger fields.",
+        "The all-dimension induction is mathematical; independent direct graph enumeration was bounded to dimension five."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arvind et al., arXiv:1606.04383, give general fixed-number and vertex-individualization complexity results, including bounded-round decision problems.",
+          "Those results do not give explicit 2ceil(log2(d−1)) stabilization or the sharp line-round case distinction."
+        ],
+        "reasoning": "Algorithmic definability/refinability of arbitrary graphs is broader in input class but not a formula that logically determines the special exact incidence-graph depth; no dominating specialization was found.",
+        "searches": [
+          "arXiv:1606.04383 (full primary text)",
+          "arXiv:1502.01255",
+          "Resultary semantic query: one-dimensional color refinement stabilization rounds for point-line incidence graphs of binary projective geometries PG(d-1,2) with individually colored vector-space basis and exact depth log2 d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.04383",
+        "arXiv:1502.01255",
+        "doi:10.37236/1203",
+        "Resultary: one-dimensional color refinement stabilization rounds for point-line incidence graphs of binary projective geometries PG(d-1,2) with individually colored vector-space basis and exact depth log2 d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general individualization algorithm does not determine the exact 1-WL colour multiset signatures on the specific two-sort projective design.",
+          "Assmus studies 2-ranks of Steiner triple systems, not a stated all-dimension 1-WL depth theorem in the accessible abstract."
+        ],
+        "reasoning": "The reviewed premises do not force the support doubling, exact round, or minimum marked-point result; Assmus full text remained unchecked, so risk remains.",
+        "searches": [
+          "arXiv:1606.04383 sections 1 and 4",
+          "arXiv:1502.01255 introduction and 8",
+          "doi:10.37236/1203"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The construction is the point–block incidence graph of a binary projective Steiner triple system; support sums are XOR of vector supports.",
+          "General color-refinement individualization is known, but the named basis produces an explicit doubled-support refinement filtration."
+        ],
+        "reasoning": "Neither an ordinary collinearity graph, a projective plane of fixed order, nor generic graph refinability is equivalent to the exact two-sort partition at every round for all d.",
+        "searches": [
+          "Resultary semantic query: one-dimensional color refinement stabilization rounds for point-line incidence graphs of binary projective geometries PG(d-1,2) with individually colored vector-space basis and exact depth log2 d",
+          "arXiv:1606.04383 sections 1,4",
+          "arXiv:1502.01255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearest Resultary records on Steiner-design incidence graphs concern neighborhood complexes and topological invariants, not 1-WL basis-marking round profiles.",
+          "Package finite tables cover d≤9, which are corroboration not external priority evidence."
+        ],
+        "reasoning": "No external exact depth table with the all-dimension formula was found. A negative database search is not a proof of novelty.",
+        "searches": [
+          "Resultary semantic query: one-dimensional color refinement stabilization rounds for point-line incidence graphs of binary projective geometries PG(d-1,2) with individually colored vector-space basis and exact depth log2 d",
+          "binary projective geometry basis marked incidence 1-WL rounds (web search)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-dimension exact support-weight 1-WL partition and dimension-dependent sharp stabilization depths; known generic individualization complexity and binary projective Steiner-system coding do not give the displayed theorem by implication.",
+      "residual_risks": [
+        "Full Assmus 1995 paper was not independently read; unnoticed specialization remains possible.",
+        "Unindexed design/individualization literature might phrase an equivalent result in block-design or rank notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact binary-projective 1-WL filtration, though supplies broader machinery.",
+          "evidence": "Complexity and refinability decision theorems do not calculate support-doubling partitions or the displayed sharp d-dependent round counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.04383",
+          "material_read": "Full arXiv PDF and relevant introduction, individualization and bounded-round treatment, including §4.",
+          "method": "Read public PDF full text and inspected mathematical results.",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Vertex individualization/refinement and bounded number of rounds are directly analogous."
+        },
+        {
+          "assessment": "CONTEXT/RESIDUAL_RISK",
+          "evidence": "Generic color-refinement framework alone does not imply the specific family classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Citation and relevant introduction/section claims reported by package; complete independent full-document inspection not established.",
+          "method": "Bibliographic and mathematical statement comparison, not full-text noncoverage declaration.",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "General color-refinement orbit interpretation."
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "Same combinatorial object but no assessed covering 1-WL theorem; full-text coverage cannot be ruled out.",
+          "identifier_or_url": "https://doi.org/10.37236/1203",
+          "material_read": "Abstract/background only; full paper not independently inspected.",
+          "method": "Lawful abstract inspection.",
+          "title": "On 2-ranks of Steiner triple systems",
+          "trigger": "The point-line system is a binary projective Steiner triple system."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-logarithmic-colour-refinement-depth-for-basis-marked-binar--8ab4a65cbb2b/RESULT.md",
+        "arXiv:1606.04383",
+        "arXiv:1502.01255",
+        "doi:10.37236/1203",
+        "Resultary: one-dimensional color refinement stabilization rounds for point-line incidence graphs of binary projective geometries PG(d-1,2) with individually colored vector-space basis and exact depth log2 d"
+      ],
+      "rationale": "A canonical incidence graph from finite geometry acquires a completely explicit 1-WL filtration, exact logarithmic stabilization complexity, the nonuniform one-round line lag, and optimal number of distinguished landmarks. This motivated sharp invariant is useful for graph-isomorphism refinement and projective incidence structures, not just a small computational coincidence.",
+      "residual_risks": [
+        "Mathematical usefulness is limited to the specified natural family and invariant; no downstream theorem or exhaustive priority certificate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hypotheses strictly specify simultaneous 1-dimensional refinement on the point-line incidence graph, not the complete point collinearity graph or graphs over larger fields.",
+    "The all-dimension induction is mathematical; independent direct graph enumeration was bounded to dimension five.",
+    "Full Assmus 1995 paper was not independently read; unnoticed specialization remains possible.",
+    "Unindexed design/individualization literature might phrase an equivalent result in block-design or rank notation.",
+    "No source edits or publication made. Finite checks corroborate, not establish infinite theorems."
+  ],
+  "schema_version": 1
+}

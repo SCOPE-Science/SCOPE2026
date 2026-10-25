@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof tracks a two-sort synchronous refinement process, not a colour-unaware graph traversal. Because the original geometry is a Steiner triple system whose lines have exactly three points, a pair of individually coloured points produces a uniquely coloured line in one round and identifies its third point in the next. The induction's converse checks that every still-unnamed point has precisely one incident line of each singly labelled type and a fixed number of wholly unlabelled lines. This prevents unproved extra splitting, yielding an **exact** partition at every even round. The support-doubling identity and an explicit pair of same-coloured late lines prove both sharpness formulas, including dimensions two and three. The automorphism lower bound for fewer than a basis of marked points is an explicit linear shear fixing the span. Direct and independent arithmetic checks corroborate, but are not used as a substitute for the proof.
+PASS
 
-## Originality — PASS, subject to remaining priority risk
+Over F_2, every projective line is {x,y,x+y}, uniquely determined by two distinct points. At an even 1-WL round, any two named points give a singleton line at the next odd round and hence a singleton third point at the next even round. All unnamed y without an expression y=x+z for named x,z have identical line-colour multisets: exactly one line through each named x and uniform all-unnamed remainder. The identity T_j ∪ (T_j+T_j\{0})=T_{j+1}, with T_j all nonzero support weights ≤2^j, proves the exact induction. At the final even point-discrete round, threshold t=2^(k−1), the only possible late line collisions arise when d≥t+3, witnessed by two different t-subsets off coordinates 1,2; d≤t+2 separates already by 2k. Fewer than d named points span a proper subspace fixed pointwise by a nontrivial linear automorphism, so cannot discretize. Independent rebuilt 1-WL checks for d=2..5 returned graph-round depths 0,2,4,5. Original source checkers cover graph d=2..9 and combinatorial tests to 17 but stored logs are not proof.
 
-The inspected Arvind–Köbler–Rattan–Verbitsky treatment of colour refinement and refinability (arXiv:1502.01255, Introduction and Section 8) gives the general framework, but not this binary projective incidence partition. The Arvind–Fuhlbrück–Köbler–Kuhnert–Rattan individualization study (arXiv:1606.04383, Introduction and Section 4) develops general complexity classifications and bounded-round decision problems, not the sharp all-dimension incidence calculation. Assmus's 1995 treatment of binary Steiner-system codes is pertinent background; its accessible abstract was read, **not the full paper**. Earlier low-dimensional or marked-configuration calculations do not imply the precise doubled-support partition in unbounded dimension, its first-discreteness depths, or its exact minimum landmark count. Targeted research-record searches found no equivalent or stronger statement. Inaccessible specialized literature, or an unrecognized consequence of earlier geometry/individualization theory, remains a genuine residual publication-priority risk. Search failure is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Individualization followed by colour refinement is a standard tool in descriptive complexity and graph isomorphism. This result solves the **exact** least-landmark problem for a canonical highly symmetric incidence family and also determines when its many unmarked vertices become distinguishable. The unusual effect is a binary parallel closure: the maximum newly labelled support size doubles per **two** rounds, giving a sharp logarithmic rather than linear depth; discreteness of the whole graph occurs one round before the naive point-then-line estimate at exactly the special dimensions stated. It supplies a reproducible all-parameter classification and a natural test family for bounded-round refinement and landmark selection, not an arbitrary finite enumeration.
+Best-of-knowledge original all-dimension exact support-weight 1-WL partition and dimension-dependent sharp stabilization depths; known generic individualization complexity and binary projective Steiner-system coding do not give the displayed theorem by implication.
 
-## Limitations and review status
+## value
 
-No generalization to odd characteristic, arbitrary Steiner systems, or graph identification among all structures is proved. Experiments cover limited dimensions only. Earlier specialist coverage has not been excluded by an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical incidence graph from finite geometry acquires a completely explicit 1-WL filtration, exact logarithmic stabilization complexity, the nonuniform one-round line lag, and optimal number of distinguished landmarks. This motivated sharp invariant is useful for graph-isomorphism refinement and projective incidence structures, not just a small computational coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
