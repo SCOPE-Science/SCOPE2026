@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Precisely defined C_n includes the n=1 loop case. Every cutoff k<=2q has an explicit FO2 sentence of rank <=q, with k=1 and k=2 special cases; for odd k=2r+1 the red radius-r ball covers exactly cycles of length <=k; for even k=2r+4 a closed one-step ball around a second center adds at most three positions. For n,m>=2q+1 a two-pebble game strategy preserves radius-t marked-location labels as t decreases. The one-step matching lemma uses a radius-(t-1) interior containing at least four points, leaving at least one after excluding stationary and two neighbors. This proves all large structures equivalent. A standalone exhaustive exact FO2-type checker (all 0-,1-,2-variable assignments) verifies ranks 0..7 and lengths 1..20; explicit formulas verified k<=14 and lengths 1..34. Finite checks corroborate rather than replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Michaliszyn–Witkowski, arXiv:2610.09758v1, Definition 2 and Theorem 1: a distinguished successor must arise from a linear order; its finite instances are directed spanning paths, not cycles.",
+        "Jeż–Michaliszyn–Witkowski, arXiv:2610.19943v1, introduction and Theorem 1.1: finite satisfiability complexity and model-size bounds for acyclic spanning successor paths; the text explicitly excludes cycles.",
+        "Weis–Immerman, arXiv:0907.0616, concerns FO2 of words equipped with linear order and successor. An exact marked-cycle rank profile is not present in the accessible abstract/extract, and the full source was not exhaustively inspected."
+      ],
+      "reasoning": "The newer decidability and finite-model-size theorems permit arbitrary unary predicates but impose acyclic linear-order successor predicates. Since the cycles here have a closing edge, their theorems do not imply an exact q-round two-pebble equivalence statement. With a visible linear order, the variable-limited theory can make different observations; broader syntax alone does not transfer sharp cutoffs to the order-free class.",
+      "searches": [
+        "two-variable first-order logic finite directed cycles quantifier rank exact equivalence successor only 2q",
+        "finite directed cycles FO2 quantifier rank Ehrenfeucht Fraisse sharp threshold",
+        "FO2 one marked vertex directed cycles spectral classes rank q compared with path and order-invariant FO2",
+        "\"first-order logic\" \"cycles\" \"two variables\" \"successor\" \"quantifier rank\"",
+        "site:arxiv.org/abs/2610 \"finite\" \"model\" \"logical\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.09758v1 (2026-10-07), relevant primary HTML formal statements",
+      "arXiv:2610.19943v1 (2026-10-14), relevant primary HTML formal statements",
+      "arXiv:2207.04986 (2022), selected accessible material only",
+      "arXiv:0907.0616 (2009), title and abstract/excerpts only",
+      "Published indexed mathematical finding: Exact quantifier-rank threshold for finite directed paths",
+      "Published indexed mathematical finding: Exact quantifier-rank profiles for finite one-red linear orders"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A separately available claim on unmarked directed paths gives a 2q threshold; this theorem has a marked cyclic successor and a 2q+1 threshold. Neither statement is a literal special case of the other.",
+        "The 2026 papers arXiv:2610.09758 and arXiv:2610.19943 answer satisfiability questions, not the exact equivalence classes of fixed marked-cycle structures.",
+        "The proof supplies new pairwise distinguishing sentences for each k<=2q and a separate uniform two-pebble strategy for n,m>=2q+1."
+      ],
+      "reasoning": "Cutting the marked edge turns a marked cycle into a path, but the reverse translation and its FO2 rank overhead do not preserve the precise threshold. A path rank cutoff cannot simply be transferred as this cycle theorem. Conversely the cycle claim contains the unary marker and does not cover all unmarked paths. Published full-FO rank bounds with order do not force equality of FO2 rank invariants in the smaller signature.",
+      "searches": [
+        "FO2 one marked vertex directed cycles spectral classes rank q compared with path and order-invariant FO2",
+        "FO2 one marked vertex directed cycles spectral classes rank q compared with path and order-invariant FO2",
+        "order invariance two-variable cycles successor rank quantifier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Target equivalence: the truncated length min(n,2q+1) is a complete rank-q invariant on uniquely marked directed successor cycles.",
+        "The closest returned published abstracts address unmarked directed successor paths and one-red linear orders; neither asserts the marked-cycle invariant.",
+        "Grange, Order-Invariance in the Two-Variable Fragment of First-Order Logic (arXiv:2207.04986), describes two-variable games on bounded-degree structures, with cycles in its examples, but inspected accessible excerpts did not state this exact marked-cycle cutoff."
+      ],
+      "reasoning": "Aliases tested include coloured circular words, marked directed cycles, two-pebble games, and rank profiles. A circular successor without a named linear order is not the same signature or class as a one-red word with visible order. No exact equivalent was identified; incomplete older full-text coverage remains a risk.",
+      "searches": [
+        "rank q theory of a finite directed cycle with a unique unary-marked vertex and immediate-successor relation, FO2; cutoff 2q+1",
+        "one coloured circular word 2-pebble Ehrenfeucht Fraisse game finite cycles quantifier rank distinguishing short lengths",
+        "\"FO2\" \"marked cycle\" quantifier rank",
+        "\"2-pebble\" \"cycles\" \"successor\" \"colored\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published-index hit 'Exact quantifier-rank threshold for finite directed paths' has a different domain (unmarked directed paths).",
+        "A published-index hit 'Exact quantifier-rank profiles for finite one-red linear orders' uses full first-order logic with a visible order and a variable marked position.",
+        "No exact numerical table for once-marked directed cycles with these quantifier-rank and two-variable restrictions was found by the actual queries."
+      ],
+      "reasoning": "The theorem is a complete infinite family with 2q+1 rank classes, not a finite table entry. The database comparisons were made at statement and implication level; no match was found. Search absence is not a proof of novelty.",
+      "searches": [
+        "rank q theory of a finite directed cycle with a unique unary-marked vertex and immediate-successor relation, FO2; cutoff 2q+1",
+        "one coloured circular word 2-pebble Ehrenfeucht Fraisse game finite cycles quantifier rank distinguishing short lengths",
+        "marked directed cycles two-variable quantifier rank classes table",
+        "cyclic words FO2 successor quantifier rank equivalence"
+      ]
+    },
+    "rationale": "Targeted recent primary full-text comparison and published-index/older literature searches identify no statement implying the exact q-dependent 2q+1 spectrum for once-marked directed cycles in order-free FO2. The closest recent papers require acyclic spanning paths; reported path and linear-order rank spectra have different languages, objects, or variable restrictions. The available older cycle/order-invariance source was not examined exhaustively, so absolute priority is not established; this is a bounded residual risk rather than evidence of dominating coverage.",
+    "residual_risks": [
+      "Older circular-word and two-pebble ranker classifications, including potentially relevant full texts, were not exhaustively available; an implicit equivalent theorem could exist.",
+      "The source arXiv:0907.0616 may give stronger normal forms that imply the cutoff after nontrivial interpretation; the accessible material did not establish such implication.",
+      "Finite code checks cannot establish all q or all n; the proof must be evaluated on its own terms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact theorem; distinguished successors must come from strict linear orders and finite models are acyclic spanning paths.",
+        "evidence": [
+          "Definition 2 gives exact adjacency of a strict linear order.",
+          "Introduction explicitly contrasts finite spanning paths with infinite successor components."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09758v1",
+        "material_read": "Accessible primary HTML: abstract, Introduction including related work, Theorem 1, Definition 2 and preliminary model conditions, and finite-model discussion.",
+        "method": "Opened primary full-text HTML; read the relevant formal definitions and results and compared allowed structures, assumptions, and conclusions.",
+        "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+        "trigger": "Recent two-variable successor theory with unrestricted unary relations, close to the proposed signature."
+      },
+      {
+        "assessment": "NOT_COVERING; a complexity/size theorem for successor paths of linear orders, with cycles explicitly excluded.",
+        "evidence": [
+          "Theorem 1.1 states 2EXPSPACE and a triply exponential model-size bound.",
+          "Introduction states designated relations are spanning directed paths and that cycles must be excluded."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19943",
+        "material_read": "Accessible primary HTML: abstract, introduction, Theorem 1.1, finite-model constraints and exclusions, and references discussing word logics.",
+        "method": "Read accessible relevant parts of primary HTML, not only abstract or downloaded bytes.",
+        "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+        "trigger": "Most recent broad finite successor result, with many relations and unrestricted unary colours."
+      },
+      {
+        "assessment": "UNRESOLVED PRIORITY RISK; the visible results concern order-invariance on bounded-degree classes rather than this exact q-sensitive one-red-cycle spectrum.",
+        "evidence": [
+          "Figure caption illustrates cycles in order-invariance arguments.",
+          "Introductory material studies order-invariant FO2 and C2 rather than an exactly one-marked successor-cycle profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.04986",
+        "material_read": "Abstract and accessible introductory excerpts, including figure caption on cycles and definitions of rank and two-variable games; primary full text not fully accessible in this check.",
+        "method": "Targeted search and publicly accessible full-text excerpts; no whole-document negative conclusion.",
+        "title": "Order-Invariance in the Two-Variable Fragment of First-Order Logic",
+        "trigger": "Potential older coverage because circular graphs and two-pebble games occur in examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39906b2f-88ef-4d5c-9cfa-9ff1acb05ad6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp, natural, complete invariant is established for a fundamental FO2 class: exactly 2q+1 rank-q theories and exact collapse beyond length 2q. The cycle has both a uniquely named origin and no visible linear order, which highlights the expressivity boundary between order-free two-variable navigation, unmarked paths, and full FO rankers. Explicit cutoff formulas supply optimal witnesses for every shorter length; the paired matching lemma explains the structural obstruction to larger-size distinctions. These details are not an arbitrary numerical slice, code-only observation, or restatement of a general satisfiability bound.",
+    "status": "PASS"
+  }
+}
