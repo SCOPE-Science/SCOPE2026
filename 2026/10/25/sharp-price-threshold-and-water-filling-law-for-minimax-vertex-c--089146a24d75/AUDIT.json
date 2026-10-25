@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact resistance-distance identity gives max_v (L†)vv=(sum_i r_i+(m²−1)max_i r_i)/(m+1)² with r_i=1/w_i. For each dual probability p, Cauchy–Schwarz yields the global lower bound [sum sqrt(c_i(1+(m²−1)p_i))]²/[(m+1)²B]. Strict-concavity KKT forces p_i=(c_i/tau−1)_+/(m²−1), unique tau, and equality is attained by r_i=(Z/B)min(1,sqrt(c_i/tau)). Equality and budget saturation prove uniqueness. Dual KKT also gives iff uniformity threshold. A second admissible dual p_i=c_i/C proves the sharp upper ratio, with limit c_1 fixed and others→0. Standalone program verifies exact rational five-node inverse and 96 randomized full-matrix cases; it is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (2006) generic network convexity framework optimizes a different total-resistance scalar.",
+        "Summers–Shames–Lygeros–Dörfler (2014) graph edge-addition objective is trace(L†).",
+        "The published sharp-gain result for fading-memory consensus optimizes a common coupling gain, not individually priced edge conductances."
+      ],
+      "reasoning": "A general convexity framework alone does not state the unique exact price-dependent minimax diagonal allocation; its derived formula is not a direct implication of cited optimized trace/pair/spectral-gap results. Restricting a different functional to a star does not reproduce this claim.",
+      "searches": [
+        "star minimax vertex coherence diagonal Laplacian pseudoinverse compared to star resistance diameter and optimal spectral gap",
+        "network coherence star node-wise variance optimal edge weights allocation worst-case eigen Laplacian pseudoinverse diagonal",
+        "optimal edge weights minimax node variance consensus star graph Laplacian",
+        "arXiv:1411.4884v1 full text",
+        "MTNS2006:Ghosh-Boyd-Saberi full text"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://arxiv.org/html/1310.2592v1",
+      "https://arxiv.org/html/1411.4884v1",
+      "https://www.nas.ewi.tudelft.nl/people/Piet/papers/PhysRevE2017_pseudo_inverse_Laplacian.pdf",
+      "https://arxiv.org/abs/1310.2592",
+      "https://arxiv.org/abs/1411.4884",
+      "Published record: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+      "Published record: Tree Laplacian simplices with sharp Euclidean inradius exponents",
+      "Published record: Sharp gain optimization for consensus with exponential fading memory",
+      "Published record: Weighted odd-cycle fourth-power edge antiperiodic Sturm-Liouville asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior local star max-pair-resistance optimum controls the sum of the largest two edge resistances, rather than their total sum plus (m²−1) times the largest.",
+        "Prior local star spectral-gap optimum controls the smallest nonzero Laplacian eigenvalue, not diagonal stationary covariance.",
+        "The published Ghosh–Boyd–Saberi, Patterson–Bamieh and Summers–Shames–Lygeros–Dörfler objectives are inequivalent scalar functionals and have disjoint optimizer classifications."
+      ],
+      "reasoning": "The new theorem neither follows as an off-the-shelf corollary from any cited theorem nor claims generic convexity. Its distinct minimax objective requires its explicit star-diagonal identity and dual-threshold maximization; searched stronger formulations and normalized equivalents did not reveal a direct implication.",
+      "searches": [
+        "Minimize maximum stationary node variance max diagonal Moore Penrose graph Laplacian pseudoinverse on weighted star with heterogeneous unit edge prices and a total conductance budget, active set water filling",
+        "star minimax vertex coherence diagonal Laplacian pseudoinverse compared to star resistance diameter and optimal spectral gap",
+        "Ghosh Boyd Saberi 2006 minimize maximum effective resistance star network versus worst diagonal pseudoinverse covariance",
+        "optimal edge weights minimax node variance consensus star graph Laplacian",
+        "https://arxiv.org/html/1310.2592v1",
+        "https://arxiv.org/html/1411.4884v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Worst-vertex covariance equals one half of max Laplacian pseudoinverse diagonal under equal unit node-noise intensity; the identity is proved via resistance distances in RESULT.md.",
+        "Patterson and Bamieh arXiv:1310.2592v1 use mean trace coherence, not maximum diagonal.",
+        "Ghosh–Boyd–Saberi MTNS2006 Section VII frames max PAIR resistance, not max node-to-mean covariance."
+      ],
+      "reasoning": "Synonyms tested include vertexwise H2, node disagreement variance, diagonal pseudoinverse, maximal node coherence and centered mean resistance. Trace, worst-pair resistance and worst vertex diagonal are non-equivalent as functions on arbitrary weighted stars: pair maximum is the two largest reciprocals whereas node diagonal maximum depends on the sum of all reciprocals plus (m²−1) times the largest.",
+      "searches": [
+        "Minimize maximum stationary node variance max diagonal Moore Penrose graph Laplacian pseudoinverse on weighted star with heterogeneous unit edge prices and a total conductance budget, active set water filling",
+        "star minimax vertex coherence diagonal Laplacian pseudoinverse compared to star resistance diameter and optimal spectral gap",
+        "\"maximum diagonal\" \"Laplacian pseudoinverse\" edge weight optimization star",
+        "\"minimax\" \"network coherence\" \"star\" edge weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Van Mieghem, Devriendt and Cetinay, Phys Rev E 96 (2017), Appendix C tabulate explicit unweighted star Laplacian pseudoinverse diagonals; inspected the relevant appendix.",
+        "Earlier findings on star maximum pair resistance and star spectral gap under edge pricing have different objectives and do not entail this optimizer.",
+        "Published result on Laplacian simplices studies pseudoinverse geometry, not priced vertex covariance minimax."
+      ],
+      "reasoning": "No exact database/table of arbitrary-price optimal node-variance allocations was found in the inspected primary material, published-record short summaries or recoverable prior claims. The prior diagonal formula itself is subsumed as background, not claimed as new.",
+      "searches": [
+        "Minimize maximum stationary node variance max diagonal Moore Penrose graph Laplacian pseudoinverse on weighted star with heterogeneous unit edge prices and a total conductance budget, active set water filling",
+        "Ghosh Boyd Saberi 2006 minimize maximum effective resistance star network versus worst diagonal pseudoinverse covariance",
+        "\"maximum diagonal\" \"Laplacian pseudoinverse\" edge weight optimization star",
+        "\"worst-case\" \"node variance\" \"star network\" optimization weights"
+      ]
+    },
+    "rationale": "The reviewed full primary literature gives related but mathematically inequivalent max pair, trace, or spectral objectives or only unpriced diagonal tables. Independent edge-price minimax vertex disagreement variance and its all-parameter optimizer, exact uniformity boundary and sharp ratio were not covered by those statements. Published-record and prior-claim comparisons yielded no dominating implication. Priority remains best knowledge; specialist historical coverage possible.",
+    "residual_risks": [
+      "An older non-indexed article may optimize worst-vertex Laplacian-pseudoinverse diagonals with arbitrary edge prices via equivalent water-filling KKT formulas.",
+      "Generically stronger, specialized convex-design results not located may contain an exact star specialization.",
+      "No independent scholarly audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies sum of pair effective resistances; Section VII notes maximum pair effective resistance but not maximum diagonal of pseudoinverse. For a star those are respectively a weighted sum of all reciprocal conductances and the sum of two largest reciprocals, unlike the proven centered average involving sum plus largest reciprocal.",
+        "evidence": [
+          "Proceedings MTNS 2006 paper pp.1–2, §VII; published pdf at https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Complete available 12-page conference article; abstract, setup, total-resistance objective, convex formulation, and Section VII other criteria; PDF opening and relevant end page examined visually.",
+        "method": "Full-paper text inspection and first/last page visual cross-check against exact pseudoinverse-diagonal objective.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Same graph Laplacian, edge-conductance optimization, and worst-resistance alternatives."
+      },
+      {
+        "assessment": "Mean network coherence is proportional to the trace of Laplacian pseudoinverse; graph families/fractal asymptotics are studied, not independent edge-price allocation minimizing the largest diagonal.",
+        "evidence": [
+          "arXiv first submission 2013-10-09 (arxiv.org/abs/1310.2592), full text arxiv.org/html/1310.2592v1"
+        ],
+        "identifier_or_url": "arXiv:1310.2592v1",
+        "material_read": "Full accessible HTML, including introductory coherence definition, first-order stochastic model, trace formula, and statements of the fractal-scaling results.",
+        "method": "Read the paper and compare the objective, design variables, parameter domain and theorem quantifiers.",
+        "title": "Consensus and Coherence in Fractal Networks",
+        "trigger": "Direct stochastic-consensus interpretation and earliest directly verified public source."
+      },
+      {
+        "assessment": "Different decision space and different scalar objective; results are not a stronger per-edge-price star minimax vertex classification.",
+        "evidence": [
+          "arXiv first submission 2014-11-18, arxiv.org/html/1411.4884v1"
+        ],
+        "identifier_or_url": "arXiv:1411.4884v1",
+        "material_read": "Full accessible HTML, especially first-order model, Laplacian pseudoinverse trace coherence, topology edge-addition optimization, and principal theorem statements.",
+        "method": "Compared arbitrary independent positive edge pricing and minimax diagonal objective with the paper’s discrete edge-addition and trace coherence problem.",
+        "title": "Topology Design for Optimal Network Coherence",
+        "trigger": "Optimal design for noisy network coherence could dominate a special star formula."
+      },
+      {
+        "assessment": "Establishes relevant baseline diagonal properties and an unweighted star calculation but not the priced minimax conductance allocation or its sharp factor in inspected material.",
+        "evidence": [
+          "Physical Review E 96 (2017) 032311, Appendix C, author-hosted full paper https://www.nas.ewi.tudelft.nl/people/Piet/papers/PhysRevE2017_pseudo_inverse_Laplacian.pdf"
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.96.032311",
+        "material_read": "Full author-hosted 2017 PDF, including treatment of pseudoinverse diagonals and the unweighted star example in Appendix C; appendix page visually examined.",
+        "method": "Compared their star diagonal formulas against the arbitrary independent positive price optimization and attained Cauchy/KKT thresholds.",
+        "title": "Pseudoinverse of the Laplacian and best spreader node in a network",
+        "trigger": "Direct pseudoinverse-diagonal formula and specific star calculation; strong plausible exact-table overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "089146a2-4d75-454d-98d5-5a73b953c606",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Worst-vertex stationary disagreement variance is a motivated fairness/robustness metric distinct from average coherence, spectral gap and max pair resistance. Exact closed-form minimax design for every star order and every strictly positive price vector, unique multilevel optimizer, sharp active-price criterion for equal weights and globally sharp dimension-dependent improvement ratio are meaningful complete structural classifications. Matrix identity and two-active-price exact rational instance substantiate nontrivial design geometry.",
+    "status": "PASS"
+  }
+}
