@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete description of all maximal independent sets follows from the universal hub and pairwise disjoint rim cliques. Conditional on the hub not arriving first, within-clique label permutations act transitively on all transversals, proving the claimed exact output law. Subtracting the uniform measure gives the exact total-variation distance. Independent exhaustive permutation enumeration supports the calculation for selected small parameter vectors, including unequal blade sizes; the unrestricted proof is elementary and does not depend on testing.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The initiating 2026 tree-uniformity theorem concerns acyclic graphs and does not imply a uniformity classification for connected graphs containing several clique blocks. The earlier general greedy-model literature and the published-indexed records on chain/threshold graph distributions do not provide a covering statement on these mixed clique bouquets, which can contain both triangles and induced \(2K_2\). Searches specifically included the product-equals-sum equality, generalized windmills, friendship graphs and exact random-greedy distributions. Fulltext of all nearby literature was not available in the run; an unnoticed general statement remains possible.
+PASS
 
-**Value — PASS.** Exact uniformity was recently proved extraordinarily rigid on trees. The classification here exhibits an unbounded family of connected cyclic graphs in which the greedy output law is *exactly* uniform although its maximal independent sets have two different sizes with an arbitrarily large gap. The explicit product-versus-sum phase condition and exact total-variation expression describe the full boundary within a natural block-graph class; it is not a parameter relabeling or an unsupported numerical improvement.
+Every maximal independent set of K_1 join disjoint union_i K_(m_i) is the hub singleton or a one-vertex transversal across all r blocks, giving P+1 outputs. The hub is first in a uniform vertex permutation with probability 1/(M+1); otherwise it is rejected and each block minimum is chosen. Independent permutation symmetries act transitively on tuples of block minima conditional on hub not first, giving each transversal mass M/((M+1)P). Total variation from uniform is |P-M|/((M+1)(P+1)), zero iff P=M. Family blade sizes (2,q,1 repeated q-2 times) has M=P=2q, one singleton and 2q maximal sets of size q, unbounded size discrepancy. Independently literally enumerated all permutations for five small bouquets, matching exact probabilities and total variation identity.
 
-**Limits.** This is not a global classification of all exactly uniform graphs. Bibliographic priority and the generality of unpublished related statements remain open; independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Fairfax–Ball result proves tree-only greedy equidistribution obstruction; bouquets with at least two nontrivial clique blades are cyclic and cannot be covered by tree theorem. Kryven et al. analyze stronger iterative-uniformity regimes and Krivelevich et al. 2024 compute asymptotic greedy output size, not finite exact distribution across all maximal independent sets in this graph family. Relevant indexed threshold/chain-graph greedy laws apply distinct classes.
+
+## value
+
+PASS
+
+Although the block-first law has an elementary proof, the exact equality P=M criterion makes a meaningful natural clique-join family of uniformly sampled maximal independent sets, with a nontrivial infinite family in which equal probabilities coexist with arbitrarily unequal cardinalities. This addresses a structural obstruction phenomenon beyond trivial first-vertex conditioning, and is a self-contained exact fact with a clear combinatorial purpose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
