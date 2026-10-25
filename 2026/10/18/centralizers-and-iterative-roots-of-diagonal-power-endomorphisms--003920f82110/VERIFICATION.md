@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction of the mathematical checks
+# Independent mathematical audit
 
-Use Python 3 without external packages: `python3 verify.py`.
+## correctness
 
-The program checks the following scientific assertions directly, without calling any external data service:
+PASS
 
-- Every nonerasing morphism on two letters with image length at most four is tested, \(900\) assignments total; for each of \(16\) power profiles with exponents from one to four, the number of solutions to \(\Psi^{\circ k}=\Phi\) for \(k=2,3\) agrees with the permutation-cycle enumeration and with an independently implemented labeled-cycle coefficient recurrence.
-- Every nonerasing morphism on three letters with image length at most three is tested, \(59{,}319\) assignments total; every one of \(27\) power profiles with exponents from one to three is checked for \(k=2,3\).
-- The centralizer normal form is compared to direct word substitution for all \(196\) two-letter morphisms with image length at most three and six specified profiles, and for all \(1{,}728\) three-letter morphisms with image length at most two and five specified profiles.
-- The cycle coefficient recurrence also gives \(R_2(2,2)=2\), \(R_2(4,4,4)=10\), \(R_2(6,6,6,6)=48\) and \(R_3(8,8,8)=21\).
+For nonerasing Psi on finite nonempty Sigma+, Phi(a_i)=a_i^{N_i}, commuting generator identity Phi(w_i)=w_i^{N_i} and preservation of maximal constant-letter runs force a monomial image when N_i>1, with target letter at the same exponent level. For N_i=1, length positivity forces an arbitrary word solely in exponent-one letters. If Psi^k=Phi, Psi commutes with Phi; the exponent-one block images must have length one by nonerasing monotonicity. Thus all images are weighted letters, the finite letter map f obeys f^k=id and is a permutation with cycles d|k; each cycle has weight-product p with p^(k/d)=m. Ordered factorization count D_d(p)=prod_{prime^v||p} binom(v+d-1,d-1) and labelled exponential cycle-index provide exact formula. Tested small two-letter profiles independently by enumerating nonerasing compositions; (2,2),k=2 has two roots and (4,4),k=2 has four, in agreement with the classification. Universal proof is textual, not inferred from finite tests.
 
-These profiles are exhaustively tested **at the stated length cutoffs**. For the root tests this also exhausts roots of each listed target profile, since applying a nonerasing endomorphism never shortens a word. Outside the enumerated profiles, finite computation is neither a proof of the universal classification nor a claim of exhaustive numerical validation. The proof in `RESULT.md` supplies the all-parameter argument. The checker outputs `VERIFY_OK` only when all direct and formula-based comparisons pass.
+## originality
 
-Mathematical checking status: self-reviewed; independent auditing has not occurred.
+PASS
+
+Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.
+
+## value
+
+PASS
+
+Complete centralizer classification for an infinite family of free-semigroup endomorphisms and a finite exact count of k-th roots inside an infinite endomorphism monoid. The exponent-one free-morphism block and weighted permutation cycle constraints expose genuinely structural behavior. The theorem answers naturally motivated composition and factorization questions, unlike a routine evaluation of a pre-known numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonerasing Psi on finite nonempty Sigma+, Phi(a_i)=a_i^{N_i}, commuting generator identity Phi(w_i)=w_i^{N_i} and preservation of maximal constant-letter runs force a monomial image when N_i>1, with target letter at the same exponent level. For N_i=1, length positivity forces an arbitrary word solely in exponent-one letters. If Psi^k=Phi, Psi commutes with Phi; the exponent-one block images must have length one by nonerasing monotonicity. Thus all images are weighted letters, the finite letter map f obeys f^k=id and is a permutation with cycles d|k; each cycle has weight-product p with p^(k/d)=m. Ordered factorization count D_d(p)=prod_{prime^v||p} binom(v+d-1,d-1) and labelled exponential cycle-index provide exact formula. Tested small two-letter profiles independently by enumerating nonerasing compositions; (2,2),k=2 has two roots and (4,4),k=2 has four, in agreement with the classification. Universal proof is textual, not inferred from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell–Foster–Reidenbach investigate factorization and sufficient commutation for arbitrary morphisms; no all-alphabet exact roots of diagonal power maps.",
+          "Honkala characterizes a subclass of binary morphisms; binary centralizer pieces may follow by specialization."
+        ],
+        "reasoning": "Broader domain of a paper is not a stronger theorem about the claimed parameter; no inspected result yields the all-alphabet root count. Avoid claiming binary cases universally new.",
+        "searches": [
+          "Resultary: free semigroup diagonal power endomorphisms centralizer iterative roots cycle index exact count",
+          "arxiv:2603.15177",
+          "arxiv:2302.06158"
+        ]
+      },
+      "checked_sources": [
+        "GitHub pinned RESULT.md and verify.py, tree b4020a5c4ad2b6cad6347c3e109fa60856f785ff",
+        "Bell et al. arxiv:2603.15177 PDF Section 4",
+        "Honkala arxiv:2302.06158 PDF Example 4.1 and Sections 6–9",
+        "Resultary query: Resultary: free semigroup diagonal power endomorphisms centralizer iterative roots cycle index exact count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Honkala Example 4.1 is sufficient for diagonal maps to commute, but does not state necessity for every commuting morphism or weighted-permutation root enumeration.",
+          "Bell et al. Proposition 11 provides a sufficient commuting construction, not the required if-and-only-if centralizer."
+        ],
+        "reasoning": "Even combining both prior results does not directly imply the all-alphabet necessary-and-sufficient formula without the new run-structure proof.",
+        "searches": [
+          "Resultary: free semigroup diagonal power endomorphisms centralizer iterative roots cycle index exact count",
+          "arxiv:2603.15177",
+          "arxiv:2302.06158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Honkala Example 4.1 already gives commuting diagonal maps and his main theorem covers upper-triangular binary morphisms, not arbitrary alphabet/exponent levels.",
+          "Bell–Foster–Reidenbach Section 4 Proposition 11 states sufficient commutation criterion, not complete diagonal centralizer or root enumeration."
+        ],
+        "reasoning": "Word-substitution roots can be represented by weighted monomial-matrix cycle powers, but the word-run rigidity reducing arbitrary morphisms to monomials is an additional necessary step not present in cited comparison.",
+        "searches": [
+          "Resultary: free semigroup diagonal power endomorphisms centralizer iterative roots cycle index exact count",
+          "arxiv:2603.15177",
+          "arxiv:2302.06158"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact labelled cycle-index table for all profiles N and iteration k appears in the inspected literature; the finitely checked source examples cover isolated profiles."
+        ],
+        "reasoning": "An exact formula for arbitrary finite alphabet/exponent profile is not explained by a tiny table; standard cycle-index tool alone does not classify which morphisms are roots.",
+        "searches": [
+          "Resultary: free semigroup diagonal power endomorphisms centralizer iterative roots cycle index exact count",
+          "arxiv:2302.06158"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.",
+      "residual_risks": [
+        "Binary specialization partly covered by Honkala; no separate novelty claimed for it.",
+        "Older uncatalogued semigroup centralizer theorems or general integer monomial-matrix k-root formulas could cover an implication.",
+        "Nonerasing endomorphisms and positive integers essential; no erasing or general substitutions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides sufficient commuting criterion and factorization theory, not the exact diagonal-power centralizer or all-k roots",
+          "evidence": [
+            "Section 4 Proposition 11 sufficient condition; Section 4 Proposition 13 incidence composition"
+          ],
+          "identifier_or_url": "arxiv:2603.15177",
+          "material_read": "Full 22-page arXiv PDF; introduction, factor basis/decompositions, Section 4 commutation Proposition 11 and incidence-matrix sections",
+          "method": "Primary full PDF text, Section 4 and page images",
+          "title": "Irreducibility of Endomorphisms of Finitely Generated Free Semigroups",
+          "trigger": "Same free-semigroup endomorphisms and compositional factorization"
+        },
+        {
+          "assessment": "Includes any-alphabet diagonal maps commuting with each other, and binary upper-triangular cases; no general multi-letter root enumerator",
+          "evidence": [
+            "Example 4.1 defines g1(x_i)=x_i^{m_i},g2(x_i)=x_i^{n_i} and checks they commute"
+          ],
+          "identifier_or_url": "arxiv:2302.06158",
+          "material_read": "Full 14-page arXiv journal PDF: introductory scope, Sections 3–4 especially Example 4.1, characterization Sections 6–9",
+          "method": "Primary full PDF text and page image",
+          "title": "Commuting Upper Triangular Binary Morphisms",
+          "trigger": "Binary case may subsume commuting diagonal maps"
+        },
+        {
+          "assessment": "Range in a single cyclic word monoid differs from simultaneous distinct exponent levels",
+          "evidence": [
+            "Full text not confirmed read; retain coverage risk"
+          ],
+          "identifier_or_url": "doi:10.1017/S0017089500007588",
+          "material_read": "Bibliographic title and abstract-level topic only; no full text comparison asserted",
+          "method": "bibliographic",
+          "title": "Monogenic endomorphisms of a free monoid",
+          "trigger": "Possible older monomial classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete centralizer classification for an infinite family of free-semigroup endomorphisms and a finite exact count of k-th roots inside an infinite endomorphism monoid. The exponent-one free-morphism block and weighted permutation cycle constraints expose genuinely structural behavior. The theorem answers naturally motivated composition and factorization questions, unlike a routine evaluation of a pre-known numerical table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite, labelled nonempty alphabet; all morphisms nonerasing.",
+    "Counts labelled, not conjugacy classes.",
+    "Cycle index is classical; the new substantive reduction is word-run rigidity and root classification."
+  ],
+  "schema_version": 1
+}

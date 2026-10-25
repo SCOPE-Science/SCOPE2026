@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works for every finite nonempty alphabet, all positive target exponents and every positive iteration exponent. The centralizer equivalence follows from the exactly verified behavior of maximal constant-letter runs under diagonal substitution and word powering. The root classification follows by commuting with the target and by nonerasing length monotonicity on the exponent-one block; the letter map then has finite order, hence is a permutation. The cycle weight equation and the classical weighted-permutation exponential formula supply a complete count. The standalone exhaustive checks cover the stated finite profiles, and the mathematical proof supplies the infinite-domain quantifiers. Critical boundary cases, including a unary alphabet, equal power exponents, exponent-one letters, and nonsquare cycle obstructions, are covered.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The 2026 full-text free-semigroup irreducibility study by Bell–Foster–Reidenbach gives a sufficient commutation proposition and monomial incidence-matrix tools, not the exact centralizer of all diagonal-power maps or enumeration of compositional roots. Honkala's 2024 upper triangular *binary* commutation theorem may subsume part of the two-letter centralizer and his Example 4.1 already contains diagonal-power commuting examples; its stated generality does not provide the all-alphabet theorem and multiplicative cycle enumeration. Petrich's 1989 monogenic ideal setting uses images in a common cyclic word submonoid, rather than the present diagonal exponent-level maps. Searches for aliases such as iterative morphism roots, diagonal substitution commutants, weighted-permutation roots and nonnegative monomial-matrix root counts found no decisive covering result. An equivalent theorem in older or unindexed semigroup literature remains possible, as does a general matrix-root result from which the counting component follows once rigidity is established.
+PASS
 
-## Value — PASS
-The source literature explicitly motivates a serious commutation question in the endomorphism monoid of a free semigroup, while a complete general centralizer is difficult. This result gives a natural exact answer for a structurally important infinite family, including an unexpectedly unrestricted exponent-one block. Its root theorem establishes both a complete existence criterion and a uniform finite count inside an *infinite* endomorphism monoid; a cycle-index expression, prime-factor formula, and simple square-root obstructions all follow. This is a structural classification and a natural complete enumeration, not an arbitrarily chosen finite slice or mere restatement of standard divisibility.
+For nonerasing Psi on finite nonempty Sigma+, Phi(a_i)=a_i^{N_i}, commuting generator identity Phi(w_i)=w_i^{N_i} and preservation of maximal constant-letter runs force a monomial image when N_i>1, with target letter at the same exponent level. For N_i=1, length positivity forces an arbitrary word solely in exponent-one letters. If Psi^k=Phi, Psi commutes with Phi; the exponent-one block images must have length one by nonerasing monotonicity. Thus all images are weighted letters, the finite letter map f obeys f^k=id and is a permutation with cycles d|k; each cycle has weight-product p with p^(k/d)=m. Ordered factorization count D_d(p)=prod_{prime^v||p} binom(v+d-1,d-1) and labelled exponential cycle-index provide exact formula. Tested small two-letter profiles independently by enumerating nonerasing compositions; (2,2),k=2 has two roots and (4,4),k=2 has four, in agreement with the classification. Universal proof is textual, not inferred from finite tests.
 
-## Boundaries
-Only nonerasing endomorphisms are covered. No claim is made about roots of general endomorphisms, erasing morphisms or novelty of standard weighted cycle counting in isolation. The closest binary cases may be implied by Honkala's published full result. Exact coincidence with uncatalogued work cannot be excluded. The computations independently test only finite instances; the general claim rests on the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.
+
+## value
+
+PASS
+
+Complete centralizer classification for an infinite family of free-semigroup endomorphisms and a finite exact count of k-th roots inside an infinite endomorphism monoid. The exponent-one free-morphism block and weighted permutation cycle constraints expose genuinely structural behavior. The theorem answers naturally motivated composition and factorization questions, unlike a routine evaluation of a pre-known numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
