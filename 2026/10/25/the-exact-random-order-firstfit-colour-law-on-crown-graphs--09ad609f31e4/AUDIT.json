@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\), peeling matching-pair first colour classes until the first same-side second occurrence gives the exact event \\(\\{X\\ge t+2\\}\\). Distinct ordered selections of t pairs give disjoint linear-extension sets of a two-chain precedence poset. Base \\(L_{n,1}=(2n)!/n^2\\) and explicit earliest-two/three case split \\(L_{n,t}=3L_{n-1,t-1}\\) yield each factorial tail; all edge cases (\\(n=2\\), \\(t=n-2\\)) are handled. Differences and tail sums yield the law, mean, and count of worst orders. C++17 exhaustive simulations checked 3,669,864 vertex orders for \\(2\\le n\\le5\\); independent subset-DP checked all 28 poset cases at \\(3\\le n\\le9\\). Finite computations supplement the displayed infinite proof and do not replace it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye et al. Section 3.1 Theorem 3 upper bounds an expectation without computing all tail probabilities.",
+        "Li and Li consider random bipartite inputs with independent edge probabilities, not the fixed crown probability law."
+      ],
+      "reasoning": "A broad expected-colour upper bound and polynomial lower bounds on other bipartite families cannot dominate an exact probability-law theorem for a fixed natural family.",
+      "searches": [
+        "FirstFit online coloring in the random order model arXiv:2608.29603",
+        "FirstFit coloring process random bipartite graphs arXiv:2610.15468",
+        "FirstFit online coloring crown graphs random order exact distribution generating function",
+        "crown graph Grundy first-fit all vertex permutations color count"
+      ]
+    },
+    "checked_sources": [
+      "Ye et al. FirstFit online coloring in the random order model, arXiv:2608.29603, Section 3.1.",
+      "Kordecki and Łyczkowska-Hanćkowiak, Greedy online colouring with buffering, arXiv:1601.00252, Sections 3.1,4 and Table 1.",
+      "Li and Li, FirstFit coloring process of random bipartite graphs, arXiv:2610.15468, Introduction 1.1-1.2.",
+      "Published indexed findings on greedy maximal independent sets in chain/threshold graphs and other crown graph-colouring parameters; different objects or colour rules."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New: for all \\(3\\le k\\le n\\), \\(T_{n,k}\\) is an explicit factorial expression, and \\(\\Pr(X=2)=1-1/n\\).",
+        "Prior closest: E[X] <=2.5+O(1/n), empirical averages, and random bipartite graph process estimates."
+      ],
+      "reasoning": "Mean upper bounds and finitely many averages cannot derive a complete finite-n law, whereas the new poset recurrence yields each tail and worst-case order multiplicity. The newer random-bipartite result is about different graph distributions.",
+      "searches": [
+        "arXiv:2608.29603 Section 3.1 Theorem 3 crown graph",
+        "arXiv:1601.00252 Sections 3.1,4",
+        "arXiv:2610.15468 Section 1.2",
+        "exact distribution random vertex order FirstFit greedy coloring crown graph probability k colors linear extensions poset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The crown graph is K_{n,n} minus a matching, also a bipartite half graph in some greedy-colouring literature (not to be conflated with chain graphs).",
+        "No equivalent all-cardinality law emerged in searched semantic mathematical records; the buffered analysis is a different algorithm and arrival model."
+      ],
+      "reasoning": "The new result counts a uniformly random labelled arrival order for ordinary irrevocable FirstFit; alternative terminology must preserve these quantifiers and the entire probability distribution. Buffered stochastic colour laws or ordinary Grundy maxima do not imply it.",
+      "searches": [
+        "exact distribution random vertex order FirstFit greedy coloring crown graph probability k colors linear extensions poset",
+        "random-order greedy coloring crown graph exact expected colors 2 + 1/n probability 1/n higher colors",
+        "FirstFit online coloring crown graphs random order exact distribution generating function",
+        "crown graph Grundy first-fit all vertex permutations color count",
+        "random-order FirstFit crown graph colour-count law",
+        "https://arxiv.org/abs/1601.00252"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kordecki and Łyczkowska-Hanćkowiak Table 1 includes empirical means for random-order unbuffered greedy crown colouring, such as \\(n=4\\) about 2.32, without a symbolic tail enumerator.",
+        "Retrieved mathematical research-record hits covered other graph-colouring parameters, such as neighbourhood odd colouring and forced partial three-colouring, rather than random FirstFit output distributions."
+      ],
+      "reasoning": "Numerical or Monte Carlo means for selected n are compatible with but do not imply the exact symbolic distribution or all-n worst-order count.",
+      "searches": [
+        "arXiv:1601.00252 section 4 table 1 crown graph random order greedy coloring",
+        "exact distribution random vertex order FirstFit greedy coloring crown graph probability k colors linear extensions poset",
+        "random-order greedy coloring crown graph exact expected colors 2 + 1/n probability 1/n higher colors"
+      ]
+    },
+    "rationale": "The self-review covers Ye et al. arXiv:2608.29603 Section 3.1 (only mean bound), Kordecki and Łyczkowska-Hanćkowiak arXiv:1601.00252 (buffered alternating-order analytic model and unbuffered simulations only), and Li and Li arXiv:2610.15468 introduction (random bipartite graphs, cites the Ye bound). Actual research-record searches for FirstFit/random-order/crown law/Grundy/linear extensions did not surface an equivalent theorem. The exact full tail probabilities and the 3-to-1 linear-extension recurrence are not implied by their published estimates or the inspected model-distinct formulas. Unidentified historical formulations remain a risk.",
+    "residual_risks": [
+      "Prior exact random-order greedy-colouring analyses may exist under Johnson/Grundy terminology or inaccessible nonindexed sources.",
+      "Some potentially related source sections were not exhaustively read; comparisons reflect the specified inspected material.",
+      "Novelty determination is best-knowledge same-model and not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds mean by 2.5+O(1/n); does not give the full probability law, poset recurrence, sharp mean, or exact worst-order count.",
+        "evidence": [
+          "Theorem 3 in Section 3.1 gives expectation at most 2.5+O(1/n) on crown graphs.",
+          "First public arXiv version is 2026-08-30; title and authors match the cited problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.29603",
+        "material_read": "Full available arXiv primary manuscript, including statement, introduction, Section 3.1 and the crown graph argument (Theorem 3), plus conclusions.",
+        "method": "Open-access arXiv full text examined by section.",
+        "title": "FirstFit online coloring in the random order model",
+        "trigger": "Same random-order FirstFit model, specifically its crown-graph estimate"
+      },
+      {
+        "assessment": "The analytic distribution treats buffered processing of an imposed alternating input; empirical table reports random-order unbuffered averages but does not state the exact random-order law here.",
+        "evidence": [
+          "Section 3.1 studies a distinct buffered alternating-arrival algorithm.",
+          "Section 4 Table 1 reports average colour counts for random order, without an all-colour tail formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.00252",
+        "material_read": "PDF including Section 3.1 analytic model and Section 4 empirical crown-graph Table 1; pages 4, 5 and 9 inspected visually.",
+        "method": "Open-access arXiv PDF read in text and page screenshots for model boundaries.",
+        "title": "Greedy online colouring with buffering",
+        "trigger": "Older paper explicitly analyzing crown graph greedily colored with buffering; possible earlier random-order distribution"
+      },
+      {
+        "assessment": "Studies random bipartite graphs and counterexamples to polylogarithmic expectation; names Ye et al crown bound but no exact fixed-crown law in inspected relevant sections.",
+        "evidence": [
+          "Introduction Section 1.2 states the earlier crown expected-colour upper bound 2.5+O(1/n).",
+          "Theorem 1.1 treats random bipartite graphs with sparse independent edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15468",
+        "material_read": "Introduction and Section 1.2 related-work discussion, with the main theorem and model; not all technical proof sections.",
+        "method": "Open-access arXiv HTML read in relevant sections.",
+        "title": "FirstFit coloring process of random bipartite graphs and an online coloring lower bound in the random order model",
+        "trigger": "Newer closely related FirstFit random-order investigation citing the crown graph prior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09ad609f-31e4-4367-861c-a66be1cc8cf4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives the complete all-colour distribution, not merely a moment or bound, for a canonical online-colouring worst-case graph under the important random-arrival model. It converts the known upper mean \\(2.5+O(1/n)\\) to exact finite-n expressions with mean tending sharply to 2 at rate \\(1/n\\), determines a rare-event tail to the maximum \\(n\\) colours and gives an explicit factor-three linear-extension mechanism explaining random-order behavior. The result supplies general structural information not recoverable from previously published simulations, and is motivated by precisely the crown family singled out in the source literature.",
+    "status": "PASS"
+  }
+}
