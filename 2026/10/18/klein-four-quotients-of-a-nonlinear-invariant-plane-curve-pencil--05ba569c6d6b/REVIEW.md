@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-field statement follows from invariant generators \(t,w\) and the explicit quadratic equation for \(b\); the remaining quadratic degree is certified by nontrivial inversion. The smooth first quotient is proved from its Jacobian equations, including the infinite point. The ramification divisor of inversion contains exactly the \(q+1\) simple points on \(b=1\), with the two points above \(b=0,\infty\) exchanged. Tame Riemann–Hurwitz therefore gives genus \((q-1)^2/4\). In characteristic three, exact reduced Weierstrass invariants give the \(j\)-map and its two branch values. Exact symbolic checks accompany the uniform proof. Risk: the general affine model must be normalized, explicitly accounted for.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The originating 2022 manuscript supplies the plane pencil, first quotient and original genus but not the complete second-quotient Chebyshev model, square-genus calculation or characteristic-three modular ramification map. Searches considered Klein-four quotient, inversion, Chebyshev, genus and modular aliases as well as indexed related geometric results; no equivalent or stronger statement was found. This is not proof of global priority. Risks include an unindexed projectively equivalent modular covering and changes in the 2024 journal presentation not inspected in full. Characteristic-zero genus-five bielliptic literature was consulted at abstract level only and does not directly imply the claimed positive-characteristic statements.
+PASS
 
-## Mathematical value — PASS
-A naturally distinguished, large-symmetry plane-curve pencil acquires a concrete intermediate function field for every odd prime power, together with a closed genus formula. The smallest characteristic yields a complete ordinary/supersingular stratification of its elliptic quotient and a separable degree-six map with unusually concentrated wild ramification. The claim provides structural and arithmetic information beyond the original classification, not a mere restatement of source equations.
+The swap-fixed field is k(a,b) with a=x+y,b=xy, smooth plane D(a,b)=a^(q+1)-2(b^q+b)-lambda(a²-4b)^((q+1)/2), genus q(q-1)/2 for lambda!=±1. Inversion sends (a,b)->(a/b,1/b); invariant t=a²/b and w=a(b+1)/b reconstruct b quadratically and a rationally, giving exactly k(D)^inversion and 2T_h(w²/t-2)=t^m-lambda(t-4)^m. The inversion fixed points are q+1 distinct points with b=1; b=-1 does not contribute, and zero/infinity are exchanged. Tame Riemann–Hurwitz yields ((q-1)/2)^2. For q=3 the cubic discriminant and reduced Weierstrass invariants yield j=-lambda^6/[(lambda-1)^4(lambda+1)] and Hasse invariant vanishing only at lambda=0; derivative/pole multiplicities give degree-six separable map with branch partitions (6) and (4,1,1). All statements are over algebraic closure and exclude ±1; birational affine models are normalized.
 
-## Limits
-This does not address all automorphisms or Jacobians, nor the excluded singular pencil fibers; it does not establish priority over unavailable or unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No known covering theorem found in the bounded comparisons. The original pencil and its first swap quotient are prior work, but the independently reconstructed second inversion fixed field, genus square, and characteristic-three j/ramification law are additional quantified statements. Novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The second quotient is a natural intermediate curve of a nontrivial automorphism group; its closed genus and explicit char3 modular strata supply a structural geometric invariant not mechanically read off the first quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

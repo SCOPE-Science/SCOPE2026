@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The affine invariant-field identities were reconstructed symbolically using the defining recurrence of \(T_h\). The polynomial identity after clearing denominators was checked for \(q=3,5,7,9,11,13\); the characteristic-three elliptic transformation and modular-invariant formula were checked modulo three; and fixed-point polynomial squarefreeness was computed in several relevant prime fields. Execute `python verify.py` with SymPy installed to replay these exact calculations.
+## correctness
 
-These computations verify algebraic identities and finite characteristic samples only. The proof for all odd prime powers uses the independent smoothness argument for the first quotient, quadratic reconstruction of the fixed field, a complete fixed-point count, and Riemann–Hurwitz. Tests do not constitute exhaustive parameter enumeration. The genus result concerns smooth normalizations; the affine equation may be singular. The characteristic-three modular map extends rationally over degenerate parameters but the excluded original curves do not thereby become smooth.
+PASS
 
-Independent audit: not performed.
+The swap-fixed field is k(a,b) with a=x+y,b=xy, smooth plane D(a,b)=a^(q+1)-2(b^q+b)-lambda(a²-4b)^((q+1)/2), genus q(q-1)/2 for lambda!=±1. Inversion sends (a,b)->(a/b,1/b); invariant t=a²/b and w=a(b+1)/b reconstruct b quadratically and a rationally, giving exactly k(D)^inversion and 2T_h(w²/t-2)=t^m-lambda(t-4)^m. The inversion fixed points are q+1 distinct points with b=1; b=-1 does not contribute, and zero/infinity are exchanged. Tame Riemann–Hurwitz yields ((q-1)/2)^2. For q=3 the cubic discriminant and reduced Weierstrass invariants yield j=-lambda^6/[(lambda-1)^4(lambda+1)] and Hasse invariant vanishing only at lambda=0; derivative/pole multiplicities give degree-six separable map with branch partitions (6) and (4,1,1). All statements are over algebraic closure and exclude ±1; birational affine models are normalized.
+
+## originality
+
+PASS
+
+No known covering theorem found in the bounded comparisons. The original pencil and its first swap quotient are prior work, but the independently reconstructed second inversion fixed field, genus square, and characteristic-three j/ramification law are additional quantified statements. Novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The second quotient is a natural intermediate curve of a nontrivial automorphism group; its closed genus and explicit char3 modular strata supply a structural geometric invariant not mechanically read off the first quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
