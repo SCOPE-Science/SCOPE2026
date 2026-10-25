@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define a closed nonempty word by a proper nonempty border with exactly two occurrences, allowing overlaps, and singleton as closed. For a binary de Bruijn circular word B of order h, any closed factor with border length >=h would repeat an h-factor at two distinct cyclic starts, impossible for factor length <=N=2^h; thus b<h. For each starting position and b<h, at most one complete first return exists, yielding upper bound 2+(h-1)N distinct circular closed factors. Linear closed-factor lower bound N holds for any cut of length N; linear factors embed among circular ones. For h=5, exhaustive directed de Bruijn graph local switches (2^16 pairings) and independent edge-simple Euler tours both give the 2048 rotation classes; independent direct border and first-return counts agree: 93:360,94:888,95:600,96:200, mean 1509/16, variance 195/256. An independent local 2048-cycle re-enumeration reproduced that histogram. The computer proof is exhaustive only at h=5; universal bound uses the injection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General quadratic extremal closed-rich word estimates allow all words; they neither force the sharper O(N log N) de Bruijn bound nor specify the order-five distribution.",
+          "The published exact maxima for unrestricted rooted binary words of lengths 25–27 do not constrain circular de Bruijn words of circumference 32."
+        ],
+        "reasoning": "The all-order border <h bound exploits universal-factor uniqueness absent from unrestricted word theorems.",
+        "searches": [
+          "Resultary: binary de Bruijn cycles closed circular factors order five census distribution 93 94 95 96",
+          "arxiv:2111.00863",
+          "Resultary:2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md and verify.py, tree 4c3e9447d36bb1a8be6978b481fa295d7cdd7471",
+        "arxiv:1305.6395 primary full HTML, Lemma 8",
+        "arxiv:2111.00863 full PDF Section 2",
+        "Resultary query: Resultary: binary de Bruijn cycles closed circular factors order five census distribution 93 94 95 96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parshina–Puzynina Section 2 uses de Bruijn graph and repeated words for a quadratic lower extremum, and separately observes short-borders for unique long factors. It does not assert the present cyclic single-de-Bruijn first-return injection or exhaustive 2048-cycle four-cell spectrum."
+        ],
+        "reasoning": "A related local observation is potentially overlapping background, but the complete cyclic universal bound plus order-five distribution is not an immediate corollary of their unrestricted extremal theorem.",
+        "searches": [
+          "Resultary: binary de Bruijn cycles closed circular factors order five census distribution 93 94 95 96",
+          "arxiv:2111.00863",
+          "arxiv:1305.6395"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badkobeh–Fici–Lipták analyze linear closed factors and prove a general lower bound.",
+          "Parshina–Puzynina Section 2 constructs unrestricted words with many closed factors using repeated/de Bruijn blocks, not the distinct closed circular factors of a single binary de Bruijn cycle."
+        ],
+        "reasoning": "The circular metric differs from unrestricted linear closed-rich counts; a cube of a de Bruijn word has repeated starts and is not equivalent to one primitive cycle.",
+        "searches": [
+          "Resultary: binary de Bruijn cycles closed circular factors order five census distribution 93 94 95 96",
+          "arxiv:1305.6395",
+          "arxiv:2111.00863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reported census is exact for all 2048 rotation classes of length 32. Existing linear word maxima at 25–27 and lower-bound tables concern different sets/normalization."
+        ],
+        "reasoning": "No matching indexed order-five circular de Bruijn closed-factor histogram was found; a negative search alone does not prove priority.",
+        "searches": [
+          "Resultary: binary de Bruijn cycles closed circular factors order five census distribution 93 94 95 96",
+          "arxiv:1305.6395",
+          "Resultary:2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.",
+      "residual_risks": [
+        "No claim of general sharpness of upper bound or distribution for h>=6.",
+        "No universal novelty proof; potential older closed-circular-factor census unavailable in indexed searches.",
+        "Order-five exhaustive program requires correct graph edge-to-word convention, checked independently at 2048 cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear lower bound and extremal properties; not a circular single-de-Bruijn order-five histogram",
+          "evidence": [
+            "Lemma 8 supplies at least N+1 closed factors including the empty factor for a linear word"
+          ],
+          "identifier_or_url": "arxiv:1305.6395",
+          "material_read": "Full public primary HTML text, especially definitions, Lemma 8 lower bound and closed-poor constructions",
+          "method": "Full HTML scholarly paper text",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Linear lower-bound and possible closed-factor census"
+        },
+        {
+          "assessment": "Uses de Bruijn-derived repeated linear words to construct quadratic-rich examples, not a cyclic single universal cycle census",
+          "evidence": [
+            "Section 2 Proposition 3 de Bruijn word cubing and O(n log n) remainder counts; source does not tabulate h=5 single cycles"
+          ],
+          "identifier_or_url": "arxiv:2111.00863",
+          "material_read": "Full 17-page arXiv PDF, abstract, Section 2 de Bruijn graph, Proposition 3 repeated-word construction and subsequent finite/infinite estimates",
+          "method": "Primary full PDF text and pages",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "De Bruijn constructions, unrestricted closed-rich estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closed factors encode complete first returns; de Bruijn universal cycles are a natural extremal family. The all-order O(N log N) upper bound separates their return complexity from quadratic unrestricted closed-rich words. The complete h=5 census is a natural finite classification (all 2048 distinct cycles, four consecutive attainable counts), furnishing exact invariant distribution, moments and benchmarks, not arbitrary slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Count excludes empty word and lengths>N.",
+    "All-order bound may not be sharp; h=5 numerical distribution does not extrapolate.",
+    "Rotation classes counted once using unique 00000 edge."
+  ],
+  "schema_version": 1
+}
