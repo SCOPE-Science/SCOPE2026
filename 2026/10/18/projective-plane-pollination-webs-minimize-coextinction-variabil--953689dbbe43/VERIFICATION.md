@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3.8 or later; no third-party packages or network access are required. The verification constructs point-line incidence matrices of finite projective planes over the prime fields of orders \(2,3,5,7\), checks their regular degrees and exact pair intersections, and produces degree-preserving two-edge switches as non-optimal comparators. It computes the predicted covariance variance formula and the projective-plane lower bound for every possible deletion count, and verifies all strict comparisons in the theorem's specified stage interval.
+## correctness
 
-For prime orders \(2\) and \(3\), an **independent probability-space enumeration** visits every subset of pollinators at each deletion count, counts the plant extinctions for each subset, and checks the exact rational second moment against the covariance calculation. The script also verifies the discrete second-difference identity using exact binomial arithmetic for all tested cases.
+PASS
 
-For \(q=2\), after four pollinators are removed, the projective-plane web yields 7 deletion subsets causing zero plant extinctions and 28 causing one (of 35 equally likely choices), giving variance \(4/25\). A switched network yields 9, 24, and 2 subsets causing zero, one, and two extinctions respectively, giving variance \(48/175\); both have mean \(4/5\). The script verifies analogous complete distributions for \(q=3\) and checks projective-plane incidence structures at \(q=5,7\).
+For each plant the exact fixed-m deletion probability is a_m=C(v−d,s)/C(v,s); for two plants with intersection t, joint probability b_m(t)=C(v−2d+t,s)/C(v,s). Summing covariances gives exact Var(X_m) at any stage. Regularity ensures ∑_{i<j}|N_i∩N_j|=v C(d,2)=C(v,2) so intersection mean is one. Pascal finite differences yield Δ² b_m(t)=C(v−2d+t,s−2)/C(v,s)≥0; the support line through t=0,1 proves universal variance lower bound. In the window 2d−2≤m≤v−2 the first second difference is strictly positive, so any intersection t≥2 raises variance by at least 2Δ²; mean one forces such t unless all intersections are exactly one. The latter square symmetric 2-(v,d,1) incidence design is precisely a projective plane; finite fields give existence for every prime-power q. Double-loss cutoff follows union size 2d−t. Independently enumerated all deletion subsets for Fano and q=3 planes and a degree-preserving switch at every m, including Fano variances 4/25 and 48/175. This is bounded corroboration, not proof for all q.
 
-The computational checks are finite and do not prove the theorem for all prime powers. The general result is established analytically by the event formula, double-counting of pair intersections, Pascal convexity, and finite-field projective-plane construction in RESULT.md. The verification does not address empirical ecological data, temporal dependence, or independent scientific validation.
+## originality
+
+PASS
+
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
+
+## value
+
+PASS
+
+Mean secondary-extinction robustness is identical for all d-regular networks with the same v, so exact minimization of stagewise variance is a distinct risk measure with a natural ecological interpretation. Identifying all extremizers simultaneously as projective-plane designs and the sharp first double-extinction threshold with an explicit strict gap gives a mathematically motivated extremal result bridging incidence design theory and network reliability. It does not model heterogeneous or dynamical ecological networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
