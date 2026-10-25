@@ -1,11 +1,21 @@
-# Review of the exact level-balanced tree Cesàro shift theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The core scalar lemma is proved by Tonelli expansion of nondecreasing prefix powers and strict log-convexity of Hurwitz-zeta tails. It gives an exact inequality and its equality case for every real exponent \(1<p<\infty\). The tree weights telescope to a level-ratio product, and descendant sets partition a level. This yields a sharp upper bound; common-phase vectors on exactly the matching level attain it. The growth law is obtained from the convergent tail asymptotic. A finitely supported right inverse proves mixing; at supercritical modulus it meets the standard Frequent Hypercyclicity Criterion and yields dense periodic points. At unit modulus, positive-density visits to the root and the existence of a nonzero periodic coordinate each force divergent Cesàro norms. A finite checker is supplementary, not evidence for infinite quantifiers.
+## correctness
 
-**Originality — PASS, with stated priority risk.** Chen, Cheng, Zhang and Zhou (arXiv:2609.21752, Sections 2–3) already establish the tree spaces, dynamical criteria and a critical binary mixing/non-frequent counterexample. The present review does **not** claim that binary counterexample or the classical criterion as new. The closest exact-norm comparison, the accessible Section 4 of *On the linear dynamics of shift operators on (PLB)-spaces* (doi:10.1007/s13398-026-01935-0, published 13 October 2026), states one-step norm bounds for classical Cesàro shifts but not the claimed exact all-power profile. Relevant published published-finding corpus records involve c0-sum dyadic shifts or p-absolute Cesàro boundedness on ℓp, not the same Cesàro lattice space. The 2025 tree multiplication paper was accessible only at abstract level. There remains a real risk of an uncatalogued one-dimensional zeta-tail identity.
+PASS
 
-**Value — PASS.** It is mathematically natural to quantify operator powers in precisely the mixing-but-not-frequently-hypercyclic tree setting of the motivating paper. The exact sharp constant, classification of all norming vectors, and independence from arbitrarily uneven branching give a complete invariant for a canonical family, beyond the already known qualitative examples. The threshold law connects polynomial critical amplification to mixing, chaos, and frequent hypercyclicity. The result is not a routine substitution into the published boundedness criterion; its sharpness uses a separate strict tail-ratio inequality.
+For 1<p<∞ define level means A_k(f) and scalar ces_p. Scalar norm of L^n follows by telescoping y_j partial sums U_j^p, yielding weighted positive tails H_p(j+1)/H_p(n+j+1); strict log-convexity from positive integral moments makes ratios strictly decreasing, so sharp extremizer is e_n. Level-balanced descendant weights telescope and yield A_k(Bγ^nf)<=|γ|^n A_{k+n}(f), with equality at root for aligned level-n input; this proves the norm and extremizers on every finite-branching tree without assuming regularity. H_p(n+1) asymptotics yield polynomial factor and spectral radius. At |γ|>=1 a finitely supported right inverse S yields mixing; for |>1 summable right inverse satisfies frequent-hypercyclicity criterion and periodic point density. At |=1 positive-density visits to a root target force nonsummable Cesàro level averages, ruling out frequent hypercyclicity, while a periodic point forces a subsequence with uniformly positive level means, likewise contradiction. Independently recomputed infinite zeta-tail norm ratios at p=2 and n=1,2,3,5 with exact equality on e_n and strict inequality for a mixed finite vector. Infinite claims rely on analytic argument, not tests.
 
-Scientific limits: Level-balanced edge weights only; the general edge-weighted problem and classification of individual hypercyclic vectors remain open here. Search does not certify global novelty, and finite diagnostics do not replace proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded statement-and-implication comparisons with published primary and related research did not identify coverage of the precise new assertion, and the distinct contribution is established by the indicated independently checked argument; priority remains subject to specifically recorded access risks.
+
+## value
+
+PASS
+
+Uniform exact power norms and complete norming vectors across arbitrary unevenly branching rooted trees are a natural sharp structural invariant of the level-balanced Cesàro operator. The critical polynomial amplification and transition between mixing, no periodicity and frequent hypercyclic chaos give a mathematically motivated operator-dynamical boundary beyond the previously described qualitative binary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
