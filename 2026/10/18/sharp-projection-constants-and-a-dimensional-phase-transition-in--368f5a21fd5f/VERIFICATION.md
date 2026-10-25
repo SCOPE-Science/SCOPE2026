@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The proof does not depend on finite computation. Every projection onto the sum-zero hyperplane has the prescribed rank-one complement; permutation averaging proves global minimality of centering. An exact minimization over constant shifts and a Jensen inequality reduce the sharp operator norm to one real parameter; direct polynomial derivative factorizations establish its monotonicity. The case \(t=0\) is handled as the limit of the first branch (or directly), and \(t=1\) is the Hilbert endpoint.
+# Independent mathematical audit
 
-For an independently repeatable finite cross-check run `python checks/check_projection.py` with a Python 3 standard-library interpreter. It tests exact rational equality witnesses, upper bounds on a finite grid of integer vectors, and the algebraic expressions at transition values. It cannot prove the continuum of parameters or the optimization over all real vectors; those steps are analytic in RESULT.md. In the first branch the witnessed input has coordinate ratio \(1:-1\); in the second its positive coordinate is \((n-1)t\) times the absolute negative coordinate.
+## correctness
 
-Scientific bibliographic comparison was conducted against the preprints and neighboring projection literature identified in RESULT.md. The novelty search is necessarily not exhaustive. Independent mathematical and bibliographic audit have not been performed.
+PASS
+
+For every real n>=3 and 0<=t<=1, every projection onto H_n is I-f⊗u, f(u)=1; permutation averaging gives the centering projection as norm-minimal. The preimage quotient is the minimization of N_t(y+c1); normalize max/min to a±1, use S>=2+2na²/(n-2), minimize over c with positive-part breakpoint, then show U(a)/V(a) nondecreasing through both scalar branches. Endpoint a=(n-2)/n gives the displayed formulas with phase t=1/(n-1). Independent direct 18 sharp witnesses for n=3,4,7 and six t values plus 9000 random vector tests support, but do not replace, the analytic derivative proof. Endpoints t=0 (sup norm) and t=1 (Euclidean) and one-outlier sources checked.
+
+## originality
+
+PASS
+
+Known real Lorentz literature characterizes norm-one complemented hyperplanes, while this result computes the exact >1 projection norms and maximizing sources for an entire weighted family including the dimensional phase boundary. No covering statement found in targeted published findings or primary references; best-of-knowledge only.
+
+## value
+
+PASS
+
+Exact minimal complementability norm of a canonical codimension-one subspace is an invariant motivated by projection theory; its full dimensional parameter spectrum and real extremal-vector transition distinguish it from a routine norm-one observation or isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

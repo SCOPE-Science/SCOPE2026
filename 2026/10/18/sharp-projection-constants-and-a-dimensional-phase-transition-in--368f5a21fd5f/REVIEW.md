@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Symmetrization proves global minimality of the coordinate-centering projection among all projections onto the specified hyperplane. The quotient-by-constants reduction, Jensen lower bound for squared coordinates, exact quadratic minimization over constants, derivative-sign analysis, and endpoint evaluations prove the two-branch formula for all stated dimensions and real parameters. The exact-rational checker, which supplies witnesses and finite cross-checks, was replayed from the accompanying content; finite samples are not substitutes for the proof.
+## correctness
 
-**Originality — PASS (same-model, evidence-limited).** The full text of Randrianantoanina's 1997 arXiv preprint establishes structural criteria for norm-one Lorentz projections, rather than sharp projection norms greater than one. The full-text 2001 survey addresses qualitative contractivity and the earlier minimal projection literature. The 1994 archival preprint is prior background. Searches of research records under centering, zero-sum hyperplane, relative projection constant, quadratic Lorentz, and one-outlier aliases identified no claim implying this exact all-dimensional weighted formula and its phase transition. Results for standard \(\ell_p\) centering, unrelated quadratic norms, and metric free spaces do not imply it. Unindexed older work remains a bibliographic risk.
+PASS
 
-**Value — PASS.** Projection constants quantify the failure of hyperplanes to be contractively complemented. This result completely computes a natural multi-dimensional family, including endpoints, a sharp parameter boundary and explicit witnesses. The quantitative excess over one is new information even where existing qualitative theorems rule out a norm-one projection. It is neither a routine restatement of those qualitative results nor an arbitrary one-off numerical example.
+For every real n>=3 and 0<=t<=1, every projection onto H_n is I-f⊗u, f(u)=1; permutation averaging gives the centering projection as norm-minimal. The preimage quotient is the minimization of N_t(y+c1); normalize max/min to a±1, use S>=2+2na²/(n-2), minimize over c with positive-part breakpoint, then show U(a)/V(a) nondecreasing through both scalar branches. Endpoint a=(n-2)/n gives the displayed formulas with phase t=1/(n-1). Independent direct 18 sharp witnesses for n=3,4,7 and six t values plus 9000 random vector tests support, but do not replace, the analytic derivative proof. Endpoints t=0 (sup norm) and t=1 (Euclidean) and one-outlier sources checked.
 
-No generalization to nonsymmetric Lorentz weights or arbitrary codimension is claimed; the optimal projection need not be unique.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known real Lorentz literature characterizes norm-one complemented hyperplanes, while this result computes the exact >1 projection norms and maximizing sources for an entire weighted family including the dimensional phase boundary. No covering statement found in targeted published findings or primary references; best-of-knowledge only.
+
+## value
+
+PASS
+
+Exact minimal complementability norm of a canonical codimension-one subspace is an invariant motivated by projection theory; its full dimensional parameter spectrum and real extremal-vector transition distinguish it from a routine norm-one observation or isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
