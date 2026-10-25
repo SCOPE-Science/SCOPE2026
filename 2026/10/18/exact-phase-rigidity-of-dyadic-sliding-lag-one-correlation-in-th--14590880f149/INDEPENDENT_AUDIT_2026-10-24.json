@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:18:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parity-of-adjacent-11-bits definition gives s_(2t)=(-1)^t and s_(2t+1)=(-1)^t s_t. Pairing a length-2^k window yields S_k(j)=U_(k-1)(floor(j/2)), with U_l(j)=-U_(l-1)(floor(j/2)) for l>=2. Exact slide invariance follows matching signed endpoint terms for odd shifts. Thus S_k(j)=(-1)^(k-2+q)(s_q-s_(q+1)), q=floor(j/2^(k-1)), for all j>=0,k>=3. Pairwise U1(2h),U1(2h+1) make exactly half of q zero; their nonzero signs balance over complete dyadic q blocks, giving proportions 1/4,1/2,1/4. Independently summed direct words for k=3..7 with arbitrary starts j<400 and verified histograms m=2..6. Infinite quantifiers rest on transfer proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.10 bounds deviations of pair-equality frequency over prefix [0,N) by O(r(1+log N)/N); Theorem 2.12 gives asymptotic pair frequencies. Neither implies exact ±2/0 for every 2^k subinterval or its q-phase."
+        ],
+        "reasoning": "An averaged O(log N) discrepancy is compatible with large local departures; it cannot dominate the exact local theorem.",
+        "searches": [
+          "Full Marcovici Stoll Tahay arXiv:2006.13162 Theorems 2.10 and 2.12",
+          "Parreau Rigo Rowland Vandomme arXiv:1405.3532"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2006.13162",
+        "https://arxiv.org/abs/1405.3532",
+        "https://arxiv.org/abs/2108.07318"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof here is a two-step exact transfer S_k(j)=(-1)^(k-2)U1(floor(j/2^(k-1))). The prior cited asymptotic theorem does not mathematically imply this transfer or exact histogram."
+        ],
+        "reasoning": "No identified stronger theorem covers every starting position; best-knowledge qualification is necessary.",
+        "searches": [
+          "arXiv:2006.13162 full text, Section 2.3 Theorems 2.10/2.12",
+          "arXiv:1405.3532",
+          "arXiv:2108.07318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new identity is an exact arbitrary-start window sum of adjacent signs with length 2^k; established papers formulate prefix correlation or finite Golay sidelobe extrema."
+        ],
+        "reasoning": "Related phrase pair correlation does not equate all-start sliding dyadic phase identity to prefix frequencies.",
+        "searches": [
+          "Resultary semantic search: Rudin Shapiro word dyadic sliding lag one correlation all starts exact formula",
+          "Marcovici Stoll Tahay arXiv:2006.13162",
+          "Katz van der Linden arXiv:2108.07318"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included a Rudin–Shapiro string-attractor finite-prefix result, not this dyadic lag-one all-start histogram."
+        ],
+        "reasoning": "Index absence is only supporting context, never novelty proof; older recurrence tables remain possible.",
+        "searches": [
+          "Resultary automatic sequence/Rudin Shapiro correlation query",
+          "Marcovici Stoll Tahay bibliography and theorem statements"
+        ]
+      },
+      "rationale": "The closely related full primary Marcovici–Stoll–Tahay paper studies averaged prefix correlations for generalized Rudin–Shapiro sequences. Its Theorems 2.10 and 2.12 give O(log N/N) frequency discrepancy and limiting pair frequency, neither a uniform exact moving dyadic S_k(j) value for every starting index nor half-window phase law. Earlier automatic-sequence complexity and finite Golay correlation articles concern different invariants. Best-of-knowledge originality PASS with explicit older block-recurrence risk.",
+      "residual_risks": [
+        "Older automatic-sequence block recurrences may encode the same exact identity in different notation.",
+        "Applies to lag one and dyadic window lengths k>=3 only, not general autocorrelation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives global prefix frequency O(log N/N) and limiting ordered pairs, not the claimed all-start exact dyadic transfer in the inspected results.",
+          "evidence": "Marcovici, Stoll, Tahay (2020/2021), Theorems 2.10, 2.12, arXiv:2006.13162.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.13162",
+          "material_read": "Open arXiv 14-page primary PDF: abstract/introduction, Section 2.3 Theorems 2.10 and 2.12, comments on prefix frequencies and their proof setting; PDF p. 5 screenshot examined. Not every appendix line inspected.",
+          "method": "OA PDF text and screenshot",
+          "title": "Discrete correlations of order 2 of generalised Rudin–Shapiro sequences: a combinatorial approach",
+          "trigger": "Very close object and lag-one correlations"
+        },
+        {
+          "assessment": "Examines automatic sequence ℓ-abelian complexity, especially Thue–Morse/period doubling rather than this explicit Rudin–Shapiro sliding lag-one law.",
+          "evidence": "Parreau, Rigo, Rowland, Vandomme (2015).",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Paper abstract/known theorem scope; complete technical read not performed.",
+          "method": "OA bibliography and theorem context reading",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Potential block factor transition census"
+        },
+        {
+          "assessment": "Finite Golay peak correlations are not the all-start one-sided infinite word dyadic window quantities.",
+          "evidence": "Katz and van der Linden (2021).",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07318",
+          "material_read": "Abstract and related claim descriptions; no claim of complete full-text inspection.",
+          "method": "Public primary abstract/reference check",
+          "title": "Peak Sidelobe Level and Peak Crosscorrelation of Golay–Rudin–Shapiro Sequences",
+          "trigger": "Potential exact finite sequence correlation law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp uniform three-valued discrepancy for every sliding dyadic window, exact phase by start interval, frequency law and adjacent-boundary-transition interpretation are structural exact facts about a canonical automatic sequence, significantly stronger than mean asymptotic cancellation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2006.13162",
+    "https://arxiv.org/abs/1405.3532",
+    "https://arxiv.org/abs/2108.07318"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older automatic-sequence block recurrences may encode the same exact identity in different notation.",
+    "Applies to lag one and dyadic window lengths k>=3 only, not general autocorrelation.",
+    "All source-inspection scope statements are limited to material actually accessed; no independent external publication or priority certification."
+  ],
+  "schema_version": 1
+}
