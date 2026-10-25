@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T04:02:39.699153Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md blob e17be102d2acc0cc9749461a429bc2df718ecf1f and seven-entry tree e4ccc0a3ef5e4854a3be375b94aaae79f7604c11",
+        "D’Alì–Delucchi–Michałek arXiv:1910.05193v1 Theorem 3.1 and Proposition 4.22, full primary text",
+        "Independent exact-rational exhaustive enumerator /mnt/data/wheel_audit05_independent_check.py (private only), m=5..12, tens of thousands of admissible words"
+      ],
+      "rationale": "For every integer m>=5 the canonical root-vector symmetric-edge polytope in zero-sum H has polar the unit-edge Lipschitz polytope. Central symmetry centers a global maximal inscribed Euclidean ball and gives r=1/max_{polar}||y||. The published wheel vertex criterion reduces its vertices to cyclic ternary rim potentials x_i∈{-1,0,1}, excluding adjacent opposite signs and cyclic 000. Subtracting the mean of all m+1 potential values (including hub 0) yields N(p,q)=p+q−(p−q)^2/(m+1). If p,q>0, the two sign transitions on a cycle each require a zero, so s=p+q<=m−2. At fixed s the squared norm is maximized by |p−q|<=1, giving M(s)=s−(s mod 2)/(m+1), strictly increasing with s. Thus m even has max N=m−2 and p=q=(m−2)/2; m odd max N=m−2−1/(m+1) with |p−q|=1. One-sign potentials satisfy N<=floor((m+1)^2/4)/(m+1), strictly smaller: even difference (3m²−6m−8)/(4(m+1))>0 for m>=6, odd difference (3m²−6m−13)/(4(m+1))>0 for m>=5. Equality forces exactly two zeros, one plus and one minus block; all such extremal words satisfy the facet criterion. Counting cyclic rotations and sign reversal gives exactly m tangent facets for even m, 2m for odd m. Inverting sqrt(N) yields the claimed radii and dividing N by m+1 gives the exact spread. The small m=3,4 cases are excluded. The independent exact arithmetic enumeration for m=5..12 reconstructed polar vertices by tight-edge connectivity and independently verified all maxima and maximizer counts, not substituted for the general symbolic proof.",
+      "residual_risks": [
+        "The exact root-coordinate Euclidean metric is essential; arbitrary affine transforms change radius.",
+        "The facet criterion is imported from a verified primary published theorem, not reproved exhaustively in the audited package.",
+        "The finite m=5..12 checks do not certify all m; the symbolic monotonicity and one-sign comparison are the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D’Alì–Delucchi–Michałek give a general tight-edge criterion and wheel ternary words, but stop short of optimizing their Euclidean centered squared norms.",
+          "Complete multipartite root-polytope inradii include only m=3,4 among wheels; the audited m>=5 excludes those.",
+          "Fan inradius has one separating zero and radius squared reciprocal m−1−epsilon/(m+1), not the wheel two-zero version."
+        ],
+        "reasoning": "The general facet classification is a nontrivial premise, not a more general radius theorem. Graph-family inclusions and added rim edge constraints demonstrate why the other geometric formulas do not dominate the claimed wheel evaluation.",
+        "searches": [
+          "Resultary semantic search: Euclidean inradius of symmetric edge polytopes for wheel graphs K1 join Cm; tangent facets parity and Lipschitz graph spread",
+          "Resultary semantic search: symmetric edge polytope Euclidean radius complete multipartite graphs wheel",
+          "Full published Resultary fan K1*P_m paper",
+          "Full published Resultary complete multipartite paper",
+          "Full primary arXiv:1910.05193 Theorem 3.1 and Proposition 4.22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.05193v1; https://arxiv.org/abs/1910.05193; DOI:10.37236/10387",
+        "arXiv:2008.08621v2; https://arxiv.org/abs/2008.08621",
+        "arXiv:0902.1156v2; https://arxiv.org/abs/0902.1156",
+        "arXiv:1705.09725v1; https://arxiv.org/abs/1705.09725; journal DOI:10.1002/jgt.22545",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-euclidean-facet-distance-spectrum-and-inball-center-parity--50ae21474872",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+        "Resultary semantic search: Euclidean inradius of symmetric edge polytopes for wheel graphs K1 join Cm; tangent facets parity and Lipschitz graph spread",
+        "Resultary semantic search: maximum variance of a 1-Lipschitz function on a wheel graph exact graph spread parity even odd",
+        "Resultary semantic search: symmetric edge polytope Euclidean radius complete multipartite graphs wheel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wheel facet labels allow adjacent same sign or zeros, forbid opposite adjacent signs and 000, but no source theorem asserts their maximally centered Euclidean norm.",
+          "The new optimization depends on forcing exactly two zeros, balanced sign counts and rejecting one-sign extrema, which is not immediate from the facet count.",
+          "Complete multipartite graph theorem applies only to m=3/4 wheels; fan path loses closing-edge constraint; wheel Löwner ellipsoid concerns enclosing volume."
+        ],
+        "reasoning": "Compared implications at exactly W_m, m>=5. General root-polytope/facet and spread definitions imply the setup, not the evaluated maximizer or contact pattern. Specific competing source conclusions do not yield this claim without additional genuine combinatorial optimization.",
+        "searches": [
+          "arXiv:1910.05193 Theorem 3.1 and Proposition 4.22 full wheel subsection",
+          "arXiv:2008.08621v2 Example 4.5",
+          "arXiv:0902.1156v2 full paper",
+          "Resultary published fan and complete multipartite full RESULT.md",
+          "Resultary published wheel Löwner ellipsoid full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polarity identifies radius as 1/max ||y|| for the unit-edge Lipschitz polytope; this is exactly the wheel graph spread times m+1.",
+          "Published graph spread papers give the general maximum-variance definition and exact results for other families, but the inspected full primary texts contain no stated formula for W_m.",
+          "Resultary searches found the reviewed self-entry; this match is not independent novelty evidence."
+        ],
+        "reasoning": "Compared Euclidean inradius, polar Lipschitz circumradius, maximal unit-Lipschitz variance/spread, signed edge-root polytope, and equality/tangent counts as mathematically equivalent formulations, rather than requiring same title or numerical words. No covering statement was found; search absence remains a documented risk.",
+        "searches": [
+          "Resultary semantic search: Euclidean inradius of symmetric edge polytopes for wheel graphs K1 join Cm; tangent facets parity and Lipschitz graph spread",
+          "Resultary semantic search: maximum variance of a 1-Lipschitz function on a wheel graph exact graph spread parity even odd",
+          "Web search: wheel graph spread maximum variance 1 Lipschitz exact; symmetric edge polytope wheel inradius",
+          "arXiv:0902.1156v2; arXiv:1705.09725v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed wheel record is this same claim, not independent prior work.",
+          "Other indexed wheel entries compute enclosing Löwner ellipsoid and h-star/volume data rather than inradius.",
+          "No indexed exact wheel spread/inradius table or all-m tangent-facet enumeration was identified."
+        ],
+        "reasoning": "Explicitly checked whether a precomputed table, a dominated graph parameter or same-graph equivalent result already forced the formula. The h-star and volume counts cannot determine the Euclidean polar norm, and Löwner ellipsoid is not the inner ball. Negative search result is only best-of-knowledge evidence, not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: Euclidean inradius of symmetric edge polytopes for wheel graphs K1 join Cm; tangent facets parity and Lipschitz graph spread",
+          "Resultary semantic search: maximum variance of a 1-Lipschitz function on a wheel graph exact graph spread parity even odd",
+          "Resultary semantic search: symmetric edge polytope Euclidean radius complete multipartite graphs wheel",
+          "Resultary published self entry (excluded as external evidence)",
+          "Primary wheel enumeration arXiv:2008.08621v2 Example 4.5"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact metric evaluation: the primary wheel facet classification supplies the word admissibility but no centered Euclidean norm optimization. Fresh semantic searches and full readings of wheel, spread, extremal Lipschitz and nearest published records identified no theorem implying the even/odd wheel inradius, exact tangent-facet orbit list or equivalent wheel spread. Same-graph Löwner-ellipsoid work concerns a different extremal functional; fan, cycle and multipartite formulas do not subsume W_m for m>=5. No claim of absolute historical priority is made.",
+      "residual_risks": [
+        "An unindexed earlier exact wheel graph-spread/maximal-variance computation under Lipschitz-free space, finite-metric geometry or other terminology might give equivalent formulas.",
+        "Only inspected accessible primary versions and sources; an inaccessible later revision or unpublished note could contain the identity.",
+        "The wheel facet classification is established prior work and must not be credited as new; all exact metric results are conditional on its correct canonical realization.",
+        "Absence from semantic search and the read source corpus is not a guarantee of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies the nontrivial structural lemma (cyclic ±1/0 labels with opposite signs nonadjacent and no cyclic 000) but not the Euclidean norm maximization, parity inradius, contact orbit counts or graph spread calculation.",
+          "evidence": "Theorem 3.1: facet if tight edges form a connected spanning subgraph; Proposition 4.22 and its wheel proof: ternary cyclic label conditions; Section 4.3 addresses facet counts and normalized volume, not inradius. Identical graph and realization, but weaker metric conclusions.",
+          "identifier_or_url": "arXiv:1910.05193v1; https://arxiv.org/abs/1910.05193; DOI:10.37236/10387",
+          "material_read": "Primary full text: Section 2.3 polar/Lipschitz interpretation, Theorem 3.1 integer height-function and tight-edge-connected facet criterion, Section 4.3 full wheel analysis and Proposition 4.22, including the complete cyclic ternary facet condition, facet count and normalized-volume conclusions; relevant original PDF pages examined directly.",
+          "method": "Lawful open-access arXiv text/PDF and direct page-image reading; wheel/facet/inradius terminology comparisons.",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Original full primary classification of facets of wheel symmetric edge polytopes, needed for correctness and the strongest plausible prior coverage."
+        },
+        {
+          "assessment": "Contains wheel h-star/gamma-polynomial and normalized-volume combinatorics; not the Euclidean inradius, polar maximum norm, or inball contact classes.",
+          "evidence": "Example 4.5 expresses wheel enumeration via matching/Lucas polynomials, not an optimization of ||f-mean(f)|| for 1-Lipschitz vertex functions.",
+          "identifier_or_url": "arXiv:2008.08621v2; https://arxiv.org/abs/2008.08621",
+          "material_read": "Full accessible primary text including Example 4.5 wheel/suspension-of-cycle calculations and surrounding h-star / matching polynomial results; direct PDF example page and inradius text search.",
+          "method": "Lawful arXiv open-access full PDF/text inspection and relevant page-image check.",
+          "title": "Symmetric Edge Polytopes and Matching Generating Polynomials",
+          "trigger": "Follow-up on symmetric edge polytopes of suspensions of cycles, specifically wheels, could have covered the desired numerical invariant."
+        },
+        {
+          "assessment": "Introduces/studies the same variance invariant, predominantly in random graph families; no wheel-specific parity identity is stated in the inspected text.",
+          "evidence": "Spread is supremum of uniform vertex variance over functions satisfying |f(u)-f(v)|<=1 on edges. Its normalization equals max polar norm squared/(m+1), but this definition is not a closed-form wheel evaluation.",
+          "identifier_or_url": "arXiv:0902.1156v2; https://arxiv.org/abs/0902.1156",
+          "material_read": "Full available paper including definitions and statements of spread, random-model theorems and complete-graph discussion; opening PDF page inspected and full-text wheel search.",
+          "method": "Lawful arXiv full-text/PDF reading, search in complete accessible manuscript.",
+          "title": "On the Spread of Random Graphs",
+          "trigger": "Exact equivalence of maximal polar norm to the spread/maximum 1-Lipschitz variance gives an important alternate route to prior coverage."
+        },
+        {
+          "assessment": "Related optimization and cycle examples do not provide an identified wheel-specific evaluation or the parity/contact classification. Note preprint often denotes standard deviation rather than variance by spread.",
+          "evidence": "Source discusses extremal Lipschitz functions, including cycles and other graph classes; no proposition on the cone over a cycle with the claimed formula was found in the inspected full manuscript.",
+          "identifier_or_url": "arXiv:1705.09725v1; https://arxiv.org/abs/1705.09725; journal DOI:10.1002/jgt.22545",
+          "material_read": "Available full preprint including extremal Lipschitz variance definitions, relevant theorem statements and cycle/graph examples; PDF page image examined and wheel keyword search.",
+          "method": "Lawful arXiv preprint full-text review rather than abstract-only source treatment.",
+          "title": "Probabilistic and Geometrical Applications to Graph Theory (preprint underlying Positively Curved Graphs)",
+          "trigger": "Plausible primary source for exact spread and extremal Lipschitz potential classifications."
+        },
+        {
+          "assessment": "Fan K1*P_m is not wheel K1*C_m; replacing the path by a cycle adds the closing edge and the second separating zero. Its max polar norm m−1−epsilon/(m+1) differs from the wheel m−2−epsilon/(m+1).",
+          "evidence": "The fan source asserts a one-zero sign transition and m−1−epsilon/(m+1), versus wheel two-zero transitions and m−2−epsilon/(m+1); neither graph-family theorem implies the other without new constraints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-euclidean-facet-distance-spectrum-and-inball-center-parity--50ae21474872",
+          "material_read": "Complete RESULT.md including theorem, polar-vertex proof and full inradius and center-strata derivation.",
+          "method": "Direct published Resultary GitHub source file read and mathematical implication comparison.",
+          "title": "Sharp Euclidean facet-distance spectrum and inball-center parity for fan-graph symmetric edge polytopes",
+          "trigger": "Closely related published record on hub-plus-path graphs with exactly the same Euclidean polar-distance invariant."
+        },
+        {
+          "assessment": "Complete multipartite theorem does not cover W_m for m≥5; W_3 and W_4 are in its scope but are explicitly excluded from this theorem.",
+          "evidence": "W_3=K4, W_4=K_{1,2,2}; for m≥5, the rim induces a chordless C_m, not a complete multipartite graph. Thus the purportedly broader family does not dominate the reviewed claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437",
+          "material_read": "Full RESULT.md, hypotheses of complete multipartite graphs and two-branch inradius/spread formulas.",
+          "method": "Direct published GitHub source read, graph class implication and small-wheel boundary examination.",
+          "title": "Largest part versus balanced cut: the exact inradius phase diagram for complete multipartite symmetric edge polytopes",
+          "trigger": "Same symmetric-edge Euclidean metric and spread formulation in a broader-looking graph class; possible special-case coverage."
+        },
+        {
+          "assessment": "Optimal enclosing ellipsoid (volume minimized over shape matrices) does not yield Euclidean inscribed-ball radius or its supporting facets. Not covering.",
+          "evidence": "That result optimizes det of weighted Laplacian and ellipsoid volume, with all 4m edge roots touching its boundary; reviewed claim maximizes norms of the polar facet normals and counts m/2m supporting facets of a centered ball.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+          "material_read": "Complete RESULT.md including ellipsoid optimization, weighted Laplacian spectrum, point contacts and asymptotics.",
+          "method": "Direct published GitHub source read and comparison of extremized objects/optimization constraints.",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+          "trigger": "Exactly same graph and root-polytope realization, but different Euclidean geometric extremal invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivating D’Alì–Delucchi–Michałek arXiv:1910.05193 wheel subsection (facets, volumes, graph-polytopes)",
+        "Addario-Berry–Janson–McDiarmid arXiv:0902.1156 on spread as a canonical variance invariant",
+        "Exact complete-multipartite and fan symmetric-edge metric family comparisons in published Resultary records"
+      ],
+      "rationale": "An exact Euclidean inradius is a natural metric invariant of the canonically embedded symmetric-edge polytope of an infinite standard graph family. The wheel family is geometrically nontrivial and is studied for graph root/adjacency polytopes and algebraic graph models. The result simultaneously determines every contact facet of the origin-centered maximal ball and the exact maximum 1-Lipschitz variance (wheel graph spread); the parity change is mathematically structural. A researcher needing sharp support geometry, comparison with family members or a wheel-spread benchmark can use the precise formula. This is neither a merely finite check nor a known table copied from the general wheel facet classification; the proof includes a real metric maximization and full equality classification. It does not imply analogous radii under affine changes or beyond wheels.",
+      "residual_risks": [
+        "This is a family-specific exact metric identity, not a general graph-polytope inradius theorem.",
+        "Novelty of the particular wheel spread value remains a best-of-knowledge literature judgment, not a formal priority certification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Canonical Euclidean root-vector realization only; no metric result after arbitrary affine equivalence.",
+    "Statement and proof require m>=5; W3 and W4 are excluded and lie in the complete multipartite subfamily.",
+    "Prior D’Alì–Delucchi–Michałek wheel facet-classification theorem is used as a premise and not claimed as new.",
+    "Independent enumeration m=5..12 corroborates but does not prove the infinite m statement.",
+    "A mathematically equivalent graph spread theorem not indexed by searched databases may exist; originality PASS is best of knowledge.",
+    "No public metadata/status edits were created or published; publication withheld for confidentiality."
+  ],
+  "schema_version": 1
+}

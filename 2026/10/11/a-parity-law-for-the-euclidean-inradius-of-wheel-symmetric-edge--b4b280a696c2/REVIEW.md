@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact wheel-facet characterization in the primary source and from polarity. Fixing the cone label to \(0\), every relevant polar vertex is a cyclic word in \(\{-1,0,1\}\). If \(p\) entries are \(1\) and \(q\) entries are \(-1\), its centered squared norm is exactly
-\[
-p+q-\frac{(p-q)^2}{m+1}.
-\]
-When both signs occur, the cycle needs at least two zero separators. The norm is then maximized by using exactly those two zeros and balancing the sign counts as closely as parity permits. A separate exact bound shows every one-sign word is strictly worse for \(m\ge5\). The equality words therefore consist of one positive block and one negative block separated by two zeros, yielding exactly \(m\) contacts for even \(m\) and \(2m\) for odd \(m\). Central symmetry makes the centered inball globally optimal.
+## correctness
 
-## Originality
-PASS. The primary wheel paper was inspected at its polar/Lipschitz definitions, facet theorem, and full wheel subsection. It classifies wheel facets and computes facet counts and normalized volume but contains no inradius theorem. The graph-spread literature was also compared because the polar norm is equivalent to maximum variance of a \(1\)-Lipschitz function. No wheel-specific exact spread formula was located. Searches under symmetric-edge, adjacency-polytope, Lipschitz-polytope, and spread formulations did not reveal a covering statement. An existing complete-multipartite inradius result covers only the outer-cycle lengths \(3\) and \(4\), so the final claim begins at \(m=5\).
+PASS
 
-## Value
-PASS. Wheel symmetric edge polytopes are a named family emphasized by the motivating literature because of their role in Kuramoto root counts and because their enumeration is nontrivial. The result gives their exact intrinsic Euclidean inradius, a parity phase transition, and every centered inball-contact facet. It also yields an exact wheel spread formula. These are natural metric invariants of the full family rather than isolated computations.
+For every integer m>=5 the canonical root-vector symmetric-edge polytope in zero-sum H has polar the unit-edge Lipschitz polytope. Central symmetry centers a global maximal inscribed Euclidean ball and gives r=1/max_{polar}||y||. The published wheel vertex criterion reduces its vertices to cyclic ternary rim potentials x_i∈{-1,0,1}, excluding adjacent opposite signs and cyclic 000. Subtracting the mean of all m+1 potential values (including hub 0) yields N(p,q)=p+q−(p−q)^2/(m+1). If p,q>0, the two sign transitions on a cycle each require a zero, so s=p+q<=m−2. At fixed s the squared norm is maximized by |p−q|<=1, giving M(s)=s−(s mod 2)/(m+1), strictly increasing with s. Thus m even has max N=m−2 and p=q=(m−2)/2; m odd max N=m−2−1/(m+1) with |p−q|=1. One-sign potentials satisfy N<=floor((m+1)^2/4)/(m+1), strictly smaller: even difference (3m²−6m−8)/(4(m+1))>0 for m>=6, odd difference (3m²−6m−13)/(4(m+1))>0 for m>=5. Equality forces exactly two zeros, one plus and one minus block; all such extremal words satisfy the facet criterion. Counting cyclic rotations and sign reversal gives exactly m tangent facets for even m, 2m for odd m. Inverting sqrt(N) yields the claimed radii and dividing N by m+1 gives the exact spread. The small m=3,4 cases are excluded. The independent exact arithmetic enumeration for m=5..12 reconstructed polar vertices by tight-edge connectivity and independently verified all maxima and maximizer counts, not substituted for the general symbolic proof.
 
-## Closest literature and limitations
-D'Alì--Delucchi--Michałek is the decisive structural source and supplies the facet words, not the metric optimization. Addario-Berry--Janson--McDiarmid and Yancey supply the graph-spread context but no located wheel evaluation. Later wheel symmetric-edge work computes \(h^*\)-polynomials and volumes. The result is realization-dependent, begins at \(m=5\), and retains a residual risk of an equivalent wheel-spread identity under different finite-metric terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact metric evaluation: the primary wheel facet classification supplies the word admissibility but no centered Euclidean norm optimization. Fresh semantic searches and full readings of wheel, spread, extremal Lipschitz and nearest published records identified no theorem implying the even/odd wheel inradius, exact tangent-facet orbit list or equivalent wheel spread. Same-graph Löwner-ellipsoid work concerns a different extremal functional; fan, cycle and multipartite formulas do not subsume W_m for m>=5. No claim of absolute historical priority is made.
+
+## value
+
+PASS
+
+An exact Euclidean inradius is a natural metric invariant of the canonically embedded symmetric-edge polytope of an infinite standard graph family. The wheel family is geometrically nontrivial and is studied for graph root/adjacency polytopes and algebraic graph models. The result simultaneously determines every contact facet of the origin-centered maximal ball and the exact maximum 1-Lipschitz variance (wheel graph spread); the parity change is mathematically structural. A researcher needing sharp support geometry, comparison with family members or a wheel-spread benchmark can use the precise formula. This is neither a merely finite check nor a known table copied from the general wheel facet classification; the proof includes a real metric maximization and full equality classification. It does not imply analogous radii under affine changes or beyond wheels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
