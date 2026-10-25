@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:09:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-sharp-eight-vertex-threshold-for-rooted-tournament-orbit-ref--584bfb24df3e/RESULT.md",
+        "2026/10/18/the-sharp-eight-vertex-threshold-for-rooted-tournament-orbit-ref--584bfb24df3e/cpp/rooted_tournament_census.cpp",
+        "/mnt/data/audit08_0954_checks_output.json",
+        "/mnt/data/audit08_0954_tournament_output.txt"
+      ],
+      "rationale": "The directed 1-WL signature retains old colour and outdegree counts per colour (indegrees determined in tournaments). Independently reconstructed canonical unrooted tournament augmentation by sorted-degree blocks produces 1,1,2,4,12,56,456 classes at orders 1..7, with all 2,4,16,64,384,3584,58368 root-incidence extensions through order 8. Every rooted extension was compared with automorphism orbits, yielding 0 failures through n=7 and exactly two at n=8, with all-outgoing or all-incoming unique root on the same non-vertex-transitive regular seven-tournament. Direct independent automorphism calculation obtains order 3 and orbits 1,3,3 in that tournament; stable colour classes root/others have sizes 1,7. Exhaustiveness is justified by delete-root extension and degree-preserving canonicalization, not by raw output alone.",
+      "residual_risks": [
+        "The fully supplied source-tree listing and exact tree recomputation are not exposed by the connected GitHub fetch_file read action; per-file frozen Git blob SHA identities are verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arvind et al investigate complexity, color refinement amenability and fixing/individualization parameters across general graphs."
+        ],
+        "reasoning": "General existence of nonrefinable graphs does not imply the first obstruction among singly rooted tournaments or its two-source/sink classification.",
+        "searches": [
+          "one dimensional color refinement rooted tournament automorphism orbit minimal eight vertex non vertex transitive regular tournament",
+          "arxiv:1502.01255",
+          "arxiv:1606.04383"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1502.01255",
+        "arxiv:1606.04383",
+        "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+        "one dimensional color refinement rooted tournament automorphism orbit minimal eight vertex non vertex transitive regular tournament"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General paper establishes methodology and complexity; exact small pointed orientation cases require an additional exhaustive check."
+        ],
+        "reasoning": "The prior complexity bounds neither force the specific threshold eight nor the pair of rooted exceptions.",
+        "searches": [
+          "arxiv:1502.01255 definitions",
+          "arxiv:1606.04383 individualization",
+          "one dimensional color refinement rooted tournament automorphism orbit minimal eight vertex non vertex transitive regular tournament"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Refinability means stable vertex-color partition matches Aut orbits, but standard simple undirected graphs and unrooted settings are not identical to singled-root directed tournament refinement."
+        ],
+        "reasoning": "The theorem specifies a pointed directed one-variable-counting context; general undirected refinability results do not identify its smallest counterexample.",
+        "searches": [
+          "one dimensional color refinement rooted tournament automorphism orbit minimal eight vertex non vertex transitive regular tournament",
+          "arxiv:1502.01255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay census has 456 unrooted seven-tournament types, independently matched by this program, but no rooted 1-WL orbit failure catalogue in the compared table."
+        ],
+        "reasoning": "Known tournament enumeration is necessary input/check, not the claimed new invariant classification.",
+        "searches": [
+          "one dimensional color refinement rooted tournament automorphism orbit minimal eight vertex non vertex transitive regular tournament",
+          "Brian McKay digraphs tournaments 456 nonisomorphic order seven"
+        ]
+      },
+      "rationale": "The general Arvind–Köbler–Rattan–Verbitsky theory of refinability and Arvind–Fuhlbrück et al study of individualization supply definitions/general complexity, while McKay supplies 456 unrooted seven-tournaments. Neither reference gives the exact rooted tournament first failure or two pointed types. No Resultary hit implied the stated rooted isomorphism classification.",
+      "residual_risks": [
+        "Potential prior exhaustive small-tournament orbit-refinement tables have not been ruled out by full-text study.",
+        "Independently compiled C++ program is exhaustive under explained canonicalization, but not formally verified in a proof assistant; no statement for n>=9."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General refinability framework, not verified as a full noncoverage statement for all text",
+          "evidence": "Paper studies general graph isomorphism/refinement hierarchy, not an explicit eight-vertex rooted-tournament enumeration in material read",
+          "identifier_or_url": "arxiv:1502.01255",
+          "material_read": "Title, abstract, first-page introduction and relevant definitions accessible from PDF; not all pages read",
+          "method": "PDF text and page-1 screenshot",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "same color-refinement/orbit concept"
+        },
+        {
+          "assessment": "Rooted/individualized motivation and complexity but no theorem in read material about eight-point tournament census",
+          "evidence": "Defines individualization and parametrized complexity for graph classes",
+          "identifier_or_url": "arxiv:1606.04383",
+          "material_read": "PDF title, full abstract and introduction on first page",
+          "method": "PDF page screenshot and text",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "individualized-vertex refinement"
+        },
+        {
+          "assessment": "The count of 456 agrees with independent canonicalization; catalogue does not by itself classify refinement failures",
+          "evidence": "456 unrooted seven-tournament representatives",
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "material_read": "Accessible tournament census description and order-seven totals",
+          "method": "Catalogue web page",
+          "title": "Combinatorial Data: Digraphs and Tournaments",
+          "trigger": "benchmark number of tournament isomorphism types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-sharp-eight-vertex-threshold-for-rooted-tournament-orbit-ref--584bfb24df3e/RESULT.md",
+        "arxiv:1502.01255",
+        "arxiv:1606.04383",
+        "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html"
+      ],
+      "rationale": "Rooted colour refinement versus rooted automorphism orbit is a natural first-error threshold, and the exact two exceptional rooted tournaments plus explicit automorphism obstruction clarify the boundary of a standard graph-isomorphism heuristic.",
+      "residual_risks": [
+        "Mathematical usefulness does not imply application outside the precisely stated hypotheses; the claimed exact natural invariant is independently motivated rather than a general landmark theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
