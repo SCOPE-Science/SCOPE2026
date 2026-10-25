@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T16:50:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For W_m obtained from theta(0)=01, theta(1)=00 and cyclic BWT without sentinel, the exact reverse-complement recurrence T_1=1, T_m=1^{o_(m-1)}0^{o_(m-1)}R(T_(m-1)) yields BWT(W_m)=T_m0^{z_(m-1)} for m>=1, and number of runs 2 for m=1, 2m-2 for m>=2. The substitution forbids cyclic 11. Sorting even and odd rotations gives consecutive classes beginning 0001,0010,01,1; within each class substitution reverses source lexicographic order, and preceding-letter decomposition gives the claimed recursion. Reverse-complement preserves run counts, new boundaries add two, final 0 tail merges. Checked m=1, m=2 boundaries and full lexically sorted rotations against an independently coded recursion for m=1..10. Rank-doubling verification script inspected and its finite domain m<=13 distinguished from the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2019 BWT morphic-word paper emphasizes Thue-Morse and Fibonacci cases.",
+          "2022 paper gives run-growth theorems and bounds rather than the complete period-doubling BWT."
+        ],
+        "reasoning": "A general O(log n) upper bound logically cannot imply the specified exact 2m-2 run number or each transform bit; specific morphic families have different iterates.",
+        "searches": [
+          "arXiv:2202.02609",
+          "2019 BWT of Words Defined by Morphisms",
+          "Burrows Wheeler transform period doubling word cyclic rotations exact runs recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob d7d8b756cc8b026bc993037878ea1dc8295b6394 and source check_bwt.py d34174d4737cd87170939435342ec605334aed8e",
+        "Complete primary BWT papers in source_inspections",
+        "Resultary: Burrows Wheeler transform period doubling word cyclic rotations exact runs recurrence; period-doubling cyclic BWT transforms all iterations and 2m-2 runs",
+        "Independent direct cyclic rotation lexicographic sort m1..10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sensitivity statements bound run number after a morphism for arbitrary inputs; BWT(W_m) is at a specific iterated fixed-point input."
+        ],
+        "reasoning": "No prior implication covering the fixed-point all-m recursion was established. The exact source statement supplies the four-class merge and run count absent in cited general results.",
+        "searches": [
+          "Fici et al CPM2023 Example 18 Lemma 29",
+          "arXiv:2202.02609",
+          "period-doubling cyclic BWT transforms all iterations and 2m-2 runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frosini et al 2022 studies logarithmic BWT-run estimates for purely morphic words.",
+          "Fici et al CPM2023 considers period-doubling morphism sensitivity on general input words, not the fixed point cyclic BWT recurrence."
+        ],
+        "reasoning": "Order-reversal under binary substitutions is related but does not determine interleaved lex classes and the exact all-m transform; source theorem comparisons do not supply an equivalent recurrence.",
+        "searches": [
+          "Burrows Wheeler transform period doubling word cyclic rotations exact runs recurrence",
+          "period-doubling cyclic BWT transforms all iterations and 2m-2 runs",
+          "arXiv:2202.02609",
+          "10.4230/LIPIcs.CPM.2023.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "CPM2023 Example 18 and Lemma 29 contain period-doubling morphism comparisons but not the exact cyclic BWT of W_m for all m.",
+          "Finite software m<=13 table is not a full-data theorem."
+        ],
+        "reasoning": "The full dyadic family is a mathematically natural sequence of finite words, not a one-row numerical table; direct BWT words at finite m are subsumed only by the induction presented.",
+        "searches": [
+          "period-doubling cyclic BWT transforms all iterations and 2m-2 runs",
+          "CPM2023 period-doubling morphism sensitivity"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.",
+      "residual_risks": [
+        "Unindexed computation may already exhibit the same full iterated cyclic BWT, not excluded by topical searches.",
+        "The exact theorem does not apply to sentinel BWT, all finite prefixes, or arbitrary substitutions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of these period-doubling fixed-point iterates",
+          "evidence": "Its formulas treat other named substitutions, notably Thue–Morse/Fibonacci.",
+          "identifier_or_url": "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+          "material_read": "Complete accessible 12-page manuscript",
+          "method": "primary PDF full-text reading, term search, page screenshot",
+          "title": "Burrows–Wheeler Transform of Words Defined by Morphisms",
+          "trigger": "Same string transform/morphic words"
+        },
+        {
+          "assessment": "BROADER family bounds, but not stronger than exact recurrence for this case",
+          "evidence": "O(log n) upper bounds do not determine a complete BWT word or the exact coefficient 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02609",
+          "material_read": "Full accessible 20-page primary arXiv PDF",
+          "method": "full-text reading and page screenshot",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "Strongest general BWT run theorem for morphic words"
+        },
+        {
+          "assessment": "NOT_COVERING of all cyclic BWT(W_m); studies sensitivity for selected input strings",
+          "evidence": "Example18 and Lemma29 address morphism sensitivity rather than the present full-transform recurrence.",
+          "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2023/17964/pdf/LIPIcs-CPM-2023-10.pdf",
+          "material_read": "Full primary conference paper including Example 18/Lemma 29",
+          "method": "full-text search/read and screenshot",
+          "title": "On the Impact of Morphisms on BWT-Runs",
+          "trigger": "Explicit period-doubling morphism in closely related BWT result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The cyclic BWT of a canonical automatic-word family is a natural exact data-compression/string-combinatorics invariant. Known logarithmic BWT-run bounds and morphism sensitivity estimates do not give the actual word. An explicit all-level transform recurrence with exact extremal 2m-2 run count is independently reusable for structural tests, string indexes and comparison with other morphic families.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob d7d8b756cc8b026bc993037878ea1dc8295b6394 and source check_bwt.py d34174d4737cd87170939435342ec605334aed8e",
+    "Complete primary BWT papers in source_inspections",
+    "Resultary: Burrows Wheeler transform period doubling word cyclic rotations exact runs recurrence; period-doubling cyclic BWT transforms all iterations and 2m-2 runs",
+    "Independent direct cyclic rotation lexicographic sort m1..10"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Published claims remain unmodified in frozen source; review is best-of-knowledge with known published premises.",
+    "The mathematics is complete but public-source confidentiality precludes import of the unsanitized package."
+  ],
+  "residual_risks": [
+    "Unindexed computation may already exhibit the same full iterated cyclic BWT, not excluded by topical searches.",
+    "The exact theorem does not apply to sentinel BWT, all finite prefixes, or arbitrary substitutions."
+  ],
+  "schema_version": 1
+}

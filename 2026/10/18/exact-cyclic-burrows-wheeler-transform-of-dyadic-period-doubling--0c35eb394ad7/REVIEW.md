@@ -1,12 +1,21 @@
-# Review of the complete period-doubling cyclic BWT recurrence
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is self-contained and tracks all cyclic boundary cases: the substituted words avoid cyclic \(11\), the four rotation classes are strictly ordered by prefixes, each class is internally reverse-sorted relative to its source rotations, and the preceding letters give the exact complete BWT recurrence. The base \(W_1=01\) is checked separately. Letter-count and run-count inductions have explicit base cases. The independent cyclic rank-doubling and full-rotation implementations agree with the recurrence through their respective finite ranges. Residual risk is a possible unnoticed proof error; finite tests do not replace induction.
+## correctness
 
-## Originality
-**PASS on the available searches and source comparisons.** The closest direct sources are the 2019 Thue–Morse BWT formula, the 2022 generic purely morphic upper bounds, and the 2023 morphism BWT sensitivity study. The first concerns a different substitution, the second yields only asymptotic upper bounds rather than an exact BWT word, and the third concerns arbitrary input words under one substitution, not successive period-doubling fixed-point prefixes. Searches under “period doubling,” “dyadic iterates,” “cyclic BWT,” “run length,” and “reverse complement” yielded no equivalent full recurrence or exact \(2m-2\) theorem. General order-reversal results do not identify the crucial even/odd rotation interleaving. A bibliographic equivalent outside indexed sources remains a residual risk.
+PASS
 
-## Value
-**PASS.** The complete run-length structure of the BWT on a canonical primitive substitution family has a direct role in repetitive-text compression and indexing. The result is stronger than an asymptotic upper bound: it specifies every transformed bit and sharpens the run count to \(2m-2\), exposing how source-to-image rotation interleaving governs clustering. The explicit recurrence generates the run-length profile without sorting exponentially many cyclic rotations. Scope is cyclic BWT of dyadic iterates only.
+PASS. For W_m obtained from theta(0)=01, theta(1)=00 and cyclic BWT without sentinel, the exact reverse-complement recurrence T_1=1, T_m=1^{o_(m-1)}0^{o_(m-1)}R(T_(m-1)) yields BWT(W_m)=T_m0^{z_(m-1)} for m>=1, and number of runs 2 for m=1, 2m-2 for m>=2. The substitution forbids cyclic 11. Sorting even and odd rotations gives consecutive classes beginning 0001,0010,01,1; within each class substitution reverses source lexicographic order, and preceding-letter decomposition gives the claimed recursion. Reverse-complement preserves run counts, new boundaries add two, final 0 tail merges. Checked m=1, m=2 boundaries and full lexically sorted rotations against an independently coded recursion for m=1..10. Rank-doubling verification script inspected and its finite domain m<=13 distinguished from the induction.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
+
+## value
+
+PASS
+
+PASS. The cyclic BWT of a canonical automatic-word family is a natural exact data-compression/string-combinatorics invariant. Known logarithmic BWT-run bounds and morphism sensitivity estimates do not give the actual word. An explicit all-level transform recurrence with exact extremal 2m-2 run count is independently reusable for structural tests, string indexes and comparison with other morphic families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
