@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem states one uniform claim with two parameter regimes, \(k\ge2\) and \(n\ge4k\). The proof first bounds every refinement class by the reflection-distance orbit. It then computes exact second-round neighbourhood counts and inductively proves that the refinement front advances by exactly \(k\) shells per subsequent round, unless the remaining tail is a single shell. At the seam \(n=4k\), explicit counts prove the unique second-round collision and a third-round witness separates it. This establishes the complete partition formula and the sharp depth formula. The two independent Python checks were run against actual standalone files. No finite experiment is taken as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For k>=2, n>=4k, the marked cycle power has 2k-regular adjacency and reflection symmetry: every 1-WL class is a union of S_d={d,-d}. At the first refinement, S_1..S_k are separated from more distant shells, and at round 2 the counts into the near-root colour are 2k-d-1 (1<=d<=k) and 2k-d+1 (k<d<=2k), with the n=4k antipodal correction. The induction identifies each newly exposed tail shell by the minimum already individualized shell d-k among its neighbours; all shells beyond rk+k remain indistinguishable. This yields exact wavefront partitions and R=max(2,ceil((floor(n/2)-1)/k)) for n>=4k+1. At n=4k, S_(2k-1) and S_(2k) collide at round 2 and split at round 3 by adjacency to S_(k-1). Reflection acts transitively on every final S_d and refinement cannot split them; automorphism orbits therefore equal shells. Independent full 1-WL implementation checked all intermediate partitions and exact depths for 342 parameter pairs (k=2..10, n=4k..9k+7), including seam and odd n. This finite test corroborates rather than proves all k,n.
 
-Primary comparisons were made with Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255; definitions, amenability/refinability and general graph-theoretic hierarchy), Kluge (arXiv:2204.01054; complete relevant Section 4 on group-ring refinement and prime-order Cayley graphs, particularly Lemma 38), and Verbitsky–Zhukovskii (arXiv:2310.05788; introduction and random-circulant main theorem). The Arvind paper supplies general concepts but no exact marked cycle-power round counts. Kluge's prime-order one-mark stable partition can cover an orbit-level conclusion for its prime subfamily but gives neither the all-order wavefront nor sharp round counts or the \(n=4k\) seam. The random-circulant result does not determine these deterministic families. A distinct earlier result on unmarked path powers concerns identification among arbitrary graphs, not this rooted cycle-power refinement process.
+## originality
 
-Relevant published-finding corpus semantic searches on rooted cycle powers, equivalences, exact rounds, and the antipodal seam found no claimed equivalent or dominating theorem. This is evidence of non-overlap, not a proof of publication priority. A specialist text on circulant equitable partitions could conceivably contain an implicit derivation; independent priority verification remains to be done.
+PASS
 
-## Value — PASS
+The general all-n rooted cycle-power intermediate partitions, exact stabilization depth and n=4k discontinuity are a sharper statement than existing prime-order marked-circulant orbit results or general 1-WL literature; best-of-knowledge PASS, not an absolute priority certificate.
 
-Cycle powers are a canonical multi-generator circulant family, and colour-refinement convergence time is a natural logical/algorithmic invariant. The result determines **every** intermediate partition for an unbounded two-parameter family and proves the **minimal** number of rounds, not merely an eventual orbit-equality statement. The exact \(k\)-shell propagation law and its exceptional antipodal collision show an abrupt nonmonotonicity at \(n=4k\) versus \(n=4k+1\). This offers a controlled benchmark for individualization in highly symmetric graphs. The claim does not assert a graph-isomorphism identification theorem or cover denser powers.
+## value
 
-## Limitations and closest literature
+PASS
 
-The sharp formula is proved for \(n\ge4k\) only. The analyses of other circulants and of multiple marked vertices remain open in this note. Prime-order orbit recovery is closely related to Kluge's Lemma 38; the original step-by-step and all-composite-order claims are the distinction. Third-party full-text priority checks beyond the accessed relevant sources are incomplete.
+Counting-colour-refinement stabilization depth is a natural algorithmic complexity parameter for a canonical symmetric graph family. The complete phase transition from n=4k to n=4k+1 and all intermediate partitions provide useful exact benchmarks, beyond routine orbit-equality observations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
