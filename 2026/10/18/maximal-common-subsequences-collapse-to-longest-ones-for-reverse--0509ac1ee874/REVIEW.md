@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every integer alphabet size \(q\ge2\) and repetition count \(m\ge1\), the greedy-block criterion counts ascents, descents, and equalities exactly. Insertion of a letter between equal neighbors preserves both block-use budgets. The key nonstandard step is the one-sided-extension lemma: failure of an available ascent insertion forces the first letter to be minimum, the last to be maximum, all ascents to be steps of size one, and all descents to be full jumps, contradicting a smaller ascent than descent count. The symmetric case follows by alphabet reversal. This establishes maximality collapse at length \(2m-1\). A transfer-matrix derivation and constant-term calculation give the ternary formula. The packaged checker independently tests the claimed classification by direct maximality and confirms \(15\) finite cells; its dynamic method checks the ternary formula at \(40\) additional parameter values. Computation is corroborative, not a proof for untested integers.
+PASS
 
-## Originality: PASS within the evidence examined
+For U=(0..q-1)^m and V=(q-1..0)^m, greedy minimum block counts are 1+d+e and 1+a+e. Hence a word w is common iff d+e<=m-1 and a+e<=m-1; this implies length<=2m-1, attained by alternating extremal letters. Any equality neighbor can be split by another symbol without changing either budget. For unequal neighboring symbols, if both budgets are free, suitable two appended extreme letters spend one ascent and one descent. In the only-one-budget-free case (d=m-1>a), the nonexistence of an ascent-only insertion forces first minimum, last maximum, every ascent of unit height and every descent full maximum-to-minimum; telescoping implies a=(q-1)(d+1)>d, contradiction. Symmetry handles the other direction. Thus shorter common words can be extended; maximal iff longest length 2m-1 with a=d=m-1, e=0. The q-state weighted transfer matrix yields exact counts; constant-term extraction at q=3 gives C=binom(2m+2,m+1)-2binom(2m,m)+binom(2m-2,m-1). An independent exhaustive implementation reconstructed both subsequence sets and insertion-maximality for all q=2..4, m=1..3, with exact formula agreement for q=3; these finite checks only corroborate the all-q proof.
 
-Buzzega et al. (2025, arXiv:2504.04757), Hirota--Sakai (2023, arXiv:2307.10552), and Conte et al. (ISAAC 2023) study general maximal-common-subsequence algorithms or representations. Greenberg's two 2003 papers give general longest-common-subsequence counting methods and bounds. The examined results do not imply that **all** maximal subsequences become longest for a reversed-periodic permutation pair, or the ternary exact count; the structural inclusion-maximal versus length-maximal distinction matters. OEIS A396530 contains an arithmetically related central-binomial sequence but no inspected common-subsequence interpretation. Published mathematical-record and exact-formula searches found no covering statement. Possible unindexed coverage remains; a 2018 analogies article with a specific analogous pair was visible in a search snippet but not in accessible full text. A snippet is insufficient to rule out prior coverage, so that source is a named residual risk rather than a claim of no overlap.
+## originality
 
-## Value: PASS
+PASS
 
-Maximal common subsequences can include shorter objects than longest ones in general, complicating exhaustive output-sensitive enumeration. The theorem proves their equality throughout an infinite, explicitly parameterized family, gives a combinatorial characterization for all \(q\), and converts its ternary enumeration into a closed binomial formula with sharp exponential growth. This supplies a mathematically motivated benchmark for maximal-subsequence enumeration and precise output-size predictions beyond a small finite census.
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
 
-## Scope and limitations
+## value
 
-Only equally repeated, mutually reversed full alphabet permutations are covered. The ternary closed formula is not asserted for larger alphabets, and the self-review is not an independent expert audit. Prior numerical central-binomial identities are credited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-size collapse of maximal to longest subsequences in a natural reversed-periodic family gives an exact constructive benchmark for maximal-subsequence enumeration; the ternary exponential-count closed form and transfer-matrix representation add nontrivial structure beyond a known integer sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
