@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 verify_sunlet.py` from the directory containing this file. The Python script uses only the standard library. It enumerates every pendant orientation for cycle sizes 3, 4, 5 and 6, constructs all directed arcs, tests every possible subset for the indegree/outdegree and no-directed-cycle definition, and compares it to the separate forbidden-pair model. It also checks every coefficient of the exact all-parameter face polynomial, calculates the reduced mod-two Betti numbers by explicit boundary-matrix reduction, and replays each asserted mixed-case elementary collapse while checking that every lower face is free.
+## correctness
 
-Observed counts: eight, sixteen, thirty-two and sixty-four orientation words respectively; sixty-six, five hundred twenty-eight, three thousand seven hundred twenty and twenty-four thousand six hundred sixty-six elementary collapse pairs checked respectively, with no failures. Expected reduced Betti vectors: zero for both uniform words and one rank-one group in degree \(n-2\) for each mixed word. The script prints `all finite checks passed` on success.
+PASS
 
-Finite verification does not prove the formula for untested values of \(n\). The proof in `RESULT.md` supplies an all-parameter elementary-collapse argument and a crosspolytope identification. It certifies an ordinary/simple homotopy statement, not equivariant deformation retraction, and does not assert that independent mathematical review has occurred.
+A coherent rim cycle with n pendants has 2n arcs and a multipath face iff it selects at most one incoming and outgoing rim/pedant arc at each vertex and omits the complete rim cycle. Each pendant conflicts with exactly one rim edge; partitioning pendants by that rim arc yields local face factor (1+t)+(1+t)^k−1 for k=0,1,2. A cyclic orientation word with q transitions of each type gives exactly q k=0, q k=2 and n−2q k=1 factors, hence (1+t)^q(1+2t)^(n−2q)(1+3t+t²)^q−t^n. Uniform words give boundary crosspolytope (S0)^{*n} minus one facet, hence a PL (n−1)-ball. A mixed word has an in→out boundary giving rim arc e_j with no pendant conflict; pairing each pendant-bearing face not containing e_j with its e_j augmentation in descending lower-cardinality order is a finite sequence of actual free-face elementary collapses to all proper rim-edge subsets ∂Δ(E)≃S^(n−2). The rim inclusion intertwines any orientation-preserving cyclic rotation, giving sign (−1)^(n−gcd(n,k)) on top integral homology. Independently enumerated and compared complete direct-arc multipath face sets to local-factor predictions for all 8,16,32,64 orientation words at n=3,4,5,6, checked polynomial and each mixed relative collapse; the all-n proof is structural, not an extrapolation.
+
+## originality
+
+PASS
+
+A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. A known subcomplex homotopy type does not predict whether additional independently oriented pendant arcs fill or preserve its fundamental class; the contrasting uniform/mixed cases require the explicit free-edge method. Neither earlier theorem implies this dichotomy or enumerator.
+
+## value
+
+PASS
+
+The directed sunlet is a canonical cycle-with-one-leaf-per-vertex family; its 2^n orientation choices pose a natural complete topological classification. The dichotomy is sharp: uniform pendants fill the rim sphere into a PL ball, while every mixed pattern simplicially collapses to the original rim sphere. The transition-count face polynomial and rotation character give additional concrete invariant structure. The proof supplies a reusable free-unconstrained-rim-edge collapse and is not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

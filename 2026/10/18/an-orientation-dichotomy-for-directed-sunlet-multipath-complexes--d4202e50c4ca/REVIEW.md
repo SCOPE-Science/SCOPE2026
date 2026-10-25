@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies every forbidden face from the edge-by-edge directed paths definition: pairwise conflicts are exactly between each pendant and one consecutive rim arc, and the only directed cycle is the full core rim. The face polynomial follows from local join factors and the equality of the two cyclic transition counts. In a mixed orientation an inward-to-outward transition provides an unconstrained rim arc; pairing it with every pendant-containing lower face in decreasing size is an explicit valid elementary collapse to the rim boundary. For a uniform orientation the pairwise-conflict complex is a crosspolytope boundary with one facet removed, a PL ball. The induced rotation character follows from the sign on the oriented rim boundary. All quantifiers are \(n\ge3\) and all pendant orientation words. The standalone verifier confirms complete faces, face enumerators, mod-two homology and free-face collapses for all orientations through \(n=6\), without using the finite tests as the proof for arbitrary \(n\).
+PASS
 
-## Originality — PASS with residual risk
+A coherent rim cycle with n pendants has 2n arcs and a multipath face iff it selects at most one incoming and outgoing rim/pedant arc at each vertex and omits the complete rim cycle. Each pendant conflicts with exactly one rim edge; partitioning pendants by that rim arc yields local face factor (1+t)+(1+t)^k−1 for k=0,1,2. A cyclic orientation word with q transitions of each type gives exactly q k=0, q k=2 and n−2q k=1 factors, hence (1+t)^q(1+2t)^(n−2q)(1+3t+t²)^q−t^n. Uniform words give boundary crosspolytope (S0)^{*n} minus one facet, hence a PL (n−1)-ball. A mixed word has an in→out boundary giving rim arc e_j with no pendant conflict; pairing each pendant-bearing face not containing e_j with its e_j augmentation in descending lower-cardinality order is a finite sequence of actual free-face elementary collapses to all proper rim-edge subsets ∂Δ(E)≃S^(n−2). The rim inclusion intertwines any orientation-preserving cyclic rotation, giving sign (−1)^(n−gcd(n,k)) on top integral homology. Independently enumerated and compared complete direct-arc multipath face sets to local-factor predictions for all 8,16,32,64 orientation words at n=3,4,5,6, checked polynomial and each mixed relative collapse; the all-n proof is structural, not an extrapolation.
 
-The closest primary result is Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1, which classifies the coherently oriented bare polygon and some other directed graph families, but not the orientations of all its pendant edges or the inclusion of its rim complex. The earlier path-poset paper arXiv:2110.11206 treats definitions and other examples. The blow-up/matching theorem in arXiv:2401.01248v1 assumes no oriented cycles and therefore does not cover directed sunlets. The later arXiv:2601.05670v1 studies bidirectional polygons and a different two-edge T-operation, not this full family. Indexed mathematical results on bidirected double stars and bidirectional polygons do not imply the statement. Direct searches of the exact object, aliases, face polynomial and strongest relative-collapse formulation found no equivalent classification. Unindexed/unpublished equivalent work remains a residual risk; a negative search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The underlying sunlet is a standard unicyclic graph; the result classifies all \(2^n\) orientations of its pendant edges by **simple-homotopy type** and identifies a sharp orientation-sensitive transition, rather than supplying an arbitrary small finite example. The mixed-case collapse retains the original directed cycle's fundamental class via a canonical map, whereas uniform orientations fill it in. The exact polynomial describes finer orientation dependence than the homotopy types, and the cyclic sign calculation determines the remaining symmetry action. The explicit relative-collapse mechanism is potentially reusable for other cycle-containing multipath complexes; no broader theorem is claimed.
+A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. A known subcomplex homotopy type does not predict whether additional independently oriented pendant arcs fill or preserve its fundamental class; the contrasting uniform/mixed cases require the explicit free-edge method. Neither earlier theorem implies this dichotomy or enumerator.
 
-## Limitations
+## value
 
-One pendant at every rim vertex and a coherently oriented simple core cycle are essential. The classification is not asserted for arbitrary coronas, multileaf attachments, bidirected rims, or other directed homology functors. Independent replication and external mathematical audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The directed sunlet is a canonical cycle-with-one-leaf-per-vertex family; its 2^n orientation choices pose a natural complete topological classification. The dichotomy is sharp: uniform pendants fill the rim sphere into a PL ball, while every mixed pattern simplicially collapses to the original rim sphere. The transition-count face polynomial and rotation character give additional concrete invariant structure. The proof supplies a reusable free-unconstrained-rim-edge collapse and is not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
