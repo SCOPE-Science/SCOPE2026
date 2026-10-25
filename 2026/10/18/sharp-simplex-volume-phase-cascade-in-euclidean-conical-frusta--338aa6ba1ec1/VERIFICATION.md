@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Place `check_frustum.py` beside `RESULT.md` and run `python3 check_frustum.py` with Python 3 (standard library only). The expected final line is:
+## correctness
 
-`PASS: 486 constructed layer configurations, 5400 random contained simplices, 9 dimension phase lists, and high-dimensional consistency checks.`
+PASS
 
-The source file constructs centered regular-simplex vertices in orthogonal subspaces, reconstructs their determinant in dimensions \(2\) through \(10\), samples general feasible frustum vertices in dimensions \(2\) through \(6\), and checks the exact adjacent-score transition ordering. The analytic correctness of all dimensions and the continuous radius range depends on Proof Steps 1–5 in `RESULT.md`, not on these finite trials.
+Affine shear aligns centers without changing determinant multiplier h R^(d-1). Multilinear determinant absolute value is convex in each vertex, ensuring some maximizing simplex on the two bases. For each k+j=d+1 split, expand vertical determinant to a wedge of horizontal within-group differences; Hadamard wedge inequality and the centered-vertex singular-value AM-GM bound C_m s^(m-1) give sharp product C_k C_j t^(j-1), attained by regular simplices in orthogonal complementary subspaces. Ratios A_(j+1)/A_j=t q_j/q_(d-j) with q_m=C_(m+1)/C_m strictly decreasing yield strict log concavity, ordered adjacent-only thresholds; C_d~sqrt(e d) gives freezing at fixed t<1. Independent separate numerical determinant and candidate ratio tests d=2..16 checked all phases and transition counts, not universal proof. Note base-supported equality classification does not exclude additional lateral boundary maximizers.
 
-The closest archival mathematical source is Lassak (2011), DOI 10.1007/s13366-011-0026-x; another important related theorem is Horváth and Lángi (2014), arXiv:1402.6496. McKinney (1974), DOI 10.1112/S0025579300005763, could not be inspected in full, and independent mathematical and historical-priority checking remains outstanding. No Lean, external certification, or independent audit is claimed.
+## originality
+
+PASS
+
+Horváth–Lángi Theorem 2 on d+2 point polytopes inscribed in one sphere supplies orthogonal-join geometry, not maximum d+1 vertex simplex in two unequal parallel balls. Lassak special double-cone and universal approximation bounds do not determine all radius phases; published Santaló law of homothetic frusta is about a different invariant. The exact all-d t-dependent formula and thresholds remain separate best-of-knowledge information. McKinney 1974 central-body cylinder endpoint remains a priority risk.
+
+## value
+
+PASS
+
+Maximum contained simplex volume is a natural convex approximation invariant. The formula simultaneously treats cone, asymmetric frustum and cylinder for every dimension and exhibits a complete nontrivial cascade of optimal layer-vertex counts, plus stable high-dimensional freezing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
