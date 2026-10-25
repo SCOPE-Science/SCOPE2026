@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:17:34.430347Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite three-layer frame has root r, one nonreflexive world per nonempty k-uniform hyperedge and reflexive singleton-access worlds for vertices. At a leaf world, Box Diamond p and Diamond Box p agree; at each nonempty edge-world, if the premise holds then all its leaves satisfy p and hence the conclusion holds. At root failure means all hyperedges have a p-vertex but none lies entirely in p, i.e. a two-colouring with every edge bichromatic, including the empty edge-family convention (then r itself refutes the axiom). At rank one, any nonempty edge forbids such colouring, exactly FO-definable nonemptiness. Rank two is graph non-bipartiteness/odd cycle, decidable in L via parity double-cover undirected reachability and Reingold. L-hardness: subdivide each input USTCON edge to make bipartite S(G), add edge st; an odd cycle exists exactly when s,t were connected, and the tuple-based local construction is first-order interpretable on ordered encodings. Rank-three complement is 3-uniform hypergraph two-colourability (monotone NAE-3SAT), NP-complete, giving coNP-completeness. The original source verify_mckinsey_rank.py was read; a separate direct full-valuation evaluator checked root and all other worlds on 30 rank-one, 74 rank-two and 18 rank-three finite hypergraphs, each agreeing with bicolourability. These finite checks do not prove space/class hardness; no L != coNP separation is claimed. FO-completeness assumes standard fixed-arity tuple input encodings and the known stronger completeness of USTCON under first-order interpretations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite McKinsey validity is coNP-complete; the cited paper also uses incidence cycle parity to prove non-FO-definability.",
+          "Those results do not give the FO-reduction L-completeness of validity restricted to exact uniform edge size two; this work adds its reduction."
+        ],
+        "reasoning": "The prior general coNP classification dominates the unrestricted problem but not the exact restricted k=2 lower bound; latter is not a corollary of the general hardness theorem.",
+        "searches": [
+          "arXiv:2603.12171 Section 5.4 Theorem 26 coNP McKinsey",
+          "arXiv:2603.12171 Section 5.2 Lemma 23 odd and even incidence cycles",
+          "Reingold JACM 55 (2008) connectivity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.12171v1",
+        "https://doi.org/10.1145/1391289.1391291",
+        "https://doi.org/10.1145/800133.804350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 26 proves coNP-completeness for arbitrary frames, which cannot simply be inherited as a k=2 promised-class hardness statement.",
+          "Reingold yields only an L upper bound for odd cycles. The FO lower bound requires the extra subdivision+st edge transformation.",
+          "Schaefer supplies rank3 NP-complete splitting, but no rank2 analogue."
+        ],
+        "reasoning": "The exact k=2 lower bound and full three-rank spectrum require the submitted reduction and case analysis rather than follows immediately from any one cited general theorem.",
+        "searches": [
+          "arXiv:2603.12171 Theorem 26",
+          "Schaefer 1978 monotone NAE3SAT 3-uniform hypergraph bicolouring",
+          "Reingold 2008 undirected connectivity in logspace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank two translates to non-bipartiteness, which is odd-cycle detection; rank three translates to complement of 3-uniform set splitting.",
+          "The root/edge/leaf model is an explicit restriction of the general incidence/set-splitting frame in prior work."
+        ],
+        "reasoning": "The semantic encoding is an equivalent formulation already available in the cited general result; the novelty comparison concerns rank-restricted decision complexity.",
+        "searches": [
+          "Resultary: McKinsey modal axiom incidence frames 2-colorability hypergraph rank graph bipartiteness L complete coNP",
+          "van Benthem ten Cate Yang arXiv:2603.12171 Sections 5.2 and 5.4",
+          "Reingold undirected connectivity log-space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary search returned adjacent graph/set-splitting problems, not the three-rank complexity table.",
+          "Prior paper establishes general coNP and odd/even graph distinction, which are genuine partial antecedents."
+        ],
+        "reasoning": "No matching published 3-level table located in indexed searches; absence is only qualified evidence, not proof of novelty.",
+        "searches": [
+          "Resultary: 1 2 3 McKinsey hypergraph rank L coNP complete incidence",
+          "van Benthem ten Cate Yang 2026 lemma23 theorem26",
+          "Takahashi 2609.10872 finite modal validity complexity"
+        ]
+      },
+      "rationale": "The semantic set-splitting connection and unrestricted coNP bound are already published by van Benthem–ten Cate–Yang; the extra assertion is the exact edge-rank 1/2/3 complexity sequence with a first-order L-hardness reduction on the rank-two promised incidence class, not a new general modal semantic theorem.",
+      "residual_risks": [
+        "L-completeness under first-order reductions relies on standard ordered encoding with fixed-arity tuples; care is needed to distinguish this from merely logspace reductions.",
+        "An unindexed paper could explicitly study the same restricted incidence-frame promise class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior art explicitly covers non-FO odd/even incidence cycles and unrestricted McKinsey coNP-completeness; does not present rank2 L-complete classification.",
+          "evidence": "Section 5.2 uses incidence-cycle parity; Section 5.4 set-splitting reduction.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12171v1",
+          "material_read": "Full arXiv HTML; Sections 5.2 and 5.4 including Lemma 23 and Theorem 26, plus surrounding proof",
+          "method": "Read available primary full text on its original OA source; inspect relevant theorem/sections and compare exact statements.",
+          "title": "When do modal definability and preservation theorems transfer to the finite?",
+          "trigger": "Very same modal axiom and general set-splitting semantics"
+        },
+        {
+          "assessment": "Established deterministic logspace algorithm for undirected reachability, not a McKinsey result.",
+          "evidence": "Supplies L membership for checking odd cycles through parity double cover.",
+          "identifier_or_url": "https://doi.org/10.1145/1391289.1391291",
+          "material_read": "Published theorem statement and accessible standard result; complete proof not rechecked",
+          "method": "Theorem statement/summary only.",
+          "title": "Undirected connectivity in log-space",
+          "trigger": "The required rank-two upper bound"
+        },
+        {
+          "assessment": "Prior NP-hardness input, not a new 3-uniform hypergraph theorem.",
+          "evidence": "Completeness of monotone NAE3SAT / hypergraph two-colourability is the required reduction source.",
+          "identifier_or_url": "https://doi.org/10.1145/800133.804350",
+          "material_read": "Classical theorem statement and relevant cited NP-completeness case, not full paper proof",
+          "method": "Theorem statement/secondary mathematical restatement only.",
+          "title": "The complexity of satisfiability problems",
+          "trigger": "Rank-three monotone NAE3SAT hardness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-one/rank-two/rank-three break identifies a sharp definability/logspace/coNP computational boundary in a motivated natural subclass of modal frames. It is a nontrivial structural transfer from hypergraph edge size to modal validity complexity, with explicit first-order hardness at rank two. It avoids claiming complexity-class separation or pretending the known general coNP theorem and odd-cycle lemma are new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.12171v1",
+    "https://doi.org/10.1145/1391289.1391291",
+    "https://doi.org/10.1145/800133.804350",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/the-three-rank-complexity-spectrum-of-mckinsey-validity-on-incid--bc734df10cc6/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact rank 1,2,3 uniform hypergraph-incidence frames; root may have unbounded outdegree.",
+    "FO reduction assertion presupposes ordered finite input encodings and standard first-order tuple interpretations.",
+    "L-completeness under first-order reductions relies on standard ordered encoding with fixed-arity tuples; care is needed to distinguish this from merely logspace reductions.",
+    "An unindexed paper could explicitly study the same restricted incidence-frame promise class."
+  ],
+  "schema_version": 1
+}
