@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The proof derives the exact two error functionals from ordered circular gaps, uses their Dirichlet–exponential representation with explicit Taylor bounds, reconstructs the Gaussian and Gumbel normalizations, proves their independence by conditioning on a truncated exponential sample, and obtains the leading covariance from the exact conditional maximum formula. The exponential influence polynomial has mean zero and variance \(360\), independently checked by factorial moments. Weighted moment remainder bounds distinguish the tiny covariance from its much larger marginal error levels; deterministic quadrature is ancillary and not treated as an infinite proof.
+
+**Originality (PASS, with priority risks).** Published general random-polytope CLTs and circular area–perimeter extrapolation CLTs do not give the calculated sharp Hausdorff–perimeter mixed covariance. In particular, the existing area/semiperimeter cancellations of Wang–Xu–Liu are acknowledged and are not part of the novelty claim. The closest indexed geometric extreme-value result uses sampling on a finite regular polygon, rather than the unit circle and this mixed covariance. Searches of maximum-spacing/linear-spacing-statistic aliases and joint Gaussian/Gumbel formulations returned no matching coefficient. The full text of Schneider (1988) and Bélisle (2011) could not be inspected during this review; absolute priority remains unverified.
+
+**Value (PASS).** A Hausdorff error depends on the single largest gap, while perimeter error averages cubic powers of all gaps. The theorem quantitatively separates these local/global uncertainties and determines their first surviving interaction: a positive \((\log n)^4/n^5\) covariance with an exact constant, despite independent limit laws. This is a natural benchmark for comparing geometric shape recovery and intrinsic-volume estimation; it is not a renamed marginal CLT or an arbitrary finite enumeration.
+
+**Scientific boundaries.** No extension to nonuniform boundary samples, other curves, higher dimensions, or finite-sample covariance signs is asserted. The proof is self-contained conditional on classical exponential/Dirichlet spacing facts and standard CLTs. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
